@@ -18,6 +18,9 @@ apps/api/dist/
 *.bundle
 *.hbc
 *.png
+!native-app/src/assets/logo.png
+!native-app/src/assets/splashscreen.png
+!native-app/ios/KitabuNativeApp/Images.xcassets/**/*.png
 *.xml
 *.db
 *.sqlite

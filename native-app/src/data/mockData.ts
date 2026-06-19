@@ -391,7 +391,7 @@ export const INITIAL_PARENT_CHILDREN: ParentChildSummary[] = INITIAL_TEACHER_STU
       percentage: index === 4 ? null : student.assessmentScore,
       completedAt: index === 4 ? null : '2026-06-16',
     },
-    recent_assignments: INITIAL_ASSIGNMENTS.slice(0, 4).map((assignment, assignmentIndex) => {
+    recent_assignments: INITIAL_ASSIGNMENTS.slice(0, 4).map(assignment => {
       const submission = INITIAL_SUBMISSIONS_BY_ASSIGNMENT[assignment.id]?.[index];
       return {
         id: assignment.id,

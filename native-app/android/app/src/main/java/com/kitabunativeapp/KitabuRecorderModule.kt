@@ -2,6 +2,7 @@ package com.kitabunativeapp
 
 import android.media.MediaRecorder
 import android.os.Build
+import android.util.Base64
 import com.facebook.react.bridge.Promise
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactContextBaseJavaModule
@@ -66,6 +67,22 @@ class KitabuRecorderModule(private val reactContext: ReactApplicationContext) :
   @ReactMethod
   fun getStatus(promise: Promise) {
     promise.resolve("android_native")
+  }
+
+  @ReactMethod
+  fun readAudioAsBase64(audioPath: String, promise: Promise) {
+    try {
+      val audioFile = File(audioPath)
+      if (!audioFile.exists()) {
+        promise.reject("audio_file_missing", "Recorded audio file was not found")
+        return
+      }
+
+      val base64 = Base64.encodeToString(audioFile.readBytes(), Base64.NO_WRAP)
+      promise.resolve(base64)
+    } catch (error: Exception) {
+      promise.reject("audio_read_failed", error.message, error)
+    }
   }
 
   private fun stopInternal() {

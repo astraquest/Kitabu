@@ -2,6 +2,7 @@ import React from 'react';
 import { ActivityIndicator, Pressable, ScrollView, Text, View } from 'react-native';
 import { BookOpen, Paperclip, Plus, Trash2, Upload } from 'lucide-react-native';
 
+import { SUPPORTED_GRADES } from '../../constants/grades';
 import { LearningStrand } from '../../types/app';
 
 interface AdminCurriculumSectionProps {
@@ -59,7 +60,7 @@ export function AdminCurriculumSection({
       </View>
 
       <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.gradeRow}>
-        {['Grade 4', 'Grade 5', 'Grade 6', 'Grade 7', 'Grade 8', 'Grade 9'].map(grade => (
+        {SUPPORTED_GRADES.map(grade => (
           <Pressable
             key={grade}
             onPress={() => onSelectGrade(grade)}

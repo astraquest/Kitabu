@@ -3,6 +3,11 @@ export type LegalSection = {
   paragraphs: string[];
 };
 
+export const TERMS_OF_SERVICE_URL = 'https://kitabu.ai/terms';
+export const PRIVACY_POLICY_URL = 'https://kitabu.ai/privacy';
+export const TERMS_VERSION = '2026-03';
+export const PRIVACY_VERSION = '2026-03';
+
 export const PRIVACY_POLICY_SECTIONS: LegalSection[] = [
   {
     heading: 'Overview',

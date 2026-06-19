@@ -1,6 +1,8 @@
 import React from 'react';
 import { Pressable, Text, TextInput, View } from 'react-native';
 import { ChevronDown, Search } from 'lucide-react-native';
+
+import { ALL_GRADES_FILTER, SUPPORTED_GRADES } from '../../constants/grades';
 import { AdminPortalUser } from '../../types/app';
 
 interface AdminUsersSectionProps {
@@ -74,7 +76,7 @@ export function AdminUsersSection({
           </Pressable>
           {userGradeMenuOpen ? (
             <View style={[styles.menu, styles.userMenu]}>
-              {['All Grades', 'Grade 4', 'Grade 5', 'Grade 6', 'Grade 7', 'Grade 8', 'Grade 9', 'Grade 10', 'Form 2', 'Form 3', 'Form 4'].map(option => (
+              {[ALL_GRADES_FILTER, ...SUPPORTED_GRADES].map(option => (
                 <Pressable
                   key={option}
                   onPress={() => onSelectGrade(option)}

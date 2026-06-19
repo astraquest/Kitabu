@@ -1,7 +1,7 @@
 import { NativeModules, PermissionsAndroid, Platform } from 'react-native';
 
 import { extractCurriculumFromPdfData, transcribeAudio } from './aiService';
-import { LearningStrand } from '../types/app';
+import { Attachment, LearningStrand } from '../types/app';
 
 export type NativeBridgeState = 'simulated' | 'android_native';
 
@@ -9,6 +9,7 @@ export interface AudioRecordingBridge {
   state: NativeBridgeState;
   startRecording: () => Promise<string | null>;
   stopRecording: () => Promise<string | null>;
+  transcribeClip: (audioPath?: string | null) => Promise<string | null>;
   transcribeAnswer: (questionIndex: number, audioPath?: string | null) => Promise<string>;
 }
 
@@ -49,6 +50,13 @@ export interface CurriculumImportBridge {
     subjectName: string,
     fileMeta?: { uri: string; name: string; base64Data?: string; mimeType?: string } | null,
   ) => Promise<LearningStrand[]>;
+}
+
+export interface ChatAttachmentBridge {
+  state: NativeBridgeState;
+  takePhoto: () => Promise<Attachment | null>;
+  pickImage: () => Promise<Attachment | null>;
+  pickFile: () => Promise<Attachment | null>;
 }
 
 const transcriptionFallbacks = [
@@ -174,6 +182,7 @@ const recorderModule = NativeModules.KitabuRecorder as
   | {
       startRecording: () => Promise<string>;
       stopRecording: () => Promise<string>;
+      readAudioAsBase64?: (audioPath: string) => Promise<string>;
       transcribeAudio?: (audioPath: string, questionIndex: number) => Promise<string>;
     }
   | undefined;
@@ -186,8 +195,42 @@ const documentPickerModule = NativeModules.KitabuDocumentPicker as
         base64Data?: string;
         mimeType?: string;
       }>;
+      pickImage?: () => Promise<{
+        uri: string;
+        name: string;
+        base64Data?: string;
+        mimeType?: string;
+      }>;
+      pickFile?: () => Promise<{
+        uri: string;
+        name: string;
+        base64Data?: string;
+        mimeType?: string;
+      }>;
+      takePhoto?: () => Promise<{
+        uri: string;
+        name: string;
+        base64Data?: string;
+        mimeType?: string;
+      }>;
     }
   | undefined;
+
+function mapFileMetaToAttachment(
+  fileMeta?: { name?: string; base64Data?: string; mimeType?: string } | null,
+  fallbackType: Attachment['type'] = 'file',
+): Attachment | null {
+  if (!fileMeta?.base64Data || !fileMeta.mimeType) {
+    return null;
+  }
+
+  return {
+    data: fileMeta.base64Data,
+    mimeType: fileMeta.mimeType,
+    name: fileMeta.name,
+    type: fileMeta.mimeType.startsWith('image/') ? 'image' : fallbackType,
+  };
+}
 
 function parseBase64Audio(audioPath?: string | null) {
   if (!audioPath) {
@@ -278,10 +321,10 @@ export const audioRecordingBridge: AudioRecordingBridge = {
 
     return null;
   },
-  async transcribeAnswer(questionIndex, _audioPath) {
+  async transcribeClip(_audioPath) {
     if (_audioPath && Platform.OS === 'android' && recorderModule?.transcribeAudio) {
       try {
-        const transcript = await recorderModule.transcribeAudio(_audioPath, questionIndex);
+        const transcript = await recorderModule.transcribeAudio(_audioPath, 0);
         if (transcript?.trim()) {
           return transcript.trim();
         }
@@ -300,6 +343,28 @@ export const audioRecordingBridge: AudioRecordingBridge = {
       } catch {
         // Fall back to deterministic local copy below.
       }
+    }
+
+    if (_audioPath && Platform.OS === 'android' && recorderModule?.readAudioAsBase64) {
+      try {
+        const base64Audio = await recorderModule.readAudioAsBase64(_audioPath);
+        if (base64Audio?.trim()) {
+          const transcript = await transcribeAudio(base64Audio, 'audio/mp4');
+          if (transcript.trim()) {
+            return transcript.trim();
+          }
+        }
+      } catch {
+        // Fall back to deterministic local copy below.
+      }
+    }
+
+    return null;
+  },
+  async transcribeAnswer(questionIndex, _audioPath) {
+    const transcript = await this.transcribeClip(_audioPath);
+    if (transcript?.trim()) {
+      return transcript.trim();
     }
 
     return transcriptionFallbacks[questionIndex % transcriptionFallbacks.length];
@@ -364,11 +429,38 @@ export const curriculumImportBridge: CurriculumImportBridge = {
   },
 };
 
+export const chatAttachmentBridge: ChatAttachmentBridge = {
+  state:
+    Platform.OS === 'android' && documentPickerModule ? 'android_native' : 'simulated',
+  async takePhoto() {
+    if (Platform.OS === 'android' && documentPickerModule?.takePhoto) {
+      return mapFileMetaToAttachment(await documentPickerModule.takePhoto(), 'image');
+    }
+
+    return null;
+  },
+  async pickImage() {
+    if (Platform.OS === 'android' && documentPickerModule?.pickImage) {
+      return mapFileMetaToAttachment(await documentPickerModule.pickImage(), 'image');
+    }
+
+    return null;
+  },
+  async pickFile() {
+    if (Platform.OS === 'android' && documentPickerModule?.pickFile) {
+      return mapFileMetaToAttachment(await documentPickerModule.pickFile(), 'file');
+    }
+
+    return null;
+  },
+};
+
 export function getNativeCapabilityStatus() {
   return {
     audioRecording: audioRecordingBridge.state,
     liveStreaming: liveAudioBridge.state,
     speechPlayback: speechPlaybackBridge.state,
     pdfImport: curriculumImportBridge.state,
+    chatAttachments: chatAttachmentBridge.state,
   } as const;
 }

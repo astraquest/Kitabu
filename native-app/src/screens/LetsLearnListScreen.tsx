@@ -176,6 +176,7 @@ function SubStrandCard({
 }) {
   const isLocked = sub.isLocked;
   const isCompleted = sub.isCompleted;
+  const needsRemediation = Boolean(sub.needsRemediation);
   const isActive = !isLocked && !isCompleted;
   const prompt =
     sub.outcomes?.[0]?.text ||
@@ -220,6 +221,7 @@ function SubStrandCard({
           styles.outcomeCard,
           isLocked && styles.outcomeCardLocked,
           isActive && styles.outcomeCardActive,
+          needsRemediation && styles.outcomeCardRemediation,
         ]}>
         <View style={styles.outcomeAccent} />
         <View style={styles.outcomeBody}>
@@ -229,8 +231,17 @@ function SubStrandCard({
             </View>
           ) : null}
 
+          {needsRemediation ? (
+            <View style={styles.remediationBanner}>
+              <Text style={styles.remediationTitle}>Practice recommended</Text>
+              <Text style={styles.remediationText}>
+                Your best score is {Math.round(sub.masteryScore ?? 0)}%. Reach 70% to unlock the next topic.
+              </Text>
+            </View>
+          ) : null}
+
           <Text style={[styles.outcomeText, isLocked && styles.outcomeTextMuted]}>
-            {isLocked ? `${sub.title}.` : prompt}
+            {isLocked ? sub.unlockReason || `${sub.title} is locked.` : prompt}
           </Text>
 
           <View style={styles.topicPill}>
@@ -246,7 +257,7 @@ function SubStrandCard({
                 pressed && styles.pressed,
               ]}>
               <Text style={styles.proceedButtonText}>
-                {isCompleted ? 'Review' : 'Proceed'}
+                {isCompleted ? 'Review' : needsRemediation ? 'Practice again' : 'Proceed'}
               </Text>
             </Pressable>
           ) : null}
@@ -450,6 +461,28 @@ const styles = StyleSheet.create({
   },
   outcomeCardLocked: {
     backgroundColor: '#F8F8F8',
+  },
+  outcomeCardRemediation: {
+    borderColor: '#F59E0B',
+    borderWidth: 2,
+  },
+  remediationBanner: {
+    backgroundColor: '#FFFBEB',
+    borderColor: '#FDE68A',
+    borderRadius: 8,
+    borderWidth: 1,
+    padding: 12,
+  },
+  remediationTitle: {
+    color: '#92400E',
+    fontSize: 14,
+    fontWeight: '900',
+  },
+  remediationText: {
+    color: '#A16207',
+    fontSize: 13,
+    lineHeight: 18,
+    marginTop: 3,
   },
   outcomeAccent: {
     width: 6,

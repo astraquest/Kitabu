@@ -285,11 +285,11 @@ export function AdminPricingSection({
         ))}
 
         <Text style={styles.fieldLabel}>{editingSchoolId ? 'Edit school' : 'Add school'}</Text>
-        <TextInput value={schoolDraft.name} onChangeText={value => setSchoolDraft(current => ({ ...current, name: value }))} placeholder="School name" style={styles.input} />
-        <TextInput value={schoolDraft.location} onChangeText={value => setSchoolDraft(current => ({ ...current, location: value }))} placeholder="Location" style={styles.input} />
-        <TextInput value={schoolDraft.principal} onChangeText={value => setSchoolDraft(current => ({ ...current, principal: value }))} placeholder="Principal" style={styles.input} />
-        <TextInput value={schoolDraft.phone} onChangeText={value => setSchoolDraft(current => ({ ...current, phone: value }))} placeholder="Phone" style={styles.input} />
-        <TextInput value={schoolDraft.email} onChangeText={value => setSchoolDraft(current => ({ ...current, email: value }))} placeholder="Email" style={styles.input} />
+        <TextInput value={schoolDraft.name} onChangeText={value => setSchoolDraft(current => ({ ...current, name: value }))} placeholder="School name" placeholderTextColor="#94A3B8" style={styles.input} />
+        <TextInput value={schoolDraft.location} onChangeText={value => setSchoolDraft(current => ({ ...current, location: value }))} placeholder="Location" placeholderTextColor="#94A3B8" style={styles.input} />
+        <TextInput value={schoolDraft.principal} onChangeText={value => setSchoolDraft(current => ({ ...current, principal: value }))} placeholder="Principal" placeholderTextColor="#94A3B8" style={styles.input} />
+        <TextInput value={schoolDraft.phone} onChangeText={value => setSchoolDraft(current => ({ ...current, phone: value }))} placeholder="Phone" placeholderTextColor="#94A3B8" style={styles.input} />
+        <TextInput value={schoolDraft.email} onChangeText={value => setSchoolDraft(current => ({ ...current, email: value }))} placeholder="Email" placeholderTextColor="#94A3B8" style={styles.input} />
         <View style={styles.choiceRow}>
           {schoolPlans.map(plan => (
             <Pressable
@@ -369,7 +369,7 @@ export function AdminPricingSection({
           </Pressable>
         ))}
 
-        <TextInput value={discountDraft.name} onChangeText={value => setDiscountDraft(current => ({ ...current, name: value }))} placeholder="Discount name" style={styles.input} />
+        <TextInput value={discountDraft.name} onChangeText={value => setDiscountDraft(current => ({ ...current, name: value }))} placeholder="Discount name" placeholderTextColor="#94A3B8" style={styles.input} />
         <View style={styles.choiceRow}>
           {(['percentage', 'fixed_ksh'] as const).map(type => (
             <Pressable
@@ -385,6 +385,7 @@ export function AdminPricingSection({
           onChangeText={value => setDiscountDraft(current => ({ ...current, amount: value }))}
           keyboardType="number-pad"
           placeholder="Amount"
+          placeholderTextColor="#94A3B8"
           style={styles.input}
         />
         <View style={styles.choiceRow}>
@@ -444,9 +445,9 @@ export function AdminPricingSection({
           </Pressable>
         ))}
 
-        <TextInput value={announcementDraft.title} onChangeText={value => setAnnouncementDraft(current => ({ ...current, title: value }))} placeholder="Announcement title" style={styles.input} />
-        <TextInput value={announcementDraft.message} onChangeText={value => setAnnouncementDraft(current => ({ ...current, message: value }))} placeholder="Announcement message" multiline style={[styles.input, styles.messageInput]} />
-        <TextInput value={announcementDraft.ctaLabel} onChangeText={value => setAnnouncementDraft(current => ({ ...current, ctaLabel: value }))} placeholder="CTA label" style={styles.input} />
+        <TextInput value={announcementDraft.title} onChangeText={value => setAnnouncementDraft(current => ({ ...current, title: value }))} placeholder="Announcement title" placeholderTextColor="#94A3B8" style={styles.input} />
+        <TextInput value={announcementDraft.message} onChangeText={value => setAnnouncementDraft(current => ({ ...current, message: value }))} placeholder="Announcement message" placeholderTextColor="#94A3B8" multiline style={[styles.input, styles.messageInput]} />
+        <TextInput value={announcementDraft.ctaLabel} onChangeText={value => setAnnouncementDraft(current => ({ ...current, ctaLabel: value }))} placeholder="CTA label" placeholderTextColor="#94A3B8" style={styles.input} />
         <View style={styles.choiceRow}>
           {ctaTargets.map(target => (
             <Pressable
@@ -457,8 +458,8 @@ export function AdminPricingSection({
             </Pressable>
           ))}
         </View>
-        <TextInput value={announcementDraft.startsAt} onChangeText={value => setAnnouncementDraft(current => ({ ...current, startsAt: value }))} placeholder="Starts at ISO (optional)" style={styles.input} />
-        <TextInput value={announcementDraft.endsAt} onChangeText={value => setAnnouncementDraft(current => ({ ...current, endsAt: value }))} placeholder="Ends at ISO (optional)" style={styles.input} />
+        <TextInput value={announcementDraft.startsAt} onChangeText={value => setAnnouncementDraft(current => ({ ...current, startsAt: value }))} placeholder="Starts at ISO (optional)" placeholderTextColor="#94A3B8" style={styles.input} />
+        <TextInput value={announcementDraft.endsAt} onChangeText={value => setAnnouncementDraft(current => ({ ...current, endsAt: value }))} placeholder="Ends at ISO (optional)" placeholderTextColor="#94A3B8" style={styles.input} />
         <View style={styles.choiceRow}>
           {[
             { label: 'Active', value: true },
@@ -507,11 +508,16 @@ const styles = StyleSheet.create({
   },
   panel: {
     backgroundColor: '#FFF',
-    borderColor: '#F3F4F6',
+    borderColor: '#E6EEF8',
     borderRadius: 24,
     borderWidth: 1,
     gap: 10,
     padding: 16,
+    shadowColor: '#0F172A',
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.04,
+    shadowRadius: 14,
+    elevation: 1,
   },
   title: {
     color: '#0F172A',
@@ -530,8 +536,9 @@ const styles = StyleSheet.create({
   },
   item: {
     alignItems: 'center',
-    borderColor: '#E5E7EB',
-    borderRadius: 16,
+    backgroundColor: '#F8FAFC',
+    borderColor: '#DDE7F3',
+    borderRadius: 18,
     borderWidth: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -559,7 +566,7 @@ const styles = StyleSheet.create({
   },
   input: {
     backgroundColor: '#F8FAFC',
-    borderColor: '#E5E7EB',
+    borderColor: '#DDE7F3',
     borderRadius: 14,
     borderWidth: 1,
     color: '#0F172A',
@@ -578,19 +585,19 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   choiceChip: {
-    backgroundColor: '#F8FAFC',
-    borderColor: '#E2E8F0',
+    backgroundColor: '#FFF',
+    borderColor: '#DDE7F3',
     borderRadius: 999,
     borderWidth: 1,
     paddingHorizontal: 12,
     paddingVertical: 10,
   },
   choiceChipActive: {
-    backgroundColor: '#DBEAFE',
+    backgroundColor: '#EFF6FF',
     borderColor: '#93C5FD',
   },
   choiceText: {
-    color: '#1E3A8A',
+    color: '#1D4ED8',
     fontSize: 12,
     fontWeight: '800',
   },
@@ -613,7 +620,7 @@ const styles = StyleSheet.create({
   },
   secondaryButton: {
     alignItems: 'center',
-    backgroundColor: '#FEF2F2',
+    backgroundColor: '#FFF1F2',
     borderRadius: 16,
     justifyContent: 'center',
     minHeight: 48,

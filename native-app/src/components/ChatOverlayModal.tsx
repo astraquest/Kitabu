@@ -10,7 +10,9 @@ import {
   View,
 } from 'react-native';
 import {
+  Camera,
   FileText,
+  Image as ImageIcon,
   Mic,
   Plus,
   Send,
@@ -18,8 +20,16 @@ import {
   X,
 } from 'lucide-react-native';
 
-import { Attachment, ChatMessage } from '../types/app';
+import {
+  Assignment,
+  Attachment,
+  ChatMessage,
+  Subject,
+  SubStrand,
+  UserProfile,
+} from '../types/app';
 import { LiveAudioTutorScreen } from '../screens/LiveAudioTutorScreen';
+import { chatAttachmentBridge } from '../services/nativeBridges';
 
 const logoAsset = require('../assets/logo.png');
 
@@ -27,7 +37,13 @@ interface ChatOverlayModalProps {
   isOpen: boolean;
   isLoading: boolean;
   messages: ChatMessage[];
+  currentGrade?: string;
+  selectedSubject?: Subject | null;
+  selectedSubStrand?: SubStrand | null;
+  selectedAssignment?: Assignment | null;
+  userProfile?: UserProfile;
   startLiveAudio?: boolean;
+  attachmentPickerSignal?: number;
   onClose: () => void;
   onSendMessage: (message: string, attachment?: Attachment) => void;
   onStartLiveAudio?: () => void;
@@ -62,7 +78,13 @@ export function ChatOverlayModal({
   isOpen,
   isLoading,
   messages,
+  currentGrade,
+  selectedSubject,
+  selectedSubStrand,
+  selectedAssignment,
+  userProfile,
   startLiveAudio,
+  attachmentPickerSignal = 0,
   onClose,
   onSendMessage,
   onStartLiveAudio,
@@ -71,6 +93,9 @@ export function ChatOverlayModal({
 }: ChatOverlayModalProps) {
   const scrollRef = useRef<ScrollView>(null);
   const [input, setInput] = useState('');
+  const [pendingAttachment, setPendingAttachment] = useState<Attachment | null>(null);
+  const [attachmentMenuOpen, setAttachmentMenuOpen] = useState(false);
+  const [attachmentError, setAttachmentError] = useState<string | null>(null);
   const isWelcomeView = messages.length === 0;
 
   useEffect(() => {
@@ -85,13 +110,47 @@ export function ChatOverlayModal({
     return undefined;
   }, [isLoading, isOpen, messages]);
 
+  useEffect(() => {
+    if (isOpen && attachmentPickerSignal > 0) {
+      setAttachmentMenuOpen(true);
+    }
+  }, [attachmentPickerSignal, isOpen]);
+
   function handleSubmit() {
-    if (!input.trim() || isLoading) {
+    if ((!input.trim() && !pendingAttachment) || isLoading) {
       return;
     }
 
-    onSendMessage(input.trim());
+    onSendMessage(input.trim() || 'Please help me understand this attachment.', pendingAttachment ?? undefined);
     setInput('');
+    setPendingAttachment(null);
+    setAttachmentMenuOpen(false);
+    setAttachmentError(null);
+  }
+
+  async function pickAttachment(kind: 'photo' | 'image' | 'file') {
+    setAttachmentError(null);
+
+    try {
+      const attachment =
+        kind === 'photo'
+          ? await chatAttachmentBridge.takePhoto()
+          : kind === 'image'
+            ? await chatAttachmentBridge.pickImage()
+            : await chatAttachmentBridge.pickFile();
+
+      if (!attachment) {
+        setAttachmentError('Attachment is not available on this device.');
+        return;
+      }
+
+      setPendingAttachment(attachment);
+      setAttachmentMenuOpen(false);
+    } catch (error) {
+      setAttachmentError(
+        error instanceof Error ? error.message : 'Could not attach that item.',
+      );
+    }
   }
 
   return (
@@ -103,10 +162,18 @@ export function ChatOverlayModal({
       <View style={styles.overlay}>
         <Pressable style={styles.backdrop} onPress={onClose} />
 
-        <View style={styles.sheet}>
+        <View accessibilityLabel="chat-overlay-sheet" style={styles.sheet}>
           {startLiveAudio ? (
             <View style={styles.liveAudioLayer}>
-              <LiveAudioTutorScreen onClose={onCloseLiveAudio || onClose} />
+              <LiveAudioTutorScreen
+                onClose={onCloseLiveAudio || onClose}
+                initialMessages={messages}
+                currentGrade={currentGrade}
+                selectedSubject={selectedSubject}
+                selectedSubStrand={selectedSubStrand}
+                selectedAssignment={selectedAssignment}
+                userProfile={userProfile}
+              />
             </View>
           ) : null}
 
@@ -124,7 +191,7 @@ export function ChatOverlayModal({
               </View>
             </View>
 
-            <Pressable onPress={onClose} style={styles.closeButton}>
+            <Pressable accessibilityLabel="chat-overlay-close" onPress={onClose} style={styles.closeButton}>
               <X color="rgba(255,255,255,0.8)" size={22} strokeWidth={2.3} />
             </Pressable>
           </View>
@@ -151,6 +218,7 @@ export function ChatOverlayModal({
                   {WELCOME_SUBJECTS.map(item => (
                     <Pressable
                       key={item.label}
+                      accessibilityLabel={`chat-prompt-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
                       onPress={() => onSendMessage(item.query)}
                       style={[styles.subjectPromptButton, { backgroundColor: item.color }]}>
                       <Text style={styles.subjectPromptText}>{item.label}</Text>
@@ -168,6 +236,7 @@ export function ChatOverlayModal({
                 {messages.map((message, index) => (
                   <View
                     key={`${message.role}-${index}-${message.text}`}
+                    accessibilityLabel={`chat-message-${message.role}-${index}`}
                     style={[
                       styles.messageRow,
                       message.role === 'user'
@@ -216,36 +285,110 @@ export function ChatOverlayModal({
 
           <View style={styles.inputBar}>
             <View style={styles.inputShell}>
-              <Pressable style={styles.inputPlusButton}>
+              <Pressable
+                accessibilityLabel="chat-overlay-add-attachment"
+                onPress={() => setAttachmentMenuOpen(open => !open)}
+                style={styles.inputPlusButton}>
                 <Plus color="rgba(255,255,255,0.9)" size={18} strokeWidth={2.4} />
               </Pressable>
 
-              <TextInput
-                value={input}
-                onChangeText={setInput}
-                onSubmitEditing={handleSubmit}
-                placeholder={isWelcomeView ? 'Ask me anything...' : 'Type your question...'}
-                placeholderTextColor="rgba(255,255,255,0.4)"
-                returnKeyType="send"
-                style={styles.input}
-              />
+              <View style={styles.composerStack}>
+                {pendingAttachment ? (
+                  <View style={styles.pendingAttachment}>
+                    <FileText color="#93C5FD" size={16} strokeWidth={2.3} />
+                    <Text style={styles.pendingAttachmentText} numberOfLines={1}>
+                      {pendingAttachment.name || (pendingAttachment.type === 'image' ? 'Image' : 'File')}
+                    </Text>
+                    <Pressable
+                      accessibilityLabel="chat-overlay-remove-attachment"
+                      onPress={() => setPendingAttachment(null)}
+                      style={styles.removeAttachmentButton}>
+                      <X color="rgba(255,255,255,0.74)" size={14} strokeWidth={2.4} />
+                    </Pressable>
+                  </View>
+                ) : null}
+
+                <TextInput
+                  value={input}
+                  onChangeText={setInput}
+                  onSubmitEditing={handleSubmit}
+                  placeholder={
+                    pendingAttachment
+                      ? 'Ask a question about this...'
+                      : isWelcomeView
+                        ? 'Ask me anything...'
+                        : 'Type your question...'
+                  }
+                  placeholderTextColor="rgba(255,255,255,0.4)"
+                  returnKeyType="send"
+                  accessibilityLabel="chat-overlay-input"
+                  style={styles.input}
+                />
+              </View>
             </View>
 
-            {input.trim() ? (
-              <Pressable onPress={handleSubmit} style={styles.primaryActionButton}>
+            {input.trim() || pendingAttachment ? (
+              <Pressable accessibilityLabel="chat-overlay-send" onPress={handleSubmit} style={styles.primaryActionButton}>
                 <Send color="#FFFFFF" size={20} strokeWidth={2.4} />
               </Pressable>
             ) : (
               <Pressable
                 onPress={onStartLiveAudio || onOpenLiveScreen}
+                accessibilityLabel="chat-overlay-live"
                 style={styles.liveActionButton}>
                 <Mic color="#FFFFFF" size={20} strokeWidth={2.4} />
               </Pressable>
             )}
+
+            {attachmentMenuOpen ? (
+              <View style={styles.attachmentMenu}>
+                <AttachmentAction
+                  icon={Camera}
+                  label="Take photo"
+                  onPress={() => pickAttachment('photo')}
+                />
+                <AttachmentAction
+                  icon={ImageIcon}
+                  label="Attach image"
+                  onPress={() => pickAttachment('image')}
+                />
+                <AttachmentAction
+                  icon={FileText}
+                  label="Attach file"
+                  onPress={() => pickAttachment('file')}
+                />
+                {attachmentError ? (
+                  <Text style={styles.attachmentError}>{attachmentError}</Text>
+                ) : null}
+              </View>
+            ) : null}
           </View>
         </View>
       </View>
     </Modal>
+  );
+}
+
+function AttachmentAction({
+  icon: Icon,
+  label,
+  onPress,
+}: {
+  icon: React.ComponentType<{ color?: string; size?: number; strokeWidth?: number }>;
+  label: string;
+  onPress: () => void;
+}) {
+  return (
+    <Pressable
+      accessibilityLabel={`chat-overlay-${label.toLowerCase().replace(/\s+/g, '-')}`}
+      onPress={onPress}
+      style={({ pressed }) => [
+        styles.attachmentAction,
+        pressed && styles.attachmentActionPressed,
+      ]}>
+      <Icon color="#DBEAFE" size={18} strokeWidth={2.4} />
+      <Text style={styles.attachmentActionText}>{label}</Text>
+    </Pressable>
   );
 }
 
@@ -269,7 +412,7 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(255,255,255,0.08)',
     borderRadius: 40,
     borderWidth: 1,
-    maxHeight: '88%',
+    height: '88%',
     overflow: 'hidden',
   },
   liveAudioLayer: {
@@ -470,9 +613,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 8,
     padding: 16,
+    position: 'relative',
   },
   inputShell: {
-    alignItems: 'center',
+    alignItems: 'flex-start',
     backgroundColor: 'rgba(255,255,255,0.08)',
     borderColor: 'rgba(255,255,255,0.08)',
     borderRadius: 18,
@@ -484,11 +628,36 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 14,
   },
+  composerStack: {
+    flex: 1,
+    paddingRight: 10,
+  },
+  pendingAttachment: {
+    alignItems: 'center',
+    alignSelf: 'flex-start',
+    backgroundColor: 'rgba(37,99,235,0.34)',
+    borderColor: 'rgba(147,197,253,0.32)',
+    borderRadius: 999,
+    borderWidth: 1,
+    flexDirection: 'row',
+    gap: 6,
+    marginTop: 8,
+    maxWidth: '100%',
+    paddingHorizontal: 9,
+    paddingVertical: 6,
+  },
+  pendingAttachmentText: {
+    color: '#FFFFFF',
+    flexShrink: 1,
+    fontSize: 11,
+    fontWeight: '800',
+  },
+  removeAttachmentButton: {
+    padding: 2,
+  },
   input: {
     color: '#FFFFFF',
-    flex: 1,
     fontSize: 14,
-    paddingRight: 16,
     paddingVertical: 14,
   },
   primaryActionButton: {
@@ -506,5 +675,42 @@ const styles = StyleSheet.create({
     height: 52,
     justifyContent: 'center',
     width: 52,
+  },
+  attachmentMenu: {
+    backgroundColor: 'rgba(15,23,42,0.98)',
+    borderColor: 'rgba(255,255,255,0.1)',
+    borderRadius: 18,
+    borderWidth: 1,
+    bottom: 78,
+    gap: 4,
+    left: 16,
+    padding: 8,
+    position: 'absolute',
+    width: 190,
+    zIndex: 4,
+  },
+  attachmentAction: {
+    alignItems: 'center',
+    borderRadius: 12,
+    flexDirection: 'row',
+    gap: 10,
+    minHeight: 42,
+    paddingHorizontal: 10,
+  },
+  attachmentActionPressed: {
+    backgroundColor: 'rgba(255,255,255,0.08)',
+  },
+  attachmentActionText: {
+    color: '#FFFFFF',
+    fontSize: 13,
+    fontWeight: '800',
+  },
+  attachmentError: {
+    color: '#FCA5A5',
+    fontSize: 11,
+    fontWeight: '700',
+    lineHeight: 16,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
   },
 });

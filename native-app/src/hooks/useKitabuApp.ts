@@ -6,6 +6,7 @@ import {
   INITIAL_BOOKS,
   INITIAL_CURRICULUM_DATA,
   INITIAL_FLASHCARDS,
+  INITIAL_PARENT_CHILDREN,
   INITIAL_PODCASTS,
   INITIAL_QUIZ_QUESTIONS,
   INITIAL_SCHOOLS,
@@ -15,6 +16,7 @@ import {
   INITIAL_USER_PROFILE,
   SUBJECTS,
 } from '../data/mockData';
+import { DEFAULT_GRADE } from '../constants/grades';
 import {
   getBillingPlans,
   getBillingStatus,
@@ -23,6 +25,8 @@ import {
 } from '../services/billingService';
 import {
   completeStudentOnboarding,
+  confirmEmailVerificationToken,
+  deleteMyAccount,
   loadStoredAuthSession,
   loginWithPassword,
   persistAuthSession,
@@ -47,6 +51,7 @@ import {
   updateAdminAnnouncement,
   updateAdminDiscount,
   updateAdminSchool,
+  updateAdminSchoolPilot,
 } from '../services/appDataService';
 import { askHomeworkHelper, generateQuizData } from '../services/aiService';
 import { getLibraryBooks, getLearningPodcasts } from '../services/contentService';
@@ -65,10 +70,31 @@ import {
   getTeacherStudents,
   submitStudentAssignment as submitStudentAssignmentRequest,
 } from '../services/teacherService';
+import {
+  getNotifications,
+  markAllNotificationsRead,
+  markNotificationRead,
+} from '../services/notificationService';
+import {
+  getOnboardingDiagnosticStatus,
+  getProgressiveDiagnosticStatus,
+} from '../services/diagnosticService';
+import { completeReview as completeSpacedReview, getDueReviews } from '../services/learningService';
+import {
+  getParentDashboard,
+  linkParentChild,
+  unlinkParentChild,
+} from '../services/parentService';
+import {
+  getWeeklyExam,
+  startWeeklyExam,
+  submitWeeklyExam as submitWeeklyExamRequest,
+} from '../services/weeklyExamService';
 import { loadJson, saveJson } from '../services/storage';
 import { triggerHaptic } from '../services/haptics';
 import {
   AdminPortalUser,
+  AppNotification,
   Assignment,
   Attachment,
   BannerAnnouncement,
@@ -78,6 +104,7 @@ import {
   AuthRole,
   AuthSession,
   DashboardBanner,
+  DueReview,
   GenderOption,
   Book,
   ChatMessage,
@@ -85,6 +112,8 @@ import {
   Flashcard,
   LearningStrand,
   Podcast,
+  ParentChildSummary,
+  PublicSignupRole,
   Question,
   QuizConfig,
   SchoolData,
@@ -95,12 +124,17 @@ import {
   SubmittedAssignment,
   UserProfile,
   ViewState,
+  WeeklyExamPayload,
   SchoolDiscount,
 } from '../types/app';
 
 const STORAGE_KEYS = {
   profile: 'kitabu_native_profile',
 };
+const MAX_DASHBOARD_SUBJECTS = 5;
+const DEFAULT_DASHBOARD_SUBJECT_IDS = SUBJECTS.slice(0, MAX_DASHBOARD_SUBJECTS).map(
+  subject => subject.id,
+);
 
 interface RouteSnapshot {
   view: ViewState;
@@ -127,15 +161,26 @@ type PendingSubscriptionIntent =
   | { kind: 'generate_quiz_me'; snapshot: RouteSnapshot; config: QuizConfig };
 
 type IncomingLink =
+  | { kind: 'email-verification-token'; token: string }
   | { kind: 'email-verified'; email: string | null }
   | { kind: 'password-reset-complete' }
   | { kind: 'unknown' };
 
-function parseIncomingLink(url: string): IncomingLink {
+export function parseIncomingLink(url: string): IncomingLink {
   try {
     const parsed = new URL(url);
     const host = parsed.host;
     const path = parsed.pathname.replace(/^\/+/, '');
+
+    if (parsed.protocol === 'https:' && host === 'app.kitabu.ai' && path === 'verify-email') {
+      const token = parsed.searchParams.get('token');
+      if (token) {
+        return {
+          kind: 'email-verification-token',
+          token,
+        };
+      }
+    }
 
     if (host === 'auth' && path === 'email-verified') {
       return {
@@ -168,6 +213,10 @@ function isTeacherRole(roles: AuthRole[]) {
   return hasRole(roles, 'teacher');
 }
 
+function isParentRole(roles: AuthRole[]) {
+  return hasRole(roles, 'parent');
+}
+
 function getPrimaryHomeView(roles: AuthRole[]): ViewState {
   if (isAdminRole(roles)) {
     return 'admin_portal';
@@ -177,6 +226,10 @@ function getPrimaryHomeView(roles: AuthRole[]): ViewState {
     return 'teachers_portal';
   }
 
+  if (isParentRole(roles)) {
+    return 'parent_dashboard';
+  }
+
   return 'dashboard';
 }
 
@@ -184,18 +237,26 @@ function mapAuthSessionToProfile(session: AuthSession): UserProfile {
   const { user } = session;
   const isAdmin = isAdminRole(user.roles);
   const isTeacher = isTeacherRole(user.roles);
+  const isParent = isParentRole(user.roles);
 
   return {
     ...INITIAL_USER_PROFILE,
     name: user.fullName,
-    email: user.email,
+    email: user.email.endsWith('@accounts.kitabu.invalid') ? '' : user.email,
+    phone: user.phoneNumber ?? '',
     school: INITIAL_USER_PROFILE.school,
     role: isAdmin
       ? 'Platform Admin'
       : isTeacher
         ? 'Teacher Account'
-        : 'Student Account',
-    status: user.emailVerified ? 'Email verified' : 'Email not verified',
+        : isParent
+          ? 'Parent Account'
+          : 'Student Account',
+    status: user.phoneVerified
+      ? 'Phone verified'
+      : user.emailVerified
+        ? 'Email verified'
+        : 'Email not verified',
     grade: isTeacher || isAdmin ? undefined : user.grade || INITIAL_USER_PROFILE.grade,
     gender:
       user.gender === 'male'
@@ -239,22 +300,33 @@ export function useKitabuApp() {
   const [loginEmail, setLoginEmail] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
   const [signupFullName, setSignupFullName] = useState('');
-  const [signupRole, setSignupRole] = useState<'student' | 'teacher'>('student');
+  const [signupRole, setSignupRole] = useState<PublicSignupRole>('student');
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [authError, setAuthError] = useState<string | null>(null);
   const [isAuthenticating, setIsAuthenticating] = useState(false);
   const [isSubmittingOnboarding, setIsSubmittingOnboarding] = useState(false);
+  const [isCheckingDiagnostic, setIsCheckingDiagnostic] = useState(false);
+  const [isDiagnosticStatusLoaded, setIsDiagnosticStatusLoaded] = useState(false);
+  const [onboardingDiagnosticCompleted, setOnboardingDiagnosticCompleted] = useState(false);
   const [onboardingError, setOnboardingError] = useState<string | null>(null);
   const [currentView, setCurrentView] = useState<ViewState>('dashboard');
   const [liveAudioReturnView, setLiveAudioReturnView] =
     useState<ViewState>('dashboard');
   const [profileOpen, setProfileOpen] = useState(false);
+  const [notificationsOpen, setNotificationsOpen] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
+  const [chatAttachmentPickerSignal, setChatAttachmentPickerSignal] = useState(0);
   const [startLiveAudio, setStartLiveAudio] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [currentGrade, setCurrentGrade] = useState('Grade 8');
-  const [adminSelectedGrade, setAdminSelectedGrade] = useState('Grade 8');
+  const [currentGrade, setCurrentGrade] = useState(DEFAULT_GRADE);
+  const [adminSelectedGrade, setAdminSelectedGrade] = useState(DEFAULT_GRADE);
+  const [dashboardSubjectIds, setDashboardSubjectIds] = useState<string[]>(
+    DEFAULT_DASHBOARD_SUBJECT_IDS,
+  );
   const [selectedSubject, setSelectedSubject] = useState<Subject | null>(null);
+  const [progressiveDiagnosticSubject, setProgressiveDiagnosticSubject] =
+    useState<Subject | null>(null);
   const [selectedAssignment, setSelectedAssignment] = useState<Assignment | null>(
     null,
   );
@@ -275,6 +347,10 @@ export function useKitabuApp() {
   const [schoolsList, setSchoolsList] =
     useState<SchoolData[]>(INITIAL_SCHOOLS);
   const [dashboardBanner, setDashboardBanner] = useState<DashboardBanner | null>(null);
+  const [dueReviews, setDueReviews] = useState<DueReview[]>([]);
+  const [selectedDueReview, setSelectedDueReview] = useState<DueReview | null>(null);
+  const [reviewSessionError, setReviewSessionError] = useState<string | null>(null);
+  const [isSubmittingReview, setIsSubmittingReview] = useState(false);
   const [userProfile, setUserProfile] =
     useState<UserProfile>(INITIAL_USER_PROFILE);
   const [assignments, setAssignments] =
@@ -326,6 +402,52 @@ export function useKitabuApp() {
   const [adminAnnouncements, setAdminAnnouncements] = useState<BannerAnnouncement[]>([]);
   const [adminSchoolPlans, setAdminSchoolPlans] = useState<BillingPlan[]>([]);
   const [adminUsers, setAdminUsers] = useState<AdminPortalUser[]>([]);
+  const [notifications, setNotifications] = useState<AppNotification[]>([]);
+  const [parentChildren, setParentChildren] = useState<ParentChildSummary[]>([]);
+  const [selectedParentChildId, setSelectedParentChildId] = useState<string | null>(null);
+  const [parentChildIdentifier, setParentChildIdentifier] = useState('');
+  const [parentChildLinkMethod, setParentChildLinkMethod] = useState<'email' | 'phone'>('email');
+  const [parentDashboardError, setParentDashboardError] = useState<string | null>(null);
+  const [isLoadingParentDashboard, setIsLoadingParentDashboard] = useState(false);
+  const [isLinkingParentChild, setIsLinkingParentChild] = useState(false);
+  const [weeklyExam, setWeeklyExam] = useState<WeeklyExamPayload | null>(null);
+  const [weeklyExamError, setWeeklyExamError] = useState<string | null>(null);
+  const [isLoadingWeeklyExam, setIsLoadingWeeklyExam] = useState(false);
+  const [isSubmittingWeeklyExam, setIsSubmittingWeeklyExam] = useState(false);
+
+  const getRouteSnapshot = useCallback((nextView: ViewState = currentView): RouteSnapshot => ({
+    view: nextView,
+    currentGrade,
+    adminSelectedGrade,
+    selectedSubjectId: selectedSubject?.id || null,
+    selectedAssignmentId: selectedAssignment?.id || null,
+    selectedSubStrandId: selectedSubStrand?.id || null,
+    selectedBookId: selectedBook?.id || null,
+    previewBookId,
+    activeStrandIndex,
+    quizSource,
+    brainTeaseCompleted,
+    liveAudioReturnView,
+  }), [
+    activeStrandIndex,
+    adminSelectedGrade,
+    brainTeaseCompleted,
+    currentGrade,
+    currentView,
+    liveAudioReturnView,
+    previewBookId,
+    quizSource,
+    selectedAssignment?.id,
+    selectedBook?.id,
+    selectedSubject?.id,
+    selectedSubStrand?.id,
+  ]);
+
+  const replaceWith = useCallback((nextView: ViewState) => {
+    setNavigationHistory([{ ...getRouteSnapshot(nextView), view: nextView }]);
+    setNavigationIndex(0);
+    setCurrentView(nextView);
+  }, [getRouteSnapshot]);
 
   const handleIncomingLink = useCallback(async (url: string) => {
     const link = parseIncomingLink(url);
@@ -336,9 +458,52 @@ export function useKitabuApp() {
     const nextHomeView =
       isStudentPreview || !authSession ? 'dashboard' : getPrimaryHomeView(authSession.user.roles);
 
+    if (link.kind === 'email-verification-token') {
+      try {
+        await confirmEmailVerificationToken(link.token);
+
+        let nextSession = authSession;
+        if (nextSession) {
+          nextSession = await refreshAccessSession(nextSession.refreshToken);
+        } else {
+          const storedSession = await loadStoredAuthSession();
+          if (storedSession) {
+            nextSession = await refreshAccessSession(storedSession.refreshToken);
+          }
+        }
+
+        if (nextSession) {
+          const profile = mapAuthSessionToProfile(nextSession);
+          setAuthSession(nextSession);
+          setUserProfile(profile);
+          setCurrentGrade(profile.grade || DEFAULT_GRADE);
+          setIsStudentPreview(false);
+          setAuthError(null);
+          setAuthMode('login');
+          setAuthEntryScreen('auth');
+          replaceWith(getPrimaryHomeView(nextSession.user.roles));
+          return;
+        }
+
+        setAuthSession(null);
+        await persistAuthSession(null);
+        setAuthMode('login');
+        setAuthEntryScreen('auth');
+        setAuthError('Email verified. Sign in to continue.');
+      } catch (error) {
+        setAuthMode('login');
+        setAuthEntryScreen('auth');
+        setAuthError(error instanceof Error ? error.message : 'Unable to verify email');
+      }
+      return;
+    }
+
     if (link.kind === 'email-verified') {
       setAuthError(null);
       setAuthMode('login');
+      if (link.email) {
+        setLoginEmail(link.email);
+      }
 
       setAuthSession(current => {
         if (!current) {
@@ -364,6 +529,11 @@ export function useKitabuApp() {
         ...current,
         status: 'Email verified',
       }));
+      if (!authSession) {
+        setAuthEntryScreen('auth');
+        setAuthError('Email verified. Sign in to continue.');
+        return;
+      }
       setCurrentView(nextHomeView);
       return;
     }
@@ -375,7 +545,7 @@ export function useKitabuApp() {
       await persistAuthSession(null);
       setCurrentView('dashboard');
     }
-  }, [authSession, isStudentPreview]);
+  }, [authSession, isStudentPreview, replaceWith]);
 
   useEffect(() => {
     let mounted = true;
@@ -400,7 +570,7 @@ export function useKitabuApp() {
           const nextProfile = mapAuthSessionToProfile(nextSession);
           setAuthSession(nextSession);
           setUserProfile(nextProfile);
-          setCurrentGrade(nextProfile.grade || 'Grade 8');
+          setCurrentGrade(nextProfile.grade || DEFAULT_GRADE);
           setIsStudentPreview(false);
           setCurrentView(nextHomeView);
           const [plansPayload, status] = await Promise.all([getBillingPlans(), getBillingStatus()]);
@@ -426,7 +596,7 @@ export function useKitabuApp() {
           }
           setAuthSession(null);
           setUserProfile(storedProfile);
-          setCurrentGrade(storedProfile.grade || 'Grade 8');
+          setCurrentGrade(storedProfile.grade || DEFAULT_GRADE);
           setBillingPlans([]);
           setBillingStatus({
             subscription: null,
@@ -440,7 +610,7 @@ export function useKitabuApp() {
         }
       } else {
         setUserProfile(storedProfile);
-        setCurrentGrade(storedProfile.grade || 'Grade 8');
+        setCurrentGrade(storedProfile.grade || DEFAULT_GRADE);
       }
       setIsReady(true);
     }
@@ -487,6 +657,10 @@ export function useKitabuApp() {
     () => assignments.filter(item => item.status === 'pending'),
     [assignments],
   );
+  const dashboardSubjects = useMemo(
+    () => SUBJECTS.filter(subject => dashboardSubjectIds.includes(subject.id)),
+    [dashboardSubjectIds],
+  );
 
   const selectedSubjectStrands = useMemo(() => {
     if (!selectedSubject) {
@@ -532,6 +706,13 @@ export function useKitabuApp() {
   const hasPendingStudentOnboarding = Boolean(
     authSession?.user.roles.includes('student') && !authSession.user.onboardingCompleted,
   );
+  const hasPendingStudentDiagnostic = Boolean(
+    authSession?.user.roles.includes('student') &&
+      authSession.user.onboardingCompleted &&
+      isDiagnosticStatusLoaded &&
+      !onboardingDiagnosticCompleted,
+  );
+  const hasPendingProgressiveDiagnostic = Boolean(progressiveDiagnosticSubject);
   const hasActiveSubscription = Boolean(
     billingStatus.subscription && new Date(billingStatus.subscription.periodEnd).getTime() > Date.now(),
   );
@@ -595,6 +776,270 @@ export function useKitabuApp() {
     }
   }
 
+  async function refreshDueReviews() {
+    if (!authSession?.user.roles.includes('student')) {
+      setDueReviews([]);
+      return;
+    }
+
+    try {
+      setDueReviews(await getDueReviews());
+    } catch {
+      setDueReviews([]);
+    }
+  }
+
+  async function refreshNotifications() {
+    if (!authSession) {
+      setNotifications([]);
+      return;
+    }
+
+    try {
+      setNotifications(await getNotifications());
+    } catch {
+      setNotifications([]);
+    }
+  }
+
+  async function refreshParentDashboard() {
+    if (!authSession?.user.roles.includes('parent')) {
+      setParentChildren([]);
+      setSelectedParentChildId(null);
+      setParentDashboardError(null);
+      return;
+    }
+
+    setIsLoadingParentDashboard(true);
+    try {
+      const payload = await getParentDashboard();
+      const nextChildren = payload.children.length > 0 ? payload.children : INITIAL_PARENT_CHILDREN;
+      setParentChildren(nextChildren);
+      setSelectedParentChildId(current =>
+        current && nextChildren.some(child => child.id === current)
+          ? current
+          : nextChildren[0]?.id ?? null,
+      );
+      setParentDashboardError(null);
+    } catch {
+      setParentChildren(INITIAL_PARENT_CHILDREN);
+      setSelectedParentChildId(current =>
+        current && INITIAL_PARENT_CHILDREN.some(child => child.id === current)
+          ? current
+          : INITIAL_PARENT_CHILDREN[0]?.id ?? null,
+      );
+      setParentDashboardError(null);
+    } finally {
+      setIsLoadingParentDashboard(false);
+    }
+  }
+
+  async function linkParentChildAccount() {
+    const identifier = parentChildIdentifier.trim();
+    if (!identifier) {
+      setParentDashboardError(`Enter the student ${parentChildLinkMethod} to link.`);
+      return;
+    }
+
+    setIsLinkingParentChild(true);
+    setParentDashboardError(null);
+    try {
+      await linkParentChild(
+        parentChildLinkMethod === 'email'
+          ? { studentEmail: identifier }
+          : { studentPhone: identifier },
+      );
+      setParentChildIdentifier('');
+      await refreshParentDashboard();
+      triggerHaptic('success');
+    } catch (error) {
+      setParentDashboardError(
+        error instanceof Error ? error.message : 'Unable to link that student',
+      );
+      triggerHaptic('error');
+    } finally {
+      setIsLinkingParentChild(false);
+    }
+  }
+
+  async function removeParentChild(childId: string) {
+    try {
+      await unlinkParentChild(childId);
+      await refreshParentDashboard();
+      triggerHaptic('impact');
+    } catch (error) {
+      setParentDashboardError(
+        error instanceof Error ? error.message : 'Unable to remove that child',
+      );
+      triggerHaptic('error');
+    }
+  }
+
+  async function refreshWeeklyExam() {
+    if (!authSession?.user.roles.includes('student')) {
+      setWeeklyExam(null);
+      setWeeklyExamError(null);
+      return;
+    }
+
+    setIsLoadingWeeklyExam(true);
+    try {
+      setWeeklyExam(await getWeeklyExam());
+      setWeeklyExamError(null);
+    } catch (error) {
+      setWeeklyExamError(error instanceof Error ? error.message : 'Unable to load weekly exam');
+    } finally {
+      setIsLoadingWeeklyExam(false);
+    }
+  }
+
+  async function beginWeeklyExam() {
+    if (!weeklyExam) {
+      return;
+    }
+    setIsSubmittingWeeklyExam(true);
+    setWeeklyExamError(null);
+    try {
+      await startWeeklyExam(weeklyExam.exam.id);
+      await refreshWeeklyExam();
+      triggerHaptic('impact');
+    } catch (error) {
+      setWeeklyExamError(error instanceof Error ? error.message : 'Unable to start weekly exam');
+      triggerHaptic('error');
+    } finally {
+      setIsSubmittingWeeklyExam(false);
+    }
+  }
+
+  async function submitWeeklyExam(
+    answers: Array<{ questionId: string; answer: string }>,
+    timedOut = false,
+  ) {
+    if (!weeklyExam?.attempt) {
+      return;
+    }
+    setIsSubmittingWeeklyExam(true);
+    setWeeklyExamError(null);
+    try {
+      const result = await submitWeeklyExamRequest(weeklyExam.exam.id, {
+        attemptId: weeklyExam.attempt.id,
+        answers,
+        timedOut,
+      });
+      setWeeklyExam(current => current ? { ...current, exam: result.exam, attempt: result.attempt } : current);
+      await Promise.all([refreshDueReviews(), refreshStudentContentState(authSession!)]);
+      triggerHaptic('success');
+    } catch (error) {
+      setWeeklyExamError(error instanceof Error ? error.message : 'Unable to submit weekly exam');
+      triggerHaptic('error');
+      throw error;
+    } finally {
+      setIsSubmittingWeeklyExam(false);
+    }
+  }
+
+  function startDueReview(review: DueReview) {
+    setSelectedDueReview(review);
+    setReviewSessionError(null);
+    navigateTo('review_session');
+  }
+
+  async function completeDueReview(passed: boolean) {
+    if (!selectedDueReview) {
+      return;
+    }
+
+    setIsSubmittingReview(true);
+    setReviewSessionError(null);
+    try {
+      await completeSpacedReview(selectedDueReview.id, passed);
+      setSelectedDueReview(null);
+      await refreshDueReviews();
+      triggerHaptic(passed ? 'success' : 'impact');
+      navigateTo('homework_list');
+    } catch (error) {
+      setReviewSessionError(error instanceof Error ? error.message : 'Unable to save review');
+      triggerHaptic('error');
+    } finally {
+      setIsSubmittingReview(false);
+    }
+  }
+
+  async function refreshOnboardingDiagnosticState() {
+    if (!authSession?.user.roles.includes('student')) {
+      setOnboardingDiagnosticCompleted(true);
+      setIsDiagnosticStatusLoaded(true);
+      return;
+    }
+
+    setIsCheckingDiagnostic(true);
+    try {
+      const status = await getOnboardingDiagnosticStatus();
+      setOnboardingDiagnosticCompleted(status.completed || !status.required);
+      setIsDiagnosticStatusLoaded(true);
+    } catch {
+      setOnboardingDiagnosticCompleted(false);
+      setIsDiagnosticStatusLoaded(true);
+    } finally {
+      setIsCheckingDiagnostic(false);
+    }
+  }
+
+  async function readNotification(notificationId: string) {
+    setNotifications(current =>
+      current.map(item =>
+        item.id === notificationId
+          ? { ...item, status: 'read', readAt: item.readAt || new Date().toISOString() }
+          : item,
+      ),
+    );
+
+    try {
+      await markNotificationRead(notificationId);
+      await refreshNotifications();
+    } catch {
+      await refreshNotifications();
+    }
+  }
+
+  async function readAllNotifications() {
+    setNotifications(current =>
+      current.map(item => ({
+        ...item,
+        status: 'read',
+        readAt: item.readAt || new Date().toISOString(),
+      })),
+    );
+
+    try {
+      await markAllNotificationsRead();
+      await refreshNotifications();
+    } catch {
+      await refreshNotifications();
+    }
+  }
+
+  function completeDiagnosticOnboarding() {
+    setOnboardingDiagnosticCompleted(true);
+    setIsDiagnosticStatusLoaded(true);
+    refreshDueReviews().catch(() => undefined);
+    replaceWith(primaryHomeView);
+  }
+
+  function completeProgressiveDiagnostic() {
+    if (progressiveDiagnosticSubject) {
+      setSelectedSubject(progressiveDiagnosticSubject);
+      setActiveStrandIndex(0);
+      setBrainTeaseCompleted(false);
+      setProgressiveDiagnosticSubject(null);
+      navigateTo('subject');
+      refreshDueReviews().catch(() => undefined);
+      return;
+    }
+
+    setProgressiveDiagnosticSubject(null);
+  }
+
   async function refreshStudentContentState(session: AuthSession) {
     if (!session.user.roles.includes('student')) {
       setAssignments([]);
@@ -609,11 +1054,11 @@ export function useKitabuApp() {
         getLibraryBooks(),
         getLearningPodcasts(),
       ]);
-      setAssignments(nextAssignments);
+      setAssignments(nextAssignments.length > 0 ? nextAssignments : INITIAL_ASSIGNMENTS);
       setBooks(nextBooks);
       setPodcasts(nextPodcasts);
     } catch {
-      setAssignments([]);
+      setAssignments(INITIAL_ASSIGNMENTS);
       setBooks([]);
       setPodcasts([]);
     }
@@ -632,13 +1077,21 @@ export function useKitabuApp() {
         getTeacherStudents(),
         getTeacherAssignments(),
       ]);
-      setTeacherStudents(students);
-      setTeacherAssignments(assignmentPayload.assignments);
-      setSubmissionsByAssignment(assignmentPayload.submissionsByAssignment);
+      setTeacherStudents(students.length > 0 ? students : INITIAL_TEACHER_STUDENTS);
+      setTeacherAssignments(
+        assignmentPayload.assignments.length > 0
+          ? assignmentPayload.assignments
+          : INITIAL_SUBMITTED_ASSIGNMENTS,
+      );
+      setSubmissionsByAssignment(
+        Object.keys(assignmentPayload.submissionsByAssignment).length > 0
+          ? assignmentPayload.submissionsByAssignment
+          : INITIAL_SUBMISSIONS_BY_ASSIGNMENT,
+      );
     } catch {
-      setTeacherStudents([]);
-      setTeacherAssignments([]);
-      setSubmissionsByAssignment({});
+      setTeacherStudents(INITIAL_TEACHER_STUDENTS);
+      setTeacherAssignments(INITIAL_SUBMITTED_ASSIGNMENTS);
+      setSubmissionsByAssignment(INITIAL_SUBMISSIONS_BY_ASSIGNMENT);
     }
   }
 
@@ -691,6 +1144,8 @@ export function useKitabuApp() {
         school: selectedSchool?.name || nextProfile.school,
       });
       setCurrentGrade(input.grade);
+      setOnboardingDiagnosticCompleted(false);
+      setIsDiagnosticStatusLoaded(false);
       triggerHaptic('success');
       await Promise.all([refreshBillingState(), refreshDashboardBanner()]);
     } catch (error) {
@@ -735,23 +1190,6 @@ export function useKitabuApp() {
       ...prev,
       [grade]: true,
     }));
-  }
-
-  function getRouteSnapshot(nextView: ViewState = currentView): RouteSnapshot {
-    return {
-      view: nextView,
-      currentGrade,
-      adminSelectedGrade,
-      selectedSubjectId: selectedSubject?.id || null,
-      selectedAssignmentId: selectedAssignment?.id || null,
-      selectedSubStrandId: selectedSubStrand?.id || null,
-      selectedBookId: selectedBook?.id || null,
-      previewBookId,
-      activeStrandIndex,
-      quizSource,
-      brainTeaseCompleted,
-      liveAudioReturnView,
-    };
   }
 
   const restoreRoute = useCallback((snapshot: RouteSnapshot) => {
@@ -830,12 +1268,6 @@ export function useKitabuApp() {
     setCurrentView(nextView);
   }
 
-  function replaceWith(nextView: ViewState) {
-    setNavigationHistory([{ ...getRouteSnapshot(nextView), view: nextView }]);
-    setNavigationIndex(0);
-    setCurrentView(nextView);
-  }
-
   function goBack() {
     if (navigationIndex <= 0) {
       return;
@@ -864,10 +1296,51 @@ export function useKitabuApp() {
 
   async function openSubject(subject: Subject) {
     await loadCurriculumGrade(currentGrade);
+    if (
+      authSession?.user.roles.includes('student') &&
+      !isStudentPreview &&
+      ['science', 'kiswahili', 'social', 'ai_education'].includes(subject.id)
+    ) {
+      try {
+        const status = await getProgressiveDiagnosticStatus(subject.id);
+        if (status.required && !status.completed) {
+          setProgressiveDiagnosticSubject(subject);
+          return;
+        }
+      } catch {
+        setProgressiveDiagnosticSubject(subject);
+        return;
+      }
+    }
     setSelectedSubject(subject);
     setActiveStrandIndex(0);
     setBrainTeaseCompleted(false);
     navigateTo('subject');
+  }
+
+  function toggleDashboardSubject(subjectId: string) {
+    setDashboardSubjectIds(current => {
+      if (current.includes(subjectId)) {
+        return current.length > 1 ? current.filter(id => id !== subjectId) : current;
+      }
+
+      if (current.length >= MAX_DASHBOARD_SUBJECTS) {
+        return current;
+      }
+
+      return [...current, subjectId];
+    });
+  }
+
+  function saveDashboardSubjects(subjectIds: string[]) {
+    const validSubjectIds = new Set(SUBJECTS.map(subject => subject.id));
+    const nextSubjectIds = subjectIds
+      .filter(subjectId => validSubjectIds.has(subjectId))
+      .slice(0, MAX_DASHBOARD_SUBJECTS);
+
+    if (nextSubjectIds.length > 0) {
+      setDashboardSubjectIds(nextSubjectIds);
+    }
   }
 
   function openFeature(view: ViewState) {
@@ -969,7 +1442,8 @@ export function useKitabuApp() {
   }
 
   async function submitSubscriptionCheckout(planCodeOverride?: BillingPlanCode) {
-    const requestedPlanCode = planCodeOverride ?? selectedPlanCode;
+    const requestedPlanCode =
+      typeof planCodeOverride === 'string' ? planCodeOverride : selectedPlanCode;
     if (!requestedPlanCode) {
       setCheckoutError('Select a subscription plan');
       triggerHaptic('error');
@@ -1065,6 +1539,7 @@ export function useKitabuApp() {
   function openSignupEntry() {
     setAuthMode('signup');
     setAuthError(null);
+    setAcceptedTerms(false);
     setAuthEntryScreen('auth');
   }
 
@@ -1073,20 +1548,25 @@ export function useKitabuApp() {
     setAuthEntryScreen('intro');
   }
 
+  function completeProviderAuthentication(session: AuthSession) {
+    setAuthSession(session);
+    setAuthEntryScreen('auth');
+    const profile = mapAuthSessionToProfile(session);
+    setUserProfile(profile);
+      setCurrentGrade(profile.grade || DEFAULT_GRADE);
+    setIsStudentPreview(false);
+    setOnboardingError(null);
+    setAuthError(null);
+    replaceWith(getPrimaryHomeView(session.user.roles));
+  }
+
   async function signIn() {
     setIsAuthenticating(true);
     setAuthError(null);
 
     try {
       const session = await loginWithPassword(loginEmail.trim(), loginPassword);
-      setAuthSession(session);
-      setAuthEntryScreen('auth');
-      const profile = mapAuthSessionToProfile(session);
-      setUserProfile(profile);
-      setCurrentGrade(profile.grade || 'Grade 8');
-      setIsStudentPreview(false);
-      setOnboardingError(null);
-      replaceWith(getPrimaryHomeView(session.user.roles));
+      completeProviderAuthentication(session);
     } catch (error) {
       setAuthError(error instanceof Error ? error.message : 'Unable to sign in');
       triggerHaptic('error');
@@ -1100,22 +1580,20 @@ export function useKitabuApp() {
     setAuthError(null);
 
     try {
+      if (!acceptedTerms) {
+        throw new Error('You must accept the Terms of Service and Privacy Policy before creating an account.');
+      }
+
       const session = await signupWithPassword({
         fullName: signupFullName.trim(),
         email: loginEmail.trim(),
         password: loginPassword,
         role: signupRole,
+        acceptedTerms: true,
         onboardingCompleted: signupRole !== 'student',
       });
-      setAuthSession(session);
-      setAuthEntryScreen('auth');
-      const profile = mapAuthSessionToProfile(session);
-      setUserProfile(profile);
-      setCurrentGrade(profile.grade || 'Grade 8');
-      setIsStudentPreview(false);
-      setOnboardingError(null);
+      completeProviderAuthentication(session);
       triggerHaptic('success');
-      replaceWith(getPrimaryHomeView(session.user.roles));
     } catch (error) {
       const message =
         error instanceof Error ? error.message : 'Unable to create account';
@@ -1133,6 +1611,11 @@ export function useKitabuApp() {
     }
   }
 
+  async function deleteAccount() {
+    await deleteMyAccount();
+    await signOut();
+  }
+
   async function signOut() {
     setAuthSession(null);
     setAuthEntryScreen('intro');
@@ -1146,6 +1629,7 @@ export function useKitabuApp() {
     setActivePaymentRequestId(null);
     setLessonQuizSubStrandId(null);
     setIsStudentPreview(false);
+    setProgressiveDiagnosticSubject(null);
     setCurrentView('dashboard');
     setNavigationHistory([]);
     setNavigationIndex(-1);
@@ -1199,6 +1683,24 @@ export function useKitabuApp() {
   async function deleteSchoolRecord(schoolId: string) {
     await deleteAdminSchool(schoolId);
     await refreshAdminData();
+  }
+
+  async function updateSchoolPilotRecord(
+    schoolId: string,
+    input: {
+      status: 'not_enrolled' | 'onboarding' | 'active' | 'paused' | 'completed';
+      startDate?: string | null;
+      endDate?: string | null;
+      targetStudents: number;
+      onboardingStage: number;
+      notes?: string | null;
+    },
+  ) {
+    const school = await updateAdminSchoolPilot(schoolId, input);
+    if (school) {
+      await refreshAdminData();
+    }
+    return school;
   }
 
   async function createDiscountRecord(input: {
@@ -1294,12 +1796,11 @@ export function useKitabuApp() {
       attachment,
     };
 
-    const nextHistory = [...messages, userMessage];
     setMessages(prev => [...prev, userMessage]);
     setIsLoading(true);
 
     try {
-      const responseText = await askHomeworkHelper(text, nextHistory, 'chat', attachment);
+      const responseText = await askHomeworkHelper(text, messages, 'chat', attachment);
       setMessages(prev => [...prev, { role: 'model', text: responseText }]);
     } catch (error) {
       console.error(error);
@@ -1319,6 +1820,12 @@ export function useKitabuApp() {
     setChatOpen(false);
     setStartLiveAudio(false);
     setMessages([]);
+  }
+
+  function openChatAttachmentPicker() {
+    setChatOpen(true);
+    setStartLiveAudio(false);
+    setChatAttachmentPickerSignal(signal => signal + 1);
   }
 
   function openLiveTutorOverlay() {
@@ -1547,6 +2054,7 @@ export function useKitabuApp() {
     if (selectedSubject) {
       await refreshCurriculumSubject(currentGrade, selectedSubject.id);
     }
+    await refreshDueReviews();
     setSelectedSubStrand(null);
     setBrainTeaseCompleted(false);
     setLessonQuizSubStrandId(null);
@@ -1650,13 +2158,13 @@ export function useKitabuApp() {
   }
 
   function playGame(gameId: string) {
-    if (gameId === 'quack' || gameId === 'quack_game') {
-      navigateTo('quack_game');
+    if (gameId === 'crazy-balloon' || gameId === 'crazy_balloon') {
+      navigateTo('crazy_balloon');
       return;
     }
 
-    if (gameId === 'crazy-balloon' || gameId === 'crazy_balloon') {
-      navigateTo('crazy_balloon');
+    if (gameId === 'quiz-battle' || gameId === 'quiz_battle') {
+      navigateTo('quiz_battle');
       return;
     }
 
@@ -1720,7 +2228,7 @@ export function useKitabuApp() {
     }
 
     const homeView = getPrimaryHomeView(authSession.user.roles);
-    const initialGrade = mapAuthSessionToProfile(authSession).grade || 'Grade 8';
+    const initialGrade = mapAuthSessionToProfile(authSession).grade || DEFAULT_GRADE;
     setNavigationHistory([
       {
         view: homeView,
@@ -1765,6 +2273,7 @@ export function useKitabuApp() {
       setAssignments([]);
       setBooks([]);
       setPodcasts([]);
+      setDueReviews([]);
       setTeacherStudents([]);
       setTeacherAssignments([]);
       setSubmissionsByAssignment({});
@@ -1772,16 +2281,39 @@ export function useKitabuApp() {
       setAdminAnnouncements([]);
       setAdminSchoolPlans([]);
       setAdminUsers([]);
+      setNotifications([]);
+      setParentChildren([]);
+      setSelectedParentChildId(null);
+      setParentChildIdentifier('');
+      setParentDashboardError(null);
+      setWeeklyExam(null);
+      setWeeklyExamError(null);
+      setProgressiveDiagnosticSubject(null);
+      setOnboardingDiagnosticCompleted(false);
+      setIsDiagnosticStatusLoaded(false);
       return;
     }
 
+    setIsDiagnosticStatusLoaded(false);
     refreshSchoolsState().catch(() => undefined);
     refreshDashboardBanner().catch(() => undefined);
+    refreshDueReviews().catch(() => undefined);
+    refreshNotifications().catch(() => undefined);
+    refreshOnboardingDiagnosticState().catch(() => undefined);
+    refreshWeeklyExam().catch(() => undefined);
     refreshStudentContentState(authSession).catch(() => undefined);
     refreshTeacherData(authSession).catch(() => undefined);
     refreshAdminData().catch(() => undefined);
+    refreshParentDashboard().catch(() => undefined);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [authSession]);
+
+  useEffect(() => {
+    if (currentView === 'weekly_exam' && authSession?.user.roles.includes('student')) {
+      refreshWeeklyExam().catch(() => undefined);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentView, authSession]);
 
   useEffect(() => {
     if (!authSession?.user.schoolId || schoolsList.length === 0) {
@@ -1836,6 +2368,7 @@ export function useKitabuApp() {
 
         if (status.status === 'paid') {
           await refreshBillingState();
+          await refreshNotifications();
           setCheckoutStatusLabel('Payment received. Redirecting you back now.');
           const intent = pendingSubscriptionIntent;
           setPendingSubscriptionIntent(null);
@@ -1850,6 +2383,7 @@ export function useKitabuApp() {
         }
 
         if (status.status === 'failed' || status.status === 'cancelled' || status.status === 'expired') {
+          await refreshNotifications();
           setActivePaymentRequestId(null);
           setCheckoutStatusLabel(null);
           setCheckoutError(status.resultDescription || 'Payment was not completed');
@@ -1972,19 +2506,30 @@ export function useKitabuApp() {
       loginPassword,
       signupFullName,
       signupRole,
+      acceptedTerms,
       authError,
       isAuthenticating,
       isSubmittingOnboarding,
+      isCheckingDiagnostic:
+        isCheckingDiagnostic ||
+        Boolean(
+          authSession?.user.roles.includes('student') &&
+            authSession.user.onboardingCompleted &&
+            !isDiagnosticStatusLoaded,
+        ),
       onboardingError,
       currentView,
       profileOpen,
+      notificationsOpen,
       chatOpen,
+      chatAttachmentPickerSignal,
       startLiveAudio,
       messages,
       isLoading,
       currentGrade,
       adminSelectedGrade,
       selectedSubject,
+      progressiveDiagnosticSubject,
       selectedAssignment,
       selectedSubStrand,
       selectedBook,
@@ -1999,12 +2544,31 @@ export function useKitabuApp() {
       curriculumData,
       schoolsList,
       dashboardBanner,
+      dueReviews,
+      selectedDueReview,
+      reviewSessionError,
+      isSubmittingReview,
+      notifications,
+      parentChildren,
+      selectedParentChildId,
+      parentChildIdentifier,
+      parentChildLinkMethod,
+      parentDashboardError,
+      isLoadingParentDashboard,
+      isLinkingParentChild,
+      weeklyExam,
+      weeklyExamError,
+      isLoadingWeeklyExam,
+      isSubmittingWeeklyExam,
+      unreadNotificationCount: notifications.filter(item => item.status === 'unread').length,
       userProfile,
       assignments,
       teacherStudents,
       teacherAssignments,
       submissionsByAssignment,
       pendingAssignments,
+      dashboardSubjectIds,
+      dashboardSubjects,
       books,
       podcasts,
       readingProgress,
@@ -2019,6 +2583,8 @@ export function useKitabuApp() {
       billingStatus,
       hasActiveSubscription,
       hasPendingStudentOnboarding,
+      hasPendingStudentDiagnostic,
+      hasPendingProgressiveDiagnostic,
       isCheckoutOpen,
       isTryOneBobOpen,
       selectedPlanCode,
@@ -2033,7 +2599,9 @@ export function useKitabuApp() {
       lessonQuizSubStrandId,
       canOpenTeacherPortal,
       canOpenAdminPortal,
-      canResendVerification: Boolean(authSession && !authSession.user.emailVerified),
+      canResendVerification: Boolean(
+        authSession && !authSession.user.emailVerified && !authSession.user.phoneVerified
+      ),
       primaryHomeView,
       canGoBack,
       canGoForward,
@@ -2052,7 +2620,16 @@ export function useKitabuApp() {
       setLoginPassword,
       setSignupFullName,
       setSignupRole,
+      setAcceptedTerms,
       setProfileOpen,
+      setNotificationsOpen,
+      setSelectedParentChildId,
+      setParentChildIdentifier,
+      setParentChildLinkMethod: (method: 'email' | 'phone') => {
+        setParentChildLinkMethod(method);
+        setParentChildIdentifier('');
+        setParentDashboardError(null);
+      },
       setChatOpen,
       setStartLiveAudio,
       setMessages,
@@ -2083,10 +2660,13 @@ export function useKitabuApp() {
       exitStudentPreview,
       signIn,
       signUp,
+      completeProviderAuthentication,
+      deleteAccount,
       submitStudentOnboarding,
       signOut,
       resendVerificationEmail,
       sendMessage,
+      openChatAttachmentPicker,
       closeChat,
       openLiveTutorOverlay,
       goHome,
@@ -2108,10 +2688,24 @@ export function useKitabuApp() {
       submitSubscriptionCheckout,
       acceptTryOneBobOffer,
       refreshBillingState,
+      refreshNotifications,
+      refreshParentDashboard,
+      linkParentChildAccount,
+      removeParentChild,
+      refreshWeeklyExam,
+      beginWeeklyExam,
+      submitWeeklyExam,
+      startDueReview,
+      completeDueReview,
+      readNotification,
+      readAllNotifications,
+      completeDiagnosticOnboarding,
+      completeProgressiveDiagnostic,
       refreshAdminData,
       createSchoolRecord,
       updateSchoolRecord,
       deleteSchoolRecord,
+      updateSchoolPilotRecord,
       createDiscountRecord,
       updateDiscountRecord,
       deleteDiscountRecord,
@@ -2120,6 +2714,8 @@ export function useKitabuApp() {
       deleteAnnouncementRecord,
       addPoints,
       playGame,
+      toggleDashboardSubject,
+      saveDashboardSubjects,
       publishTeacherAssignment,
     },
   };

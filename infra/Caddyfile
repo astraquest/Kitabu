@@ -2,6 +2,12 @@
   auto_https disable_redirects
 }
 
+kitabu.ai, www.kitabu.ai {
+  root * /srv/www
+  encode gzip zstd
+  file_server
+}
+
 app.kitabu.ai {
   reverse_proxy 127.0.0.1:4000
 }

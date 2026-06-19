@@ -59,6 +59,7 @@ services:
     network_mode: host
     volumes:
       - ./infra/Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./apps/web:/srv/www:ro
       - caddy-data:/data
       - caddy-config:/config
 

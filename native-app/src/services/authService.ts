@@ -1,9 +1,8 @@
 import { AuthSession, AuthState, GenderOption, PublicSignupRole } from '../types/app';
-import { getKitabuApiBaseUrl } from './runtimeConfig';
+import { apiJsonRequest } from './requestHelpers';
 import { loadSecureJson, saveSecureJson } from './storage';
 
 const AUTH_SESSION_STORAGE_KEY = 'auth_session';
-const DEVICE_ID_STORAGE_KEY = 'kitabu_device_id';
 
 interface LoginResponse {
   accessToken: string;
@@ -12,34 +11,27 @@ interface LoginResponse {
   authState: AuthState;
 }
 
+export interface PhoneCodeResponse {
+  message: string;
+  expiresInSeconds: number;
+  developmentCode?: string;
+}
+
+async function persistLoginResponse(payload: LoginResponse): Promise<AuthSession> {
+  const session: AuthSession = {
+    accessToken: payload.accessToken,
+    refreshToken: payload.refreshToken,
+    user: payload.user,
+  };
+  await persistAuthSession(session);
+  return session;
+}
+
 async function postJson<T>(path: string, body: Record<string, unknown>): Promise<T> {
-  const baseUrl = getKitabuApiBaseUrl();
-  if (!baseUrl) {
-    throw new Error('KITABU_API_BASE_URL is not configured');
-  }
-
-  let deviceId = await loadSecureJson<string | null>(DEVICE_ID_STORAGE_KEY, null);
-  if (!deviceId) {
-    deviceId = `kitabu-${Math.random().toString(36).slice(2)}${Date.now().toString(36)}`;
-    await saveSecureJson(DEVICE_ID_STORAGE_KEY, deviceId);
-  }
-
-  const response = await fetch(`${baseUrl.replace(/\/$/, '')}${path}`, {
+  return apiJsonRequest<T>(path, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-kitabu-device-id': deviceId,
-      'x-kitabu-device-label': 'Kitabu Native App',
-    },
     body: JSON.stringify(body),
   });
-
-  const payload = (await response.json()) as T & { message?: string };
-  if (!response.ok) {
-    throw new Error(payload.message || 'Request failed');
-  }
-
-  return payload;
 }
 
 export async function loadStoredAuthSession() {
@@ -52,13 +44,7 @@ export async function persistAuthSession(session: AuthSession | null) {
 
 export async function loginWithPassword(email: string, password: string): Promise<AuthSession> {
   const payload = await postJson<LoginResponse>('/auth/login', { email, password });
-  const session: AuthSession = {
-    accessToken: payload.accessToken,
-    refreshToken: payload.refreshToken,
-    user: payload.user,
-  };
-  await persistAuthSession(session);
-  return session;
+  return persistLoginResponse(payload);
 }
 
 export async function signupWithPassword(input: {
@@ -66,6 +52,7 @@ export async function signupWithPassword(input: {
   email: string;
   password: string;
   role: PublicSignupRole;
+  acceptedTerms: true;
   schoolId?: string | null;
   gender?: GenderOption;
   grade?: string | null;
@@ -73,13 +60,35 @@ export async function signupWithPassword(input: {
   onboardingCompleted?: boolean;
 }): Promise<AuthSession> {
   const payload = await postJson<LoginResponse>('/auth/signup', input);
-  const session: AuthSession = {
-    accessToken: payload.accessToken,
-    refreshToken: payload.refreshToken,
-    user: payload.user,
-  };
-  await persistAuthSession(session);
-  return session;
+  return persistLoginResponse(payload);
+}
+
+export async function requestPhoneAuthCode(input: {
+  purpose: 'login' | 'signup';
+  phoneNumber: string;
+  fullName?: string;
+  role?: PublicSignupRole;
+  acceptedTerms?: true;
+}): Promise<PhoneCodeResponse> {
+  return postJson<PhoneCodeResponse>('/auth/phone/request', input);
+}
+
+export async function verifyPhoneAuthCode(input: {
+  purpose: 'login' | 'signup';
+  phoneNumber: string;
+  code: string;
+}): Promise<AuthSession> {
+  const payload = await postJson<LoginResponse>('/auth/phone/verify', input);
+  return persistLoginResponse(payload);
+}
+
+export async function authenticateWithGoogleToken(input: {
+  idToken: string;
+  role?: PublicSignupRole;
+  acceptedTerms?: true;
+}): Promise<AuthSession> {
+  const payload = await postJson<LoginResponse>('/auth/google', input);
+  return persistLoginResponse(payload);
 }
 
 export async function refreshAccessSession(refreshToken: string): Promise<AuthSession> {
@@ -107,47 +116,42 @@ export async function requestEmailVerification(email: string): Promise<{ message
   return postJson<{ message: string }>('/auth/email-verification/resend', { email });
 }
 
+export async function confirmEmailVerificationToken(token: string): Promise<{ message: string }> {
+  return postJson<{ message: string }>('/auth/email-verification/confirm', { token });
+}
+
+export async function deleteMyAccount() {
+  const session = await loadStoredAuthSession();
+  if (!session?.accessToken) {
+    throw new Error('Authentication required');
+  }
+
+  const payload = await apiJsonRequest<{ deleted?: boolean }>('/me/account', {
+    method: 'DELETE',
+    body: JSON.stringify({ confirmationText: 'DELETE' }),
+  });
+
+  return { deleted: Boolean(payload.deleted) };
+}
+
 export async function completeStudentOnboarding(input: {
   schoolId: string;
   gender: GenderOption;
   grade: string;
   mpesaPhoneNumber?: string | null;
 }): Promise<AuthSession> {
-  const baseUrl = getKitabuApiBaseUrl();
-  if (!baseUrl) {
-    throw new Error('KITABU_API_BASE_URL is not configured');
-  }
-
   const session = await loadStoredAuthSession();
   if (!session?.accessToken) {
     throw new Error('Authentication required');
   }
 
-  let deviceId = await loadSecureJson<string | null>(DEVICE_ID_STORAGE_KEY, null);
-  if (!deviceId) {
-    deviceId = `kitabu-${Math.random().toString(36).slice(2)}${Date.now().toString(36)}`;
-    await saveSecureJson(DEVICE_ID_STORAGE_KEY, deviceId);
-  }
-
-  const response = await fetch(`${baseUrl.replace(/\/$/, '')}/me/onboarding`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${session.accessToken}`,
-      'x-kitabu-device-id': deviceId,
-      'x-kitabu-device-label': 'Kitabu Native App',
-    },
-    body: JSON.stringify(input),
-  });
-
-  const payload = (await response.json()) as {
+  const payload = await apiJsonRequest<{
     accessToken: string;
     user: AuthSession['user'];
-    message?: string;
-  };
-  if (!response.ok) {
-    throw new Error(payload.message || 'Request failed');
-  }
+  }>('/me/onboarding', {
+    method: 'POST',
+    body: JSON.stringify(input),
+  });
 
   const nextSession: AuthSession = {
     accessToken: payload.accessToken,

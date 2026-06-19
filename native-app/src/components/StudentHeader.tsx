@@ -15,6 +15,8 @@ const logoAsset = require('../assets/logo.png');
 interface StudentHeaderProps {
   userAvatar?: string;
   onOpenProfile: () => void;
+  onOpenNotifications?: () => void;
+  unreadNotificationCount?: number;
   showPreviewExit?: boolean;
   onExitPreview?: () => void;
 }
@@ -41,6 +43,8 @@ function getAvatarUri(seed?: string) {
 export function StudentHeader({
   userAvatar,
   onOpenProfile,
+  onOpenNotifications,
+  unreadNotificationCount = 0,
   showPreviewExit = false,
   onExitPreview,
 }: StudentHeaderProps) {
@@ -78,12 +82,19 @@ export function StudentHeader({
         <Pressable
           accessibilityLabel="Notifications"
           accessibilityRole="button"
+          onPress={onOpenNotifications}
           style={({ pressed }) => [
             styles.iconButton,
             pressed && styles.controlPressed,
           ]}>
           <Bell color="#4B5563" size={19} strokeWidth={2.25} />
-          <View style={styles.notificationDot} />
+          {unreadNotificationCount > 0 ? (
+            <View style={styles.notificationBadge}>
+              <Text style={styles.notificationBadgeText}>
+                {unreadNotificationCount > 9 ? '9+' : unreadNotificationCount}
+              </Text>
+            </View>
+          ) : null}
         </Pressable>
 
         <Pressable
@@ -173,16 +184,25 @@ const styles = StyleSheet.create({
     position: 'relative',
     width: 36,
   },
-  notificationDot: {
+  notificationBadge: {
+    alignItems: 'center',
     backgroundColor: '#DC2626',
     borderColor: '#FFFFFF',
-    borderRadius: 4,
+    borderRadius: 999,
     borderWidth: 1.5,
-    height: 8,
+    minHeight: 16,
+    justifyContent: 'center',
+    minWidth: 16,
+    paddingHorizontal: 3,
     position: 'absolute',
-    right: 8,
-    top: 7,
-    width: 8,
+    right: 3,
+    top: 1,
+  },
+  notificationBadgeText: {
+    color: '#FFFFFF',
+    fontSize: 9,
+    fontWeight: '900',
+    lineHeight: 12,
   },
   avatarButton: {
     borderRadius: 999,

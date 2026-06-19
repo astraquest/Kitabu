@@ -5,6 +5,7 @@ import {
   ScrollView,
   StyleSheet,
   Text,
+  TextInput,
   View,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
@@ -56,6 +57,10 @@ export function BookshelfScreen({
 }: BookshelfScreenProps) {
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
   const [downloadingBookId, setDownloadingBookId] = useState<string | null>(null);
+  const [requestModalOpen, setRequestModalOpen] = useState(false);
+  const [requestedTitle, setRequestedTitle] = useState('');
+  const [requestedSubject, setRequestedSubject] = useState('');
+  const [requestMessage, setRequestMessage] = useState<string | null>(null);
 
   useEffect(() => {
     if (!previewBookId) {
@@ -116,6 +121,17 @@ export function BookshelfScreen({
     }
 
     onOpenBook(selectedBook, startPage);
+  }
+
+  function submitBookRequest() {
+    if (!requestedTitle.trim()) {
+      setRequestMessage('Enter the book title you want.');
+      return;
+    }
+
+    setRequestMessage('Request sent to the library team.');
+    setRequestedTitle('');
+    setRequestedSubject('');
   }
 
   const libraryTitle = `${user.name.split(' ')[0] || 'Student'}'s Library`;
@@ -309,6 +325,10 @@ export function BookshelfScreen({
 
       <Pressable
         accessibilityRole="button"
+        onPress={() => {
+          setRequestModalOpen(true);
+          setRequestMessage(null);
+        }}
         style={[
           styles.requestButton,
           isSpotlightMode ? styles.requestButtonDark : styles.requestButtonLight,
@@ -436,6 +456,45 @@ export function BookshelfScreen({
               </View>
             </View>
           ) : null}
+        </View>
+      </Modal>
+
+      <Modal
+        animationType="fade"
+        transparent
+        visible={requestModalOpen}
+        onRequestClose={() => setRequestModalOpen(false)}>
+        <View style={styles.modalBackdrop}>
+          <Pressable style={StyleSheet.absoluteFill} onPress={() => setRequestModalOpen(false)} />
+          <View style={styles.requestModal}>
+            <View style={styles.requestModalHeader}>
+              <Text style={styles.requestModalTitle}>Request a book</Text>
+              <Pressable onPress={() => setRequestModalOpen(false)} style={styles.requestCloseButton}>
+                <X size={20} color="#0F172A" />
+              </Pressable>
+            </View>
+            <Text style={styles.requestModalText}>
+              Tell the library team what learning book you want added next.
+            </Text>
+            <TextInput
+              value={requestedTitle}
+              onChangeText={setRequestedTitle}
+              placeholder="Book title"
+              placeholderTextColor="#94A3B8"
+              style={styles.requestInput}
+            />
+            <TextInput
+              value={requestedSubject}
+              onChangeText={setRequestedSubject}
+              placeholder="Subject or topic"
+              placeholderTextColor="#94A3B8"
+              style={styles.requestInput}
+            />
+            {requestMessage ? <Text style={styles.requestMessage}>{requestMessage}</Text> : null}
+            <Pressable onPress={submitBookRequest} style={styles.requestSubmitButton}>
+              <Text style={styles.requestSubmitText}>Send request</Text>
+            </Pressable>
+          </View>
         </View>
       </Modal>
     </View>
@@ -774,6 +833,60 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 16,
+  },
+  requestModal: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 8,
+    gap: 12,
+    padding: 18,
+    width: '100%',
+  },
+  requestModalHeader: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  requestModalTitle: {
+    color: '#0F172A',
+    fontSize: 20,
+    fontWeight: '900',
+  },
+  requestCloseButton: {
+    alignItems: 'center',
+    height: 36,
+    justifyContent: 'center',
+    width: 36,
+  },
+  requestModalText: {
+    color: '#64748B',
+    fontSize: 14,
+    lineHeight: 20,
+  },
+  requestInput: {
+    borderColor: '#CBD5E1',
+    borderRadius: 8,
+    borderWidth: 1,
+    color: '#0F172A',
+    fontSize: 15,
+    minHeight: 50,
+    paddingHorizontal: 12,
+  },
+  requestMessage: {
+    color: '#2563EB',
+    fontSize: 13,
+    fontWeight: '800',
+  },
+  requestSubmitButton: {
+    alignItems: 'center',
+    backgroundColor: '#2563EB',
+    borderRadius: 8,
+    justifyContent: 'center',
+    minHeight: 50,
+  },
+  requestSubmitText: {
+    color: '#FFFFFF',
+    fontSize: 15,
+    fontWeight: '900',
   },
   modalCenter: {
     width: '100%',

@@ -14,6 +14,7 @@ export function CrazyBalloonRenderer({
 }: CrazyBalloonRendererProps) {
   return (
     <View style={styles.playfield}>
+      <View style={styles.sun} />
       <View style={styles.cloud} />
       <View style={[styles.cloud, styles.cloudTwo]} />
       <View style={[styles.hill, styles.backHill]} />
@@ -30,24 +31,22 @@ export function CrazyBalloonRenderer({
               bottom: `${balloon.bottomPct}%`,
               backgroundColor: balloon.color,
             },
+            balloon.label === 'hazard' && styles.hazardBalloon,
           ]}>
-          <Text style={styles.balloonEmoji}>
-            {balloon.label === 'monster' ? '👹' : '🎈'}
-          </Text>
-          <Text style={styles.balloonTextAlt}>
-            {balloon.label === 'monster' ? '👹' : '🎈'}
-          </Text>
-          <Text style={styles.balloonText}>
-            {balloon.label === 'monster' ? '👹' : '🎈'}
-          </Text>
+          <View style={styles.balloonShine} />
+          {balloon.label === 'hazard' ? (
+            <Text style={styles.hazardMark}>!</Text>
+          ) : null}
+          <View style={styles.balloonKnot} />
+          <View style={styles.balloonString} />
         </Pressable>
       ))}
 
       {renderState.showHint ? (
         <View style={styles.hintCard}>
-          <Text style={styles.hintTitle}>Pop to Score!</Text>
+          <Text style={styles.hintTitle}>Pop to Score</Text>
           <Text style={styles.hintBody}>
-            Beware! 2 in 5 balloons hide a hungry monster.
+            Tap clean balloons quickly. Warning balloons trigger a rescue question.
           </Text>
         </View>
       ) : null}
@@ -61,9 +60,18 @@ const styles = StyleSheet.create({
     marginTop: 56,
     marginHorizontal: 16,
     marginBottom: 24,
-    borderRadius: 32,
+    borderRadius: 28,
     overflow: 'hidden',
     backgroundColor: '#7DD3FC',
+  },
+  sun: {
+    position: 'absolute',
+    top: 24,
+    right: 28,
+    width: 68,
+    height: 68,
+    borderRadius: 34,
+    backgroundColor: '#FACC15',
   },
   cloud: {
     position: 'absolute',
@@ -72,9 +80,9 @@ const styles = StyleSheet.create({
     width: 92,
     height: 42,
     borderRadius: 22,
-    backgroundColor: 'rgba(255,255,255,0.7)',
+    backgroundColor: 'rgba(255,255,255,0.76)',
   },
-  cloudTwo: { top: 112, left: 220, width: 110 },
+  cloudTwo: { top: 120, left: 220, width: 110 },
   hill: {
     position: 'absolute',
     left: -40,
@@ -94,9 +102,9 @@ const styles = StyleSheet.create({
   },
   balloon: {
     position: 'absolute',
-    width: 62,
-    height: 78,
-    borderRadius: 34,
+    width: 58,
+    height: 72,
+    borderRadius: 30,
     alignItems: 'center',
     justifyContent: 'center',
     shadowColor: '#000000',
@@ -104,17 +112,48 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
     shadowOffset: { width: 0, height: 6 },
   },
-  balloonText: { fontSize: 1, lineHeight: 1, opacity: 0, color: 'transparent' },
-  balloonTextAlt: { fontSize: 1, lineHeight: 1, opacity: 0, color: 'transparent' },
-  balloonEmoji: { fontSize: 28 },
+  hazardBalloon: {
+    borderColor: 'rgba(15,23,42,0.5)',
+    borderWidth: 3,
+  },
+  balloonShine: {
+    position: 'absolute',
+    left: 14,
+    top: 12,
+    width: 14,
+    height: 22,
+    borderRadius: 999,
+    backgroundColor: 'rgba(255,255,255,0.42)',
+  },
+  hazardMark: {
+    color: '#FFFFFF',
+    fontSize: 30,
+    fontWeight: '900',
+  },
+  balloonKnot: {
+    position: 'absolute',
+    bottom: -5,
+    width: 12,
+    height: 10,
+    borderRadius: 3,
+    backgroundColor: 'rgba(15,23,42,0.24)',
+    transform: [{ rotate: '45deg' }],
+  },
+  balloonString: {
+    position: 'absolute',
+    bottom: -30,
+    width: 2,
+    height: 28,
+    backgroundColor: 'rgba(15,23,42,0.22)',
+  },
   hintCard: {
     position: 'absolute',
     left: 20,
     right: 20,
     bottom: 28,
-    backgroundColor: 'rgba(15,23,42,0.7)',
-    borderRadius: 22,
-    padding: 16,
+    backgroundColor: 'rgba(15,23,42,0.72)',
+    borderRadius: 18,
+    padding: 14,
     gap: 6,
   },
   hintTitle: { color: '#FFFFFF', fontSize: 18, fontWeight: '800' },

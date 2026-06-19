@@ -25,6 +25,7 @@ import {
   X,
 } from 'lucide-react-native';
 
+import { DEFAULT_GRADE } from '../constants/grades';
 import { askHomeworkHelper } from '../services/aiService';
 import { audioRecordingBridge } from '../services/nativeBridges';
 import { Question } from '../types/app';
@@ -268,7 +269,7 @@ export function TakeQuizScreen({
   async function handleAskAI(text = currentQuestion?.text || '', answer = answers[currentIndex]) {
     setExplanationModal({ isOpen: true, isLoading: true, text: '' });
     const correctAnswer = String(currentQuestion.correctAnswer ?? '');
-    let prompt = `I'm a Grade 8 student.\nQuestion: "${text}"\nCorrect Answer: "${correctAnswer}"`;
+    let prompt = `I'm a ${DEFAULT_GRADE} student.\nQuestion: "${text}"\nCorrect Answer: "${correctAnswer}"`;
     if (answer) {
       prompt += `\nMy Answer: "${answer}"`;
     } else {
@@ -496,7 +497,7 @@ export function TakeQuizScreen({
           <Text style={styles.questionText}>{currentQuestion.text}</Text>
 
           {(currentQuestion.type === 'MCQ' || currentQuestion.type === 'TRUE_FALSE') &&
-            options.map(option => {
+            options.map((option, index) => {
               const selected = answers[currentIndex] === option;
               const correct =
                 String(option).toLowerCase() ===
@@ -513,6 +514,15 @@ export function TakeQuizScreen({
                     feedback && correct && styles.optionCardCorrect,
                     feedback && selected && !correct && styles.optionCardIncorrect,
                   ]}>
+                  <View style={[styles.optionMarker, selected && !feedback && styles.optionMarkerSelected]}>
+                    <Text
+                      style={[
+                        styles.optionMarkerText,
+                        selected && !feedback && styles.optionMarkerTextSelected,
+                      ]}>
+                      {String.fromCharCode(65 + index)}
+                    </Text>
+                  </View>
                   <Text
                     style={[
                       styles.optionText,
@@ -825,12 +835,16 @@ const styles = StyleSheet.create({
     marginBottom: 6,
   },
   optionCard: {
+    alignItems: 'center',
     backgroundColor: '#FFFFFF',
     borderRadius: 22,
     borderWidth: 1,
     borderColor: '#DADADA',
+    flexDirection: 'row',
+    gap: 12,
+    minHeight: 68,
     paddingHorizontal: 18,
-    paddingVertical: 24,
+    paddingVertical: 18,
   },
   optionCardSelected: {
     borderColor: '#3B82F6',
@@ -846,6 +860,7 @@ const styles = StyleSheet.create({
   },
   optionText: {
     color: '#111827',
+    flex: 1,
     fontSize: 18,
     lineHeight: 30,
     fontWeight: '500',
@@ -853,6 +868,25 @@ const styles = StyleSheet.create({
   optionTextSelected: {
     color: '#1D4ED8',
     fontWeight: '700',
+  },
+  optionMarker: {
+    alignItems: 'center',
+    backgroundColor: '#F1F5F9',
+    borderRadius: 12,
+    height: 38,
+    justifyContent: 'center',
+    width: 38,
+  },
+  optionMarkerSelected: {
+    backgroundColor: '#2563EB',
+  },
+  optionMarkerText: {
+    color: '#475569',
+    fontSize: 14,
+    fontWeight: '900',
+  },
+  optionMarkerTextSelected: {
+    color: '#FFFFFF',
   },
   audioWrap: {
     gap: 14,

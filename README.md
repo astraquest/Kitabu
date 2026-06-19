@@ -28,6 +28,8 @@ Seeded test users are always normalized to:
 See:
 
 - `docker-compose.yml`
+- `DEPLOY_DIGITALOCEAN.md`
+- `DEPLOY_HETZNER.md`
 - `infra/Caddyfile`
 - `infra/backup.sh`
 - `apps/api/sql/`
@@ -43,6 +45,10 @@ Before every deployment that touches the API or database schema, run:
 - `npm run migrate -w apps/api`
 
 Do not deploy the API until migrations complete successfully against the target database.
+
+Before cutting a release from a development machine, run:
+
+- `npm run release:check`
 
 ## Production Readiness
 

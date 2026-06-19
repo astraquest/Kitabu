@@ -12,8 +12,12 @@ import {
   View,
 } from 'react-native';
 import {
+  AlertTriangle,
+  ClipboardList,
   CheckCircle2,
   ChevronLeft,
+  Eye,
+  Users,
 } from 'lucide-react-native';
 
 import { TeacherAssignmentDetailSection } from '../components/teacher/TeacherAssignmentDetailSection';
@@ -22,6 +26,7 @@ import { TeacherAssignmentWizardSection } from '../components/teacher/TeacherAss
 import { TeacherStudentsSection } from '../components/teacher/TeacherStudentsSection';
 import { TeacherSubmissionReviewSection } from '../components/teacher/TeacherSubmissionReviewSection';
 import { StudentDetailsModal } from '../components/StudentDetailsModal';
+import { DEFAULT_GRADE } from '../constants/grades';
 import { generateAssignmentJson } from '../services/aiService';
 import {
   Assignment,
@@ -149,7 +154,7 @@ export function TeacherPortalScreen({
   const [step, setStep] = useState<WizardStep>(1);
   const [topic, setTopic] = useState('');
   const [subject, setSubject] = useState('Math');
-  const [grade, setGrade] = useState('Grade 8');
+  const [grade, setGrade] = useState(DEFAULT_GRADE);
   const [strand, setStrand] = useState('');
   const [subStrand, setSubStrand] = useState('');
   const [wizardGradeOpen, setWizardGradeOpen] = useState(false);
@@ -192,6 +197,20 @@ export function TeacherPortalScreen({
   const averageScore = Math.round(
     students.reduce((total, current) => total + current.assessmentScore, 0) /
       Math.max(1, students.length),
+  );
+  const averageHomework = Math.round(
+    students.reduce((total, current) => total + current.homeworkCompletion, 0) /
+      Math.max(1, students.length),
+  );
+  const remedialCount = students.filter(item => item.assessmentScore < 70).length;
+  const openAssignmentCount = assignments.filter(item => item.submittedCount < item.totalStudents).length;
+  const totalExpectedSubmissions = assignments.reduce(
+    (total, current) => total + current.totalStudents,
+    0,
+  );
+  const totalSubmitted = assignments.reduce((total, current) => total + current.submittedCount, 0);
+  const submissionRate = Math.round(
+    (totalSubmitted / Math.max(1, totalExpectedSubmissions)) * 100,
   );
 
   const activeSubmissionList = assignment
@@ -286,18 +305,54 @@ export function TeacherPortalScreen({
           <ChevronLeft size={24} color="#1D4ED8" />
           <Text style={s.backText}>Back</Text>
         </Pressable>
-        <Text style={s.headerTitle}>Teacher&apos;s Portal</Text>
+        <Text style={s.headerTitle}>Teacher's Portal</Text>
         <View style={s.spacer} />
       </View>
 
       <View style={s.heroCard}>
         <View style={s.heroCopy}>
-          <Text style={s.heroEyebrow}>Teacher Workspace</Text>
-          <Text style={s.heroTitle}>Manage class flow, then preview the student experience.</Text>
+          <Text style={s.heroEyebrow}>Class Operations</Text>
+          <Text style={s.heroTitle}>Supported grades readiness dashboard</Text>
+          <Text style={s.heroBody}>
+            Track mastery, remedial attention, and assignment follow-through from one teacher view.
+          </Text>
         </View>
-        <Pressable onPress={onOpenStudentPreview} style={s.heroButton}>
-          <Text style={s.heroButtonText}>Student Portal</Text>
-        </Pressable>
+        <View style={s.heroAside}>
+          <View style={s.healthBadge}>
+            <Text style={s.healthValue}>{averageScore}%</Text>
+            <Text style={s.healthLabel}>Class avg</Text>
+          </View>
+          <Pressable onPress={onOpenStudentPreview} style={s.heroButton}>
+            <Eye size={14} color="#1D4ED8" />
+            <Text style={s.heroButtonText}>Preview</Text>
+          </Pressable>
+        </View>
+      </View>
+
+      <View style={s.summaryStrip}>
+        <View style={s.summaryItem}>
+          <Users size={16} color="#1D4ED8" />
+          <View>
+            <Text style={s.summaryValue}>{students.length}</Text>
+            <Text style={s.summaryLabel}>Learners</Text>
+          </View>
+        </View>
+        <View style={s.summaryDivider} />
+        <View style={s.summaryItem}>
+          <AlertTriangle size={16} color={remedialCount > 0 ? '#B45309' : '#15803D'} />
+          <View>
+            <Text style={s.summaryValue}>{remedialCount}</Text>
+            <Text style={s.summaryLabel}>Need support</Text>
+          </View>
+        </View>
+        <View style={s.summaryDivider} />
+        <View style={s.summaryItem}>
+          <ClipboardList size={16} color="#0F766E" />
+          <View>
+            <Text style={s.summaryValue}>{openAssignmentCount}</Text>
+            <Text style={s.summaryLabel}>Open work</Text>
+          </View>
+        </View>
       </View>
 
       <View style={s.segmented}>
@@ -322,6 +377,8 @@ export function TeacherPortalScreen({
             sortBy={sortBy}
             showRemedial={showRemedial}
             averageScore={averageScore}
+            averageHomework={averageHomework}
+            remedialCount={remedialCount}
             filteredStudents={filteredStudents}
             onToggleGradeMenu={() => setGradeMenuOpen(open => !open)}
             onSelectGrade={value => {
@@ -338,6 +395,8 @@ export function TeacherPortalScreen({
             subjectFilter={subjectFilter}
             subjectMenuOpen={subjectMenuOpen}
             assignmentSortBy={assignmentSortBy}
+            submissionRate={submissionRate}
+            openAssignmentCount={openAssignmentCount}
             filteredAssignments={filteredAssignments}
             onToggleSubjectMenu={() => setSubjectMenuOpen(open => !open)}
             onSelectSubject={value => {
@@ -517,10 +576,10 @@ export function TeacherPortalScreen({
 }
 
 const s = StyleSheet.create({
-  root: { flex: 1, backgroundColor: '#F2F2F7' },
+  root: { flex: 1, backgroundColor: '#F6F7F9' },
   overlayFill: {
     flex: 1,
-    backgroundColor: '#F2F2F7',
+    backgroundColor: '#F6F7F9',
   },
   header: {
     backgroundColor: 'rgba(255,255,255,0.95)',
@@ -537,50 +596,108 @@ const s = StyleSheet.create({
   headerTitle: { color: '#111827', fontWeight: '800', fontSize: 16 },
   spacer: { width: 56 },
   heroCard: {
-    backgroundColor: '#111827',
-    borderRadius: 24,
+    backgroundColor: '#0B2D4D',
+    borderRadius: 18,
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginHorizontal: 16,
-    marginTop: 14,
-    marginBottom: 8,
+    marginTop: 12,
+    marginBottom: 10,
     padding: 18,
-    gap: 16,
+    gap: 14,
   },
   heroCopy: {
     flex: 1,
     gap: 6,
   },
   heroEyebrow: {
-    color: '#93C5FD',
+    color: '#B7F7D0',
     fontSize: 10,
     fontWeight: '800',
     textTransform: 'uppercase',
-    letterSpacing: 1,
   },
   heroTitle: {
     color: '#FFFFFF',
-    fontSize: 16,
+    fontSize: 19,
     fontWeight: '800',
-    lineHeight: 22,
+    lineHeight: 24,
+  },
+  heroBody: {
+    color: '#D7E4EF',
+    fontSize: 12,
+    fontWeight: '600',
+    lineHeight: 17,
+    marginTop: 2,
+  },
+  heroAside: {
+    alignItems: 'flex-end',
+    justifyContent: 'space-between',
+    minWidth: 92,
+  },
+  healthBadge: {
+    alignItems: 'flex-end',
+  },
+  healthValue: {
+    color: '#FFFFFF',
+    fontSize: 26,
+    fontWeight: '900',
+  },
+  healthLabel: {
+    color: '#B7C9DA',
+    fontSize: 10,
+    fontWeight: '800',
+    textTransform: 'uppercase',
   },
   heroButton: {
     alignItems: 'center',
-    alignSelf: 'center',
     backgroundColor: '#DBEAFE',
     borderRadius: 999,
+    flexDirection: 'row',
+    gap: 6,
     justifyContent: 'center',
     minHeight: 44,
-    paddingHorizontal: 16,
+    paddingHorizontal: 14,
   },
   heroButtonText: {
     color: '#1D4ED8',
     fontSize: 12,
     fontWeight: '800',
   },
+  summaryStrip: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#E1E7EF',
+    borderRadius: 16,
+    borderWidth: 1,
+    flexDirection: 'row',
+    marginHorizontal: 16,
+    paddingHorizontal: 12,
+    paddingVertical: 12,
+  },
+  summaryItem: {
+    alignItems: 'center',
+    flex: 1,
+    flexDirection: 'row',
+    gap: 8,
+    justifyContent: 'center',
+  },
+  summaryDivider: {
+    backgroundColor: '#E5E7EB',
+    width: 1,
+  },
+  summaryValue: {
+    color: '#111827',
+    fontSize: 14,
+    fontWeight: '900',
+  },
+  summaryLabel: {
+    color: '#64748B',
+    fontSize: 10,
+    fontWeight: '800',
+    textTransform: 'uppercase',
+  },
   segmented: {
     marginHorizontal: 16,
-    marginTop: 12,
+    marginTop: 10,
     marginBottom: 8,
     backgroundColor: '#E5E7EB',
     borderRadius: 14,
@@ -591,7 +708,7 @@ const s = StyleSheet.create({
   segActive: { backgroundColor: '#FFF' },
   segText: { color: '#6B7280', fontWeight: '800', fontSize: 12 },
   segTextActive: { color: '#111827' },
-  content: { padding: 16, paddingBottom: 32, gap: 14 },
+  content: { padding: 16, paddingTop: 8, paddingBottom: 32, gap: 14 },
   filterRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, alignItems: 'center' },
   dropdownWrap: { position: 'relative' },
   chip: {
@@ -640,11 +757,11 @@ const s = StyleSheet.create({
   metric: {
     flex: 1,
     backgroundColor: '#FFF',
-    borderRadius: 20,
+    borderRadius: 16,
     borderWidth: 1,
-    borderColor: '#E5E7EB',
-    padding: 16,
-    minHeight: 96,
+    borderColor: '#E1E7EF',
+    padding: 14,
+    minHeight: 112,
     justifyContent: 'space-between',
   },
   metricLabel: {
@@ -669,12 +786,19 @@ const s = StyleSheet.create({
     marginLeft: 4,
     marginBottom: 4,
   },
+  metricSubline: {
+    color: '#64748B',
+    fontSize: 11,
+    fontWeight: '600',
+    lineHeight: 15,
+    marginTop: 6,
+  },
   risk: { color: '#DC2626' },
   card: {
     backgroundColor: '#FFF',
-    borderRadius: 20,
+    borderRadius: 16,
     borderWidth: 1,
-    borderColor: '#E5E7EB',
+    borderColor: '#E1E7EF',
     overflow: 'hidden',
   },
   cardHeader: {
@@ -703,7 +827,7 @@ const s = StyleSheet.create({
     borderTopWidth: 1,
     borderColor: '#F3F4F6',
   },
-  rowLead: { flexDirection: 'row', alignItems: 'center', gap: 12, flex: 1 },
+  rowLead: { flexDirection: 'row', alignItems: 'center', gap: 12, flex: 1, minWidth: 0 },
   rowEnd: { flexDirection: 'row', alignItems: 'center', gap: 16 },
   rowEndTight: { flexDirection: 'row', alignItems: 'center', gap: 12 },
   avatar: {
@@ -719,9 +843,9 @@ const s = StyleSheet.create({
   },
   avatarImage: { width: '100%', height: '100%' },
   avatarText: { color: '#1D4ED8', fontWeight: '900', fontSize: 13 },
-  rowMain: { flex: 1 },
+  rowMain: { flex: 1, minWidth: 0 },
   rowTitle: { color: '#111827', fontWeight: '800', fontSize: 14 },
-  rowMeta: { color: '#6B7280', fontSize: 12, fontWeight: '600' },
+  rowMeta: { color: '#6B7280', fontSize: 11, fontWeight: '600', lineHeight: 16 },
   rowMetaTiny: {
     color: '#6B7280',
     fontSize: 10,
@@ -737,6 +861,29 @@ const s = StyleSheet.create({
     textTransform: 'uppercase',
   },
   score: { fontWeight: '900', fontSize: 14 },
+  studentProgressLine: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 8,
+    marginTop: 8,
+  },
+  studentProgressTrack: {
+    backgroundColor: '#E5E7EB',
+    borderRadius: 999,
+    flex: 1,
+    height: 6,
+    overflow: 'hidden',
+  },
+  studentProgressFill: {
+    backgroundColor: '#0F766E',
+    borderRadius: 999,
+    height: 6,
+  },
+  studentProgressText: {
+    color: '#64748B',
+    fontSize: 10,
+    fontWeight: '800',
+  },
   goodText: { color: '#15803D' },
   warnText: { color: '#C2410C' },
   badText: { color: '#B91C1C' },
@@ -745,9 +892,9 @@ const s = StyleSheet.create({
   assignmentList: { gap: 12 },
   assignmentCard: {
     backgroundColor: '#FFF',
-    borderRadius: 20,
+    borderRadius: 16,
     borderWidth: 1,
-    borderColor: '#E5E7EB',
+    borderColor: '#E1E7EF',
     padding: 16,
   },
   assignmentHead: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 8 },

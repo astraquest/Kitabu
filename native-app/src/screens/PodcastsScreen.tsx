@@ -141,7 +141,7 @@ export function PodcastsScreen({ podcasts, onBack }: PodcastsScreenProps) {
             <Pressable onPress={onBack} style={styles.headerIcon}>
               <ArrowLeft size={24} color="#374151" />
             </Pressable>
-            <Text style={styles.headerTitle}>Learning Hub</Text>
+          <Text style={styles.headerTitle}>Podcasts</Text>
             <View style={styles.headerIcon}>
               <Search size={22} color="#374151" />
             </View>

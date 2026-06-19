@@ -9,6 +9,8 @@ interface TeacherAssignmentsSectionProps {
   subjectFilter: string;
   subjectMenuOpen: boolean;
   assignmentSortBy: 'date' | 'subject';
+  submissionRate: number;
+  openAssignmentCount: number;
   filteredAssignments: SubmittedAssignment[];
   onToggleSubjectMenu: () => void;
   onSelectSubject: (value: string) => void;
@@ -22,6 +24,8 @@ export function TeacherAssignmentsSection({
   subjectFilter,
   subjectMenuOpen,
   assignmentSortBy,
+  submissionRate,
+  openAssignmentCount,
   filteredAssignments,
   onToggleSubjectMenu,
   onSelectSubject,
@@ -72,6 +76,25 @@ export function TeacherAssignmentsSection({
         </Pressable>
       </View>
 
+      <View style={styles.grid}>
+        <View style={styles.metric}>
+          <Text style={styles.metricLabel}>Submission Rate</Text>
+          <View style={styles.metricRow}>
+            <Text style={styles.metricValue}>{submissionRate}%</Text>
+            <Text style={styles.metricHint}>Avg</Text>
+          </View>
+          <Text style={styles.metricSubline}>Across published assignments</Text>
+        </View>
+        <View style={styles.metric}>
+          <Text style={styles.metricLabel}>Open Assignments</Text>
+          <View style={styles.metricRow}>
+            <Text style={styles.metricValue}>{openAssignmentCount}</Text>
+            <Text style={styles.metricHint}>Need review</Text>
+          </View>
+          <Text style={styles.metricSubline}>Track pending learner work</Text>
+        </View>
+      </View>
+
       <View style={styles.assignmentList}>
         {filteredAssignments.length > 0 ? (
           filteredAssignments.map(item => {
@@ -114,8 +137,13 @@ export function TeacherAssignmentsSection({
 
                 <View style={styles.progressMeta}>
                   <Text style={styles.progressLabel}>Submissions</Text>
-                  <Text style={styles.progressCount}>
-                    {item.submittedCount}/{item.totalStudents}
+                  <Text
+                    style={[
+                      styles.progressCount,
+                      completionRate < 60 && styles.warnText,
+                      completionRate === 100 && styles.goodText,
+                    ]}>
+                    {item.submittedCount}/{item.totalStudents} ({completionRate}%)
                   </Text>
                 </View>
 

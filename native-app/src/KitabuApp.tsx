@@ -1,14 +1,16 @@
 import React from 'react';
 import {
   Image,
-  SafeAreaView,
   StyleSheet,
+  StatusBar,
   Text,
   View,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { BottomChatBar } from './components/BottomChatBar';
 import { ChatOverlayModal } from './components/ChatOverlayModal';
+import { NotificationsModal } from './components/NotificationsModal';
 import { ProfileModal } from './components/ProfileModal';
 import { StudentHeader } from './components/StudentHeader';
 import { SubscriptionCheckoutModal } from './components/SubscriptionCheckoutModal';
@@ -21,6 +23,8 @@ import { BookshelfScreen } from './screens/BookshelfScreen';
 import { BrainTeaseScreen } from './screens/BrainTeaseScreen';
 import { CrazyBalloonScreen } from './screens/CrazyBalloonScreen';
 import { DashboardScreen } from './screens/DashboardScreen';
+import { EmailVerificationScreen } from './screens/EmailVerificationScreen';
+import { DiagnosticScreen } from './screens/DiagnosticScreen';
 import { GameZoneScreen } from './screens/GameZoneScreen';
 import { HomeworkListScreen } from './screens/HomeworkListScreen';
 import { HomeworkQuizScreen } from './screens/HomeworkQuizScreen';
@@ -29,14 +33,26 @@ import { LetsLearnContentScreen } from './screens/LetsLearnContentScreen';
 import { LetsLearnListScreen } from './screens/LetsLearnListScreen';
 import { LiveAudioTutorScreen } from './screens/LiveAudioTutorScreen';
 import { PodcastsScreen } from './screens/PodcastsScreen';
-import { QuackGameScreen } from './screens/QuackGameScreen';
+import { ParentDashboardScreen } from './screens/ParentDashboardScreen';
+import { QuizBattleScreen } from './screens/QuizBattleScreen';
 import { QuizMeScreen } from './screens/QuizMeScreen';
+import { ReviewSessionScreen } from './screens/ReviewSessionScreen';
 import { SubjectScreen } from './screens/SubjectScreen';
 import { StudentOnboardingScreen } from './screens/StudentOnboardingScreen';
 import { TakeQuizScreen } from './screens/TakeQuizScreen';
 import { TeacherPortalScreen } from './screens/TeacherPortalScreen';
+import { WeeklyExamScreen } from './screens/WeeklyExamScreen';
 
-const logo = require('./assets/logo.png');
+const splashImage = require('./assets/splashscreen.png');
+
+function AppSafeArea({ children }: { children: React.ReactNode }) {
+  return (
+    <SafeAreaView edges={['left', 'right', 'bottom']} style={styles.safeArea}>
+      <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
+      {children}
+    </SafeAreaView>
+  );
+}
 
 export function KitabuApp() {
   const { state, actions } = useKitabuApp();
@@ -45,34 +61,35 @@ export function KitabuApp() {
 
   if (!state.isReady) {
     return (
-      <SafeAreaView style={styles.safeArea}>
+      <AppSafeArea>
         <View style={styles.bootstrapWrap}>
-          <Image source={logo} style={styles.bootstrapLogo} resizeMode="contain" />
+          <Image source={splashImage} style={styles.bootstrapSplash} resizeMode="cover" />
         </View>
-      </SafeAreaView>
+      </AppSafeArea>
     );
   }
 
   if (!state.authSession) {
     if (state.authEntryScreen === 'intro') {
       return (
-        <SafeAreaView style={styles.safeArea}>
+        <AppSafeArea>
           <IntroCarouselScreen
             onSignIn={actions.openSignInEntry}
             onCreateAccount={actions.openSignupEntry}
           />
-        </SafeAreaView>
+        </AppSafeArea>
       );
     }
 
     return (
-      <SafeAreaView style={styles.safeArea}>
+      <AppSafeArea>
         <LoginScreen
           mode={state.authMode}
           email={state.loginEmail}
           password={state.loginPassword}
           fullName={state.signupFullName}
           signupRole={state.signupRole}
+          acceptedTerms={state.acceptedTerms}
           error={state.authError}
           isSubmitting={state.isAuthenticating}
           onModeChange={actions.setAuthMode}
@@ -80,32 +97,79 @@ export function KitabuApp() {
           onPasswordChange={actions.setLoginPassword}
           onFullNameChange={actions.setSignupFullName}
           onSignupRoleChange={actions.setSignupRole}
+          onAcceptedTermsChange={actions.setAcceptedTerms}
+          onAuthenticated={actions.completeProviderAuthentication}
           onSubmit={state.authMode === 'login' ? actions.signIn : actions.signUp}
         />
-      </SafeAreaView>
+      </AppSafeArea>
+    );
+  }
+
+  if (!state.authSession.user.emailVerified && !state.authSession.user.phoneVerified) {
+    return (
+      <AppSafeArea>
+        <EmailVerificationScreen
+          email={state.authSession.user.email}
+          onResend={actions.resendVerificationEmail}
+          onSignOut={actions.signOut}
+        />
+      </AppSafeArea>
     );
   }
 
   if (state.hasPendingStudentOnboarding) {
     return (
-      <SafeAreaView style={styles.safeArea}>
+      <AppSafeArea>
         <StudentOnboardingScreen
           schools={state.schoolsList}
           isSubmitting={state.isSubmittingOnboarding}
           error={state.onboardingError}
           onSubmit={actions.submitStudentOnboarding}
         />
-      </SafeAreaView>
+      </AppSafeArea>
+    );
+  }
+
+  if (state.isCheckingDiagnostic) {
+    return (
+      <AppSafeArea>
+        <View style={styles.bootstrapWrap}>
+          <Image source={splashImage} style={styles.bootstrapSplash} resizeMode="cover" />
+        </View>
+      </AppSafeArea>
+    );
+  }
+
+  if (state.hasPendingStudentDiagnostic) {
+    return (
+      <AppSafeArea>
+        <DiagnosticScreen onComplete={actions.completeDiagnosticOnboarding} />
+      </AppSafeArea>
+    );
+  }
+
+  if (state.hasPendingProgressiveDiagnostic && state.progressiveDiagnosticSubject) {
+    return (
+      <AppSafeArea>
+        <DiagnosticScreen
+          mode="progressive"
+          subjectId={state.progressiveDiagnosticSubject.id}
+          subjectName={state.progressiveDiagnosticSubject.name}
+          onComplete={actions.completeProgressiveDiagnostic}
+        />
+      </AppSafeArea>
     );
   }
 
   return (
-    <SafeAreaView style={styles.safeArea}>
+    <AppSafeArea>
       <View style={styles.container}>
         {usesStudentHeader ? (
           <StudentHeader
             userAvatar={state.userProfile.avatar}
             onOpenProfile={() => actions.setProfileOpen(true)}
+            onOpenNotifications={() => actions.setNotificationsOpen(true)}
+            unreadNotificationCount={state.unreadNotificationCount}
             showPreviewExit={state.isStudentPreview}
             onExitPreview={actions.exitStudentPreview}
           />
@@ -125,6 +189,7 @@ export function KitabuApp() {
             isLoading={state.isLoading}
             onSendMessage={message => actions.sendMessage(message)}
             onOpen={() => actions.setChatOpen(true)}
+            onAddAttachment={actions.openChatAttachmentPicker}
             onOpenLive={actions.openLiveTutorOverlay}
           />
         ) : null}
@@ -135,6 +200,7 @@ export function KitabuApp() {
           onOpenAdmin={actions.openAdminPortal}
           onOpenTeacher={actions.openTeacherPortal}
           onSignOut={actions.signOut}
+          onDeleteAccount={actions.deleteAccount}
           showTeacherPortalButton={state.canOpenTeacherPortal}
           showAdminPortalButton={state.canOpenAdminPortal}
           canResendVerification={state.canResendVerification}
@@ -168,13 +234,30 @@ export function KitabuApp() {
             }
           }}
           schools={state.schoolsList}
+          allSubjects={state.subjects}
+          selectedSubjectIds={state.dashboardSubjectIds}
+          onToggleSubject={actions.toggleDashboardSubject}
+        />
+
+        <NotificationsModal
+          isOpen={state.notificationsOpen}
+          notifications={state.notifications}
+          onClose={() => actions.setNotificationsOpen(false)}
+          onMarkRead={actions.readNotification}
+          onMarkAllRead={actions.readAllNotifications}
         />
 
         <ChatOverlayModal
           isOpen={state.chatOpen}
           isLoading={state.isLoading}
           messages={state.messages}
+          currentGrade={state.currentGrade}
+          selectedSubject={state.selectedSubject}
+          selectedSubStrand={state.selectedSubStrand}
+          selectedAssignment={state.selectedAssignment}
+          userProfile={state.userProfile}
           startLiveAudio={state.startLiveAudio}
+          attachmentPickerSignal={state.chatAttachmentPickerSignal}
           onClose={actions.closeChat}
           onSendMessage={actions.sendMessage}
           onStartLiveAudio={actions.openLiveTutorOverlay}
@@ -218,7 +301,7 @@ export function KitabuApp() {
           </View>
         ) : null}
       </View>
-    </SafeAreaView>
+    </AppSafeArea>
   );
 }
 
@@ -229,7 +312,7 @@ function shouldUseStudentHeader(view: string) {
 }
 
 function shouldUseStandaloneScreen(view: string) {
-  return ['teachers_portal', 'admin_portal'].includes(view);
+  return ['teachers_portal', 'admin_portal', 'parent_dashboard', 'weekly_exam', 'review_session'].includes(view);
 }
 
 function renderScreen(
@@ -265,9 +348,16 @@ function renderScreen(
       ) : (
         <DashboardScreen
           banner={state.dashboardBanner}
-          pendingAssignments={state.pendingAssignments}
-          subjects={state.subjects}
+          homeworkNotificationCount={
+            state.pendingAssignments.length +
+            state.dueReviews.length +
+            (state.weeklyExam && state.weeklyExam.attempt?.status !== 'completed' ? 1 : 0)
+          }
+          subjects={state.dashboardSubjects}
+          allSubjects={state.subjects}
+          selectedSubjectIds={state.dashboardSubjectIds}
           onOpenSubject={actions.openSubject}
+          onSaveSubjectSelection={actions.saveDashboardSubjects}
           onOpenFeature={actions.openFeature}
           onBannerAction={actions.openBannerAction}
         />
@@ -276,8 +366,12 @@ function renderScreen(
       return (
         <HomeworkListScreen
           assignments={state.assignments}
+          dueReviews={state.dueReviews}
+          weeklyExam={state.weeklyExam}
           onBack={actions.goHome}
           onStartAssignment={actions.startAssignment}
+          onStartReview={actions.startDueReview}
+          onOpenWeeklyExam={() => actions.openFeature('weekly_exam')}
         />
       );
     case 'homework_quiz':
@@ -290,8 +384,12 @@ function renderScreen(
       ) : (
         <HomeworkListScreen
           assignments={state.assignments}
+          dueReviews={state.dueReviews}
+          weeklyExam={state.weeklyExam}
           onBack={actions.goHome}
           onStartAssignment={actions.startAssignment}
+          onStartReview={actions.startDueReview}
+          onOpenWeeklyExam={() => actions.openFeature('weekly_exam')}
         />
       );
     case 'lets_learn_list':
@@ -375,7 +473,17 @@ function renderScreen(
         />
       );
     case 'live_audio':
-      return <LiveAudioTutorScreen onClose={actions.closeLiveAudio} />;
+      return (
+        <LiveAudioTutorScreen
+          onClose={actions.closeLiveAudio}
+          initialMessages={state.messages}
+          currentGrade={state.currentGrade}
+          selectedSubject={state.selectedSubject}
+          selectedSubStrand={state.selectedSubStrand}
+          selectedAssignment={state.selectedAssignment}
+          userProfile={state.userProfile}
+        />
+      );
     case 'brain_tease':
       return (
         <BrainTeaseScreen
@@ -431,16 +539,16 @@ function renderScreen(
           onPlayGame={actions.playGame}
         />
       );
-    case 'quack_game':
+    case 'crazy_balloon':
       return (
-        <QuackGameScreen
+        <CrazyBalloonScreen
           onAddPoints={actions.addPoints}
           onBack={() => actions.openFeature('game_zone')}
         />
       );
-    case 'crazy_balloon':
+    case 'quiz_battle':
       return (
-        <CrazyBalloonScreen
+        <QuizBattleScreen
           onAddPoints={actions.addPoints}
           onBack={() => actions.openFeature('game_zone')}
         />
@@ -450,7 +558,7 @@ function renderScreen(
     case 'teachers_portal':
       return (
         <TeacherPortalScreen
-          onBack={actions.goHome}
+          onBack={() => actions.openFeature('dashboard')}
           onOpenStudentPreview={actions.openStudentPreview}
           students={state.teacherStudents}
           assignments={state.teacherAssignments}
@@ -461,7 +569,7 @@ function renderScreen(
     case 'admin_portal':
       return (
         <AdminPortalScreen
-          onBack={actions.goHome}
+          onBack={() => actions.openFeature('dashboard')}
           currentGrade={state.adminSelectedGrade}
           subjects={state.subjects}
           curriculumData={state.curriculumData}
@@ -475,6 +583,7 @@ function renderScreen(
           onCreateSchool={actions.createSchoolRecord}
           onUpdateSchoolRecord={actions.updateSchoolRecord}
           onDeleteSchoolRecord={actions.deleteSchoolRecord}
+          onUpdateSchoolPilot={actions.updateSchoolPilotRecord}
           onCreateDiscount={actions.createDiscountRecord}
           onUpdateDiscountRecord={actions.updateDiscountRecord}
           onDeleteDiscountRecord={actions.deleteDiscountRecord}
@@ -485,14 +594,63 @@ function renderScreen(
           onImportCurriculum={actions.importCurriculum}
         />
       );
+    case 'parent_dashboard':
+      return (
+        <ParentDashboardScreen
+          children={state.parentChildren}
+          selectedChildId={state.selectedParentChildId}
+          linkIdentifier={state.parentChildIdentifier}
+          linkMethod={state.parentChildLinkMethod}
+          isLoading={state.isLoadingParentDashboard}
+          isLinking={state.isLinkingParentChild}
+          error={state.parentDashboardError}
+          onSelectChild={actions.setSelectedParentChildId}
+          onLinkIdentifierChange={actions.setParentChildIdentifier}
+          onLinkMethodChange={actions.setParentChildLinkMethod}
+          onLinkChild={actions.linkParentChildAccount}
+          onUnlinkChild={actions.removeParentChild}
+          onRefresh={actions.refreshParentDashboard}
+          onSignOut={actions.signOut}
+        />
+      );
+    case 'weekly_exam':
+      return (
+        <WeeklyExamScreen
+          data={state.weeklyExam}
+          error={state.weeklyExamError}
+          isLoading={state.isLoadingWeeklyExam}
+          isSubmitting={state.isSubmittingWeeklyExam}
+          onBack={() => actions.openFeature('homework_list')}
+          onRetry={actions.refreshWeeklyExam}
+          onStart={actions.beginWeeklyExam}
+          onSubmit={actions.submitWeeklyExam}
+        />
+      );
+    case 'review_session':
+      return (
+        <ReviewSessionScreen
+          review={state.selectedDueReview}
+          error={state.reviewSessionError}
+          isSubmitting={state.isSubmittingReview}
+          onBack={() => actions.openFeature('homework_list')}
+          onComplete={actions.completeDueReview}
+        />
+      );
     case 'dashboard':
     default:
       return (
-        <DashboardScreen
+      <DashboardScreen
           banner={state.dashboardBanner}
-          pendingAssignments={state.pendingAssignments}
-          subjects={state.subjects}
+          homeworkNotificationCount={
+            state.pendingAssignments.length +
+            state.dueReviews.length +
+            (state.weeklyExam && state.weeklyExam.attempt?.status !== 'completed' ? 1 : 0)
+          }
+          subjects={state.dashboardSubjects}
+          allSubjects={state.subjects}
+          selectedSubjectIds={state.dashboardSubjectIds}
           onOpenSubject={actions.openSubject}
+          onSaveSubjectSelection={actions.saveDashboardSubjects}
           onOpenFeature={actions.openFeature}
           onBannerAction={actions.openBannerAction}
         />
@@ -518,8 +676,8 @@ function getTitle(view: string, subjectName?: string) {
     quiz_me_config: 'QuizMe',
     live_audio: 'Live Tutor',
     game_zone: 'Game Zone',
-    quack_game: 'Quack!',
     crazy_balloon: 'Crazy Balloon',
+    quiz_battle: 'Quiz Battle',
     podcasts_view: 'Podcasts',
     teachers_portal: 'Teacher Portal',
     admin_portal: 'Admin Portal',
@@ -543,10 +701,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#f4f7fb',
   },
-  bootstrapLogo: {
-    width: 128,
-    height: 128,
-    opacity: 0.96,
+  bootstrapSplash: {
+    width: '100%',
+    height: '100%',
   },
   pageHeader: {
     paddingHorizontal: 20,

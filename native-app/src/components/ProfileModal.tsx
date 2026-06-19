@@ -22,14 +22,16 @@ import {
   X,
 } from 'lucide-react-native';
 
-import { SchoolData, UserProfile } from '../types/app';
+import { SchoolData, Subject, UserProfile } from '../types/app';
 import type { BillingStatus } from '../types/app';
+import { SUPPORTED_GRADES } from '../constants/grades';
 import {
   AvatarArt,
   isLocalAvatarKey,
   LOCAL_AVATAR_OPTIONS,
   type LocalAvatarKey,
 } from './AvatarArt';
+import { SubjectSelector } from './SubjectGrid';
 
 interface ProfileModalProps {
   isOpen: boolean;
@@ -37,6 +39,7 @@ interface ProfileModalProps {
   onOpenAdmin: () => void;
   onOpenTeacher: () => void;
   onSignOut: () => void;
+  onDeleteAccount: () => Promise<void>;
   showTeacherPortalButton: boolean;
   showAdminPortalButton: boolean;
   canResendVerification: boolean;
@@ -46,19 +49,10 @@ interface ProfileModalProps {
   user: UserProfile;
   onSave: (updatedUser: UserProfile) => void;
   schools: SchoolData[];
+  allSubjects: Subject[];
+  selectedSubjectIds: string[];
+  onToggleSubject: (subjectId: string) => void;
 }
-
-const GRADE_OPTIONS = [
-  'Grade 4',
-  'Grade 5',
-  'Grade 6',
-  'Grade 7',
-  'Grade 8',
-  'Grade 9',
-  'Grade 10',
-  'Form 3',
-  'Form 4',
-];
 
 const GENDER_OPTIONS: UserProfile['gender'][] = [
   'Not Specified',
@@ -91,6 +85,7 @@ export function ProfileModal({
   onOpenAdmin,
   onOpenTeacher,
   onSignOut,
+  onDeleteAccount,
   showTeacherPortalButton,
   showAdminPortalButton,
   canResendVerification,
@@ -100,6 +95,9 @@ export function ProfileModal({
   user,
   onSave,
   schools,
+  allSubjects,
+  selectedSubjectIds,
+  onToggleSubject,
 }: ProfileModalProps) {
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState<UserProfile>(user);
@@ -112,6 +110,15 @@ export function ProfileModal({
   }>({
     isSending: false,
     message: null,
+    error: null,
+  });
+  const [deleteState, setDeleteState] = useState<{
+    isOpen: boolean;
+    isSubmitting: boolean;
+    error: string | null;
+  }>({
+    isOpen: false,
+    isSubmitting: false,
     error: null,
   });
   const avatarUri = getAvatarUri(formData.avatar);
@@ -128,6 +135,11 @@ export function ProfileModal({
       setVerificationState({
         isSending: false,
         message: null,
+        error: null,
+      });
+      setDeleteState({
+        isOpen: false,
+        isSubmitting: false,
         error: null,
       });
     }
@@ -167,6 +179,24 @@ export function ProfileModal({
         isSending: false,
         message: null,
         error: error instanceof Error ? error.message : 'Could not send verification email.',
+      });
+    }
+  }
+
+  async function handleDeleteAccount() {
+    setDeleteState(current => ({
+      ...current,
+      isSubmitting: true,
+      error: null,
+    }));
+
+    try {
+      await onDeleteAccount();
+    } catch (error) {
+      setDeleteState({
+        isOpen: true,
+        isSubmitting: false,
+        error: error instanceof Error ? error.message : 'Could not delete account.',
       });
     }
   }
@@ -342,6 +372,14 @@ export function ProfileModal({
               </Pressable>
             </View>
 
+            <View style={styles.accountSection}>
+              <SubjectSelector
+                allSubjects={allSubjects}
+                selectedSubjectIds={selectedSubjectIds}
+                onToggleSubject={onToggleSubject}
+              />
+            </View>
+
             {isEditing ? (
               <View style={styles.avatarOptionsSection}>
                 <Text style={styles.avatarOptionsLabel}>Choose Avatar</Text>
@@ -368,7 +406,7 @@ export function ProfileModal({
 
             {isEditing ? (
               <>
-                {renderSelectField('Grade', 'grade', GRADE_OPTIONS)}
+                {renderSelectField('Grade', 'grade', [...SUPPORTED_GRADES])}
                 {renderSelectField('Gender', 'gender', GENDER_OPTIONS)}
                 <View style={styles.detailBlock}>
                   <Text style={styles.detailLabel}>School</Text>
@@ -504,18 +542,102 @@ export function ProfileModal({
                 <Text style={styles.primaryFooterButtonText}>Save Changes</Text>
               </Pressable>
             ) : (
-              <Pressable
-                onPress={onSignOut}
-                style={({ pressed }) => [
-                  styles.secondaryFooterButton,
-                  pressed && styles.footerButtonPressed,
-                ]}>
-                <Text style={styles.secondaryFooterButtonText}>Sign Out</Text>
-              </Pressable>
+              <View style={styles.footerActionRow}>
+                <Pressable
+                  onPress={onSignOut}
+                  style={({ pressed }) => [
+                    styles.secondaryFooterButton,
+                    styles.footerActionButton,
+                    pressed && styles.footerButtonPressed,
+                  ]}>
+                  <Text style={styles.secondaryFooterButtonText}>Sign Out</Text>
+                </Pressable>
+                <Pressable
+                  onPress={() =>
+                    setDeleteState({
+                      isOpen: true,
+                      isSubmitting: false,
+                      error: null,
+                    })
+                  }
+                  style={({ pressed }) => [
+                    styles.dangerFooterButton,
+                    styles.footerActionButton,
+                    pressed && styles.footerButtonPressed,
+                  ]}>
+                  <Text style={styles.dangerFooterButtonText}>Delete Account</Text>
+                </Pressable>
+              </View>
             )}
           </View>
         </View>
       </View>
+
+      <Modal
+        animationType="fade"
+        transparent
+        visible={deleteState.isOpen}
+        onRequestClose={() =>
+          setDeleteState({
+            isOpen: false,
+            isSubmitting: false,
+            error: null,
+          })
+        }>
+        <View style={styles.overlay}>
+          <Pressable
+            style={styles.backdrop}
+            onPress={() =>
+              setDeleteState({
+                isOpen: false,
+                isSubmitting: false,
+                error: null,
+              })
+            }
+          />
+          <View style={styles.deleteDialog}>
+            <Text style={styles.deleteDialogTitle}>Delete account?</Text>
+            <Text style={styles.deleteDialogCopy}>
+              This permanently deletes your student or teacher account and signs you out immediately.
+            </Text>
+            {deleteState.error ? (
+              <Text style={styles.verificationError}>{deleteState.error}</Text>
+            ) : null}
+            <View style={styles.footerActionRow}>
+              <Pressable
+                onPress={() =>
+                  setDeleteState({
+                    isOpen: false,
+                    isSubmitting: false,
+                    error: null,
+                  })
+                }
+                style={({ pressed }) => [
+                  styles.secondaryFooterButton,
+                  styles.footerActionButton,
+                  pressed && styles.footerButtonPressed,
+                ]}>
+                <Text style={styles.secondaryFooterButtonText}>Cancel</Text>
+              </Pressable>
+              <Pressable
+                onPress={handleDeleteAccount}
+                disabled={deleteState.isSubmitting}
+                style={({ pressed }) => [
+                  styles.dangerFooterButton,
+                  styles.footerActionButton,
+                  pressed && styles.footerButtonPressed,
+                  deleteState.isSubmitting && styles.footerButtonDisabled,
+                ]}>
+                {deleteState.isSubmitting ? (
+                  <ActivityIndicator color="#FFFFFF" />
+                ) : (
+                  <Text style={styles.dangerFooterButtonText}>Delete</Text>
+                )}
+              </Pressable>
+            </View>
+          </View>
+        </View>
+      </Modal>
     </Modal>
   );
 }
@@ -714,6 +836,9 @@ const styles = StyleSheet.create({
     color: '#B91C1C',
     fontSize: 12,
     fontWeight: '700',
+  },
+  accountSection: {
+    marginBottom: 20,
   },
   avatarOptionsSection: {
     marginBottom: 20,
@@ -933,6 +1058,13 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 0,
   },
+  footerActionRow: {
+    flexDirection: 'row',
+    gap: 12,
+  },
+  footerActionButton: {
+    flex: 1,
+  },
   primaryFooterButton: {
     backgroundColor: '#2563EB',
     borderRadius: 18,
@@ -955,8 +1087,40 @@ const styles = StyleSheet.create({
     fontWeight: '800',
     textAlign: 'center',
   },
+  dangerFooterButton: {
+    backgroundColor: '#B91C1C',
+    borderRadius: 18,
+    paddingVertical: 15,
+  },
+  dangerFooterButtonText: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: '800',
+    textAlign: 'center',
+  },
   footerButtonPressed: {
     opacity: 0.85,
     transform: [{ scale: 0.985 }],
+  },
+  footerButtonDisabled: {
+    opacity: 0.7,
+  },
+  deleteDialog: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 24,
+    gap: 14,
+    maxWidth: 420,
+    padding: 20,
+    width: '100%',
+  },
+  deleteDialogTitle: {
+    color: '#0F172A',
+    fontSize: 20,
+    fontWeight: '900',
+  },
+  deleteDialogCopy: {
+    color: '#475569',
+    fontSize: 14,
+    lineHeight: 21,
   },
 });

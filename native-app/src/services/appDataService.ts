@@ -19,6 +19,7 @@ interface SchoolApiResponse {
   totalStudents: number;
   gradeCounts: Record<string, number>;
   pricing?: SchoolData['pricing'];
+  pilot?: SchoolData['pilot'];
 }
 
 function mapSchool(school: SchoolApiResponse): SchoolData {
@@ -33,6 +34,7 @@ function mapSchool(school: SchoolApiResponse): SchoolData {
     totalStudents: school.totalStudents,
     gradeCounts: school.gradeCounts,
     pricing: school.pricing ?? undefined,
+    pilot: school.pilot ?? undefined,
   };
 }
 
@@ -147,6 +149,24 @@ export async function deleteAdminSchool(schoolId: string) {
   return apiRequest<{ deleted: boolean }>(`/admin/schools/${schoolId}`, {
     method: 'DELETE',
   });
+}
+
+export async function updateAdminSchoolPilot(
+  schoolId: string,
+  input: {
+    status: 'not_enrolled' | 'onboarding' | 'active' | 'paused' | 'completed';
+    startDate?: string | null;
+    endDate?: string | null;
+    targetStudents: number;
+    onboardingStage: number;
+    notes?: string | null;
+  },
+) {
+  const payload = await apiRequest<{ school: SchoolApiResponse | null }>(
+    `/admin/schools/${schoolId}/pilot`,
+    { method: 'PATCH', body: JSON.stringify(input) },
+  );
+  return payload.school ? mapSchool(payload.school) : null;
 }
 
 export async function getAdminDiscounts() {

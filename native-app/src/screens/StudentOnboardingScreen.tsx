@@ -11,22 +11,11 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
+import { DEFAULT_GRADE, SUPPORTED_GRADES } from '../constants/grades';
 import { triggerHaptic } from '../services/haptics';
 import { GenderOption, SchoolData } from '../types/app';
 
-const WHATSAPP_ADMIN_LINK = 'https://wa.me/254704646611';
-const GRADE_OPTIONS = [
-  'Grade 4',
-  'Grade 5',
-  'Grade 6',
-  'Grade 7',
-  'Grade 8',
-  'Grade 9',
-  'Form 1',
-  'Form 2',
-  'Form 3',
-  'Form 4',
-];
+const WHATSAPP_ADMIN_LINK = 'https://wa.me/254716175485?text=I%20need%20help';
 
 interface StudentOnboardingScreenProps {
   schools: SchoolData[];
@@ -48,7 +37,7 @@ export function StudentOnboardingScreen({
 }: StudentOnboardingScreenProps) {
   const [step, setStep] = useState(0);
   const [gender, setGender] = useState<GenderOption>('not_specified');
-  const [grade, setGrade] = useState('Grade 8');
+  const [grade, setGrade] = useState(DEFAULT_GRADE);
   const [schoolQuery, setSchoolQuery] = useState('');
   const [schoolId, setSchoolId] = useState('');
   const [mpesaPhoneNumber, setMpesaPhoneNumber] = useState('');
@@ -143,7 +132,7 @@ export function StudentOnboardingScreen({
             <Text style={styles.fieldLabel}>Grade</Text>
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
               <View style={styles.choiceRow}>
-                {GRADE_OPTIONS.map(option => (
+                {SUPPORTED_GRADES.map(option => (
                   <Pressable
                     key={option}
                     onPress={() => setGrade(option)}
@@ -199,7 +188,7 @@ export function StudentOnboardingScreen({
 
             <Pressable onPress={() => Linking.openURL(WHATSAPP_ADMIN_LINK)}>
               <Text style={styles.whatsAppLink}>
-                School missing? Request it on WhatsApp: 0704646611
+                School missing? Request it on WhatsApp: 0716175485
               </Text>
             </Pressable>
           </>

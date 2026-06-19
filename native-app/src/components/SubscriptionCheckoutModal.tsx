@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   ActivityIndicator,
   Modal,
@@ -42,7 +42,11 @@ export function SubscriptionCheckoutModal({
   onUseSavedPhone,
   onContinue,
 }: SubscriptionCheckoutModalProps) {
-  const selectedPlan = plans.find(plan => plan.code === selectedPlanCode) ?? null;
+  const visiblePlans = useMemo(() => {
+    const order: Record<string, number> = { weekly: 1, monthly: 2, annual: 3 };
+    return [...plans].sort((left, right) => (order[left.code] ?? 99) - (order[right.code] ?? 99));
+  }, [plans]);
+  const selectedPlan = visiblePlans.find(plan => plan.code === selectedPlanCode) ?? null;
 
   return (
     <Modal visible={isOpen} transparent animationType="fade" onRequestClose={onClose}>
@@ -55,14 +59,14 @@ export function SubscriptionCheckoutModal({
 
           <Text style={styles.title}>Become Top of Your Class Faster</Text>
           <Text style={styles.subtitle}>
-            Unlock homework, quizzes, BrainTease, and Let&apos;s Learn with one quick M-Pesa checkout.
+            Unlock homework, quizzes, BrainTease, and Let's Learn with one quick M-Pesa checkout.
           </Text>
           <View style={styles.badge}>
-            <Text style={styles.badgeText}>LIMITED TIME - Fast STK Push checkout</Text>
+            <Text style={styles.badgeText}>MONTHLY 50% OFF - Fast STK Push checkout</Text>
           </View>
 
           <View style={styles.planRow}>
-            {plans.map(plan => {
+            {visiblePlans.map(plan => {
               const selected = plan.code === selectedPlanCode;
               return (
                 <Pressable
@@ -79,9 +83,9 @@ export function SubscriptionCheckoutModal({
                     </View>
                   ) : null}
                   <Text style={styles.planName}>{plan.name}</Text>
-                  <Text style={styles.planPrice}>KSH {plan.priceKsh}</Text>
+                  <Text style={styles.planPrice}>KSh {plan.priceKsh.toLocaleString()}</Text>
                   {plan.originalPriceKsh && plan.originalPriceKsh > plan.priceKsh ? (
-                    <Text style={styles.planOriginalPrice}>KSH {plan.originalPriceKsh}</Text>
+                    <Text style={styles.planOriginalPrice}>KSh {plan.originalPriceKsh.toLocaleString()}</Text>
                   ) : null}
                   <Text style={styles.planCycle}>per {plan.billingCycle}</Text>
                   {plan.discountLabel ? (
@@ -124,14 +128,14 @@ export function SubscriptionCheckoutModal({
           {statusLabel ? <Text style={styles.statusText}>{statusLabel}</Text> : null}
 
           <Pressable
-            onPress={onContinue}
+            onPress={() => onContinue()}
             disabled={!selectedPlan || isSubmitting}
             style={[styles.continueButton, (!selectedPlan || isSubmitting) && styles.continueButtonDisabled]}>
             {isSubmitting ? (
               <ActivityIndicator color="#ffffff" />
             ) : (
               <Text style={styles.continueButtonText}>
-                Continue • KSH {selectedPlan?.priceKsh ?? '--'}
+                Continue - KSh {selectedPlan?.priceKsh.toLocaleString() ?? '--'}
               </Text>
             )}
           </Pressable>

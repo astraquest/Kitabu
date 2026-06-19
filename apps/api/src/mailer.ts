@@ -17,6 +17,9 @@ function buildTransport() {
     host: appConfig.KITABU_SMTP_HOST,
     port: appConfig.KITABU_SMTP_PORT,
     secure: appConfig.KITABU_SMTP_SECURE,
+    connectionTimeout: appConfig.KITABU_SMTP_TIMEOUT_MS,
+    greetingTimeout: appConfig.KITABU_SMTP_TIMEOUT_MS,
+    socketTimeout: appConfig.KITABU_SMTP_TIMEOUT_MS,
     auth:
       appConfig.KITABU_SMTP_USER && appConfig.KITABU_SMTP_PASS
         ? {
@@ -33,13 +36,30 @@ export async function sendTransactionalEmail(message: TransactionalEmail) {
     return false;
   }
 
-  await transport.sendMail({
-    from: appConfig.KITABU_MAIL_FROM,
-    to: message.to,
-    subject: message.subject,
-    text: message.text,
-    html: message.html
-  });
+  let timeout: NodeJS.Timeout | null = null;
+  try {
+    const delivery = transport.sendMail({
+      from: appConfig.KITABU_MAIL_FROM,
+      to: message.to,
+      subject: message.subject,
+      text: message.text,
+      html: message.html
+    });
+    const deliveryTimeout = new Promise<never>((_, reject) => {
+      timeout = setTimeout(() => {
+        transport.close();
+        reject(new Error('SMTP delivery timed out'));
+      }, appConfig.KITABU_SMTP_TIMEOUT_MS);
+    });
+    await Promise.race([delivery, deliveryTimeout]);
+  } catch {
+    return false;
+  } finally {
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+    transport.close();
+  }
 
   return true;
 }

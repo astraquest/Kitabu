@@ -17,6 +17,11 @@ Set `KITABU_API_BASE_URL` for release builds. Development builds fall back to:
 
 Release builds now fail fast if `KITABU_API_BASE_URL` is missing.
 
+For Google sign-in, set `KITABU_GOOGLE_WEB_CLIENT_ID` in the build environment or pass
+`-PKITABU_GOOGLE_WEB_CLIENT_ID=...` to Gradle. Add that same Web OAuth client ID to the
+API's comma-separated `KITABU_GOOGLE_CLIENT_IDS`. The Android OAuth client must include
+the app package name and the signing certificate fingerprints used for the build.
+
 ## Development
 
 1. Start the API from the repo root:

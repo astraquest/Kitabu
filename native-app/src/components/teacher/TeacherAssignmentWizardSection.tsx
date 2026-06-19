@@ -2,6 +2,7 @@ import React from 'react';
 import { Pressable, ScrollView, Text, TextInput, View } from 'react-native';
 import { Plus, Sparkles } from 'lucide-react-native';
 
+import { SUPPORTED_GRADES } from '../../constants/grades';
 import { Assignment } from '../../types/app';
 import { TeacherInlineSelect } from './TeacherInlineSelect';
 import { TeacherSpinner } from './TeacherSpinner';
@@ -120,7 +121,7 @@ export function TeacherAssignmentWizardSection({
                     label="Grade"
                     value={grade}
                     open={wizardGradeOpen}
-                    options={['Grade 6', 'Grade 7', 'Grade 8']}
+                    options={[...SUPPORTED_GRADES]}
                     onToggle={onToggleGradeOpen}
                     onSelect={onSetGrade}
                   />

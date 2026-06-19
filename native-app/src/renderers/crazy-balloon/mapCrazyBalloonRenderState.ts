@@ -20,7 +20,7 @@ export function mapCrazyBalloonRenderState(
       leftPct: balloon.leftPct,
       bottomPct: balloon.bottomPct,
       color: balloon.color,
-      label: balloon.isMonster ? 'monster' : 'balloon',
+      label: balloon.isMonster ? 'hazard' : 'balloon',
     })),
     showHint: state.status === 'playing' && state.score === 0,
   };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import {
   ClipboardList,
   FilePen,
@@ -37,10 +37,7 @@ export function QuickAccessGrid({
 }: QuickAccessGridProps) {
   return (
     <View style={styles.quickRailOuter}>
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.quickRail}>
+      <View style={styles.quickRail}>
         {DASHBOARD_ACTIONS.map(action => {
           const isActive = action.id === 'dashboard';
           const isHomework = action.id === 'homework_list';
@@ -61,7 +58,7 @@ export function QuickAccessGrid({
               <View style={styles.quickIconWrap}>
                 <Icon
                   color={isActive ? '#6D28D9' : '#4B5563'}
-                  size={24}
+                  size={20}
                   strokeWidth={isActive ? 2.5 : 2.25}
                 />
                 {isHomework && pendingAssignments > 0 ? (
@@ -79,7 +76,7 @@ export function QuickAccessGrid({
             </Pressable>
           );
         })}
-      </ScrollView>
+      </View>
     </View>
   );
 }
@@ -93,13 +90,15 @@ const styles = StyleSheet.create({
   },
   quickRail: {
     alignItems: 'center',
-    gap: 18,
-    paddingHorizontal: 22,
-    paddingVertical: 14,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 10,
+    paddingVertical: 10,
   },
   quickAction: {
     alignItems: 'center',
-    minWidth: 68,
+    flex: 1,
+    minWidth: 0,
     position: 'relative',
   },
   quickActionPressed: {
@@ -107,7 +106,7 @@ const styles = StyleSheet.create({
     transform: [{ scale: 0.96 }],
   },
   quickIconWrap: {
-    marginBottom: 6,
+    marginBottom: 4,
     position: 'relative',
   },
   homeworkBadge: {
@@ -131,8 +130,9 @@ const styles = StyleSheet.create({
   },
   quickLabel: {
     color: '#374151',
-    fontSize: 10,
+    fontSize: 9,
     fontWeight: '700',
+    textAlign: 'center',
   },
   quickLabelActive: {
     color: '#6B21A8',

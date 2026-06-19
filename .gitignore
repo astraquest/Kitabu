@@ -3,6 +3,7 @@ native-app/node_modules/
 apps/api/dist/
 
 .idea/
+.playwright-mcp/
 
 .env
 .env.*
@@ -15,11 +16,14 @@ apps/api/dist/
 *.out.log
 *.err.log
 *.bundle
+*.hbc
 *.png
 *.xml
 *.db
 *.sqlite
 *.sqlite3
+*.zip
+*.docx
 
 native-app/android/.gradle/
 native-app/android/.kotlin/
@@ -29,3 +33,9 @@ native-app/android/app/.cxx/
 native-app/android/local-maven/
 native-app/.bundle/
 native-app/temp-assets/
+
+EXPORTS/
+artifacts/
+rn-assets/
+signing keys.txt
+tmp_*

@@ -3,12 +3,33 @@ import * as Keychain from 'react-native-keychain';
 
 const memoryStore = new Map<string, string>();
 const securePrefix = 'secure:';
+const SECURE_STORAGE_TIMEOUT_MS = 2500;
+
+async function withTimeout<T>(operation: Promise<T>, timeoutMs: number): Promise<T> {
+  let timeout: ReturnType<typeof setTimeout> | null = null;
+
+  try {
+    return await Promise.race([
+      operation,
+      new Promise<never>((_, reject) => {
+        timeout = setTimeout(() => reject(new Error('Secure storage timed out')), timeoutMs);
+      }),
+    ]);
+  } finally {
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+  }
+}
 
 async function getSecureItem(key: string) {
   try {
-    const credentials = await Keychain.getGenericPassword({
-      service: `${securePrefix}${key}`,
-    });
+    const credentials = await withTimeout(
+      Keychain.getGenericPassword({
+        service: `${securePrefix}${key}`,
+      }),
+      SECURE_STORAGE_TIMEOUT_MS,
+    );
     return credentials ? credentials.password : null;
   } catch {
     return null;
@@ -16,11 +37,16 @@ async function getSecureItem(key: string) {
 }
 
 async function setSecureItem(key: string, value: string) {
+  memoryStore.set(`${securePrefix}${key}`, value);
+
   try {
-    await Keychain.setGenericPassword(key, value, {
-      service: `${securePrefix}${key}`,
-      accessible: Keychain.ACCESSIBLE.WHEN_UNLOCKED_THIS_DEVICE_ONLY,
-    });
+    await withTimeout(
+      Keychain.setGenericPassword(key, value, {
+        service: `${securePrefix}${key}`,
+        accessible: Keychain.ACCESSIBLE.WHEN_UNLOCKED_THIS_DEVICE_ONLY,
+      }),
+      SECURE_STORAGE_TIMEOUT_MS,
+    );
   } catch {
     memoryStore.set(`${securePrefix}${key}`, value);
   }

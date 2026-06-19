@@ -2,6 +2,7 @@ import React from 'react';
 import { Pressable, Text, View } from 'react-native';
 import { AlertCircle, ChevronDown, ChevronRight, SortAsc, TrendingUp } from 'lucide-react-native';
 
+import { SUPPORTED_GRADES, TEACHER_ALL_GRADES_FILTER } from '../../constants/grades';
 import { StudentPerformance } from '../../types/app';
 import { TeacherAvatarBadge } from './TeacherAvatarBadge';
 
@@ -12,6 +13,8 @@ interface TeacherStudentsSectionProps {
   sortBy: 'name' | 'score';
   showRemedial: boolean;
   averageScore: number;
+  averageHomework: number;
+  remedialCount: number;
   filteredStudents: StudentPerformance[];
   onToggleGradeMenu: () => void;
   onSelectGrade: (value: string) => void;
@@ -27,6 +30,8 @@ export function TeacherStudentsSection({
   sortBy,
   showRemedial,
   averageScore,
+  averageHomework,
+  remedialCount,
   filteredStudents,
   onToggleGradeMenu,
   onSelectGrade,
@@ -46,7 +51,7 @@ export function TeacherStudentsSection({
           </Pressable>
           {gradeMenuOpen ? (
             <View style={styles.menu}>
-              {['All', 'Grade 6', 'Grade 7', 'Grade 8'].map(option => (
+              {[TEACHER_ALL_GRADES_FILTER, ...SUPPORTED_GRADES].map(option => (
                 <Pressable
                   key={option}
                   onPress={() => onSelectGrade(option)}
@@ -79,22 +84,26 @@ export function TeacherStudentsSection({
 
       <View style={styles.grid}>
         <View style={styles.metric}>
-          <Text style={styles.metricLabel}>Class Average</Text>
+          <Text style={styles.metricLabel}>Mastery Average</Text>
           <View style={styles.metricRow}>
             <Text style={styles.metricValue}>{averageScore}%</Text>
-            <Text style={styles.metricAccent}>↑ 2%</Text>
+            <Text style={styles.metricAccent}>+2%</Text>
           </View>
+          <Text style={styles.metricSubline}>Across active learners</Text>
         </View>
         <View style={styles.metric}>
           <Text style={styles.metricLabel}>
-            {showRemedial ? 'Students At Risk' : 'Active Students'}
+            {showRemedial ? 'Students At Risk' : 'Homework Done'}
           </Text>
           <View style={styles.metricRow}>
             <Text style={[styles.metricValue, showRemedial && styles.risk]}>
-              {filteredStudents.length}
+              {showRemedial ? remedialCount : `${averageHomework}%`}
             </Text>
-            <Text style={styles.metricHint}>Total</Text>
+            <Text style={styles.metricHint}>{showRemedial ? 'Total' : 'Avg'}</Text>
           </View>
+          <Text style={styles.metricSubline}>
+            {showRemedial ? 'Below 70% mastery' : 'Recent assignment completion'}
+          </Text>
         </View>
       </View>
 
@@ -112,7 +121,22 @@ export function TeacherStudentsSection({
                 <TeacherAvatarBadge styles={styles} name={item.name} avatar={item.avatar} size={40} />
                 <View style={styles.rowMain}>
                   <Text style={styles.rowTitle}>{item.name}</Text>
-                  <Text style={styles.rowMeta}>{item.grade}</Text>
+                  <Text style={styles.rowMeta}>
+                    {item.grade} | {item.trend} | Last active {item.lastActive}
+                  </Text>
+                  <View style={styles.studentProgressLine}>
+                    <View style={styles.studentProgressTrack}>
+                      <View
+                        style={[
+                          styles.studentProgressFill,
+                          { width: `${item.homeworkCompletion}%` as const },
+                        ]}
+                      />
+                    </View>
+                    <Text style={styles.studentProgressText}>
+                      {item.homeworkCompletion}% homework
+                    </Text>
+                  </View>
                 </View>
               </View>
               <View style={styles.rowEnd}>

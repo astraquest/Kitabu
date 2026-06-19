@@ -24,6 +24,14 @@ export interface AiProviderResult {
   totalTokens: number;
 }
 
+export interface AudioTranscriptionInput {
+  base64Audio: string;
+  mimeType: string;
+  fileName?: string;
+  language?: string;
+  prompt?: string;
+}
+
 export type AiProvider = 'openai' | 'google';
 
 export interface AiExecutionPlan {
@@ -69,6 +77,13 @@ export function resolveAiExecutionPlan(feature: string): AiExecutionPlan {
 
 function getOpenAiTokenPricingUsdPerMillion(model: string) {
   const normalizedModel = model.trim().toLowerCase();
+
+  if (normalizedModel.includes('gpt-5.4-nano') || normalizedModel.includes('gpt-5-nano')) {
+    return {
+      input: 0.05,
+      output: 0.4
+    };
+  }
 
   if (normalizedModel.includes('gpt-5-mini')) {
     return {
@@ -312,4 +327,48 @@ export async function generateText(input: GenerateTextInput, plan: AiExecutionPl
   }
 
   return generateTextWithGemini(input, plan);
+}
+
+export async function transcribeAudioWithOpenAi(
+  input: AudioTranscriptionInput
+): Promise<{ text: string }> {
+  if (!appConfig.KITABU_OPENAI_API_KEY) {
+    throw new Error('KITABU_OPENAI_API_KEY is not configured');
+  }
+
+  const audioBuffer = Buffer.from(input.base64Audio, 'base64');
+  const formData = new FormData();
+  formData.append(
+    'file',
+    new Blob([audioBuffer], { type: input.mimeType }),
+    input.fileName ?? 'audio.m4a'
+  );
+  formData.append('model', appConfig.KITABU_OPENAI_TRANSCRIPTION_MODEL);
+  formData.append('response_format', 'json');
+
+  if (input.language?.trim()) {
+    formData.append('language', input.language.trim());
+  }
+
+  if (input.prompt?.trim()) {
+    formData.append('prompt', input.prompt.trim());
+  }
+
+  const response = await fetch('https://api.openai.com/v1/audio/transcriptions', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${appConfig.KITABU_OPENAI_API_KEY}`
+    },
+    body: formData
+  });
+
+  if (!response.ok) {
+    const body = await response.text();
+    throw new Error(`OpenAI transcription failed: ${response.status} ${body}`);
+  }
+
+  const payload = (await response.json()) as { text?: string };
+  return {
+    text: payload.text?.trim() ?? ''
+  };
 }

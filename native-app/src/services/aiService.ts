@@ -1,6 +1,7 @@
+import { DEFAULT_GRADE } from '../constants/grades';
 import { Attachment, ChatMessage, Question } from '../types/app';
-import { getKitabuApiBaseUrl } from './runtimeConfig';
-import { loadSecureJson, saveSecureJson } from './storage';
+import { fetchKitabuApi } from './runtimeConfig';
+import { buildKitabuRequestHeaders, readJsonResponse } from './requestHelpers';
 
 interface GeneratedAssignment {
   title: string;
@@ -26,12 +27,13 @@ interface AiProxyRequest {
   feature: string;
 }
 
-interface AuthSession {
-  accessToken?: string;
+interface AudioTranscriptionRequest {
+  base64Audio: string;
+  mimeType: string;
+  fileName?: string;
+  language?: string;
+  prompt?: string;
 }
-
-const AUTH_SESSION_STORAGE_KEY = 'auth_session';
-const DEVICE_ID_STORAGE_KEY = 'kitabu_device_id';
 
 function sanitizeJsonPayload(text: string) {
   return text
@@ -56,31 +58,9 @@ async function generateText({
   responseMimeType?: 'application/json';
   feature: string;
 }) {
-  const baseUrl = getKitabuApiBaseUrl();
-
-  if (!baseUrl) {
-    return null;
-  }
-
-  const session = await loadSecureJson<AuthSession>(AUTH_SESSION_STORAGE_KEY, {});
-  let deviceId = await loadSecureJson<string | null>(DEVICE_ID_STORAGE_KEY, null);
-  if (!deviceId) {
-    deviceId = `kitabu-${Math.random().toString(36).slice(2)}${Date.now().toString(36)}`;
-    await saveSecureJson(DEVICE_ID_STORAGE_KEY, deviceId);
-  }
-
-  const response = await fetch(`${baseUrl.replace(/\/$/, '')}/generate-text`, {
+  const response = await fetchKitabuApi('/generate-text', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-kitabu-device-id': deviceId,
-      'x-kitabu-device-label': 'Kitabu Native App',
-      ...(session.accessToken
-        ? {
-            Authorization: `Bearer ${session.accessToken}`,
-          }
-        : {}),
-    },
+    headers: await buildKitabuRequestHeaders(),
     body: JSON.stringify({
       prompt,
       systemInstruction,
@@ -95,7 +75,7 @@ async function generateText({
     let message = 'AI assistance is currently unavailable. Please try again later.';
 
     try {
-      const payload = (await response.json()) as { message?: string };
+      const payload = await readJsonResponse<{ message?: string }>(response, message);
       if (payload.message) {
         message = payload.message;
       }
@@ -106,9 +86,9 @@ async function generateText({
     throw new Error(message);
   }
 
-  const payload = (await response.json()) as {
+  const payload = await readJsonResponse<{
     text?: string;
-  };
+  }>(response, 'Invalid AI response');
 
   return payload.text ?? null;
 }
@@ -130,7 +110,12 @@ Protocol:
 4. Keep the final answer clear and direct.
 5. End the final answer with: "Is there anything else you'd like to know about this topic?"
 
-If an image is provided, analyze it to help answer the student's question.`
+If an attachment is provided:
+- Treat photos, images, PDFs, and documents as the student's homework context.
+- First identify the visible question, instructions, marks, tables, diagrams, or handwritten work.
+- If the file is unclear, say exactly what is missing and ask for a clearer photo or page.
+- Help the student solve or understand the attached work; do not merely summarize the file.
+- For documents with multiple questions, answer the specific question the student asks and offer to continue question by question.`
       : `You are KITABU AI, an expert tutor. Provide a clear, step-by-step explanation of the concept.
 
 Methodology:
@@ -160,23 +145,62 @@ Methodology:
   }
 }
 
+export async function askVoiceTutor(
+  prompt: string,
+  history: ChatMessage[] = [],
+): Promise<string> {
+  const systemInstruction = `You are KITABU AI in voice mode, helping a student in a spoken tutoring session.
+
+Rules:
+1. Sound natural when read aloud.
+2. Keep each reply concise, direct, and useful.
+3. Ask at most one short follow-up question when needed.
+4. Prefer short explanations over long lists.
+5. Avoid markdown, bullet points, headings, or meta commentary.
+6. If the student is stuck, give the next step first before expanding.
+7. End with one brief prompt that helps the student continue the conversation.`;
+
+  try {
+    const response = await generateText({
+      prompt,
+      systemInstruction,
+      history,
+      feature: 'homework_helper_chat',
+    });
+
+    return response || 'I could not answer that just now. Please try again.';
+  } catch (error) {
+    console.error('Error calling voice tutor:', error);
+    if (error instanceof Error) {
+      return error.message;
+    }
+    return 'Something went wrong. Please try again.';
+  }
+}
+
 export async function transcribeAudio(
   base64Audio: string,
   mimeType: string,
 ): Promise<string> {
   try {
-    const response = await generateText({
-      prompt:
-        'Transcribe this audio exactly as it is spoken. Do not add any introductory or concluding remarks. Ignore silence or background noise. Return only the transcribed text.',
-      attachment: {
+    const response = await fetchKitabuApi('/transcribe-audio', {
+      method: 'POST',
+      headers: await buildKitabuRequestHeaders(),
+      body: JSON.stringify({
+        base64Audio,
         mimeType,
-        data: base64Audio,
-        type: 'file',
-      },
-      feature: 'audio_transcription',
+        fileName: 'voice-answer.m4a',
+        prompt:
+          'Transcribe the student response exactly as spoken. Ignore silence and obvious background noise. Return only the spoken words.',
+      } satisfies AudioTranscriptionRequest),
     });
 
-    return response || '';
+    if (!response.ok) {
+      throw new Error('Audio transcription request failed.');
+    }
+
+    const payload = await readJsonResponse<{ text?: string }>(response, 'Invalid transcription response');
+    return payload.text?.trim() ?? '';
   } catch (error) {
     console.error('Transcription error:', error);
     throw new Error('Failed to transcribe audio.');
@@ -192,7 +216,7 @@ export async function generateQuizData(
 ): Promise<GeneratedQuizPayload | null> {
   const prompt =
     type === 'flashcards'
-      ? `Generate ${count} flashcards for a Grade 8 student about Subject: ${subject}, Topic: ${topic}, Sub-topic: ${subTopic}.
+      ? `Generate ${count} flashcards for a ${DEFAULT_GRADE} student about Subject: ${subject}, Topic: ${topic}, Sub-topic: ${subTopic}.
 
 Return JSON with this shape:
 {
@@ -200,7 +224,7 @@ Return JSON with this shape:
     { "id": "string", "question": "string", "answer": "string" }
   ]
 }`
-      : `Generate ${count} quiz questions for a Grade 8 student about Subject: ${subject}, Topic: ${topic}, Sub-topic: ${subTopic}.
+      : `Generate ${count} quiz questions for a ${DEFAULT_GRADE} student about Subject: ${subject}, Topic: ${topic}, Sub-topic: ${subTopic}.
 Mix question types between MCQ, TRUE_FALSE, SHORT_ANSWER, and ESSAY when appropriate.
 
 Return JSON with this shape:

@@ -4,13 +4,16 @@ import { ScrollView, StyleSheet } from 'react-native';
 import { PromoBanner } from '../components/PromoBanner';
 import { QuickAccessGrid } from '../components/QuickAccessGrid';
 import { SubjectGrid } from '../components/SubjectGrid';
-import { Assignment, DashboardBanner, Subject } from '../types/app';
+import { DashboardBanner, Subject } from '../types/app';
 
 interface DashboardScreenProps {
   banner: DashboardBanner | null;
-  pendingAssignments: Assignment[];
+  homeworkNotificationCount: number;
   subjects: Subject[];
+  allSubjects: Subject[];
+  selectedSubjectIds: string[];
   onOpenSubject: (subject: Subject) => void;
+  onSaveSubjectSelection: (subjectIds: string[]) => void;
   onOpenFeature: (
     view:
       | 'homework_list'
@@ -33,9 +36,12 @@ type DashboardActionTarget =
 
 export function DashboardScreen({
   banner,
-  pendingAssignments,
+  homeworkNotificationCount,
   subjects,
+  allSubjects,
+  selectedSubjectIds,
   onOpenSubject,
+  onSaveSubjectSelection,
   onOpenFeature,
   onBannerAction,
 }: DashboardScreenProps) {
@@ -47,12 +53,15 @@ export function DashboardScreen({
       stickyHeaderIndices={[1]}>
       <PromoBanner banner={banner} onPressCta={onBannerAction} />
       <QuickAccessGrid
-        pendingAssignments={pendingAssignments.length}
+        pendingAssignments={homeworkNotificationCount}
         onOpenFeature={view => onOpenFeature(view as DashboardActionTarget)}
       />
       <SubjectGrid
         subjects={subjects}
+        allSubjects={allSubjects}
+        selectedSubjectIds={selectedSubjectIds}
         onOpenSubject={onOpenSubject}
+        onSaveSubjectSelection={onSaveSubjectSelection}
         onOpenGameZone={() => onOpenFeature('game_zone')}
       />
     </ScrollView>

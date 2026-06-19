@@ -5,18 +5,10 @@ import { ChevronLeft } from 'lucide-react-native';
 interface GameZoneScreenProps {
   totalPoints: number;
   onBack: () => void;
-  onPlayGame: (gameId: 'quack' | 'crazy-balloon' | 'quiz-battle') => void;
+  onPlayGame: (gameId: 'crazy-balloon' | 'quiz-battle') => void;
 }
 
 const GAMES = [
-  {
-    id: 'quack' as const,
-    title: 'Quack!',
-    description: 'Scream to jump. Voice-driven play will move to native microphone controls.',
-    gradientTop: '#FBBF24',
-    gradientBottom: '#F97316',
-    badge: 'Online',
-  },
   {
     id: 'crazy-balloon' as const,
     title: 'Crazy Balloon',
@@ -47,10 +39,6 @@ export function GameZoneScreen({ totalPoints, onBack, onPlayGame }: GameZoneScre
         <View style={styles.headerCopy}>
           <Text style={styles.eyebrow}>Live Arcade</Text>
           <Text style={styles.title}>Game Zone</Text>
-          <Text style={styles.subtitle}>
-            Fast action, playful visuals, and progress-linked rewards stay in scope for the
-            native app.
-          </Text>
         </View>
         <View style={styles.pointsCard}>
           <Text style={styles.pointsValue}>{totalPoints}</Text>
@@ -131,10 +119,6 @@ const styles = StyleSheet.create({
     color: '#0F172A',
     fontSize: 28,
     fontWeight: '800',
-  },
-  subtitle: {
-    color: '#7C2D12',
-    lineHeight: 21,
   },
   pointsCard: {
     minWidth: 92,

@@ -18,12 +18,18 @@ export interface UserRecord {
   id: string;
   school_id: string | null;
   email: string;
+  phone_number: string | null;
+  phone_verified: boolean;
+  phone_verified_at: Date | null;
   full_name: string;
   password_hash: string;
   email_verified: boolean;
   gender: 'male' | 'female' | 'not_specified';
   grade_level: string | null;
   onboarding_completed: boolean;
+  terms_accepted_at: Date | null;
+  terms_version: string | null;
+  privacy_version: string | null;
   must_rotate_password: boolean;
   is_break_glass: boolean;
 }
@@ -103,6 +109,15 @@ export interface SchoolRecord {
   discount_amount: number | null;
   total_students: number;
   grade_counts: Record<string, number>;
+  pilot_status?: 'not_enrolled' | 'onboarding' | 'active' | 'paused' | 'completed';
+  pilot_start_date?: Date | null;
+  pilot_end_date?: Date | null;
+  pilot_target_students?: number;
+  pilot_onboarding_stage?: number;
+  pilot_notes?: string | null;
+  pilot_onboarded_students?: number;
+  pilot_engaged_students?: number;
+  pilot_average_mastery?: number;
 }
 
 export interface BannerAnnouncementRecord {
@@ -174,6 +189,9 @@ export interface CurriculumSubjectBundle {
       pages: Array<{ title: string; content: string }>;
       isLocked: boolean;
       isCompleted: boolean;
+      needsRemediation: boolean;
+      masteryScore: number | null;
+      unlockReason?: string;
       number?: string;
       outcomes: Array<{ id: string; text: string }>;
       inquiryQuestions: Array<{ id: string; text: string }>;
@@ -279,6 +297,137 @@ export interface AdminUserRecord {
   color: 'green' | 'gray';
 }
 
+export interface FeatureFlagRecord {
+  key: string;
+  enabled: boolean;
+  description: string;
+}
+
+export interface UserNotificationRecord {
+  id: string;
+  user_id: string;
+  type: string;
+  title: string;
+  body: string;
+  channel: 'in_app' | 'sms' | 'push' | 'email';
+  status: 'unread' | 'read';
+  metadata: Record<string, unknown>;
+  read_at: Date | null;
+  created_at: Date;
+}
+
+export interface DiagnosticSessionRecord {
+  id: string;
+  user_id: string;
+  kind: 'onboarding' | 'progressive';
+  subjects: string[];
+  status: 'in_progress' | 'completed';
+  started_at: Date;
+  completed_at: Date | null;
+  result_summary: Record<string, unknown>;
+}
+
+export interface DiagnosticAnswerRecord {
+  question_id: string;
+  subject_id: string;
+  sub_strand_key: string;
+  is_correct: boolean;
+  confidence_score: number;
+  response_latency_ms: number;
+}
+
+export interface DueReviewRecord {
+  id: string;
+  user_id: string;
+  subject_id: string;
+  sub_strand_key: string;
+  next_review_date: Date;
+  interval_days: number;
+  mastery_score: string;
+}
+
+export interface ParentChildDashboardRecord {
+  id: string;
+  name: string;
+  email: string;
+  grade: string;
+  school: string | null;
+  relationship: string;
+  assessment_average: number;
+  homework_completion: number;
+  completed_lessons: number;
+  total_lessons: number;
+  mastery_average: number;
+  due_reviews: number;
+  last_active: string;
+  diagnostic: {
+    completed: boolean;
+    percentage: number | null;
+    completedAt: string | null;
+  };
+  recent_assignments: Array<{
+    id: string;
+    title: string;
+    subject: string;
+    status: 'pending' | 'completed';
+    score: number | null;
+    dueAt: string | null;
+  }>;
+  weekly_trends: Array<{
+    weekStart: string;
+    lessonsCompleted: number;
+    assignmentsCompleted: number;
+    assessmentAverage: number;
+    weeklyExamScore: number | null;
+  }>;
+  weekly_report: {
+    generatedAt: string;
+    activeDays: number;
+    lessonsCompleted: number;
+    assignmentsCompleted: number;
+    assessmentAverage: number;
+    weeklyExamScore: number | null;
+    strengths: string[];
+    focusAreas: string[];
+  };
+}
+
+export interface WeeklyExamQuestionRecord {
+  id: string;
+  subjectId: string;
+  subjectName: string;
+  subStrandKey: string;
+  prompt: string;
+  options: string[];
+  correctAnswer: string;
+  explanation: string;
+}
+
+export interface WeeklyExamRecord {
+  id: string;
+  grade_level: string;
+  week_start: Date;
+  title: string;
+  duration_minutes: number;
+  questions: WeeklyExamQuestionRecord[];
+  opens_at: Date;
+  closes_at: Date;
+  is_published: boolean;
+}
+
+export interface WeeklyExamAttemptRecord {
+  id: string;
+  exam_id: string;
+  user_id: string;
+  status: 'in_progress' | 'completed';
+  answers: Array<{ questionId: string; answer: string; isCorrect: boolean }>;
+  score: string | null;
+  correct_count: number | null;
+  total_questions: number | null;
+  started_at: Date;
+  submitted_at: Date | null;
+}
+
 export async function withTransaction<T>(fn: (client: PoolClient) => Promise<T>): Promise<T> {
   const client = await db.connect();
   try {
@@ -296,8 +445,9 @@ export async function withTransaction<T>(fn: (client: PoolClient) => Promise<T>)
 
 export async function findUserByEmail(email: string): Promise<(UserRecord & { roles: AppRole[] }) | null> {
   const userResult = await db.query<UserRecord>(
-    `SELECT id, school_id, email, full_name, password_hash, email_verified, gender, grade_level,
-            onboarding_completed, must_rotate_password, is_break_glass
+    `SELECT id, school_id, email, phone_number, phone_verified, phone_verified_at, full_name, password_hash, email_verified, gender, grade_level,
+            onboarding_completed, terms_accepted_at, terms_version, privacy_version,
+            must_rotate_password, is_break_glass
      FROM users
      WHERE email = $1`,
     [email.toLowerCase()]
@@ -318,21 +468,225 @@ export async function findUserByEmail(email: string): Promise<(UserRecord & { ro
   };
 }
 
+export async function findUserByPhone(phoneNumber: string): Promise<(UserRecord & { roles: AppRole[] }) | null> {
+  const userResult = await db.query<UserRecord>(
+    `SELECT id, school_id, email, phone_number, phone_verified, phone_verified_at, full_name, password_hash, email_verified, gender, grade_level,
+            onboarding_completed, terms_accepted_at, terms_version, privacy_version,
+            must_rotate_password, is_break_glass
+     FROM users
+     WHERE phone_number = $1`,
+    [phoneNumber]
+  );
+  const user = userResult.rows[0];
+  if (!user) {
+    return null;
+  }
+  const roleResult = await db.query<{ role: AppRole }>(
+    `SELECT role FROM user_roles WHERE user_id = $1`,
+    [user.id]
+  );
+  return {
+    ...user,
+    roles: roleResult.rows.map(row => row.role)
+  };
+}
+
+export interface PhoneVerificationCodeRecord {
+  id: string;
+  phone_number: string;
+  purpose: 'login' | 'signup';
+  code_hash: string;
+  role: 'student' | 'teacher' | 'parent' | null;
+  full_name: string | null;
+  email: string | null;
+  password_hash: string | null;
+  accepted_terms: boolean;
+  expires_at: Date;
+  used_at: Date | null;
+  attempts: number;
+}
+
+export async function createPhoneVerificationCode(input: {
+  phoneNumber: string;
+  purpose: 'login' | 'signup';
+  codeHash: string;
+  role?: 'student' | 'teacher' | 'parent';
+  fullName?: string;
+  email?: string;
+  passwordHash?: string;
+  acceptedTerms?: boolean;
+  expiresAt: Date;
+}) {
+  await withTransaction(async client => {
+    await client.query(
+      `UPDATE phone_verification_codes
+       SET used_at = NOW()
+       WHERE phone_number = $1 AND purpose = $2 AND used_at IS NULL`,
+      [input.phoneNumber, input.purpose]
+    );
+    await client.query(
+      `INSERT INTO phone_verification_codes (
+         phone_number, purpose, code_hash, role, full_name, email, password_hash,
+         accepted_terms, expires_at
+       ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`,
+      [
+        input.phoneNumber,
+        input.purpose,
+        input.codeHash,
+        input.role ?? null,
+        input.fullName ?? null,
+        input.email?.toLowerCase() ?? null,
+        input.passwordHash ?? null,
+        input.acceptedTerms ?? false,
+        input.expiresAt
+      ]
+    );
+  });
+}
+
+export async function findActivePhoneVerificationCode(
+  phoneNumber: string,
+  purpose: 'login' | 'signup'
+): Promise<PhoneVerificationCodeRecord | null> {
+  const result = await db.query<PhoneVerificationCodeRecord>(
+    `SELECT id, phone_number, purpose, code_hash, role, full_name, email, password_hash,
+            accepted_terms, expires_at, used_at, attempts
+     FROM phone_verification_codes
+     WHERE phone_number = $1 AND purpose = $2 AND used_at IS NULL AND expires_at > NOW()
+     ORDER BY created_at DESC
+     LIMIT 1`,
+    [phoneNumber, purpose]
+  );
+  return result.rows[0] ?? null;
+}
+
+export async function recordPhoneVerificationFailure(codeId: string) {
+  await db.query(
+    `UPDATE phone_verification_codes
+     SET attempts = attempts + 1,
+         used_at = CASE WHEN attempts + 1 >= 5 THEN NOW() ELSE used_at END
+     WHERE id = $1`,
+    [codeId]
+  );
+}
+
+export async function consumePhoneVerificationCode(codeId: string) {
+  const result = await db.query(
+    `UPDATE phone_verification_codes
+     SET used_at = NOW()
+     WHERE id = $1 AND used_at IS NULL AND expires_at > NOW()
+     RETURNING id`,
+    [codeId]
+  );
+  return result.rowCount === 1;
+}
+
+export async function markUserPhoneVerified(userId: string, phoneNumber: string) {
+  await db.query(
+    `UPDATE users
+     SET phone_number = $2, phone_verified = TRUE, phone_verified_at = NOW(), updated_at = NOW()
+     WHERE id = $1`,
+    [userId, phoneNumber]
+  );
+}
+
+export async function findUserByAuthIdentity(
+  provider: 'google',
+  providerSubject: string
+): Promise<(UserRecord & { roles: AppRole[] }) | null> {
+  const result = await db.query<{ user_id: string }>(
+    `SELECT user_id
+     FROM user_auth_identities
+     WHERE provider = $1 AND provider_subject = $2`,
+    [provider, providerSubject]
+  );
+  const userId = result.rows[0]?.user_id;
+  if (!userId) {
+    return null;
+  }
+
+  const userResult = await db.query<UserRecord>(
+    `SELECT id, school_id, email, phone_number, phone_verified, phone_verified_at,
+            full_name, password_hash, email_verified, gender, grade_level,
+            onboarding_completed, terms_accepted_at, terms_version, privacy_version,
+            must_rotate_password, is_break_glass
+     FROM users
+     WHERE id = $1`,
+    [userId]
+  );
+  const user = userResult.rows[0];
+  if (!user) {
+    return null;
+  }
+  const roles = await db.query<{ role: AppRole }>('SELECT role FROM user_roles WHERE user_id = $1', [user.id]);
+  return { ...user, roles: roles.rows.map(row => row.role) };
+}
+
+export interface UserAuthIdentityRecord {
+  id: string;
+  user_id: string;
+  provider: 'google';
+  provider_subject: string;
+  provider_email: string | null;
+}
+
+export async function findUserAuthIdentityForProvider(
+  userId: string,
+  provider: 'google'
+): Promise<UserAuthIdentityRecord | null> {
+  const result = await db.query<UserAuthIdentityRecord>(
+    `SELECT id, user_id, provider, provider_subject, provider_email
+     FROM user_auth_identities
+     WHERE user_id = $1 AND provider = $2`,
+    [userId, provider]
+  );
+  return result.rows[0] ?? null;
+}
+
+export async function linkUserAuthIdentity(
+  client: MaybeClient,
+  input: {
+    userId: string;
+    provider: 'google';
+    providerSubject: string;
+    providerEmail: string;
+  }
+) {
+  await q(
+    client,
+    `INSERT INTO user_auth_identities (
+       user_id, provider, provider_subject, provider_email
+     ) VALUES ($1, $2, $3, $4)
+     ON CONFLICT (user_id, provider) DO UPDATE
+     SET provider_subject = EXCLUDED.provider_subject,
+         provider_email = EXCLUDED.provider_email,
+         updated_at = NOW()`,
+    [input.userId, input.provider, input.providerSubject, input.providerEmail.toLowerCase()]
+  );
+}
+
 export async function findUserById(userId: string): Promise<AuthenticatedUser | null> {
   const userResult = await db.query<{
     id: string;
     school_id: string | null;
     email: string;
+    phone_number: string | null;
+    phone_verified: boolean;
+    phone_verified_at: Date | null;
     full_name: string;
     email_verified: boolean;
     gender: 'male' | 'female' | 'not_specified';
     grade_level: string | null;
     onboarding_completed: boolean;
+    terms_accepted_at: Date | null;
+    terms_version: string | null;
+    privacy_version: string | null;
     must_rotate_password: boolean;
     is_break_glass: boolean;
   }>(
-    `SELECT id, school_id, email, full_name, email_verified, gender, grade_level,
-            onboarding_completed, must_rotate_password, is_break_glass
+    `SELECT id, school_id, email, phone_number, phone_verified, phone_verified_at, full_name, email_verified, gender, grade_level,
+            onboarding_completed, terms_accepted_at, terms_version, privacy_version,
+            must_rotate_password, is_break_glass
      FROM users
      WHERE id = $1`,
     [userId]
@@ -348,12 +702,17 @@ export async function findUserById(userId: string): Promise<AuthenticatedUser | 
     schoolId: user.school_id,
     sessionId: null,
     email: user.email,
+    phoneNumber: user.phone_number,
+    phoneVerified: user.phone_verified,
     fullName: user.full_name,
     emailVerified: user.email_verified,
     roles: roleResult.rows.map(row => row.role),
     gender: user.gender,
     grade: user.grade_level,
     onboardingCompleted: user.onboarding_completed,
+    termsAcceptedAt: user.terms_accepted_at?.toISOString() ?? null,
+    termsVersion: user.terms_version,
+    privacyVersion: user.privacy_version,
     stepUp: false,
     mustRotatePassword: user.must_rotate_password,
     isBreakGlass: user.is_break_glass
@@ -363,39 +722,59 @@ export async function findUserById(userId: string): Promise<AuthenticatedUser | 
 export async function createSelfServiceUser(input: {
   schoolId: string | null;
   email: string;
+  phoneNumber?: string | null;
+  phoneVerified?: boolean;
   passwordHash: string;
   fullName: string;
-  role: 'student' | 'teacher';
+  role: 'student' | 'teacher' | 'parent';
   gender?: 'male' | 'female' | 'not_specified';
   grade?: string | null;
   onboardingCompleted?: boolean;
+  termsAcceptedAt: Date;
+  termsVersion: string;
+  privacyVersion: string;
 }) {
   return withTransaction(async client => {
     const userResult = await q<{
       id: string;
       school_id: string | null;
       email: string;
+      phone_number: string | null;
+      phone_verified: boolean;
+      phone_verified_at: Date | null;
       full_name: string;
       email_verified: boolean;
       gender: 'male' | 'female' | 'not_specified';
       grade_level: string | null;
       onboarding_completed: boolean;
+      terms_accepted_at: Date | null;
+      terms_version: string | null;
+      privacy_version: string | null;
       must_rotate_password: boolean;
       is_break_glass: boolean;
     }>(
       client,
-      `INSERT INTO users (school_id, email, password_hash, full_name, gender, grade_level, onboarding_completed)
-       VALUES ($1, $2, $3, $4, $5, $6, $7)
-       RETURNING id, school_id, email, full_name, email_verified, gender, grade_level,
-                 onboarding_completed, must_rotate_password, is_break_glass`,
+      `INSERT INTO users (
+         school_id, email, phone_number, phone_verified, phone_verified_at, password_hash, full_name,
+         gender, grade_level, onboarding_completed, terms_accepted_at, terms_version, privacy_version
+       )
+       VALUES ($1, $2, $3, $4, CASE WHEN $4::boolean THEN NOW() ELSE NULL END, $5, $6, $7, $8, $9, $10, $11, $12)
+       RETURNING id, school_id, email, phone_number, phone_verified, phone_verified_at, full_name, email_verified, gender, grade_level,
+                 onboarding_completed, terms_accepted_at, terms_version, privacy_version,
+                 must_rotate_password, is_break_glass`,
       [
         input.schoolId,
         input.email.toLowerCase(),
+        input.phoneNumber ?? null,
+        input.phoneVerified ?? false,
         input.passwordHash,
         input.fullName,
         input.gender ?? 'not_specified',
         input.grade ?? null,
-        input.onboardingCompleted ?? false
+        input.onboardingCompleted ?? false,
+        input.termsAcceptedAt,
+        input.termsVersion,
+        input.privacyVersion
       ]
     );
     const user = userResult.rows[0];
@@ -410,17 +789,31 @@ export async function createSelfServiceUser(input: {
       schoolId: user.school_id,
       sessionId: null,
       email: user.email,
+      phoneNumber: user.phone_number,
+      phoneVerified: user.phone_verified,
       fullName: user.full_name,
       emailVerified: user.email_verified,
       roles: [input.role] as AppRole[],
       gender: user.gender,
       grade: user.grade_level,
       onboardingCompleted: user.onboarding_completed,
+      termsAcceptedAt: user.terms_accepted_at?.toISOString() ?? null,
+      termsVersion: user.terms_version,
+      privacyVersion: user.privacy_version,
       stepUp: false,
       mustRotatePassword: user.must_rotate_password,
       isBreakGlass: user.is_break_glass
     };
   });
+}
+
+export async function deleteSelfServiceAccount(client: MaybeClient, userId: string) {
+  await q(
+    client,
+    `DELETE FROM users
+     WHERE id = $1`,
+    [userId]
+  );
 }
 
 export async function insertRefreshToken(
@@ -642,6 +1035,475 @@ export async function createAuditLog(
   );
 }
 
+export async function listFeatureFlags(): Promise<FeatureFlagRecord[]> {
+  const result = await db.query<FeatureFlagRecord>(
+    `SELECT key, enabled, description
+     FROM feature_flags
+     ORDER BY key ASC`
+  );
+
+  return result.rows;
+}
+
+export async function isFeatureFlagEnabled(key: string): Promise<boolean> {
+  const result = await db.query<{ enabled: boolean }>(
+    `SELECT enabled
+     FROM feature_flags
+     WHERE key = $1`,
+    [key]
+  );
+
+  return Boolean(result.rows[0]?.enabled);
+}
+
+export async function listUserNotifications(
+  userId: string,
+  options: { limit?: number; unreadOnly?: boolean } = {}
+): Promise<UserNotificationRecord[]> {
+  const values: unknown[] = [userId, options.limit ?? 50];
+  const filters = ['user_id = $1'];
+
+  if (options.unreadOnly) {
+    filters.push(`status = 'unread'`);
+  }
+
+  const result = await db.query<UserNotificationRecord>(
+    `SELECT id, user_id, type, title, body, channel, status, metadata, read_at, created_at
+     FROM user_notifications
+     WHERE ${filters.join(' AND ')}
+     ORDER BY created_at DESC
+     LIMIT $2`,
+    values
+  );
+
+  return result.rows;
+}
+
+export async function createUserNotification(
+  client: MaybeClient,
+  input: {
+    userId: string;
+    type: string;
+    title: string;
+    body: string;
+    channel?: 'in_app' | 'sms' | 'push' | 'email';
+    metadata?: Record<string, unknown>;
+  }
+): Promise<string> {
+  const result = await q<{ id: string }>(
+    client,
+    `INSERT INTO user_notifications (user_id, type, title, body, channel, metadata)
+     VALUES ($1, $2, $3, $4, $5, $6::jsonb)
+     RETURNING id`,
+    [
+      input.userId,
+      input.type,
+      input.title,
+      input.body,
+      input.channel ?? 'in_app',
+      JSON.stringify(input.metadata ?? {})
+    ]
+  );
+
+  return result.rows[0].id;
+}
+
+export async function markUserNotificationRead(
+  client: MaybeClient,
+  userId: string,
+  notificationId: string
+) {
+  await q(
+    client,
+    `UPDATE user_notifications
+     SET status = 'read',
+         read_at = COALESCE(read_at, NOW())
+     WHERE id = $1 AND user_id = $2`,
+    [notificationId, userId]
+  );
+}
+
+export async function markAllUserNotificationsRead(client: MaybeClient, userId: string) {
+  await q(
+    client,
+    `UPDATE user_notifications
+     SET status = 'read',
+         read_at = COALESCE(read_at, NOW())
+     WHERE user_id = $1 AND status = 'unread'`,
+    [userId]
+  );
+}
+
+export async function createNotificationDelivery(
+  client: MaybeClient,
+  input: {
+    notificationId?: string | null;
+    userId?: string | null;
+    channel: 'sms' | 'push' | 'email';
+    provider: string;
+    status: 'sent' | 'skipped' | 'failed';
+    providerMessageId?: string | null;
+    errorMessage?: string | null;
+  }
+) {
+  await q(
+    client,
+    `INSERT INTO notification_deliveries (
+       notification_id, user_id, channel, provider, status, provider_message_id, error_message
+     )
+     VALUES ($1, $2, $3, $4, $5, $6, $7)`,
+    [
+      input.notificationId ?? null,
+      input.userId ?? null,
+      input.channel,
+      input.provider,
+      input.status,
+      input.providerMessageId ?? null,
+      input.errorMessage ?? null
+    ]
+  );
+}
+
+export async function findCompletedDiagnosticSession(
+  userId: string,
+  kind: 'onboarding' | 'progressive',
+  subjects: string[]
+): Promise<DiagnosticSessionRecord | null> {
+  const result = await db.query<DiagnosticSessionRecord>(
+    `SELECT id, user_id, kind, subjects, status, started_at, completed_at, result_summary
+     FROM diagnostic_sessions
+     WHERE user_id = $1
+       AND kind = $2
+       AND status = 'completed'
+       AND subjects @> $3::text[]
+     ORDER BY completed_at DESC
+     LIMIT 1`,
+    [userId, kind, subjects]
+  );
+
+  return result.rows[0] ?? null;
+}
+
+export async function findActiveDiagnosticSession(
+  userId: string,
+  kind: 'onboarding' | 'progressive'
+): Promise<DiagnosticSessionRecord | null> {
+  const result = await db.query<DiagnosticSessionRecord>(
+    `SELECT id, user_id, kind, subjects, status, started_at, completed_at, result_summary
+     FROM diagnostic_sessions
+     WHERE user_id = $1
+       AND kind = $2
+       AND status = 'in_progress'
+     ORDER BY started_at DESC
+     LIMIT 1`,
+    [userId, kind]
+  );
+
+  return result.rows[0] ?? null;
+}
+
+export async function findActiveDiagnosticSessionForSubjects(
+  userId: string,
+  kind: 'onboarding' | 'progressive',
+  subjects: string[]
+): Promise<DiagnosticSessionRecord | null> {
+  const result = await db.query<DiagnosticSessionRecord>(
+    `SELECT id, user_id, kind, subjects, status, started_at, completed_at, result_summary
+     FROM diagnostic_sessions
+     WHERE user_id = $1
+       AND kind = $2
+       AND status = 'in_progress'
+       AND subjects @> $3::text[]
+     ORDER BY started_at DESC
+     LIMIT 1`,
+    [userId, kind, subjects]
+  );
+
+  return result.rows[0] ?? null;
+}
+
+export async function findDiagnosticSessionForUser(
+  sessionId: string,
+  userId: string
+): Promise<DiagnosticSessionRecord | null> {
+  const result = await db.query<DiagnosticSessionRecord>(
+    `SELECT id, user_id, kind, subjects, status, started_at, completed_at, result_summary
+     FROM diagnostic_sessions
+     WHERE id = $1 AND user_id = $2`,
+    [sessionId, userId]
+  );
+
+  return result.rows[0] ?? null;
+}
+
+export async function createDiagnosticSession(
+  client: MaybeClient,
+  input: {
+    userId: string;
+    kind: 'onboarding' | 'progressive';
+    subjects: string[];
+  }
+): Promise<string> {
+  const result = await q<{ id: string }>(
+    client,
+    `INSERT INTO diagnostic_sessions (user_id, kind, subjects)
+     VALUES ($1, $2, $3::text[])
+     RETURNING id`,
+    [input.userId, input.kind, input.subjects]
+  );
+
+  return result.rows[0].id;
+}
+
+export async function listDiagnosticAnswers(sessionId: string): Promise<DiagnosticAnswerRecord[]> {
+  const result = await db.query<DiagnosticAnswerRecord>(
+    `SELECT question_id, subject_id, sub_strand_key, is_correct, confidence_score, response_latency_ms
+     FROM diagnostic_answers
+     WHERE session_id = $1
+     ORDER BY created_at ASC`,
+    [sessionId]
+  );
+
+  return result.rows;
+}
+
+function calculateMasteryContribution(input: {
+  isCorrect: boolean;
+  confidenceScore: number;
+  responseLatencyMs: number;
+  retryCount: number;
+}) {
+  const correctness = input.isCorrect ? 1 : 0;
+  const confidence = Math.min(1, Math.max(0.2, input.confidenceScore / 5));
+  const latencyNormalized = Math.max(0.25, input.responseLatencyMs / 120_000);
+  const retryFactor = 1 / Math.max(1, input.retryCount);
+  const score =
+    0.5 * correctness +
+    0.2 * confidence +
+    0.15 * Math.min(1, 1 / latencyNormalized) +
+    0.15 * retryFactor;
+
+  return Math.max(0, Math.min(1, Number(score.toFixed(4))));
+}
+
+export async function recordDiagnosticAnswer(
+  client: MaybeClient,
+  input: {
+    sessionId: string;
+    userId: string;
+    questionId: string;
+    subjectId: string;
+    subStrandKey: string;
+    answer: string;
+    isCorrect: boolean;
+    confidenceScore: number;
+    responseLatencyMs: number;
+  }
+) {
+  const existingResult = await q<{ count: string }>(
+    client,
+    `SELECT COUNT(*)::text AS count
+     FROM diagnostic_answers
+     WHERE session_id = $1 AND question_id = $2`,
+    [input.sessionId, input.questionId]
+  );
+  const retryCount = Number(existingResult.rows[0]?.count ?? 0) + 1;
+  const masteryContribution = calculateMasteryContribution({
+    isCorrect: input.isCorrect,
+    confidenceScore: input.confidenceScore,
+    responseLatencyMs: input.responseLatencyMs,
+    retryCount
+  });
+
+  await q(
+    client,
+    `INSERT INTO diagnostic_answers (
+       session_id, user_id, question_id, subject_id, sub_strand_key, answer,
+       is_correct, confidence_score, response_latency_ms
+     )
+     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+     ON CONFLICT (session_id, question_id)
+     DO UPDATE SET
+       answer = EXCLUDED.answer,
+       is_correct = EXCLUDED.is_correct,
+       confidence_score = EXCLUDED.confidence_score,
+       response_latency_ms = EXCLUDED.response_latency_ms,
+       created_at = NOW()`,
+    [
+      input.sessionId,
+      input.userId,
+      input.questionId,
+      input.subjectId,
+      input.subStrandKey,
+      input.answer,
+      input.isCorrect,
+      input.confidenceScore,
+      input.responseLatencyMs
+    ]
+  );
+
+  await q(
+    client,
+    `INSERT INTO confidence_records (
+       user_id, subject_id, sub_strand_key, question_id, confidence_score, response_latency_ms
+     )
+     VALUES ($1, $2, $3, $4, $5, $6)`,
+    [
+      input.userId,
+      input.subjectId,
+      input.subStrandKey,
+      input.questionId,
+      input.confidenceScore,
+      input.responseLatencyMs
+    ]
+  );
+
+  await q(
+    client,
+    `INSERT INTO mastery_scores (
+       user_id, subject_id, sub_strand_key, mastery_score, correctness_history,
+       confidence_history, avg_latency_ms, attempt_count, last_practiced_at, updated_at
+     )
+     VALUES (
+       $1, $2, $3, $4, jsonb_build_array($5::boolean),
+       jsonb_build_array($6::int), $7, 1, NOW(), NOW()
+     )
+     ON CONFLICT (user_id, subject_id, sub_strand_key)
+     DO UPDATE SET
+       mastery_score = ROUND(((mastery_scores.mastery_score::numeric * mastery_scores.attempt_count) + EXCLUDED.mastery_score::numeric) / (mastery_scores.attempt_count + 1), 4),
+       correctness_history = (mastery_scores.correctness_history || jsonb_build_array($5::boolean)),
+       confidence_history = (mastery_scores.confidence_history || jsonb_build_array($6::int)),
+       avg_latency_ms = ROUND(((mastery_scores.avg_latency_ms::numeric * mastery_scores.attempt_count) + $7::numeric) / (mastery_scores.attempt_count + 1))::int,
+       attempt_count = mastery_scores.attempt_count + 1,
+       last_practiced_at = NOW(),
+       updated_at = NOW()`,
+    [
+      input.userId,
+      input.subjectId,
+      input.subStrandKey,
+      masteryContribution,
+      input.isCorrect,
+      input.confidenceScore,
+      input.responseLatencyMs
+    ]
+  );
+
+  const masteryResult = await q<{ mastery_score: string }>(
+    client,
+    `SELECT mastery_score::text AS mastery_score
+     FROM mastery_scores
+     WHERE user_id = $1 AND subject_id = $2 AND sub_strand_key = $3`,
+    [input.userId, input.subjectId, input.subStrandKey]
+  );
+  const masteryScore = Number(masteryResult.rows[0]?.mastery_score ?? 0);
+  if (masteryScore >= 0.85) {
+    await q(
+      client,
+      `INSERT INTO spaced_repetition_schedules (
+         user_id, subject_id, sub_strand_key, next_review_date, interval_days, ease_factor, updated_at
+       )
+       VALUES ($1, $2, $3, CURRENT_DATE + INTERVAL '1 day', 1, 2.5, NOW())
+       ON CONFLICT (user_id, subject_id, sub_strand_key)
+       DO UPDATE SET
+         next_review_date = CASE
+           WHEN spaced_repetition_schedules.next_review_date <= CURRENT_DATE
+             THEN CURRENT_DATE + (spaced_repetition_schedules.interval_days || ' days')::interval
+           ELSE spaced_repetition_schedules.next_review_date
+         END,
+         updated_at = NOW()`,
+      [input.userId, input.subjectId, input.subStrandKey]
+    );
+  }
+}
+
+export async function completeDiagnosticSession(
+  client: MaybeClient,
+  sessionId: string,
+  resultSummary: Record<string, unknown>
+) {
+  await q(
+    client,
+    `UPDATE diagnostic_sessions
+     SET status = 'completed',
+         completed_at = NOW(),
+         result_summary = $2::jsonb
+     WHERE id = $1 AND status = 'in_progress'`,
+    [sessionId, JSON.stringify(resultSummary)]
+  );
+}
+
+export async function listDueSpacedReviews(userId: string): Promise<DueReviewRecord[]> {
+  const result = await db.query<DueReviewRecord>(
+    `SELECT
+       srs.id,
+       srs.user_id,
+       srs.subject_id,
+       srs.sub_strand_key,
+       srs.next_review_date,
+       srs.interval_days,
+       COALESCE(ms.mastery_score, 0)::text AS mastery_score
+     FROM spaced_repetition_schedules srs
+     LEFT JOIN mastery_scores ms
+       ON ms.user_id = srs.user_id
+      AND ms.subject_id = srs.subject_id
+      AND ms.sub_strand_key = srs.sub_strand_key
+     WHERE srs.user_id = $1
+       AND srs.next_review_date <= CURRENT_DATE
+     ORDER BY srs.next_review_date ASC, srs.subject_id ASC
+     LIMIT 10`,
+    [userId]
+  );
+
+  return result.rows;
+}
+
+export async function markSpacedReviewCompleted(
+  client: MaybeClient,
+  input: {
+    userId: string;
+    reviewId: string;
+    passed: boolean;
+  }
+) {
+  await q(
+    client,
+    `UPDATE spaced_repetition_schedules
+     SET interval_days = CASE
+           WHEN $3::boolean THEN LEAST(interval_days * 2, 30)
+           ELSE 1
+         END,
+         next_review_date = CURRENT_DATE + (
+           CASE WHEN $3::boolean THEN LEAST(interval_days * 2, 30) ELSE 1 END || ' days'
+         )::interval,
+         updated_at = NOW()
+     WHERE id = $2 AND user_id = $1`,
+    [input.userId, input.reviewId, input.passed]
+  );
+}
+
+export async function upsertPushToken(
+  client: MaybeClient,
+  input: {
+    userId: string;
+    platform: 'ios' | 'android' | 'web';
+    token: string;
+    deviceId?: string | null;
+  }
+) {
+  await q(
+    client,
+    `INSERT INTO user_push_tokens (user_id, platform, token, device_id, enabled, updated_at)
+     VALUES ($1, $2, $3, $4, TRUE, NOW())
+     ON CONFLICT (platform, token)
+     DO UPDATE SET
+       user_id = EXCLUDED.user_id,
+       device_id = EXCLUDED.device_id,
+       enabled = TRUE,
+       updated_at = NOW()`,
+    [input.userId, input.platform, input.token, input.deviceId ?? null]
+  );
+}
+
 export async function getActiveSubscription(userId: string) {
   const result = await db.query<{
     id: string;
@@ -776,6 +1638,15 @@ export async function listSchools() {
       discount_type: 'percentage' | 'fixed_ksh' | null;
       discount_amount: number | null;
       total_students: number;
+      pilot_status: 'not_enrolled' | 'onboarding' | 'active' | 'paused' | 'completed';
+      pilot_start_date: Date | null;
+      pilot_end_date: Date | null;
+      pilot_target_students: number;
+      pilot_onboarding_stage: number;
+      pilot_notes: string | null;
+      pilot_onboarded_students: number;
+      pilot_engaged_students: number;
+      pilot_average_mastery: number;
     }>(
       `SELECT
          s.id,
@@ -786,6 +1657,12 @@ export async function listSchools() {
          s.principal,
          s.phone,
          s.email,
+         s.pilot_status,
+         s.pilot_start_date,
+         s.pilot_end_date,
+         s.pilot_target_students,
+         s.pilot_onboarding_stage,
+         s.pilot_notes,
          ap.id AS assigned_plan_id,
          ap.code AS assigned_plan_code,
          ap.name AS assigned_plan_name,
@@ -795,7 +1672,21 @@ export async function listSchools() {
          d.name AS discount_name,
          d.type AS discount_type,
          d.amount AS discount_amount,
-         COUNT(DISTINCT CASE WHEN ur.role = 'student' THEN u.id END)::int AS total_students
+         COUNT(DISTINCT CASE WHEN ur.role = 'student' THEN u.id END)::int AS total_students,
+         COUNT(DISTINCT CASE WHEN ur.role = 'student' AND u.onboarding_completed THEN u.id END)::int AS pilot_onboarded_students,
+         (SELECT COUNT(DISTINCT active_user.id)::int
+          FROM users active_user
+          JOIN user_roles active_role ON active_role.user_id = active_user.id AND active_role.role = 'student'
+          WHERE active_user.school_id = s.id
+            AND (
+              EXISTS (SELECT 1 FROM user_curriculum_progress p WHERE p.user_id = active_user.id AND p.updated_at >= NOW() - INTERVAL '7 days')
+              OR EXISTS (SELECT 1 FROM submissions sub WHERE sub.student_id = active_user.id AND sub.submitted_at >= NOW() - INTERVAL '7 days')
+              OR EXISTS (SELECT 1 FROM weekly_exam_attempts wa WHERE wa.user_id = active_user.id AND wa.started_at >= NOW() - INTERVAL '7 days')
+            )) AS pilot_engaged_students,
+         COALESCE((SELECT ROUND(AVG(ms.mastery_score) * 100, 0)::int
+                   FROM mastery_scores ms
+                   JOIN users mastery_user ON mastery_user.id = ms.user_id
+                   WHERE mastery_user.school_id = s.id), 0) AS pilot_average_mastery
        FROM schools s
        JOIN subscription_plans ap ON ap.id = s.assigned_plan_id
        LEFT JOIN school_discounts d ON d.id = s.discount_id
@@ -954,6 +1845,41 @@ export async function updateSchool(
       input.assignedPlanId,
       input.discountId ?? null,
       input.status ?? null
+    ]
+  );
+}
+
+export async function updateSchoolPilot(
+  client: MaybeClient,
+  schoolId: string,
+  input: {
+    status: 'not_enrolled' | 'onboarding' | 'active' | 'paused' | 'completed';
+    startDate?: string | null;
+    endDate?: string | null;
+    targetStudents: number;
+    onboardingStage: number;
+    notes?: string | null;
+  }
+) {
+  await q(
+    client,
+    `UPDATE schools
+     SET pilot_status = $2,
+         pilot_start_date = $3::date,
+         pilot_end_date = $4::date,
+         pilot_target_students = $5,
+         pilot_onboarding_stage = $6,
+         pilot_notes = $7,
+         updated_at = NOW()
+     WHERE id = $1`,
+    [
+      schoolId,
+      input.status,
+      input.startDate ?? null,
+      input.endDate ?? null,
+      input.targetStudents,
+      input.onboardingStage,
+      input.notes ?? null
     ]
   );
 }
@@ -1356,6 +2282,7 @@ export async function createAiUsageEvent(
     estimatedCostUsdMicros: number;
     fxRateKshPerUsd: number;
     estimatedCostKshCents: number;
+    promptVersion: string;
     status: 'allowed' | 'blocked' | 'failed' | 'completed';
   }
 ) {
@@ -1364,11 +2291,11 @@ export async function createAiUsageEvent(
     `INSERT INTO ai_usage_events (
       user_id, school_id, subscription_id, feature, provider, model,
       prompt_tokens, completion_tokens, total_tokens, estimated_cost_usd_micros,
-      fx_rate_ksh_per_usd, estimated_cost_ksh_cents, status
+      fx_rate_ksh_per_usd, estimated_cost_ksh_cents, prompt_version, status
      ) VALUES (
       $1, $2, $3, $4, $5, $6,
       $7, $8, $9, $10,
-      $11, $12, $13
+      $11, $12, $13, $14
      )`,
     [
       payload.userId,
@@ -1383,6 +2310,7 @@ export async function createAiUsageEvent(
       payload.estimatedCostUsdMicros,
       payload.fxRateKshPerUsd,
       payload.estimatedCostKshCents,
+      payload.promptVersion,
       payload.status
     ]
   );
@@ -1519,7 +2447,7 @@ function normalizeCurriculumItems(
 function buildCurriculumSubjectBundles(args: {
   strands: CurriculumStrandRecord[];
   subStrands: CurriculumSubStrandRecord[];
-  completedSubStrandIds: Set<string>;
+  progressBySubStrand: Map<string, { passed: boolean; quizScore: number | null; attemptCount: number }>;
 }) {
   const subStrandsByStrand = new Map<string, CurriculumSubStrandRecord[]>();
   for (const subStrand of args.subStrands) {
@@ -1542,9 +2470,11 @@ function buildCurriculumSubjectBundles(args: {
       .sort((left, right) => left.position - right.position)
       .map((subStrand, index, ordered) => {
         const previous = ordered[index - 1];
-        const isCompleted = args.completedSubStrandIds.has(subStrand.id);
+        const progress = args.progressBySubStrand.get(subStrand.id);
+        const previousProgress = previous ? args.progressBySubStrand.get(previous.id) : undefined;
+        const isCompleted = progress?.passed ?? false;
         const isLocked =
-          index > 0 && previous ? !args.completedSubStrandIds.has(previous.id) : false;
+          index > 0 && previous ? !(previousProgress?.passed ?? false) : false;
 
         return {
           id: subStrand.id,
@@ -1554,6 +2484,11 @@ function buildCurriculumSubjectBundles(args: {
           pages: subStrand.pages ?? [],
           isLocked,
           isCompleted,
+          needsRemediation: Boolean(progress && !progress.passed),
+          masteryScore: progress?.quizScore ?? null,
+          unlockReason: isLocked
+            ? `Score 70% or higher on ${previous?.title ?? 'the previous topic'} to unlock.`
+            : undefined,
           number: subStrand.number ?? undefined,
           outcomes: normalizeCurriculumItems(
             subStrand.outcomes,
@@ -1672,21 +2607,32 @@ export async function listCurriculumForGrade(
     [strandIds]
   );
 
-  let completedSubStrandIds = new Set<string>();
+  const progressBySubStrand = new Map<string, { passed: boolean; quizScore: number | null; attemptCount: number }>();
   if (userId) {
-    const progressResult = await db.query<{ sub_strand_id: string }>(
-      `SELECT sub_strand_id
+    const progressResult = await db.query<{
+      sub_strand_id: string;
+      passed: boolean;
+      quiz_score: string | null;
+      attempt_count: number;
+    }>(
+      `SELECT sub_strand_id, passed, quiz_score::text AS quiz_score, attempt_count
        FROM user_curriculum_progress
        WHERE user_id = $1`,
       [userId]
     );
-    completedSubStrandIds = new Set(progressResult.rows.map(row => row.sub_strand_id));
+    for (const row of progressResult.rows) {
+      progressBySubStrand.set(row.sub_strand_id, {
+        passed: row.passed,
+        quizScore: row.quiz_score === null ? null : Number(row.quiz_score),
+        attemptCount: row.attempt_count
+      });
+    }
   }
 
   return buildCurriculumSubjectBundles({
     strands: strandsResult.rows,
     subStrands: subStrandsResult.rows,
-    completedSubStrandIds
+    progressBySubStrand
   });
 }
 
@@ -1757,10 +2703,18 @@ export async function markCurriculumSubStrandCompleted(
 ) {
   await q(
     client,
-    `INSERT INTO user_curriculum_progress (user_id, sub_strand_id, quiz_score, completed_at, updated_at)
-     VALUES ($1, $2, $3, NOW(), NOW())
+    `INSERT INTO user_curriculum_progress (
+       user_id, sub_strand_id, quiz_score, passed, attempt_count, completed_at, last_attempt_at, updated_at
+     )
+     VALUES ($1, $2, $3, COALESCE($3, 100) >= 70, 1, NOW(), NOW(), NOW())
      ON CONFLICT (user_id, sub_strand_id)
-     DO UPDATE SET quiz_score = EXCLUDED.quiz_score, updated_at = NOW()`,
+     DO UPDATE SET
+       quiz_score = GREATEST(user_curriculum_progress.quiz_score, EXCLUDED.quiz_score),
+       passed = user_curriculum_progress.passed OR EXCLUDED.passed,
+       attempt_count = user_curriculum_progress.attempt_count + 1,
+       completed_at = CASE WHEN EXCLUDED.passed THEN NOW() ELSE user_curriculum_progress.completed_at END,
+       last_attempt_at = NOW(),
+       updated_at = NOW()`,
     [userId, subStrandId, quizScore]
   );
 }
@@ -1782,6 +2736,556 @@ function formatActivityLabel(value: Date | null) {
   }
 
   return value.toISOString().slice(0, 10);
+}
+
+export async function linkParentStudentByEmail(
+  client: MaybeClient,
+  parentUserId: string,
+  studentEmail: string
+) {
+  const studentResult = await q<{
+    id: string;
+    full_name: string;
+    email: string;
+  }>(
+    client,
+    `SELECT u.id, u.full_name, u.email
+     FROM users u
+     JOIN user_roles ur ON ur.user_id = u.id AND ur.role = 'student'
+     WHERE LOWER(u.email) = LOWER($1)
+       AND u.email_verified = TRUE
+     LIMIT 1`,
+    [studentEmail.trim()]
+  );
+
+  const student = studentResult.rows[0];
+  if (!student) {
+    return null;
+  }
+
+  await q(
+    client,
+    `INSERT INTO parent_students (parent_user_id, student_user_id, relationship)
+     VALUES ($1, $2, 'guardian')
+     ON CONFLICT (parent_user_id, student_user_id) DO NOTHING`,
+    [parentUserId, student.id]
+  );
+
+  return {
+    id: student.id,
+    name: student.full_name,
+    email: student.email
+  };
+}
+
+export async function linkParentStudentByPhone(
+  client: MaybeClient,
+  parentUserId: string,
+  studentPhone: string
+) {
+  const studentResult = await q<{
+    id: string;
+    full_name: string;
+    email: string;
+    phone_number: string;
+  }>(
+    client,
+    `SELECT u.id, u.full_name, u.email, u.phone_number
+     FROM users u
+     JOIN user_roles ur ON ur.user_id = u.id AND ur.role = 'student'
+     WHERE u.phone_number = $1
+       AND u.phone_verified = TRUE
+     LIMIT 1`,
+    [studentPhone]
+  );
+
+  const student = studentResult.rows[0];
+  if (!student) {
+    return null;
+  }
+
+  await q(
+    client,
+    `INSERT INTO parent_students (parent_user_id, student_user_id, relationship)
+     VALUES ($1, $2, 'guardian')
+     ON CONFLICT (parent_user_id, student_user_id) DO NOTHING`,
+    [parentUserId, student.id]
+  );
+
+  return {
+    id: student.id,
+    name: student.full_name,
+    email: student.email,
+    phoneNumber: student.phone_number
+  };
+}
+
+export async function unlinkParentStudent(
+  client: MaybeClient,
+  parentUserId: string,
+  studentUserId: string
+) {
+  await q(
+    client,
+    `DELETE FROM parent_students
+     WHERE parent_user_id = $1 AND student_user_id = $2`,
+    [parentUserId, studentUserId]
+  );
+}
+
+export async function listParentChildrenDashboard(
+  parentUserId: string
+): Promise<ParentChildDashboardRecord[]> {
+  const summaryResult = await db.query<{
+    id: string;
+    name: string;
+    email: string;
+    grade: string | null;
+    school: string | null;
+    relationship: string;
+    assessment_average: string | null;
+    homework_completion: string | null;
+    completed_lessons: string;
+    total_lessons: string;
+    mastery_average: string | null;
+    due_reviews: string;
+    last_activity: Date | null;
+    diagnostic_completed: boolean | null;
+    diagnostic_percentage: number | null;
+    diagnostic_completed_at: Date | null;
+  }>(
+    `SELECT
+       child.id,
+       child.full_name AS name,
+       child.email,
+       child.grade_level AS grade,
+       school.name AS school,
+       ps.relationship,
+       submission_stats.assessment_average,
+       submission_stats.homework_completion,
+       progress_stats.completed_lessons,
+       curriculum_stats.total_lessons,
+       mastery_stats.mastery_average,
+       review_stats.due_reviews,
+       GREATEST(
+         COALESCE(submission_stats.last_activity, 'epoch'::timestamptz),
+         COALESCE(progress_stats.last_activity, 'epoch'::timestamptz),
+         COALESCE(mastery_stats.last_activity, 'epoch'::timestamptz),
+         COALESCE(latest_diag.completed_at, 'epoch'::timestamptz)
+       ) AS last_activity,
+       (latest_diag.id IS NOT NULL) AS diagnostic_completed,
+       (latest_diag.result_summary->>'percentage')::int AS diagnostic_percentage,
+       latest_diag.completed_at AS diagnostic_completed_at
+     FROM parent_students ps
+     JOIN users child ON child.id = ps.student_user_id
+     JOIN user_roles child_role ON child_role.user_id = child.id AND child_role.role = 'student'
+     LEFT JOIN schools school ON school.id = child.school_id
+     LEFT JOIN LATERAL (
+       SELECT
+         ROUND(AVG(score) FILTER (WHERE status IN ('Completed', 'Late')), 0)::text AS assessment_average,
+         ROUND(
+           COALESCE(
+             100.0 * COUNT(*) FILTER (WHERE status IN ('Completed', 'Late'))
+             / NULLIF(COUNT(*), 0),
+             0
+           ),
+           0
+         )::text AS homework_completion,
+         MAX(submitted_at) AS last_activity
+       FROM submissions
+       WHERE student_id = child.id
+     ) submission_stats ON TRUE
+     LEFT JOIN LATERAL (
+       SELECT COUNT(DISTINCT sub_strand_id)::text AS completed_lessons, MAX(updated_at) AS last_activity
+       FROM user_curriculum_progress
+       WHERE user_id = child.id
+     ) progress_stats ON TRUE
+     LEFT JOIN LATERAL (
+       SELECT ROUND(COALESCE(AVG(mastery_score), 0) * 100, 0)::text AS mastery_average,
+              MAX(updated_at) AS last_activity
+       FROM mastery_scores
+       WHERE user_id = child.id
+     ) mastery_stats ON TRUE
+     LEFT JOIN LATERAL (
+       SELECT COUNT(*) FILTER (WHERE next_review_date <= CURRENT_DATE)::text AS due_reviews
+       FROM spaced_repetition_schedules
+       WHERE user_id = child.id
+     ) review_stats ON TRUE
+     LEFT JOIN LATERAL (
+       SELECT COUNT(css.id)::text AS total_lessons
+       FROM curriculum_strands cs
+       JOIN curriculum_sub_strands css ON css.strand_id = cs.id
+       WHERE cs.grade_level = child.grade_level
+     ) curriculum_stats ON TRUE
+     LEFT JOIN LATERAL (
+       SELECT id, result_summary, completed_at
+       FROM diagnostic_sessions
+       WHERE user_id = child.id AND status = 'completed'
+       ORDER BY completed_at DESC NULLS LAST
+       LIMIT 1
+     ) latest_diag ON TRUE
+     WHERE ps.parent_user_id = $1
+     ORDER BY child.full_name ASC`,
+    [parentUserId]
+  );
+
+  const children: ParentChildDashboardRecord[] = [];
+  for (const row of summaryResult.rows) {
+    const assignmentsResult = await db.query<{
+      id: string;
+      title: string;
+      subject: string;
+      status: string | null;
+      score: string | null;
+      due_at: Date | null;
+    }>(
+      `SELECT
+         a.id,
+         a.title,
+         a.subject,
+         sub.status,
+         sub.score::text AS score,
+         a.due_at
+       FROM assignments a
+       LEFT JOIN submissions sub
+         ON sub.assignment_id = a.id
+        AND sub.student_id = $1
+       WHERE a.school_id = (
+         SELECT school_id FROM users WHERE id = $1
+       )
+         AND ($2::text IS NULL OR a.grade_level = $2)
+       ORDER BY a.created_at DESC
+       LIMIT 5`,
+      [row.id, row.grade]
+    );
+
+    const trendsResult = await db.query<{
+      week_start: Date;
+      lessons_completed: string;
+      assignments_completed: string;
+      assessment_average: string | null;
+      weekly_exam_score: string | null;
+    }>(
+      `WITH weeks AS (
+         SELECT generate_series(
+           date_trunc('week', NOW()) - INTERVAL '5 weeks',
+           date_trunc('week', NOW()),
+           INTERVAL '1 week'
+         ) AS week_start
+       )
+       SELECT
+         weeks.week_start,
+         (SELECT COUNT(*)::text
+          FROM user_curriculum_progress progress
+          WHERE progress.user_id = $1
+            AND progress.passed = TRUE
+            AND progress.completed_at >= weeks.week_start
+            AND progress.completed_at < weeks.week_start + INTERVAL '1 week') AS lessons_completed,
+         (SELECT COUNT(*)::text
+          FROM submissions submission
+          WHERE submission.student_id = $1
+            AND submission.status IN ('Completed', 'Late')
+            AND submission.submitted_at >= weeks.week_start
+            AND submission.submitted_at < weeks.week_start + INTERVAL '1 week') AS assignments_completed,
+         (SELECT ROUND(AVG(submission.score), 0)::text
+          FROM submissions submission
+          WHERE submission.student_id = $1
+            AND submission.status IN ('Completed', 'Late')
+            AND submission.submitted_at >= weeks.week_start
+            AND submission.submitted_at < weeks.week_start + INTERVAL '1 week') AS assessment_average,
+         (SELECT ROUND(AVG(attempt.score), 0)::text
+          FROM weekly_exam_attempts attempt
+          WHERE attempt.user_id = $1
+            AND attempt.status = 'completed'
+            AND attempt.submitted_at >= weeks.week_start
+            AND attempt.submitted_at < weeks.week_start + INTERVAL '1 week') AS weekly_exam_score
+       FROM weeks
+       ORDER BY weeks.week_start ASC`,
+      [row.id]
+    );
+
+    const masteryAreasResult = await db.query<{
+      subject_id: string;
+      sub_strand_key: string;
+      mastery_score: string;
+    }>(
+      `SELECT subject_id, sub_strand_key, mastery_score::text AS mastery_score
+       FROM mastery_scores
+       WHERE user_id = $1
+       ORDER BY mastery_score DESC, updated_at DESC`,
+      [row.id]
+    );
+
+    const currentTrend = trendsResult.rows[trendsResult.rows.length - 1];
+    const activeDaysResult = await db.query<{ active_days: string }>(
+      `SELECT COUNT(DISTINCT activity_day)::text AS active_days
+       FROM (
+         SELECT submitted_at::date AS activity_day FROM submissions
+         WHERE student_id = $1 AND submitted_at >= date_trunc('week', NOW())
+         UNION
+         SELECT updated_at::date FROM user_curriculum_progress
+         WHERE user_id = $1 AND updated_at >= date_trunc('week', NOW())
+         UNION
+         SELECT submitted_at::date FROM weekly_exam_attempts
+         WHERE user_id = $1 AND submitted_at >= date_trunc('week', NOW())
+       ) activity`,
+      [row.id]
+    );
+
+    const formatTopic = (value: string) => value
+      .split(/[-_]/)
+      .filter(Boolean)
+      .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+      .join(' ');
+    const strengths = masteryAreasResult.rows
+      .filter(area => Number(area.mastery_score) >= 0.8)
+      .slice(0, 3)
+      .map(area => `${formatTopic(area.subject_id)}: ${formatTopic(area.sub_strand_key)}`);
+    const focusAreas = masteryAreasResult.rows
+      .filter(area => Number(area.mastery_score) < 0.7)
+      .reverse()
+      .slice(0, 3)
+      .map(area => `${formatTopic(area.subject_id)}: ${formatTopic(area.sub_strand_key)}`);
+
+    const lastActive =
+      row.last_activity && row.last_activity.getTime() > 0
+        ? formatActivityLabel(row.last_activity)
+        : 'No activity yet';
+
+    children.push({
+      id: row.id,
+      name: row.name,
+      email: row.email,
+      grade: row.grade || 'Unassigned',
+      school: row.school,
+      relationship: row.relationship,
+      assessment_average: Number(row.assessment_average || 0),
+      homework_completion: Number(row.homework_completion || 0),
+      completed_lessons: Number(row.completed_lessons || 0),
+      total_lessons: Number(row.total_lessons || 0),
+      mastery_average: Number(row.mastery_average || 0),
+      due_reviews: Number(row.due_reviews || 0),
+      last_active: lastActive,
+      diagnostic: {
+        completed: Boolean(row.diagnostic_completed),
+        percentage: row.diagnostic_percentage,
+        completedAt: row.diagnostic_completed_at?.toISOString() ?? null
+      },
+      recent_assignments: assignmentsResult.rows.map(assignment => ({
+        id: assignment.id,
+        title: assignment.title,
+        subject: assignment.subject,
+        status: assignment.status?.toLowerCase() === 'completed' || assignment.status === 'Late'
+          ? 'completed'
+          : 'pending',
+        score: assignment.score ? Number(assignment.score) : null,
+        dueAt: assignment.due_at?.toISOString() ?? null
+      })),
+      weekly_trends: trendsResult.rows.map(trend => ({
+        weekStart: trend.week_start.toISOString().slice(0, 10),
+        lessonsCompleted: Number(trend.lessons_completed || 0),
+        assignmentsCompleted: Number(trend.assignments_completed || 0),
+        assessmentAverage: Number(trend.assessment_average || 0),
+        weeklyExamScore: trend.weekly_exam_score === null ? null : Number(trend.weekly_exam_score)
+      })),
+      weekly_report: {
+        generatedAt: new Date().toISOString(),
+        activeDays: Number(activeDaysResult.rows[0]?.active_days || 0),
+        lessonsCompleted: Number(currentTrend?.lessons_completed || 0),
+        assignmentsCompleted: Number(currentTrend?.assignments_completed || 0),
+        assessmentAverage: Number(currentTrend?.assessment_average || 0),
+        weeklyExamScore: currentTrend?.weekly_exam_score === null || currentTrend?.weekly_exam_score === undefined
+          ? null
+          : Number(currentTrend.weekly_exam_score),
+        strengths,
+        focusAreas
+      }
+    });
+  }
+
+  return children;
+}
+
+export async function ensureWeeklyExam(
+  client: MaybeClient,
+  input: {
+    gradeLevel: string;
+    weekStart: string;
+    title: string;
+    durationMinutes: number;
+    questions: WeeklyExamQuestionRecord[];
+    opensAt: Date;
+    closesAt: Date;
+  }
+) {
+  const result = await q<WeeklyExamRecord>(
+    client,
+    `INSERT INTO weekly_exams (
+       grade_level, week_start, title, duration_minutes, questions, opens_at, closes_at
+     )
+     VALUES ($1, $2::date, $3, $4, $5::jsonb, $6, $7)
+     ON CONFLICT (grade_level, week_start)
+     DO UPDATE SET
+       title = EXCLUDED.title,
+       opens_at = LEAST(weekly_exams.opens_at, EXCLUDED.opens_at),
+       closes_at = GREATEST(weekly_exams.closes_at, EXCLUDED.closes_at),
+       updated_at = NOW()
+     RETURNING id, grade_level, week_start, title, duration_minutes, questions,
+               opens_at, closes_at, is_published`,
+    [
+      input.gradeLevel,
+      input.weekStart,
+      input.title,
+      input.durationMinutes,
+      JSON.stringify(input.questions),
+      input.opensAt,
+      input.closesAt
+    ]
+  );
+
+  return result.rows[0];
+}
+
+export async function findWeeklyExamAttempt(examId: string, userId: string) {
+  const result = await db.query<WeeklyExamAttemptRecord>(
+    `SELECT id, exam_id, user_id, status, answers, score::text AS score,
+            correct_count, total_questions, started_at, submitted_at
+     FROM weekly_exam_attempts
+     WHERE exam_id = $1 AND user_id = $2`,
+    [examId, userId]
+  );
+  return result.rows[0] ?? null;
+}
+
+export async function startWeeklyExamAttempt(
+  client: MaybeClient,
+  examId: string,
+  userId: string
+) {
+  const result = await q<WeeklyExamAttemptRecord>(
+    client,
+    `INSERT INTO weekly_exam_attempts (exam_id, user_id)
+     VALUES ($1, $2)
+     ON CONFLICT (exam_id, user_id) DO UPDATE SET exam_id = EXCLUDED.exam_id
+     RETURNING id, exam_id, user_id, status, answers, score::text AS score,
+               correct_count, total_questions, started_at, submitted_at`,
+    [examId, userId]
+  );
+  return result.rows[0];
+}
+
+async function recordWeeklyExamMastery(
+  client: MaybeClient,
+  userId: string,
+  question: WeeklyExamQuestionRecord,
+  isCorrect: boolean
+) {
+  const contribution = isCorrect ? 0.9 : 0.15;
+  await q(
+    client,
+    `INSERT INTO mastery_scores (
+       user_id, subject_id, sub_strand_key, mastery_score, correctness_history,
+       confidence_history, avg_latency_ms, attempt_count, last_practiced_at, updated_at
+     )
+     VALUES ($1, $2, $3, $4, jsonb_build_array($5::boolean), '[]'::jsonb, 0, 1, NOW(), NOW())
+     ON CONFLICT (user_id, subject_id, sub_strand_key)
+     DO UPDATE SET
+       mastery_score = ROUND(
+         ((mastery_scores.mastery_score::numeric * mastery_scores.attempt_count) + $4::numeric)
+         / (mastery_scores.attempt_count + 1),
+         4
+       ),
+       correctness_history = mastery_scores.correctness_history || jsonb_build_array($5::boolean),
+       attempt_count = mastery_scores.attempt_count + 1,
+       last_practiced_at = NOW(),
+       updated_at = NOW()`,
+    [userId, question.subjectId, question.subStrandKey, contribution, isCorrect]
+  );
+}
+
+export async function submitWeeklyExamAttempt(
+  client: MaybeClient,
+  input: {
+    exam: WeeklyExamRecord;
+    attemptId: string;
+    userId: string;
+    answers: Array<{ questionId: string; answer: string }>;
+  }
+) {
+  const attemptResult = await q<WeeklyExamAttemptRecord>(
+    client,
+    `SELECT id, exam_id, user_id, status, answers, score::text AS score,
+            correct_count, total_questions, started_at, submitted_at
+     FROM weekly_exam_attempts
+     WHERE id = $1 AND exam_id = $2 AND user_id = $3
+     FOR UPDATE`,
+    [input.attemptId, input.exam.id, input.userId]
+  );
+  const attempt = attemptResult.rows[0];
+  if (!attempt) {
+    return null;
+  }
+  if (attempt.status === 'completed') {
+    return attempt;
+  }
+
+  const answerMap = new Map(input.answers.map(answer => [answer.questionId, answer.answer.trim()]));
+  const scoredAnswers = input.exam.questions.map(question => {
+    const answer = answerMap.get(question.id) ?? '';
+    return {
+      questionId: question.id,
+      answer,
+      isCorrect: answer.toLowerCase() === question.correctAnswer.trim().toLowerCase()
+    };
+  });
+  const correctCount = scoredAnswers.filter(answer => answer.isCorrect).length;
+  const totalQuestions = input.exam.questions.length;
+  const score = totalQuestions > 0 ? Number(((correctCount / totalQuestions) * 100).toFixed(2)) : 0;
+
+  const result = await q<WeeklyExamAttemptRecord>(
+    client,
+    `UPDATE weekly_exam_attempts
+     SET status = 'completed', answers = $2::jsonb, score = $3,
+         correct_count = $4, total_questions = $5, submitted_at = NOW()
+     WHERE id = $1
+     RETURNING id, exam_id, user_id, status, answers, score::text AS score,
+               correct_count, total_questions, started_at, submitted_at`,
+    [input.attemptId, JSON.stringify(scoredAnswers), score, correctCount, totalQuestions]
+  );
+
+  for (let index = 0; index < input.exam.questions.length; index += 1) {
+    await recordWeeklyExamMastery(
+      client,
+      input.userId,
+      input.exam.questions[index],
+      scoredAnswers[index].isCorrect
+    );
+  }
+
+  return result.rows[0];
+}
+
+export async function listWeeklyExamHistory(userId: string) {
+  const result = await db.query<{
+    id: string;
+    exam_id: string;
+    title: string;
+    week_start: Date;
+    score: string;
+    correct_count: number;
+    total_questions: number;
+    submitted_at: Date;
+  }>(
+    `SELECT a.id, a.exam_id, e.title, e.week_start, a.score::text AS score,
+            a.correct_count, a.total_questions, a.submitted_at
+     FROM weekly_exam_attempts a
+     JOIN weekly_exams e ON e.id = a.exam_id
+     WHERE a.user_id = $1 AND a.status = 'completed'
+     ORDER BY e.week_start DESC
+     LIMIT 12`,
+    [userId]
+  );
+  return result.rows;
 }
 
 export async function listLibraryBooksForUser(user: AuthenticatedUser): Promise<LibraryBookRecord[]> {

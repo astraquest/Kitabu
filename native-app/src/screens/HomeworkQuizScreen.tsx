@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { Info, Mic, RotateCcw, Square, X } from 'lucide-react-native';
 
+import { DEFAULT_GRADE } from '../constants/grades';
 import { askHomeworkHelper } from '../services/aiService';
 import { audioRecordingBridge } from '../services/nativeBridges';
 import { Assignment } from '../types/app';
@@ -225,7 +226,7 @@ export function HomeworkQuizScreen({
       } else {
         prompt += `\nI answered "${userAnswer}". Explain simply why my answer is incorrect and why the correct answer is right.`;
       }
-      prompt += '\nKeep it friendly and concise for a Grade 8 student.';
+      prompt += `\nKeep it friendly and concise for a ${DEFAULT_GRADE} student.`;
 
       const text = await askHomeworkHelper(prompt, [], 'explanation');
       setExplanationModal({ isOpen: true, isLoading: false, text });
@@ -294,31 +295,38 @@ export function HomeworkQuizScreen({
       ) : null}
 
       <ScrollView contentContainerStyle={styles.content}>
-        <Text style={styles.questionType}>{currentQuestion.type}</Text>
-        <Text style={styles.questionText}>{currentQuestion.text}</Text>
+        <View style={styles.questionPanel}>
+          <Text style={styles.questionType}>{currentQuestion.type}</Text>
+          <Text style={styles.questionText}>{currentQuestion.text}</Text>
 
-        {(currentQuestion.type === 'MCQ' || currentQuestion.type === 'TRUE_FALSE') &&
-          options.map(option => {
-            const isSelected = selectedAnswer === option;
-            const isCorrect = option === currentQuestion.correctAnswer;
+          {(currentQuestion.type === 'MCQ' || currentQuestion.type === 'TRUE_FALSE') &&
+            options.map((option, index) => {
+              const isSelected = selectedAnswer === option;
+              const isCorrect = option === currentQuestion.correctAnswer;
 
-            return (
-              <Pressable
-                key={option}
-                disabled={isReview}
-                onPress={() =>
-                  setAnswers(prev => ({ ...prev, [currentQuestionIndex]: option }))
-                }
-                style={[
-                  styles.optionCard,
-                  isSelected && styles.optionSelected,
-                  isReview && isCorrect && styles.optionCorrect,
-                  isReview && isSelected && !isCorrect && styles.optionIncorrect,
-                ]}>
-                <Text style={styles.optionText}>{option}</Text>
-              </Pressable>
-            );
-          })}
+              return (
+                <Pressable
+                  key={option}
+                  disabled={isReview}
+                  onPress={() =>
+                    setAnswers(prev => ({ ...prev, [currentQuestionIndex]: option }))
+                  }
+                  style={[
+                    styles.optionCard,
+                    isSelected && styles.optionSelected,
+                    isReview && isCorrect && styles.optionCorrect,
+                    isReview && isSelected && !isCorrect && styles.optionIncorrect,
+                  ]}>
+                  <View style={[styles.optionMarker, isSelected && styles.optionMarkerSelected]}>
+                    <Text style={[styles.optionMarkerText, isSelected && styles.optionMarkerTextSelected]}>
+                      {String.fromCharCode(65 + index)}
+                    </Text>
+                  </View>
+                  <Text style={styles.optionText}>{option}</Text>
+                </Pressable>
+              );
+            })}
+        </View>
 
         {isOpenResponse ? (
           <View style={styles.voiceSection}>
@@ -495,8 +503,16 @@ function ActivityExplanationModal({
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1 },
-  header: { paddingHorizontal: 20, paddingTop: 20, gap: 10 },
+  container: { backgroundColor: '#F8FAFC', flex: 1 },
+  header: {
+    backgroundColor: '#FFFFFF',
+    borderBottomColor: '#E2E8F0',
+    borderBottomWidth: 1,
+    paddingHorizontal: 20,
+    paddingTop: 18,
+    paddingBottom: 14,
+    gap: 10,
+  },
   headerTopRow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -512,7 +528,7 @@ const styles = StyleSheet.create({
   },
   progressText: { color: '#64748B', fontWeight: '700' },
   progressTrack: {
-    height: 10,
+    height: 8,
     backgroundColor: '#E2E8F0',
     borderRadius: 999,
     overflow: 'hidden',
@@ -526,7 +542,15 @@ const styles = StyleSheet.create({
     borderRadius: 14,
   },
   warningText: { color: '#9A3412', fontWeight: '700' },
-  content: { padding: 20, gap: 14, paddingBottom: 28 },
+  content: { padding: 18, gap: 14, paddingBottom: 28 },
+  questionPanel: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#E2E8F0',
+    borderRadius: 20,
+    borderWidth: 1,
+    gap: 14,
+    padding: 18,
+  },
   questionType: {
     color: '#2563EB',
     fontSize: 11,
@@ -539,11 +563,16 @@ const styles = StyleSheet.create({
     lineHeight: 32,
   },
   optionCard: {
+    alignItems: 'center',
     backgroundColor: '#FFFFFF',
-    borderRadius: 18,
-    padding: 16,
+    borderRadius: 16,
     borderWidth: 2,
     borderColor: '#E2E8F0',
+    flexDirection: 'row',
+    gap: 12,
+    minHeight: 62,
+    paddingHorizontal: 14,
+    paddingVertical: 14,
   },
   optionSelected: {
     borderColor: '#2563EB',
@@ -557,7 +586,26 @@ const styles = StyleSheet.create({
     borderColor: '#DC2626',
     backgroundColor: '#FEE2E2',
   },
-  optionText: { color: '#0F172A', fontWeight: '700' },
+  optionMarker: {
+    alignItems: 'center',
+    backgroundColor: '#F1F5F9',
+    borderRadius: 10,
+    height: 36,
+    justifyContent: 'center',
+    width: 36,
+  },
+  optionMarkerSelected: {
+    backgroundColor: '#2563EB',
+  },
+  optionMarkerText: {
+    color: '#475569',
+    fontSize: 14,
+    fontWeight: '900',
+  },
+  optionMarkerTextSelected: {
+    color: '#FFFFFF',
+  },
+  optionText: { color: '#0F172A', flex: 1, fontSize: 16, fontWeight: '700', lineHeight: 22 },
   voiceSection: { gap: 12 },
   answerCardWrap: {
     position: 'relative',

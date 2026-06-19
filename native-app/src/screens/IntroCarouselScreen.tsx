@@ -17,32 +17,29 @@ const { width } = Dimensions.get('window');
 const portraitDesk = require('../assets/intro-study-desk.jpg');
 const portraitSisters = require('../assets/intro-sisters-study.jpg');
 const portraitLaptop = require('../assets/intro-laptop-study.jpg');
-const portraitWriting = require('../assets/intro-girl-writing.jpg');
+const reportCardReview = require('../assets/intro-report-card-generated.jpeg');
+const logoAsset = require('../assets/logo.png');
 
 const SLIDES = [
   {
     image: portraitDesk,
-    eyebrow: 'Ask anytime',
-    title: 'Your tutor shows up when homework gets quiet.',
-    body: 'Open Kitabu, ask the question, and keep the evening moving.',
+    title: 'Every Learner Deserves A Personal Tutor who Never Gets Tired of Explaining. Not More Books.',
+    body: '',
   },
   {
     image: portraitSisters,
-    eyebrow: 'Learn together',
-    title: 'Revision feels lighter when progress is shared.',
-    body: 'Homework, quizzes, and guided help in one place for school and home.',
+    title: 'For Less than the Price of One Mandazi, You Get Unlimited Revision Questions and Answers Everyday.',
+    body: '',
   },
   {
     image: portraitLaptop,
-    eyebrow: 'Built for focus',
-    title: 'From curriculum reading to quick quiz checks, without app sprawl.',
-    body: 'Lessons, books, and practice stay connected to the same learning path.',
+    title: 'Daily Homework Aligned with CBC. Automated Grading and Results Shared to Teachers and Parents Automatically.',
+    body: '',
   },
   {
-    image: portraitWriting,
-    eyebrow: 'Made for momentum',
-    title: 'Rewards, games, and steady wins keep learners coming back.',
-    body: 'Study first, play a little, and build a habit that sticks.',
+    image: reportCardReview,
+    title: 'Usingoje Report Form Ndio Ujue Kuna Makosa Mahali. Fungua Kitabu!',
+    body: '',
   },
 ] as const;
 
@@ -89,6 +86,7 @@ export function IntroCarouselScreen({
       style={styles.screen}>
       <View style={styles.topRow}>
         <View style={styles.brandPill}>
+          <Image source={logoAsset} style={styles.brandLogo} resizeMode="cover" />
           <Text style={styles.brandText}>KITABU AI</Text>
         </View>
         <Pressable onPress={onSignIn} style={styles.signInButton}>
@@ -108,11 +106,10 @@ export function IntroCarouselScreen({
             <View style={styles.card}>
               <View style={styles.imageWrap}>
                 <View style={styles.imageHalo} />
-                <Image source={slide.image} style={styles.image} resizeMode="contain" />
+                <Image source={slide.image} style={styles.image} resizeMode="cover" />
               </View>
-              <Text style={styles.eyebrow}>{slide.eyebrow}</Text>
               <Text style={styles.title}>{slide.title}</Text>
-              <Text style={styles.body}>{slide.body}</Text>
+              {slide.body ? <Text style={styles.body}>{slide.body}</Text> : null}
             </View>
           </View>
         ))}
@@ -133,7 +130,7 @@ export function IntroCarouselScreen({
         </Pressable>
 
         <Text style={styles.helperText}>
-          Short lessons. Quick wins. A little fun every day.
+          Avoid Surprises. Get Ready For Exams with Kitabu AI.
         </Text>
       </View>
     </LinearGradient>
@@ -152,10 +149,18 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   brandPill: {
+    alignItems: 'center',
     backgroundColor: 'rgba(255,255,255,0.12)',
     borderRadius: 999,
+    flexDirection: 'row',
+    gap: 8,
     paddingHorizontal: 12,
     paddingVertical: 8,
+  },
+  brandLogo: {
+    borderRadius: 8,
+    height: 24,
+    width: 24,
   },
   brandText: {
     color: '#FFFFFF',
@@ -209,22 +214,15 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255,255,255,0.12)',
   },
   image: {
-    width: '100%',
-    height: '100%',
-  },
-  eyebrow: {
-    color: '#fde68a',
-    fontSize: 12,
-    fontWeight: '800',
-    letterSpacing: 1.3,
-    marginBottom: 10,
-    textTransform: 'uppercase',
+    borderRadius: 18,
+    height: 250,
+    width: 250,
   },
   title: {
     color: '#FFFFFF',
-    fontSize: 31,
+    fontSize: 28,
     fontWeight: '900',
-    lineHeight: 37,
+    lineHeight: 34,
   },
   body: {
     color: 'rgba(255,255,255,0.85)',

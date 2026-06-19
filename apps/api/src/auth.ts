@@ -13,6 +13,8 @@ export interface AuthTokenPayload {
   schoolId: string | null;
   sid?: string;
   email: string;
+  phoneNumber?: string | null;
+  phoneVerified?: boolean;
   fullName: string;
   emailVerified: boolean;
   roles: AppRole[];
@@ -75,6 +77,8 @@ export async function verifyAccessToken(token: string): Promise<AuthenticatedUse
     schoolId: payload.schoolId,
     sessionId: payload.sid ?? null,
     email: payload.email,
+    phoneNumber: payload.phoneNumber ?? null,
+    phoneVerified: Boolean(payload.phoneVerified),
     fullName: payload.fullName,
     emailVerified: payload.emailVerified,
     roles: payload.roles,

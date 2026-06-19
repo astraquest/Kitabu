@@ -14,10 +14,13 @@ export type BaseViewState =
   | 'take_quiz'
   | 'quiz_me_config'
   | 'game_zone'
-  | 'quack_game'
   | 'crazy_balloon'
+  | 'quiz_battle'
   | 'admin_portal'
-  | 'teachers_portal';
+  | 'teachers_portal'
+  | 'parent_dashboard'
+  | 'weekly_exam'
+  | 'review_session';
 
 export type ViewState = BaseViewState | 'live_audio';
 export type AuthRole =
@@ -26,7 +29,7 @@ export type AuthRole =
   | 'school_admin'
   | 'platform_admin'
   | 'parent';
-export type PublicSignupRole = 'student' | 'teacher';
+export type PublicSignupRole = 'student' | 'teacher' | 'parent';
 export type GenderOption = 'male' | 'female' | 'not_specified';
 
 export interface AuthUser {
@@ -34,6 +37,8 @@ export interface AuthUser {
   schoolId: string | null;
   sessionId?: string | null;
   email: string;
+  phoneNumber?: string | null;
+  phoneVerified?: boolean;
   fullName: string;
   emailVerified: boolean;
   roles: AuthRole[];
@@ -240,6 +245,9 @@ export interface SubStrand {
   pages: ContentPage[];
   isLocked: boolean;
   isCompleted: boolean;
+  needsRemediation?: boolean;
+  masteryScore?: number | null;
+  unlockReason?: string;
   number?: string;
   outcomes?: CurriculumItem[];
   inquiryQuestions?: CurriculumItem[];
@@ -325,6 +333,19 @@ export interface SchoolData {
   phone?: string;
   principal?: string;
   gradeCounts: Record<string, number>;
+  pilot?: {
+    status: 'not_enrolled' | 'onboarding' | 'active' | 'paused' | 'completed';
+    startDate: string | null;
+    endDate: string | null;
+    targetStudents: number;
+    onboardingStage: number;
+    notes: string | null;
+    metrics: {
+      onboardedStudents: number;
+      engagedStudents: number;
+      averageMastery: number;
+    };
+  };
   pricing?: {
     assignedPlanCode: BillingPlanCode;
     assignedPlanName: string;
@@ -364,4 +385,150 @@ export interface DashboardBanner {
   message: string;
   ctaLabel: string;
   ctaTarget: 'ask_tutor' | 'manage_subscription' | 'homework_list' | 'bookshelf_view';
+}
+
+export interface AppNotification {
+  id: string;
+  type: string;
+  title: string;
+  body: string;
+  channel: 'in_app' | 'sms' | 'push' | 'email';
+  status: 'unread' | 'read';
+  metadata: Record<string, unknown>;
+  readAt: string | null;
+  createdAt: string;
+}
+
+export interface DiagnosticQuestion {
+  id: string;
+  subjectId: string;
+  subjectName: string;
+  subStrandKey: string;
+  prompt: string;
+  options: string[];
+  difficulty: number;
+  timeLimitSeconds: number;
+}
+
+export interface DiagnosticResult {
+  correct: number;
+  total: number;
+  percentage: number;
+  subjects: Array<{
+    subjectId: string;
+    correct: number;
+    total: number;
+    percentage: number;
+    averageConfidence: number;
+  }>;
+}
+
+export interface DiagnosticSession {
+  sessionId: string;
+  questions: DiagnosticQuestion[];
+}
+
+export interface DueReview {
+  id: string;
+  subjectId: string;
+  subStrandKey: string;
+  nextReviewDate: string;
+  intervalDays: number;
+  masteryScore: number;
+}
+
+export interface WeeklyExamQuestion {
+  id: string;
+  subjectId: string;
+  subjectName: string;
+  subStrandKey: string;
+  prompt: string;
+  options: string[];
+  correctAnswer?: string;
+  explanation?: string;
+}
+
+export interface WeeklyExamAttempt {
+  id: string;
+  status: 'in_progress' | 'completed';
+  score: number | null;
+  correctCount: number | null;
+  totalQuestions: number | null;
+  startedAt: string;
+  submittedAt: string | null;
+  answers: Array<{ questionId: string; answer: string; isCorrect: boolean }>;
+}
+
+export interface WeeklyExamHistoryItem {
+  id: string;
+  examId: string;
+  title: string;
+  weekStart: string;
+  score: number;
+  correctCount: number;
+  totalQuestions: number;
+  submittedAt: string;
+}
+
+export interface WeeklyExamPayload {
+  exam: {
+    id: string;
+    title: string;
+    gradeLevel: string;
+    weekStart: string;
+    durationMinutes: number;
+    opensAt: string;
+    closesAt: string;
+    questions: WeeklyExamQuestion[];
+  };
+  attempt: WeeklyExamAttempt | null;
+  history: WeeklyExamHistoryItem[];
+}
+
+export interface ParentChildAssignment {
+  id: string;
+  title: string;
+  subject: string;
+  status: 'pending' | 'completed';
+  score: number | null;
+  dueAt: string | null;
+}
+
+export interface ParentChildSummary {
+  id: string;
+  name: string;
+  email: string;
+  grade: string;
+  school: string | null;
+  relationship: string;
+  assessment_average: number;
+  homework_completion: number;
+  completed_lessons: number;
+  total_lessons: number;
+  mastery_average: number;
+  due_reviews: number;
+  last_active: string;
+  diagnostic: {
+    completed: boolean;
+    percentage: number | null;
+    completedAt: string | null;
+  };
+  recent_assignments: ParentChildAssignment[];
+  weekly_trends: Array<{
+    weekStart: string;
+    lessonsCompleted: number;
+    assignmentsCompleted: number;
+    assessmentAverage: number;
+    weeklyExamScore: number | null;
+  }>;
+  weekly_report: {
+    generatedAt: string;
+    activeDays: number;
+    lessonsCompleted: number;
+    assignmentsCompleted: number;
+    assessmentAverage: number;
+    weeklyExamScore: number | null;
+    strengths: string[];
+    focusAreas: string[];
+  };
 }

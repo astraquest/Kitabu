@@ -2,6 +2,8 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Animated, Image, Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import Svg, { Defs, LinearGradient as SvgLinearGradient, Path, Stop, SvgUri } from 'react-native-svg';
 import { AlertCircle, Award, BookOpen, Calculator, Frown, Globe, Meh, Star, TrendingUp, User, X } from 'lucide-react-native';
+
+import { DEFAULT_GRADE } from '../constants/grades';
 import { UserProfile } from '../types/app';
 
 interface StudentDetailsModalProps {
@@ -76,7 +78,7 @@ export function StudentDetailsModal({ user, onClose, assessmentScore }: StudentD
   const avatarUri = getAvatarUri(user.avatar);
   const details = useMemo(() => ({
     school: user.school || 'ABC High School',
-    grade: user.grade || 'Grade 8',
+    grade: user.grade || DEFAULT_GRADE,
     dateJoined: user.dateJoined || '2024-01-15',
     lastSeen: user.lastSeen || 'Today',
     assignmentsAttempted: 25,

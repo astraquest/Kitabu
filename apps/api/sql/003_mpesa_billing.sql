@@ -32,7 +32,7 @@ INSERT INTO subscription_plans (id, code, name, billing_cycle, price_ksh_cents, 
 VALUES
   ('30000000-0000-0000-0000-000000000001', 'weekly', 'Weekly', 'weekly', 10000, FALSE),
   ('30000000-0000-0000-0000-000000000002', 'monthly', 'Monthly', 'monthly', 25000, FALSE),
-  ('30000000-0000-0000-0000-000000000003', 'annual', 'Annual', 'annual', 99900, FALSE),
+  ('30000000-0000-0000-0000-000000000003', 'annual', 'Annual', 'annual', 199900, FALSE),
   ('30000000-0000-0000-0000-000000000004', 'admin_weekly', 'Admin Weekly', 'weekly', 500, FALSE)
 ON CONFLICT (code) DO UPDATE
 SET name = EXCLUDED.name,

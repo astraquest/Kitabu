@@ -5,12 +5,17 @@ export interface AuthenticatedUser {
   schoolId: string | null;
   sessionId: string | null;
   email: string;
+  phoneNumber?: string | null;
+  phoneVerified?: boolean;
   fullName: string;
   emailVerified: boolean;
   roles: AppRole[];
   gender?: 'male' | 'female' | 'not_specified';
   grade?: string | null;
   onboardingCompleted?: boolean;
+  termsAcceptedAt?: string | null;
+  termsVersion?: string | null;
+  privacyVersion?: string | null;
   stepUp: boolean;
   mustRotatePassword?: boolean;
   isBreakGlass?: boolean;

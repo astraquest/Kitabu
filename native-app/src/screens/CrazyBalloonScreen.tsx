@@ -19,6 +19,7 @@ import {
   X,
 } from 'lucide-react-native';
 
+import { DEFAULT_GRADE } from '../constants/grades';
 import { useCrazyBalloonRuntime } from '../hooks/useCrazyBalloonRuntime';
 import { CrazyBalloonRenderer } from '../renderers/crazy-balloon/CrazyBalloonRenderer';
 import { mapCrazyBalloonRenderState } from '../renderers/crazy-balloon/mapCrazyBalloonRenderState';
@@ -238,14 +239,14 @@ export function CrazyBalloonScreen({
           <View style={styles.menuCard}>
             <Text style={styles.menuTitle}>Crazy Balloon</Text>
             <Text style={styles.menuBody}>
-              Pop balloons, dodge monsters, and survive rescue quizzes.
+              Pop clean balloons as fast as you can. Warning balloons test your focus with a quick rescue question.
             </Text>
             <Pressable
               onPress={startSingle}
               style={[styles.primaryButton, styles.menuActionButton]}>
               <View>
-                <Text style={styles.primaryButtonText}>Play Alone</Text>
-                <Text style={styles.menuActionMeta}>Classic Mode</Text>
+                <Text style={styles.primaryButtonText}>Start Reflex Run</Text>
+                <Text style={styles.menuActionMeta}>Tap accuracy</Text>
               </View>
               <View style={styles.menuActionIcon}>
                 <Play size={20} color="#FFFFFF" fill="#FFFFFF" />
@@ -264,8 +265,8 @@ export function CrazyBalloonScreen({
                 styles.inviteButton,
               ]}>
               <View>
-                <Text style={styles.secondaryButtonText}>Invite Friend</Text>
-                <Text style={styles.menuActionMeta}>Multiplayer VS</Text>
+                <Text style={styles.secondaryButtonText}>Practice Duel</Text>
+                <Text style={styles.menuActionMeta}>Local simulation</Text>
               </View>
               <View style={styles.menuActionIcon}>
                 <UserPlus size={20} color="#FFFFFF" />
@@ -297,7 +298,7 @@ export function CrazyBalloonScreen({
               />
             </View>
             <ScrollView contentContainerStyle={styles.lobbyList}>
-              <Text style={styles.onlineLabel}>Online - Grade 8</Text>
+              <Text style={styles.onlineLabel}>Online - {DEFAULT_GRADE}</Text>
               {filteredPlayers.length > 0 ? (
                 filteredPlayers.map(player => (
                   <Pressable
@@ -346,14 +347,19 @@ export function CrazyBalloonScreen({
                 ]}
               />
             </View>
-            <Text style={styles.quizTag}>Monster Attack</Text>
+            <Text style={styles.quizTag}>Warning Balloon</Text>
             <Text style={styles.quizQuestion}>{quizData.q}</Text>
             <View style={styles.quizOptions}>
-              {quizData.options.map(option => (
+              {quizData.options.map((option, optionIndex) => (
                 <Pressable
                   key={option}
                   onPress={() => answerQuiz(option)}
                   style={styles.quizOption}>
+                  <View style={styles.quizOptionMarker}>
+                    <Text style={styles.quizOptionMarkerText}>
+                      {String.fromCharCode(65 + optionIndex)}
+                    </Text>
+                  </View>
                   <Text style={styles.quizOptionText}>{option}</Text>
                 </Pressable>
               ))}
@@ -373,11 +379,9 @@ export function CrazyBalloonScreen({
       {view === 'gameover' ? (
         <View style={styles.overlay}>
           <View style={styles.resultCard}>
-            <Text style={styles.resultIconEmoji}>👹</Text>
-            <Text style={styles.resultIcon}>👹</Text>
-            <Text style={styles.resultIconAlt}>👹</Text>
+            <Text style={styles.resultBadge}>Focus</Text>
             <Text style={styles.resultTitle}>Game Over</Text>
-            <Text style={styles.resultDetail}>The monster got you!</Text>
+            <Text style={styles.resultDetail}>The warning balloon ended the run.</Text>
             <Text style={styles.resultScore}>{score}</Text>
             <Pressable onPress={startSingle} style={styles.primaryButton}>
               <RotateCcw size={18} color="#FFFFFF" />
@@ -390,14 +394,8 @@ export function CrazyBalloonScreen({
       {view === 'multi_result' ? (
         <View style={styles.overlay}>
           <View style={styles.resultCard}>
-            <Text style={styles.resultIconEmoji}>
-              {matchResult === 'win' ? '🏆' : '💀'}
-            </Text>
-            <Text style={styles.resultIcon}>
-              {matchResult === 'win' ? '🏆' : '💀'}
-            </Text>
-            <Text style={styles.resultIconAlt}>
-              {matchResult === 'win' ? '🏆' : '💀'}
+            <Text style={styles.resultBadge}>
+              {matchResult === 'win' ? 'Win' : 'Retry'}
             </Text>
             <Text style={styles.resultTitle}>
               {matchResult === 'win' ? 'You Won!' : 'You Lost'}
@@ -707,14 +705,33 @@ const styles = StyleSheet.create({
     fontWeight: '900',
     lineHeight: 30,
   },
-  quizOptions: { gap: 10 },
+  quizOptions: { gap: 12 },
   quizOption: {
-    backgroundColor: '#F8FAFC',
-    borderRadius: 18,
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF',
+    borderColor: '#CBD5E1',
+    borderRadius: 16,
+    borderWidth: 1,
+    flexDirection: 'row',
+    gap: 12,
+    minHeight: 62,
     paddingVertical: 14,
-    paddingHorizontal: 12,
+    paddingHorizontal: 14,
   },
-  quizOptionText: { color: '#0F172A', fontWeight: '800', textAlign: 'center' },
+  quizOptionMarker: {
+    alignItems: 'center',
+    backgroundColor: '#F1F5F9',
+    borderRadius: 10,
+    height: 36,
+    justifyContent: 'center',
+    width: 36,
+  },
+  quizOptionMarkerText: {
+    color: '#475569',
+    fontSize: 14,
+    fontWeight: '900',
+  },
+  quizOptionText: { color: '#0F172A', flex: 1, fontSize: 16, fontWeight: '800', lineHeight: 22 },
   quizTimer: { color: '#64748B', textAlign: 'center', fontWeight: '700' },
   quizPressureText: {
     color: '#FCA5A5',
@@ -732,9 +749,17 @@ const styles = StyleSheet.create({
     gap: 12,
     alignItems: 'center',
   },
-  resultIcon: { fontSize: 1, lineHeight: 1, opacity: 0, color: 'transparent' },
-  resultIconAlt: { fontSize: 1, lineHeight: 1, opacity: 0, color: 'transparent' },
-  resultIconEmoji: { fontSize: 56 },
+  resultBadge: {
+    backgroundColor: '#DBEAFE',
+    borderRadius: 999,
+    color: '#1D4ED8',
+    fontSize: 14,
+    fontWeight: '900',
+    overflow: 'hidden',
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    textTransform: 'uppercase',
+  },
   resultTitle: {
     color: '#0F172A',
     fontSize: 28,

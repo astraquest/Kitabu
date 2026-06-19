@@ -8,6 +8,13 @@
   "scripts": {
     "dev:api": "npm run dev -w apps/api",
     "build": "npm run build -w apps/api",
-    "check": "npm run typecheck -w apps/api"
+    "check": "npm run typecheck -w apps/api",
+    "test:api": "npm test -w apps/api",
+    "test:native": "npm --prefix native-app test -- --runInBand",
+    "release:check": "npm run check && npm run build && npm run test:api && npm run test:native",
+    "deploy:build": "docker compose build api worker"
+  },
+  "overrides": {
+    "esbuild": "^0.28.1"
   }
 }

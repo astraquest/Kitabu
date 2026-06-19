@@ -5,11 +5,17 @@ import rateLimit from '@fastify/rate-limit';
 import sensible from '@fastify/sensible';
 import swagger from '@fastify/swagger';
 import swaggerUi from '@fastify/swagger-ui';
-import { randomBytes } from 'node:crypto';
+import { randomBytes, randomInt, timingSafeEqual } from 'node:crypto';
 import { z } from 'zod';
 import { appConfig } from './config.js';
 import { db, redis } from './db.js';
-import { estimateCostUsdMicros, generateText, resolveAiExecutionPlan, usdMicrosToKshCents } from './ai.js';
+import {
+  estimateCostUsdMicros,
+  generateText,
+  resolveAiExecutionPlan,
+  transcribeAudioWithOpenAi,
+  usdMicrosToKshCents
+} from './ai.js';
 import {
   buildTotpUri,
   deriveSessionBindingFingerprint,
@@ -29,9 +35,13 @@ import {
   createSelfServiceUser,
   createAiUsageEvent,
   createAuditLog,
+  ensureWeeklyExam,
+  createDiagnosticSession,
   createPaymentRequest,
+  createPhoneVerificationCode,
   createSchool,
   createSchoolDiscount,
+  deleteSelfServiceAccount,
   deleteBannerAnnouncement,
   deleteSchool,
   deleteSchoolDiscount,
@@ -47,9 +57,20 @@ import {
   findPaymentRequestByCheckoutRequestId,
   findCurriculumSubStrandContext,
   findPaymentRequestByIdForUser,
+  findActiveDiagnosticSession,
+  findActiveDiagnosticSessionForSubjects,
+  findCompletedDiagnosticSession,
+  findDiagnosticSessionForUser,
+  findUserAuthIdentityForProvider,
   findSubscriptionPlanByCode,
   findUserByEmail,
+  findUserByAuthIdentity,
+  findUserByPhone,
   findUserById,
+  findWeeklyExamAttempt,
+  findActivePhoneVerificationCode,
+  listFeatureFlags,
+  listUserNotifications,
   getBillingProfile,
   getBillingAnalytics,
   getActiveSubscription,
@@ -66,6 +87,12 @@ import {
   insertPasswordResetToken,
   insertRefreshToken,
   listBannerAnnouncements,
+  listDiagnosticAnswers,
+  listDueSpacedReviews,
+  linkParentStudentByEmail,
+  linkParentStudentByPhone,
+  linkUserAuthIdentity,
+  listParentChildrenDashboard,
   listAssignmentSubmissionsForTeacher,
   listLearningPodcastsForUser,
   listLibraryBooksForUser,
@@ -75,28 +102,48 @@ import {
   listSubscriptionPlans,
   listTeacherAssignments,
   listTeacherStudents,
+  listWeeklyExamHistory,
   listCurriculumForGrade,
   markPaymentRequestFailed,
   markPaymentRequestInitiated,
   markPaymentRequestSuccessful,
   markCurriculumSubStrandCompleted,
+  markAllUserNotificationsRead,
+  markUserNotificationRead,
   markUserEmailVerified,
+  markSpacedReviewCompleted,
+  recordDiagnosticAnswer,
+  recordPhoneVerificationFailure,
   replaceCurriculumSubject,
   revokeRefreshToken,
   revokeAllRefreshTokensForUser,
   revokeRefreshTokensForSession,
   replaceActiveSubscription,
+  unlinkParentStudent,
+  completeDiagnosticSession,
   saveCurriculumSubStrandPages,
   submitStudentAssignment,
+  startWeeklyExamAttempt,
+  submitWeeklyExamAttempt,
+  consumePhoneVerificationCode,
   updateBannerAnnouncement,
   updateSchool,
+  updateSchoolPilot,
   updateSchoolDiscount,
   updateUserOnboarding,
   updateUserPassword,
+  upsertPushToken,
   upsertBillingProfile,
   upsertTotpSecret,
   withTransaction
 } from './repositories.js';
+import type { WeeklyExamQuestionRecord, WeeklyExamRecord } from './repositories.js';
+import { isSmsConfigured, notifyUser, sendSmsMessage } from './notifications.js';
+import {
+  getGoogleClientIds,
+  verifyGoogleIdToken,
+  type VerifiedGoogleIdentity
+} from './googleAuth.js';
 import { requireAuthenticated, requireRoles, requireSchoolContext } from './rbac.js';
 import {
   buildEmailVerificationEmail,
@@ -116,6 +163,32 @@ const loginSchema = z.object({
   password: z.string().min(8)
 });
 
+const phoneAuthRequestSchema = z.discriminatedUnion('purpose', [
+  z.object({
+    purpose: z.literal('login'),
+    phoneNumber: z.string().trim().min(9).max(20)
+  }),
+  z.object({
+    purpose: z.literal('signup'),
+    phoneNumber: z.string().trim().min(9).max(20),
+    fullName: z.string().trim().min(2).max(120),
+    role: z.enum(['student', 'teacher', 'parent']),
+    acceptedTerms: z.literal(true)
+  })
+]);
+
+const phoneAuthVerifySchema = z.object({
+  purpose: z.enum(['login', 'signup']),
+  phoneNumber: z.string().trim().min(9).max(20),
+  code: z.string().regex(/^\d{6}$/)
+});
+
+const googleAuthSchema = z.object({
+  idToken: z.string().min(100),
+  role: z.enum(['student', 'teacher', 'parent']).optional(),
+  acceptedTerms: z.boolean().optional()
+});
+
 const refreshSchema = z.object({
   refreshToken: z.string().min(10)
 });
@@ -128,7 +201,8 @@ const signupSchema = z.object({
   fullName: z.string().min(2),
   email: z.string().email(),
   password: z.string().min(8),
-  role: z.enum(['student', 'teacher']),
+  role: z.enum(['student', 'teacher', 'parent']),
+  acceptedTerms: z.literal(true),
   schoolId: z.string().uuid().nullable().optional(),
   gender: z.enum(['male', 'female', 'not_specified']).optional(),
   grade: z.string().trim().min(2).max(40).nullable().optional(),
@@ -158,6 +232,10 @@ const completeEmailVerificationSchema = z.object({
   token: z.string().min(32)
 });
 
+const deleteAccountSchema = z.object({
+  confirmationText: z.literal('DELETE')
+});
+
 const tokenQuerySchema = z.object({
   token: z.string().min(32)
 });
@@ -180,6 +258,17 @@ const schoolSchema = z.object({
 
 const schoolParamsSchema = z.object({
   schoolId: z.string().uuid()
+});
+
+const schoolPilotSchema = z.object({
+  status: z.enum(['not_enrolled', 'onboarding', 'active', 'paused', 'completed']),
+  startDate: z.string().date().nullable().optional(),
+  endDate: z.string().date().nullable().optional(),
+  targetStudents: z.number().int().min(0).max(100000),
+  onboardingStage: z.number().int().min(0).max(4),
+  notes: z.string().trim().max(2000).nullable().optional()
+}).refine(value => !value.startDate || !value.endDate || value.endDate >= value.startDate, {
+  message: 'Pilot end date must be on or after the start date'
 });
 
 const schoolDiscountSchema = z.object({
@@ -244,6 +333,69 @@ const studentAssignmentSubmissionSchema = z.object({
   }))
 });
 
+const ONBOARDING_DIAGNOSTIC_SUBJECTS = ['mathematics', 'english'] as const;
+
+const ONBOARDING_DIAGNOSTIC_QUESTIONS = [
+  { id: 'math-fractions-1', subjectId: 'mathematics', subjectName: 'Mathematics', subStrandKey: 'fractions', prompt: 'What is 1/2 + 1/4?', options: ['1/6', '2/6', '3/4', '1/8'], correctAnswer: '3/4', difficulty: 2 },
+  { id: 'math-arithmetic-1', subjectId: 'mathematics', subjectName: 'Mathematics', subStrandKey: 'arithmetic-fluency', prompt: 'A shop has 36 pencils. If 9 students share them equally, how many pencils does each student get?', options: ['3', '4', '6', '9'], correctAnswer: '4', difficulty: 1 },
+  { id: 'math-ratios-1', subjectId: 'mathematics', subjectName: 'Mathematics', subStrandKey: 'ratios', prompt: 'The ratio of boys to girls is 2:3. If there are 10 boys, how many girls are there?', options: ['12', '15', '20', '30'], correctAnswer: '15', difficulty: 3 },
+  { id: 'math-algebra-1', subjectId: 'mathematics', subjectName: 'Mathematics', subStrandKey: 'algebra', prompt: 'Solve for x: 3x + 2 = 14', options: ['3', '4', '5', '12'], correctAnswer: '4', difficulty: 3 },
+  { id: 'math-place-value-1', subjectId: 'mathematics', subjectName: 'Mathematics', subStrandKey: 'number-sense', prompt: 'What is the value of 7 in 4,753?', options: ['7', '70', '700', '7000'], correctAnswer: '700', difficulty: 1 },
+  { id: 'math-decimals-1', subjectId: 'mathematics', subjectName: 'Mathematics', subStrandKey: 'decimals', prompt: 'Which number is greater?', options: ['0.45', '0.5', '0.405', '0.045'], correctAnswer: '0.5', difficulty: 2 },
+  { id: 'math-geometry-1', subjectId: 'mathematics', subjectName: 'Mathematics', subStrandKey: 'geometry', prompt: 'A rectangle is 8 cm long and 3 cm wide. What is its area?', options: ['11 cm2', '22 cm2', '24 cm2', '48 cm2'], correctAnswer: '24 cm2', difficulty: 2 },
+  { id: 'math-percent-1', subjectId: 'mathematics', subjectName: 'Mathematics', subStrandKey: 'percentages', prompt: 'What is 25% of 80?', options: ['10', '15', '20', '25'], correctAnswer: '20', difficulty: 3 },
+  { id: 'eng-vocab-1', subjectId: 'english', subjectName: 'English', subStrandKey: 'vocabulary', prompt: 'Choose the word closest in meaning to "brave".', options: ['afraid', 'courageous', 'quiet', 'tired'], correctAnswer: 'courageous', difficulty: 1 },
+  { id: 'eng-grammar-1', subjectId: 'english', subjectName: 'English', subStrandKey: 'grammar', prompt: 'Choose the correct sentence.', options: ['She go to school.', 'She goes to school.', 'She going to school.', 'She gone to school.'], correctAnswer: 'She goes to school.', difficulty: 1 },
+  { id: 'eng-comprehension-1', subjectId: 'english', subjectName: 'English', subStrandKey: 'reading-comprehension', prompt: 'Amina watered the plant every morning. Soon it grew taller. Why did the plant grow?', options: ['It was ignored.', 'It received water.', 'It was hidden.', 'It was cold.'], correctAnswer: 'It received water.', difficulty: 2 },
+  { id: 'eng-punctuation-1', subjectId: 'english', subjectName: 'English', subStrandKey: 'punctuation', prompt: 'Which sentence uses punctuation correctly?', options: ['Where are you going.', 'Where are you going?', 'Where are you going,', 'Where are you going!'], correctAnswer: 'Where are you going?', difficulty: 1 },
+  { id: 'eng-tense-1', subjectId: 'english', subjectName: 'English', subStrandKey: 'tenses', prompt: 'Choose the past tense of "write".', options: ['writed', 'wrote', 'written', 'writing'], correctAnswer: 'wrote', difficulty: 2 },
+  { id: 'eng-main-idea-1', subjectId: 'english', subjectName: 'English', subStrandKey: 'main-idea', prompt: 'A paragraph describes how bees collect nectar and make honey. What is the main idea?', options: ['Bees can fly.', 'How bees make honey.', 'Honey is sweet.', 'Flowers are colorful.'], correctAnswer: 'How bees make honey.', difficulty: 3 },
+  { id: 'eng-writing-1', subjectId: 'english', subjectName: 'English', subStrandKey: 'sentence-structure', prompt: 'Which is a complete sentence?', options: ['Because it rained.', 'The boy with a red bag.', 'We finished our homework.', 'Running very fast.'], correctAnswer: 'We finished our homework.', difficulty: 2 }
+] as const;
+
+const PROGRESSIVE_DIAGNOSTIC_QUESTIONS = {
+  science: [
+    { id: 'science-living-1', subjectId: 'science', subjectName: 'Science', subStrandKey: 'living-things', prompt: 'Which process do plants use to make their own food?', options: ['Respiration', 'Photosynthesis', 'Digestion', 'Evaporation'], correctAnswer: 'Photosynthesis', difficulty: 2 },
+    { id: 'science-matter-1', subjectId: 'science', subjectName: 'Science', subStrandKey: 'matter', prompt: 'Water changing into steam is an example of what?', options: ['Melting', 'Freezing', 'Evaporation', 'Condensation'], correctAnswer: 'Evaporation', difficulty: 1 },
+    { id: 'science-force-1', subjectId: 'science', subjectName: 'Science', subStrandKey: 'forces', prompt: 'What force pulls objects toward Earth?', options: ['Friction', 'Gravity', 'Magnetism', 'Electricity'], correctAnswer: 'Gravity', difficulty: 1 },
+    { id: 'science-health-1', subjectId: 'science', subjectName: 'Science', subStrandKey: 'health', prompt: 'Which nutrient mainly helps build and repair body tissues?', options: ['Proteins', 'Water', 'Sugar', 'Salt'], correctAnswer: 'Proteins', difficulty: 2 },
+    { id: 'science-energy-1', subjectId: 'science', subjectName: 'Science', subStrandKey: 'energy', prompt: 'Which item changes electrical energy into light energy?', options: ['Bulb', 'Spoon', 'Book', 'Cup'], correctAnswer: 'Bulb', difficulty: 1 },
+    { id: 'science-earth-1', subjectId: 'science', subjectName: 'Science', subStrandKey: 'earth-science', prompt: 'Soil erosion is most likely caused by:', options: ['Wind and moving water', 'Quiet air', 'Stored seeds', 'Clean bottles'], correctAnswer: 'Wind and moving water', difficulty: 2 },
+    { id: 'science-ecosystem-1', subjectId: 'science', subjectName: 'Science', subStrandKey: 'ecosystems', prompt: 'In a food chain, grass is usually a:', options: ['Producer', 'Consumer', 'Decomposer', 'Predator'], correctAnswer: 'Producer', difficulty: 3 },
+    { id: 'science-lab-1', subjectId: 'science', subjectName: 'Science', subStrandKey: 'scientific-method', prompt: 'A fair test changes how many variables at a time?', options: ['One', 'Two', 'Three', 'As many as possible'], correctAnswer: 'One', difficulty: 3 }
+  ],
+  kiswahili: [
+    { id: 'kiswahili-msamiati-1', subjectId: 'kiswahili', subjectName: 'Kiswahili', subStrandKey: 'msamiati', prompt: 'Neno "mwalimu" lina maana gani kwa Kiingereza?', options: ['Teacher', 'Doctor', 'Farmer', 'Driver'], correctAnswer: 'Teacher', difficulty: 1 },
+    { id: 'kiswahili-sarufi-1', subjectId: 'kiswahili', subjectName: 'Kiswahili', subStrandKey: 'sarufi', prompt: 'Chagua sentensi sahihi.', options: ['Mimi ni mwanafunzi.', 'Mimi ni wanafunzi.', 'Mimi ni someni.', 'Mimi ni kitabu.'], correctAnswer: 'Mimi ni mwanafunzi.', difficulty: 1 },
+    { id: 'kiswahili-vitenzi-1', subjectId: 'kiswahili', subjectName: 'Kiswahili', subStrandKey: 'vitenzi', prompt: 'Kitenzi katika sentensi "Amina anakimbia haraka" ni:', options: ['Amina', 'anakimbia', 'haraka', 'sentensi'], correctAnswer: 'anakimbia', difficulty: 2 },
+    { id: 'kiswahili-nyakati-1', subjectId: 'kiswahili', subjectName: 'Kiswahili', subStrandKey: 'nyakati', prompt: 'Kiambishi "-li-" huonyesha wakati gani?', options: ['Uliopita', 'Ujao', 'Sasa', 'Amri'], correctAnswer: 'Uliopita', difficulty: 2 },
+    { id: 'kiswahili-ufahamu-1', subjectId: 'kiswahili', subjectName: 'Kiswahili', subStrandKey: 'ufahamu', prompt: 'Ukisoma kifungu, jambo kuu unalotafuta kwanza ni:', options: ['Wazo kuu', 'Rangi ya karatasi', 'Idadi ya kurasa', 'Bei ya kitabu'], correctAnswer: 'Wazo kuu', difficulty: 2 },
+    { id: 'kiswahili-nomino-1', subjectId: 'kiswahili', subjectName: 'Kiswahili', subStrandKey: 'nomino', prompt: 'Ni neno lipi ni nomino?', options: ['kitabu', 'kimbia', 'haraka', 'zuri'], correctAnswer: 'kitabu', difficulty: 1 },
+    { id: 'kiswahili-vivumishi-1', subjectId: 'kiswahili', subjectName: 'Kiswahili', subStrandKey: 'vivumishi', prompt: 'Katika "mtoto mzuri", neno "mzuri" ni:', options: ['Kivumishi', 'Kitenzi', 'Nomino', 'Kielezi'], correctAnswer: 'Kivumishi', difficulty: 3 },
+    { id: 'kiswahili-methali-1', subjectId: 'kiswahili', subjectName: 'Kiswahili', subStrandKey: 'methali', prompt: 'Methali "Haraka haraka haina baraka" inashauri nini?', options: ['Usifanye mambo kwa pupa', 'Kimbia kila wakati', 'Soma usiku pekee', 'Cheza zaidi'], correctAnswer: 'Usifanye mambo kwa pupa', difficulty: 3 }
+  ],
+  social: [
+    { id: 'social-citizenship-1', subjectId: 'social', subjectName: 'Social Studies', subStrandKey: 'citizenship', prompt: 'Which document identifies a Kenyan citizen as a member of the country?', options: ['National ID', 'Shopping list', 'Exercise book', 'Bus ticket'], correctAnswer: 'National ID', difficulty: 1 },
+    { id: 'social-map-1', subjectId: 'social', subjectName: 'Social Studies', subStrandKey: 'map-skills', prompt: 'A compass rose on a map helps you find:', options: ['Direction', 'Price', 'Population', 'Weather only'], correctAnswer: 'Direction', difficulty: 1 },
+    { id: 'social-counties-1', subjectId: 'social', subjectName: 'Social Studies', subStrandKey: 'counties', prompt: 'Kenya is divided into how many counties?', options: ['8', '21', '47', '54'], correctAnswer: '47', difficulty: 2 },
+    { id: 'social-resources-1', subjectId: 'social', subjectName: 'Social Studies', subStrandKey: 'resources', prompt: 'Which is a natural resource?', options: ['River', 'Plastic ruler', 'School bell', 'Road sign'], correctAnswer: 'River', difficulty: 1 },
+    { id: 'social-history-1', subjectId: 'social', subjectName: 'Social Studies', subStrandKey: 'history', prompt: 'A museum mainly helps preserve:', options: ['Historical items', 'Fresh food', 'Rain water', 'Traffic jams'], correctAnswer: 'Historical items', difficulty: 2 },
+    { id: 'social-climate-1', subjectId: 'social', subjectName: 'Social Studies', subStrandKey: 'climate', prompt: 'Long-term weather patterns of a place are called:', options: ['Climate', 'Noise', 'Transport', 'Trade'], correctAnswer: 'Climate', difficulty: 2 },
+    { id: 'social-economy-1', subjectId: 'social', subjectName: 'Social Studies', subStrandKey: 'economic-activities', prompt: 'Growing tea for sale is an example of:', options: ['Agriculture', 'Mining', 'Fishing', 'Manufacturing only'], correctAnswer: 'Agriculture', difficulty: 2 },
+    { id: 'social-leadership-1', subjectId: 'social', subjectName: 'Social Studies', subStrandKey: 'leadership', prompt: 'The leader of a county government is the:', options: ['Governor', 'Head teacher', 'Class monitor', 'Chief Justice'], correctAnswer: 'Governor', difficulty: 3 }
+  ],
+  ai_education: [
+    { id: 'ai-digital-safety-1', subjectId: 'ai_education', subjectName: 'AI Education', subStrandKey: 'digital-safety', prompt: 'What should you avoid sharing with an AI tutor?', options: ['Your password', 'A math question', 'A story idea', 'A science topic'], correctAnswer: 'Your password', difficulty: 1 },
+    { id: 'ai-prompting-1', subjectId: 'ai_education', subjectName: 'AI Education', subStrandKey: 'prompting', prompt: 'Which prompt is most useful for getting help with homework?', options: ['Help.', 'Explain photosynthesis for Grade 8 with one example.', 'Do everything.', 'Answer fast.'], correctAnswer: 'Explain photosynthesis for Grade 8 with one example.', difficulty: 2 },
+    { id: 'ai-verification-1', subjectId: 'ai_education', subjectName: 'AI Education', subStrandKey: 'verification', prompt: 'If an AI answer sounds surprising, what should you do?', options: ['Believe it immediately', 'Check it with a trusted source', 'Delete your notes', 'Share it as a fact'], correctAnswer: 'Check it with a trusted source', difficulty: 2 },
+    { id: 'ai-bias-1', subjectId: 'ai_education', subjectName: 'AI Education', subStrandKey: 'bias', prompt: 'AI bias means an AI system may:', options: ['Always be correct', 'Treat some groups unfairly', 'Never use data', 'Only speak one language'], correctAnswer: 'Treat some groups unfairly', difficulty: 3 },
+    { id: 'ai-data-1', subjectId: 'ai_education', subjectName: 'AI Education', subStrandKey: 'data-literacy', prompt: 'AI tools learn patterns mainly from:', options: ['Data', 'Rain', 'Battery size', 'Screen brightness'], correctAnswer: 'Data', difficulty: 1 },
+    { id: 'ai-creativity-1', subjectId: 'ai_education', subjectName: 'AI Education', subStrandKey: 'creative-use', prompt: 'A good way to use AI for writing is to:', options: ['Copy without reading', 'Ask for ideas, then write in your own words', 'Submit fake sources', 'Ignore teacher instructions'], correctAnswer: 'Ask for ideas, then write in your own words', difficulty: 2 },
+    { id: 'ai-limits-1', subjectId: 'ai_education', subjectName: 'AI Education', subStrandKey: 'limitations', prompt: 'Why can an AI tutor make mistakes?', options: ['It predicts answers from patterns', 'It is always joking', 'It cannot show text', 'It only works on Mondays'], correctAnswer: 'It predicts answers from patterns', difficulty: 3 },
+    { id: 'ai-ethics-1', subjectId: 'ai_education', subjectName: 'AI Education', subStrandKey: 'ethics', prompt: 'Which is responsible AI use in school?', options: ['Using AI to understand a topic', 'Using AI to impersonate a classmate', 'Using AI to hide cheating', 'Sharing private photos'], correctAnswer: 'Using AI to understand a topic', difficulty: 2 }
+  ]
+} as const;
+
 const DAILY_QUOTES = [
   'Small lessons every day become big wins.',
   'Consistency beats cramming.',
@@ -252,8 +404,212 @@ const DAILY_QUOTES = [
   'Progress feels small until you look back.'
 ] as const;
 
+function getWeekStart(date = new Date()) {
+  const day = date.getUTCDay();
+  const offset = day === 0 ? -6 : 1 - day;
+  const start = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() + offset));
+  return start;
+}
+
+function buildWeeklyExamQuestions(gradeLevel: string): WeeklyExamQuestionRecord[] {
+  const grade = Math.min(10, Math.max(4, Number(gradeLevel.match(/\d+/)?.[0] ?? 8)));
+  const factor = grade + 2;
+  const product = factor * (grade + 1);
+  return [
+    {
+      id: `weekly-math-number-${grade}`,
+      subjectId: 'mathematics',
+      subjectName: 'Mathematics',
+      subStrandKey: 'number-operations',
+      prompt: `What is ${factor} × ${grade + 1}?`,
+      options: [String(product - factor), String(product), String(product + grade), String(product + factor)],
+      correctAnswer: String(product),
+      explanation: `Multiply ${factor} by ${grade + 1} to get ${product}.`
+    },
+    {
+      id: `weekly-math-fraction-${grade}`,
+      subjectId: 'mathematics',
+      subjectName: 'Mathematics',
+      subStrandKey: 'fractions',
+      prompt: 'Which fraction is equivalent to 1/2?',
+      options: ['2/3', '2/4', '3/5', '4/6'],
+      correctAnswer: '2/4',
+      explanation: 'Multiplying the numerator and denominator of 1/2 by 2 gives 2/4.'
+    },
+    {
+      id: `weekly-english-grammar-${grade}`,
+      subjectId: 'english',
+      subjectName: 'English',
+      subStrandKey: 'grammar',
+      prompt: 'Choose the sentence with correct subject-verb agreement.',
+      options: ['The students studies daily.', 'The students study daily.', 'The students is studying daily.', 'The students was study daily.'],
+      correctAnswer: 'The students study daily.',
+      explanation: 'The plural subject “students” takes the plural verb “study”.'
+    },
+    {
+      id: `weekly-english-reading-${grade}`,
+      subjectId: 'english',
+      subjectName: 'English',
+      subStrandKey: 'reading-comprehension',
+      prompt: 'Amina carried an umbrella because dark clouds were gathering. What did she expect?',
+      options: ['Strong sunshine', 'Rain', 'A football match', 'A visitor'],
+      correctAnswer: 'Rain',
+      explanation: 'Dark clouds and an umbrella are clues that Amina expected rain.'
+    },
+    {
+      id: `weekly-science-${grade}`,
+      subjectId: 'science',
+      subjectName: 'Science',
+      subStrandKey: 'living-things',
+      prompt: 'Which process allows green plants to make food?',
+      options: ['Digestion', 'Photosynthesis', 'Respiration only', 'Germination'],
+      correctAnswer: 'Photosynthesis',
+      explanation: 'Green plants use light energy to make food through photosynthesis.'
+    },
+    {
+      id: `weekly-social-${grade}`,
+      subjectId: 'social',
+      subjectName: 'Social Studies',
+      subStrandKey: 'citizenship',
+      prompt: 'Which action shows responsible citizenship?',
+      options: ['Ignoring community rules', 'Protecting public property', 'Wasting water', 'Damaging road signs'],
+      correctAnswer: 'Protecting public property',
+      explanation: 'Responsible citizens care for resources shared by the community.'
+    },
+    {
+      id: `weekly-kiswahili-${grade}`,
+      subjectId: 'kiswahili',
+      subjectName: 'Kiswahili',
+      subStrandKey: 'msamiati',
+      prompt: 'Kinyume cha neno “haraka” ni kipi?',
+      options: ['Polepole', 'Juu', 'Karibu', 'Safi'],
+      correctAnswer: 'Polepole',
+      explanation: '“Polepole” ni kinyume cha “haraka”.'
+    },
+    {
+      id: `weekly-ai-safety-${grade}`,
+      subjectId: 'ai_education',
+      subjectName: 'AI Education',
+      subStrandKey: 'digital-safety',
+      prompt: 'What should you do before trusting an important answer from an AI tool?',
+      options: ['Share it immediately', 'Verify it with a trusted source', 'Enter your password', 'Assume it is always correct'],
+      correctAnswer: 'Verify it with a trusted source',
+      explanation: 'AI can make mistakes, so important information should be checked.'
+    }
+  ];
+}
+
+function serializeWeeklyExam(exam: WeeklyExamRecord, includeAnswers = false) {
+  return {
+    id: exam.id,
+    title: exam.title,
+    gradeLevel: exam.grade_level,
+    weekStart: exam.week_start instanceof Date ? exam.week_start.toISOString().slice(0, 10) : String(exam.week_start),
+    durationMinutes: exam.duration_minutes,
+    opensAt: exam.opens_at.toISOString(),
+    closesAt: exam.closes_at.toISOString(),
+    questions: exam.questions.map(question => ({
+      id: question.id,
+      subjectId: question.subjectId,
+      subjectName: question.subjectName,
+      subStrandKey: question.subStrandKey,
+      prompt: question.prompt,
+      options: question.options,
+      ...(includeAnswers
+        ? { correctAnswer: question.correctAnswer, explanation: question.explanation }
+        : {})
+    }))
+  };
+}
+
+const TEST_ACCOUNT_EMAILS = new Set([
+  'student@kitabu.ai',
+  'teacher@kitabu.ai',
+  'admin@kitabu.ai'
+]);
+
 const checkoutParamsSchema = z.object({
   paymentRequestId: z.string().uuid()
+});
+
+const queryBoolean = z.preprocess(value => {
+  if (typeof value === 'string') {
+    const normalized = value.trim().toLowerCase();
+    if (normalized === 'true') {
+      return true;
+    }
+    if (normalized === 'false') {
+      return false;
+    }
+  }
+  return value;
+}, z.boolean());
+
+const notificationsQuerySchema = z.object({
+  limit: z.coerce.number().int().min(1).max(100).default(50),
+  unreadOnly: queryBoolean.default(false)
+});
+
+const notificationParamsSchema = z.object({
+  notificationId: z.string().uuid()
+});
+
+const pushTokenSchema = z.object({
+  platform: z.enum(['ios', 'android', 'web']),
+  token: z.string().trim().min(10).max(512),
+  deviceId: z.string().trim().max(160).nullable().optional()
+});
+
+const diagnosticAnswerSchema = z.object({
+  questionId: z.string().min(1),
+  answer: z.string().trim().min(1).max(500),
+  confidenceScore: z.number().int().min(1).max(5),
+  responseLatencyMs: z.number().int().min(0).max(10 * 60 * 1000)
+});
+
+const diagnosticParamsSchema = z.object({
+  sessionId: z.string().uuid()
+});
+
+const progressiveSubjectParamsSchema = z.object({
+  subjectId: z.enum(['science', 'kiswahili', 'social', 'ai_education'])
+});
+
+const progressiveDiagnosticParamsSchema = z.object({
+  subjectId: z.enum(['science', 'kiswahili', 'social', 'ai_education']),
+  sessionId: z.string().uuid()
+});
+
+const reviewParamsSchema = z.object({
+  reviewId: z.string().uuid()
+});
+
+const completeReviewSchema = z.object({
+  passed: z.boolean()
+});
+
+const weeklyExamParamsSchema = z.object({
+  examId: z.string().uuid()
+});
+
+const weeklyExamSubmitSchema = z.object({
+  attemptId: z.string().uuid(),
+  answers: z.array(z.object({
+    questionId: z.string().min(1).max(120),
+    answer: z.string().trim().max(500)
+  })).max(50),
+  timedOut: z.boolean().default(false)
+});
+
+const parentChildLinkSchema = z.object({
+  studentEmail: z.string().trim().email().optional(),
+  studentPhone: z.string().trim().min(9).max(20).optional()
+}).refine(value => Number(Boolean(value.studentEmail)) + Number(Boolean(value.studentPhone)) === 1, {
+  message: 'Provide either studentEmail or studentPhone'
+});
+
+const parentChildParamsSchema = z.object({
+  studentId: z.string().uuid()
 });
 
 const mpesaCallbackSchema = z.object({
@@ -293,6 +649,7 @@ function renderHandoffPage(args: {
   message: string;
   detail?: string;
   status: 'success' | 'error';
+  nonce: string;
   deepLink?: string;
   buttonLabel?: string;
   bodyHtml?: string;
@@ -302,7 +659,7 @@ function renderHandoffPage(args: {
     ? `<a class="primary" href="${deepLink}">${escapeHtml(args.buttonLabel ?? 'Open Kitabu App')}</a>`
     : '';
   const script = deepLink
-    ? `<script>
+    ? `<script nonce="${args.nonce}">
          const target = ${JSON.stringify(args.deepLink)};
          setTimeout(() => { window.location.href = target; }, 250);
        </script>`
@@ -314,7 +671,7 @@ function renderHandoffPage(args: {
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <title>${escapeHtml(args.title)}</title>
-      <style>
+      <style nonce="${args.nonce}">
         body {
           margin: 0;
           min-height: 100vh;
@@ -406,6 +763,30 @@ function renderHandoffPage(args: {
   </html>`;
 }
 
+function buildHandoffCsp(nonce: string) {
+  return [
+    "default-src 'none'",
+    `script-src 'nonce-${nonce}'`,
+    `style-src 'nonce-${nonce}'`,
+    "base-uri 'none'",
+    "form-action 'self'",
+    "frame-ancestors 'none'"
+  ].join('; ');
+}
+
+type HandoffPageArgs = Omit<Parameters<typeof renderHandoffPage>[0], 'nonce' | 'bodyHtml'> & {
+  bodyHtml?: string | ((nonce: string) => string);
+};
+
+function sendHandoffPage(reply: FastifyReply, args: HandoffPageArgs) {
+  const nonce = randomBytes(16).toString('base64url');
+  const bodyHtml = typeof args.bodyHtml === 'function' ? args.bodyHtml(nonce) : args.bodyHtml;
+  return reply
+    .header('Content-Security-Policy', buildHandoffCsp(nonce))
+    .type('text/html')
+    .send(renderHandoffPage({ ...args, bodyHtml, nonce }));
+}
+
 const generateTextSchema = z.object({
   prompt: z.string().min(1),
   systemInstruction: z.string().optional(),
@@ -427,6 +808,14 @@ const generateTextSchema = z.object({
       })
     )
     .optional()
+});
+
+const transcribeAudioSchema = z.object({
+  base64Audio: z.string().min(1),
+  mimeType: z.string().min(1),
+  fileName: z.string().min(1).optional(),
+  language: z.string().min(2).max(16).optional(),
+  prompt: z.string().min(1).max(400).optional()
 });
 
 const curriculumItemSchema = z.object({
@@ -492,9 +881,38 @@ const subStrandCompletionSchema = z.object({
   quizScore: z.number().min(0).max(100).optional()
 });
 
-export function buildServer() {
+export interface BuildServerOptions {
+  googleTokenVerifier?: (idToken: string) => Promise<VerifiedGoogleIdentity>;
+  emailSender?: typeof sendTransactionalEmail;
+}
+
+export function buildServer(options: BuildServerOptions = {}) {
+  const googleTokenVerifier = options.googleTokenVerifier ?? verifyGoogleIdToken;
+  const emailSender = options.emailSender ?? sendTransactionalEmail;
   const app = Fastify({
-    logger: true,
+    logger: {
+      level: appConfig.KITABU_NODE_ENV === 'production' ? 'info' : 'debug',
+      base: {
+        service: 'kitabu-api',
+        env: appConfig.KITABU_RUNTIME_ENV
+      },
+      serializers: {
+        req(request) {
+          return {
+            id: request.id,
+            method: request.method,
+            url: request.url,
+            route: request.routeOptions?.url,
+            remoteAddress: request.ip
+          };
+        },
+        res(reply) {
+          return {
+            statusCode: reply.statusCode
+          };
+        }
+      }
+    },
     trustProxy: appConfig.KITABU_TRUST_PROXY,
     bodyLimit: appConfig.KITABU_BODY_LIMIT_BYTES
   });
@@ -524,7 +942,30 @@ export function buildServer() {
 
   app.decorateRequest('user', undefined);
 
-  app.addHook('preHandler', async (request) => {
+  app.setErrorHandler((error, request, reply) => {
+    if (error instanceof z.ZodError) {
+      request.log.warn({ error }, 'Request validation failed');
+      return reply.status(400).send({
+        error: 'Bad Request',
+        message: 'Check the submitted details and try again',
+        issues: error.issues.map(issue => ({
+          code: issue.code,
+          path: issue.path,
+          message: issue.message
+        }))
+      });
+    }
+
+    return reply.send(error);
+  });
+
+  app.addHook('onRequest', async (request) => {
+    request.log = request.log.child({
+      requestId: request.id
+    });
+  });
+
+  app.addHook('preHandler', async (request, reply) => {
     const authHeader = request.headers.authorization;
     if (!authHeader?.startsWith('Bearer ')) {
       return;
@@ -534,7 +975,33 @@ export function buildServer() {
       request.user = await verifyAccessToken(token);
     } catch {
       request.user = undefined;
+      return;
     }
+
+    const verificationExemptRoutes = new Set([
+      '/auth/refresh',
+      '/auth/email-verification/resend',
+      '/auth/email-verification/confirm',
+      '/me/account'
+    ]);
+    if (
+      request.user &&
+      !request.user.emailVerified &&
+      !request.user.phoneVerified &&
+      !verificationExemptRoutes.has(request.routeOptions.url ?? '')
+    ) {
+      return reply.forbidden('Verify your email or phone number to continue');
+    }
+  });
+
+  app.addHook('onResponse', async (request, reply) => {
+    request.log.info({
+      requestId: request.id,
+      userId: request.user?.id ?? null,
+      schoolId: request.user?.schoolId ?? null,
+      statusCode: reply.statusCode,
+      durationMs: reply.elapsedTime
+    }, 'request completed');
   });
 
   app.get('/health', async () => {
@@ -560,6 +1027,8 @@ export function buildServer() {
           schoolId: args.user.schoolId,
           sessionId: args.sessionId ?? args.user.sessionId,
           email: args.user.email,
+          phoneNumber: args.user.phoneNumber ?? null,
+          phoneVerified: Boolean(args.user.phoneVerified),
           fullName: args.user.fullName,
           emailVerified: args.user.emailVerified,
           roles: args.user.roles,
@@ -574,6 +1043,8 @@ export function buildServer() {
           schoolId: args.user.school_id,
           sessionId: args.sessionId ?? null,
           email: args.user.email,
+          phoneNumber: args.user.phone_number,
+          phoneVerified: args.user.phone_verified,
           fullName: args.user.full_name,
           emailVerified: args.user.email_verified,
           roles: args.user.roles,
@@ -594,6 +1065,8 @@ export function buildServer() {
         schoolId: normalizedUser.schoolId,
         sessionId: normalizedUser.sessionId,
         email: normalizedUser.email,
+        phoneNumber: normalizedUser.phoneNumber,
+        phoneVerified: normalizedUser.phoneVerified,
         fullName: normalizedUser.fullName,
         emailVerified: normalizedUser.emailVerified,
         roles: normalizedUser.roles,
@@ -609,6 +1082,54 @@ export function buildServer() {
         isBreakGlass: normalizedUser.isBreakGlass
       }
     };
+  }
+
+  async function issueAuthSession(
+    request: FastifyRequest,
+    user: NonNullable<Awaited<ReturnType<typeof findUserByEmail>>>,
+    auditEvent: string
+  ) {
+    const refreshToken = generateRefreshToken();
+    const refreshTokenHash = hashOpaqueToken(refreshToken);
+    const refreshExpiresAt = new Date(
+      Date.now() + appConfig.KITABU_REFRESH_TOKEN_TTL_DAYS * 24 * 60 * 60 * 1000
+    );
+    const sessionContext = getSessionContext(request);
+    const sessionId = randomBytes(16).toString('hex');
+
+    await withTransaction(async client => {
+      await insertRefreshToken(client, user.id, refreshTokenHash, refreshExpiresAt, {
+        sessionId,
+        sessionBindingHash: sessionContext.sessionBindingHash,
+        deviceLabel: sessionContext.deviceLabel
+      });
+      await createAuditLog(client, user.id, user.school_id, auditEvent);
+    });
+
+    const totpEnabled = await getUserTotpStatus(user.id);
+    const shouldBypassStepUp =
+      appConfig.KITABU_NODE_ENV !== 'production' &&
+      !totpEnabled &&
+      user.roles.includes('platform_admin');
+    const accessToken = await signAccessToken({
+      sub: user.id,
+      schoolId: user.school_id,
+      sid: sessionId,
+      email: user.email,
+      phoneNumber: user.phone_number,
+      phoneVerified: user.phone_verified,
+      fullName: user.full_name,
+      emailVerified: user.email_verified,
+      roles: user.roles,
+      gender: user.gender,
+      grade: user.grade_level,
+      onboardingCompleted: user.onboarding_completed,
+      stepUp: shouldBypassStepUp,
+      mustRotatePassword: user.must_rotate_password,
+      isBreakGlass: user.is_break_glass
+    });
+
+    return buildAuthResponse({ user, accessToken, refreshToken, totpEnabled, sessionId });
   }
 
   function getDeepLink(path: string, params: Record<string, string> = {}) {
@@ -644,6 +1165,24 @@ export function buildServer() {
     }
 
     return ['weekly', 'monthly', 'annual'];
+  }
+
+  function isTestAccountUser(user: NonNullable<FastifyRequest['user']>) {
+    return TEST_ACCOUNT_EMAILS.has(user.email.trim().toLowerCase());
+  }
+
+  function resolvePromptVersion(feature: string) {
+    const versions: Record<string, string> = {
+      homework_helper_chat: '2026-03-30.chat.v1',
+      homework_helper_explanation: '2026-03-30.explanation.v1',
+      audio_transcription: '2026-03-30.transcription.v1',
+      flashcard_generation: '2026-03-30.flashcards.v1',
+      quiz_generation: '2026-03-30.quiz.v1',
+      assignment_generation: '2026-03-30.assignment.v1',
+      curriculum_extraction: '2026-03-30.curriculum-pdf.v1'
+    };
+
+    return versions[feature] ?? '2026-03-30.default.v1';
   }
 
   function slugifySchoolName(name: string) {
@@ -695,6 +1234,18 @@ export function buildServer() {
     };
   }
 
+  function getPublicOriginalPriceKshCents(planCode: BillingPlanCode) {
+    if (planCode === 'monthly') {
+      return 50000;
+    }
+
+    if (planCode === 'annual') {
+      return 600000;
+    }
+
+    return undefined;
+  }
+
   function serializeSchool(school: NonNullable<Awaited<ReturnType<typeof findSchoolById>>>) {
     const basePriceKshCents = Number(school.assigned_plan_price_ksh_cents);
     const effectivePriceKshCents = applyDiscount(basePriceKshCents, {
@@ -712,6 +1263,19 @@ export function buildServer() {
       email: school.email,
       totalStudents: school.total_students,
       gradeCounts: school.grade_counts,
+      pilot: {
+        status: school.pilot_status ?? 'not_enrolled',
+        startDate: school.pilot_start_date?.toISOString().slice(0, 10) ?? null,
+        endDate: school.pilot_end_date?.toISOString().slice(0, 10) ?? null,
+        targetStudents: school.pilot_target_students ?? 0,
+        onboardingStage: school.pilot_onboarding_stage ?? 0,
+        notes: school.pilot_notes ?? null,
+        metrics: {
+          onboardedStudents: school.pilot_onboarded_students ?? 0,
+          engagedStudents: school.pilot_engaged_students ?? 0,
+          averageMastery: school.pilot_average_mastery ?? 0
+        }
+      },
       pricing: {
         assignedPlanCode: school.assigned_plan_code,
         assignedPlanName: school.assigned_plan_name,
@@ -732,10 +1296,77 @@ export function buildServer() {
     };
   }
 
-  function buildQuoteOfTheDay() {
-    const dayIndex = Math.floor(Date.now() / (24 * 60 * 60 * 1000));
-    return DAILY_QUOTES[dayIndex % DAILY_QUOTES.length];
+function buildQuoteOfTheDay() {
+  const dayIndex = Math.floor(Date.now() / (24 * 60 * 60 * 1000));
+  return DAILY_QUOTES[dayIndex % DAILY_QUOTES.length];
+}
+
+type DiagnosticQuestionDefinition = {
+  id: string;
+  subjectId: string;
+  subjectName: string;
+  subStrandKey: string;
+  prompt: string;
+  options: readonly string[];
+  correctAnswer: string;
+  difficulty: number;
+};
+
+function serializeDiagnosticQuestion(question: DiagnosticQuestionDefinition) {
+  return {
+    id: question.id,
+    subjectId: question.subjectId,
+    subjectName: question.subjectName,
+    subStrandKey: question.subStrandKey,
+    prompt: question.prompt,
+    options: question.options,
+    difficulty: question.difficulty,
+    timeLimitSeconds: 120
+  };
+}
+
+function findDiagnosticQuestion(questionId: string) {
+  return ONBOARDING_DIAGNOSTIC_QUESTIONS.find(question => question.id === questionId) ?? null;
+}
+
+function getProgressiveDiagnosticQuestions(subjectId: keyof typeof PROGRESSIVE_DIAGNOSTIC_QUESTIONS) {
+  return PROGRESSIVE_DIAGNOSTIC_QUESTIONS[subjectId];
+}
+
+function findProgressiveDiagnosticQuestion(
+  subjectId: keyof typeof PROGRESSIVE_DIAGNOSTIC_QUESTIONS,
+  questionId: string
+) {
+  return getProgressiveDiagnosticQuestions(subjectId).find(question => question.id === questionId) ?? null;
+}
+
+function buildDiagnosticResultSummary(answers: Awaited<ReturnType<typeof listDiagnosticAnswers>>) {
+  const bySubject = new Map<string, { correct: number; total: number; confidenceTotal: number }>();
+  for (const answer of answers) {
+    const current = bySubject.get(answer.subject_id) ?? { correct: 0, total: 0, confidenceTotal: 0 };
+    current.total += 1;
+    current.correct += answer.is_correct ? 1 : 0;
+    current.confidenceTotal += answer.confidence_score;
+    bySubject.set(answer.subject_id, current);
   }
+
+  const subjects = Array.from(bySubject.entries()).map(([subjectId, value]) => ({
+    subjectId,
+    correct: value.correct,
+    total: value.total,
+    percentage: value.total > 0 ? Math.round((value.correct / value.total) * 100) : 0,
+    averageConfidence: value.total > 0 ? Number((value.confidenceTotal / value.total).toFixed(2)) : 0
+  }));
+
+  const total = answers.length;
+  const correct = answers.filter(answer => answer.is_correct).length;
+  return {
+    correct,
+    total,
+    percentage: total > 0 ? Math.round((correct / total) * 100) : 0,
+    subjects
+  };
+}
 
   function getPlanPeriodEnd(start: Date, billingCycle: 'weekly' | 'monthly' | 'annual') {
     const next = new Date(start);
@@ -920,6 +1551,7 @@ Requirements:
     }
 
     const executionPlan = resolveAiExecutionPlan(args.body.feature);
+    const promptVersion = resolvePromptVersion(args.body.feature);
     const subscription = subscriptionCheck.subscription;
     const existingSpend = await getSubscriptionAiSpendKshCents(subscription.id);
     const provisionalTokenEstimate = Math.max(Math.ceil(args.body.prompt.length / 4), 150);
@@ -942,6 +1574,7 @@ Requirements:
           estimatedCostUsdMicros: provisionalCostUsdMicros,
           fxRateKshPerUsd: appConfig.KITABU_KSH_PER_USD,
           estimatedCostKshCents: provisionalCostKshCents,
+          promptVersion,
           status: 'blocked'
         });
         await createAuditLog(client, currentUser.id, currentUser.schoolId, 'ai.limit.blocked', {
@@ -981,6 +1614,7 @@ Requirements:
           estimatedCostUsdMicros: costUsdMicros,
           fxRateKshPerUsd: appConfig.KITABU_KSH_PER_USD,
           estimatedCostKshCents: costKshCents,
+          promptVersion,
           status: 'completed'
         });
       });
@@ -1005,6 +1639,7 @@ Requirements:
           estimatedCostUsdMicros: provisionalCostUsdMicros,
           fxRateKshPerUsd: appConfig.KITABU_KSH_PER_USD,
           estimatedCostKshCents: provisionalCostKshCents,
+          promptVersion,
           status: 'failed'
         });
       });
@@ -1014,6 +1649,96 @@ Requirements:
       return {
         error: {
           message: 'AI request failed'
+        },
+        text: null,
+        subscription
+      };
+    }
+  }
+
+  async function runSubscriptionScopedAudioTranscription(args: {
+    request: FastifyRequest;
+    reply: FastifyReply;
+    body: z.infer<typeof transcribeAudioSchema>;
+  }) {
+    const currentUser = args.request.user!;
+    const subscriptionCheck = await requireActiveSubscriptionForAi(args.reply, currentUser);
+    if (subscriptionCheck.error || !subscriptionCheck.subscription) {
+      return {
+        error: subscriptionCheck.error,
+        text: null,
+        subscription: null
+      };
+    }
+
+    if (!appConfig.KITABU_OPENAI_API_KEY) {
+      args.request.log.error('Audio transcription requested without OpenAI API key');
+      args.reply.status(500);
+      return {
+        error: {
+          message: 'Audio transcription is not configured'
+        },
+        text: null,
+        subscription: subscriptionCheck.subscription
+      };
+    }
+
+    const subscription = subscriptionCheck.subscription;
+    const promptVersion = resolvePromptVersion('audio_transcription');
+    const model = appConfig.KITABU_OPENAI_TRANSCRIPTION_MODEL;
+
+    try {
+      const result = await transcribeAudioWithOpenAi(args.body);
+
+      await withTransaction(async client => {
+        await createAiUsageEvent(client, {
+          userId: currentUser.id,
+          schoolId: currentUser.schoolId,
+          subscriptionId: subscription.id,
+          feature: 'audio_transcription',
+          provider: 'openai',
+          model,
+          promptTokens: 0,
+          completionTokens: 0,
+          totalTokens: 0,
+          estimatedCostUsdMicros: 0,
+          fxRateKshPerUsd: appConfig.KITABU_KSH_PER_USD,
+          estimatedCostKshCents: 0,
+          promptVersion,
+          status: 'completed'
+        });
+      });
+
+      return {
+        error: null,
+        text: result.text,
+        subscription
+      };
+    } catch (error) {
+      await withTransaction(async client => {
+        await createAiUsageEvent(client, {
+          userId: currentUser.id,
+          schoolId: currentUser.schoolId,
+          subscriptionId: subscription.id,
+          feature: 'audio_transcription',
+          provider: 'openai',
+          model,
+          promptTokens: 0,
+          completionTokens: 0,
+          totalTokens: 0,
+          estimatedCostUsdMicros: 0,
+          fxRateKshPerUsd: appConfig.KITABU_KSH_PER_USD,
+          estimatedCostKshCents: 0,
+          promptVersion,
+          status: 'failed'
+        });
+      });
+
+      args.request.log.error({ err: error }, 'Audio transcription failed');
+      args.reply.status(500);
+      return {
+        error: {
+          message: 'Audio transcription failed'
         },
         text: null,
         subscription
@@ -1090,6 +1815,8 @@ Requirements:
         schoolId: user.school_id,
         sid: sessionId,
         email: user.email,
+        phoneNumber: user.phone_number,
+        phoneVerified: user.phone_verified,
         fullName: user.full_name,
         emailVerified: user.email_verified,
         roles: user.roles,
@@ -1102,6 +1829,233 @@ Requirements:
       });
 
     return buildAuthResponse({ user, accessToken, refreshToken, totpEnabled, sessionId });
+  });
+
+  app.post('/auth/phone/request', { config: { rateLimit: { max: 5, timeWindow: '15 minutes' } } }, async (request, reply) => {
+    const body = phoneAuthRequestSchema.parse(request.body);
+    let phoneNumber: string;
+    try {
+      phoneNumber = formatKenyanPhoneNumber(body.phoneNumber);
+    } catch {
+      return reply.badRequest('Enter a valid Kenyan mobile number');
+    }
+
+    const existingUser = await findUserByPhone(phoneNumber);
+    if (body.purpose === 'signup' && existingUser) {
+      return reply.conflict('An account with that phone number already exists. Sign in instead.');
+    }
+
+    const code = randomInt(0, 1_000_000).toString().padStart(6, '0');
+    const eligibleForDelivery = body.purpose === 'signup' || Boolean(existingUser?.phone_verified);
+    if (eligibleForDelivery && appConfig.KITABU_NODE_ENV === 'production' && !isSmsConfigured()) {
+      return reply.serviceUnavailable('Phone verification is temporarily unavailable');
+    }
+    const passwordHash = body.purpose === 'signup'
+      ? await hashPassword(randomBytes(32).toString('base64url'))
+      : undefined;
+
+    await createPhoneVerificationCode({
+      phoneNumber,
+      purpose: body.purpose,
+      codeHash: hashOpaqueToken(code),
+      role: body.purpose === 'signup' ? body.role : undefined,
+      fullName: body.purpose === 'signup' ? body.fullName : undefined,
+      email: body.purpose === 'signup' ? `phone-${phoneNumber}@accounts.kitabu.invalid` : undefined,
+      passwordHash,
+      acceptedTerms: body.purpose === 'signup' ? body.acceptedTerms : undefined,
+      expiresAt: new Date(Date.now() + appConfig.KITABU_PHONE_VERIFICATION_TTL_MINUTES * 60 * 1000)
+    });
+
+    if (eligibleForDelivery && appConfig.KITABU_NODE_ENV === 'production') {
+      try {
+        await sendSmsMessage({
+          to: `+${phoneNumber}`,
+          message: `Your Kitabu AI verification code is ${code}. It expires in ${appConfig.KITABU_PHONE_VERIFICATION_TTL_MINUTES} minutes.`
+        });
+      } catch (error) {
+        const verification = await findActivePhoneVerificationCode(phoneNumber, body.purpose);
+        if (verification) {
+          await consumePhoneVerificationCode(verification.id);
+        }
+        request.log.error({ error }, 'Phone verification SMS delivery failed');
+        return reply.serviceUnavailable('Phone verification is temporarily unavailable');
+      }
+    }
+
+    await withTransaction(client => createAuditLog(
+      client,
+      existingUser?.id ?? null,
+      existingUser?.school_id ?? null,
+      'auth.phone_verification.requested',
+      { purpose: body.purpose, delivered: eligibleForDelivery }
+    ));
+
+    return {
+      message: 'If the phone number is eligible, a verification code has been sent.',
+      expiresInSeconds: appConfig.KITABU_PHONE_VERIFICATION_TTL_MINUTES * 60,
+      ...(appConfig.KITABU_NODE_ENV !== 'production' && eligibleForDelivery
+        ? { developmentCode: code }
+        : {})
+    };
+  });
+
+  app.post('/auth/phone/verify', { config: { rateLimit: { max: 10, timeWindow: '15 minutes' } } }, async (request, reply) => {
+    const body = phoneAuthVerifySchema.parse(request.body);
+    let phoneNumber: string;
+    try {
+      phoneNumber = formatKenyanPhoneNumber(body.phoneNumber);
+    } catch {
+      return reply.badRequest('Invalid or expired verification code');
+    }
+
+    const verification = await findActivePhoneVerificationCode(phoneNumber, body.purpose);
+    const suppliedHash = hashOpaqueToken(body.code);
+    const codeMatches = verification
+      ? timingSafeEqual(Buffer.from(verification.code_hash, 'hex'), Buffer.from(suppliedHash, 'hex'))
+      : false;
+    if (!verification || verification.attempts >= 5 || !codeMatches) {
+      if (verification) {
+        await recordPhoneVerificationFailure(verification.id);
+      }
+      return reply.badRequest('Invalid or expired verification code');
+    }
+
+    let user = await findUserByPhone(phoneNumber);
+    let signupDetails: {
+      fullName: string;
+      email: string;
+      passwordHash: string;
+      role: 'student' | 'teacher' | 'parent';
+    } | null = null;
+    if (body.purpose === 'login') {
+      if (!user?.phone_verified) {
+        await consumePhoneVerificationCode(verification.id);
+        return reply.badRequest('Invalid or expired verification code');
+      }
+    } else {
+      if (user) {
+        return reply.conflict('An account with that phone number already exists. Sign in instead.');
+      }
+      if (
+        !verification.full_name ||
+        !verification.role ||
+        !verification.email ||
+        !verification.password_hash ||
+        !verification.accepted_terms
+      ) {
+        return reply.badRequest('Invalid or expired verification code');
+      }
+      signupDetails = {
+        fullName: verification.full_name,
+        email: verification.email,
+        passwordHash: verification.password_hash,
+        role: verification.role
+      };
+    }
+
+    if (!(await consumePhoneVerificationCode(verification.id))) {
+      return reply.badRequest('Invalid or expired verification code');
+    }
+
+    if (body.purpose === 'signup') {
+      if (!signupDetails) {
+        return reply.badRequest('Invalid or expired verification code');
+      }
+      await createSelfServiceUser({
+        schoolId: null,
+        email: signupDetails.email,
+        phoneNumber,
+        phoneVerified: true,
+        passwordHash: signupDetails.passwordHash,
+        fullName: signupDetails.fullName,
+        role: signupDetails.role,
+        onboardingCompleted: signupDetails.role !== 'student',
+        termsAcceptedAt: new Date(),
+        termsVersion: appConfig.KITABU_TERMS_VERSION,
+        privacyVersion: appConfig.KITABU_PRIVACY_VERSION
+      });
+      user = await findUserByPhone(phoneNumber);
+    }
+
+    if (!user) {
+      return reply.badRequest('Invalid or expired verification code');
+    }
+
+    return issueAuthSession(request, user, `auth.phone.${body.purpose}.succeeded`);
+  });
+
+  app.post('/auth/google', { config: { rateLimit: { max: 10, timeWindow: '5 minutes' } } }, async (request, reply) => {
+    const body = googleAuthSchema.parse(request.body);
+    if (!options.googleTokenVerifier && getGoogleClientIds().length === 0) {
+      return reply.serviceUnavailable('Google authentication is not configured');
+    }
+
+    let identity: Awaited<ReturnType<typeof verifyGoogleIdToken>>;
+    try {
+      identity = await googleTokenVerifier(body.idToken);
+    } catch (error) {
+      request.log.warn({ error }, 'Google ID token verification failed');
+      return reply.unauthorized('Google authentication failed');
+    }
+
+    let user = await findUserByAuthIdentity('google', identity.subject);
+    if (!user) {
+      user = await findUserByEmail(identity.email);
+      if (!user) {
+        if (!body.role || body.acceptedTerms !== true) {
+          return reply.badRequest('Choose an account role and accept the Terms and Privacy Policy to create an account.');
+        }
+        await createSelfServiceUser({
+          schoolId: null,
+          email: identity.email,
+          passwordHash: await hashPassword(randomBytes(32).toString('base64url')),
+          fullName: identity.fullName,
+          role: body.role,
+          onboardingCompleted: body.role !== 'student',
+          termsAcceptedAt: new Date(),
+          termsVersion: appConfig.KITABU_TERMS_VERSION,
+          privacyVersion: appConfig.KITABU_PRIVACY_VERSION
+        });
+        user = await findUserByEmail(identity.email);
+      }
+
+      if (!user) {
+        throw new Error('Unable to create Google account');
+      }
+
+      const existingGoogleIdentity = await findUserAuthIdentityForProvider(user.id, 'google');
+      if (
+        existingGoogleIdentity &&
+        existingGoogleIdentity.provider_subject !== identity.subject
+      ) {
+        await withTransaction(client => createAuditLog(
+          client,
+          user!.id,
+          user!.school_id,
+          'auth.google.identity_link_conflict'
+        ));
+        return reply.conflict('This account is already linked to a different Google account.');
+      }
+
+      await withTransaction(async client => {
+        await linkUserAuthIdentity(client, {
+          userId: user!.id,
+          provider: 'google',
+          providerSubject: identity.subject,
+          providerEmail: identity.email
+        });
+        if (!user!.email_verified) {
+          await markUserEmailVerified(client, user!.id);
+        }
+        await createAuditLog(client, user!.id, user!.school_id, 'auth.google.identity_linked');
+      });
+      user = await findUserByEmail(identity.email);
+    }
+
+    if (!user) {
+      throw new Error('Unable to load Google account');
+    }
+    return issueAuthSession(request, user, 'auth.google.login.succeeded');
   });
 
   app.post('/auth/signup', { config: { rateLimit: { max: 15, timeWindow: '5 minutes' } } }, async (request, reply) => {
@@ -1120,7 +2074,10 @@ Requirements:
         role: body.role,
         gender: body.gender,
         grade: body.grade ?? null,
-        onboardingCompleted: body.onboardingCompleted ?? body.role !== 'student'
+        onboardingCompleted: body.onboardingCompleted ?? body.role !== 'student',
+        termsAcceptedAt: new Date(),
+        termsVersion: appConfig.KITABU_TERMS_VERSION,
+        privacyVersion: appConfig.KITABU_PRIVACY_VERSION
       });
 
     const refreshToken = generateRefreshToken();
@@ -1145,6 +2102,8 @@ Requirements:
         schoolId: user.schoolId,
         sid: sessionId,
         email: user.email,
+        phoneNumber: user.phoneNumber ?? null,
+        phoneVerified: user.phoneVerified,
         fullName: user.fullName,
         emailVerified: user.emailVerified,
         roles: user.roles,
@@ -1169,7 +2128,7 @@ Requirements:
       });
     });
 
-    const delivered = await sendTransactionalEmail(
+    const delivered = await emailSender(
       buildEmailVerificationEmail({
         recipientEmail: user.email,
         verificationUrl,
@@ -1180,8 +2139,7 @@ Requirements:
     if (!delivered) {
       app.log.warn(
         {
-          userId: user.id,
-          verificationUrl
+          userId: user.id
         },
         'Verification email not sent because SMTP is not configured'
       );
@@ -1209,7 +2167,7 @@ Requirements:
         });
       });
 
-      const delivered = await sendTransactionalEmail(
+      const delivered = await emailSender(
         buildEmailVerificationEmail({
           recipientEmail: user.email,
           verificationUrl,
@@ -1220,8 +2178,7 @@ Requirements:
       if (!delivered) {
         app.log.warn(
           {
-            userId: user.id,
-            verificationUrl
+            userId: user.id
           },
           'Verification email not sent because SMTP is not configured'
         );
@@ -1236,6 +2193,21 @@ Requirements:
 
     return {
       message: 'If an unverified account exists for that email, a verification email will be sent.'
+    };
+  });
+
+  app.get('/config/legal', async () => {
+    return {
+      termsOfServiceUrl: appConfig.KITABU_TERMS_OF_SERVICE_URL,
+      privacyPolicyUrl: appConfig.KITABU_PRIVACY_POLICY_URL,
+      termsVersion: appConfig.KITABU_TERMS_VERSION,
+      privacyVersion: appConfig.KITABU_PRIVACY_VERSION
+    };
+  });
+
+  app.get('/config/features', async () => {
+    return {
+      flags: await listFeatureFlags()
     };
   });
 
@@ -1254,54 +2226,46 @@ Requirements:
   app.get('/verify-email', async (request, reply) => {
     const query = tokenQuerySchema.safeParse(request.query);
     if (!query.success) {
-      return reply
-        .type('text/html')
-        .send(
-          renderHandoffPage({
-            title: 'Verification failed',
-            message: 'This verification link is missing or invalid.',
-            status: 'error'
-          })
-        );
+      return sendHandoffPage(reply, {
+        title: 'Verification failed',
+        message: 'This verification link is missing or invalid.',
+        status: 'error'
+      });
     }
 
     const result = await confirmEmailVerificationToken(query.data.token, reply);
     if (!result.ok) {
-      return reply
-        .type('text/html')
-        .send(
-          renderHandoffPage({
-            title: 'Verification failed',
-            message: result.message,
-            status: 'error'
-          })
-        );
+      return sendHandoffPage(reply, {
+        title: 'Verification failed',
+        message: result.message,
+        status: 'error'
+      });
     }
 
-    return reply
-      .type('text/html')
-      .send(
-        renderHandoffPage({
-          title: 'Email verified',
-          message: 'Your email is confirmed. Opening Kitabu App now.',
-          detail: 'If the app does not open automatically, use the button below.',
-          status: 'success',
-          deepLink: getDeepLink('email-verified', { email: result.user.email })
-        })
-      );
+    return sendHandoffPage(reply, {
+      title: 'Email verified',
+      message: 'Your email is confirmed. Opening Kitabu App now.',
+      detail: 'If the app is installed, we will hand you back to Kitabu. Otherwise sign in after opening the app.',
+      status: 'success',
+      deepLink: getDeepLink('email-verified', {
+        email: result.user.email,
+        mode: 'login'
+      }),
+      buttonLabel: 'Open Kitabu App'
+    });
   });
 
   app.get('/reset-password', async (request, reply) => {
     const query = tokenQuerySchema.safeParse(request.query);
     const token = query.success ? query.data.token : '';
-    const bodyHtml = `
+    const bodyHtml = (nonce: string) => `
       <form id="reset-form">
         <label for="new-password">New password</label>
         <input id="new-password" name="new-password" type="password" minlength="10" required />
         <button type="submit">Update password</button>
         <p id="status"></p>
       </form>
-      <script>
+      <script nonce="${nonce}">
         const form = document.getElementById('reset-form');
         const status = document.getElementById('status');
         form.addEventListener('submit', async (event) => {
@@ -1315,7 +2279,12 @@ Requirements:
               newPassword: document.getElementById('new-password').value
             })
           });
-          const payload = await response.json();
+          let payload = {};
+          try {
+            payload = await response.json();
+          } catch {
+            payload = {};
+          }
           if (!response.ok) {
             status.textContent = payload.message || 'Password reset failed';
             status.className = 'error';
@@ -1327,17 +2296,13 @@ Requirements:
         });
       </script>`;
 
-    return reply
-      .type('text/html')
-      .send(
-        renderHandoffPage({
-          title: 'Reset your password',
-          message: 'Choose a new password to finish account recovery.',
-          detail: 'After reset, Kitabu App will reopen so you can sign in again.',
-          status: query.success ? 'success' : 'error',
-          bodyHtml
-        })
-      );
+    return sendHandoffPage(reply, {
+      title: 'Reset your password',
+      message: 'Choose a new password to finish account recovery.',
+      detail: 'After reset, Kitabu App will reopen so you can sign in again.',
+      status: query.success ? 'success' : 'error',
+      bodyHtml
+    });
   });
 
   app.get('/.well-known/assetlinks.json', async (_request, reply) => {
@@ -1376,7 +2341,7 @@ Requirements:
         });
       });
 
-      const delivered = await sendTransactionalEmail(
+      const delivered = await emailSender(
         buildPasswordResetEmail({
           recipientEmail: user.email,
           resetUrl,
@@ -1387,8 +2352,7 @@ Requirements:
       if (!delivered) {
         app.log.warn(
           {
-            userId: user.id,
-            resetUrl
+            userId: user.id
           },
           'Password reset email not sent because SMTP is not configured'
         );
@@ -1486,6 +2450,8 @@ Requirements:
         schoolId: user.schoolId,
         sid: currentToken.session_id,
         email: user.email,
+        phoneNumber: user.phoneNumber ?? null,
+        phoneVerified: user.phoneVerified,
         fullName: user.fullName,
         emailVerified: user.emailVerified,
         roles: user.roles,
@@ -1535,6 +2501,8 @@ Requirements:
         schoolId: refreshedUser.schoolId,
         sid: currentUser.sessionId ?? undefined,
         email: refreshedUser.email,
+        phoneNumber: refreshedUser.phoneNumber ?? null,
+        phoneVerified: refreshedUser.phoneVerified,
         fullName: refreshedUser.fullName,
         emailVerified: refreshedUser.emailVerified,
         roles: refreshedUser.roles,
@@ -1609,6 +2577,8 @@ Requirements:
         schoolId: refreshedUser.schoolId,
         sid: request.user!.sessionId ?? undefined,
         email: refreshedUser.email,
+        phoneNumber: refreshedUser.phoneNumber ?? null,
+        phoneVerified: refreshedUser.phoneVerified,
         fullName: refreshedUser.fullName,
         emailVerified: refreshedUser.emailVerified,
         roles: refreshedUser.roles,
@@ -1656,6 +2626,8 @@ Requirements:
         schoolId: currentUser.schoolId,
         sid: currentUser.sessionId ?? undefined,
         email: currentUser.email,
+        phoneNumber: currentUser.phoneNumber ?? null,
+        phoneVerified: currentUser.phoneVerified,
         fullName: currentUser.fullName,
         emailVerified: currentUser.emailVerified,
         roles: currentUser.roles,
@@ -1938,12 +2910,530 @@ Return valid JSON with this shape:
       });
     });
 
+    const masteryScore = body.quizScore ?? 100;
     return {
-      completed: true,
+      completed: masteryScore >= 70,
+      needsRemediation: masteryScore < 70,
+      masteryScore,
+      unlockThreshold: 70,
       subStrandId: params.subStrandId,
       grade: context.grade_level,
       subjectId: context.subject_id
     };
+  });
+
+  app.get('/diagnostics/onboarding/status', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return authError;
+    }
+
+    const isStudent = request.user!.roles.includes('student');
+    if (!isStudent) {
+      return {
+        required: false,
+        completed: true,
+        activeSession: null,
+        result: null
+      };
+    }
+
+    const completed = await findCompletedDiagnosticSession(
+      request.user!.id,
+      'onboarding',
+      [...ONBOARDING_DIAGNOSTIC_SUBJECTS]
+    );
+    const activeSession = completed ? null : await findActiveDiagnosticSession(request.user!.id, 'onboarding');
+
+    return {
+      required: true,
+      completed: Boolean(completed),
+      activeSession: activeSession
+        ? {
+            id: activeSession.id,
+            startedAt: activeSession.started_at.toISOString(),
+            questions: ONBOARDING_DIAGNOSTIC_QUESTIONS.map(serializeDiagnosticQuestion)
+          }
+        : null,
+      result: completed?.result_summary ?? null
+    };
+  });
+
+  app.post('/diagnostics/onboarding/start', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return authError;
+    }
+    if (!request.user!.roles.includes('student')) {
+      return reply.forbidden('Only student accounts can complete onboarding diagnostics');
+    }
+
+    const completed = await findCompletedDiagnosticSession(
+      request.user!.id,
+      'onboarding',
+      [...ONBOARDING_DIAGNOSTIC_SUBJECTS]
+    );
+    if (completed) {
+      return {
+        completed: true,
+        sessionId: completed.id,
+        result: completed.result_summary,
+        questions: []
+      };
+    }
+
+    const existing = await findActiveDiagnosticSession(request.user!.id, 'onboarding');
+    const sessionId = existing?.id ?? await withTransaction(async client => {
+      const createdSessionId = await createDiagnosticSession(client, {
+        userId: request.user!.id,
+        kind: 'onboarding',
+        subjects: [...ONBOARDING_DIAGNOSTIC_SUBJECTS]
+      });
+      await createAuditLog(client, request.user!.id, request.user!.schoolId, 'diagnostic.onboarding.started', {
+        sessionId: createdSessionId
+      });
+      return createdSessionId;
+    });
+
+    return {
+      completed: false,
+      sessionId,
+      questions: ONBOARDING_DIAGNOSTIC_QUESTIONS.map(serializeDiagnosticQuestion)
+    };
+  });
+
+  app.post('/diagnostics/onboarding/:sessionId/answer', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return authError;
+    }
+
+    const params = diagnosticParamsSchema.parse(request.params);
+    const body = diagnosticAnswerSchema.parse(request.body);
+    const session = await findDiagnosticSessionForUser(params.sessionId, request.user!.id);
+    if (!session || session.kind !== 'onboarding') {
+      return reply.notFound('Diagnostic session not found');
+    }
+    if (session.status === 'completed') {
+      return reply.badRequest('Diagnostic session is already completed');
+    }
+
+    const question = findDiagnosticQuestion(body.questionId);
+    if (!question) {
+      return reply.badRequest('Diagnostic question not found');
+    }
+
+    const isCorrect =
+      body.answer.trim().toLowerCase() === question.correctAnswer.trim().toLowerCase();
+
+    await withTransaction(async client => {
+      await recordDiagnosticAnswer(client, {
+        sessionId: session.id,
+        userId: request.user!.id,
+        questionId: question.id,
+        subjectId: question.subjectId,
+        subStrandKey: question.subStrandKey,
+        answer: body.answer,
+        isCorrect,
+        confidenceScore: body.confidenceScore,
+        responseLatencyMs: body.responseLatencyMs
+      });
+    });
+
+    return {
+      recorded: true,
+      isCorrect
+    };
+  });
+
+  app.post('/diagnostics/onboarding/:sessionId/complete', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return authError;
+    }
+
+    const params = diagnosticParamsSchema.parse(request.params);
+    const session = await findDiagnosticSessionForUser(params.sessionId, request.user!.id);
+    if (!session || session.kind !== 'onboarding') {
+      return reply.notFound('Diagnostic session not found');
+    }
+    if (session.status === 'completed') {
+      return {
+        completed: true,
+        result: session.result_summary
+      };
+    }
+
+    const answers = await listDiagnosticAnswers(session.id);
+    if (answers.length < ONBOARDING_DIAGNOSTIC_QUESTIONS.length) {
+      return reply.badRequest('Answer all diagnostic questions before completing');
+    }
+
+    const result = buildDiagnosticResultSummary(answers);
+    await withTransaction(async client => {
+      await completeDiagnosticSession(client, session.id, result);
+      await createAuditLog(client, request.user!.id, request.user!.schoolId, 'diagnostic.onboarding.completed', {
+        sessionId: session.id,
+        result
+      });
+    });
+
+    return {
+      completed: true,
+      result
+    };
+  });
+
+  app.get('/diagnostics/progressive/:subjectId/status', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return authError;
+    }
+    const params = progressiveSubjectParamsSchema.parse(request.params);
+    if (!request.user!.roles.includes('student')) {
+      return { required: false, completed: true, activeSession: null, result: null };
+    }
+
+    const completed = await findCompletedDiagnosticSession(request.user!.id, 'progressive', [params.subjectId]);
+    const activeSession = completed
+      ? null
+      : await findActiveDiagnosticSessionForSubjects(request.user!.id, 'progressive', [params.subjectId]);
+    const questions = getProgressiveDiagnosticQuestions(params.subjectId);
+
+    return {
+      required: true,
+      completed: Boolean(completed),
+      activeSession: activeSession
+        ? {
+            id: activeSession.id,
+            startedAt: activeSession.started_at.toISOString(),
+            questions: questions.map(serializeDiagnosticQuestion)
+          }
+        : null,
+      result: completed?.result_summary ?? null
+    };
+  });
+
+  app.post('/diagnostics/progressive/:subjectId/start', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return authError;
+    }
+    const params = progressiveSubjectParamsSchema.parse(request.params);
+    if (!request.user!.roles.includes('student')) {
+      return reply.forbidden('Only student accounts can complete subject diagnostics');
+    }
+
+    const completed = await findCompletedDiagnosticSession(request.user!.id, 'progressive', [params.subjectId]);
+    if (completed) {
+      return {
+        completed: true,
+        sessionId: completed.id,
+        result: completed.result_summary,
+        questions: []
+      };
+    }
+
+    const existing = await findActiveDiagnosticSessionForSubjects(request.user!.id, 'progressive', [params.subjectId]);
+    const sessionId = existing?.id ?? await withTransaction(async client => {
+      const createdSessionId = await createDiagnosticSession(client, {
+        userId: request.user!.id,
+        kind: 'progressive',
+        subjects: [params.subjectId]
+      });
+      await createAuditLog(client, request.user!.id, request.user!.schoolId, 'diagnostic.progressive.started', {
+        sessionId: createdSessionId,
+        subjectId: params.subjectId
+      });
+      return createdSessionId;
+    });
+
+    return {
+      completed: false,
+      sessionId,
+      questions: getProgressiveDiagnosticQuestions(params.subjectId).map(serializeDiagnosticQuestion)
+    };
+  });
+
+  app.post('/diagnostics/progressive/:subjectId/:sessionId/answer', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return authError;
+    }
+
+    const params = progressiveDiagnosticParamsSchema.parse(request.params);
+    const body = diagnosticAnswerSchema.parse(request.body);
+    const session = await findDiagnosticSessionForUser(params.sessionId, request.user!.id);
+    if (!session || session.kind !== 'progressive' || !session.subjects.includes(params.subjectId)) {
+      return reply.notFound('Diagnostic session not found');
+    }
+    if (session.status === 'completed') {
+      return reply.badRequest('Diagnostic session is already completed');
+    }
+
+    const question = findProgressiveDiagnosticQuestion(params.subjectId, body.questionId);
+    if (!question) {
+      return reply.badRequest('Diagnostic question not found');
+    }
+    const isCorrect = body.answer.trim().toLowerCase() === question.correctAnswer.trim().toLowerCase();
+
+    await withTransaction(async client => {
+      await recordDiagnosticAnswer(client, {
+        sessionId: session.id,
+        userId: request.user!.id,
+        questionId: question.id,
+        subjectId: question.subjectId,
+        subStrandKey: question.subStrandKey,
+        answer: body.answer,
+        isCorrect,
+        confidenceScore: body.confidenceScore,
+        responseLatencyMs: body.responseLatencyMs
+      });
+    });
+
+    return { recorded: true, isCorrect };
+  });
+
+  app.post('/diagnostics/progressive/:subjectId/:sessionId/complete', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return authError;
+    }
+
+    const params = progressiveDiagnosticParamsSchema.parse(request.params);
+    const session = await findDiagnosticSessionForUser(params.sessionId, request.user!.id);
+    if (!session || session.kind !== 'progressive' || !session.subjects.includes(params.subjectId)) {
+      return reply.notFound('Diagnostic session not found');
+    }
+    if (session.status === 'completed') {
+      return { completed: true, result: session.result_summary };
+    }
+
+    const questions = getProgressiveDiagnosticQuestions(params.subjectId);
+    const answers = await listDiagnosticAnswers(session.id);
+    if (answers.length < questions.length) {
+      return reply.badRequest('Answer all diagnostic questions before completing');
+    }
+
+    const result = buildDiagnosticResultSummary(answers);
+    await withTransaction(async client => {
+      await completeDiagnosticSession(client, session.id, result);
+      await createAuditLog(client, request.user!.id, request.user!.schoolId, 'diagnostic.progressive.completed', {
+        sessionId: session.id,
+        subjectId: params.subjectId,
+        result
+      });
+    });
+
+    return { completed: true, result };
+  });
+
+  app.get('/learning/weekly-exam', async (request, reply) => {
+    const authError = await requireRoles(request, reply, ['student']);
+    if (authError) {
+      return authError;
+    }
+
+    const gradeLevel = request.user!.grade || 'Grade 8';
+    const weekStart = getWeekStart();
+    const closesAt = new Date(weekStart.getTime() + 7 * 24 * 60 * 60 * 1000);
+    const exam = await withTransaction(client => ensureWeeklyExam(client, {
+      gradeLevel,
+      weekStart: weekStart.toISOString().slice(0, 10),
+      title: `${gradeLevel} Weekly Challenge`,
+      durationMinutes: 20,
+      questions: buildWeeklyExamQuestions(gradeLevel),
+      opensAt: weekStart,
+      closesAt
+    }));
+    const attempt = await findWeeklyExamAttempt(exam.id, request.user!.id);
+    const history = await listWeeklyExamHistory(request.user!.id);
+
+    return {
+      exam: serializeWeeklyExam(exam, attempt?.status === 'completed'),
+      attempt: attempt
+        ? {
+            id: attempt.id,
+            status: attempt.status,
+            score: attempt.score === null ? null : Number(attempt.score),
+            correctCount: attempt.correct_count,
+            totalQuestions: attempt.total_questions,
+            startedAt: attempt.started_at.toISOString(),
+            submittedAt: attempt.submitted_at?.toISOString() ?? null,
+            answers: attempt.status === 'completed' ? attempt.answers : []
+          }
+        : null,
+      history: history.map(item => ({
+        id: item.id,
+        examId: item.exam_id,
+        title: item.title,
+        weekStart: item.week_start instanceof Date
+          ? item.week_start.toISOString().slice(0, 10)
+          : String(item.week_start),
+        score: Number(item.score),
+        correctCount: item.correct_count,
+        totalQuestions: item.total_questions,
+        submittedAt: item.submitted_at.toISOString()
+      }))
+    };
+  });
+
+  app.post('/learning/weekly-exam/:examId/start', async (request, reply) => {
+    const authError = await requireRoles(request, reply, ['student']);
+    if (authError) {
+      return authError;
+    }
+
+    const params = weeklyExamParamsSchema.parse(request.params);
+    const gradeLevel = request.user!.grade || 'Grade 8';
+    const weekStart = getWeekStart();
+    const exam = await withTransaction(client => ensureWeeklyExam(client, {
+      gradeLevel,
+      weekStart: weekStart.toISOString().slice(0, 10),
+      title: `${gradeLevel} Weekly Challenge`,
+      durationMinutes: 20,
+      questions: buildWeeklyExamQuestions(gradeLevel),
+      opensAt: weekStart,
+      closesAt: new Date(weekStart.getTime() + 7 * 24 * 60 * 60 * 1000)
+    }));
+    if (exam.id !== params.examId) {
+      return reply.notFound('Weekly exam not found');
+    }
+
+    const attempt = await withTransaction(async client => {
+      const started = await startWeeklyExamAttempt(client, exam.id, request.user!.id);
+      await createAuditLog(client, request.user!.id, request.user!.schoolId, 'weekly_exam.started', {
+        examId: exam.id,
+        attemptId: started.id
+      });
+      return started;
+    });
+
+    return {
+      attempt: {
+        id: attempt.id,
+        status: attempt.status,
+        startedAt: attempt.started_at.toISOString()
+      }
+    };
+  });
+
+  app.post('/learning/weekly-exam/:examId/submit', async (request, reply) => {
+    const authError = await requireRoles(request, reply, ['student']);
+    if (authError) {
+      return authError;
+    }
+
+    const params = weeklyExamParamsSchema.parse(request.params);
+    const body = weeklyExamSubmitSchema.parse(request.body);
+    const gradeLevel = request.user!.grade || 'Grade 8';
+    const weekStart = getWeekStart();
+    const exam = await withTransaction(client => ensureWeeklyExam(client, {
+      gradeLevel,
+      weekStart: weekStart.toISOString().slice(0, 10),
+      title: `${gradeLevel} Weekly Challenge`,
+      durationMinutes: 20,
+      questions: buildWeeklyExamQuestions(gradeLevel),
+      opensAt: weekStart,
+      closesAt: new Date(weekStart.getTime() + 7 * 24 * 60 * 60 * 1000)
+    }));
+    if (exam.id !== params.examId) {
+      return reply.notFound('Weekly exam not found');
+    }
+    if (!body.timedOut && body.answers.length !== exam.questions.length) {
+      return reply.badRequest('Answer every question before submitting');
+    }
+    const uniqueQuestionIds = new Set(body.answers.map(answer => answer.questionId));
+    if (
+      uniqueQuestionIds.size !== body.answers.length ||
+      body.answers.some(answer => !exam.questions.some(question => question.id === answer.questionId))
+    ) {
+      return reply.badRequest('Exam answers do not match the current questions');
+    }
+
+    const attempt = await withTransaction(async client => {
+      const submitted = await submitWeeklyExamAttempt(client, {
+        exam,
+        attemptId: body.attemptId,
+        userId: request.user!.id,
+        answers: body.answers
+      });
+      if (!submitted) {
+        return null;
+      }
+      await createAuditLog(client, request.user!.id, request.user!.schoolId, 'weekly_exam.completed', {
+        examId: exam.id,
+        attemptId: submitted.id,
+        score: submitted.score
+      });
+      return submitted;
+    });
+    if (!attempt) {
+      return reply.notFound('Weekly exam attempt not found');
+    }
+
+    return {
+      exam: serializeWeeklyExam(exam, true),
+      attempt: {
+        id: attempt.id,
+        status: attempt.status,
+        score: Number(attempt.score ?? 0),
+        correctCount: attempt.correct_count ?? 0,
+        totalQuestions: attempt.total_questions ?? exam.questions.length,
+        submittedAt: attempt.submitted_at?.toISOString() ?? null,
+        answers: attempt.answers
+      }
+    };
+  });
+
+  app.get('/learning/reviews/due', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return authError;
+    }
+
+    if (!request.user!.roles.includes('student')) {
+      return { reviews: [] };
+    }
+
+    const reviews = await listDueSpacedReviews(request.user!.id);
+    return {
+      reviews: reviews.map(review => ({
+        id: review.id,
+        subjectId: review.subject_id,
+        subStrandKey: review.sub_strand_key,
+        nextReviewDate:
+          review.next_review_date instanceof Date
+            ? review.next_review_date.toISOString().slice(0, 10)
+            : String(review.next_review_date),
+        intervalDays: review.interval_days,
+        masteryScore: Number(review.mastery_score)
+      }))
+    };
+  });
+
+  app.post('/learning/reviews/:reviewId/complete', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return authError;
+    }
+
+    const params = reviewParamsSchema.parse(request.params);
+    const body = completeReviewSchema.parse(request.body);
+
+    await withTransaction(async client => {
+      await markSpacedReviewCompleted(client, {
+        userId: request.user!.id,
+        reviewId: params.reviewId,
+        passed: body.passed
+      });
+      await createAuditLog(client, request.user!.id, request.user!.schoolId, 'learning.review.completed', {
+        reviewId: params.reviewId,
+        passed: body.passed
+      });
+    });
+
+    return { completed: true };
   });
 
   app.get('/schools', async (request, reply) => {
@@ -1991,6 +3481,79 @@ Return valid JSON with this shape:
       ctaLabel: 'Ask Tutor',
       ctaTarget: 'ask_tutor'
     };
+  });
+
+  app.get('/notifications', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return authError;
+    }
+
+    const query = notificationsQuerySchema.parse(request.query);
+    const notifications = await listUserNotifications(request.user!.id, {
+      limit: query.limit,
+      unreadOnly: query.unreadOnly
+    });
+
+    return {
+      notifications: notifications.map(notification => ({
+        id: notification.id,
+        type: notification.type,
+        title: notification.title,
+        body: notification.body,
+        channel: notification.channel,
+        status: notification.status,
+        metadata: notification.metadata,
+        readAt: notification.read_at?.toISOString() ?? null,
+        createdAt: notification.created_at.toISOString()
+      }))
+    };
+  });
+
+  app.post('/notifications/:notificationId/read', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return authError;
+    }
+
+    const params = notificationParamsSchema.parse(request.params);
+    await withTransaction(async client => {
+      await markUserNotificationRead(client, request.user!.id, params.notificationId);
+    });
+
+    return { updated: true };
+  });
+
+  app.post('/notifications/read-all', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return authError;
+    }
+
+    await withTransaction(async client => {
+      await markAllUserNotificationsRead(client, request.user!.id);
+    });
+
+    return { updated: true };
+  });
+
+  app.post('/notifications/push-token', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return authError;
+    }
+
+    const body = pushTokenSchema.parse(request.body);
+    await withTransaction(async client => {
+      await upsertPushToken(client, {
+        userId: request.user!.id,
+        platform: body.platform,
+        token: body.token,
+        deviceId: body.deviceId ?? null
+      });
+    });
+
+    return { registered: true };
   });
 
   app.get('/app/library/books', async (request, reply) => {
@@ -2077,6 +3640,71 @@ Return valid JSON with this shape:
     });
 
     return { success: true };
+  });
+
+  app.get('/parent/dashboard', async (request, reply) => {
+    const precondition = await requireRoles(request, reply, ['parent']);
+    if (precondition) {
+      return precondition;
+    }
+
+    const children = await listParentChildrenDashboard(request.user!.id);
+    return { children };
+  });
+
+  app.post('/parent/children/link', async (request, reply) => {
+    const precondition = await requireRoles(request, reply, ['parent']);
+    if (precondition) {
+      return precondition;
+    }
+
+    const body = parentChildLinkSchema.parse(request.body);
+    const child = await withTransaction(async client => {
+      const linkedChild = body.studentEmail
+        ? await linkParentStudentByEmail(client, request.user!.id, body.studentEmail)
+        : await linkParentStudentByPhone(
+            client,
+            request.user!.id,
+            formatKenyanPhoneNumber(body.studentPhone!)
+          );
+      if (!linkedChild) {
+        return null;
+      }
+
+      await createAuditLog(client, request.user!.id, request.user!.schoolId, 'parent.child.linked', {
+        studentId: linkedChild.id,
+        studentEmail: linkedChild.email,
+        linkMethod: body.studentEmail ? 'email' : 'phone'
+      });
+      return linkedChild;
+    });
+
+    if (!child) {
+      return reply.notFound(
+        body.studentEmail
+          ? 'No verified student account was found for that email'
+          : 'No verified student account was found for that phone number'
+      );
+    }
+
+    return reply.status(201).send({ child });
+  });
+
+  app.delete('/parent/children/:studentId', async (request, reply) => {
+    const precondition = await requireRoles(request, reply, ['parent']);
+    if (precondition) {
+      return precondition;
+    }
+
+    const params = parentChildParamsSchema.parse(request.params);
+    await withTransaction(async client => {
+      await unlinkParentStudent(client, request.user!.id, params.studentId);
+      await createAuditLog(client, request.user!.id, request.user!.schoolId, 'parent.child.unlinked', {
+        studentId: params.studentId
+      });
+    });
+
+    return { removed: true };
   });
 
   app.get('/teacher/students', async (request, reply) => {
@@ -2224,6 +3852,8 @@ Return valid JSON with this shape:
       schoolId: refreshedUser.schoolId,
       sid: request.user!.sessionId ?? undefined,
       email: refreshedUser.email,
+      phoneNumber: refreshedUser.phoneNumber ?? null,
+      phoneVerified: refreshedUser.phoneVerified,
       fullName: refreshedUser.fullName,
       emailVerified: refreshedUser.emailVerified,
       roles: refreshedUser.roles,
@@ -2250,6 +3880,46 @@ Return valid JSON with this shape:
         onboardingCompleted: refreshedUser.onboardingCompleted
       }
     };
+  });
+
+  app.delete('/me/account', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return authError;
+    }
+
+    const body = deleteAccountSchema.parse(request.body);
+    if (body.confirmationText !== 'DELETE') {
+      return reply.badRequest('Confirmation text is invalid');
+    }
+
+    const currentUser = request.user!;
+    if (
+      currentUser.roles.includes('school_admin') ||
+      currentUser.roles.includes('platform_admin') ||
+      currentUser.isBreakGlass
+    ) {
+      return reply.forbidden('Admin and break-glass accounts cannot be self-deleted');
+    }
+
+    await withTransaction(async client => {
+      await createAuditLog(
+        client,
+        currentUser.id,
+        currentUser.schoolId,
+        'auth.account.deleted',
+        {
+          deletedUserId: currentUser.id,
+          deletedEmail: currentUser.email
+        },
+        'user',
+        currentUser.id
+      );
+      await revokeAllRefreshTokensForUser(client, currentUser.id);
+      await deleteSelfServiceAccount(client, currentUser.id);
+    });
+
+    return { deleted: true };
   });
 
   app.get('/admin/schools', async (request, reply) => {
@@ -2352,6 +4022,32 @@ Return valid JSON with this shape:
     return {
       school: school ? serializeSchool(school) : null
     };
+  });
+
+  app.patch('/admin/schools/:schoolId/pilot', async (request, reply) => {
+    const precondition = await requireRoles(request, reply, ['platform_admin']);
+    if (precondition) {
+      return precondition;
+    }
+
+    const params = schoolParamsSchema.parse(request.params);
+    const body = schoolPilotSchema.parse(request.body);
+    const existingSchool = await findSchoolById(params.schoolId);
+    if (!existingSchool) {
+      return reply.notFound('School not found');
+    }
+
+    await withTransaction(async client => {
+      await updateSchoolPilot(client, params.schoolId, body);
+      await createAuditLog(client, request.user!.id, params.schoolId, 'admin.school_pilot.updated', {
+        status: body.status,
+        onboardingStage: body.onboardingStage,
+        targetStudents: body.targetStudents
+      });
+    });
+
+    const school = await findSchoolById(params.schoolId);
+    return { school: school ? serializeSchool(school) : null };
   });
 
   app.delete('/admin/schools/:schoolId', async (request, reply) => {
@@ -2519,11 +4215,11 @@ Return valid JSON with this shape:
       return authError;
     }
 
-    const [schoolPricing, hasPaidBefore, hiddenTrialPlan] = await Promise.all([
+    const [schoolPricing, hiddenTrialPlan] = await Promise.all([
       findSchoolPricingForUser(request.user!.id),
-      hasSuccessfulPayments(request.user!.id),
       findSubscriptionPlanByCode('trial_monthly_1bob')
     ]);
+    const canUseTestSubscription = isTestAccountUser(request.user!);
 
     const isSchoolManaged =
       Boolean(schoolPricing) &&
@@ -2552,6 +4248,7 @@ Return valid JSON with this shape:
             name: plan.name,
             billingCycle: plan.billing_cycle,
             priceKshCents: Number(plan.price_ksh_cents),
+            originalPriceKshCents: getPublicOriginalPriceKshCents(plan.code),
             isPopular: plan.code === 'monthly'
           })
         );
@@ -2560,7 +4257,7 @@ Return valid JSON with this shape:
       plans,
       school: isSchoolManaged && schoolPricing ? serializeSchool(schoolPricing) : null,
       trialOffer:
-        !hasPaidBefore && hiddenTrialPlan
+        canUseTestSubscription && hiddenTrialPlan
           ? serializePlan({
               code: hiddenTrialPlan.code,
               name: hiddenTrialPlan.name,
@@ -2636,8 +4333,8 @@ Return valid JSON with this shape:
     let amountKshCents = Number(plan.price_ksh_cents);
 
     if (body.planCode === 'trial_monthly_1bob') {
-      if (hasPaidBefore) {
-        return reply.forbidden('Try for 1 bob is only available before your first payment');
+      if (!isTestAccountUser(request.user!)) {
+        return reply.forbidden('This test subscription is only available for Kitabu test accounts');
       }
     } else if (isSchoolManaged && schoolPricing) {
       if (body.planCode !== schoolPricing.assigned_plan_code) {
@@ -2812,6 +4509,20 @@ Return valid JSON with this shape:
           planCode: paymentRequest.plan_code,
           receiptNumber: typeof receiptNumber === 'string' ? receiptNumber : null
         });
+        await notifyUser(client, {
+          userId: paymentRequest.user_id,
+          type: 'billing.payment_succeeded',
+          title: 'Payment received',
+          body: `Your ${plan.name} subscription is active until ${periodEnd.toISOString().slice(0, 10)}.`,
+          smsPhoneNumber: paymentRequest.phone_number,
+          smsBody: `Kitabu AI: Payment received. Your ${plan.name} subscription is active until ${periodEnd.toISOString().slice(0, 10)}.`,
+          metadata: {
+            paymentRequestId: paymentRequest.id,
+            planCode: paymentRequest.plan_code,
+            receiptNumber: typeof receiptNumber === 'string' ? receiptNumber : null,
+            periodEnd: periodEnd.toISOString()
+          }
+        });
       } else {
         const failureStatus = callback.ResultCode === 1032 ? 'cancelled' : 'failed';
         await markPaymentRequestFailed(client, paymentRequest.id, {
@@ -2825,6 +4536,26 @@ Return valid JSON with this shape:
           planCode: paymentRequest.plan_code,
           resultCode: callback.ResultCode,
           resultDesc: callback.ResultDesc
+        });
+        await notifyUser(client, {
+          userId: paymentRequest.user_id,
+          type: failureStatus === 'cancelled' ? 'billing.payment_cancelled' : 'billing.payment_failed',
+          title: failureStatus === 'cancelled' ? 'Payment cancelled' : 'Payment failed',
+          body:
+            failureStatus === 'cancelled'
+              ? 'Your M-Pesa checkout was cancelled. You can try again when ready.'
+              : 'Your M-Pesa checkout did not complete. Please try again or use a different number.',
+          smsPhoneNumber: paymentRequest.phone_number,
+          smsBody:
+            failureStatus === 'cancelled'
+              ? 'Kitabu AI: Your M-Pesa checkout was cancelled. You can try again when ready.'
+              : 'Kitabu AI: Your M-Pesa checkout did not complete. Please try again or use a different number.',
+          metadata: {
+            paymentRequestId: paymentRequest.id,
+            planCode: paymentRequest.plan_code,
+            resultCode: callback.ResultCode,
+            resultDesc: callback.ResultDesc
+          }
         });
       }
     });
@@ -2896,17 +4627,41 @@ Return valid JSON with this shape:
     return { text: result.text };
   };
 
+  const transcribeAudioHandler = async (request: FastifyRequest, reply: FastifyReply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return authError;
+    }
+
+    const body = transcribeAudioSchema.parse(request.body);
+    const result = await runSubscriptionScopedAudioTranscription({
+      request,
+      reply,
+      body
+    });
+
+    if (result.error) {
+      return result.error;
+    }
+
+    return { text: result.text ?? '' };
+  };
+
   const aiGenerationRateLimit = {
     config: {
       rateLimit: {
         max: appConfig.KITABU_AI_RATE_LIMIT_MAX,
-        timeWindow: appConfig.KITABU_AI_RATE_LIMIT_WINDOW
+        timeWindow: appConfig.KITABU_AI_RATE_LIMIT_WINDOW,
+        keyGenerator: (request: FastifyRequest) =>
+          request.user?.id ? `ai-user:${request.user.id}` : `ai-ip:${request.ip}`
       }
     }
   };
 
   app.post('/generate-text', aiGenerationRateLimit, generateTextHandler);
   app.post('/ai/generate-text', aiGenerationRateLimit, generateTextHandler);
+  app.post('/transcribe-audio', aiGenerationRateLimit, transcribeAudioHandler);
+  app.post('/ai/transcribe-audio', aiGenerationRateLimit, transcribeAudioHandler);
 
   return app;
 }

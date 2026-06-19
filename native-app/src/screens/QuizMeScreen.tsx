@@ -27,7 +27,7 @@ interface QuizMeScreenProps {
   onGenerate: (config: QuizConfig) => void;
 }
 
-const subjects = ['Science', 'Mathematics', 'English', 'Social Studies', 'Kiswahili'];
+const fallbackSubjects = ['Science', 'English', 'Math', 'Kiswahili', 'Social Studies'];
 const questionCounts = [5, 10, 15, 20];
 
 export function QuizMeScreen({
@@ -48,6 +48,13 @@ export function QuizMeScreen({
   });
 
   const isValidStep1 = !!(config.subject && config.strand && config.subStrand);
+  const subjectOptions = useMemo(() => {
+    const loadedSubjects = Object.entries(strandsBySubject)
+      .filter(([, strands]) => strands.length > 0)
+      .map(([subject]) => subject);
+
+    return loadedSubjects.length > 0 ? loadedSubjects : fallbackSubjects;
+  }, [strandsBySubject]);
   const strands = useMemo(
     () => strandsBySubject[config.subject] || [],
     [config.subject, strandsBySubject],
@@ -114,7 +121,7 @@ export function QuizMeScreen({
                 fieldKey="subject"
                 label="Subject"
                 value={config.subject || 'Select a subject'}
-                options={subjects}
+                options={subjectOptions}
                 onSelect={subject =>
                   setConfig(current => ({
                     ...current,
@@ -296,7 +303,7 @@ function Field({
   const hasOptions = options.length > 0;
 
   return (
-    <View style={styles.fieldWrap}>
+    <View style={[styles.fieldWrap, isOpen && styles.fieldWrapOpen]}>
       <Text style={styles.fieldLabel}>{label}</Text>
 
       <Pressable
@@ -520,6 +527,10 @@ const styles = StyleSheet.create({
   },
   fieldWrap: {
     gap: 8,
+  },
+  fieldWrapOpen: {
+    elevation: 20,
+    zIndex: 20,
   },
   fieldLabel: {
     marginLeft: 4,

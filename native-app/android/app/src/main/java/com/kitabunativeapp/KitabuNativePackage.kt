@@ -11,6 +11,7 @@ class KitabuNativePackage : ReactPackage {
       KitabuSpeechModule(reactContext),
       KitabuRecorderModule(reactContext),
       KitabuDocumentPickerModule(reactContext),
+      KitabuAuthConfigModule(reactContext),
     )
 
   override fun createViewManagers(

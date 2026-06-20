@@ -35,6 +35,18 @@ interface AudioTranscriptionRequest {
   prompt?: string;
 }
 
+interface SpeechSynthesisRequest {
+  text: string;
+  voice?: string;
+}
+
+export interface SpeechSynthesisPayload {
+  base64Audio: string;
+  mimeType: string;
+  model: string;
+  voice: string;
+}
+
 function sanitizeJsonPayload(text: string) {
   return text
     .replace(/^```json\s*/i, '')
@@ -205,6 +217,27 @@ export async function transcribeAudio(
     console.error('Transcription error:', error);
     throw new Error('Failed to transcribe audio.');
   }
+}
+
+export async function synthesizeSpeech(text: string): Promise<SpeechSynthesisPayload> {
+  const normalizedText = text.trim().slice(0, 200);
+  if (!normalizedText) {
+    throw new Error('Nothing to speak.');
+  }
+
+  const response = await fetchKitabuApi('/synthesize-speech', {
+    method: 'POST',
+    headers: await buildKitabuRequestHeaders(),
+    body: JSON.stringify({
+      text: normalizedText,
+    } satisfies SpeechSynthesisRequest),
+  });
+
+  if (!response.ok) {
+    throw new Error('Speech synthesis request failed.');
+  }
+
+  return readJsonResponse<SpeechSynthesisPayload>(response, 'Invalid speech synthesis response');
 }
 
 export async function generateQuizData(

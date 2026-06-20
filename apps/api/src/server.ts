@@ -14,6 +14,7 @@ import {
   generateTextWithFallback,
   resolveAiExecutionPlans,
   resolveAudioTranscriptionPlans,
+  synthesizeSpeechWithGroq,
   transcribeAudio,
   usdMicrosToKshCents
 } from './ai.js';
@@ -819,6 +820,11 @@ const transcribeAudioSchema = z.object({
   prompt: z.string().min(1).max(400).optional()
 });
 
+const synthesizeSpeechSchema = z.object({
+  text: z.string().trim().min(1).max(200),
+  voice: z.string().trim().min(1).max(40).optional()
+});
+
 const curriculumItemSchema = z.object({
   id: z.string().optional(),
   text: z.string().min(1)
@@ -1177,6 +1183,7 @@ export function buildServer(options: BuildServerOptions = {}) {
       homework_helper_chat: '2026-03-30.chat.v1',
       homework_helper_explanation: '2026-03-30.explanation.v1',
       audio_transcription: '2026-03-30.transcription.v1',
+      speech_synthesis: '2026-03-30.tts.v1',
       flashcard_generation: '2026-03-30.flashcards.v1',
       quiz_generation: '2026-03-30.quiz.v1',
       assignment_generation: '2026-03-30.assignment.v1',
@@ -1733,6 +1740,87 @@ Requirements:
           message: 'Audio transcription failed'
         },
         text: null,
+        subscription
+      };
+    }
+  }
+
+  async function runSubscriptionScopedSpeechSynthesis(args: {
+    request: FastifyRequest;
+    reply: FastifyReply;
+    body: z.infer<typeof synthesizeSpeechSchema>;
+  }) {
+    const currentUser = args.request.user!;
+    const subscriptionCheck = await requireActiveSubscriptionForAi(args.reply, currentUser);
+    if (subscriptionCheck.error || !subscriptionCheck.subscription) {
+      return {
+        error: subscriptionCheck.error,
+        audio: null,
+        subscription: null
+      };
+    }
+
+    const subscription = subscriptionCheck.subscription;
+    const promptVersion = resolvePromptVersion('speech_synthesis');
+    const model = appConfig.KITABU_GROQ_TTS_ENGLISH_MODEL;
+
+    try {
+      const result = await synthesizeSpeechWithGroq({
+        text: args.body.text,
+        voice: args.body.voice
+      });
+
+      await withTransaction(async client => {
+        await createAiUsageEvent(client, {
+          userId: currentUser.id,
+          schoolId: currentUser.schoolId,
+          subscriptionId: subscription.id,
+          feature: 'speech_synthesis',
+          provider: 'groq',
+          model: result.model,
+          promptTokens: args.body.text.length,
+          completionTokens: 0,
+          totalTokens: args.body.text.length,
+          estimatedCostUsdMicros: 0,
+          fxRateKshPerUsd: appConfig.KITABU_KSH_PER_USD,
+          estimatedCostKshCents: 0,
+          promptVersion,
+          status: 'completed'
+        });
+      });
+
+      return {
+        error: null,
+        audio: result,
+        subscription
+      };
+    } catch (error) {
+      await withTransaction(async client => {
+        await createAiUsageEvent(client, {
+          userId: currentUser.id,
+          schoolId: currentUser.schoolId,
+          subscriptionId: subscription.id,
+          feature: 'speech_synthesis',
+          provider: 'groq',
+          model,
+          promptTokens: args.body.text.length,
+          completionTokens: 0,
+          totalTokens: args.body.text.length,
+          estimatedCostUsdMicros: 0,
+          fxRateKshPerUsd: appConfig.KITABU_KSH_PER_USD,
+          estimatedCostKshCents: 0,
+          promptVersion,
+          status: 'failed'
+        });
+      });
+
+      args.request.log.error({ err: error }, 'Speech synthesis failed');
+      args.reply.status(500);
+      return {
+        error: {
+          message: 'Speech synthesis failed'
+        },
+        audio: null,
         subscription
       };
     }
@@ -4639,6 +4727,26 @@ Return valid JSON with this shape:
     return { text: result.text ?? '' };
   };
 
+  const synthesizeSpeechHandler = async (request: FastifyRequest, reply: FastifyReply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return authError;
+    }
+
+    const body = synthesizeSpeechSchema.parse(request.body);
+    const result = await runSubscriptionScopedSpeechSynthesis({
+      request,
+      reply,
+      body
+    });
+
+    if (result.error || !result.audio) {
+      return result.error;
+    }
+
+    return result.audio;
+  };
+
   const aiGenerationRateLimit = {
     config: {
       rateLimit: {
@@ -4654,6 +4762,8 @@ Return valid JSON with this shape:
   app.post('/ai/generate-text', aiGenerationRateLimit, generateTextHandler);
   app.post('/transcribe-audio', aiGenerationRateLimit, transcribeAudioHandler);
   app.post('/ai/transcribe-audio', aiGenerationRateLimit, transcribeAudioHandler);
+  app.post('/synthesize-speech', aiGenerationRateLimit, synthesizeSpeechHandler);
+  app.post('/ai/synthesize-speech', aiGenerationRateLimit, synthesizeSpeechHandler);
 
   return app;
 }

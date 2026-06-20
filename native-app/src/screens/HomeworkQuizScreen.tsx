@@ -192,7 +192,7 @@ export function HomeworkQuizScreen({
 
   async function beginVoiceRecording() {
     const path = await audioRecordingBridge.startRecording();
-    if (path === null && audioRecordingBridge.state === 'android_native') {
+    if (path === null && audioRecordingBridge.state === 'expo_native') {
       setVoiceError('Could not access microphone. Please allow permissions.');
       return;
     }

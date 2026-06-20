@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import {
   ActivityIndicator,
   Image,
@@ -13,7 +13,7 @@ import {
   TextInput,
   View,
 } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import { LinearGradient } from 'expo-linear-gradient';
 import {
   Check,
   Eye,
@@ -30,8 +30,6 @@ import {
 import {
   authenticateWithGoogleToken,
   requestPasswordReset,
-  requestPhoneAuthCode,
-  verifyPhoneAuthCode,
 } from '../services/authService';
 import { requestGoogleIdToken } from '../services/googleAuthService';
 import { getUserFacingApiError } from '../services/requestHelpers';
@@ -49,16 +47,18 @@ interface LoginScreenProps {
   email: string;
   password: string;
   fullName: string;
-  signupRole: PublicSignupRole;
+  signupRole: PublicSignupRole | null;
   acceptedTerms: boolean;
+  optionalPhoneNumber: string;
   error?: string | null;
   isSubmitting: boolean;
   onModeChange: (mode: 'login' | 'signup') => void;
   onEmailChange: (value: string) => void;
   onPasswordChange: (value: string) => void;
   onFullNameChange: (value: string) => void;
-  onSignupRoleChange: (role: PublicSignupRole) => void;
+  onSignupRoleChange: (role: PublicSignupRole | null) => void;
   onAcceptedTermsChange: (value: boolean) => void;
+  onOptionalPhoneNumberChange: (value: string) => void;
   onAuthenticated: (session: AuthSession) => void;
   onSubmit: () => void;
 }
@@ -100,6 +100,7 @@ export function LoginScreen({
   fullName,
   signupRole,
   acceptedTerms,
+  optionalPhoneNumber,
   error,
   isSubmitting,
   onModeChange,
@@ -108,13 +109,11 @@ export function LoginScreen({
   onFullNameChange,
   onSignupRoleChange,
   onAcceptedTermsChange,
+  onOptionalPhoneNumberChange,
   onAuthenticated,
   onSubmit,
 }: LoginScreenProps) {
-  const [authMethod, setAuthMethod] = useState<'email' | 'phone'>('email');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [phoneCode, setPhoneCode] = useState('');
-  const [phoneStep, setPhoneStep] = useState<'request' | 'verify'>('request');
+  const [authStep, setAuthStep] = useState<'role' | 'details'>('role');
   const [providerState, setProviderState] = useState({
     isSubmitting: false,
     message: null as string | null,
@@ -138,6 +137,7 @@ export function LoginScreen({
   const title = mode === 'login' ? 'Welcome back' : 'Create account';
   const submitLabel = mode === 'login' ? 'Sign in' : 'Create account';
   const isBusy = isSubmitting || providerState.isSubmitting;
+  const selectedRole = ROLE_OPTIONS.find(option => option.role === signupRole) ?? null;
   const safeError = error ? getUserFacingApiError({ message: error }) : null;
   const safeProviderError = providerState.error
     ? getUserFacingApiError({ message: providerState.error })
@@ -159,6 +159,10 @@ export function LoginScreen({
           : null,
     [activeSheet],
   );
+
+  useEffect(() => {
+    setAuthStep('role');
+  }, [mode]);
 
   async function handleForgotPassword() {
     const normalizedEmail = forgotEmail.trim();
@@ -209,63 +213,31 @@ export function LoginScreen({
     });
   }
 
-  function changeMethod(method: 'email' | 'phone') {
-    setAuthMethod(method);
-    setPhoneStep('request');
-    setPhoneCode('');
-    setProviderState({ isSubmitting: false, message: null, error: null });
-  }
-
   function changeMode() {
-    onModeChange(mode === 'login' ? 'signup' : 'login');
-    setPhoneStep('request');
-    setPhoneCode('');
+    const nextMode = mode === 'login' ? 'signup' : 'login';
+    if (nextMode === 'signup') {
+      onSignupRoleChange(null);
+    }
+    onModeChange(nextMode);
     setProviderState({ isSubmitting: false, message: null, error: null });
   }
 
-  async function handlePhoneSubmit() {
-    setProviderState({ isSubmitting: true, message: null, error: null });
-    try {
-      const purpose = mode === 'login' ? 'login' : 'signup';
-      if (phoneStep === 'request') {
-        if (mode === 'signup' && !acceptedTerms) {
-          throw new Error('Accept the Terms of Service and Privacy Policy before creating an account.');
-        }
-        if (mode === 'signup' && !fullName.trim()) {
-          throw new Error('Enter your full name to create an account.');
-        }
-        const response = await requestPhoneAuthCode({
-          purpose,
-          phoneNumber,
-          ...(mode === 'signup'
-            ? { fullName: fullName.trim(), role: signupRole, acceptedTerms: true as const }
-            : {}),
-        });
-        setPhoneStep('verify');
-        setPhoneCode(response.developmentCode || '');
-        setProviderState({
-          isSubmitting: false,
-          message: response.developmentCode
-            ? `Development code: ${response.developmentCode}`
-            : response.message,
-          error: null,
-        });
-        return;
-      }
-
-      const session = await verifyPhoneAuthCode({ purpose, phoneNumber, code: phoneCode.trim() });
-      onAuthenticated(session);
-    } catch (phoneError) {
-      setProviderState({
-        isSubmitting: false,
-        message: null,
-        error: phoneError instanceof Error ? phoneError.message : 'Phone authentication failed',
-      });
-    }
+  function selectRole(role: PublicSignupRole) {
+    onSignupRoleChange(role);
+    setProviderState({ isSubmitting: false, message: null, error: null });
+    setAuthStep('details');
   }
 
   function handleEmailSubmit() {
     setProviderState({ isSubmitting: false, message: null, error: null });
+    if (mode === 'signup' && !signupRole) {
+      setProviderState({
+        isSubmitting: false,
+        message: null,
+        error: 'Choose an account role before creating an account.',
+      });
+      return;
+    }
     if (mode === 'signup' && !acceptedTerms) {
       setProviderState({
         isSubmitting: false,
@@ -288,16 +260,21 @@ export function LoginScreen({
   async function handleGoogleSubmit() {
     setProviderState({ isSubmitting: true, message: null, error: null });
     try {
-      if (mode === 'signup' && !acceptedTerms) {
-        throw new Error('Accept the Terms of Service and Privacy Policy before creating an account.');
+      let session: AuthSession;
+      if (mode === 'signup') {
+        const role = signupRole;
+        if (!role) {
+          throw new Error('Choose an account role before creating an account.');
+        }
+        if (!acceptedTerms) {
+          throw new Error('Accept the Terms of Service and Privacy Policy before creating an account.');
+        }
+        const idToken = await requestGoogleIdToken();
+        session = await authenticateWithGoogleToken({ idToken, role, acceptedTerms: true });
+      } else {
+        const idToken = await requestGoogleIdToken();
+        session = await authenticateWithGoogleToken({ idToken });
       }
-      const idToken = await requestGoogleIdToken();
-      const session = await authenticateWithGoogleToken({
-        idToken,
-        ...(mode === 'signup'
-          ? { role: signupRole, acceptedTerms: true as const }
-          : {}),
-      });
       onAuthenticated(session);
     } catch (googleError) {
       setProviderState({
@@ -332,41 +309,65 @@ export function LoginScreen({
               <Text style={styles.brandPillText}>KITABU AI</Text>
             </View>
 
-            <Text style={styles.title}>{title}</Text>
-
-            <View style={styles.rolePanel}>
-              <Text style={styles.rolePanelTitle}>Select account type</Text>
-              <View style={styles.roleGrid}>
-                {ROLE_OPTIONS.map(option => (
-                  <RoleChoice
-                    key={option.role}
-                    option={option}
-                    active={signupRole === option.role}
-                    onPress={() => onSignupRoleChange(option.role)}
-                  />
-                ))}
-              </View>
+            <View style={styles.stepHeader}>
+              <Text style={styles.title}>{authStep === 'role' ? 'Choose your role' : title}</Text>
+              <Text style={styles.stepCopy}>
+                {authStep === 'role'
+                  ? 'Select how you use Kitabu AI.'
+                  : `${selectedRole?.label ?? 'Account'} details`}
+              </Text>
             </View>
           </LinearGradient>
 
+          {authStep === 'role' ? (
+            <View style={styles.roleStep}>
+              <View style={styles.rolePanel}>
+                <View style={styles.roleGrid}>
+                  {ROLE_OPTIONS.map(option => (
+                    <RoleChoice
+                      key={option.role}
+                      option={option}
+                      active={signupRole === option.role}
+                      onPress={() => selectRole(option.role)}
+                    />
+                  ))}
+                </View>
+              </View>
+            </View>
+          ) : (
           <View style={styles.form}>
-            <View style={styles.methodTabs}>
+            <View style={styles.selectedRoleRow}>
+              <View style={styles.selectedRoleBadge}>
+                <AvatarArt avatarKey={selectedRole?.avatar ?? 'avatar-afro-boy'} size={30} />
+                <View>
+                  <Text style={styles.selectedRoleLabel}>{selectedRole?.label ?? 'Choose role'}</Text>
+                  <Text style={styles.selectedRoleDetail}>
+                    {selectedRole?.detail ?? 'Select how you use Kitabu AI'}
+                  </Text>
+                </View>
+              </View>
               <Pressable
-                accessibilityLabel="Use email"
                 accessibilityRole="button"
-                onPress={() => changeMethod('email')}
-                style={[styles.methodTab, authMethod === 'email' && styles.methodTabActive]}>
-                <Mail color={authMethod === 'email' ? '#FFFFFF' : '#475569'} size={17} />
-                <Text style={[styles.methodTabText, authMethod === 'email' && styles.methodTabTextActive]}>Email</Text>
+                accessibilityLabel="Change role"
+                onPress={() => setAuthStep('role')}
+                style={styles.changeRoleButton}>
+                <Text style={styles.changeRoleText}>Change</Text>
               </Pressable>
-              <Pressable
-                accessibilityLabel="Use phone"
-                accessibilityRole="button"
-                onPress={() => changeMethod('phone')}
-                style={[styles.methodTab, authMethod === 'phone' && styles.methodTabActive]}>
-                <Phone color={authMethod === 'phone' ? '#FFFFFF' : '#475569'} size={17} />
-                <Text style={[styles.methodTabText, authMethod === 'phone' && styles.methodTabTextActive]}>Phone</Text>
-              </Pressable>
+            </View>
+
+            <Pressable
+              accessibilityLabel="Continue with Google"
+              disabled={isBusy}
+              onPress={handleGoogleSubmit}
+              style={styles.googleButton}>
+              <Text style={styles.googleMark}>G</Text>
+              <Text style={styles.googleButtonText}>Continue with Google</Text>
+            </Pressable>
+
+            <View style={styles.dividerRow}>
+              <View style={styles.dividerLine} />
+              <Text style={styles.dividerText}>or use email</Text>
+              <View style={styles.dividerLine} />
             </View>
 
             {mode === 'signup' ? (
@@ -382,76 +383,56 @@ export function LoginScreen({
               </FieldShell>
             ) : null}
 
-            {authMethod === 'email' ? (
-              <>
-                <FieldShell label="Email" icon={<Mail color="#0F766E" size={16} />}>
-                  <TextInput
-                    autoCapitalize="none"
-                    autoCorrect={false}
-                    keyboardType="email-address"
-                    onChangeText={onEmailChange}
-                    placeholder="Email"
-                    placeholderTextColor="#94A3B8"
-                    style={styles.input}
-                    value={email}
-                  />
-                </FieldShell>
+            <FieldShell label="Email" icon={<Mail color="#0F766E" size={16} />}>
+              <TextInput
+                autoCapitalize="none"
+                autoCorrect={false}
+                keyboardType="email-address"
+                onChangeText={onEmailChange}
+                placeholder="Email"
+                placeholderTextColor="#94A3B8"
+                style={styles.input}
+                value={email}
+              />
+            </FieldShell>
 
-                <FieldShell label="Password" icon={<Lock color="#1D4ED8" size={16} />}>
-                  <View style={styles.passwordRow}>
-                    <TextInput
-                      autoCapitalize="none"
-                      onChangeText={onPasswordChange}
-                      placeholder="Password"
-                      placeholderTextColor="#94A3B8"
-                      secureTextEntry={!showPassword}
-                      style={styles.passwordInput}
-                      value={password}
-                    />
-                    <Pressable
-                      accessibilityLabel={showPassword ? 'Hide password' : 'Show password'}
-                      onPress={() => setShowPassword(value => !value)}
-                      style={styles.visibilityButton}>
-                      {showPassword ? (
-                        <EyeOff color="#64748B" size={18} strokeWidth={2.2} />
-                      ) : (
-                        <Eye color="#64748B" size={18} strokeWidth={2.2} />
-                      )}
-                    </Pressable>
-                  </View>
-                </FieldShell>
-              </>
-            ) : (
-              <>
-                <FieldShell label="Phone number" icon={<Phone color="#0F766E" size={16} />}>
-                  <TextInput
-                    autoCorrect={false}
-                    editable={phoneStep === 'request'}
-                    keyboardType="phone-pad"
-                    onChangeText={setPhoneNumber}
-                    placeholder="07xx xxx xxx"
-                    placeholderTextColor="#94A3B8"
-                    style={styles.input}
-                    value={phoneNumber}
-                  />
-                </FieldShell>
-                {phoneStep === 'verify' ? (
-                  <FieldShell label="Verification code" icon={<Lock color="#1D4ED8" size={16} />}>
-                    <TextInput
-                      keyboardType="number-pad"
-                      maxLength={6}
-                      onChangeText={setPhoneCode}
-                      placeholder="6-digit code"
-                      placeholderTextColor="#94A3B8"
-                      style={styles.input}
-                      value={phoneCode}
-                    />
-                  </FieldShell>
-                ) : null}
-              </>
-            )}
+            <FieldShell label="Password" icon={<Lock color="#1D4ED8" size={16} />}>
+              <View style={styles.passwordRow}>
+                <TextInput
+                  autoCapitalize="none"
+                  onChangeText={onPasswordChange}
+                  placeholder="Password"
+                  placeholderTextColor="#94A3B8"
+                  secureTextEntry={!showPassword}
+                  style={styles.passwordInput}
+                  value={password}
+                />
+                <Pressable
+                  accessibilityLabel={showPassword ? 'Hide password' : 'Show password'}
+                  onPress={() => setShowPassword(value => !value)}
+                  style={styles.visibilityButton}>
+                  {showPassword ? (
+                    <EyeOff color="#64748B" size={18} strokeWidth={2.2} />
+                  ) : (
+                    <Eye color="#64748B" size={18} strokeWidth={2.2} />
+                  )}
+                </Pressable>
+              </View>
+            </FieldShell>
 
-            {mode === 'login' && authMethod === 'email' ? (
+            <FieldShell label="Phone number (optional)" icon={<Phone color="#0F766E" size={16} />}>
+              <TextInput
+                autoCorrect={false}
+                keyboardType="phone-pad"
+                onChangeText={onOptionalPhoneNumberChange}
+                placeholder="07xx xxx xxx"
+                placeholderTextColor="#94A3B8"
+                style={styles.input}
+                value={optionalPhoneNumber}
+              />
+            </FieldShell>
+
+            {mode === 'login' ? (
               <Pressable onPress={openForgotPassword} style={styles.textLinkWrap}>
                 <Text style={styles.textLink}>Forgot password?</Text>
               </Pressable>
@@ -475,11 +456,9 @@ export function LoginScreen({
             {providerState.message ? <Text style={styles.successText}>{providerState.message}</Text> : null}
 
             <Pressable
-              accessibilityLabel={authMethod === 'phone'
-                ? phoneStep === 'request' ? 'Send verification code' : 'Verify and continue'
-                : submitLabel}
+              accessibilityLabel={submitLabel}
               disabled={isBusy}
-              onPress={authMethod === 'email' ? handleEmailSubmit : handlePhoneSubmit}
+              onPress={handleEmailSubmit}
               style={({ pressed }) => [
                 styles.submitButton,
                 pressed && styles.submitButtonPressed,
@@ -488,41 +467,21 @@ export function LoginScreen({
               {isBusy ? (
                 <ActivityIndicator color="#FFFFFF" />
               ) : (
-                <Text style={styles.submitButtonText}>
-                  {authMethod === 'phone'
-                    ? phoneStep === 'request' ? 'Send verification code' : 'Verify and continue'
-                    : submitLabel}
-                </Text>
+                <Text style={styles.submitButtonText}>{submitLabel}</Text>
               )}
             </Pressable>
-
-            {authMethod === 'phone' && phoneStep === 'verify' ? (
-              <Pressable onPress={() => changeMethod('phone')} style={styles.textLinkWrapCentered}>
-                <Text style={styles.textLink}>Change phone number</Text>
-              </Pressable>
-            ) : null}
-
-            <View style={styles.dividerRow}>
-              <View style={styles.dividerLine} />
-              <Text style={styles.dividerText}>or</Text>
-              <View style={styles.dividerLine} />
-            </View>
-            <Pressable
-              accessibilityLabel="Continue with Google"
-              disabled={isBusy}
-              onPress={handleGoogleSubmit}
-              style={styles.googleButton}>
-              <Text style={styles.googleMark}>G</Text>
-              <Text style={styles.googleButtonText}>Continue with Google</Text>
-            </Pressable>
           </View>
+          )}
 
           <View style={styles.footerRow}>
             <View style={styles.modePromptRow}>
               <Text style={styles.modePromptText}>
                 {mode === 'login' ? "Don't Have an Account yet? " : 'Already have an account? '}
               </Text>
-              <Pressable onPress={changeMode}>
+              <Pressable
+                accessibilityRole="button"
+                accessibilityLabel={mode === 'login' ? 'Switch to sign up' : 'Switch to sign in'}
+                onPress={changeMode}>
                 <Text style={styles.modePromptLink}>
                   {mode === 'login' ? 'Sign Up' : 'Sign In'}
                 </Text>
@@ -645,6 +604,7 @@ function RoleChoice({
     <Pressable
       accessibilityRole="button"
       accessibilityLabel={`Continue as ${option.label}`}
+      accessibilityState={{ selected: active }}
       onPress={onPress}
       style={({ pressed }) => [
         styles.roleCard,
@@ -738,11 +698,11 @@ const styles = StyleSheet.create({
   scrollContent: {
     flexGrow: 1,
     justifyContent: 'center',
-    padding: 20,
+    padding: 14,
   },
   card: {
     backgroundColor: 'rgba(255,255,255,0.18)',
-    borderRadius: 30,
+    borderRadius: 22,
     borderWidth: 1,
     borderColor: 'rgba(255,255,255,0.28)',
     overflow: 'hidden',
@@ -753,10 +713,10 @@ const styles = StyleSheet.create({
     elevation: 12,
   },
   heroStrip: {
-    paddingHorizontal: 22,
-    paddingTop: 22,
-    paddingBottom: 18,
-    gap: 16,
+    paddingHorizontal: 18,
+    paddingTop: 16,
+    paddingBottom: 12,
+    gap: 10,
   },
   brandPill: {
     alignSelf: 'center',
@@ -765,12 +725,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 10,
-    paddingHorizontal: 12,
-    paddingVertical: 8,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
   },
   brandLogo: {
-    width: 24,
-    height: 24,
+    width: 22,
+    height: 22,
   },
   brandPillText: {
     color: '#FFFFFF',
@@ -789,10 +749,26 @@ const styles = StyleSheet.create({
   },
   title: {
     color: '#FFFFFF',
-    fontSize: 30,
+    fontSize: 24,
     fontWeight: '900',
-    lineHeight: 34,
+    lineHeight: 28,
     textAlign: 'center',
+  },
+  stepHeader: {
+    alignItems: 'center',
+    gap: 5,
+  },
+  stepCopy: {
+    color: '#E2E8F0',
+    fontSize: 14,
+    fontWeight: '700',
+    lineHeight: 20,
+    textAlign: 'center',
+  },
+  roleStep: {
+    paddingHorizontal: 18,
+    paddingTop: 12,
+    paddingBottom: 18,
   },
   rolePanel: {
     backgroundColor: 'rgba(255,255,255,0.14)',
@@ -861,35 +837,60 @@ const styles = StyleSheet.create({
     color: '#475569',
   },
   form: {
-    gap: 16,
-    paddingHorizontal: 22,
-    paddingTop: 12,
-    paddingBottom: 20,
+    gap: 10,
+    paddingHorizontal: 18,
+    paddingTop: 10,
+    paddingBottom: 14,
   },
-  methodTabs: {
-    flexDirection: 'row',
-    backgroundColor: 'rgba(255,255,255,0.72)',
-    borderRadius: 8,
-    padding: 4,
-    gap: 4,
-  },
-  methodTab: {
-    flex: 1,
-    minHeight: 42,
-    borderRadius: 6,
-    flexDirection: 'row',
+  selectedRoleRow: {
     alignItems: 'center',
-    justifyContent: 'center',
-    gap: 8,
+    flexDirection: 'row',
+    gap: 10,
+    justifyContent: 'space-between',
   },
-  methodTabActive: { backgroundColor: '#2563EB' },
-  methodTabText: { color: '#475569', fontSize: 14, fontWeight: '800' },
-  methodTabTextActive: { color: '#FFFFFF' },
+  selectedRoleBadge: {
+    alignItems: 'center',
+    backgroundColor: 'rgba(255,255,255,0.16)',
+    borderColor: 'rgba(255,255,255,0.2)',
+    borderRadius: 16,
+    borderWidth: 1,
+    flex: 1,
+    flexDirection: 'row',
+    gap: 10,
+    minHeight: 46,
+    paddingHorizontal: 12,
+  },
+  selectedRoleLabel: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: '900',
+  },
+  selectedRoleDetail: {
+    color: '#CBD5E1',
+    fontSize: 10,
+    fontWeight: '700',
+    lineHeight: 13,
+  },
+  changeRoleButton: {
+    alignItems: 'center',
+    backgroundColor: 'rgba(255,255,255,0.14)',
+    borderColor: 'rgba(255,255,255,0.2)',
+    borderRadius: 14,
+    borderWidth: 1,
+    justifyContent: 'center',
+    minHeight: 40,
+    paddingHorizontal: 12,
+  },
+  changeRoleText: {
+    color: '#FFFFFF',
+    fontSize: 12,
+    fontWeight: '900',
+  },
   fieldLabel: {
     color: '#E2E8F0',
-    fontSize: 12,
+    fontSize: 10,
     fontWeight: '800',
-    marginBottom: 8,
+    marginBottom: 4,
     letterSpacing: 0.6,
     textTransform: 'uppercase',
   },
@@ -900,9 +901,9 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     borderWidth: 1,
     borderColor: 'rgba(255,255,255,0.7)',
-    minHeight: 58,
-    paddingHorizontal: 14,
-    gap: 12,
+    minHeight: 46,
+    paddingHorizontal: 12,
+    gap: 10,
   },
   fieldIcon: {
     width: 24,
@@ -913,8 +914,8 @@ const styles = StyleSheet.create({
   },
   input: {
     color: '#0F172A',
-    fontSize: 16,
-    paddingVertical: 14,
+    fontSize: 15,
+    paddingVertical: 10,
   },
   passwordRow: {
     flexDirection: 'row',
@@ -923,8 +924,8 @@ const styles = StyleSheet.create({
   passwordInput: {
     flex: 1,
     color: '#0F172A',
-    fontSize: 16,
-    paddingVertical: 14,
+    fontSize: 15,
+    paddingVertical: 10,
   },
   visibilityButton: {
     width: 36,
@@ -963,7 +964,7 @@ const styles = StyleSheet.create({
   textLinkWrapCentered: { alignSelf: 'center' },
   textLink: {
     color: '#E0F2FE',
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: '700',
   },
   acceptanceRow: {
@@ -1004,7 +1005,7 @@ const styles = StyleSheet.create({
     lineHeight: 18,
   },
   submitButton: {
-    minHeight: 56,
+    minHeight: 48,
     borderRadius: 18,
     backgroundColor: '#0F172A',
     alignItems: 'center',
@@ -1019,14 +1020,14 @@ const styles = StyleSheet.create({
   },
   submitButtonText: {
     color: '#FFFFFF',
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: '800',
   },
   dividerRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
   dividerLine: { flex: 1, height: 1, backgroundColor: 'rgba(255,255,255,0.34)' },
   dividerText: { color: '#CBD5E1', fontSize: 13, fontWeight: '700' },
   googleButton: {
-    minHeight: 54,
+    minHeight: 48,
     borderRadius: 8,
     backgroundColor: '#FFFFFF',
     flexDirection: 'row',
@@ -1038,9 +1039,9 @@ const styles = StyleSheet.create({
   googleButtonText: { color: '#1E293B', fontSize: 15, fontWeight: '800' },
   footerRow: {
     alignItems: 'center',
-    paddingHorizontal: 22,
-    paddingBottom: 22,
-    gap: 10,
+    paddingHorizontal: 18,
+    paddingBottom: 16,
+    gap: 8,
   },
   modePromptRow: {
     flexDirection: 'row',

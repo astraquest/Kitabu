@@ -1,10 +1,12 @@
 import React from 'react';
+import { Linking } from 'react-native';
 import ReactTestRenderer from 'react-test-renderer';
 
 import { QuizBattleScreen } from '../src/screens/QuizBattleScreen';
 
-test('plays through quiz battle and awards points', async () => {
+test('requires an opponent and offers WhatsApp invite when no classmates are online', async () => {
   const onAddPoints = jest.fn();
+  const openUrl = jest.spyOn(Linking, 'openURL').mockResolvedValue(undefined);
   let renderer: ReactTestRenderer.ReactTestRenderer;
 
   await ReactTestRenderer.act(() => {
@@ -13,25 +15,23 @@ test('plays through quiz battle and awards points', async () => {
     );
   });
 
-  for (const answer of ['96', 'children', 'Heart', 'Book']) {
-    const option = renderer!.root.findAll(
-      node =>
-        typeof node.props.onPress === 'function' &&
-        node.findAllByProps({ children: answer }).length > 0,
-    )[0];
-    await ReactTestRenderer.act(() => {
-      option.props.onPress();
-    });
-    const actionLabel =
-      answer === 'Book' ? 'Finish battle' : 'Lock answer';
-    const action = renderer!.root.findAll(
-      node =>
-        typeof node.props.onPress === 'function' &&
-        node.findAllByProps({ children: actionLabel }).length > 0,
-    )[0];
-    await ReactTestRenderer.act(() => action.props.onPress());
-  }
+  expect(renderer!.root.findAllByProps({ children: 'Choose an opponent' }).length).toBeGreaterThan(0);
+  expect(renderer!.root.findAllByProps({ children: 'No classmates online' }).length).toBeGreaterThan(0);
+  const startBattle = renderer!.root.findAll(
+    node =>
+      typeof node.props.onPress === 'function' &&
+      node.findAllByProps({ children: 'Start battle' }).length > 0,
+  )[0];
+  expect(startBattle.props.disabled).toBe(true);
 
-  expect(onAddPoints).toHaveBeenCalledWith(25);
-  expect(renderer!.root.findAllByProps({ children: 'Battle won' }).length).toBeGreaterThan(0);
+  const invite = renderer!.root.findAll(
+    node =>
+      typeof node.props.onPress === 'function' &&
+      node.findAllByProps({ children: 'Invite on WhatsApp' }).length > 0,
+  )[0];
+
+  await ReactTestRenderer.act(() => invite.props.onPress());
+
+  expect(openUrl).toHaveBeenCalledWith(expect.stringContaining('whatsapp://send?text='));
+  expect(onAddPoints).not.toHaveBeenCalled();
 });

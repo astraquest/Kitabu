@@ -6,7 +6,7 @@ import {
   Text,
   View,
 } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import { LinearGradient } from 'expo-linear-gradient';
 import {
   ArrowLeft,
   Brain,
@@ -85,23 +85,12 @@ export function QuizMeScreen({
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
+      <View style={styles.backOverlay}>
         <Pressable
           onPress={step === 1 ? onBack : () => setStep(1)}
           style={styles.backButton}>
           <ArrowLeft size={24} color="#374151" strokeWidth={2.2} />
         </Pressable>
-
-        <View style={styles.brandWrap}>
-          <LinearGradient
-            colors={['#FB923C', '#EC4899']}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-            style={styles.brandBadge}>
-            <Text style={styles.brandBadgeText}>QM</Text>
-          </LinearGradient>
-          <Text style={styles.brandTitle}>QuizMe</Text>
-        </View>
       </View>
 
       <ScrollView
@@ -449,6 +438,12 @@ const styles = StyleSheet.create({
     color: '#6B7280',
     fontSize: 14,
     fontWeight: '600',
+  },
+  backOverlay: {
+    position: 'absolute',
+    top: 14,
+    left: 16,
+    zIndex: 3,
   },
   header: {
     paddingHorizontal: 16,

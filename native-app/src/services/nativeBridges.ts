@@ -1,9 +1,21 @@
-import { NativeModules, PermissionsAndroid, Platform } from 'react-native';
+import {
+  AudioModule,
+  RecordingPresets,
+  createAudioPlayer,
+  requestRecordingPermissionsAsync,
+  setAudioModeAsync,
+  type AudioPlayer,
+  type AudioRecorder,
+} from 'expo-audio';
+import * as DocumentPicker from 'expo-document-picker';
+import * as FileSystem from 'expo-file-system/legacy';
+import * as ImagePicker from 'expo-image-picker';
+import * as Speech from 'expo-speech';
 
-import { extractCurriculumFromPdfData, transcribeAudio } from './aiService';
+import { extractCurriculumFromPdfData, synthesizeSpeech, transcribeAudio } from './aiService';
 import { Attachment, LearningStrand } from '../types/app';
 
-export type NativeBridgeState = 'simulated' | 'android_native';
+export type NativeBridgeState = 'simulated' | 'expo_native';
 
 export interface AudioRecordingBridge {
   state: NativeBridgeState;
@@ -36,7 +48,8 @@ export interface LiveAudioSession {
 
 export interface SpeechPlaybackBridge {
   state: NativeBridgeState;
-  speak: (text: string) => Promise<void>;
+  speak: (text: string, options?: { lowLatency?: boolean }) => Promise<void>;
+  speakQueued: (text: string) => Promise<void>;
   stop: () => Promise<void>;
   getNarrationPulseSeed: () => number;
 }
@@ -59,12 +72,31 @@ export interface ChatAttachmentBridge {
   pickFile: () => Promise<Attachment | null>;
 }
 
+const MAX_CHAT_ATTACHMENT_BYTES = 10 * 1024 * 1024;
+
 const transcriptionFallbacks = [
   'Audio transcription is unavailable on this device.',
   'Audio transcription is unavailable on this device.',
   'Audio transcription is unavailable on this device.',
   'Audio transcription is unavailable on this device.',
 ];
+
+const speechRecordingOptions = {
+  ...RecordingPresets.HIGH_QUALITY,
+  sampleRate: 16000,
+  numberOfChannels: 1,
+  bitRate: 24000,
+  android: {
+    ...RecordingPresets.HIGH_QUALITY.android,
+    maxFileSize: 650_000,
+  },
+  web: {
+    ...RecordingPresets.HIGH_QUALITY.web,
+    bitsPerSecond: 24000,
+  },
+};
+
+let speechAudioPlayer: AudioPlayer | null = null;
 
 const livePrompts = [
   'What have you already tried so far?',
@@ -171,50 +203,85 @@ function createSimulatedLiveAudioSession(): LiveAudioSession {
   };
 }
 
-const speechModule = NativeModules.KitabuSpeech as
-  | {
-      speak: (text: string) => Promise<boolean>;
-      stop: () => Promise<boolean>;
-    }
-  | undefined;
+let activeRecording: AudioRecorder | null = null;
 
-const recorderModule = NativeModules.KitabuRecorder as
-  | {
-      startRecording: () => Promise<string>;
-      stopRecording: () => Promise<string>;
-      readAudioAsBase64?: (audioPath: string) => Promise<string>;
-      transcribeAudio?: (audioPath: string, questionIndex: number) => Promise<string>;
-    }
-  | undefined;
+async function readFileAsBase64(uri?: string | null) {
+  if (!uri) {
+    return null;
+  }
 
-const documentPickerModule = NativeModules.KitabuDocumentPicker as
-  | {
-      pickPdf: () => Promise<{
-        uri: string;
-        name: string;
-        base64Data?: string;
-        mimeType?: string;
-      }>;
-      pickImage?: () => Promise<{
-        uri: string;
-        name: string;
-        base64Data?: string;
-        mimeType?: string;
-      }>;
-      pickFile?: () => Promise<{
-        uri: string;
-        name: string;
-        base64Data?: string;
-        mimeType?: string;
-      }>;
-      takePhoto?: () => Promise<{
-        uri: string;
-        name: string;
-        base64Data?: string;
-        mimeType?: string;
-      }>;
-    }
-  | undefined;
+  return FileSystem.readAsStringAsync(uri, {
+    encoding: FileSystem.EncodingType.Base64,
+  });
+}
+
+function formatFileSize(bytes: number) {
+  if (bytes >= 1024 * 1024) {
+    return `${Math.round((bytes / (1024 * 1024)) * 10) / 10} MB`;
+  }
+
+  return `${Math.max(1, Math.round(bytes / 1024))} KB`;
+}
+
+function estimateBase64DecodedBytes(base64Data: string) {
+  const trimmed = base64Data.trim();
+  const padding = trimmed.endsWith('==') ? 2 : trimmed.endsWith('=') ? 1 : 0;
+  return Math.floor((trimmed.length * 3) / 4) - padding;
+}
+
+async function getLocalFileSize(uri?: string | null) {
+  if (!uri) {
+    return null;
+  }
+
+  try {
+    const info = await FileSystem.getInfoAsync(uri);
+    return info.exists && typeof info.size === 'number' ? info.size : null;
+  } catch {
+    return null;
+  }
+}
+
+function assertChatAttachmentSize(size?: number | null) {
+  if (typeof size === 'number' && size > MAX_CHAT_ATTACHMENT_BYTES) {
+    throw new Error(
+      `Attachment is too large. Please choose a file under ${formatFileSize(MAX_CHAT_ATTACHMENT_BYTES)}.`,
+    );
+  }
+}
+
+async function mapDocumentAssetToFileMeta(
+  asset: DocumentPicker.DocumentPickerAsset,
+): Promise<{ uri: string; name: string; base64Data?: string; mimeType?: string; size?: number }> {
+  const size = asset.size ?? await getLocalFileSize(asset.uri);
+  assertChatAttachmentSize(size);
+  const base64Data = await readFileAsBase64(asset.uri) ?? undefined;
+  assertChatAttachmentSize(base64Data ? estimateBase64DecodedBytes(base64Data) : size);
+
+  return {
+    uri: asset.uri,
+    name: asset.name,
+    mimeType: asset.mimeType,
+    base64Data,
+    size: size ?? undefined,
+  };
+}
+
+function mapImageAssetToFileMeta(
+  asset: ImagePicker.ImagePickerAsset,
+): { uri: string; name: string; base64Data?: string; mimeType?: string; size?: number } {
+  const extension = asset.uri.split('.').pop()?.split('?')[0] || 'jpg';
+  assertChatAttachmentSize(asset.fileSize);
+  assertChatAttachmentSize(asset.base64 ? estimateBase64DecodedBytes(asset.base64) : asset.fileSize);
+
+  return {
+    uri: asset.uri,
+    name: asset.fileName || `kitabu-image.${extension}`,
+    mimeType: asset.mimeType || 'image/jpeg',
+    base64Data: asset.base64 ?? undefined,
+    size: asset.fileSize,
+  };
+}
 
 function mapFileMetaToAttachment(
   fileMeta?: { name?: string; base64Data?: string; mimeType?: string } | null,
@@ -255,6 +322,26 @@ function parseBase64Audio(audioPath?: string | null) {
   return null;
 }
 
+function inferAudioMimeType(uri?: string | null) {
+  const extension = uri?.split('?')[0]?.split('.').pop()?.toLowerCase();
+
+  switch (extension) {
+    case '3gp':
+      return 'audio/3gpp';
+    case 'aac':
+      return 'audio/aac';
+    case 'm4a':
+    case 'mp4':
+      return 'audio/mp4';
+    case 'wav':
+      return 'audio/wav';
+    case 'webm':
+      return 'audio/webm';
+    default:
+      return 'audio/mp4';
+  }
+}
+
 function normalizeImportedCurriculum(
   payload: Awaited<ReturnType<typeof extractCurriculumFromPdfData>>,
   seed: string,
@@ -289,50 +376,44 @@ function normalizeImportedCurriculum(
   }));
 }
 
-async function ensureRecordPermission() {
-  if (Platform.OS !== 'android') {
-    return false;
-  }
-
-  const result = await PermissionsAndroid.request(
-    PermissionsAndroid.PERMISSIONS.RECORD_AUDIO,
-  );
-  return result === PermissionsAndroid.RESULTS.GRANTED;
-}
-
 export const audioRecordingBridge: AudioRecordingBridge = {
-  state: Platform.OS === 'android' && recorderModule ? 'android_native' : 'simulated',
+  state: 'expo_native',
   async startRecording() {
-    if (Platform.OS === 'android' && recorderModule) {
-      const granted = await ensureRecordPermission();
-      if (!granted) {
-        return null;
-      }
-
-      return recorderModule.startRecording();
+    const permission = await requestRecordingPermissionsAsync();
+    if (!permission.granted) {
+      return null;
     }
 
-    return null;
+    if (activeRecording) {
+      await activeRecording.stop().catch(() => undefined);
+      activeRecording = null;
+    }
+
+    await setAudioModeAsync({
+      allowsRecording: true,
+      playsInSilentMode: true,
+    });
+
+    const recording = new AudioModule.AudioRecorder(speechRecordingOptions);
+    await recording.prepareToRecordAsync();
+    recording.record();
+    activeRecording = recording;
+    return recording.uri;
   },
   async stopRecording() {
-    if (Platform.OS === 'android' && recorderModule) {
-      return recorderModule.stopRecording();
+    if (!activeRecording) {
+      return null;
     }
 
-    return null;
+    const recording = activeRecording;
+    activeRecording = null;
+    await recording.stop();
+    await setAudioModeAsync({
+      allowsRecording: false,
+    });
+    return recording.uri;
   },
   async transcribeClip(_audioPath) {
-    if (_audioPath && Platform.OS === 'android' && recorderModule?.transcribeAudio) {
-      try {
-        const transcript = await recorderModule.transcribeAudio(_audioPath, 0);
-        if (transcript?.trim()) {
-          return transcript.trim();
-        }
-      } catch {
-        // Fall through to the next available path.
-      }
-    }
-
     const parsedAudio = parseBase64Audio(_audioPath);
     if (parsedAudio) {
       try {
@@ -345,11 +426,11 @@ export const audioRecordingBridge: AudioRecordingBridge = {
       }
     }
 
-    if (_audioPath && Platform.OS === 'android' && recorderModule?.readAudioAsBase64) {
+    if (_audioPath) {
       try {
-        const base64Audio = await recorderModule.readAudioAsBase64(_audioPath);
+        const base64Audio = await readFileAsBase64(_audioPath);
         if (base64Audio?.trim()) {
-          const transcript = await transcribeAudio(base64Audio, 'audio/mp4');
+          const transcript = await transcribeAudio(base64Audio, inferAudioMimeType(_audioPath));
           if (transcript.trim()) {
             return transcript.trim();
           }
@@ -382,16 +463,41 @@ export const liveAudioBridge: LiveAudioBridge = {
 };
 
 export const speechPlaybackBridge: SpeechPlaybackBridge = {
-  state: Platform.OS === 'android' && speechModule ? 'android_native' : 'simulated',
-  async speak(text) {
-    if (Platform.OS === 'android' && speechModule) {
-      await speechModule.speak(text);
+  state: 'expo_native',
+  async speak(text, options) {
+    await this.stop();
+
+    if (options?.lowLatency) {
+      Speech.speak(text);
+      return;
+    }
+
+    try {
+      const speech = await synthesizeSpeech(text);
+      const extension = speech.mimeType === 'audio/wav' ? 'wav' : 'audio';
+      const uri = `${FileSystem.cacheDirectory}kitabu-tts-${Date.now()}.${extension}`;
+      await FileSystem.writeAsStringAsync(uri, speech.base64Audio, {
+        encoding: FileSystem.EncodingType.Base64,
+      });
+      speechAudioPlayer = createAudioPlayer(uri, { downloadFirst: true });
+      speechAudioPlayer.play();
+    } catch (error) {
+      console.warn('Server speech synthesis failed, falling back to device speech:', error);
+      Speech.speak(text);
+    }
+  },
+  async speakQueued(text) {
+    if (text.trim()) {
+      Speech.speak(text);
     }
   },
   async stop() {
-    if (Platform.OS === 'android' && speechModule) {
-      await speechModule.stop();
+    if (speechAudioPlayer) {
+      speechAudioPlayer.pause();
+      speechAudioPlayer.remove();
+      speechAudioPlayer = null;
     }
+    Speech.stop();
   },
   getNarrationPulseSeed() {
     return 0.12;
@@ -399,14 +505,17 @@ export const speechPlaybackBridge: SpeechPlaybackBridge = {
 };
 
 export const curriculumImportBridge: CurriculumImportBridge = {
-  state:
-    Platform.OS === 'android' && documentPickerModule ? 'android_native' : 'simulated',
+  state: 'expo_native',
   async pickPdf() {
-    if (Platform.OS === 'android' && documentPickerModule) {
-      return documentPickerModule.pickPdf();
+    const result = await DocumentPicker.getDocumentAsync({
+      copyToCacheDirectory: true,
+      type: 'application/pdf',
+    });
+    if (result.canceled || !result.assets[0]) {
+      return null;
     }
 
-    return null;
+    return mapDocumentAssetToFileMeta(result.assets[0]);
   },
   async extractCurriculum(grade, subjectId, subjectName, fileMeta) {
     const seed = `${grade}-${subjectId}`;
@@ -430,28 +539,45 @@ export const curriculumImportBridge: CurriculumImportBridge = {
 };
 
 export const chatAttachmentBridge: ChatAttachmentBridge = {
-  state:
-    Platform.OS === 'android' && documentPickerModule ? 'android_native' : 'simulated',
+  state: 'expo_native',
   async takePhoto() {
-    if (Platform.OS === 'android' && documentPickerModule?.takePhoto) {
-      return mapFileMetaToAttachment(await documentPickerModule.takePhoto(), 'image');
+    const permission = await ImagePicker.requestCameraPermissionsAsync();
+    if (!permission.granted) {
+      return null;
     }
-
-    return null;
+    const result = await ImagePicker.launchCameraAsync({
+      base64: true,
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      quality: 0.82,
+    });
+    if (result.canceled || !result.assets[0]) {
+      return null;
+    }
+    return mapFileMetaToAttachment(mapImageAssetToFileMeta(result.assets[0]), 'image');
   },
   async pickImage() {
-    if (Platform.OS === 'android' && documentPickerModule?.pickImage) {
-      return mapFileMetaToAttachment(await documentPickerModule.pickImage(), 'image');
+    const permission = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    if (!permission.granted) {
+      return null;
     }
-
-    return null;
+    const result = await ImagePicker.launchImageLibraryAsync({
+      base64: true,
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      quality: 0.82,
+    });
+    if (result.canceled || !result.assets[0]) {
+      return null;
+    }
+    return mapFileMetaToAttachment(mapImageAssetToFileMeta(result.assets[0]), 'image');
   },
   async pickFile() {
-    if (Platform.OS === 'android' && documentPickerModule?.pickFile) {
-      return mapFileMetaToAttachment(await documentPickerModule.pickFile(), 'file');
+    const result = await DocumentPicker.getDocumentAsync({
+      copyToCacheDirectory: true,
+    });
+    if (result.canceled || !result.assets[0]) {
+      return null;
     }
-
-    return null;
+    return mapFileMetaToAttachment(await mapDocumentAssetToFileMeta(result.assets[0]), 'file');
   },
 };
 

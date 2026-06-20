@@ -9,9 +9,14 @@ import {
   View,
 } from 'react-native';
 import { Mic, MicOff, RotateCcw, Square, Volume2, X } from 'lucide-react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import { LinearGradient } from 'expo-linear-gradient';
 
 import { askVoiceTutor } from '../services/aiService';
+import {
+  createLiveVoiceStreamSession,
+  isLiveVoiceStreamingSupported,
+  type LiveVoiceStreamSession,
+} from '../services/liveVoiceStreamService';
 import { audioRecordingBridge, speechPlaybackBridge } from '../services/nativeBridges';
 import { Assignment, ChatMessage, SubStrand, Subject, UserProfile } from '../types/app';
 
@@ -38,6 +43,8 @@ const starterPrompts = [
   'Say the question out loud and I will talk you through it.',
   'Tell me what you have already tried first.',
 ];
+
+const MAX_RECORDING_MS = 12_000;
 
 function buildContextSummary(args: {
   currentGrade?: string;
@@ -83,12 +90,109 @@ export function LiveAudioTutorScreen({
   const [recordedAudioPath, setRecordedAudioPath] = useState<string | null>(null);
   const [transcript, setTranscript] = useState('');
   const [responseText, setResponseText] = useState('');
+  const [visibleResponseText, setVisibleResponseText] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [history, setHistory] = useState<ChatMessage[]>(initialMessages);
   const [turnCount, setTurnCount] = useState(0);
+  const transcriptScrollRef = useRef<ScrollView | null>(null);
+  const liveStreamSessionRef = useRef<LiveVoiceStreamSession | null>(null);
+  const streamedTranscriptRef = useRef('');
+  const streamedResponseRef = useRef('');
+  const queuedSpeechRef = useRef('');
   const scale = useRef(new Animated.Value(1)).current;
   const outerGlow = useRef(new Animated.Value(1)).current;
   const innerGlow = useRef(new Animated.Value(1)).current;
+  const recordingTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const responseStreamIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const responseStreamResolveRef = useRef<(() => void) | null>(null);
+
+  function clearRecordingTimeout() {
+    if (recordingTimeoutRef.current) {
+      clearTimeout(recordingTimeoutRef.current);
+      recordingTimeoutRef.current = null;
+    }
+  }
+
+  function clearResponseStream() {
+    if (responseStreamIntervalRef.current) {
+      clearInterval(responseStreamIntervalRef.current);
+      responseStreamIntervalRef.current = null;
+    }
+    responseStreamResolveRef.current?.();
+    responseStreamResolveRef.current = null;
+  }
+
+  function scrollTranscriptToEnd() {
+    requestAnimationFrame(() => {
+      transcriptScrollRef.current?.scrollToEnd({ animated: true });
+    });
+  }
+
+  function streamResponseText(text: string) {
+    clearResponseStream();
+    setVisibleResponseText('');
+
+    const words = text.split(/(\s+)/).filter(Boolean);
+    let index = 0;
+
+    return new Promise<void>(resolve => {
+      responseStreamResolveRef.current = resolve;
+      responseStreamIntervalRef.current = setInterval(() => {
+        index += 1;
+        setVisibleResponseText(words.slice(0, index).join(''));
+        scrollTranscriptToEnd();
+
+        if (index >= words.length) {
+          if (responseStreamIntervalRef.current) {
+            clearInterval(responseStreamIntervalRef.current);
+            responseStreamIntervalRef.current = null;
+          }
+          responseStreamResolveRef.current = null;
+          resolve();
+        }
+      }, 55);
+    });
+  }
+
+  function appendStreamedResponse(delta: string) {
+    if (!delta) {
+      return;
+    }
+
+    streamedResponseRef.current += delta;
+    queuedSpeechRef.current += delta;
+    setResponseText(streamedResponseRef.current);
+    setVisibleResponseText(streamedResponseRef.current);
+    setStatus('speaking');
+    scrollTranscriptToEnd();
+
+    const sentenceMatch = queuedSpeechRef.current.match(/^([\s\S]*?[.!?])(\s+|$)/);
+    if (sentenceMatch?.[1]?.trim()) {
+      const sentence = sentenceMatch[1].trim();
+      queuedSpeechRef.current = queuedSpeechRef.current.slice(sentenceMatch[0].length);
+      speechPlaybackBridge.speakQueued(sentence).catch(() => undefined);
+    }
+  }
+
+  function finishStreamedResponse() {
+    const remainingSpeech = queuedSpeechRef.current.trim();
+    if (remainingSpeech) {
+      speechPlaybackBridge.speakQueued(remainingSpeech).catch(() => undefined);
+      queuedSpeechRef.current = '';
+    }
+
+    const nextTranscript = streamedTranscriptRef.current.trim();
+    const reply = streamedResponseRef.current.trim();
+    if (nextTranscript && reply) {
+      setHistory(current => [
+        ...current,
+        { role: 'user', text: nextTranscript },
+        { role: 'model', text: reply },
+      ]);
+      setTurnCount(current => current + 1);
+    }
+    setStatus('ready');
+  }
 
   const contextSummary = useMemo(
     () =>
@@ -124,9 +228,17 @@ export function LiveAudioTutorScreen({
 
   useEffect(() => {
     return () => {
+      clearRecordingTimeout();
+      clearResponseStream();
+      liveStreamSessionRef.current?.close();
+      liveStreamSessionRef.current = null;
       speechPlaybackBridge.stop().catch(() => undefined);
     };
   }, []);
+
+  useEffect(() => {
+    scrollTranscriptToEnd();
+  }, [transcript, visibleResponseText, status]);
 
   useEffect(() => {
     const targetVolume =
@@ -164,8 +276,63 @@ export function LiveAudioTutorScreen({
   async function beginRecording() {
     setError(null);
     await speechPlaybackBridge.stop().catch(() => undefined);
+    clearResponseStream();
+    streamedTranscriptRef.current = '';
+    streamedResponseRef.current = '';
+    queuedSpeechRef.current = '';
+    setTranscript('');
+    setResponseText('');
+    setVisibleResponseText('');
+
+    if (isLiveVoiceStreamingSupported()) {
+      const session = createLiveVoiceStreamSession({
+        context: contextSummary,
+        history,
+        callbacks: {
+          onTranscriptDelta(text) {
+            streamedTranscriptRef.current += text;
+            setTranscript(streamedTranscriptRef.current);
+            scrollTranscriptToEnd();
+          },
+          onTranscriptDone(text) {
+            streamedTranscriptRef.current = text || streamedTranscriptRef.current;
+            setTranscript(streamedTranscriptRef.current);
+            setStatus('thinking');
+            scrollTranscriptToEnd();
+          },
+          onResponseDelta(text) {
+            appendStreamedResponse(text);
+          },
+          onResponseDone() {
+            finishStreamedResponse();
+          },
+          onError(message) {
+            setStatus('error');
+            setError(message);
+            setIsMicOn(false);
+          },
+          onClose() {
+            liveStreamSessionRef.current = null;
+          },
+        },
+      });
+      liveStreamSessionRef.current = session;
+      await session.start();
+      setRecordedAudioPath(null);
+      setStatus('recording');
+      setIsMicOn(true);
+      clearRecordingTimeout();
+      recordingTimeoutRef.current = setTimeout(() => {
+        stopRecording().catch(() => {
+          setStatus('error');
+          setError('Voice mode failed. Please try again.');
+        });
+      }, 30_000);
+      return;
+    }
+
     const startedRecordingPath = await audioRecordingBridge.startRecording();
-    if (startedRecordingPath === null && audioRecordingBridge.state === 'android_native') {
+    if (startedRecordingPath === null && audioRecordingBridge.state === 'expo_native') {
       setStatus('error');
       setError('Could not access the microphone. Please allow permissions.');
       setIsMicOn(false);
@@ -173,15 +340,29 @@ export function LiveAudioTutorScreen({
     }
 
     setRecordedAudioPath(startedRecordingPath);
-    setTranscript('');
     setStatus('recording');
     setIsMicOn(true);
+    clearRecordingTimeout();
+    recordingTimeoutRef.current = setTimeout(() => {
+      stopRecording().catch(() => {
+        setStatus('error');
+        setError('Voice mode failed. Please try again.');
+      });
+    }, MAX_RECORDING_MS);
   }
 
   async function stopRecording() {
+    clearRecordingTimeout();
     setError(null);
-    setStatus('transcribing');
     setIsMicOn(false);
+
+    if (liveStreamSessionRef.current) {
+      setStatus('thinking');
+      await liveStreamSessionRef.current.stopAndCommit();
+      return;
+    }
+
+    setStatus('transcribing');
 
     const stoppedRecordingPath = await audioRecordingBridge.stopRecording();
     const finalPath = stoppedRecordingPath || recordedAudioPath;
@@ -222,9 +403,11 @@ export function LiveAudioTutorScreen({
       setResponseText(reply);
       setTurnCount(current => current + 1);
 
-      if (speechPlaybackBridge.state === 'android_native') {
+      if (speechPlaybackBridge.state === 'expo_native') {
         setStatus('speaking');
-        await speechPlaybackBridge.speak(reply);
+        const streamPromise = streamResponseText(reply);
+        await speechPlaybackBridge.speak(reply, { lowLatency: true });
+        await streamPromise;
       }
 
       setStatus('ready');
@@ -249,17 +432,23 @@ export function LiveAudioTutorScreen({
   }
 
   async function replayLastResponse() {
-    if (!responseText.trim() || speechPlaybackBridge.state !== 'android_native') {
+    if (!responseText.trim() || speechPlaybackBridge.state !== 'expo_native') {
       return;
     }
 
     setStatus('speaking');
     await speechPlaybackBridge.stop().catch(() => undefined);
-    await speechPlaybackBridge.speak(responseText);
+    const streamPromise = streamResponseText(responseText);
+    await speechPlaybackBridge.speak(responseText, { lowLatency: true });
+    await streamPromise;
     setStatus('ready');
   }
 
   function closeScreen() {
+    clearRecordingTimeout();
+    clearResponseStream();
+    liveStreamSessionRef.current?.close();
+    liveStreamSessionRef.current = null;
     speechPlaybackBridge.stop().catch(() => undefined);
     if (isMicOn) {
       audioRecordingBridge.stopRecording().catch(() => undefined);
@@ -280,42 +469,7 @@ export function LiveAudioTutorScreen({
               ? 'Thinking'
               : 'Speaking';
 
-  const transcriptBlocks: React.ReactNode[] = [];
-
-  if (contextSummary) {
-    transcriptBlocks.push(
-      <View key="context" style={styles.contextCard}>
-        <Text style={styles.contextEyebrow}>Session context</Text>
-        <Text style={styles.contextText}>{contextSummary}</Text>
-      </View>,
-    );
-  }
-
-  if (transcript) {
-    transcriptBlocks.push(
-      <View key="transcript" style={styles.messageBubbleUser}>
-        <Text style={styles.messageEyebrow}>You said</Text>
-        <Text style={styles.messageTextUser}>{transcript}</Text>
-      </View>,
-    );
-  }
-
-  if (responseText) {
-    transcriptBlocks.push(
-      <View key="response" style={styles.messageBubbleTutor}>
-        <Text style={styles.messageEyebrow}>Tutor</Text>
-        <Text style={styles.messageTextTutor}>{responseText}</Text>
-      </View>,
-    );
-  }
-
-  if (!transcript && !responseText) {
-    transcriptBlocks.push(
-      <Text key="empty" style={styles.emptyHint}>
-        Voice mode is ready for a full tutoring session with follow-up turns.
-      </Text>,
-    );
-  }
+  const displayedResponseText = visibleResponseText || responseText;
 
   return (
     <View style={styles.backdrop}>
@@ -400,10 +554,10 @@ export function LiveAudioTutorScreen({
             onPress={() => {
               replayLastResponse().catch(() => undefined);
             }}
-            disabled={!responseText || speechPlaybackBridge.state !== 'android_native'}
+            disabled={!responseText || speechPlaybackBridge.state !== 'expo_native'}
             style={[
               styles.secondaryButton,
-              (!responseText || speechPlaybackBridge.state !== 'android_native') &&
+              (!responseText || speechPlaybackBridge.state !== 'expo_native') &&
                 styles.secondaryButtonDisabled,
             ]}>
             <RotateCcw size={16} color="#dbeafe" />
@@ -412,9 +566,36 @@ export function LiveAudioTutorScreen({
         </View>
 
         <ScrollView
+          ref={transcriptScrollRef}
           style={styles.transcriptPanel}
-          contentContainerStyle={styles.transcriptContent}>
-          {transcriptBlocks}
+          contentContainerStyle={styles.transcriptContent}
+          onContentSizeChange={scrollTranscriptToEnd}>
+          <View style={styles.contextCard}>
+            <Text style={styles.contextEyebrow}>Voice transcript</Text>
+
+            {transcript ? (
+              <View style={styles.transcriptTurn}>
+                <Text style={styles.messageEyebrow}>You said</Text>
+                <Text style={styles.transcriptText}>{transcript}</Text>
+              </View>
+            ) : null}
+
+            {displayedResponseText ? (
+              <View style={styles.transcriptTurn}>
+                <Text style={styles.messageEyebrow}>Tutor voice</Text>
+                <Text style={styles.transcriptText}>{displayedResponseText}</Text>
+              </View>
+            ) : null}
+
+            {status === 'transcribing' || status === 'thinking' ? (
+              <View style={styles.processingRow}>
+                <ActivityIndicator size="small" color="#67e8f9" />
+                <Text style={styles.processingText}>
+                  {status === 'transcribing' ? 'Preparing your words...' : 'Preparing voice reply...'}
+                </Text>
+              </View>
+            ) : null}
+          </View>
         </ScrollView>
       </View>
     </View>
@@ -561,7 +742,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   transcriptContent: {
-    gap: 12,
     paddingBottom: 12,
   },
   contextCard: {
@@ -570,6 +750,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'rgba(125,211,252,0.12)',
     padding: 14,
+    minHeight: 150,
   },
   contextEyebrow: {
     color: '#93c5fd',
@@ -579,10 +760,30 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     marginBottom: 6,
   },
-  contextText: {
-    color: '#cbd5e1',
+  transcriptTurn: {
+    borderTopWidth: 1,
+    borderTopColor: 'rgba(148,163,184,0.14)',
+    paddingTop: 12,
+    marginTop: 12,
+  },
+  transcriptText: {
+    color: '#eff6ff',
+    fontSize: 16,
+    lineHeight: 24,
+  },
+  processingRow: {
+    flexDirection: 'row',
+    gap: 8,
+    alignItems: 'center',
+    borderTopWidth: 1,
+    borderTopColor: 'rgba(148,163,184,0.14)',
+    paddingTop: 12,
+    marginTop: 12,
+  },
+  processingText: {
+    color: '#bae6fd',
     fontSize: 13,
-    lineHeight: 19,
+    fontWeight: '700',
   },
   messageBubbleUser: {
     alignSelf: 'flex-end',
@@ -617,12 +818,5 @@ const styles = StyleSheet.create({
     color: '#e2e8f0',
     fontSize: 15,
     lineHeight: 22,
-  },
-  emptyHint: {
-    color: '#94a3b8',
-    textAlign: 'center',
-    fontSize: 14,
-    lineHeight: 21,
-    marginTop: 28,
   },
 });

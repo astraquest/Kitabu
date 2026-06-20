@@ -31,11 +31,15 @@ services:
     restart: unless-stopped
     env_file:
       - ./apps/api/.env
+    environment:
+      KITABU_DATABASE_URL: postgres://kitabu:change-me@postgres:5432/kitabu_api
+      KITABU_REDIS_URL: redis://redis:6379
+      KITABU_ADMIN_WEB_ORIGIN: http://localhost:8083
     depends_on:
       - postgres
       - redis
     ports:
-      - "127.0.0.1:4000:4000"
+      - "4000:4000"
 
   worker:
     build:
@@ -45,6 +49,9 @@ services:
     restart: unless-stopped
     env_file:
       - ./apps/api/.env
+    environment:
+      KITABU_DATABASE_URL: postgres://kitabu:change-me@postgres:5432/kitabu_api
+      KITABU_REDIS_URL: redis://redis:6379
     command: ["node", "dist/worker.js"]
     depends_on:
       - postgres

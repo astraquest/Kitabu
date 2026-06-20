@@ -410,7 +410,7 @@ const styles = StyleSheet.create({
   sheet: {
     backgroundColor: 'rgba(17,24,39,0.96)',
     borderColor: 'rgba(255,255,255,0.08)',
-    borderRadius: 40,
+    borderRadius: 30,
     borderWidth: 1,
     height: '88%',
     overflow: 'hidden',
@@ -504,7 +504,7 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   subjectPromptButton: {
-    borderRadius: 18,
+    borderRadius: 14,
     minHeight: 52,
     paddingHorizontal: 16,
     paddingVertical: 14,
@@ -543,7 +543,7 @@ const styles = StyleSheet.create({
   },
   attachmentCard: {
     alignItems: 'center',
-    borderRadius: 16,
+    borderRadius: 12,
     flexDirection: 'row',
     gap: 8,
     marginBottom: 6,
@@ -562,7 +562,7 @@ const styles = StyleSheet.create({
     textDecorationLine: 'underline',
   },
   messageBubble: {
-    borderRadius: 20,
+    borderRadius: 15,
     paddingHorizontal: 14,
     paddingVertical: 12,
   },
@@ -585,7 +585,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'rgba(255,255,255,0.1)',
     borderColor: 'rgba(255,255,255,0.08)',
-    borderRadius: 20,
+    borderRadius: 15,
     borderTopLeftRadius: 6,
     borderWidth: 1,
     flexDirection: 'row',
@@ -619,7 +619,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     backgroundColor: 'rgba(255,255,255,0.08)',
     borderColor: 'rgba(255,255,255,0.08)',
-    borderRadius: 18,
+    borderRadius: 14,
     borderWidth: 1,
     flex: 1,
     flexDirection: 'row',
@@ -663,7 +663,7 @@ const styles = StyleSheet.create({
   primaryActionButton: {
     alignItems: 'center',
     backgroundColor: '#2563EB',
-    borderRadius: 14,
+    borderRadius: 11,
     height: 52,
     justifyContent: 'center',
     width: 52,
@@ -671,7 +671,7 @@ const styles = StyleSheet.create({
   liveActionButton: {
     alignItems: 'center',
     backgroundColor: 'rgba(245,158,11,0.9)',
-    borderRadius: 14,
+    borderRadius: 11,
     height: 52,
     justifyContent: 'center',
     width: 52,
@@ -679,7 +679,7 @@ const styles = StyleSheet.create({
   attachmentMenu: {
     backgroundColor: 'rgba(15,23,42,0.98)',
     borderColor: 'rgba(255,255,255,0.1)',
-    borderRadius: 18,
+    borderRadius: 14,
     borderWidth: 1,
     bottom: 78,
     gap: 4,
@@ -691,7 +691,7 @@ const styles = StyleSheet.create({
   },
   attachmentAction: {
     alignItems: 'center',
-    borderRadius: 12,
+    borderRadius: 9,
     flexDirection: 'row',
     gap: 10,
     minHeight: 42,

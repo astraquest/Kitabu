@@ -27,14 +27,18 @@ function pickQuestion(rng: SeededRandom) {
   return shuffleOptions(CRAZY_BALLOON_RESCUE_QUESTIONS[index], rng);
 }
 
-function createBalloon(nextEntityId: number, rng: SeededRandom): CrazyBalloonEntity {
+function getMonsterChance(score: number) {
+  return Math.min(0.52, 0.12 + score / 900);
+}
+
+function createBalloon(nextEntityId: number, rng: SeededRandom, score: number): CrazyBalloonEntity {
   return {
     id: nextEntityId,
     leftPct: 8 + rng.next() * 78,
     bottomPct: -8,
     color: COLORS[Math.floor(rng.next() * COLORS.length)],
     speedPctPerTick: 2 + rng.next() * 3,
-    isMonster: rng.next() < 0.4,
+    isMonster: rng.next() < getMonsterChance(score),
   };
 }
 
@@ -121,6 +125,7 @@ export function createCrazyBalloonEngine(rng: SeededRandom): GameEngine<CrazyBal
           const remaining = state.balloons.filter(item => item.id !== input.id);
           if (balloon.isMonster) {
             if (state.livesUsed >= 2) {
+              emit({ type: 'monster_attack' });
               return finishRun({ ...state, balloons: remaining }, 'loss');
             }
 
@@ -178,7 +183,7 @@ export function createCrazyBalloonEngine(rng: SeededRandom): GameEngine<CrazyBal
 
           let nextEntityId = state.nextEntityId;
           if (rng.next() < SPAWN_CHANCE_PER_TICK) {
-            balloons = [...balloons, createBalloon(nextEntityId, rng)];
+            balloons = [...balloons, createBalloon(nextEntityId, rng, state.score)];
             nextEntityId += 1;
           }
 

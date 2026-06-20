@@ -1,9 +1,4 @@
-import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
-
-const options = {
-  enableVibrateFallback: true,
-  ignoreAndroidSystemSettings: false,
-};
+import * as Haptics from 'expo-haptics';
 
 export type HapticIntent =
   | 'success'
@@ -12,20 +7,26 @@ export type HapticIntent =
   | 'selection'
   | 'impact';
 
-export function triggerHaptic(intent: HapticIntent) {
-  const method =
-    intent === 'success'
-      ? 'notificationSuccess'
-      : intent === 'warning'
-        ? 'notificationWarning'
-        : intent === 'error'
-          ? 'notificationError'
-          : intent === 'selection'
-            ? 'selection'
-            : 'impactMedium';
-
+export async function triggerHaptic(intent: HapticIntent) {
   try {
-    ReactNativeHapticFeedback.trigger(method, options);
+    if (intent === 'success') {
+      await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+      return;
+    }
+    if (intent === 'warning') {
+      await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Warning);
+      return;
+    }
+    if (intent === 'error') {
+      await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
+      return;
+    }
+    if (intent === 'selection') {
+      await Haptics.selectionAsync();
+      return;
+    }
+
+    await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
   } catch {
     // Haptics should never block user flows.
   }

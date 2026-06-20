@@ -23,10 +23,39 @@ export interface DarajaStkPushResponse {
   customerMessage: string;
 }
 
+export class MpesaProviderError extends Error {
+  public readonly providerStatus?: number;
+  public readonly providerResponse?: string;
+
+  constructor(message: string, options: { providerStatus?: number; providerResponse?: string } = {}) {
+    super(message);
+    this.name = 'MpesaProviderError';
+    this.providerStatus = options.providerStatus;
+    this.providerResponse = options.providerResponse;
+  }
+}
+
 const darajaBaseUrl =
   appConfig.KITABU_MPESA_ENV === 'production'
     ? 'https://api.safaricom.co.ke'
     : 'https://sandbox.safaricom.co.ke';
+
+function trimProviderResponse(input: string) {
+  return input.replace(/\s+/g, ' ').trim().slice(0, 500);
+}
+
+async function readProviderResponse(response: Response) {
+  const responseText = trimProviderResponse(await response.text());
+  if (!responseText) {
+    return {};
+  }
+
+  try {
+    return JSON.parse(responseText) as Record<string, unknown>;
+  } catch {
+    return { rawResponse: responseText };
+  }
+}
 
 function requireDarajaConfig() {
   const missing = [
@@ -86,13 +115,21 @@ async function getDarajaAccessToken() {
     }
   });
 
+  const payload = (await readProviderResponse(response)) as { access_token?: string };
+
   if (!response.ok) {
-    throw new Error('Unable to get M-Pesa access token');
+    const providerResponse = trimProviderResponse(JSON.stringify(payload));
+    throw new MpesaProviderError(`Daraja OAuth failed with HTTP ${response.status}`, {
+      providerStatus: response.status,
+      providerResponse
+    });
   }
 
-  const payload = (await response.json()) as { access_token?: string };
   if (!payload.access_token) {
-    throw new Error('M-Pesa access token missing from Daraja response');
+    throw new MpesaProviderError('Daraja OAuth response did not include an access token', {
+      providerStatus: response.status,
+      providerResponse: trimProviderResponse(JSON.stringify(payload))
+    });
   }
 
   return payload.access_token;
@@ -128,7 +165,7 @@ export async function initiateStkPush(input: DarajaStkPushRequest): Promise<Dara
     })
   });
 
-  const payload = (await response.json()) as {
+  const payload = (await readProviderResponse(response)) as {
     MerchantRequestID?: string;
     CheckoutRequestID?: string;
     ResponseCode?: string;
@@ -138,11 +175,18 @@ export async function initiateStkPush(input: DarajaStkPushRequest): Promise<Dara
   };
 
   if (!response.ok || payload.ResponseCode !== '0') {
-    throw new Error(payload.errorMessage || payload.ResponseDescription || 'Unable to start M-Pesa checkout');
+    const providerMessage = payload.errorMessage || payload.ResponseDescription || 'Unable to start M-Pesa checkout';
+    throw new MpesaProviderError(providerMessage, {
+      providerStatus: response.status,
+      providerResponse: trimProviderResponse(JSON.stringify(payload))
+    });
   }
 
   if (!payload.MerchantRequestID || !payload.CheckoutRequestID) {
-    throw new Error('M-Pesa checkout response is incomplete');
+    throw new MpesaProviderError('M-Pesa checkout response is incomplete', {
+      providerStatus: response.status,
+      providerResponse: trimProviderResponse(JSON.stringify(payload))
+    });
   }
 
   return {

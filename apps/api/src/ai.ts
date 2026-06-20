@@ -183,10 +183,24 @@ function getOpenAiTokenPricingUsdPerMillion(model: string) {
     };
   }
 
+  if (normalizedModel.includes('gpt-5.4-mini')) {
+    return {
+      input: 0.75,
+      output: 4.5
+    };
+  }
+
   if (normalizedModel.includes('gpt-5-mini')) {
     return {
       input: 0.25,
       output: 2
+    };
+  }
+
+  if (normalizedModel.includes('gpt-5.5')) {
+    return {
+      input: 5,
+      output: 30
     };
   }
 

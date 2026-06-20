@@ -13,7 +13,7 @@ export const PRIVACY_POLICY_SECTIONS: LegalSection[] = [
     heading: 'Overview',
     paragraphs: [
       'Kitabu AI provides educational software for students, teachers, school administrators, and platform administrators. We collect and use only the information reasonably needed to create accounts, deliver educational features, manage subscriptions, and keep the service secure.',
-      'We do not sell personal data. Support and deletion requests can be sent to somakitabu254@gmail.com.',
+      'We do not sell personal data. Support and deletion requests can be sent to hello@kitabu.ai.',
     ],
   },
   {
@@ -43,14 +43,14 @@ export const PRIVACY_POLICY_SECTIONS: LegalSection[] = [
   {
     heading: 'Retention and Deletion',
     paragraphs: [
-      'We keep data only for as long as reasonably necessary for service delivery, school operations, security, fraud prevention, and legal obligations. You may request account deletion and data deletion by emailing somakitabu254@gmail.com.',
+      'We keep data only for as long as reasonably necessary for service delivery, school operations, security, fraud prevention, and legal obligations. You may request account deletion and data deletion by emailing hello@kitabu.ai.',
     ],
   },
   {
     heading: 'Security and Contact',
     paragraphs: [
       'We use password hashing, token-based authentication, role-based access controls, and audit logging for sensitive actions. No system is perfectly secure, so users should protect their credentials and report suspicious activity promptly.',
-      'Kitabu AI, Twin Towers Plaza 4th Floor Room 402. Phone 0716175485. Email somakitabu254@gmail.com.',
+      'Kitabu AI, Twin Towers Plaza 4th Floor Room 402, Nairobi, Kenya. Phone +254716175485. Email hello@kitabu.ai. Website https://www.kitabu.ai.',
     ],
   },
 ];
@@ -95,7 +95,7 @@ export const TERMS_OF_USE_SECTIONS: LegalSection[] = [
   {
     heading: 'Contact',
     paragraphs: [
-      'Questions, support requests, and account deletion requests may be sent to somakitabu254@gmail.com. Kitabu AI is located at Twin Towers Plaza 4th Floor Room 402. Phone 0716175485.',
+      'Questions, support requests, and account deletion requests may be sent to hello@kitabu.ai. Kitabu AI is located at Twin Towers Plaza 4th Floor Room 402, Nairobi, Kenya. Phone +254716175485. Website https://www.kitabu.ai.',
     ],
   },
 ];

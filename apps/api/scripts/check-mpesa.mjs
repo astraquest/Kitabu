@@ -40,6 +40,13 @@ const env = {
   ...parseEnvFile(envPath),
   ...process.env,
 };
+
+for (const key of requiredKeys) {
+  if (typeof env[key] === 'string') {
+    env[key] = env[key].trim().replace(/^['"]|['"]$/g, '');
+  }
+}
+
 const missing = requiredKeys.filter(key => !env[key]?.trim());
 
 if (missing.length > 0) {

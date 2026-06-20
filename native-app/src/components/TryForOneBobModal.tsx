@@ -29,9 +29,9 @@ export function TryForOneBobModal({
         <Pressable style={styles.scrim} onPress={onClose} />
         <View style={styles.card}>
           <Text style={styles.emoji}>🔥</Text>
-          <Text style={styles.title}>Activate test subscription</Text>
+          <Text style={styles.title}>Try 1 month for 1 bob</Text>
           <Text style={styles.body}>
-            This test account can unlock the monthly package for KSh 5 so you can validate the full M-Pesa flow.
+            Pay KSh 1 and unlock Kitabu AI for a month.
           </Text>
           <Text style={styles.meta}>Checkout will use {phoneNumber || 'your M-Pesa number'}.</Text>
 
@@ -42,7 +42,7 @@ export function TryForOneBobModal({
             {isSubmitting ? (
               <ActivityIndicator color="#FFFFFF" />
             ) : (
-              <Text style={styles.primaryText}>Pay KSh 5</Text>
+              <Text style={styles.primaryText}>Pay KSh 1</Text>
             )}
           </Pressable>
 

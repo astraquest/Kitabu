@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Modal, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { AlertTriangle, BarChart3, BookOpen, Building2, Check, Info, Loader2, Mail, MapPin, Phone, Plus, Rocket, Save, School, Trash2, Users, X } from 'lucide-react-native';
 import Svg, { Path } from 'react-native-svg';
@@ -249,7 +249,7 @@ export function AdminPortalScreen({ onBack, currentGrade, subjects, curriculumDa
             ...sub,
             outcomes: value.split('\n').map((text, outcomeIndex) => ({
               id: sub.outcomes?.[outcomeIndex]?.id || `lo-${Date.now()}-${outcomeIndex}`,
-              text: text.replace(/^[•\-*]\s*/, ''),
+              text: text.replace(/^[�\-*]\s*/, ''),
             })).filter(outcome => outcome.text.trim().length > 0),
           };
         }

@@ -1,4 +1,5 @@
-import { Platform } from 'react-native';
+import { NativeModules, Platform } from 'react-native';
+import Constants from 'expo-constants';
 
 const KITABU_PRODUCTION_API_BASE_URL = 'https://app.kitabu.ai';
 const KITABU_STAGING_API_BASE_URL = 'https://staging-api.kitabu.ai';
@@ -8,6 +9,12 @@ let activeKitabuApiBaseUrl: string | null = null;
 function readProcessEnv(name: string) {
   const env = (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env;
   return env?.[name];
+}
+
+function readExpoExtra(name: string) {
+  const extra = Constants.expoConfig?.extra as Record<string, string | undefined> | undefined;
+  const value = extra?.[name];
+  return value?.trim() || undefined;
 }
 
 function normalizeBaseUrl(value: string) {
@@ -22,10 +29,35 @@ function getLocalDevelopmentApiBaseUrl() {
   return Platform.OS === 'android' ? 'http://10.0.2.2:4000' : 'http://localhost:4000';
 }
 
+function readExpoDevelopmentHost() {
+  const sourceCode = NativeModules?.SourceCode as { scriptURL?: string } | undefined;
+  const sourceCodeHost = sourceCode?.scriptURL?.match(/^https?:\/\/([^:/]+)/)?.[1];
+  if (sourceCodeHost) {
+    return sourceCodeHost;
+  }
+
+  const constants = Constants as unknown as {
+    expoConfig?: { hostUri?: string };
+    manifest?: { debuggerHost?: string };
+    manifest2?: { extra?: { expoGo?: { debuggerHost?: string } } };
+  };
+  const hostUri =
+    constants.expoConfig?.hostUri ||
+    constants.manifest2?.extra?.expoGo?.debuggerHost ||
+    constants.manifest?.debuggerHost;
+  return hostUri?.split(':')[0]?.trim() || undefined;
+}
+
+function getExpoDevelopmentApiBaseUrl() {
+  const host = readExpoDevelopmentHost();
+  return host ? `http://${host}:4000` : null;
+}
+
 function getLocalDevelopmentApiBaseUrls() {
+  const expoHostUrl = getExpoDevelopmentApiBaseUrl();
   return Platform.OS === 'android'
-    ? [getLocalDevelopmentApiBaseUrl(), 'http://localhost:4000']
-    : [getLocalDevelopmentApiBaseUrl()];
+    ? uniqueBaseUrls([getLocalDevelopmentApiBaseUrl(), expoHostUrl ?? '', 'http://localhost:4000'])
+    : uniqueBaseUrls([expoHostUrl ?? '', getLocalDevelopmentApiBaseUrl()]);
 }
 
 function isRetryableNetworkError(error: unknown) {
@@ -39,6 +71,8 @@ function isRetryableNetworkError(error: unknown) {
 export function getKitabuRuntimeEnvironment() {
   return (
     readProcessEnv('KITABU_APP_ENV') ||
+    readProcessEnv('EXPO_PUBLIC_KITABU_APP_ENV') ||
+    readExpoExtra('kitabuRuntimeEnv') ||
     readProcessEnv('KITABU_RUNTIME_ENV') ||
     (__DEV__ ? 'development' : 'production')
   );
@@ -47,6 +81,8 @@ export function getKitabuRuntimeEnvironment() {
 export function getKitabuApiBaseUrls() {
   const configured =
     readProcessEnv('KITABU_API_BASE_URL') ||
+    readProcessEnv('EXPO_PUBLIC_KITABU_API_BASE_URL') ||
+    readExpoExtra('kitabuApiBaseUrl') ||
     readProcessEnv('KITABU_AI_PROXY_URL') ||
     readProcessEnv('AI_PROXY_URL');
 

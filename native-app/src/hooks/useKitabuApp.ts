@@ -130,8 +130,11 @@ import {
 
 const STORAGE_KEYS = {
   profile: 'kitabu_native_profile',
+  optionalPhoneNumber: 'kitabu_optional_phone_number',
+  tryOneBobOfferSeenAt: 'kitabu_try_one_bob_offer_seen_at',
 };
 const MAX_DASHBOARD_SUBJECTS = 5;
+const TRY_ONE_BOB_SUPPRESSION_MS = 90 * 24 * 60 * 60 * 1000;
 const DEFAULT_DASHBOARD_SUBJECT_IDS = SUBJECTS.slice(0, MAX_DASHBOARD_SUBJECTS).map(
   subject => subject.id,
 );
@@ -300,8 +303,9 @@ export function useKitabuApp() {
   const [loginEmail, setLoginEmail] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
   const [signupFullName, setSignupFullName] = useState('');
-  const [signupRole, setSignupRole] = useState<PublicSignupRole>('student');
+  const [signupRole, setSignupRole] = useState<PublicSignupRole | null>(null);
   const [acceptedTerms, setAcceptedTerms] = useState(false);
+  const [optionalPhoneNumber, setOptionalPhoneNumber] = useState('');
   const [authError, setAuthError] = useState<string | null>(null);
   const [isAuthenticating, setIsAuthenticating] = useState(false);
   const [isSubmittingOnboarding, setIsSubmittingOnboarding] = useState(false);
@@ -388,6 +392,7 @@ export function useKitabuApp() {
   const [selectedPlanCode, setSelectedPlanCode] = useState<BillingPlanCode | null>(null);
   const [trialOfferPlan, setTrialOfferPlan] = useState<BillingPlan | null>(null);
   const [isTryOneBobOpen, setIsTryOneBobOpen] = useState(false);
+  const [tryOneBobOfferSeenAt, setTryOneBobOfferSeenAt] = useState<Record<string, number>>({});
   const [checkoutPhoneNumber, setCheckoutPhoneNumber] = useState('');
   const [checkoutError, setCheckoutError] = useState<string | null>(null);
   const [checkoutStatusLabel, setCheckoutStatusLabel] = useState<string | null>(null);
@@ -551,14 +556,24 @@ export function useKitabuApp() {
     let mounted = true;
 
     async function bootstrap() {
-      const [storedProfile, storedSession] = await Promise.all([
+      const [
+        storedProfile,
+        storedOptionalPhoneNumber,
+        storedTryOneBobOfferSeenAt,
+        storedSession,
+      ] = await Promise.all([
         loadJson(STORAGE_KEYS.profile, INITIAL_USER_PROFILE),
+        loadJson(STORAGE_KEYS.optionalPhoneNumber, ''),
+        loadJson<Record<string, number>>(STORAGE_KEYS.tryOneBobOfferSeenAt, {}),
         loadStoredAuthSession(),
       ]);
 
       if (!mounted) {
         return;
       }
+
+      setOptionalPhoneNumber(storedOptionalPhoneNumber);
+      setTryOneBobOfferSeenAt(storedTryOneBobOfferSeenAt);
 
       if (storedSession) {
         try {
@@ -582,8 +597,8 @@ export function useKitabuApp() {
               plansPayload.plans[0]?.code ||
               null,
           );
-          if (status.savedMpesaPhoneNumber) {
-            setCheckoutPhoneNumber(status.savedMpesaPhoneNumber);
+          if (status.savedMpesaPhoneNumber || storedOptionalPhoneNumber) {
+            setCheckoutPhoneNumber(status.savedMpesaPhoneNumber || storedOptionalPhoneNumber);
           }
           await Promise.all([
             refreshStudentContentState(nextSession),
@@ -645,6 +660,12 @@ export function useKitabuApp() {
       saveJson(STORAGE_KEYS.profile, userProfile).catch(() => undefined);
     }
   }, [userProfile, isReady]);
+
+  useEffect(() => {
+    if (isReady) {
+      saveJson(STORAGE_KEYS.optionalPhoneNumber, optionalPhoneNumber.trim()).catch(() => undefined);
+    }
+  }, [optionalPhoneNumber, isReady]);
 
   useEffect(() => {
     const hour = new Date().getHours();
@@ -745,8 +766,8 @@ export function useKitabuApp() {
         null
       );
     });
-    if (!checkoutPhoneNumber && status.savedMpesaPhoneNumber) {
-      setCheckoutPhoneNumber(status.savedMpesaPhoneNumber);
+    if (!checkoutPhoneNumber && (status.savedMpesaPhoneNumber || optionalPhoneNumber)) {
+      setCheckoutPhoneNumber(status.savedMpesaPhoneNumber || optionalPhoneNumber);
     }
   }
 
@@ -1370,26 +1391,49 @@ export function useKitabuApp() {
     setCheckoutStatusLabel(null);
     setActivePaymentRequestId(null);
     setIsTryOneBobOpen(false);
-    if (billingStatus.savedMpesaPhoneNumber && !checkoutPhoneNumber) {
-      setCheckoutPhoneNumber(billingStatus.savedMpesaPhoneNumber);
+    if (!checkoutPhoneNumber && (billingStatus.savedMpesaPhoneNumber || optionalPhoneNumber)) {
+      setCheckoutPhoneNumber(billingStatus.savedMpesaPhoneNumber || optionalPhoneNumber);
     }
     setSelectedPlanCode(null);
     setIsCheckoutOpen(true);
     triggerHaptic('impact');
   }
 
+  function canShowTryOneBobOffer() {
+    if (!authSession?.user.id) {
+      return false;
+    }
+
+    const lastSeenAt = tryOneBobOfferSeenAt[authSession.user.id] ?? 0;
+    return Date.now() - lastSeenAt >= TRY_ONE_BOB_SUPPRESSION_MS;
+  }
+
+  function markTryOneBobOfferSeen() {
+    if (!authSession?.user.id) {
+      return;
+    }
+
+    const nextSeenAt = {
+      ...tryOneBobOfferSeenAt,
+      [authSession.user.id]: Date.now(),
+    };
+    setTryOneBobOfferSeenAt(nextSeenAt);
+    saveJson(STORAGE_KEYS.tryOneBobOfferSeenAt, nextSeenAt).catch(() => undefined);
+  }
+
   function closeSubscriptionCheckout() {
     const shouldOfferTrial =
       Boolean(trialOfferPlan) &&
       !billingStatus.hasPaidBefore &&
-      !selectedPlanCode &&
       pendingSubscriptionIntent?.kind !== 'manage_subscription' &&
-      !activePaymentRequestId;
+      !activePaymentRequestId &&
+      canShowTryOneBobOffer();
 
     setIsCheckoutOpen(false);
     setCheckoutStatusLabel(null);
     setCheckoutError(null);
     if (shouldOfferTrial) {
+      markTryOneBobOfferSeen();
       setIsTryOneBobOpen(true);
     }
   }
@@ -1539,6 +1583,7 @@ export function useKitabuApp() {
   function openSignupEntry() {
     setAuthMode('signup');
     setAuthError(null);
+    setSignupRole(null);
     setAcceptedTerms(false);
     setAuthEntryScreen('auth');
   }
@@ -1582,6 +1627,9 @@ export function useKitabuApp() {
     try {
       if (!acceptedTerms) {
         throw new Error('You must accept the Terms of Service and Privacy Policy before creating an account.');
+      }
+      if (!signupRole) {
+        throw new Error('Choose an account role before creating an account.');
       }
 
       const session = await signupWithPassword({
@@ -2507,6 +2555,7 @@ export function useKitabuApp() {
       signupFullName,
       signupRole,
       acceptedTerms,
+      optionalPhoneNumber,
       authError,
       isAuthenticating,
       isSubmittingOnboarding,
@@ -2621,6 +2670,7 @@ export function useKitabuApp() {
       setSignupFullName,
       setSignupRole,
       setAcceptedTerms,
+      setOptionalPhoneNumber,
       setProfileOpen,
       setNotificationsOpen,
       setSelectedParentChildId,

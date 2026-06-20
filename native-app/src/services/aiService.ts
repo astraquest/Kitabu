@@ -214,8 +214,7 @@ export async function transcribeAudio(
     const payload = await readJsonResponse<{ text?: string }>(response, 'Invalid transcription response');
     return payload.text?.trim() ?? '';
   } catch (error) {
-    console.error('Transcription error:', error);
-    throw new Error('Failed to transcribe audio.');
+    throw new Error('Failed to transcribe audio.', { cause: error });
   }
 }
 

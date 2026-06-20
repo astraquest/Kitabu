@@ -52,6 +52,7 @@ export function CrazyBalloonScreen({
   const [searchQuery, setSearchQuery] = useState('');
   const [opponentName, setOpponentName] = useState<string | null>(null);
   const [opponentAvatar, setOpponentAvatar] = useState<string | null>(null);
+  const [showMonsterAttack, setShowMonsterAttack] = useState(false);
   const awardedStatusRef = useRef<string | null>(null);
   const view = runtime.state.status as GameView;
   const playMode = runtime.state.mode;
@@ -73,6 +74,16 @@ export function CrazyBalloonScreen({
     [runtime.state],
   );
   const effect = useCrazyBalloonEffects(runtime.events);
+
+  useEffect(() => {
+    if (!runtime.events.some(event => event.type === 'monster_attack')) {
+      return undefined;
+    }
+
+    setShowMonsterAttack(true);
+    const timer = setTimeout(() => setShowMonsterAttack(false), 950);
+    return () => clearTimeout(timer);
+  }, [runtime.events]);
 
   const filteredPlayers = useMemo(
     () =>
@@ -225,6 +236,24 @@ export function CrazyBalloonScreen({
             effect === 'score_pulse' && styles.effectScore,
           ]}
         />
+      ) : null}
+
+      {showMonsterAttack ? (
+        <View pointerEvents="none" style={styles.monsterAttackOverlay}>
+          <View style={styles.monsterAura}>
+            <View style={styles.monsterFace}>
+              <View style={styles.monsterEyeRow}>
+                <View style={styles.monsterEye} />
+                <View style={styles.monsterEye} />
+              </View>
+              <View style={styles.monsterMouth}>
+                <View style={styles.monsterTooth} />
+                <View style={styles.monsterTooth} />
+                <View style={styles.monsterTooth} />
+              </View>
+            </View>
+          </View>
+        </View>
       ) : null}
 
       {livesUsed > 0 && (view === 'playing' || view === 'rescue_quiz') ? (
@@ -495,6 +524,69 @@ const styles = StyleSheet.create({
   effectVictory: { backgroundColor: 'rgba(34,197,94,0.12)' },
   effectDefeat: { backgroundColor: 'rgba(127,29,29,0.16)' },
   effectScore: { backgroundColor: 'rgba(37,99,235,0.08)' },
+  monsterAttackOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    alignItems: 'center',
+    backgroundColor: 'rgba(15,23,42,0.22)',
+    justifyContent: 'center',
+    zIndex: 20,
+  },
+  monsterAura: {
+    alignItems: 'center',
+    backgroundColor: 'rgba(127,29,29,0.28)',
+    borderRadius: 220,
+    height: 360,
+    justifyContent: 'center',
+    transform: [{ scale: 1.18 }],
+    width: 360,
+  },
+  monsterFace: {
+    alignItems: 'center',
+    backgroundColor: '#111827',
+    borderColor: '#F97316',
+    borderRadius: 150,
+    borderWidth: 8,
+    height: 260,
+    justifyContent: 'center',
+    shadowColor: '#EF4444',
+    shadowOpacity: 0.45,
+    shadowRadius: 24,
+    shadowOffset: { width: 0, height: 16 },
+    width: 260,
+  },
+  monsterEyeRow: {
+    flexDirection: 'row',
+    gap: 54,
+    marginBottom: 30,
+  },
+  monsterEye: {
+    backgroundColor: '#FACC15',
+    borderRadius: 22,
+    height: 44,
+    width: 44,
+  },
+  monsterMouth: {
+    alignItems: 'flex-start',
+    backgroundColor: '#7F1D1D',
+    borderRadius: 45,
+    flexDirection: 'row',
+    gap: 18,
+    height: 72,
+    justifyContent: 'center',
+    overflow: 'hidden',
+    paddingTop: 0,
+    width: 150,
+  },
+  monsterTooth: {
+    width: 0,
+    height: 0,
+    borderLeftWidth: 12,
+    borderRightWidth: 12,
+    borderTopWidth: 30,
+    borderLeftColor: 'transparent',
+    borderRightColor: 'transparent',
+    borderTopColor: '#FFFFFF',
+  },
   lifeRow: {
     position: 'absolute',
     top: 56,

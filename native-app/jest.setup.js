@@ -1,6 +1,8 @@
 /* global jest */
 
-jest.mock('react-native-linear-gradient', () => 'LinearGradient');
+jest.mock('expo-linear-gradient', () => ({
+  LinearGradient: 'LinearGradient',
+}));
 
 jest.mock('@react-native-async-storage/async-storage', () => ({
   setItem: jest.fn(() => Promise.resolve()),
@@ -9,15 +11,90 @@ jest.mock('@react-native-async-storage/async-storage', () => ({
   clear: jest.fn(() => Promise.resolve()),
 }));
 
-jest.mock('react-native-haptic-feedback', () => ({
-  trigger: jest.fn(),
+jest.mock('expo-constants', () => ({
+  __esModule: true,
+  default: {
+    expoConfig: {
+      extra: {},
+    },
+  },
 }));
 
-jest.mock('@react-native-google-signin/google-signin', () => ({
-  GoogleSignin: {
-    configure: jest.fn(),
-    hasPlayServices: jest.fn(() => Promise.resolve(true)),
-    signIn: jest.fn(() => Promise.resolve({ type: 'cancelled', data: null })),
+jest.mock('expo-secure-store', () => ({
+  getItemAsync: jest.fn(() => Promise.resolve(null)),
+  setItemAsync: jest.fn(() => Promise.resolve()),
+}));
+
+jest.mock('expo-haptics', () => ({
+  ImpactFeedbackStyle: { Medium: 'Medium' },
+  NotificationFeedbackType: {
+    Success: 'Success',
+    Warning: 'Warning',
+    Error: 'Error',
   },
-  isSuccessResponse: jest.fn(response => response?.type === 'success'),
+  impactAsync: jest.fn(() => Promise.resolve()),
+  notificationAsync: jest.fn(() => Promise.resolve()),
+  selectionAsync: jest.fn(() => Promise.resolve()),
+}));
+
+jest.mock('expo-web-browser', () => ({
+  maybeCompleteAuthSession: jest.fn(),
+}));
+
+jest.mock('expo-crypto', () => ({
+  CryptoDigestAlgorithm: { SHA256: 'SHA-256' },
+  digestStringAsync: jest.fn(() => Promise.resolve('nonce')),
+}));
+
+jest.mock('expo-auth-session', () => {
+  const promptAsync = jest.fn(() => Promise.resolve({ type: 'cancel' }));
+  return {
+    ResponseType: { IdToken: 'id_token' },
+    makeRedirectUri: jest.fn(() => 'kitabu://redirect'),
+    fetchDiscoveryAsync: jest.fn(() => Promise.resolve({ authorizationEndpoint: 'https://accounts.google.com/auth' })),
+    AuthRequest: jest.fn().mockImplementation(config => ({
+      config,
+      makeAuthUrlAsync: jest.fn(() => Promise.resolve('https://accounts.google.com/auth')),
+      promptAsync,
+    })),
+    __promptAsync: promptAsync,
+  };
+});
+
+jest.mock('expo-speech', () => ({
+  speak: jest.fn(),
+  stop: jest.fn(),
+}));
+
+jest.mock('expo-audio', () => ({
+  requestRecordingPermissionsAsync: jest.fn(() => Promise.resolve({ granted: true })),
+  setAudioModeAsync: jest.fn(() => Promise.resolve()),
+  RecordingPresets: {
+    HIGH_QUALITY: {},
+  },
+  AudioModule: {
+    AudioRecorder: jest.fn().mockImplementation(() => ({
+      uri: 'file:///recording.m4a',
+      prepareToRecordAsync: jest.fn(() => Promise.resolve()),
+      record: jest.fn(),
+      stop: jest.fn(() => Promise.resolve()),
+    })),
+  },
+}));
+
+jest.mock('expo-document-picker', () => ({
+  getDocumentAsync: jest.fn(() => Promise.resolve({ canceled: true, assets: [] })),
+}));
+
+jest.mock('expo-image-picker', () => ({
+  MediaTypeOptions: { Images: 'Images' },
+  requestCameraPermissionsAsync: jest.fn(() => Promise.resolve({ granted: true })),
+  requestMediaLibraryPermissionsAsync: jest.fn(() => Promise.resolve({ granted: true })),
+  launchCameraAsync: jest.fn(() => Promise.resolve({ canceled: true, assets: [] })),
+  launchImageLibraryAsync: jest.fn(() => Promise.resolve({ canceled: true, assets: [] })),
+}));
+
+jest.mock('expo-file-system', () => ({
+  EncodingType: { Base64: 'base64' },
+  readAsStringAsync: jest.fn(() => Promise.resolve('')),
 }));

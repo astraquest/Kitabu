@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import * as Keychain from 'react-native-keychain';
+import * as SecureStore from 'expo-secure-store';
 
 const memoryStore = new Map<string, string>();
 const securePrefix = 'secure:';
@@ -24,13 +24,11 @@ async function withTimeout<T>(operation: Promise<T>, timeoutMs: number): Promise
 
 async function getSecureItem(key: string) {
   try {
-    const credentials = await withTimeout(
-      Keychain.getGenericPassword({
-        service: `${securePrefix}${key}`,
-      }),
+    const value = await withTimeout(
+      SecureStore.getItemAsync(`${securePrefix}${key}`),
       SECURE_STORAGE_TIMEOUT_MS,
     );
-    return credentials ? credentials.password : null;
+    return value ?? null;
   } catch {
     return null;
   }
@@ -41,10 +39,7 @@ async function setSecureItem(key: string, value: string) {
 
   try {
     await withTimeout(
-      Keychain.setGenericPassword(key, value, {
-        service: `${securePrefix}${key}`,
-        accessible: Keychain.ACCESSIBLE.WHEN_UNLOCKED_THIS_DEVICE_ONLY,
-      }),
+      SecureStore.setItemAsync(`${securePrefix}${key}`, value),
       SECURE_STORAGE_TIMEOUT_MS,
     );
   } catch {

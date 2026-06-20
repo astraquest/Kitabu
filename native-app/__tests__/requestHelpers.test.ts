@@ -29,6 +29,12 @@ test('keeps normal API messages intact', () => {
   );
 });
 
+test('maps authentication failures to sign-in guidance', () => {
+  expect(getUserFacingApiError({ message: 'Authentication required' })).toBe(
+    'Please sign in again to continue.',
+  );
+});
+
 test('masks internal JavaScript errors from users', () => {
   expect(
     getUserFacingApiError({ message: "Cannot read property 'accessToken' of null" }),

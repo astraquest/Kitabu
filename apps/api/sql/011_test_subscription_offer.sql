@@ -10,9 +10,9 @@ INSERT INTO subscription_plans (
 VALUES (
   '30000000-0000-0000-0000-000000000099',
   'trial_monthly_1bob',
-  'Test Monthly',
+  'Try for 1 Bob',
   'monthly',
-  500,
+  100,
   TRUE,
   TRUE
 )

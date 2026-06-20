@@ -1,53 +1,55 @@
-import { NativeModules } from 'react-native';
-
 describe('googleAuthService', () => {
   beforeEach(() => {
     jest.resetModules();
     jest.clearAllMocks();
-    delete NativeModules.KitabuAuthConfig;
+    delete process.env.EXPO_PUBLIC_KITABU_GOOGLE_WEB_CLIENT_ID;
+    delete process.env.KITABU_GOOGLE_WEB_CLIENT_ID;
   });
 
   test('fails clearly when the build has no Google web client ID', async () => {
     const { requestGoogleIdToken } = require('../src/services/googleAuthService');
-    const { GoogleSignin } = require('@react-native-google-signin/google-signin');
+    const AuthSession = require('expo-auth-session');
 
     await expect(requestGoogleIdToken()).rejects.toThrow(
       'Google sign-in is not configured for this app build.',
     );
-    expect(GoogleSignin.configure).not.toHaveBeenCalled();
+    expect(AuthSession.AuthRequest).not.toHaveBeenCalled();
   });
 
-  test('configures Google sign-in and returns the ID token', async () => {
-    NativeModules.KitabuAuthConfig = { googleWebClientId: 'web-client-id.apps.googleusercontent.com' };
-    const googleSignInModule = require('@react-native-google-signin/google-signin');
-    const { GoogleSignin } = googleSignInModule;
-    (GoogleSignin.signIn as jest.Mock).mockResolvedValue({
+  test('starts an Expo auth session and returns the ID token', async () => {
+    process.env.EXPO_PUBLIC_KITABU_GOOGLE_WEB_CLIENT_ID = 'web-client-id.apps.googleusercontent.com';
+    const AuthSession = require('expo-auth-session');
+    AuthSession.__promptAsync.mockResolvedValue({
       type: 'success',
-      data: { idToken: 'verified-google-id-token' },
+      params: { id_token: 'verified-google-id-token' },
     });
     const { requestGoogleIdToken } = require('../src/services/googleAuthService');
 
     await expect(requestGoogleIdToken()).resolves.toBe('verified-google-id-token');
-    expect(GoogleSignin.configure).toHaveBeenCalledWith({
-      webClientId: 'web-client-id.apps.googleusercontent.com',
-    });
+    expect(AuthSession.AuthRequest).toHaveBeenCalledWith(
+      expect.objectContaining({
+        clientId: 'web-client-id.apps.googleusercontent.com',
+        responseType: AuthSession.ResponseType.IdToken,
+        scopes: ['openid', 'email', 'profile'],
+      }),
+    );
   });
 
   test('fails clearly when Google sign-in is cancelled', async () => {
-    NativeModules.KitabuAuthConfig = { googleWebClientId: 'web-client-id.apps.googleusercontent.com' };
-    const { GoogleSignin } = require('@react-native-google-signin/google-signin');
-    (GoogleSignin.signIn as jest.Mock).mockResolvedValue({ type: 'cancelled', data: null });
+    process.env.EXPO_PUBLIC_KITABU_GOOGLE_WEB_CLIENT_ID = 'web-client-id.apps.googleusercontent.com';
+    const AuthSession = require('expo-auth-session');
+    AuthSession.__promptAsync.mockResolvedValue({ type: 'cancel' });
     const { requestGoogleIdToken } = require('../src/services/googleAuthService');
 
     await expect(requestGoogleIdToken()).rejects.toThrow('Google sign-in was cancelled.');
   });
 
   test('fails clearly when Google returns no ID token', async () => {
-    NativeModules.KitabuAuthConfig = { googleWebClientId: 'web-client-id.apps.googleusercontent.com' };
-    const { GoogleSignin } = require('@react-native-google-signin/google-signin');
-    (GoogleSignin.signIn as jest.Mock).mockResolvedValue({
+    process.env.EXPO_PUBLIC_KITABU_GOOGLE_WEB_CLIENT_ID = 'web-client-id.apps.googleusercontent.com';
+    const AuthSession = require('expo-auth-session');
+    AuthSession.__promptAsync.mockResolvedValue({
       type: 'success',
-      data: { idToken: null },
+      params: {},
     });
     const { requestGoogleIdToken } = require('../src/services/googleAuthService');
 

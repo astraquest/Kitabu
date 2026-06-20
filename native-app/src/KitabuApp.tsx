@@ -42,8 +42,50 @@ import { StudentOnboardingScreen } from './screens/StudentOnboardingScreen';
 import { TakeQuizScreen } from './screens/TakeQuizScreen';
 import { TeacherPortalScreen } from './screens/TeacherPortalScreen';
 import { WeeklyExamScreen } from './screens/WeeklyExamScreen';
+import { PreviewDiagnosticQuestion } from './screens/DiagnosticScreen';
 
 const splashImage = require('./assets/splashscreen.png');
+
+const PREVIEW_DIAGNOSTIC_QUESTIONS: PreviewDiagnosticQuestion[] = [
+  {
+    id: 'preview-math-fractions',
+    subjectId: 'mathematics',
+    subjectName: 'Mathematics',
+    subStrandKey: 'fractions',
+    prompt: 'What is 1/2 + 1/4?',
+    options: ['1/6', '2/6', '3/4', '1/8'],
+    correctAnswer: '3/4',
+    difficulty: 2,
+    timeLimitSeconds: 90,
+  },
+  {
+    id: 'preview-english-nouns',
+    subjectId: 'english',
+    subjectName: 'English',
+    subStrandKey: 'grammar',
+    prompt: 'Which word is a noun in this sentence: The teacher opened the book?',
+    options: ['opened', 'teacher', 'the', 'quickly'],
+    correctAnswer: 'teacher',
+    difficulty: 1,
+    timeLimitSeconds: 90,
+  },
+  {
+    id: 'preview-math-place-value',
+    subjectId: 'mathematics',
+    subjectName: 'Mathematics',
+    subStrandKey: 'place-value',
+    prompt: 'What is the value of 7 in 4,725?',
+    options: ['7', '70', '700', '7,000'],
+    correctAnswer: '700',
+    difficulty: 2,
+    timeLimitSeconds: 90,
+  },
+];
+
+function shouldShowDiagnosticPreview() {
+  const location = (globalThis as { location?: { search?: string } }).location;
+  return Boolean(__DEV__ && location?.search?.includes('previewDiagnostic=1'));
+}
 
 function AppSafeArea({ children }: { children: React.ReactNode }) {
   return (
@@ -58,6 +100,18 @@ export function KitabuApp() {
   const { state, actions } = useKitabuApp();
   const usesStudentHeader = shouldUseStudentHeader(state.currentView);
   const usesStandaloneScreen = shouldUseStandaloneScreen(state.currentView);
+  const showDiagnosticPreview = shouldShowDiagnosticPreview();
+
+  if (showDiagnosticPreview) {
+    return (
+      <AppSafeArea>
+        <DiagnosticScreen
+          previewQuestions={PREVIEW_DIAGNOSTIC_QUESTIONS}
+          onComplete={() => undefined}
+        />
+      </AppSafeArea>
+    );
+  }
 
   if (!state.isReady) {
     return (
@@ -90,6 +144,7 @@ export function KitabuApp() {
           fullName={state.signupFullName}
           signupRole={state.signupRole}
           acceptedTerms={state.acceptedTerms}
+          optionalPhoneNumber={state.optionalPhoneNumber}
           error={state.authError}
           isSubmitting={state.isAuthenticating}
           onModeChange={actions.setAuthMode}
@@ -98,6 +153,7 @@ export function KitabuApp() {
           onFullNameChange={actions.setSignupFullName}
           onSignupRoleChange={actions.setSignupRole}
           onAcceptedTermsChange={actions.setAcceptedTerms}
+          onOptionalPhoneNumberChange={actions.setOptionalPhoneNumber}
           onAuthenticated={actions.completeProviderAuthentication}
           onSubmit={state.authMode === 'login' ? actions.signIn : actions.signUp}
         />

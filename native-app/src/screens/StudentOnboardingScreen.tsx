@@ -9,7 +9,7 @@ import {
   TextInput,
   View,
 } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import { LinearGradient } from 'expo-linear-gradient';
 
 import { DEFAULT_GRADE, SUPPORTED_GRADES } from '../constants/grades';
 import { triggerHaptic } from '../services/haptics';

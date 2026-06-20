@@ -45,6 +45,11 @@ function trimOptionalSecret(value: string | undefined) {
   return trimmed?.startsWith('PASTE_') ? undefined : trimmed;
 }
 
+const standardOpenAiApiKey = trimOptionalSecret(process.env.OPENAI_API_KEY);
+if (!trimOptionalSecret(process.env.KITABU_OPENAI_API_KEY) && standardOpenAiApiKey) {
+  process.env.KITABU_OPENAI_API_KEY = standardOpenAiApiKey;
+}
+
 const configSchema = z.object({
   KITABU_RUNTIME_ENV: z.string().default(runtimeEnv),
   KITABU_NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
@@ -52,8 +57,12 @@ const configSchema = z.object({
   KITABU_PORT: z.coerce.number().int().positive().default(Number(defaultPort)),
   KITABU_TRUST_PROXY: booleanish.default(false),
   KITABU_ENABLE_API_DOCS: booleanish.default(false),
-  KITABU_BODY_LIMIT_BYTES: z.coerce.number().int().positive().default(1024 * 1024),
+  KITABU_BODY_LIMIT_BYTES: z.coerce.number().int().positive().default(16 * 1024 * 1024),
   KITABU_DATABASE_URL: z.string().min(1),
+  KITABU_DATABASE_POOL_MAX: z.coerce.number().int().positive().default(10),
+  KITABU_DATABASE_IDLE_TIMEOUT_MS: z.coerce.number().int().positive().default(10_000),
+  KITABU_DATABASE_CONNECTION_TIMEOUT_MS: z.coerce.number().int().positive().default(5_000),
+  KITABU_DATABASE_STATEMENT_TIMEOUT_MS: z.coerce.number().int().positive().default(30_000),
   KITABU_REDIS_URL: z.string().min(1),
   KITABU_JWT_ISSUER: z.string().min(1),
   KITABU_JWT_AUDIENCE: z.string().min(1),
@@ -63,8 +72,8 @@ const configSchema = z.object({
   KITABU_JWT_PRIVATE_KEY: z.string().min(1),
   KITABU_JWT_PUBLIC_KEY: z.string().min(1),
   KITABU_OPENAI_API_KEY: z.string().optional(),
-  KITABU_OPENAI_STUDENT_MODEL: z.string().default('gpt-5.4-nano'),
-  KITABU_OPENAI_REASONING_MODEL: z.string().default('gpt-5.1'),
+  KITABU_OPENAI_STUDENT_MODEL: z.string().default('gpt-5.4-mini'),
+  KITABU_OPENAI_REASONING_MODEL: z.string().default('gpt-5.5'),
   KITABU_OPENAI_REASONING_EFFORT: z.enum(['minimal', 'low', 'medium', 'high']).default('medium'),
   KITABU_OPENAI_TRANSCRIPTION_MODEL: z.string().default('whisper-1'),
   KITABU_GROQ_API_KEY: z.string().optional(),
@@ -151,6 +160,13 @@ appConfig.KITABU_NVIDIA_NEMOTRON_ULTRA_MODEL = appConfig.KITABU_NVIDIA_NEMOTRON_
 appConfig.KITABU_GEMINI_API_KEY = trimOptionalSecret(appConfig.KITABU_GEMINI_API_KEY);
 appConfig.KITABU_GEMINI_MODEL = appConfig.KITABU_GEMINI_MODEL.trim();
 appConfig.KITABU_GOOGLE_CLIENT_IDS = appConfig.KITABU_GOOGLE_CLIENT_IDS.trim();
+appConfig.KITABU_MPESA_CONSUMER_KEY = trimOptionalSecret(appConfig.KITABU_MPESA_CONSUMER_KEY);
+appConfig.KITABU_MPESA_CONSUMER_SECRET = trimOptionalSecret(appConfig.KITABU_MPESA_CONSUMER_SECRET);
+appConfig.KITABU_MPESA_SHORTCODE = trimOptionalSecret(appConfig.KITABU_MPESA_SHORTCODE);
+appConfig.KITABU_MPESA_PASSKEY = trimOptionalSecret(appConfig.KITABU_MPESA_PASSKEY);
+appConfig.KITABU_MPESA_CALLBACK_URL = appConfig.KITABU_MPESA_CALLBACK_URL.trim();
+appConfig.KITABU_MPESA_ACCOUNT_REFERENCE = appConfig.KITABU_MPESA_ACCOUNT_REFERENCE.trim();
+appConfig.KITABU_MPESA_TRANSACTION_DESC = appConfig.KITABU_MPESA_TRANSACTION_DESC.trim();
 appConfig.KITABU_AFRICASTALKING_USERNAME = trimOptional(appConfig.KITABU_AFRICASTALKING_USERNAME);
 appConfig.KITABU_AFRICASTALKING_API_KEY = trimOptional(appConfig.KITABU_AFRICASTALKING_API_KEY);
 appConfig.KITABU_AFRICASTALKING_SENDER_ID = trimOptional(appConfig.KITABU_AFRICASTALKING_SENDER_ID);

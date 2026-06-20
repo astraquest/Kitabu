@@ -4,16 +4,12 @@ import ReactTestRenderer, { act } from 'react-test-renderer';
 import { LoginScreen } from '../src/screens/LoginScreen';
 import {
   authenticateWithGoogleToken,
-  requestPhoneAuthCode,
-  verifyPhoneAuthCode,
 } from '../src/services/authService';
 import { requestGoogleIdToken } from '../src/services/googleAuthService';
 import type { AuthSession } from '../src/types/app';
 
 jest.mock('../src/services/authService', () => ({
   requestPasswordReset: jest.fn(),
-  requestPhoneAuthCode: jest.fn(),
-  verifyPhoneAuthCode: jest.fn(),
   authenticateWithGoogleToken: jest.fn(),
 }));
 
@@ -53,6 +49,7 @@ async function renderLogin(
       fullName=""
       signupRole="parent"
       acceptedTerms={false}
+      optionalPhoneNumber=""
       isSubmitting={false}
       onModeChange={jest.fn()}
       onEmailChange={jest.fn()}
@@ -60,6 +57,7 @@ async function renderLogin(
       onFullNameChange={jest.fn()}
       onSignupRoleChange={jest.fn()}
       onAcceptedTermsChange={jest.fn()}
+      onOptionalPhoneNumberChange={jest.fn()}
       onAuthenticated={onAuthenticated}
       onSubmit={jest.fn()}
       {...overrides}
@@ -68,42 +66,18 @@ async function renderLogin(
   return { renderer: renderer!, onAuthenticated };
 }
 
-test('requests and verifies a phone OTP', async () => {
-  (requestPhoneAuthCode as jest.Mock).mockResolvedValue({
-    message: 'sent',
-    expiresInSeconds: 600,
-    developmentCode: '123456',
-  });
-  (verifyPhoneAuthCode as jest.Mock).mockResolvedValue(session);
-  const { renderer, onAuthenticated } = await renderLogin();
-
+async function continueAsParent(renderer: ReactTestRenderer.ReactTestRenderer) {
   await act(async () => {
-    renderer.root.findByProps({ accessibilityLabel: 'Use phone' }).props.onPress();
+    renderer.root.findByProps({ accessibilityLabel: 'Continue as Parent' }).props.onPress();
   });
-  await act(async () => {
-    renderer.root.findByProps({ placeholder: '07xx xxx xxx' }).props.onChangeText('0700000001');
-  });
-  await act(async () => {
-    await renderer.root.findByProps({ accessibilityLabel: 'Send verification code' }).props.onPress();
-  });
-  await act(async () => {
-    await renderer.root.findByProps({ accessibilityLabel: 'Verify and continue' }).props.onPress();
-  });
-
-  expect(requestPhoneAuthCode).toHaveBeenCalledWith({ purpose: 'login', phoneNumber: '0700000001' });
-  expect(verifyPhoneAuthCode).toHaveBeenCalledWith({
-    purpose: 'login',
-    phoneNumber: '0700000001',
-    code: '123456',
-  });
-  expect(onAuthenticated).toHaveBeenCalledWith(session);
-});
+}
 
 test('hands a Google ID token to the API', async () => {
   (requestGoogleIdToken as jest.Mock).mockResolvedValue('google-id-token');
   (authenticateWithGoogleToken as jest.Mock).mockResolvedValue(session);
   const { renderer, onAuthenticated } = await renderLogin();
 
+  await continueAsParent(renderer);
   await act(async () => {
     await renderer.root.findByProps({ accessibilityLabel: 'Continue with Google' }).props.onPress();
   });
@@ -112,26 +86,62 @@ test('hands a Google ID token to the API', async () => {
   expect(onAuthenticated).toHaveBeenCalledWith(session);
 });
 
-test('phone signup requires accepted terms before requesting an OTP', async () => {
+test('shows Google before email and keeps phone as an optional saved field', async () => {
+  const onOptionalPhoneNumberChange = jest.fn();
+  const { renderer } = await renderLogin(jest.fn(), {
+    optionalPhoneNumber: '0716175485',
+    onOptionalPhoneNumberChange,
+  });
+
+  await continueAsParent(renderer);
+
+  expect(renderer.root.findAllByProps({ accessibilityLabel: 'Use phone' })).toHaveLength(0);
+  expect(renderer.root.findByProps({ accessibilityLabel: 'Continue with Google' })).toBeTruthy();
+  expect(renderer.root.findByProps({ placeholder: 'Email' })).toBeTruthy();
+  expect(renderer.root.findByProps({ children: 'Phone number (optional)' })).toBeTruthy();
+  expect(renderer.root.findByProps({ value: '0716175485' })).toBeTruthy();
+
+  await act(async () => {
+    renderer.root.findByProps({ value: '0716175485' }).props.onChangeText('0716000000');
+  });
+
+  expect(onOptionalPhoneNumberChange).toHaveBeenCalledWith('0716000000');
+});
+
+test('signup role choices start unselected', async () => {
   const { renderer } = await renderLogin(jest.fn(), {
     mode: 'signup',
-    fullName: 'Test Parent',
-    signupRole: 'parent',
-    acceptedTerms: false,
+    signupRole: null,
+  });
+
+  expect(renderer.root.findByProps({ children: 'Choose your role' })).toBeTruthy();
+  expect(
+    renderer.root.findByProps({ accessibilityLabel: 'Continue as Student' }).props.accessibilityState,
+  ).toEqual({ selected: false });
+  expect(
+    renderer.root.findByProps({ accessibilityLabel: 'Continue as Teacher' }).props.accessibilityState,
+  ).toEqual({ selected: false });
+  expect(
+    renderer.root.findByProps({ accessibilityLabel: 'Continue as Parent' }).props.accessibilityState,
+  ).toEqual({ selected: false });
+});
+
+test('switching from login to signup clears the selected role', async () => {
+  const onModeChange = jest.fn();
+  const onSignupRoleChange = jest.fn();
+  const { renderer } = await renderLogin(jest.fn(), {
+    mode: 'login',
+    signupRole: 'student',
+    onModeChange,
+    onSignupRoleChange,
   });
 
   await act(async () => {
-    renderer.root.findByProps({ accessibilityLabel: 'Use phone' }).props.onPress();
-  });
-  await act(async () => {
-    renderer.root.findByProps({ placeholder: '07xx xxx xxx' }).props.onChangeText('0700000002');
-  });
-  await act(async () => {
-    await renderer.root.findByProps({ accessibilityLabel: 'Send verification code' }).props.onPress();
+    renderer.root.findByProps({ accessibilityLabel: 'Switch to sign up' }).props.onPress();
   });
 
-  expect(requestPhoneAuthCode).not.toHaveBeenCalled();
-  expect(renderer.root.findByProps({ children: 'Accept the Terms of Service and Privacy Policy before creating an account.' })).toBeTruthy();
+  expect(onSignupRoleChange).toHaveBeenCalledWith(null);
+  expect(onModeChange).toHaveBeenCalledWith('signup');
 });
 
 test('email signup requires accepted terms before submitting', async () => {
@@ -144,6 +154,7 @@ test('email signup requires accepted terms before submitting', async () => {
     onSubmit,
   });
 
+  await continueAsParent(renderer);
   await act(async () => {
     await renderer.root.findByProps({ accessibilityLabel: 'Create account' }).props.onPress();
   });
@@ -162,6 +173,7 @@ test('email signup requires a full name before submitting', async () => {
     onSubmit,
   });
 
+  await continueAsParent(renderer);
   await act(async () => {
     await renderer.root.findByProps({ accessibilityLabel: 'Create account' }).props.onPress();
   });
@@ -180,107 +192,12 @@ test('email signup submits after local prerequisites pass', async () => {
     onSubmit,
   });
 
+  await continueAsParent(renderer);
   await act(async () => {
     await renderer.root.findByProps({ accessibilityLabel: 'Create account' }).props.onPress();
   });
 
   expect(onSubmit).toHaveBeenCalledTimes(1);
-});
-
-test('phone signup requires a full name before requesting an OTP', async () => {
-  const { renderer } = await renderLogin(jest.fn(), {
-    mode: 'signup',
-    fullName: '   ',
-    signupRole: 'parent',
-    acceptedTerms: true,
-  });
-
-  await act(async () => {
-    renderer.root.findByProps({ accessibilityLabel: 'Use phone' }).props.onPress();
-  });
-  await act(async () => {
-    renderer.root.findByProps({ placeholder: '07xx xxx xxx' }).props.onChangeText('0700000002');
-  });
-  await act(async () => {
-    await renderer.root.findByProps({ accessibilityLabel: 'Send verification code' }).props.onPress();
-  });
-
-  expect(requestPhoneAuthCode).not.toHaveBeenCalled();
-  expect(renderer.root.findByProps({ children: 'Enter your full name to create an account.' })).toBeTruthy();
-});
-
-test('phone signup sends role and terms payload before verifying OTP', async () => {
-  (requestPhoneAuthCode as jest.Mock).mockResolvedValue({
-    message: 'sent',
-    expiresInSeconds: 600,
-    developmentCode: '654321',
-  });
-  (verifyPhoneAuthCode as jest.Mock).mockResolvedValue(session);
-  const { renderer, onAuthenticated } = await renderLogin(jest.fn(), {
-    mode: 'signup',
-    fullName: 'Test Parent',
-    signupRole: 'parent',
-    acceptedTerms: true,
-  });
-
-  await act(async () => {
-    renderer.root.findByProps({ accessibilityLabel: 'Use phone' }).props.onPress();
-  });
-  await act(async () => {
-    renderer.root.findByProps({ placeholder: '07xx xxx xxx' }).props.onChangeText('0700000002');
-  });
-  await act(async () => {
-    await renderer.root.findByProps({ accessibilityLabel: 'Send verification code' }).props.onPress();
-  });
-  await act(async () => {
-    await renderer.root.findByProps({ accessibilityLabel: 'Verify and continue' }).props.onPress();
-  });
-
-  expect(requestPhoneAuthCode).toHaveBeenCalledWith({
-    purpose: 'signup',
-    phoneNumber: '0700000002',
-    fullName: 'Test Parent',
-    role: 'parent',
-    acceptedTerms: true,
-  });
-  expect(verifyPhoneAuthCode).toHaveBeenCalledWith({
-    purpose: 'signup',
-    phoneNumber: '0700000002',
-    code: '654321',
-  });
-  expect(onAuthenticated).toHaveBeenCalledWith(session);
-});
-
-test('phone login accepts a manually entered OTP when no development code is returned', async () => {
-  (requestPhoneAuthCode as jest.Mock).mockResolvedValue({
-    message: 'Verification code sent.',
-    expiresInSeconds: 600,
-  });
-  (verifyPhoneAuthCode as jest.Mock).mockResolvedValue(session);
-  const { renderer, onAuthenticated } = await renderLogin();
-
-  await act(async () => {
-    renderer.root.findByProps({ accessibilityLabel: 'Use phone' }).props.onPress();
-  });
-  await act(async () => {
-    renderer.root.findByProps({ placeholder: '07xx xxx xxx' }).props.onChangeText('0700000001');
-  });
-  await act(async () => {
-    await renderer.root.findByProps({ accessibilityLabel: 'Send verification code' }).props.onPress();
-  });
-  await act(async () => {
-    renderer.root.findByProps({ placeholder: '6-digit code' }).props.onChangeText('112233');
-  });
-  await act(async () => {
-    await renderer.root.findByProps({ accessibilityLabel: 'Verify and continue' }).props.onPress();
-  });
-
-  expect(verifyPhoneAuthCode).toHaveBeenCalledWith({
-    purpose: 'login',
-    phoneNumber: '0700000001',
-    code: '112233',
-  });
-  expect(onAuthenticated).toHaveBeenCalledWith(session);
 });
 
 test('Google signup requires accepted terms before requesting a token', async () => {
@@ -290,6 +207,7 @@ test('Google signup requires accepted terms before requesting a token', async ()
     acceptedTerms: false,
   });
 
+  await continueAsParent(renderer);
   await act(async () => {
     await renderer.root.findByProps({ accessibilityLabel: 'Continue with Google' }).props.onPress();
   });
@@ -308,6 +226,7 @@ test('Google signup sends role and terms payload to the API', async () => {
     acceptedTerms: true,
   });
 
+  await continueAsParent(renderer);
   await act(async () => {
     await renderer.root.findByProps({ accessibilityLabel: 'Continue with Google' }).props.onPress();
   });

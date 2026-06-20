@@ -168,6 +168,10 @@ export function getUserFacingApiError(payload: unknown, fallbackMessage = 'Reque
   const internalErrorPattern =
     /(cannot read propert|undefined is not an object|is not a function|typeerror|referenceerror|syntaxerror)/i;
 
+  if (rawMessage && /^authentication required\.?$/i.test(rawMessage.trim())) {
+    return 'Please sign in again to continue.';
+  }
+
   if (rawMessage && internalErrorPattern.test(rawMessage)) {
     return fallbackMessage;
   }
@@ -222,6 +226,9 @@ export async function apiJsonRequest<T>(path: string, options: RequestInit = {})
 
   const payload = await readJsonResponse<T>(response);
   if (!response.ok) {
+    if (response.status === 401) {
+      await saveSecureJson(AUTH_SESSION_STORAGE_KEY, null);
+    }
     throw new Error(getUserFacingApiError(payload));
   }
 

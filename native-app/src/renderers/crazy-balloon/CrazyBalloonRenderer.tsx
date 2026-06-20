@@ -31,12 +31,8 @@ export function CrazyBalloonRenderer({
               bottom: `${balloon.bottomPct}%`,
               backgroundColor: balloon.color,
             },
-            balloon.label === 'hazard' && styles.hazardBalloon,
           ]}>
           <View style={styles.balloonShine} />
-          {balloon.label === 'hazard' ? (
-            <Text style={styles.hazardMark}>!</Text>
-          ) : null}
           <View style={styles.balloonKnot} />
           <View style={styles.balloonString} />
         </Pressable>
@@ -112,10 +108,6 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
     shadowOffset: { width: 0, height: 6 },
   },
-  hazardBalloon: {
-    borderColor: 'rgba(15,23,42,0.5)',
-    borderWidth: 3,
-  },
   balloonShine: {
     position: 'absolute',
     left: 14,
@@ -124,11 +116,6 @@ const styles = StyleSheet.create({
     height: 22,
     borderRadius: 999,
     backgroundColor: 'rgba(255,255,255,0.42)',
-  },
-  hazardMark: {
-    color: '#FFFFFF',
-    fontSize: 30,
-    fontWeight: '900',
   },
   balloonKnot: {
     position: 'absolute',

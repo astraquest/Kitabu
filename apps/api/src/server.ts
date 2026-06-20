@@ -30,6 +30,7 @@ import {
   verifyPassword,
   verifyTotpToken
 } from './auth.js';
+import { registerLiveAudioStreamRoutes } from './liveAudioStream.js';
 import {
   type CurriculumStrandInput,
   createBannerAnnouncement,
@@ -157,6 +158,7 @@ import {
   formatKenyanPhoneNumber,
   initiateStkPush,
   maskKenyanPhoneNumber,
+  MpesaProviderError,
   type BillingPlanCode
 } from './payments.js';
 
@@ -646,6 +648,32 @@ function escapeHtml(value: string) {
     .replaceAll("'", '&#39;');
 }
 
+const SENSITIVE_QUERY_KEYS = new Set([
+  'access_token',
+  'code',
+  'id_token',
+  'newpassword',
+  'password',
+  'refresh_token',
+  'refreshtoken',
+  'secret',
+  'token'
+]);
+
+function redactRequestUrl(rawUrl: string) {
+  try {
+    const parsed = new URL(rawUrl, 'http://kitabu.local');
+    parsed.searchParams.forEach((_value, key) => {
+      if (SENSITIVE_QUERY_KEYS.has(key.toLowerCase())) {
+        parsed.searchParams.set(key, '[redacted]');
+      }
+    });
+    return `${parsed.pathname}${parsed.search}`;
+  } catch {
+    return rawUrl.includes('?') ? `${rawUrl.slice(0, rawUrl.indexOf('?'))}?[redacted]` : rawUrl;
+  }
+}
+
 function renderHandoffPage(args: {
   title: string;
   message: string;
@@ -908,7 +936,7 @@ export function buildServer(options: BuildServerOptions = {}) {
           return {
             id: request.id,
             method: request.method,
-            url: request.url,
+            url: redactRequestUrl(request.url),
             route: request.routeOptions?.url,
             remoteAddress: request.ip
           };
@@ -923,6 +951,8 @@ export function buildServer(options: BuildServerOptions = {}) {
     trustProxy: appConfig.KITABU_TRUST_PROXY,
     bodyLimit: appConfig.KITABU_BODY_LIMIT_BYTES
   });
+
+  registerLiveAudioStreamRoutes(app);
 
   app.register(cors, {
     origin: [appConfig.KITABU_ADMIN_WEB_ORIGIN]
@@ -963,7 +993,20 @@ export function buildServer(options: BuildServerOptions = {}) {
       });
     }
 
-    return reply.send(error);
+    const httpError = error as { statusCode?: number; name?: string; message?: string };
+    const statusCode = typeof httpError.statusCode === 'number' ? httpError.statusCode : 500;
+    if (statusCode < 500) {
+      return reply.status(statusCode).send({
+        error: httpError.name || 'Request Error',
+        message: httpError.message || 'Request failed'
+      });
+    }
+
+    request.log.error({ error }, 'Unhandled request error');
+    return reply.status(500).send({
+      error: 'Internal Server Error',
+      message: 'Something went wrong. Please try again.'
+    });
   });
 
   app.addHook('onRequest', async (request) => {
@@ -1558,7 +1601,22 @@ Requirements:
       };
     }
 
-    const executionPlans = resolveAiExecutionPlans(args.body);
+    let executionPlans;
+    try {
+      executionPlans = resolveAiExecutionPlans(args.body);
+    } catch (error) {
+      args.reply.status(503);
+      return {
+        error: {
+          message:
+            error instanceof Error && error.message === 'No AI provider is configured'
+              ? 'No AI provider is configured. Set KITABU_OPENAI_API_KEY or OPENAI_API_KEY on the API server.'
+              : 'AI assistance is currently unavailable. Please try again later.'
+        },
+        text: null,
+        subscription: subscriptionCheck.subscription
+      };
+    }
     const executionPlan = executionPlans[0];
     const promptVersion = resolvePromptVersion(args.body.feature);
     const subscription = subscriptionCheck.subscription;
@@ -4295,11 +4353,11 @@ Return valid JSON with this shape:
       return authError;
     }
 
-    const [schoolPricing, hiddenTrialPlan] = await Promise.all([
+    const [schoolPricing, hiddenTrialPlan, hasPaidBefore] = await Promise.all([
       findSchoolPricingForUser(request.user!.id),
-      findSubscriptionPlanByCode('trial_monthly_1bob')
+      findSubscriptionPlanByCode('trial_monthly_1bob'),
+      hasSuccessfulPayments(request.user!.id)
     ]);
-    const canUseTestSubscription = isTestAccountUser(request.user!);
 
     const isSchoolManaged =
       Boolean(schoolPricing) &&
@@ -4337,12 +4395,12 @@ Return valid JSON with this shape:
       plans,
       school: isSchoolManaged && schoolPricing ? serializeSchool(schoolPricing) : null,
       trialOffer:
-        canUseTestSubscription && hiddenTrialPlan
+        !hasPaidBefore && hiddenTrialPlan
           ? serializePlan({
               code: hiddenTrialPlan.code,
-              name: hiddenTrialPlan.name,
+              name: 'Try for 1 Bob',
               billingCycle: hiddenTrialPlan.billing_cycle,
-              priceKshCents: Number(hiddenTrialPlan.price_ksh_cents)
+              priceKshCents: 100
             })
           : null
     };
@@ -4413,9 +4471,10 @@ Return valid JSON with this shape:
     let amountKshCents = Number(plan.price_ksh_cents);
 
     if (body.planCode === 'trial_monthly_1bob') {
-      if (!isTestAccountUser(request.user!)) {
-        return reply.forbidden('This test subscription is only available for Kitabu test accounts');
+      if (hasPaidBefore || activeSubscription) {
+        return reply.forbidden('The 1 bob trial is only available before your first subscription payment');
       }
+      amountKshCents = 100;
     } else if (isSchoolManaged && schoolPricing) {
       if (body.planCode !== schoolPricing.assigned_plan_code) {
         return reply.forbidden('Your school account can only use the assigned subscription package');
@@ -4488,19 +4547,35 @@ Return valid JSON with this shape:
         maskedMpesaPhoneNumber: maskKenyanPhoneNumber(normalizedPhoneNumber)
       };
     } catch (error) {
+      const resultDesc = error instanceof Error ? error.message : 'Unable to initiate STK push';
+      const providerError = error instanceof MpesaProviderError ? error : null;
+
+      request.log.error({
+        err: error,
+        paymentRequestId,
+        providerStatus: providerError?.providerStatus,
+        providerResponse: providerError?.providerResponse
+      }, 'M-Pesa checkout initiation failed');
+
       await withTransaction(async client => {
         await markPaymentRequestFailed(client, paymentRequestId, {
           status: 'failed',
           resultCode: null,
-          resultDesc: error instanceof Error ? error.message : 'Unable to initiate STK push',
+          resultDesc,
           rawCallback: {
             stage: 'initiation',
-            message: error instanceof Error ? error.message : 'Unknown error'
+            message: resultDesc,
+            providerStatus: providerError?.providerStatus,
+            providerResponse: providerError?.providerResponse
           }
         });
       });
 
-      return reply.badRequest(error instanceof Error ? error.message : 'Unable to initiate checkout');
+      if (providerError) {
+        return reply.serviceUnavailable('M-Pesa checkout is temporarily unavailable. Please try again shortly.');
+      }
+
+      return reply.serviceUnavailable('M-Pesa checkout is not configured. Please contact support.');
     }
   });
 

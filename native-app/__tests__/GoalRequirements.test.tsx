@@ -27,6 +27,7 @@ const defaultLoginProps: React.ComponentProps<typeof LoginScreen> = {
   fullName: '',
   signupRole: 'student',
   acceptedTerms: false,
+  optionalPhoneNumber: '',
   isSubmitting: false,
   onModeChange: jest.fn(),
   onEmailChange: jest.fn(),
@@ -34,6 +35,7 @@ const defaultLoginProps: React.ComponentProps<typeof LoginScreen> = {
   onFullNameChange: jest.fn(),
   onSignupRoleChange: jest.fn(),
   onAcceptedTermsChange: jest.fn(),
+  onOptionalPhoneNumberChange: jest.fn(),
   onAuthenticated: jest.fn(),
   onSubmit: jest.fn(),
 };
@@ -255,7 +257,7 @@ test('sign-in page renders account-type cards before credentials', async () => {
     renderer = ReactTestRenderer.create(<LoginScreen {...defaultLoginProps} />);
   });
 
-  expect(renderer!.root.findByProps({ children: 'Select account type' })).toBeTruthy();
+  expect(renderer!.root.findByProps({ children: 'Choose your role' })).toBeTruthy();
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Continue as Student' })).toBeTruthy();
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Continue as Teacher' })).toBeTruthy();
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Continue as Parent' })).toBeTruthy();
@@ -293,10 +295,11 @@ test('subscription modal orders weekly monthly annual and shows discounts', asyn
 
   expect(textValues.indexOf('Weekly')).toBeLessThan(textValues.indexOf('Monthly'));
   expect(textValues.indexOf('Monthly')).toBeLessThan(textValues.indexOf('Annual'));
-  expect(textValues).toContain('POPULAR');
-  expect(text).toContain('KSh 100');
-  expect(text).toContain('KSh 250');
-  expect(text).toContain('KSh 500');
-  expect(text).toContain('KSh 1,999');
-  expect(text).toContain('KSh 6,000');
+  expect(textValues).toContain('MOST POPULAR');
+  expect(text).toContain('KSH 100');
+  expect(text).toContain('KSH 250');
+  expect(text).toContain('KSH 1,999');
+  expect(text).toContain('KSH 500');
+  expect(text).toContain('50% OFF');
+  expect(text).toContain('Continue to Pay - KSH 250');
 });

@@ -11,9 +11,10 @@ import { appConfig } from './config.js';
 import { db, redis } from './db.js';
 import {
   estimateCostUsdMicros,
-  generateText,
-  resolveAiExecutionPlan,
-  transcribeAudioWithOpenAi,
+  generateTextWithFallback,
+  resolveAiExecutionPlans,
+  resolveAudioTranscriptionPlans,
+  transcribeAudio,
   usdMicrosToKshCents
 } from './ai.js';
 import {
@@ -1550,7 +1551,8 @@ Requirements:
       };
     }
 
-    const executionPlan = resolveAiExecutionPlan(args.body.feature);
+    const executionPlans = resolveAiExecutionPlans(args.body);
+    const executionPlan = executionPlans[0];
     const promptVersion = resolvePromptVersion(args.body.feature);
     const subscription = subscriptionCheck.subscription;
     const existingSpend = await getSubscriptionAiSpendKshCents(subscription.id);
@@ -1596,8 +1598,9 @@ Requirements:
     }
 
     try {
-      const result = await generateText(args.body, executionPlan);
-      const costUsdMicros = estimateCostUsdMicros(executionPlan, result.promptTokens, result.completionTokens);
+      const result = await generateTextWithFallback(args.body, executionPlans);
+      const completedPlan = result.plan ?? executionPlan;
+      const costUsdMicros = estimateCostUsdMicros(completedPlan, result.promptTokens, result.completionTokens);
       const costKshCents = usdMicrosToKshCents(costUsdMicros, appConfig.KITABU_KSH_PER_USD);
 
       await withTransaction(async client => {
@@ -1606,8 +1609,8 @@ Requirements:
           schoolId: currentUser.schoolId,
           subscriptionId: subscription.id,
           feature: args.body.feature,
-          provider: executionPlan.provider,
-          model: executionPlan.model,
+          provider: completedPlan.provider,
+          model: completedPlan.model,
           promptTokens: result.promptTokens,
           completionTokens: result.completionTokens,
           totalTokens: result.totalTokens,
@@ -1671,24 +1674,13 @@ Requirements:
       };
     }
 
-    if (!appConfig.KITABU_OPENAI_API_KEY) {
-      args.request.log.error('Audio transcription requested without OpenAI API key');
-      args.reply.status(500);
-      return {
-        error: {
-          message: 'Audio transcription is not configured'
-        },
-        text: null,
-        subscription: subscriptionCheck.subscription
-      };
-    }
-
     const subscription = subscriptionCheck.subscription;
     const promptVersion = resolvePromptVersion('audio_transcription');
-    const model = appConfig.KITABU_OPENAI_TRANSCRIPTION_MODEL;
+    const transcriptionPlans = resolveAudioTranscriptionPlans();
+    const primaryPlan = transcriptionPlans[0];
 
     try {
-      const result = await transcribeAudioWithOpenAi(args.body);
+      const result = await transcribeAudio(args.body, transcriptionPlans);
 
       await withTransaction(async client => {
         await createAiUsageEvent(client, {
@@ -1696,8 +1688,8 @@ Requirements:
           schoolId: currentUser.schoolId,
           subscriptionId: subscription.id,
           feature: 'audio_transcription',
-          provider: 'openai',
-          model,
+          provider: result.plan.provider,
+          model: result.plan.model,
           promptTokens: 0,
           completionTokens: 0,
           totalTokens: 0,
@@ -1721,8 +1713,8 @@ Requirements:
           schoolId: currentUser.schoolId,
           subscriptionId: subscription.id,
           feature: 'audio_transcription',
-          provider: 'openai',
-          model,
+          provider: primaryPlan.provider,
+          model: primaryPlan.model,
           promptTokens: 0,
           completionTokens: 0,
           totalTokens: 0,

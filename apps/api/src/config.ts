@@ -17,6 +17,7 @@ const runtimeEnv =
   process.env.KITABU_NODE_ENV ??
   process.env.NODE_ENV ??
   'development';
+const defaultPort = process.env.PORT ?? '4000';
 
 loadEnvFileIfPresent('.env');
 loadEnvFileIfPresent(`.env.${runtimeEnv}`);
@@ -43,7 +44,7 @@ const configSchema = z.object({
   KITABU_RUNTIME_ENV: z.string().default(runtimeEnv),
   KITABU_NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
   KITABU_HOST: z.string().default('0.0.0.0'),
-  KITABU_PORT: z.coerce.number().int().positive().default(4000),
+  KITABU_PORT: z.coerce.number().int().positive().default(Number(defaultPort)),
   KITABU_TRUST_PROXY: booleanish.default(false),
   KITABU_ENABLE_API_DOCS: booleanish.default(false),
   KITABU_BODY_LIMIT_BYTES: z.coerce.number().int().positive().default(1024 * 1024),

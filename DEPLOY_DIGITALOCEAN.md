@@ -6,6 +6,7 @@ This deploys the Kitabu API and static web site to a DigitalOcean Droplet with D
 
 - `kitabu.ai` and `www.kitabu.ai` -> Caddy static site from `apps/web`
 - `app.kitabu.ai` -> Caddy -> API container on port `4000`
+- `admin.kitabu.ai` -> Caddy static admin portal from `apps/admin-web`
 - private containers: Postgres, Redis, worker
 
 ## 1. Create the Droplet
@@ -61,6 +62,7 @@ Point these records to the Droplet IPv4:
 - `A kitabu.ai`
 - `A www.kitabu.ai`
 - `A app.kitabu.ai`
+- `A admin.kitabu.ai`
 
 If Cloudflare is in front, start with DNS-only until Caddy has issued certificates, then enable proxying.
 
@@ -85,6 +87,7 @@ docker compose run --rm api node scripts/apply-migrations.mjs
 curl http://127.0.0.1:4000/health
 curl https://app.kitabu.ai/health
 curl -I https://kitabu.ai
+curl -I https://admin.kitabu.ai
 ```
 
 Expected API response:

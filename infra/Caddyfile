@@ -12,6 +12,12 @@ app.kitabu.ai {
   reverse_proxy 127.0.0.1:4000
 }
 
+admin.kitabu.ai {
+  root * /srv/admin
+  encode gzip zstd
+  file_server
+}
+
 mjanjez.kitabu.ai {
   reverse_proxy 127.0.0.1:4101
 }

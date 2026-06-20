@@ -60,6 +60,7 @@ services:
     volumes:
       - ./infra/Caddyfile:/etc/caddy/Caddyfile:ro
       - ./apps/web:/srv/www:ro
+      - ./apps/admin-web:/srv/admin:ro
       - caddy-data:/data
       - caddy-config:/config
 

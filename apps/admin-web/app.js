@@ -152,6 +152,7 @@ function renderNav() {
 }
 
 function showLogin() {
+  app.classList.add("auth-mode");
   loginPanel.hidden = false;
   content.hidden = true;
   pageTitle.textContent = "Admin Portal";
@@ -160,6 +161,7 @@ function showLogin() {
 }
 
 function showApp() {
+  app.classList.remove("auth-mode");
   loginPanel.hidden = true;
   content.hidden = false;
 }

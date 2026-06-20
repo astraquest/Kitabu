@@ -43,6 +43,22 @@ button {
   grid-template-columns: var(--sidebar) minmax(0, 1fr);
 }
 
+.app-shell.auth-mode {
+  display: block;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(249, 115, 22, 0.18), transparent 26%),
+    linear-gradient(135deg, #071024 0%, #0f172a 48%, #123336 100%);
+}
+
+.app-shell.auth-mode .sidebar,
+.app-shell.auth-mode .topbar {
+  display: none;
+}
+
+.app-shell.auth-mode .main {
+  min-height: 100vh;
+}
+
 .sidebar {
   position: sticky;
   top: 0;
@@ -252,19 +268,63 @@ button {
 }
 
 .login-panel {
+  min-height: 100vh;
   padding: 24px;
+  display: grid;
+  place-items: center;
 }
 
 .login-card {
-  max-width: 430px;
-  margin: 10vh auto 0;
-  background: #fff;
-  border: 1px solid var(--border);
+  width: min(460px, 100%);
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.36);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 24px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+  padding: 28px;
   display: grid;
-  gap: 14px;
+  gap: 16px;
+}
+
+.login-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.login-mark {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius);
+  display: grid;
+  place-items: center;
+  background: #f97316;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.login-brand span,
+.login-brand strong {
+  display: block;
+}
+
+.login-brand span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.login-brand strong {
+  margin-top: 2px;
+  font-size: 24px;
+  line-height: 1.1;
+}
+
+.login-copy {
+  display: grid;
+  gap: 8px;
 }
 
 .login-card h2 {
@@ -276,6 +336,12 @@ button {
   margin: 0;
   color: var(--muted);
   line-height: 1.5;
+}
+
+.login-foot {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 800;
 }
 
 label {

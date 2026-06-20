@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <div id="app" class="app-shell">
+    <div id="app" class="app-shell auth-mode">
       <aside class="sidebar" aria-label="Admin navigation">
         <div class="brand">
           <div class="brand-mark">K</div>
@@ -47,14 +47,24 @@
           </div>
         </header>
 
-        <section id="loginPanel" class="login-panel" hidden>
+        <section id="loginPanel" class="login-panel">
           <form id="loginForm" class="login-card">
-            <h2>Admin sign in</h2>
-            <p>Use a platform admin or school admin account. Platform admin actions may require step-up verification in production.</p>
-            <label>Email <input id="emailInput" name="email" type="email" autocomplete="username" required /></label>
-            <label>Password <input id="passwordInput" name="password" type="password" autocomplete="current-password" required minlength="8" /></label>
-            <button class="primary-button" type="submit">Sign in</button>
+            <div class="login-brand">
+              <div class="login-mark">K</div>
+              <div>
+                <span>Kitabu AI</span>
+                <strong>Admin Portal</strong>
+              </div>
+            </div>
+            <div class="login-copy">
+              <h2>Admin sign in</h2>
+              <p>Secure access for Kitabu AI operations, school management, billing, curriculum, and AI agent oversight.</p>
+            </div>
+            <label>Email <input id="emailInput" name="email" type="email" autocomplete="username" placeholder="admin@kitabu.ai" required /></label>
+            <label>Password <input id="passwordInput" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required minlength="8" /></label>
+            <button class="primary-button" type="submit">Sign in to admin</button>
             <p id="loginError" class="error-text" role="alert"></p>
+            <p class="login-foot">Platform and school admin accounts only.</p>
           </form>
         </section>
 

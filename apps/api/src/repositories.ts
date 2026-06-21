@@ -403,6 +403,22 @@ export interface WeeklyExamQuestionRecord {
   explanation: string;
 }
 
+export interface QuizBankQuestionRecord {
+  id: string;
+  grade_level: string;
+  subject_id: string;
+  subject_name: string;
+  strand_title: string;
+  sub_strand_title: string;
+  question_number: number;
+  type: 'MCQ' | 'TRUE_FALSE' | 'SHORT_ANSWER' | 'ESSAY';
+  prompt: string;
+  options: string[];
+  correct_answer: string;
+  explanation: string;
+  difficulty: number;
+}
+
 export interface WeeklyExamRecord {
   id: string;
   grade_level: string;
@@ -3144,6 +3160,34 @@ export async function ensureWeeklyExam(
   );
 
   return result.rows[0];
+}
+
+export async function listQuizBankQuestions(input: {
+  gradeLevel: string;
+  subjectId?: string | null;
+  limit?: number;
+}): Promise<QuizBankQuestionRecord[]> {
+  const subjectAliases: Record<string, string> = {
+    math: 'mathematics',
+    social: 'social_studies',
+    ai_education: 'computer_science',
+    computer: 'computer_science'
+  };
+  const subjectId = input.subjectId ? subjectAliases[input.subjectId] ?? input.subjectId : null;
+  const values: unknown[] = [input.gradeLevel, subjectId, input.limit ?? 100];
+  const result = await db.query<QuizBankQuestionRecord>(
+    `SELECT id, grade_level, subject_id, subject_name, strand_title, sub_strand_title,
+            question_number, type, prompt, options, correct_answer, explanation, difficulty
+     FROM quiz_bank_questions
+      WHERE grade_level = $1
+      ORDER BY
+        CASE WHEN $2::text IS NOT NULL AND subject_id = $2 THEN 0 ELSE 1 END,
+        question_number ASC
+      LIMIT $3`,
+    values
+  );
+
+  return result.rows;
 }
 
 export async function findWeeklyExamAttempt(examId: string, userId: string) {

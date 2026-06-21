@@ -50,6 +50,11 @@ if (!trimOptionalSecret(process.env.KITABU_OPENAI_API_KEY) && standardOpenAiApiK
   process.env.KITABU_OPENAI_API_KEY = standardOpenAiApiKey;
 }
 
+const standardDeepSeekApiKey = trimOptionalSecret(process.env.DEEPSEEK_API_KEY);
+if (!trimOptionalSecret(process.env.KITABU_DEEPSEEK_API_KEY) && standardDeepSeekApiKey) {
+  process.env.KITABU_DEEPSEEK_API_KEY = standardDeepSeekApiKey;
+}
+
 const configSchema = z.object({
   KITABU_RUNTIME_ENV: z.string().default(runtimeEnv),
   KITABU_NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
@@ -73,9 +78,12 @@ const configSchema = z.object({
   KITABU_JWT_PUBLIC_KEY: z.string().min(1),
   KITABU_OPENAI_API_KEY: z.string().optional(),
   KITABU_OPENAI_STUDENT_MODEL: z.string().default('gpt-5.4-mini'),
-  KITABU_OPENAI_REASONING_MODEL: z.string().default('gpt-5.5'),
+  KITABU_OPENAI_REASONING_MODEL: z.string().default('gpt-5.4-mini'),
   KITABU_OPENAI_REASONING_EFFORT: z.enum(['minimal', 'low', 'medium', 'high']).default('medium'),
   KITABU_OPENAI_TRANSCRIPTION_MODEL: z.string().default('whisper-1'),
+  KITABU_DEEPSEEK_API_KEY: z.string().optional(),
+  KITABU_DEEPSEEK_BASE_URL: z.string().url().default('https://api.deepseek.com'),
+  KITABU_DEEPSEEK_TEXT_FALLBACK_MODEL: z.string().default('deepseek-v4-flash'),
   KITABU_GROQ_API_KEY: z.string().optional(),
   KITABU_GROQ_TEXT_FAST_MODEL: z.string().default('llama-3.1-8b-instant'),
   KITABU_GROQ_TEXT_SMART_MODEL: z.string().default('openai/gpt-oss-120b'),
@@ -146,6 +154,9 @@ appConfig.KITABU_OPENAI_API_KEY = trimOptionalSecret(appConfig.KITABU_OPENAI_API
 appConfig.KITABU_OPENAI_STUDENT_MODEL = appConfig.KITABU_OPENAI_STUDENT_MODEL.trim();
 appConfig.KITABU_OPENAI_REASONING_MODEL = appConfig.KITABU_OPENAI_REASONING_MODEL.trim();
 appConfig.KITABU_OPENAI_TRANSCRIPTION_MODEL = appConfig.KITABU_OPENAI_TRANSCRIPTION_MODEL.trim();
+appConfig.KITABU_DEEPSEEK_API_KEY = trimOptionalSecret(appConfig.KITABU_DEEPSEEK_API_KEY);
+appConfig.KITABU_DEEPSEEK_BASE_URL = appConfig.KITABU_DEEPSEEK_BASE_URL.replace(/\/$/, '').trim();
+appConfig.KITABU_DEEPSEEK_TEXT_FALLBACK_MODEL = appConfig.KITABU_DEEPSEEK_TEXT_FALLBACK_MODEL.trim();
 appConfig.KITABU_GROQ_API_KEY = trimOptionalSecret(appConfig.KITABU_GROQ_API_KEY);
 appConfig.KITABU_GROQ_TEXT_FAST_MODEL = appConfig.KITABU_GROQ_TEXT_FAST_MODEL.trim();
 appConfig.KITABU_GROQ_TEXT_SMART_MODEL = appConfig.KITABU_GROQ_TEXT_SMART_MODEL.trim();

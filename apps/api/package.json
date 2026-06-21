@@ -10,6 +10,7 @@
     "test": "tsx --test src/googleAuth.test.ts src/payments.test.ts",
     "test:integration": "tsx --test src/auth.integration.test.ts",
     "check:mpesa": "node scripts/check-mpesa.mjs",
+    "check:readiness": "node scripts/verify-production-readiness.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "migrate": "node scripts/apply-migrations.mjs"
   },

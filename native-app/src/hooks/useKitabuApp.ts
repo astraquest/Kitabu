@@ -75,6 +75,7 @@ import {
   markAllNotificationsRead,
   markNotificationRead,
 } from '../services/notificationService';
+import { getQuizBankQuestions } from '../services/quizBankService';
 import {
   getOnboardingDiagnosticStatus,
   getProgressiveDiagnosticStatus,
@@ -293,6 +294,16 @@ function mergeCurriculumBundles(
   });
 
   return next;
+}
+
+async function loadQuizBankFallback(grade: string, limit: number, subjectId?: string | null) {
+  try {
+    const questions = await getQuizBankQuestions({ grade, subjectId, limit });
+    return questions.length > 0 ? questions : INITIAL_QUIZ_QUESTIONS;
+  } catch (error) {
+    console.error('QuizBank fallback failed', error);
+    return INITIAL_QUIZ_QUESTIONS;
+  }
 }
 
 export function useKitabuApp() {
@@ -1961,8 +1972,9 @@ export function useKitabuApp() {
       config.subStrand,
       config.questionCount,
       config.format === 'flashcards' ? 'flashcards' : 'quiz',
+      currentGrade,
     )
-      .then(result => {
+      .then(async result => {
         if (config.format === 'flashcards') {
           setGeneratedFlashcards(result?.flashcards || INITIAL_FLASHCARDS);
           setBrainTeaseCompleted(false);
@@ -1970,10 +1982,10 @@ export function useKitabuApp() {
           return;
         }
 
-        setGeneratedQuizQuestions(result?.questions || INITIAL_QUIZ_QUESTIONS);
+        setGeneratedQuizQuestions(result?.questions || await loadQuizBankFallback(currentGrade, config.questionCount));
         navigateTo('take_quiz');
       })
-      .catch(error => {
+      .catch(async error => {
         console.error('Quiz generation failed', error);
         if (config.format === 'flashcards') {
           setGeneratedFlashcards(INITIAL_FLASHCARDS);
@@ -1981,7 +1993,7 @@ export function useKitabuApp() {
           return;
         }
 
-        setGeneratedQuizQuestions(INITIAL_QUIZ_QUESTIONS);
+        setGeneratedQuizQuestions(await loadQuizBankFallback(currentGrade, config.questionCount));
         navigateTo('take_quiz');
       })
       .finally(() => {
@@ -2017,11 +2029,14 @@ export function useKitabuApp() {
         subTopic,
         10,
         'quiz',
+        currentGrade,
       );
-      setGeneratedQuizQuestions(result?.questions || INITIAL_QUIZ_QUESTIONS);
+      setGeneratedQuizQuestions(
+        result?.questions || await loadQuizBankFallback(currentGrade, 10, selectedSubject.id),
+      );
     } catch (error) {
       console.error('Quiz generation error', error);
-      setGeneratedQuizQuestions(INITIAL_QUIZ_QUESTIONS);
+      setGeneratedQuizQuestions(await loadQuizBankFallback(currentGrade, 10, selectedSubject.id));
     } finally {
       setQuizSource('subject');
       navigateTo('take_quiz');
@@ -2126,8 +2141,11 @@ export function useKitabuApp() {
         selectedSubStrand.title,
         10,
         'quiz',
+        currentGrade,
       );
-      setGeneratedQuizQuestions(fallback?.questions || INITIAL_QUIZ_QUESTIONS);
+      setGeneratedQuizQuestions(
+        fallback?.questions || await loadQuizBankFallback(currentGrade, 10, selectedSubject?.id),
+      );
     } finally {
       setQuizSource('lesson');
       setLessonQuizSubStrandId(selectedSubStrand.id);

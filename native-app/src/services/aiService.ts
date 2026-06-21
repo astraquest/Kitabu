@@ -245,10 +245,11 @@ export async function generateQuizData(
   subTopic: string,
   count: number,
   type: 'flashcards' | 'quiz',
+  grade = DEFAULT_GRADE,
 ): Promise<GeneratedQuizPayload | null> {
   const prompt =
     type === 'flashcards'
-      ? `Generate ${count} flashcards for a ${DEFAULT_GRADE} student about Subject: ${subject}, Topic: ${topic}, Sub-topic: ${subTopic}.
+      ? `Generate ${count} flashcards for a ${grade} student about Subject: ${subject}, Topic: ${topic}, Sub-topic: ${subTopic}.
 
 Return JSON with this shape:
 {
@@ -256,7 +257,7 @@ Return JSON with this shape:
     { "id": "string", "question": "string", "answer": "string" }
   ]
 }`
-      : `Generate ${count} quiz questions for a ${DEFAULT_GRADE} student about Subject: ${subject}, Topic: ${topic}, Sub-topic: ${subTopic}.
+      : `Generate ${count} quiz questions for a ${grade} student about Subject: ${subject}, Topic: ${topic}, Sub-topic: ${subTopic}.
 Mix question types between MCQ, TRUE_FALSE, SHORT_ANSWER, and ESSAY when appropriate.
 
 Return JSON with this shape:

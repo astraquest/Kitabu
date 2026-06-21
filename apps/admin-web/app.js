@@ -4,7 +4,7 @@ const REFRESH_KEY = "kitabu.admin.refreshToken";
 const USER_KEY = "kitabu.admin.user";
 const REFRESH_MS = 30000;
 
-const grades = ["Grade 4", "Grade 5", "Grade 6", "Grade 7", "Grade 8", "Grade 9", "Grade 10", "Grade 11", "Grade 12"];
+const grades = ["Grade 4", "Grade 6", "Grade 9", "Form 4"];
 const subjects = ["Mathematics", "English", "Science", "Kiswahili", "Social Studies", "Computer Science"];
 
 const navItems = [
@@ -147,6 +147,7 @@ function renderNav() {
       document.querySelector(".sidebar").classList.remove("open");
       renderNav();
       renderRoute();
+      if (state.route === "subjects") loadCurriculumGrade().then(renderRoute);
     });
   });
 }
@@ -245,6 +246,7 @@ async function loadAll(force = false) {
     state.data.billing = billing || state.data.billing;
 
     await loadTeacherData();
+    if (state.route === "subjects") await loadCurriculumGrade();
     state.lastSync = new Date();
     setSync("Live", `Updated ${state.lastSync.toLocaleTimeString()}`, "live");
     renderRoute();
@@ -266,6 +268,15 @@ async function loadTeacherData() {
   ]);
   if (students.status === "fulfilled") state.data.teacherStudents = students.value.students || [];
   if (assignments.status === "fulfilled") state.data.teacherAssignments = assignments.value.assignments || [];
+}
+
+async function loadCurriculumGrade(grade = currentCurriculumGrade()) {
+  try {
+    const query = new URLSearchParams({ grade });
+    state.data.curriculum = await api(`/curriculum?${query.toString()}`);
+  } catch (error) {
+    state.data.curriculum = { grade, subjects: [], error: error.message || "Unable to load curriculum." };
+  }
 }
 
 function setSync(title, meta, tone) {
@@ -410,10 +421,14 @@ function sortedSchools() {
 
 function renderSubjects() {
   const rows = subjectUsageRows();
+  const grade = currentCurriculumGrade();
+  const curriculum = state.data.curriculum?.grade === grade ? state.data.curriculum : null;
+  const curriculumSubjects = curriculumSubjectOptions();
   return `
     <div class="toolbar">
       <div class="filters">
         ${selectHtml("timeRange", ["This Year", "Last Year", "Last 30 Days", "Last 7 Days"], state.timeRange)}
+        ${selectHtml("selectedGrade", grades, grade)}
       </div>
     </div>
     <div class="metric-grid three">
@@ -427,14 +442,14 @@ function renderSubjects() {
     </div>
     <div class="panel">
       <div class="panel-header">
-        <div><h2>Curriculum by Grade</h2><p>Subject replacement uses the same curriculum endpoint as mobile.</p></div>
+        <div><h2>Curriculum by Grade</h2><p>${escapeHtml(curriculum?.error || `Loaded from /curriculum for ${grade}.`)}</p></div>
         <button class="primary-button" data-modal="curriculum">Edit Curriculum</button>
       </div>
-      <div class="filters">${selectHtml("selectedGrade", grades, state.selectedGrade === "All Grades" ? grades[0] : state.selectedGrade)}</div>
-      ${table(["Subject", "Status", "Action"], subjects.map(subject => [
-        subject,
-        "<span class='status-pill green'>Active</span>",
-        `<div class="table-actions"><button class="ghost-button" data-curriculum-subject="${subject}">Open</button></div>`
+      ${table(["Subject", "Strands", "Status", "Action"], curriculumSubjects.map(subject => [
+        escapeHtml(subject.subjectName),
+        Number(subject.strands?.length || 0).toLocaleString(),
+        curriculum && !curriculum.error ? "<span class='status-pill green'>Loaded</span>" : "<span class='status-pill gray'>Pending</span>",
+        `<div class="table-actions"><button class="ghost-button" data-curriculum-subject="${escapeHtml(subject.subjectId)}">Open</button></div>`
       ]))}
     </div>
   `;
@@ -670,8 +685,14 @@ function nextCard(title, body) {
 
 function bindRouteEvents() {
   document.querySelectorAll("[data-route-control]").forEach(el => {
-    el.addEventListener("change", event => {
+    el.addEventListener("change", async event => {
       state[event.target.dataset.routeControl] = event.target.value;
+      if (state.route === "subjects" && event.target.dataset.routeControl === "selectedGrade") {
+        renderRoute();
+        await loadCurriculumGrade(event.target.value);
+        renderRoute();
+        return;
+      }
       renderRoute();
     });
   });
@@ -682,6 +703,7 @@ function bindRouteEvents() {
   document.querySelectorAll("[data-agent]").forEach(button => button.addEventListener("click", () => showAgent(button.dataset.agent)));
   document.querySelectorAll("[data-teacher-student]").forEach(button => button.addEventListener("click", () => showTeacherStudent(button.dataset.teacherStudent)));
   document.querySelectorAll("[data-pilot]").forEach(button => button.addEventListener("click", () => showPilot(button.dataset.pilot)));
+  document.querySelectorAll("[data-curriculum-subject]").forEach(button => button.addEventListener("click", () => openModal("Curriculum Editor", curriculumForm(button.dataset.curriculumSubject))));
   document.querySelectorAll("[data-modal]").forEach(button => button.addEventListener("click", () => showNamedModal(button.dataset.modal)));
   const signOut = document.getElementById("signOutButton");
   if (signOut) signOut.addEventListener("click", () => { clearSession(); clearInterval(state.timer); showLogin(); });
@@ -893,6 +915,8 @@ function bindModalForms() {
     form.addEventListener("submit", async event => {
       event.preventDefault();
       const formData = Object.fromEntries(new FormData(form).entries());
+      let shouldClose = false;
+      let shouldReload = false;
       try {
         if (form.dataset.kind === "school") {
           await api("/admin/schools", { method: "POST", body: {
@@ -904,6 +928,8 @@ function bindModalForms() {
             assignedPlanCode: formData.assignedPlanCode || "monthly",
             discountId: formData.discountId || null
           }});
+          shouldClose = true;
+          shouldReload = true;
         }
         if (form.dataset.kind === "discount") {
           await api("/admin/discounts", { method: "POST", body: {
@@ -912,6 +938,8 @@ function bindModalForms() {
             amount: Number(formData.amount),
             isActive: formData.isActive === "true"
           }});
+          shouldClose = true;
+          shouldReload = true;
         }
         if (form.dataset.kind === "announcement") {
           await api("/admin/announcements", { method: "POST", body: {
@@ -923,6 +951,8 @@ function bindModalForms() {
             endsAt: formData.endsAt || null,
             isActive: formData.isActive === "true"
           }});
+          shouldClose = true;
+          shouldReload = true;
         }
         if (form.dataset.kind === "pilot") {
           await api(`/admin/schools/${form.dataset.schoolId}/pilot`, { method: "PATCH", body: {
@@ -933,9 +963,40 @@ function bindModalForms() {
             onboardingStage: Number(formData.onboardingStage || 0),
             notes: formData.notes || null
           }});
+          shouldClose = true;
+          shouldReload = true;
         }
-        closeModal();
-        await loadAll(true);
+        if (form.dataset.kind === "assignment") {
+          const draft = parseGeneratedAssignment(formData.draft);
+          await api("/teacher/assignments", { method: "POST", body: {
+            title: draft.title,
+            subject: formData.subject,
+            description: draft.description,
+            gradeLevel: formData.grade,
+            dueDate: toIsoDateTime(formData.dueDate),
+            questions: normalizeAssignmentQuestions(draft.questions)
+          }});
+          shouldClose = true;
+          shouldReload = true;
+        }
+        if (form.dataset.kind === "curriculum-import") {
+          const file = form.querySelector("input[name='pdf']")?.files?.[0];
+          if (!file) throw new Error("Choose a PDF file to import.");
+          const subjectOption = form.querySelector("select[name='subjectId']")?.selectedOptions?.[0];
+          state.selectedGrade = formData.grade;
+          state.data.curriculum = await api("/curriculum/import/pdf", { method: "POST", body: {
+            grade: formData.grade,
+            subjectId: formData.subjectId,
+            subjectName: subjectOption?.dataset.subjectName || subjectOption?.textContent || formData.subjectId,
+            fileName: file.name,
+            mimeType: file.type || "application/pdf",
+            base64Data: await fileToBase64(file)
+          }});
+          shouldClose = true;
+        }
+        if (shouldClose) closeModal();
+        if (shouldReload) await loadAll(true);
+        else renderRoute();
       } catch (error) {
         const errorEl = form.querySelector(".error-text");
         if (errorEl) errorEl.textContent = error.message;
@@ -943,9 +1004,9 @@ function bindModalForms() {
     });
   });
   const generate = document.getElementById("generateAssignment");
-  if (generate) generate.addEventListener("click", () => {
-    document.getElementById("assignmentOutput").value = "Generated assignment draft: five CBC-aligned questions with marking guide and remediation notes.";
-  });
+  if (generate) generate.addEventListener("click", () => generateAssignmentDraft(generate.form));
+  const regenerate = document.getElementById("regenerateAssignment");
+  if (regenerate) regenerate.addEventListener("click", () => generateAssignmentDraft(regenerate.form));
 }
 
 function showProfileModal() {
@@ -1015,19 +1076,155 @@ function pilotForm(school) {
 }
 
 function assignmentForm() {
-  return `<form class="form-grid">
+  return `<form data-kind="assignment" class="form-grid">
     <label>Grade ${selectField("grade", grades, "Grade 4")}</label>
     <label>Subject ${selectField("subject", subjects, "Mathematics")}</label>
-    <label class="wide">Upload File <input name="file" type="file" /></label>
+    <label class="wide">Due Date <input name="dueDate" type="datetime-local" /></label>
+    <label class="wide">Topic / Instructions <textarea name="topic" required placeholder="Example: 10 questions on fractions with a short marking guide."></textarea></label>
     <button class="primary-button wide" id="generateAssignment" type="button">Generate with AI</button>
-    <label class="wide">Assignment Details <textarea id="assignmentOutput" placeholder="Enter assignment details for AI generation..."></textarea></label>
-    <div class="button-row wide"><button class="ghost-button" type="button">Re-Generate</button><button class="warning-button" type="button">Edit</button><button class="success-button" type="button">Send</button></div>
+    <label class="wide">Editable Draft JSON <textarea id="assignmentOutput" name="draft" required placeholder="Generate a draft, then edit the JSON before publishing."></textarea></label>
+    <p class="error-text wide"></p>
+    <div class="button-row wide"><button class="ghost-button" id="regenerateAssignment" type="button">Re-Generate</button><button class="success-button" type="submit">Publish</button></div>
   </form>`;
 }
 
-function curriculumForm() {
-  return `<div class="tabs">${grades.map((grade, index) => `<button class="tab-button ${index === 0 ? "active" : ""}">${grade}</button>`).join("")}</div>
-    ${table(["Subject", "Source", "State"], subjects.map(subject => [subject, "API / manual editor", "<span class='status-pill green'>Ready</span>"]))}`;
+function curriculumForm(selectedSubjectId = "") {
+  const grade = currentCurriculumGrade();
+  const curriculumSubjects = curriculumSubjectOptions();
+  const selected = selectedSubjectId || curriculumSubjects[0]?.subjectId || subjectIdFromName(subjects[0]);
+  return `<form data-kind="curriculum-import" class="form-grid">
+      <label>Grade ${selectField("grade", grades, grade)}</label>
+      <label>Subject <select name="subjectId">${curriculumSubjects.map(subject => `<option value="${escapeHtml(subject.subjectId)}" data-subject-name="${escapeHtml(subject.subjectName)}" ${subject.subjectId === selected ? "selected" : ""}>${escapeHtml(subject.subjectName)}</option>`).join("")}</select></label>
+      <label class="wide">PDF File <input name="pdf" type="file" accept="application/pdf" required /></label>
+      <p class="error-text wide"></p>
+      <button class="primary-button wide" type="submit">Import PDF Curriculum</button>
+    </form>
+    <div class="tabs">${grades.map(item => `<button class="tab-button ${item === grade ? "active" : ""}" type="button">${item}</button>`).join("")}</div>
+    ${table(["Subject", "Strands", "State"], curriculumSubjects.map(subject => [
+      escapeHtml(subject.subjectName),
+      Number(subject.strands?.length || 0).toLocaleString(),
+      "<span class='status-pill green'>Ready</span>"
+    ]))}`;
+}
+
+async function generateAssignmentDraft(form) {
+  const errorEl = form.querySelector(".error-text");
+  const output = document.getElementById("assignmentOutput");
+  const button = document.getElementById("generateAssignment");
+  const formData = Object.fromEntries(new FormData(form).entries());
+  errorEl.textContent = "";
+  button.disabled = true;
+  try {
+    const response = await api("/ai/generate-text", { method: "POST", body: {
+      prompt: assignmentPrompt(formData),
+      responseMimeType: "application/json",
+      feature: "assignment_generation"
+    }});
+    const draft = parseGeneratedAssignment(response.text);
+    output.value = JSON.stringify(draft, null, 2);
+  } catch (error) {
+    errorEl.textContent = error.message || "Unable to generate assignment.";
+  } finally {
+    button.disabled = false;
+  }
+}
+
+function assignmentPrompt(input) {
+  return `Create a homework assignment for ${input.grade} ${input.subject}.
+Additional Topic/Details: ${input.topic || "Comprehensive Review"}
+
+The assignment must include:
+1. A creative title.
+2. A short description.
+3. Questions mixed between MCQ, TRUE_FALSE, and SHORT_ANSWER types.
+4. If the details specify a number of questions, generate exactly that many; otherwise generate 8 questions.
+
+Return pure JSON only:
+{
+  "title": "string",
+  "description": "string",
+  "questions": [
+    {
+      "id": 1,
+      "type": "MCQ",
+      "text": "string",
+      "options": ["string"],
+      "correctAnswer": "string",
+      "explanation": "string"
+    }
+  ]
+}`;
+}
+
+function parseGeneratedAssignment(value) {
+  const parsed = typeof value === "string" ? JSON.parse(sanitizeJsonPayload(value)) : value;
+  const draft = parsed.assignment || parsed;
+  if (!draft.title || !draft.description || !Array.isArray(draft.questions)) {
+    throw new Error("Assignment draft must include title, description, and questions.");
+  }
+  return {
+    title: String(draft.title).trim(),
+    description: String(draft.description).trim(),
+    questions: normalizeAssignmentQuestions(draft.questions)
+  };
+}
+
+function normalizeAssignmentQuestions(questions) {
+  const allowed = new Set(["MCQ", "TRUE_FALSE", "SHORT_ANSWER", "ESSAY"]);
+  const normalized = questions
+    .map((question, index) => ({
+      id: Number.isInteger(Number(question.id)) ? Number(question.id) : index + 1,
+      type: allowed.has(String(question.type || "").toUpperCase()) ? String(question.type).toUpperCase() : "SHORT_ANSWER",
+      text: String(question.text || question.prompt || "").trim(),
+      options: Array.isArray(question.options) ? question.options.map(option => String(option)) : undefined,
+      correctAnswer: typeof question.correctAnswer === "boolean" ? question.correctAnswer : question.correctAnswer ? String(question.correctAnswer) : undefined,
+      explanation: question.explanation ? String(question.explanation) : undefined
+    }))
+    .filter(question => question.text);
+  if (!normalized.length) throw new Error("Assignment must include at least one question.");
+  return normalized;
+}
+
+function sanitizeJsonPayload(value) {
+  const trimmed = String(value || "").trim().replace(/^```(?:json)?/i, "").replace(/```$/i, "").trim();
+  const start = trimmed.indexOf("{");
+  const end = trimmed.lastIndexOf("}");
+  return start >= 0 && end > start ? trimmed.slice(start, end + 1) : trimmed;
+}
+
+function toIsoDateTime(value) {
+  return value ? new Date(value).toISOString() : undefined;
+}
+
+function currentCurriculumGrade() {
+  return grades.includes(state.selectedGrade) ? state.selectedGrade : grades[0];
+}
+
+function curriculumSubjectOptions() {
+  const current = state.data.curriculum?.grade === currentCurriculumGrade() ? state.data.curriculum.subjects : [];
+  if (current?.length) return current;
+  return subjects.map(subjectName => ({
+    subjectId: subjectIdFromName(subjectName),
+    subjectName,
+    strands: []
+  }));
+}
+
+function subjectIdFromName(name) {
+  const known = {
+    "Social Studies": "social_studies",
+    "Computer Science": "computer_science"
+  };
+  return known[name] || String(name).trim().toLowerCase().replaceAll(" ", "_");
+}
+
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result || "").split(",")[1] || "");
+    reader.onerror = () => reject(new Error("Unable to read PDF file."));
+    reader.readAsDataURL(file);
+  });
 }
 
 function selectField(name, options, value) {

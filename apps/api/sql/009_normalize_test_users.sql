@@ -16,8 +16,8 @@ BEGIN
   END IF;
 END $$;
 
-DELETE FROM users
-WHERE email NOT IN ('student@kitabu.ai', 'teacher@kitabu.ai', 'admin@kitabu.ai');
+-- Do not delete existing users here. This migration normalizes the known test
+-- accounts only; production and pilot data must survive repeated migration runs.
 
 INSERT INTO users (
   id,

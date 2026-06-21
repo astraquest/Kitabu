@@ -38,14 +38,26 @@ jobs:
         run: |
           set -euo pipefail
           cd /home/samora/deploy/kitabu-live
-          docker compose up -d --build postgres redis api worker caddy
+          docker compose up -d postgres redis
+          docker compose build api worker
+          docker compose run --rm api node scripts/apply-migrations.mjs
+          docker compose run --rm api node scripts/verify-production-readiness.mjs
+          docker compose up -d api worker caddy
+          healthy=0
           for attempt in $(seq 1 30); do
             if curl --fail --silent http://127.0.0.1:4000/health >/dev/null; then
-              exit 0
+              healthy=1
+              break
             fi
 
             sleep 2
           done
 
-          docker compose logs api --tail=120
-          exit 1
+          if [ "$healthy" -ne 1 ]; then
+            docker compose logs api --tail=120
+            exit 1
+          fi
+
+          curl --fail --silent https://app.kitabu.ai/health >/dev/null
+          curl --fail --silent https://admin.kitabu.ai/app.js | grep -q '/curriculum/import/pdf'
+          curl --fail --silent https://admin.kitabu.ai/app.js | grep -q '/ai/generate-text'

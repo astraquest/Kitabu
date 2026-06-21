@@ -11,7 +11,10 @@
     "check": "npm run typecheck -w apps/api",
     "test:api": "npm test -w apps/api",
     "test:native": "npm --prefix native-app test -- --runInBand",
-    "release:check": "npm run check && npm run build && npm run test:api && npm run test:native",
+    "lint:native": "npm --prefix native-app run lint -- --max-warnings=0",
+    "typecheck:native": "npm --prefix native-app run typecheck",
+    "readiness:production": "npm run check:readiness -w apps/api",
+    "release:check": "npm run check && npm run build && npm run test:api && npm run typecheck:native && npm run lint:native && npm run test:native && npm run readiness:production",
     "deploy:build": "docker compose build api worker"
   },
   "overrides": {

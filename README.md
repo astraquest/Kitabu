@@ -37,6 +37,7 @@ See:
 The current production topology is:
 
 - `app.kitabu.ai` -> `apps/api`
+- `admin.kitabu.ai` -> `apps/admin-web`
 
 Cloudflare should proxy the public API domain. Postgres and Redis must remain private to the origin.
 
@@ -49,6 +50,8 @@ Do not deploy the API until migrations complete successfully against the target 
 Before cutting a release from a development machine, run:
 
 - `npm run release:check`
+
+This command includes API checks, native typecheck/lint/tests, and the production readiness gate. It must fail if the active environment still points at localhost or lacks required AI/provider credentials.
 
 ## Production Readiness
 

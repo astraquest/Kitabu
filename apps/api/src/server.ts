@@ -99,6 +99,7 @@ import {
   listAssignmentSubmissionsForTeacher,
   listLearningPodcastsForUser,
   listLibraryBooksForUser,
+  listQuizBankQuestions,
   listSchoolDiscounts,
   listSchools,
   listStudentAssignments,
@@ -147,7 +148,7 @@ import {
   verifyGoogleIdToken,
   type VerifiedGoogleIdentity
 } from './googleAuth.js';
-import { requireAuthenticated, requireRoles, requireSchoolContext } from './rbac.js';
+import { hasAnyRole, requireAuthenticated, requireRoles, requireSchoolContext } from './rbac.js';
 import {
   buildEmailVerificationEmail,
   buildPasswordResetEmail,
@@ -916,6 +917,12 @@ const subStrandCompletionSchema = z.object({
   quizScore: z.number().min(0).max(100).optional()
 });
 
+const quizBankQuerySchema = z.object({
+  grade: z.string().min(1),
+  subjectId: z.string().min(1).optional(),
+  limit: z.coerce.number().int().min(1).max(100).default(100)
+});
+
 export interface BuildServerOptions {
   googleTokenVerifier?: (idToken: string) => Promise<VerifiedGoogleIdentity>;
   emailSender?: typeof sendTransactionalEmail;
@@ -1376,6 +1383,27 @@ function serializeDiagnosticQuestion(question: DiagnosticQuestionDefinition) {
   };
 }
 
+function serializeQuizBankQuestion(
+  question: Awaited<ReturnType<typeof listQuizBankQuestions>>[number],
+  index: number
+) {
+  return {
+    id: index + 1,
+    bankId: question.id,
+    gradeLevel: question.grade_level,
+    subjectId: question.subject_id,
+    subjectName: question.subject_name,
+    strand: question.strand_title,
+    subStrand: question.sub_strand_title,
+    type: question.type,
+    text: question.prompt,
+    options: question.options,
+    correctAnswer: question.correct_answer,
+    explanation: question.explanation,
+    difficulty: question.difficulty
+  };
+}
+
 function findDiagnosticQuestion(questionId: string) {
   return ONBOARDING_DIAGNOSTIC_QUESTIONS.find(question => question.id === questionId) ?? null;
 }
@@ -1502,6 +1530,16 @@ function buildDiagnosticResultSummary(answers: Awaited<ReturnType<typeof listDia
     return { error: null, subscription };
   }
 
+  function canBypassAiSubscription(user: NonNullable<FastifyRequest['user']>, feature: string) {
+    const operationalAiFeatures = new Set([
+      'assignment_generation',
+      'curriculum_extraction',
+      'curriculum_document_processing',
+      'curriculum_import_processing'
+    ]);
+    return operationalAiFeatures.has(feature) && hasAnyRole(user, ['teacher', 'school_admin', 'platform_admin']);
+  }
+
   function buildLessonGenerationPrompt(context: NonNullable<Awaited<ReturnType<typeof findCurriculumSubStrandContext>>>) {
     const outcomes = (context.outcomes ?? []).map(item => `- ${item.text}`).join('\n') || '- No explicit outcomes provided';
     const inquiryQuestions =
@@ -1592,8 +1630,10 @@ Requirements:
     body: z.infer<typeof generateTextSchema>;
   }) {
     const currentUser = args.request.user!;
-    const subscriptionCheck = await requireActiveSubscriptionForAi(args.reply, currentUser);
-    if (subscriptionCheck.error || !subscriptionCheck.subscription) {
+    const subscriptionCheck = canBypassAiSubscription(currentUser, args.body.feature)
+      ? { error: null, subscription: null }
+      : await requireActiveSubscriptionForAi(args.reply, currentUser);
+    if (subscriptionCheck.error) {
       return {
         error: subscriptionCheck.error,
         text: null,
@@ -1620,18 +1660,18 @@ Requirements:
     const executionPlan = executionPlans[0];
     const promptVersion = resolvePromptVersion(args.body.feature);
     const subscription = subscriptionCheck.subscription;
-    const existingSpend = await getSubscriptionAiSpendKshCents(subscription.id);
+    const existingSpend = subscription ? await getSubscriptionAiSpendKshCents(subscription.id) : 0;
     const provisionalTokenEstimate = Math.max(Math.ceil(args.body.prompt.length / 4), 150);
     const provisionalCostUsdMicros = estimateCostUsdMicros(executionPlan, provisionalTokenEstimate, 0);
     const provisionalCostKshCents = usdMicrosToKshCents(provisionalCostUsdMicros, appConfig.KITABU_KSH_PER_USD);
-    const budgetKshCents = Number(subscription.price_ksh_cents);
+    const budgetKshCents = subscription ? Number(subscription.price_ksh_cents) : Number.MAX_SAFE_INTEGER;
 
-    if (existingSpend + provisionalCostKshCents > budgetKshCents) {
+    if (subscription && existingSpend + provisionalCostKshCents > budgetKshCents) {
       await withTransaction(async client => {
         await createAiUsageEvent(client, {
           userId: currentUser.id,
           schoolId: currentUser.schoolId,
-          subscriptionId: subscription.id,
+          subscriptionId: subscription?.id ?? null,
           feature: args.body.feature,
           provider: executionPlan.provider,
           model: executionPlan.model,
@@ -1672,7 +1712,7 @@ Requirements:
         await createAiUsageEvent(client, {
           userId: currentUser.id,
           schoolId: currentUser.schoolId,
-          subscriptionId: subscription.id,
+          subscriptionId: subscription?.id ?? null,
           feature: args.body.feature,
           provider: completedPlan.provider,
           model: completedPlan.model,
@@ -1697,7 +1737,7 @@ Requirements:
         await createAiUsageEvent(client, {
           userId: currentUser.id,
           schoolId: currentUser.schoolId,
-          subscriptionId: subscription.id,
+          subscriptionId: subscription?.id ?? null,
           feature: args.body.feature,
           provider: executionPlan.provider,
           model: executionPlan.model,
@@ -2988,21 +3028,7 @@ Return valid JSON with this shape:
       return reply.notFound('Sub-strand not found');
     }
 
-    const aiResult = await runSubscriptionScopedAiText({
-      request,
-      reply,
-      body: {
-        prompt: buildLessonQuizPrompt(context, body.questionCount),
-        responseMimeType: 'application/json',
-        feature: 'curriculum_quiz_generation'
-      }
-    });
-
-    if (aiResult.error || !aiResult.text) {
-      return aiResult.error;
-    }
-
-    const parsed = JSON.parse(aiResult.text) as {
+    let parsed: {
       questions?: Array<{
         id?: number;
         type: 'MCQ' | 'TRUE_FALSE' | 'SHORT_ANSWER' | 'ESSAY';
@@ -3011,10 +3037,52 @@ Return valid JSON with this shape:
         correctAnswer?: string | boolean;
         explanation?: string;
       }>;
-    };
+    } = {};
+
+    try {
+      const aiResult = await runSubscriptionScopedAiText({
+        request,
+        reply,
+        body: {
+          prompt: buildLessonQuizPrompt(context, body.questionCount),
+          responseMimeType: 'application/json',
+          feature: 'curriculum_quiz_generation'
+        }
+      });
+
+      if (aiResult.error && aiResult.error.message !== 'AI request failed') {
+        return aiResult.error;
+      }
+
+      if (!aiResult.error && aiResult.text) {
+        parsed = JSON.parse(aiResult.text) as typeof parsed;
+      }
+    } catch (error) {
+      request.log.warn({ err: error, subStrandId: params.subStrandId }, 'Curriculum quiz AI failed; using QuizBank fallback');
+    }
+
+    if (!parsed.questions?.length) {
+      const bankQuestions = await listQuizBankQuestions({
+        gradeLevel: context.grade_level,
+        subjectId: context.subject_id,
+        limit: body.questionCount
+      });
+
+      if (!bankQuestions.length) {
+        return reply.serviceUnavailable('QuizBank fallback is not available for this grade yet');
+      }
+
+      reply.status(200);
+      return {
+        subStrandId: params.subStrandId,
+        source: 'quiz_bank',
+        questions: bankQuestions.map(serializeQuizBankQuestion)
+      };
+    }
 
     return {
       subStrandId: params.subStrandId,
+      source: 'ai',
       questions: (parsed.questions ?? []).map((question, index) => ({
         ...question,
         id: question.id ?? index + 1
@@ -3057,6 +3125,26 @@ Return valid JSON with this shape:
       subStrandId: params.subStrandId,
       grade: context.grade_level,
       subjectId: context.subject_id
+    };
+  });
+
+  app.get('/quiz-bank', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return authError;
+    }
+
+    const query = quizBankQuerySchema.parse(request.query);
+    const questions = await listQuizBankQuestions({
+      gradeLevel: query.grade,
+      subjectId: query.subjectId ?? null,
+      limit: query.limit
+    });
+
+    return {
+      grade: query.grade,
+      subjectId: query.subjectId ?? null,
+      questions: questions.map(serializeQuizBankQuestion)
     };
   });
 

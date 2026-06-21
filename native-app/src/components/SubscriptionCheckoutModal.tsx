@@ -72,6 +72,12 @@ export function SubscriptionCheckoutModal({
 }: SubscriptionCheckoutModalProps) {
   const { height, width } = useWindowDimensions();
   const compact = height < 760 || width < 380;
+  const cardSizeStyle = useMemo(
+    () => ({
+      maxHeight: Math.round(height * 0.92),
+    }),
+    [height],
+  );
   const visiblePlans = useMemo(
     () => [...plans].sort((left, right) => (PLAN_ORDER[left.code] ?? 99) - (PLAN_ORDER[right.code] ?? 99)),
     [plans],
@@ -95,10 +101,8 @@ export function SubscriptionCheckoutModal({
           end={{ x: 1, y: 1 }}
           style={[
             styles.card,
-            {
-              maxHeight: Math.round(height * 0.92),
-              borderRadius: compact ? 22 : 28,
-            },
+            compact ? styles.cardCompact : styles.cardRegular,
+            cardSizeStyle,
           ]}>
           <ScrollView
             contentContainerStyle={[
@@ -248,13 +252,18 @@ const styles = StyleSheet.create({
   },
   card: {
     alignSelf: 'stretch',
-    borderRadius: 28,
     overflow: 'hidden',
     shadowColor: '#000000',
     shadowOpacity: 0.35,
     shadowRadius: 28,
     shadowOffset: { width: 0, height: 18 },
     elevation: 12,
+  },
+  cardRegular: {
+    borderRadius: 28,
+  },
+  cardCompact: {
+    borderRadius: 22,
   },
   content: {
     alignItems: 'center',

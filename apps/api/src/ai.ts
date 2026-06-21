@@ -46,7 +46,7 @@ export interface TextToSpeechResult {
   voice: string;
 }
 
-export type AiProvider = 'openai' | 'google' | 'groq' | 'nvidia';
+export type AiProvider = 'openai' | 'deepseek' | 'google' | 'groq' | 'nvidia';
 export type AudioTranscriptionProvider = 'openai' | 'groq';
 
 export interface AiExecutionPlan {
@@ -60,6 +60,15 @@ export interface AudioTranscriptionPlan {
   model: string;
 }
 
+function isPdfAttachment(attachment: GenerateTextInput['attachment']) {
+  return Boolean(
+    attachment &&
+      attachment.type === 'file' &&
+      attachment.mimeType.toLowerCase().includes('pdf') &&
+      attachment.data.trim().length > 0
+  );
+}
+
 function isCurriculumReasoningFeature(feature: string) {
   const normalizedFeature = feature.trim().toLowerCase();
   return [
@@ -71,7 +80,7 @@ function isCurriculumReasoningFeature(feature: string) {
 
 export function resolveAiExecutionPlans(input: Pick<GenerateTextInput, 'feature' | 'attachment'>): AiExecutionPlan[] {
   const feature = input.feature ?? 'general';
-  const supportsTextOnlyFallbacks = !input.attachment;
+  const supportsTextFallbacks = !input.attachment || isPdfAttachment(input.attachment);
   const plans: AiExecutionPlan[] = [];
 
   if (appConfig.KITABU_OPENAI_API_KEY) {
@@ -89,13 +98,23 @@ export function resolveAiExecutionPlans(input: Pick<GenerateTextInput, 'feature'
     }
   }
 
-  if (supportsTextOnlyFallbacks && isCurriculumReasoningFeature(feature)) {
+  if (supportsTextFallbacks && appConfig.KITABU_DEEPSEEK_API_KEY) {
+    plans.push({
+      provider: 'deepseek',
+      model: appConfig.KITABU_DEEPSEEK_TEXT_FALLBACK_MODEL
+    });
+  }
+
+  if (supportsTextFallbacks && appConfig.KITABU_NVIDIA_API_KEY) {
+    plans.push({
+      provider: 'nvidia',
+      model: appConfig.KITABU_NVIDIA_DEEPSEEK_FLASH_MODEL
+    });
+  }
+
+  if (supportsTextFallbacks && isCurriculumReasoningFeature(feature)) {
     if (appConfig.KITABU_NVIDIA_API_KEY) {
       plans.push(
-        {
-          provider: 'nvidia',
-          model: appConfig.KITABU_NVIDIA_NEMOTRON_ULTRA_MODEL
-        },
         {
           provider: 'nvidia',
           model: appConfig.KITABU_NVIDIA_DEEPSEEK_PRO_MODEL
@@ -109,7 +128,7 @@ export function resolveAiExecutionPlans(input: Pick<GenerateTextInput, 'feature'
         model: appConfig.KITABU_GROQ_TEXT_SMART_MODEL
       });
     }
-  } else if (supportsTextOnlyFallbacks) {
+  } else if (supportsTextFallbacks) {
     if (appConfig.KITABU_GROQ_API_KEY) {
       plans.push({
         provider: 'groq',
@@ -117,12 +136,6 @@ export function resolveAiExecutionPlans(input: Pick<GenerateTextInput, 'feature'
       });
     }
 
-    if (appConfig.KITABU_NVIDIA_API_KEY) {
-      plans.push({
-        provider: 'nvidia',
-        model: appConfig.KITABU_NVIDIA_DEEPSEEK_FLASH_MODEL
-      });
-    }
   }
 
   if (appConfig.KITABU_GEMINI_API_KEY) {
@@ -226,6 +239,12 @@ export function estimateCostUsdMicros(
     const pricing = getOpenAiTokenPricingUsdPerMillion(plan.model);
     const inputCostUsd = (promptTokens / 1_000_000) * pricing.input;
     const outputCostUsd = (completionTokens / 1_000_000) * pricing.output;
+    return Math.round((inputCostUsd + outputCostUsd) * 1_000_000);
+  }
+
+  if (plan.provider === 'deepseek') {
+    const inputCostUsd = (promptTokens / 1_000_000) * 0.14;
+    const outputCostUsd = (completionTokens / 1_000_000) * 0.28;
     return Math.round((inputCostUsd + outputCostUsd) * 1_000_000);
   }
 
@@ -437,6 +456,87 @@ async function generateTextWithGemini(input: GenerateTextInput, plan: AiExecutio
   };
 }
 
+function decodePdfLiteral(value: string) {
+  return value
+    .replace(/\\([nrtbf()\\])/g, (_, escaped: string) => {
+      const escapes: Record<string, string> = {
+        n: '\n',
+        r: '\r',
+        t: '\t',
+        b: '\b',
+        f: '\f',
+        '(': '(',
+        ')': ')',
+        '\\': '\\'
+      };
+      return escapes[escaped] ?? escaped;
+    })
+    .replace(/\\([0-7]{1,3})/g, (_, octal: string) => String.fromCharCode(Number.parseInt(octal, 8)));
+}
+
+function decodePdfHex(value: string) {
+  const hex = value.replace(/\s+/g, '');
+  const bytes: number[] = [];
+  for (let index = 0; index + 1 < hex.length; index += 2) {
+    bytes.push(Number.parseInt(hex.slice(index, index + 2), 16));
+  }
+  return Buffer.from(bytes).toString('utf8');
+}
+
+function extractPdfTextFromBase64(data: string) {
+  const raw = Buffer.from(data, 'base64').toString('latin1');
+  const chunks: string[] = [];
+
+  for (const match of raw.matchAll(/\(((?:\\.|[^\\)])*)\)\s*Tj/g)) {
+    chunks.push(decodePdfLiteral(match[1]));
+  }
+
+  for (const match of raw.matchAll(/<([0-9a-fA-F\s]+)>\s*Tj/g)) {
+    chunks.push(decodePdfHex(match[1]));
+  }
+
+  for (const match of raw.matchAll(/\[((?:\s*(?:\((?:\\.|[^\\)])*\)|<[0-9a-fA-F\s]+>|-?\d+)\s*)+)\]\s*TJ/g)) {
+    const arrayBody = match[1];
+    for (const literal of arrayBody.matchAll(/\(((?:\\.|[^\\)])*)\)/g)) {
+      chunks.push(decodePdfLiteral(literal[1]));
+    }
+    for (const hex of arrayBody.matchAll(/<([0-9a-fA-F\s]+)>/g)) {
+      chunks.push(decodePdfHex(hex[1]));
+    }
+  }
+
+  return chunks
+    .join(' ')
+    .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function buildTextFallbackInput(input: GenerateTextInput, providerName: string): GenerateTextInput {
+  if (!input.attachment) {
+    return input;
+  }
+
+  if (!isPdfAttachment(input.attachment)) {
+    throw new Error(`${providerName} text fallback does not support this attachment type`);
+  }
+
+  const extractedText = extractPdfTextFromBase64(input.attachment.data);
+  if (extractedText.length < 40) {
+    throw new Error(`${providerName} text fallback could not extract readable PDF text`);
+  }
+
+  return {
+    ...input,
+    attachment: undefined,
+    prompt: [
+      input.prompt,
+      `Attached PDF (${input.attachment.name ?? 'attachment.pdf'}) extracted text:`,
+      extractedText.slice(0, 60_000)
+    ].join('\n\n')
+  };
+}
+
 function buildChatCompletionMessages(input: GenerateTextInput) {
   const requiresJsonOutput = input.responseMimeType === 'application/json';
   const systemInstruction = requiresJsonOutput
@@ -499,9 +599,7 @@ async function generateTextWithOpenAiCompatibleChat(args: {
     throw new Error(`${args.providerName} API key is not configured`);
   }
 
-  if (args.input.attachment) {
-    throw new Error(`${args.providerName} text fallback does not support attachments`);
-  }
+  const input = buildTextFallbackInput(args.input, args.providerName);
 
   const response = await fetch(`${args.baseUrl}/chat/completions`, {
     method: 'POST',
@@ -511,9 +609,9 @@ async function generateTextWithOpenAiCompatibleChat(args: {
     },
     body: JSON.stringify({
       model: args.plan.model,
-      messages: buildChatCompletionMessages(args.input),
+      messages: buildChatCompletionMessages(input),
       response_format:
-        args.input.responseMimeType === 'application/json'
+        input.responseMimeType === 'application/json'
           ? {
               type: 'json_object'
             }
@@ -559,6 +657,16 @@ async function generateTextWithGroq(input: GenerateTextInput, plan: AiExecutionP
   });
 }
 
+async function generateTextWithDeepSeek(input: GenerateTextInput, plan: AiExecutionPlan): Promise<AiProviderResult> {
+  return generateTextWithOpenAiCompatibleChat({
+    input,
+    plan,
+    apiKey: appConfig.KITABU_DEEPSEEK_API_KEY,
+    baseUrl: appConfig.KITABU_DEEPSEEK_BASE_URL,
+    providerName: 'DeepSeek'
+  });
+}
+
 async function generateTextWithNvidia(input: GenerateTextInput, plan: AiExecutionPlan): Promise<AiProviderResult> {
   return generateTextWithOpenAiCompatibleChat({
     input,
@@ -576,6 +684,10 @@ export async function generateText(input: GenerateTextInput, plan: AiExecutionPl
 
   if (plan.provider === 'groq') {
     return generateTextWithGroq(input, plan);
+  }
+
+  if (plan.provider === 'deepseek') {
+    return generateTextWithDeepSeek(input, plan);
   }
 
   if (plan.provider === 'nvidia') {

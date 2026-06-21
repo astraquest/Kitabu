@@ -905,6 +905,37 @@ const curriculumImportSchema = z.object({
   base64Data: z.string().min(1)
 });
 
+const importedCurriculumItemSchema = z.union([
+  z.string().min(1),
+  z.object({
+    id: z.string().optional(),
+    text: z.string().min(1)
+  })
+]);
+
+const importedCurriculumSubStrandSchema = z
+  .object({
+    number: z.string().optional(),
+    title: z.string().min(1),
+    outcomes: z.array(importedCurriculumItemSchema).default([]),
+    inquiryQuestions: z.array(importedCurriculumItemSchema).default([])
+  })
+  .passthrough();
+
+const importedCurriculumStrandSchema = z
+  .object({
+    number: z.string().optional(),
+    title: z.string().min(1),
+    subStrands: z.array(importedCurriculumSubStrandSchema).default([])
+  })
+  .passthrough();
+
+const curriculumImportAiResponseSchema = z
+  .object({
+    strands: z.array(importedCurriculumStrandSchema).default([])
+  })
+  .passthrough();
+
 const subStrandParamsSchema = z.object({
   subStrandId: z.string().uuid()
 });
@@ -1486,35 +1517,48 @@ function buildDiagnosticResultSummary(answers: Awaited<ReturnType<typeof listDia
       }>;
     }>
   ): CurriculumStrandInput[] {
-    return payload.map((strand, strandIndex) => ({
-      number: strand.number || `${strandIndex + 1}.0`,
-      title: strand.title,
-      subTitle: `${args.subjectName} imported curriculum`,
-      subStrands: (strand.subStrands || []).map((subStrand, subIndex) => ({
-        number: subStrand.number || `${strandIndex + 1}.${subIndex + 1}`,
-        title: subStrand.title,
-        type: 'knowledge',
-        pages: [],
-        outcomes: (subStrand.outcomes || [])
-          .map((item, itemIndex) => ({
-            id:
-              typeof item === 'string'
-                ? `${args.grade}-${args.subjectId}-${strandIndex + 1}-${subIndex + 1}-outcome-${itemIndex + 1}`
-                : item.id,
-            text: typeof item === 'string' ? item : item.text
+    return payload
+      .map((strand, strandIndex) => ({
+        number: strand.number || `${strandIndex + 1}.0`,
+        title: strand.title.trim(),
+        subTitle: `${args.subjectName} imported curriculum`,
+        subStrands: (strand.subStrands || [])
+          .map((subStrand, subIndex) => ({
+            number: subStrand.number || `${strandIndex + 1}.${subIndex + 1}`,
+            title: subStrand.title.trim(),
+            type: 'knowledge' as const,
+            pages: [],
+            outcomes: (subStrand.outcomes || [])
+              .map((item, itemIndex) => ({
+                id:
+                  typeof item === 'string'
+                    ? `${args.grade}-${args.subjectId}-${strandIndex + 1}-${subIndex + 1}-outcome-${itemIndex + 1}`
+                    : item.id,
+                text: typeof item === 'string' ? item.trim() : item.text.trim()
+              }))
+              .filter(item => item.text.length > 0),
+            inquiryQuestions: (subStrand.inquiryQuestions || [])
+              .map((item, itemIndex) => ({
+                id:
+                  typeof item === 'string'
+                    ? `${args.grade}-${args.subjectId}-${strandIndex + 1}-${subIndex + 1}-question-${itemIndex + 1}`
+                    : item.id,
+                text: typeof item === 'string' ? item.trim() : item.text.trim()
+              }))
+              .filter(item => item.text.length > 0)
           }))
-          .filter(item => item.text.trim().length > 0),
-        inquiryQuestions: (subStrand.inquiryQuestions || [])
-          .map((item, itemIndex) => ({
-            id:
-              typeof item === 'string'
-                ? `${args.grade}-${args.subjectId}-${strandIndex + 1}-${subIndex + 1}-question-${itemIndex + 1}`
-                : item.id,
-            text: typeof item === 'string' ? item : item.text
-          }))
-          .filter(item => item.text.trim().length > 0)
+          .filter(subStrand => subStrand.title.length > 0 && subStrand.outcomes.length > 0)
       }))
-    }));
+      .filter(strand => strand.title.length > 0 && strand.subStrands.length > 0);
+  }
+
+  function isImportableCurriculum(strands: CurriculumStrandInput[]) {
+    return (
+      strands.length > 0 &&
+      strands.some(strand =>
+        strand.subStrands.some(subStrand => (subStrand.outcomes ?? []).some(outcome => outcome.text.trim().length > 0))
+      )
+    );
   }
 
   async function requireActiveSubscriptionForAi(
@@ -2919,26 +2963,40 @@ Return valid JSON with this shape:
       return aiResult.error;
     }
 
-    const parsed = JSON.parse(aiResult.text) as {
-      strands?: Array<{
-        number?: string;
-        title: string;
-        subStrands: Array<{
-          number?: string;
-          title: string;
-          outcomes?: Array<{ id?: string; text: string } | string>;
-          inquiryQuestions?: Array<{ id?: string; text: string } | string>;
-        }>;
-      }>;
-    };
+    let parsedJson: unknown;
+    try {
+      parsedJson = JSON.parse(aiResult.text);
+    } catch {
+      reply.status(422);
+      return {
+        message: 'The curriculum PDF could not be converted into valid curriculum JSON. Existing curriculum was not changed.'
+      };
+    }
+
+    const parsed = curriculumImportAiResponseSchema.safeParse(parsedJson);
+    if (!parsed.success) {
+      reply.status(422);
+      return {
+        message: 'The curriculum PDF did not contain a valid strand/sub-strand structure. Existing curriculum was not changed.'
+      };
+    }
+
     const normalizedStrands = normalizeImportedCurriculum(
       {
         grade: body.grade,
         subjectId: body.subjectId,
         subjectName: body.subjectName
       },
-      parsed.strands ?? []
+      parsed.data.strands
     );
+
+    if (!isImportableCurriculum(normalizedStrands)) {
+      reply.status(422);
+      return {
+        message:
+          'The curriculum PDF did not produce any strands with sub-strands and learning outcomes. Existing curriculum was not changed.'
+      };
+    }
 
     await withTransaction(async client => {
       await replaceCurriculumSubject(client, {

@@ -295,6 +295,9 @@ export interface AdminUserRecord {
   email: string;
   status: 'Online' | 'Offline' | 'Active';
   color: 'green' | 'gray';
+  createdAt: string;
+  lastActive: string;
+  lastActiveAt: string | null;
 }
 
 export interface FeatureFlagRecord {
@@ -2333,15 +2336,16 @@ export async function createAiUsageEvent(
 }
 
 export async function getAdminAiAnalytics(user: AuthenticatedUser) {
-  const schoolScoped = !user.roles.includes('platform_admin');
+  const schoolScoped = !(user.roles.includes('platform_admin') && user.stepUp);
   const scopedParams: unknown[] = schoolScoped ? [user.schoolId] : [];
-  const scopedWhere = schoolScoped ? 'WHERE school_id = $1' : '';
+  const aiUsageScopedWhere = schoolScoped ? 'WHERE school_id = $1' : '';
+  const userJoinScopedWhere = schoolScoped ? 'WHERE a.school_id = $1' : '';
 
   const topUsers = await db.query(
     `SELECT u.id, u.full_name, u.email, COALESCE(SUM(a.estimated_cost_ksh_cents), 0)::bigint AS spend_ksh_cents
      FROM ai_usage_events a
      JOIN users u ON u.id = a.user_id
-     ${scopedWhere}
+     ${userJoinScopedWhere}
      GROUP BY u.id, u.full_name, u.email
      ORDER BY spend_ksh_cents DESC
      LIMIT 10`,
@@ -2349,9 +2353,9 @@ export async function getAdminAiAnalytics(user: AuthenticatedUser) {
   );
 
   const topFeatures = await db.query(
-    `SELECT feature, COALESCE(SUM(estimated_cost_ksh_cents), 0)::bigint AS spend_ksh_cents
+     `SELECT feature, COALESCE(SUM(estimated_cost_ksh_cents), 0)::bigint AS spend_ksh_cents
      FROM ai_usage_events
-     ${scopedWhere}
+     ${aiUsageScopedWhere}
      GROUP BY feature
      ORDER BY spend_ksh_cents DESC
      LIMIT 10`,
@@ -2399,7 +2403,7 @@ export async function getAdminAiAnalytics(user: AuthenticatedUser) {
 }
 
 export async function getBillingAnalytics(user: AuthenticatedUser) {
-  const schoolScoped = !user.roles.includes('platform_admin');
+  const schoolScoped = !(user.roles.includes('platform_admin') && user.stepUp);
   const scopedParams: unknown[] = schoolScoped ? [user.schoolId] : [];
   const userScopeClause = schoolScoped ? 'WHERE u.school_id = $1' : '';
 
@@ -3690,7 +3694,7 @@ export async function submitStudentAssignment(
 }
 
 export async function listAdminUsers(user: AuthenticatedUser): Promise<AdminUserRecord[]> {
-  const schoolScoped = !user.roles.includes('platform_admin');
+  const schoolScoped = !(user.roles.includes('platform_admin') && user.stepUp);
   const result = await db.query<{
     id: string;
     full_name: string;
@@ -3698,6 +3702,8 @@ export async function listAdminUsers(user: AuthenticatedUser): Promise<AdminUser
     school_name: string | null;
     email: string;
     email_verified: boolean;
+    created_at: Date;
+    last_activity: Date | null;
   }>(
     `SELECT
        u.id,
@@ -3705,11 +3711,24 @@ export async function listAdminUsers(user: AuthenticatedUser): Promise<AdminUser
        u.grade_level,
        s.name AS school_name,
        u.email,
-       u.email_verified
-     FROM users u
-     LEFT JOIN schools s ON s.id = u.school_id
-     WHERE ($1::boolean = FALSE OR u.school_id = $2)
-     ORDER BY u.full_name ASC`,
+       u.email_verified,
+       u.created_at,
+       GREATEST(
+         MAX(sub.submitted_at),
+         MAX(ucp.updated_at),
+         MAX(wa.started_at),
+         MAX(aue.created_at),
+         u.updated_at
+       ) AS last_activity
+      FROM users u
+      LEFT JOIN schools s ON s.id = u.school_id
+      LEFT JOIN submissions sub ON sub.student_id = u.id
+      LEFT JOIN user_curriculum_progress ucp ON ucp.user_id = u.id
+      LEFT JOIN weekly_exam_attempts wa ON wa.user_id = u.id
+      LEFT JOIN ai_usage_events aue ON aue.user_id = u.id
+      WHERE ($1::boolean = FALSE OR u.school_id = $2)
+      GROUP BY u.id, s.name
+      ORDER BY u.full_name ASC`,
     [schoolScoped, user.schoolId]
   );
 
@@ -3719,7 +3738,15 @@ export async function listAdminUsers(user: AuthenticatedUser): Promise<AdminUser
     grade: row.grade_level || 'N/A',
     school: row.school_name || 'No School',
     email: row.email,
-    status: row.email_verified ? 'Active' : 'Offline',
-    color: row.email_verified ? 'green' : 'gray'
+    status:
+      row.last_activity && row.last_activity >= new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
+        ? 'Online'
+        : row.email_verified
+          ? 'Active'
+          : 'Offline',
+    color: row.email_verified ? 'green' : 'gray',
+    createdAt: row.created_at.toISOString(),
+    lastActive: formatActivityLabel(row.last_activity),
+    lastActiveAt: row.last_activity ? row.last_activity.toISOString() : null
   }));
 }

@@ -48,7 +48,8 @@ const state = {
     billing: null,
     curriculum: null,
     teacherStudents: [],
-    teacherAssignments: []
+    teacherAssignments: [],
+    quizBank: null
   }
 };
 
@@ -148,6 +149,7 @@ function renderNav() {
       renderNav();
       renderRoute();
       if (state.route === "subjects") loadCurriculumGrade().then(renderRoute);
+      if (state.route === "quiz") loadQuizBankGrade().then(renderRoute);
     });
   });
 }
@@ -247,6 +249,7 @@ async function loadAll(force = false) {
 
     await loadTeacherData();
     if (state.route === "subjects") await loadCurriculumGrade();
+    if (state.route === "quiz") await loadQuizBankGrade();
     state.lastSync = new Date();
     setSync("Live", `Updated ${state.lastSync.toLocaleTimeString()}`, "live");
     renderRoute();
@@ -279,6 +282,15 @@ async function loadCurriculumGrade(grade = currentCurriculumGrade()) {
   }
 }
 
+async function loadQuizBankGrade(grade = currentCurriculumGrade()) {
+  try {
+    const query = new URLSearchParams({ grade, limit: "100" });
+    state.data.quizBank = await api(`/quiz-bank?${query.toString()}`);
+  } catch (error) {
+    state.data.quizBank = { grade, questions: [], error: error.message || "Unable to load QuizBank." };
+  }
+}
+
 function setSync(title, meta, tone) {
   document.getElementById("syncState").textContent = title;
   document.getElementById("syncMeta").textContent = meta;
@@ -293,19 +305,19 @@ function renderRoute() {
     schools: ["Schools", "Manage partner schools, grades, pilots, and enrollment."],
     subjects: ["Subjects", "Curriculum and subject management by grade."],
     users: ["Users", "Search, filter, and inspect live user records."],
-    sales: ["Sales Agents", "Next in line from desktop reference screens."],
+    sales: ["Sales Agents", "Live school owner and onboarding contacts."],
     teacher: ["Teacher's Portal", "Student performance and assignment workflows."],
     parents: ["Parents' Portal", "Parent-facing learner health and progress view."],
     chatbot: ["Chatbot Agent", "AI usage, engaged subjects, and flagged content."],
-    tutor: ["Tutor Agent", "Next in line agent analytics."],
-    quickfacts: ["QuickFacts Agent", "Next in line agent analytics."],
-    homework: ["Homework Agent", "Next in line assignment assistance analytics."],
-    assessment: ["Assessment Agent", "Next in line assessment analytics."],
-    career: ["Career Coach Agent", "Next in line career guidance analytics."],
-    quiz: ["Quiz Arena", "Next in line game and quiz analytics."],
+    tutor: ["Tutor Agent", "Live AI usage and spend analytics."],
+    quickfacts: ["QuickFacts Agent", "Live AI usage and spend analytics."],
+    homework: ["Homework Agent", "Live assignment assistance analytics."],
+    assessment: ["Assessment Agent", "Live assessment and AI analytics."],
+    career: ["Career Coach Agent", "Live career guidance AI analytics."],
+    quiz: ["Quiz Arena", "Live QuizBank fallback questions by grade."],
     pilots: ["Pilots", "School pilot onboarding and launch readiness."],
     pricing: ["Pricing", "School packages, discounts, and in-app announcements."],
-    settings: ["Settings", "Operational controls queued for the admin portal."]
+    settings: ["Settings", "Live sync, backend, and admin session controls."]
   };
   const [title, sub] = titleMap[state.route] || titleMap.dashboard;
   pageTitle.textContent = title;
@@ -355,12 +367,131 @@ function revenueSignal() {
   return billingRevenue || schoolRevenue;
 }
 
+function usersForSelectedGrade() {
+  return state.data.users.filter(user => state.selectedGrade === "All Grades" || user.grade === state.selectedGrade);
+}
+
+function recentUsers(days = 30) {
+  const cutoff = Date.now() - days * 24 * 60 * 60 * 1000;
+  return state.data.users.filter(user => {
+    const createdAt = Date.parse(user.createdAt || "");
+    return Number.isFinite(createdAt) && createdAt >= cutoff;
+  });
+}
+
+function monthBuckets(count = 4) {
+  const buckets = [];
+  const now = new Date();
+  for (let index = count - 1; index >= 0; index -= 1) {
+    const date = new Date(now.getFullYear(), now.getMonth() - index, 1);
+    buckets.push({
+      key: `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}`,
+      label: date.toLocaleString("en", { month: "short" }),
+      value: 0
+    });
+  }
+  return buckets;
+}
+
+function monthlyCounts(records, field, count = 4) {
+  const buckets = monthBuckets(count);
+  const byKey = new Map(buckets.map(bucket => [bucket.key, bucket]));
+  records.forEach(record => {
+    const value = record[field];
+    if (!value) return;
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return;
+    const key = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}`;
+    const bucket = byKey.get(key);
+    if (bucket) bucket.value += 1;
+  });
+  return {
+    labels: buckets.map(bucket => bucket.label),
+    values: buckets.map(bucket => bucket.value)
+  };
+}
+
+function revenueSeries() {
+  const rows = state.data.billing?.revenueByPlan || [];
+  if (rows.length) {
+    return {
+      labels: rows.map(row => String(row.plan_code || "plan")),
+      values: rows.map(row => Number(row.revenue_ksh_cents || 0) / 100)
+    };
+  }
+  const schools = state.data.schools.slice(0, 6);
+  return {
+    labels: schools.map(school => school.name.split(" ")[0] || "School"),
+    values: schools.map(school => Number(school.pricing?.effectivePriceKsh || 0))
+  };
+}
+
+function subjectRowsFromAssignments() {
+  const counts = new Map();
+  state.data.teacherAssignments.forEach(assignment => {
+    const subject = assignment.subject || "Unassigned";
+    counts.set(subject, (counts.get(subject) || 0) + 1);
+  });
+  return Array.from(counts.entries())
+    .map(([label, count]) => ({ label, raw: count }))
+    .sort((left, right) => right.raw - left.raw);
+}
+
+function subjectRowsFromCurriculum() {
+  const current = state.data.curriculum?.subjects || [];
+  return current
+    .map(subject => ({
+      label: subject.subjectName,
+      raw: (subject.strands || []).reduce((sum, strand) => sum + Number((strand.subStrands || []).length || 0), 0)
+    }))
+    .filter(row => row.raw > 0)
+    .sort((left, right) => right.raw - left.raw);
+}
+
+function toPercentageRows(rows) {
+  const total = rows.reduce((sum, row) => sum + Number(row.raw || 0), 0) || 1;
+  return rows.map(row => ({
+    label: row.label,
+    value: Math.max(1, Math.round((Number(row.raw || 0) / total) * 100))
+  }));
+}
+
+function liveSubjectUsageRows() {
+  const rows = subjectRowsFromAssignments();
+  return toPercentageRows(rows.length ? rows : subjectRowsFromCurriculum());
+}
+
+function assignmentScoreRows() {
+  return state.data.teacherAssignments
+    .filter(assignment => Number(assignment.averageScore || 0) > 0)
+    .slice(0, 6)
+    .map(assignment => ({
+      label: assignment.subject || assignment.title || "Assignment",
+      value: Number(assignment.averageScore || 0)
+    }));
+}
+
+function schoolOwnerRows() {
+  return state.data.schools.map(school => ({
+    id: school.id,
+    name: school.principal || school.name,
+    email: school.email || "-",
+    phone: school.phone || "-",
+    schools: school.name,
+    revenue: Number(school.pricing?.effectivePriceKsh || 0),
+    students: Number(school.totalStudents || 0)
+  }));
+}
+
 function renderDashboard() {
-  const users = state.data.users.length;
-  const active = activeUsers();
+  const visibleUsers = usersForSelectedGrade();
+  const users = visibleUsers.length || state.data.users.length;
+  const active = visibleUsers.filter(user => user.status === "Active" || user.status === "Online").length || activeUsers();
   const schools = state.data.schools.length;
   const revenue = revenueSignal();
-  const subjectRows = subjectUsageRows();
+  const subjectRows = liveSubjectUsageRows();
+  const userGrowth = monthlyCounts(state.data.users, "createdAt");
+  const revenueData = revenueSeries();
   return `
     <div class="toolbar">
       <div class="filters">
@@ -371,16 +502,16 @@ function renderDashboard() {
     <div class="metric-grid">
       ${metric("Total Users", users || totalStudents(), "Accounts and students", "blue")}
       ${metric("Active Users", active, "Verified active accounts", "green")}
-      ${metric("New Users", Math.max(0, Math.round(users * 0.09)), "Recent additions", "amber")}
+      ${metric("New Users", recentUsers().length, "Added in last 30 days", "amber")}
       ${metric("Revenue", money(revenue), "Paid and assigned plans", "red")}
     </div>
     <div class="two-col">
-      ${panel("User Growth", lineChart([500, 700, 1020, Math.max(1220, users || 1200)], ["Jan", "Feb", "Mar", "Apr"], "#8179d6"))}
-      ${panel("Revenue", barChart([2000, 2500, 3050, Math.max(3600, Math.round(revenue / 10) || 3600)], ["Jan", "Feb", "Mar", "Apr"], "#76c99f"))}
+      ${panel("User Growth", lineChart(userGrowth.values, userGrowth.labels, "#8179d6"))}
+      ${panel("Revenue", barChart(revenueData.values, revenueData.labels, "#76c99f"))}
     </div>
     <div class="two-col">
       ${panel("Subject Usage", pieLegend(subjectRows))}
-      ${panel("Admin Queue", nextLineItems())}
+      ${panel("Live Admin Feed", liveAdminFeed())}
     </div>
   `;
 }
@@ -420,10 +551,12 @@ function sortedSchools() {
 }
 
 function renderSubjects() {
-  const rows = subjectUsageRows();
+  const rows = liveSubjectUsageRows();
+  const scoreRows = assignmentScoreRows();
   const grade = currentCurriculumGrade();
   const curriculum = state.data.curriculum?.grade === grade ? state.data.curriculum : null;
   const curriculumSubjects = curriculumSubjectOptions();
+  const bestScore = scoreRows[0];
   return `
     <div class="toolbar">
       <div class="filters">
@@ -432,13 +565,13 @@ function renderSubjects() {
       </div>
     </div>
     <div class="metric-grid three">
-      ${metric("Most Active Subject", rows[0]?.label || "Mathematics", `${rows[0]?.value || 25}%`, "blue")}
-      ${metric("Least Active Subject", rows[rows.length - 1]?.label || "Geography", `${rows[rows.length - 1]?.value || 8}%`, "green")}
-      ${metric("Most Improved Subject", "Computer Science", "10% this period", "red")}
+      ${metric("Most Active Subject", rows[0]?.label || "No live subject data", rows[0] ? `${rows[0].value}%` : "0%", "blue")}
+      ${metric("Least Active Subject", rows[rows.length - 1]?.label || "No live subject data", rows.length ? `${rows[rows.length - 1].value}%` : "0%", "green")}
+      ${metric("Best Assignment Average", bestScore?.label || "No scored assignments", bestScore ? percent(bestScore.value) : "0%", "red")}
     </div>
     <div class="two-col">
       ${panel("Subject Engagement", pieLegend(rows))}
-      ${panel("Hours Spent", barChart([26, 20, 15, 10, 8, 12, 10], ["Math", "Science", "English", "History", "Geo", "CS", "Business"], "#8179d6"))}
+      ${panel("Assignment Averages", barChart(scoreRows.map(row => row.value), scoreRows.map(row => row.label), "#8179d6"))}
     </div>
     <div class="panel">
       <div class="panel-header">
@@ -457,6 +590,12 @@ function renderSubjects() {
 
 function renderUsers() {
   const filtered = filteredUsers();
+  const created = monthlyCounts(filtered, "createdAt");
+  const active = monthlyCounts(filtered.filter(user => user.lastActiveAt), "lastActiveAt");
+  const recent = filtered.filter(user => {
+    const createdAt = Date.parse(user.createdAt || "");
+    return Number.isFinite(createdAt) && createdAt >= Date.now() - 30 * 24 * 60 * 60 * 1000;
+  });
   return `
     <div class="toolbar">
       <div class="filters">
@@ -465,21 +604,22 @@ function renderUsers() {
       </div>
     </div>
     <div class="metric-grid three">
-      ${metric("Total Users", state.data.users.length, "Live user records", "soft-blue")}
-      ${metric("Active Users", activeUsers(), "Verified accounts", "soft-green")}
-      ${metric("New Users", Math.max(0, Math.round(state.data.users.length * 0.09)), "Recent additions", "soft-yellow")}
+      ${metric("Total Users", filtered.length, "Live user records", "soft-blue")}
+      ${metric("Active Users", filtered.filter(user => user.status === "Active" || user.status === "Online").length, "Verified accounts", "soft-green")}
+      ${metric("New Users", recent.length, "Added in last 30 days", "soft-yellow")}
     </div>
     <div class="two-col">
-      ${panel("User Acquisition", barChart([500, 700, 1020, 1240], ["Jan", "Feb", "Mar", "Apr"], "#8179d6"))}
-      ${panel("Active Users", lineChart([500, 700, 1020, 1240], ["Jan", "Feb", "Mar", "Apr"], "#76c99f"))}
+      ${panel("User Acquisition", barChart(created.values, created.labels, "#8179d6"))}
+      ${panel("Active Users", lineChart(active.values, active.labels, "#76c99f"))}
     </div>
     <div class="panel">
-      ${table(["Name", "Email", "School", "Grade", "Status", "Actions"], filtered.map(user => [
+      ${table(["Name", "Email", "School", "Grade", "Status", "Last Active", "Actions"], filtered.map(user => [
         escapeHtml(user.name),
         escapeHtml(user.email),
         escapeHtml(user.school || "-"),
         escapeHtml(user.grade || "-"),
         `<span class="status-pill ${user.color === "green" ? "green" : "gray"}">${escapeHtml(user.status)}</span>`,
+        escapeHtml(user.lastActive || "-"),
         `<div class="table-actions"><button class="primary-button" data-user="${user.id}">View More</button></div>`
       ]))}
     </div>
@@ -496,24 +636,33 @@ function filteredUsers() {
 }
 
 function renderSales() {
+  const owners = schoolOwnerRows();
+  const topOwner = [...owners].sort((left, right) => right.revenue - left.revenue)[0];
+  const lowOwner = [...owners].sort((left, right) => left.revenue - right.revenue)[0];
   return `
     <div class="toolbar"><div></div><div class="filters">${selectHtml("timeRange", ["This Year", "Last 30 Days", "Last 7 Days"], state.timeRange)}</div></div>
     <div class="metric-grid three">
-      ${metric("All Sales Agents", 50, "Onboarding team", "soft-blue")}
-      ${metric("Highest Earning Agent", "Alice Johnson", "KSh 500,000", "soft-green")}
-      ${metric("Lowest Earning Agent", "Bob Smith", "KSh 50,000", "soft-red")}
+      ${metric("School Owners", owners.length, "Live school contacts", "soft-blue")}
+      ${metric("Highest Revenue Owner", topOwner?.name || "No data", topOwner ? money(topOwner.revenue) : "KSh 0", "soft-green")}
+      ${metric("Lowest Revenue Owner", lowOwner?.name || "No data", lowOwner ? money(lowOwner.revenue) : "KSh 0", "soft-red")}
     </div>
     <div class="panel">
-      ${table(["Name", "Email", "Phone", "Schools", "Actions"], [
-        ["Alice Johnson", "alice@example.com", "123-456-7891", "School A, School B", '<div class="table-actions"><button class="primary-button" data-agent="alice">View More</button></div>'],
-        ["Bob Smith", "bob@example.com", "123-456-7892", "School C", '<div class="table-actions"><button class="primary-button" data-agent="bob">View More</button></div>']
-      ])}
+      ${table(["Owner", "Email", "Phone", "School", "Students", "Revenue", "Actions"], owners.map(owner => [
+        escapeHtml(owner.name),
+        escapeHtml(owner.email),
+        escapeHtml(owner.phone),
+        escapeHtml(owner.schools),
+        Number(owner.students || 0).toLocaleString(),
+        money(owner.revenue),
+        `<div class="table-actions"><button class="primary-button" data-school="${owner.id}">View More</button></div>`
+      ]))}
     </div>
   `;
 }
 
 function renderTeacher() {
-  const students = state.data.teacherStudents.length ? state.data.teacherStudents : demoTeacherStudents();
+  const students = state.data.teacherStudents;
+  const assignments = state.data.teacherAssignments;
   return `
     <div class="toolbar">
       <div class="filters"><input id="searchInput" value="${escapeHtml(state.search)}" placeholder="Search by name" />${selectHtml("selectedGrade", ["All Grades", ...grades], state.selectedGrade)}</div>
@@ -527,26 +676,45 @@ function renderTeacher() {
         percent(student.averageScore || student.assessmentScore || 0),
         percent(student.homeworkCompletion || 0),
         escapeHtml(student.lastActive || "Recent"),
-        escapeHtml(student.performanceTrend || "Stable"),
+        escapeHtml(student.trend || student.performanceTrend || "Stable"),
         `<div class="table-actions"><button class="primary-button" data-teacher-student="${escapeHtml(student.id || student.name)}">View More</button></div>`
+      ]))}
+    </div>
+    <div class="panel">
+      <div class="panel-header"><div><h2>Assignments</h2><p>${assignments.length} live assignments from /teacher/assignments.</p></div></div>
+      ${table(["Title", "Subject", "Grade", "Submitted", "Average", "Due"], assignments.map(assignment => [
+        escapeHtml(assignment.title),
+        escapeHtml(assignment.subject),
+        escapeHtml(assignment.gradeLevel || "-"),
+        `${Number(assignment.submittedCount || 0).toLocaleString()} / ${Number(assignment.totalStudents || 0).toLocaleString()}`,
+        percent(assignment.averageScore || 0),
+        escapeHtml(assignment.dueDate ? new Date(assignment.dueDate).toLocaleDateString() : "-")
       ]))}
     </div>
   `;
 }
 
 function renderParents() {
-  const user = filteredUsers()[0] || state.data.users[0] || { name: "John Doe", grade: "Grade 6" };
+  const student = state.data.teacherStudents.find(item => state.selectedGrade === "All Grades" || item.grade === state.selectedGrade) || state.data.teacherStudents[0];
+  const user = filteredUsers()[0] || state.data.users[0];
+  const name = student?.name || user?.name || "No learner selected";
+  const grade = student?.grade || user?.grade || "-";
+  const score = Number(student?.assessmentScore || 0);
+  const homework = Number(student?.homeworkCompletion || 0);
+  const health = Math.round((score + homework) / 2);
+  const scoreRows = assignmentScoreRows();
   return `
     <div class="panel">
-      <div class="panel-header"><div><h2>${escapeHtml(user.name)}'s Health Meter</h2><p>Parent module is next in line. It will reuse parent child dashboard data once exposed to admin scope.</p></div></div>
-      <div class="health-meter">${gauge(74)}</div>
+      <div class="panel-header"><div><h2>${escapeHtml(name)}'s Health Meter</h2><p>Derived from live teacher student performance and assignment data.</p></div></div>
+      <div class="health-meter">${gauge(health)}</div>
       <div class="kpi-stack">
-        <div class="kpi-row"><strong>Grade</strong><span>${escapeHtml(user.grade || "Grade 6")}</span></div>
-        <div class="kpi-row"><strong>Time Spent on App</strong><span>5 hours/week</span></div>
+        <div class="kpi-row"><strong>Grade</strong><span>${escapeHtml(grade)}</span></div>
+        <div class="kpi-row"><strong>Assessment Average</strong><span>${percent(score)}</span></div>
+        <div class="kpi-row"><strong>Homework Completion</strong><span>${percent(homework)}</span></div>
       </div>
-      ${table(["Subject", "Score (%)"], [["Math", 85], ["English", 92], ["Science", 45]])}
+      ${table(["Subject", "Average Score"], scoreRows.map(row => [escapeHtml(row.label), percent(row.value)]))}
     </div>
-    ${panel("Time Spent per Subject", barChart([2, 1.5, 1], ["Math", "English", "Science"], "#8179d6"))}
+    ${panel("Assignment Scores by Subject", barChart(scoreRows.map(row => row.value), scoreRows.map(row => row.label), "#8179d6"))}
   `;
 }
 
@@ -555,19 +723,18 @@ function renderAgent() {
   const topFeatures = ai.topFeatures || [];
   const featureLabels = topFeatures.slice(0, 3).map(row => String(row.feature || "").replaceAll("_", " ")) || [];
   const featureValues = topFeatures.slice(0, 3).map(row => Math.max(1, Number(row.spend_ksh_cents || 0) / 100));
-  const flags = [
-    ["Inappropriate language", "User123", "2025-03-10"],
-    ["Off-topic questions", "User456", "2025-03-12"],
-    ["Spam content", "User789", "2025-03-13"]
-  ];
   return `
     <div class="two-col">
-      ${panel("Most Engaged Subjects", barChart(featureValues.length ? featureValues : [120, 90, 75], featureLabels.length ? featureLabels : ["Math", "Science", "English"], "#10bfa4"))}
-      ${panel("Daily Chat Time (hrs)", barChart([1.5, 2, 1.8, 2.2, 1.4, 2.5, 1], ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], "#8179d6"))}
+      ${panel("AI Spend by Feature", barChart(featureValues, featureLabels, "#10bfa4"))}
+      ${panel("AI Spend by School", barChart((ai.costBySchool || []).slice(0, 6).map(row => Number(row.spend_ksh_cents || 0) / 100), (ai.costBySchool || []).slice(0, 6).map(row => row.name || "School"), "#8179d6"))}
     </div>
     <div class="panel">
       <div class="panel-header"><div><h2>Flagged Content</h2><p>${Number(ai.blockedEvents || 0)} blocked AI events from live analytics.</p></div></div>
-      ${table(["Content", "Flagged By", "Date"], flags)}
+      ${table(["Metric", "Value"], [
+        ["Blocked AI events", Number(ai.blockedEvents || 0).toLocaleString()],
+        ["Tracked features", Number((ai.topFeatures || []).length).toLocaleString()],
+        ["Tracked users", Number((ai.topUsers || []).length).toLocaleString()]
+      ])}
     </div>
   `;
 }
@@ -581,7 +748,7 @@ function renderNextAgent(name) {
       ${metric("Tracked Features", (ai.topFeatures || []).length, "Feature spend", "green")}
     </div>
     <div class="panel">
-      <div class="panel-header"><div><h2>${name}</h2><p>This module is next in line from the desktop screenshots. Live AI analytics are already connected.</p></div></div>
+      <div class="panel-header"><div><h2>${name}</h2><p>Live AI analytics from /admin/analytics/ai-usage.</p></div></div>
       ${table(["Feature", "Spend"], (ai.topFeatures || []).map(row => [
         escapeHtml(String(row.feature || "").replaceAll("_", " ")),
         money(Number(row.spend_ksh_cents || 0) / 100)
@@ -591,13 +758,25 @@ function renderNextAgent(name) {
 }
 
 function renderQuiz() {
+  const grade = currentCurriculumGrade();
+  const quizBank = state.data.quizBank?.grade === grade ? state.data.quizBank : null;
+  const questions = quizBank?.questions || [];
+  const subjectsInBank = new Set(questions.map(question => question.subjectId || question.subject || "Unassigned"));
   return `
+    <div class="toolbar"><div class="filters">${selectHtml("selectedGrade", grades, grade)}</div></div>
     <div class="metric-grid three">
-      ${metric("Quiz Sessions", 0, "Next in line", "blue")}
-      ${metric("Completion Rate", "0%", "Awaiting analytics endpoint", "green")}
-      ${metric("Average Score", "0%", "Awaiting analytics endpoint", "amber")}
+      ${metric("Fallback Questions", questions.length, `Loaded for ${grade}`, "blue")}
+      ${metric("Covered Subjects", subjectsInBank.size, "QuizBank subjects", "green")}
+      ${metric("Correct Answers", questions.filter(question => question.correctAnswer !== undefined && question.correctAnswer !== null).length, "Labelled answer keys", "amber")}
     </div>
-    <div class="panel"><h2>Quiz Arena</h2><p>Queued after the source-of-truth admin modules. This screen is present so the desktop navigation matches the planned admin surface.</p></div>
+    <div class="panel">
+      <div class="panel-header"><div><h2>QuizBank</h2><p>${escapeHtml(quizBank?.error || "Live fallback questions used by QuizMe, Quiz, and games.")}</p></div></div>
+      ${table(["Subject", "Question", "Answer"], questions.slice(0, 25).map(question => [
+        escapeHtml(question.subjectName || question.subjectId || "-"),
+        escapeHtml(question.text || question.question || "-"),
+        escapeHtml(String(question.correctAnswer ?? question.answer ?? "-"))
+      ]))}
+    </div>
   `;
 }
 
@@ -663,19 +842,33 @@ function renderPricing() {
 }
 
 function renderSettings() {
+  const user = state.user || {};
   return `
-    <div class="next-list">
-      ${nextCard("Admin profile", "Session, password rotation, and TOTP enforcement controls.")}
-      ${nextCard("Notifications", "Desktop alerts for school, payment, and safety events.")}
-      ${nextCard("Audit log", "Admin actions and production readiness checks.")}
+    <div class="metric-grid three">
+      ${metric("Signed-in Admin", user.email || "Unknown", (user.roles || []).join(", ") || "No role", "blue")}
+      ${metric("API Base", API_BASE.replace(/^https?:\/\//, ""), "Shared backend", "green")}
+      ${metric("Last Sync", state.lastSync ? state.lastSync.toLocaleTimeString() : "Not synced", "30-second refresh", "amber")}
+    </div>
+    <div class="panel">
+      ${table(["Area", "Live Status"], [
+        ["Users", `${state.data.users.length} records loaded`],
+        ["Schools", `${state.data.schools.length} records loaded`],
+        ["Teacher portal", `${state.data.teacherStudents.length} students, ${state.data.teacherAssignments.length} assignments`],
+        ["Curriculum", state.data.curriculum ? `${state.data.curriculum.subjects?.length || 0} subjects loaded for ${state.data.curriculum.grade}` : "Load Subjects page to hydrate"],
+        ["QuizBank", state.data.quizBank ? `${state.data.quizBank.questions?.length || 0} questions loaded for ${state.data.quizBank.grade}` : "Load Quiz Arena to hydrate"]
+      ])}
     </div>
     <div class="panel"><button class="danger-button" id="signOutButton">Sign out</button></div>
   `;
 }
 
-function nextLineItems() {
+function liveAdminFeed() {
   return `<div class="next-list">
-    ${["Sales Agents", "Teacher's Portal", "Parents' Portal", "AI Agent Monitoring", "Quiz Arena", "Settings"].map(label => nextCard(label, "Queued from attached desktop screens after source-of-truth mobile features.")).join("")}
+    ${nextCard("Users", `${state.data.users.length} live records, ${activeUsers()} active`)}
+    ${nextCard("Schools", `${state.data.schools.length} schools, ${totalStudents()} students`)}
+    ${nextCard("Teacher portal", `${state.data.teacherStudents.length} students, ${state.data.teacherAssignments.length} assignments`)}
+    ${nextCard("AI analytics", `${state.data.ai?.topFeatures?.length || 0} tracked features, ${state.data.ai?.blockedEvents || 0} blocked events`)}
+    ${nextCard("Billing", `${state.data.billing?.activeSubscriptions || 0} active subscriptions, ${money(revenueSignal())} revenue signal`)}
   </div>`;
 }
 
@@ -693,6 +886,12 @@ function bindRouteEvents() {
         renderRoute();
         return;
       }
+      if (state.route === "quiz" && event.target.dataset.routeControl === "selectedGrade") {
+        renderRoute();
+        await loadQuizBankGrade(event.target.value);
+        renderRoute();
+        return;
+      }
       renderRoute();
     });
   });
@@ -700,7 +899,6 @@ function bindRouteEvents() {
   if (search) search.addEventListener("input", event => { state.search = event.target.value; renderRoute(); });
   document.querySelectorAll("[data-school]").forEach(button => button.addEventListener("click", () => showSchool(button.dataset.school)));
   document.querySelectorAll("[data-user]").forEach(button => button.addEventListener("click", () => showUser(button.dataset.user)));
-  document.querySelectorAll("[data-agent]").forEach(button => button.addEventListener("click", () => showAgent(button.dataset.agent)));
   document.querySelectorAll("[data-teacher-student]").forEach(button => button.addEventListener("click", () => showTeacherStudent(button.dataset.teacherStudent)));
   document.querySelectorAll("[data-pilot]").forEach(button => button.addEventListener("click", () => showPilot(button.dataset.pilot)));
   document.querySelectorAll("[data-curriculum-subject]").forEach(button => button.addEventListener("click", () => openModal("Curriculum Editor", curriculumForm(button.dataset.curriculumSubject))));
@@ -806,26 +1004,6 @@ function gauge(score) {
   </svg>`;
 }
 
-function subjectUsageRows() {
-  return [
-    { label: "Math", value: 25 },
-    { label: "Science", value: 20 },
-    { label: "English", value: 15 },
-    { label: "History", value: 10 },
-    { label: "Geography", value: 8 },
-    { label: "Business", value: 12 },
-    { label: "Computer Science", value: 10 }
-  ];
-}
-
-function demoTeacherStudents() {
-  return [
-    { id: "john", name: "John Doe", grade: "Grade 6", assessmentScore: 85, homeworkCompletion: 90, lastActive: "2 days ago", performanceTrend: "Improving" },
-    { id: "jane", name: "Jane Smith", grade: "Grade 7", assessmentScore: 78, homeworkCompletion: 85, lastActive: "1 day ago", performanceTrend: "Stable" },
-    { id: "michael", name: "Michael Brown", grade: "Grade 8", assessmentScore: 92, homeworkCompletion: 95, lastActive: "3 hours ago", performanceTrend: "Excellent" }
-  ];
-}
-
 function showSchool(id) {
   const school = state.data.schools.find(item => item.id === id);
   if (!school) return;
@@ -845,34 +1023,31 @@ function showSchool(id) {
 function showUser(id) {
   const user = state.data.users.find(item => item.id === id);
   if (!user) return;
+  const assignmentsForGrade = state.data.teacherAssignments.filter(item => !user.grade || user.grade === "N/A" || item.gradeLevel === user.grade);
   openModal(user.name, `
     <div class="kpi-stack">
       <div class="kpi-row"><strong>School</strong><span>${escapeHtml(user.school || "-")}</span></div>
       <div class="kpi-row"><strong>Grade</strong><span>${escapeHtml(user.grade || "-")}</span></div>
       <div class="kpi-row"><strong>Email</strong><span>${escapeHtml(user.email || "-")}</span></div>
       <div class="kpi-row"><strong>Status</strong><span>${escapeHtml(user.status || "-")}</span></div>
-      <div class="kpi-row"><strong>Total Time Spent</strong><span>15 hours</span></div>
-      <div class="kpi-row"><strong>Assignments Attempted</strong><span>25</span></div>
+      <div class="kpi-row"><strong>Created</strong><span>${escapeHtml(user.createdAt ? new Date(user.createdAt).toLocaleDateString() : "-")}</span></div>
+      <div class="kpi-row"><strong>Last Active</strong><span>${escapeHtml(user.lastActive || "-")}</span></div>
+      <div class="kpi-row"><strong>Assignments in Grade</strong><span>${assignmentsForGrade.length.toLocaleString()}</span></div>
     </div>
   `, "small");
 }
 
-function showAgent(id) {
-  const name = id === "alice" ? "Alice Johnson" : "Bob Smith";
-  openModal(name, `
-    <h3>Schools Onboarded</h3>
-    <p>School A - 416 students</p>
-    <p>School B - 337 students</p>
-  `, "small");
-}
-
 function showTeacherStudent(id) {
-  const student = demoTeacherStudents().find(item => item.id === id) || demoTeacherStudents()[0];
-  openModal(`${student.name} - ${student.grade}`, table(["Subject", "Score (%)", "Assessment"], [
-    ["Math", "90%", "Exceeding Expectations"],
-    ["English", "85%", "Exceeding Expectations"],
-    ["Science", "80%", "Exceeding Expectations"]
-  ]));
+  const student = state.data.teacherStudents.find(item => item.id === id);
+  if (!student) return;
+  const rows = state.data.teacherAssignments
+    .filter(assignment => assignment.gradeLevel === student.grade)
+    .map(assignment => [
+      escapeHtml(assignment.subject),
+      percent(assignment.averageScore || 0),
+      `${Number(assignment.submittedCount || 0).toLocaleString()} / ${Number(assignment.totalStudents || 0).toLocaleString()} submitted`
+    ]);
+  openModal(`${student.name} - ${student.grade}`, table(["Subject", "Average Score", "Assignment Progress"], rows));
 }
 
 function showPilot(id) {

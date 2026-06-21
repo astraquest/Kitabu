@@ -4086,7 +4086,7 @@ Return valid JSON with this shape:
   });
 
   app.get('/admin/users', async (request, reply) => {
-    const needsStepUp = request.user?.roles.includes('platform_admin');
+    const needsStepUp = request.user?.roles.includes('platform_admin') && !request.user.roles.includes('school_admin');
     const precondition = await requireRoles(request, reply, ['school_admin', 'platform_admin'], {
       requireStepUp: needsStepUp
     });
@@ -4872,7 +4872,7 @@ Return valid JSON with this shape:
       }
     }
   }, async (request, reply) => {
-    const needsStepUp = request.user?.roles.includes('platform_admin');
+    const needsStepUp = request.user?.roles.includes('platform_admin') && !request.user.roles.includes('school_admin');
     const precondition = await requireRoles(request, reply, ['school_admin', 'platform_admin'], {
       requireStepUp: needsStepUp
     });
@@ -4894,7 +4894,7 @@ Return valid JSON with this shape:
       }
     }
   }, async (request, reply) => {
-    const needsStepUp = request.user?.roles.includes('platform_admin');
+    const needsStepUp = request.user?.roles.includes('platform_admin') && !request.user.roles.includes('school_admin');
     const precondition = await requireRoles(request, reply, ['school_admin', 'platform_admin'], {
       requireStepUp: needsStepUp
     });

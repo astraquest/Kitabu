@@ -2336,7 +2336,7 @@ export async function createAiUsageEvent(
 }
 
 export async function getAdminAiAnalytics(user: AuthenticatedUser) {
-  const schoolScoped = !(user.roles.includes('platform_admin') && user.stepUp);
+  const schoolScoped = !user.roles.includes('platform_admin');
   const scopedParams: unknown[] = schoolScoped ? [user.schoolId] : [];
   const aiUsageScopedWhere = schoolScoped ? 'WHERE school_id = $1' : '';
   const userJoinScopedWhere = schoolScoped ? 'WHERE a.school_id = $1' : '';
@@ -2403,7 +2403,7 @@ export async function getAdminAiAnalytics(user: AuthenticatedUser) {
 }
 
 export async function getBillingAnalytics(user: AuthenticatedUser) {
-  const schoolScoped = !(user.roles.includes('platform_admin') && user.stepUp);
+  const schoolScoped = !user.roles.includes('platform_admin');
   const scopedParams: unknown[] = schoolScoped ? [user.schoolId] : [];
   const userScopeClause = schoolScoped ? 'WHERE u.school_id = $1' : '';
 
@@ -3365,7 +3365,8 @@ export async function listLearningPodcastsForUser(user: AuthenticatedUser): Prom
 }
 
 export async function listTeacherStudents(user: AuthenticatedUser): Promise<TeacherStudentRecord[]> {
-  if (!user.schoolId) {
+  const platformWide = user.roles.includes('platform_admin');
+  if (!platformWide && !user.schoolId) {
     return [];
   }
 
@@ -3396,10 +3397,10 @@ export async function listTeacherStudents(user: AuthenticatedUser): Promise<Teac
      LEFT JOIN submissions sub ON sub.student_id = u.id
      LEFT JOIN assignments a ON a.id = sub.assignment_id AND a.school_id = u.school_id
      LEFT JOIN user_curriculum_progress ucp ON ucp.user_id = u.id
-     WHERE u.school_id = $1
-     GROUP BY u.id, u.full_name, u.grade_level
-     ORDER BY u.full_name ASC`,
-    [user.schoolId]
+      WHERE ($1::boolean = TRUE OR u.school_id = $2)
+      GROUP BY u.id, u.full_name, u.grade_level
+      ORDER BY u.full_name ASC`,
+    [platformWide, user.schoolId]
   );
 
   return result.rows.map(row => {
@@ -3417,7 +3418,9 @@ export async function listTeacherStudents(user: AuthenticatedUser): Promise<Teac
 }
 
 export async function listTeacherAssignments(user: AuthenticatedUser): Promise<TeacherAssignmentRecord[]> {
-  if (!user.schoolId) {
+  const platformWide = user.roles.includes('platform_admin');
+  const adminScoped = platformWide || user.roles.includes('school_admin');
+  if (!platformWide && !user.schoolId) {
     return [];
   }
 
@@ -3455,11 +3458,11 @@ export async function listTeacherAssignments(user: AuthenticatedUser): Promise<T
        ROUND(COALESCE(AVG(sub.score), 0), 0)::text AS average_score
      FROM assignments a
      LEFT JOIN submissions sub ON sub.assignment_id = a.id
-     WHERE a.school_id = $1
-       AND a.teacher_id = $2
-     GROUP BY a.id
-     ORDER BY a.created_at DESC`,
-    [user.schoolId, user.id]
+      WHERE ($1::boolean = TRUE OR a.school_id = $2)
+        AND ($3::boolean = TRUE OR a.teacher_id = $4)
+      GROUP BY a.id
+      ORDER BY a.created_at DESC`,
+    [platformWide, user.schoolId, adminScoped, user.id]
   );
 
   return result.rows.map(row => ({
@@ -3694,7 +3697,7 @@ export async function submitStudentAssignment(
 }
 
 export async function listAdminUsers(user: AuthenticatedUser): Promise<AdminUserRecord[]> {
-  const schoolScoped = !(user.roles.includes('platform_admin') && user.stepUp);
+  const schoolScoped = !user.roles.includes('platform_admin');
   const result = await db.query<{
     id: string;
     full_name: string;

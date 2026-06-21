@@ -11,8 +11,7 @@ if (!process.env.KITABU_DEEPSEEK_API_KEY?.trim() && process.env.DEEPSEEK_API_KEY
 
 const requiredEnv = [
   'KITABU_DATABASE_URL',
-  'KITABU_OPENAI_API_KEY',
-  'KITABU_DEEPSEEK_API_KEY'
+  'KITABU_OPENAI_API_KEY'
 ];
 
 const warnings = [];
@@ -26,6 +25,10 @@ for (const name of requiredEnv) {
   if (!hasValue(name)) {
     failures.push(`${name} is not set`);
   }
+}
+
+if (!hasValue('KITABU_DEEPSEEK_API_KEY') && !hasValue('KITABU_NVIDIA_API_KEY')) {
+  failures.push('Set KITABU_DEEPSEEK_API_KEY or KITABU_NVIDIA_API_KEY for DeepSeek v4 flash fallback');
 }
 
 let databaseHost = null;

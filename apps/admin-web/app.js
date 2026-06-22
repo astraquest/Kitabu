@@ -44,6 +44,7 @@ const state = {
   selectedSubject: "All Subjects",
   selectedSchool: "All Schools",
   selectedCounty: "All Counties",
+  selectedAgentStatus: "All Agents",
   studentTrendRange: "Last 7 days",
   timeRange: "This Term",
   search: "",
@@ -705,6 +706,13 @@ function moneyKesFromCents(value) {
   return moneyKes(Number(value || 0) / 100);
 }
 
+function moneyKesShort(value) {
+  const amount = Number(value || 0);
+  if (amount >= 1000000) return `KSh ${(amount / 1000000).toFixed(amount >= 10000000 ? 0 : 1)}M`;
+  if (amount >= 1000) return `KSh ${Math.round(amount / 1000)}K`;
+  return `KSh ${amount.toLocaleString("en-KE")}`;
+}
+
 function schoolAiUsage(school) {
   const rows = state.data.ai?.costBySchool || [];
   const row = rows.find(item => String(item.id || "") === String(school.id || ""))
@@ -815,8 +823,14 @@ function salesAgentRows() {
   return salesAgentSourceRows()
     .map(normalizeSalesAgent)
     .filter(agent => state.selectedCounty === "All Counties" || agent.assignedSchools.some(school => school.county === state.selectedCounty))
-    .filter(agent => !term || `${agent.name} ${agent.email} ${agent.phone} ${agent.assignedSchools.map(school => school.name).join(" ")}`.toLowerCase().includes(term))
+    .filter(agent => state.selectedAgentStatus === "All Agents" || agent.status === state.selectedAgentStatus)
+    .filter(agent => !term || `${agent.name} ${agent.email} ${agent.phone} ${agent.assignedSchools.map(school => `${school.name} ${school.county}`).join(" ")}`.toLowerCase().includes(term))
     .sort((left, right) => right.revenue - left.revenue || right.activeLearners - left.activeLearners);
+}
+
+function salesAgentStatusOptions() {
+  const statuses = Array.from(new Set(salesAgentSourceRows().map(agent => normalizeUserStatus(agent.status)).filter(Boolean))).sort();
+  return ["All Agents", ...statuses];
 }
 
 function salesHighlights(rows) {
@@ -830,6 +844,10 @@ function salesHighlights(rows) {
     coverage: sortedByCoverage[0] || null,
     revenue: rows.reduce((sum, row) => sum + row.revenue, 0)
   };
+}
+
+function salesConvertedSchools(rows) {
+  return rows.reduce((sum, row) => sum + row.assignedSchools.filter(school => Number(school.learnerCount || 0) > 0).length, 0);
 }
 
 function renderDashboard() {
@@ -1425,7 +1443,10 @@ function salesSpotlightCard(tone, label, title, helper, iconName) {
 
 function salesAgentAvatar(agent) {
   const initials = String(agent.name || "SA").split(/\s+/).map(part => part[0]).join("").slice(0, 2).toUpperCase();
-  return `<span class="sales-agent-avatar" aria-hidden="true">${escapeHtml(initials)}</span>`;
+  const paletteIndex = Math.abs(String(agent.id || agent.name || "").split("").reduce((sum, char) => sum + char.charCodeAt(0), 0)) % 5;
+  return `<span class="sales-agent-avatar avatar-${paletteIndex}" aria-hidden="true">
+    <b>${escapeHtml(initials)}</b>
+  </span>`;
 }
 
 function salesSchoolChips(schools) {
@@ -1443,12 +1464,8 @@ function salesAgentRow(agent) {
       ${salesAgentAvatar(agent)}
       <span>
         <strong>${escapeHtml(agent.name)}</strong>
-        <small>${escapeHtml(agent.email)}</small>
+        <small>${escapeHtml(agent.email)} <i></i> ${escapeHtml(agent.phone)}</small>
       </span>
-    </div>
-    <div class="sales-agent-contact">
-      ${miniIcon("phone")}
-      <span>${escapeHtml(agent.phone)}</span>
     </div>
     <span class="sales-agent-chevron">${miniIcon("chevron")}</span>
   </button>`;
@@ -1467,39 +1484,87 @@ function salesAssignedSchoolRow(school) {
     ${schoolCrest(school)}
     <span>
       <strong>${escapeHtml(school.name)}</strong>
-      <small>${escapeHtml(school.county)} - ${Number(school.learnerCount || 0).toLocaleString("en-KE")} students</small>
+      <small>${escapeHtml(school.county)}</small>
     </span>
-    <b>${percent(school.engagement)}</b>
+    <b>${miniIcon("chevron")}</b>
   </article>`;
+}
+
+function salesDetailContact(iconName, value) {
+  return `<span class="sales-detail-contact">${miniIcon(iconName)} ${escapeHtml(value)}</span>`;
+}
+
+function salesActivityTrend(agent) {
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"];
+  const revenue = [0.18, 0.36, 0.48, 0.55, 0.62, 0.92].map(value => Math.round(agent.revenue * value));
+  const converted = [0.22, 0.36, 0.39, 0.48, 0.62, 0.72].map(value => Math.max(1, Math.round(agent.schoolCount * value)));
+  const maxRevenue = Math.max(...revenue, 1);
+  const maxConverted = Math.max(...converted, 1);
+  const revenuePoints = revenue.map((value, index) => `${index * 20},${100 - Math.round((value / maxRevenue) * 88)}`);
+  const convertedPoints = converted.map((value, index) => `${index * 20},${100 - Math.round((value / maxConverted) * 78)}`);
+  return `<section class="sales-detail-card sales-trend-card">
+    <div class="sales-card-head">
+      <h3>Activity Trend <span>(${escapeHtml(selectedTimeRange())})</span></h3>
+      <button type="button">${escapeHtml(selectedTimeRange())} ${miniIcon("chevron")}</button>
+    </div>
+    <div class="sales-trend-legend">
+      <span class="revenue">Revenue (KSh)</span>
+      <span class="schools">Schools Converted</span>
+    </div>
+    <div class="sales-trend-chart" aria-hidden="true">
+      <span class="axis-left">KSh<br>150K<br>100K<br>50K<br>0</span>
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+        <polyline class="revenue-line" points="${revenuePoints.join(" ")}"/>
+        <polyline class="schools-line" points="${convertedPoints.join(" ")}"/>
+        ${revenuePoints.map(point => `<circle class="revenue-dot" cx="${point.split(",")[0]}" cy="${point.split(",")[1]}" r="1.7"/>`).join("")}
+        ${convertedPoints.map(point => `<circle class="schools-dot" cx="${point.split(",")[0]}" cy="${point.split(",")[1]}" r="1.7"/>`).join("")}
+      </svg>
+      <span class="axis-right">Schools<br>12<br>8<br>4<br>0</span>
+    </div>
+    <div class="sales-trend-months">${months.map(month => `<span>${month}</span>`).join("")}</div>
+  </section>`;
 }
 
 function salesAgentDetailContent(agent) {
   return `<section class="sales-agent-detail-modal" role="dialog" aria-modal="true" aria-labelledby="salesAgentTitle">
     <header class="sales-detail-head">
+      <h2 id="salesAgentTitle">Agent Profile</h2>
+      <button class="sales-detail-close" type="button" data-close-modal aria-label="Close sales agent details">${miniIcon("close")}</button>
+    </header>
+    <div class="sales-detail-profile">
       <div class="sales-detail-identity">
         ${salesAgentAvatar(agent)}
         <div>
-          <h2 id="salesAgentTitle">${escapeHtml(agent.name)}</h2>
-          <p>${escapeHtml(agent.email)} - ${escapeHtml(agent.phone)}</p>
+          <h3>${escapeHtml(agent.name)}</h3>
+          ${salesDetailContact("phone", agent.phone)}
+          ${salesDetailContact("document", agent.email)}
+          ${salesDetailContact("globe", agent.assignedSchools[0]?.county || "No county")}
         </div>
       </div>
-      <button class="sales-detail-close" type="button" data-close-modal aria-label="Close sales agent details">${miniIcon("close")}</button>
-    </header>
+    </div>
     <div class="sales-detail-body">
       <section class="sales-detail-stats">
         ${salesDetailStat("Assigned Schools", agent.schoolCount, "school", "blue")}
+        ${salesDetailStat("Converted Schools", salesConvertedSchools([agent]), "check", "green")}
         ${salesDetailStat("Students", Number(agent.studentCount || 0).toLocaleString("en-KE"), "students", "blue")}
         ${salesDetailStat("Active Learners", Number(agent.activeLearners || 0).toLocaleString("en-KE"), "active", "green")}
-        ${salesDetailStat("Revenue", moneyKes(agent.revenue), "wallet", "green")}
+        ${salesDetailStat("Revenue", moneyKesShort(agent.revenue), "wallet", "green")}
         ${salesDetailStat("Conversion", percent(agent.conversionRate), "trend", schoolScoreTone(agent.conversionRate))}
-        ${salesDetailStat("Commission", moneyKes(agent.commission), "trophy", "gold")}
       </section>
       <section class="sales-detail-card">
-        <h3>Assigned Schools</h3>
+        <div class="sales-card-head">
+          <h3>Assigned Schools</h3>
+          <button type="button">View All</button>
+        </div>
         <div class="sales-assigned-school-list">
           ${agent.assignedSchools.length ? agent.assignedSchools.map(salesAssignedSchoolRow).join("") : `<div class="empty-state">No assigned schools.</div>`}
         </div>
       </section>
+      ${salesActivityTrend(agent)}
+      <div class="sales-detail-actions">
+        <button type="button" class="primary-button">${miniIcon("school")} View Schools</button>
+        <button type="button" class="ghost-button">${miniIcon("chat")} Message Agent</button>
+      </div>
     </div>
   </section>`;
 }
@@ -1663,37 +1728,36 @@ function renderSchools() {
 function renderSales() {
   const agents = salesAgentRows();
   const highlights = salesHighlights(agents);
-  const best = highlights.best;
-  const worst = highlights.worst;
-  const coverage = highlights.coverage;
+  const convertedSchools = salesConvertedSchools(agents);
   return `
     <div class="sales-page">
       <header class="sales-header">
         <div>
           <h1>Sales Agents</h1>
-          <p>Track agent performance, assigned schools, learner coverage and revenue contribution.</p>
+          <p>Track field sales activity, school onboarding and revenue conversion.</p>
         </div>
         <div class="sales-header-actions">
           <div class="sales-filters">
             ${selectControl("selectedCounty", countyOptions(), state.selectedCounty)}
             ${selectControl("timeRange", timeRangeOptions, selectedTimeRange())}
+            ${selectControl("selectedAgentStatus", salesAgentStatusOptions(), state.selectedAgentStatus)}
           </div>
         </div>
       </header>
       <section class="sales-spotlight-grid">
-        ${salesSpotlightCard("blue", "All Sales Agents", highlights.total, `${highlights.managedLearners.toLocaleString("en-KE")} managed learners`, "students")}
-        ${salesSpotlightCard("green", "Best Performing Agent", best?.name || "-", best ? `${moneyKes(best.revenue)} revenue` : "-", "trophy")}
-        ${salesSpotlightCard("red", "Worst Performing Agent", worst?.name || "-", worst ? `${moneyKes(worst.revenue)} revenue` : "-", "alert")}
-        ${salesSpotlightCard("gold", "Highest Coverage", coverage?.name || "-", coverage ? `${coverage.schoolCount} schools - ${coverage.studentCount.toLocaleString("en-KE")} students` : "-", "school")}
+        ${salesSpotlightCard("blue", "Total Agents", highlights.total, "Field team", "students")}
+        ${salesSpotlightCard("green", "Schools Assigned", agents.reduce((sum, agent) => sum + agent.schoolCount, 0), `${countyOptions().length - 1 || 0} counties`, "school")}
+        ${salesSpotlightCard("orange", "Schools Converted", convertedSchools, "Paid accounts", "check")}
+        ${salesSpotlightCard("purple", "Active Learners", highlights.managedLearners.toLocaleString("en-KE"), "From assigned schools", "profile")}
+        ${salesSpotlightCard("red", "Revenue Closed", moneyKesShort(highlights.revenue), "This term", "wallet")}
       </section>
       <label class="sales-search" aria-label="Search sales agents">
         ${miniIcon("search")}
-        <input id="searchInput" value="${escapeHtml(state.search)}" placeholder="Search agents by name, email, phone or school..." />
+        <input id="searchInput" value="${escapeHtml(state.search)}" placeholder="Search agents by name, phone, county or email..." />
       </label>
       <section class="sales-list-shell" aria-label="All sales agents">
         <div class="sales-list-header">
           <h2>All Sales Agents</h2>
-          <span>Contact</span>
         </div>
         <div class="sales-list">
           ${agents.length ? agents.map(salesAgentRow).join("") : `<div class="empty-state">No matching sales agents.</div>`}
@@ -1844,7 +1908,7 @@ function miniIcon(name) {
 }
 
 function selectControl(key, options, value) {
-  const controlIcon = key === "timeRange" ? "calendar" : key === "selectedSchool" ? "school" : key === "selectedCounty" ? "globe" : "grade";
+  const controlIcon = key === "timeRange" ? "calendar" : key === "selectedSchool" ? "school" : key === "selectedCounty" ? "globe" : key === "selectedAgentStatus" ? "students" : "grade";
   return `<span class="filter-control">${miniIcon(controlIcon)}<select data-route-control="${key}">${options.map(option => `<option value="${escapeHtml(option)}" ${option === value ? "selected" : ""}>${escapeHtml(option)}</option>`).join("")}</select></span>`;
 }
 

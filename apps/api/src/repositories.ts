@@ -2375,7 +2375,12 @@ export async function getAdminAiAnalytics(user: AuthenticatedUser) {
   const userJoinScopedWhere = schoolScoped ? 'WHERE a.school_id = $1' : '';
 
   const topUsers = await db.query(
-    `SELECT u.id, u.full_name, u.email, COALESCE(SUM(a.estimated_cost_ksh_cents), 0)::bigint AS spend_ksh_cents
+    `SELECT
+       u.id,
+       u.full_name,
+       u.email,
+       COALESCE(SUM(a.total_tokens), 0)::bigint AS total_tokens,
+       COALESCE(SUM(a.estimated_cost_ksh_cents), 0)::bigint AS spend_ksh_cents
      FROM ai_usage_events a
      JOIN users u ON u.id = a.user_id
      ${userJoinScopedWhere}
@@ -2403,7 +2408,20 @@ export async function getAdminAiAnalytics(user: AuthenticatedUser) {
   );
 
   const costBySchool = await db.query(
-    `SELECT s.id, s.name, COALESCE(SUM(a.estimated_cost_ksh_cents), 0)::bigint AS spend_ksh_cents
+    `SELECT
+       s.id,
+       s.name,
+       COALESCE(SUM(a.total_tokens), 0)::bigint AS total_tokens,
+       COALESCE(SUM(a.estimated_cost_ksh_cents), 0)::bigint AS spend_ksh_cents,
+       COUNT(DISTINCT a.user_id)::int AS active_ai_users,
+       CASE
+         WHEN COUNT(DISTINCT a.user_id) = 0 THEN 0
+         ELSE ROUND(COALESCE(SUM(a.total_tokens), 0)::numeric / COUNT(DISTINCT a.user_id))::bigint
+       END AS average_tokens_per_user,
+       CASE
+         WHEN COUNT(DISTINCT a.user_id) = 0 THEN 0
+         ELSE ROUND(COALESCE(SUM(a.estimated_cost_ksh_cents), 0)::numeric / COUNT(DISTINCT a.user_id))::bigint
+       END AS average_spend_ksh_cents_per_user
      FROM schools s
      LEFT JOIN ai_usage_events a ON a.school_id = s.id
      GROUP BY s.id, s.name
@@ -2414,6 +2432,7 @@ export async function getAdminAiAnalytics(user: AuthenticatedUser) {
     `SELECT
        u.id,
        u.full_name,
+       COALESCE(SUM(a.total_tokens), 0)::bigint AS total_tokens,
        COALESCE(SUM(a.estimated_cost_ksh_cents), 0)::bigint AS spend_ksh_cents,
        COALESCE(MAX(su.price_ksh_cents), 0)::bigint AS subscription_price_ksh_cents
      FROM users u

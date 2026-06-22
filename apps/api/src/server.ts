@@ -2923,7 +2923,16 @@ Requirements:
     };
   });
 
-  app.post('/curriculum/import/pdf', async (request, reply) => {
+  app.post('/curriculum/import/pdf', {
+    config: {
+      rateLimit: {
+        max: appConfig.KITABU_AI_RATE_LIMIT_MAX,
+        timeWindow: appConfig.KITABU_AI_RATE_LIMIT_WINDOW,
+        keyGenerator: (request: FastifyRequest) =>
+          request.user?.id ? `ai-user:${request.user.id}` : `ai-ip:${request.ip}`
+      }
+    }
+  }, async (request, reply) => {
     const authError = await requireRoles(request, reply, ['school_admin', 'platform_admin']);
     if (authError) {
       return authError;
@@ -3028,7 +3037,16 @@ Return valid JSON with this shape:
     };
   });
 
-  app.post('/curriculum/sub-strands/:subStrandId/lesson', async (request, reply) => {
+  app.post('/curriculum/sub-strands/:subStrandId/lesson', {
+    config: {
+      rateLimit: {
+        max: appConfig.KITABU_AI_RATE_LIMIT_MAX,
+        timeWindow: appConfig.KITABU_AI_RATE_LIMIT_WINDOW,
+        keyGenerator: (request: FastifyRequest) =>
+          request.user?.id ? `ai-user:${request.user.id}` : `ai-ip:${request.ip}`
+      }
+    }
+  }, async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
       return authError;
@@ -3080,7 +3098,16 @@ Return valid JSON with this shape:
     };
   });
 
-  app.post('/curriculum/sub-strands/:subStrandId/quiz', async (request, reply) => {
+  app.post('/curriculum/sub-strands/:subStrandId/quiz', {
+    config: {
+      rateLimit: {
+        max: appConfig.KITABU_AI_RATE_LIMIT_MAX,
+        timeWindow: appConfig.KITABU_AI_RATE_LIMIT_WINDOW,
+        keyGenerator: (request: FastifyRequest) =>
+          request.user?.id ? `ai-user:${request.user.id}` : `ai-ip:${request.ip}`
+      }
+    }
+  }, async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
       return authError;

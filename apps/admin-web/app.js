@@ -701,6 +701,35 @@ function moneyKes(value) {
   return `KES ${Number(value || 0).toLocaleString("en-KE")}`;
 }
 
+function moneyKesFromCents(value) {
+  return moneyKes(Number(value || 0) / 100);
+}
+
+function schoolAiUsage(school) {
+  const rows = state.data.ai?.costBySchool || [];
+  const row = rows.find(item => String(item.id || "") === String(school.id || ""))
+    || rows.find(item => String(item.name || "").toLowerCase() === String(school.name || "").toLowerCase());
+  const activeUsers = Number(row?.active_ai_users ?? row?.activeAiUsers ?? 0);
+  const averageTokens = Number(row?.average_tokens_per_user ?? row?.averageTokensPerUser ?? 0);
+  const averageSpendCents = Number(row?.average_spend_ksh_cents_per_user ?? row?.averageSpendKshCentsPerUser ?? 0);
+  return {
+    activeUsers,
+    totalTokens: Number(row?.total_tokens ?? row?.totalTokens ?? 0),
+    spendKshCents: Number(row?.spend_ksh_cents ?? row?.spendKshCents ?? 0),
+    averageTokens,
+    averageSpendKshCents: averageSpendCents
+  };
+}
+
+function studentAiUsage(user) {
+  const rows = [...(state.data.ai?.marginByUser || []), ...(state.data.ai?.topUsers || [])];
+  const row = rows.find(item => String(item.id || "") === String(user.id || ""));
+  return {
+    totalTokens: Number(row?.total_tokens ?? row?.totalTokens ?? 0),
+    spendKshCents: Number(row?.spend_ksh_cents ?? row?.spendKshCents ?? 0)
+  };
+}
+
 function salesTimeScale(range = selectedTimeRange()) {
   const scales = {
     "This Month": 0.34,
@@ -1284,6 +1313,7 @@ function schoolManagementContent(school = null) {
     code: "New school"
   };
   const assignedAgent = schoolSalesAgent(draft);
+  const aiUsage = schoolAiUsage(draft);
   return `<section class="school-management-modal" role="dialog" aria-modal="true" aria-labelledby="schoolManageTitle">
     <header class="school-manage-head">
       <div class="school-manage-identity">
@@ -1301,7 +1331,7 @@ function schoolManagementContent(school = null) {
         ${schoolManagementStat("Students", Number(draft.learnerCount || 0).toLocaleString("en-KE"), "students", "blue")}
         ${schoolManagementStat("Active Learners", Number(draft.activeLearners || 0).toLocaleString("en-KE"), "active", "green")}
         ${schoolManagementStat("Engagement", percent(draft.engagement), "activity", schoolScoreTone(draft.engagement))}
-        ${schoolManagementStat("Average Score", percent(draft.averageScore), "trophy", schoolScoreTone(draft.averageScore))}
+        ${schoolManagementStat("Avg Tokens / Cost", `${aiUsage.averageTokens.toLocaleString("en-KE")} / ${moneyKesFromCents(aiUsage.averageSpendKshCents)}`, "wallet", "blue")}
       </section>
       <div class="school-manage-grid">
         <section class="school-manage-card">
@@ -2112,6 +2142,7 @@ function studentActivityRow(iconName, title, meta, score, tone) {
 }
 
 function studentProfileContent(user) {
+  const aiUsage = studentAiUsage(user);
   return `
     <section class="student-profile-hero">
       <div class="student-profile-banner"></div>
@@ -2125,6 +2156,7 @@ function studentProfileContent(user) {
       ${studentInfoRow("Date Joined", "Jan 2024")}
       ${studentInfoRow("Last Active", user.status === "Online" ? "Just now" : "Today")}
       ${studentInfoRow("Assignments", `${studentAssignmentCount(user)} Completed`)}
+      ${studentInfoRow("Tokens / KSh", `${aiUsage.totalTokens.toLocaleString("en-KE")} / ${moneyKesFromCents(aiUsage.spendKshCents)}`)}
     </section>
     <section class="student-modal-card contact-card">
       <h3>Contact Details</h3>

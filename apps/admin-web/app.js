@@ -1410,7 +1410,6 @@ function renderUsers() {
             ${selectControl("selectedCounty", countyOptions(), state.selectedCounty)}
             ${selectControl("selectedSchool", schoolOptions(), state.selectedSchool)}
           </div>
-          <button class="users-exit" type="button">Exit ${miniIcon("arrow-right")}</button>
         </div>
       </header>
       <section class="users-spotlight-grid">
@@ -1443,7 +1442,6 @@ function renderSchools() {
           <p>Monitor school performance, learner engagement and activity across the platform.</p>
         </div>
         <div class="schools-header-actions">
-          <button class="schools-exit" type="button">${miniIcon("exit")} Exit</button>
           <div class="schools-filters">
             ${selectControl("selectedGrade", ["All Grades", ...grades], state.selectedGrade)}
             ${selectControl("selectedCounty", countyOptions(), state.selectedCounty)}
@@ -1491,7 +1489,6 @@ function renderSales() {
           <p>Track agent performance, assigned schools, learner coverage and revenue contribution.</p>
         </div>
         <div class="sales-header-actions">
-          <button class="sales-exit" type="button">${miniIcon("exit")} Exit</button>
           <div class="sales-filters">
             ${selectControl("selectedCounty", countyOptions(), state.selectedCounty)}
             ${selectControl("timeRange", timeRangeOptions, selectedTimeRange())}

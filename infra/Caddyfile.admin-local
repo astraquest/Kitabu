@@ -1,0 +1,24 @@
+{
+	auto_https off
+}
+
+http://127.0.0.1:8088 {
+	root * apps/admin-web
+	encode gzip zstd
+
+	@api path /api/*
+	handle @api {
+		uri strip_prefix /api
+		reverse_proxy app.kitabu.ai:443 {
+			header_up Host app.kitabu.ai
+			transport http {
+				tls
+				tls_server_name app.kitabu.ai
+			}
+		}
+	}
+
+	handle {
+		file_server
+	}
+}

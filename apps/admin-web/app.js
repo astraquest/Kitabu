@@ -500,12 +500,28 @@ function studentUsers() {
   return state.data.users.filter(isStudentRecord);
 }
 
+function allSchoolRows() {
+  return (state.data.schools.length ? state.data.schools : previewSchools()).map(normalizeSchoolRow);
+}
+
+function countyForSchoolName(schoolName) {
+  const normalized = String(schoolName || "").toLowerCase();
+  const school = allSchoolRows().find(row => String(row.name || "").toLowerCase() === normalized);
+  return school?.county || schoolMetadata(schoolName).county || "";
+}
+
+function isInSelectedCounty(record) {
+  if (state.selectedCounty === "All Counties") return true;
+  const county = record.county || countyForSchoolName(record.school || record.name);
+  return county === state.selectedCounty;
+}
+
 function totalStudents() {
-  return studentUsers().length;
+  return studentUsers().filter(isInSelectedCounty).length;
 }
 
 function activeUsers() {
-  return studentUsers().filter(user => user.status === "Active" || user.status === "Online").length;
+  return studentUsers().filter(isInSelectedCounty).filter(user => user.status === "Active" || user.status === "Online").length;
 }
 
 function revenueSignal() {
@@ -513,7 +529,9 @@ function revenueSignal() {
 }
 
 function usersForSelectedGrade() {
-  return studentUsers().filter(user => state.selectedGrade === "All Grades" || user.grade === state.selectedGrade);
+  return studentUsers()
+    .filter(isInSelectedCounty)
+    .filter(user => state.selectedGrade === "All Grades" || user.grade === state.selectedGrade);
 }
 
 function selectedTimeRange() {
@@ -687,7 +705,7 @@ function salesTimeScale(range = selectedTimeRange()) {
 }
 
 function sourceSchoolsForAgents() {
-  return (state.data.schools.length ? state.data.schools : previewSchools()).map(normalizeSchoolRow);
+  return allSchoolRows();
 }
 
 function salesAgentSourceRows() {
@@ -793,6 +811,7 @@ function renderDashboard() {
     <div class="toolbar">
       <div class="filters">
         ${selectControl("selectedGrade", ["All Grades", ...grades], state.selectedGrade)}
+        ${selectControl("selectedCounty", countyOptions(), state.selectedCounty)}
         ${selectControl("timeRange", timeRangeOptions, selectedTimeRange())}
       </div>
     </div>
@@ -939,6 +958,7 @@ function renderSubjectAnalytics() {
 function usersPageRows() {
   const term = state.search.trim().toLowerCase();
   return studentUsers()
+    .filter(isInSelectedCounty)
     .filter(user => state.selectedGrade === "All Grades" || user.grade === state.selectedGrade)
     .filter(user => state.selectedSchool === "All Schools" || user.school === state.selectedSchool)
     .map(normalizeUserRow)
@@ -968,7 +988,7 @@ function normalizeUserStatus(status) {
 }
 
 function schoolOptions() {
-  const schools = Array.from(new Set(studentUsers().map(user => user.school).filter(Boolean))).sort();
+  const schools = Array.from(new Set(studentUsers().filter(isInSelectedCounty).map(user => user.school).filter(Boolean))).sort();
   return ["All Schools", ...schools];
 }
 
@@ -1036,8 +1056,7 @@ function schoolAverageScore(schoolName) {
 
 function schoolRows() {
   const term = state.search.trim().toLowerCase();
-  return (state.data.schools.length ? state.data.schools : previewSchools())
-    .map(normalizeSchoolRow)
+  return allSchoolRows()
     .filter(school => state.selectedCounty === "All Counties" || school.county === state.selectedCounty)
     .filter(school => state.selectedGrade === "All Grades" || Number(school.gradeCounts?.[state.selectedGrade] || 0) > 0)
     .filter(school => selectedTimeRange() === "Lifetime" || !school.createdAt || isDateInRange(school.createdAt))
@@ -1388,6 +1407,7 @@ function renderUsers() {
         <div class="users-header-actions">
           <div class="users-filters">
             ${selectControl("selectedGrade", ["All Grades", ...grades], state.selectedGrade)}
+            ${selectControl("selectedCounty", countyOptions(), state.selectedCounty)}
             ${selectControl("selectedSchool", schoolOptions(), state.selectedSchool)}
           </div>
           <button class="users-exit" type="button">Exit ${miniIcon("arrow-right")}</button>
@@ -1564,6 +1584,9 @@ function bindRouteEvents() {
   document.querySelectorAll("[data-route-control]").forEach(el => {
     el.addEventListener("change", async event => {
       state[event.target.dataset.routeControl] = event.target.value;
+      if (event.target.dataset.routeControl === "selectedCounty" && !schoolOptions().includes(state.selectedSchool)) {
+        state.selectedSchool = "All Schools";
+      }
       if (state.route === "subjects" && event.target.dataset.routeControl === "selectedGrade") {
         renderRoute();
         loadCurriculumGrade(event.target.value, { renderWhenDone: true });

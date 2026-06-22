@@ -257,6 +257,9 @@ const schoolSchema = z.object({
   principal: z.string().trim().max(120).nullable().optional(),
   phone: z.string().trim().max(20).nullable().optional(),
   email: z.string().trim().email().nullable().optional(),
+  salesAgentUserId: z.string().uuid().nullable().optional(),
+  availableGrades: z.array(z.string().trim().min(2).max(40)).max(24).default([]),
+  subscriptionPriceKsh: z.number().int().min(0).nullable().optional(),
   assignedPlanCode: z.enum(['weekly', 'monthly', 'annual']),
   discountId: z.string().uuid().nullable().optional()
 });
@@ -1350,6 +1353,10 @@ export function buildServer(options: BuildServerOptions = {}) {
       principal: school.principal,
       phone: school.phone,
       email: school.email,
+      salesAgentUserId: school.sales_agent_user_id,
+      availableGrades: school.available_grades,
+      subscriptionPriceKsh: school.subscription_price_ksh_cents === null ? null : Number(school.subscription_price_ksh_cents) / 100,
+      subscriptionPriceKshCents: school.subscription_price_ksh_cents === null ? null : Number(school.subscription_price_ksh_cents),
       totalStudents: school.total_students,
       gradeCounts: school.grade_counts,
       pilot: {
@@ -4258,6 +4265,9 @@ Return valid JSON with this shape:
         principal: body.principal,
         phone: body.phone,
         email: body.email,
+        salesAgentUserId: body.salesAgentUserId ?? null,
+        availableGrades: body.availableGrades,
+        subscriptionPriceKshCents: body.subscriptionPriceKsh === null || body.subscriptionPriceKsh === undefined ? null : body.subscriptionPriceKsh * 100,
         assignedPlanId: assignedPlan.id,
         discountId: body.discountId ?? null
       });
@@ -4294,6 +4304,9 @@ Return valid JSON with this shape:
         principal: body.principal,
         phone: body.phone,
         email: body.email,
+        salesAgentUserId: body.salesAgentUserId ?? null,
+        availableGrades: body.availableGrades,
+        subscriptionPriceKshCents: body.subscriptionPriceKsh === null || body.subscriptionPriceKsh === undefined ? null : body.subscriptionPriceKsh * 100,
         assignedPlanId: assignedPlan.id,
         discountId: body.discountId ?? null
       });

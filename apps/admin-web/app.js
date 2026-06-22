@@ -2808,6 +2808,8 @@ function bindModalForms() {
           if (!payload.location) throw new Error("Enter the school location or county.");
           const availableGrades = new FormData(form).getAll("availableGrades");
           const subscriptionPriceKsh = Number(formData.subscriptionPriceKsh || 0);
+          payload.availableGrades = availableGrades;
+          payload.subscriptionPriceKsh = subscriptionPriceKsh;
           const schoolId = form.dataset.schoolId;
           const response = schoolId
             ? await api(`/admin/schools/${encodeURIComponent(schoolId)}`, { method: "PATCH", body: payload })

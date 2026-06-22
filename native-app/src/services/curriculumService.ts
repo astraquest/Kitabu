@@ -85,7 +85,7 @@ export async function generateSubStrandQuiz(subStrandId: string, questionCount =
   });
 }
 
-export async function completeSubStrandLearning(subStrandId: string, quizScore?: number) {
+export async function completeSubStrandLearning(subStrandId: string, quizScore?: number, durationSeconds?: number) {
   return apiRequest<{
     completed: boolean;
     needsRemediation: boolean;
@@ -96,6 +96,6 @@ export async function completeSubStrandLearning(subStrandId: string, quizScore?:
     subjectId: string;
   }>(`/curriculum/sub-strands/${subStrandId}/complete`, {
     method: 'POST',
-    body: JSON.stringify({ quizScore }),
+    body: JSON.stringify({ quizScore, durationSeconds }),
   });
 }

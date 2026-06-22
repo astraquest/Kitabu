@@ -11,6 +11,7 @@ import * as DocumentPicker from 'expo-document-picker';
 import * as FileSystem from 'expo-file-system/legacy';
 import * as ImagePicker from 'expo-image-picker';
 import * as Speech from 'expo-speech';
+import { Linking, NativeModules, Platform } from 'react-native';
 
 import { extractCurriculumFromPdfData, synthesizeSpeech, transcribeAudio } from './aiService';
 import { Attachment, LearningStrand } from '../types/app';
@@ -72,7 +73,26 @@ export interface ChatAttachmentBridge {
   pickFile: () => Promise<Attachment | null>;
 }
 
+export interface FocusModeBridge {
+  state: NativeBridgeState;
+  startScreenPinning: () => Promise<void>;
+  stopScreenPinning: () => Promise<void>;
+  isScreenPinningSupported: () => Promise<boolean>;
+  openScreenPinningSettings: () => Promise<void>;
+  confirmDeviceCredential: (title: string, description: string) => Promise<void>;
+}
+
+interface NativeFocusModeModule {
+  startScreenPinning?: () => Promise<boolean>;
+  stopScreenPinning?: () => Promise<boolean>;
+  isScreenPinningSupported?: () => Promise<boolean>;
+  openScreenPinningSettings?: () => Promise<boolean>;
+  confirmDeviceCredential?: (title: string, description: string) => Promise<boolean>;
+}
+
 const MAX_CHAT_ATTACHMENT_BYTES = 10 * 1024 * 1024;
+const nativeFocusModeModule =
+  NativeModules.KitabuFocusMode as NativeFocusModeModule | undefined;
 
 const transcriptionFallbacks = [
   'Audio transcription is unavailable on this device.',
@@ -581,6 +601,50 @@ export const chatAttachmentBridge: ChatAttachmentBridge = {
   },
 };
 
+function createFocusModeUnavailableError() {
+  return new Error('Focus Mode is available on Android phones with App Pinning support.');
+}
+
+export const focusModeBridge: FocusModeBridge = {
+  state: Platform.OS === 'android' && nativeFocusModeModule ? 'expo_native' : 'simulated',
+  async startScreenPinning() {
+    if (Platform.OS !== 'android' || !nativeFocusModeModule?.startScreenPinning) {
+      throw createFocusModeUnavailableError();
+    }
+
+    await nativeFocusModeModule.startScreenPinning();
+  },
+  async stopScreenPinning() {
+    if (Platform.OS !== 'android' || !nativeFocusModeModule?.stopScreenPinning) {
+      return;
+    }
+
+    await nativeFocusModeModule.stopScreenPinning();
+  },
+  async isScreenPinningSupported() {
+    if (Platform.OS !== 'android' || !nativeFocusModeModule?.isScreenPinningSupported) {
+      return false;
+    }
+
+    return nativeFocusModeModule.isScreenPinningSupported();
+  },
+  async openScreenPinningSettings() {
+    if (Platform.OS === 'android' && nativeFocusModeModule?.openScreenPinningSettings) {
+      await nativeFocusModeModule.openScreenPinningSettings();
+      return;
+    }
+
+    await Linking.openSettings();
+  },
+  async confirmDeviceCredential(title, description) {
+    if (Platform.OS !== 'android' || !nativeFocusModeModule?.confirmDeviceCredential) {
+      throw createFocusModeUnavailableError();
+    }
+
+    await nativeFocusModeModule.confirmDeviceCredential(title, description);
+  },
+};
+
 export function getNativeCapabilityStatus() {
   return {
     audioRecording: audioRecordingBridge.state,
@@ -588,5 +652,6 @@ export function getNativeCapabilityStatus() {
     speechPlayback: speechPlaybackBridge.state,
     pdfImport: curriculumImportBridge.state,
     chatAttachments: chatAttachmentBridge.state,
+    focusMode: focusModeBridge.state,
   } as const;
 }

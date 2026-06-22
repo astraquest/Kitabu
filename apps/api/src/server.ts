@@ -8,7 +8,7 @@ import swaggerUi from '@fastify/swagger-ui';
 import { randomBytes, randomInt, timingSafeEqual } from 'node:crypto';
 import { z } from 'zod';
 import { appConfig } from './config.js';
-import { db, redis } from './db.js';
+import { checkDatabaseHealth, checkRedisHealth, redis } from './db.js';
 import {
   estimateCostUsdMicros,
   generateTextWithFallback,
@@ -33,15 +33,18 @@ import {
 import { registerLiveAudioStreamRoutes } from './liveAudioStream.js';
 import {
   type CurriculumStrandInput,
+  createAdminManagedUser,
   createBannerAnnouncement,
   createTeacherAssignment,
   createSelfServiceUser,
   createAiUsageEvent,
   createAuditLog,
+  createSubjectEngagementEvent,
   ensureWeeklyExam,
   createDiagnosticSession,
   createPaymentRequest,
   createPhoneVerificationCode,
+  createEmptyCurriculumSubject,
   createSchool,
   createSchoolDiscount,
   deleteSelfServiceAccount,
@@ -79,6 +82,7 @@ import {
   getActiveSubscription,
   getActiveBannerAnnouncement,
   getAdminAiAnalytics,
+  getAdminSubjectEngagementAnalytics,
   listAdminUsers,
   getSubscriptionAiSpendKshCents,
   getTotpSecret,
@@ -117,6 +121,7 @@ import {
   markUserEmailVerified,
   markSpacedReviewCompleted,
   recordDiagnosticAnswer,
+  recordUserPresence,
   recordPhoneVerificationFailure,
   replaceCurriculumSubject,
   revokeRefreshToken,
@@ -198,6 +203,11 @@ const refreshSchema = z.object({
   refreshToken: z.string().min(10)
 });
 
+const presenceSchema = z.object({
+  status: z.enum(['online', 'offline']),
+  reason: z.string().trim().max(80).optional()
+});
+
 const forgotPasswordSchema = z.object({
   email: z.string().email()
 });
@@ -268,6 +278,28 @@ const schoolParamsSchema = z.object({
   schoolId: z.string().uuid()
 });
 
+const salesAgentCreateSchema = z.object({
+  fullName: z.string().trim().min(2).max(120),
+  email: z.string().email(),
+  phoneNumber: z.string().trim().min(9).max(20).nullable().optional(),
+  county: z.string().trim().min(2).max(80).nullable().optional()
+});
+
+const salesAgentParamsSchema = z.object({
+  agentId: z.string().uuid()
+});
+
+const salesAgentMessageSchema = z.object({
+  title: z.string().trim().min(2).max(120).optional(),
+  message: z.string().trim().min(2).max(1000)
+});
+
+const parentMessageSchema = z.object({
+  title: z.string().trim().min(2).max(120).optional(),
+  message: z.string().trim().min(2).max(1000),
+  parentIds: z.array(z.string().uuid()).max(500).optional()
+});
+
 const schoolPilotSchema = z.object({
   status: z.enum(['not_enrolled', 'onboarding', 'active', 'paused', 'completed']),
   startDate: z.string().date().nullable().optional(),
@@ -317,6 +349,7 @@ const teacherAssignmentSchema = z.object({
   description: z.string().trim().min(2).max(2000),
   gradeLevel: z.string().trim().min(2).max(40),
   dueDate: z.string().datetime().optional(),
+  targetStudentId: z.string().uuid().optional(),
   questions: z.array(z.object({
     id: z.number().int(),
     type: z.enum(['MCQ', 'TRUE_FALSE', 'SHORT_ANSWER', 'ESSAY']),
@@ -899,6 +932,19 @@ const curriculumReplaceSchema = z.object({
   strands: z.array(curriculumStrandSchema)
 });
 
+const curriculumCreateSubjectSchema = z.object({
+  grade: z.string().trim().min(1),
+  subjectName: z.string().trim().min(1).max(80)
+});
+
+function subjectIdFromName(name: string) {
+  return name
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '_')
+    .replace(/^_+|_+$/g, '');
+}
+
 const curriculumImportSchema = z.object({
   grade: z.string().min(1),
   subjectId: z.string().min(1),
@@ -906,6 +952,22 @@ const curriculumImportSchema = z.object({
   fileName: z.string().optional(),
   mimeType: z.string().default('application/pdf'),
   base64Data: z.string().min(1)
+});
+
+const subjectEngagementFeatureSchema = z.enum(['lets_learn', 'library', 'take_quiz', 'quizme']);
+
+const subjectEngagementSchema = z.object({
+  grade: z.string().trim().min(1),
+  subjectId: z.string().trim().min(1).max(120),
+  subjectName: z.string().trim().min(1).max(120),
+  feature: subjectEngagementFeatureSchema,
+  eventType: z.string().trim().min(1).max(60).default('interaction'),
+  durationSeconds: z.number().int().min(0).max(24 * 60 * 60).default(0),
+  metadata: z.record(z.string(), z.unknown()).default({})
+});
+
+const subjectEngagementQuerySchema = z.object({
+  grade: z.string().trim().min(1).optional()
 });
 
 const importedCurriculumItemSchema = z.union([
@@ -948,7 +1010,8 @@ const subStrandQuizSchema = z.object({
 });
 
 const subStrandCompletionSchema = z.object({
-  quizScore: z.number().min(0).max(100).optional()
+  quizScore: z.number().min(0).max(100).optional(),
+  durationSeconds: z.number().int().min(0).max(24 * 60 * 60).optional()
 });
 
 const quizBankQuerySchema = z.object({
@@ -1095,10 +1158,35 @@ export function buildServer(options: BuildServerOptions = {}) {
     }, 'request completed');
   });
 
-  app.get('/health', async () => {
-    await db.query('SELECT 1');
-    await redis.ping();
-    return { status: 'ok' };
+  app.get('/health', async (request, reply) => {
+    const [database, redisHealth] = await Promise.all([
+      checkDatabaseHealth(),
+      checkRedisHealth()
+    ]);
+
+    if (database.status !== 'ok') {
+      request.log.error({ database }, 'Database health check failed');
+      return reply.status(503).send({
+        status: 'unhealthy',
+        checks: {
+          database,
+          redis: redisHealth
+        }
+      });
+    }
+
+    const status = redisHealth.status === 'ok' ? 'ok' : 'degraded';
+    if (status === 'degraded') {
+      request.log.warn({ redis: redisHealth }, 'Redis health check degraded');
+    }
+
+    return {
+      status,
+      checks: {
+        database,
+        redis: redisHealth
+      }
+    };
   });
 
   function buildAuthResponse(args: {
@@ -2888,8 +2976,30 @@ Requirements:
       grade: query.grade,
       subjects: query.subjectId
         ? subjects.filter(subject => subject.subjectId === query.subjectId)
-        : subjects
+      : subjects
     };
+  });
+
+  app.post('/analytics/subject-engagement', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return authError;
+    }
+
+    const body = subjectEngagementSchema.parse(request.body);
+    await withTransaction(client => createSubjectEngagementEvent(client, {
+      userId: request.user!.id,
+      schoolId: request.user!.schoolId,
+      grade: body.grade,
+      subjectId: body.subjectId,
+      subjectName: body.subjectName,
+      feature: body.feature,
+      eventType: body.eventType,
+      durationSeconds: body.durationSeconds,
+      metadata: body.metadata
+    }));
+
+    return { accepted: true };
   });
 
   app.put('/curriculum/subjects/:subjectId', async (request, reply) => {
@@ -2920,6 +3030,53 @@ Requirements:
     return {
       grade: body.grade,
       subjects: subjects.filter(subject => subject.subjectId === params.subjectId)
+    };
+  });
+
+  app.post('/curriculum/subjects', async (request, reply) => {
+    const authError = await requireRoles(request, reply, ['school_admin', 'platform_admin']);
+    if (authError) {
+      return authError;
+    }
+
+    const body = curriculumCreateSubjectSchema.parse(request.body);
+    const subjectId = subjectIdFromName(body.subjectName);
+    if (!subjectId) {
+      reply.status(422);
+      return {
+        message: 'Subject name must include letters or numbers.'
+      };
+    }
+    let created = false;
+
+    await withTransaction(async client => {
+      created = await createEmptyCurriculumSubject(client, {
+        actorUserId: request.user!.id,
+        grade: body.grade,
+        subjectId,
+        subjectName: body.subjectName
+      });
+
+      if (created) {
+        await createAuditLog(client, request.user!.id, request.user!.schoolId, 'curriculum.subject.created', {
+          grade: body.grade,
+          subjectId,
+          subjectName: body.subjectName
+        });
+      }
+    });
+
+    if (!created) {
+      reply.status(409);
+      return {
+        message: `${body.subjectName} already exists for ${body.grade}.`
+      };
+    }
+
+    const subjects = await listCurriculumForGrade(body.grade, request.user!.id);
+    return {
+      grade: body.grade,
+      subjects
     };
   });
 
@@ -3202,6 +3359,20 @@ Return valid JSON with this shape:
         params.subStrandId,
         body.quizScore ?? null
       );
+      await createSubjectEngagementEvent(client, {
+        userId: request.user!.id,
+        schoolId: request.user!.schoolId,
+        grade: context.grade_level,
+        subjectId: context.subject_id,
+        subjectName: context.subject_name,
+        feature: 'lets_learn',
+        eventType: 'sub_strand_completed',
+        durationSeconds: body.durationSeconds ?? 0,
+        metadata: {
+          subStrandId: params.subStrandId,
+          quizScore: body.quizScore ?? null
+        }
+      });
       await createAuditLog(client, request.user!.id, request.user!.schoolId, 'curriculum.sub_strand.completed', {
         subStrandId: params.subStrandId,
         quizScore: body.quizScore ?? null
@@ -3356,6 +3527,21 @@ Return valid JSON with this shape:
         confidenceScore: body.confidenceScore,
         responseLatencyMs: body.responseLatencyMs
       });
+      await createSubjectEngagementEvent(client, {
+        userId: request.user!.id,
+        schoolId: request.user!.schoolId,
+        grade: request.user!.grade || 'Unknown Grade',
+        subjectId: question.subjectId,
+        subjectName: question.subjectName,
+        feature: 'take_quiz',
+        eventType: 'diagnostic_answer',
+        durationSeconds: Math.round(body.responseLatencyMs / 1000),
+        metadata: {
+          sessionId: session.id,
+          questionId: question.id,
+          isCorrect
+        }
+      });
     });
 
     return {
@@ -3506,6 +3692,21 @@ Return valid JSON with this shape:
         isCorrect,
         confidenceScore: body.confidenceScore,
         responseLatencyMs: body.responseLatencyMs
+      });
+      await createSubjectEngagementEvent(client, {
+        userId: request.user!.id,
+        schoolId: request.user!.schoolId,
+        grade: request.user!.grade || 'Unknown Grade',
+        subjectId: question.subjectId,
+        subjectName: question.subjectName,
+        feature: 'quizme',
+        eventType: 'diagnostic_answer',
+        durationSeconds: Math.round(body.responseLatencyMs / 1000),
+        metadata: {
+          sessionId: session.id,
+          questionId: question.id,
+          isCorrect
+        }
       });
     });
 
@@ -4104,13 +4305,15 @@ Return valid JSON with this shape:
         description: body.description,
         gradeLevel: body.gradeLevel,
         dueAt: body.dueDate ? new Date(body.dueDate) : null,
+        targetStudentId: body.targetStudentId,
         questions: body.questions
       });
 
       await createAuditLog(client, request.user!.id, request.user!.schoolId, 'teacher.assignment.created', {
         assignmentId: createdAssignmentId,
         subject: body.subject,
-        gradeLevel: body.gradeLevel
+        gradeLevel: body.gradeLevel,
+        targetStudentId: body.targetStudentId
       });
 
       return createdAssignmentId;
@@ -4130,6 +4333,124 @@ Return valid JSON with this shape:
 
     const users = await listAdminUsers(request.user!);
     return { users };
+  });
+
+  app.post('/admin/sales-agents', async (request, reply) => {
+    const precondition = await requireRoles(request, reply, ['platform_admin']);
+    if (precondition) {
+      return precondition;
+    }
+
+    const body = salesAgentCreateSchema.parse(request.body);
+    const existingUser = await findUserByEmail(body.email);
+    if (existingUser) {
+      return reply.conflict('An account with that email already exists');
+    }
+
+    let phoneNumber: string | null = null;
+    if (body.phoneNumber) {
+      try {
+        phoneNumber = formatKenyanPhoneNumber(body.phoneNumber);
+      } catch {
+        return reply.badRequest('Enter a valid Kenyan phone number');
+      }
+    }
+
+    const temporaryPassword = randomBytes(18).toString('base64url');
+    const passwordHash = await hashPassword(temporaryPassword);
+    const user = await withTransaction(client => createAdminManagedUser(client, {
+      actorUserId: request.user!.id,
+      email: body.email,
+      phoneNumber,
+      county: body.county ?? null,
+      passwordHash,
+      fullName: body.fullName,
+      role: 'sales_agent',
+      termsAcceptedAt: new Date(),
+      termsVersion: appConfig.KITABU_TERMS_VERSION,
+      privacyVersion: appConfig.KITABU_PRIVACY_VERSION
+    }));
+
+    return reply.status(201).send({ user, temporaryPassword });
+  });
+
+  app.post('/admin/sales-agents/:agentId/messages', async (request, reply) => {
+    const precondition = await requireRoles(request, reply, ['platform_admin']);
+    if (precondition) {
+      return precondition;
+    }
+
+    const params = salesAgentParamsSchema.parse(request.params);
+    const body = salesAgentMessageSchema.parse(request.body);
+    const agent = await findUserById(params.agentId);
+    if (!agent || !agent.roles.includes('sales_agent')) {
+      return reply.notFound('Sales agent not found');
+    }
+
+    let normalizedPhone: string | null = null;
+    if (agent.phoneNumber) {
+      try {
+        normalizedPhone = formatKenyanPhoneNumber(agent.phoneNumber);
+      } catch {
+        normalizedPhone = null;
+      }
+    }
+
+    const title = body.title || 'Message from Kitabu AI';
+    const whatsappUrl = normalizedPhone
+      ? `https://wa.me/${normalizedPhone}?text=${encodeURIComponent(body.message)}`
+      : null;
+    const result = await withTransaction(async client => {
+      const notification = await notifyUser(client, {
+        userId: agent.id,
+        type: 'sales_agent.admin_message',
+        title,
+        body: body.message,
+        forceInApp: true,
+        metadata: {
+          senderUserId: request.user!.id,
+          senderEmail: request.user!.email,
+          whatsappUrl
+        },
+        smsPhoneNumber: normalizedPhone ? `+${normalizedPhone}` : null,
+        smsBody: `Kitabu AI Admin: ${body.message.slice(0, 140)}`
+      });
+
+      await createAuditLog(client, request.user!.id, request.user!.schoolId, 'admin.sales_agent.message.sent', {
+        agentId: agent.id,
+        notificationId: notification.notificationId,
+        smsStatus: notification.smsStatus,
+        whatsappPrepared: Boolean(whatsappUrl)
+      });
+
+      return notification;
+    });
+
+    return {
+      dashboardNotificationId: result.notificationId,
+      smsStatus: result.smsStatus,
+      whatsappUrl,
+      whatsappDelivery: whatsappUrl ? 'launch_required' : 'missing_phone'
+    };
+  });
+
+  app.post('/me/presence', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return authError;
+    }
+
+    const body = presenceSchema.parse(request.body);
+    await withTransaction(async client => {
+      await recordUserPresence(client, request.user!, {
+        status: body.status,
+        reason: body.reason,
+        deviceId: String(request.headers['x-kitabu-device-id'] || '').trim() || null,
+        deviceLabel: String(request.headers['x-kitabu-device-label'] || '').trim() || null
+      });
+    });
+
+    return { status: body.status };
   });
 
   app.post('/me/onboarding', async (request, reply) => {
@@ -4269,6 +4590,72 @@ Return valid JSON with this shape:
           isPopular: plan.code === 'monthly'
         })
       )
+    };
+  });
+
+  app.post('/admin/parents/messages', async (request, reply) => {
+    const precondition = await requireRoles(request, reply, ['platform_admin', 'school_admin']);
+    if (precondition) {
+      return precondition;
+    }
+
+    const body = parentMessageSchema.parse(request.body);
+    const allowedParents = (await listAdminUsers(request.user!))
+      .filter(user => user.roles.includes('parent'))
+      .filter(user => !body.parentIds?.length || body.parentIds.includes(user.id));
+
+    if (!allowedParents.length) {
+      return reply.notFound('No parent accounts matched this message scope');
+    }
+
+    const title = body.title || 'Message from Kitabu AI';
+    const result = await withTransaction(async client => {
+      let phoneDelivered = 0;
+      const notificationIds: string[] = [];
+      for (const parent of allowedParents) {
+        let normalizedPhone: string | null = null;
+        if (parent.phone) {
+          try {
+            normalizedPhone = formatKenyanPhoneNumber(parent.phone);
+          } catch {
+            normalizedPhone = null;
+          }
+        }
+
+        const notification = await notifyUser(client, {
+          userId: parent.id,
+          type: 'parent.admin_message',
+          title,
+          body: body.message,
+          forceInApp: true,
+          metadata: {
+            senderUserId: request.user!.id,
+            senderEmail: request.user!.email
+          },
+          smsPhoneNumber: normalizedPhone ? `+${normalizedPhone}` : null,
+          smsBody: `Kitabu AI: ${body.message.slice(0, 140)}`
+        });
+
+        if (notification.notificationId) {
+          notificationIds.push(notification.notificationId);
+        }
+        if (notification.smsStatus === 'sent') {
+          phoneDelivered += 1;
+        }
+      }
+
+      await createAuditLog(client, request.user!.id, request.user!.schoolId, 'admin.parents.message.sent', {
+        parentCount: allowedParents.length,
+        notificationIds,
+        phoneDelivered
+      });
+
+      return { notificationIds, phoneDelivered };
+    });
+
+    return {
+      delivered: result.notificationIds.length,
+      phoneDelivered: result.phoneDelivered
     };
   });
 
@@ -4924,6 +5311,29 @@ Return valid JSON with this shape:
       return schoolContextError;
     }
     return getAdminAiAnalytics(request.user!);
+  });
+
+  app.get('/admin/analytics/subject-engagement', {
+    config: {
+      rateLimit: {
+        max: appConfig.KITABU_ADMIN_ANALYTICS_RATE_LIMIT_MAX,
+        timeWindow: appConfig.KITABU_ADMIN_ANALYTICS_RATE_LIMIT_WINDOW
+      }
+    }
+  }, async (request, reply) => {
+    const needsStepUp = request.user?.roles.includes('platform_admin') && !request.user.roles.includes('school_admin');
+    const precondition = await requireRoles(request, reply, ['school_admin', 'platform_admin'], {
+      requireStepUp: needsStepUp
+    });
+    if (precondition) {
+      return precondition;
+    }
+    const schoolContextError = await requireSchoolContext(request, reply, { allowPlatformAdmin: true });
+    if (schoolContextError) {
+      return schoolContextError;
+    }
+    const query = subjectEngagementQuerySchema.parse(request.query);
+    return getAdminSubjectEngagementAnalytics(request.user!, query);
   });
 
   app.get('/admin/analytics/billing', {

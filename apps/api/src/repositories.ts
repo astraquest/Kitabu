@@ -229,6 +229,8 @@ export interface TeacherStudentRecord {
   id: string;
   name: string;
   grade: string;
+  school: string;
+  county: string;
   assessment_score: number;
   homework_completion: number;
   last_active: string;
@@ -296,11 +298,15 @@ export interface AdminUserRecord {
   grade: string;
   school: string;
   email: string;
+  phone: string | null;
+  county: string | null;
+  roles: AppRole[];
   status: 'Online' | 'Offline' | 'Active';
   color: 'green' | 'gray';
   createdAt: string;
   lastActive: string;
   lastActiveAt: string | null;
+  watchTimeSeconds: number;
 }
 
 export interface FeatureFlagRecord {
@@ -827,6 +833,89 @@ export async function createSelfServiceUser(input: {
       isBreakGlass: user.is_break_glass
     };
   });
+}
+
+export async function createAdminManagedUser(
+  client: MaybeClient,
+  input: {
+    actorUserId: string;
+    email: string;
+    phoneNumber?: string | null;
+    county?: string | null;
+    passwordHash: string;
+    fullName: string;
+    role: AppRole;
+    termsAcceptedAt: Date;
+    termsVersion: string;
+    privacyVersion: string;
+  }
+): Promise<AdminUserRecord> {
+  const userResult = await q<{
+    id: string;
+    email: string;
+    phone_number: string | null;
+    county: string | null;
+    full_name: string;
+    email_verified: boolean;
+    created_at: Date;
+    updated_at: Date;
+    presence_status: string;
+    presence_last_seen_at: Date | null;
+    watch_time_seconds: string;
+  }>(
+    client,
+    `INSERT INTO users (
+       school_id, email, phone_number, county, phone_verified, password_hash, full_name,
+       onboarding_completed, terms_accepted_at, terms_version, privacy_version,
+       must_rotate_password
+     )
+     VALUES (NULL, $1, $2, $3, FALSE, $4, $5, TRUE, $6, $7, $8, TRUE)
+     RETURNING id, email, phone_number, county, full_name, email_verified, created_at, updated_at,
+               presence_status, presence_last_seen_at, watch_time_seconds::text`,
+    [
+      input.email.toLowerCase(),
+      input.phoneNumber ?? null,
+      input.county ?? null,
+      input.passwordHash,
+      input.fullName,
+      input.termsAcceptedAt,
+      input.termsVersion,
+      input.privacyVersion
+    ]
+  );
+  const user = userResult.rows[0];
+
+  await q(
+    client,
+    `INSERT INTO user_roles (user_id, role) VALUES ($1, $2)`,
+    [user.id, input.role]
+  );
+  await createAuditLog(client, input.actorUserId, null, 'admin.user.created', {
+    createdUserId: user.id,
+    role: input.role
+  });
+
+  return {
+    id: user.id,
+    name: user.full_name,
+    grade: 'N/A',
+    school: 'No School',
+    email: user.email,
+    phone: user.phone_number,
+    county: user.county,
+    roles: [input.role],
+    status:
+      user.presence_status === 'online' &&
+      user.presence_last_seen_at &&
+      user.presence_last_seen_at >= new Date(Date.now() - PRESENCE_FRESH_SECONDS * 1000)
+        ? 'Online'
+        : 'Offline',
+    color: user.email_verified ? 'green' : 'gray',
+    createdAt: user.created_at.toISOString(),
+    lastActive: formatActivityLabel(user.updated_at),
+    lastActiveAt: user.updated_at.toISOString(),
+    watchTimeSeconds: Number(user.watch_time_seconds || 0)
+  };
 }
 
 export async function deleteSelfServiceAccount(client: MaybeClient, userId: string) {
@@ -2454,6 +2543,129 @@ export async function getAdminAiAnalytics(user: AuthenticatedUser) {
   };
 }
 
+export async function createSubjectEngagementEvent(
+  client: MaybeClient,
+  input: {
+    userId: string;
+    schoolId: string | null;
+    grade: string;
+    subjectId: string;
+    subjectName: string;
+    feature: 'lets_learn' | 'library' | 'take_quiz' | 'quizme';
+    eventType?: string;
+    durationSeconds?: number;
+    metadata?: Record<string, unknown>;
+  }
+) {
+  await q(
+    client,
+    `INSERT INTO subject_engagement_events (
+      user_id, school_id, grade_level, subject_id, subject_name, feature, event_type, duration_seconds, metadata
+    ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9::jsonb)`,
+    [
+      input.userId,
+      input.schoolId,
+      input.grade,
+      input.subjectId,
+      input.subjectName,
+      input.feature,
+      input.eventType ?? 'interaction',
+      input.durationSeconds ?? 0,
+      JSON.stringify(input.metadata ?? {})
+    ]
+  );
+}
+
+export async function getAdminSubjectEngagementAnalytics(
+  user: AuthenticatedUser,
+  input: { grade?: string | null } = {}
+) {
+  const schoolScoped = !user.roles.includes('platform_admin');
+  const params: unknown[] = [];
+  const clauses: string[] = [];
+
+  if (schoolScoped) {
+    params.push(user.schoolId);
+    clauses.push(`school_id = $${params.length}`);
+  }
+
+  if (input.grade) {
+    params.push(input.grade);
+    clauses.push(`grade_level = $${params.length}`);
+  }
+
+  const where = clauses.length ? `WHERE ${clauses.join(' AND ')}` : '';
+
+  const tracked = await db.query<{
+    grade_level: string;
+    subject_id: string;
+    subject_name: string;
+    active_students: string;
+    interactions: string;
+    duration_seconds: string;
+    last_interaction_at: Date | null;
+    feature_breakdown: unknown;
+  }>(
+    `WITH tracked AS (
+       SELECT *
+       FROM subject_engagement_events
+       ${where}
+     ),
+     subject_rows AS (
+       SELECT
+         grade_level,
+         subject_id,
+         MAX(subject_name) AS subject_name,
+         COUNT(DISTINCT user_id)::text AS active_students,
+         COUNT(*)::text AS interactions,
+         COALESCE(SUM(duration_seconds), 0)::text AS duration_seconds,
+         MAX(created_at) AS last_interaction_at
+       FROM tracked
+       GROUP BY grade_level, subject_id
+     ),
+     feature_rows AS (
+       SELECT grade_level, subject_id, feature, COUNT(*)::int AS interactions
+       FROM tracked
+       GROUP BY grade_level, subject_id, feature
+     ),
+     feature_summary AS (
+       SELECT
+         grade_level,
+         subject_id,
+         jsonb_object_agg(feature, interactions) AS feature_breakdown
+       FROM feature_rows
+       GROUP BY grade_level, subject_id
+     )
+     SELECT
+       sr.grade_level,
+       sr.subject_id,
+       sr.subject_name,
+       sr.active_students,
+       sr.interactions,
+       sr.duration_seconds,
+       sr.last_interaction_at,
+       COALESCE(fs.feature_breakdown, '{}'::jsonb) AS feature_breakdown
+     FROM subject_rows sr
+     LEFT JOIN feature_summary fs ON fs.grade_level = sr.grade_level AND fs.subject_id = sr.subject_id
+     ORDER BY sr.active_students::int DESC, sr.duration_seconds::int DESC, sr.interactions::int DESC`,
+    params
+  );
+
+  return {
+    grade: input.grade ?? null,
+    subjects: tracked.rows.map(row => ({
+      grade: row.grade_level,
+      subjectId: row.subject_id,
+      subjectName: row.subject_name,
+      activeStudents: Number(row.active_students || 0),
+      interactions: Number(row.interactions || 0),
+      durationSeconds: Number(row.duration_seconds || 0),
+      lastInteractionAt: row.last_interaction_at?.toISOString() ?? null,
+      featureBreakdown: row.feature_breakdown ?? {}
+    }))
+  };
+}
+
 export async function getBillingAnalytics(user: AuthenticatedUser) {
   const schoolScoped = !user.roles.includes('platform_admin');
   const scopedParams: unknown[] = schoolScoped ? [user.schoolId] : [];
@@ -2652,6 +2864,45 @@ export async function replaceCurriculumSubject(
       );
     }
   }
+}
+
+export async function createEmptyCurriculumSubject(
+  client: MaybeClient,
+  input: {
+    actorUserId: string | null;
+    grade: string;
+    subjectId: string;
+    subjectName: string;
+  }
+) {
+  const existing = await q<{ exists: boolean }>(
+    client,
+    `SELECT EXISTS (
+       SELECT 1 FROM curriculum_strands
+       WHERE grade_level = $1 AND subject_id = $2
+     )`,
+    [input.grade, input.subjectId]
+  );
+
+  if (existing.rows[0]?.exists) {
+    return false;
+  }
+
+  await q(
+    client,
+    `INSERT INTO curriculum_strands (
+      grade_level, subject_id, subject_name, number, title, sub_title, position, created_by_user_id, updated_at
+    ) VALUES ($1, $2, $3, NULL, $4, '', 0, $5, NOW())`,
+    [
+      input.grade,
+      input.subjectId,
+      input.subjectName,
+      'No curriculum added yet',
+      input.actorUserId
+    ]
+  );
+
+  return true;
 }
 
 export async function listCurriculumForGrade(
@@ -3418,6 +3669,7 @@ export async function listLearningPodcastsForUser(user: AuthenticatedUser): Prom
 
 export async function listTeacherStudents(user: AuthenticatedUser): Promise<TeacherStudentRecord[]> {
   const platformWide = user.roles.includes('platform_admin');
+  const teacherScoped = user.roles.includes('teacher') && !user.roles.includes('school_admin') && !platformWide;
   if (!platformWide && !user.schoolId) {
     return [];
   }
@@ -3426,6 +3678,8 @@ export async function listTeacherStudents(user: AuthenticatedUser): Promise<Teac
     id: string;
     name: string;
     grade: string | null;
+    school: string | null;
+    county: string | null;
     assessment_score: string | null;
     homework_completion: string | null;
     last_activity: Date | null;
@@ -3434,6 +3688,8 @@ export async function listTeacherStudents(user: AuthenticatedUser): Promise<Teac
        u.id,
        u.full_name AS name,
        u.grade_level AS grade,
+       s.name AS school,
+       s.location AS county,
        ROUND(COALESCE(AVG(sub.score), 0), 0)::text AS assessment_score,
        ROUND(
          COALESCE(
@@ -3446,13 +3702,15 @@ export async function listTeacherStudents(user: AuthenticatedUser): Promise<Teac
        GREATEST(MAX(sub.submitted_at), MAX(ucp.updated_at)) AS last_activity
      FROM users u
      JOIN user_roles ur ON ur.user_id = u.id AND ur.role = 'student'
+     LEFT JOIN schools s ON s.id = u.school_id
      LEFT JOIN submissions sub ON sub.student_id = u.id
      LEFT JOIN assignments a ON a.id = sub.assignment_id AND a.school_id = u.school_id
      LEFT JOIN user_curriculum_progress ucp ON ucp.user_id = u.id
       WHERE ($1::boolean = TRUE OR u.school_id = $2)
-      GROUP BY u.id, u.full_name, u.grade_level
+        AND ($3::boolean = FALSE OR $4::text IS NULL OR u.grade_level = $4)
+      GROUP BY u.id, u.full_name, u.grade_level, s.name, s.location
       ORDER BY u.full_name ASC`,
-    [platformWide, user.schoolId]
+    [platformWide, user.schoolId, teacherScoped, user.grade ?? null]
   );
 
   return result.rows.map(row => {
@@ -3461,6 +3719,8 @@ export async function listTeacherStudents(user: AuthenticatedUser): Promise<Teac
       id: row.id,
       name: row.name,
       grade: row.grade || 'Unassigned',
+      school: row.school || 'No School',
+      county: row.county || 'Unknown County',
       assessment_score: assessmentScore,
       homework_completion: Number(row.homework_completion || 0),
       last_active: formatActivityLabel(row.last_activity),
@@ -3571,6 +3831,7 @@ export async function createTeacherAssignment(
     description: string;
     gradeLevel: string;
     dueAt?: Date | null;
+    targetStudentId?: string;
     questions: Array<{
       id: number;
       type: 'MCQ' | 'TRUE_FALSE' | 'SHORT_ANSWER' | 'ESSAY';
@@ -3620,9 +3881,14 @@ export async function createTeacherAssignment(
      FROM users u
      JOIN user_roles ur ON ur.user_id = u.id AND ur.role = 'student'
      WHERE u.school_id = $1
-       AND ($2::text IS NULL OR u.grade_level = $2)`,
-    [user.schoolId, input.gradeLevel || null]
+       AND ($2::text IS NULL OR u.grade_level = $2)
+       AND ($3::uuid IS NULL OR u.id = $3)`,
+    [user.schoolId, input.gradeLevel || null, input.targetStudentId || null]
   );
+
+  if (input.targetStudentId && !studentRows.rows.length) {
+    throw new Error('Target student was not found in this school and grade');
+  }
 
   for (const student of studentRows.rows) {
     await q(
@@ -3748,6 +4014,117 @@ export async function submitStudentAssignment(
   );
 }
 
+const PRESENCE_FRESH_SECONDS = 90;
+const MAX_PRESENCE_INTERVAL_SECONDS = 120;
+
+export async function recordUserPresence(
+  client: PoolClient,
+  user: AuthenticatedUser,
+  input: {
+    status: 'online' | 'offline';
+    deviceId?: string | null;
+    deviceLabel?: string | null;
+    reason?: string | null;
+  }
+) {
+  const deviceId = input.deviceId?.trim().slice(0, 120) || null;
+  const deviceLabel = input.deviceLabel?.trim().slice(0, 120) || null;
+  const reason = input.reason?.trim().slice(0, 80) || null;
+  const sessionId = user.sessionId || null;
+
+  const activeSession = await q<{
+    id: string;
+    elapsed_seconds: string;
+  }>(
+    client,
+    `SELECT id,
+            GREATEST(
+              0,
+              LEAST($4::int, EXTRACT(EPOCH FROM (NOW() - last_seen_at))::int)
+            )::text AS elapsed_seconds
+       FROM user_presence_sessions
+      WHERE user_id = $1
+        AND ended_at IS NULL
+        AND (
+          ($2::text IS NOT NULL AND auth_session_id = $2)
+          OR ($2::text IS NULL AND auth_session_id IS NULL)
+        )
+        AND (
+          ($3::text IS NOT NULL AND device_id = $3)
+          OR ($3::text IS NULL AND device_id IS NULL)
+        )
+      ORDER BY last_seen_at DESC
+      LIMIT 1`,
+    [user.id, sessionId, deviceId, MAX_PRESENCE_INTERVAL_SECONDS]
+  );
+
+  const active = activeSession.rows[0] ?? null;
+  const elapsed = Number(active?.elapsed_seconds || 0);
+
+  if (input.status === 'online') {
+    if (active) {
+      await q(
+        client,
+        `UPDATE user_presence_sessions
+            SET last_seen_at = NOW(),
+                duration_seconds = duration_seconds + $2,
+                device_label = COALESCE($3, device_label),
+                updated_at = NOW()
+          WHERE id = $1`,
+        [active.id, elapsed, deviceLabel]
+      );
+    } else {
+      await q(
+        client,
+        `INSERT INTO user_presence_sessions (
+           user_id, auth_session_id, device_id, device_label, started_at, last_seen_at
+         )
+         VALUES ($1, $2, $3, $4, NOW(), NOW())`,
+        [user.id, sessionId, deviceId, deviceLabel]
+      );
+    }
+
+    await q(
+      client,
+      `UPDATE users
+          SET presence_status = 'online',
+              presence_last_seen_at = NOW(),
+              presence_session_started_at = COALESCE(presence_session_started_at, NOW()),
+              watch_time_seconds = watch_time_seconds + $2,
+              updated_at = NOW()
+        WHERE id = $1`,
+      [user.id, elapsed]
+    );
+    return;
+  }
+
+  if (active) {
+    await q(
+      client,
+      `UPDATE user_presence_sessions
+          SET last_seen_at = NOW(),
+              ended_at = NOW(),
+              duration_seconds = duration_seconds + $2,
+              close_reason = COALESCE($3, close_reason),
+              updated_at = NOW()
+        WHERE id = $1`,
+      [active.id, elapsed, reason]
+    );
+  }
+
+  await q(
+    client,
+    `UPDATE users
+        SET presence_status = 'offline',
+            presence_last_seen_at = NOW(),
+            presence_session_started_at = NULL,
+            watch_time_seconds = watch_time_seconds + $2,
+            updated_at = NOW()
+      WHERE id = $1`,
+    [user.id, elapsed]
+  );
+}
+
 export async function listAdminUsers(user: AuthenticatedUser): Promise<AdminUserRecord[]> {
   const schoolScoped = !user.roles.includes('platform_admin');
   const result = await db.query<{
@@ -3756,9 +4133,15 @@ export async function listAdminUsers(user: AuthenticatedUser): Promise<AdminUser
     grade_level: string | null;
     school_name: string | null;
     email: string;
+    phone_number: string | null;
+    county: string | null;
+    roles: AppRole[];
     email_verified: boolean;
     created_at: Date;
     last_activity: Date | null;
+    presence_status: string;
+    presence_last_seen_at: Date | null;
+    watch_time_seconds: string;
   }>(
     `SELECT
        u.id,
@@ -3766,6 +4149,9 @@ export async function listAdminUsers(user: AuthenticatedUser): Promise<AdminUser
        u.grade_level,
        s.name AS school_name,
        u.email,
+       u.phone_number,
+       u.county,
+       ARRAY_AGG(DISTINCT ur.role) AS roles,
        u.email_verified,
        u.created_at,
        GREATEST(
@@ -3774,8 +4160,12 @@ export async function listAdminUsers(user: AuthenticatedUser): Promise<AdminUser
          MAX(wa.started_at),
          MAX(aue.created_at),
          u.updated_at
-       ) AS last_activity
+       ) AS last_activity,
+       u.presence_status,
+       u.presence_last_seen_at,
+       u.watch_time_seconds::text AS watch_time_seconds
       FROM users u
+      JOIN user_roles ur ON ur.user_id = u.id
       LEFT JOIN schools s ON s.id = u.school_id
       LEFT JOIN submissions sub ON sub.student_id = u.id
       LEFT JOIN user_curriculum_progress ucp ON ucp.user_id = u.id
@@ -3793,15 +4183,19 @@ export async function listAdminUsers(user: AuthenticatedUser): Promise<AdminUser
     grade: row.grade_level || 'N/A',
     school: row.school_name || 'No School',
     email: row.email,
+    phone: row.phone_number,
+    county: row.county,
+    roles: row.roles,
     status:
-      row.last_activity && row.last_activity >= new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
+      row.presence_status === 'online' &&
+      row.presence_last_seen_at &&
+      row.presence_last_seen_at >= new Date(Date.now() - PRESENCE_FRESH_SECONDS * 1000)
         ? 'Online'
-        : row.email_verified
-          ? 'Active'
-          : 'Offline',
+        : 'Offline',
     color: row.email_verified ? 'green' : 'gray',
     createdAt: row.created_at.toISOString(),
     lastActive: formatActivityLabel(row.last_activity),
-    lastActiveAt: row.last_activity ? row.last_activity.toISOString() : null
+    lastActiveAt: row.last_activity ? row.last_activity.toISOString() : null,
+    watchTimeSeconds: Number(row.watch_time_seconds || 0)
   }));
 }

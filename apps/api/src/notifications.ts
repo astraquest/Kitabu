@@ -14,6 +14,7 @@ export interface NotifyUserInput {
   title: string;
   body: string;
   metadata?: Record<string, unknown>;
+  forceInApp?: boolean;
   smsPhoneNumber?: string | null;
   smsBody?: string;
 }
@@ -75,7 +76,7 @@ export async function sendSmsMessage(args: {
 }
 
 export async function notifyUser(client: NotificationClient, input: NotifyUserInput) {
-  const inAppEnabled = await isFeatureFlagEnabled('notifications.in_app');
+  const inAppEnabled = input.forceInApp || (await isFeatureFlagEnabled('notifications.in_app'));
   const notificationId = inAppEnabled
     ? await createUserNotification(client, {
         userId: input.userId,

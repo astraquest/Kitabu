@@ -30,8 +30,13 @@ curl https://app.kitabu.ai/health
 Expected response:
 
 ```json
-{"status":"ok"}
+{"status":"ok","checks":{"database":{"status":"ok"},"redis":{"status":"ok"}}}
 ```
+
+If Redis is unreachable but the database is healthy, `/health` returns HTTP 200 with
+`"status":"degraded"` and a Redis check message. Treat this as an operational
+warning: restore Redis before relying on rate-limit or worker behavior. Database
+failure returns HTTP 503 with `"status":"unhealthy"`.
 
 ## Notifications
 

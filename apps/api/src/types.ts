@@ -1,4 +1,4 @@
-export type AppRole = 'student' | 'teacher' | 'school_admin' | 'platform_admin' | 'parent';
+export type AppRole = 'student' | 'teacher' | 'school_admin' | 'platform_admin' | 'parent' | 'sales_agent';
 
 export interface AuthenticatedUser {
   id: string;

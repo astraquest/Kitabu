@@ -2,6 +2,7 @@ const API_BASE = window.KITABU_API_BASE || (["127.0.0.1", "localhost"].includes(
 const TOKEN_KEY = "kitabu.admin.accessToken";
 const REFRESH_KEY = "kitabu.admin.refreshToken";
 const USER_KEY = "kitabu.admin.user";
+const SALES_AGENT_MESSAGES_KEY = "kitabu.admin.salesAgentMessages";
 const REFRESH_MS = 30000;
 
 const grades = ["Grade 4", "Grade 5", "Grade 6", "Grade 7", "Grade 8", "Grade 9", "Grade 10", "Form 3", "Form 4"];
@@ -48,6 +49,8 @@ const state = {
   selectedAgentStatus: "All Agents",
   usagePeriod: "This Month",
   selectedUsageFeature: "All Features",
+  teacherPeriod: "This Week",
+  parentPeriod: "This Week",
   studentTrendRange: "Last 7 days",
   timeRange: "This Term",
   search: "",
@@ -66,7 +69,8 @@ const state = {
     loadingCurriculumGrades: new Set(),
     curriculumGradeRequests: {},
     teacherStudents: [],
-    teacherAssignments: []
+    teacherAssignments: [],
+    parentChildren: []
   }
 };
 
@@ -83,6 +87,12 @@ const modalRoot = document.getElementById("modalRoot");
 function isLocalPreviewRoute() {
   const host = window.location.hostname;
   return new URLSearchParams(window.location.search).get("preview") === "users"
+    && (host === "127.0.0.1" || host === "localhost" || host === "");
+}
+
+function isLocalParentPreviewRoute() {
+  const host = window.location.hostname;
+  return new URLSearchParams(window.location.search).get("preview") === "parent"
     && (host === "127.0.0.1" || host === "localhost" || host === "");
 }
 
@@ -108,10 +118,10 @@ function previewSchools() {
 
 function previewSalesAgents() {
   return [
-    { id: "preview-agent-alice", name: "Alice Johnson", email: "alice.agent@kitabu.ai", phone: "+254 701 200 101", status: "Online", assignedSchoolNames: ["Greenwood High", "Savannah Academy"], revenue: 500000, conversionRate: 82, commission: 75000 },
-    { id: "preview-agent-grace", name: "Grace Wanjiku", email: "grace.agent@kitabu.ai", phone: "+254 701 200 102", status: "Online", assignedSchoolNames: ["Lakeview School"], revenue: 365000, conversionRate: 71, commission: 54800 },
-    { id: "preview-agent-james", name: "James Mwangi", email: "james.agent@kitabu.ai", phone: "+254 701 200 103", status: "Active", assignedSchoolNames: ["Highland Prep"], revenue: 140000, conversionRate: 44, commission: 21000 },
-    { id: "preview-agent-bob", name: "Bob Smith", email: "bob.agent@kitabu.ai", phone: "+254 701 200 104", status: "Offline", assignedSchoolNames: ["Coast Junior"], revenue: 50000, conversionRate: 18, commission: 7500 }
+    { id: "preview-agent-alice", name: "Alice Johnson", email: "alice.agent@kitabu.ai", phone: "+254 701 200 101", county: "Nairobi County", status: "Online", assignedSchoolNames: ["Greenwood High", "Savannah Academy"], revenue: 500000, conversionRate: 82, commission: 75000 },
+    { id: "preview-agent-grace", name: "Grace Wanjiku", email: "grace.agent@kitabu.ai", phone: "+254 701 200 102", county: "Nakuru County", status: "Online", assignedSchoolNames: ["Lakeview School"], revenue: 365000, conversionRate: 71, commission: 54800 },
+    { id: "preview-agent-james", name: "James Mwangi", email: "james.agent@kitabu.ai", phone: "+254 701 200 103", county: "Kisii County", status: "Active", assignedSchoolNames: ["Highland Prep"], revenue: 140000, conversionRate: 44, commission: 21000 },
+    { id: "preview-agent-bob", name: "Bob Smith", email: "bob.agent@kitabu.ai", phone: "+254 701 200 104", county: "Mombasa County", status: "Offline", assignedSchoolNames: ["Coast Junior"], revenue: 50000, conversionRate: 18, commission: 7500 }
   ];
 }
 
@@ -121,6 +131,10 @@ function readJson(key) {
   } catch {
     return null;
   }
+}
+
+function writeJson(key, value) {
+  localStorage.setItem(key, JSON.stringify(value));
 }
 
 function writeSession(payload) {
@@ -173,6 +187,17 @@ function init() {
     renderRoute();
     return;
   }
+  if (isLocalParentPreviewRoute()) {
+    state.route = "parents";
+    state.user = { fullName: "Jane Wambui", email: "jane.parent@kitabu.ai", roles: ["parent"] };
+    state.data.parentChildren = parentChildSeedRows();
+    state.lastSync = new Date("2026-06-22T14:15:00");
+    showApp();
+    setSync("Live System", "Parent preview", "live");
+    renderNav();
+    renderRoute();
+    return;
+  }
   if (state.accessToken) {
     showApp();
     startPresencePolling();
@@ -185,7 +210,6 @@ function init() {
 
 function bindEvents() {
   loginForm.addEventListener("submit", onLogin);
-  document.getElementById("refreshButton").addEventListener("click", () => loadAll(true));
   document.getElementById("menuButton").addEventListener("click", () => document.querySelector(".sidebar").classList.toggle("open"));
   document.getElementById("profileButton").addEventListener("click", showProfileModal);
   document.getElementById("notificationButton").addEventListener("click", () => openModal("Notifications", "<p class='visually-muted'>Notification center is connected to live account, payment, and learning updates.</p>", "small"));
@@ -204,8 +228,15 @@ function bindEvents() {
 }
 
 function renderNav() {
-  if (!navItems.some(item => item.key === state.route)) state.route = "dashboard";
-  nav.innerHTML = navItems.map(item => `
+  const visibleNavItems = isTeacherOnly()
+    ? navItems.filter(item => ["teacher", "settings"].includes(item.key))
+    : isParentOnly()
+      ? navItems.filter(item => ["parents", "settings"].includes(item.key))
+      : navItems;
+  if (!visibleNavItems.some(item => item.key === state.route)) {
+    state.route = isTeacherOnly() ? "teacher" : isParentOnly() ? "parents" : "dashboard";
+  }
+  nav.innerHTML = visibleNavItems.map(item => `
     <button class="nav-item ${state.route === item.key ? "active" : ""}" data-route="${item.key}" type="button">
       ${icon(item.icon)}
       <span>${item.label}</span>
@@ -220,6 +251,16 @@ function renderNav() {
       if (state.route === "subjects" || state.route === "subjectAnalytics") loadCurriculumGrade(currentCurriculumGrade(), { renderWhenDone: true });
     });
   });
+}
+
+function isTeacherOnly() {
+  const roles = state.user?.roles || [];
+  return roles.includes("teacher") && !roles.includes("school_admin") && !roles.includes("platform_admin");
+}
+
+function isParentOnly() {
+  const roles = state.user?.roles || [];
+  return roles.includes("parent") && !roles.includes("school_admin") && !roles.includes("platform_admin") && !roles.includes("teacher");
 }
 
 function showLogin() {
@@ -245,11 +286,14 @@ async function onLogin(event) {
   try {
     const payload = await api("/auth/login", { method: "POST", public: true, body: { email, password } });
     const roles = payload.user?.roles || [];
-    if (!roles.includes("platform_admin") && !roles.includes("school_admin")) {
-      throw new Error("This account is not an admin account.");
+    if (!roles.includes("platform_admin") && !roles.includes("school_admin") && !roles.includes("teacher") && !roles.includes("parent")) {
+      throw new Error("This account is not an admin, teacher, or parent account.");
     }
     writeSession(payload);
+    if (isTeacherOnly()) state.route = "teacher";
+    if (isParentOnly()) state.route = "parents";
     showApp();
+    renderNav();
     startPresencePolling();
     await loadAll(true);
     startSync();
@@ -346,26 +390,30 @@ async function loadAll(force = false) {
   state.loading = true;
   setSync("Syncing", "Refreshing live data", "");
   try {
-    const results = await Promise.allSettled([
-      api("/admin/users"),
-      api("/admin/schools"),
-      api("/admin/analytics/ai-usage"),
-      api("/admin/analytics/billing")
-    ]);
-    if (results.some(result => result.status === "rejected" && isAuthError(result.reason))) {
-      clearSession();
-      showLogin();
-      setSync("Signed out", "Authentication required", "error");
-      return;
+    if (isParentOnly()) {
+      await loadParentData();
+    } else {
+      const results = await Promise.allSettled([
+        api("/admin/users"),
+        api("/admin/schools"),
+        api("/admin/analytics/ai-usage"),
+        api("/admin/analytics/billing")
+      ]);
+      if (results.some(result => result.status === "rejected" && isAuthError(result.reason))) {
+        clearSession();
+        showLogin();
+        setSync("Signed out", "Authentication required", "error");
+        return;
+      }
+      const [users, schools, ai, billing] = results.map(result => result.status === "fulfilled" ? result.value : null);
+
+      state.data.users = users?.users || state.data.users;
+      state.data.schools = schools?.schools || state.data.schools;
+      state.data.ai = ai || state.data.ai;
+      state.data.billing = billing || state.data.billing;
+
+      await loadTeacherData();
     }
-    const [users, schools, ai, billing] = results.map(result => result.status === "fulfilled" ? result.value : null);
-
-    state.data.users = users?.users || state.data.users;
-    state.data.schools = schools?.schools || state.data.schools;
-    state.data.ai = ai || state.data.ai;
-    state.data.billing = billing || state.data.billing;
-
-    await loadTeacherData();
     if (!state.accessToken) return;
     if (state.route === "subjects" || state.route === "subjectAnalytics") await loadCurriculumGrade();
     if (!state.accessToken) return;
@@ -396,6 +444,11 @@ async function loadTeacherData() {
   }
   if (students.status === "fulfilled") state.data.teacherStudents = students.value.students || [];
   if (assignments.status === "fulfilled") state.data.teacherAssignments = assignments.value.assignments || [];
+}
+
+async function loadParentData() {
+  const dashboard = await api("/parent/dashboard");
+  state.data.parentChildren = dashboard.children || [];
 }
 
 async function loadCurriculumGrade(grade = currentCurriculumGrade(), options = {}) {
@@ -463,8 +516,14 @@ function setSync(title, meta, tone) {
 
 function renderRoute() {
   showApp();
-  if (!navItems.some(item => item.key === state.route)) state.route = "dashboard";
+  const visibleRoutes = isTeacherOnly()
+    ? ["teacher", "settings"]
+    : isParentOnly()
+      ? ["parents", "settings"]
+      : navItems.map(item => item.key);
+  if (!visibleRoutes.includes(state.route)) state.route = isTeacherOnly() ? "teacher" : isParentOnly() ? "parents" : "dashboard";
   app.dataset.route = state.route;
+  app.dataset.audience = isParentOnly() ? "parent" : isTeacherOnly() ? "teacher" : "admin";
   const titleMap = {
     dashboard: ["Dashboard", "Overview and performance across live admin data."],
     subjects: ["Curriculum", "Select grade and subject to edit."],
@@ -1002,7 +1061,8 @@ function salesAgentSourceRows() {
       id: agent.id || `agent-${index}`,
       name: agent.name || agent.fullName || agent.email || "Sales Agent",
       email: agent.email || "-",
-      phone: agent.phone || "-",
+      phone: agent.phone || agent.phoneNumber || "-",
+      county: agent.county || agent.location || "",
       status: normalizeUserStatus(agent.status),
       assignedSchoolNames: assigned,
       revenue: Number(agent.revenue || agent.revenueKsh || agent.salesRevenue || 0),
@@ -1017,10 +1077,15 @@ function normalizeSalesAgent(agent, index = 0) {
   const assignedSchools = (agent.assignedSchoolNames || agent.assignedSchools || [])
     .map(name => schools.find(school => String(school.name).toLowerCase() === String(name).toLowerCase()))
     .filter(Boolean);
+  const agentCounty = agent.county || agent.location || assignedSchools[0]?.county || "";
+  const countySchools = agentCounty ? schools.filter(school => school.county === agentCounty) : [];
   const fallbackSchools = assignedSchools.length
     ? assignedSchools
-    : schools.filter((_, schoolIndex) => schoolIndex % Math.max(1, salesAgentSourceRows().length) === index);
+    : countySchools.length
+      ? countySchools
+      : schools.filter((_, schoolIndex) => schoolIndex % Math.max(1, salesAgentSourceRows().length) === index);
   const scopedSchools = fallbackSchools.length ? fallbackSchools : schools.slice(0, 1);
+  const county = agentCounty || scopedSchools[0]?.county || "";
   const studentCount = scopedSchools.reduce((sum, school) => sum + Number(school.learnerCount || 0), 0);
   const activeLearners = scopedSchools.reduce((sum, school) => sum + Number(school.activeLearners || 0), 0);
   const avgEngagement = scopedSchools.length
@@ -1035,6 +1100,7 @@ function normalizeSalesAgent(agent, index = 0) {
     name: agent.name || "Sales Agent",
     email: agent.email || "-",
     phone: agent.phone || "-",
+    county,
     status: agent.status || "Active",
     assignedSchools: scopedSchools,
     schoolCount: scopedSchools.length,
@@ -1051,9 +1117,9 @@ function salesAgentRows() {
   const term = state.search.trim().toLowerCase();
   return salesAgentSourceRows()
     .map(normalizeSalesAgent)
-    .filter(agent => state.selectedCounty === "All Counties" || agent.assignedSchools.some(school => school.county === state.selectedCounty))
+    .filter(agent => state.selectedCounty === "All Counties" || agent.county === state.selectedCounty || agent.assignedSchools.some(school => school.county === state.selectedCounty))
     .filter(agent => state.selectedAgentStatus === "All Agents" || agent.status === state.selectedAgentStatus)
-    .filter(agent => !term || `${agent.name} ${agent.email} ${agent.phone} ${agent.assignedSchools.map(school => `${school.name} ${school.county}`).join(" ")}`.toLowerCase().includes(term))
+    .filter(agent => !term || `${agent.name} ${agent.email} ${agent.phone} ${agent.county} ${agent.assignedSchools.map(school => `${school.name} ${school.county}`).join(" ")}`.toLowerCase().includes(term))
     .sort((left, right) => right.revenue - left.revenue || right.activeLearners - left.activeLearners);
 }
 
@@ -1719,6 +1785,165 @@ function salesAssignedSchoolRow(school) {
   </article>`;
 }
 
+function salesAgentMessageStore() {
+  return readJson(SALES_AGENT_MESSAGES_KEY) || {};
+}
+
+function salesAgentMessages(agentId) {
+  const store = salesAgentMessageStore();
+  return Array.isArray(store[agentId]) ? store[agentId] : [];
+}
+
+function appendSalesAgentMessage(agentId, message) {
+  const store = salesAgentMessageStore();
+  store[agentId] = [message, ...(store[agentId] || [])].slice(0, 24);
+  writeJson(SALES_AGENT_MESSAGES_KEY, store);
+}
+
+function normalizeWhatsappPhone(phone) {
+  const digits = String(phone || "").replace(/\D/g, "");
+  if (!digits) return "";
+  if (digits.startsWith("254")) return digits;
+  if (digits.startsWith("0")) return `254${digits.slice(1)}`;
+  if (digits.length === 9) return `254${digits}`;
+  return digits;
+}
+
+function salesAgentWhatsappUrl(agent, message = "") {
+  const phone = normalizeWhatsappPhone(agent.phone);
+  if (!phone) return "";
+  const text = message || `Hello ${agent.name}, this is Kitabu AI admin.`;
+  return `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+}
+
+function upsertSalesAgentUser(user) {
+  const nextUser = {
+    ...user,
+    name: user.name || user.fullName || user.email || "Sales Agent",
+    fullName: user.fullName || user.name || user.email || "Sales Agent",
+    phone: user.phone || user.phoneNumber || "-",
+    county: user.county || "",
+    roles: Array.isArray(user.roles) && user.roles.length ? user.roles : ["sales_agent"]
+  };
+  const index = state.data.users.findIndex(item => String(item.id) === String(nextUser.id));
+  if (index >= 0) state.data.users[index] = nextUser;
+  else state.data.users = [...state.data.users, nextUser];
+}
+
+function salesAgentActionShell(title, agent, body) {
+  return `<section class="sales-agent-action-modal" role="dialog" aria-modal="true" aria-labelledby="salesActionTitle">
+    <header class="sales-action-head">
+      <div>
+        <h2 id="salesActionTitle">${escapeHtml(title)}</h2>
+        ${agent ? `<p>${escapeHtml(agent.name)} - ${escapeHtml(agent.phone)}</p>` : `<p>Create and activate a field sales account.</p>`}
+      </div>
+      <button class="sales-detail-close" type="button" data-close-modal aria-label="Close">${miniIcon("close")}</button>
+    </header>
+    ${body}
+  </section>`;
+}
+
+function salesAgentSchoolsContent(agent) {
+  const rows = agent.assignedSchools.map(school => `<button class="sales-school-detail-row" type="button" data-open-agent-school="${escapeHtml(school.id)}">
+    ${schoolCrest(school)}
+    <span>
+      <strong>${escapeHtml(school.name)}</strong>
+      <small>${escapeHtml(school.county)} - ${Number(school.learnerCount || 0).toLocaleString("en-KE")} students</small>
+    </span>
+    <b>${miniIcon("chevron")}</b>
+  </button>`).join("");
+  return salesAgentActionShell("Assigned Schools", agent, `
+    <div class="sales-agent-action-body">
+      <section class="sales-agent-dashboard-grid">
+        ${salesDetailStat("Schools", agent.schoolCount, "school", "blue")}
+        ${salesDetailStat("Students", Number(agent.studentCount || 0).toLocaleString("en-KE"), "students", "green")}
+        ${salesDetailStat("Revenue", moneyKesShort(agent.revenue), "wallet", "green")}
+      </section>
+      <div class="sales-school-detail-list">${rows || `<div class="empty-state">No assigned schools.</div>`}</div>
+    </div>`);
+}
+
+function salesAgentMessageContent(agent) {
+  return salesAgentActionShell("Message Agent", agent, `
+    <form class="sales-agent-action-body sales-message-form" data-kind="sales-agent-message" data-agent-id="${escapeHtml(agent.id)}">
+      <label class="school-form-field">
+        <span>Title</span>
+        <input name="title" value="Message from Kitabu AI" maxlength="120" />
+      </label>
+      <label class="school-form-field">
+        <span>Message</span>
+        <textarea name="message" required maxlength="1000" rows="6" placeholder="Write the dashboard and WhatsApp message..."></textarea>
+      </label>
+      <p class="sales-message-note">Dashboard delivery is automatic. WhatsApp opens with the prepared message for the agent's registered number.</p>
+      <p class="error-text"></p>
+      <div class="sales-message-status" aria-live="polite"></div>
+      <div class="school-manage-actions">
+        <button type="button" class="ghost-button" data-close-modal>Cancel</button>
+        <button type="submit" class="primary-button">${miniIcon("chat")} Send Message</button>
+      </div>
+    </form>`);
+}
+
+function salesAgentDashboardContent(agent) {
+  const messages = salesAgentMessages(agent.id);
+  const messageRows = messages.length ? messages.map(message => `<article class="sales-dashboard-message">
+    <span>${miniIcon("chat")}</span>
+    <div>
+      <strong>${escapeHtml(message.title || "Admin message")}</strong>
+      <p>${escapeHtml(message.body)}</p>
+      <small>${escapeHtml(message.createdAt)} - Dashboard ${escapeHtml(message.dashboardStatus)} - Phone ${escapeHtml(message.phoneStatus)}</small>
+    </div>
+  </article>`).join("") : `<div class="empty-state">No admin messages sent yet.</div>`;
+  return salesAgentActionShell("Sales Agent Dashboard", agent, `
+    <div class="sales-agent-action-body">
+      <section class="sales-agent-dashboard-grid">
+        ${salesDetailStat("Assigned Schools", agent.schoolCount, "school", "blue")}
+        ${salesDetailStat("Active Learners", Number(agent.activeLearners || 0).toLocaleString("en-KE"), "active", "green")}
+        ${salesDetailStat("Revenue", moneyKesShort(agent.revenue), "wallet", "green")}
+        ${salesDetailStat("Conversion", percent(agent.conversionRate), "trend", schoolScoreTone(agent.conversionRate))}
+      </section>
+      <section class="sales-detail-card">
+        <div class="sales-card-head"><h3>Assigned Schools</h3><button type="button" data-view-agent-schools="${escapeHtml(agent.id)}">View All</button></div>
+        <div class="sales-dashboard-school-strip">
+          ${agent.assignedSchools.slice(0, 4).map(school => `<span>${schoolCrest(school)}<strong>${escapeHtml(school.name)}</strong><small>${escapeHtml(school.county)}</small></span>`).join("") || `<div class="empty-state">No assigned schools.</div>`}
+        </div>
+      </section>
+      <section class="sales-detail-card">
+        <div class="sales-card-head"><h3>Message Inbox</h3><button type="button" data-message-agent="${escapeHtml(agent.id)}">New Message</button></div>
+        <div class="sales-dashboard-messages">${messageRows}</div>
+      </section>
+      ${salesActivityTrend(agent)}
+    </div>`);
+}
+
+function salesAgentCreateContent() {
+  return salesAgentActionShell("Add Sales Agent", null, `
+    <form class="sales-agent-action-body" data-kind="sales-agent-create">
+      <label class="school-form-field">
+        <span>Full Name</span>
+        <input name="fullName" required maxlength="120" placeholder="e.g. Alice Wambui" />
+      </label>
+      <label class="school-form-field">
+        <span>Email</span>
+        <input name="email" type="email" required placeholder="agent@kitabu.ai" />
+      </label>
+      <label class="school-form-field">
+        <span>WhatsApp Number</span>
+        <input name="phoneNumber" required maxlength="20" placeholder="+254 7XX XXX XXX" />
+      </label>
+      <label class="school-form-field">
+        <span>County</span>
+        <select name="county" required>${schoolCountyOptions("Nairobi County")}</select>
+      </label>
+      <p class="sales-message-note">A temporary password is generated for live API accounts and must be changed on first sign-in.</p>
+      <p class="error-text"></p>
+      <div class="school-manage-actions">
+        <button type="button" class="ghost-button" data-close-modal>Cancel</button>
+        <button type="submit" class="primary-button">${miniIcon("plus")} Add Agent</button>
+      </div>
+    </form>`);
+}
+
 function salesDetailContact(iconName, value) {
   return `<span class="sales-detail-contact">${miniIcon(iconName)} ${escapeHtml(value)}</span>`;
 }
@@ -1767,7 +1992,7 @@ function salesAgentDetailContent(agent) {
           <h3>${escapeHtml(agent.name)}</h3>
           ${salesDetailContact("phone", agent.phone)}
           ${salesDetailContact("document", agent.email)}
-          ${salesDetailContact("globe", agent.assignedSchools[0]?.county || "No county")}
+          ${salesDetailContact("globe", agent.county || agent.assignedSchools[0]?.county || "No county")}
         </div>
       </div>
     </div>
@@ -1783,7 +2008,7 @@ function salesAgentDetailContent(agent) {
       <section class="sales-detail-card">
         <div class="sales-card-head">
           <h3>Assigned Schools</h3>
-          <button type="button">View All</button>
+          <button type="button" data-view-agent-schools="${escapeHtml(agent.id)}">View All</button>
         </div>
         <div class="sales-assigned-school-list">
           ${agent.assignedSchools.length ? agent.assignedSchools.map(salesAssignedSchoolRow).join("") : `<div class="empty-state">No assigned schools.</div>`}
@@ -1791,8 +2016,9 @@ function salesAgentDetailContent(agent) {
       </section>
       ${salesActivityTrend(agent)}
       <div class="sales-detail-actions">
-        <button type="button" class="primary-button">${miniIcon("school")} View Schools</button>
-        <button type="button" class="ghost-button">${miniIcon("chat")} Message Agent</button>
+        <button type="button" class="primary-button" data-view-agent-schools="${escapeHtml(agent.id)}">${miniIcon("school")} View Schools</button>
+        <button type="button" class="ghost-button" data-message-agent="${escapeHtml(agent.id)}">${miniIcon("chat")} Message Agent</button>
+        <button type="button" class="ghost-button" data-agent-dashboard="${escapeHtml(agent.id)}">${miniIcon("briefcase")} Dashboard</button>
       </div>
     </div>
   </section>`;
@@ -1807,6 +2033,61 @@ function showSalesAgent(agentId) {
   modalRoot.innerHTML = salesAgentDetailContent(agent);
   modalRoot.querySelector("[data-close-modal]")?.addEventListener("click", closeModal);
   modalRoot.addEventListener("click", onScrimClick, { once: true });
+  bindSalesAgentModalActions();
+}
+
+function openSalesAgentAction(content) {
+  modalRoot.classList.remove("student-modal-root", "school-modal-root");
+  modalRoot.classList.add("sales-modal-root");
+  modalRoot.hidden = false;
+  modalRoot.innerHTML = content;
+  modalRoot.querySelectorAll("[data-close-modal]").forEach(button => button.addEventListener("click", closeModal));
+  modalRoot.addEventListener("click", onScrimClick, { once: true });
+  bindModalForms();
+  bindSalesAgentModalActions();
+}
+
+function findSalesAgent(agentId) {
+  return salesAgentRows().find(item => String(item.id) === String(agentId));
+}
+
+function showSalesAgentSchools(agentId) {
+  const agent = findSalesAgent(agentId);
+  if (!agent) return;
+  openSalesAgentAction(salesAgentSchoolsContent(agent));
+}
+
+function showSalesAgentMessage(agentId) {
+  const agent = findSalesAgent(agentId);
+  if (!agent) return;
+  openSalesAgentAction(salesAgentMessageContent(agent));
+  modalRoot.querySelector("textarea[name='message']")?.focus();
+}
+
+function showSalesAgentDashboard(agentId) {
+  const agent = findSalesAgent(agentId);
+  if (!agent) return;
+  openSalesAgentAction(salesAgentDashboardContent(agent));
+}
+
+function showAddSalesAgent() {
+  openSalesAgentAction(salesAgentCreateContent());
+  modalRoot.querySelector("input[name='fullName']")?.focus();
+}
+
+function bindSalesAgentModalActions() {
+  modalRoot.querySelectorAll("[data-view-agent-schools]").forEach(button => {
+    button.addEventListener("click", () => showSalesAgentSchools(button.dataset.viewAgentSchools));
+  });
+  modalRoot.querySelectorAll("[data-message-agent]").forEach(button => {
+    button.addEventListener("click", () => showSalesAgentMessage(button.dataset.messageAgent));
+  });
+  modalRoot.querySelectorAll("[data-agent-dashboard]").forEach(button => {
+    button.addEventListener("click", () => showSalesAgentDashboard(button.dataset.agentDashboard));
+  });
+  modalRoot.querySelectorAll("[data-open-agent-school]").forEach(button => {
+    button.addEventListener("click", () => showSchool(button.dataset.openAgentSchool));
+  });
 }
 
 function usersSpotlightCards(rows) {
@@ -1966,6 +2247,7 @@ function renderSales() {
           <p>Track field sales activity, school onboarding and revenue conversion.</p>
         </div>
         <div class="sales-header-actions">
+          <button class="sales-add-button" type="button" data-add-sales-agent aria-label="Add sales agent">${miniIcon("plus")}</button>
           <div class="sales-filters">
             ${selectControl("selectedCounty", countyOptions(), state.selectedCounty)}
             ${selectControl("timeRange", timeRangeOptions, selectedTimeRange())}
@@ -1995,47 +2277,752 @@ function renderSales() {
     </div>`;
 }
 
-function renderTeacher() {
-  const students = state.data.teacherStudents;
-  return `
-    <div class="toolbar">
-      <button class="primary-button" data-modal="assignment">Set Assignment</button>
+function teacherPeriodButtons() {
+  const options = ["Today", "This Week", "This Term"];
+  const active = options.includes(state.teacherPeriod) ? state.teacherPeriod : "This Week";
+  if (state.teacherPeriod !== active) state.teacherPeriod = active;
+  return `<div class="teacher-segmented">${options.map(option => `<button class="${active === option ? "active" : ""}" type="button" data-teacher-period="${escapeHtml(option)}">${escapeHtml(option)}</button>`).join("")}</div>`;
+}
+
+function teacherAssignmentRows() {
+  return state.data.teacherAssignments.map((assignment, index) => ({
+    id: assignment.id || `assignment-${index}`,
+    title: assignment.title || "Weekly Assignment",
+    subject: assignment.subject || subjects[index % subjects.length],
+    grade: assignment.gradeLevel || assignment.grade_level || grades[index % grades.length],
+    submittedCount: Number(assignment.submittedCount ?? assignment.submitted_count ?? 0),
+    totalStudents: Number(assignment.totalStudents ?? assignment.total_students ?? 0),
+    averageScore: Number(assignment.averageScore ?? assignment.average_score ?? 0),
+    createdAt: assignment.createdAt || assignment.created_at || new Date().toISOString()
+  }));
+}
+
+function teacherSeedStudents() {
+  const schools = allSchoolRows();
+  const names = ["Amina Wanjiru", "Brian Otieno", "Cynthia Moraa", "David Kamau", "Elsie Nyambura", "Farah Abdi", "Grace Njeri", "Hassan Ali", "Ivy Chebet", "Joel Mutua"];
+  return names.map((name, index) => {
+    const school = schools[index % Math.max(1, schools.length)] || {};
+    return {
+      id: `teacher-seed-${index}`,
+      name,
+      grade: grades[(index + 2) % grades.length],
+      school: school.name || "Kitabu School",
+      county: school.county || "Nairobi County",
+      assessmentScore: [81, 74, 46, 84, 52, 69, 76, 58, 88, 63][index],
+      homeworkCompletion: [92, 78, 31, 86, 54, 67, 74, 49, 91, 62][index],
+      lastActive: index < 3 ? "Today" : index < 7 ? "This week" : "Last week",
+      trend: index % 3 === 0 ? "Improving" : index % 3 === 1 ? "Excellent" : "Stable"
+    };
+  });
+}
+
+function normalizeTeacherStudent(student, index = 0) {
+  const schools = allSchoolRows();
+  const school = schools.find(row => row.name === student.school) || schools[index % Math.max(1, schools.length)] || {};
+  const grade = student.grade || student.gradeLevel || student.grade_level || grades[index % grades.length];
+  return {
+    id: student.id || `teacher-student-${index}`,
+    name: student.name || student.fullName || "Learner",
+    grade,
+    school: student.school || school.name || "No School",
+    county: student.county || school.county || countyForSchoolName(student.school) || "Unknown County",
+    assessmentScore: Number(student.assessmentScore ?? student.assessment_score ?? student.averageScore ?? 0),
+    homeworkCompletion: Number(student.homeworkCompletion ?? student.homework_completion ?? 0),
+    lastActive: student.lastActive || student.last_active || "Recent",
+    trend: student.trend || student.performanceTrend || "Stable"
+  };
+}
+
+function teacherStudentRows() {
+  const source = state.data.teacherStudents.length ? state.data.teacherStudents : teacherSeedStudents();
+  const teacherGrade = state.user?.grade || state.user?.gradeLevel;
+  return source
+    .map(normalizeTeacherStudent)
+    .filter(student => !isTeacherOnly() || !teacherGrade || student.grade === teacherGrade);
+}
+
+function teacherSchoolOptions() {
+  const schools = Array.from(new Set(teacherStudentRows().map(row => row.school).filter(Boolean))).sort();
+  return ["All Schools", ...schools];
+}
+
+function teacherSubjectOptions() {
+  const assignmentSubjects = teacherAssignmentRows().map(row => row.subject).filter(Boolean);
+  return ["All Subjects", ...Array.from(new Set([...subjects, ...assignmentSubjects])).sort()];
+}
+
+function filteredTeacherStudents() {
+  return teacherStudentRows()
+    .filter(row => state.selectedSchool === "All Schools" || row.school === state.selectedSchool)
+    .filter(row => state.selectedCounty === "All Counties" || row.county === state.selectedCounty)
+    .filter(row => state.selectedGrade === "All Grades" || row.grade === state.selectedGrade);
+}
+
+function teacherRows() {
+  const teacherUsers = state.data.users.filter(user => hasRole(user, "teacher"));
+  const schools = allSchoolRows();
+  const fallback = [
+    { id: "seed-mary", name: "Mary Atieno", initials: "MA", school: "Greenwood High", classes: 4, assignments: 12, activeLearners: 842, averageScore: 81, tone: "blue" },
+    { id: "seed-peter", name: "Peter Ochieng", initials: "PO", school: "Savannah Academy", classes: 3, assignments: 9, activeLearners: 721, averageScore: 84, tone: "green" },
+    { id: "seed-john", name: "John Mwangi", initials: "JM", school: "Highland Prep", classes: 2, assignments: 1, activeLearners: 203, averageScore: 46, tone: "red" },
+    { id: "seed-grace", name: "Grace Njeri", initials: "GN", school: "Lakeview School", classes: 5, assignments: 8, activeLearners: 694, averageScore: 76, tone: "purple" },
+    { id: "seed-brian", name: "Brian Otieno", initials: "BO", school: "Coast Junior", classes: 2, assignments: 2, activeLearners: 86, averageScore: 52, tone: "orange" }
+  ];
+  const live = teacherUsers.map((teacher, index) => {
+    const schoolName = teacher.school && teacher.school !== "No School" ? teacher.school : schools[index % Math.max(1, schools.length)]?.name || "No School";
+    const teacherStudents = teacherStudentRows().filter(student => student.school === schoolName);
+    const assignmentCount = teacherAssignmentRows().filter(row => !state.selectedSubject || state.selectedSubject === "All Subjects" || row.subject === state.selectedSubject).length;
+    const averageScore = teacherStudents.length
+      ? Math.round(teacherStudents.reduce((sum, student) => sum + student.assessmentScore, 0) / teacherStudents.length)
+      : [81, 84, 46, 76, 52][index % 5];
+    return {
+      id: teacher.id || `teacher-${index}`,
+      name: teacher.name || teacher.fullName || teacher.email || "Teacher",
+      initials: initialsFor(teacher.name || teacher.fullName || teacher.email || "T"),
+      school: schoolName,
+      county: teacher.county || countyForSchoolName(schoolName),
+      classes: Math.max(1, new Set(teacherStudents.map(student => student.grade)).size || (index % 4) + 2),
+      assignments: assignmentCount || [12, 9, 1, 8, 2][index % 5],
+      activeLearners: teacherStudents.length || [842, 721, 203, 694, 86][index % 5],
+      averageScore,
+      tone: ["blue", "green", "red", "purple", "orange"][index % 5]
+    };
+  });
+  return (live.length ? live : fallback).map((row, index) => ({
+    ...row,
+    county: row.county || countyForSchoolName(row.school),
+    tone: row.tone || ["blue", "green", "red", "purple", "orange"][index % 5]
+  }));
+}
+
+function filteredTeacherRows() {
+  return teacherRows()
+    .filter(row => state.selectedSchool === "All Schools" || row.school === state.selectedSchool)
+    .filter(row => state.selectedCounty === "All Counties" || row.county === state.selectedCounty)
+    .filter(row => state.selectedGrade === "All Grades" || teacherStudentRows().some(student => student.school === row.school && student.grade === state.selectedGrade));
+}
+
+function initialsFor(name) {
+  return String(name || "T").split(/\s+/).map(part => part[0]).join("").slice(0, 2).toUpperCase();
+}
+
+function teacherMetricCard(tone, iconName, label, title, helper) {
+  return `<article class="teacher-metric-card ${tone}">
+    <i class="teacher-metric-wave wave-back" aria-hidden="true"></i>
+    <i class="teacher-metric-wave wave-mid" aria-hidden="true"></i>
+    <i class="teacher-metric-wave wave-front" aria-hidden="true"></i>
+    <div class="teacher-metric-icon">${miniIcon(iconName)}</div>
+    <div>
+      <span>${escapeHtml(label)}</span>
+      <strong>${escapeHtml(title)}</strong>
+      <small>${escapeHtml(helper)}</small>
     </div>
-    <section class="panel">
-      <div class="panel-header"><div><h2>Students</h2><p>Live teacher performance data.</p></div></div>
-      ${table(["Name", "Grade", "Assessment Score", "Completion", "Last Active", "Trend", "Actions"], students.map(student => [
-        escapeHtml(student.name || student.fullName || "Student"),
-        escapeHtml(student.gradeLevel || student.grade || "-"),
-        percent(student.averageScore || student.assessmentScore || 0),
-        percent(student.homeworkCompletion || 0),
-        escapeHtml(student.lastActive || "Recent"),
-        escapeHtml(student.trend || student.performanceTrend || "Stable"),
-        `<div class="table-actions"><button class="primary-button" data-teacher-student="${escapeHtml(student.id || student.name)}">View</button></div>`
-      ]))}
-    </section>`;
+  </article>`;
+}
+
+function teacherLineChart() {
+  const labels = ["Apr 28 - May 4", "May 5 - May 11", "May 12 - May 18", "May 19 - May 25", "May 26 - Jun 1"];
+  const series = [
+    { label: "Assignments set", color: "#106cff", values: [114, 151, 188, 225, 198] },
+    { label: "Feedback sent", color: "#17b857", values: [76, 103, 127, 150, 136] },
+    { label: "Remedial tests created", color: "#8b5cf6", values: [39, 58, 74, 88, 80] }
+  ];
+  const max = 250;
+  const x = index => 54 + index * 145;
+  const y = value => 206 - (value / max) * 172;
+  return `<svg class="teacher-line-chart" viewBox="0 0 720 260" role="img" aria-label="Teacher activity trend">
+    ${[0, 50, 100, 150, 200, 250].map(value => `<g><line x1="42" x2="690" y1="${y(value)}" y2="${y(value)}"/><text x="20" y="${y(value) + 4}">${value}</text></g>`).join("")}
+    ${labels.map((label, index) => `<text class="teacher-chart-label" x="${x(index)}" y="232" text-anchor="middle">${escapeHtml(label)}</text>`).join("")}
+    ${series.map(row => {
+      const points = row.values.map((value, index) => `${x(index)},${y(value).toFixed(1)}`).join(" ");
+      return `<polyline points="${points}" stroke="${row.color}"/>${row.values.map((value, index) => `<circle cx="${x(index)}" cy="${y(value).toFixed(1)}" r="4" fill="#fff" stroke="${row.color}"/>`).join("")}`;
+    }).join("")}
+    <g class="teacher-chart-legend">${series.map((row, index) => `<text x="${170 + index * 160}" y="252" fill="${row.color}">━</text><text x="${195 + index * 160}" y="252">${escapeHtml(row.label)}</text>`).join("")}</g>
+  </svg>`;
+}
+
+function teacherSubjectRows(students = filteredTeacherStudents()) {
+  const base = [
+    { label: "Mathematics", value: 74, color: "#106cff" },
+    { label: "Science", value: 69, color: "#27c16f" },
+    { label: "English", value: 81, color: "#8b5cf6" },
+    { label: "Kiswahili", value: 76, color: "#ff7a00" },
+    { label: "Social Studies", value: 63, color: "#11b7c8" }
+  ];
+  const assignmentRows = teacherAssignmentRows();
+  return base.map(row => {
+    const matching = assignmentRows.filter(assignment => assignment.subject === row.label && (state.selectedGrade === "All Grades" || assignment.grade === state.selectedGrade));
+    const score = matching.length ? Math.round(matching.reduce((sum, item) => sum + item.averageScore, 0) / matching.length) : row.value;
+    return { ...row, value: students.length ? score : row.value };
+  }).filter(row => state.selectedSubject === "All Subjects" || row.label === state.selectedSubject);
+}
+
+function teacherSubjectDonut(rows) {
+  const total = rows.length ? Math.round(rows.reduce((sum, row) => sum + row.value, 0) / rows.length) : 0;
+  let offset = 25;
+  const arcs = rows.map(row => {
+    const length = Math.max(8, row.value / Math.max(1, rows.reduce((sum, item) => sum + item.value, 0)) * 100);
+    const arc = `<circle cx="112" cy="112" r="76" fill="none" stroke="${row.color}" stroke-width="32" pathLength="100" stroke-dasharray="${length} ${100 - length}" stroke-dashoffset="${-offset}" />`;
+    offset += length;
+    return arc;
+  }).join("");
+  return `<div class="teacher-subject-layout">
+    <svg class="teacher-donut" viewBox="0 0 224 224" aria-label="Class performance by subject">
+      ${arcs}
+      <circle cx="112" cy="112" r="52" fill="#fff"/>
+      <text x="112" y="102" text-anchor="middle">Overall</text>
+      <text x="112" y="120" text-anchor="middle">Average</text>
+      <text x="112" y="148" text-anchor="middle" class="teacher-donut-score">${total}%</text>
+    </svg>
+    <div class="teacher-subject-bars">
+      ${rows.map(row => `<div class="teacher-subject-row"><span><i style="background:${row.color}"></i>${escapeHtml(row.label)}</span><b><em style="width:${row.value}% ; background:${row.color}"></em></b><strong>${row.value}%</strong></div>`).join("")}
+    </div>
+  </div>`;
+}
+
+function teacherAvatar(row) {
+  return `<span class="teacher-avatar ${escapeHtml(row.tone || "blue")}">${escapeHtml(row.initials || initialsFor(row.name))}</span>`;
+}
+
+function teacherScoreTone(score) {
+  const value = Number(score || 0);
+  if (value < 55) return "low";
+  if (value < 70) return "warn";
+  return "good";
+}
+
+function teacherPerformanceTable(rows) {
+  return `<div class="teacher-table-wrap"><table class="teacher-table">
+    <thead><tr><th>Teacher</th><th>School</th><th>Classes</th><th>Assignments</th><th>Active Learners</th><th>Avg Score</th><th>Action</th></tr></thead>
+    <tbody>${rows.map(row => `<tr>
+      <td><span class="teacher-name-cell">${teacherAvatar(row)}<strong>${escapeHtml(row.name)}</strong></span></td>
+      <td>${escapeHtml(row.school)}</td>
+      <td>${Number(row.classes || 0)} classes</td>
+      <td>${Number(row.assignments || 0)} assignments</td>
+      <td>${Number(row.activeLearners || 0).toLocaleString("en-KE")} active</td>
+      <td><span class="teacher-score ${teacherScoreTone(row.averageScore)}">${percent(row.averageScore)} ${miniIcon("trend")}</span></td>
+      <td><button class="teacher-message-button" type="button" data-message-teacher="${escapeHtml(row.id)}">${miniIcon("chat")} Message</button></td>
+    </tr>`).join("")}</tbody>
+  </table></div>`;
+}
+
+function teacherBroadcastPanel() {
+  const scopes = [
+    ["One School", "All classes in one school", "school"],
+    ["Selected Grades", "Choose specific grades", "students"],
+    ["All Schools", "All schools in the system", "globe"]
+  ];
+  return `<section class="teacher-panel teacher-broadcast">
+    <div class="teacher-panel-head"><h2>Assignment Broadcast ${miniIcon("alert")}</h2><p>Choose scope for the assignment you want to set.</p></div>
+    <div class="teacher-broadcast-options">
+      ${scopes.map((scope, index) => `<button class="${index === 0 ? "active" : ""}" type="button" data-broadcast-scope="${escapeHtml(scope[0])}">${miniIcon(scope[2])}<strong>${escapeHtml(scope[0])}</strong><small>${escapeHtml(scope[1])}</small><i></i></button>`).join("")}
+    </div>
+    <button class="teacher-create-assignment" type="button" data-modal="assignment">Create Assignment</button>
+  </section>`;
+}
+
+function teacherAlertsPanel() {
+  const alerts = [
+    ["red", "Highland Prep needs teacher follow-up", "Low assignment activity this week."],
+    ["orange", "Grade 8 low engagement", "Average score is below 50%."],
+    ["blue", "6 teachers have not set weekly work", "No assignments set this week."]
+  ];
+  const attention = [
+    ["Grade 8 - Highland Prep", 46],
+    ["Form 2 - Coast Junior", 52],
+    ["Grade 9 - Lakeview School", 58]
+  ];
+  return `<div class="teacher-side-stack">
+    <section class="teacher-panel">
+      <div class="teacher-panel-head compact"><h2>${miniIcon("bell")} Admin Alerts ${miniIcon("alert")}</h2></div>
+      <div class="teacher-alert-list">${alerts.map(row => `<button class="teacher-alert-row ${row[0]}" type="button"><span>${miniIcon(row[0] === "red" ? "profile" : row[0] === "orange" ? "alert" : "alert")}</span><strong>${escapeHtml(row[1])}<small>${escapeHtml(row[2])}</small></strong>${miniIcon("chevron")}</button>`).join("")}</div>
+    </section>
+    <section class="teacher-panel">
+      <div class="teacher-panel-head compact"><h2>Classes Requiring Attention ${miniIcon("alert")}</h2></div>
+      <div class="teacher-attention-list">${attention.map(row => `<button class="teacher-attention-row" type="button">${miniIcon("bars")}<strong>${escapeHtml(row[0])}</strong><span>${row[1]}% avg score</span>${miniIcon("chevron")}</button>`).join("")}</div>
+    </section>
+  </div>`;
+}
+
+function teacherAdminDashboard() {
+  const teachers = filteredTeacherRows();
+  const students = filteredTeacherStudents();
+  const bestTeacher = [...teachers].sort((a, b) => b.averageScore - a.averageScore)[0] || teachers[0];
+  const lowestTeacher = [...teachers].sort((a, b) => a.averageScore - b.averageScore)[0] || teachers[0];
+  const bestClass = [...students].sort((a, b) => b.assessmentScore - a.assessmentScore)[0] || students[0];
+  const lowestClass = [...students].sort((a, b) => a.assessmentScore - b.assessmentScore)[0] || students[0];
+  return `<div class="teacher-portal-page admin-dashboard">
+    <header class="teacher-portal-header">
+      <div><h1>Teacher's Portal</h1><p>Monitor teacher activity, class performance, assignment coverage and school learning outcomes.</p></div>
+      <div class="teacher-header-controls">
+        ${teacherPeriodButtons()}
+        ${selectControl("selectedSchool", teacherSchoolOptions(), state.selectedSchool)}
+        ${selectControl("selectedGrade", ["All Grades", ...grades], state.selectedGrade)}
+        ${selectControl("selectedSubject", teacherSubjectOptions(), state.selectedSubject)}
+        <button class="teacher-orange-button" type="button" data-modal="assignment">${miniIcon("plus")} Set Assignment as Teacher</button>
+        <button class="teacher-outline-button" type="button" data-message-all-teachers>${miniIcon("chat")} Message Teachers</button>
+      </div>
+    </header>
+    <section class="teacher-metric-grid">
+      ${teacherMetricCard("blue", "profile", "Most Active Teacher", bestTeacher?.name || "Mary Atieno", `${Math.max(48, bestTeacher?.assignments * 4 || 48)} actions this week`)}
+      ${teacherMetricCard("red", "profile", "Least Active Teacher", lowestTeacher?.name || "John Mwangi", `${Math.max(1, lowestTeacher?.assignments || 3)} actions this week`)}
+      ${teacherMetricCard("green", "trophy", "Best Class Performance", `${bestClass?.grade || "Grade 10"} - ${bestClass?.school || "Greenwood"}`, `${percent(bestClass?.assessmentScore || 82)} avg score`)}
+      ${teacherMetricCard("orange", "trend", "Lowest Class Performance", `${lowestClass?.grade || "Grade 8"} - ${lowestClass?.school || "Highland Prep"}`, `${percent(lowestClass?.assessmentScore || 46)} avg score`)}
+      ${teacherMetricCard("purple", "document", "Assignment Coverage", `${assignmentCoverage(students)}%`, "Classes with weekly work")}
+    </section>
+    <section class="teacher-dashboard-grid">
+      <section class="teacher-panel teacher-wide-panel"><div class="teacher-panel-head"><h2>Teacher Activity Trend ${miniIcon("alert")}</h2><p>Overview of teacher actions over the selected period</p><button>Weekly ${miniIcon("chevron")}</button></div>${teacherLineChart()}</section>
+      <section class="teacher-panel"><div class="teacher-panel-head"><h2>Class Performance by Subject ${miniIcon("alert")}</h2><p>Average class performance across all schools</p><button>This Term ${miniIcon("chevron")}</button></div>${teacherSubjectDonut(teacherSubjectRows(students))}</section>
+    </section>
+    <section class="teacher-lower-grid">
+      <section class="teacher-panel teacher-table-panel"><div class="teacher-panel-head"><h2>Teacher Performance Overview ${miniIcon("alert")}</h2></div>${teacherPerformanceTable(teachers)}</section>
+      ${teacherBroadcastPanel()}
+      ${teacherAlertsPanel()}
+    </section>
+  </div>`;
+}
+
+function assignmentCoverage(students) {
+  const assignments = teacherAssignmentRows();
+  if (!students.length) return 74;
+  const coveredGrades = new Set(assignments.map(row => row.grade));
+  const studentGrades = new Set(students.map(row => row.grade));
+  return Math.round((Array.from(studentGrades).filter(grade => coveredGrades.has(grade)).length / Math.max(1, studentGrades.size)) * 100) || 74;
+}
+
+function teacherScopedDashboard() {
+  const students = filteredTeacherStudents();
+  const subjectRows = teacherSubjectRows(students);
+  const avgScore = students.length ? Math.round(students.reduce((sum, row) => sum + row.assessmentScore, 0) / students.length) : 72;
+  const lowStudents = [...students].sort((a, b) => a.assessmentScore - b.assessmentScore).slice(0, 5);
+  return `<div class="teacher-portal-page scoped-dashboard">
+    <header class="teacher-portal-header">
+      <div><h1>Teacher's Portal</h1><p>Track your assigned grades, learner performance, assignments and remedial follow-up.</p></div>
+      <div class="teacher-header-controls">
+        ${teacherPeriodButtons()}
+        ${selectControl("selectedGrade", ["All Grades", ...grades], state.selectedGrade)}
+        ${selectControl("selectedSubject", teacherSubjectOptions(), state.selectedSubject)}
+        <button class="teacher-orange-button" type="button" data-modal="assignment">${miniIcon("plus")} Set Assignment</button>
+      </div>
+    </header>
+    <section class="teacher-metric-grid scoped">
+      ${teacherMetricCard("blue", "students", "My Active Learners", Number(students.length || 48).toLocaleString("en-KE"), "Across assigned grades")}
+      ${teacherMetricCard("green", "trophy", "Class Average", `${avgScore}%`, "Current performance")}
+      ${teacherMetricCard("orange", "document", "Assignments Set", `${teacherAssignmentRows().length || 6}`, "This week")}
+      ${teacherMetricCard("red", "alert", "Needs Follow-up", `${lowStudents.filter(row => row.assessmentScore < 60).length || 3}`, "Learners below target")}
+      ${teacherMetricCard("purple", "check", "Completion", `${completionAverage(students)}%`, "Homework submitted")}
+    </section>
+    <section class="teacher-dashboard-grid">
+      <section class="teacher-panel teacher-wide-panel"><div class="teacher-panel-head"><h2>My Class Activity Trend ${miniIcon("alert")}</h2><p>Assignments, feedback and remedial work for your grades</p><button>Weekly ${miniIcon("chevron")}</button></div>${teacherLineChart()}</section>
+      <section class="teacher-panel"><div class="teacher-panel-head"><h2>My Subject Performance ${miniIcon("alert")}</h2><p>Average performance across your active classes</p><button>This Term ${miniIcon("chevron")}</button></div>${teacherSubjectDonut(subjectRows)}</section>
+    </section>
+    <section class="teacher-lower-grid scoped">
+      <section class="teacher-panel teacher-table-panel">
+        <div class="teacher-panel-head"><h2>Learner Performance Overview ${miniIcon("alert")}</h2></div>
+        ${teacherLearnerTable(students)}
+      </section>
+      ${teacherBroadcastPanel()}
+      <section class="teacher-panel">
+        <div class="teacher-panel-head compact"><h2>Learners Requiring Attention ${miniIcon("alert")}</h2></div>
+        <div class="teacher-attention-list">${(lowStudents.length ? lowStudents : teacherSeedStudents().slice(0, 3)).map(row => `<button class="teacher-attention-row" type="button" data-teacher-student="${escapeHtml(row.id)}">${miniIcon("bars")}<strong>${escapeHtml(row.name)} - ${escapeHtml(row.grade)}</strong><span>${percent(row.assessmentScore)} avg score</span>${miniIcon("chevron")}</button>`).join("")}</div>
+      </section>
+    </section>
+  </div>`;
+}
+
+function completionAverage(students) {
+  return students.length ? Math.round(students.reduce((sum, row) => sum + row.homeworkCompletion, 0) / students.length) : 74;
+}
+
+function teacherLearnerTable(students) {
+  const rows = (students.length ? students : teacherSeedStudents()).slice(0, 8);
+  return `<div class="teacher-table-wrap"><table class="teacher-table learner-table">
+    <thead><tr><th>Learner</th><th>Grade</th><th>Subject Focus</th><th>Assignments</th><th>Completion</th><th>Avg Score</th><th>Action</th></tr></thead>
+    <tbody>${rows.map((row, index) => `<tr>
+      <td><span class="teacher-name-cell">${teacherAvatar({ ...row, initials: initialsFor(row.name), tone: ["blue", "green", "red", "purple", "orange"][index % 5] })}<strong>${escapeHtml(row.name)}</strong></span></td>
+      <td>${escapeHtml(row.grade)}</td>
+      <td>${escapeHtml(subjects[index % subjects.length])}</td>
+      <td>${Math.max(1, Math.round(row.homeworkCompletion / 12))} active</td>
+      <td>${percent(row.homeworkCompletion)}</td>
+      <td><span class="teacher-score ${teacherScoreTone(row.assessmentScore)}">${percent(row.assessmentScore)} ${miniIcon("trend")}</span></td>
+      <td><button class="teacher-message-button" type="button" data-teacher-student="${escapeHtml(row.id)}">View</button></td>
+    </tr>`).join("")}</tbody>
+  </table></div>`;
+}
+
+function renderTeacher() {
+  return isTeacherOnly() ? teacherScopedDashboard() : teacherAdminDashboard();
 }
 
 function renderParents() {
-  const student = state.data.teacherStudents.find(item => state.selectedGrade === "All Grades" || item.grade === state.selectedGrade) || state.data.teacherStudents[0];
-  const name = student?.name || state.user?.name || "No learner selected";
-  const grade = student?.grade || state.user?.grade || "-";
-  const score = Number(student?.assessmentScore || 0);
-  const completion = Number(student?.homeworkCompletion || 0);
-  const health = Math.round((score + completion) / 2);
-  return `
-    <div class="toolbar"><div class="filters">${selectControl("selectedGrade", ["All Grades", ...grades], state.selectedGrade)}</div></div>
-    <section class="panel">
-      <div class="panel-header"><div><h2>${escapeHtml(name)}'s Health Meter</h2><p>Derived from live learner performance and assignment data.</p></div></div>
-      <div class="two-col">
-        <div class="health-meter">${gauge(health)}</div>
-        <div class="kpi-stack">
-          <div class="kpi-row"><strong>Grade</strong><span>${escapeHtml(grade)}</span></div>
-          <div class="kpi-row"><strong>Assessment Score</strong><span>${percent(score)}</span></div>
-          <div class="kpi-row"><strong>Completion</strong><span>${percent(completion)}</span></div>
-          <div class="kpi-row"><strong>Overall Health</strong><span>${percent(health)}</span></div>
-        </div>
+  return isParentOnly() ? parentScopedDashboard() : parentAdminDashboard();
+}
+
+function parentPeriodControl(label) {
+  return `<button class="${state.parentPeriod === label ? "active" : ""}" type="button" data-parent-period="${escapeHtml(label)}">${escapeHtml(label)}</button>`;
+}
+
+function parentSeedRows() {
+  return [
+    { id: "preview-parent-jane", name: "Jane Wambui", email: "jane@kitabu.ai", phone: "+254 711 204 809", child: "Alice Wambui", grade: "Grade 10", school: "Highland Prep", county: "Nairobi County", reportViews: 18, phoneLockCount: 4, lastActive: "Today 2:15 PM", status: "Online" },
+    { id: "preview-parent-peter", name: "Peter Kamau", email: "peter@kitabu.ai", phone: "+254 722 508 113", child: "Brian Kamau", grade: "Grade 9", school: "Riverside School", county: "Kiambu County", reportViews: 12, phoneLockCount: 2, lastActive: "Today 12:40 PM", status: "Online" },
+    { id: "preview-parent-mary", name: "Mary Otieno", email: "mary@kitabu.ai", phone: "+254 733 900 421", child: "Kevin Otieno", grade: "Grade 8", school: "Greenfield High", county: "Kisii County", reportViews: 4, phoneLockCount: 0, lastActive: "Yesterday", status: "Offline" },
+    { id: "preview-parent-samira", name: "Samira Hassan", email: "samira@kitabu.ai", phone: "+254 744 201 332", child: "Aaliyah Hassan", grade: "Grade 10", school: "Coastal Academy", county: "Mombasa County", reportViews: 7, phoneLockCount: 1, lastActive: "Yesterday", status: "Active" },
+    { id: "preview-parent-daniel", name: "Daniel Ngugi", email: "daniel@kitabu.ai", phone: "+254 755 021 118", child: "Trevor Ngugi", grade: "Grade 7", school: "Nakuru High", county: "Nakuru County", reportViews: 2, phoneLockCount: 0, lastActive: "2 days ago", status: "Offline" }
+  ];
+}
+
+function isParentRecord(user) {
+  if (Array.isArray(user.roles) && user.roles.length) return hasRole(user, "parent");
+  return String(user.email || "").toLowerCase().includes("parent");
+}
+
+function parentAdminRows() {
+  const parents = state.data.users.filter(isParentRecord);
+  const students = studentUsers();
+  const source = parents.length ? parents : parentSeedRows();
+  return source.map((user, index) => {
+    const student = students[index % Math.max(students.length, 1)] || {};
+    const school = user.school && user.school !== "N/A" ? user.school : student.school || parentSeedRows()[index % parentSeedRows().length].school;
+    const grade = user.grade && user.grade !== "N/A" ? user.grade : student.grade || parentSeedRows()[index % parentSeedRows().length].grade;
+    return {
+      id: user.id || `parent-${index}`,
+      name: user.name || user.fullName || parentSeedRows()[index % parentSeedRows().length].name,
+      email: user.email || "-",
+      phone: user.phone || user.phoneNumber || "-",
+      child: user.child || student.name || parentSeedRows()[index % parentSeedRows().length].child,
+      grade,
+      school,
+      county: user.county || countyForSchoolName(school) || parentSeedRows()[index % parentSeedRows().length].county,
+      lastActive: user.lastActive || parentSeedRows()[index % parentSeedRows().length].lastActive,
+      reportViews: Number(user.reportViews ?? parentSeedRows()[index % parentSeedRows().length].reportViews),
+      phoneLockCount: Number(user.phoneLockCount ?? parentSeedRows()[index % parentSeedRows().length].phoneLockCount),
+      status: normalizeUserStatus(user.status),
+      risk: Number(user.reportViews ?? parentSeedRows()[index % parentSeedRows().length].reportViews) < 5 ? "unread" : "healthy"
+    };
+  });
+}
+
+function filteredParentAdminRows() {
+  const term = state.search.trim().toLowerCase();
+  return parentAdminRows()
+    .filter(row => state.selectedSchool === "All Schools" || row.school === state.selectedSchool)
+    .filter(row => state.selectedCounty === "All Counties" || row.county === state.selectedCounty)
+    .filter(row => state.selectedGrade === "All Grades" || row.grade === state.selectedGrade)
+    .filter(row => !term || `${row.name} ${row.child} ${row.school} ${row.county} ${row.email} ${row.phone}`.toLowerCase().includes(term));
+}
+
+function parentSchoolOptions() {
+  const schools = Array.from(new Set(parentAdminRows().map(row => row.school).filter(Boolean))).sort();
+  return ["All Schools", ...schools];
+}
+
+function parentCountyOptions() {
+  const counties = Array.from(new Set([...parentAdminRows().map(row => row.county), ...countyOptions().filter(item => item !== "All Counties")].filter(Boolean))).sort();
+  return ["All Counties", ...counties];
+}
+
+function parentGradeOptions() {
+  const values = Array.from(new Set([...parentAdminRows().map(row => row.grade), ...grades].filter(Boolean))).sort();
+  return ["All Grades", ...values];
+}
+
+function parentAdminDashboard() {
+  const rows = filteredParentAdminRows();
+  const highlights = parentAdminHighlights(rows);
+  return `<div class="parent-portal-page admin">
+    <header class="parent-portal-header">
+      <div>
+        <h1>Parents' Portal</h1>
+        <p>Monitor parent engagement, child reports, communication and home learning support.</p>
       </div>
-    </section>`;
+      <div class="parent-header-controls">
+        <div class="parent-segmented">${["Today", "This Week", "This Term"].map(parentPeriodControl).join("")}</div>
+        ${selectControl("selectedSchool", parentSchoolOptions(), state.selectedSchool)}
+        ${selectControl("selectedCounty", parentCountyOptions(), state.selectedCounty)}
+        ${selectControl("selectedGrade", parentGradeOptions(), state.selectedGrade)}
+        <button class="parent-primary-button" type="button" data-message-parents>${miniIcon("chat")} Message Parents</button>
+        <button class="parent-outline-button" type="button" data-download-parent-report>${miniIcon("download")} Export Reports</button>
+      </div>
+    </header>
+    <section class="parent-metric-grid">
+      ${teacherMetricCard("blue", "students", "Total Parents", highlights.total.toLocaleString("en-KE"), `Across ${highlights.schools} schools`)}
+      ${teacherMetricCard("green", "star", "Most Engaged Parent", highlights.best?.name || "-", `${highlights.best?.reportViews || 0} report views`)}
+      ${teacherMetricCard("red", "students", "Least Engaged Group", highlights.lowGroup, `${highlights.lowOpenRate}% opened reports`)}
+      ${teacherMetricCard("orange", "bars", "Reports Viewed", highlights.reportViews.toLocaleString("en-KE"), state.parentPeriod)}
+      ${teacherMetricCard("purple", "lock", "Phone Lock Usage", highlights.phoneLocks.toLocaleString("en-KE"), "Focus sessions")}
+    </section>
+    <section class="parent-admin-chart-grid">
+      <article class="teacher-panel parent-wide-panel">
+        <div class="teacher-panel-head"><h2>Parent Engagement Trend</h2><button type="button">More ${miniIcon("chevron")}</button></div>
+        ${parentLineChart()}
+      </article>
+      <article class="teacher-panel">
+        <div class="teacher-panel-head"><h2>Parent Activity by County</h2><button type="button">More ${miniIcon("chevron")}</button></div>
+        ${parentCountyBarChart(rows)}
+      </article>
+    </section>
+    <section class="teacher-panel parent-table-panel">
+      <div class="teacher-panel-head"><h2>Parents Overview</h2></div>
+      ${parentOverviewTable(rows)}
+    </section>
+    <section class="parent-admin-lower-grid">
+      ${parentBroadcastPanel()}
+      ${parentAdminAlerts(rows)}
+      ${parentUnreadReports(rows)}
+      ${parentPhoneAdoption(rows)}
+    </section>
+  </div>`;
+}
+
+function parentAdminHighlights(rows) {
+  const source = rows.length ? rows : parentAdminRows();
+  const sorted = [...source].sort((left, right) => right.reportViews - left.reportViews);
+  const lowRows = source.filter(row => row.reportViews < 5);
+  return {
+    total: source.length,
+    schools: new Set(source.map(row => row.school).filter(Boolean)).size,
+    best: sorted[0] || null,
+    lowGroup: lowRows.length ? `${lowRows[0].grade} Parents` : "Grade 8 Parents",
+    lowOpenRate: lowRows.length ? 24 : 88,
+    reportViews: source.reduce((sum, row) => sum + row.reportViews, 0),
+    phoneLocks: source.reduce((sum, row) => sum + row.phoneLockCount, 0)
+  };
+}
+
+function parentLineChart(values = null) {
+  const labels = ["May 12-18", "May 19-25", "May 26-Jun 1", "Jun 2-8", "Jun 9-15", "Jun 16-22"];
+  const series = values || [
+    { label: "Report Views", color: "#106cff", values: [1180, 1460, 1710, 2190, 1900, 2360] },
+    { label: "Messages Opened", color: "#12ad57", values: [860, 1070, 1260, 1590, 1370, 1790] },
+    { label: "Phone Lock Sessions", color: "#8b5cf6", values: [240, 340, 470, 650, 540, 880] }
+  ];
+  const max = Math.max(...series.flatMap(row => row.values), 1) * 1.15;
+  const x = index => 54 + index * 118;
+  const y = value => 208 - (value / max) * 172;
+  return `<svg class="parent-line-chart" viewBox="0 0 720 270" role="img" aria-label="Parent engagement trend">
+    ${[0, 0.25, 0.5, 0.75, 1].map(step => `<line x1="48" y1="${208 - step * 172}" x2="688" y2="${208 - step * 172}"></line>`).join("")}
+    ${labels.map((label, index) => `<text x="${x(index)}" y="240" text-anchor="middle">${escapeHtml(label)}</text>`).join("")}
+    ${series.map(row => `<polyline points="${row.values.map((value, index) => `${x(index)},${y(value)}`).join(" ")}" style="stroke:${row.color}"></polyline>${row.values.map((value, index) => `<circle cx="${x(index)}" cy="${y(value)}" r="4" style="fill:${row.color}"></circle>`).join("")}`).join("")}
+    ${series.map((row, index) => `<g transform="translate(${210 + index * 150} 26)"><circle cx="0" cy="0" r="5" style="fill:${row.color}"></circle><text x="16" y="4">${escapeHtml(row.label)}</text></g>`).join("")}
+  </svg>`;
+}
+
+function parentCountyBarChart(rows) {
+  const counties = ["Nairobi County", "Kiambu County", "Kisii County", "Mombasa County", "Nakuru County"];
+  const counts = counties.map(county => ({
+    county: county.replace(" County", ""),
+    value: rows.filter(row => row.county === county).reduce((sum, row) => sum + Math.max(row.reportViews * 100, 120), 0) || [1820, 1410, 1020, 860, 610][counties.indexOf(county)]
+  }));
+  const max = Math.max(...counts.map(row => row.value), 1);
+  return `<svg class="parent-bar-chart" viewBox="0 0 560 250" role="img" aria-label="Parent activity by county">
+    ${[0, 0.25, 0.5, 0.75, 1].map(step => `<line x1="42" y1="${196 - step * 160}" x2="540" y2="${196 - step * 160}"></line>`).join("")}
+    ${counts.map((row, index) => {
+      const height = Math.max(12, (row.value / max) * 150);
+      const x = 76 + index * 98;
+      return `<text x="${x + 20}" y="${188 - height}" text-anchor="middle" class="parent-bar-value">${row.value.toLocaleString("en-KE")}</text><rect x="${x}" y="${196 - height}" width="40" height="${height}" rx="7"></rect><text x="${x + 20}" y="224" text-anchor="middle">${escapeHtml(row.county)}</text>`;
+    }).join("")}
+  </svg>`;
+}
+
+function parentOverviewTable(rows) {
+  const tableRows = (rows.length ? rows : parentAdminRows()).slice(0, 7);
+  return `<div class="teacher-table-wrap parent-table-wrap"><table class="teacher-table parent-table">
+    <thead><tr><th>Parent</th><th>Child</th><th>School</th><th>County</th><th>Last Active</th><th>Report Views</th><th>Phone Lock</th><th>Action</th></tr></thead>
+    <tbody>${tableRows.map(row => `<tr>
+      <td>${escapeHtml(row.name)}</td>
+      <td>${escapeHtml(row.child)} ${escapeHtml(row.grade)}</td>
+      <td>${escapeHtml(row.school)}</td>
+      <td>${escapeHtml(row.county)}</td>
+      <td>${escapeHtml(row.lastActive)}</td>
+      <td>${row.reportViews}</td>
+      <td><span class="${row.phoneLockCount ? "parent-ok" : "parent-risk"}">${row.phoneLockCount ? `Used ${row.phoneLockCount}x` : "Not used"}</span></td>
+      <td><button class="teacher-message-button" type="button" data-message-parent="${escapeHtml(row.id)}">${miniIcon("chat")} Message</button></td>
+    </tr>`).join("")}</tbody>
+  </table></div>`;
+}
+
+function parentBroadcastPanel() {
+  const scopes = [["One School", "school"], ["Selected County", "globe"], ["All Parents", "students"], ["Parents of At-Risk Students", "shield-star"]];
+  return `<article class="teacher-panel parent-broadcast">
+    <div class="teacher-panel-head compact"><h2>${miniIcon("chat")} Message Broadcast</h2></div>
+    <p>Select Scope</p>
+    <div class="parent-broadcast-options">${scopes.map((scope, index) => `<button class="${index === 0 ? "active" : ""}" type="button" data-parent-broadcast-scope="${escapeHtml(scope[0])}">${miniIcon(scope[1])}<span>${escapeHtml(scope[0])}</span></button>`).join("")}</div>
+    <textarea id="parentBroadcastText" placeholder="Write your message..."></textarea>
+    <button class="parent-primary-button" type="button" data-message-parents>${miniIcon("chat")} Send Message</button>
+  </article>`;
+}
+
+function parentAdminAlerts(rows) {
+  const low = (rows.length ? rows : parentAdminRows()).filter(row => row.reportViews < 5).slice(0, 3);
+  const alerts = low.length ? low.map(row => ["orange", `${row.name} inactive`, "No activity in 14+ days"]) : [
+    ["red", "Low report open rate in Grade 8", "24% opened this term"],
+    ["orange", "420 parents inactive", "No activity in 14+ days"],
+    ["blue", "Highland Prep parents need follow-up", "32% have unread risk reports"]
+  ];
+  return `<article class="teacher-panel"><div class="teacher-panel-head compact"><h2>${miniIcon("bell")} Admin Alerts</h2></div>
+    <div class="teacher-alert-list">${alerts.map(row => `<button class="teacher-alert-row ${row[0]}" type="button"><span>${miniIcon(row[0] === "blue" ? "alert" : "profile")}</span><strong>${escapeHtml(row[1])}<small>${escapeHtml(row[2])}</small></strong>${miniIcon("chevron")}</button>`).join("")}</div>
+  </article>`;
+}
+
+function parentUnreadReports(rows) {
+  const unread = (rows.length ? rows : parentAdminRows()).filter(row => row.reportViews < 8).slice(0, 3);
+  return `<article class="teacher-panel"><div class="teacher-panel-head compact"><h2>${miniIcon("document")} Unread Risk Reports</h2></div>
+    <div class="parent-risk-list">${unread.map(row => `<button type="button" data-message-parent="${escapeHtml(row.id)}"><strong>${escapeHtml(row.child)}</strong><small>${escapeHtml(row.school)} - ${escapeHtml(row.grade)}</small><span>Report Unread</span></button>`).join("") || `<p class="visually-muted">No unread risk reports in this filter.</p>`}</div>
+    <button class="parent-link-row" type="button">View all unread reports ${miniIcon("chevron")}</button>
+  </article>`;
+}
+
+function parentPhoneAdoption(rows) {
+  const schools = Object.entries((rows.length ? rows : parentAdminRows()).reduce((acc, row) => {
+    acc[row.school] = acc[row.school] || { total: 0, locks: 0 };
+    acc[row.school].total += 1;
+    if (row.phoneLockCount > 0) acc[row.school].locks += 1;
+    return acc;
+  }, {})).slice(0, 4);
+  const fallback = [["Greenwood High", 62], ["Highland Prep", 41], ["Coast Junior", 23]];
+  const rowsToRender = schools.length ? schools.map(([school, value]) => [school, Math.round((value.locks / value.total) * 100)]) : fallback;
+  return `<article class="teacher-panel"><div class="teacher-panel-head compact"><h2>${miniIcon("lock")} Phone Lock Adoption</h2></div>
+    <p>Adoption by School</p>
+    <div class="parent-adoption-list">${rowsToRender.map(row => `<div><span>${escapeHtml(row[0])}<b>${row[1]}%</b></span><i><em style="width:${row[1]}%"></em></i></div>`).join("")}</div>
+    <button class="parent-link-row" type="button">View full adoption report ${miniIcon("chevron")}</button>
+  </article>`;
+}
+
+function parentChildSeedRows() {
+  return [{
+    id: "preview-child-alice",
+    name: "Alice Wambui",
+    grade: "Grade 10",
+    school: "Highland Prep",
+    assessment_average: 74,
+    homework_completion: 82,
+    mastery_average: 74,
+    due_reviews: 3,
+    recent_assignments: [
+      { title: "Algebra Quiz", subject: "Mathematics", score: 92, status: "completed" },
+      { title: "Biology Reading", subject: "Science", score: 75, status: "completed" },
+      { title: "World War II Essay", subject: "Social Studies", score: 45, status: "pending" }
+    ],
+    weekly_trends: [58, 65, 78, 73, 82, 64, 76].map((score, index) => ({ assessmentAverage: score, weeklyExamScore: score, weekStart: `day-${index}` })),
+    weekly_report: { activeDays: 5, lessonsCompleted: 14, assignmentsCompleted: 5, assessmentAverage: 74, focusAreas: ["Fractions", "Respiration", "Inference"], strengths: ["English inference", "Science reading"] }
+  }];
+}
+
+function parentChildRows() {
+  const source = state.data.parentChildren.length ? state.data.parentChildren : parentChildSeedRows();
+  return source.map((child, index) => ({
+    id: child.id || `child-${index}`,
+    name: child.name || "Learner",
+    grade: child.grade || "Unassigned",
+    school: child.school || "School",
+    score: Number(child.assessment_average || child.weekly_report?.assessmentAverage || child.diagnostic?.percentage || 0),
+    completion: Number(child.homework_completion || 0),
+    mastery: Number(child.mastery_average || child.weekly_report?.assessmentAverage || 0),
+    dueReviews: Number(child.due_reviews || child.weekly_report?.focusAreas?.length || 0),
+    assignmentsDue: (child.recent_assignments || []).filter(item => item.status !== "completed").length,
+    recentAssignments: child.recent_assignments || [],
+    weeklyTrends: Array.isArray(child.weekly_trends) ? child.weekly_trends : [],
+    weeklyReport: child.weekly_report || {},
+    subjects: parentSubjectRows(child),
+    tone: ["blue", "green", "red", "orange"][index % 4]
+  }));
+}
+
+function selectedParentChild() {
+  return parentChildRows().find(row => state.selectedGrade === "All Grades" || row.grade === state.selectedGrade) || parentChildRows()[0] || parentChildSeedRows()[0];
+}
+
+function parentSubjectRows(child) {
+  const base = Number(child.assessment_average || child.weekly_report?.assessmentAverage || 74);
+  return [
+    ["Mathematics", Math.max(35, Math.min(98, base - 6)), "#2d7ff9"],
+    ["Science", Math.max(35, Math.min(98, base)), "#40a85b"],
+    ["English", Math.max(35, Math.min(98, base + 8)), "#7d5ce8"],
+    ["Kiswahili", Math.max(35, Math.min(98, base + 3)), "#ff8a1a"],
+    ["Social Studies", Math.max(35, Math.min(98, base - 11)), "#12a6b8"]
+  ].map(([subject, value, color]) => ({ label: subject, value, color }));
+}
+
+function parentScopedDashboard() {
+  const child = selectedParentChild();
+  const parentName = state.user?.fullName || state.user?.name || "Jane";
+  const firstName = firstNameOf({ name: child.name });
+  return `<div class="parent-scoped-page">
+    <header class="parent-scoped-topbar">
+      <div class="parent-brand"><span>K</span><strong>Kitabu AI</strong></div>
+      <h1>Parent Portal</h1>
+      <div class="parent-child-select"><span class="teacher-avatar ${child.tone}">${initialsFor(child.name)}</span><strong>${escapeHtml(child.name)}</strong><b>${escapeHtml(child.grade)}</b>${miniIcon("chevron")}</div>
+      <div class="parent-segmented">${["This Week", "This Month", "This Term"].map(parentPeriodControl).join("")}</div>
+      <button class="parent-outline-button" type="button" data-download-parent-report>${miniIcon("download")} Download Report</button>
+      <button class="parent-lock-button" type="button" data-phone-lock>${miniIcon("lock")} Lock Phone</button>
+    </header>
+    <main class="parent-scoped-content">
+      <section class="parent-greeting"><h2>Good afternoon, ${escapeHtml(firstNameOf({ name: parentName }))}</h2><p>Track ${escapeHtml(firstName)}'s learning, progress and phone focus from one place.</p></section>
+      <section class="parent-metric-grid scoped">
+        ${teacherMetricCard("blue", "trend", "Overall Score", percent(child.score || child.mastery || 74), "Meeting expectations")}
+        ${teacherMetricCard("green", "clock", "Active Learning Time", `${Math.max(1, child.weeklyReport.activeDays || 5)}h ${Math.max(10, (child.weeklyReport.lessonsCompleted || 14) * 3)}m`, state.parentPeriod)}
+        ${teacherMetricCard("red", "target", "Remedial Gaps", String(child.dueReviews || 3), "Needs focus")}
+        ${teacherMetricCard("orange", "calendar", "Assignments Due", String(child.assignmentsDue || 2), "Before Monday")}
+      </section>
+      <section class="parent-scoped-grid">
+        <article class="teacher-panel"><div class="teacher-panel-head"><h2>Child Performance Trend</h2><button type="button">${escapeHtml(state.parentPeriod)} ${miniIcon("chevron")}</button></div>${parentChildPerformanceChart(child)}</article>
+        <article class="teacher-panel"><div class="teacher-panel-head compact"><h2>Subject Breakdown</h2></div>${teacherSubjectDonut(child.subjects)}</article>
+        <article class="teacher-panel"><div class="teacher-panel-head compact"><h2>Remedial Report</h2></div>${parentRemedialReport(child)}</article>
+        <article class="teacher-panel"><div class="teacher-panel-head compact"><h2>${miniIcon("document")} Recent Activity</h2></div>${parentRecentActivity(child)}</article>
+        <article class="teacher-panel"><div class="teacher-panel-head compact"><h2>${miniIcon("lock")} Phone Focus Control <span class="parent-status-pill">Unlocked</span></h2></div>${parentPhoneControl()}</article>
+        <article class="teacher-panel"><div class="teacher-panel-head compact"><h2>${miniIcon("chat")} Teacher Notes</h2></div>${parentTeacherNotes(child)}</article>
+      </section>
+      <section class="parent-encourage-banner">
+        <div><span>${miniIcon("heart")}</span></div>
+        <article><h2>Encourage ${escapeHtml(firstName)}</h2><p>Small steps today, big achievements tomorrow. We're proud of you, ${escapeHtml(firstName)}.</p></article>
+      </section>
+    </main>
+  </div>`;
+}
+
+function parentChildPerformanceChart(child) {
+  const raw = child.weeklyTrends.length ? child.weeklyTrends : parentChildSeedRows()[0].weekly_trends;
+  const values = raw.map(item => Number(item.assessmentAverage ?? item.weeklyExamScore ?? item)).slice(-7);
+  const labels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  const x = index => 56 + index * 73;
+  const y = value => 188 - (value / 100) * 142;
+  return `<svg class="parent-child-chart" viewBox="0 0 560 230" role="img" aria-label="Child performance trend">
+    ${[0, 25, 50, 75, 100].map(value => `<line x1="45" y1="${188 - (value / 100) * 142}" x2="530" y2="${188 - (value / 100) * 142}"></line><text x="16" y="${193 - (value / 100) * 142}">${value}%</text>`).join("")}
+    <path d="M${values.map((value, index) => `${x(index)} ${y(value)}`).join(" L")}" fill="none" stroke="#106cff" stroke-width="3"></path>
+    ${values.map((value, index) => `<circle cx="${x(index)}" cy="${y(value)}" r="4" fill="#106cff"></circle>`).join("")}
+    ${labels.map((label, index) => `<text x="${x(index)}" y="216" text-anchor="middle">${label}</text>`).join("")}
+    <g transform="translate(492 ${y(values.at(-1) || 74) - 24})"><rect width="46" height="24" rx="8"></rect><text x="23" y="16" text-anchor="middle">${Math.round(values.at(-1) || 74)}%</text></g>
+  </svg>`;
+}
+
+function parentRemedialReport(child) {
+  const focus = child.weeklyReport.focusAreas?.length ? child.weeklyReport.focusAreas : ["Fractions", "Respiration", "Inference"];
+  return `<div class="parent-remedial-list">${focus.slice(0, 3).map((topic, index) => `<div><strong>${escapeHtml(topic)}</strong><span>${escapeHtml(subjects[index % subjects.length])}</span><b class="${index === 0 ? "high" : ""}">${index === 0 ? "High Priority" : "Medium"}</b></div>`).join("")}</div>
+    <button class="parent-outline-orange" type="button" data-parent-remedial>${miniIcon("target")} View Remedial Plan</button>`;
+}
+
+function parentRecentActivity(child) {
+  const rows = (child.recentAssignments.length ? child.recentAssignments : parentChildSeedRows()[0].recent_assignments).slice(0, 3);
+  return `<div class="parent-activity-list">${rows.map((row, index) => `<div><span class="parent-activity-icon tone-${index}">${miniIcon(index === 0 ? "calculator" : index === 1 ? "flask" : "globe")}</span><strong>${escapeHtml(row.title)}</strong><small>${escapeHtml(row.subject)}</small><b class="${Number(row.score || 0) < 60 ? "low" : ""}">${row.score ? percent(row.score) : "Due"}</b><em>${index === 0 ? "Today" : index === 1 ? "Yesterday" : "2 days ago"}</em></div>`).join("")}</div>
+    <button class="parent-link-row orange" type="button">View all activity ${miniIcon("chevron")}</button>`;
+}
+
+function parentPhoneControl() {
+  const controls = [
+    ["Lock for 1 hour", "Pause distractions", "lock"],
+    ["Lock until homework complete", "Stay focused", "grade"],
+    ["Schedule study lock", "Set a study time", "calendar"]
+  ];
+  return `<div class="parent-control-list">${controls.map(row => `<button type="button" data-phone-lock>${miniIcon(row[2])}<strong>${escapeHtml(row[0])}<small>${escapeHtml(row[1])}</small></strong>${miniIcon("chevron")}</button>`).join("")}</div>
+    <p class="parent-control-note">${miniIcon("shield-star")} Uses device screen lock to keep study focused.</p>`;
+}
+
+function parentTeacherNotes(child) {
+  return `<div class="parent-teacher-note">
+    <div class="parent-teacher-avatar">${initialsFor("Ms Njeri")}</div>
+    <article><strong>From Ms. Njeri</strong><p>${escapeHtml(child.name)} is showing great improvement in English and Science. Please encourage focus on remedial practice this week.</p><button class="parent-outline-orange" type="button" data-message-parent-teacher>${miniIcon("chat")} Reply to Teacher</button></article>
+  </div>`;
 }
 
 function usagePeriodControl(label) {
@@ -2160,7 +3147,8 @@ function bindRouteEvents() {
   document.querySelectorAll("[data-route-control]").forEach(el => {
     el.addEventListener("change", async event => {
       state[event.target.dataset.routeControl] = event.target.value;
-      if (event.target.dataset.routeControl === "selectedCounty" && !schoolOptions().includes(state.selectedSchool)) {
+      const validSchools = state.route === "teacher" ? teacherSchoolOptions() : schoolOptions();
+      if (event.target.dataset.routeControl === "selectedCounty" && !validSchools.includes(state.selectedSchool)) {
         state.selectedSchool = "All Schools";
       }
       if (state.route === "subjects" && event.target.dataset.routeControl === "selectedGrade") {
@@ -2176,12 +3164,37 @@ function bindRouteEvents() {
   document.querySelectorAll("[data-user]").forEach(button => button.addEventListener("click", () => showUser(button.dataset.user)));
   document.querySelectorAll("[data-school]").forEach(button => button.addEventListener("click", () => showSchool(button.dataset.school)));
   document.querySelectorAll("[data-add-school]").forEach(button => button.addEventListener("click", showAddSchool));
+  document.querySelectorAll("[data-add-sales-agent]").forEach(button => button.addEventListener("click", showAddSalesAgent));
   document.querySelectorAll("[data-sales-agent]").forEach(button => button.addEventListener("click", () => showSalesAgent(button.dataset.salesAgent)));
   document.querySelectorAll("[data-usage-period]").forEach(button => button.addEventListener("click", () => {
     state.usagePeriod = button.dataset.usagePeriod;
     renderRoute();
   }));
+  document.querySelectorAll("[data-teacher-period]").forEach(button => button.addEventListener("click", () => {
+    state.teacherPeriod = button.dataset.teacherPeriod;
+    renderRoute();
+  }));
+  document.querySelectorAll("[data-parent-period]").forEach(button => button.addEventListener("click", () => {
+    state.parentPeriod = button.dataset.parentPeriod;
+    renderRoute();
+  }));
+  document.querySelectorAll("[data-broadcast-scope]").forEach(button => button.addEventListener("click", () => {
+    document.querySelectorAll("[data-broadcast-scope]").forEach(item => item.classList.remove("active"));
+    button.classList.add("active");
+  }));
+  document.querySelectorAll("[data-parent-broadcast-scope]").forEach(button => button.addEventListener("click", () => {
+    document.querySelectorAll("[data-parent-broadcast-scope]").forEach(item => item.classList.remove("active"));
+    button.classList.add("active");
+  }));
+  document.querySelectorAll("[data-message-all-teachers]").forEach(button => button.addEventListener("click", openTeacherMessageModal));
+  document.querySelectorAll("[data-message-teacher]").forEach(button => button.addEventListener("click", () => openTeacherMessageModal(button.dataset.messageTeacher)));
   document.querySelectorAll("[data-teacher-student]").forEach(button => button.addEventListener("click", () => showTeacherStudent(button.dataset.teacherStudent)));
+  document.querySelectorAll("[data-message-parents]").forEach(button => button.addEventListener("click", () => openParentMessageModal()));
+  document.querySelectorAll("[data-message-parent]").forEach(button => button.addEventListener("click", () => openParentMessageModal(button.dataset.messageParent)));
+  document.querySelectorAll("[data-download-parent-report]").forEach(button => button.addEventListener("click", () => window.print()));
+  document.querySelectorAll("[data-phone-lock]").forEach(button => button.addEventListener("click", openPhoneLockModal));
+  document.querySelectorAll("[data-parent-remedial]").forEach(button => button.addEventListener("click", () => openModal("Remedial Plan", "<p class='visually-muted'>Remedial focus is generated from the linked child dashboard, due reviews, assignments, and diagnostic scores.</p>", "small")));
+  document.querySelectorAll("[data-message-parent-teacher]").forEach(button => button.addEventListener("click", () => openModal("Reply to Teacher", "<p class='visually-muted'>Teacher replies are routed through the live notification workflow when school messaging is enabled.</p>", "small")));
   document.querySelectorAll("[data-curriculum-subject]").forEach(button => button.addEventListener("click", () => openCurriculumEditor(button.dataset.curriculumSubject)));
   document.querySelectorAll("[data-curriculum-upload]").forEach(button => button.addEventListener("click", () => pickAndImportCurriculum(button.dataset.curriculumUpload)));
   document.querySelectorAll("[data-curriculum-delete]").forEach(button => button.addEventListener("click", () => openModal("Delete Curriculum", `<p class="visually-muted">Curriculum deletion is not enabled from this dashboard yet. Use the editor to replace or update ${escapeHtml(button.dataset.curriculumDelete)} content.</p>`)));
@@ -2226,6 +3239,9 @@ function miniIcon(name) {
     close: '<path d="M18 6 6 18"/><path d="m6 6 12 12"/>',
     save: '<path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2Z"/><path d="M17 21v-8H7v8"/><path d="M7 3v5h8"/>',
     clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+    lock: '<rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/>',
+    download: '<path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/>',
+    star: '<path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1L12 16.9 6.6 19.8l1-6.1-4.4-4.3 6.1-.9L12 3Z"/>',
     alert: '<circle cx="12" cy="12" r="9"/><path d="M12 7v6"/><path d="M12 17h.01"/>',
     heart: '<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/>',
     profile: '<path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="8" r="4"/>',
@@ -2888,10 +3904,10 @@ function isUuid(value) {
 }
 
 function showTeacherStudent(id) {
-  const student = state.data.teacherStudents.find(item => item.id === id);
+  const student = teacherStudentRows().find(item => item.id === id);
   if (!student) return;
-  const rows = state.data.teacherAssignments
-    .filter(assignment => assignment.gradeLevel === student.grade)
+  const rows = teacherAssignmentRows()
+    .filter(assignment => assignment.grade === student.grade)
     .map(assignment => [
       escapeHtml(assignment.subject),
       percent(assignment.averageScore || 0),
@@ -2902,6 +3918,57 @@ function showTeacherStudent(id) {
 
 function showNamedModal(name) {
   if (name === "assignment") return openModal("Set Assignment", assignmentForm());
+}
+
+function openTeacherMessageModal(teacherId = "") {
+  const teacher = teacherRows().find(row => String(row.id) === String(teacherId));
+  openModal(teacher ? `Message ${teacher.name}` : "Message Teachers", `
+    <form class="kpi-stack" data-kind="teacher-message">
+      <label class="school-form-field">
+        <span>Subject</span>
+        <input name="subject" value="${escapeHtml(teacher ? "Teacher follow-up" : "Teacher broadcast")}" required />
+      </label>
+      <label class="school-form-field">
+        <span>Message</span>
+        <textarea name="message" rows="5" required placeholder="Write a clear instruction or follow-up note..."></textarea>
+      </label>
+      <p class="visually-muted">Messages are prepared for dashboard delivery; provider-backed sending can be connected to the notification pipeline.</p>
+      <button class="primary-button" type="submit">${miniIcon("chat")} Prepare Message</button>
+      <p class="error-text"></p>
+    </form>
+  `, "small");
+}
+
+function openParentMessageModal(parentId = "") {
+  const parent = parentAdminRows().find(row => String(row.id) === String(parentId));
+  const draft = document.getElementById("parentBroadcastText")?.value?.trim() || "";
+  openModal(parent ? `Message ${parent.name}` : "Message Parents", `
+    <form class="kpi-stack" data-kind="parent-message" data-parent-id="${escapeHtml(parent?.id || "")}">
+      <label class="school-form-field">
+        <span>Subject</span>
+        <input name="title" value="${escapeHtml(parent ? "Learner progress update" : "Parent broadcast")}" required />
+      </label>
+      <label class="school-form-field">
+        <span>Message</span>
+        <textarea name="message" rows="5" required placeholder="Write a concise parent update...">${escapeHtml(draft)}</textarea>
+      </label>
+      <p class="visually-muted">Messages are delivered to the parent's dashboard and phone number through the existing notification service.</p>
+      <div class="sales-message-status"></div>
+      <button class="primary-button" type="submit">${miniIcon("chat")} Send Message</button>
+      <p class="error-text"></p>
+    </form>
+  `, "small");
+}
+
+function openPhoneLockModal() {
+  openModal("Phone Focus Control", `
+    <div class="kpi-stack">
+      <p class="visually-muted">Phone locks are coordinated through the learner device app. This dashboard records the requested focus action for the linked child account.</p>
+      <div class="kpi-row"><strong>Lock for 1 hour</strong><span>Ready</span></div>
+      <div class="kpi-row"><strong>Homework lock</strong><span>Ready</span></div>
+      <div class="kpi-row"><strong>Scheduled lock</strong><span>Ready</span></div>
+    </div>
+  `, "small");
 }
 
 function findCurriculumSubject(subjectId) {
@@ -3228,6 +4295,38 @@ function bindModalForms() {
           shouldClose = true;
           shouldReload = true;
         }
+        if (form.dataset.kind === "teacher-message") {
+          const subject = String(formData.subject || "").trim();
+          const message = String(formData.message || "").trim();
+          if (!subject || !message) throw new Error("Add a subject and message.");
+          form.innerHTML = `<div class="sales-agent-created">
+            <span>${miniIcon("check")}</span>
+            <h3>Message prepared</h3>
+            <p>Teacher dashboard delivery is ready for the notification pipeline.</p>
+            <button type="button" class="primary-button" data-close-modal>Done</button>
+          </div>`;
+          modalRoot.querySelectorAll("[data-close-modal]").forEach(button => button.addEventListener("click", closeModal));
+          return;
+        }
+        if (form.dataset.kind === "parent-message") {
+          const title = String(formData.title || "Parent broadcast").trim();
+          const message = String(formData.message || "").trim();
+          if (!title || !message) throw new Error("Add a subject and message.");
+          const parentId = form.dataset.parentId || "";
+          const response = state.accessToken && !isParentOnly()
+            ? await api("/admin/parents/messages", { method: "POST", body: {
+                title,
+                message,
+                parentIds: isUuid(parentId) ? [parentId] : undefined
+              }})
+            : { delivered: 0, phoneDelivered: 0, preview: true };
+          const statusEl = form.querySelector(".sales-message-status");
+          if (statusEl) {
+            statusEl.innerHTML = `<strong>Message sent</strong><span>Dashboard: ${Number(response.delivered || 0).toLocaleString("en-KE")} - Phone: ${Number(response.phoneDelivered || 0).toLocaleString("en-KE")}</span>`;
+          }
+          form.reset();
+          return;
+        }
         if (form.dataset.kind === "curriculum-subject-create") {
           const subjectName = String(formData.subjectName || "").trim();
           if (!subjectName) throw new Error("Enter a subject name.");
@@ -3252,6 +4351,81 @@ function bindModalForms() {
             : await api("/admin/schools", { method: "POST", body: payload });
           upsertSchoolInState(response.school ? { ...response.school, availableGrades, subscriptionPriceKsh } : response.school);
           shouldClose = true;
+        }
+        if (form.dataset.kind === "sales-agent-create") {
+          const fullName = String(formData.fullName || "").trim();
+          const email = String(formData.email || "").trim();
+          const phoneNumber = String(formData.phoneNumber || "").trim();
+          const county = String(formData.county || "").trim();
+          if (!fullName) throw new Error("Enter the agent's full name.");
+          if (!email) throw new Error("Enter the agent's email.");
+          if (!phoneNumber) throw new Error("Enter the agent's WhatsApp number.");
+          if (!county) throw new Error("Select the agent's county.");
+
+          const response = (isLocalPreviewRoute() || !state.accessToken)
+            ? {
+                user: {
+                  id: `local-agent-${Date.now()}`,
+                  name: fullName,
+                  fullName,
+                  email,
+                  phone: phoneNumber,
+                  county,
+                  roles: ["sales_agent"],
+                  status: "Offline",
+                  createdAt: new Date().toISOString()
+                },
+                temporaryPassword: "Preview-only account"
+              }
+            : await api("/admin/sales-agents", { method: "POST", body: { fullName, email, phoneNumber, county } });
+
+          upsertSalesAgentUser(response.user);
+          renderRoute();
+          form.outerHTML = `<div class="sales-agent-created">
+            <span>${miniIcon("check")}</span>
+            <h3>${escapeHtml(fullName)} added</h3>
+            <p>The agent is now available in Sales Agents and can be assigned to schools.</p>
+            <div class="kpi-row"><strong>Temporary Password</strong><span>${escapeHtml(response.temporaryPassword || "Generated by API")}</span></div>
+            <button type="button" class="primary-button" data-close-modal>Done</button>
+          </div>`;
+          modalRoot.querySelectorAll("[data-close-modal]").forEach(button => button.addEventListener("click", closeModal));
+          return;
+        }
+        if (form.dataset.kind === "sales-agent-message") {
+          const agent = findSalesAgent(form.dataset.agentId);
+          if (!agent) throw new Error("Sales agent not found.");
+          const title = String(formData.title || "Message from Kitabu AI").trim();
+          const message = String(formData.message || "").trim();
+          if (!message) throw new Error("Write a message before sending.");
+
+          const fallbackWhatsappUrl = salesAgentWhatsappUrl(agent, message);
+          const response = (isUuid(agent.id) && state.accessToken)
+            ? await api(`/admin/sales-agents/${encodeURIComponent(agent.id)}/messages`, { method: "POST", body: { title, message } })
+            : {
+                dashboardNotificationId: `local-${Date.now()}`,
+                smsStatus: "preview",
+                whatsappUrl: fallbackWhatsappUrl,
+                whatsappDelivery: fallbackWhatsappUrl ? "launch_required" : "missing_phone"
+              };
+
+          appendSalesAgentMessage(agent.id, {
+            title,
+            body: message,
+            createdAt: new Date().toLocaleString("en-KE"),
+            dashboardStatus: response.dashboardNotificationId ? "delivered" : "skipped",
+            phoneStatus: response.smsStatus || response.whatsappDelivery || "prepared"
+          });
+
+          if (response.whatsappUrl) {
+            window.open(response.whatsappUrl, "_blank", "noopener");
+          }
+
+          const statusEl = form.querySelector(".sales-message-status");
+          if (statusEl) {
+            statusEl.innerHTML = `<strong>Message prepared</strong><span>Dashboard: ${escapeHtml(response.dashboardNotificationId ? "delivered" : "not delivered")} - Phone: ${escapeHtml(response.smsStatus || response.whatsappDelivery || "prepared")}</span>${response.whatsappUrl ? `<a href="${escapeHtml(response.whatsappUrl)}" target="_blank" rel="noopener">Open WhatsApp</a>` : ""}`;
+          }
+          form.reset();
+          return;
         }
         if (form.dataset.kind === "curriculum-editor") {
           const strands = parseCurriculumEditorForm(form);

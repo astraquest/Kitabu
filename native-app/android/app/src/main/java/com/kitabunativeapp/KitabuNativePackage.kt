@@ -12,6 +12,7 @@ class KitabuNativePackage : ReactPackage {
       KitabuRecorderModule(reactContext),
       KitabuDocumentPickerModule(reactContext),
       KitabuAuthConfigModule(reactContext),
+      KitabuFocusModeModule(reactContext),
     )
 
   override fun createViewManagers(

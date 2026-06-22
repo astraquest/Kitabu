@@ -16,8 +16,11 @@ import {
   ChevronRight,
   ChevronDown,
   Check,
+  Clock3,
   GraduationCap,
   Search,
+  Settings,
+  ShieldCheck,
   User,
   X,
 } from 'lucide-react-native';
@@ -46,6 +49,14 @@ interface ProfileModalProps {
   onResendVerification: () => Promise<string>;
   billingStatus: BillingStatus;
   onManageSubscription: () => void;
+  focusModeActive: boolean;
+  focusModeSetupRequired: boolean;
+  focusModeError: string | null;
+  focusModeSecondsRemaining: number;
+  dailyLimitSeconds: number;
+  isStartingFocusMode: boolean;
+  onStartFocusMode: () => void;
+  onOpenFocusModeSettings: () => void;
   user: UserProfile;
   onSave: (updatedUser: UserProfile) => void;
   schools: SchoolData[];
@@ -92,6 +103,14 @@ export function ProfileModal({
   onResendVerification,
   billingStatus,
   onManageSubscription,
+  focusModeActive,
+  focusModeSetupRequired,
+  focusModeError,
+  focusModeSecondsRemaining,
+  dailyLimitSeconds,
+  isStartingFocusMode,
+  onStartFocusMode,
+  onOpenFocusModeSettings,
   user,
   onSave,
   schools,
@@ -372,6 +391,17 @@ export function ProfileModal({
               </Pressable>
             </View>
 
+            <FocusModeProfileCard
+              active={focusModeActive}
+              setupRequired={focusModeSetupRequired}
+              error={focusModeError}
+              secondsRemaining={focusModeSecondsRemaining}
+              limitSeconds={dailyLimitSeconds}
+              isStarting={isStartingFocusMode}
+              onStart={onStartFocusMode}
+              onOpenSettings={onOpenFocusModeSettings}
+            />
+
             <View style={styles.accountSection}>
               <SubjectSelector
                 allSubjects={allSubjects}
@@ -642,6 +672,103 @@ export function ProfileModal({
   );
 }
 
+function FocusModeProfileCard({
+  active,
+  setupRequired,
+  error,
+  secondsRemaining,
+  limitSeconds,
+  isStarting,
+  onStart,
+  onOpenSettings,
+}: {
+  active: boolean;
+  setupRequired: boolean;
+  error: string | null;
+  secondsRemaining: number;
+  limitSeconds: number;
+  isStarting: boolean;
+  onStart: () => void;
+  onOpenSettings: () => void;
+}) {
+  return (
+    <View style={styles.focusCard}>
+      <View style={styles.focusHeader}>
+        <View style={styles.focusIcon}>
+          <ShieldCheck color="#0F766E" size={21} strokeWidth={2.5} />
+        </View>
+        <View style={styles.focusTitleWrap}>
+          <Text style={styles.focusTitle}>Focus Mode</Text>
+          <Text style={styles.focusMeta}>Default session: {formatDuration(limitSeconds)}</Text>
+        </View>
+      </View>
+      <Text style={styles.focusBody}>
+        Focus Mode keeps KITABU on screen while your child learns.
+      </Text>
+      <Text style={styles.focusBody}>
+        To leave Focus Mode, Android will ask for your phone PIN.
+      </Text>
+      <Text style={styles.focusBody}>KITABU does not create a separate PIN.</Text>
+
+      {active ? (
+        <View style={styles.focusStatusRow}>
+          <Clock3 color="#0F766E" size={16} strokeWidth={2.4} />
+          <Text style={styles.focusStatusText}>
+            Active - {formatDuration(secondsRemaining)} remaining
+          </Text>
+        </View>
+      ) : null}
+
+      {setupRequired ? (
+        <View style={styles.focusSetupBox}>
+          <Text style={styles.focusSetupTitle}>
+            Turn on App Pinning to keep KITABU on screen.
+          </Text>
+          <Text style={styles.focusSetupText}>
+            After turning it on, Android will ask for your phone PIN when someone tries to leave KITABU.
+          </Text>
+          <Text style={styles.focusSetupText}>
+            If the phone does not have a PIN, set one in Android security settings first.
+          </Text>
+          <Pressable onPress={onOpenSettings} style={styles.focusSettingsButton}>
+            <Settings color="#0F766E" size={17} strokeWidth={2.4} />
+            <Text style={styles.focusSettingsButtonText}>Open Settings</Text>
+          </Pressable>
+        </View>
+      ) : null}
+
+      {error ? <Text style={styles.focusError}>{error}</Text> : null}
+
+      <Pressable
+        disabled={active || isStarting}
+        onPress={onStart}
+        style={({ pressed }) => [
+          styles.focusStartButton,
+          pressed && styles.footerButtonPressed,
+          (active || isStarting) && styles.footerButtonDisabled,
+        ]}>
+        {isStarting ? (
+          <ActivityIndicator color="#FFFFFF" />
+        ) : (
+          <Text style={styles.focusStartButtonText}>Start Focus Mode</Text>
+        )}
+      </Pressable>
+    </View>
+  );
+}
+
+function formatDuration(totalSeconds: number) {
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  if (hours > 0 && minutes > 0) {
+    return `${hours}h ${minutes}m`;
+  }
+  if (hours > 0) {
+    return `${hours}h`;
+  }
+  return `${Math.max(1, minutes)}m`;
+}
+
 const styles = StyleSheet.create({
   overlay: {
     alignItems: 'center',
@@ -836,6 +963,115 @@ const styles = StyleSheet.create({
     color: '#B91C1C',
     fontSize: 12,
     fontWeight: '700',
+  },
+  focusCard: {
+    backgroundColor: '#ECFDF5',
+    borderColor: '#99F6E4',
+    borderRadius: 20,
+    borderWidth: 1,
+    gap: 8,
+    marginBottom: 20,
+    padding: 16,
+  },
+  focusHeader: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 10,
+  },
+  focusIcon: {
+    alignItems: 'center',
+    backgroundColor: '#CCFBF1',
+    borderRadius: 16,
+    height: 42,
+    justifyContent: 'center',
+    width: 42,
+  },
+  focusTitleWrap: {
+    flex: 1,
+  },
+  focusTitle: {
+    color: '#0F172A',
+    fontSize: 16,
+    fontWeight: '900',
+  },
+  focusMeta: {
+    color: '#0F766E',
+    fontSize: 12,
+    fontWeight: '800',
+    marginTop: 2,
+  },
+  focusBody: {
+    color: '#134E4A',
+    fontSize: 13,
+    fontWeight: '700',
+    lineHeight: 19,
+  },
+  focusStatusRow: {
+    alignItems: 'center',
+    backgroundColor: '#D1FAE5',
+    borderRadius: 8,
+    flexDirection: 'row',
+    gap: 7,
+    marginTop: 4,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+  },
+  focusStatusText: {
+    color: '#0F766E',
+    fontSize: 12,
+    fontWeight: '900',
+  },
+  focusSetupBox: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#99F6E4',
+    borderRadius: 12,
+    borderWidth: 1,
+    gap: 8,
+    marginTop: 4,
+    padding: 12,
+  },
+  focusSetupTitle: {
+    color: '#0F172A',
+    fontSize: 14,
+    fontWeight: '900',
+  },
+  focusSetupText: {
+    color: '#475569',
+    fontSize: 13,
+    lineHeight: 19,
+  },
+  focusSettingsButton: {
+    alignItems: 'center',
+    alignSelf: 'flex-start',
+    backgroundColor: '#CCFBF1',
+    borderRadius: 8,
+    flexDirection: 'row',
+    gap: 7,
+    paddingHorizontal: 12,
+    paddingVertical: 9,
+  },
+  focusSettingsButtonText: {
+    color: '#0F766E',
+    fontSize: 13,
+    fontWeight: '900',
+  },
+  focusError: {
+    color: '#B91C1C',
+    fontSize: 12,
+    fontWeight: '800',
+  },
+  focusStartButton: {
+    alignItems: 'center',
+    backgroundColor: '#0F766E',
+    borderRadius: 14,
+    justifyContent: 'center',
+    marginTop: 4,
+    minHeight: 46,
+  },
+  focusStartButtonText: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: '900',
   },
   accountSection: {
     marginBottom: 20,

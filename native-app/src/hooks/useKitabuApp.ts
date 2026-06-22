@@ -1,4 +1,4 @@
-import { BackHandler, Linking } from 'react-native';
+import { AppState, BackHandler, Linking } from 'react-native';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import {
@@ -76,6 +76,7 @@ import {
   markNotificationRead,
 } from '../services/notificationService';
 import { getQuizBankQuestions } from '../services/quizBankService';
+import { markPresenceOffline, markPresenceOnline } from '../services/presenceService';
 import {
   getOnboardingDiagnosticStatus,
   getProgressiveDiagnosticStatus,
@@ -91,6 +92,7 @@ import {
   startWeeklyExam,
   submitWeeklyExam as submitWeeklyExamRequest,
 } from '../services/weeklyExamService';
+import { focusModeBridge } from '../services/nativeBridges';
 import { loadJson, saveJson } from '../services/storage';
 import { triggerHaptic } from '../services/haptics';
 import {
@@ -133,12 +135,22 @@ const STORAGE_KEYS = {
   profile: 'kitabu_native_profile',
   optionalPhoneNumber: 'kitabu_optional_phone_number',
   tryOneBobOfferSeenAt: 'kitabu_try_one_bob_offer_seen_at',
+  focusMode: 'kitabu_focus_mode',
 };
 const MAX_DASHBOARD_SUBJECTS = 5;
 const TRY_ONE_BOB_SUPPRESSION_MS = 90 * 24 * 60 * 60 * 1000;
+const DEFAULT_FOCUS_MODE_LIMIT_SECONDS = 7200;
 const DEFAULT_DASHBOARD_SUBJECT_IDS = SUBJECTS.slice(0, MAX_DASHBOARD_SUBJECTS).map(
   subject => subject.id,
 );
+
+interface FocusModeSnapshot {
+  focusModeActive: boolean;
+  sessionStartedAt: number | null;
+  activeSecondsUsed: number;
+  dailyLimitSeconds: number;
+  sessionExpired: boolean;
+}
 
 interface RouteSnapshot {
   view: ViewState;
@@ -235,6 +247,30 @@ function getPrimaryHomeView(roles: AuthRole[]): ViewState {
   }
 
   return 'dashboard';
+}
+
+function isFocusModeBlockedView(view: ViewState) {
+  return view === 'admin_portal' || view === 'teachers_portal' || view === 'parent_dashboard';
+}
+
+function getFocusModeErrorMessage(error: unknown) {
+  const code = typeof error === 'object' && error !== null && 'code' in error
+    ? String((error as { code?: string }).code)
+    : '';
+
+  if (code === 'screen_pinning_disabled') {
+    return 'Turn on App Pinning to keep KITABU on screen.';
+  }
+
+  if (code === 'screen_pinning_unsupported') {
+    return 'Focus Mode is available on Android phones with App Pinning support.';
+  }
+
+  if (code === 'device_credential_unavailable') {
+    return 'Set up a phone PIN, pattern, or password in Android settings before starting Focus Mode.';
+  }
+
+  return error instanceof Error ? error.message : 'Unable to start Focus Mode.';
 }
 
 function mapAuthSessionToProfile(session: AuthSession): UserProfile {
@@ -426,6 +462,15 @@ export function useKitabuApp() {
   const [parentDashboardError, setParentDashboardError] = useState<string | null>(null);
   const [isLoadingParentDashboard, setIsLoadingParentDashboard] = useState(false);
   const [isLinkingParentChild, setIsLinkingParentChild] = useState(false);
+  const [focusModeActive, setFocusModeActive] = useState(false);
+  const [sessionStartedAt, setSessionStartedAt] = useState<number | null>(null);
+  const [activeSecondsUsed, setActiveSecondsUsed] = useState(0);
+  const [dailyLimitSeconds, setDailyLimitSeconds] = useState(DEFAULT_FOCUS_MODE_LIMIT_SECONDS);
+  const [sessionExpired, setSessionExpired] = useState(false);
+  const [focusModeSetupRequired, setFocusModeSetupRequired] = useState(false);
+  const [focusModeError, setFocusModeError] = useState<string | null>(null);
+  const [isStartingFocusMode, setIsStartingFocusMode] = useState(false);
+  const [isUnlockingFocusMode, setIsUnlockingFocusMode] = useState(false);
   const [weeklyExam, setWeeklyExam] = useState<WeeklyExamPayload | null>(null);
   const [weeklyExamError, setWeeklyExamError] = useState<string | null>(null);
   const [isLoadingWeeklyExam, setIsLoadingWeeklyExam] = useState(false);
@@ -571,11 +616,19 @@ export function useKitabuApp() {
         storedProfile,
         storedOptionalPhoneNumber,
         storedTryOneBobOfferSeenAt,
+        storedFocusMode,
         storedSession,
       ] = await Promise.all([
         loadJson(STORAGE_KEYS.profile, INITIAL_USER_PROFILE),
         loadJson(STORAGE_KEYS.optionalPhoneNumber, ''),
         loadJson<Record<string, number>>(STORAGE_KEYS.tryOneBobOfferSeenAt, {}),
+        loadJson<FocusModeSnapshot>(STORAGE_KEYS.focusMode, {
+          focusModeActive: false,
+          sessionStartedAt: null,
+          activeSecondsUsed: 0,
+          dailyLimitSeconds: DEFAULT_FOCUS_MODE_LIMIT_SECONDS,
+          sessionExpired: false,
+        }),
         loadStoredAuthSession(),
       ]);
 
@@ -585,6 +638,21 @@ export function useKitabuApp() {
 
       setOptionalPhoneNumber(storedOptionalPhoneNumber);
       setTryOneBobOfferSeenAt(storedTryOneBobOfferSeenAt);
+      const storedFocusLimit =
+        storedFocusMode.dailyLimitSeconds || DEFAULT_FOCUS_MODE_LIMIT_SECONDS;
+      const storedActiveSeconds = Math.min(
+        Math.max(0, storedFocusMode.activeSecondsUsed || 0),
+        storedFocusLimit,
+      );
+      const storedSessionExpired =
+        storedFocusMode.sessionExpired || storedActiveSeconds >= storedFocusLimit;
+      setDailyLimitSeconds(storedFocusLimit);
+      setActiveSecondsUsed(storedActiveSeconds);
+      setFocusModeActive(Boolean(storedFocusMode.focusModeActive));
+      setSessionExpired(storedSessionExpired);
+      setSessionStartedAt(
+        storedFocusMode.focusModeActive && !storedSessionExpired ? Date.now() : null,
+      );
 
       if (storedSession) {
         try {
@@ -679,11 +747,81 @@ export function useKitabuApp() {
   }, [optionalPhoneNumber, isReady]);
 
   useEffect(() => {
+    if (isReady) {
+      saveJson<FocusModeSnapshot>(STORAGE_KEYS.focusMode, {
+        focusModeActive,
+        sessionStartedAt,
+        activeSecondsUsed,
+        dailyLimitSeconds,
+        sessionExpired,
+      }).catch(() => undefined);
+    }
+  }, [
+    activeSecondsUsed,
+    dailyLimitSeconds,
+    focusModeActive,
+    isReady,
+    sessionExpired,
+    sessionStartedAt,
+  ]);
+
+  useEffect(() => {
     const hour = new Date().getHours();
     if (hour >= 21 || hour < 8) {
       setIsSpotlightMode(true);
     }
   }, []);
+
+  useEffect(() => {
+    if (!focusModeActive || sessionExpired) {
+      return undefined;
+    }
+
+    const timer = setInterval(() => {
+      if (AppState.currentState !== 'active') {
+        return;
+      }
+
+      setActiveSecondsUsed(current => Math.min(current + 1, dailyLimitSeconds));
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [dailyLimitSeconds, focusModeActive, sessionExpired]);
+
+  useEffect(() => {
+    if (!focusModeActive || sessionExpired || activeSecondsUsed < dailyLimitSeconds) {
+      return;
+    }
+
+    setActiveSecondsUsed(dailyLimitSeconds);
+    setSessionStartedAt(null);
+    setSessionExpired(true);
+    setProfileOpen(false);
+    setNotificationsOpen(false);
+    setChatOpen(false);
+    setStartLiveAudio(false);
+    setMessages([]);
+    setIsCheckoutOpen(false);
+    setIsTryOneBobOpen(false);
+  }, [activeSecondsUsed, dailyLimitSeconds, focusModeActive, sessionExpired]);
+
+  useEffect(() => {
+    const subscription = AppState.addEventListener('change', nextState => {
+      if (!focusModeActive || sessionExpired) {
+        return;
+      }
+
+      setSessionStartedAt(nextState === 'active' ? Date.now() : null);
+    });
+
+    return () => subscription.remove();
+  }, [focusModeActive, sessionExpired]);
+
+  useEffect(() => {
+    if (focusModeActive && !sessionExpired && isFocusModeBlockedView(currentView)) {
+      replaceWith('dashboard');
+    }
+  }, [currentView, focusModeActive, replaceWith, sessionExpired]);
 
   const pendingAssignments = useMemo(
     () => assignments.filter(item => item.status === 'pending'),
@@ -734,7 +872,7 @@ export function useKitabuApp() {
   const canOpenTeacherPortal = isTeacherRole(roles) || isAdminRole(roles);
   const canOpenAdminPortal = isAdminRole(roles);
   const primaryHomeView = getPrimaryHomeView(roles);
-  const resolvedHomeView = isStudentPreview ? 'dashboard' : primaryHomeView;
+  const resolvedHomeView = focusModeActive || isStudentPreview ? 'dashboard' : primaryHomeView;
   const hasPendingStudentOnboarding = Boolean(
     authSession?.user.roles.includes('student') && !authSession.user.onboardingCompleted,
   );
@@ -748,6 +886,34 @@ export function useKitabuApp() {
   const hasActiveSubscription = Boolean(
     billingStatus.subscription && new Date(billingStatus.subscription.periodEnd).getTime() > Date.now(),
   );
+  const focusModeSecondsRemaining = Math.max(0, dailyLimitSeconds - activeSecondsUsed);
+
+  useEffect(() => {
+    if (!authSession || isStudentPreview) {
+      return undefined;
+    }
+
+    markPresenceOnline();
+    const intervalId = setInterval(() => {
+      if (AppState.currentState === 'active') {
+        markPresenceOnline();
+      }
+    }, 30000);
+
+    const subscription = AppState.addEventListener('change', nextState => {
+      if (nextState === 'active') {
+        markPresenceOnline();
+      } else {
+        markPresenceOffline(nextState);
+      }
+    });
+
+    return () => {
+      clearInterval(intervalId);
+      subscription.remove();
+      markPresenceOffline('session_end');
+    };
+  }, [authSession, isStudentPreview]);
 
   async function refreshBillingState() {
     if (!authSession) {
@@ -904,6 +1070,97 @@ export function useKitabuApp() {
         error instanceof Error ? error.message : 'Unable to remove that child',
       );
       triggerHaptic('error');
+    }
+  }
+
+  async function startFocusMode() {
+    if (isStartingFocusMode) {
+      return;
+    }
+
+    setIsStartingFocusMode(true);
+    setFocusModeError(null);
+    setFocusModeSetupRequired(false);
+
+    try {
+      const supported = await focusModeBridge.isScreenPinningSupported();
+      if (!supported) {
+        throw new Error('Focus Mode is available on Android phones with App Pinning support.');
+      }
+
+      await focusModeBridge.startScreenPinning();
+      const selectedChild = parentChildren.find(child => child.id === selectedParentChildId);
+      const shouldUseStudentPreview = !authSession?.user.roles.includes('student');
+      setFocusModeActive(true);
+      setSessionStartedAt(Date.now());
+      setActiveSecondsUsed(0);
+      setDailyLimitSeconds(DEFAULT_FOCUS_MODE_LIMIT_SECONDS);
+      setSessionExpired(false);
+      setFocusModeSetupRequired(false);
+      setFocusModeError(null);
+      setProfileOpen(false);
+      setNotificationsOpen(false);
+      setChatOpen(false);
+      setStartLiveAudio(false);
+      setMessages([]);
+      setIsCheckoutOpen(false);
+      setIsTryOneBobOpen(false);
+      setIsStudentPreview(shouldUseStudentPreview);
+      if (selectedChild?.grade) {
+        setCurrentGrade(selectedChild.grade);
+      }
+      replaceWith('dashboard');
+      triggerHaptic('success');
+    } catch (error) {
+      setFocusModeSetupRequired(true);
+      setFocusModeError(getFocusModeErrorMessage(error));
+      triggerHaptic('error');
+    } finally {
+      setIsStartingFocusMode(false);
+    }
+  }
+
+  async function openFocusModeSettings() {
+    try {
+      await focusModeBridge.openScreenPinningSettings();
+    } catch (error) {
+      setFocusModeError(
+        error instanceof Error ? error.message : 'Unable to open Android settings.',
+      );
+    }
+  }
+
+  async function unlockFocusModeParentControls() {
+    if (isUnlockingFocusMode) {
+      return;
+    }
+
+    setIsUnlockingFocusMode(true);
+    setFocusModeError(null);
+
+    try {
+      await focusModeBridge.confirmDeviceCredential(
+        'Unlock parent controls',
+        'Use your phone PIN, pattern, password, fingerprint, or face unlock.',
+      );
+      await focusModeBridge.stopScreenPinning();
+      setFocusModeActive(false);
+      setSessionStartedAt(null);
+      setActiveSecondsUsed(0);
+      setDailyLimitSeconds(DEFAULT_FOCUS_MODE_LIMIT_SECONDS);
+      setSessionExpired(false);
+      setFocusModeSetupRequired(false);
+      setFocusModeError(null);
+      setIsStudentPreview(false);
+      replaceWith(primaryHomeView);
+      triggerHaptic('success');
+    } catch (error) {
+      setFocusModeError(
+        error instanceof Error ? error.message : 'Unable to unlock parent controls.',
+      );
+      triggerHaptic('error');
+    } finally {
+      setIsUnlockingFocusMode(false);
     }
   }
 
@@ -1288,6 +1545,10 @@ export function useKitabuApp() {
   }
 
   function navigateTo(nextView: ViewState) {
+    if (focusModeActive && (sessionExpired || isFocusModeBlockedView(nextView))) {
+      return;
+    }
+
     if (nextView === currentView) {
       return;
     }
@@ -1301,6 +1562,10 @@ export function useKitabuApp() {
   }
 
   function goBack() {
+    if (focusModeActive && sessionExpired) {
+      return;
+    }
+
     if (navigationIndex <= 0) {
       return;
     }
@@ -1311,14 +1576,26 @@ export function useKitabuApp() {
       return;
     }
 
+    if (focusModeActive && isFocusModeBlockedView(snapshot.view)) {
+      return;
+    }
+
     setNavigationIndex(nextIndex);
     restoreRoute(snapshot);
   }
 
   function goForward() {
+    if (focusModeActive && sessionExpired) {
+      return;
+    }
+
     const nextIndex = navigationIndex + 1;
     const snapshot = navigationHistory[nextIndex];
     if (!snapshot) {
+      return;
+    }
+
+    if (focusModeActive && isFocusModeBlockedView(snapshot.view)) {
       return;
     }
 
@@ -1397,6 +1674,10 @@ export function useKitabuApp() {
   }
 
   function openSubscriptionCheckout(intent: PendingSubscriptionIntent) {
+    if (focusModeActive) {
+      return;
+    }
+
     setPendingSubscriptionIntent(intent);
     setCheckoutError(null);
     setCheckoutStatusLabel(null);
@@ -1552,6 +1833,10 @@ export function useKitabuApp() {
   }
 
   function openAdminPortal() {
+    if (focusModeActive) {
+      return;
+    }
+
     if (!canOpenAdminPortal) {
       return;
     }
@@ -1563,6 +1848,10 @@ export function useKitabuApp() {
   }
 
   function openTeacherPortal() {
+    if (focusModeActive) {
+      return;
+    }
+
     if (!canOpenTeacherPortal) {
       return;
     }
@@ -1572,6 +1861,10 @@ export function useKitabuApp() {
   }
 
   function openStudentPreview() {
+    if (focusModeActive) {
+      return;
+    }
+
     if (!canOpenTeacherPortal) {
       return;
     }
@@ -1581,6 +1874,10 @@ export function useKitabuApp() {
   }
 
   function exitStudentPreview() {
+    if (focusModeActive) {
+      return;
+    }
+
     setIsStudentPreview(false);
     replaceWith(primaryHomeView);
   }
@@ -1676,6 +1973,7 @@ export function useKitabuApp() {
   }
 
   async function signOut() {
+    await markPresenceOffline('sign_out');
     setAuthSession(null);
     setAuthEntryScreen('intro');
     setAuthError(null);
@@ -1688,6 +1986,13 @@ export function useKitabuApp() {
     setActivePaymentRequestId(null);
     setLessonQuizSubStrandId(null);
     setIsStudentPreview(false);
+    setFocusModeActive(false);
+    setSessionStartedAt(null);
+    setActiveSecondsUsed(0);
+    setDailyLimitSeconds(DEFAULT_FOCUS_MODE_LIMIT_SECONDS);
+    setSessionExpired(false);
+    setFocusModeSetupRequired(false);
+    setFocusModeError(null);
     setProgressiveDiagnosticSubject(null);
     setCurrentView('dashboard');
     setNavigationHistory([]);
@@ -1893,6 +2198,10 @@ export function useKitabuApp() {
   }
 
   function goHome() {
+    if (focusModeActive && sessionExpired) {
+      return;
+    }
+
     if (currentView === resolvedHomeView) {
       return;
     }
@@ -2486,6 +2795,10 @@ export function useKitabuApp() {
         return false;
       }
 
+      if (focusModeActive && sessionExpired) {
+        return true;
+      }
+
       if (profileOpen) {
         setProfileOpen(false);
         return true;
@@ -2502,6 +2815,10 @@ export function useKitabuApp() {
         const nextIndex = navigationIndex - 1;
         const snapshot = navigationHistory[nextIndex];
         if (snapshot) {
+          if (focusModeActive && isFocusModeBlockedView(snapshot.view)) {
+            return true;
+          }
+
           setNavigationIndex(nextIndex);
           restoreRoute(snapshot);
           return true;
@@ -2548,6 +2865,7 @@ export function useKitabuApp() {
     currentGrade,
     currentView,
     curriculumData,
+    focusModeActive,
     liveAudioReturnView,
     navigationHistory,
     navigationIndex,
@@ -2556,6 +2874,7 @@ export function useKitabuApp() {
     quizSource,
     resolvedHomeView,
     restoreRoute,
+    sessionExpired,
     selectedAssignment?.id,
     selectedBook?.id,
     selectedSubStrand?.id,
@@ -2623,6 +2942,16 @@ export function useKitabuApp() {
       parentDashboardError,
       isLoadingParentDashboard,
       isLinkingParentChild,
+      focusModeActive,
+      sessionStartedAt,
+      activeSecondsUsed,
+      dailyLimitSeconds,
+      sessionExpired,
+      focusModeSecondsRemaining,
+      focusModeSetupRequired,
+      focusModeError,
+      isStartingFocusMode,
+      isUnlockingFocusMode,
       weeklyExam,
       weeklyExamError,
       isLoadingWeeklyExam,
@@ -2760,6 +3089,9 @@ export function useKitabuApp() {
       refreshParentDashboard,
       linkParentChildAccount,
       removeParentChild,
+      startFocusMode,
+      openFocusModeSettings,
+      unlockFocusModeParentControls,
       refreshWeeklyExam,
       beginWeeklyExam,
       submitWeeklyExam,

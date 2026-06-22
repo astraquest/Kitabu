@@ -12,11 +12,14 @@ import {
   BarChart3,
   BookOpenCheck,
   CalendarDays,
+  Clock3,
   Link2,
   LogOut,
   MailPlus,
   Phone,
   RefreshCw,
+  Settings,
+  ShieldCheck,
   Trash2,
   Target,
   TrendingUp,
@@ -33,11 +36,19 @@ interface ParentDashboardScreenProps {
   isLoading: boolean;
   isLinking: boolean;
   error: string | null;
+  focusModeActive: boolean;
+  focusModeSetupRequired: boolean;
+  focusModeError: string | null;
+  focusModeSecondsRemaining: number;
+  dailyLimitSeconds: number;
+  isStartingFocusMode: boolean;
   onSelectChild: (childId: string) => void;
   onLinkIdentifierChange: (value: string) => void;
   onLinkMethodChange: (method: 'email' | 'phone') => void;
   onLinkChild: () => void;
   onUnlinkChild: (childId: string) => void;
+  onStartFocusMode: () => void;
+  onOpenFocusModeSettings: () => void;
   onRefresh: () => void;
   onSignOut: () => void;
 }
@@ -50,11 +61,19 @@ export function ParentDashboardScreen({
   isLoading,
   isLinking,
   error,
+  focusModeActive,
+  focusModeSetupRequired,
+  focusModeError,
+  focusModeSecondsRemaining,
+  dailyLimitSeconds,
+  isStartingFocusMode,
   onSelectChild,
   onLinkIdentifierChange,
   onLinkMethodChange,
   onLinkChild,
   onUnlinkChild,
+  onStartFocusMode,
+  onOpenFocusModeSettings,
   onRefresh,
   onSignOut,
 }: ParentDashboardScreenProps) {
@@ -90,6 +109,17 @@ export function ParentDashboardScreen({
       </View>
 
       <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
+        <FocusModePanel
+          active={focusModeActive}
+          setupRequired={focusModeSetupRequired}
+          error={focusModeError}
+          secondsRemaining={focusModeSecondsRemaining}
+          limitSeconds={dailyLimitSeconds}
+          isStarting={isStartingFocusMode}
+          onStart={onStartFocusMode}
+          onOpenSettings={onOpenFocusModeSettings}
+        />
+
         <View style={styles.linkPanel}>
           <View style={styles.linkHeader}>
             {linkMethod === 'email' ? (
@@ -309,6 +339,89 @@ export function ParentDashboardScreen({
   );
 }
 
+function FocusModePanel({
+  active,
+  setupRequired,
+  error,
+  secondsRemaining,
+  limitSeconds,
+  isStarting,
+  onStart,
+  onOpenSettings,
+}: {
+  active: boolean;
+  setupRequired: boolean;
+  error: string | null;
+  secondsRemaining: number;
+  limitSeconds: number;
+  isStarting: boolean;
+  onStart: () => void;
+  onOpenSettings: () => void;
+}) {
+  return (
+    <View style={styles.focusPanel}>
+      <View style={styles.focusHeader}>
+        <View style={styles.focusIcon}>
+          <ShieldCheck color="#0F766E" size={22} strokeWidth={2.5} />
+        </View>
+        <View style={styles.focusTitleWrap}>
+          <Text style={styles.panelTitle}>Focus Mode</Text>
+          <Text style={styles.focusMeta}>
+            Default session: {formatDuration(limitSeconds)}
+          </Text>
+        </View>
+      </View>
+      <Text style={styles.focusText}>
+        Focus Mode keeps KITABU on screen while your child learns.
+      </Text>
+      <Text style={styles.focusText}>
+        To leave Focus Mode, Android will ask for your phone PIN.
+      </Text>
+      <Text style={styles.focusText}>KITABU does not create a separate PIN.</Text>
+
+      {active ? (
+        <View style={styles.focusStatusRow}>
+          <Clock3 color="#0F766E" size={16} strokeWidth={2.4} />
+          <Text style={styles.focusStatusText}>
+            Active - {formatDuration(secondsRemaining)} remaining
+          </Text>
+        </View>
+      ) : null}
+
+      {setupRequired ? (
+        <View style={styles.focusSetupBox}>
+          <Text style={styles.focusSetupTitle}>
+            Turn on App Pinning to keep KITABU on screen.
+          </Text>
+          <Text style={styles.focusSetupText}>
+            After turning it on, Android will ask for your phone PIN when someone tries to leave KITABU.
+          </Text>
+          <Text style={styles.focusSetupText}>
+            If the phone does not have a PIN, set one in Android security settings first.
+          </Text>
+          <Pressable onPress={onOpenSettings} style={styles.settingsButton}>
+            <Settings color="#0F766E" size={17} strokeWidth={2.4} />
+            <Text style={styles.settingsButtonText}>Open Settings</Text>
+          </Pressable>
+        </View>
+      ) : null}
+
+      {error ? <Text style={styles.focusError}>{error}</Text> : null}
+
+      <Pressable
+        disabled={active || isStarting}
+        onPress={onStart}
+        style={[styles.focusButton, (active || isStarting) && styles.disabledButton]}>
+        {isStarting ? (
+          <ActivityIndicator color="#FFFFFF" />
+        ) : (
+          <Text style={styles.focusButtonText}>Start Focus Mode</Text>
+        )}
+      </Pressable>
+    </View>
+  );
+}
+
 function WeeklyReport({ child }: { child: ParentChildSummary }) {
   const report = child.weekly_report;
   const hasTrendActivity = child.weekly_trends.some(
@@ -451,6 +564,18 @@ function formatPercentStat(value: number, hasData: boolean) {
   return hasData ? `${value}%` : 'No data';
 }
 
+function formatDuration(totalSeconds: number) {
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  if (hours > 0 && minutes > 0) {
+    return `${hours}h ${minutes}m`;
+  }
+  if (hours > 0) {
+    return `${hours}h`;
+  }
+  return `${Math.max(1, minutes)}m`;
+}
+
 const styles = StyleSheet.create({
   screen: { backgroundColor: '#F8FAFC', flex: 1 },
   header: {
@@ -475,6 +600,68 @@ const styles = StyleSheet.create({
   headerActions: { flexDirection: 'row', gap: 8 },
   headerMeta: { color: '#64748B', fontSize: 12, fontWeight: '800', marginTop: 2 },
   content: { gap: 16, padding: 16, paddingBottom: 28 },
+  focusPanel: {
+    backgroundColor: '#ECFDF5',
+    borderColor: '#99F6E4',
+    borderRadius: 18,
+    borderWidth: 1,
+    padding: 14,
+  },
+  focusHeader: { alignItems: 'center', flexDirection: 'row', gap: 10, marginBottom: 10 },
+  focusIcon: {
+    alignItems: 'center',
+    backgroundColor: '#CCFBF1',
+    borderRadius: 16,
+    height: 42,
+    justifyContent: 'center',
+    width: 42,
+  },
+  focusTitleWrap: { flex: 1 },
+  focusMeta: { color: '#0F766E', fontSize: 12, fontWeight: '800', marginTop: 2 },
+  focusText: { color: '#134E4A', fontSize: 13, fontWeight: '700', lineHeight: 19, marginTop: 4 },
+  focusStatusRow: {
+    alignItems: 'center',
+    backgroundColor: '#D1FAE5',
+    borderRadius: 8,
+    flexDirection: 'row',
+    gap: 7,
+    marginTop: 12,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+  },
+  focusStatusText: { color: '#0F766E', fontSize: 12, fontWeight: '900' },
+  focusSetupBox: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#99F6E4',
+    borderRadius: 12,
+    borderWidth: 1,
+    gap: 8,
+    marginTop: 12,
+    padding: 12,
+  },
+  focusSetupTitle: { color: '#0F172A', fontSize: 14, fontWeight: '900' },
+  focusSetupText: { color: '#475569', fontSize: 13, lineHeight: 19 },
+  settingsButton: {
+    alignItems: 'center',
+    alignSelf: 'flex-start',
+    backgroundColor: '#CCFBF1',
+    borderRadius: 8,
+    flexDirection: 'row',
+    gap: 7,
+    paddingHorizontal: 12,
+    paddingVertical: 9,
+  },
+  settingsButtonText: { color: '#0F766E', fontSize: 13, fontWeight: '900' },
+  focusError: { color: '#B91C1C', fontSize: 12, fontWeight: '800', marginTop: 10 },
+  focusButton: {
+    alignItems: 'center',
+    backgroundColor: '#0F766E',
+    borderRadius: 12,
+    justifyContent: 'center',
+    marginTop: 14,
+    minHeight: 46,
+  },
+  focusButtonText: { color: '#FFFFFF', fontSize: 14, fontWeight: '900' },
   methodRow: { flexDirection: 'row', gap: 8 },
   methodButton: {
     alignItems: 'center',

@@ -1,4 +1,4 @@
-import { readdirSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { config as loadEnv } from 'dotenv';
@@ -12,6 +12,38 @@ const envPath = path.resolve(apiDir, '.env');
 const sqlDir = path.resolve(apiDir, 'sql');
 
 loadEnv({ path: envPath });
+
+function isLocalDatabaseUrl(databaseUrl) {
+  try {
+    const host = new URL(databaseUrl).hostname;
+    return host === 'localhost' || host === '127.0.0.1' || host === 'postgres';
+  } catch {
+    return false;
+  }
+}
+
+function loadDatabaseCa() {
+  const candidates = [
+    path.resolve(apiDir, 'certs', 'supabase-root-2021-ca.pem'),
+    path.resolve(process.cwd(), 'certs', 'supabase-root-2021-ca.pem'),
+    path.resolve(process.cwd(), 'apps', 'api', 'certs', 'supabase-root-2021-ca.pem')
+  ];
+
+  const certPath = candidates.find(candidate => existsSync(candidate));
+  return certPath ? readFileSync(certPath, 'utf8') : undefined;
+}
+
+function databaseConnectionString(databaseUrl) {
+  try {
+    const parsed = new URL(databaseUrl);
+    for (const key of ['sslmode', 'sslcert', 'sslkey', 'sslrootcert']) {
+      parsed.searchParams.delete(key);
+    }
+    return parsed.toString();
+  } catch {
+    return databaseUrl;
+  }
+}
 
 if (!process.env.KITABU_DATABASE_URL) {
   console.error('KITABU_DATABASE_URL is not set.');
@@ -28,7 +60,13 @@ if (sqlFiles.length === 0) {
 }
 
 const pool = new Pool({
-  connectionString: process.env.KITABU_DATABASE_URL
+  connectionString: databaseConnectionString(process.env.KITABU_DATABASE_URL),
+  ssl: isLocalDatabaseUrl(process.env.KITABU_DATABASE_URL)
+    ? undefined
+    : {
+        ca: loadDatabaseCa(),
+        rejectUnauthorized: true
+      }
 });
 
 try {

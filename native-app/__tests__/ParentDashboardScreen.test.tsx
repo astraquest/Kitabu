@@ -86,11 +86,19 @@ const defaultProps = {
   isLoading: false,
   isLinking: false,
   error: null,
+  focusModeActive: false,
+  focusModeSetupRequired: false,
+  focusModeError: null,
+  focusModeSecondsRemaining: 7200,
+  dailyLimitSeconds: 7200,
+  isStartingFocusMode: false,
   onSelectChild: jest.fn(),
   onLinkIdentifierChange: jest.fn(),
   onLinkMethodChange: jest.fn(),
   onLinkChild: jest.fn(),
   onUnlinkChild: jest.fn(),
+  onStartFocusMode: jest.fn(),
+  onOpenFocusModeSettings: jest.fn(),
   onRefresh: jest.fn(),
   onSignOut: jest.fn(),
 };
@@ -132,12 +140,48 @@ beforeEach(() => {
 test('renders multiple children and data-backed overview stats', () => {
   const root = renderParentDashboard();
 
+  expect(root.findAllByProps({ children: 'Focus Mode' }).length).toBeGreaterThan(0);
   expect(root.findAllByProps({ children: '2 linked children' }).length).toBeGreaterThan(0);
   expect(root.findAllByProps({ children: 'Amina' }).length).toBeGreaterThan(0);
   expect(root.findAllByProps({ children: 'Baraka' }).length).toBeGreaterThan(0);
   expect(root.findAllByProps({ children: 'Fractions practice' }).length).toBeGreaterThan(0);
   expect(root.findAllByProps({ children: '80%' }).length).toBeGreaterThan(0);
   expect(hasText(root, '6 of 10 lessons completed')).toBe(true);
+});
+
+test('starts Focus Mode and shows App Pinning setup when required', () => {
+  const onStartFocusMode = jest.fn();
+  const onOpenFocusModeSettings = jest.fn();
+  const root = renderParentDashboard({
+    focusModeSetupRequired: true,
+    focusModeError: 'Turn on App Pinning to keep KITABU on screen.',
+    onStartFocusMode,
+    onOpenFocusModeSettings,
+  });
+
+  expect(
+    root.findAllByProps({
+      children: 'Focus Mode keeps KITABU on screen while your child learns.',
+    }).length,
+  ).toBeGreaterThan(0);
+  expect(
+    root.findAllByProps({
+      children: 'Turn on App Pinning to keep KITABU on screen.',
+    }).length,
+  ).toBeGreaterThan(0);
+  expect(
+    root.findAllByProps({
+      children: 'KITABU does not create a separate PIN.',
+    }).length,
+  ).toBeGreaterThan(0);
+
+  const startButton = pressableWithText(root, 'Start Focus Mode');
+  ReactTestRenderer.act(() => startButton.props.onPress());
+  expect(onStartFocusMode).toHaveBeenCalledTimes(1);
+
+  const settingsButton = pressableWithText(root, 'Open Settings');
+  ReactTestRenderer.act(() => settingsButton.props.onPress());
+  expect(onOpenFocusModeSettings).toHaveBeenCalledTimes(1);
 });
 
 test('submits email linking', () => {

@@ -1,10 +1,16 @@
-import { db, redis } from './db.js';
+import { checkRedisHealth, db } from './db.js';
 
 async function run() {
   await db.query('SELECT 1');
-  await redis.ping();
+  const initialRedisHealth = await checkRedisHealth();
+  if (initialRedisHealth.status !== 'ok') {
+    throw new Error(`Redis is unavailable: ${initialRedisHealth.message ?? 'health check failed'}`);
+  }
   setInterval(async () => {
-    await redis.ping();
+    const redisHealth = await checkRedisHealth();
+    if (redisHealth.status !== 'ok') {
+      console.warn('[worker] Redis health check degraded', redisHealth);
+    }
   }, 30_000);
 }
 

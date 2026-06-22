@@ -1,6 +1,8 @@
 import React from 'react';
 import {
+  ActivityIndicator,
   Image,
+  Pressable,
   StyleSheet,
   StatusBar,
   Text,
@@ -217,16 +219,32 @@ export function KitabuApp() {
     );
   }
 
+  if (state.focusModeActive && state.sessionExpired) {
+    return (
+      <AppSafeArea>
+        <FocusModeTimeUpScreen
+          isUnlocking={state.isUnlockingFocusMode}
+          error={state.focusModeError}
+          onUnlockParentControls={actions.unlockFocusModeParentControls}
+        />
+      </AppSafeArea>
+    );
+  }
+
   return (
     <AppSafeArea>
       <View style={styles.container}>
         {usesStudentHeader ? (
           <StudentHeader
             userAvatar={state.userProfile.avatar}
-            onOpenProfile={() => actions.setProfileOpen(true)}
+            onOpenProfile={() => {
+              if (!state.focusModeActive) {
+                actions.setProfileOpen(true);
+              }
+            }}
             onOpenNotifications={() => actions.setNotificationsOpen(true)}
             unreadNotificationCount={state.unreadNotificationCount}
-            showPreviewExit={state.isStudentPreview}
+            showPreviewExit={state.isStudentPreview && !state.focusModeActive}
             onExitPreview={actions.exitStudentPreview}
           />
         ) : usesStandaloneScreen ? null : (
@@ -251,7 +269,7 @@ export function KitabuApp() {
         ) : null}
 
         <ProfileModal
-          isOpen={state.profileOpen}
+          isOpen={state.profileOpen && !state.focusModeActive}
           onClose={() => actions.setProfileOpen(false)}
           onOpenAdmin={actions.openAdminPortal}
           onOpenTeacher={actions.openTeacherPortal}
@@ -263,6 +281,9 @@ export function KitabuApp() {
           onResendVerification={actions.resendVerificationEmail}
           billingStatus={state.billingStatus}
           onManageSubscription={() => {
+            if (state.focusModeActive) {
+              return;
+            }
             actions.setProfileOpen(false);
             actions.openSubscriptionCheckout({
               kind: 'manage_subscription',
@@ -282,6 +303,14 @@ export function KitabuApp() {
               },
             });
           }}
+          focusModeActive={state.focusModeActive}
+          focusModeSetupRequired={state.focusModeSetupRequired}
+          focusModeError={state.focusModeError}
+          focusModeSecondsRemaining={state.focusModeSecondsRemaining}
+          dailyLimitSeconds={state.dailyLimitSeconds}
+          isStartingFocusMode={state.isStartingFocusMode}
+          onStartFocusMode={actions.startFocusMode}
+          onOpenFocusModeSettings={actions.openFocusModeSettings}
           user={state.userProfile}
           onSave={updatedUser => {
             actions.setUserProfile(updatedUser);
@@ -358,6 +387,47 @@ export function KitabuApp() {
         ) : null}
       </View>
     </AppSafeArea>
+  );
+}
+
+function FocusModeTimeUpScreen({
+  isUnlocking,
+  error,
+  onUnlockParentControls,
+}: {
+  isUnlocking: boolean;
+  error: string | null;
+  onUnlockParentControls: () => void;
+}) {
+  return (
+    <View style={styles.timeUpScreen}>
+      <View style={styles.timeUpPanel}>
+        <Text style={styles.timeUpEyebrow}>Focus Mode</Text>
+        <Text style={styles.timeUpTitle}>Time's Up</Text>
+        <Text style={styles.timeUpCopy}>
+          Learning time is finished. Please return the phone to your parent.
+        </Text>
+        <Text style={styles.timeUpCopy}>
+          To continue, Android will ask for the phone PIN, pattern, password, fingerprint, or face unlock.
+        </Text>
+        <Text style={styles.timeUpSmall}>KITABU does not create a separate PIN.</Text>
+        {error ? <Text style={styles.timeUpError}>{error}</Text> : null}
+        <Pressable
+          disabled={isUnlocking}
+          onPress={onUnlockParentControls}
+          style={({ pressed }) => [
+            styles.timeUpButton,
+            pressed && styles.timeUpButtonPressed,
+            isUnlocking && styles.timeUpButtonDisabled,
+          ]}>
+          {isUnlocking ? (
+            <ActivityIndicator color="#FFFFFF" />
+          ) : (
+            <Text style={styles.timeUpButtonText}>Unlock parent controls</Text>
+          )}
+        </Pressable>
+      </View>
+    </View>
   );
 }
 
@@ -660,11 +730,19 @@ function renderScreen(
           isLoading={state.isLoadingParentDashboard}
           isLinking={state.isLinkingParentChild}
           error={state.parentDashboardError}
+          focusModeActive={state.focusModeActive}
+          focusModeSetupRequired={state.focusModeSetupRequired}
+          focusModeError={state.focusModeError}
+          focusModeSecondsRemaining={state.focusModeSecondsRemaining}
+          dailyLimitSeconds={state.dailyLimitSeconds}
+          isStartingFocusMode={state.isStartingFocusMode}
           onSelectChild={actions.setSelectedParentChildId}
           onLinkIdentifierChange={actions.setParentChildIdentifier}
           onLinkMethodChange={actions.setParentChildLinkMethod}
           onLinkChild={actions.linkParentChildAccount}
           onUnlinkChild={actions.removeParentChild}
+          onStartFocusMode={actions.startFocusMode}
+          onOpenFocusModeSettings={actions.openFocusModeSettings}
           onRefresh={actions.refreshParentDashboard}
           onSignOut={actions.signOut}
         />
@@ -779,6 +857,71 @@ const styles = StyleSheet.create({
   },
   screenWrap: {
     flex: 1,
+  },
+  timeUpScreen: {
+    alignItems: 'center',
+    backgroundColor: '#0F172A',
+    flex: 1,
+    justifyContent: 'center',
+    padding: 20,
+  },
+  timeUpPanel: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 8,
+    maxWidth: 460,
+    padding: 22,
+    width: '100%',
+  },
+  timeUpEyebrow: {
+    color: '#0F766E',
+    fontSize: 12,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+  },
+  timeUpTitle: {
+    color: '#0F172A',
+    fontSize: 34,
+    fontWeight: '900',
+    marginTop: 6,
+  },
+  timeUpCopy: {
+    color: '#334155',
+    fontSize: 15,
+    fontWeight: '700',
+    lineHeight: 22,
+    marginTop: 12,
+  },
+  timeUpSmall: {
+    color: '#64748B',
+    fontSize: 13,
+    fontWeight: '800',
+    marginTop: 12,
+  },
+  timeUpError: {
+    color: '#B91C1C',
+    fontSize: 13,
+    fontWeight: '800',
+    marginTop: 12,
+  },
+  timeUpButton: {
+    alignItems: 'center',
+    backgroundColor: '#0F766E',
+    borderRadius: 8,
+    justifyContent: 'center',
+    marginTop: 18,
+    minHeight: 48,
+  },
+  timeUpButtonPressed: {
+    opacity: 0.86,
+    transform: [{ scale: 0.99 }],
+  },
+  timeUpButtonDisabled: {
+    opacity: 0.72,
+  },
+  timeUpButtonText: {
+    color: '#FFFFFF',
+    fontSize: 15,
+    fontWeight: '900',
   },
   comingSoonOverlay: {
     ...StyleSheet.absoluteFillObject,

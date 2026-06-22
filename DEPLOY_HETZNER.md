@@ -209,8 +209,12 @@ curl https://app.kitabu.ai/health
 Expected API response:
 
 ```json
-{"status":"ok"}
+{"status":"ok","checks":{"database":{"status":"ok"},"redis":{"status":"ok"}}}
 ```
+
+If Redis is unavailable, the API returns HTTP 200 with `"status":"degraded"`.
+Restore Redis before treating the deployment as fully healthy. Database failure
+returns HTTP 503.
 
 ## 9. Update the server on new releases
 

@@ -15,6 +15,16 @@ app.kitabu.ai {
 admin.kitabu.ai {
   root * /srv/admin
   encode gzip zstd
+  @static_assets path /app.js /styles.css /assets/*
+  header {
+    X-Content-Type-Options "nosniff"
+    X-Frame-Options "DENY"
+    Referrer-Policy "strict-origin-when-cross-origin"
+    Permissions-Policy "camera=(), microphone=(), geolocation=()"
+    X-Robots-Tag "noindex, nofollow"
+    ?Cache-Control "no-store"
+  }
+  header @static_assets Cache-Control "public, max-age=300"
   file_server
 }
 

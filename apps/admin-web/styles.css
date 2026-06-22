@@ -3030,6 +3030,28 @@ tr:last-child td {
   stroke-linejoin: round;
 }
 
+.schools-add-button {
+  width: 46px;
+  height: 46px;
+  border: 0;
+  border-radius: 7px;
+  background: #071024;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 14px 28px rgba(7, 16, 36, 0.18);
+}
+
+.schools-add-button svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 .users-filters,
 .schools-filters,
 .sales-filters {
@@ -4371,6 +4393,52 @@ tr:last-child td {
   color: #081632;
   font-size: 14px;
   font-weight: 900;
+}
+
+.school-form-field {
+  display: grid;
+  gap: 7px;
+  margin-top: 12px;
+}
+
+.school-form-field:first-of-type {
+  margin-top: 0;
+}
+
+.school-form-field span {
+  color: #60708f;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.school-form-field input,
+.school-form-field select {
+  width: 100%;
+  min-height: 42px;
+  border: 1px solid #d8e2f1;
+  border-radius: 8px;
+  background: #fff;
+  color: #081632;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 750;
+  padding: 9px 11px;
+  outline: none;
+}
+
+.school-form-field input:focus,
+.school-form-field select:focus {
+  border-color: #075bea;
+  box-shadow: 0 0 0 3px rgba(7, 91, 234, 0.12);
+}
+
+.school-readonly-note {
+  margin: -3px 0 14px;
+  color: #60708f;
+  font-size: 13px;
+  line-height: 1.45;
+  font-weight: 750;
 }
 
 .school-grade-list {

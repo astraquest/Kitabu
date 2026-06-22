@@ -1023,6 +1023,9 @@ function normalizeSchoolRow(school, index = 0) {
     principal: school.principal || "-",
     phone: school.phone || "-",
     email: school.email || "-",
+    salesAgentUserId: school.salesAgentUserId || school.sales_agent_user_id || "",
+    assignedPlanCode: school.pricing?.assignedPlanCode || school.assignedPlanCode || school.assigned_plan_code || "monthly",
+    discountId: school.pricing?.discount?.id || school.discountId || school.discount_id || "",
     code: school.code || metadata.code || school.slug || "-",
     type: school.schoolType || school.type || metadata.type,
     crest: school.crest || metadata.crest,
@@ -1033,6 +1036,51 @@ function normalizeSchoolRow(school, index = 0) {
     gradeCounts,
     createdAt: school.createdAt || school.created_at || new Date().toISOString()
   };
+}
+
+function schoolSalesAgent(school) {
+  if (!school?.salesAgentUserId) return null;
+  return salesAgentRows().find(agent => String(agent.id) === String(school.salesAgentUserId)) || null;
+}
+
+function schoolSalesAgentOptions(selectedAgentId = "") {
+  const agents = salesAgentRows();
+  return [
+    `<option value="">Unassigned</option>`,
+    ...agents.map(agent => `<option value="${escapeHtml(agent.id)}" ${String(agent.id) === String(selectedAgentId) ? "selected" : ""}>${escapeHtml(agent.name)} - ${escapeHtml(agent.email)}</option>`)
+  ].join("");
+}
+
+function schoolPlanOptions(selectedPlan = "monthly") {
+  return ["weekly", "monthly", "annual"]
+    .map(plan => `<option value="${plan}" ${plan === selectedPlan ? "selected" : ""}>${plan[0].toUpperCase()}${plan.slice(1)}</option>`)
+    .join("");
+}
+
+function cleanSchoolFormValue(value) {
+  const trimmed = String(value || "").trim();
+  return trimmed || null;
+}
+
+function schoolPayloadFromForm(formData) {
+  return {
+    name: String(formData.name || "").trim(),
+    location: String(formData.location || "").trim(),
+    principal: cleanSchoolFormValue(formData.principal),
+    phone: cleanSchoolFormValue(formData.phone),
+    email: cleanSchoolFormValue(formData.email),
+    salesAgentUserId: cleanSchoolFormValue(formData.salesAgentUserId),
+    assignedPlanCode: formData.assignedPlanCode || "monthly",
+    discountId: cleanSchoolFormValue(formData.discountId)
+  };
+}
+
+function upsertSchoolInState(school) {
+  if (!school) return;
+  const nextSchool = { ...school };
+  const index = state.data.schools.findIndex(item => String(item.id) === String(nextSchool.id));
+  if (index >= 0) state.data.schools[index] = nextSchool;
+  else state.data.schools = [...state.data.schools, nextSchool];
 }
 
 function countyFromLocation(location) {
@@ -1175,44 +1223,91 @@ function schoolManageInfo(label, value, iconName) {
   </div>`;
 }
 
-function schoolManagementContent(school) {
+function schoolManagementContent(school = null) {
+  const isNew = !school;
+  const draft = school || {
+    id: "",
+    name: "",
+    location: "",
+    county: "",
+    principal: "",
+    phone: "",
+    email: "",
+    salesAgentUserId: "",
+    assignedPlanCode: "monthly",
+    learnerCount: 0,
+    activeLearners: 0,
+    engagement: 0,
+    averageScore: 0,
+    gradeCounts: {},
+    type: "Day School",
+    code: "New school"
+  };
+  const assignedAgent = schoolSalesAgent(draft);
   return `<section class="school-management-modal" role="dialog" aria-modal="true" aria-labelledby="schoolManageTitle">
     <header class="school-manage-head">
       <div class="school-manage-identity">
-        ${schoolCrest(school)}
+        ${schoolCrest(draft)}
         <div>
-          <h2 id="schoolManageTitle">${escapeHtml(school.name)}</h2>
-          <p>${escapeHtml(school.county)} - ${escapeHtml(school.code)}</p>
-          ${schoolTypeChip(school.type)}
+          <h2 id="schoolManageTitle">${escapeHtml(isNew ? "Add School" : draft.name)}</h2>
+          <p>${escapeHtml(isNew ? "Create a new school profile" : `${draft.county} - ${draft.code}`)}</p>
+          ${schoolTypeChip(draft.type)}
         </div>
       </div>
       <button class="school-manage-close" type="button" data-close-modal aria-label="Close school management">${miniIcon("close")}</button>
     </header>
-    <div class="school-manage-body">
+    <form class="school-manage-body" data-kind="school-editor" data-school-id="${escapeHtml(draft.id || "")}">
       <section class="school-manage-stats">
-        ${schoolManagementStat("Learners", Number(school.learnerCount || 0).toLocaleString("en-KE"), "students", "blue")}
-        ${schoolManagementStat("Active Learners", Number(school.activeLearners || 0).toLocaleString("en-KE"), "active", "green")}
-        ${schoolManagementStat("Engagement", percent(school.engagement), "activity", schoolScoreTone(school.engagement))}
-        ${schoolManagementStat("Average Score", percent(school.averageScore), "trophy", schoolScoreTone(school.averageScore))}
+        ${schoolManagementStat("Students", Number(draft.learnerCount || 0).toLocaleString("en-KE"), "students", "blue")}
+        ${schoolManagementStat("Active Learners", Number(draft.activeLearners || 0).toLocaleString("en-KE"), "active", "green")}
+        ${schoolManagementStat("Engagement", percent(draft.engagement), "activity", schoolScoreTone(draft.engagement))}
+        ${schoolManagementStat("Average Score", percent(draft.averageScore), "trophy", schoolScoreTone(draft.averageScore))}
       </section>
       <div class="school-manage-grid">
         <section class="school-manage-card">
           <h3>School Details</h3>
-          ${schoolManageInfo("Principal", school.principal || "-", "profile")}
-          ${schoolManageInfo("Phone", school.phone || "-", "phone")}
-          ${schoolManageInfo("Email", school.email || "-", "document")}
-          ${schoolManageInfo("Location", school.location || school.county || "-", "globe")}
+          <label class="school-form-field">
+            <span>School Name</span>
+            <input name="name" value="${escapeHtml(isNew ? "" : draft.name)}" required maxlength="120" />
+          </label>
+          <label class="school-form-field">
+            <span>Location / County</span>
+            <input name="location" value="${escapeHtml(draft.location || draft.county || "")}" required maxlength="120" placeholder="Kisii County" />
+          </label>
+          <label class="school-form-field">
+            <span>Principal</span>
+            <input name="principal" value="${escapeHtml(draft.principal === "-" ? "" : draft.principal || "")}" maxlength="120" />
+          </label>
+          <label class="school-form-field">
+            <span>Phone</span>
+            <input name="phone" value="${escapeHtml(draft.phone === "-" ? "" : draft.phone || "")}" maxlength="20" />
+          </label>
+          <label class="school-form-field">
+            <span>Email</span>
+            <input name="email" type="email" value="${escapeHtml(draft.email === "-" ? "" : draft.email || "")}" />
+          </label>
+          <label class="school-form-field">
+            <span>Subscription Plan</span>
+            <select name="assignedPlanCode">${schoolPlanOptions(draft.assignedPlanCode)}</select>
+          </label>
+          <label class="school-form-field">
+            <span>Sales Agent</span>
+            <select name="salesAgentUserId">${schoolSalesAgentOptions(draft.salesAgentUserId)}</select>
+          </label>
+          ${assignedAgent ? schoolManageInfo("Assigned Agent", `${assignedAgent.name} - ${assignedAgent.email}`, "briefcase") : ""}
         </section>
         <section class="school-manage-card">
           <h3>Student Count</h3>
-          <div class="school-grade-list">${schoolGradeBreakdown(school)}</div>
+          <p class="school-readonly-note">Student count is auto-populated as students sign up and cannot be edited manually.</p>
+          <div class="school-grade-list">${schoolGradeBreakdown(draft)}</div>
         </section>
       </div>
+      <p class="error-text"></p>
       <div class="school-manage-actions">
-        <button type="button" class="ghost-button">${miniIcon("pencil")} Edit Details</button>
-        <button type="button" class="primary-button">${miniIcon("students")} Manage Students</button>
+        <button type="button" class="ghost-button" data-close-modal>Cancel</button>
+        <button type="submit" class="primary-button">${miniIcon("save")} ${isNew ? "Add School" : "Save Changes"}</button>
       </div>
-    </div>
+    </form>
   </section>`;
 }
 
@@ -1224,8 +1319,19 @@ function showSchool(schoolId) {
   modalRoot.classList.add("school-modal-root");
   modalRoot.hidden = false;
   modalRoot.innerHTML = schoolManagementContent(school);
-  modalRoot.querySelector("[data-close-modal]")?.addEventListener("click", closeModal);
+  modalRoot.querySelectorAll("[data-close-modal]").forEach(button => button.addEventListener("click", closeModal));
   modalRoot.addEventListener("click", onScrimClick, { once: true });
+  bindModalForms();
+}
+
+function showAddSchool() {
+  modalRoot.classList.remove("student-modal-root");
+  modalRoot.classList.add("school-modal-root");
+  modalRoot.hidden = false;
+  modalRoot.innerHTML = schoolManagementContent();
+  modalRoot.querySelectorAll("[data-close-modal]").forEach(button => button.addEventListener("click", closeModal));
+  modalRoot.addEventListener("click", onScrimClick, { once: true });
+  bindModalForms();
 }
 
 function salesSpotlightCard(tone, label, title, helper, iconName) {
@@ -1442,6 +1548,7 @@ function renderSchools() {
           <p>Monitor school performance, learner engagement and activity across the platform.</p>
         </div>
         <div class="schools-header-actions">
+          <button class="schools-add-button" type="button" data-add-school aria-label="Add school">${miniIcon("plus")}</button>
           <div class="schools-filters">
             ${selectControl("selectedGrade", ["All Grades", ...grades], state.selectedGrade)}
             ${selectControl("selectedCounty", countyOptions(), state.selectedCounty)}
@@ -1596,6 +1703,7 @@ function bindRouteEvents() {
   if (search) search.addEventListener("input", event => { state.search = event.target.value; renderRoute(); });
   document.querySelectorAll("[data-user]").forEach(button => button.addEventListener("click", () => showUser(button.dataset.user)));
   document.querySelectorAll("[data-school]").forEach(button => button.addEventListener("click", () => showSchool(button.dataset.school)));
+  document.querySelectorAll("[data-add-school]").forEach(button => button.addEventListener("click", showAddSchool));
   document.querySelectorAll("[data-sales-agent]").forEach(button => button.addEventListener("click", () => showSalesAgent(button.dataset.salesAgent)));
   document.querySelectorAll("[data-teacher-student]").forEach(button => button.addEventListener("click", () => showTeacherStudent(button.dataset.teacherStudent)));
   document.querySelectorAll("[data-curriculum-subject]").forEach(button => button.addEventListener("click", () => openCurriculumEditor(button.dataset.curriculumSubject)));
@@ -1641,6 +1749,7 @@ function miniIcon(name) {
     profile: '<path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="8" r="4"/>',
     trophy: '<path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0V4Z"/><path d="M5 5H3v3a3 3 0 0 0 4 2.8"/><path d="M19 5h2v3a3 3 0 0 1-4 2.8"/>',
     document: '<path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7Z"/><path d="M14 2v5h5"/><path d="M9 13h6"/><path d="M9 17h4"/>',
+    briefcase: '<path d="M10 6V5a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v1"/><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 12h18"/>',
     globe2: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a13 13 0 0 1 0 18"/><path d="M12 3a13 13 0 0 0 0 18"/>',
     book: '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15Z"/>',
     school: '<path d="M3 21h18"/><path d="M5 21V9l7-4 7 4v12"/><path d="M9 21v-6h6v6"/><path d="M9 11h.01"/><path d="M15 11h.01"/>',
@@ -2643,6 +2752,17 @@ function bindModalForms() {
             grade: formData.grade,
             subjectName
           }});
+          shouldClose = true;
+        }
+        if (form.dataset.kind === "school-editor") {
+          const payload = schoolPayloadFromForm(formData);
+          if (!payload.name) throw new Error("Enter a school name.");
+          if (!payload.location) throw new Error("Enter the school location or county.");
+          const schoolId = form.dataset.schoolId;
+          const response = schoolId
+            ? await api(`/admin/schools/${encodeURIComponent(schoolId)}`, { method: "PATCH", body: payload })
+            : await api("/admin/schools", { method: "POST", body: payload });
+          upsertSchoolInState(response.school);
           shouldClose = true;
         }
         if (form.dataset.kind === "curriculum-editor") {

@@ -7,6 +7,16 @@ const REFRESH_MS = 30000;
 const grades = ["Grade 4", "Grade 5", "Grade 6", "Grade 7", "Grade 8", "Grade 9", "Grade 10", "Form 3", "Form 4"];
 const subjects = ["Mathematics", "English", "Science", "Kiswahili", "Social Studies", "Computer Science"];
 const timeRangeOptions = ["This Term", "This Month", "Last Month", "Last 3 Months", "Last 6 Months", "This Year", "Lifetime"];
+const kenyaCounties = [
+  "Baringo County", "Bomet County", "Bungoma County", "Busia County", "Elgeyo-Marakwet County", "Embu County",
+  "Garissa County", "Homa Bay County", "Isiolo County", "Kajiado County", "Kakamega County", "Kericho County",
+  "Kiambu County", "Kilifi County", "Kirinyaga County", "Kisii County", "Kisumu County", "Kitui County",
+  "Kwale County", "Laikipia County", "Lamu County", "Machakos County", "Makueni County", "Mandera County",
+  "Marsabit County", "Meru County", "Migori County", "Mombasa County", "Murang'a County", "Nairobi County",
+  "Nakuru County", "Nandi County", "Narok County", "Nyamira County", "Nyandarua County", "Nyeri County",
+  "Samburu County", "Siaya County", "Taita-Taveta County", "Tana River County", "Tharaka-Nithi County",
+  "Trans Nzoia County", "Turkana County", "Uasin Gishu County", "Vihiga County", "Wajir County", "West Pokot County"
+];
 let refreshPromise = null;
 
 const navItems = [
@@ -1007,6 +1017,11 @@ function schoolMetadata(name) {
 function normalizeSchoolRow(school, index = 0) {
   const metadata = schoolMetadata(school.name);
   const gradeCounts = school.gradeCounts || school.grade_counts || {};
+  const availableGrades = Array.isArray(school.availableGrades)
+    ? school.availableGrades
+    : Array.isArray(school.available_grades)
+      ? school.available_grades
+      : Object.keys(gradeCounts);
   const learnerCount = Number(school.totalStudents ?? school.total_students ?? Object.values(gradeCounts).reduce((sum, value) => sum + Number(value || 0), 0));
   const usersInSchool = studentUsers().filter(user => String(user.school || "").toLowerCase() === String(school.name || "").toLowerCase());
   const activeFromUsers = usersInSchool.filter(user => user.status === "Online").length;
@@ -1025,6 +1040,7 @@ function normalizeSchoolRow(school, index = 0) {
     email: school.email || "-",
     salesAgentUserId: school.salesAgentUserId || school.sales_agent_user_id || "",
     assignedPlanCode: school.pricing?.assignedPlanCode || school.assignedPlanCode || school.assigned_plan_code || "monthly",
+    subscriptionPriceKsh: Number(school.subscriptionPriceKsh ?? school.pricing?.effectivePriceKsh ?? school.pricing?.basePriceKsh ?? 0),
     discountId: school.pricing?.discount?.id || school.discountId || school.discount_id || "",
     code: school.code || metadata.code || school.slug || "-",
     type: school.schoolType || school.type || metadata.type,
@@ -1033,6 +1049,7 @@ function normalizeSchoolRow(school, index = 0) {
     activeLearners,
     engagement,
     averageScore,
+    availableGrades,
     gradeCounts,
     createdAt: school.createdAt || school.created_at || new Date().toISOString()
   };
@@ -1057,15 +1074,36 @@ function schoolPlanOptions(selectedPlan = "monthly") {
     .join("");
 }
 
+function schoolCountyOptions(selectedCounty = "") {
+  const knownCounties = new Set([...kenyaCounties, ...countyOptions().filter(county => county !== "All Counties")]);
+  return Array.from(knownCounties)
+    .sort()
+    .map(county => `<option value="${escapeHtml(county)}" ${county === selectedCounty ? "selected" : ""}>${escapeHtml(county)}</option>`)
+    .join("");
+}
+
+function schoolGradeOptions(school) {
+  const selectedGrades = new Set([...(school.availableGrades || []), ...Object.entries(school.gradeCounts || {})
+    .filter(([, count]) => Number(count || 0) > 0)
+    .map(([grade]) => grade)]);
+  return `<div class="school-grade-options">
+    ${grades.map(grade => `<label>
+      <input type="checkbox" name="availableGrades" value="${escapeHtml(grade)}" ${selectedGrades.has(grade) ? "checked" : ""} />
+      <span>${escapeHtml(grade)}</span>
+    </label>`).join("")}
+  </div>`;
+}
+
 function cleanSchoolFormValue(value) {
   const trimmed = String(value || "").trim();
   return trimmed || null;
 }
 
 function schoolPayloadFromForm(formData) {
+  const county = String(formData.county || formData.location || "").trim();
   return {
     name: String(formData.name || "").trim(),
-    location: String(formData.location || "").trim(),
+    location: county,
     principal: cleanSchoolFormValue(formData.principal),
     phone: cleanSchoolFormValue(formData.phone),
     email: cleanSchoolFormValue(formData.email),
@@ -1106,7 +1144,7 @@ function schoolRows() {
   const term = state.search.trim().toLowerCase();
   return allSchoolRows()
     .filter(school => state.selectedCounty === "All Counties" || school.county === state.selectedCounty)
-    .filter(school => state.selectedGrade === "All Grades" || Number(school.gradeCounts?.[state.selectedGrade] || 0) > 0)
+    .filter(school => state.selectedGrade === "All Grades" || school.availableGrades?.includes(state.selectedGrade) || Number(school.gradeCounts?.[state.selectedGrade] || 0) > 0)
     .filter(school => selectedTimeRange() === "Lifetime" || !school.createdAt || isDateInRange(school.createdAt))
     .filter(school => !term || `${school.name} ${school.county} ${school.code} ${school.type}`.toLowerCase().includes(term))
     .sort((left, right) => right.learnerCount - left.learnerCount);
@@ -1235,11 +1273,13 @@ function schoolManagementContent(school = null) {
     email: "",
     salesAgentUserId: "",
     assignedPlanCode: "monthly",
+    subscriptionPriceKsh: 500,
     learnerCount: 0,
     activeLearners: 0,
     engagement: 0,
     averageScore: 0,
     gradeCounts: {},
+    availableGrades: [],
     type: "Day School",
     code: "New school"
   };
@@ -1271,8 +1311,8 @@ function schoolManagementContent(school = null) {
             <input name="name" value="${escapeHtml(isNew ? "" : draft.name)}" required maxlength="120" />
           </label>
           <label class="school-form-field">
-            <span>Location / County</span>
-            <input name="location" value="${escapeHtml(draft.location || draft.county || "")}" required maxlength="120" placeholder="Kisii County" />
+            <span>County</span>
+            <select name="county" required>${schoolCountyOptions(draft.county || countyFromLocation(draft.location))}</select>
           </label>
           <label class="school-form-field">
             <span>Principal</span>
@@ -1291,6 +1331,10 @@ function schoolManagementContent(school = null) {
             <select name="assignedPlanCode">${schoolPlanOptions(draft.assignedPlanCode)}</select>
           </label>
           <label class="school-form-field">
+            <span>Subscription Price (KSh)</span>
+            <input name="subscriptionPriceKsh" type="number" min="0" step="1" value="${Number(draft.subscriptionPriceKsh || 0)}" />
+          </label>
+          <label class="school-form-field">
             <span>Sales Agent</span>
             <select name="salesAgentUserId">${schoolSalesAgentOptions(draft.salesAgentUserId)}</select>
           </label>
@@ -1300,6 +1344,10 @@ function schoolManagementContent(school = null) {
           <h3>Student Count</h3>
           <p class="school-readonly-note">Student count is auto-populated as students sign up and cannot be edited manually.</p>
           <div class="school-grade-list">${schoolGradeBreakdown(draft)}</div>
+          <div class="school-available-grades">
+            <h3>Available Grades</h3>
+            ${schoolGradeOptions(draft)}
+          </div>
         </section>
       </div>
       <p class="error-text"></p>
@@ -2758,11 +2806,13 @@ function bindModalForms() {
           const payload = schoolPayloadFromForm(formData);
           if (!payload.name) throw new Error("Enter a school name.");
           if (!payload.location) throw new Error("Enter the school location or county.");
+          const availableGrades = new FormData(form).getAll("availableGrades");
+          const subscriptionPriceKsh = Number(formData.subscriptionPriceKsh || 0);
           const schoolId = form.dataset.schoolId;
           const response = schoolId
             ? await api(`/admin/schools/${encodeURIComponent(schoolId)}`, { method: "PATCH", body: payload })
             : await api("/admin/schools", { method: "POST", body: payload });
-          upsertSchoolInState(response.school);
+          upsertSchoolInState(response.school ? { ...response.school, availableGrades, subscriptionPriceKsh } : response.school);
           shouldClose = true;
         }
         if (form.dataset.kind === "curriculum-editor") {

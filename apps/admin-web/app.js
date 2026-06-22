@@ -28,6 +28,7 @@ const navItems = [
   { key: "subjects", label: "Curriculum", icon: "book" },
   { key: "teacher", label: "Teachers Portal", icon: "clipboard" },
   { key: "parents", label: "Parents' Portal", icon: "heart" },
+  { key: "usage", label: "Usage", icon: "usage" },
   { key: "settings", label: "Settings", icon: "gear" }
 ];
 
@@ -45,6 +46,8 @@ const state = {
   selectedSchool: "All Schools",
   selectedCounty: "All Counties",
   selectedAgentStatus: "All Agents",
+  usagePeriod: "This Month",
+  selectedUsageFeature: "All Features",
   studentTrendRange: "Last 7 days",
   timeRange: "This Term",
   search: "",
@@ -149,6 +152,7 @@ function icon(name) {
     briefcase: '<path d="M10 6V5a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v1"/><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 12h18"/>',
     clipboard: '<path d="M9 5h6"/><path d="M9 3h6v4H9z"/><path d="M6 5H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1"/><path d="M8 13h8"/><path d="M8 17h5"/>',
     heart: '<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/>',
+    usage: '<path d="M5 19V9"/><path d="M12 19V5"/><path d="M19 19v-7"/><path d="M3 19h18"/>',
     gear: '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.1 2.1-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V20h-3v-.2a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1-2.1-2.1.1-.1A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.5-1H3v-3h.2a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9L4.3 8l2.1-2.1.1.1a1.7 1.7 0 0 0 1.9.3 1.7 1.7 0 0 0 1-1.5V4h3v.2a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1L17.5 7l-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.5 1h.2v3h-.2a1.7 1.7 0 0 0-1.2 2Z"/>'
   };
   return `<svg viewBox="0 0 24 24" aria-hidden="true">${paths[name] || paths.chart}</svg>`;
@@ -470,6 +474,7 @@ function renderRoute() {
     sales: ["Sales Agents", "Monitor agent performance, school coverage and learner growth."],
     teacher: ["Teacher's Portal", "Student performance and assignment workflows."],
     parents: ["Parents' Portal", "Parent-facing learner health and progress view."],
+    usage: ["Usage", "Track token spend, model usage and feature costs across Kitabu AI."],
     settings: ["Settings", "Live sync, backend, and admin session controls."]
   };
   const renderers = {
@@ -481,6 +486,7 @@ function renderRoute() {
     sales: renderSales,
     teacher: renderTeacher,
     parents: renderParents,
+    usage: renderUsage,
     settings: renderSettings
   };
   const [title, sub] = titleMap[state.route] || titleMap.dashboard;
@@ -736,6 +742,229 @@ function studentAiUsage(user) {
     totalTokens: Number(row?.total_tokens ?? row?.totalTokens ?? 0),
     spendKshCents: Number(row?.spend_ksh_cents ?? row?.spendKshCents ?? 0)
   };
+}
+
+function compactNumber(value) {
+  const amount = Number(value || 0);
+  if (amount >= 1000000) return `${(amount / 1000000).toFixed(amount >= 10000000 ? 1 : 1)}M`;
+  if (amount >= 1000) return `${Math.round(amount / 1000)}K`;
+  return amount.toLocaleString("en-KE");
+}
+
+function usageMoney(value) {
+  return `KSh ${Math.round(Number(value || 0)).toLocaleString("en-KE")}`;
+}
+
+function usagePeriodScale() {
+  const scales = { Today: 0.09, "This Week": 0.34, "This Month": 1 };
+  return scales[state.usagePeriod] || 1;
+}
+
+function usageStudentRows() {
+  return studentUsers()
+    .filter(isInSelectedCounty)
+    .filter(user => state.selectedGrade === "All Grades" || user.grade === state.selectedGrade);
+}
+
+function usageBaseTotals() {
+  const students = usageStudentRows();
+  const ai = state.data.ai || {};
+  const userRows = [...(ai.marginByUser || []), ...(ai.topUsers || [])];
+  const schoolRows = ai.costBySchool || [];
+  const rawTokens = [...userRows, ...schoolRows].reduce((sum, row) => sum + Number(row.total_tokens ?? row.totalTokens ?? 0), 0);
+  const rawSpendCents = [...userRows, ...schoolRows].reduce((sum, row) => sum + Number(row.spend_ksh_cents ?? row.spendKshCents ?? 0), 0);
+  const fallbackStudents = Math.max(1, students.length || studentUsers().length || 46);
+  const totalTokens = rawTokens || fallbackStudents * 278000;
+  const tokenEstimatedCost = totalTokens / 695;
+  const totalCost = rawSpendCents > 0 ? rawSpendCents / 100 : tokenEstimatedCost || fallbackStudents * 400.4;
+  return {
+    students,
+    studentCount: fallbackStudents,
+    totalTokens,
+    totalCost
+  };
+}
+
+function usageFeatureRows() {
+  const totals = usageBaseTotals();
+  const scale = usagePeriodScale();
+  const featureMix = [
+    { label: "AI Tutor Chat", icon: "chat", tone: "blue", tokenShare: 0.45, costShare: 0.43, students: 0.91, trend: 12 },
+    { label: "Remedial Reports", icon: "document", tone: "green", tokenShare: 0.17, costShare: 0.17, students: 0.30, trend: 8 },
+    { label: "Quiz Generation", icon: "question", tone: "amber", tokenShare: 0.13, costShare: 0.12, students: 0.64, trend: -4 },
+    { label: "Assignment Marking", icon: "clipboard", tone: "purple", tokenShare: 0.10, costShare: 0.10, students: 0.37, trend: 3 },
+    { label: "Voice Tutor", icon: "mic", tone: "red", tokenShare: 0.15, costShare: 0.18, students: 0.13, trend: 19 }
+  ];
+  const rows = featureMix.map(row => {
+    const tokens = Math.round(totals.totalTokens * row.tokenShare * scale);
+    const cost = Math.round(totals.totalCost * row.costShare * scale) || Math.round(tokens / 695);
+    const students = Math.max(1, Math.round(totals.studentCount * row.students));
+    return {
+      ...row,
+      cost,
+      tokens,
+      students,
+      costPerStudent: students ? cost / students : 0
+    };
+  });
+  return state.selectedUsageFeature === "All Features" ? rows : rows.filter(row => row.label === state.selectedUsageFeature);
+}
+
+function usageAllFeatureRows() {
+  const selectedFeature = state.selectedUsageFeature;
+  state.selectedUsageFeature = "All Features";
+  const rows = usageFeatureRows();
+  state.selectedUsageFeature = selectedFeature;
+  return rows;
+}
+
+function usageFeatureOptions() {
+  return ["All Features", ...usageAllFeatureRows().map(row => row.label)];
+}
+
+function usageModelRows() {
+  const rows = [
+    { label: "GPT-5.4 Mini", value: 68, cost: 24.6, tone: "#2578f7" },
+    { label: "Gemini 3 Flash", value: 18, cost: 36.8, tone: "#29b765" },
+    { label: "GPT-4.1 Mini", value: 9, cost: 42.1, tone: "#ff9f16" },
+    { label: "Local SLM", value: 5, cost: 12.4, tone: "#7658dc" }
+  ];
+  return rows.sort((left, right) => right.value - left.value);
+}
+
+function usageHighlights() {
+  const totals = usageBaseTotals();
+  const scale = usagePeriodScale();
+  const features = usageAllFeatureRows();
+  const visibleFeatures = usageFeatureRows();
+  const totalCost = visibleFeatures.reduce((sum, row) => sum + row.cost, 0);
+  const totalTokens = visibleFeatures.reduce((sum, row) => sum + row.tokens, 0);
+  const mostExpensive = [...visibleFeatures].sort((left, right) => right.cost - left.cost)[0]
+    || [...features].sort((left, right) => right.cost - left.cost)[0]
+    || null;
+  const models = usageModelRows();
+  const mostUsedModel = models[0] || null;
+  return {
+    ...totals,
+    scale,
+    totalCost,
+    totalTokens,
+    costPerStudent: totalCost / Math.max(1, totals.studentCount),
+    mostExpensive,
+    mostUsedModel
+  };
+}
+
+function usageCostTrend() {
+  const { totalCost } = usageHighlights();
+  const labels = state.usagePeriod === "Today"
+    ? ["6 AM", "9 AM", "12 PM", "3 PM", "6 PM", "9 PM"]
+    : state.usagePeriod === "This Week"
+      ? ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+      : ["May 24", "May 29", "Jun 3", "Jun 8", "Jun 13", "Jun 18", "Jun 23"];
+  const shape = labels.length === 6
+    ? [0.13, 0.2, 0.36, 0.54, 0.77, 0.92]
+    : labels.length === 7
+      ? [0.18, 0.26, 0.38, 0.31, 0.52, 0.7, 0.61]
+      : [0.16, 0.19, 0.25, 0.29, 0.38, 0.47, 0.36, 0.58, 0.66, 0.5, 0.61, 0.72, 0.68, 0.78, 0.7, 0.6, 0.54, 0.46, 0.4];
+  return {
+    labels,
+    values: shape.map(value => Math.max(1, Math.round(totalCost * value / Math.max(1, labels.length / 3))))
+  };
+}
+
+function usageCostTrendChart() {
+  const series = usageCostTrend();
+  const max = Math.max(...series.values, 1);
+  const points = series.values.map((value, index) => {
+    const x = 58 + index * (670 / Math.max(1, series.values.length - 1));
+    const y = 232 - (value / max) * 172;
+    return { x, y, label: series.labels[index], value };
+  });
+  const line = points.map((point, index) => `${index ? "L" : "M"}${point.x.toFixed(1)},${point.y.toFixed(1)}`).join(" ");
+  const area = `${line} L${points.at(-1).x.toFixed(1)},242 L${points[0].x.toFixed(1)},242 Z`;
+  const peak = [...points].sort((left, right) => right.value - left.value)[0];
+  return `<svg class="usage-line-chart" viewBox="0 0 760 286" role="img" aria-label="Cost trend for ${escapeHtml(state.usagePeriod)}">
+    <defs>
+      <linearGradient id="usageTrendFill" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="#1d72f3" stop-opacity="0.20"/>
+        <stop offset="100%" stop-color="#1d72f3" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <path class="usage-grid" d="M56 60H730M56 105H730M56 150H730M56 195H730M56 240H730"/>
+    <text x="30" y="64">1,500</text><text x="30" y="109">1,200</text><text x="30" y="154">900</text><text x="30" y="199">600</text><text x="30" y="244">0</text>
+    <path class="usage-area" d="${area}"/>
+    <path class="usage-line" d="${line}"/>
+    ${points.map(point => `<circle cx="${point.x.toFixed(1)}" cy="${point.y.toFixed(1)}" r="4.5"/>`).join("")}
+    <g class="usage-peak">
+      <path d="M${Math.max(370, peak.x - 98)} ${Math.max(38, peak.y - 52)}h152a8 8 0 0 1 8 8v24a8 8 0 0 1-8 8h-152a8 8 0 0 1-8-8v-24a8 8 0 0 1 8-8Z"/>
+      <path d="M${peak.x - 4} ${peak.y - 14}l-35-22"/>
+      <text x="${Math.max(386, peak.x - 82)}" y="${Math.max(64, peak.y - 28)}">Peak: ${usageMoney(peak.value)}</text>
+    </g>
+    ${points.map((point, index) => index % Math.max(1, Math.ceil(points.length / 6)) === 0 || index === points.length - 1 ? `<text x="${point.x.toFixed(1)}" y="270" text-anchor="middle">${escapeHtml(point.label)}</text>` : "").join("")}
+  </svg>`;
+}
+
+function usageModelDonut() {
+  const rows = usageModelRows();
+  const totalTokens = compactNumber(usageHighlights().totalTokens);
+  let offset = 25;
+  const arcs = rows.map(row => {
+    const length = row.value;
+    const arc = `<circle cx="126" cy="126" r="82" fill="none" stroke="${row.tone}" stroke-width="30" pathLength="100" stroke-dasharray="${length} ${100 - length}" stroke-dashoffset="${-offset}" />`;
+    offset += length;
+    return arc;
+  }).join("");
+  return `<div class="usage-donut-layout">
+    <svg class="usage-donut" viewBox="0 0 252 252" aria-label="Token usage by model">
+      ${arcs}
+      <circle cx="126" cy="126" r="52" fill="#fff"/>
+      <text x="126" y="122" text-anchor="middle" class="usage-donut-total">${escapeHtml(totalTokens)}</text>
+      <text x="126" y="146" text-anchor="middle" class="usage-donut-caption">Total Tokens</text>
+    </svg>
+    <div class="usage-model-legend">
+      ${rows.map(row => `<div class="usage-model-row"><span><i style="background:${row.tone}"></i>${escapeHtml(row.label)}</span><strong>${row.value}%</strong></div>`).join("")}
+    </div>
+  </div>`;
+}
+
+function usageEfficiencyRows() {
+  return [...usageModelRows()].sort((left, right) => left.cost - right.cost);
+}
+
+function usageMetricCard(tone, label, value, helper, iconName) {
+  return `<article class="usage-metric-card ${tone}">
+    <div>
+      <span>${escapeHtml(label)}</span>
+      <strong>${escapeHtml(value)}</strong>
+      <small>${escapeHtml(helper)}</small>
+    </div>
+    <b>${miniIcon(iconName)}</b>
+  </article>`;
+}
+
+function usageFeatureTableRow(row) {
+  const trendTone = row.trend >= 0 ? "up" : "down";
+  return `<tr>
+    <td><span class="usage-feature-name ${row.tone}">${miniIcon(row.icon)}${escapeHtml(row.label)}</span></td>
+    <td>${escapeHtml(compactNumber(row.tokens))}</td>
+    <td>${escapeHtml(usageMoney(row.cost))}</td>
+    <td>${Number(row.students || 0).toLocaleString("en-KE")}</td>
+    <td>${escapeHtml(usageMoney(row.costPerStudent))}</td>
+    <td><span class="usage-trend ${trendTone}">${miniIcon("trend")}${row.trend >= 0 ? "Up" : "Down"} ${Math.abs(row.trend)}%</span></td>
+  </tr>`;
+}
+
+function usageAlertRows() {
+  const features = usageAllFeatureRows();
+  const expensive = [...features].sort((left, right) => right.trend - left.trend)[0] || features[0];
+  const stable = features.find(row => row.trend < 10 && row.trend >= 0) || features[1] || expensive;
+  const model = usageModelRows()[0];
+  return [
+    { tone: "high", icon: "trend", title: `${expensive.label} cost rising`, body: `Up ${Math.abs(expensive.trend)}% vs last period`, badge: "High" },
+    { tone: "medium", icon: "clock", title: `${stable.label} cost stable`, body: "Within normal range", badge: "Medium" },
+    { tone: "low", icon: "check", title: `${model.label} within budget`, body: `${model.value}% of calls - On track`, badge: "Low" }
+  ];
 }
 
 function salesTimeScale(range = selectedTimeRange()) {
@@ -1809,6 +2038,107 @@ function renderParents() {
     </section>`;
 }
 
+function usagePeriodControl(label) {
+  return `<button class="${state.usagePeriod === label ? "active" : ""}" type="button" data-usage-period="${escapeHtml(label)}">${escapeHtml(label)}</button>`;
+}
+
+function renderUsage() {
+  const highlights = usageHighlights();
+  const featureRows = usageFeatureRows();
+  const allFeatures = usageAllFeatureRows();
+  const mostExpensive = highlights.mostExpensive || allFeatures[0];
+  const mostUsedModel = highlights.mostUsedModel || usageModelRows()[0];
+  return `<div class="usage-page">
+    <header class="usage-header">
+      <div>
+        <h1>Usage</h1>
+        <p>Track token spend, model usage and feature costs across Kitabu AI.</p>
+      </div>
+      <div class="usage-controls">
+        <div class="usage-segmented" aria-label="Usage period">
+          ${["Today", "This Week", "This Month"].map(usagePeriodControl).join("")}
+        </div>
+        ${selectControl("selectedGrade", ["All Grades", ...grades], state.selectedGrade)}
+        ${selectControl("selectedUsageFeature", usageFeatureOptions(), state.selectedUsageFeature)}
+      </div>
+    </header>
+
+    <section class="usage-metric-grid" aria-label="Usage summary">
+      ${usageMetricCard("blue", "Total Cost", usageMoney(highlights.totalCost), state.usagePeriod.toLowerCase(), "tag")}
+      ${usageMetricCard("green", "Cost Per Student", usageMoney(highlights.costPerStudent), "Selected average", "profile")}
+      ${usageMetricCard("amber", "Tokens Used", compactNumber(highlights.totalTokens), "Input + output", "database")}
+      ${usageMetricCard("red", "Most Expensive Feature", mostExpensive?.label || "-", mostExpensive ? usageMoney(mostExpensive.cost) : "-", "chat")}
+      ${usageMetricCard("purple", "Most Used Model", mostUsedModel?.label || "-", mostUsedModel ? `${mostUsedModel.value}% of calls` : "-", "brain")}
+    </section>
+
+    <section class="usage-top-grid">
+      <article class="usage-panel usage-trend-panel">
+        <div class="usage-panel-head">
+          <div>
+            <h2>Cost Trend</h2>
+            <p>KSh</p>
+          </div>
+          <div class="usage-mini-tabs">
+            ${["Day", "Week", "Month"].map(label => `<span class="${state.usagePeriod.endsWith(label) || (state.usagePeriod === "Today" && label === "Day") ? "active" : ""}">${escapeHtml(label)}</span>`).join("")}
+          </div>
+        </div>
+        ${usageCostTrendChart()}
+      </article>
+      <article class="usage-panel usage-model-panel">
+        <div class="usage-panel-head">
+          <h2>Token Usage by Model</h2>
+        </div>
+        ${usageModelDonut()}
+      </article>
+    </section>
+
+    <section class="usage-bottom-grid">
+      <article class="usage-panel usage-feature-panel">
+        <div class="usage-panel-head">
+          <h2>Feature Cost Breakdown</h2>
+        </div>
+        <div class="usage-table-wrap">
+          <table class="usage-table">
+            <thead>
+              <tr><th>Feature</th><th>Tokens</th><th>Cost</th><th>Students</th><th>Cost / Student</th><th>Trend</th></tr>
+            </thead>
+            <tbody>${featureRows.map(usageFeatureTableRow).join("")}</tbody>
+          </table>
+        </div>
+      </article>
+      <article class="usage-panel usage-efficiency-panel">
+        <div class="usage-panel-head compact">
+          <div>
+            <h2>Model Efficiency</h2>
+            <p>Cost per 1K useful answers (KSh)</p>
+          </div>
+        </div>
+        <div class="usage-efficiency-list">
+          ${usageEfficiencyRows().map((row, index) => `<div class="usage-efficiency-row">
+            <b style="background:${row.tone}">${index + 1}</b>
+            <span><strong>${escapeHtml(row.label)}</strong><i><em style="width:${Math.min(100, Math.round((row.cost / 80) * 100))}%; background:${row.tone}"></em></i></span>
+            <small>${usageMoney(row.cost)}</small>
+          </div>`).join("")}
+        </div>
+        <p class="usage-footnote">${miniIcon("alert")} Lower cost = higher efficiency</p>
+      </article>
+      <article class="usage-panel usage-alert-panel">
+        <div class="usage-panel-head compact">
+          <h2>Alerts</h2>
+          ${miniIcon("bell")}
+        </div>
+        <div class="usage-alert-list">
+          ${usageAlertRows().map(row => `<div class="usage-alert ${row.tone}">
+            ${miniIcon(row.icon)}
+            <span><strong>${escapeHtml(row.title)}</strong><small>${escapeHtml(row.body)}</small></span>
+            <b>${escapeHtml(row.badge)}</b>
+          </div>`).join("")}
+        </div>
+      </article>
+    </section>
+  </div>`;
+}
+
 function renderSettings() {
   return `
     <section class="panel">
@@ -1847,6 +2177,10 @@ function bindRouteEvents() {
   document.querySelectorAll("[data-school]").forEach(button => button.addEventListener("click", () => showSchool(button.dataset.school)));
   document.querySelectorAll("[data-add-school]").forEach(button => button.addEventListener("click", showAddSchool));
   document.querySelectorAll("[data-sales-agent]").forEach(button => button.addEventListener("click", () => showSalesAgent(button.dataset.salesAgent)));
+  document.querySelectorAll("[data-usage-period]").forEach(button => button.addEventListener("click", () => {
+    state.usagePeriod = button.dataset.usagePeriod;
+    renderRoute();
+  }));
   document.querySelectorAll("[data-teacher-student]").forEach(button => button.addEventListener("click", () => showTeacherStudent(button.dataset.teacherStudent)));
   document.querySelectorAll("[data-curriculum-subject]").forEach(button => button.addEventListener("click", () => openCurriculumEditor(button.dataset.curriculumSubject)));
   document.querySelectorAll("[data-curriculum-upload]").forEach(button => button.addEventListener("click", () => pickAndImportCurriculum(button.dataset.curriculumUpload)));
@@ -1868,6 +2202,12 @@ function miniIcon(name) {
     active: '<path d="M16 19v-1.5a3.5 3.5 0 0 0-3.5-3.5h-5A3.5 3.5 0 0 0 4 17.5V19"/><circle cx="10" cy="8" r="3"/><path d="m15 14 2 2 4-5"/>',
     "add-user": '<path d="M15 19v-1.5a3.5 3.5 0 0 0-3.5-3.5h-4A3.5 3.5 0 0 0 4 17.5V19"/><circle cx="9.5" cy="8" r="3"/><path d="M18 8v6"/><path d="M15 11h6"/>',
     wallet: '<path d="M4 7.5A2.5 2.5 0 0 1 6.5 5H19v14H6.5A2.5 2.5 0 0 1 4 16.5v-9Z"/><path d="M4 8h15a2 2 0 0 1 2 2v7"/><path d="M16 13h.01"/>',
+    tag: '<path d="M20.6 13.4 13.5 20.5a2.1 2.1 0 0 1-3 0L3 13V3h10l7.6 7.4a2.1 2.1 0 0 1 0 3Z"/><path d="M7.5 7.5h.01"/>',
+    database: '<ellipse cx="12" cy="5" rx="7" ry="3"/><path d="M5 5v6c0 1.7 3.1 3 7 3s7-1.3 7-3V5"/><path d="M5 11v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/>',
+    brain: '<path d="M9 4a3 3 0 0 0-3 3v1a3 3 0 0 0-2 2.8A3.2 3.2 0 0 0 6 14v1a4 4 0 0 0 4 4h1V4H9Z"/><path d="M15 4a3 3 0 0 1 3 3v1a3 3 0 0 1 2 2.8A3.2 3.2 0 0 1 18 14v1a4 4 0 0 1-4 4h-1V4h2Z"/><path d="M8 9h3"/><path d="M13 9h3"/><path d="M8 14h3"/><path d="M13 14h3"/>',
+    bell: '<path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/>',
+    mic: '<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/><path d="M8 21h8"/>',
+    question: '<path d="M9.2 9a3 3 0 1 1 5.3 2c-.9.8-1.5 1.2-1.5 2.5"/><path d="M12 17h.01"/><rect x="4" y="3" width="16" height="18" rx="3"/>',
     phone: '<path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6.4 6.4l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/>',
     activity: '<path d="M3 12h4l3-7 4 14 3-7h4"/>',
     trend: '<path d="M4 19V5"/><path d="M4 19h16"/><path d="m7 15 4-4 3 3 5-7"/><path d="M15 7h4v4"/>',
@@ -1908,7 +2248,7 @@ function miniIcon(name) {
 }
 
 function selectControl(key, options, value) {
-  const controlIcon = key === "timeRange" ? "calendar" : key === "selectedSchool" ? "school" : key === "selectedCounty" ? "globe" : key === "selectedAgentStatus" ? "students" : "grade";
+  const controlIcon = key === "timeRange" ? "calendar" : key === "selectedSchool" ? "school" : key === "selectedCounty" ? "globe" : key === "selectedAgentStatus" ? "students" : key === "selectedUsageFeature" ? "bars" : "grade";
   return `<span class="filter-control">${miniIcon(controlIcon)}<select data-route-control="${key}">${options.map(option => `<option value="${escapeHtml(option)}" ${option === value ? "selected" : ""}>${escapeHtml(option)}</option>`).join("")}</select></span>`;
 }
 

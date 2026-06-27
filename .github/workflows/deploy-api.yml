@@ -72,6 +72,9 @@ jobs:
           fi
 
           curl --fail --silent https://app.kitabu.ai/health >/dev/null
+          curl --fail --silent 'https://app.kitabu.ai/reset-password?token=abcdefghijklmnopqrstuvwxyz123456' | grep -q 'Reset your password'
+          curl --fail --silent 'https://app.kitabu.ai/reset-password?token=abcdefghijklmnopqrstuvwxyz123456' | grep -q '/auth/password/reset'
+          curl --fail --silent --location 'https://kitabu.ai/reset-password?token=abcdefghijklmnopqrstuvwxyz123456' | grep -q 'Reset your password'
           curl --fail --silent https://kitabu.ai/deletion | grep -q 'Account Deletion Request'
           curl --fail --silent https://kitabu.ai/terms | grep -q 'General Terms and Conditions of Use'
           curl --fail --silent https://kitabu.ai/Terms | grep -q 'General Terms and Conditions of Use'

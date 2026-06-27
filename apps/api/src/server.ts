@@ -2616,6 +2616,15 @@ Requirements:
 
   app.get('/reset-password', async (request, reply) => {
     const query = tokenQuerySchema.safeParse(request.query);
+    if (!query.success) {
+      return sendHandoffPage(reply, {
+        title: 'Reset link unavailable',
+        message: 'This password reset link is missing or invalid.',
+        detail: 'Request a new password reset from the Kitabu AI app, then open the latest email link.',
+        status: 'error'
+      });
+    }
+
     const token = query.success ? query.data.token : '';
     const bodyHtml = (nonce: string) => `
       <form id="reset-form">

@@ -5,6 +5,10 @@
 http://kitabu.ai, http://www.kitabu.ai {
 	root * /srv/www
 	encode gzip zstd
+	@resetPasswordPath {
+		path_regexp (?i)^/reset-password/?$
+	}
+	redir @resetPasswordPath https://app.kitabu.ai/reset-password?{query} 308
 	@termsPath {
 		path_regexp (?i)^/terms/?$
 	}

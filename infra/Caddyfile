@@ -5,8 +5,8 @@
 http://kitabu.ai, http://www.kitabu.ai {
   root * /srv/www
   encode gzip zstd
-  rewrite /terms /terms/index.html
-  rewrite /terms/ /terms/index.html
+  @termsPath path_regexp termsPath (?i)^/terms/?$
+  rewrite @termsPath /terms/index.html
   try_files {path} {path}/index.html
   file_server
 }

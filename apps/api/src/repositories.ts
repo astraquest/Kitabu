@@ -17,6 +17,7 @@ function q<T extends QueryResultRow>(client: MaybeClient, text: string, values: 
 export interface UserRecord {
   id: string;
   school_id: string | null;
+  status: string;
   email: string;
   phone_number: string | null;
   phone_verified: boolean;
@@ -473,7 +474,7 @@ export async function withTransaction<T>(fn: (client: PoolClient) => Promise<T>)
 
 export async function findUserByEmail(email: string): Promise<(UserRecord & { roles: AppRole[] }) | null> {
   const userResult = await db.query<UserRecord>(
-    `SELECT id, school_id, email, phone_number, phone_verified, phone_verified_at, full_name, password_hash, email_verified, gender, grade_level,
+    `SELECT id, school_id, status, email, phone_number, phone_verified, phone_verified_at, full_name, password_hash, email_verified, gender, grade_level,
             onboarding_completed, terms_accepted_at, terms_version, privacy_version,
             must_rotate_password, is_break_glass
      FROM users
@@ -498,7 +499,7 @@ export async function findUserByEmail(email: string): Promise<(UserRecord & { ro
 
 export async function findUserByPhone(phoneNumber: string): Promise<(UserRecord & { roles: AppRole[] }) | null> {
   const userResult = await db.query<UserRecord>(
-    `SELECT id, school_id, email, phone_number, phone_verified, phone_verified_at, full_name, password_hash, email_verified, gender, grade_level,
+    `SELECT id, school_id, status, email, phone_number, phone_verified, phone_verified_at, full_name, password_hash, email_verified, gender, grade_level,
             onboarding_completed, terms_accepted_at, terms_version, privacy_version,
             must_rotate_password, is_break_glass
      FROM users
@@ -634,7 +635,7 @@ export async function findUserByAuthIdentity(
   }
 
   const userResult = await db.query<UserRecord>(
-    `SELECT id, school_id, email, phone_number, phone_verified, phone_verified_at,
+    `SELECT id, school_id, status, email, phone_number, phone_verified, phone_verified_at,
             full_name, password_hash, email_verified, gender, grade_level,
             onboarding_completed, terms_accepted_at, terms_version, privacy_version,
             must_rotate_password, is_break_glass
@@ -697,6 +698,7 @@ export async function findUserById(userId: string): Promise<AuthenticatedUser | 
   const userResult = await db.query<{
     id: string;
     school_id: string | null;
+    status: string;
     email: string;
     phone_number: string | null;
     phone_verified: boolean;
@@ -712,7 +714,7 @@ export async function findUserById(userId: string): Promise<AuthenticatedUser | 
     must_rotate_password: boolean;
     is_break_glass: boolean;
   }>(
-    `SELECT id, school_id, email, phone_number, phone_verified, phone_verified_at, full_name, email_verified, gender, grade_level,
+    `SELECT id, school_id, status, email, phone_number, phone_verified, phone_verified_at, full_name, email_verified, gender, grade_level,
             onboarding_completed, terms_accepted_at, terms_version, privacy_version,
             must_rotate_password, is_break_glass
      FROM users
@@ -728,6 +730,7 @@ export async function findUserById(userId: string): Promise<AuthenticatedUser | 
   return {
     id: user.id,
     schoolId: user.school_id,
+    status: user.status,
     sessionId: null,
     email: user.email,
     phoneNumber: user.phone_number,
@@ -925,6 +928,58 @@ export async function deleteSelfServiceAccount(client: MaybeClient, userId: stri
      WHERE id = $1`,
     [userId]
   );
+}
+
+export async function findUserStatus(userId: string): Promise<string | null> {
+  const result = await db.query<{ status: string }>(
+    `SELECT status
+     FROM users
+     WHERE id = $1`,
+    [userId]
+  );
+  return result.rows[0]?.status ?? null;
+}
+
+export async function requestSelfServiceAccountDeletion(client: MaybeClient, userId: string) {
+  const result = await q<{ id: string; requested_at: Date; scheduled_deletion_at: Date }>(
+    client,
+    `WITH updated_user AS (
+       UPDATE users
+       SET status = 'pending_deletion',
+           updated_at = NOW()
+       WHERE id = $1
+         AND status <> 'pending_deletion'
+       RETURNING id
+     )
+     INSERT INTO account_deletion_requests (user_id, requested_at, scheduled_deletion_at)
+     VALUES ($1, NOW(), NOW() + INTERVAL '30 days')
+     ON CONFLICT (user_id)
+       WHERE fulfilled_at IS NULL
+       DO UPDATE SET requested_at = account_deletion_requests.requested_at
+     RETURNING id, requested_at, scheduled_deletion_at`,
+    [userId]
+  );
+  return result.rows[0];
+}
+
+export async function fulfillDueAccountDeletionRequests(client: MaybeClient, limit = 100) {
+  const dueRequests = await q<{ user_id: string }>(
+    client,
+    `SELECT user_id
+     FROM account_deletion_requests
+     WHERE fulfilled_at IS NULL
+       AND scheduled_deletion_at <= NOW()
+     ORDER BY scheduled_deletion_at ASC
+     LIMIT $1
+     FOR UPDATE SKIP LOCKED`,
+    [limit]
+  );
+
+  for (const request of dueRequests.rows) {
+    await deleteSelfServiceAccount(client, request.user_id);
+  }
+
+  return dueRequests.rows.length;
 }
 
 export async function insertRefreshToken(

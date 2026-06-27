@@ -75,6 +75,7 @@ export async function verifyAccessToken(token: string): Promise<AuthenticatedUse
   return {
     id: payload.sub,
     schoolId: payload.schoolId,
+    status: 'active',
     sessionId: payload.sid ?? null,
     email: payload.email,
     phoneNumber: payload.phoneNumber ?? null,

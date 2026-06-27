@@ -134,10 +134,12 @@ export function ProfileModal({
   const [deleteState, setDeleteState] = useState<{
     isOpen: boolean;
     isSubmitting: boolean;
+    confirmationText: string;
     error: string | null;
   }>({
     isOpen: false,
     isSubmitting: false,
+    confirmationText: '',
     error: null,
   });
   const avatarUri = getAvatarUri(formData.avatar);
@@ -159,6 +161,7 @@ export function ProfileModal({
       setDeleteState({
         isOpen: false,
         isSubmitting: false,
+        confirmationText: '',
         error: null,
       });
     }
@@ -215,6 +218,7 @@ export function ProfileModal({
       setDeleteState({
         isOpen: true,
         isSubmitting: false,
+        confirmationText: deleteState.confirmationText,
         error: error instanceof Error ? error.message : 'Could not delete account.',
       });
     }
@@ -550,6 +554,28 @@ export function ProfileModal({
                     </View>
                   </Pressable>
                 ))}
+                <View style={styles.accountDeletionPanel}>
+                  <Text style={styles.accountDeletionTitle}>Account deletion</Text>
+                  <Text style={styles.accountDeletionCopy}>
+                    Request deletion only if you want this account and its data removed from our servers.
+                    Requests are fulfilled in 30 days.
+                  </Text>
+                  <Pressable
+                    onPress={() =>
+                      setDeleteState({
+                        isOpen: true,
+                        isSubmitting: false,
+                        confirmationText: '',
+                        error: null,
+                      })
+                    }
+                    style={({ pressed }) => [
+                      styles.accountDeletionButton,
+                      pressed && styles.footerButtonPressed,
+                    ]}>
+                    <Text style={styles.accountDeletionButtonText}>Request Account Deletion</Text>
+                  </Pressable>
+                </View>
               </View>
             )}
 
@@ -572,32 +598,14 @@ export function ProfileModal({
                 <Text style={styles.primaryFooterButtonText}>Save Changes</Text>
               </Pressable>
             ) : (
-              <View style={styles.footerActionRow}>
-                <Pressable
-                  onPress={onSignOut}
-                  style={({ pressed }) => [
-                    styles.secondaryFooterButton,
-                    styles.footerActionButton,
-                    pressed && styles.footerButtonPressed,
-                  ]}>
-                  <Text style={styles.secondaryFooterButtonText}>Sign Out</Text>
-                </Pressable>
-                <Pressable
-                  onPress={() =>
-                    setDeleteState({
-                      isOpen: true,
-                      isSubmitting: false,
-                      error: null,
-                    })
-                  }
-                  style={({ pressed }) => [
-                    styles.dangerFooterButton,
-                    styles.footerActionButton,
-                    pressed && styles.footerButtonPressed,
-                  ]}>
-                  <Text style={styles.dangerFooterButtonText}>Delete Account</Text>
-                </Pressable>
-              </View>
+              <Pressable
+                onPress={onSignOut}
+                style={({ pressed }) => [
+                  styles.secondaryFooterButton,
+                  pressed && styles.footerButtonPressed,
+                ]}>
+                <Text style={styles.secondaryFooterButtonText}>Sign Out</Text>
+              </Pressable>
             )}
           </View>
         </View>
@@ -611,6 +619,7 @@ export function ProfileModal({
           setDeleteState({
             isOpen: false,
             isSubmitting: false,
+            confirmationText: '',
             error: null,
           })
         }>
@@ -621,6 +630,7 @@ export function ProfileModal({
               setDeleteState({
                 isOpen: false,
                 isSubmitting: false,
+                confirmationText: '',
                 error: null,
               })
             }
@@ -628,8 +638,28 @@ export function ProfileModal({
           <View style={styles.deleteDialog}>
             <Text style={styles.deleteDialogTitle}>Delete account?</Text>
             <Text style={styles.deleteDialogCopy}>
-              This permanently deletes your student or teacher account and signs you out immediately.
+              This creates an account deletion request. You will be signed out now, and all account data
+              will be deleted from our servers in 30 days.
             </Text>
+            <Text style={styles.deleteDialogCopy}>
+              Type DELETE MY ACCOUNT to continue.
+            </Text>
+            <TextInput
+              value={deleteState.confirmationText}
+              onChangeText={confirmationText =>
+                setDeleteState(current => ({
+                  ...current,
+                  confirmationText,
+                  error: null,
+                }))
+              }
+              autoCapitalize="characters"
+              autoCorrect={false}
+              editable={!deleteState.isSubmitting}
+              placeholder="DELETE MY ACCOUNT"
+              placeholderTextColor="#94A3B8"
+              style={styles.deleteConfirmationInput}
+            />
             {deleteState.error ? (
               <Text style={styles.verificationError}>{deleteState.error}</Text>
             ) : null}
@@ -639,6 +669,7 @@ export function ProfileModal({
                   setDeleteState({
                     isOpen: false,
                     isSubmitting: false,
+                    confirmationText: '',
                     error: null,
                   })
                 }
@@ -651,12 +682,13 @@ export function ProfileModal({
               </Pressable>
               <Pressable
                 onPress={handleDeleteAccount}
-                disabled={deleteState.isSubmitting}
+                disabled={deleteState.isSubmitting || deleteState.confirmationText !== 'DELETE MY ACCOUNT'}
                 style={({ pressed }) => [
                   styles.dangerFooterButton,
                   styles.footerActionButton,
                   pressed && styles.footerButtonPressed,
-                  deleteState.isSubmitting && styles.footerButtonDisabled,
+                  (deleteState.isSubmitting || deleteState.confirmationText !== 'DELETE MY ACCOUNT') &&
+                    styles.footerButtonDisabled,
                 ]}>
                 {deleteState.isSubmitting ? (
                   <ActivityIndicator color="#FFFFFF" />
@@ -1281,6 +1313,40 @@ const styles = StyleSheet.create({
     textAlign: 'right',
     textTransform: 'capitalize',
   },
+  accountDeletionPanel: {
+    backgroundColor: '#FFFBEB',
+    borderColor: '#FDE68A',
+    borderRadius: 16,
+    borderWidth: 1,
+    gap: 8,
+    marginTop: 18,
+    padding: 14,
+  },
+  accountDeletionTitle: {
+    color: '#78350F',
+    fontSize: 14,
+    fontWeight: '900',
+  },
+  accountDeletionCopy: {
+    color: '#92400E',
+    fontSize: 13,
+    lineHeight: 19,
+  },
+  accountDeletionButton: {
+    alignSelf: 'flex-start',
+    backgroundColor: '#FEF2F2',
+    borderColor: '#FECACA',
+    borderRadius: 12,
+    borderWidth: 1,
+    marginTop: 4,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+  },
+  accountDeletionButtonText: {
+    color: '#B91C1C',
+    fontSize: 12,
+    fontWeight: '900',
+  },
   footerSpacer: {
     height: 88,
   },
@@ -1358,5 +1424,16 @@ const styles = StyleSheet.create({
     color: '#475569',
     fontSize: 14,
     lineHeight: 21,
+  },
+  deleteConfirmationInput: {
+    backgroundColor: '#F8FAFC',
+    borderColor: '#CBD5E1',
+    borderRadius: 14,
+    borderWidth: 1,
+    color: '#0F172A',
+    fontSize: 14,
+    fontWeight: '800',
+    paddingHorizontal: 14,
+    paddingVertical: 12,
   },
 });

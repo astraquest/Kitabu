@@ -2,6 +2,7 @@ import * as AuthSession from 'expo-auth-session';
 import Constants from 'expo-constants';
 import * as Crypto from 'expo-crypto';
 import * as WebBrowser from 'expo-web-browser';
+import { NativeModules, Platform } from 'react-native';
 
 WebBrowser.maybeCompleteAuthSession();
 
@@ -16,17 +17,65 @@ function readExpoExtra(name: string) {
   return value?.trim() || undefined;
 }
 
+interface NativeGoogleAuthConfig {
+  googleWebClientId?: string;
+  googleAndroidClientId?: string;
+}
+
+function readNativeGoogleAuthConfig() {
+  return (NativeModules as { KitabuAuthConfig?: NativeGoogleAuthConfig }).KitabuAuthConfig;
+}
+
 export function getGoogleWebClientId() {
   return (
     readProcessEnv('EXPO_PUBLIC_KITABU_GOOGLE_WEB_CLIENT_ID') ||
     readProcessEnv('KITABU_GOOGLE_WEB_CLIENT_ID') ||
+    readNativeGoogleAuthConfig()?.googleWebClientId?.trim() ||
     readExpoExtra('googleWebClientId') ||
     ''
   ).trim();
 }
 
+export function getGoogleAndroidClientId() {
+  return (
+    readProcessEnv('EXPO_PUBLIC_KITABU_GOOGLE_ANDROID_CLIENT_ID') ||
+    readProcessEnv('KITABU_GOOGLE_ANDROID_CLIENT_ID') ||
+    readNativeGoogleAuthConfig()?.googleAndroidClientId?.trim() ||
+    readExpoExtra('googleAndroidClientId') ||
+    ''
+  ).trim();
+}
+
+export function getGoogleIosClientId() {
+  return (
+    readProcessEnv('EXPO_PUBLIC_KITABU_GOOGLE_IOS_CLIENT_ID') ||
+    readProcessEnv('KITABU_GOOGLE_IOS_CLIENT_ID') ||
+    readExpoExtra('googleIosClientId') ||
+    ''
+  ).trim();
+}
+
+export function getGoogleAuthClientId() {
+  if (Platform.OS === 'android') {
+    return getGoogleAndroidClientId() || getGoogleWebClientId();
+  }
+  if (Platform.OS === 'ios') {
+    return getGoogleIosClientId() || getGoogleWebClientId();
+  }
+  return getGoogleWebClientId();
+}
+
+export function getGoogleRedirectUri() {
+  return (
+    readProcessEnv('EXPO_PUBLIC_KITABU_GOOGLE_REDIRECT_URI') ||
+    readProcessEnv('KITABU_GOOGLE_REDIRECT_URI') ||
+    readExpoExtra('googleRedirectUri') ||
+    ''
+  ).trim();
+}
+
 export function isGoogleAuthConfigured() {
-  return Boolean(getGoogleWebClientId());
+  return Boolean(getGoogleAuthClientId());
 }
 
 export function isGoogleAuthAvailableInCurrentRuntime() {
@@ -34,29 +83,27 @@ export function isGoogleAuthAvailableInCurrentRuntime() {
 }
 
 function ensureConfigured() {
-  const webClientId = getGoogleWebClientId();
-  if (!webClientId) {
+  const clientId = getGoogleAuthClientId();
+  if (!clientId) {
     throw new Error('Google sign-in is not configured for this app build.');
   }
-  return webClientId;
+  return clientId;
 }
 
 export async function requestGoogleIdToken() {
-  const webClientId = ensureConfigured();
+  const clientId = ensureConfigured();
   if (!isGoogleAuthAvailableInCurrentRuntime()) {
     throw new Error('Google sign-in requires a development build. Use email or phone sign-in in Expo Go.');
   }
   const discovery = await AuthSession.fetchDiscoveryAsync('https://accounts.google.com');
-  const redirectUri = AuthSession.makeRedirectUri({
-    scheme: 'kitabu',
-  });
+  const redirectUri = getGoogleRedirectUri() || AuthSession.makeRedirectUri({ scheme: 'kitabu' });
   const nonce = await Crypto.digestStringAsync(
     Crypto.CryptoDigestAlgorithm.SHA256,
     `${Date.now()}-${Math.random()}`,
   );
 
   const request = new AuthSession.AuthRequest({
-    clientId: webClientId,
+    clientId,
     extraParams: { nonce },
     redirectUri,
     responseType: AuthSession.ResponseType.IdToken,

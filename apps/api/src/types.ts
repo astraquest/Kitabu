@@ -3,6 +3,7 @@ export type AppRole = 'student' | 'teacher' | 'school_admin' | 'platform_admin' 
 export interface AuthenticatedUser {
   id: string;
   schoolId: string | null;
+  status?: string;
   sessionId: string | null;
   email: string;
   phoneNumber?: string | null;

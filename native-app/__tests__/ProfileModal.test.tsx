@@ -76,6 +76,10 @@ function hasText(root: ReactTestRenderer.ReactTestInstance, text: string) {
   return root.findAll(node => textContent(node.props.children) === text).length > 0;
 }
 
+function hasTextContaining(root: ReactTestRenderer.ReactTestInstance, text: string) {
+  return root.findAll(node => textContent(node.props.children).includes(text)).length > 0;
+}
+
 function pressableWithText(root: ReactTestRenderer.ReactTestInstance, text: string) {
   return root.findAll(node => node.props.onPress && hasText(node, text))[0];
 }
@@ -99,4 +103,30 @@ test('shows Focus Mode controls in the student profile', () => {
 
   ReactTestRenderer.act(() => pressableWithText(root, 'Open Settings').props.onPress());
   expect(onOpenFocusModeSettings).toHaveBeenCalledTimes(1);
+});
+
+test('requires typed confirmation before requesting account deletion', async () => {
+  const onDeleteAccount = jest.fn(() => Promise.resolve());
+  const root = renderProfileModal({ onDeleteAccount });
+
+  ReactTestRenderer.act(() =>
+    pressableWithText(root, 'Request Account Deletion').props.onPress(),
+  );
+
+  expect(hasTextContaining(root, 'Requests are fulfilled in 30 days.')).toBe(true);
+  expect(hasText(root, 'Type DELETE MY ACCOUNT to continue.')).toBe(true);
+
+  const deleteButton = pressableWithText(root, 'Delete');
+  expect(deleteButton.props.disabled).toBe(true);
+
+  const confirmationInput = root.findByProps({ placeholder: 'DELETE MY ACCOUNT' });
+  ReactTestRenderer.act(() => {
+    confirmationInput.props.onChangeText('DELETE MY ACCOUNT');
+  });
+
+  await ReactTestRenderer.act(async () => {
+    pressableWithText(root, 'Delete').props.onPress();
+  });
+
+  expect(onDeleteAccount).toHaveBeenCalledTimes(1);
 });

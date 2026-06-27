@@ -126,12 +126,18 @@ export async function deleteMyAccount() {
     throw new Error('Authentication required');
   }
 
-  const payload = await apiJsonRequest<{ deleted?: boolean }>('/me/account', {
+  const payload = await apiJsonRequest<{
+    deletionRequested?: boolean;
+    message?: string;
+  }>('/me/account', {
     method: 'DELETE',
-    body: JSON.stringify({ confirmationText: 'DELETE' }),
+    body: JSON.stringify({ confirmationText: 'DELETE MY ACCOUNT' }),
   });
 
-  return { deleted: Boolean(payload.deleted) };
+  return {
+    deletionRequested: Boolean(payload.deletionRequested),
+    message: payload.message || 'Account deletion requested.',
+  };
 }
 
 export async function completeStudentOnboarding(input: {

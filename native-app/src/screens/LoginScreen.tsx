@@ -121,6 +121,10 @@ export function LoginScreen({
   });
   const [showPassword, setShowPassword] = useState(false);
   const [activeSheet, setActiveSheet] = useState<LegalSheet>(null);
+  const [isTermsAcceptanceOpen, setIsTermsAcceptanceOpen] = useState(false);
+  const [termsViewportHeight, setTermsViewportHeight] = useState(0);
+  const [termsContentHeight, setTermsContentHeight] = useState(0);
+  const [hasReadTerms, setHasReadTerms] = useState(false);
   const [forgotEmail, setForgotEmail] = useState(email);
   const [forgotState, setForgotState] = useState<{
     open: boolean;
@@ -163,6 +167,39 @@ export function LoginScreen({
   useEffect(() => {
     setAuthStep('role');
   }, [mode]);
+
+  useEffect(() => {
+    if (!isTermsAcceptanceOpen) {
+      setTermsViewportHeight(0);
+      setTermsContentHeight(0);
+      setHasReadTerms(false);
+    }
+  }, [isTermsAcceptanceOpen]);
+
+  useEffect(() => {
+    if (isTermsAcceptanceOpen) {
+      updateTermsReadProgress(0, termsViewportHeight, termsContentHeight);
+    }
+  }, [isTermsAcceptanceOpen, termsViewportHeight, termsContentHeight]);
+
+  function updateTermsReadProgress(offsetY: number, viewportHeight: number, contentHeight: number) {
+    if (contentHeight <= 0 || viewportHeight <= 0) {
+      return;
+    }
+    const bottomBuffer = 24;
+    if (contentHeight <= viewportHeight + bottomBuffer || offsetY + viewportHeight >= contentHeight - bottomBuffer) {
+      setHasReadTerms(true);
+    }
+  }
+
+  function openTermsAcceptance() {
+    setIsTermsAcceptanceOpen(true);
+  }
+
+  function acceptTerms() {
+    onAcceptedTermsChange(true);
+    setIsTermsAcceptanceOpen(false);
+  }
 
   async function handleForgotPassword() {
     const normalizedEmail = forgotEmail.trim();
@@ -440,7 +477,10 @@ export function LoginScreen({
 
             {mode === 'signup' ? (
               <Pressable
-                onPress={() => onAcceptedTermsChange(!acceptedTerms)}
+                accessibilityRole="checkbox"
+                accessibilityState={{ checked: acceptedTerms }}
+                accessibilityLabel="I accept the Terms of Service and Privacy Policy"
+                onPress={openTermsAcceptance}
                 style={styles.acceptanceRow}>
                 <View style={[styles.acceptanceCheckbox, acceptedTerms && styles.acceptanceCheckboxActive]}>
                   {acceptedTerms ? <Check color="#FFFFFF" size={14} strokeWidth={2.8} /> : null}
@@ -509,6 +549,59 @@ export function LoginScreen({
         onClose={() => setActiveSheet(null)}>
         <ScrollView showsVerticalScrollIndicator={false}>
           {(legalContent?.sections || []).map(section => (
+            <View key={section.heading} style={styles.sheetSection}>
+              <Text style={styles.sheetHeading}>{section.heading}</Text>
+              {section.paragraphs.map(paragraph => (
+                <Text key={paragraph} style={styles.sheetCopy}>
+                  {paragraph}
+                </Text>
+              ))}
+            </View>
+          ))}
+        </ScrollView>
+      </GlassSheet>
+
+      <GlassSheet
+        open={isTermsAcceptanceOpen}
+        title="Terms of Service"
+        icon={<FileText color="#FFFFFF" size={18} strokeWidth={2.3} />}
+        onClose={() => setIsTermsAcceptanceOpen(false)}
+        footer={
+          <Pressable
+            accessibilityRole="button"
+            accessibilityLabel="I accept terms of Service"
+            disabled={!hasReadTerms}
+            onPress={acceptTerms}
+            style={({ pressed }) => [
+              styles.termsAcceptButton,
+              !hasReadTerms && styles.termsAcceptButtonDisabled,
+              pressed && hasReadTerms && styles.submitButtonPressed,
+            ]}>
+            <Text style={[styles.termsAcceptButtonText, !hasReadTerms && styles.termsAcceptButtonTextDisabled]}>
+              I accept terms of Service
+            </Text>
+          </Pressable>
+        }>
+        <ScrollView
+          onContentSizeChange={(_, height) => {
+            setTermsContentHeight(height);
+            updateTermsReadProgress(0, termsViewportHeight, height);
+          }}
+          onLayout={event => {
+            const height = event.nativeEvent.layout.height;
+            setTermsViewportHeight(height);
+            updateTermsReadProgress(0, height, termsContentHeight);
+          }}
+          onScroll={event => {
+            updateTermsReadProgress(
+              event.nativeEvent.contentOffset.y,
+              event.nativeEvent.layoutMeasurement.height,
+              event.nativeEvent.contentSize.height,
+            );
+          }}
+          scrollEventThrottle={16}
+          showsVerticalScrollIndicator>
+          {TERMS_OF_USE_SECTIONS.map(section => (
             <View key={section.heading} style={styles.sheetSection}>
               <Text style={styles.sheetHeading}>{section.heading}</Text>
               {section.paragraphs.map(paragraph => (
@@ -629,12 +722,14 @@ function GlassSheet({
   title,
   icon,
   children,
+  footer,
   onClose,
 }: {
   open: boolean;
   title: string;
   icon: React.ReactNode;
   children: React.ReactNode;
+  footer?: React.ReactNode;
   onClose: () => void;
 }) {
   return (
@@ -654,12 +749,13 @@ function GlassSheet({
             </View>
           </LinearGradient>
           <View style={styles.modalBody}>{children}</View>
-          {open && title === 'Terms of Service' ? (
+          {footer ? footer : null}
+          {!footer && open && title === 'Terms of Service' ? (
             <Pressable onPress={() => Linking.openURL(TERMS_OF_SERVICE_URL)} style={styles.hostedLinkButton}>
               <Text style={styles.hostedLinkButtonText}>Open hosted copy</Text>
             </Pressable>
           ) : null}
-          {open && title === 'Privacy Policy' ? (
+          {!footer && open && title === 'Privacy Policy' ? (
             <Pressable onPress={() => Linking.openURL(PRIVACY_POLICY_URL)} style={styles.hostedLinkButton}>
               <Text style={styles.hostedLinkButtonText}>Open hosted copy</Text>
             </Pressable>
@@ -1128,6 +1224,7 @@ const styles = StyleSheet.create({
   },
   modalBody: {
     backgroundColor: 'rgba(255,255,255,0.9)',
+    flexShrink: 1,
     padding: 18,
     gap: 14,
   },
@@ -1141,6 +1238,24 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 14,
     fontWeight: '800',
+  },
+  termsAcceptButton: {
+    alignItems: 'center',
+    backgroundColor: '#0F172A',
+    justifyContent: 'center',
+    minHeight: 52,
+    paddingHorizontal: 18,
+  },
+  termsAcceptButtonDisabled: {
+    backgroundColor: '#CBD5E1',
+  },
+  termsAcceptButtonText: {
+    color: '#FFFFFF',
+    fontSize: 15,
+    fontWeight: '800',
+  },
+  termsAcceptButtonTextDisabled: {
+    color: '#64748B',
   },
   sheetSection: {
     marginBottom: 18,

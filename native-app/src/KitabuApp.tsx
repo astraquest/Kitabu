@@ -103,6 +103,7 @@ export function KitabuApp() {
   const usesStudentHeader = shouldUseStudentHeader(state.currentView);
   const usesStandaloneScreen = shouldUseStandaloneScreen(state.currentView);
   const showDiagnosticPreview = shouldShowDiagnosticPreview();
+  const activeUserProfile = state.activeUserProfile;
 
   if (showDiagnosticPreview) {
     return (
@@ -236,7 +237,7 @@ export function KitabuApp() {
       <View style={styles.container}>
         {usesStudentHeader ? (
           <StudentHeader
-            userAvatar={state.userProfile.avatar}
+            userAvatar={activeUserProfile.avatar}
             onOpenProfile={() => {
               if (!state.focusModeActive) {
                 actions.setProfileOpen(true);
@@ -340,7 +341,7 @@ export function KitabuApp() {
           selectedSubject={state.selectedSubject}
           selectedSubStrand={state.selectedSubStrand}
           selectedAssignment={state.selectedAssignment}
-          userProfile={state.userProfile}
+          userProfile={activeUserProfile}
           startLiveAudio={state.startLiveAudio}
           attachmentPickerSignal={state.chatAttachmentPickerSignal}
           onClose={actions.closeChat}
@@ -559,7 +560,7 @@ function renderScreen(
           onSetPreviewBookId={actions.setPreviewBookId}
           onToggleSpotlight={() => actions.setIsSpotlightMode(!state.isSpotlightMode)}
           onToggleDownload={actions.toggleDownload}
-          user={state.userProfile}
+          user={state.activeUserProfile}
         />
       );
     case 'reading_mode':
@@ -585,7 +586,7 @@ function renderScreen(
           onSetPreviewBookId={actions.setPreviewBookId}
           onToggleSpotlight={() => actions.setIsSpotlightMode(!state.isSpotlightMode)}
           onToggleDownload={actions.toggleDownload}
-          user={state.userProfile}
+          user={state.activeUserProfile}
         />
       );
     case 'quiz_me_config':
@@ -607,7 +608,7 @@ function renderScreen(
           selectedSubject={state.selectedSubject}
           selectedSubStrand={state.selectedSubStrand}
           selectedAssignment={state.selectedAssignment}
-          userProfile={state.userProfile}
+          userProfile={state.activeUserProfile}
         />
       );
     case 'brain_tease':
@@ -660,7 +661,7 @@ function renderScreen(
     case 'game_zone':
       return (
         <GameZoneScreen
-          totalPoints={state.userProfile.points || 0}
+          totalPoints={state.activeUserProfile.points || 0}
           onBack={actions.goHome}
           onPlayGame={actions.playGame}
         />
@@ -684,8 +685,8 @@ function renderScreen(
     case 'teachers_portal':
       return (
         <TeacherPortalScreen
-          onBack={() => actions.openFeature('dashboard')}
-          onOpenStudentPreview={actions.openStudentPreview}
+          teacherName={state.authSession.user.fullName}
+          teacherEmail={state.authSession.user.email}
           students={state.teacherStudents}
           assignments={state.teacherAssignments}
           submissionsByAssignment={state.submissionsByAssignment}
@@ -725,6 +726,7 @@ function renderScreen(
         <ParentDashboardScreen
           children={state.parentChildren}
           selectedChildId={state.selectedParentChildId}
+          parentName={state.authSession.user.fullName}
           linkIdentifier={state.parentChildIdentifier}
           linkMethod={state.parentChildLinkMethod}
           isLoading={state.isLoadingParentDashboard}

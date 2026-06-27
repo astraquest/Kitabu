@@ -150,6 +150,7 @@ interface FocusModeSnapshot {
   activeSecondsUsed: number;
   dailyLimitSeconds: number;
   sessionExpired: boolean;
+  studentProfile: UserProfile | null;
 }
 
 interface RouteSnapshot {
@@ -332,6 +333,19 @@ function mergeCurriculumBundles(
   return next;
 }
 
+function mapParentChildToStudentProfile(child: ParentChildSummary): UserProfile {
+  return {
+    ...INITIAL_USER_PROFILE,
+    name: child.name,
+    email: child.email,
+    grade: child.grade,
+    school: child.school,
+    role: 'Student Account',
+    status: child.last_active || 'Student preview',
+    avatar: child.name,
+  };
+}
+
 async function loadQuizBankFallback(grade: string, limit: number, subjectId?: string | null) {
   try {
     const questions = await getQuizBankQuestions({ grade, subjectId, limit });
@@ -427,6 +441,7 @@ export function useKitabuApp() {
   const [downloadedBooks, setDownloadedBooks] = useState<Set<string>>(new Set());
   const [showComingSoon, setShowComingSoon] = useState(false);
   const [isStudentPreview, setIsStudentPreview] = useState(false);
+  const [focusModeStudentProfile, setFocusModeStudentProfile] = useState<UserProfile | null>(null);
   const [billingPlans, setBillingPlans] = useState<BillingPlan[]>([]);
   const [billingStatus, setBillingStatus] = useState<BillingStatus>({
     subscription: null,
@@ -628,6 +643,7 @@ export function useKitabuApp() {
           activeSecondsUsed: 0,
           dailyLimitSeconds: DEFAULT_FOCUS_MODE_LIMIT_SECONDS,
           sessionExpired: false,
+          studentProfile: null,
         }),
         loadStoredAuthSession(),
       ]);
@@ -649,6 +665,9 @@ export function useKitabuApp() {
       setDailyLimitSeconds(storedFocusLimit);
       setActiveSecondsUsed(storedActiveSeconds);
       setFocusModeActive(Boolean(storedFocusMode.focusModeActive));
+      setFocusModeStudentProfile(
+        storedFocusMode.focusModeActive ? storedFocusMode.studentProfile ?? null : null,
+      );
       setSessionExpired(storedSessionExpired);
       setSessionStartedAt(
         storedFocusMode.focusModeActive && !storedSessionExpired ? Date.now() : null,
@@ -754,12 +773,14 @@ export function useKitabuApp() {
         activeSecondsUsed,
         dailyLimitSeconds,
         sessionExpired,
+        studentProfile: focusModeStudentProfile,
       }).catch(() => undefined);
     }
   }, [
     activeSecondsUsed,
     dailyLimitSeconds,
     focusModeActive,
+    focusModeStudentProfile,
     isReady,
     sessionExpired,
     sessionStartedAt,
@@ -887,6 +908,8 @@ export function useKitabuApp() {
     billingStatus.subscription && new Date(billingStatus.subscription.periodEnd).getTime() > Date.now(),
   );
   const focusModeSecondsRemaining = Math.max(0, dailyLimitSeconds - activeSecondsUsed);
+  const activeUserProfile =
+    focusModeActive && focusModeStudentProfile ? focusModeStudentProfile : userProfile;
 
   useEffect(() => {
     if (!authSession || isStudentPreview) {
@@ -1089,8 +1112,11 @@ export function useKitabuApp() {
       }
 
       await focusModeBridge.startScreenPinning();
-      const selectedChild = parentChildren.find(child => child.id === selectedParentChildId);
+      const selectedChild =
+        parentChildren.find(child => child.id === selectedParentChildId) ?? parentChildren[0] ?? null;
       const shouldUseStudentPreview = !authSession?.user.roles.includes('student');
+      const lockedStudentProfile =
+        shouldUseStudentPreview && selectedChild ? mapParentChildToStudentProfile(selectedChild) : null;
       setFocusModeActive(true);
       setSessionStartedAt(Date.now());
       setActiveSecondsUsed(0);
@@ -1106,6 +1132,7 @@ export function useKitabuApp() {
       setIsCheckoutOpen(false);
       setIsTryOneBobOpen(false);
       setIsStudentPreview(shouldUseStudentPreview);
+      setFocusModeStudentProfile(lockedStudentProfile);
       if (selectedChild?.grade) {
         setCurrentGrade(selectedChild.grade);
       }
@@ -1152,6 +1179,7 @@ export function useKitabuApp() {
       setFocusModeSetupRequired(false);
       setFocusModeError(null);
       setIsStudentPreview(false);
+      setFocusModeStudentProfile(null);
       replaceWith(primaryHomeView);
       triggerHaptic('success');
     } catch (error) {
@@ -1986,6 +2014,7 @@ export function useKitabuApp() {
     setActivePaymentRequestId(null);
     setLessonQuizSubStrandId(null);
     setIsStudentPreview(false);
+    setFocusModeStudentProfile(null);
     setFocusModeActive(false);
     setSessionStartedAt(null);
     setActiveSecondsUsed(0);
@@ -2958,6 +2987,7 @@ export function useKitabuApp() {
       isSubmittingWeeklyExam,
       unreadNotificationCount: notifications.filter(item => item.status === 'unread').length,
       userProfile,
+      activeUserProfile,
       assignments,
       teacherStudents,
       teacherAssignments,

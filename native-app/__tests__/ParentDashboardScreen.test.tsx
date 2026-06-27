@@ -140,13 +140,14 @@ beforeEach(() => {
 test('renders multiple children and data-backed overview stats', () => {
   const root = renderParentDashboard();
 
-  expect(root.findAllByProps({ children: 'Focus Mode' }).length).toBeGreaterThan(0);
+  expect(root.findAllByProps({ children: "Today's Learning" }).length).toBeGreaterThan(0);
+  expect(root.findAllByProps({ children: 'Remedial Focus' }).length).toBeGreaterThan(0);
   expect(root.findAllByProps({ children: '2 linked children' }).length).toBeGreaterThan(0);
   expect(root.findAllByProps({ children: 'Amina' }).length).toBeGreaterThan(0);
   expect(root.findAllByProps({ children: 'Baraka' }).length).toBeGreaterThan(0);
   expect(root.findAllByProps({ children: 'Fractions practice' }).length).toBeGreaterThan(0);
-  expect(root.findAllByProps({ children: '80%' }).length).toBeGreaterThan(0);
-  expect(hasText(root, '6 of 10 lessons completed')).toBe(true);
+  expect(hasText(root, '82')).toBe(true);
+  expect(hasText(root, '60% of daily goal')).toBe(true);
 });
 
 test('starts Focus Mode and shows App Pinning setup when required', () => {
@@ -184,10 +185,22 @@ test('starts Focus Mode and shows App Pinning setup when required', () => {
   expect(onOpenFocusModeSettings).toHaveBeenCalledTimes(1);
 });
 
+test('starts Focus Mode from the Lock Phone quick action', () => {
+  const onStartFocusMode = jest.fn();
+  const root = renderParentDashboard({ onStartFocusMode });
+
+  const lockPhoneButton = pressableWithText(root, 'Lock Phone');
+  ReactTestRenderer.act(() => lockPhoneButton.props.onPress());
+
+  expect(onStartFocusMode).toHaveBeenCalledTimes(1);
+});
+
 test('submits email linking', () => {
   const onLinkChild = jest.fn();
   const onLinkIdentifierChange = jest.fn();
   const root = renderParentDashboard({
+    children: [],
+    selectedChildId: null,
     linkIdentifier: 'student@example.com',
     onLinkChild,
     onLinkIdentifierChange,
@@ -208,6 +221,8 @@ test('submits phone linking and switches methods', () => {
   const onLinkMethodChange = jest.fn();
   const onLinkIdentifierChange = jest.fn();
   const root = renderParentDashboard({
+    children: [],
+    selectedChildId: null,
     linkIdentifier: '0712345678',
     linkMethod: 'phone',
     onLinkChild,
@@ -268,13 +283,13 @@ test('renders loading, empty, and error states', () => {
 
 test('weekly report shows activity when present and empty copy when absent', () => {
   const activeReport = renderParentDashboard();
-  const weeklyTab = pressableWithText(activeReport, 'Weekly report');
+  const weeklyTab = pressableWithText(activeReport, 'Reports');
   ReactTestRenderer.act(() => weeklyTab.props.onPress());
   expect(hasText(activeReport, 'This week for Amina')).toBe(true);
   expect(activeReport.findAllByProps({ children: 'English: Grammar' }).length).toBeGreaterThan(0);
 
   const emptyReport = renderParentDashboard({ selectedChildId: 'child-2' });
-  const emptyWeeklyTab = pressableWithText(emptyReport, 'Weekly report');
+  const emptyWeeklyTab = pressableWithText(emptyReport, 'Reports');
   ReactTestRenderer.act(() => emptyWeeklyTab.props.onPress());
   expect(
     emptyReport.findAllByProps({

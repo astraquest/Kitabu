@@ -190,9 +190,17 @@ test('phone signup requires OTP and rejects duplicate signup', async () => {
     method: 'DELETE',
     url: '/me/account',
     headers: { authorization: `Bearer ${session.accessToken}` },
-    payload: { confirmationText: 'DELETE' }
+    payload: { confirmationText: 'DELETE MY ACCOUNT' }
   });
   assert.equal(deletion.statusCode, 200);
+  assert.equal(deletion.json().deletionRequested, true);
+
+  const refreshAfterDeletionRequest = await app.inject({
+    method: 'POST',
+    url: '/auth/refresh',
+    payload: { refreshToken: session.refreshToken }
+  });
+  assert.equal(refreshAfterDeletionRequest.statusCode, 401);
 });
 
 test('phone signup accepts only the latest requested OTP', async () => {
@@ -243,9 +251,10 @@ test('phone signup accepts only the latest requested OTP', async () => {
     method: 'DELETE',
     url: '/me/account',
     headers: { authorization: `Bearer ${latestVerify.json().accessToken}` },
-    payload: { confirmationText: 'DELETE' }
+    payload: { confirmationText: 'DELETE MY ACCOUNT' }
   });
   assert.equal(deletion.statusCode, 200);
+  assert.equal(deletion.json().deletionRequested, true);
 });
 
 test('phone signup validation fails cleanly before issuing an OTP', async () => {
@@ -394,9 +403,10 @@ test('email signup requires verification before product access and refreshes aft
     method: 'DELETE',
     url: '/me/account',
     headers: { authorization: `Bearer ${refreshedSession.accessToken}` },
-    payload: { confirmationText: 'DELETE' }
+    payload: { confirmationText: 'DELETE MY ACCOUNT' }
   });
   assert.equal(deletion.statusCode, 200);
+  assert.equal(deletion.json().deletionRequested, true);
 });
 
 test('parent links multiple verified students by email and phone and sees real dashboard stats', async () => {
@@ -608,9 +618,10 @@ test('Google signup links a verified identity and supports subsequent login', as
     method: 'DELETE',
     url: '/me/account',
     headers: { authorization: `Bearer ${login.json().accessToken}` },
-    payload: { confirmationText: 'DELETE' }
+    payload: { confirmationText: 'DELETE MY ACCOUNT' }
   });
   assert.equal(deletion.statusCode, 200);
+  assert.equal(deletion.json().deletionRequested, true);
 });
 
 test('Google login links an existing email account and satisfies verification gate', async () => {

@@ -226,6 +226,26 @@ returns HTTP 503.
 
 ## 9. Update the server on new releases
 
+The GitHub Actions deployment runner should be installed on the production host and
+registered with the `kitabu-prod` label. Pushes to `main` deploy automatically;
+manual production deploys can still be started from `.github/workflows/deploy-api.yml`.
+
+If the runner is missing or offline, create a repo runner registration token:
+
+```bash
+gh api -X POST repos/astraquest/Kitabu/actions/runners/registration-token --jq .token
+```
+
+Then run this on the production host:
+
+```bash
+cd /home/samora/deploy/kitabu-live
+sudo RUNNER_TOKEN='PASTE_TOKEN' bash infra/install-github-runner.sh
+```
+
+Confirm the repo shows an online self-hosted runner with labels
+`self-hosted`, `linux`, `x64`, and `kitabu-prod`.
+
 ```bash
 cd /opt/kitabu-ai
 git pull origin main

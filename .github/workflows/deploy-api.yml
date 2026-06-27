@@ -1,6 +1,9 @@
 name: Deploy API
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
     inputs:
       environment:
@@ -17,6 +20,8 @@ jobs:
       - self-hosted
       - linux
       - x64
+      - kitabu-prod
+    timeout-minutes: 30
     environment: ${{ github.event_name == 'workflow_dispatch' && inputs.environment || 'production' }}
     concurrency:
       group: deploy-api-${{ github.ref }}
@@ -56,5 +61,6 @@ jobs:
           fi
 
           curl --fail --silent https://app.kitabu.ai/health >/dev/null
+          curl --fail --silent https://kitabu.ai/deletion | grep -q 'Account Deletion Request'
           curl --fail --silent https://admin.kitabu.ai/app.js | grep -q '/curriculum/import/pdf'
           curl --fail --silent https://admin.kitabu.ai/app.js | grep -q '/ai/generate-text'

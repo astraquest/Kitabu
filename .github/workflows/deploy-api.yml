@@ -47,14 +47,14 @@ jobs:
         run: |
           set -euo pipefail
           ssh -i ~/.ssh/kitabu_deploy "${{ secrets.KITABU_DEPLOY_USER }}@${{ secrets.KITABU_DEPLOY_HOST }}" 'bash -se' <<'REMOTE'
+          set -euo pipefail
           cd /opt/kitabu-ai
           docker compose up -d postgres redis
           docker compose build api worker
           docker compose run --rm api node scripts/apply-migrations.mjs
           docker compose run --rm api node scripts/verify-production-readiness.mjs
-          docker compose up -d api worker
-          docker compose rm -sf caddy
-          docker compose up -d caddy
+          docker compose rm -sf api worker caddy
+          docker compose up -d api worker caddy
           docker compose exec -T caddy caddy reload --config /etc/caddy/Caddyfile
           healthy=0
           for attempt in $(seq 1 30); do

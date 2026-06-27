@@ -1962,7 +1962,7 @@ export function useKitabuApp() {
 
     try {
       if (!acceptedTerms) {
-        throw new Error('You must accept the Terms of Service and Privacy Policy before creating an account.');
+        throw new Error('You must accept the Terms of Use and Privacy Policy before creating an account.');
       }
       if (!signupRole) {
         throw new Error('Choose an account role before creating an account.');

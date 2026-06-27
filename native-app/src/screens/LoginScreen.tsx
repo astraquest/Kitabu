@@ -150,7 +150,7 @@ export function LoginScreen({
     () =>
       activeSheet === 'terms'
         ? {
-            title: 'Terms of Service',
+            title: 'Terms of Use',
             icon: <FileText color="#FFFFFF" size={18} strokeWidth={2.3} />,
             sections: TERMS_OF_USE_SECTIONS,
           }
@@ -279,7 +279,7 @@ export function LoginScreen({
       setProviderState({
         isSubmitting: false,
         message: null,
-        error: 'Accept the Terms of Service and Privacy Policy before creating an account.',
+        error: 'Accept the Terms of Use and Privacy Policy before creating an account.',
       });
       return;
     }
@@ -304,7 +304,7 @@ export function LoginScreen({
           throw new Error('Choose an account role before creating an account.');
         }
         if (!acceptedTerms) {
-          throw new Error('Accept the Terms of Service and Privacy Policy before creating an account.');
+          throw new Error('Accept the Terms of Use and Privacy Policy before creating an account.');
         }
         const idToken = await requestGoogleIdToken();
         session = await authenticateWithGoogleToken({ idToken, role, acceptedTerms: true });
@@ -479,14 +479,14 @@ export function LoginScreen({
               <Pressable
                 accessibilityRole="checkbox"
                 accessibilityState={{ checked: acceptedTerms }}
-                accessibilityLabel="I accept the Terms of Service and Privacy Policy"
+                accessibilityLabel="I accept the Terms of Use and Privacy Policy"
                 onPress={openTermsAcceptance}
                 style={styles.acceptanceRow}>
                 <View style={[styles.acceptanceCheckbox, acceptedTerms && styles.acceptanceCheckboxActive]}>
                   {acceptedTerms ? <Check color="#FFFFFF" size={14} strokeWidth={2.8} /> : null}
                 </View>
                 <Text style={styles.acceptanceText}>
-                  I Accept the Terms of Service and Privacy Policy.
+                  I Accept the Terms of Use and Privacy Policy.
                 </Text>
               </Pressable>
             ) : null}
@@ -563,13 +563,13 @@ export function LoginScreen({
 
       <GlassSheet
         open={isTermsAcceptanceOpen}
-        title="Terms of Service"
+        title="Terms of Use"
         icon={<FileText color="#FFFFFF" size={18} strokeWidth={2.3} />}
         onClose={() => setIsTermsAcceptanceOpen(false)}
         footer={
           <Pressable
             accessibilityRole="button"
-            accessibilityLabel="I accept terms of Service"
+            accessibilityLabel="I accept Terms of Use"
             disabled={!hasReadTerms}
             onPress={acceptTerms}
             style={({ pressed }) => [
@@ -578,7 +578,7 @@ export function LoginScreen({
               pressed && hasReadTerms && styles.submitButtonPressed,
             ]}>
             <Text style={[styles.termsAcceptButtonText, !hasReadTerms && styles.termsAcceptButtonTextDisabled]}>
-              I accept terms of Service
+              I accept Terms of Use
             </Text>
           </Pressable>
         }>
@@ -750,7 +750,7 @@ function GlassSheet({
           </LinearGradient>
           <View style={styles.modalBody}>{children}</View>
           {footer ? footer : null}
-          {!footer && open && title === 'Terms of Service' ? (
+          {!footer && open && title === 'Terms of Use' ? (
             <Pressable onPress={() => Linking.openURL(TERMS_OF_SERVICE_URL)} style={styles.hostedLinkButton}>
               <Text style={styles.hostedLinkButtonText}>Open hosted copy</Text>
             </Pressable>

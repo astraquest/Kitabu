@@ -163,6 +163,52 @@ test('email signup requires accepted terms before submitting', async () => {
   expect(renderer.root.findByProps({ children: 'Accept the Terms of Service and Privacy Policy before creating an account.' })).toBeTruthy();
 });
 
+test('terms checkbox opens scroll-gated acceptance modal before ticking terms', async () => {
+  const onAcceptedTermsChange = jest.fn();
+  const { renderer } = await renderLogin(jest.fn(), {
+    mode: 'signup',
+    signupRole: 'parent',
+    acceptedTerms: false,
+    onAcceptedTermsChange,
+  });
+
+  await continueAsParent(renderer);
+  await act(async () => {
+    renderer.root.findByProps({ accessibilityLabel: 'I accept the Terms of Service and Privacy Policy' }).props.onPress();
+  });
+
+  const acceptButton = renderer.root.findByProps({ accessibilityLabel: 'I accept terms of Service' });
+  expect(acceptButton.props.disabled).toBe(true);
+  expect(onAcceptedTermsChange).not.toHaveBeenCalled();
+
+  const termsScrollView = renderer.root.findAll(
+    node =>
+      typeof node.props.onScroll === 'function' &&
+      typeof node.props.onContentSizeChange === 'function',
+  )[0];
+
+  await act(async () => {
+    termsScrollView.props.onLayout({ nativeEvent: { layout: { height: 300 } } });
+    termsScrollView.props.onContentSizeChange(320, 900);
+    termsScrollView.props.onScroll({
+      nativeEvent: {
+        contentOffset: { y: 600 },
+        layoutMeasurement: { height: 300 },
+        contentSize: { height: 900 },
+      },
+    });
+  });
+
+  const enabledAcceptButton = renderer.root.findByProps({ accessibilityLabel: 'I accept terms of Service' });
+  expect(enabledAcceptButton.props.disabled).toBe(false);
+
+  await act(async () => {
+    enabledAcceptButton.props.onPress();
+  });
+
+  expect(onAcceptedTermsChange).toHaveBeenCalledWith(true);
+});
+
 test('email signup requires a full name before submitting', async () => {
   const onSubmit = jest.fn();
   const { renderer } = await renderLogin(jest.fn(), {

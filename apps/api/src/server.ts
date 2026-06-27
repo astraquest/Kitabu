@@ -47,7 +47,6 @@ import {
   createEmptyCurriculumSubject,
   createSchool,
   createSchoolDiscount,
-  deleteSelfServiceAccount,
   deleteBannerAnnouncement,
   deleteSchool,
   deleteSchoolDiscount,
@@ -71,6 +70,7 @@ import {
   findSubscriptionPlanByCode,
   findUserByEmail,
   findUserByAuthIdentity,
+  findUserStatus,
   findUserByPhone,
   findUserById,
   findWeeklyExamAttempt,
@@ -124,6 +124,7 @@ import {
   recordUserPresence,
   recordPhoneVerificationFailure,
   replaceCurriculumSubject,
+  requestSelfServiceAccountDeletion,
   revokeRefreshToken,
   revokeAllRefreshTokensForUser,
   revokeRefreshTokensForSession,
@@ -248,7 +249,7 @@ const completeEmailVerificationSchema = z.object({
 });
 
 const deleteAccountSchema = z.object({
-  confirmationText: z.literal('DELETE')
+  confirmationText: z.literal('DELETE MY ACCOUNT')
 });
 
 const tokenQuerySchema = z.object({
@@ -711,6 +712,27 @@ function redactRequestUrl(rawUrl: string) {
   }
 }
 
+function parseOriginList(value: string) {
+  return value
+    .split(',')
+    .map(origin => origin.trim())
+    .filter(Boolean);
+}
+
+function getAllowedCorsOrigins() {
+  const origins = new Set([
+    appConfig.KITABU_ADMIN_WEB_ORIGIN,
+    ...parseOriginList(appConfig.KITABU_WEB_APP_ORIGINS)
+  ]);
+
+  if (appConfig.KITABU_NODE_ENV !== 'production') {
+    origins.add('http://localhost:8081');
+    origins.add('http://127.0.0.1:8081');
+  }
+
+  return Array.from(origins);
+}
+
 function renderHandoffPage(args: {
   title: string;
   message: string;
@@ -1059,7 +1081,7 @@ export function buildServer(options: BuildServerOptions = {}) {
   registerLiveAudioStreamRoutes(app);
 
   app.register(cors, {
-    origin: [appConfig.KITABU_ADMIN_WEB_ORIGIN]
+    origin: getAllowedCorsOrigins()
   });
   app.register(helmet);
   app.register(sensible);
@@ -1130,6 +1152,12 @@ export function buildServer(options: BuildServerOptions = {}) {
     } catch {
       request.user = undefined;
       return;
+    }
+
+    const userStatus = await findUserStatus(request.user.id);
+    if (userStatus !== 'active') {
+      request.user = undefined;
+      return reply.unauthorized('Account is not active');
     }
 
     const verificationExemptRoutes = new Set([
@@ -1204,6 +1232,7 @@ export function buildServer(options: BuildServerOptions = {}) {
       ? {
           id: args.user.id,
           schoolId: args.user.schoolId,
+          status: args.user.status ?? 'active',
           sessionId: args.sessionId ?? args.user.sessionId,
           email: args.user.email,
           phoneNumber: args.user.phoneNumber ?? null,
@@ -1220,6 +1249,7 @@ export function buildServer(options: BuildServerOptions = {}) {
       : {
           id: args.user.id,
           schoolId: args.user.school_id,
+          status: args.user.status,
           sessionId: args.sessionId ?? null,
           email: args.user.email,
           phoneNumber: args.user.phone_number,
@@ -1265,9 +1295,14 @@ export function buildServer(options: BuildServerOptions = {}) {
 
   async function issueAuthSession(
     request: FastifyRequest,
+    reply: FastifyReply,
     user: NonNullable<Awaited<ReturnType<typeof findUserByEmail>>>,
     auditEvent: string
   ) {
+    if (user.status !== 'active') {
+      return reply.unauthorized('Account is not active');
+    }
+
     const refreshToken = generateRefreshToken();
     const refreshTokenHash = hashOpaqueToken(refreshToken);
     const refreshExpiresAt = new Date(
@@ -2106,6 +2141,13 @@ Requirements:
       return reply.unauthorized('Invalid credentials');
     }
 
+    if (user.status !== 'active') {
+      await withTransaction(client => createAuditLog(client, user.id, user.school_id, 'auth.login.blocked', {
+        reason: 'inactive_account'
+      }));
+      return reply.unauthorized('Account is not active');
+    }
+
     const refreshToken = generateRefreshToken();
     const refreshTokenHash = hashOpaqueToken(refreshToken);
     const refreshExpiresAt = new Date(Date.now() + appConfig.KITABU_REFRESH_TOKEN_TTL_DAYS * 24 * 60 * 60 * 1000);
@@ -2298,7 +2340,7 @@ Requirements:
       return reply.badRequest('Invalid or expired verification code');
     }
 
-    return issueAuthSession(request, user, `auth.phone.${body.purpose}.succeeded`);
+    return issueAuthSession(request, reply, user, `auth.phone.${body.purpose}.succeeded`);
   });
 
   app.post('/auth/google', { config: { rateLimit: { max: 10, timeWindow: '5 minutes' } } }, async (request, reply) => {
@@ -2372,7 +2414,7 @@ Requirements:
     if (!user) {
       throw new Error('Unable to load Google account');
     }
-    return issueAuthSession(request, user, 'auth.google.login.succeeded');
+    return issueAuthSession(request, reply, user, 'auth.google.login.succeeded');
   });
 
   app.post('/auth/signup', { config: { rateLimit: { max: 15, timeWindow: '5 minutes' } } }, async (request, reply) => {
@@ -2733,6 +2775,16 @@ Requirements:
     const user = await findUserById(currentToken.user_id);
     if (!user) {
       return reply.unauthorized('User not found');
+    }
+    if (user.status !== 'active') {
+      await withTransaction(async client => {
+        await revokeRefreshTokensForSession(client, currentToken.user_id, currentToken.session_id);
+        await createAuditLog(client, user.id, user.schoolId, 'auth.refresh.blocked', {
+          reason: 'inactive_account',
+          sessionId: currentToken.session_id
+        });
+      });
+      return reply.unauthorized('Account is not active');
     }
 
     const sessionContext = getSessionContext(request);
@@ -4528,7 +4580,7 @@ Return valid JSON with this shape:
     }
 
     const body = deleteAccountSchema.parse(request.body);
-    if (body.confirmationText !== 'DELETE') {
+    if (body.confirmationText !== 'DELETE MY ACCOUNT') {
       return reply.badRequest('Confirmation text is invalid');
     }
 
@@ -4542,23 +4594,26 @@ Return valid JSON with this shape:
     }
 
     await withTransaction(async client => {
+      const deletionRequest = await requestSelfServiceAccountDeletion(client, currentUser.id);
       await createAuditLog(
         client,
         currentUser.id,
         currentUser.schoolId,
-        'auth.account.deleted',
+        'auth.account_deletion.requested',
         {
-          deletedUserId: currentUser.id,
-          deletedEmail: currentUser.email
+          deletionRequestId: deletionRequest.id,
+          scheduledDeletionAt: deletionRequest.scheduled_deletion_at.toISOString()
         },
         'user',
         currentUser.id
       );
       await revokeAllRefreshTokensForUser(client, currentUser.id);
-      await deleteSelfServiceAccount(client, currentUser.id);
     });
 
-    return { deleted: true };
+    return {
+      deletionRequested: true,
+      message: 'Account deletion requested. Your account and data will be deleted from our servers within 30 days.'
+    };
   });
 
   app.get('/admin/schools', async (request, reply) => {

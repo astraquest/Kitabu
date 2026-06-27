@@ -10,5 +10,6 @@ class KitabuAuthConfigModule(
 
   override fun getConstants(): Map<String, Any> = mapOf(
     "googleWebClientId" to BuildConfig.GOOGLE_WEB_CLIENT_ID,
+    "googleAndroidClientId" to BuildConfig.GOOGLE_ANDROID_CLIENT_ID,
   )
 }

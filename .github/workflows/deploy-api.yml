@@ -52,7 +52,8 @@ jobs:
           docker compose build api worker
           docker compose run --rm api node scripts/apply-migrations.mjs
           docker compose run --rm api node scripts/verify-production-readiness.mjs
-          docker compose up -d api worker caddy
+          docker compose up -d api worker
+          docker compose up -d --force-recreate caddy
           docker compose exec -T caddy caddy reload --config /etc/caddy/Caddyfile
           healthy=0
           for attempt in $(seq 1 30); do
@@ -73,6 +74,7 @@ jobs:
           curl --fail --silent https://kitabu.ai/deletion | grep -q 'Account Deletion Request'
           curl --fail --silent https://kitabu.ai/terms | grep -q 'General Terms and Conditions of Use'
           curl --fail --silent https://kitabu.ai/Terms | grep -q 'General Terms and Conditions of Use'
+          curl --fail --silent https://kitabu.ai/TERMS | grep -q 'General Terms and Conditions of Use'
           curl --fail --silent https://admin.kitabu.ai/app.js | grep -q '/curriculum/import/pdf'
           curl --fail --silent https://admin.kitabu.ai/app.js | grep -q '/ai/generate-text'
           REMOTE

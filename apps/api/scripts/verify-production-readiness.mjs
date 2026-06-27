@@ -83,6 +83,29 @@ function hasValue(name) {
   return Boolean(process.env[name]?.trim());
 }
 
+function validateProductionUrl(name, fallback, expectedOrigin, expectedPath) {
+  const rawValue = process.env[name]?.trim() || fallback;
+  let parsed;
+  try {
+    parsed = new URL(rawValue);
+  } catch {
+    failures.push(`${name} must be a valid URL`);
+    return;
+  }
+
+  if (parsed.protocol !== 'https:') {
+    failures.push(`${name} must use https`);
+  }
+
+  if (['localhost', '127.0.0.1'].includes(parsed.hostname)) {
+    failures.push(`${name} points to ${parsed.hostname}; production must use deployed public links`);
+  }
+
+  if (parsed.origin !== expectedOrigin || parsed.pathname !== expectedPath) {
+    failures.push(`${name} must be ${expectedOrigin}${expectedPath}`);
+  }
+}
+
 for (const name of requiredEnv) {
   if (!hasValue(name)) {
     failures.push(`${name} is not set`);
@@ -92,6 +115,19 @@ for (const name of requiredEnv) {
 if (!hasValue('KITABU_DEEPSEEK_API_KEY') && !hasValue('KITABU_NVIDIA_API_KEY')) {
   failures.push('Set KITABU_DEEPSEEK_API_KEY or KITABU_NVIDIA_API_KEY for DeepSeek v4 flash fallback');
 }
+
+validateProductionUrl(
+  'KITABU_PASSWORD_RESET_URL',
+  'https://app.kitabu.ai/reset-password',
+  'https://app.kitabu.ai',
+  '/reset-password'
+);
+validateProductionUrl(
+  'KITABU_EMAIL_VERIFICATION_URL',
+  'https://app.kitabu.ai/verify-email',
+  'https://app.kitabu.ai',
+  '/verify-email'
+);
 
 let databaseHost = null;
 if (hasValue('KITABU_DATABASE_URL')) {

@@ -1,77 +1,79 @@
 {
-  auto_https off
+	auto_https off
 }
 
 http://kitabu.ai, http://www.kitabu.ai {
-  root * /srv/www
-  encode gzip zstd
-  @termsPath path /terms /terms/ /Terms /Terms/ /TERMS /TERMS/ /termS /termS/ /terMs /terMs/ /terMS /terMS/ /teRms /teRms/ /teRMs /teRMs/ /teRmS /teRmS/ /teRMS /teRMS/ /tErms /tErms/ /tErmS /tErmS/ /tErMs /tErMs/ /tErMS /tErMS/ /tERms /tERms/ /tERmS /tERmS/ /tERMs /tERMs/ /tERMS /tERMS/ /Terms /Terms/ /TermS /TermS/ /TerMs /TerMs/ /TerMS /TerMS/ /TeRms /TeRms/ /TeRmS /TeRmS/ /TeRMs /TeRMs/ /TeRMS /TeRMS/ /TErms /TErms/ /TErmS /TErmS/ /TErMs /TErMs/ /TErMS /TErMS/ /TERms /TERms/ /TERmS /TERmS/ /TERMs /TERMs/
-  handle @termsPath {
-    rewrite * /terms/index.html
-    file_server
-  }
-  handle {
-    try_files {path} {path}/index.html
-    file_server
-  }
+	root * /srv/www
+	encode gzip zstd
+	@termsPath {
+		path_regexp (?i)^/terms/?$
+	}
+	handle @termsPath {
+		rewrite * /terms/index.html
+		file_server
+	}
+	handle {
+		try_files {path} {path}/index.html
+		file_server
+	}
 }
 
 http://app.kitabu.ai {
-  reverse_proxy 127.0.0.1:4000
+	reverse_proxy 127.0.0.1:4000
 }
 
 http://admin.kitabu.ai {
-  root * /srv/admin
-  encode gzip zstd
-  @static_assets path /app.js /styles.css /assets/*
-  header {
-    X-Content-Type-Options "nosniff"
-    X-Frame-Options "DENY"
-    Referrer-Policy "strict-origin-when-cross-origin"
-    Permissions-Policy "camera=(), microphone=(), geolocation=()"
-    X-Robots-Tag "noindex, nofollow"
-    ?Cache-Control "no-store"
-  }
-  header @static_assets Cache-Control "public, max-age=300"
-  file_server
+	root * /srv/admin
+	encode gzip zstd
+	@static_assets path /app.js /styles.css /assets/*
+	header {
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Permissions-Policy "camera=(), microphone=(), geolocation=()"
+		X-Robots-Tag "noindex, nofollow"
+		?Cache-Control "no-store"
+	}
+	header @static_assets Cache-Control "public, max-age=300"
+	file_server
 }
 
 http://mjanjez.kitabu.ai {
-  reverse_proxy 127.0.0.1:4101
+	reverse_proxy 127.0.0.1:4101
 }
 
 http://storypod.kitabu.ai {
-  reverse_proxy 127.0.0.1:4102
+	reverse_proxy 127.0.0.1:4102
 }
 
 http://ndiziflix.kitabu.ai {
-  @backend path /api/* /health
-  handle @backend {
-    reverse_proxy 127.0.0.1:4104
-  }
-  handle {
-    reverse_proxy 127.0.0.1:4103
-  }
+	@backend path /api/* /health
+	handle @backend {
+		reverse_proxy 127.0.0.1:4104
+	}
+	handle {
+		reverse_proxy 127.0.0.1:4103
+	}
 }
 
 http://digitalbrain.kitabu.ai {
-  @backend path /auth* /chat* /knowledge* /user* /payment* /uploads* /health
-  handle @backend {
-    reverse_proxy 127.0.0.1:4106
-  }
-  handle {
-    reverse_proxy 127.0.0.1:4105
-  }
+	@backend path /auth* /chat* /knowledge* /user* /payment* /uploads* /health
+	handle @backend {
+		reverse_proxy 127.0.0.1:4106
+	}
+	handle {
+		reverse_proxy 127.0.0.1:4105
+	}
 }
 
 http://familydiary.kitabu.ai {
-  reverse_proxy 127.0.0.1:4107
+	reverse_proxy 127.0.0.1:4107
 }
 
 http://agentrobin.kitabu.ai {
-  reverse_proxy 127.0.0.1:18791
+	reverse_proxy 127.0.0.1:18791
 }
 
 http://sherehe.kitabu.ai {
-  reverse_proxy 127.0.0.1:4108
+	reverse_proxy 127.0.0.1:4108
 }

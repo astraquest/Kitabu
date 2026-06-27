@@ -26,12 +26,12 @@ jobs:
       - uses: actions/checkout@v4
       - name: Allow this runner through Hetzner firewall
         env:
-          HCLOUD_TOKEN: ${{ secrets.HCLOUD_TOKEN }}
+          KITABU_HCLOUD_TOKEN: ${{ secrets.KITABU_HCLOUD_TOKEN }}
           KITABU_FIREWALL_ID: ${{ secrets.KITABU_FIREWALL_ID }}
           KITABU_SETUP_SSH_CIDR: ${{ secrets.KITABU_SETUP_SSH_CIDR }}
         run: |
           set -euo pipefail
-          hcloud_token="$(printf '%s' "${HCLOUD_TOKEN}" | tr -d '\r\n')"
+          hcloud_token="$(printf '%s' "${KITABU_HCLOUD_TOKEN}" | tr -d '\r\n')"
           firewall_id="$(printf '%s' "${KITABU_FIREWALL_ID}" | tr -d '\r\n')"
           setup_ssh_cidr="$(printf '%s' "${KITABU_SETUP_SSH_CIDR}" | tr -d '\r\n')"
           runner_ip="$(curl -fsS https://api.ipify.org)"
@@ -120,12 +120,12 @@ jobs:
       - name: Restore Hetzner firewall
         if: always()
         env:
-          HCLOUD_TOKEN: ${{ secrets.HCLOUD_TOKEN }}
+          KITABU_HCLOUD_TOKEN: ${{ secrets.KITABU_HCLOUD_TOKEN }}
           KITABU_FIREWALL_ID: ${{ secrets.KITABU_FIREWALL_ID }}
           KITABU_SETUP_SSH_CIDR: ${{ secrets.KITABU_SETUP_SSH_CIDR }}
         run: |
           set -euo pipefail
-          hcloud_token="$(printf '%s' "${HCLOUD_TOKEN}" | tr -d '\r\n')"
+          hcloud_token="$(printf '%s' "${KITABU_HCLOUD_TOKEN}" | tr -d '\r\n')"
           firewall_id="$(printf '%s' "${KITABU_FIREWALL_ID}" | tr -d '\r\n')"
           setup_ssh_cidr="$(printf '%s' "${KITABU_SETUP_SSH_CIDR}" | tr -d '\r\n')"
           cat > /tmp/kitabu-firewall-restore.json <<JSON

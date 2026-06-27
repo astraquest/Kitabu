@@ -53,6 +53,7 @@ jobs:
           docker compose run --rm api node scripts/apply-migrations.mjs
           docker compose run --rm api node scripts/verify-production-readiness.mjs
           docker compose up -d api worker caddy
+          docker compose exec -T caddy caddy reload --config /etc/caddy/Caddyfile
           healthy=0
           for attempt in $(seq 1 30); do
             if curl --fail --silent http://127.0.0.1:4000/health >/dev/null; then
@@ -70,6 +71,8 @@ jobs:
 
           curl --fail --silent https://app.kitabu.ai/health >/dev/null
           curl --fail --silent https://kitabu.ai/deletion | grep -q 'Account Deletion Request'
+          curl --fail --silent https://kitabu.ai/terms | grep -q 'General Terms and Conditions of Use'
+          curl --fail --silent https://kitabu.ai/Terms | grep -q 'General Terms and Conditions of Use'
           curl --fail --silent https://admin.kitabu.ai/app.js | grep -q '/curriculum/import/pdf'
           curl --fail --silent https://admin.kitabu.ai/app.js | grep -q '/ai/generate-text'
           REMOTE

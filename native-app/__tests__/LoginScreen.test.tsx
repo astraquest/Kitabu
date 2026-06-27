@@ -160,7 +160,7 @@ test('email signup requires accepted terms before submitting', async () => {
   });
 
   expect(onSubmit).not.toHaveBeenCalled();
-  expect(renderer.root.findByProps({ children: 'Accept the Terms of Service and Privacy Policy before creating an account.' })).toBeTruthy();
+  expect(renderer.root.findByProps({ children: 'Accept the Terms of Use and Privacy Policy before creating an account.' })).toBeTruthy();
 });
 
 test('terms checkbox opens scroll-gated acceptance modal before ticking terms', async () => {
@@ -174,10 +174,10 @@ test('terms checkbox opens scroll-gated acceptance modal before ticking terms', 
 
   await continueAsParent(renderer);
   await act(async () => {
-    renderer.root.findByProps({ accessibilityLabel: 'I accept the Terms of Service and Privacy Policy' }).props.onPress();
+    renderer.root.findByProps({ accessibilityLabel: 'I accept the Terms of Use and Privacy Policy' }).props.onPress();
   });
 
-  const acceptButton = renderer.root.findByProps({ accessibilityLabel: 'I accept terms of Service' });
+  const acceptButton = renderer.root.findByProps({ accessibilityLabel: 'I accept Terms of Use' });
   expect(acceptButton.props.disabled).toBe(true);
   expect(onAcceptedTermsChange).not.toHaveBeenCalled();
 
@@ -199,7 +199,7 @@ test('terms checkbox opens scroll-gated acceptance modal before ticking terms', 
     });
   });
 
-  const enabledAcceptButton = renderer.root.findByProps({ accessibilityLabel: 'I accept terms of Service' });
+  const enabledAcceptButton = renderer.root.findByProps({ accessibilityLabel: 'I accept Terms of Use' });
   expect(enabledAcceptButton.props.disabled).toBe(false);
 
   await act(async () => {
@@ -260,7 +260,7 @@ test('Google signup requires accepted terms before requesting a token', async ()
 
   expect(requestGoogleIdToken).not.toHaveBeenCalled();
   expect(authenticateWithGoogleToken).not.toHaveBeenCalled();
-  expect(renderer.root.findByProps({ children: 'Accept the Terms of Service and Privacy Policy before creating an account.' })).toBeTruthy();
+  expect(renderer.root.findByProps({ children: 'Accept the Terms of Use and Privacy Policy before creating an account.' })).toBeTruthy();
 });
 
 test('Google signup sends role and terms payload to the API', async () => {

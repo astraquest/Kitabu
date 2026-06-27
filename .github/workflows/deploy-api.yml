@@ -24,6 +24,47 @@ jobs:
       cancel-in-progress: true
     steps:
       - uses: actions/checkout@v4
+      - name: Allow this runner through Hetzner firewall
+        env:
+          HCLOUD_TOKEN: ${{ secrets.HCLOUD_TOKEN }}
+          KITABU_FIREWALL_ID: ${{ secrets.KITABU_FIREWALL_ID }}
+          KITABU_SETUP_SSH_CIDR: ${{ secrets.KITABU_SETUP_SSH_CIDR }}
+        run: |
+          set -euo pipefail
+          runner_ip="$(curl -fsS https://api.ipify.org)"
+          cat > /tmp/kitabu-firewall-open.json <<JSON
+          {
+            "rules": [
+              {
+                "direction": "in",
+                "protocol": "tcp",
+                "port": "22",
+                "source_ips": ["${KITABU_SETUP_SSH_CIDR}", "${runner_ip}/32"],
+                "description": "SSH from setup workstation and active GitHub deploy runner"
+              }
+            ]
+          }
+          JSON
+          action_id="$(
+            curl -fsS -X POST \
+              -H "Authorization: Bearer ${HCLOUD_TOKEN}" \
+              -H "Content-Type: application/json" \
+              -d @/tmp/kitabu-firewall-open.json \
+              "https://api.hetzner.cloud/v1/firewalls/${KITABU_FIREWALL_ID}/actions/set_rules" |
+              jq -r '.action.id'
+          )"
+          for attempt in $(seq 1 30); do
+            status="$(
+              curl -fsS \
+                -H "Authorization: Bearer ${HCLOUD_TOKEN}" \
+                "https://api.hetzner.cloud/v1/actions/${action_id}" |
+                jq -r '.action.status'
+            )"
+            [ "$status" = "success" ] && exit 0
+            [ "$status" = "error" ] && exit 1
+            sleep 1
+          done
+          exit 1
       - name: Configure SSH
         run: |
           set -euo pipefail
@@ -73,3 +114,29 @@ jobs:
           curl --fail --silent https://admin.kitabu.ai/app.js | grep -q '/curriculum/import/pdf'
           curl --fail --silent https://admin.kitabu.ai/app.js | grep -q '/ai/generate-text'
           REMOTE
+      - name: Restore Hetzner firewall
+        if: always()
+        env:
+          HCLOUD_TOKEN: ${{ secrets.HCLOUD_TOKEN }}
+          KITABU_FIREWALL_ID: ${{ secrets.KITABU_FIREWALL_ID }}
+          KITABU_SETUP_SSH_CIDR: ${{ secrets.KITABU_SETUP_SSH_CIDR }}
+        run: |
+          set -euo pipefail
+          cat > /tmp/kitabu-firewall-restore.json <<JSON
+          {
+            "rules": [
+              {
+                "direction": "in",
+                "protocol": "tcp",
+                "port": "22",
+                "source_ips": ["${KITABU_SETUP_SSH_CIDR}"],
+                "description": "SSH from setup workstation"
+              }
+            ]
+          }
+          JSON
+          curl -fsS -X POST \
+            -H "Authorization: Bearer ${HCLOUD_TOKEN}" \
+            -H "Content-Type: application/json" \
+            -d @/tmp/kitabu-firewall-restore.json \
+            "https://api.hetzner.cloud/v1/firewalls/${KITABU_FIREWALL_ID}/actions/set_rules" >/dev/null

@@ -2603,14 +2603,14 @@ Requirements:
 
     return sendHandoffPage(reply, {
       title: 'Email verified',
-      message: 'Your email is confirmed. Opening Kitabu App now.',
-      detail: 'If the app is installed, we will hand you back to Kitabu. Otherwise sign in after opening the app.',
+      message: 'Your email is confirmed. Opening the Kitabu AI login screen now.',
+      detail: 'If the app is installed, we will hand you back to Kitabu AI. Otherwise open the app and sign in with your email and password.',
       status: 'success',
       deepLink: getDeepLink('email-verified', {
         email: result.user.email,
         mode: 'login'
       }),
-      buttonLabel: 'Open Kitabu App'
+      buttonLabel: 'Open Kitabu AI Login'
     });
   });
 

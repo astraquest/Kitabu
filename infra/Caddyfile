@@ -9,6 +9,10 @@ http://kitabu.ai, http://www.kitabu.ai {
 		path_regexp (?i)^/reset-password/?$
 	}
 	redir @resetPasswordPath https://app.kitabu.ai/reset-password?{query} 308
+	@verifyEmailPath {
+		path_regexp (?i)^/verify-email/?$
+	}
+	redir @verifyEmailPath https://app.kitabu.ai/verify-email?{query} 308
 	@termsPath {
 		path_regexp (?i)^/terms/?$
 	}

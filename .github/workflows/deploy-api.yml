@@ -57,7 +57,9 @@ jobs:
           docker rm kitabu-api kitabu-worker kitabu-caddy || true
           docker compose up -d api worker caddy
           docker exec kitabu-caddy grep -q 'resetPasswordPath' /etc/caddy/Caddyfile
+          docker exec kitabu-caddy grep -q 'verifyEmailPath' /etc/caddy/Caddyfile
           docker exec kitabu-api grep -q 'Reset link unavailable' /app/dist/server.js
+          docker exec kitabu-api grep -q 'Open Kitabu AI Login' /app/dist/server.js
           docker compose exec -T caddy caddy reload --config /etc/caddy/Caddyfile
           healthy=0
           for attempt in $(seq 1 30); do
@@ -78,6 +80,8 @@ jobs:
           curl --fail --silent 'https://app.kitabu.ai/reset-password?token=abcdefghijklmnopqrstuvwxyz123456' | grep -q 'Reset your password'
           curl --fail --silent 'https://app.kitabu.ai/reset-password?token=abcdefghijklmnopqrstuvwxyz123456' | grep -q '/auth/password/reset'
           curl --fail --silent --location 'https://kitabu.ai/reset-password?token=abcdefghijklmnopqrstuvwxyz123456' | grep -q 'Reset your password'
+          curl --fail --silent 'https://app.kitabu.ai/verify-email?token=abcdefghijklmnopqrstuvwxyz123456' | grep -q 'Verification failed'
+          curl --fail --silent --location 'https://kitabu.ai/verify-email?token=abcdefghijklmnopqrstuvwxyz123456' | grep -q 'Verification failed'
           curl --fail --silent https://kitabu.ai/deletion | grep -q 'Account Deletion Request'
           curl --fail --silent https://kitabu.ai/terms | grep -q 'General Terms and Conditions of Use'
           curl --fail --silent https://kitabu.ai/Terms | grep -q 'General Terms and Conditions of Use'

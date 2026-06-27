@@ -1,6 +1,9 @@
 name: Deploy API
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
     inputs:
       environment:
@@ -13,28 +16,38 @@ on:
 
 jobs:
   deploy:
-    runs-on:
-      - self-hosted
-      - linux
-      - x64
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
     environment: ${{ github.event_name == 'workflow_dispatch' && inputs.environment || 'production' }}
     concurrency:
       group: deploy-api-${{ github.ref }}
       cancel-in-progress: true
     steps:
       - uses: actions/checkout@v4
-      - name: Sync code to live directory
+      - name: Configure SSH
         run: |
-          rsync -a --delete \
+          set -euo pipefail
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "${{ secrets.KITABU_DEPLOY_SSH_KEY }}" > ~/.ssh/kitabu_deploy
+          chmod 600 ~/.ssh/kitabu_deploy
+          printf '%s\n' "${{ secrets.KITABU_DEPLOY_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
+      - name: Sync code to production host
+        run: |
+          set -euo pipefail
+          rsync -az --delete \
+            -e "ssh -i ~/.ssh/kitabu_deploy" \
             --exclude '.git' \
             --exclude 'node_modules' \
+            --exclude '.env' \
             --exclude 'apps/api/.env' \
             --exclude '.secrets' \
-            ./ /home/samora/deploy/kitabu-live/
+            ./ "${{ secrets.KITABU_DEPLOY_USER }}@${{ secrets.KITABU_DEPLOY_HOST }}:/opt/kitabu-ai/"
       - name: Deploy on Hetzner
         run: |
           set -euo pipefail
-          cd /home/samora/deploy/kitabu-live
+          ssh -i ~/.ssh/kitabu_deploy "${{ secrets.KITABU_DEPLOY_USER }}@${{ secrets.KITABU_DEPLOY_HOST }}" 'bash -se' <<'REMOTE'
+          cd /opt/kitabu-ai
           docker compose up -d postgres redis
           docker compose build api worker
           docker compose run --rm api node scripts/apply-migrations.mjs
@@ -56,5 +69,7 @@ jobs:
           fi
 
           curl --fail --silent https://app.kitabu.ai/health >/dev/null
+          curl --fail --silent https://kitabu.ai/deletion | grep -q 'Account Deletion Request'
           curl --fail --silent https://admin.kitabu.ai/app.js | grep -q '/curriculum/import/pdf'
           curl --fail --silent https://admin.kitabu.ai/app.js | grep -q '/ai/generate-text'
+          REMOTE

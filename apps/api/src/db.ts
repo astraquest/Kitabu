@@ -48,14 +48,33 @@ function databaseConnectionString(databaseUrl: string) {
   }
 }
 
-export const db = new Pool({
-  connectionString: databaseConnectionString(appConfig.KITABU_DATABASE_URL),
-  ssl: isLocalDatabaseUrl(appConfig.KITABU_DATABASE_URL)
+function databaseSslOptions(databaseUrl: string) {
+  if (appConfig.KITABU_DATABASE_SSL_MODE === 'disable') {
+    return undefined;
+  }
+
+  if (appConfig.KITABU_DATABASE_SSL_MODE === 'require') {
+    return { rejectUnauthorized: false };
+  }
+
+  if (appConfig.KITABU_DATABASE_SSL_MODE === 'verify-full') {
+    return {
+      ca: loadDatabaseCa(),
+      rejectUnauthorized: true
+    };
+  }
+
+  return isLocalDatabaseUrl(databaseUrl)
     ? undefined
     : {
         ca: loadDatabaseCa(),
         rejectUnauthorized: true
-      },
+      };
+}
+
+export const db = new Pool({
+  connectionString: databaseConnectionString(appConfig.KITABU_DATABASE_URL),
+  ssl: databaseSslOptions(appConfig.KITABU_DATABASE_URL),
   max: appConfig.KITABU_DATABASE_POOL_MAX,
   idleTimeoutMillis: appConfig.KITABU_DATABASE_IDLE_TIMEOUT_MS,
   connectionTimeoutMillis: appConfig.KITABU_DATABASE_CONNECTION_TIMEOUT_MS,

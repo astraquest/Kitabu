@@ -53,6 +53,32 @@ function databaseConnectionString(databaseUrl) {
   }
 }
 
+function databaseSslOptions(databaseUrl) {
+  const sslMode = process.env.KITABU_DATABASE_SSL_MODE?.trim() || 'auto';
+
+  if (sslMode === 'disable') {
+    return undefined;
+  }
+
+  if (sslMode === 'require') {
+    return { rejectUnauthorized: false };
+  }
+
+  if (sslMode === 'verify-full') {
+    return {
+      ca: loadDatabaseCa(),
+      rejectUnauthorized: true
+    };
+  }
+
+  return isLocalDatabaseUrl(databaseUrl)
+    ? undefined
+    : {
+        ca: loadDatabaseCa(),
+        rejectUnauthorized: true
+      };
+}
+
 function hasValue(name) {
   return Boolean(process.env[name]?.trim());
 }
@@ -71,8 +97,8 @@ let databaseHost = null;
 if (hasValue('KITABU_DATABASE_URL')) {
   try {
     databaseHost = new URL(process.env.KITABU_DATABASE_URL).hostname;
-    if (!/supabase|pooler|supavisor/i.test(databaseHost)) {
-      failures.push(`KITABU_DATABASE_URL points to ${databaseHost}, not a Supabase host`);
+    if (['localhost', '127.0.0.1'].includes(databaseHost)) {
+      failures.push(`KITABU_DATABASE_URL points to ${databaseHost}; production must use the Docker service host or a managed database host`);
     }
   } catch {
     failures.push('KITABU_DATABASE_URL is not a valid URL');
@@ -93,12 +119,7 @@ if (smsProvider !== 'africastalking') {
 if (hasValue('KITABU_DATABASE_URL')) {
   const pool = new Pool({
     connectionString: databaseConnectionString(process.env.KITABU_DATABASE_URL),
-    ssl: isLocalDatabaseUrl(process.env.KITABU_DATABASE_URL)
-      ? undefined
-      : {
-          ca: loadDatabaseCa(),
-          rejectUnauthorized: true
-        }
+    ssl: databaseSslOptions(process.env.KITABU_DATABASE_URL)
   });
   try {
     const result = await pool.query(`

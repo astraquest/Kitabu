@@ -1,18 +1,19 @@
 {
-  auto_https disable_redirects
+  auto_https off
 }
 
-kitabu.ai, www.kitabu.ai {
+http://kitabu.ai, http://www.kitabu.ai {
   root * /srv/www
   encode gzip zstd
+  try_files {path} {path}/index.html
   file_server
 }
 
-app.kitabu.ai {
+http://app.kitabu.ai {
   reverse_proxy 127.0.0.1:4000
 }
 
-admin.kitabu.ai {
+http://admin.kitabu.ai {
   root * /srv/admin
   encode gzip zstd
   @static_assets path /app.js /styles.css /assets/*
@@ -28,15 +29,15 @@ admin.kitabu.ai {
   file_server
 }
 
-mjanjez.kitabu.ai {
+http://mjanjez.kitabu.ai {
   reverse_proxy 127.0.0.1:4101
 }
 
-storypod.kitabu.ai {
+http://storypod.kitabu.ai {
   reverse_proxy 127.0.0.1:4102
 }
 
-ndiziflix.kitabu.ai {
+http://ndiziflix.kitabu.ai {
   @backend path /api/* /health
   handle @backend {
     reverse_proxy 127.0.0.1:4104
@@ -46,7 +47,7 @@ ndiziflix.kitabu.ai {
   }
 }
 
-digitalbrain.kitabu.ai {
+http://digitalbrain.kitabu.ai {
   @backend path /auth* /chat* /knowledge* /user* /payment* /uploads* /health
   handle @backend {
     reverse_proxy 127.0.0.1:4106
@@ -56,14 +57,14 @@ digitalbrain.kitabu.ai {
   }
 }
 
-familydiary.kitabu.ai {
+http://familydiary.kitabu.ai {
   reverse_proxy 127.0.0.1:4107
 }
 
-agentrobin.kitabu.ai {
+http://agentrobin.kitabu.ai {
   reverse_proxy 127.0.0.1:18791
 }
 
-sherehe.kitabu.ai {
+http://sherehe.kitabu.ai {
   reverse_proxy 127.0.0.1:4108
 }

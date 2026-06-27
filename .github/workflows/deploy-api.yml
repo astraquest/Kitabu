@@ -53,7 +53,7 @@ jobs:
           docker compose build api worker
           docker compose run --rm api node scripts/apply-migrations.mjs
           docker compose run --rm api node scripts/verify-production-readiness.mjs
-          docker compose rm -sf api worker caddy
+          docker rm -f kitabu-api kitabu-worker kitabu-caddy || true
           docker compose up -d api worker caddy
           docker compose exec -T caddy caddy reload --config /etc/caddy/Caddyfile
           healthy=0

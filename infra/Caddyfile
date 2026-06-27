@@ -6,9 +6,14 @@ http://kitabu.ai, http://www.kitabu.ai {
   root * /srv/www
   encode gzip zstd
   @termsPath path /terms /terms/ /Terms /Terms/ /TERMS /TERMS/ /termS /termS/ /terMs /terMs/ /terMS /terMS/ /teRms /teRms/ /teRMs /teRMs/ /teRmS /teRmS/ /teRMS /teRMS/ /tErms /tErms/ /tErmS /tErmS/ /tErMs /tErMs/ /tErMS /tErMS/ /tERms /tERms/ /tERmS /tERmS/ /tERMs /tERMs/ /tERMS /tERMS/ /Terms /Terms/ /TermS /TermS/ /TerMs /TerMs/ /TerMS /TerMS/ /TeRms /TeRms/ /TeRmS /TeRmS/ /TeRMs /TeRMs/ /TeRMS /TeRMS/ /TErms /TErms/ /TErmS /TErmS/ /TErMs /TErMs/ /TErMS /TErMS/ /TERms /TERms/ /TERmS /TERmS/ /TERMs /TERMs/
-  rewrite @termsPath /terms/index.html
-  try_files {path} {path}/index.html
-  file_server
+  handle @termsPath {
+    rewrite * /terms/index.html
+    file_server
+  }
+  handle {
+    try_files {path} {path}/index.html
+    file_server
+  }
 }
 
 http://app.kitabu.ai {

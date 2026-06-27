@@ -5,11 +5,10 @@ services:
     restart: unless-stopped
     environment:
       POSTGRES_USER: kitabu
-      POSTGRES_PASSWORD: change-me
+      POSTGRES_PASSWORD: ${KITABU_POSTGRES_PASSWORD:?Set KITABU_POSTGRES_PASSWORD}
       POSTGRES_DB: kitabu_api
     volumes:
       - postgres-data:/var/lib/postgresql/data
-      - ./apps/api/sql:/docker-entrypoint-initdb.d:ro
     ports:
       - "127.0.0.1:55432:5432"
 
@@ -31,15 +30,11 @@ services:
     restart: unless-stopped
     env_file:
       - ./apps/api/.env
-    environment:
-      KITABU_DATABASE_URL: postgres://kitabu:change-me@postgres:5432/kitabu_api
-      KITABU_REDIS_URL: redis://redis:6379
-      KITABU_ADMIN_WEB_ORIGIN: http://localhost:8083
     depends_on:
       - postgres
       - redis
     ports:
-      - "4000:4000"
+      - "127.0.0.1:4000:4000"
 
   worker:
     build:
@@ -49,10 +44,9 @@ services:
     restart: unless-stopped
     env_file:
       - ./apps/api/.env
-    environment:
-      KITABU_DATABASE_URL: postgres://kitabu:change-me@postgres:5432/kitabu_api
-      KITABU_REDIS_URL: redis://redis:6379
     command: ["node", "dist/worker.js"]
+    healthcheck:
+      disable: true
     depends_on:
       - postgres
       - redis

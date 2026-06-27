@@ -4,7 +4,8 @@ This document deploys the current Kitabu API stack to a single Hetzner server.
 
 Current topology:
 
-- `app.kitabu.ai` -> Caddy -> API (`apps/api`)
+- Cloudflare Tunnel -> `app.kitabu.ai` -> API (`apps/api`)
+- Cloudflare Tunnel -> `kitabu.ai`, `www.kitabu.ai`, `admin.kitabu.ai` -> Caddy static sites
 - private containers: Postgres, Redis, worker
 
 This repo does not deploy the React Native app. It deploys the backend that the mobile app and admin surfaces depend on.
@@ -12,7 +13,7 @@ This repo does not deploy the React Native app. It deploys the backend that the 
 ## Prerequisites
 
 - A Hetzner server is already provisioned and reachable over SSH
-- DNS for `app.kitabu.ai` points to the server IPv4
+- Cloudflare Tunnel is installed on the server and reports healthy
 - Ubuntu or Debian on the server
 - Docker and Docker Compose plugin available
 - External SMTP provider credentials ready
@@ -21,14 +22,18 @@ This repo does not deploy the React Native app. It deploys the backend that the 
 
 Do not expose Postgres or Redis publicly.
 
-## 1. Point DNS
+## 1. Route DNS through Cloudflare Tunnel
 
-Create an `A` record:
+Do not expose the origin with public `A` records for the core Kitabu surfaces.
+Create proxied CNAME records to the Cloudflare Tunnel target:
 
-- host: `app`
-- value: your server IPv4
+- `app.kitabu.ai`
+- `admin.kitabu.ai`
+- `kitabu.ai`
+- `www.kitabu.ai`
 
-If using Cloudflare, start with DNS only until HTTPS works correctly at the origin.
+Cut DNS over only after the server health checks pass. Until then, leave existing
+production records untouched.
 
 ## 2. Install server packages
 
@@ -99,6 +104,7 @@ KITABU_ENABLE_API_DOCS=false
 KITABU_BODY_LIMIT_BYTES=1048576
 
 KITABU_DATABASE_URL=postgres://kitabu:REPLACE_DB_PASSWORD@postgres:5432/kitabu_api
+KITABU_DATABASE_SSL_MODE=auto
 KITABU_REDIS_URL=redis://redis:6379
 
 KITABU_JWT_ISSUER=kitabu.ai
@@ -122,6 +128,7 @@ KITABU_GEMINI_MODEL=gemini-2.5-flash
 KITABU_KSH_PER_USD=129.50
 
 KITABU_ADMIN_WEB_ORIGIN=https://admin.kitabu.ai
+KITABU_WEB_APP_ORIGINS=https://kitabu.ai,https://www.kitabu.ai
 KITABU_NATIVE_APP_ORIGIN=kitabu-native-app
 KITABU_ADMIN_WEB_BASE_URL=https://admin.kitabu.ai
 KITABU_LANDING_WEB_BASE_URL=https://kitabu.ai
@@ -166,18 +173,19 @@ KITABU_REFRESH_RATE_LIMIT_WINDOW=1 minute
 Production notes:
 
 - `KITABU_DATABASE_URL` must use `postgres:5432`, not `localhost:55432`
-- `KITABU_TRUST_PROXY=true` is required behind Caddy
+- `KITABU_DATABASE_SSL_MODE=auto` disables TLS for the private Docker Postgres host and keeps verified TLS for external database hosts
+- `KITABU_TRUST_PROXY=true` is required behind Cloudflare Tunnel/Caddy
 - leave optional provider values blank only if those features are intentionally disabled
 
 ## 6. Set the Postgres password in compose
 
-Edit `docker-compose.yml` and replace:
+Create a root compose env file and set the same password used in
+`KITABU_DATABASE_URL`:
 
-```yaml
-POSTGRES_PASSWORD: change-me
+```bash
+printf 'KITABU_POSTGRES_PASSWORD=%s\n' 'REPLACE_DB_PASSWORD' > .env
+chmod 600 .env
 ```
-
-with the same password used in `KITABU_DATABASE_URL`.
 
 ## 7. Start the stack
 
@@ -193,6 +201,7 @@ docker compose ps
 docker compose logs api --tail=100
 docker compose logs worker --tail=100
 docker compose logs caddy --tail=100
+docker compose run --rm api npm run migrate
 ```
 
 ## 8. Verify health
@@ -201,8 +210,7 @@ From the server:
 
 ```bash
 curl http://127.0.0.1:4000/health
-curl -I http://app.kitabu.ai
-curl -I https://app.kitabu.ai
+curl --resolve app.kitabu.ai:443:127.0.0.1 https://app.kitabu.ai/health
 curl https://app.kitabu.ai/health
 ```
 
@@ -222,6 +230,7 @@ returns HTTP 503.
 cd /opt/kitabu-ai
 git pull origin main
 docker compose up -d --build
+docker compose run --rm api npm run migrate
 curl https://app.kitabu.ai/health
 ```
 
@@ -239,7 +248,8 @@ crontab -e
 0 2 * * * KITABU_DATABASE_URL='postgres://kitabu:REPLACE_DB_PASSWORD@127.0.0.1:55432/kitabu_api' KITABU_BACKUP_DIR='/var/backups/kitabu' /opt/kitabu-ai/infra/backup.sh >> /var/log/kitabu-backup.log 2>&1
 ```
 
-For a first deploy, keep backups local only if you understand the risk. Off-server backup storage is better.
+For production, local backups are not enough. Send encrypted backups to Cloudflare
+R2 after R2 is enabled in the Cloudflare dashboard, and test restore monthly.
 
 ## 11. SMTP guidance
 
@@ -255,7 +265,7 @@ Do not try to self-host email delivery on the same Hetzner box for first launch.
 
 ## 12. Known production gaps
 
-- SQL migrations are replay-all files, not version-tracked migrations
 - secrets are stored in a server-side `.env` file
 - there is no deployment automation yet
-- backups exist, but restore testing still needs to be done
+- R2 must be enabled before off-server backups can be configured
+- restore testing still needs to be done

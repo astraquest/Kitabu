@@ -83,7 +83,7 @@ export const QUIZ_BATTLE_BANK: Record<string, QuizBattleQuestion[]> = {
       answer: 'Simile',
     },
   ],
-  'Form 4': [
+  'Grade 12': [
     {
       id: 'f4-math-1',
       subject: 'Mathematics',

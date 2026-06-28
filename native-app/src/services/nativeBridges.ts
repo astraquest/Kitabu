@@ -225,9 +225,92 @@ function createSimulatedLiveAudioSession(): LiveAudioSession {
 
 let activeRecording: AudioRecorder | null = null;
 
-async function readFileAsBase64(uri?: string | null) {
+type WebFileLike = {
+  arrayBuffer: () => Promise<ArrayBuffer>;
+  name?: string;
+  size?: number;
+  type?: string;
+};
+
+function isWebFileLike(value: unknown): value is WebFileLike {
+  return Boolean(
+    value &&
+      typeof value === 'object' &&
+      typeof (value as { arrayBuffer?: unknown }).arrayBuffer === 'function',
+  );
+}
+
+function arrayBufferToBase64(arrayBuffer: ArrayBuffer) {
+  const bytes = new Uint8Array(arrayBuffer);
+  const globalWithBase64 = globalThis as unknown as {
+    Buffer?: { from: (input: Uint8Array) => { toString: (encoding: 'base64') => string } };
+    btoa?: (value: string) => string;
+  };
+
+  if (globalWithBase64.Buffer) {
+    return globalWithBase64.Buffer.from(bytes).toString('base64');
+  }
+
+  let binary = '';
+  const chunkSize = 0x8000;
+  for (let offset = 0; offset < bytes.length; offset += chunkSize) {
+    const chunk = bytes.subarray(offset, offset + chunkSize);
+    binary += String.fromCharCode(...chunk);
+  }
+
+  if (globalWithBase64.btoa) {
+    return globalWithBase64.btoa(binary);
+  }
+
+  throw new Error('This device cannot read attachments.');
+}
+
+function readDataUriAsBase64(uri: string) {
+  const dataUriMatch = uri.match(/^data:([^;,]+)?(?:;[^,]*)?;base64,(.+)$/);
+  return dataUriMatch?.[2] ?? null;
+}
+
+async function readWebFileAsBase64(file: WebFileLike) {
+  assertChatAttachmentSize(file.size);
+  const base64Data = arrayBufferToBase64(await file.arrayBuffer());
+  assertChatAttachmentSize(estimateBase64DecodedBytes(base64Data));
+  return base64Data;
+}
+
+async function readFetchableUriAsBase64(uri: string) {
+  const webFetch = (globalThis as unknown as { fetch?: typeof fetch }).fetch;
+  if (Platform.OS !== 'web' || !webFetch || !/^(blob:|https?:)/i.test(uri)) {
+    return null;
+  }
+
+  const response = await webFetch(uri);
+  if (!response.ok) {
+    return null;
+  }
+
+  const arrayBuffer = await response.arrayBuffer();
+  assertChatAttachmentSize(arrayBuffer.byteLength);
+  return arrayBufferToBase64(arrayBuffer);
+}
+
+async function readFileAsBase64(uri?: string | null, webFile?: unknown) {
+  if (isWebFileLike(webFile)) {
+    return readWebFileAsBase64(webFile);
+  }
+
   if (!uri) {
     return null;
+  }
+
+  const dataUriBase64 = readDataUriAsBase64(uri);
+  if (dataUriBase64) {
+    assertChatAttachmentSize(estimateBase64DecodedBytes(dataUriBase64));
+    return dataUriBase64;
+  }
+
+  const fetchedBase64 = await readFetchableUriAsBase64(uri);
+  if (fetchedBase64) {
+    return fetchedBase64;
   }
 
   return FileSystem.readAsStringAsync(uri, {
@@ -273,33 +356,39 @@ function assertChatAttachmentSize(size?: number | null) {
 async function mapDocumentAssetToFileMeta(
   asset: DocumentPicker.DocumentPickerAsset,
 ): Promise<{ uri: string; name: string; base64Data?: string; mimeType?: string; size?: number }> {
-  const size = asset.size ?? await getLocalFileSize(asset.uri);
+  const webFile = (asset as unknown as { file?: unknown }).file;
+  const webFileMeta = isWebFileLike(webFile) ? webFile : null;
+  const size = asset.size ?? webFileMeta?.size ?? await getLocalFileSize(asset.uri);
   assertChatAttachmentSize(size);
-  const base64Data = await readFileAsBase64(asset.uri) ?? undefined;
+  const base64Data = await readFileAsBase64(asset.uri, webFile) ?? undefined;
   assertChatAttachmentSize(base64Data ? estimateBase64DecodedBytes(base64Data) : size);
 
   return {
     uri: asset.uri,
-    name: asset.name,
-    mimeType: asset.mimeType,
+    name: asset.name || webFileMeta?.name || 'attachment',
+    mimeType: asset.mimeType || webFileMeta?.type || 'application/octet-stream',
     base64Data,
     size: size ?? undefined,
   };
 }
 
-function mapImageAssetToFileMeta(
+async function mapImageAssetToFileMeta(
   asset: ImagePicker.ImagePickerAsset,
-): { uri: string; name: string; base64Data?: string; mimeType?: string; size?: number } {
+): Promise<{ uri: string; name: string; base64Data?: string; mimeType?: string; size?: number }> {
+  const webFile = (asset as unknown as { file?: unknown }).file;
+  const webFileMeta = isWebFileLike(webFile) ? webFile : null;
   const extension = asset.uri.split('.').pop()?.split('?')[0] || 'jpg';
-  assertChatAttachmentSize(asset.fileSize);
-  assertChatAttachmentSize(asset.base64 ? estimateBase64DecodedBytes(asset.base64) : asset.fileSize);
+  const size = asset.fileSize ?? webFileMeta?.size ?? await getLocalFileSize(asset.uri);
+  assertChatAttachmentSize(size);
+  const base64Data = asset.base64 ?? await readFileAsBase64(asset.uri, webFile) ?? undefined;
+  assertChatAttachmentSize(base64Data ? estimateBase64DecodedBytes(base64Data) : size);
 
   return {
     uri: asset.uri,
-    name: asset.fileName || `kitabu-image.${extension}`,
-    mimeType: asset.mimeType || 'image/jpeg',
-    base64Data: asset.base64 ?? undefined,
-    size: asset.fileSize,
+    name: asset.fileName || webFileMeta?.name || `kitabu-image.${extension}`,
+    mimeType: asset.mimeType || webFileMeta?.type || 'image/jpeg',
+    base64Data,
+    size: size ?? undefined,
   };
 }
 
@@ -573,7 +662,7 @@ export const chatAttachmentBridge: ChatAttachmentBridge = {
     if (result.canceled || !result.assets[0]) {
       return null;
     }
-    return mapFileMetaToAttachment(mapImageAssetToFileMeta(result.assets[0]), 'image');
+    return mapFileMetaToAttachment(await mapImageAssetToFileMeta(result.assets[0]), 'image');
   },
   async pickImage() {
     const permission = await ImagePicker.requestMediaLibraryPermissionsAsync();
@@ -588,7 +677,7 @@ export const chatAttachmentBridge: ChatAttachmentBridge = {
     if (result.canceled || !result.assets[0]) {
       return null;
     }
-    return mapFileMetaToAttachment(mapImageAssetToFileMeta(result.assets[0]), 'image');
+    return mapFileMetaToAttachment(await mapImageAssetToFileMeta(result.assets[0]), 'image');
   },
   async pickFile() {
     const result = await DocumentPicker.getDocumentAsync({

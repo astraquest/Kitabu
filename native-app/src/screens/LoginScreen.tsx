@@ -91,6 +91,12 @@ const ROLE_OPTIONS: RoleOption[] = [
     detail: 'Track learning and homework',
     avatar: 'avatar-afro-girl',
   },
+  {
+    role: 'other',
+    label: 'Other',
+    detail: 'Learn or help someone else',
+    avatar: 'avatar-afro-boy',
+  },
 ];
 
 export function LoginScreen({

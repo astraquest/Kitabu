@@ -175,8 +175,9 @@ type OnboardingSignupInput = {
   signupMethod?: OnboardingSignupMethod;
   gender?: GenderOption;
   grade?: string;
+  county?: string;
   school?: string;
-  schoolId?: string;
+  schoolId?: string | null;
   mpesaPhoneNumber?: string;
 };
 
@@ -1748,6 +1749,7 @@ export function useKitabuApp() {
         setOnboardingDiagnosticCompleted(false);
         setIsDiagnosticStatusLoaded(false);
       }
+      replaceWith(getPrimaryHomeView(nextSession.user.roles));
       triggerHaptic('success');
       await Promise.all([refreshBillingState(), refreshDashboardBanner()]);
     } catch (error) {
@@ -2305,6 +2307,16 @@ export function useKitabuApp() {
           grade: input?.grade || null,
           mpesaPhoneNumber: input?.mpesaPhoneNumber || null,
           onboardingCompleted: false,
+        });
+      }
+      if (input?.gender && input.grade) {
+        session = await completeAccountOnboarding({
+          gender: input.gender,
+          grade: input.grade,
+          schoolId: input.schoolId || null,
+          mpesaPhoneNumber: input.mpesaPhoneNumber || null,
+          school: input.school,
+          county: input.county,
         });
       }
       completeProviderAuthentication(session);

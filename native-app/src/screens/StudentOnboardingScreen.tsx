@@ -25,22 +25,13 @@ import type {
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import {
-  BarChart3,
-  Bell,
   BookOpen,
-  CalendarCheck,
   Check,
   ChevronRight,
-  ClipboardList,
   Eye,
   EyeOff,
-  HelpCircle,
-  Home,
   Mail,
-  MessageCircle,
   Phone,
-  UserCircle,
-  Users,
   X,
 } from 'lucide-react-native';
 import { SafeAreaInsetsContext } from 'react-native-safe-area-context';
@@ -172,10 +163,9 @@ type IntroStep =
   | 'setup'
   | 'loading'
   | 'signup'
-  | 'profileReady'
-  | 'dashboard';
+  | 'profileReady';
 
-type SignupStep = 'method' | 'email' | 'phone' | 'verify' | 'google';
+type SignupStep = 'method' | 'email' | 'phone' | 'verify';
 type SignupMethod = 'email' | 'phone' | 'google';
 type MascotPose = 'wave' | 'cool' | 'think' | 'happy' | 'cheer' | 'worried' | 'sleep' | 'celebrate';
 
@@ -2197,94 +2187,6 @@ export function StudentOnboardingScreen({
         { quote: '"I finally understand how to support learning at home."', name: 'Grace', meta: 'Parent' },
         { quote: '"Rafiki keeps me consistent without pressure."', name: 'Kevin', meta: 'Grade 9' },
       ];
-  const dashboardGreeting = (() => {
-    const hour = new Date().getHours();
-    if (hour < 12) {
-      return swahiliIntro ? 'Habari za asubuhi' : 'Good morning';
-    }
-
-    if (hour < 17) {
-      return swahiliIntro ? 'Habari za mchana' : 'Good afternoon';
-    }
-
-    return swahiliIntro ? 'Habari za jioni' : 'Good evening';
-  })();
-  const dashboardName =
-    displayName.trim() ||
-    (role === 'teacher' ? 'Teacher' : role === 'parent' ? 'Parent' : swahiliIntro ? 'Mwanafunzi' : 'Learner');
-  const dashboardRoleLabel =
-    role === 'teacher' ? 'Teacher dashboard' : role === 'parent' ? 'Family dashboard' : role === 'other' ? 'Learning dashboard' : 'Student dashboard';
-  const dashboardGradeLabel =
-    role === 'teacher'
-      ? `${teacherGradeIds.length || 1} grade${teacherGradeIds.length === 1 ? '' : 's'} taught`
-      : role === 'parent'
-        ? parentChildName.trim()
-          ? `${parentChildName.trim()} - ${primaryProfileGrade}`
-          : primaryProfileGrade
-        : primaryProfileGrade;
-  const dashboardSubjectLabel =
-    role === 'parent'
-      ? `${submittedParentChildren.length} child${submittedParentChildren.length === 1 ? '' : 'ren'} linked`
-      : `${selectedSubjectCount} subject${selectedSubjectCount === 1 ? '' : 's'} ready`;
-  const dashboardSelectedSubjects = SUBJECTS.filter(subject => selectedSubjectIds.includes(subject.id));
-  const dashboardSubjectPreview = dashboardSelectedSubjects.slice(0, 3);
-  const dashboardMascotName =
-    selectedMascotKey === 'rabbit'
-      ? 'Rafiki the Rabbit'
-      : selectedMascotKey === 'elephant'
-        ? 'Rafiki the Elephant'
-        : selectedMascotKey === 'lion'
-          ? 'Rafiki the Lion'
-          : activeMascot.name;
-  const dashboardSpeech =
-    swahiliIntro
-      ? `Karibu ${dashboardName}! Mimi ni ${dashboardMascotName}, rafiki yako wa masomo. Tusome nini leo? \uD83D\uDCDA`
-      : `Welcome ${dashboardName}! I'm ${dashboardMascotName}, your study buddy. What shall we learn today? \uD83D\uDCDA`;
-  const dashboardActions =
-    role === 'teacher'
-      ? [
-          { label: 'Plan Lesson', detail: 'CBC outline', Icon: ClipboardList },
-          { label: 'Class Gaps', detail: 'Review weak areas', Icon: BarChart3 },
-          { label: 'Assign Practice', detail: 'Send exercises', Icon: CalendarCheck },
-          { label: 'Ask Rafiki', detail: 'Get teaching help', Icon: HelpCircle },
-        ]
-      : role === 'parent'
-        ? [
-            { label: 'Check Progress', detail: 'See what changed', Icon: BarChart3 },
-            { label: 'Homework', detail: 'Review tasks', Icon: ClipboardList },
-            { label: 'Review Plan', detail: 'Next home step', Icon: Bell },
-            { label: 'Ask Rafiki', detail: 'Support ideas', Icon: HelpCircle },
-          ]
-        : [
-            { label: swahiliIntro ? 'Soma sasa' : 'Study now', detail: swahiliIntro ? 'Anza somo' : 'Tap to start', Icon: BookOpen },
-            { label: swahiliIntro ? 'Mtihani wa mazoezi' : 'Practice test', detail: swahiliIntro ? 'Maswali ya KNEC' : 'KNEC-style quiz', Icon: ClipboardList },
-            { label: swahiliIntro ? 'Maendeleo yangu' : 'My progress', detail: swahiliIntro ? 'Angalia alama' : 'Track growth', Icon: BarChart3 },
-            { label: swahiliIntro ? 'Ratiba' : 'Schedule', detail: swahiliIntro ? 'Mpango wa leo' : 'Plan study time', Icon: CalendarCheck },
-          ];
-  const dashboardPlanItems = swahiliIntro
-    ? [
-        { title: 'Quiz ya kuanza siku', time: '5 min' },
-        { title: 'Somo jipya', time: '20 min' },
-        { title: 'Maswali ya mazoezi', time: '15 min' },
-      ]
-    : [
-        { title: 'Daily warm-up quiz', time: '5 min' },
-        { title: 'New topic session', time: '20 min' },
-        { title: 'Practice questions', time: '15 min' },
-      ];
-  const dashboardTabs = swahiliIntro
-    ? [
-        { label: 'Nyumbani', Icon: Home, active: true },
-        { label: 'Soma', Icon: BookOpen, active: false },
-        { label: 'Zungumza', Icon: MessageCircle, active: false },
-        { label: 'Profaili', Icon: UserCircle, active: false },
-      ]
-    : [
-        { label: 'Home', Icon: Home, active: true },
-        { label: 'Study', Icon: BookOpen, active: false },
-        { label: 'Chat', Icon: MessageCircle, active: false },
-        { label: 'Profile', Icon: UserCircle, active: false },
-      ];
   const mascotPose: MascotPose = (() => {
     if (!includeIntroChoices) {
       if (introStep === 'setup') {
@@ -2292,10 +2194,6 @@ export function StudentOnboardingScreen({
       }
 
       return introStep === 'profileReady' ? 'celebrate' : 'wave';
-    }
-
-    if (introStep === 'dashboard') {
-      return 'wave';
     }
 
     if (introStep === 'language' || introStep === 'mascot' || introStep === 'rafiki' || introStep === 'role') {
@@ -3303,10 +3201,14 @@ export function StudentOnboardingScreen({
                                   ? 'Moves to the optional payment step'
                                    : 'Moves to school selection';
 
-  function submitPreparedOnboarding(normalizedMpesaPhoneNumber: string | null) {
+  function submitPreparedOnboarding(
+    normalizedMpesaPhoneNumber: string | null,
+    signupMethodOverride: SignupMethod | null = null,
+  ) {
     Keyboard.dismiss();
     setFocusedField(null);
     triggerHaptic('success');
+    const resolvedSignupMethod = signupMethodOverride ?? signupMethod;
     onSubmit({
       gender: resolvedGender,
       grade: primaryProfileGrade,
@@ -3348,16 +3250,16 @@ export function StudentOnboardingScreen({
                 }
               : {}),
             ...(role === 'teacher' ? { teachGrades: teacherGradeIds } : {}),
-            ...(collectSignupCredentials && signupMethod
+            ...(collectSignupCredentials && resolvedSignupMethod
               ? {
-                  signupMethod,
-                  ...(signupMethod === 'email' ? { email: signupEmailTrimmed } : {}),
-                  ...(signupMethod === 'email' ? { signupEmail: signupEmailTrimmed } : {}),
-                  ...(signupMethod === 'phone' ? { phone: normalizedSignupPhone } : {}),
-                  ...(signupMethod === 'phone' ? { signupPhone: normalizedSignupPhone } : {}),
-                  ...(signupMethod === 'phone' ? { signupOtp: signupOtpValue } : {}),
-                  ...(signupMethod !== 'google' ? { password: signupPassword } : {}),
-                  ...(signupMethod !== 'google' ? { signupPassword } : {}),
+                  signupMethod: resolvedSignupMethod,
+                  ...(resolvedSignupMethod === 'email' ? { email: signupEmailTrimmed } : {}),
+                  ...(resolvedSignupMethod === 'email' ? { signupEmail: signupEmailTrimmed } : {}),
+                  ...(resolvedSignupMethod === 'phone' ? { phone: normalizedSignupPhone } : {}),
+                  ...(resolvedSignupMethod === 'phone' ? { signupPhone: normalizedSignupPhone } : {}),
+                  ...(resolvedSignupMethod === 'phone' ? { signupOtp: signupOtpValue } : {}),
+                  ...(resolvedSignupMethod !== 'google' ? { password: signupPassword } : {}),
+                  ...(resolvedSignupMethod !== 'google' ? { signupPassword } : {}),
                 }
               : {}),
           }
@@ -3855,7 +3757,11 @@ export function StudentOnboardingScreen({
   function handleSignupMethodSelect(method: SignupMethod) {
     triggerHaptic('selection');
     resetSignupVerification(method);
-    setSignupStep(method === 'google' ? 'google' : method);
+    if (method === 'google') {
+      submitPreparedOnboarding(preparedMpesaPhoneNumber, 'google');
+      return;
+    }
+    setSignupStep(method);
   }
 
   function handleSignupBack() {
@@ -3868,7 +3774,7 @@ export function StudentOnboardingScreen({
       return;
     }
 
-    if (signupStep === 'email' || signupStep === 'phone' || signupStep === 'google') {
+    if (signupStep === 'email' || signupStep === 'phone') {
       setSignupStep('method');
       return;
     }
@@ -3891,7 +3797,7 @@ export function StudentOnboardingScreen({
 
     triggerHaptic('impact');
     resetSignupVerification('email');
-    setSignupStep('verify');
+    submitPreparedOnboarding(preparedMpesaPhoneNumber, 'email');
   }
 
   async function handleSignupPhoneContinue() {
@@ -3977,14 +3883,7 @@ export function StudentOnboardingScreen({
       return;
     }
 
-    submitPreparedOnboarding(preparedMpesaPhoneNumber);
-    setIntroStep('dashboard');
-  }
-
-  function handleGoogleSignupSuccess() {
-    resetSignupVerification('google');
-    submitPreparedOnboarding(preparedMpesaPhoneNumber);
-    setIntroStep('dashboard');
+    submitPreparedOnboarding(preparedMpesaPhoneNumber, 'phone');
   }
 
   function handleAlienGenderSelect() {
@@ -4336,185 +4235,6 @@ export function StudentOnboardingScreen({
           })}
         </View>
       </View>
-    );
-  }
-
-  if (introStep === 'dashboard') {
-    return (
-      <LinearGradient
-        colors={content.gradient}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 1 }}
-        style={styles.screen}>
-        <ScrollView
-          accessibilityLabel="Onboarding dashboard"
-          contentContainerStyle={[styles.dashboardScrollContent, scrollInsetsStyle]}
-          showsVerticalScrollIndicator={false}
-          testID="onboarding-dashboard">
-          <View style={styles.dashboardTopRow}>
-            <View style={styles.dashboardGreetingBlock}>
-              <Text style={[styles.dashboardEyebrow, { color: content.accent }]}>{dashboardRoleLabel}</Text>
-              <Text style={styles.dashboardGreeting}>{dashboardGreeting},</Text>
-              <Text numberOfLines={1} style={styles.dashboardName}>{dashboardName} {'\uD83D\uDC4B'}</Text>
-            </View>
-            <View
-              accessibilityLabel={mascotPoseAccessibilityLabel}
-              accessibilityRole="image"
-              style={styles.dashboardMascotFrame}>
-              <Image
-                accessibilityIgnoresInvertColors
-                accessibilityLabel={activeMascot.label}
-                source={activeMascot.source}
-                resizeMode="contain"
-                style={styles.dashboardMascot}
-              />
-              {renderMascotPoseEffect('large')}
-            </View>
-          </View>
-
-          <View style={styles.dashboardStatsRow}>
-            <View style={styles.dashboardStatCard}>
-              <Text style={styles.dashboardStatLabel}>Profile</Text>
-              <Text numberOfLines={2} style={styles.dashboardStatValue}>{dashboardGradeLabel}</Text>
-            </View>
-            <View style={styles.dashboardStatCard}>
-              <Text style={styles.dashboardStatLabel}>{role === 'parent' ? 'Family' : 'Subjects'}</Text>
-              <Text numberOfLines={2} style={styles.dashboardStatValue}>{dashboardSubjectLabel}</Text>
-            </View>
-          </View>
-
-          <View style={styles.dashboardStreakCard}>
-            <View style={styles.dashboardStreakHeader}>
-              <Text style={styles.dashboardStreakTitle}>{'\uD83D\uDD25'} 1-day streak {'\u2014'} keep it up!</Text>
-              <Text style={[styles.dashboardStreakCount, { color: content.accent }]}>1/7</Text>
-            </View>
-            <View style={styles.dashboardStreakTrack}>
-              <View style={[styles.dashboardStreakFill, { backgroundColor: content.accent }]} />
-            </View>
-          </View>
-
-          <View style={styles.dashboardSpeechRow}>
-            <View style={[styles.dashboardSpeechMascot, { borderColor: `${content.accent}55` }]}>
-              <Image
-                accessibilityIgnoresInvertColors
-                accessibilityLabel={activeMascot.label}
-                resizeMode="contain"
-                source={activeMascot.source}
-                style={styles.dashboardSpeechMascotImage}
-              />
-            </View>
-            <View style={styles.dashboardSpeechBubble}>
-              <Text style={styles.dashboardSpeechText}>{dashboardSpeech}</Text>
-            </View>
-          </View>
-
-          <View style={styles.dashboardSectionHeader}>
-            <Text style={styles.dashboardSectionTitle}>Quick actions</Text>
-            <View style={styles.dashboardSectionPill}>
-              <Users color={content.accent} size={14} strokeWidth={2.5} />
-              <Text style={[styles.dashboardSectionPillText, { color: content.accent }]}>
-                {role === 'teacher' ? 'Class' : role === 'parent' ? 'Family' : 'Study'}
-              </Text>
-            </View>
-          </View>
-          <View style={styles.dashboardActionGrid}>
-            {dashboardActions.map(action => {
-              const ActionIcon = action.Icon;
-              return (
-                <Pressable
-                  accessibilityLabel={`Open ${action.label}`}
-                  accessibilityRole="button"
-                  key={action.label}
-                  style={styles.dashboardActionCard}>
-                  <View style={[styles.dashboardActionIcon, { backgroundColor: `${content.accent}1A` }]}>
-                    <ActionIcon color={content.accent} size={20} strokeWidth={2.6} />
-                  </View>
-                  <Text numberOfLines={1} style={styles.dashboardActionTitle}>{action.label}</Text>
-                  <Text numberOfLines={2} style={styles.dashboardActionText}>{action.detail}</Text>
-                </Pressable>
-              );
-            })}
-          </View>
-
-          {role !== 'parent' && dashboardSubjectPreview.length > 0 ? (
-            <>
-              <View style={styles.dashboardSectionHeader}>
-                <Text style={styles.dashboardSectionTitle}>{swahiliIntro ? 'Masomo yangu' : 'My subjects'}</Text>
-                <Text style={[styles.dashboardSeeAllText, { color: content.accent }]}>
-                  {swahiliIntro ? `Ona yote ${dashboardSelectedSubjects.length} \u2192` : `See all ${dashboardSelectedSubjects.length} \u2192`}
-                </Text>
-              </View>
-              <View style={styles.dashboardSubjectList}>
-                {dashboardSubjectPreview.map(subject => (
-                  <Pressable
-                    accessibilityLabel={`Open subject ${subject.name}`}
-                    accessibilityRole="button"
-                    key={subject.id}
-                    style={styles.dashboardSubjectRow}>
-                    <View style={[styles.dashboardSubjectIcon, { backgroundColor: `${content.accent}1A` }]}>
-                      <BookOpen color={content.accent} size={18} strokeWidth={2.5} />
-                    </View>
-                    <View style={styles.dashboardSubjectCopy}>
-                      <Text style={styles.dashboardSubjectName}>{subject.name}</Text>
-                      <Text style={styles.dashboardSubjectHint}>{swahiliIntro ? 'Gusa kuanza' : 'Tap to start'}</Text>
-                    </View>
-                    <ChevronRight color={ONBOARDING_COLORS.textMuted} size={18} strokeWidth={2.5} />
-                  </Pressable>
-                ))}
-              </View>
-            </>
-          ) : null}
-
-          <View style={styles.dashboardSectionHeader}>
-            <Text style={styles.dashboardSectionTitle}>{swahiliIntro ? 'Mpango wa leo' : "Today's plan"}</Text>
-          </View>
-          <View style={styles.dashboardPlanList}>
-            {dashboardPlanItems.map((item, index) => (
-              <View key={item.title} style={styles.dashboardPlanRow}>
-                <View style={[styles.dashboardPlanNumber, { backgroundColor: `${content.accent}1A` }]}>
-                  <Text style={[styles.dashboardPlanNumberText, { color: content.accent }]}>{index + 1}</Text>
-                </View>
-                <View style={styles.dashboardPlanCopy}>
-                  <Text style={styles.dashboardPlanTitle}>{item.title}</Text>
-                  <Text style={styles.dashboardPlanTime}>{item.time}</Text>
-                </View>
-                <View style={styles.dashboardPlanStartPill}>
-                  <Text style={[styles.dashboardPlanStartText, { color: content.accent }]}>
-                    {swahiliIntro ? 'Anza' : 'Start'}
-                  </Text>
-                </View>
-              </View>
-            ))}
-          </View>
-
-          <View accessibilityLabel="Dashboard tabs" style={styles.dashboardTabBar}>
-            {dashboardTabs.map(tab => {
-              const TabIcon = tab.Icon;
-              return (
-                <Pressable
-                  accessibilityLabel={`Dashboard tab ${tab.label}`}
-                  accessibilityRole="tab"
-                  accessibilityState={{ selected: tab.active }}
-                  key={tab.label}
-                  style={styles.dashboardTab}>
-                  <TabIcon
-                    color={tab.active ? content.accent : ONBOARDING_COLORS.textMuted}
-                    size={20}
-                    strokeWidth={2.5}
-                  />
-                  <Text
-                    style={[
-                      styles.dashboardTabText,
-                      { color: tab.active ? content.accent : ONBOARDING_COLORS.textMuted },
-                    ]}>
-                    {tab.label}
-                  </Text>
-                </Pressable>
-              );
-            })}
-          </View>
-        </ScrollView>
-      </LinearGradient>
     );
   }
 
@@ -6864,7 +6584,7 @@ export function StudentOnboardingScreen({
                 </Text>
                 {collectSignupCredentials ? (
                   <>
-                    {signupStep !== 'method' && signupStep !== 'google' ? (
+                    {signupStep !== 'method' ? (
                     <View style={styles.signupStepDots} accessibilityLabel="Signup progress">
                       {[0, 1, 2].map(dot => {
                         const active =
@@ -7097,7 +6817,9 @@ export function StudentOnboardingScreen({
                             (signupStep === 'email' ? !canSubmitSignupEmail : !canSubmitSignupPhone) &&
                               styles.primaryButtonDisabled,
                           ]}>
-                          <Text style={styles.signupPrimaryText}>Send verification code {'\u2192'}</Text>
+                          <Text style={styles.signupPrimaryText}>
+                            {signupStep === 'email' ? 'Create account' : 'Send verification code'} {'\u2192'}
+                          </Text>
                           <ChevronRight color={ONBOARDING_COLORS.white} size={18} strokeWidth={2.7} />
                         </Pressable>
                       </View>
@@ -7117,9 +6839,8 @@ export function StudentOnboardingScreen({
                           {swahiliIntro ? 'Ingiza msimbo wa nambari 6' : 'Enter the 6-digit code'}
                         </Text>
                         <Text style={styles.signupDestinationText}>
-                          We sent a code to {signupMethod === 'phone' ? normalizedSignupPhone : signupEmailTrimmed}
+                          We sent a code to {normalizedSignupPhone}
                         </Text>
-                        <Text style={styles.signupTestHint}>(Use 123456 to test)</Text>
                         <View style={styles.signupOtpRow}>
                           {signupOtp.map((digit, index) => (
                             <TextInput
@@ -7174,23 +6895,6 @@ export function StudentOnboardingScreen({
                       </View>
                     ) : null}
 
-                    {signupStep === 'google' ? (
-                      <View style={styles.signupFormPanel}>
-                        <Text style={styles.signupGoogleMarkLarge}>G</Text>
-                        <Text style={[styles.needChoiceTitle, styles.centeredText]}>Connecting to Google</Text>
-                        <Text style={styles.signupDestinationText}>
-                          We will save this Kitabu profile to your Google account.
-                        </Text>
-                        <Pressable
-                          accessibilityLabel="Simulate Google success"
-                          accessibilityRole="button"
-                          onPress={handleGoogleSignupSuccess}
-                          style={[styles.signupPrimaryButton, { backgroundColor: content.accent }]}>
-                          <Text style={styles.signupPrimaryText}>Simulate success {'\u2192'}</Text>
-                          <ChevronRight color={ONBOARDING_COLORS.white} size={18} strokeWidth={2.7} />
-                        </Pressable>
-                      </View>
-                    ) : null}
                   </>
                 ) : (
                   <View style={[styles.socialProofPanel, { borderColor: `${content.accent}55` }]}>
@@ -7297,315 +7001,6 @@ const styles = StyleSheet.create({
     paddingBottom: 12,
     paddingHorizontal: 20,
     paddingTop: 18,
-  },
-  dashboardScrollContent: {
-    flexGrow: 1,
-    gap: 16,
-    paddingBottom: 24,
-    paddingHorizontal: 18,
-    paddingTop: 22,
-  },
-  dashboardTopRow: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: 12,
-  },
-  dashboardGreetingBlock: {
-    flex: 1,
-    minWidth: 0,
-  },
-  dashboardEyebrow: {
-    fontSize: 12,
-    fontWeight: '900',
-    textTransform: 'uppercase',
-  },
-  dashboardGreeting: {
-    color: ONBOARDING_COLORS.textSecondary,
-    fontSize: 20,
-    fontWeight: '800',
-    marginTop: 6,
-  },
-  dashboardName: {
-    color: ONBOARDING_COLORS.textPrimary,
-    fontSize: 32,
-    fontWeight: '900',
-    lineHeight: 38,
-  },
-  dashboardMascotFrame: {
-    alignItems: 'center',
-    backgroundColor: 'rgba(255,255,255,0.78)',
-    borderColor: 'rgba(255,255,255,0.9)',
-    borderRadius: 999,
-    borderWidth: 1,
-    height: 112,
-    justifyContent: 'center',
-    overflow: 'hidden',
-    width: 112,
-  },
-  dashboardMascot: {
-    height: 100,
-    width: 100,
-  },
-  dashboardStatsRow: {
-    flexDirection: 'row',
-    gap: 10,
-  },
-  dashboardStatCard: {
-    backgroundColor: ONBOARDING_COLORS.white,
-    borderColor: ONBOARDING_COLORS.border,
-    borderRadius: 16,
-    borderWidth: 1,
-    flex: 1,
-    minHeight: 84,
-    padding: 14,
-  },
-  dashboardStatLabel: {
-    color: ONBOARDING_COLORS.textMuted,
-    fontSize: 11,
-    fontWeight: '900',
-    textTransform: 'uppercase',
-  },
-  dashboardStatValue: {
-    color: ONBOARDING_COLORS.textPrimary,
-    fontSize: 17,
-    fontWeight: '900',
-    lineHeight: 22,
-    marginTop: 8,
-  },
-  dashboardStreakCard: {
-    backgroundColor: ONBOARDING_COLORS.white,
-    borderColor: ONBOARDING_COLORS.border,
-    borderRadius: 16,
-    borderWidth: 1,
-    padding: 16,
-  },
-  dashboardStreakHeader: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  dashboardStreakTitle: {
-    color: ONBOARDING_COLORS.textPrimary,
-    flex: 1,
-    fontSize: 15,
-    fontWeight: '900',
-  },
-  dashboardStreakCount: {
-    fontSize: 14,
-    fontWeight: '900',
-    marginLeft: 12,
-  },
-  dashboardStreakTrack: {
-    backgroundColor: ONBOARDING_COLORS.bgSoft,
-    borderRadius: 999,
-    height: 10,
-    marginTop: 12,
-    overflow: 'hidden',
-  },
-  dashboardStreakFill: {
-    borderRadius: 999,
-    height: '100%',
-    width: '14%',
-  },
-  dashboardSpeechRow: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: 10,
-  },
-  dashboardSpeechMascot: {
-    alignItems: 'center',
-    backgroundColor: ONBOARDING_COLORS.white,
-    borderRadius: 999,
-    borderWidth: 2,
-    height: 64,
-    justifyContent: 'center',
-    overflow: 'hidden',
-    width: 64,
-  },
-  dashboardSpeechMascotImage: {
-    height: 58,
-    width: 58,
-  },
-  dashboardSpeechBubble: {
-    backgroundColor: ONBOARDING_COLORS.white,
-    borderColor: ONBOARDING_COLORS.border,
-    borderRadius: 16,
-    borderWidth: 1,
-    flex: 1,
-    padding: 14,
-  },
-  dashboardSpeechText: {
-    color: ONBOARDING_COLORS.textSecondary,
-    fontSize: 14,
-    fontWeight: '700',
-    lineHeight: 20,
-  },
-  dashboardSectionHeader: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  dashboardSectionTitle: {
-    color: ONBOARDING_COLORS.textPrimary,
-    fontSize: 18,
-    fontWeight: '900',
-  },
-  dashboardSectionPill: {
-    alignItems: 'center',
-    backgroundColor: ONBOARDING_COLORS.white,
-    borderColor: ONBOARDING_COLORS.border,
-    borderRadius: 999,
-    borderWidth: 1,
-    flexDirection: 'row',
-    gap: 6,
-    paddingHorizontal: 10,
-    paddingVertical: 7,
-  },
-  dashboardSectionPillText: {
-    fontSize: 12,
-    fontWeight: '900',
-  },
-  dashboardActionGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 10,
-  },
-  dashboardActionCard: {
-    backgroundColor: ONBOARDING_COLORS.white,
-    borderColor: ONBOARDING_COLORS.border,
-    borderRadius: 16,
-    borderWidth: 1,
-    minHeight: 124,
-    padding: 14,
-    width: '48%',
-  },
-  dashboardActionIcon: {
-    alignItems: 'center',
-    borderRadius: 14,
-    height: 40,
-    justifyContent: 'center',
-    width: 40,
-  },
-  dashboardActionTitle: {
-    color: ONBOARDING_COLORS.textPrimary,
-    fontSize: 15,
-    fontWeight: '900',
-    marginTop: 12,
-  },
-  dashboardActionText: {
-    color: ONBOARDING_COLORS.textSecondary,
-    fontSize: 12,
-    fontWeight: '700',
-    lineHeight: 17,
-    marginTop: 4,
-  },
-  dashboardSeeAllText: {
-    fontSize: 12,
-    fontWeight: '900',
-  },
-  dashboardSubjectList: {
-    gap: 10,
-  },
-  dashboardSubjectRow: {
-    alignItems: 'center',
-    backgroundColor: ONBOARDING_COLORS.white,
-    borderColor: ONBOARDING_COLORS.border,
-    borderRadius: 16,
-    borderWidth: 1,
-    flexDirection: 'row',
-    gap: 10,
-    minHeight: 62,
-    padding: 12,
-  },
-  dashboardSubjectIcon: {
-    alignItems: 'center',
-    borderRadius: 999,
-    height: 40,
-    justifyContent: 'center',
-    width: 40,
-  },
-  dashboardSubjectCopy: {
-    flex: 1,
-  },
-  dashboardSubjectName: {
-    color: ONBOARDING_COLORS.textPrimary,
-    fontSize: 14,
-    fontWeight: '900',
-  },
-  dashboardSubjectHint: {
-    color: ONBOARDING_COLORS.textSecondary,
-    fontSize: 12,
-    fontWeight: '700',
-    marginTop: 2,
-  },
-  dashboardPlanList: {
-    backgroundColor: ONBOARDING_COLORS.white,
-    borderColor: ONBOARDING_COLORS.border,
-    borderRadius: 16,
-    borderWidth: 1,
-    gap: 10,
-    padding: 12,
-  },
-  dashboardPlanRow: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: 10,
-    minHeight: 52,
-  },
-  dashboardPlanNumber: {
-    alignItems: 'center',
-    borderRadius: 999,
-    height: 30,
-    justifyContent: 'center',
-    width: 30,
-  },
-  dashboardPlanNumberText: {
-    fontSize: 13,
-    fontWeight: '900',
-  },
-  dashboardPlanCopy: {
-    flex: 1,
-  },
-  dashboardPlanTitle: {
-    color: ONBOARDING_COLORS.textPrimary,
-    fontSize: 14,
-    fontWeight: '900',
-  },
-  dashboardPlanTime: {
-    color: ONBOARDING_COLORS.textSecondary,
-    fontSize: 12,
-    fontWeight: '700',
-    marginTop: 2,
-  },
-  dashboardPlanStartPill: {
-    backgroundColor: ONBOARDING_COLORS.primaryLight,
-    borderRadius: 999,
-    paddingHorizontal: 12,
-    paddingVertical: 7,
-  },
-  dashboardPlanStartText: {
-    fontSize: 12,
-    fontWeight: '900',
-  },
-  dashboardTabBar: {
-    alignItems: 'center',
-    backgroundColor: ONBOARDING_COLORS.white,
-    borderColor: ONBOARDING_COLORS.border,
-    borderRadius: 18,
-    borderWidth: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    paddingHorizontal: 8,
-    paddingVertical: 10,
-  },
-  dashboardTab: {
-    alignItems: 'center',
-    flex: 1,
-    gap: 4,
-  },
-  dashboardTabText: {
-    fontSize: 11,
-    fontWeight: '900',
   },
   header: {
     alignItems: 'center',
@@ -9114,12 +8509,6 @@ const styles = StyleSheet.create({
     color: '#4285F4',
     fontSize: 18,
     fontWeight: '900',
-  },
-  signupGoogleMarkLarge: {
-    color: '#4285F4',
-    fontSize: 42,
-    fontWeight: '900',
-    textAlign: 'center',
   },
   signupGoogleText: {
     color: ONBOARDING_COLORS.textPrimary,

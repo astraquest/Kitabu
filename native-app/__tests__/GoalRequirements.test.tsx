@@ -1203,36 +1203,8 @@ test('onboarding full intro captures profile details before account setup', asyn
     password: 'strongpass',
     signupPassword: 'strongpass',
   });
-  expect(renderer!.root.findByProps({ testID: 'onboarding-dashboard' })).toBeTruthy();
-  expect(renderer!.root.findAllByProps({ accessibilityLabel: 'Onboarding progress' })).toHaveLength(0);
-  expect(renderedText(renderer!.root)).toContain('Student dashboard');
-  expect(renderedText(renderer!.root)).toContain('Habari za asubuhi');
-  expect(renderedText(renderer!.root)).toContain('Nia');
-  expect(renderedText(renderer!.root)).toContain('Rafiki the Lion');
-  expect(renderedText(renderer!.root)).toContain('Tusome nini leo? \uD83D\uDCDA');
-  expect(renderedText(renderer!.root)).toContain('Grade 6');
-  expect(renderedText(renderer!.root)).toContain('2 subjects ready');
-  expect(renderedText(renderer!.root)).toContain('\uD83D\uDD25 1-day streak \u2014 keep it up!');
-  expect(renderedText(renderer!.root)).toContain('Masomo yangu');
-  expect(renderedText(renderer!.root)).toContain('Mathematics');
-  expect(renderedText(renderer!.root)).toContain('English');
-  expect(renderedText(renderer!.root)).toContain('Gusa kuanza');
-  expect(renderedText(renderer!.root)).toContain('Ona yote 2 \u2192');
-  expect(renderedText(renderer!.root)).toContain('Soma sasa');
-  expect(renderedText(renderer!.root)).toContain('Mtihani wa mazoezi');
-  expect(renderedText(renderer!.root)).toContain('Maendeleo yangu');
-  expect(renderedText(renderer!.root)).toContain('Ratiba');
-  expect(renderedText(renderer!.root)).toContain('Mpango wa leo');
-  expect(renderedText(renderer!.root)).toContain('Quiz ya kuanza siku');
-  expect(renderedText(renderer!.root)).toContain('Somo jipya');
-  expect(renderedText(renderer!.root)).toContain('Maswali ya mazoezi');
-  expect(renderer!.root.findByProps({ accessibilityLabel: 'Dashboard tabs' })).toBeTruthy();
-  expect(renderer!.root.findByProps({ accessibilityLabel: 'Dashboard tab Nyumbani' }).props.accessibilityState).toEqual({
-    selected: true,
-  });
-  expect(renderer!.root.findByProps({ accessibilityLabel: 'Dashboard tab Soma' })).toBeTruthy();
-  expect(renderer!.root.findByProps({ accessibilityLabel: 'Dashboard tab Zungumza' })).toBeTruthy();
-  expect(renderer!.root.findByProps({ accessibilityLabel: 'Dashboard tab Profaili' })).toBeTruthy();
+  expect(renderer!.root.findAllByProps({ testID: 'onboarding-dashboard' })).toHaveLength(0);
+  expect(renderedText(renderer!.root)).not.toContain('Simulate success');
   jest.useRealTimers();
 });
 
@@ -1560,8 +1532,6 @@ test('full intro loading and ready states use teacher and parent context', async
       readyTitle: 'Teacher Amina class workspace is ready',
       readyText: 'Your first dashboard will open with Grade 6, 2 subjects, Kenya CBC, and class planning reminders.',
       readyReminder: 'Reminder: Off for now',
-      dashboardRole: 'Teacher dashboard',
-      dashboardAction: 'Plan Lesson',
     },
     {
       role: 'parent' as const,
@@ -1607,8 +1577,6 @@ test('full intro loading and ready states use teacher and parent context', async
       readyTitle: 'Parent Kamau family dashboard is ready',
       readyText: 'Your family dashboard will open with Grade 6, Kenya CBC, school context, and progress reminders.',
       readyReminder: 'Reminder: Off for now',
-      dashboardRole: 'Family dashboard',
-      dashboardAction: 'Check Progress',
     },
   ];
 
@@ -1844,11 +1812,6 @@ test('full intro loading and ready states use teacher and parent context', async
     await act(() => {
       renderer!.root.findByProps({ accessibilityLabel: 'Continue with Google' }).props.onPress();
     });
-    expect(renderedText(renderer!.root)).toContain('Connecting to Google');
-    expect(renderedText(renderer!.root)).toContain('Simulate success \u2192');
-    await act(() => {
-      renderer!.root.findByProps({ accessibilityLabel: 'Simulate Google success' }).props.onPress();
-    });
 
     expect(onSubmit).toHaveBeenCalledWith(
       expect.objectContaining({
@@ -1884,32 +1847,9 @@ test('full intro loading and ready states use teacher and parent context', async
       );
       expect(onSubmit.mock.calls[0]?.[0]).not.toHaveProperty('parentChildren');
     }
-    expect(renderer!.root.findByProps({ testID: 'onboarding-dashboard' })).toBeTruthy();
-    expect(renderer!.root.findAllByProps({ accessibilityLabel: 'Onboarding progress' })).toHaveLength(0);
-    expect(renderedText(renderer!.root)).toContain(expectation.dashboardRole);
-    expect(renderedText(renderer!.root)).toContain(expectation.name);
-    expect(renderedText(renderer!.root)).toContain(expectation.dashboardAction);
-    expect(renderedText(renderer!.root)).toContain('\uD83D\uDD25 1-day streak \u2014 keep it up!');
-    if (expectation.role === 'teacher') {
-      expect(renderedText(renderer!.root)).toContain('My subjects');
-      expect(renderedText(renderer!.root)).toContain('Mathematics');
-      expect(renderedText(renderer!.root)).toContain('English');
-      expect(renderedText(renderer!.root)).toContain('Tap to start');
-      expect(renderedText(renderer!.root)).toContain('See all 2');
-    } else {
-      expect(renderedText(renderer!.root)).not.toContain('My subjects');
-      expect(renderedText(renderer!.root)).not.toContain('Tap to start');
-    }
-    expect(renderedText(renderer!.root)).toContain("Today's plan");
-    expect(renderedText(renderer!.root)).toContain('Daily warm-up quiz');
-    expect(renderedText(renderer!.root)).toContain('New topic session');
-    expect(renderedText(renderer!.root)).toContain('Practice questions');
-    expect(renderer!.root.findByProps({ accessibilityLabel: 'Dashboard tab Home' }).props.accessibilityState).toEqual({
-      selected: true,
-    });
-    expect(renderer!.root.findByProps({ accessibilityLabel: 'Dashboard tab Study' })).toBeTruthy();
-    expect(renderer!.root.findByProps({ accessibilityLabel: 'Dashboard tab Chat' })).toBeTruthy();
-    expect(renderer!.root.findByProps({ accessibilityLabel: 'Dashboard tab Profile' })).toBeTruthy();
+    expect(renderer!.root.findAllByProps({ testID: 'onboarding-dashboard' })).toHaveLength(0);
+    expect(renderer!.root.findAllByProps({ accessibilityLabel: 'Simulate Google success' })).toHaveLength(0);
+    expect(renderedText(renderer!.root)).not.toContain('Simulate success');
   }
   jest.useRealTimers();
 });

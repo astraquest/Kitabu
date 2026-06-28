@@ -6,8 +6,8 @@ export const SUPPORTED_GRADES = [
   'Grade 8',
   'Grade 9',
   'Grade 10',
-  'Form 3',
-  'Form 4',
+  'Grade 11',
+  'Grade 12',
 ] as const;
 
 export const DEFAULT_GRADE = 'Grade 6';

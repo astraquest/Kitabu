@@ -51,15 +51,16 @@ export function BookReaderScreen({
   const [showSettings, setShowSettings] = useState(false);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const totalPages = Math.max(1, book.pages?.length || TOTAL_PAGES);
 
   useEffect(() => {
     setTheme(isSpotlightMode ? 'dark' : 'light');
   }, [isSpotlightMode]);
 
   useEffect(() => {
-    setPage(initialPage);
+    setPage(Math.min(initialPage, totalPages));
     setShowSettings(false);
-  }, [book.id, initialPage]);
+  }, [book.id, initialPage, totalPages]);
 
   useEffect(() => {
     onUpdateProgress(page);
@@ -72,7 +73,7 @@ export function BookReaderScreen({
   }, []);
 
   useEffect(() => {
-    const data = getPageData(page);
+    const data = getPageData(book, page);
 
     if (!isMuted && page > 1) {
       speechPlaybackBridge.stop().catch(() => undefined);
@@ -82,12 +83,12 @@ export function BookReaderScreen({
 
     speechPlaybackBridge.stop().catch(() => undefined);
     return undefined;
-  }, [isMuted, page]);
+  }, [book, isMuted, page]);
 
-  const content = useMemo(() => getPageData(page), [page]);
+  const content = useMemo(() => getPageData(book, page), [book, page]);
 
   function goNext() {
-    setPage(current => Math.min(TOTAL_PAGES, current + 1));
+    setPage(current => Math.min(totalPages, current + 1));
   }
 
   function goPrev() {
@@ -109,7 +110,7 @@ export function BookReaderScreen({
     }
 
     const distance = touchStart - touchEnd;
-    if (distance > MIN_SWIPE_DISTANCE && page < TOTAL_PAGES) {
+    if (distance > MIN_SWIPE_DISTANCE && page < totalPages) {
       goNext();
     }
     if (distance < -MIN_SWIPE_DISTANCE && page > 1) {
@@ -135,7 +136,7 @@ export function BookReaderScreen({
             {book.title}
           </Text>
           <Text style={styles.headerMeta}>
-            Page {page} of {TOTAL_PAGES}
+            Page {page} of {totalPages}
           </Text>
         </View>
 
@@ -254,12 +255,12 @@ export function BookReaderScreen({
           <Text style={styles.footerButtonText}>Prev</Text>
         </Pressable>
         <Text style={styles.footerMeta}>
-          {Math.round((page / TOTAL_PAGES) * 100)}% Completed
+          {Math.round((page / totalPages) * 100)}% Completed
         </Text>
         <Pressable
-          disabled={page >= TOTAL_PAGES}
+          disabled={page >= totalPages}
           onPress={goNext}
-          style={[styles.footerButton, page >= TOTAL_PAGES && styles.disabled]}>
+          style={[styles.footerButton, page >= totalPages && styles.disabled]}>
           <Text style={styles.footerButtonText}>Next</Text>
         </Pressable>
       </View>
@@ -267,7 +268,18 @@ export function BookReaderScreen({
   );
 }
 
-function getPageData(pageNum: number) {
+function getPageData(book: Book, pageNum: number) {
+  const storedPage = book.pages?.[Math.max(0, pageNum - 1)];
+  if (storedPage) {
+    return {
+      title: storedPage.title,
+      paragraphs: storedPage.content
+        .split(/\n{2,}|\r?\n/)
+        .map(paragraph => paragraph.trim())
+        .filter(Boolean),
+    };
+  }
+
   if (pageNum === 1) {
     return {
       title: 'Table of Contents',

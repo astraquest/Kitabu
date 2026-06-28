@@ -1,6 +1,9 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   ActivityIndicator,
+  Animated,
+  Easing,
+  Image,
   Modal,
   Pressable,
   ScrollView,
@@ -10,10 +13,15 @@ import {
   useWindowDimensions,
   View,
 } from 'react-native';
-import { Check, LockKeyhole, Phone, ShieldCheck, X } from 'lucide-react-native';
+import type { ImageSourcePropType } from 'react-native';
+import { LockKeyhole, Phone, ShieldCheck, X } from 'lucide-react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 import type { BillingPlan, BillingPlanCode } from '../types/app';
+
+const sunguraRabbitMascot = require('../assets/mascot/sungura-rabbit.png');
+const simbaLionMascot = require('../assets/mascot/simba-lion.png');
+const ndovuElephantMascot = require('../assets/mascot/ndovu-elephant.png');
 
 interface SubscriptionCheckoutModalProps {
   isOpen: boolean;
@@ -32,7 +40,76 @@ interface SubscriptionCheckoutModalProps {
 }
 
 const PLAN_ORDER: Record<string, number> = { weekly: 1, monthly: 2, annual: 3 };
-const FEATURES = ['Unlimited Revision Papers', 'Personal AI Tutor 24/7', 'Track Your Progress'];
+const PUBLIC_PLAN_CODES: BillingPlanCode[] = ['weekly', 'monthly', 'annual'];
+const PACKAGE_GAP = 5;
+const PLAN_PRESENTATION: Record<
+  string,
+  {
+    name: string;
+    cycle: string;
+    accent: string;
+    border: string;
+    mascot: ImageSourcePropType;
+    soft: string;
+  }
+> = {
+  weekly: {
+    name: 'Sungura',
+    cycle: 'Per Week',
+    accent: '#F97316',
+    border: '#FDBA74',
+    mascot: sunguraRabbitMascot,
+    soft: '#FFF7ED',
+  },
+  monthly: {
+    name: 'Simba',
+    cycle: 'Per Month',
+    accent: '#16A34A',
+    border: '#86EFAC',
+    mascot: simbaLionMascot,
+    soft: '#F0FDF4',
+  },
+  annual: {
+    name: 'Ndovu',
+    cycle: 'Per Year',
+    accent: '#2563EB',
+    border: '#93C5FD',
+    mascot: ndovuElephantMascot,
+    soft: '#EFF6FF',
+  },
+};
+const PUBLIC_PLAN_FALLBACKS: Record<string, BillingPlan> = {
+  weekly: {
+    code: 'weekly',
+    name: 'Weekly',
+    billingCycle: 'weekly',
+    priceKsh: 100,
+    priceKshCents: 10000,
+    originalPriceKsh: null,
+    originalPriceKshCents: null,
+    isPopular: false,
+  },
+  monthly: {
+    code: 'monthly',
+    name: 'Monthly',
+    billingCycle: 'monthly',
+    priceKsh: 250,
+    priceKshCents: 25000,
+    originalPriceKsh: 500,
+    originalPriceKshCents: 50000,
+    isPopular: true,
+  },
+  annual: {
+    code: 'annual',
+    name: 'Annual',
+    billingCycle: 'annual',
+    priceKsh: 1999,
+    priceKshCents: 199900,
+    originalPriceKsh: 6000,
+    originalPriceKshCents: 600000,
+    isPopular: false,
+  },
+};
 
 function getCycleLabel(plan: BillingPlan) {
   if (plan.billingCycle === 'annual') {
@@ -55,6 +132,19 @@ function getDiscountLabel(plan: BillingPlan) {
   return null;
 }
 
+function getPlanPresentation(plan: BillingPlan) {
+  return (
+    PLAN_PRESENTATION[plan.code] ?? {
+      name: plan.name,
+      cycle: `Per ${getCycleLabel(plan)}`,
+      accent: '#16A34A',
+      border: '#86EFAC',
+      mascot: simbaLionMascot,
+      soft: '#F0FDF4',
+    }
+  );
+}
+
 export function SubscriptionCheckoutModal({
   isOpen,
   plans,
@@ -71,25 +161,103 @@ export function SubscriptionCheckoutModal({
   onContinue,
 }: SubscriptionCheckoutModalProps) {
   const { height, width } = useWindowDimensions();
-  const compact = height < 760 || width < 380;
+  const compact = height < 760 || width < 390;
+  const [hasPackageFocus, setHasPackageFocus] = useState(false);
+  const [focusedPlanCode, setFocusedPlanCode] = useState<BillingPlanCode | null>(null);
+  const focusProgress = useRef(new Animated.Value(0)).current;
+  const wiggle = useRef(new Animated.Value(0)).current;
   const cardSizeStyle = useMemo(
     () => ({
-      maxHeight: Math.round(height * 0.92),
+      height: Math.round(height * 0.75),
+      maxWidth: Math.min(Math.round(width - 24), 366),
     }),
-    [height],
+    [height, width],
   );
   const visiblePlans = useMemo(
-    () => [...plans].sort((left, right) => (PLAN_ORDER[left.code] ?? 99) - (PLAN_ORDER[right.code] ?? 99)),
+    () => {
+      const plansByCode = new Map(plans.map(plan => [plan.code, plan]));
+
+      return PUBLIC_PLAN_CODES.map(planCode => plansByCode.get(planCode) ?? PUBLIC_PLAN_FALLBACKS[planCode]).sort(
+        (left, right) => (PLAN_ORDER[left.code] ?? 99) - (PLAN_ORDER[right.code] ?? 99),
+      );
+    },
     [plans],
   );
+  const effectiveSelectedPlanCode = focusedPlanCode ?? selectedPlanCode;
   const featuredPlan =
-    visiblePlans.find(plan => plan.code === selectedPlanCode) ??
+    visiblePlans.find(plan => plan.code === effectiveSelectedPlanCode) ??
     visiblePlans.find(plan => plan.isPopular) ??
     visiblePlans.find(plan => plan.code === 'monthly') ??
     visiblePlans[0] ??
     null;
-  const cycleLabel = featuredPlan ? getCycleLabel(featuredPlan) : 'month';
-  const discountLabel = featuredPlan ? getDiscountLabel(featuredPlan) : null;
+  const packageCardWidth = useMemo(() => {
+    const availableWidth = Math.min(Math.round(width - 52), 338);
+    return Math.max(92, Math.floor((availableWidth - PACKAGE_GAP * 2) / 3));
+  }, [width]);
+  const packageStep = packageCardWidth + PACKAGE_GAP;
+
+  useEffect(() => {
+    if (!isOpen) {
+      setHasPackageFocus(false);
+      setFocusedPlanCode(null);
+      focusProgress.setValue(0);
+      wiggle.setValue(0);
+    }
+  }, [focusProgress, isOpen, wiggle]);
+
+  useEffect(() => {
+    if (!hasPackageFocus) {
+      return;
+    }
+
+    wiggle.setValue(0);
+    Animated.parallel([
+      Animated.timing(focusProgress, {
+        toValue: 1,
+        duration: 260,
+        easing: Easing.out(Easing.cubic),
+        useNativeDriver: true,
+      }),
+      Animated.sequence([
+        Animated.timing(wiggle, {
+          toValue: -1,
+          duration: 55,
+          easing: Easing.linear,
+          useNativeDriver: true,
+        }),
+        Animated.timing(wiggle, {
+          toValue: 1,
+          duration: 90,
+          easing: Easing.linear,
+          useNativeDriver: true,
+        }),
+        Animated.timing(wiggle, {
+          toValue: -0.55,
+          duration: 75,
+          easing: Easing.linear,
+          useNativeDriver: true,
+        }),
+        Animated.timing(wiggle, {
+          toValue: 0.35,
+          duration: 60,
+          easing: Easing.linear,
+          useNativeDriver: true,
+        }),
+        Animated.timing(wiggle, {
+          toValue: 0,
+          duration: 50,
+          easing: Easing.out(Easing.quad),
+          useNativeDriver: true,
+        }),
+      ]),
+    ]).start();
+  }, [effectiveSelectedPlanCode, focusProgress, hasPackageFocus, wiggle]);
+
+  function handleSelectPlan(planCode: BillingPlanCode) {
+    setFocusedPlanCode(planCode);
+    setHasPackageFocus(true);
+    onSelectPlan(planCode);
+  }
 
   return (
     <Modal visible={isOpen} transparent animationType="fade" onRequestClose={onClose}>
@@ -130,63 +298,93 @@ export function SubscriptionCheckoutModal({
               <Text style={styles.offerBadgeText}>LIMITED TIME OFFER</Text>
             </View>
 
-            {visiblePlans.length > 1 ? (
-              <View style={styles.planTabs}>
-                {visiblePlans.map(plan => {
-                  const active = plan.code === featuredPlan?.code;
-                  return (
+            <View style={styles.packageRail}>
+              {visiblePlans.map(plan => {
+                const active = plan.code === featuredPlan?.code;
+                const packageTheme = getPlanPresentation(plan);
+                const discountLabel = getDiscountLabel(plan);
+                const popular = plan.code === 'monthly' || plan.isPopular;
+                const rowIndex = PLAN_ORDER[plan.code] ?? 2;
+                const rowOffset = (rowIndex - 2) * packageStep;
+                const translateX = focusProgress.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [rowOffset, 0],
+                });
+                const scale = focusProgress.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [1, active ? 1.08 : 0.72],
+                });
+                const opacity = focusProgress.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [1, active ? 1 : 0],
+                });
+                const rotate = active
+                  ? wiggle.interpolate({
+                      inputRange: [-1, 0, 1],
+                      outputRange: ['-2.4deg', '0deg', '2.4deg'],
+                    })
+                  : '0deg';
+                return (
+                  <Animated.View
+                    key={plan.code}
+                    pointerEvents={hasPackageFocus && !active ? 'none' : 'auto'}
+                    style={[
+                      styles.packageCardSlot,
+                      active && styles.packageCardSlotActive,
+                      {
+                        width: packageCardWidth,
+                        marginLeft: -packageCardWidth / 2,
+                        opacity,
+                        transform: [{ translateX }, { scale }, { rotate }],
+                      },
+                    ]}>
+                    <Image
+                      accessibilityIgnoresInvertColors
+                      accessibilityLabel={`${packageTheme.name} mascot`}
+                      source={packageTheme.mascot}
+                      style={styles.packageMascot}
+                      resizeMode="contain"
+                    />
+                    {popular ? (
+                      <View style={[styles.packagePopularPill, { backgroundColor: packageTheme.accent }]}>
+                        <Text style={styles.packagePopularText}>MOST POPULAR</Text>
+                      </View>
+                    ) : null}
                     <Pressable
-                      key={plan.code}
                       accessibilityRole="button"
+                      accessibilityLabel={`Select ${packageTheme.name} package`}
                       accessibilityState={{ selected: active }}
-                      onPress={() => onSelectPlan(plan.code)}
-                      style={[styles.planTab, active && styles.planTabActive]}>
-                      <Text style={[styles.planTabText, active && styles.planTabTextActive]}>
-                        {plan.name}
-                      </Text>
-                      <Text style={[styles.planTabPrice, active && styles.planTabTextActive]}>
+                      onPress={() => handleSelectPlan(plan.code)}
+                      style={[
+                        styles.packageCard,
+                        {
+                          backgroundColor: packageTheme.soft,
+                          borderColor: active ? packageTheme.accent : packageTheme.border,
+                        },
+                        active && styles.packageCardActive,
+                        active && { shadowColor: packageTheme.accent },
+                      ]}>
+                      <Text style={styles.packageName}>{packageTheme.name}</Text>
+                      <Text style={[styles.packagePrice, { color: packageTheme.accent }]}>
                         KSH {plan.priceKsh.toLocaleString()}
                       </Text>
+                      <Text style={styles.packageCycle}>{packageTheme.cycle}</Text>
+                      {discountLabel ? (
+                        <Text style={[styles.packageDiscount, { color: packageTheme.accent }]}>
+                          {discountLabel}
+                        </Text>
+                      ) : null}
                     </Pressable>
-                  );
-                })}
+                  </Animated.View>
+                );
+              })}
+            </View>
+
+            {hasPackageFocus && featuredPlan ? (
+              <View style={styles.selectionHint}>
+                <Text style={styles.selectionHintText}>{getPlanPresentation(featuredPlan).name} selected</Text>
               </View>
             ) : null}
-
-            <View style={[styles.featuredPlanWrap, compact && styles.featuredPlanWrapCompact]}>
-              {featuredPlan?.isPopular ? (
-                <View style={styles.popularPill}>
-                  <Text style={styles.popularPillText}>MOST POPULAR</Text>
-                </View>
-              ) : null}
-
-              <View style={[styles.featuredPlanCard, compact && styles.featuredPlanCardCompact]}>
-                <Text style={styles.planName}>{featuredPlan?.name ?? 'Monthly'}</Text>
-                {featuredPlan?.originalPriceKsh && featuredPlan.originalPriceKsh > featuredPlan.priceKsh ? (
-                  <Text style={styles.originalPrice}>
-                    KSH {featuredPlan.originalPriceKsh.toLocaleString()}
-                  </Text>
-                ) : null}
-                <Text style={[styles.currentPrice, compact && styles.currentPriceCompact]}>
-                  KSH {featuredPlan?.priceKsh.toLocaleString() ?? '--'}
-                </Text>
-                <Text style={styles.planCycle}>per {cycleLabel}</Text>
-                {discountLabel ? (
-                  <View style={styles.discountPill}>
-                    <Text style={styles.discountPillText}>{discountLabel}</Text>
-                  </View>
-                ) : null}
-
-                <View style={styles.featureList}>
-                  {FEATURES.map(feature => (
-                    <View key={feature} style={styles.featureRow}>
-                      <Check color="#16A34A" size={18} strokeWidth={2.7} />
-                      <Text style={styles.featureText}>{feature}</Text>
-                    </View>
-                  ))}
-                </View>
-              </View>
-            </View>
 
             <View style={styles.promiseRow}>
               <ShieldCheck color="#16A34A" fill="#16A34A" size={22} strokeWidth={2.3} />
@@ -243,21 +441,23 @@ const styles = StyleSheet.create({
   backdrop: {
     flex: 1,
     backgroundColor: 'rgba(2,6,23,0.88)',
+    alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 16,
-    paddingVertical: 22,
+    paddingHorizontal: 12,
+    paddingVertical: 18,
   },
   scrim: {
     ...StyleSheet.absoluteFillObject,
   },
   card: {
-    alignSelf: 'stretch',
+    alignSelf: 'center',
     overflow: 'hidden',
     shadowColor: '#000000',
     shadowOpacity: 0.35,
     shadowRadius: 28,
     shadowOffset: { width: 0, height: 18 },
     elevation: 12,
+    width: '100%',
   },
   cardRegular: {
     borderRadius: 28,
@@ -267,202 +467,166 @@ const styles = StyleSheet.create({
   },
   content: {
     alignItems: 'center',
-    paddingHorizontal: 24,
-    paddingTop: 54,
-    paddingBottom: 28,
+    flexGrow: 1,
+    justifyContent: 'space-between',
+    paddingHorizontal: 16,
+    paddingTop: 36,
+    paddingBottom: 10,
   },
   contentCompact: {
-    paddingHorizontal: 18,
-    paddingTop: 46,
-    paddingBottom: 22,
+    paddingHorizontal: 14,
+    paddingTop: 34,
+    paddingBottom: 10,
   },
   closeButton: {
     position: 'absolute',
-    right: 18,
-    top: 18,
-    width: 40,
-    height: 40,
+    right: 12,
+    top: 12,
+    width: 36,
+    height: 36,
     alignItems: 'center',
     justifyContent: 'center',
   },
   title: {
     color: '#0B1020',
-    fontSize: 31,
+    fontSize: 23,
     fontWeight: '900',
-    lineHeight: 38,
+    lineHeight: 27,
     textAlign: 'center',
   },
   titleCompact: {
-    fontSize: 25,
-    lineHeight: 31,
+    fontSize: 21,
+    lineHeight: 25,
   },
   subtitle: {
     color: '#5B6472',
-    fontSize: 17,
+    fontSize: 13,
     fontWeight: '600',
-    lineHeight: 24,
-    marginTop: 18,
+    lineHeight: 17,
+    marginTop: 6,
     textAlign: 'center',
   },
   subtitleCompact: {
-    fontSize: 14,
-    lineHeight: 20,
-    marginTop: 10,
+    fontSize: 12,
+    lineHeight: 17,
+    marginTop: 6,
   },
   offerBadge: {
     backgroundColor: '#EAF8F0',
     borderColor: '#C8EEDB',
     borderRadius: 999,
     borderWidth: 1,
-    marginTop: 22,
-    paddingHorizontal: 24,
-    paddingVertical: 9,
+    marginTop: 9,
+    paddingHorizontal: 16,
+    paddingVertical: 5,
   },
   offerBadgeText: {
     color: '#06934D',
-    fontSize: 15,
+    fontSize: 13,
     fontWeight: '900',
   },
-  planTabs: {
-    flexDirection: 'row',
-    gap: 8,
-    marginTop: 24,
-    width: '100%',
-  },
-  planTab: {
+  packageRail: {
     alignItems: 'center',
-    backgroundColor: '#F8FAFC',
-    borderColor: '#E2E8F0',
-    borderRadius: 8,
-    borderWidth: 1,
-    flex: 1,
-    gap: 2,
-    minHeight: 48,
+    height: 154,
     justifyContent: 'center',
-    paddingHorizontal: 8,
-  },
-  planTabActive: {
-    backgroundColor: '#EAF8F0',
-    borderColor: '#16A34A',
-  },
-  planTabText: {
-    color: '#64748B',
-    fontSize: 12,
-    fontWeight: '900',
-  },
-  planTabPrice: {
-    color: '#64748B',
-    fontSize: 11,
-    fontWeight: '800',
-  },
-  planTabTextActive: {
-    color: '#058D49',
-  },
-  featuredPlanWrap: {
-    marginTop: 24,
-    paddingTop: 24,
-    width: '72%',
-  },
-  featuredPlanWrapCompact: {
-    marginTop: 18,
+    marginTop: 12,
+    overflow: 'visible',
     width: '100%',
   },
-  popularPill: {
+  packageCardSlot: {
+    alignItems: 'center',
+    height: 148,
+    left: '50%',
+    position: 'absolute',
+    zIndex: 1,
+  },
+  packageCardSlotActive: {
+    zIndex: 3,
+  },
+  packageCard: {
+    alignItems: 'center',
+    borderRadius: 13,
+    borderWidth: 2,
+    height: 88,
+    justifyContent: 'center',
+    marginTop: 58,
+    paddingHorizontal: 3,
+    paddingTop: 13,
+    paddingBottom: 7,
+    width: '100%',
+  },
+  packageCardActive: {
+    shadowOpacity: 0.12,
+    shadowRadius: 8,
+    shadowOffset: { width: 0, height: 4 },
+  },
+  packagePopularPill: {
     alignSelf: 'center',
-    backgroundColor: '#07A64F',
     borderRadius: 999,
-    paddingHorizontal: 22,
-    paddingVertical: 10,
+    paddingHorizontal: 5,
+    paddingVertical: 3,
+    position: 'absolute',
+    top: 48,
+    zIndex: 8,
+    elevation: 8,
+  },
+  packagePopularText: {
+    color: '#FFFFFF',
+    fontSize: 6,
+    fontWeight: '900',
+    textAlign: 'center',
+  },
+  packageName: {
+    color: '#111827',
+    fontSize: 13,
+    fontWeight: '900',
+    textAlign: 'center',
+  },
+  packagePrice: {
+    fontSize: 13,
+    fontWeight: '900',
+    lineHeight: 15,
+    marginTop: 4,
+    textAlign: 'center',
+  },
+  packageCycle: {
+    color: '#475569',
+    fontSize: 8,
+    fontWeight: '800',
+    marginTop: 1,
+    textAlign: 'center',
+  },
+  packageDiscount: {
+    fontSize: 7,
+    fontWeight: '900',
+    marginTop: 2,
+    textAlign: 'center',
+  },
+  packageMascot: {
+    height: 64,
     position: 'absolute',
     top: 0,
-    zIndex: 2,
+    width: 64,
+    zIndex: 4,
   },
-  popularPillText: {
-    color: '#FFFFFF',
-    fontSize: 15,
-    fontWeight: '900',
-  },
-  featuredPlanCard: {
-    alignItems: 'center',
-    backgroundColor: 'rgba(255,255,255,0.72)',
-    borderColor: '#B8E8CE',
-    borderRadius: 22,
-    borderWidth: 2,
-    paddingHorizontal: 24,
-    paddingTop: 48,
-    paddingBottom: 28,
-  },
-  featuredPlanCardCompact: {
-    paddingHorizontal: 18,
-    paddingTop: 40,
-    paddingBottom: 20,
-  },
-  planName: {
-    color: '#111827',
-    fontSize: 23,
-    fontWeight: '900',
-  },
-  originalPrice: {
-    color: '#8B94A1',
-    fontSize: 22,
-    fontWeight: '600',
-    marginTop: 20,
-    textDecorationLine: 'line-through',
-  },
-  currentPrice: {
-    color: '#0BA34E',
-    fontSize: 44,
-    fontWeight: '900',
-    lineHeight: 52,
+  selectionHint: {
     marginTop: 4,
   },
-  currentPriceCompact: {
-    fontSize: 38,
-    lineHeight: 46,
-  },
-  planCycle: {
-    color: '#5B6472',
-    fontSize: 16,
-    fontWeight: '600',
-  },
-  discountPill: {
-    backgroundColor: '#EAF8F0',
-    borderRadius: 999,
-    marginTop: 20,
-    paddingHorizontal: 22,
-    paddingVertical: 10,
-  },
-  discountPillText: {
-    color: '#0BA34E',
-    fontSize: 18,
-    fontWeight: '900',
-  },
-  featureList: {
-    gap: 13,
-    marginTop: 28,
-    width: '100%',
-  },
-  featureRow: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: 12,
-  },
-  featureText: {
-    color: '#1F2937',
-    flex: 1,
-    fontSize: 16,
-    fontWeight: '600',
-    lineHeight: 22,
+  selectionHintText: {
+    color: '#0F172A',
+    fontSize: 10,
+    fontWeight: '800',
+    textAlign: 'center',
   },
   promiseRow: {
     alignItems: 'center',
     flexDirection: 'row',
-    gap: 10,
-    marginTop: 24,
+    gap: 8,
+    marginTop: 8,
   },
   promiseText: {
     color: '#5B6472',
-    fontSize: 15,
+    fontSize: 13,
     fontWeight: '600',
   },
   phoneInputWrap: {
@@ -471,43 +635,45 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     borderWidth: 1,
     flexDirection: 'row',
-    marginTop: 28,
-    minHeight: 58,
-    paddingHorizontal: 16,
+    marginTop: 8,
+    minHeight: 44,
+    paddingHorizontal: 12,
     width: '100%',
   },
   phoneDivider: {
     backgroundColor: '#E2E8F0',
-    height: 30,
-    marginHorizontal: 14,
+    height: 26,
+    marginHorizontal: 10,
     width: 1,
   },
   phoneInput: {
     color: '#111827',
     flex: 1,
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: '700',
-    paddingVertical: 12,
+    paddingVertical: 8,
   },
   savedPhoneButton: {
     alignSelf: 'flex-start',
-    marginTop: 10,
+    marginTop: 6,
   },
   savedPhoneButtonText: {
     color: '#0BA34E',
-    fontSize: 13,
+    fontSize: 12,
     fontWeight: '800',
   },
   errorText: {
     color: '#DC2626',
+    fontSize: 12,
     fontWeight: '800',
-    marginTop: 14,
+    marginTop: 6,
     textAlign: 'center',
   },
   statusText: {
     color: '#047857',
+    fontSize: 12,
     fontWeight: '800',
-    marginTop: 14,
+    marginTop: 6,
     textAlign: 'center',
   },
   continueButton: {
@@ -515,10 +681,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#06A84F',
     borderRadius: 14,
     flexDirection: 'row',
-    gap: 12,
+    gap: 8,
     justifyContent: 'center',
-    marginTop: 20,
-    minHeight: 64,
+    marginTop: 8,
+    minHeight: 46,
     shadowColor: '#06A84F',
     shadowOpacity: 0.28,
     shadowRadius: 16,
@@ -530,14 +696,14 @@ const styles = StyleSheet.create({
   },
   continueButtonText: {
     color: '#FFFFFF',
-    fontSize: 20,
+    fontSize: 15,
     fontWeight: '900',
   },
   footerText: {
     color: '#5B6472',
-    fontSize: 15,
+    fontSize: 11,
     fontWeight: '600',
-    marginTop: 16,
+    marginTop: 5,
     textAlign: 'center',
   },
 });

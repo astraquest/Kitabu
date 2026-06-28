@@ -140,11 +140,13 @@ export async function deleteMyAccount() {
   };
 }
 
-export async function completeStudentOnboarding(input: {
-  schoolId: string;
+export async function completeAccountOnboarding(input: {
+  schoolId?: string | null;
   gender: GenderOption;
   grade: string;
   mpesaPhoneNumber?: string | null;
+  school?: string;
+  county?: string;
 }): Promise<AuthSession> {
   const session = await loadStoredAuthSession();
   if (!session?.accessToken) {
@@ -167,3 +169,5 @@ export async function completeStudentOnboarding(input: {
   await persistAuthSession(nextSession);
   return nextSession;
 }
+
+export const completeStudentOnboarding = completeAccountOnboarding;

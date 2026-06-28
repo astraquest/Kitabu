@@ -281,7 +281,7 @@ export function DiagnosticScreen({
               </View>
               <View style={styles.headerTextWrap}>
                 <Text style={styles.eyebrow}>Personal learning path</Text>
-                <Text style={styles.title}>Help us find your real starting point</Text>
+                <Text style={styles.title}>Find your starting point</Text>
                 <Text style={styles.subtitle}>
                   {mode === 'progressive' && subjectName ? subjectName : groupedSubjects}. Question {currentIndex + 1} of {questions.length}.
                 </Text>
@@ -374,9 +374,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   content: {
+    alignItems: 'center',
     flexGrow: 1,
-    padding: 14,
-    paddingBottom: 24,
+    justifyContent: 'center',
+    paddingHorizontal: 18,
+    paddingVertical: 18,
   },
   shell: {
     backgroundColor: 'rgba(255,255,255,0.18)',
@@ -389,11 +391,13 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.28,
     shadowRadius: 28,
     elevation: 12,
+    maxWidth: 344,
+    width: '100%',
   },
   header: {
-    gap: 12,
-    padding: 18,
-    paddingBottom: 14,
+    gap: 10,
+    padding: 16,
+    paddingBottom: 12,
   },
   headerCopyRow: {
     alignItems: 'flex-start',
@@ -420,9 +424,9 @@ const styles = StyleSheet.create({
   },
   title: {
     color: '#FFFFFF',
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: '900',
-    lineHeight: 29,
+    lineHeight: 27,
     marginTop: 4,
   },
   subtitle: {
@@ -435,7 +439,7 @@ const styles = StyleSheet.create({
   mascotStage: {
     alignItems: 'center',
     justifyContent: 'center',
-    minHeight: 150,
+    minHeight: 136,
   },
   mascotBubble: {
     alignItems: 'center',
@@ -471,8 +475,8 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(255,255,255,0.7)',
     borderRadius: 22,
     borderWidth: 1,
-    margin: 18,
-    marginTop: 14,
+    margin: 16,
+    marginTop: 12,
     padding: 18,
   },
   subjectLabel: {
@@ -484,9 +488,9 @@ const styles = StyleSheet.create({
   },
   questionText: {
     color: '#0F172A',
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: '900',
-    lineHeight: 32,
+    lineHeight: 30,
     marginTop: 10,
   },
   options: {

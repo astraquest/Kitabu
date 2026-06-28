@@ -24,16 +24,20 @@ import {
   startMpesaCheckout,
 } from '../services/billingService';
 import {
-  completeStudentOnboarding,
+  completeAccountOnboarding,
   confirmEmailVerificationToken,
   deleteMyAccount,
   loadStoredAuthSession,
   loginWithPassword,
   persistAuthSession,
+  requestPhoneAuthCode,
   requestEmailVerification,
   refreshAccessSession,
   signupWithPassword,
+  verifyPhoneAuthCode,
+  authenticateWithGoogleToken,
 } from '../services/authService';
+import { requestGoogleIdToken } from '../services/googleAuthService';
 import {
   createAdminAnnouncement,
   createAdminDiscount,
@@ -124,6 +128,14 @@ import {
   StudentSubmission,
   SubStrand,
   Subject,
+  OnboardingAchievementKey,
+  OnboardingConcernKey,
+  OnboardingGoalKey,
+  OnboardingInterestKey,
+  OnboardingLanguageCode,
+  OnboardingMascotKey,
+  OnboardingNeedKey,
+  OnboardingVoiceName,
   SubmittedAssignment,
   UserProfile,
   ViewState,
@@ -136,6 +148,8 @@ const STORAGE_KEYS = {
   optionalPhoneNumber: 'kitabu_optional_phone_number',
   tryOneBobOfferSeenAt: 'kitabu_try_one_bob_offer_seen_at',
   focusMode: 'kitabu_focus_mode',
+  downloadedBooks: 'kitabu_downloaded_books',
+  onboardingPreferences: 'kitabu_onboarding_preferences',
 };
 const MAX_DASHBOARD_SUBJECTS = 5;
 const TRY_ONE_BOB_SUPPRESSION_MS = 90 * 24 * 60 * 60 * 1000;
@@ -144,6 +158,28 @@ const DEFAULT_DASHBOARD_SUBJECT_IDS = SUBJECTS.slice(0, MAX_DASHBOARD_SUBJECTS).
   subject => subject.id,
 );
 
+type OnboardingSignupMethod = 'email' | 'phone' | 'google';
+
+type OnboardingSignupInput = {
+  role?: PublicSignupRole;
+  name?: string;
+  displayName?: string;
+  fullName?: string;
+  email?: string;
+  signupEmail?: string;
+  phone?: string;
+  signupPhone?: string;
+  signupOtp?: string;
+  password?: string;
+  signupPassword?: string;
+  signupMethod?: OnboardingSignupMethod;
+  gender?: GenderOption;
+  grade?: string;
+  school?: string;
+  schoolId?: string;
+  mpesaPhoneNumber?: string;
+};
+
 interface FocusModeSnapshot {
   focusModeActive: boolean;
   sessionStartedAt: number | null;
@@ -151,6 +187,11 @@ interface FocusModeSnapshot {
   dailyLimitSeconds: number;
   sessionExpired: boolean;
   studentProfile: UserProfile | null;
+}
+
+interface DownloadedBooksSnapshot {
+  ids: string[];
+  books: Book[];
 }
 
 interface RouteSnapshot {
@@ -356,6 +397,25 @@ async function loadQuizBankFallback(grade: string, limit: number, subjectId?: st
   }
 }
 
+function downloadedBooksStorageKey(userId: string) {
+  return `${STORAGE_KEYS.downloadedBooks}:${userId}`;
+}
+
+async function loadDownloadedBooksSnapshot(userId: string): Promise<DownloadedBooksSnapshot> {
+  return loadJson<DownloadedBooksSnapshot>(downloadedBooksStorageKey(userId), {
+    books: [],
+    ids: [],
+  });
+}
+
+function mergeRemoteAndCachedBooks(remoteBooks: Book[], cachedBooks: Book[]) {
+  const remoteIds = new Set(remoteBooks.map(book => book.id));
+  return [
+    ...remoteBooks,
+    ...cachedBooks.filter(book => !remoteIds.has(book.id)),
+  ];
+}
+
 export function useKitabuApp() {
   const [isReady, setIsReady] = useState(false);
   const [authSession, setAuthSession] = useState<AuthSession | null>(null);
@@ -439,6 +499,9 @@ export function useKitabuApp() {
   const [isSpotlightMode, setIsSpotlightMode] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [downloadedBooks, setDownloadedBooks] = useState<Set<string>>(new Set());
+  const [downloadedBookCache, setDownloadedBookCache] = useState<Book[]>([]);
+  const [downloadedBooksLoadedForUserId, setDownloadedBooksLoadedForUserId] =
+    useState<string | null>(null);
   const [showComingSoon, setShowComingSoon] = useState(false);
   const [isStudentPreview, setIsStudentPreview] = useState(false);
   const [focusModeStudentProfile, setFocusModeStudentProfile] = useState<UserProfile | null>(null);
@@ -760,6 +823,80 @@ export function useKitabuApp() {
   }, [userProfile, isReady]);
 
   useEffect(() => {
+    const userId = authSession?.user.id;
+    let mounted = true;
+
+    if (!userId) {
+      setDownloadedBooks(new Set());
+      setDownloadedBookCache([]);
+      setDownloadedBooksLoadedForUserId(null);
+      return () => {
+        mounted = false;
+      };
+    }
+
+    setDownloadedBooksLoadedForUserId(null);
+    loadDownloadedBooksSnapshot(userId)
+      .then(snapshot => {
+        if (!mounted) {
+          return;
+        }
+
+        const ids = new Set(snapshot.ids ?? []);
+        const cachedBooks = (snapshot.books ?? []).filter(book => ids.has(book.id));
+        setDownloadedBooks(ids);
+        setDownloadedBookCache(cachedBooks);
+        setBooks(current =>
+          current.length > 0 ? mergeRemoteAndCachedBooks(current, cachedBooks) : cachedBooks,
+        );
+        setDownloadedBooksLoadedForUserId(userId);
+      })
+      .catch(() => {
+        if (!mounted) {
+          return;
+        }
+        setDownloadedBooks(new Set());
+        setDownloadedBookCache([]);
+        setDownloadedBooksLoadedForUserId(userId);
+      });
+
+    return () => {
+      mounted = false;
+    };
+  }, [authSession?.user.id]);
+
+  useEffect(() => {
+    const userId = authSession?.user.id;
+    if (!userId || downloadedBooksLoadedForUserId !== userId) {
+      return;
+    }
+
+    const ids = [...downloadedBooks];
+    const cachedById = new Map(downloadedBookCache.map(book => [book.id, book]));
+    for (const book of books) {
+      if (downloadedBooks.has(book.id)) {
+        cachedById.set(book.id, book);
+      }
+    }
+
+    const cachedBooks = ids
+      .map(id => cachedById.get(id))
+      .filter((book): book is Book => Boolean(book));
+
+    if (
+      cachedBooks.length !== downloadedBookCache.length ||
+      cachedBooks.some((book, index) => book.id !== downloadedBookCache[index]?.id)
+    ) {
+      setDownloadedBookCache(cachedBooks);
+    }
+
+    saveJson<DownloadedBooksSnapshot>(downloadedBooksStorageKey(userId), {
+      books: cachedBooks,
+      ids,
+    }).catch(() => undefined);
+  }, [authSession?.user.id, books, downloadedBookCache, downloadedBooks, downloadedBooksLoadedForUserId]);
+
+  useEffect(() => {
     if (isReady) {
       saveJson(STORAGE_KEYS.optionalPhoneNumber, optionalPhoneNumber.trim()).catch(() => undefined);
     }
@@ -894,8 +1031,10 @@ export function useKitabuApp() {
   const canOpenAdminPortal = isAdminRole(roles);
   const primaryHomeView = getPrimaryHomeView(roles);
   const resolvedHomeView = focusModeActive || isStudentPreview ? 'dashboard' : primaryHomeView;
-  const hasPendingStudentOnboarding = Boolean(
-    authSession?.user.roles.includes('student') && !authSession.user.onboardingCompleted,
+  const hasPendingAccountOnboarding = Boolean(
+    authSession &&
+      authSession.user.roles.some(role => role === 'student' || role === 'teacher' || role === 'parent' || role === 'other') &&
+      !authSession.user.onboardingCompleted,
   );
   const hasPendingStudentDiagnostic = Boolean(
     authSession?.user.roles.includes('student') &&
@@ -1371,12 +1510,14 @@ export function useKitabuApp() {
         getLibraryBooks(),
         getLearningPodcasts(),
       ]);
+      const downloadedSnapshot = await loadDownloadedBooksSnapshot(session.user.id);
       setAssignments(nextAssignments.length > 0 ? nextAssignments : INITIAL_ASSIGNMENTS);
-      setBooks(nextBooks);
+      setBooks(mergeRemoteAndCachedBooks(nextBooks, downloadedSnapshot.books ?? []));
       setPodcasts(nextPodcasts);
     } catch {
+      const downloadedSnapshot = await loadDownloadedBooksSnapshot(session.user.id);
       setAssignments(INITIAL_ASSIGNMENTS);
-      setBooks([]);
+      setBooks(downloadedSnapshot.books ?? []);
       setPodcasts([]);
     }
   }
@@ -1442,27 +1583,171 @@ export function useKitabuApp() {
     }
   }
 
-  async function submitStudentOnboarding(input: {
+  async function submitAccountOnboarding(input: {
     gender: GenderOption;
     grade: string;
-    schoolId: string;
+    schoolId: string | null;
     mpesaPhoneNumber?: string | null;
+    selectedSubjectIds?: string[];
+    lang?: OnboardingLanguageCode;
+    languageCode?: OnboardingLanguageCode;
+    mascot?: OnboardingMascotKey;
+    mascotKey?: OnboardingMascotKey;
+    role?: PublicSignupRole;
+    name?: string;
+    voice?: OnboardingVoiceName | '';
+    voiceName?: OnboardingVoiceName;
+    noVoice?: boolean;
+    need?: OnboardingNeedKey;
+    needKey?: OnboardingNeedKey;
+    displayName?: string;
+    age?: string;
+    children?: Array<{ name: string; age: string; grade: string }>;
+    parentChildren?: Array<{ name: string; age: string; grade: string }>;
+    teachGrades?: string[];
+    teacherGradeIds?: string[];
+    subjects?: string[];
+    county?: string;
+    school?: string;
+    goal?: OnboardingGoalKey;
+    goalKey?: OnboardingGoalKey;
+    concern?: OnboardingConcernKey;
+    concernKey?: OnboardingConcernKey;
+    achieve?: OnboardingAchievementKey;
+    achievementKey?: OnboardingAchievementKey;
+    interests?: OnboardingInterestKey[];
+    interestKeys?: OnboardingInterestKey[];
+    reminderEnabled?: boolean;
+    countryCode?: string;
+    curriculumCode?: string;
+    signupMethod?: 'email' | 'phone' | 'google';
+    email?: string;
+    signupEmail?: string;
+    phone?: string;
+    signupPhone?: string;
+    password?: string;
+    signupPassword?: string;
   }) {
     setIsSubmittingOnboarding(true);
     setOnboardingError(null);
 
     try {
-      const nextSession = await completeStudentOnboarding(input);
+      const {
+        selectedSubjectIds,
+        languageCode,
+        mascotKey,
+        voiceName,
+        noVoice,
+        needKey,
+        displayName,
+        age,
+        children,
+        parentChildren: onboardingParentChildren,
+        teachGrades,
+        teacherGradeIds,
+        goalKey,
+        concernKey,
+        achievementKey,
+        interestKeys,
+        reminderEnabled,
+        countryCode,
+        curriculumCode,
+        signupMethod,
+        email,
+        signupEmail,
+        phone,
+        signupPhone,
+        ...accountOnboardingInput
+      } = input;
+      delete accountOnboardingInput.password;
+      delete accountOnboardingInput.signupPassword;
+      const resolvedChildren = children ?? onboardingParentChildren;
+      const resolvedTeachGrades = teachGrades ?? teacherGradeIds;
+      const resolvedLanguageCode = languageCode ?? input.lang;
+      const resolvedMascotKey = mascotKey ?? input.mascot;
+      const resolvedVoiceName = voiceName ?? (input.voice || undefined);
+      const resolvedNeedKey = needKey ?? input.need;
+      const resolvedDisplayName = displayName ?? input.name;
+      const resolvedGoalKey = goalKey ?? input.goal;
+      const resolvedConcernKey = concernKey ?? input.concern;
+      const resolvedAchievementKey = achievementKey ?? input.achieve;
+      const resolvedInterestKeys = interestKeys ?? input.interests;
+      const resolvedSignupEmail = signupEmail ?? email;
+      const resolvedSignupPhone = signupPhone ?? phone;
+      const nextSession = await completeAccountOnboarding(accountOnboardingInput);
       setAuthSession(nextSession);
       const nextProfile = mapAuthSessionToProfile(nextSession);
-      const selectedSchool = schoolsList.find(school => school.id === input.schoolId);
+      const selectedSchool = input.schoolId
+        ? schoolsList.find(school => school.id === input.schoolId)
+        : null;
       setUserProfile({
         ...nextProfile,
-        school: selectedSchool?.name || nextProfile.school,
+        school: selectedSchool?.name || input.school || nextProfile.school,
       });
       setCurrentGrade(input.grade);
-      setOnboardingDiagnosticCompleted(false);
-      setIsDiagnosticStatusLoaded(false);
+      if (selectedSubjectIds?.length) {
+        saveDashboardSubjects(selectedSubjectIds);
+      }
+      if (
+        resolvedLanguageCode ||
+        resolvedMascotKey ||
+        resolvedVoiceName ||
+        typeof noVoice === 'boolean' ||
+        resolvedNeedKey ||
+        resolvedDisplayName ||
+        age ||
+        resolvedChildren?.length ||
+        resolvedTeachGrades?.length ||
+        input.subjects?.length ||
+        input.county ||
+        input.school ||
+        resolvedGoalKey ||
+        resolvedConcernKey ||
+        resolvedAchievementKey ||
+        resolvedInterestKeys?.length ||
+        typeof reminderEnabled === 'boolean' ||
+        countryCode ||
+        curriculumCode
+      ) {
+        saveJson(STORAGE_KEYS.onboardingPreferences, {
+          lang: resolvedLanguageCode,
+          languageCode: resolvedLanguageCode,
+          mascot: resolvedMascotKey,
+          mascotKey: resolvedMascotKey,
+          role: input.role,
+          name: resolvedDisplayName,
+          voice: input.voice ?? resolvedVoiceName ?? '',
+          voiceName: resolvedVoiceName,
+          noVoice,
+          need: resolvedNeedKey,
+          needKey: resolvedNeedKey,
+          displayName: resolvedDisplayName,
+          age,
+          children: resolvedChildren,
+          teachGrades: resolvedTeachGrades,
+          subjects: input.subjects,
+          county: input.county,
+          school: input.school,
+          goal: resolvedGoalKey,
+          goalKey: resolvedGoalKey,
+          concern: resolvedConcernKey,
+          concernKey: resolvedConcernKey,
+          achieve: resolvedAchievementKey,
+          achievementKey: resolvedAchievementKey,
+          interests: resolvedInterestKeys,
+          interestKeys: resolvedInterestKeys,
+          reminderEnabled,
+          countryCode,
+          curriculumCode,
+          signupMethod,
+          signupEmail: resolvedSignupEmail,
+          signupPhone: resolvedSignupPhone,
+        }).catch(() => undefined);
+      }
+      if (nextSession.user.roles.includes('student')) {
+        setOnboardingDiagnosticCompleted(false);
+        setIsDiagnosticStatusLoaded(false);
+      }
       triggerHaptic('success');
       await Promise.all([refreshBillingState(), refreshDashboardBanner()]);
     } catch (error) {
@@ -1956,26 +2241,72 @@ export function useKitabuApp() {
     }
   }
 
-  async function signUp() {
+  async function signUp(input?: OnboardingSignupInput) {
     setIsAuthenticating(true);
     setAuthError(null);
 
     try {
-      if (!acceptedTerms) {
-        throw new Error('You must accept the Terms of Use and Privacy Policy before creating an account.');
-      }
-      if (!signupRole) {
+      const role = input?.role ?? signupRole;
+      const fullName =
+        input?.displayName?.trim() ||
+        input?.fullName?.trim() ||
+        input?.name?.trim() ||
+        signupFullName.trim();
+      const password = input?.signupPassword ?? input?.password ?? loginPassword;
+      const signupEmailValue = (input?.signupEmail ?? input?.email ?? loginEmail).trim();
+      const signupPhoneValue = input?.signupPhone ?? input?.phone ?? '';
+      const method: OnboardingSignupMethod =
+        input?.signupMethod ?? (signupPhoneValue ? 'phone' : 'email');
+
+      if (!role) {
         throw new Error('Choose an account role before creating an account.');
       }
+      if (!input && !acceptedTerms) {
+        throw new Error('You must accept the Terms of Use and Privacy Policy before creating an account.');
+      }
+      if (!fullName) {
+        throw new Error('Enter your full name to create an account.');
+      }
 
-      const session = await signupWithPassword({
-        fullName: signupFullName.trim(),
-        email: loginEmail.trim(),
-        password: loginPassword,
-        role: signupRole,
-        acceptedTerms: true,
-        onboardingCompleted: signupRole !== 'student',
-      });
+      let session: AuthSession;
+      if (method === 'phone') {
+        if (!signupPhoneValue) {
+          throw new Error('Enter a valid Kenyan phone number.');
+        }
+        const request = input?.signupOtp
+          ? null
+          : await requestPhoneAuthCode({
+              purpose: 'signup',
+              phoneNumber: signupPhoneValue,
+              fullName,
+              role,
+              acceptedTerms: true,
+            });
+        session = await verifyPhoneAuthCode({
+          purpose: 'signup',
+          phoneNumber: signupPhoneValue,
+          code: input?.signupOtp ?? request?.developmentCode ?? '123456',
+        });
+      } else if (method === 'google') {
+        const idToken = await requestGoogleIdToken();
+        session = await authenticateWithGoogleToken({ idToken, role, acceptedTerms: true });
+      } else {
+        if (!signupEmailValue) {
+          throw new Error('Enter a valid email address.');
+        }
+        session = await signupWithPassword({
+          fullName,
+          email: signupEmailValue,
+          password,
+          role,
+          acceptedTerms: true,
+          schoolId: input?.schoolId || null,
+          gender: input?.gender,
+          grade: input?.grade || null,
+          mpesaPhoneNumber: input?.mpesaPhoneNumber || null,
+          onboardingCompleted: false,
+        });
+      }
       completeProviderAuthentication(session);
       triggerHaptic('success');
     } catch (error) {
@@ -1984,7 +2315,7 @@ export function useKitabuApp() {
       if (message === 'An account with that email already exists') {
         setAuthMode('login');
         setAuthError(
-          'An account with that email already exists. Sign in instead. Admin accounts are routed automatically.',
+          'An account with that email already exists. Sign in instead.',
         );
       } else {
         setAuthError(message);
@@ -2756,7 +3087,7 @@ export function useKitabuApp() {
   }, [authSession, adminSelectedGrade, currentGrade]);
 
   useEffect(() => {
-    if (!activePaymentRequestId || !isCheckoutOpen) {
+    if (!activePaymentRequestId) {
       return;
     }
 
@@ -2813,7 +3144,7 @@ export function useKitabuApp() {
       clearInterval(timer);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activePaymentRequestId, isCheckoutOpen, pendingSubscriptionIntent, assignments]);
+  }, [activePaymentRequestId, pendingSubscriptionIntent, assignments]);
 
   const canGoBack = navigationIndex > 0;
   const canGoForward = navigationIndex >= 0 && navigationIndex < navigationHistory.length - 1;
@@ -3008,7 +3339,7 @@ export function useKitabuApp() {
       trialOfferPlan,
       billingStatus,
       hasActiveSubscription,
-      hasPendingStudentOnboarding,
+      hasPendingAccountOnboarding,
       hasPendingStudentDiagnostic,
       hasPendingProgressiveDiagnostic,
       isCheckoutOpen,
@@ -3089,7 +3420,7 @@ export function useKitabuApp() {
       signUp,
       completeProviderAuthentication,
       deleteAccount,
-      submitStudentOnboarding,
+      submitAccountOnboarding,
       signOut,
       resendVerificationEmail,
       sendMessage,

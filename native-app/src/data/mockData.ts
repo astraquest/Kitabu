@@ -46,6 +46,18 @@ export const SUBJECTS: Subject[] = [
     colorTo: '#BE123C',
   },
   {
+    id: 'agriculture',
+    name: 'Agriculture',
+    colorFrom: '#65A30D',
+    colorTo: '#3F6212',
+  },
+  {
+    id: 'creative_arts',
+    name: 'Creative Arts',
+    colorFrom: '#DB2777',
+    colorTo: '#7E22CE',
+  },
+  {
     id: 'ai_education',
     name: 'AI Education',
     colorFrom: '#0F172A',
@@ -252,8 +264,8 @@ export const INITIAL_SCHOOLS: SchoolData[] = [
       'Grade 8': 1,
       'Grade 9': 1,
       'Grade 10': 1,
-      'Form 3': 1,
-      'Form 4': 1,
+      'Grade 11': 1,
+      'Grade 12': 1,
     },
   },
 ];
@@ -345,7 +357,7 @@ export const INITIAL_TEACHER_STUDENTS: StudentPerformance[] = [
   {
     id: 'student-joy-muthoni',
     name: 'Joy Muthoni',
-    grade: 'Form 3',
+    grade: 'Grade 11',
     assessmentScore: 72,
     homeworkCompletion: 66,
     lastActive: '2 days ago',
@@ -355,7 +367,7 @@ export const INITIAL_TEACHER_STUDENTS: StudentPerformance[] = [
   {
     id: 'student-eunice-akinyi',
     name: 'Eunice Akinyi',
-    grade: 'Form 4',
+    grade: 'Grade 12',
     assessmentScore: 55,
     homeworkCompletion: 44,
     lastActive: '4 days ago',

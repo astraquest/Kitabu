@@ -25,12 +25,29 @@ export type BaseViewState =
 export type ViewState = BaseViewState | 'live_audio';
 export type AuthRole =
   | 'student'
+  | 'other'
   | 'teacher'
   | 'school_admin'
   | 'platform_admin'
   | 'parent';
-export type PublicSignupRole = 'student' | 'teacher' | 'parent';
+export type PublicSignupRole = 'student' | 'teacher' | 'parent' | 'other';
 export type GenderOption = 'male' | 'female' | 'not_specified';
+export type OnboardingLanguageCode = 'en' | 'sw';
+export type OnboardingMascotKey = 'lion' | 'rabbit' | 'elephant';
+export type OnboardingVoiceName = 'Amina' | 'Kamau' | 'Zawadi' | 'Juma';
+export type OnboardingNeedKey =
+  | 'exam'
+  | 'grades'
+  | 'resources'
+  | 'results'
+  | 'support'
+  | 'progress'
+  | 'learn'
+  | 'help';
+export type OnboardingGoalKey = string;
+export type OnboardingConcernKey = string;
+export type OnboardingAchievementKey = string;
+export type OnboardingInterestKey = string;
 
 export interface AuthUser {
   id: string;
@@ -204,12 +221,18 @@ export interface Podcast {
 
 export interface Book {
   id: string;
+  gradeLevel?: string | null;
+  subjectId?: string | null;
+  subjectName?: string | null;
   title: string;
   author: string;
+  description?: string;
   spineColor: string;
   textColor: string;
   height: string;
   spinePattern?: 'plain' | 'striped' | 'banded';
+  downloadable?: boolean;
+  pages?: ContentPage[];
 }
 
 export interface UserProfile {

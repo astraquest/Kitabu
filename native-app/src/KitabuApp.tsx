@@ -18,6 +18,7 @@ import { StudentHeader } from './components/StudentHeader';
 import { SubscriptionCheckoutModal } from './components/SubscriptionCheckoutModal';
 import { TryForOneBobModal } from './components/TryForOneBobModal';
 import { useKitabuApp } from './hooks/useKitabuApp';
+import { PublicSignupRole, SchoolData } from './types/app';
 import { LoginScreen } from './screens/LoginScreen';
 import { AdminPortalScreen } from './screens/AdminPortalScreen';
 import { BookReaderScreen } from './screens/BookReaderScreen';
@@ -47,6 +48,14 @@ import { WeeklyExamScreen } from './screens/WeeklyExamScreen';
 import { PreviewDiagnosticQuestion } from './screens/DiagnosticScreen';
 
 const splashImage = require('./assets/splashscreen.png');
+
+const ONBOARDING_PREVIEW_SCHOOL: SchoolData = {
+  id: '11111111-1111-4111-8111-111111111111',
+  name: 'Kitabu Demo School',
+  location: 'Nairobi',
+  totalStudents: 120,
+  gradeCounts: { 'Grade 6': 40 },
+};
 
 const PREVIEW_DIAGNOSTIC_QUESTIONS: PreviewDiagnosticQuestion[] = [
   {
@@ -89,6 +98,18 @@ function shouldShowDiagnosticPreview() {
   return Boolean(__DEV__ && location?.search?.includes('previewDiagnostic=1'));
 }
 
+function getOnboardingPreviewRole(): PublicSignupRole | null {
+  if (!__DEV__) {
+    return null;
+  }
+
+  const location = (globalThis as { location?: { search?: string } }).location;
+  const params = new URLSearchParams(location?.search ?? '');
+  const role = params.get('previewOnboarding');
+
+  return role === 'student' || role === 'teacher' || role === 'parent' || role === 'other' ? role : null;
+}
+
 function AppSafeArea({ children }: { children: React.ReactNode }) {
   return (
     <SafeAreaView edges={['left', 'right', 'bottom']} style={styles.safeArea}>
@@ -103,6 +124,7 @@ export function KitabuApp() {
   const usesStudentHeader = shouldUseStudentHeader(state.currentView);
   const usesStandaloneScreen = shouldUseStandaloneScreen(state.currentView);
   const showDiagnosticPreview = shouldShowDiagnosticPreview();
+  const onboardingPreviewRole = getOnboardingPreviewRole();
   const activeUserProfile = state.activeUserProfile;
 
   if (showDiagnosticPreview) {
@@ -111,6 +133,21 @@ export function KitabuApp() {
         <DiagnosticScreen
           previewQuestions={PREVIEW_DIAGNOSTIC_QUESTIONS}
           onComplete={() => undefined}
+        />
+      </AppSafeArea>
+    );
+  }
+
+  if (onboardingPreviewRole) {
+    return (
+      <AppSafeArea>
+        <StudentOnboardingScreen
+          role={onboardingPreviewRole}
+          schools={[ONBOARDING_PREVIEW_SCHOOL]}
+          isSubmitting={false}
+          includeIntroChoices
+          collectSignupCredentials
+          onSubmit={() => undefined}
         />
       </AppSafeArea>
     );
@@ -133,6 +170,23 @@ export function KitabuApp() {
           <IntroCarouselScreen
             onSignIn={actions.openSignInEntry}
             onCreateAccount={actions.openSignupEntry}
+          />
+        </AppSafeArea>
+      );
+    }
+
+    if (state.authMode === 'signup') {
+      return (
+        <AppSafeArea>
+          <StudentOnboardingScreen
+            role={state.signupRole ?? 'student'}
+            schools={state.schoolsList}
+            isSubmitting={state.isAuthenticating}
+            error={state.authError}
+            includeIntroChoices
+            collectSignupCredentials
+            onRoleChange={actions.setSignupRole}
+            onSubmit={actions.signUp}
           />
         </AppSafeArea>
       );
@@ -176,14 +230,22 @@ export function KitabuApp() {
     );
   }
 
-  if (state.hasPendingStudentOnboarding) {
+  if (state.hasPendingAccountOnboarding) {
     return (
       <AppSafeArea>
         <StudentOnboardingScreen
+          role={
+            state.authSession.user.roles.includes('teacher')
+              ? 'teacher'
+              : state.authSession.user.roles.includes('parent')
+                ? 'parent'
+                : 'student'
+          }
           schools={state.schoolsList}
           isSubmitting={state.isSubmittingOnboarding}
           error={state.onboardingError}
-          onSubmit={actions.submitStudentOnboarding}
+          includeIntroChoices
+          onSubmit={actions.submitAccountOnboarding}
         />
       </AppSafeArea>
     );
@@ -482,7 +544,9 @@ function renderScreen(
           }
           subjects={state.dashboardSubjects}
           allSubjects={state.subjects}
+          currentGrade={state.currentGrade}
           selectedSubjectIds={state.dashboardSubjectIds}
+          onSelectGrade={actions.setCurrentGrade}
           onOpenSubject={actions.openSubject}
           onSaveSubjectSelection={actions.saveDashboardSubjects}
           onOpenFeature={actions.openFeature}
@@ -784,7 +848,9 @@ function renderScreen(
           }
           subjects={state.dashboardSubjects}
           allSubjects={state.subjects}
+          currentGrade={state.currentGrade}
           selectedSubjectIds={state.dashboardSubjectIds}
+          onSelectGrade={actions.setCurrentGrade}
           onOpenSubject={actions.openSubject}
           onSaveSubjectSelection={actions.saveDashboardSubjects}
           onOpenFeature={actions.openFeature}

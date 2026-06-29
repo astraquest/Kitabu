@@ -48,6 +48,15 @@ module.exports = {
     scheme: 'kitabu',
     version: '0.0.1',
     assetBundlePatterns: ['**/*'],
+    plugins: [
+      [
+        'expo-notifications',
+        {
+          // Used for the daily study reminder opt-in on the onboarding Reminder (S16) screen.
+          color: '#F97316',
+        },
+      ],
+    ],
     android: {
       package: 'com.kitabunativeapp',
     },

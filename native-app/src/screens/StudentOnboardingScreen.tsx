@@ -8,6 +8,7 @@ import {
   Keyboard,
   KeyboardAvoidingView,
   Linking,
+  Modal,
   Platform,
   Pressable,
   ScrollView,
@@ -25,7 +26,6 @@ import type {
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import {
-  BookOpen,
   Check,
   ChevronRight,
   Eye,
@@ -40,6 +40,7 @@ import { DEFAULT_GRADE, SUPPORTED_GRADES } from '../constants/grades';
 import { SUBJECTS } from '../data/mockData';
 import { requestPhoneAuthCode } from '../services/authService';
 import { triggerHaptic } from '../services/haptics';
+import { requestPushPermission } from '../services/pushNotifications';
 import {
   GenderOption,
   OnboardingAchievementKey,
@@ -63,6 +64,37 @@ const LOADING_PROGRESS_INTERVAL_MS = 50;
 const LOADING_PROGRESS_INCREMENT = 2;
 const LOADING_DONE_DELAY_MS = 700;
 const ZERO_SAFE_AREA_INSETS = { top: 0, right: 0, bottom: 0, left: 0 };
+
+type CountryOption = {
+  code: string;
+  name: string;
+  flag: string;
+  curriculum: string;
+  timeZones: readonly string[];
+};
+
+const COUNTRY_OPTIONS: readonly CountryOption[] = [
+  { code: 'KE', name: 'Kenya', flag: '🇰🇪', curriculum: 'CBC / KNEC Kenya curriculum', timeZones: ['Africa/Nairobi'] },
+  { code: 'UG', name: 'Uganda', flag: '🇺🇬', curriculum: 'Ugandan national curriculum', timeZones: ['Africa/Kampala'] },
+  { code: 'TZ', name: 'Tanzania', flag: '🇹🇿', curriculum: 'Tanzanian national curriculum', timeZones: ['Africa/Dar_es_Salaam'] },
+  { code: 'RW', name: 'Rwanda', flag: '🇷🇼', curriculum: 'Rwandan CBC curriculum', timeZones: ['Africa/Kigali'] },
+  { code: 'ET', name: 'Ethiopia', flag: '🇪🇹', curriculum: 'Ethiopian national curriculum', timeZones: ['Africa/Addis_Ababa'] },
+];
+
+// Easiest background detection: device time zone via Intl (no network, no extra deps). Defaults to Kenya.
+function detectDefaultCountryCode(): string {
+  try {
+    const zone = Intl.DateTimeFormat().resolvedOptions().timeZone ?? '';
+    const match = COUNTRY_OPTIONS.find(option => option.timeZones.includes(zone));
+    if (match) {
+      return match.code;
+    }
+  } catch {
+    // Intl unavailable — fall through to default.
+  }
+  return 'KE';
+}
+
 const KENYAN_COUNTIES = [
   'Baringo',
   'Bomet',
@@ -117,6 +149,7 @@ const ONBOARDING_COLORS = {
   bgSoft: '#FBF8F3',
   border: '#E8E0D4',
   primary: '#E07B00',
+  primaryDark: '#B5620A',
   primaryLight: '#FEF0D9',
   accent: '#2D8653',
   accentLight: '#D6F0E3',
@@ -177,6 +210,7 @@ type LanguageOption = {
 
 type NeedOption = {
   key: OnboardingNeedKey;
+  icon: string;
   label: string;
   description: string;
 };
@@ -236,6 +270,7 @@ type RoleChoiceOption = {
 
 type OnboardingRoleOption = {
   role: PublicSignupRole;
+  icon: string;
   label: string;
   swLabel: string;
   description: string;
@@ -389,12 +424,12 @@ const LANGUAGE_OPTIONS: readonly LanguageOption[] = [
   {
     code: 'sw',
     label: 'Kiswahili',
-    description: 'Tumia Kitabu kwa Kiswahili na Kiingereza rahisi.',
+    description: 'Lugha ya taifa',
   },
   {
     code: 'en',
     label: 'English',
-    description: 'Use Kitabu in clear English with Kenyan school context.',
+    description: 'International',
   },
 ];
 
@@ -404,21 +439,21 @@ const MASCOT_OPTIONS: readonly OnboardingMascot[] = [
     source: simbaLionMascot,
     label: 'Rafiki the Lion mascot',
     name: 'Rafiki the Lion',
-    description: 'Bold coach for exam confidence.',
+    description: 'Bold and brave',
   },
   {
     key: 'rabbit',
     source: sunguraRabbitMascot,
     label: 'Rafiki the Rabbit mascot',
     name: 'Rafiki the Rabbit',
-    description: 'Quick helper for daily practice.',
+    description: 'Quick and playful',
   },
   {
     key: 'elephant',
     source: ndovuElephantMascot,
     label: 'Rafiki the Elephant mascot',
     name: 'Rafiki the Elephant',
-    description: 'Calm guide for steady progress.',
+    description: 'Wise and strong',
   },
 ];
 const MASCOT_PICKER_COLORS: Record<OnboardingMascotKey, { color: string; lightColor: string; animalLabel: string }> = {
@@ -437,27 +472,31 @@ const VOICE_OPTIONS: readonly VoiceOption[] = [
 const ROLE_OPTIONS: readonly OnboardingRoleOption[] = [
   {
     role: 'student',
+    icon: '🧑‍🎓',
     label: 'Student',
     swLabel: 'Mwanafunzi',
-    description: 'I need help studying.',
-    swDescription: 'Natafuta msaada.',
+    description: 'I need help studying',
+    swDescription: 'Natafuta msaada',
   },
   {
     role: 'teacher',
+    icon: '👩‍🏫',
     label: 'Teacher',
     swLabel: 'Mwalimu',
-    description: 'I support students.',
-    swDescription: 'Nasaidia wanafunzi.',
+    description: 'I support students',
+    swDescription: 'Nasaidia wanafunzi',
   },
   {
     role: 'parent',
+    icon: '👨‍👩‍👧',
     label: 'Parent',
     swLabel: 'Mzazi',
-    description: 'For my child.',
-    swDescription: 'Mtoto wangu.',
+    description: 'For my child',
+    swDescription: 'Mtoto wangu',
   },
   {
     role: 'other',
+    icon: '🚀',
     label: 'Other',
     swLabel: 'Nyingine',
     description: '',
@@ -469,11 +508,13 @@ const NEED_OPTIONS: Record<PublicSignupRole, readonly NeedOption[]> = {
   student: [
     {
       key: 'exam',
+      icon: '📝',
       label: 'I have an exam coming up',
       description: 'Quick study plan, no stress.',
     },
     {
       key: 'grades',
+      icon: '📈',
       label: 'I want better grades',
       description: 'Smarter studying, better results.',
     },
@@ -481,11 +522,13 @@ const NEED_OPTIONS: Record<PublicSignupRole, readonly NeedOption[]> = {
   teacher: [
     {
       key: 'resources',
+      icon: '📋',
       label: 'Better lesson resources',
       description: 'Engaging, curriculum-aligned content.',
     },
     {
       key: 'results',
+      icon: '📊',
       label: 'Improve student results',
       description: 'Track gaps and fill them fast.',
     },
@@ -493,11 +536,13 @@ const NEED_OPTIONS: Record<PublicSignupRole, readonly NeedOption[]> = {
   parent: [
     {
       key: 'support',
+      icon: '🤝',
       label: 'Support my child\'s learning',
       description: 'Be involved without the overwhelm.',
     },
     {
       key: 'progress',
+      icon: '📈',
       label: 'Track their progress',
       description: 'Know exactly how they are doing.',
     },
@@ -505,11 +550,13 @@ const NEED_OPTIONS: Record<PublicSignupRole, readonly NeedOption[]> = {
   other: [
     {
       key: 'learn',
+      icon: '🧠',
       label: 'I want to learn',
       description: 'Useful explanations and practice.',
     },
     {
       key: 'help',
+      icon: '🤝',
       label: 'Help someone else',
       description: 'Support another learner with Kitabu.',
     },
@@ -520,11 +567,13 @@ const SWAHILI_NEED_OPTIONS: Record<PublicSignupRole, readonly NeedOption[]> = {
   student: [
     {
       key: 'exam',
+      icon: '📝',
       label: 'Nina mtihani karibu',
       description: 'Mpango wa haraka, bila wasiwasi.',
     },
     {
       key: 'grades',
+      icon: '📈',
       label: 'Nataka alama bora',
       description: 'Masomo ya akili, matokeo mazuri.',
     },
@@ -532,11 +581,13 @@ const SWAHILI_NEED_OPTIONS: Record<PublicSignupRole, readonly NeedOption[]> = {
   teacher: [
     {
       key: 'resources',
+      icon: '📋',
       label: 'Nyenzo bora za mafunzo',
       description: 'Maudhui yanayofuata mtaala.',
     },
     {
       key: 'results',
+      icon: '📊',
       label: 'Kuboresha matokeo ya wanafunzi',
       description: 'Fuatilia na jaza maeneo dhaifu.',
     },
@@ -544,11 +595,13 @@ const SWAHILI_NEED_OPTIONS: Record<PublicSignupRole, readonly NeedOption[]> = {
   parent: [
     {
       key: 'support',
+      icon: '🤝',
       label: 'Saidia masomo ya mtoto wangu',
       description: 'Kushiriki bila msongo wa mawazo.',
     },
     {
       key: 'progress',
+      icon: '📈',
       label: 'Fuatilia maendeleo yake',
       description: 'Jua jinsi wanavyoendelea.',
     },
@@ -556,11 +609,13 @@ const SWAHILI_NEED_OPTIONS: Record<PublicSignupRole, readonly NeedOption[]> = {
   other: [
     {
       key: 'learn',
+      icon: '🧠',
       label: 'Nataka kujifunza',
       description: 'Maelezo na mazoezi yanayosaidia.',
     },
     {
       key: 'help',
+      icon: '🤝',
       label: 'Kumsaidia mtu mwingine',
       description: 'Msaidie mwanafunzi mwingine na Kitabu.',
     },
@@ -653,13 +708,13 @@ const SWAHILI_NAME_STEP_COPY: Record<PublicSignupRole, NameStepCopy> = {
 
 const AGE_STEP_COPY: Record<OnboardingLanguageCode, AgeStepCopy> = {
   en: {
-    eyebrow: 'A few more details',
+    eyebrow: 'A few more details 👇',
     heading: name => (name ? `How old are you, ${name}?` : 'How old are you?'),
     placeholder: 'Your age...',
     subText: 'We tailor content to your age group.',
   },
   sw: {
-    eyebrow: 'Maelezo machache zaidi',
+    eyebrow: 'Maelezo zaidi 👇',
     heading: name => (name ? `Una miaka mingapi, ${name}?` : 'Una miaka mingapi?'),
     placeholder: 'Umri wako...',
     subText: 'Tunabadilisha maudhui kulingana na umri wako.',
@@ -1696,6 +1751,8 @@ export function StudentOnboardingScreen({
   const [selectedSubjectIds, setSelectedSubjectIds] = useState<string[]>(
     includeIntroChoices ? [] : SUBJECTS.slice(0, MAX_ONBOARDING_SUBJECTS).map(subject => subject.id),
   );
+  const [countryCode, setCountryCode] = useState<string>(() => detectDefaultCountryCode());
+  const [countryPickerOpen, setCountryPickerOpen] = useState(false);
   const [county, setCounty] = useState('');
   const [schoolQuery, setSchoolQuery] = useState('');
   const [schoolId, setSchoolId] = useState('');
@@ -1779,17 +1836,18 @@ export function StudentOnboardingScreen({
     }
 
     if (usesLearnerFlow) {
+      // PRD order: ... gender(8) → country(9) → countySchool(10) → grade(11) → subjects(12) → painBefore(13) ...
       const studentIndex: Partial<Record<IntroStep, number>> = {
         roleDetails: 7,
         gender: 8,
-        painBefore: 12,
-        painAfter: 13,
-        goal: 14,
-        goalConfirm: 15,
-        concerns: 16,
-        achieve: 17,
-        resultProof: 18,
-        country: 19,
+        country: 9,
+        painBefore: 13,
+        painAfter: 14,
+        goal: 15,
+        goalConfirm: 16,
+        concerns: 17,
+        achieve: 18,
+        resultProof: 19,
         interests: 20,
         reminder: 21,
         loading: 22,
@@ -1797,7 +1855,8 @@ export function StudentOnboardingScreen({
         signup: 24,
       };
       if (introStep === 'setup') {
-        return step === 0 ? 9 : step === 1 ? 10 : step === 2 ? 11 : 20;
+        // Traversal order is countySchool(step 2) → grade(step 0) → subjects(step 1).
+        return step === 2 ? 10 : step === 0 ? 11 : step === 1 ? 12 : 20;
       }
 
       return studentIndex[introStep] ?? 0;
@@ -2066,6 +2125,7 @@ export function StudentOnboardingScreen({
     includeIntroChoices &&
     (introStep === 'language' ||
       introStep === 'mascot' ||
+      introStep === 'role' ||
       introStep === 'need' ||
       introStep === 'goal' ||
       introStep === 'concerns' ||
@@ -2101,8 +2161,6 @@ export function StudentOnboardingScreen({
       : role === 'parent'
         ? `${profileOwnerName[0]?.toUpperCase() ?? 'Y'}${profileOwnerName.slice(1)} family dashboard is ready`
         : `${profileOwnerName[0]?.toUpperCase() ?? 'Y'}${profileOwnerName.slice(1)} profile is ready`;
-  const reminderTitle =
-    swahiliIntro ? 'Kitabu AI' : role === 'teacher' ? 'Class planning reminder' : role === 'parent' ? 'Family progress reminder' : 'Daily Kitabu nudge';
   const reminderKicker =
     swahiliIntro
       ? 'Vikumbusho \uD83D\uDD14'
@@ -2119,14 +2177,6 @@ export function StudentOnboardingScreen({
       : role === 'parent'
         ? 'Want a family progress reminder?'
         : 'We\'ll remind you to study.';
-  const reminderDescription =
-    swahiliIntro
-      ? `${displayName.trim() || 'Rafiki'}, mtihani wako wa Hesabu ni kesho. Twende tujiandae pamoja!`
-      : role === 'teacher'
-      ? 'Plan lessons, review gaps, and keep class follow-up moving.'
-      : role === 'parent'
-        ? 'Check homework, progress, and simple next steps for home.'
-        : 'Plan, practice, and keep your streak alive.';
   const loadingChecklist =
     swahiliIntro
       ? ['Mascot imechaguliwa', 'Malengo yamehifadhiwa', 'Mtaala wa CBC uko tayari', 'Vikumbusho vimeandaliwa']
@@ -2166,14 +2216,6 @@ export function StudentOnboardingScreen({
       : role === 'parent'
         ? `Your family dashboard will open with ${primaryProfileGrade}, Kenya CBC, school context, and progress reminders.`
         : `Your first dashboard will open with ${primaryProfileGrade}, ${selectedSubjectCount} subjects, Kenya CBC, and your study reminders.`;
-  const readyReminderLabel =
-    swahiliIntro
-      ? 'Vikumbusho viko tayari'
-      : role === 'teacher'
-      ? 'Class planning nudge'
-      : role === 'parent'
-        ? 'Family progress nudge'
-        : 'Daily Kitabu nudge';
   const readyTestimonials = swahiliIntro
     ? [
         { quote: '"Kitabu ilinisaidia kupanda daraja moja kwa term."', name: 'Wanjiru', meta: 'Grade 8' },
@@ -2190,7 +2232,8 @@ export function StudentOnboardingScreen({
   const mascotPose: MascotPose = (() => {
     if (!includeIntroChoices) {
       if (introStep === 'setup') {
-        return step === 0 ? 'cheer' : step === 1 ? 'wave' : 'cool';
+        // countySchool(step 2)=wave, grade(step 0)=cheer, subjects(step 1)=cool.
+        return step === 2 ? 'wave' : step === 0 ? 'cheer' : 'cool';
       }
 
       return introStep === 'profileReady' ? 'celebrate' : 'wave';
@@ -2516,6 +2559,8 @@ export function StudentOnboardingScreen({
                                             ? 'Jiandikishe kuendelea na mpango wako wa masomo.'
                                             : 'Sign up to continue with your study plan.'
                   : content.body;
+  const selectedCountry =
+    COUNTRY_OPTIONS.find(option => option.code === countryCode) ?? COUNTRY_OPTIONS[0];
   const selectedSchool = useMemo(
     () => schools.find(school => school.id === schoolId) ?? null,
     [schoolId, schools],
@@ -2853,7 +2898,7 @@ export function StudentOnboardingScreen({
         : introStep === 'rafiki'
           ? swahiliIntro
             ? 'Msalimie!'
-            : 'Say hello'
+            : 'Say hello!'
           : introStep === 'role'
             ? swahiliIntro
               ? 'Endelea'
@@ -2895,11 +2940,9 @@ export function StudentOnboardingScreen({
                                 : introStep === 'interests'
                                   ? 'Continue'
                                   : introStep === 'reminder'
-                                    ? reminderEnabled
-                                      ? swahiliIntro
-                                        ? 'Nikumbushe'
-                                        : 'Remind me'
-                                      : 'Skip'
+                                    ? swahiliIntro
+                                      ? 'Nikumbushe 🔔'
+                                      : 'Remind me 🔔'
                                     : introStep === 'loading'
                                       ? 'Show profile'
                                       : introStep === 'profileReady'
@@ -2917,26 +2960,18 @@ export function StudentOnboardingScreen({
                   : step === 1
                     ? includeIntroChoices
                       ? studentFullIntro
-                        ? selectedSubjectCount > 0
-                          ? 'Continue'
-                          : 'Skip'
+                        ? 'Continue'
                         : hasSelectedSchool
                           ? 'Continue'
                           : 'Skip'
                       : 'Continue to payment'
                     : studentFullIntro && step === 2
-                      ? hasSelectedSchool
-                        ? 'Continue'
-                        : 'Skip'
+                      ? 'Continue'
                       : includeIntroChoices
                         ? 'Build my profile'
                         : hasMpesaInput
                           ? 'Finish setup'
                           : 'Skip and finish';
-  const PrimaryActionIcon =
-    (introStep === 'setup' && step === 2 && !includeIntroChoices) || introStep === 'signup'
-      ? Check
-      : ChevronRight;
   const canGoBack =
     introStep === 'mascot' ||
     introStep === 'rafiki' ||
@@ -3285,7 +3320,7 @@ export function StudentOnboardingScreen({
     }, delayMs);
   }
 
-  function handleContinue() {
+  async function handleContinue() {
     if (isSubmitting) {
       return;
     }
@@ -3344,8 +3379,7 @@ export function StudentOnboardingScreen({
     if (introStep === 'gender') {
       triggerHaptic('impact');
       if (studentFullIntro) {
-        setStep(0);
-        setIntroStep('setup');
+        setIntroStep('country');
       } else {
         setIntroStep(usesLearnerFlow ? 'goal' : 'roleDetails');
       }
@@ -3390,7 +3424,7 @@ export function StudentOnboardingScreen({
 
     if (introStep === 'resultProof') {
       triggerHaptic('impact');
-      setIntroStep('country');
+      setIntroStep(studentFullIntro ? 'interests' : 'country');
       return;
     }
 
@@ -3414,6 +3448,11 @@ export function StudentOnboardingScreen({
 
     if (introStep === 'country') {
       triggerHaptic('impact');
+      if (studentFullIntro) {
+        setStep(2);
+        setIntroStep('setup');
+        return;
+      }
       setIntroStep(usesLearnerFlow ? 'interests' : 'reminder');
       return;
     }
@@ -3426,6 +3465,11 @@ export function StudentOnboardingScreen({
 
     if (introStep === 'reminder') {
       triggerHaptic('impact');
+      // The primary "Remind me 🔔" action requests OS push permission so we can
+      // send daily study reminders. We advance regardless of the user's choice;
+      // reminderEnabled records whether the OS actually granted permission.
+      const permission = await requestPushPermission();
+      setReminderEnabled(permission.granted);
       if (includeIntroChoices) {
         setIntroStep('loading');
         return;
@@ -3459,18 +3503,20 @@ export function StudentOnboardingScreen({
     }
 
     if (includeIntroChoices && introStep === 'setup' && step === 1 && studentFullIntro) {
-      Keyboard.dismiss();
-      setFocusedField(null);
-      triggerHaptic('impact');
-      setStep(2);
-      return;
-    }
-
-    if (includeIntroChoices && introStep === 'setup' && step === 2 && studentFullIntro) {
+      // Subjects is the last setup screen in the PRD order (country → school → grade → subjects).
       Keyboard.dismiss();
       setFocusedField(null);
       triggerHaptic('impact');
       setIntroStep('painBefore');
+      return;
+    }
+
+    if (includeIntroChoices && introStep === 'setup' && step === 2 && studentFullIntro) {
+      // County/School screen advances to Grade.
+      Keyboard.dismiss();
+      setFocusedField(null);
+      triggerHaptic('impact');
+      setStep(0);
       return;
     }
 
@@ -3535,6 +3581,14 @@ export function StudentOnboardingScreen({
     }
   }
 
+  function handleRoleSelect(value: PublicSignupRole) {
+    triggerHaptic('selection');
+    onRoleChange?.(value);
+    if (includeIntroChoices) {
+      scheduleAutoAdvance(() => setIntroStep('voice'));
+    }
+  }
+
   function handleVoiceSelect(value: OnboardingVoiceName) {
     triggerHaptic('selection');
     setSelectedVoiceName(value);
@@ -3583,11 +3637,6 @@ export function StudentOnboardingScreen({
     setSelectedInterestKeys(current =>
       current.includes(value) ? current.filter(key => key !== value) : [...current, value],
     );
-  }
-
-  function handleReminderToggle() {
-    triggerHaptic('selection');
-    setReminderEnabled(current => !current);
   }
 
   function handleDisplayNameChange(value: string) {
@@ -3951,9 +4000,10 @@ export function StudentOnboardingScreen({
       setSelectedSubjectIds([]);
     }
     setGrade(value);
-    if (value !== grade && hasSelectedSchool) {
+    // Only a list-selected school depends on grade availability; a custom
+    // (manually typed) school is grade-independent, so keep it when grade changes.
+    if (value !== grade && schoolId) {
       setSchoolId('');
-      setCustomSchoolName('');
       setSchoolQuery('');
       setLocalError(null);
     }
@@ -4081,7 +4131,7 @@ export function StudentOnboardingScreen({
 
     if (introStep === 'painBefore') {
       if (studentFullIntro) {
-        setStep(2);
+        setStep(1);
         setIntroStep('setup');
       } else {
         setIntroStep('achieve');
@@ -4105,12 +4155,16 @@ export function StudentOnboardingScreen({
     }
 
     if (introStep === 'country') {
-      setIntroStep(includeIntroChoices ? 'resultProof' : 'socialProof');
+      if (studentFullIntro) {
+        setIntroStep('gender');
+      } else {
+        setIntroStep(includeIntroChoices ? 'resultProof' : 'socialProof');
+      }
       return;
     }
 
     if (introStep === 'interests') {
-      setIntroStep('country');
+      setIntroStep(studentFullIntro ? 'resultProof' : 'country');
       return;
     }
 
@@ -4133,7 +4187,18 @@ export function StudentOnboardingScreen({
       return;
     }
 
+    if (introStep === 'setup' && step === 2 && studentFullIntro) {
+      // County/School is the first setup screen in the PRD order; back goes to Country.
+      setIntroStep('country');
+      return;
+    }
+
     if (introStep === 'setup' && step === 0 && includeIntroChoices) {
+      if (studentFullIntro) {
+        // Grade's previous screen is County/School (setup step 2).
+        setStep(2);
+        return;
+      }
       setIntroStep(role === 'teacher' ? 'roleDetails' : 'gender');
       return;
     }
@@ -4240,7 +4305,7 @@ export function StudentOnboardingScreen({
 
   return (
     <LinearGradient
-      colors={content.gradient}
+      colors={[ONBOARDING_COLORS.white, ONBOARDING_COLORS.white]}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
       style={styles.screen}>
@@ -4267,8 +4332,25 @@ export function StudentOnboardingScreen({
                 accessibilityRole="button"
                 onPress={handleBack}
                 style={styles.preMascotBackButton}>
-                <Text style={[styles.preMascotBackText, { color: content.accent }]}>Back</Text>
+                <Text style={styles.preMascotBackText}>{'←'}</Text>
               </Pressable>
+              <View
+                accessibilityLabel="Onboarding progress"
+                accessibilityRole="progressbar"
+                accessibilityValue={{ min: 1, max: totalStepCount, now: progressStepNumber, text: progressAnnouncement }}
+                style={styles.mascotNavProgressTrack}>
+                <LinearGradient
+                  colors={[ONBOARDING_COLORS.primary, ONBOARDING_COLORS.accent]}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 0 }}
+                  style={[
+                    styles.mascotNavProgressFill,
+                    {
+                      width: `${Math.max(4, Math.round((progressStepNumber / totalStepCount) * 100))}%`,
+                    },
+                  ]}
+                />
+              </View>
               <Text style={styles.preMascotLangBadge}>{selectedLanguage.code.toUpperCase()}</Text>
             </View>
           ) : null}
@@ -4285,7 +4367,7 @@ export function StudentOnboardingScreen({
                 onPress={handleBack}
                 style={styles.mascotNavBackButton}
                 testID="mascot-nav-back">
-                  <Text style={[styles.mascotNavBackText, { color: content.accent }]}>Back</Text>
+                  <Text style={styles.mascotNavBackText}>{'←'}</Text>
                 </Pressable>
               ) : (
                 <View style={styles.mascotNavBackSpacer} />
@@ -4295,11 +4377,13 @@ export function StudentOnboardingScreen({
                 accessibilityRole="progressbar"
                 accessibilityValue={{ min: 1, max: totalStepCount, now: progressStepNumber, text: progressAnnouncement }}
                 style={styles.mascotNavProgressTrack}>
-                <View
+                <LinearGradient
+                  colors={[ONBOARDING_COLORS.primary, ONBOARDING_COLORS.accent]}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 0 }}
                   style={[
                     styles.mascotNavProgressFill,
                     {
-                      backgroundColor: content.accent,
                       width: `${Math.max(4, Math.round((progressStepNumber / totalStepCount) * 100))}%`,
                     },
                   ]}
@@ -4309,7 +4393,11 @@ export function StudentOnboardingScreen({
                 accessibilityLabel={mascotPoseAccessibilityLabel}
                 accessibilityRole="image"
                 testID="onboarding-mascot-motion"
-                style={[styles.mascotNavAvatar, mascotMotionStyle]}>
+                style={[
+                  styles.mascotNavAvatar,
+                  { backgroundColor: activeMascotColors.lightColor, borderColor: `${activeMascotColors.color}44` },
+                  mascotMotionStyle,
+                ]}>
                 <Image
                   accessibilityIgnoresInvertColors
                   accessibilityLabel={activeMascot.label}
@@ -4317,13 +4405,12 @@ export function StudentOnboardingScreen({
                   resizeMode="contain"
                   style={styles.mascotNavAvatarImage}
                 />
-                {renderMascotPoseEffect()}
               </Animated.View>
               <Text style={styles.mascotNavLangBadge}>{selectedLanguage.code.toUpperCase()}</Text>
             </View>
           ) : null}
 
-          {!usesBrandLanguageStep && !usesCompactIntroNav ? (
+          {!usesBrandLanguageStep && !usesCompactIntroNav && !usesMascotNavBar ? (
             <View style={styles.header}>
               <View style={styles.headerCopy}>
                 <Text style={[styles.eyebrow, { color: content.accent }]}>{headerEyebrow}</Text>
@@ -4364,7 +4451,7 @@ export function StudentOnboardingScreen({
             </View>
           ) : null}
 
-          {!usesBrandLanguageStep && !usesMascotNavBar && !usesFullscreenCommitmentStep ? (
+          {!usesBrandLanguageStep && !usesMascotNavBar && !usesCompactIntroNav && !usesFullscreenCommitmentStep ? (
             <View
               accessibilityHint="Shows your current onboarding step"
               accessibilityLabel="Onboarding progress"
@@ -4392,7 +4479,7 @@ export function StudentOnboardingScreen({
             </View>
           ) : null}
 
-          {introStep === 'setup' ? (
+          {introStep === 'setup' && !includeIntroChoices ? (
             <View
               accessibilityLabel={content.statusLabel}
               accessibilityLiveRegion="polite"
@@ -4452,10 +4539,10 @@ export function StudentOnboardingScreen({
                   </View>
                   <Text style={styles.languageTagline}>Mwalimu wako wa nyumbani</Text>
                   <View style={styles.languageDecorDots}>
-                    <View style={[styles.languageDecorDot, { backgroundColor: ONBOARDING_COLORS.primary }]} />
-                    <View style={[styles.languageDecorDot, { backgroundColor: ONBOARDING_COLORS.accentLight }]} />
-                    <View style={[styles.languageDecorDot, { backgroundColor: ONBOARDING_COLORS.accent }]} />
-                    <View style={[styles.languageDecorDot, { backgroundColor: ONBOARDING_COLORS.primaryLight }]} />
+                    <View style={[styles.languageDecorDot, { backgroundColor: '#E07B00' }]} />
+                    <View style={[styles.languageDecorDot, { backgroundColor: '#AADD00' }]} />
+                    <View style={[styles.languageDecorDot, { backgroundColor: '#22C55E' }]} />
+                    <View style={[styles.languageDecorDot, { backgroundColor: '#F59E0B' }]} />
                   </View>
                 </View>
                 <Text style={styles.languagePromptLabel}>Chagua lugha yako {'\u00B7'} Choose your language</Text>
@@ -4579,7 +4666,8 @@ export function StudentOnboardingScreen({
                     style={[
                       styles.rafikiImageRing,
                       {
-                        borderColor: content.accent,
+                        backgroundColor: activeMascotColors.lightColor,
+                        borderColor: activeMascotColors.color,
                       },
                     ]}>
                     <Image
@@ -4590,8 +4678,8 @@ export function StudentOnboardingScreen({
                       style={styles.rafikiIntroImage}
                     />
                   </View>
-                  <View style={[styles.rafikiNamePill, { borderColor: content.accent }]}>
-                    <Text style={[styles.rafikiName, { color: content.accent }]}>
+                  <View style={[styles.rafikiNamePill, { backgroundColor: activeMascotColors.lightColor, borderColor: activeMascotColors.color }]}>
+                    <Text style={[styles.rafikiName, { color: activeMascotColors.color }]}>
                       {activeMascot.name}
                     </Text>
                     <Text style={styles.rafikiSubLabel}>
@@ -4602,8 +4690,8 @@ export function StudentOnboardingScreen({
                 <View style={styles.rafikiSpeechBubble}>
                   <Text style={styles.rafikiSpeechText}>
                     {swahiliIntro
-                      ? `Mimi ni ${activeMascot.name}! Nitakusaidia kujifunza na kufurahia masomo. Twende pamoja!`
-                      : `I'm ${activeMascot.name}! I'm here to make learning fun and help you succeed. Let's go!`}
+                      ? `Mimi ni ${activeMascot.name}! Nitakusaidia kujifunza na kufurahia masomo. Twende pamoja! 🚀`
+                      : `I'm ${activeMascot.name}! I'm here to make learning fun and help you succeed. Let's go! 🚀`}
                   </Text>
                   <View style={styles.rafikiSpeechTailOuter} />
                   <View style={styles.rafikiSpeechTailInner} />
@@ -4619,15 +4707,10 @@ export function StudentOnboardingScreen({
                 <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {swahiliIntro ? 'Ni nani wewe?' : 'Who are you?'}
                 </Text>
-                <Text style={[styles.stepText, compactLayout && styles.stepTextCompact]}>
-                  {swahiliIntro
-                    ? 'Chagua nafasi yako ili Kitabu ikupe njia inayokufaa.'
-                    : 'Choose your role so Kitabu can shape the right path for you.'}
-                </Text>
                 <View
                   accessibilityLabel="Account role options"
                   accessibilityRole="radiogroup"
-                  style={styles.needChoiceGrid}>
+                  style={styles.roleGrid}>
                   {ROLE_OPTIONS.map(option => {
                     const canChangeRole = Boolean(onRoleChange);
                     const selected = option.role === role;
@@ -4647,30 +4730,26 @@ export function StudentOnboardingScreen({
                         accessibilityState={{ checked: selected, disabled: !selected && !canChangeRole }}
                         disabled={!selected && !canChangeRole}
                         key={option.role}
-                        onPress={() => {
-                          triggerHaptic('selection');
-                          onRoleChange?.(option.role);
-                        }}
+                        onPress={() => handleRoleSelect(option.role)}
                         style={[
-                          styles.needChoice,
+                          styles.roleCard,
                           selected && {
-                            backgroundColor: content.accent,
-                            borderColor: content.accent,
+                            backgroundColor: ONBOARDING_COLORS.primaryLight,
+                            borderColor: ONBOARDING_COLORS.primary,
                           },
                           !selected && !canChangeRole && styles.roleChoiceLocked,
                         ]}>
                         {selected ? (
-                          <View style={styles.needChoiceCheck}>
-                            <Check color={ONBOARDING_COLORS.white} size={12} strokeWidth={3} />
+                          <View style={styles.roleCardCheck}>
+                            <Check color={ONBOARDING_COLORS.white} size={11} strokeWidth={3} />
                           </View>
                         ) : null}
-                        <Text style={[styles.needChoiceTitle, selected && styles.choiceChipTextActive]}>
+                        <Text style={styles.roleCardIcon}>{option.icon}</Text>
+                        <Text style={[styles.roleCardLabel, selected && { color: ONBOARDING_COLORS.primary }]}>
                           {roleLabel}
                         </Text>
                         {roleDescription ? (
-                          <Text style={[styles.needChoiceText, selected && styles.introChoiceTextActive]}>
-                            {roleDescription}
-                          </Text>
+                          <Text style={styles.roleCardText}>{roleDescription}</Text>
                         ) : null}
                       </Pressable>
                     );
@@ -4797,15 +4876,10 @@ export function StudentOnboardingScreen({
                 <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {needStepCopy.heading}
                 </Text>
-                <Text style={[styles.stepText, compactLayout && styles.stepTextCompact]}>
-                  {swahiliIntro
-                    ? 'Chagua jambo moja ili Kitabu iandae mwanzo wako vizuri.'
-                    : 'Pick one priority so Kitabu can shape your first dashboard and guidance.'}
-                </Text>
                 <View
                   accessibilityLabel="Need options"
                   accessibilityRole="radiogroup"
-                  style={styles.needChoiceGrid}>
+                  style={styles.roleGrid}>
                   {needOptions.map(option => {
                     const selected = selectedNeedKey === option.key;
                     return (
@@ -4816,21 +4890,22 @@ export function StudentOnboardingScreen({
                         key={option.key}
                         onPress={() => handleNeedSelect(option.key)}
                         style={[
-                          styles.needChoice,
+                          styles.roleCard,
                           selected && {
-                            backgroundColor: content.accent,
-                            borderColor: content.accent,
+                            backgroundColor: ONBOARDING_COLORS.primaryLight,
+                            borderColor: ONBOARDING_COLORS.primary,
                           },
                         ]}>
                         {selected ? (
-                          <View style={styles.needChoiceCheck}>
-                            <Check color={ONBOARDING_COLORS.white} size={12} strokeWidth={3} />
+                          <View style={styles.roleCardCheck}>
+                            <Check color={ONBOARDING_COLORS.white} size={11} strokeWidth={3} />
                           </View>
                         ) : null}
-                        <Text style={[styles.needChoiceTitle, selected && styles.choiceChipTextActive]}>
+                        <Text style={styles.roleCardIcon}>{option.icon}</Text>
+                        <Text style={[styles.roleCardLabel, selected && { color: ONBOARDING_COLORS.primary }]}>
                           {option.label}
                         </Text>
-                        <Text style={[styles.needChoiceText, selected && styles.introChoiceTextActive]}>
+                        <Text style={styles.roleCardText}>
                           {option.description}
                         </Text>
                       </Pressable>
@@ -4846,7 +4921,7 @@ export function StudentOnboardingScreen({
                   {nameStepCopy.eyebrow}
                 </Text>
                 <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
-                  {swahiliIntro ? 'Jina lako ni nani?' : 'What is your name?'}
+                  {swahiliIntro ? 'Jina lako ni nani?' : 'What\'s your name?'}
                 </Text>
                 <TextInput
                   accessibilityLabel="Your name"
@@ -4877,11 +4952,6 @@ export function StudentOnboardingScreen({
                 <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {languageCode === 'sw' ? 'Wewe ni wa jinsia gani?' : 'What is your gender?'}
                 </Text>
-                <Text style={[styles.stepText, compactLayout && styles.stepTextCompact]}>
-                  {languageCode === 'sw'
-                    ? 'Chagua Mvulana au Msichana ili Rafiki aandae uzoefu unaokufaa.'
-                    : 'Choose Male or Female so Rafiki can personalize your experience.'}
-                </Text>
                 <Animated.View
                   accessibilityLabel="Gender options"
                   accessibilityRole="radiogroup"
@@ -4910,22 +4980,23 @@ export function StudentOnboardingScreen({
                         style={[
                           styles.introChoiceCard,
                           styles.genderChoiceCard,
-                          {
+                          selected && {
                             backgroundColor: option.bgColor,
                             borderColor: option.accent,
                           },
-                          selected && {
-                            backgroundColor: content.accent,
-                            borderColor: content.accent,
-                          },
                         ]}>
+                        {selected ? (
+                          <View style={[styles.roleCardCheck, { backgroundColor: option.accent }]}>
+                            <Check color={ONBOARDING_COLORS.white} size={11} strokeWidth={3} />
+                          </View>
+                        ) : null}
                         <View style={[styles.genderAvatarBubble, { borderColor: option.accent }]}>
                           <Text style={styles.genderAvatarGlyph}>{option.avatar}</Text>
                         </View>
-                        <Text style={[styles.introChoiceTitle, styles.genderChoiceTitle, { color: option.accent }, selected && styles.choiceChipTextActive]}>
+                        <Text style={[styles.introChoiceTitle, styles.genderChoiceTitle, { color: selected ? option.accent : ONBOARDING_COLORS.textPrimary }]}>
                           {option.label}
                         </Text>
-                        <Text style={[styles.introChoiceText, styles.genderChoiceText, selected && styles.introChoiceTextActive]}>
+                        <Text style={[styles.introChoiceText, styles.genderChoiceText]}>
                           {option.description}
                         </Text>
                       </Pressable>
@@ -5202,11 +5273,15 @@ export function StudentOnboardingScreen({
                 <Text style={[styles.stepKicker, { color: content.accent }]}>
                   {swahiliIntro
                     ? role === 'teacher'
-                      ? 'Malengo yako ya ufundishaji'
+                      ? 'Malengo yako ya ufundishaji 🎯'
                       : role === 'parent'
-                        ? 'Malengo yako kwao'
-                        : 'Niambie'
-                    : 'Your goal'}
+                        ? 'Malengo yako kwao 🤝'
+                        : 'Niambie 🧠'
+                    : role === 'teacher'
+                      ? 'Your teaching goals 🎯'
+                      : role === 'parent'
+                        ? 'Your goals 🤝'
+                        : 'So tell me 🧠'}
                 </Text>
                 <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {swahiliIntro
@@ -5216,18 +5291,15 @@ export function StudentOnboardingScreen({
                         ? 'Lengo lako kwa mtoto wako ni nini?'
                         : 'Lengo lako la kustudy ni nini?'
                     : role === 'teacher'
-                      ? 'What is your teaching goal?'
+                      ? 'What is your main teaching goal?'
                       : role === 'parent'
                         ? 'What is your family goal?'
-                        : 'What is your learning goal?'}
-                </Text>
-                <Text style={[styles.stepText, compactLayout && styles.stepTextCompact]}>
-                  {swahiliIntro ? 'Chagua lengo la kwanza Kitabu ilishughulikie.' : 'Choose the outcome Kitabu should optimise first.'}
+                        : 'What is your study goal?'}
                 </Text>
                 <View
                   accessibilityLabel="Goal options"
                   accessibilityRole="radiogroup"
-                  style={styles.needChoiceGrid}>
+                  style={styles.roleGrid}>
                   {goalOptions.map(option => {
                     const selected = selectedGoalKey === option.key;
                     return (
@@ -5238,34 +5310,33 @@ export function StudentOnboardingScreen({
                         key={option.key}
                         onPress={() => handleGoalSelect(option.key)}
                         style={[
-                          styles.needChoice,
-                          styles.goalChoice,
+                          styles.roleCard,
                           option.recommended && styles.goalChoiceRecommended,
                           selected && {
-                            backgroundColor: content.accent,
-                            borderColor: content.accent,
+                            backgroundColor: ONBOARDING_COLORS.primaryLight,
+                            borderColor: ONBOARDING_COLORS.primary,
                           },
                         ]}>
                         {selected ? (
-                          <View style={styles.needChoiceCheck}>
-                            <Check color={ONBOARDING_COLORS.white} size={12} strokeWidth={3} />
+                          <View style={styles.roleCardCheck}>
+                            <Check color={ONBOARDING_COLORS.white} size={11} strokeWidth={3} />
                           </View>
                         ) : null}
                         {option.recommended ? (
-                          <Text style={[styles.recommendedBadge, selected && styles.recommendedBadgeActive]}>
-                            Recommended
+                          <Text style={styles.recommendedBadge}>
+                            {'⭐ Recommended'}
                           </Text>
                         ) : null}
                         {option.icon ? (
-                          <Text style={[styles.goalChoiceIcon, selected && styles.choiceChipTextActive]}>
+                          <Text style={styles.roleCardIcon}>
                             {option.icon}
                           </Text>
                         ) : null}
-                        <Text style={[styles.needChoiceTitle, selected && styles.choiceChipTextActive]}>
+                        <Text style={[styles.roleCardLabel, selected && { color: ONBOARDING_COLORS.primary }]}>
                           {option.label}
                         </Text>
                         {option.description ? (
-                          <Text style={[styles.needChoiceText, selected && styles.introChoiceTextActive]}>
+                          <Text style={styles.roleCardText}>
                             {option.description}
                           </Text>
                         ) : null}
@@ -5338,15 +5409,10 @@ export function StudentOnboardingScreen({
                           ? 'What\'s your main challenge right now?'
                           : 'What\'s your biggest challenge at school?'}
                 </Text>
-                <Text style={[styles.stepText, compactLayout && styles.stepTextCompact]}>
-                  {swahiliIntro
-                    ? 'Chagua jambo linalokuzuia zaidi sasa.'
-                    : 'This helps Rafiki shape the first plan around the real blocker.'}
-                </Text>
                 <View
                   accessibilityLabel="Concern options"
                   accessibilityRole="radiogroup"
-                  style={styles.needChoiceGrid}>
+                  style={styles.roleGrid}>
                   {displayedConcernOptions.map(option => {
                     const selected = selectedConcernKey === option.key;
                     return (
@@ -5357,30 +5423,25 @@ export function StudentOnboardingScreen({
                         key={option.key}
                         onPress={() => handleConcernSelect(option.key)}
                         style={[
-                          styles.needChoice,
+                          styles.roleCard,
                           selected && {
-                            backgroundColor: content.accent,
-                            borderColor: content.accent,
+                            backgroundColor: ONBOARDING_COLORS.primaryLight,
+                            borderColor: ONBOARDING_COLORS.primary,
                           },
                         ]}>
                         {selected ? (
-                          <View style={styles.needChoiceCheck}>
-                            <Check color={ONBOARDING_COLORS.white} size={12} strokeWidth={3} />
+                          <View style={styles.roleCardCheck}>
+                            <Check color={ONBOARDING_COLORS.white} size={11} strokeWidth={3} />
                           </View>
                         ) : null}
                         {option.icon ? (
-                          <Text style={[styles.goalChoiceIcon, selected && styles.choiceChipTextActive]}>
+                          <Text style={styles.roleCardIcon}>
                             {option.icon}
                           </Text>
                         ) : null}
-                        <Text style={[styles.needChoiceTitle, selected && styles.choiceChipTextActive]}>
+                        <Text style={[styles.roleCardLabel, styles.roleCardLabelDense, selected && { color: ONBOARDING_COLORS.primary }]}>
                           {option.label}
                         </Text>
-                        {option.description ? (
-                          <Text style={[styles.needChoiceText, selected && styles.introChoiceTextActive]}>
-                            {option.description}
-                          </Text>
-                        ) : null}
                       </Pressable>
                     );
                   })}
@@ -5424,13 +5485,10 @@ export function StudentOnboardingScreen({
                           ? 'What\'s the outcome you\'re hoping for?'
                           : 'What do you want to achieve with Kitabu AI?'}
                 </Text>
-                <Text style={[styles.stepText, compactLayout && styles.stepTextCompact]}>
-                  {swahiliIntro ? 'Chagua matokeo muhimu zaidi kwako.' : 'Pick the result that would make Kitabu feel useful from day one.'}
-                </Text>
                 <View
                   accessibilityLabel="Achievement options"
                   accessibilityRole="radiogroup"
-                  style={styles.needChoiceGrid}>
+                  style={styles.roleGrid}>
                   {achievementOptions.map(option => {
                     const selected = selectedAchievementKey === option.key;
                     return (
@@ -5441,30 +5499,25 @@ export function StudentOnboardingScreen({
                         key={option.key}
                         onPress={() => handleAchievementSelect(option.key)}
                         style={[
-                          styles.needChoice,
+                          styles.roleCard,
                           selected && {
-                            backgroundColor: content.accent,
-                            borderColor: content.accent,
+                            backgroundColor: ONBOARDING_COLORS.primaryLight,
+                            borderColor: ONBOARDING_COLORS.primary,
                           },
                         ]}>
                         {selected ? (
-                          <View style={styles.needChoiceCheck}>
-                            <Check color={ONBOARDING_COLORS.white} size={12} strokeWidth={3} />
+                          <View style={styles.roleCardCheck}>
+                            <Check color={ONBOARDING_COLORS.white} size={11} strokeWidth={3} />
                           </View>
                         ) : null}
                         {option.icon ? (
-                          <Text style={[styles.goalChoiceIcon, selected && styles.choiceChipTextActive]}>
+                          <Text style={styles.roleCardIcon}>
                             {option.icon}
                           </Text>
                         ) : null}
-                        <Text style={[styles.needChoiceTitle, selected && styles.choiceChipTextActive]}>
+                        <Text style={[styles.roleCardLabel, styles.roleCardLabelDense, selected && { color: ONBOARDING_COLORS.primary }]}>
                           {option.label}
                         </Text>
-                        {option.description ? (
-                          <Text style={[styles.needChoiceText, selected && styles.introChoiceTextActive]}>
-                            {option.description}
-                          </Text>
-                        ) : null}
                       </Pressable>
                     );
                   })}
@@ -5495,7 +5548,7 @@ export function StudentOnboardingScreen({
                       label: studentSwahiliIntro ? 'Hofu na wasiwasi mkubwa' : 'Panic and anxiety',
                     },
                     {
-                      icon: '?',
+                      icon: '❓',
                       label: studentSwahiliIntro ? 'Nianze wapi? Sina mpango' : 'Where do I even start?',
                     },
                   ].map(item => (
@@ -5511,10 +5564,10 @@ export function StudentOnboardingScreen({
             {introStep === 'painAfter' ? (
               <>
                 <Text style={[styles.stepKicker, { color: content.accent }]}>
-                  {studentSwahiliIntro ? 'Sasa na Kitabu AI' : 'With Kitabu'}
+                  {studentSwahiliIntro ? 'Sasa na Kitabu AI \uD83D\uDE0C' : 'With Kitabu AI \uD83D\uDE0C'}
                 </Text>
                 <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
-                  {studentSwahiliIntro ? 'Usiku kabla ya mtihani wako...' : 'The night before an exam...'}
+                  {studentSwahiliIntro ? 'Usiku kabla ya mtihani wako...' : 'The night before your exam...'}
                 </Text>
                 <Text style={styles.storyHeroEmoji}>{'\uD83D\uDE0C'}</Text>
                 <Text style={[styles.storyTag, { color: content.accent }]}>
@@ -5671,24 +5724,62 @@ export function StudentOnboardingScreen({
                   {swahiliIntro ? 'Unasomea katika nchi hii?' : 'Are you studying in this country?'}
                 </Text>
                 <Text
-                  accessibilityLabel="Kenya flag"
+                  accessibilityLabel={`${selectedCountry.name} flag`}
                   style={styles.countryFlagEmoji}>
-                  🇰🇪
+                  {selectedCountry.flag}
                 </Text>
-                <View style={[styles.countryPill, { borderColor: content.accent }]}>
-                  <Text style={[styles.countryPillText, { color: content.accent }]}>Kenya ▾</Text>
-                </View>
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel={`Country: ${selectedCountry.name}. Tap to change`}
+                  onPress={() => setCountryPickerOpen(true)}
+                  style={[styles.countryPill, { borderColor: content.accent }]}>
+                  <Text style={[styles.countryPillText, { color: content.accent }]}>
+                    {selectedCountry.name} {'▾'}
+                  </Text>
+                </Pressable>
                 <View style={[styles.socialProofPanel, styles.countryInfoCard, { borderColor: `${content.accent}55` }]}>
                   <Text style={[styles.needChoiceTitle, { color: ONBOARDING_COLORS.textPrimary }]}>
                     {'\uD83D\uDCDA '}
-                    {swahiliIntro ? 'CBC / KNEC wa Kenya' : 'CBC / KNEC Kenya curriculum'}
+                    {selectedCountry.curriculum}
                   </Text>
                   <Text style={styles.needChoiceText}>
                     {swahiliIntro
-                      ? 'Nitahakikisha masomo yako yanafuata mtaala rasmi wa CBC / KNEC wa Kenya - maswali halisi ya mitihani, mada sahihi.'
-                      : 'I will make sure your lessons follow the official CBC / KNEC Kenya curriculum - real exam questions, correct topics.'}
+                      ? `Nitahakikisha masomo yako yanafuata mtaala rasmi wa ${selectedCountry.curriculum} - maswali halisi ya mitihani, mada sahihi.`
+                      : `I'll make sure your studies align with the official ${selectedCountry.curriculum} \u2014 real exam questions, the right topics.`}
                   </Text>
                 </View>
+
+                <Modal
+                  animationType="fade"
+                  onRequestClose={() => setCountryPickerOpen(false)}
+                  transparent
+                  visible={countryPickerOpen}>
+                  <Pressable style={styles.pickerBackdrop} onPress={() => setCountryPickerOpen(false)}>
+                    <Pressable style={styles.pickerSheet} onPress={() => undefined}>
+                      <ScrollView keyboardShouldPersistTaps="handled" style={styles.pickerList}>
+                        {COUNTRY_OPTIONS.map(option => (
+                          <Pressable
+                            accessibilityRole="button"
+                            key={option.code}
+                            onPress={() => {
+                              triggerHaptic('selection');
+                              setCountryCode(option.code);
+                              setCountryPickerOpen(false);
+                            }}
+                            style={styles.pickerRow}>
+                            <Text
+                              style={[
+                                styles.pickerRowText,
+                                countryCode === option.code && { color: content.accent, fontWeight: '700' },
+                              ]}>
+                              {option.flag}  {option.name}
+                            </Text>
+                          </Pressable>
+                        ))}
+                      </ScrollView>
+                    </Pressable>
+                  </Pressable>
+                </Modal>
               </>
             ) : null}
 
@@ -5705,7 +5796,7 @@ export function StudentOnboardingScreen({
                     ? 'Tutafanya maudhui ya masomo kulingana na unayopenda.'
                     : "We'll create study content you'll actually enjoy."}
                 </Text>
-                <View style={styles.voiceChoiceGrid}>
+                <View style={styles.roleGrid}>
                   {INTEREST_OPTIONS.map(option => {
                     const selected = selectedInterestKeys.includes(option.key);
                     const interestLabel = swahiliIntro ? option.swLabel ?? option.label : option.label;
@@ -5717,28 +5808,25 @@ export function StudentOnboardingScreen({
                         key={option.key}
                         onPress={() => handleInterestToggle(option.key)}
                         style={[
-                          styles.voiceChoice,
+                          styles.roleCard,
                           selected && {
-                            backgroundColor: content.accent,
-                            borderColor: content.accent,
+                            backgroundColor: ONBOARDING_COLORS.primaryLight,
+                            borderColor: ONBOARDING_COLORS.primary,
                           },
                         ]}>
-                        <Text style={[styles.voiceChoiceTitle, selected && styles.choiceChipTextActive]}>
-                          {option.icon ? `${option.icon} ${interestLabel}` : interestLabel}
+                        {selected ? (
+                          <View style={styles.roleCardCheck}>
+                            <Check color={ONBOARDING_COLORS.white} size={11} strokeWidth={3} />
+                          </View>
+                        ) : null}
+                        {option.icon ? <Text style={styles.roleCardIcon}>{option.icon}</Text> : null}
+                        <Text style={[styles.roleCardLabel, selected && { color: ONBOARDING_COLORS.primary }]}>
+                          {interestLabel}
                         </Text>
                       </Pressable>
                     );
                   })}
                 </View>
-                <Pressable
-                  accessibilityRole="button"
-                  accessibilityLabel="Skip interests"
-                  onPress={handleContinue}
-                  style={[styles.interestsSkipButton, { borderColor: `${content.accent}55` }]}>
-                  <Text style={[styles.interestsSkipText, { color: content.accent }]}>
-                    {swahiliIntro ? 'Ruka' : 'Skip'}
-                  </Text>
-                </Pressable>
               </>
             ) : null}
 
@@ -5750,21 +5838,10 @@ export function StudentOnboardingScreen({
                 <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {reminderQuestion}
                 </Text>
-                <Text style={[styles.stepText, compactLayout && styles.stepTextCompact]}>
-                  {reminderDescription} You can change this later.
-                </Text>
-                <Pressable
-                  accessibilityRole="switch"
-                  accessibilityLabel="Daily study reminder"
-                  accessibilityHint="Turns daily Kitabu reminders on or off"
-                  accessibilityState={{ checked: reminderEnabled }}
-                  onPress={handleReminderToggle}
-                  style={[
-                    styles.reminderPhoneMockup,
-                    reminderEnabled && {
-                      borderColor: content.accent,
-                    },
-                  ]}
+                <View
+                  accessibilityLabel="Daily study reminder preview"
+                  accessibilityRole="image"
+                  style={styles.reminderPhoneMockup}
                   testID="reminder-phone-mockup">
                   <View style={styles.reminderPhoneStatus}>
                     <Text style={styles.reminderPhoneStatusText}>13:24</Text>
@@ -5792,7 +5869,7 @@ export function StudentOnboardingScreen({
                           <Text style={styles.reminderNotificationTitle}>
                             {swahiliIntro
                               ? `${displayName.trim() || 'Rafiki'}, mtihani wako wa Hesabu ni kesho. \uD83D\uDE80`
-                              : `${displayName.trim() || 'Friend'}, your Math exam is tomorrow. \uD83D\uDE80`}
+                              : `${displayName.trim() || 'Friend'}, your Maths exam is tomorrow. \uD83D\uDE80`}
                           </Text>
                           <Text style={styles.reminderNotificationText}>
                             {swahiliIntro ? 'Twende tujiandae pamoja!' : "Let's get ready together!"}
@@ -5801,24 +5878,7 @@ export function StudentOnboardingScreen({
                       </View>
                     </View>
                   </View>
-                  <View style={styles.reminderSwitchRow}>
-                    <Text style={[styles.textOnlyTitle, reminderEnabled && { color: content.accent }]}>
-                      {reminderTitle}
-                    </Text>
-                    <View
-                      style={[
-                        styles.textOnlySwitch,
-                        reminderEnabled && { backgroundColor: content.accent },
-                      ]}>
-                      <View
-                        style={[
-                          styles.textOnlySwitchKnob,
-                          reminderEnabled && styles.textOnlySwitchKnobOn,
-                        ]}
-                      />
-                    </View>
-                  </View>
-                </Pressable>
+                </View>
                 <View style={styles.reminderBenefitStrip}>
                   {[
                     swahiliIntro ? { icon: '\uD83D\uDD25', label: 'Mfululizo wa siku' } : { icon: '\uD83D\uDD25', label: 'Daily streak' },
@@ -5833,8 +5893,8 @@ export function StudentOnboardingScreen({
                 </View>
                 <Text style={styles.reminderFooterCaption}>
                   {swahiliIntro
-                    ? 'Unaweza kuruka sasa au kuwasha ukumbusho wa Kitabu AI.'
-                    : 'Skip now or turn on a Kitabu AI reminder.'}
+                    ? 'Vikumbusho husaidia wanafunzi kutunza tabia ya kujifunza kila siku.'
+                    : 'Reminders help students stay consistent every day.'}
                 </Text>
               </>
             ) : null}
@@ -5871,7 +5931,7 @@ export function StudentOnboardingScreen({
                     : role === 'teacher' && includeIntroChoices
                       ? 'Which subjects do you teach?'
                       : step === 1
-                        ? 'Which subjects do you study?'
+                        ? 'Select the subjects you study'
                       : usesLearnerFlow && includeIntroChoices
                         ? 'Which grade are you in?'
                       : content.stepOneTitle}
@@ -5886,10 +5946,12 @@ export function StudentOnboardingScreen({
                     : role === 'teacher' && includeIntroChoices
                       ? 'Select all that apply.'
                       : step === 1
-                        ? 'Choose your CBC subjects. You can skip and add more later.'
+                        ? 'Pick all that apply. You can add more later.'
+                      : usesLearnerFlow && includeIntroChoices
+                        ? 'We\'ll prepare content that matches your CBC curriculum.'
                       : content.stepOneText}
                 </Text>
-                {!(studentFullIntro && step === 1) ? (
+                {!includeIntroChoices && !(studentFullIntro && step === 1) ? (
                   <View style={[styles.benefitRow, compactLayout && styles.benefitRowCompact]}>
                     {content.stepOneBenefits.map(benefit => (
                       <View
@@ -5955,32 +6017,40 @@ export function StudentOnboardingScreen({
 
                 {(role !== 'teacher' || !includeIntroChoices) && step === 0 ? (
                   <>
-                    <Text style={[styles.fieldLabel, compactLayout && styles.fieldLabelCompact]}>
-                      {swahiliIntro ? (role === 'teacher' ? 'Madarasa' : 'Darasa lako') : content.gradeLabel}
-                    </Text>
+                    {!(usesLearnerFlow && includeIntroChoices) ? (
+                      <Text style={[styles.fieldLabel, compactLayout && styles.fieldLabelCompact]}>
+                        {swahiliIntro ? (role === 'teacher' ? 'Madarasa' : 'Darasa lako') : content.gradeLabel}
+                      </Text>
+                    ) : null}
                     <View
                       accessibilityLabel={`${content.gradeLabel} options`}
                       accessibilityRole="radiogroup"
-                      style={styles.choiceRow}>
-                      {SUPPORTED_GRADES.map(option => (
+                      style={usesLearnerFlow && includeIntroChoices ? styles.gradeGrid : styles.choiceRow}>
+                      {SUPPORTED_GRADES.map(option => {
+                        const gradeSelected = grade === option;
+                        const usePrdGrade = usesLearnerFlow && includeIntroChoices;
+                        return (
                         <Pressable
                           accessibilityRole="radio"
                           accessibilityLabel={`Select ${option}`}
-                          accessibilityState={{ checked: grade === option }}
+                          accessibilityState={{ checked: gradeSelected }}
                           key={option}
                           onPress={() => handleGradeSelect(option)}
                           style={[
-                            styles.choiceChip,
-                            compactLayout && styles.choiceChipCompact,
-                            grade === option && {
+                            usePrdGrade ? styles.gradeCell : styles.choiceChip,
+                            !usePrdGrade && compactLayout && styles.choiceChipCompact,
+                            gradeSelected && {
                               backgroundColor: content.accent,
                               borderColor: content.accent,
                             },
                           ]}>
+                          {usePrdGrade && gradeSelected ? (
+                            <Text style={styles.gradeCellCheck}>{'✓'}</Text>
+                          ) : null}
                           <Text
                             style={[
-                              styles.choiceChipText,
-                              grade === option && styles.choiceChipTextActive,
+                              usePrdGrade ? styles.gradeCellText : styles.choiceChipText,
+                              gradeSelected && styles.choiceChipTextActive,
                             ]}>
                             {swahiliIntro
                               ? role === 'teacher'
@@ -5989,7 +6059,8 @@ export function StudentOnboardingScreen({
                               : option}
                           </Text>
                         </Pressable>
-                      ))}
+                        );
+                      })}
                     </View>
                     {usesLearnerFlow && includeIntroChoices && activeGradeBand ? (
                       <View
@@ -6014,36 +6085,36 @@ export function StudentOnboardingScreen({
                 subjectPreferenceText &&
                 (!usesLearnerFlow || !includeIntroChoices || step === 1) ? (
                   <>
-                    <View style={styles.subjectHeaderRow}>
-                      <Text style={[styles.fieldLabel, compactLayout && styles.fieldLabelCompact]}>
-                        {swahiliIntro
-                          ? role === 'teacher'
-                            ? 'Masomo unayofundisha'
-                            : 'Masomo yako'
-                          : subjectPreferenceLabel}
-                      </Text>
-                      <Text
-                        accessibilityLiveRegion="polite"
-                        role="status"
-                        style={[styles.subjectCount, { color: content.accent }]}>
-                        {role === 'teacher'
-                          ? selectedSubjectCount > 0
-                            ? `${selectedSubjectCount} selected \u2713`
-                            : ''
-                          : usesLearnerFlow && includeIntroChoices
-                            ? swahiliIntro
-                              ? `${selectedSubjectCount} zimechaguliwa \u2713`
-                              : `${selectedSubjectCount} selected \u2713`
-                          : `${selectedSubjectCount}/${MAX_ONBOARDING_SUBJECTS}`}
-                      </Text>
-                    </View>
-                    <Text style={[styles.subjectHelpText, compactLayout && styles.subjectHelpTextCompact]}>
-                      {swahiliIntro
-                        ? role === 'teacher'
-                          ? 'Chagua masomo yote unayofundisha.'
-                          : 'Chagua yote yanayokufaa. Unaweza kuongeza zaidi baadaye.'
-                        : subjectPreferenceText}
-                    </Text>
+                    {!(usesLearnerFlow && includeIntroChoices) ? (
+                      <>
+                        <View style={styles.subjectHeaderRow}>
+                          <Text style={[styles.fieldLabel, compactLayout && styles.fieldLabelCompact]}>
+                            {swahiliIntro
+                              ? role === 'teacher'
+                                ? 'Masomo unayofundisha'
+                                : 'Masomo yako'
+                              : subjectPreferenceLabel}
+                          </Text>
+                          <Text
+                            accessibilityLiveRegion="polite"
+                            role="status"
+                            style={[styles.subjectCount, { color: content.accent }]}>
+                            {role === 'teacher'
+                              ? selectedSubjectCount > 0
+                                ? `${selectedSubjectCount} selected \u2713`
+                                : ''
+                              : `${selectedSubjectCount}/${MAX_ONBOARDING_SUBJECTS}`}
+                          </Text>
+                        </View>
+                        <Text style={[styles.subjectHelpText, compactLayout && styles.subjectHelpTextCompact]}>
+                          {swahiliIntro
+                            ? role === 'teacher'
+                              ? 'Chagua masomo yote unayofundisha.'
+                              : 'Chagua yote yanayokufaa. Unaweza kuongeza zaidi baadaye.'
+                            : subjectPreferenceText}
+                        </Text>
+                      </>
+                    ) : null}
                     <View
                       accessibilityLabel={subjectPreferenceLabel}
                       accessibilityRole="list"
@@ -6103,6 +6174,11 @@ export function StudentOnboardingScreen({
                         ) : null,
                       )}
                     </View>
+                    {usesLearnerFlow && includeIntroChoices && selectedSubjectCount > 0 ? (
+                      <Text style={[styles.subjectCount, styles.subjectCountFooter, { color: content.accent }]}>
+                        {selectedSubjectCount} {swahiliIntro ? 'zimechaguliwa' : 'selected'} ✓
+                      </Text>
+                    ) : null}
                   </>
                 ) : null}
               </>
@@ -6116,9 +6192,11 @@ export function StudentOnboardingScreen({
                 <Text style={[styles.stepTitle, schoolStepCompactLayout && styles.stepTitleCompact]}>
                   {schoolStepCopy.heading}
                 </Text>
-                <Text style={[styles.stepText, schoolStepCompactLayout && styles.stepTextCompact]}>
-                  {swahiliIntro ? 'Unaweza kuruka hatua hii na kuongeza shule baadaye.' : content.schoolText}
-                </Text>
+                {!includeIntroChoices ? (
+                  <Text style={[styles.stepText, schoolStepCompactLayout && styles.stepTextCompact]}>
+                    {swahiliIntro ? 'Unaweza kuruka hatua hii na kuongeza shule baadaye.' : content.schoolText}
+                  </Text>
+                ) : null}
 
                 <Text style={[styles.fieldLabel, schoolStepCompactLayout && styles.fieldLabelCompact]}>
                   {swahiliIntro ? 'Kaunti' : 'County'}
@@ -6310,7 +6388,7 @@ export function StudentOnboardingScreen({
                         {selectedSchoolName}
                       </Text>
                       <Text style={styles.selectedSchoolMeta}>
-                        {county} County {'\u00B7'} Kenya
+                        {county} County {'\u00B7'} {selectedCountry.name}
                       </Text>
                     </View>
                   </View>
@@ -6333,7 +6411,7 @@ export function StudentOnboardingScreen({
               </>
             ) : null}
 
-            {introStep === 'setup' && step === 2 ? (
+            {introStep === 'setup' && step === 2 && !includeIntroChoices ? (
               <>
                 <Text style={[styles.stepKicker, { color: content.accent }]}>Payments</Text>
                 <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
@@ -6490,33 +6568,48 @@ export function StudentOnboardingScreen({
 
             {introStep === 'profileReady' ? (
               <>
-                <Text style={[styles.stepKicker, { color: content.accent }]}>
-                  {swahiliIntro ? 'Mwenzako wa masomo' : role === 'teacher' ? 'Workspace ready' : role === 'parent' ? 'Dashboard ready' : 'Profile ready'}
-                </Text>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
-                  {readyHeaderTitle}
-                </Text>
-                <View style={[styles.readyHeroPanel, { borderColor: `${content.accent}55` }]}>
+                <LinearGradient
+                  colors={[
+                    content.accent,
+                    content.accent === ONBOARDING_COLORS.primary
+                      ? ONBOARDING_COLORS.primaryDark
+                      : content.accent,
+                  ]}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 1 }}
+                  style={styles.readyHeroBand}>
                   <View
                     accessibilityLabel={mascotPoseAccessibilityLabel}
                     accessibilityRole="image"
-                    style={styles.readyHeroMascotWrap}>
+                    style={styles.readyHeroBandMascot}>
                     <Image
                       accessibilityIgnoresInvertColors
                       accessibilityLabel={activeMascot.label}
                       source={activeMascot.source}
                       resizeMode="contain"
-                      style={styles.readyHeroMascot}
+                      style={styles.readyHeroBandMascotImage}
                     />
-                    {renderMascotPoseEffect('large')}
                   </View>
-                  <Text style={[styles.readyHeroTitle, { color: content.accent }]}>
-                    {swahiliIntro ? 'Malengo ya kufikiwa' : 'Goals to reach'}
-                  </Text>
-                  <Text style={styles.loadingProfileText}>
-                    {readySummary}
-                  </Text>
-                </View>
+                  <View style={styles.readyHeroBandCopy}>
+                    <Text style={styles.readyHeroBandEyebrow}>
+                      {swahiliIntro ? 'Mwenzako wa masomo' : role === 'teacher' ? 'Workspace ready' : role === 'parent' ? 'Dashboard ready' : 'Profile ready'}
+                    </Text>
+                    <Text numberOfLines={1} style={styles.readyHeroBandTitle}>
+                      {`${displayName.trim() || (swahiliIntro ? 'Wewe' : 'You')},`}
+                    </Text>
+                    <Text style={styles.readyHeroBandSub}>
+                      {swahiliIntro ? 'Profaili yako ya masomo iko tayari!' : 'Your study profile is ready!'}
+                    </Text>
+                    {readySummary ? (
+                      <View style={styles.readyHeroBandPill}>
+                        <Text style={styles.readyHeroBandPillText}>{readySummary}</Text>
+                      </View>
+                    ) : null}
+                  </View>
+                </LinearGradient>
+                <Text style={[styles.readyGoalsHeading, { color: content.accent }]}>
+                  {swahiliIntro ? 'Malengo ya kufikiwa' : 'Goals to reach'}
+                </Text>
                 {swahiliIntro ? (
                   <>
                     <View style={styles.profileReadyChecklist}>
@@ -6541,27 +6634,20 @@ export function StudentOnboardingScreen({
                 ) : (
                   <>
                     <View style={styles.profileReadyChecklist}>
-                      <View style={styles.profileReadyRow}>
-                        <View style={[styles.profileReadyCheck, { backgroundColor: content.accent }]}>
-                          <Check color={ONBOARDING_COLORS.white} size={12} strokeWidth={3} />
+                      {['Up to 2 grades improvement', 'Get ahead of most students', '94% more confident'].map(item => (
+                        <View key={item} style={styles.profileReadyRow}>
+                          <View style={[styles.profileReadyCheck, { backgroundColor: content.accent }]}>
+                            <Check color={ONBOARDING_COLORS.white} size={12} strokeWidth={3} />
+                          </View>
+                          <Text style={styles.profileReadyRowText}>{item}</Text>
                         </View>
-                        <Text style={styles.profileReadyRowText}>
-                          Goal: {goalOptions.find(option => option.key === selectedGoalKey)?.label ?? 'Ready'}
-                        </Text>
-                      </View>
-                      <View style={styles.profileReadyRow}>
-                        <View style={[styles.profileReadyCheck, { backgroundColor: content.accent }]}>
-                          <Check color={ONBOARDING_COLORS.white} size={12} strokeWidth={3} />
-                        </View>
-                        <Text style={styles.profileReadyRowText}>
-                          Reminder: {reminderEnabled ? readyReminderLabel : 'Off for now'}
-                        </Text>
-                      </View>
+                      ))}
                     </View>
                     <View style={[styles.socialProofPanel, { borderColor: `${content.accent}55` }]}>
                       <Text style={[styles.socialProofNumber, { color: content.accent }]}>4.89</Text>
                       <Text style={styles.readyRatingStars}>{'\u2605\u2605\u2605\u2605\u2605'}</Text>
-                      <Text style={styles.socialProofText}>Trusted by local learners and families.</Text>
+                      <Text style={styles.socialProofText}>You're joining millions of satisfied students.</Text>
+                      <Text style={[styles.helperText, styles.centeredText]}>Used by 2,400,000+ students</Text>
                       {renderReadyTestimonialCarousel()}
                     </View>
                   </>
@@ -6571,16 +6657,16 @@ export function StudentOnboardingScreen({
 
             {introStep === 'signup' ? (
               <>
-                <Text style={[styles.stepKicker, { color: content.accent }]}>
+                <View style={styles.signupBrandRow}>
+                  <Text style={styles.signupBrandIcon}>{'📚'}</Text>
+                  <Text style={styles.signupBrandWordmark}>Kitabu</Text>
+                  <Text style={styles.signupBrandBadge}>AI</Text>
+                </View>
+                <Text style={[styles.stepTitle, styles.centeredText, compactLayout && styles.stepTitleCompact]}>
                   {swahiliIntro ? 'Hifadhi akaunti yako' : 'Save your account'}
                 </Text>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                <Text style={[styles.stepText, styles.centeredText, compactLayout && styles.stepTextCompact]}>
                   {swahiliIntro ? 'Jiandikishe kuendelea na mpango wako wa masomo' : 'Sign up to continue with your study plan'}
-                </Text>
-                <Text style={[styles.stepText, compactLayout && styles.stepTextCompact]}>
-                  {swahiliIntro
-                    ? 'Tutahifadhi lugha, Rafiki, malengo, mtaala, shule, na vikumbusho ulivyochagua.'
-                    : 'We will save the language, Rafiki, goals, curriculum, school, and reminders you selected.'}
                 </Text>
                 {collectSignupCredentials ? (
                   <>
@@ -6632,15 +6718,15 @@ export function StudentOnboardingScreen({
                           onPress={() => handleSignupMethodSelect('email')}
                           style={[styles.signupPrimaryButton, { backgroundColor: content.accent }]}>
                           <Mail color={ONBOARDING_COLORS.white} size={18} strokeWidth={2.5} />
-                          <Text style={styles.signupPrimaryText}>Sign up with email</Text>
+                          <Text style={styles.signupPrimaryText}>Continue with Email</Text>
                         </Pressable>
                         <Pressable
-                          accessibilityLabel="Sign up with phone"
+                          accessibilityLabel="Continue with phone number"
                           accessibilityRole="button"
                           onPress={() => handleSignupMethodSelect('phone')}
                           style={styles.signupPhoneButton}>
                           <Phone color={content.accent} size={18} strokeWidth={2.5} />
-                          <Text style={[styles.signupPhoneText, { color: content.accent }]}>Sign up with phone</Text>
+                          <Text style={[styles.signupPhoneText, { color: content.accent }]}>Continue with Phone Number</Text>
                         </Pressable>
                         <Text style={styles.signupTermsText}>
                           By continuing, you agree to the Terms of Use and Privacy Policy.
@@ -6928,6 +7014,28 @@ export function StudentOnboardingScreen({
             <View
               testID="onboarding-footer"
               style={[styles.footerRow, footerCompactLayout && styles.footerRowCompact]}>
+              {(includeIntroChoices && studentFullIntro && introStep === 'setup' && (step === 1 || step === 2)) ||
+              (includeIntroChoices && (introStep === 'interests' || introStep === 'reminder')) ? (
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel="Skip this step"
+                  disabled={isSubmitting}
+                  onPress={() => {
+                    if (introStep === 'interests') {
+                      setIntroStep('reminder');
+                      return;
+                    }
+                    if (introStep === 'reminder') {
+                      setReminderEnabled(false);
+                      setIntroStep('loading');
+                      return;
+                    }
+                    handleContinue();
+                  }}
+                  style={styles.skipGhostButton}>
+                  <Text style={styles.skipGhostText}>{swahiliIntro ? 'Ruka' : 'Skip'}</Text>
+                </Pressable>
+              ) : null}
               {canGoBack && !usesRafikiRevealStep && !usesMascotNavBar ? (
                 <Pressable
                   accessibilityRole="button"
@@ -6971,7 +7079,6 @@ export function StudentOnboardingScreen({
                     <Text numberOfLines={2} style={styles.primaryText}>
                       {primaryActionText}
                     </Text>
-                    <PrimaryActionIcon color={ONBOARDING_COLORS.white} size={18} strokeWidth={2.8} />
                   </View>
                 )}
               </Pressable>
@@ -7214,26 +7321,28 @@ const styles = StyleSheet.create({
   },
   mascotNavBackButton: {
     alignItems: 'center',
-    backgroundColor: 'rgba(255,255,255,0.82)',
+    backgroundColor: ONBOARDING_COLORS.bgSoft,
     borderColor: ONBOARDING_COLORS.border,
-    borderRadius: 999,
+    borderRadius: 10,
     borderWidth: 1,
-    height: 36,
+    height: 34,
     justifyContent: 'center',
-    width: 58,
+    width: 34,
   },
   mascotNavBackSpacer: {
     width: 34,
   },
   mascotNavBackText: {
-    fontSize: 12,
-    fontWeight: '900',
+    color: ONBOARDING_COLORS.textSecondary,
+    fontSize: 18,
+    fontWeight: '700',
+    lineHeight: 20,
   },
   mascotNavProgressTrack: {
-    backgroundColor: 'rgba(160,140,110,0.28)',
+    backgroundColor: ONBOARDING_COLORS.border,
     borderRadius: 999,
     flex: 1,
-    height: 9,
+    height: 5,
     overflow: 'hidden',
   },
   mascotNavProgressFill: {
@@ -7270,23 +7379,24 @@ const styles = StyleSheet.create({
   preMascotNav: {
     alignItems: 'center',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    gap: 8,
     minHeight: 40,
   },
   preMascotBackButton: {
     alignItems: 'center',
-    backgroundColor: 'rgba(255,255,255,0.82)',
+    backgroundColor: ONBOARDING_COLORS.bgSoft,
     borderColor: ONBOARDING_COLORS.border,
-    borderRadius: 999,
+    borderRadius: 10,
     borderWidth: 1,
-    minHeight: 36,
-    minWidth: 72,
+    height: 34,
     justifyContent: 'center',
-    paddingHorizontal: 14,
+    width: 34,
   },
   preMascotBackText: {
-    fontSize: 13,
-    fontWeight: '900',
+    color: ONBOARDING_COLORS.textSecondary,
+    fontSize: 18,
+    fontWeight: '700',
+    lineHeight: 20,
   },
   preMascotLangBadge: {
     backgroundColor: ONBOARDING_COLORS.white,
@@ -7359,19 +7469,16 @@ const styles = StyleSheet.create({
     color: ONBOARDING_COLORS.white,
   },
   card: {
-    backgroundColor: 'rgba(255,255,255,0.82)',
-    borderColor: 'rgba(255,255,255,0.72)',
-    borderRadius: 30,
-    borderWidth: 1,
+    backgroundColor: 'transparent',
+    borderWidth: 0,
+    borderRadius: 0,
     flex: 1,
-    marginTop: 16,
-    minHeight: 560,
-    padding: 20,
+    marginTop: 12,
+    padding: 0,
   },
   cardCompact: {
-    borderRadius: 28,
-    minHeight: 456,
-    padding: 18,
+    borderRadius: 0,
+    padding: 0,
   },
   mascotPickerCard: {
     minHeight: 430,
@@ -7967,12 +8074,6 @@ const styles = StyleSheet.create({
     lineHeight: 16,
     marginTop: 2,
   },
-  reminderSwitchRow: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 12,
-  },
   reminderBenefitStrip: {
     flexDirection: 'row',
     gap: 8,
@@ -8025,6 +8126,198 @@ const styles = StyleSheet.create({
   },
   roleChoiceLocked: {
     opacity: 0.56,
+  },
+  roleGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    rowGap: 10,
+    marginTop: 18,
+  },
+  roleCard: {
+    alignItems: 'center',
+    backgroundColor: ONBOARDING_COLORS.bgSoft,
+    borderColor: ONBOARDING_COLORS.border,
+    borderRadius: 16,
+    borderWidth: 1.5,
+    justifyContent: 'center',
+    minHeight: 124,
+    paddingHorizontal: 10,
+    paddingVertical: 18,
+    position: 'relative',
+    width: '48%',
+  },
+  roleCardCheck: {
+    alignItems: 'center',
+    backgroundColor: ONBOARDING_COLORS.primary,
+    borderRadius: 999,
+    height: 18,
+    justifyContent: 'center',
+    position: 'absolute',
+    right: 8,
+    top: 8,
+    width: 18,
+  },
+  roleCardIcon: {
+    fontSize: 34,
+    lineHeight: 40,
+    marginBottom: 8,
+  },
+  roleCardLabel: {
+    color: ONBOARDING_COLORS.textPrimary,
+    fontSize: 14,
+    fontWeight: '800',
+    textAlign: 'center',
+  },
+  roleCardText: {
+    color: ONBOARDING_COLORS.textSecondary,
+    fontSize: 11,
+    lineHeight: 15,
+    marginTop: 4,
+    textAlign: 'center',
+  },
+  roleCardLabelDense: {
+    fontSize: 12,
+    lineHeight: 16,
+  },
+  gradeGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    marginTop: 6,
+    rowGap: 9,
+  },
+  gradeCell: {
+    alignItems: 'center',
+    backgroundColor: ONBOARDING_COLORS.bgSoft,
+    borderColor: ONBOARDING_COLORS.border,
+    borderRadius: 12,
+    borderWidth: 1.5,
+    justifyContent: 'center',
+    paddingVertical: 13,
+    position: 'relative',
+    width: '31.5%',
+  },
+  gradeCellText: {
+    color: ONBOARDING_COLORS.textPrimary,
+    fontSize: 13,
+    fontWeight: '700',
+  },
+  gradeCellCheck: {
+    color: 'rgba(255,255,255,0.85)',
+    fontSize: 10,
+    fontWeight: '800',
+    position: 'absolute',
+    right: 6,
+    top: 4,
+  },
+  subjectCountFooter: {
+    fontWeight: '700',
+    marginTop: 10,
+  },
+  signupBrandRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginBottom: 16,
+    marginTop: 8,
+  },
+  signupBrandIcon: {
+    fontSize: 26,
+    marginRight: 8,
+  },
+  signupBrandWordmark: {
+    color: ONBOARDING_COLORS.textPrimary,
+    fontSize: 24,
+    fontWeight: '900',
+    letterSpacing: -0.5,
+  },
+  signupBrandBadge: {
+    backgroundColor: ONBOARDING_COLORS.primary,
+    borderRadius: 6,
+    color: ONBOARDING_COLORS.white,
+    fontSize: 12,
+    fontWeight: '900',
+    marginLeft: 6,
+    overflow: 'hidden',
+    paddingHorizontal: 7,
+    paddingVertical: 3,
+  },
+  skipGhostButton: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 18,
+    paddingVertical: 17,
+  },
+  skipGhostText: {
+    color: ONBOARDING_COLORS.textSecondary,
+    fontSize: 15,
+    fontWeight: '600',
+  },
+  pickerField: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  pickerFieldText: {
+    color: ONBOARDING_COLORS.textPrimary,
+    flex: 1,
+    fontSize: 16,
+  },
+  pickerFieldPlaceholder: {
+    color: ONBOARDING_COLORS.textMuted,
+  },
+  pickerChevron: {
+    color: ONBOARDING_COLORS.textMuted,
+    fontSize: 14,
+    marginLeft: 8,
+  },
+  pickerBackdrop: {
+    alignItems: 'center',
+    backgroundColor: 'rgba(26,18,7,0.45)',
+    flex: 1,
+    justifyContent: 'center',
+    paddingHorizontal: 24,
+  },
+  pickerSheet: {
+    backgroundColor: ONBOARDING_COLORS.white,
+    borderColor: ONBOARDING_COLORS.border,
+    borderRadius: 18,
+    borderWidth: 1,
+    maxHeight: 380,
+    overflow: 'hidden',
+    width: '100%',
+  },
+  pickerSearchInput: {
+    borderColor: ONBOARDING_COLORS.border,
+    borderRadius: 0,
+    borderWidth: 0,
+    borderBottomWidth: 1,
+  },
+  pickerList: {
+    maxHeight: 300,
+  },
+  pickerRow: {
+    borderBottomColor: ONBOARDING_COLORS.border,
+    borderBottomWidth: 1,
+    paddingHorizontal: 18,
+    paddingVertical: 13,
+  },
+  pickerRowText: {
+    color: ONBOARDING_COLORS.textPrimary,
+    fontSize: 15,
+    fontWeight: '500',
+  },
+  pickerRowMeta: {
+    color: ONBOARDING_COLORS.textMuted,
+    fontSize: 12,
+    marginTop: 2,
+  },
+  pickerEmpty: {
+    color: ONBOARDING_COLORS.textMuted,
+    fontSize: 14,
+    padding: 18,
+    textAlign: 'center',
   },
   needChoiceCheck: {
     alignItems: 'center',
@@ -8697,28 +8990,66 @@ const styles = StyleSheet.create({
     height: 52,
     width: 40,
   },
-  readyHeroPanel: {
+  readyHeroBand: {
     alignItems: 'center',
-    backgroundColor: ONBOARDING_COLORS.white,
     borderRadius: 24,
-    borderWidth: 1,
-    marginTop: 18,
+    flexDirection: 'row',
+    gap: 14,
+    marginTop: 16,
     padding: 18,
   },
-  readyHeroMascotWrap: {
-    height: 118,
-    position: 'relative',
-    width: 118,
+  readyHeroBandMascot: {
+    alignItems: 'center',
+    backgroundColor: 'rgba(255,255,255,0.18)',
+    borderRadius: 40,
+    height: 80,
+    justifyContent: 'center',
+    overflow: 'hidden',
+    width: 80,
   },
-  readyHeroMascot: {
-    height: 112,
-    width: 112,
+  readyHeroBandMascotImage: {
+    height: 70,
+    width: 70,
   },
-  readyHeroTitle: {
-    fontSize: 20,
+  readyHeroBandCopy: {
+    flex: 1,
+  },
+  readyHeroBandEyebrow: {
+    color: 'rgba(255,255,255,0.78)',
+    fontSize: 11,
+    fontWeight: '700',
+    letterSpacing: 0.8,
+    textTransform: 'uppercase',
+  },
+  readyHeroBandTitle: {
+    color: ONBOARDING_COLORS.white,
+    fontSize: 24,
     fontWeight: '900',
-    marginTop: 6,
-    textAlign: 'center',
+    marginTop: 2,
+  },
+  readyHeroBandSub: {
+    color: 'rgba(255,255,255,0.9)',
+    fontSize: 13,
+    marginTop: 4,
+  },
+  readyHeroBandPill: {
+    alignSelf: 'flex-start',
+    backgroundColor: 'rgba(255,255,255,0.22)',
+    borderRadius: 99,
+    marginTop: 8,
+    paddingHorizontal: 12,
+    paddingVertical: 4,
+  },
+  readyHeroBandPillText: {
+    color: ONBOARDING_COLORS.white,
+    fontSize: 12,
+    fontWeight: '700',
+  },
+  readyGoalsHeading: {
+    fontSize: 14,
+    fontWeight: '800',
+    marginBottom: 4,
+    marginTop: 16,
   },
   profileInput: {
     marginTop: 18,
@@ -9160,10 +9491,12 @@ const styles = StyleSheet.create({
     marginTop: 12,
   },
   footerRow: {
+    alignSelf: 'stretch',
     flexDirection: 'row',
     gap: 12,
     marginTop: 16,
     paddingTop: 16,
+    width: '100%',
   },
   footerRowCompact: {
     marginTop: 0,

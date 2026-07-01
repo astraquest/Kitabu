@@ -1,0 +1,2284 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-rwa-reb-cbc-p6-creative-art",
+  "title": "KITABU QUEST P6 Creative Art",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "P6",
+  "subject": "Creative Art",
+  "subjectSlug": "creative-art",
+  "subjectColor": "#DB2777",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v17",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T06:40:30Z",
+  "sourceSnapshotHash": "dacb0aced9e8201a230891516bbea5de79463808311d603ac44f63c4dc6bf2f6",
+  "bookPlanHash": "924de404c72478c4ebac353170bfc47d64bbd671dc4080d82e41535cc534b26a",
+  "pageCount": 91,
+  "wordCount": 8410,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 5,
+    "outcomeCount": 5,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "RWA",
+    "subject": "Creative Art",
+    "species": "grey crowned crane",
+    "role": "creative arts guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners making art and craft with a grey crowned crane mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Rwanda REB-CBC P6 Creative Art. Scene: learners making art and craft with a grey crowned crane mascot. Include a friendly grey crowned crane mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 90810,
+    "sha256": "40e11af810717629213d3d51ac5d4d4edc8cb71482bcf20eafd8ff68f451fd63"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 90810,
+      "sha256": "40e11af810717629213d3d51ac5d4d4edc8cb71482bcf20eafd8ff68f451fd63",
+      "kind": "cover",
+      "altText": "KITABU QUEST P6 Creative Art cover with grey crowned crane",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-rwa-reb-cbc-p6-creative-art.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-rwa-reb-cbc-p6-creative-art.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "ba390eca-d693-49dc-92b6-46910d70821e",
+      "subject": "Creative Art",
+      "officialTitle": "Rwanda Competence Based Curriculum P6 Creative Art",
+      "countryCode": "RWA",
+      "curriculumCode": "REB-CBC",
+      "gradeCode": "P6",
+      "gradeLocalLevel": "P6",
+      "localLevel": "P6",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://elearning.reb.rw/pluginfile.php/177314/mod_folder/content/0/Creative%20Art-Syllabus-P4-P6.pdf?forcedownload=1",
+      "objectKey": "data/curriculum/source-files/RWA/6a0ef718a1651b6379378714221a6db89ddb68315477b10c71167ead08cb7b2e.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "P6",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://elearning.reb.rw/pluginfile.php/177314/mod_folder/content/0/Creative%20Art-Syllabus-P4-P6.pdf?forcedownload=1",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/P6/creative-art/ba390eca-d693-49dc-92b6-46910d70821e.md",
+        "sourcePageUrl": "https://elearning.reb.rw/mod/folder/view.php?id=14427",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "reb.gov.rw",
+          "reb.rw",
+          "elearning.reb.rw"
+        ],
+        "markdownChecksum": "3b11750891649ab77f3fb2c005469fb752f56d87d4d33c5d384ab3caa71a11ce",
+        "markdownPageCount": 79,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/RWA/REB-CBC/P6/creative-art/ba390eca-d693-49dc-92b6-46910d70821e.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "3b11750891649ab77f3fb2c005469fb752f56d87d4d33c5d384ab3caa71a11ce",
+          "pageCount": 79,
+          "generatedAt": "2026-07-01T01:14:11.447Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/P6/creative-art/ba390eca-d693-49dc-92b6-46910d70821e.json",
+          "sourceChecksum": "c688cff0ce762e9449cbc794177546280fed6a2ecefbd34b746fe6367dd1f760"
+        },
+        "markdownGeneratedAt": "2026-07-01T01:14:11.447Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p001",
+      "title": "Title Page",
+      "content": "KITABU QUEST P6 Creative Art\n\nRwanda REB-CBC learner book\n\nMascot: grey crowned crane\n\nThis KITABU QUEST book turns the curriculum into short lessons, worked examples, guided activities, practice, review, and home links for Rwanda learners.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 3,
+      "wordCount": 35,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p002",
+      "title": "How To Use This Book",
+      "content": "This book helps P6 learners study Creative Art one teachable topic at a time.\n\n1. Start with the inquiry question and say what you already know.\n2. Read the Learn section slowly and mark new words.\n3. Try the worked example before reading the full solution.\n4. Complete the activity and practice tasks.\n5. Correct your answer using the success criteria.\n6. Ask for support when your answer is still unclear.\n\nSubject method: Learn through examples, activities, practice, and reflection.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 80,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p003",
+      "title": "Learning Skills In This Book",
+      "content": "Each topic builds knowledge, skill, values, communication, collaboration, critical thinking, creativity, digital awareness, and self-confidence.\n\nStudy actively: speak answers aloud, draw when useful, show your working, cite evidence, use local examples, and correct mistakes after feedback.\n\nA strong answer is specific. It names the idea, gives evidence or method, applies it to the task, and checks whether it answers the question.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p004",
+      "title": "Table Of Contents",
+      "content": "Use this table to move through the book one topic at a time. Each topic has a lesson opener, clear teaching, a model or example, guided work, practice, and checks for understanding.\n\n1. Simple time signatures\n2. Digital pattern design\n3. Bass staff and grand staff\n4. Digital signpost design\n5. Piano practice\n\nAs you finish each topic, return to the success criteria and correct one answer before moving on.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 70,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p005",
+      "title": "Simple time signatures: Lesson Opener",
+      "content": "Learning focus: Simple time signatures\n\nCountry link: a safe Rwandan creative, performance, movement, craft, artwork, or teamwork activity for Simple time signatures.\n\nProgression focus: prepare for upper-primary transition by using evidence, accuracy, and reflection.\n\nBy the end of this topic, you should be able to:\n- pupils are able to read and write music notes respecting time signatures. Learning outcomes\n\nInquiry questions:\n- How can simple time signatures help you solve a real problem in Creative Art?\n\nSuccess criteria:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-001:opener:visual-1:planned",
+        "RWA-P6-creative-art-topic-001:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p006",
+      "title": "Simple time signatures: Learn",
+      "content": "Simple time signatures becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Rwanda.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Simple time signatures\n- Simple\n- time\n- signatures\n- idea\n- skill\n- example\n- practice",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 88,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-001:learn:visual-1:planned",
+        "RWA-P6-creative-art-topic-001:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p007",
+      "title": "Simple time signatures: Worked Example",
+      "content": "Evidence model for Simple time signatures: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Rwanda.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Creative Art.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 58,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-001:example:visual-1:planned",
+        "RWA-P6-creative-art-topic-001:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p008",
+      "title": "Simple time signatures: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Simple time signatures. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Simple time signatures\n- Simple\n- time\n- signatures\n- idea\n- skill\n- example\n- practice\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Simple time signatures without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-001:vocabulary:visual-1:planned",
+        "RWA-P6-creative-art-topic-001:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p009",
+      "title": "Simple time signatures: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwandan creative, performance, movement, craft, artwork, or teamwork activity for Simple time signatures.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-001:activity:visual-1:planned",
+        "RWA-P6-creative-art-topic-001:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p010",
+      "title": "Simple time signatures: Practice And Correction",
+      "content": "Practice for Simple time signatures:\n\n1. Plan, practise, or perform a safe creative or movement task that shows: pupils are able to read and write music notes respecting time signatures. Learning outcomes. Explain the choices you made.\n\nCorrection check:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to simple time signatures and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-001:practice:visual-1:planned",
+        "RWA-P6-creative-art-topic-001:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p011",
+      "title": "Simple time signatures: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Simple time signatures.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-001:remediation:visual-1:planned",
+        "RWA-P6-creative-art-topic-001:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p012",
+      "title": "Simple time signatures: Outcome Check",
+      "content": "Show that you can pupils are able to read and write music notes respecting time signatures. Learning outcomes.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 104,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-001:assessment:visual-1:planned",
+        "RWA-P6-creative-art-topic-001:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p013",
+      "title": "Digital pattern design: Lesson Opener",
+      "content": "Learning focus: Digital pattern design\n\nCountry link: a safe Rwandan creative, performance, movement, craft, artwork, or teamwork activity for Digital pattern design.\n\nProgression focus: prepare for upper-primary transition by using evidence, accuracy, and reflection.\n\nBy the end of this topic, you should be able to:\n- plan, practise, perform, or create work related to digital pattern design\n\nInquiry questions:\n- How can digital pattern design help you solve a real problem in Creative Art?\n\nSuccess criteria:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-002:opener:visual-1:planned",
+        "RWA-P6-creative-art-topic-002:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p014",
+      "title": "Digital pattern design: Learn",
+      "content": "Digital pattern design becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Rwanda.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Digital pattern design\n- Digital\n- pattern\n- design\n- idea\n- skill\n- example\n- practice",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 88,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-002:learn:visual-1:planned",
+        "RWA-P6-creative-art-topic-002:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p015",
+      "title": "Digital pattern design: Worked Example",
+      "content": "Evidence model for Digital pattern design: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Rwanda.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Creative Art.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 58,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-002:example:visual-1:planned",
+        "RWA-P6-creative-art-topic-002:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p016",
+      "title": "Digital pattern design: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Digital pattern design. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Digital pattern design\n- Digital\n- pattern\n- design\n- idea\n- skill\n- example\n- practice\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Digital pattern design without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-002:vocabulary:visual-1:planned",
+        "RWA-P6-creative-art-topic-002:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p017",
+      "title": "Digital pattern design: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwandan creative, performance, movement, craft, artwork, or teamwork activity for Digital pattern design.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-002:activity:visual-1:planned",
+        "RWA-P6-creative-art-topic-002:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p018",
+      "title": "Digital pattern design: Practice And Correction",
+      "content": "Practice for Digital pattern design:\n\n1. Plan, practise, or perform a safe creative or movement task that shows: plan, practise, perform, or create work related to digital pattern design. Explain the choices you made.\n\nCorrection check:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to digital pattern design and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-002:practice:visual-1:planned",
+        "RWA-P6-creative-art-topic-002:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p019",
+      "title": "Digital pattern design: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Digital pattern design.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-002:remediation:visual-1:planned",
+        "RWA-P6-creative-art-topic-002:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p020",
+      "title": "Digital pattern design: Outcome Check",
+      "content": "Show that you can plan, practise, perform, or create work related to digital pattern design.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-002:assessment:visual-1:planned",
+        "RWA-P6-creative-art-topic-002:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p021",
+      "title": "Bass staff and grand staff: Lesson Opener",
+      "content": "Learning focus: Bass staff and grand staff\n\nCountry link: a safe Rwandan creative, performance, movement, craft, artwork, or teamwork activity for Bass staff and grand staff.\n\nProgression focus: prepare for upper-primary transition by using evidence, accuracy, and reflection.\n\nBy the end of this topic, you should be able to:\n- pupils are able to write and read notes on the grand staff. Learning outcomes\n\nInquiry questions:\n- How can bass staff and grand staff help you solve a real problem in Creative Art?\n\nSuccess criteria:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-003:opener:visual-1:planned",
+        "RWA-P6-creative-art-topic-003:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p022",
+      "title": "Bass staff and grand staff: Learn",
+      "content": "Bass staff and grand staff becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Rwanda.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Bass staff and grand staff\n- Bass\n- staff\n- grand\n- idea\n- skill\n- example\n- practice",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-003:learn:visual-1:planned",
+        "RWA-P6-creative-art-topic-003:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p023",
+      "title": "Bass staff and grand staff: Worked Example",
+      "content": "Evidence model for Bass staff and grand staff: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Rwanda.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Creative Art.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 60,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-003:example:visual-1:planned",
+        "RWA-P6-creative-art-topic-003:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p024",
+      "title": "Bass staff and grand staff: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Bass staff and grand staff. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Bass staff and grand staff\n- Bass\n- staff\n- grand\n- idea\n- skill\n- example\n- practice\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Bass staff and grand staff without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-003:vocabulary:visual-1:planned",
+        "RWA-P6-creative-art-topic-003:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p025",
+      "title": "Bass staff and grand staff: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwandan creative, performance, movement, craft, artwork, or teamwork activity for Bass staff and grand staff.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-003:activity:visual-1:planned",
+        "RWA-P6-creative-art-topic-003:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p026",
+      "title": "Bass staff and grand staff: Practice And Correction",
+      "content": "Practice for Bass staff and grand staff:\n\n1. Plan, practise, or perform a safe creative or movement task that shows: pupils are able to write and read notes on the grand staff. Learning outcomes. Explain the choices you made.\n\nCorrection check:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to bass staff and grand staff and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 99,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-003:practice:visual-1:planned",
+        "RWA-P6-creative-art-topic-003:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p027",
+      "title": "Bass staff and grand staff: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Bass staff and grand staff.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-003:remediation:visual-1:planned",
+        "RWA-P6-creative-art-topic-003:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p028",
+      "title": "Bass staff and grand staff: Outcome Check",
+      "content": "Show that you can pupils are able to write and read notes on the grand staff. Learning outcomes.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 104,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-003:assessment:visual-1:planned",
+        "RWA-P6-creative-art-topic-003:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p029",
+      "title": "Digital signpost design: Lesson Opener",
+      "content": "Learning focus: Digital signpost design\n\nCountry link: a safe Rwandan creative, performance, movement, craft, artwork, or teamwork activity for Digital signpost design.\n\nProgression focus: prepare for upper-primary transition by using evidence, accuracy, and reflection.\n\nBy the end of this topic, you should be able to:\n- create voluminous (3D) letters with hands and digital poster design Learning outcomes\n\nInquiry questions:\n- How can digital signpost design help you solve a real problem in Creative Art?\n\nSuccess criteria:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-004:opener:visual-1:planned",
+        "RWA-P6-creative-art-topic-004:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p030",
+      "title": "Digital signpost design: Learn",
+      "content": "Digital signpost design becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Rwanda.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Digital signpost design\n- Digital\n- signpost\n- design\n- idea\n- skill\n- example\n- practice",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 88,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-004:learn:visual-1:planned",
+        "RWA-P6-creative-art-topic-004:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p031",
+      "title": "Digital signpost design: Worked Example",
+      "content": "Evidence model for Digital signpost design: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Rwanda.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Creative Art.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 58,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-004:example:visual-1:planned",
+        "RWA-P6-creative-art-topic-004:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p032",
+      "title": "Digital signpost design: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Digital signpost design. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Digital signpost design\n- Digital\n- signpost\n- design\n- idea\n- skill\n- example\n- practice\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Digital signpost design without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-004:vocabulary:visual-1:planned",
+        "RWA-P6-creative-art-topic-004:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p033",
+      "title": "Digital signpost design: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwandan creative, performance, movement, craft, artwork, or teamwork activity for Digital signpost design.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-004:activity:visual-1:planned",
+        "RWA-P6-creative-art-topic-004:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p034",
+      "title": "Digital signpost design: Practice And Correction",
+      "content": "Practice for Digital signpost design:\n\n1. Plan, practise, or perform a safe creative or movement task that shows: create voluminous (3D) letters with hands and digital poster design Learning outcomes. Explain the choices you made.\n\nCorrection check:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to digital signpost design and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-004:practice:visual-1:planned",
+        "RWA-P6-creative-art-topic-004:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p035",
+      "title": "Digital signpost design: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Digital signpost design.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-004:remediation:visual-1:planned",
+        "RWA-P6-creative-art-topic-004:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p036",
+      "title": "Digital signpost design: Outcome Check",
+      "content": "Show that you can create voluminous (3D) letters with hands and digital poster design Learning outcomes.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 102,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-004:assessment:visual-1:planned",
+        "RWA-P6-creative-art-topic-004:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p037",
+      "title": "Piano practice: Lesson Opener",
+      "content": "Learning focus: Piano practice\n\nCountry link: a safe Rwandan creative, performance, movement, craft, artwork, or teamwork activity for Piano practice.\n\nProgression focus: prepare for upper-primary transition by using evidence, accuracy, and reflection.\n\nBy the end of this topic, you should be able to:\n- pupils are able to play simple songs on the keyboard Learning outcomes\n\nInquiry questions:\n- How can piano practice help you solve a real problem in Creative Art?\n\nSuccess criteria:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-005:opener:visual-1:planned",
+        "RWA-P6-creative-art-topic-005:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p038",
+      "title": "Piano practice: Learn",
+      "content": "Piano practice becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Rwanda.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Piano practice\n- Piano\n- practice\n- idea\n- skill\n- example\n- correction",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 84,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-005:learn:visual-1:planned",
+        "RWA-P6-creative-art-topic-005:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p039",
+      "title": "Piano practice: Worked Example",
+      "content": "Evidence model for Piano practice: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Rwanda.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Creative Art.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 57,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-005:example:visual-1:planned",
+        "RWA-P6-creative-art-topic-005:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p040",
+      "title": "Piano practice: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Piano practice. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Piano practice\n- Piano\n- practice\n- idea\n- skill\n- example\n- correction\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Piano practice without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 110,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-005:vocabulary:visual-1:planned",
+        "RWA-P6-creative-art-topic-005:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p041",
+      "title": "Piano practice: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwandan creative, performance, movement, craft, artwork, or teamwork activity for Piano practice.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-005:activity:visual-1:planned",
+        "RWA-P6-creative-art-topic-005:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p042",
+      "title": "Piano practice: Practice And Correction",
+      "content": "Practice for Piano practice:\n\n1. Plan, practise, or perform a safe creative or movement task that shows: pupils are able to play simple songs on the keyboard Learning outcomes. Explain the choices you made.\n\nCorrection check:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to piano practice and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-005:practice:visual-1:planned",
+        "RWA-P6-creative-art-topic-005:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p043",
+      "title": "Piano practice: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Piano practice.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-005:remediation:visual-1:planned",
+        "RWA-P6-creative-art-topic-005:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p044",
+      "title": "Piano practice: Outcome Check",
+      "content": "Show that you can pupils are able to play simple songs on the keyboard Learning outcomes.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 102,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-005:assessment:visual-1:planned",
+        "RWA-P6-creative-art-topic-005:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p045",
+      "title": "Simple time signatures: Plan",
+      "content": "Practical workshop for Simple time signatures: Plan.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-001:creative-plan:visual-1:planned",
+        "RWA-P6-creative-art-topic-001:creative-plan:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p046",
+      "title": "Digital pattern design: Materials And Safety",
+      "content": "Practical workshop for Digital pattern design: Materials And Safety.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-002:creative-materials-and-safety:visual-1:planned",
+        "RWA-P6-creative-art-topic-002:creative-materials-and-safety:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p047",
+      "title": "Bass staff and grand staff: Skill Practice",
+      "content": "Practical workshop for Bass staff and grand staff: Skill Practice.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 97,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-003:creative-skill-practice:visual-1:planned",
+        "RWA-P6-creative-art-topic-003:creative-skill-practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p048",
+      "title": "Digital signpost design: Create Or Perform",
+      "content": "Practical workshop for Digital signpost design: Create Or Perform.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-004:creative-create-or-perform:visual-1:planned",
+        "RWA-P6-creative-art-topic-004:creative-create-or-perform:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p049",
+      "title": "Piano practice: Peer Feedback",
+      "content": "Practical workshop for Piano practice: Peer Feedback.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-005:creative-peer-feedback:visual-1:planned",
+        "RWA-P6-creative-art-topic-005:creative-peer-feedback:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p050",
+      "title": "Simple time signatures: Improve And Reflect",
+      "content": "Practical workshop for Simple time signatures: Improve And Reflect.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-001:creative-improve-and-reflect:visual-1:planned",
+        "RWA-P6-creative-art-topic-001:creative-improve-and-reflect:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p051",
+      "title": "Digital pattern design: Plan",
+      "content": "Practical workshop for Digital pattern design: Plan.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-002:creative-plan:visual-1:planned",
+        "RWA-P6-creative-art-topic-002:creative-plan:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p052",
+      "title": "Bass staff and grand staff: Materials And Safety",
+      "content": "Practical workshop for Bass staff and grand staff: Materials And Safety.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-003:creative-materials-and-safety:visual-1:planned",
+        "RWA-P6-creative-art-topic-003:creative-materials-and-safety:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p053",
+      "title": "Digital signpost design: Skill Practice",
+      "content": "Practical workshop for Digital signpost design: Skill Practice.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-004:creative-skill-practice:visual-1:planned",
+        "RWA-P6-creative-art-topic-004:creative-skill-practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p054",
+      "title": "Piano practice: Create Or Perform",
+      "content": "Practical workshop for Piano practice: Create Or Perform.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-005:creative-create-or-perform:visual-1:planned",
+        "RWA-P6-creative-art-topic-005:creative-create-or-perform:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p055",
+      "title": "Simple time signatures: Peer Feedback",
+      "content": "Practical workshop for Simple time signatures: Peer Feedback.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-001:creative-peer-feedback:visual-1:planned",
+        "RWA-P6-creative-art-topic-001:creative-peer-feedback:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p056",
+      "title": "Digital pattern design: Improve And Reflect",
+      "content": "Practical workshop for Digital pattern design: Improve And Reflect.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-002:creative-improve-and-reflect:visual-1:planned",
+        "RWA-P6-creative-art-topic-002:creative-improve-and-reflect:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p057",
+      "title": "Bass staff and grand staff: Plan",
+      "content": "Practical workshop for Bass staff and grand staff: Plan.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-003:creative-plan:visual-1:planned",
+        "RWA-P6-creative-art-topic-003:creative-plan:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p058",
+      "title": "Digital signpost design: Materials And Safety",
+      "content": "Practical workshop for Digital signpost design: Materials And Safety.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-004:creative-materials-and-safety:visual-1:planned",
+        "RWA-P6-creative-art-topic-004:creative-materials-and-safety:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p059",
+      "title": "Piano practice: Skill Practice",
+      "content": "Practical workshop for Piano practice: Skill Practice.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-005:creative-skill-practice:visual-1:planned",
+        "RWA-P6-creative-art-topic-005:creative-skill-practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p060",
+      "title": "Simple time signatures: Create Or Perform",
+      "content": "Practical workshop for Simple time signatures: Create Or Perform.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-001:creative-create-or-perform:visual-1:planned",
+        "RWA-P6-creative-art-topic-001:creative-create-or-perform:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p061",
+      "title": "Digital pattern design: Peer Feedback",
+      "content": "Practical workshop for Digital pattern design: Peer Feedback.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-002:creative-peer-feedback:visual-1:planned",
+        "RWA-P6-creative-art-topic-002:creative-peer-feedback:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p062",
+      "title": "Bass staff and grand staff: Improve And Reflect",
+      "content": "Practical workshop for Bass staff and grand staff: Improve And Reflect.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-003:creative-improve-and-reflect:visual-1:planned",
+        "RWA-P6-creative-art-topic-003:creative-improve-and-reflect:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p063",
+      "title": "Digital signpost design: Plan",
+      "content": "Practical workshop for Digital signpost design: Plan.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-004:creative-plan:visual-1:planned",
+        "RWA-P6-creative-art-topic-004:creative-plan:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p064",
+      "title": "Piano practice: Materials And Safety",
+      "content": "Practical workshop for Piano practice: Materials And Safety.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-005:creative-materials-and-safety:visual-1:planned",
+        "RWA-P6-creative-art-topic-005:creative-materials-and-safety:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p065",
+      "title": "Simple time signatures: Skill Practice",
+      "content": "Practical workshop for Simple time signatures: Skill Practice.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-001:creative-skill-practice:visual-1:planned",
+        "RWA-P6-creative-art-topic-001:creative-skill-practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p066",
+      "title": "Digital pattern design: Create Or Perform",
+      "content": "Practical workshop for Digital pattern design: Create Or Perform.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-002:creative-create-or-perform:visual-1:planned",
+        "RWA-P6-creative-art-topic-002:creative-create-or-perform:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p067",
+      "title": "Bass staff and grand staff: Peer Feedback",
+      "content": "Practical workshop for Bass staff and grand staff: Peer Feedback.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 97,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-003:creative-peer-feedback:visual-1:planned",
+        "RWA-P6-creative-art-topic-003:creative-peer-feedback:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p068",
+      "title": "Digital signpost design: Improve And Reflect",
+      "content": "Practical workshop for Digital signpost design: Improve And Reflect.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-004:creative-improve-and-reflect:visual-1:planned",
+        "RWA-P6-creative-art-topic-004:creative-improve-and-reflect:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p069",
+      "title": "Piano practice: Plan",
+      "content": "Practical workshop for Piano practice: Plan.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-005:creative-plan:visual-1:planned",
+        "RWA-P6-creative-art-topic-005:creative-plan:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p070",
+      "title": "Simple time signatures: Materials And Safety",
+      "content": "Practical workshop for Simple time signatures: Materials And Safety.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-001:creative-materials-and-safety:visual-1:planned",
+        "RWA-P6-creative-art-topic-001:creative-materials-and-safety:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p071",
+      "title": "Digital pattern design: Skill Practice",
+      "content": "Practical workshop for Digital pattern design: Skill Practice.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-002:creative-skill-practice:visual-1:planned",
+        "RWA-P6-creative-art-topic-002:creative-skill-practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p072",
+      "title": "Bass staff and grand staff: Create Or Perform",
+      "content": "Practical workshop for Bass staff and grand staff: Create Or Perform.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-003:creative-create-or-perform:visual-1:planned",
+        "RWA-P6-creative-art-topic-003:creative-create-or-perform:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p073",
+      "title": "Digital signpost design: Peer Feedback",
+      "content": "Practical workshop for Digital signpost design: Peer Feedback.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-004:creative-peer-feedback:visual-1:planned",
+        "RWA-P6-creative-art-topic-004:creative-peer-feedback:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p074",
+      "title": "Piano practice: Improve And Reflect",
+      "content": "Practical workshop for Piano practice: Improve And Reflect.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-005:creative-improve-and-reflect:visual-1:planned",
+        "RWA-P6-creative-art-topic-005:creative-improve-and-reflect:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p075",
+      "title": "Simple time signatures: Plan",
+      "content": "Practical workshop for Simple time signatures: Plan.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-001:creative-plan:visual-1:planned",
+        "RWA-P6-creative-art-topic-001:creative-plan:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p076",
+      "title": "Digital pattern design: Materials And Safety",
+      "content": "Practical workshop for Digital pattern design: Materials And Safety.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-002:creative-materials-and-safety:visual-1:planned",
+        "RWA-P6-creative-art-topic-002:creative-materials-and-safety:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p077",
+      "title": "Bass staff and grand staff: Skill Practice",
+      "content": "Practical workshop for Bass staff and grand staff: Skill Practice.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 97,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-003:creative-skill-practice:visual-1:planned",
+        "RWA-P6-creative-art-topic-003:creative-skill-practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p078",
+      "title": "Digital signpost design: Create Or Perform",
+      "content": "Practical workshop for Digital signpost design: Create Or Perform.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-004:creative-create-or-perform:visual-1:planned",
+        "RWA-P6-creative-art-topic-004:creative-create-or-perform:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p079",
+      "title": "Piano practice: Peer Feedback",
+      "content": "Practical workshop for Piano practice: Peer Feedback.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-005:creative-peer-feedback:visual-1:planned",
+        "RWA-P6-creative-art-topic-005:creative-peer-feedback:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p080",
+      "title": "Simple time signatures: Improve And Reflect",
+      "content": "Practical workshop for Simple time signatures: Improve And Reflect.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-001:creative-improve-and-reflect:visual-1:planned",
+        "RWA-P6-creative-art-topic-001:creative-improve-and-reflect:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p081",
+      "title": "Digital pattern design: Plan",
+      "content": "Practical workshop for Digital pattern design: Plan.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-002:creative-plan:visual-1:planned",
+        "RWA-P6-creative-art-topic-002:creative-plan:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p082",
+      "title": "Bass staff and grand staff: Materials And Safety",
+      "content": "Practical workshop for Bass staff and grand staff: Materials And Safety.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-003:creative-materials-and-safety:visual-1:planned",
+        "RWA-P6-creative-art-topic-003:creative-materials-and-safety:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p083",
+      "title": "Digital signpost design: Skill Practice",
+      "content": "Practical workshop for Digital signpost design: Skill Practice.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-004:creative-skill-practice:visual-1:planned",
+        "RWA-P6-creative-art-topic-004:creative-skill-practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p084",
+      "title": "Piano practice: Create Or Perform",
+      "content": "Practical workshop for Piano practice: Create Or Perform.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-005:creative-create-or-perform:visual-1:planned",
+        "RWA-P6-creative-art-topic-005:creative-create-or-perform:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p085",
+      "title": "Simple time signatures: Review Clinic 1",
+      "content": "Use this review clinic to strengthen Creative Art without copying earlier answers.\n\n1. Choose one idea from Simple time signatures that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Rwanda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 77,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-001:review:visual-1:planned",
+        "RWA-P6-creative-art-topic-001:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p086",
+      "title": "Digital pattern design: Review Clinic 2",
+      "content": "Use this review clinic to strengthen Creative Art without copying earlier answers.\n\n1. Choose one idea from Digital pattern design that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Rwanda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 77,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-002:review:visual-1:planned",
+        "RWA-P6-creative-art-topic-002:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p087",
+      "title": "Bass staff and grand staff: Review Clinic 3",
+      "content": "Use this review clinic to strengthen Creative Art without copying earlier answers.\n\n1. Choose one idea from Bass staff and grand staff that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Rwanda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 79,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-003:review:visual-1:planned",
+        "RWA-P6-creative-art-topic-003:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p088",
+      "title": "Digital signpost design: Review Clinic 4",
+      "content": "Use this review clinic to strengthen Creative Art without copying earlier answers.\n\n1. Choose one idea from Digital signpost design that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Rwanda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 77,
+      "imageRefs": [
+        "RWA-P6-creative-art-topic-004:review:visual-1:planned",
+        "RWA-P6-creative-art-topic-004:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-strand"
+      ],
+      "unitIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "ba390eca-d693-49dc-92b6-46910d70821e-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p089",
+      "title": "Glossary",
+      "content": "Use this glossary to revise important words in Creative Art.\n\n- Simple time signatures: Explain this term using an example from the book, your school, or your community.\n- Digital pattern design: Explain this term using an example from the book, your school, or your community.\n- Bass staff and grand staff: Explain this term using an example from the book, your school, or your community.\n- Digital signpost design: Explain this term using an example from the book, your school, or your community.\n- Piano practice: Explain this term using an example from the book, your school, or your community.\n\nAdd five more words from your lessons and write your own meanings.",
+      "pageType": "glossary",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 113,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p090",
+      "title": "Answer And Teacher Notes",
+      "content": "A strong Creative Art answer responds to the exact task, uses correct vocabulary, gives a clear example or evidence, and shows correction after feedback. For practical work, name materials, safety, process, quality checks, peer feedback, and one improvement made after review.",
+      "pageType": "answer-notes",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 41,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-creative-art-p091",
+      "title": "Final Project",
+      "content": "Create a final project for Creative Art that shows what you can now do independently.\n\nYour project must include:\n1. A clear title.\n2. A real-life problem, question, text, performance, investigation, design, or worked task.\n3. Evidence from at least three lessons in this book.\n4. A drawing, table, map, chart, model, dialogue, paragraph, performance plan, practical product, or worked solution.\n5. A correction note showing one improvement after feedback.\n6. A short reflection explaining what you learned, what was difficult, and what you will practise next.\n\nPresentation check: keep the work neat, label important parts, use correct vocabulary, and be ready to explain your choices to a classmate or teacher.",
+      "pageType": "project",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 111,
+      "imageRefs": []
+    }
+  ]
+}

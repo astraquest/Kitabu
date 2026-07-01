@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-rwa-reb-cbc-p5-french",
+  "title": "KITABU QUEST P5 French",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "P5",
+  "subject": "French",
+  "subjectSlug": "french",
+  "subjectColor": "#4338CA",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v17",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T06:38:57Z",
+  "sourceSnapshotHash": "c7920d5c1d9a9f58eb813de576a5975582558cc3ca0f009f6d17d5287b4d8b2a",
+  "bookPlanHash": "cbabafa0fee0905681e42ca0dbb45158aa68ff5ce00ddc726193fb6912727b4e",
+  "pageCount": 111,
+  "wordCount": 10816,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 9,
+    "outcomeCount": 9,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "RWA",
+    "subject": "French",
+    "species": "hare",
+    "role": "language practice guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners practising French dialogue with a friendly hare mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Rwanda REB-CBC P5 French. Scene: learners practising French dialogue with a friendly hare mascot. Include a friendly hare mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 83919,
+    "sha256": "72b98c12b8cf0812116e193df6272c4f0deb52bf4c4debf21a4a253d017a809f"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 83919,
+      "sha256": "72b98c12b8cf0812116e193df6272c4f0deb52bf4c4debf21a4a253d017a809f",
+      "kind": "cover",
+      "altText": "KITABU QUEST P5 French cover with hare",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-rwa-reb-cbc-p5-french.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-rwa-reb-cbc-p5-french.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "70cd6452-c651-4096-b8d1-fac86e00cce7",
+      "subject": "French",
+      "officialTitle": "Rwanda Competence Based Curriculum P5 French",
+      "countryCode": "RWA",
+      "curriculumCode": "REB-CBC",
+      "gradeCode": "P5",
+      "gradeLocalLevel": "P5",
+      "localLevel": "P5",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://elearning.reb.rw/pluginfile.php/177314/mod_folder/content/0/Upper-French-Syllabus.pdf?forcedownload=1",
+      "objectKey": "data/curriculum/source-files/RWA/ed00de252655b9b61feca3f73297aee43161f92ab616c24d81d626b1caf5f601.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "P5",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://elearning.reb.rw/pluginfile.php/177314/mod_folder/content/0/Upper-French-Syllabus.pdf?forcedownload=1",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/P5/french/70cd6452-c651-4096-b8d1-fac86e00cce7.md",
+        "sourcePageUrl": "https://elearning.reb.rw/mod/folder/view.php?id=14427",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "reb.gov.rw",
+          "reb.rw",
+          "elearning.reb.rw"
+        ],
+        "markdownChecksum": "49fee4bc5afd73eae6974df139b7e442e119cdd068ba9ea37f415206ca2a52f4",
+        "markdownPageCount": 117,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/RWA/REB-CBC/P5/french/70cd6452-c651-4096-b8d1-fac86e00cce7.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "49fee4bc5afd73eae6974df139b7e442e119cdd068ba9ea37f415206ca2a52f4",
+          "pageCount": 117,
+          "generatedAt": "2026-07-01T01:13:14.470Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/P5/french/70cd6452-c651-4096-b8d1-fac86e00cce7.json",
+          "sourceChecksum": "86729c56c77c2905bc2f79bcf9c776e126088fbab519a067cbede4675712ccdd"
+        },
+        "markdownGeneratedAt": "2026-07-01T01:13:14.470Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

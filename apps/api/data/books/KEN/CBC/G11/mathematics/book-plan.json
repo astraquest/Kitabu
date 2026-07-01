@@ -1,0 +1,2742 @@
+{
+  "schemaVersion": 1,
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 11",
+  "subject": "Mathematics",
+  "generatedAt": "2026-07-01T12:13:06Z",
+  "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837",
+  "ageBand": {
+    "band": "senior-secondary",
+    "language": "exam-ready precision with terms explained before use",
+    "taskDepth": "worked solutions, synthesis tasks, and evidence-based explanations"
+  },
+  "writingStandard": {
+    "voice": "simple, conversational, purposeful, and learner-first",
+    "antiFluff": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "coversDeferred": true
+  },
+  "strands": [
+    {
+      "strandId": "60f23364-c7ea-4a1d-91ec-57373cd52809",
+      "number": "1.0",
+      "title": "Numbers and Algebra",
+      "topicCount": 14
+    },
+    {
+      "strandId": "884557cd-d930-4294-93eb-5ceb0ac71d19",
+      "number": "2.0",
+      "title": "Measurements and Geometry",
+      "topicCount": 9
+    },
+    {
+      "strandId": "f45e4bdc-c422-4c45-8fe7-d276f81b13d7",
+      "number": "3.0",
+      "title": "Statistics and Probability",
+      "topicCount": 4
+    },
+    {
+      "strandId": "4980dd2a-28db-4105-a815-c6e06ef9e5d7",
+      "number": "4.0",
+      "title": "Calculus 4.1 Functions",
+      "topicCount": 4
+    }
+  ],
+  "topics": [
+    {
+      "topicId": "G11-mathematics-topic-001",
+      "strandId": "60f23364-c7ea-4a1d-91ec-57373cd52809",
+      "parentSubStrandId": "d4c729e7-b610-4fc4-ad8e-5113b52c3d38",
+      "subStrandId": "d4c729e7-b610-4fc4-ad8e-5113b52c3d38:topic-1",
+      "strandTitle": "Numbers and Algebra",
+      "unitTitle": "Numbers and Algebra: types of matrices using rows and columns",
+      "sourceUnitTitle": "Numbers and Algebra",
+      "learningOutcomes": [
+        {
+          "id": "form-3-math-1-0-outcome-1",
+          "text": "identify types of matrices using rows and columns"
+        },
+        {
+          "id": "form-3-math-1-0-outcome-2",
+          "text": "determine properties of a matrix from rows and columns"
+        },
+        {
+          "id": "form-3-math-1-0-outcome-3",
+          "text": "perform addition and subtraction of compatible matrices"
+        },
+        {
+          "id": "form-3-math-1-0-outcome-4",
+          "text": "multiply compatible matrices in different situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "How is the knowledge of matrices used in real life?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Numbers and Algebra.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Numbers and Algebra: types of matrices using rows and columns",
+        "Numbers and Algebra",
+        "Numbers",
+        "Algebra",
+        "types",
+        "matrices",
+        "using",
+        "columns"
+      ],
+      "misconceptions": [
+        "mixing up the method for Numbers and Algebra: types of matrices using rows and columns with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Numbers and Algebra: types of matrices using rows and columns",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Numbers and Algebra: types of matrices using rows and columns",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Numbers and Algebra: types of matrices using rows and columns",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b3873f6e-7655-4430-90b0-8cdc20f4a8cb",
+          "officialTitle": "Competency Based Curriculum Grade 11 Core Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "2ad194c7-ee86-402c-9efe-ed831a109db3",
+          "officialTitle": "Competency Based Curriculum Grade 11 Essential Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        }
+      ]
+    },
+    {
+      "topicId": "G11-mathematics-topic-002",
+      "strandId": "60f23364-c7ea-4a1d-91ec-57373cd52809",
+      "parentSubStrandId": "d4c729e7-b610-4fc4-ad8e-5113b52c3d38",
+      "subStrandId": "d4c729e7-b610-4fc4-ad8e-5113b52c3d38:topic-2",
+      "strandTitle": "Numbers and Algebra",
+      "unitTitle": "Numbers and Algebra: Compute the determinant of a 2",
+      "sourceUnitTitle": "Numbers and Algebra",
+      "learningOutcomes": [
+        {
+          "id": "form-3-math-1-0-outcome-5",
+          "text": "Compute the determinant of a 2 by 2 matrix"
+        },
+        {
+          "id": "form-3-math-1-0-outcome-6",
+          "text": "determine the inverse of a 2 by 2 matrix"
+        },
+        {
+          "id": "form-3-math-1-0-outcome-7",
+          "text": "solve linear equations in two unknowns using matrix method"
+        }
+      ],
+      "inquiryQuestions": [
+        "How is the knowledge of matrices used in real life?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Numbers and Algebra.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Numbers and Algebra: Compute the determinant",
+        "Numbers and Algebra",
+        "Numbers",
+        "Algebra",
+        "Compute",
+        "determinant"
+      ],
+      "misconceptions": [
+        "mixing up the method for Numbers and Algebra: Compute the determinant of a 2 with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Numbers and Algebra: Compute the determinant of a 2",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Numbers and Algebra: Compute the determinant of a 2",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Numbers and Algebra: Compute the determinant of a 2",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b3873f6e-7655-4430-90b0-8cdc20f4a8cb",
+          "officialTitle": "Competency Based Curriculum Grade 11 Core Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "2ad194c7-ee86-402c-9efe-ed831a109db3",
+          "officialTitle": "Competency Based Curriculum Grade 11 Essential Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        }
+      ]
+    },
+    {
+      "topicId": "G11-mathematics-topic-003",
+      "strandId": "60f23364-c7ea-4a1d-91ec-57373cd52809",
+      "parentSubStrandId": "12c28509-45cf-4b54-8c26-0b4dc36e45c3",
+      "subStrandId": "12c28509-45cf-4b54-8c26-0b4dc36e45c3:topic-1",
+      "strandTitle": "Numbers and Algebra",
+      "unitTitle": "Quadratic Expressions and Equations - Perfect squares - completing squares - Quadratic: perfect squares in quadratic",
+      "sourceUnitTitle": "Quadratic Expressions and Equations - Perfect squares - completing squares - Quadratic formula - Solution",
+      "learningOutcomes": [
+        {
+          "id": "form-3-math-1-1-outcome-1",
+          "text": "identify perfect squares in quadratic expressions and equations"
+        },
+        {
+          "id": "form-3-math-1-1-outcome-2",
+          "text": "solve quadratic equations by completing square method"
+        },
+        {
+          "id": "form-3-math-1-1-outcome-3",
+          "text": "derive the quadratic formula using completing square"
+        },
+        {
+          "id": "form-3-math-1-1-outcome-4",
+          "text": "solve quadratic equations using the quadratic formula"
+        }
+      ],
+      "inquiryQuestions": [
+        "(s) How are quadratic equations applied in day to day life?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Quadratic Expressions and Equations - Perfect squares - completing squares - Quadratic formula - Solution.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Quadratic Expressions and Equations - Perfect squares - completing squares - Quadratic: perfect squares in quadratic",
+        "Quadratic Expressions and Equations - Perfect squares - completing squares - Quadratic formula - Solution",
+        "Quadratic",
+        "Expressions",
+        "Equations",
+        "Perfect",
+        "squares",
+        "completing"
+      ],
+      "misconceptions": [
+        "mixing up the method for Quadratic Expressions and Equations - Perfect squares - completing squares - Quadratic: perfect squares in quadratic with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Quadratic Expressions and Equations - Perfect squares - completing squares - Quadratic: perfect squares in quadratic",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Quadratic Expressions and Equations - Perfect squares - completing squares - Quadratic: perfect squares in quadratic",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Quadratic Expressions and Equations - Perfect squares - completing squares - Quadratic: perfect squares in quadratic",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b3873f6e-7655-4430-90b0-8cdc20f4a8cb",
+          "officialTitle": "Competency Based Curriculum Grade 11 Core Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "2ad194c7-ee86-402c-9efe-ed831a109db3",
+          "officialTitle": "Competency Based Curriculum Grade 11 Essential Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        }
+      ]
+    },
+    {
+      "topicId": "G11-mathematics-topic-004",
+      "strandId": "60f23364-c7ea-4a1d-91ec-57373cd52809",
+      "parentSubStrandId": "12c28509-45cf-4b54-8c26-0b4dc36e45c3",
+      "subStrandId": "12c28509-45cf-4b54-8c26-0b4dc36e45c3:topic-2",
+      "strandTitle": "Numbers and Algebra",
+      "unitTitle": "Quadratic Expressions and Equations - Perfect squares - completing squares - Quadratic: solve simultaneous equations involving",
+      "sourceUnitTitle": "Quadratic Expressions and Equations - Perfect squares - completing squares - Quadratic formula - Solution",
+      "learningOutcomes": [
+        {
+          "id": "form-3-math-1-1-outcome-5",
+          "text": "solve simultaneous equations involving linear and quadratic equations"
+        }
+      ],
+      "inquiryQuestions": [
+        "(s) How are quadratic equations applied in day to day life?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Quadratic Expressions and Equations - Perfect squares - completing squares - Quadratic formula - Solution.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Quadratic Expressions and Equations - Perfect squares - completing squares - Quadratic: solve simultaneous equations involving",
+        "Quadratic Expressions and Equations - Perfect squares - completing squares - Quadratic formula - Solution",
+        "Quadratic",
+        "Expressions",
+        "Equations",
+        "Perfect",
+        "squares",
+        "completing"
+      ],
+      "misconceptions": [
+        "mixing up the method for Quadratic Expressions and Equations - Perfect squares - completing squares - Quadratic: solve simultaneous equations involving with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Quadratic Expressions and Equations - Perfect squares - completing squares - Quadratic: solve simultaneous equations involving",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Quadratic Expressions and Equations - Perfect squares - completing squares - Quadratic: solve simultaneous equations involving",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Quadratic Expressions and Equations - Perfect squares - completing squares - Quadratic: solve simultaneous equations involving",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b3873f6e-7655-4430-90b0-8cdc20f4a8cb",
+          "officialTitle": "Competency Based Curriculum Grade 11 Core Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "2ad194c7-ee86-402c-9efe-ed831a109db3",
+          "officialTitle": "Competency Based Curriculum Grade 11 Essential Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        }
+      ]
+    },
+    {
+      "topicId": "G11-mathematics-topic-005",
+      "strandId": "60f23364-c7ea-4a1d-91ec-57373cd52809",
+      "parentSubStrandId": "c4ac5902-dfbd-4ff7-af49-796c34c4d92f",
+      "subStrandId": "c4ac5902-dfbd-4ff7-af49-796c34c4d92f:topic-1",
+      "strandTitle": "Numbers and Algebra",
+      "unitTitle": "Irrational numbers - Irrational numbers - Simplification of irrational numbers - Operations: irrational numbers",
+      "sourceUnitTitle": "Irrational numbers - Irrational numbers - Simplification of irrational numbers - Operations on irrational numbers -",
+      "learningOutcomes": [
+        {
+          "id": "form-3-math-1-2-outcome-1",
+          "text": "identify irrational numbers in from set of real numbers"
+        },
+        {
+          "id": "form-3-math-1-2-outcome-2",
+          "text": "simplify irrational numbers in different situations"
+        },
+        {
+          "id": "form-3-math-1-2-outcome-3",
+          "text": "perform operations on irrational numbers in different situations"
+        },
+        {
+          "id": "form-3-math-1-2-outcome-4",
+          "text": "rationalise irrational numbers in different situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "How are irrational numbers used in daily life?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Irrational numbers - Irrational numbers - Simplification of irrational numbers - Operations on irrational numbers -.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Irrational numbers - Irrational numbers - Simplification of irrational numbers - Operations: irrational numbers",
+        "Irrational numbers - Irrational numbers - Simplification of irrational numbers - Operations on irrational numbers -",
+        "Irrational",
+        "numbers",
+        "Simplification",
+        "Operations"
+      ],
+      "misconceptions": [
+        "mixing up the method for Irrational numbers - Irrational numbers - Simplification of irrational numbers - Operations: irrational numbers with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Irrational numbers - Irrational numbers - Simplification of irrational numbers - Operations: irrational numbers",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Irrational numbers - Irrational numbers - Simplification of irrational numbers - Operations: irrational numbers",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Irrational numbers - Irrational numbers - Simplification of irrational numbers - Operations: irrational numbers",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b3873f6e-7655-4430-90b0-8cdc20f4a8cb",
+          "officialTitle": "Competency Based Curriculum Grade 11 Core Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "2ad194c7-ee86-402c-9efe-ed831a109db3",
+          "officialTitle": "Competency Based Curriculum Grade 11 Essential Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        }
+      ]
+    },
+    {
+      "topicId": "G11-mathematics-topic-006",
+      "strandId": "60f23364-c7ea-4a1d-91ec-57373cd52809",
+      "parentSubStrandId": "c4ac5902-dfbd-4ff7-af49-796c34c4d92f",
+      "subStrandId": "c4ac5902-dfbd-4ff7-af49-796c34c4d92f:topic-2",
+      "strandTitle": "Numbers and Algebra",
+      "unitTitle": "Irrational numbers - Irrational numbers - Simplification of irrational numbers - Operations: irrational numbers",
+      "sourceUnitTitle": "Irrational numbers - Irrational numbers - Simplification of irrational numbers - Operations on irrational numbers -",
+      "learningOutcomes": [
+        {
+          "id": "form-3-math-1-2-outcome-5",
+          "text": "apply irrational numbers in different situations"
+        },
+        {
+          "id": "form-3-math-1-2-outcome-6",
+          "text": "reflect on the use of irrational numbers in mathematical computations."
+        }
+      ],
+      "inquiryQuestions": [
+        "How are irrational numbers used in daily life?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Irrational numbers - Irrational numbers - Simplification of irrational numbers - Operations on irrational numbers -.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Irrational numbers - Irrational numbers - Simplification of irrational numbers - Operations: irrational numbers",
+        "Irrational numbers - Irrational numbers - Simplification of irrational numbers - Operations on irrational numbers -",
+        "Irrational",
+        "numbers",
+        "Simplification",
+        "Operations"
+      ],
+      "misconceptions": [
+        "mixing up the method for Irrational numbers - Irrational numbers - Simplification of irrational numbers - Operations: irrational numbers with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Irrational numbers - Irrational numbers - Simplification of irrational numbers - Operations: irrational numbers",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Irrational numbers - Irrational numbers - Simplification of irrational numbers - Operations: irrational numbers",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Irrational numbers - Irrational numbers - Simplification of irrational numbers - Operations: irrational numbers",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b3873f6e-7655-4430-90b0-8cdc20f4a8cb",
+          "officialTitle": "Competency Based Curriculum Grade 11 Core Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "2ad194c7-ee86-402c-9efe-ed831a109db3",
+          "officialTitle": "Competency Based Curriculum Grade 11 Essential Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        }
+      ]
+    },
+    {
+      "topicId": "G11-mathematics-topic-007",
+      "strandId": "60f23364-c7ea-4a1d-91ec-57373cd52809",
+      "parentSubStrandId": "bcb8e074-66a2-4f63-8050-66aab6186e6f",
+      "subStrandId": "bcb8e074-66a2-4f63-8050-66aab6186e6f:topic-1",
+      "strandTitle": "Numbers and Algebra",
+      "unitTitle": "Linear Inequalities - Simple and compound inequality statements - Linear inequality in: solve compound inequalities",
+      "sourceUnitTitle": "Linear Inequalities - Simple and compound inequality statements - Linear inequality in two unknowns - Graphical",
+      "learningOutcomes": [
+        {
+          "id": "form-3-math-1-3-outcome-1",
+          "text": "solve compound inequalities in one unknown"
+        },
+        {
+          "id": "form-3-math-1-3-outcome-2",
+          "text": "represent linear inequalities in two unknowns graphically"
+        },
+        {
+          "id": "form-3-math-1-3-outcome-3",
+          "text": "solve the linear inequalities in two unknowns graphically"
+        },
+        {
+          "id": "form-3-math-1-3-outcome-4",
+          "text": "form simple linear inequalities from inequality graphs"
+        }
+      ],
+      "inquiryQuestions": [
+        "How are linear inequalities used in day to day life?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Linear Inequalities - Simple and compound inequality statements - Linear inequality in two unknowns - Graphical.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Linear Inequalities - Simple and compound inequality statements - Linear inequality in: solve compound inequalities",
+        "Linear Inequalities - Simple and compound inequality statements - Linear inequality in two unknowns - Graphical",
+        "Linear",
+        "Inequalities",
+        "Simple",
+        "compound",
+        "inequality",
+        "statements"
+      ],
+      "misconceptions": [
+        "mixing up the method for Linear Inequalities - Simple and compound inequality statements - Linear inequality in: solve compound inequalities with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Linear Inequalities - Simple and compound inequality statements - Linear inequality in: solve compound inequalities",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Linear Inequalities - Simple and compound inequality statements - Linear inequality in: solve compound inequalities",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Linear Inequalities - Simple and compound inequality statements - Linear inequality in: solve compound inequalities",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b3873f6e-7655-4430-90b0-8cdc20f4a8cb",
+          "officialTitle": "Competency Based Curriculum Grade 11 Core Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "2ad194c7-ee86-402c-9efe-ed831a109db3",
+          "officialTitle": "Competency Based Curriculum Grade 11 Essential Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        }
+      ]
+    },
+    {
+      "topicId": "G11-mathematics-topic-008",
+      "strandId": "60f23364-c7ea-4a1d-91ec-57373cd52809",
+      "parentSubStrandId": "bcb8e074-66a2-4f63-8050-66aab6186e6f",
+      "subStrandId": "bcb8e074-66a2-4f63-8050-66aab6186e6f:topic-2",
+      "strandTitle": "Numbers and Algebra",
+      "unitTitle": "Linear Inequalities - Simple and compound inequality statements - Linear inequality in: inequalities to real life",
+      "sourceUnitTitle": "Linear Inequalities - Simple and compound inequality statements - Linear inequality in two unknowns - Graphical",
+      "learningOutcomes": [
+        {
+          "id": "form-3-math-1-3-outcome-5",
+          "text": "apply inequalities to real life situations."
+        },
+        {
+          "id": "form-3-math-1-3-outcome-6",
+          "text": "appreciate the use of inequalities in real life."
+        }
+      ],
+      "inquiryQuestions": [
+        "How are linear inequalities used in day to day life?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Linear Inequalities - Simple and compound inequality statements - Linear inequality in two unknowns - Graphical.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Linear Inequalities - Simple and compound inequality statements - Linear inequality in: inequalities to real life",
+        "Linear Inequalities - Simple and compound inequality statements - Linear inequality in two unknowns - Graphical",
+        "Linear",
+        "Inequalities",
+        "Simple",
+        "compound",
+        "inequality",
+        "statements"
+      ],
+      "misconceptions": [
+        "mixing up the method for Linear Inequalities - Simple and compound inequality statements - Linear inequality in: inequalities to real life with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Linear Inequalities - Simple and compound inequality statements - Linear inequality in: inequalities to real life",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Linear Inequalities - Simple and compound inequality statements - Linear inequality in: inequalities to real life",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Linear Inequalities - Simple and compound inequality statements - Linear inequality in: inequalities to real life",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b3873f6e-7655-4430-90b0-8cdc20f4a8cb",
+          "officialTitle": "Competency Based Curriculum Grade 11 Core Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "2ad194c7-ee86-402c-9efe-ed831a109db3",
+          "officialTitle": "Competency Based Curriculum Grade 11 Essential Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        }
+      ]
+    },
+    {
+      "topicId": "G11-mathematics-topic-009",
+      "strandId": "60f23364-c7ea-4a1d-91ec-57373cd52809",
+      "parentSubStrandId": "63cf6d61-c52e-4449-a757-cbfa666f057e",
+      "subStrandId": "63cf6d61-c52e-4449-a757-cbfa666f057e:topic-1",
+      "strandTitle": "Numbers and Algebra",
+      "unitTitle": "Logarithms II -Logarithmic notation -The laws of logarithms (addition, subtraction power rule: relate index form",
+      "sourceUnitTitle": "Logarithms II -Logarithmic notation -The laws of logarithms (addition, subtraction power rule and roots) -Simplification",
+      "learningOutcomes": [
+        {
+          "id": "form-3-math-1-4-outcome-1",
+          "text": "relate index form to logarithmic notation"
+        },
+        {
+          "id": "form-3-math-1-4-outcome-2",
+          "text": "simplify logarithmic expressions using laws of logarithms"
+        },
+        {
+          "id": "form-3-math-1-4-outcome-3",
+          "text": "solve logarithmic equations in different situations"
+        },
+        {
+          "id": "form-3-math-1-4-outcome-4",
+          "text": "apply laws of logarithms in different situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "Suggested Key Why are logarithms important?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Logarithms II -Logarithmic notation -The laws of logarithms (addition, subtraction power rule and roots) -Simplification.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Logarithms II -Logarithmic notation -The laws of logarithms (addition, subtraction power rule: relate index form",
+        "Logarithms II -Logarithmic notation -The laws of logarithms (addition, subtraction power rule and roots) -Simplification",
+        "Logarithms",
+        "Logarithmic",
+        "notation",
+        "addition",
+        "subtraction",
+        "power"
+      ],
+      "misconceptions": [
+        "mixing up the method for Logarithms II -Logarithmic notation -The laws of logarithms (addition, subtraction power rule: relate index form with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Logarithms II -Logarithmic notation -The laws of logarithms (addition, subtraction power rule: relate index form",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Logarithms II -Logarithmic notation -The laws of logarithms (addition, subtraction power rule: relate index form",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Logarithms II -Logarithmic notation -The laws of logarithms (addition, subtraction power rule: relate index form",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b3873f6e-7655-4430-90b0-8cdc20f4a8cb",
+          "officialTitle": "Competency Based Curriculum Grade 11 Core Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "2ad194c7-ee86-402c-9efe-ed831a109db3",
+          "officialTitle": "Competency Based Curriculum Grade 11 Essential Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        }
+      ]
+    },
+    {
+      "topicId": "G11-mathematics-topic-010",
+      "strandId": "60f23364-c7ea-4a1d-91ec-57373cd52809",
+      "parentSubStrandId": "63cf6d61-c52e-4449-a757-cbfa666f057e",
+      "subStrandId": "63cf6d61-c52e-4449-a757-cbfa666f057e:topic-2",
+      "strandTitle": "Numbers and Algebra",
+      "unitTitle": "Logarithms II -Logarithmic notation -The laws of logarithms (addition, subtraction power rule: explore the use",
+      "sourceUnitTitle": "Logarithms II -Logarithmic notation -The laws of logarithms (addition, subtraction power rule and roots) -Simplification",
+      "learningOutcomes": [
+        {
+          "id": "form-3-math-1-4-outcome-5",
+          "text": "explore the use of logarithms in real life situations."
+        }
+      ],
+      "inquiryQuestions": [
+        "Suggested Key Why are logarithms important?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Logarithms II -Logarithmic notation -The laws of logarithms (addition, subtraction power rule and roots) -Simplification.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Logarithms II -Logarithmic notation -The laws of logarithms (addition, subtraction power rule: explore the use",
+        "Logarithms II -Logarithmic notation -The laws of logarithms (addition, subtraction power rule and roots) -Simplification",
+        "Logarithms",
+        "Logarithmic",
+        "notation",
+        "addition",
+        "subtraction",
+        "power"
+      ],
+      "misconceptions": [
+        "mixing up the method for Logarithms II -Logarithmic notation -The laws of logarithms (addition, subtraction power rule: explore the use with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Logarithms II -Logarithmic notation -The laws of logarithms (addition, subtraction power rule: explore the use",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Logarithms II -Logarithmic notation -The laws of logarithms (addition, subtraction power rule: explore the use",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Logarithms II -Logarithmic notation -The laws of logarithms (addition, subtraction power rule: explore the use",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b3873f6e-7655-4430-90b0-8cdc20f4a8cb",
+          "officialTitle": "Competency Based Curriculum Grade 11 Core Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "2ad194c7-ee86-402c-9efe-ed831a109db3",
+          "officialTitle": "Competency Based Curriculum Grade 11 Essential Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        }
+      ]
+    },
+    {
+      "topicId": "G11-mathematics-topic-011",
+      "strandId": "60f23364-c7ea-4a1d-91ec-57373cd52809",
+      "parentSubStrandId": "b9ae1c41-b8d7-4271-a67b-b1f2cc820657",
+      "subStrandId": "b9ae1c41-b8d7-4271-a67b-b1f2cc820657:topic-1",
+      "strandTitle": "Numbers and Algebra",
+      "unitTitle": "Formulae and Variations -Changing the subject of the formula -Direct, inverse, partial: rewrite a formula",
+      "sourceUnitTitle": "Formulae and Variations -Changing the subject of the formula -Direct, inverse, partial and joint variations -Graphs",
+      "learningOutcomes": [
+        {
+          "id": "form-3-math-1-5-outcome-1",
+          "text": "rewrite a formula to change the subject in different situations"
+        },
+        {
+          "id": "form-3-math-1-5-outcome-2",
+          "text": "solve direct and inverse variations from real life situations"
+        },
+        {
+          "id": "form-3-math-1-5-outcome-3",
+          "text": "solve combined, joint and partial variations in different situations"
+        },
+        {
+          "id": "form-3-math-1-5-outcome-4",
+          "text": "draw graphs of direct and inverse variations"
+        }
+      ],
+      "inquiryQuestions": [
+        "(s) How is formula and variations applied in real life situations?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Formulae and Variations -Changing the subject of the formula -Direct, inverse, partial and joint variations -Graphs.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Formulae and Variations -Changing the subject of the formula -Direct, inverse, partial: rewrite a formula",
+        "Formulae and Variations -Changing the subject of the formula -Direct, inverse, partial and joint variations -Graphs",
+        "Formulae",
+        "Variations",
+        "Changing",
+        "subject",
+        "formula",
+        "Direct"
+      ],
+      "misconceptions": [
+        "mixing up the method for Formulae and Variations -Changing the subject of the formula -Direct, inverse, partial: rewrite a formula with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Formulae and Variations -Changing the subject of the formula -Direct, inverse, partial: rewrite a formula",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Formulae and Variations -Changing the subject of the formula -Direct, inverse, partial: rewrite a formula",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Formulae and Variations -Changing the subject of the formula -Direct, inverse, partial: rewrite a formula",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b3873f6e-7655-4430-90b0-8cdc20f4a8cb",
+          "officialTitle": "Competency Based Curriculum Grade 11 Core Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "2ad194c7-ee86-402c-9efe-ed831a109db3",
+          "officialTitle": "Competency Based Curriculum Grade 11 Essential Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        }
+      ]
+    },
+    {
+      "topicId": "G11-mathematics-topic-012",
+      "strandId": "60f23364-c7ea-4a1d-91ec-57373cd52809",
+      "parentSubStrandId": "b9ae1c41-b8d7-4271-a67b-b1f2cc820657",
+      "subStrandId": "b9ae1c41-b8d7-4271-a67b-b1f2cc820657:topic-2",
+      "strandTitle": "Numbers and Algebra",
+      "unitTitle": "Formulae and Variations -Changing the subject of the formula -Direct, inverse, partial: variations to real life",
+      "sourceUnitTitle": "Formulae and Variations -Changing the subject of the formula -Direct, inverse, partial and joint variations -Graphs",
+      "learningOutcomes": [
+        {
+          "id": "form-3-math-1-5-outcome-5",
+          "text": "apply variations to real life situations"
+        },
+        {
+          "id": "form-3-math-1-5-outcome-6",
+          "text": "appreciate the use of variations in day-to-day life."
+        }
+      ],
+      "inquiryQuestions": [
+        "(s) How is formula and variations applied in real life situations?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Formulae and Variations -Changing the subject of the formula -Direct, inverse, partial and joint variations -Graphs.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Formulae and Variations -Changing the subject of the formula -Direct, inverse, partial: variations to real life",
+        "Formulae and Variations -Changing the subject of the formula -Direct, inverse, partial and joint variations -Graphs",
+        "Formulae",
+        "Variations",
+        "Changing",
+        "subject",
+        "formula",
+        "Direct"
+      ],
+      "misconceptions": [
+        "mixing up the method for Formulae and Variations -Changing the subject of the formula -Direct, inverse, partial: variations to real life with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Formulae and Variations -Changing the subject of the formula -Direct, inverse, partial: variations to real life",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Formulae and Variations -Changing the subject of the formula -Direct, inverse, partial: variations to real life",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Formulae and Variations -Changing the subject of the formula -Direct, inverse, partial: variations to real life",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b3873f6e-7655-4430-90b0-8cdc20f4a8cb",
+          "officialTitle": "Competency Based Curriculum Grade 11 Core Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "2ad194c7-ee86-402c-9efe-ed831a109db3",
+          "officialTitle": "Competency Based Curriculum Grade 11 Essential Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        }
+      ]
+    },
+    {
+      "topicId": "G11-mathematics-topic-013",
+      "strandId": "60f23364-c7ea-4a1d-91ec-57373cd52809",
+      "parentSubStrandId": "333e018e-9d77-4225-9730-410b695c1fce",
+      "subStrandId": "333e018e-9d77-4225-9730-410b695c1fce:topic-1",
+      "strandTitle": "Numbers and Algebra",
+      "unitTitle": "P - Application of Arithmetic and Geometric Progressions: nth term in a number sequence",
+      "sourceUnitTitle": "P - Application of Arithmetic and Geometric Progressions",
+      "learningOutcomes": [
+        {
+          "id": "form-3-math-1-6-outcome-1",
+          "text": "determine an nth term in a number sequence"
+        },
+        {
+          "id": "form-3-math-1-6-outcome-2",
+          "text": "determine terms and common difference in an arithmetic sequence and series"
+        },
+        {
+          "id": "form-3-math-1-6-outcome-3",
+          "text": "compute the terms and common ratio in a geometric sequence and series"
+        },
+        {
+          "id": "form-3-math-1-6-outcome-4",
+          "text": "determine the sum of terms in arithmetic and geometric series"
+        }
+      ],
+      "inquiryQuestions": [
+        "(s) How is sequences and series used in real-life situations?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to P - Application of Arithmetic and Geometric Progressions.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "P - Application of Arithmetic and Geometric Progressions: nth term in a number sequence",
+        "P - Application of Arithmetic and Geometric Progressions",
+        "Application",
+        "Arithmetic",
+        "Geometric",
+        "Progressions",
+        "number",
+        "sequence"
+      ],
+      "misconceptions": [
+        "mixing up the method for P - Application of Arithmetic and Geometric Progressions: nth term in a number sequence with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to P - Application of Arithmetic and Geometric Progressions: nth term in a number sequence",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for P - Application of Arithmetic and Geometric Progressions: nth term in a number sequence",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for P - Application of Arithmetic and Geometric Progressions: nth term in a number sequence",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b3873f6e-7655-4430-90b0-8cdc20f4a8cb",
+          "officialTitle": "Competency Based Curriculum Grade 11 Core Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "2ad194c7-ee86-402c-9efe-ed831a109db3",
+          "officialTitle": "Competency Based Curriculum Grade 11 Essential Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        }
+      ]
+    },
+    {
+      "topicId": "G11-mathematics-topic-014",
+      "strandId": "60f23364-c7ea-4a1d-91ec-57373cd52809",
+      "parentSubStrandId": "333e018e-9d77-4225-9730-410b695c1fce",
+      "subStrandId": "333e018e-9d77-4225-9730-410b695c1fce:topic-2",
+      "strandTitle": "Numbers and Algebra",
+      "unitTitle": "P - Application of Arithmetic and Geometric Progressions: sequences and series to real-life situations",
+      "sourceUnitTitle": "P - Application of Arithmetic and Geometric Progressions",
+      "learningOutcomes": [
+        {
+          "id": "form-3-math-1-6-outcome-5",
+          "text": "apply sequences and series to real-life situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "(s) How is sequences and series used in real-life situations?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to P - Application of Arithmetic and Geometric Progressions.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "P - Application of Arithmetic and Geometric Progressions: sequences and series to real-life situations",
+        "P - Application of Arithmetic and Geometric Progressions",
+        "Application",
+        "Arithmetic",
+        "Geometric",
+        "Progressions",
+        "sequences",
+        "series"
+      ],
+      "misconceptions": [
+        "mixing up the method for P - Application of Arithmetic and Geometric Progressions: sequences and series to real-life situations with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to P - Application of Arithmetic and Geometric Progressions: sequences and series to real-life situations",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for P - Application of Arithmetic and Geometric Progressions: sequences and series to real-life situations",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for P - Application of Arithmetic and Geometric Progressions: sequences and series to real-life situations",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b3873f6e-7655-4430-90b0-8cdc20f4a8cb",
+          "officialTitle": "Competency Based Curriculum Grade 11 Core Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "2ad194c7-ee86-402c-9efe-ed831a109db3",
+          "officialTitle": "Competency Based Curriculum Grade 11 Essential Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        }
+      ]
+    },
+    {
+      "topicId": "G11-mathematics-topic-015",
+      "strandId": "884557cd-d930-4294-93eb-5ceb0ac71d19",
+      "parentSubStrandId": "27dfcd43-199e-48e8-bfcc-904ed3b44677",
+      "subStrandId": "27dfcd43-199e-48e8-bfcc-904ed3b44677:topic-1",
+      "strandTitle": "Measurements and Geometry",
+      "unitTitle": "Angle Properties of a Circle - Arc, chord and segment - Angle: arc, chord, and segment in a circle",
+      "sourceUnitTitle": "Angle Properties of a Circle - Arc, chord and segment - Angle subtended by the same",
+      "learningOutcomes": [
+        {
+          "id": "form-3-math-2-2-outcome-1",
+          "text": "identify an arc, chord, and segment in a circle"
+        },
+        {
+          "id": "form-3-math-2-2-outcome-2",
+          "text": "relate angles subtended by the same arc at the circumference"
+        },
+        {
+          "id": "form-3-math-2-2-outcome-3",
+          "text": "relate the angle subtended by an arc at the centre and at the circumference"
+        },
+        {
+          "id": "form-3-math-2-2-outcome-4",
+          "text": "determine angles subtended by a chord and a diameter at the circumference"
+        }
+      ],
+      "inquiryQuestions": [
+        "How is the knowledge of angle properties of a circle used in day to day life?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Angle Properties of a Circle - Arc, chord and segment - Angle subtended by the same.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Angle Properties of a Circle - Arc, chord and segment - Angle: arc, chord, and segment in a circle",
+        "Angle Properties of a Circle - Arc, chord and segment - Angle subtended by the same",
+        "Angle",
+        "Properties",
+        "Circle",
+        "chord",
+        "segment"
+      ],
+      "misconceptions": [
+        "mixing up the method for Angle Properties of a Circle - Arc, chord and segment - Angle: arc, chord, and segment in a circle with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Angle Properties of a Circle - Arc, chord and segment - Angle: arc, chord, and segment in a circle",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Angle Properties of a Circle - Arc, chord and segment - Angle: arc, chord, and segment in a circle",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Angle Properties of a Circle - Arc, chord and segment - Angle: arc, chord, and segment in a circle",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b3873f6e-7655-4430-90b0-8cdc20f4a8cb",
+          "officialTitle": "Competency Based Curriculum Grade 11 Core Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "2ad194c7-ee86-402c-9efe-ed831a109db3",
+          "officialTitle": "Competency Based Curriculum Grade 11 Essential Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        }
+      ]
+    },
+    {
+      "topicId": "G11-mathematics-topic-016",
+      "strandId": "884557cd-d930-4294-93eb-5ceb0ac71d19",
+      "parentSubStrandId": "27dfcd43-199e-48e8-bfcc-904ed3b44677",
+      "subStrandId": "27dfcd43-199e-48e8-bfcc-904ed3b44677:topic-2",
+      "strandTitle": "Measurements and Geometry",
+      "unitTitle": "Angle Properties of a Circle - Arc, chord and segment - Angle: angles in a cyclic quadrilateral",
+      "sourceUnitTitle": "Angle Properties of a Circle - Arc, chord and segment - Angle subtended by the same",
+      "learningOutcomes": [
+        {
+          "id": "form-3-math-2-2-outcome-5",
+          "text": "determine angles in a cyclic quadrilateral"
+        }
+      ],
+      "inquiryQuestions": [
+        "How is the knowledge of angle properties of a circle used in day to day life?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Angle Properties of a Circle - Arc, chord and segment - Angle subtended by the same.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Angle Properties of a Circle - Arc, chord and segment - Angle: angles in a cyclic quadrilateral",
+        "Angle Properties of a Circle - Arc, chord and segment - Angle subtended by the same",
+        "Angle",
+        "Properties",
+        "Circle",
+        "chord",
+        "segment",
+        "angles"
+      ],
+      "misconceptions": [
+        "mixing up the method for Angle Properties of a Circle - Arc, chord and segment - Angle: angles in a cyclic quadrilateral with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Angle Properties of a Circle - Arc, chord and segment - Angle: angles in a cyclic quadrilateral",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Angle Properties of a Circle - Arc, chord and segment - Angle: angles in a cyclic quadrilateral",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Angle Properties of a Circle - Arc, chord and segment - Angle: angles in a cyclic quadrilateral",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b3873f6e-7655-4430-90b0-8cdc20f4a8cb",
+          "officialTitle": "Competency Based Curriculum Grade 11 Core Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "2ad194c7-ee86-402c-9efe-ed831a109db3",
+          "officialTitle": "Competency Based Curriculum Grade 11 Essential Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        }
+      ]
+    },
+    {
+      "topicId": "G11-mathematics-topic-017",
+      "strandId": "884557cd-d930-4294-93eb-5ceb0ac71d19",
+      "parentSubStrandId": "aa77d980-d62d-4e8b-a423-f6814d2231d7",
+      "subStrandId": "aa77d980-d62d-4e8b-a423-f6814d2231d7",
+      "strandTitle": "Measurements and Geometry",
+      "unitTitle": "Income tax",
+      "sourceUnitTitle": "- Income tax",
+      "learningOutcomes": [
+        {
+          "id": "form-3-math-2-3-outcome-1",
+          "text": "compute simple interest using the simple interest formula"
+        },
+        {
+          "id": "form-3-math-2-3-outcome-2",
+          "text": "derive compound interest formula using the step by step method"
+        },
+        {
+          "id": "form-3-math-2-3-outcome-3",
+          "text": "determine compound interest using the compound"
+        }
+      ],
+      "inquiryQuestions": [
+        "(s) Why is commercial arithmetic important in our day to day transactions?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to - Income tax.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Income tax",
+        "Income"
+      ],
+      "misconceptions": [
+        "mixing up the method for Income tax with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Income tax",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Income tax",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Income tax",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b3873f6e-7655-4430-90b0-8cdc20f4a8cb",
+          "officialTitle": "Competency Based Curriculum Grade 11 Core Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "2ad194c7-ee86-402c-9efe-ed831a109db3",
+          "officialTitle": "Competency Based Curriculum Grade 11 Essential Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        }
+      ]
+    },
+    {
+      "topicId": "G11-mathematics-topic-018",
+      "strandId": "884557cd-d930-4294-93eb-5ceb0ac71d19",
+      "parentSubStrandId": "77808f26-2016-4efc-a86b-f07a2365d7e0",
+      "subStrandId": "77808f26-2016-4efc-a86b-f07a2365d7e0:topic-1",
+      "strandTitle": "Measurements and Geometry",
+      "unitTitle": "Circles, Chords and Tangents - chords and tangents - Lengths of tangents: length of intersecting chords and tangent",
+      "sourceUnitTitle": "Circles, Chords and Tangents - chords and tangents - Lengths of tangents and intersecting chords -",
+      "learningOutcomes": [
+        {
+          "id": "form-3-math-2-4-outcome-1",
+          "text": "determine the length of intersecting chords and tangent to a circle"
+        },
+        {
+          "id": "form-3-math-2-4-outcome-2",
+          "text": "construct a tangent to a circle at a given point"
+        },
+        {
+          "id": "form-3-math-2-4-outcome-3",
+          "text": "construct direct and transverse common tangents to two circles"
+        },
+        {
+          "id": "form-3-math-2-4-outcome-4",
+          "text": "determine the relationship of angles in the alternate segment"
+        }
+      ],
+      "inquiryQuestions": [
+        "How is the knowledge of tangents useful day to day life?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Circles, Chords and Tangents - chords and tangents - Lengths of tangents and intersecting chords -.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Circles, Chords and Tangents - chords and tangents - Lengths of tangents: length of intersecting chords and tangent",
+        "Circles, Chords and Tangents - chords and tangents - Lengths of tangents and intersecting chords -",
+        "Circles",
+        "Chords",
+        "Tangents",
+        "Lengths",
+        "length",
+        "intersecting"
+      ],
+      "misconceptions": [
+        "mixing up the method for Circles, Chords and Tangents - chords and tangents - Lengths of tangents: length of intersecting chords and tangent with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Circles, Chords and Tangents - chords and tangents - Lengths of tangents: length of intersecting chords and tangent",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Circles, Chords and Tangents - chords and tangents - Lengths of tangents: length of intersecting chords and tangent",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Circles, Chords and Tangents - chords and tangents - Lengths of tangents: length of intersecting chords and tangent",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b3873f6e-7655-4430-90b0-8cdc20f4a8cb",
+          "officialTitle": "Competency Based Curriculum Grade 11 Core Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "2ad194c7-ee86-402c-9efe-ed831a109db3",
+          "officialTitle": "Competency Based Curriculum Grade 11 Essential Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        }
+      ]
+    },
+    {
+      "topicId": "G11-mathematics-topic-019",
+      "strandId": "884557cd-d930-4294-93eb-5ceb0ac71d19",
+      "parentSubStrandId": "77808f26-2016-4efc-a86b-f07a2365d7e0",
+      "subStrandId": "77808f26-2016-4efc-a86b-f07a2365d7e0:topic-2",
+      "strandTitle": "Measurements and Geometry",
+      "unitTitle": "Circles, Chords and Tangents - chords and tangents - Lengths of tangents: construct an inscribed, circumscribed",
+      "sourceUnitTitle": "Circles, Chords and Tangents - chords and tangents - Lengths of tangents and intersecting chords -",
+      "learningOutcomes": [
+        {
+          "id": "form-3-math-2-4-outcome-5",
+          "text": "construct an inscribed, circumscribed and escribed circles on a triangle"
+        },
+        {
+          "id": "form-3-math-2-4-outcome-6",
+          "text": "determine the centroid and orthocentre of a triangle"
+        }
+      ],
+      "inquiryQuestions": [
+        "How is the knowledge of tangents useful day to day life?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Circles, Chords and Tangents - chords and tangents - Lengths of tangents and intersecting chords -.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Circles, Chords and Tangents - chords and tangents - Lengths of tangents: construct an inscribed, circumscribed",
+        "Circles, Chords and Tangents - chords and tangents - Lengths of tangents and intersecting chords -",
+        "Circles",
+        "Chords",
+        "Tangents",
+        "Lengths",
+        "construct",
+        "inscribed"
+      ],
+      "misconceptions": [
+        "mixing up the method for Circles, Chords and Tangents - chords and tangents - Lengths of tangents: construct an inscribed, circumscribed with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Circles, Chords and Tangents - chords and tangents - Lengths of tangents: construct an inscribed, circumscribed",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Circles, Chords and Tangents - chords and tangents - Lengths of tangents: construct an inscribed, circumscribed",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Circles, Chords and Tangents - chords and tangents - Lengths of tangents: construct an inscribed, circumscribed",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b3873f6e-7655-4430-90b0-8cdc20f4a8cb",
+          "officialTitle": "Competency Based Curriculum Grade 11 Core Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "2ad194c7-ee86-402c-9efe-ed831a109db3",
+          "officialTitle": "Competency Based Curriculum Grade 11 Essential Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        }
+      ]
+    },
+    {
+      "topicId": "G11-mathematics-topic-020",
+      "strandId": "884557cd-d930-4294-93eb-5ceb0ac71d19",
+      "parentSubStrandId": "6b08c8b4-a805-46e1-a5c5-db19e92aa8de",
+      "subStrandId": "6b08c8b4-a805-46e1-a5c5-db19e92aa8de:topic-1",
+      "strandTitle": "Measurements and Geometry",
+      "unitTitle": "Trigonometry - Unit circle - Trigonometric ratios from unit circle - Angles: trigonometric ratios of angles",
+      "sourceUnitTitle": "Trigonometry - Unit circle - Trigonometric ratios from unit circle - Angles greater than 90 degrees",
+      "learningOutcomes": [
+        {
+          "id": "form-3-math-2-5-outcome-1",
+          "text": "determine trigonometric ratios of angles using a unit circle"
+        },
+        {
+          "id": "form-3-math-2-5-outcome-2",
+          "text": "determine trigonometric ratios of angles greater than 90 degrees in different, situations"
+        },
+        {
+          "id": "form-3-math-2-5-outcome-3",
+          "text": "determine trigonometric ratios of negative angles in different situations"
+        },
+        {
+          "id": "form-3-math-2-5-outcome-4",
+          "text": "solve trigonometric equations involving trigonometric ratios the range"
+        }
+      ],
+      "inquiryQuestions": [
+        "(s) why is the knowledge of trigonometry important?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Trigonometry - Unit circle - Trigonometric ratios from unit circle - Angles greater than 90 degrees.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Trigonometry - Unit circle - Trigonometric ratios from unit circle - Angles: trigonometric ratios of angles",
+        "Trigonometry - Unit circle - Trigonometric ratios from unit circle - Angles greater than 90 degrees",
+        "Trigonometry",
+        "circle",
+        "Trigonometric",
+        "ratios",
+        "Angles"
+      ],
+      "misconceptions": [
+        "mixing up the method for Trigonometry - Unit circle - Trigonometric ratios from unit circle - Angles: trigonometric ratios of angles with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Trigonometry - Unit circle - Trigonometric ratios from unit circle - Angles: trigonometric ratios of angles",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Trigonometry - Unit circle - Trigonometric ratios from unit circle - Angles: trigonometric ratios of angles",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Trigonometry - Unit circle - Trigonometric ratios from unit circle - Angles: trigonometric ratios of angles",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b3873f6e-7655-4430-90b0-8cdc20f4a8cb",
+          "officialTitle": "Competency Based Curriculum Grade 11 Core Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "2ad194c7-ee86-402c-9efe-ed831a109db3",
+          "officialTitle": "Competency Based Curriculum Grade 11 Essential Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        }
+      ]
+    },
+    {
+      "topicId": "G11-mathematics-topic-021",
+      "strandId": "884557cd-d930-4294-93eb-5ceb0ac71d19",
+      "parentSubStrandId": "6b08c8b4-a805-46e1-a5c5-db19e92aa8de",
+      "subStrandId": "6b08c8b4-a805-46e1-a5c5-db19e92aa8de:topic-2",
+      "strandTitle": "Measurements and Geometry",
+      "unitTitle": "Trigonometry - Unit circle - Trigonometric ratios from unit circle - Angles: convert angles from degrees",
+      "sourceUnitTitle": "Trigonometry - Unit circle - Trigonometric ratios from unit circle - Angles greater than 90 degrees",
+      "learningOutcomes": [
+        {
+          "id": "form-3-math-2-5-outcome-5",
+          "text": "convert angles from degrees to radians and 0<x<360"
+        }
+      ],
+      "inquiryQuestions": [
+        "(s) why is the knowledge of trigonometry important?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Trigonometry - Unit circle - Trigonometric ratios from unit circle - Angles greater than 90 degrees.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Trigonometry - Unit circle - Trigonometric ratios from unit circle - Angles: convert angles from degrees",
+        "Trigonometry - Unit circle - Trigonometric ratios from unit circle - Angles greater than 90 degrees",
+        "Trigonometry",
+        "circle",
+        "Trigonometric",
+        "ratios",
+        "Angles",
+        "convert"
+      ],
+      "misconceptions": [
+        "mixing up the method for Trigonometry - Unit circle - Trigonometric ratios from unit circle - Angles: convert angles from degrees with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Trigonometry - Unit circle - Trigonometric ratios from unit circle - Angles: convert angles from degrees",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Trigonometry - Unit circle - Trigonometric ratios from unit circle - Angles: convert angles from degrees",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Trigonometry - Unit circle - Trigonometric ratios from unit circle - Angles: convert angles from degrees",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b3873f6e-7655-4430-90b0-8cdc20f4a8cb",
+          "officialTitle": "Competency Based Curriculum Grade 11 Core Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "2ad194c7-ee86-402c-9efe-ed831a109db3",
+          "officialTitle": "Competency Based Curriculum Grade 11 Essential Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        }
+      ]
+    },
+    {
+      "topicId": "G11-mathematics-topic-022",
+      "strandId": "884557cd-d930-4294-93eb-5ceb0ac71d19",
+      "parentSubStrandId": "deac7b0a-2954-43f8-96f6-f4d6c4e28f4d",
+      "subStrandId": "deac7b0a-2954-43f8-96f6-f4d6c4e28f4d:topic-1",
+      "strandTitle": "Measurements and Geometry",
+      "unitTitle": "Graphical Methods - Graph of quadratic equations - Graphical solution of simultaneous: solve quadratic and cubic",
+      "sourceUnitTitle": "Graphical Methods - Graph of quadratic equations - Graphical solution of simultaneous equation s, one linear",
+      "learningOutcomes": [
+        {
+          "id": "form-3-math-2-6-outcome-1",
+          "text": "solve quadratic and cubic equations graphically"
+        },
+        {
+          "id": "form-3-math-2-6-outcome-2",
+          "text": "solve simultaneous equations of a linear and a quadratic and cubic equations graphically"
+        },
+        {
+          "id": "form-3-math-2-6-outcome-3",
+          "text": "determine average rate of change and average rate of change at an instant from a graph"
+        },
+        {
+          "id": "form-3-math-2-6-outcome-4",
+          "text": "draw graphs of empirical data and line of best fit in different situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "How are relations presented in real life?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Graphical Methods - Graph of quadratic equations - Graphical solution of simultaneous equation s, one linear.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Graphical Methods - Graph of quadratic equations - Graphical solution of simultaneous: solve quadratic and cubic",
+        "Graphical Methods - Graph of quadratic equations - Graphical solution of simultaneous equation s, one linear",
+        "Graphical",
+        "Methods",
+        "Graph",
+        "quadratic",
+        "equations",
+        "solution"
+      ],
+      "misconceptions": [
+        "mixing up the method for Graphical Methods - Graph of quadratic equations - Graphical solution of simultaneous: solve quadratic and cubic with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Graphical Methods - Graph of quadratic equations - Graphical solution of simultaneous: solve quadratic and cubic",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Graphical Methods - Graph of quadratic equations - Graphical solution of simultaneous: solve quadratic and cubic",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Graphical Methods - Graph of quadratic equations - Graphical solution of simultaneous: solve quadratic and cubic",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b3873f6e-7655-4430-90b0-8cdc20f4a8cb",
+          "officialTitle": "Competency Based Curriculum Grade 11 Core Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "2ad194c7-ee86-402c-9efe-ed831a109db3",
+          "officialTitle": "Competency Based Curriculum Grade 11 Essential Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        }
+      ]
+    },
+    {
+      "topicId": "G11-mathematics-topic-023",
+      "strandId": "884557cd-d930-4294-93eb-5ceb0ac71d19",
+      "parentSubStrandId": "deac7b0a-2954-43f8-96f6-f4d6c4e28f4d",
+      "subStrandId": "deac7b0a-2954-43f8-96f6-f4d6c4e28f4d:topic-2",
+      "strandTitle": "Measurements and Geometry",
+      "unitTitle": "Graphical Methods - Graph of quadratic equations - Graphical solution of simultaneous: convert nonlinear equation",
+      "sourceUnitTitle": "Graphical Methods - Graph of quadratic equations - Graphical solution of simultaneous equation s, one linear",
+      "learningOutcomes": [
+        {
+          "id": "form-3-math-2-6-outcome-5",
+          "text": "convert nonlinear equation to linear"
+        }
+      ],
+      "inquiryQuestions": [
+        "How are relations presented in real life?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Graphical Methods - Graph of quadratic equations - Graphical solution of simultaneous equation s, one linear.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Graphical Methods - Graph of quadratic equations - Graphical solution of simultaneous: convert nonlinear equation",
+        "Graphical Methods - Graph of quadratic equations - Graphical solution of simultaneous equation s, one linear",
+        "Graphical",
+        "Methods",
+        "Graph",
+        "quadratic",
+        "equations",
+        "solution"
+      ],
+      "misconceptions": [
+        "mixing up the method for Graphical Methods - Graph of quadratic equations - Graphical solution of simultaneous: convert nonlinear equation with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Graphical Methods - Graph of quadratic equations - Graphical solution of simultaneous: convert nonlinear equation",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Graphical Methods - Graph of quadratic equations - Graphical solution of simultaneous: convert nonlinear equation",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Graphical Methods - Graph of quadratic equations - Graphical solution of simultaneous: convert nonlinear equation",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b3873f6e-7655-4430-90b0-8cdc20f4a8cb",
+          "officialTitle": "Competency Based Curriculum Grade 11 Core Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "2ad194c7-ee86-402c-9efe-ed831a109db3",
+          "officialTitle": "Competency Based Curriculum Grade 11 Essential Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        }
+      ]
+    },
+    {
+      "topicId": "G11-mathematics-topic-024",
+      "strandId": "f45e4bdc-c422-4c45-8fe7-d276f81b13d7",
+      "parentSubStrandId": "c8b83ff6-cb12-4869-a134-48782687e0b1",
+      "subStrandId": "c8b83ff6-cb12-4869-a134-48782687e0b1:topic-1",
+      "strandTitle": "Statistics and Probability",
+      "unitTitle": "Permutations and combinations - Factorial notation - Permutations - Combinations - Application: natural number in factorial",
+      "sourceUnitTitle": "Permutations and combinations - Factorial notation - Permutations - Combinations - Application of permutations and combinations",
+      "learningOutcomes": [
+        {
+          "id": "form-3-math-3-1-outcome-1",
+          "text": "express a natural number in factorial notation"
+        },
+        {
+          "id": "form-3-math-3-1-outcome-2",
+          "text": "perform permutations involving real life situations"
+        },
+        {
+          "id": "form-3-math-3-1-outcome-3",
+          "text": "perform combinations involving real life situations"
+        },
+        {
+          "id": "form-3-math-3-1-outcome-4",
+          "text": "apply permutations and combinations to real life situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "How are permutations used in day-to-day life?",
+        "Where is combination used in day-to-day life?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Permutations and combinations - Factorial notation - Permutations - Combinations - Application of permutations and combinations.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Permutations and combinations - Factorial notation - Permutations - Combinations - Application: natural number in factorial",
+        "Permutations and combinations - Factorial notation - Permutations - Combinations - Application of permutations and combinations",
+        "Permutations",
+        "combinations",
+        "Factorial",
+        "notation",
+        "Application",
+        "natural"
+      ],
+      "misconceptions": [
+        "mixing up the method for Permutations and combinations - Factorial notation - Permutations - Combinations - Application: natural number in factorial with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Permutations and combinations - Factorial notation - Permutations - Combinations - Application: natural number in factorial",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Permutations and combinations - Factorial notation - Permutations - Combinations - Application: natural number in factorial",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Permutations and combinations - Factorial notation - Permutations - Combinations - Application: natural number in factorial",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b3873f6e-7655-4430-90b0-8cdc20f4a8cb",
+          "officialTitle": "Competency Based Curriculum Grade 11 Core Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "2ad194c7-ee86-402c-9efe-ed831a109db3",
+          "officialTitle": "Competency Based Curriculum Grade 11 Essential Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        }
+      ]
+    },
+    {
+      "topicId": "G11-mathematics-topic-025",
+      "strandId": "f45e4bdc-c422-4c45-8fe7-d276f81b13d7",
+      "parentSubStrandId": "c8b83ff6-cb12-4869-a134-48782687e0b1",
+      "subStrandId": "c8b83ff6-cb12-4869-a134-48782687e0b1:topic-2",
+      "strandTitle": "Statistics and Probability",
+      "unitTitle": "Permutations and combinations - Factorial notation - Permutations - Combinations - Application: explore the use",
+      "sourceUnitTitle": "Permutations and combinations - Factorial notation - Permutations - Combinations - Application of permutations and combinations",
+      "learningOutcomes": [
+        {
+          "id": "form-3-math-3-1-outcome-5",
+          "text": "explore the use of permutations and combinations in real life situations."
+        }
+      ],
+      "inquiryQuestions": [
+        "Where is combination used in day-to-day life?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Permutations and combinations - Factorial notation - Permutations - Combinations - Application of permutations and combinations.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Permutations and combinations - Factorial notation - Permutations - Combinations - Application: explore the use",
+        "Permutations and combinations - Factorial notation - Permutations - Combinations - Application of permutations and combinations",
+        "Permutations",
+        "combinations",
+        "Factorial",
+        "notation",
+        "Application",
+        "explore"
+      ],
+      "misconceptions": [
+        "mixing up the method for Permutations and combinations - Factorial notation - Permutations - Combinations - Application: explore the use with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Permutations and combinations - Factorial notation - Permutations - Combinations - Application: explore the use",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Permutations and combinations - Factorial notation - Permutations - Combinations - Application: explore the use",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Permutations and combinations - Factorial notation - Permutations - Combinations - Application: explore the use",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b3873f6e-7655-4430-90b0-8cdc20f4a8cb",
+          "officialTitle": "Competency Based Curriculum Grade 11 Core Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "2ad194c7-ee86-402c-9efe-ed831a109db3",
+          "officialTitle": "Competency Based Curriculum Grade 11 Essential Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        }
+      ]
+    },
+    {
+      "topicId": "G11-mathematics-topic-026",
+      "strandId": "f45e4bdc-c422-4c45-8fe7-d276f81b13d7",
+      "parentSubStrandId": "ca71289a-5b16-497d-8dd3-c6d18fae615f",
+      "subStrandId": "ca71289a-5b16-497d-8dd3-c6d18fae615f:topic-1",
+      "strandTitle": "Statistics and Probability",
+      "unitTitle": "Probability II: theoretical probability",
+      "sourceUnitTitle": "Probability II",
+      "learningOutcomes": [
+        {
+          "id": "form-3-math-3-2-outcome-1",
+          "text": "determine theoretical probability in different situations"
+        },
+        {
+          "id": "form-3-math-3-2-outcome-2",
+          "text": "determine discrete and continuous probabilities in different situations"
+        },
+        {
+          "id": "form-3-math-3-2-outcome-3",
+          "text": "apply laws of probability to predict likelihood of events"
+        },
+        {
+          "id": "form-3-math-3-2-outcome-4",
+          "text": "determine probability of mutually exclusive and independent events"
+        }
+      ],
+      "inquiryQuestions": [
+        "(s) How is the knowledge of probability important?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Probability II.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Probability II: theoretical probability",
+        "Probability II",
+        "Probability",
+        "theoretical"
+      ],
+      "misconceptions": [
+        "mixing up the method for Probability II: theoretical probability with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Probability II: theoretical probability",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Probability II: theoretical probability",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Probability II: theoretical probability",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b3873f6e-7655-4430-90b0-8cdc20f4a8cb",
+          "officialTitle": "Competency Based Curriculum Grade 11 Core Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "2ad194c7-ee86-402c-9efe-ed831a109db3",
+          "officialTitle": "Competency Based Curriculum Grade 11 Essential Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        }
+      ]
+    },
+    {
+      "topicId": "G11-mathematics-topic-027",
+      "strandId": "f45e4bdc-c422-4c45-8fe7-d276f81b13d7",
+      "parentSubStrandId": "ca71289a-5b16-497d-8dd3-c6d18fae615f",
+      "subStrandId": "ca71289a-5b16-497d-8dd3-c6d18fae615f:topic-2",
+      "strandTitle": "Statistics and Probability",
+      "unitTitle": "Probability II: calculate probabilities using tree diagrams",
+      "sourceUnitTitle": "Probability II",
+      "learningOutcomes": [
+        {
+          "id": "form-3-math-3-2-outcome-5",
+          "text": "calculate probabilities using tree diagrams"
+        },
+        {
+          "id": "form-3-math-3-2-outcome-6",
+          "text": "appreciate the application of probability in day-to-day life."
+        }
+      ],
+      "inquiryQuestions": [
+        "(s) How is the knowledge of probability important?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Probability II.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Probability II: calculate probabilities using tree diagrams",
+        "Probability II",
+        "Probability",
+        "calculate",
+        "probabilities",
+        "using",
+        "diagrams"
+      ],
+      "misconceptions": [
+        "mixing up the method for Probability II: calculate probabilities using tree diagrams with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Probability II: calculate probabilities using tree diagrams",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Probability II: calculate probabilities using tree diagrams",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Probability II: calculate probabilities using tree diagrams",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b3873f6e-7655-4430-90b0-8cdc20f4a8cb",
+          "officialTitle": "Competency Based Curriculum Grade 11 Core Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "2ad194c7-ee86-402c-9efe-ed831a109db3",
+          "officialTitle": "Competency Based Curriculum Grade 11 Essential Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        }
+      ]
+    },
+    {
+      "topicId": "G11-mathematics-topic-028",
+      "strandId": "4980dd2a-28db-4105-a815-c6e06ef9e5d7",
+      "parentSubStrandId": "2e9a748e-03e4-462a-a3bf-cbfac07897aa",
+      "subStrandId": "2e9a748e-03e4-462a-a3bf-cbfac07897aa:topic-1",
+      "strandTitle": "Calculus 4.1 Functions",
+      "unitTitle": "Calculus 4.1 Functions: relations and the different types of mappings",
+      "sourceUnitTitle": "Calculus 4.1 Functions",
+      "learningOutcomes": [
+        {
+          "id": "form-3-math-4-0-outcome-1",
+          "text": "identify relations and the different types of mappings"
+        },
+        {
+          "id": "form-3-math-4-0-outcome-2",
+          "text": "identify functions and their properties"
+        },
+        {
+          "id": "form-3-math-4-0-outcome-3",
+          "text": "determine the range and domain of functions"
+        },
+        {
+          "id": "form-3-math-4-0-outcome-4",
+          "text": "compute the value of a function in different situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "(s) How are functions applied in daily life?",
+        "How is differentiation applied in real life?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Calculus 4.1 Functions.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Calculus 4.1 Functions: relations and the different types of mappings",
+        "Calculus 4.1 Functions",
+        "Calculus",
+        "Functions",
+        "relations",
+        "different",
+        "types",
+        "mappings"
+      ],
+      "misconceptions": [
+        "mixing up the method for Calculus 4.1 Functions: relations and the different types of mappings with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Calculus 4.1 Functions: relations and the different types of mappings",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Calculus 4.1 Functions: relations and the different types of mappings",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Calculus 4.1 Functions: relations and the different types of mappings",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b3873f6e-7655-4430-90b0-8cdc20f4a8cb",
+          "officialTitle": "Competency Based Curriculum Grade 11 Core Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "2ad194c7-ee86-402c-9efe-ed831a109db3",
+          "officialTitle": "Competency Based Curriculum Grade 11 Essential Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        }
+      ]
+    },
+    {
+      "topicId": "G11-mathematics-topic-029",
+      "strandId": "4980dd2a-28db-4105-a815-c6e06ef9e5d7",
+      "parentSubStrandId": "2e9a748e-03e4-462a-a3bf-cbfac07897aa",
+      "subStrandId": "2e9a748e-03e4-462a-a3bf-cbfac07897aa:topic-2",
+      "strandTitle": "Calculus 4.1 Functions",
+      "unitTitle": "Calculus 4.1 Functions: inverse of a function of polynomials and trigonometric",
+      "sourceUnitTitle": "Calculus 4.1 Functions",
+      "learningOutcomes": [
+        {
+          "id": "form-3-math-4-0-outcome-5",
+          "text": "determine the inverse of a function of polynomials and trigonometric ratios"
+        },
+        {
+          "id": "form-3-math-4-0-outcome-6",
+          "text": "evaluate limits of polynomial functions in different situations"
+        },
+        {
+          "id": "form-3-math-4-0-outcome-7",
+          "text": "apply functions to real life situations"
+        },
+        {
+          "id": "form-3-math-4-0-outcome-8",
+          "text": "compute average and instantaneous rates of change in different situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "How is differentiation applied in real life?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Calculus 4.1 Functions.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Calculus 4.1 Functions: inverse of a function of polynomials and trigonometric",
+        "Calculus 4.1 Functions",
+        "Calculus",
+        "Functions",
+        "inverse",
+        "function",
+        "polynomials",
+        "trigonometric"
+      ],
+      "misconceptions": [
+        "mixing up the method for Calculus 4.1 Functions: inverse of a function of polynomials and trigonometric with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Calculus 4.1 Functions: inverse of a function of polynomials and trigonometric",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Calculus 4.1 Functions: inverse of a function of polynomials and trigonometric",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Calculus 4.1 Functions: inverse of a function of polynomials and trigonometric",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b3873f6e-7655-4430-90b0-8cdc20f4a8cb",
+          "officialTitle": "Competency Based Curriculum Grade 11 Core Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "2ad194c7-ee86-402c-9efe-ed831a109db3",
+          "officialTitle": "Competency Based Curriculum Grade 11 Essential Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        }
+      ]
+    },
+    {
+      "topicId": "G11-mathematics-topic-030",
+      "strandId": "4980dd2a-28db-4105-a815-c6e06ef9e5d7",
+      "parentSubStrandId": "2e9a748e-03e4-462a-a3bf-cbfac07897aa",
+      "subStrandId": "2e9a748e-03e4-462a-a3bf-cbfac07897aa:topic-3",
+      "strandTitle": "Calculus 4.1 Functions",
+      "unitTitle": "Calculus 4.1 Functions: calculate the gradient a curve at point",
+      "sourceUnitTitle": "Calculus 4.1 Functions",
+      "learningOutcomes": [
+        {
+          "id": "form-3-math-4-0-outcome-9",
+          "text": "calculate the gradient a curve at point"
+        },
+        {
+          "id": "form-3-math-4-0-outcome-10",
+          "text": "relate the delta notation to rate of change in curve"
+        },
+        {
+          "id": "form-3-math-4-0-outcome-11",
+          "text": "determine the derivatives of polynomial functions"
+        },
+        {
+          "id": "form-3-math-4-0-outcome-12",
+          "text": "determine the equations of tangents and normal to a curve"
+        }
+      ],
+      "inquiryQuestions": [
+        "(s) How are functions applied in daily life?",
+        "How is differentiation applied in real life?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Calculus 4.1 Functions.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Calculus 4.1 Functions: calculate the gradient a curve at point",
+        "Calculus 4.1 Functions",
+        "Calculus",
+        "Functions",
+        "calculate",
+        "gradient",
+        "curve",
+        "point"
+      ],
+      "misconceptions": [
+        "mixing up the method for Calculus 4.1 Functions: calculate the gradient a curve at point with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Calculus 4.1 Functions: calculate the gradient a curve at point",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Calculus 4.1 Functions: calculate the gradient a curve at point",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Calculus 4.1 Functions: calculate the gradient a curve at point",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b3873f6e-7655-4430-90b0-8cdc20f4a8cb",
+          "officialTitle": "Competency Based Curriculum Grade 11 Core Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "2ad194c7-ee86-402c-9efe-ed831a109db3",
+          "officialTitle": "Competency Based Curriculum Grade 11 Essential Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        }
+      ]
+    },
+    {
+      "topicId": "G11-mathematics-topic-031",
+      "strandId": "4980dd2a-28db-4105-a815-c6e06ef9e5d7",
+      "parentSubStrandId": "2e9a748e-03e4-462a-a3bf-cbfac07897aa",
+      "subStrandId": "2e9a748e-03e4-462a-a3bf-cbfac07897aa:topic-4",
+      "strandTitle": "Calculus 4.1 Functions",
+      "unitTitle": "Calculus 4.1 Functions: derivatives to kinematics",
+      "sourceUnitTitle": "Calculus 4.1 Functions",
+      "learningOutcomes": [
+        {
+          "id": "form-3-math-4-0-outcome-13",
+          "text": "apply derivatives to kinematics in different situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "(s) How are functions applied in daily life?",
+        "How is differentiation applied in real life?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Calculus 4.1 Functions.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Calculus 4.1 Functions: derivatives to kinematics",
+        "Calculus 4.1 Functions",
+        "Calculus",
+        "Functions",
+        "derivatives",
+        "kinematics"
+      ],
+      "misconceptions": [
+        "mixing up the method for Calculus 4.1 Functions: derivatives to kinematics with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Calculus 4.1 Functions: derivatives to kinematics",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Calculus 4.1 Functions: derivatives to kinematics",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Calculus 4.1 Functions: derivatives to kinematics",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b3873f6e-7655-4430-90b0-8cdc20f4a8cb",
+          "officialTitle": "Competency Based Curriculum Grade 11 Core Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "2ad194c7-ee86-402c-9efe-ed831a109db3",
+          "officialTitle": "Competency Based Curriculum Grade 11 Essential Mathematics",
+          "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837"
+        }
+      ]
+    }
+  ]
+}

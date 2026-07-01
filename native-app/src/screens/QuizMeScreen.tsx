@@ -21,17 +21,19 @@ import { QuizConfig } from '../types/app';
 
 interface QuizMeScreenProps {
   isLoading: boolean;
+  error?: string | null;
   strandsBySubject: Record<string, string[]>;
   subStrandsByStrand: Record<string, string[]>;
   onBack: () => void;
   onGenerate: (config: QuizConfig) => void;
 }
 
-const fallbackSubjects = ['Science', 'English', 'Math', 'Kiswahili', 'Social Studies'];
+const defaultSubjects = ['Science', 'English', 'Math', 'Kiswahili', 'Social Studies'];
 const questionCounts = [5, 10, 15, 20];
 
 export function QuizMeScreen({
   isLoading,
+  error,
   strandsBySubject,
   subStrandsByStrand,
   onBack,
@@ -53,7 +55,7 @@ export function QuizMeScreen({
       .filter(([, strands]) => strands.length > 0)
       .map(([subject]) => subject);
 
-    return loadedSubjects.length > 0 ? loadedSubjects : fallbackSubjects;
+    return loadedSubjects.length > 0 ? loadedSubjects : defaultSubjects;
   }, [strandsBySubject]);
   const strands = useMemo(
     () => strandsBySubject[config.subject] || [],
@@ -106,6 +108,12 @@ export function QuizMeScreen({
             </View>
 
             <View style={styles.formCard}>
+              {error ? (
+                <View style={styles.errorBanner}>
+                  <Text style={styles.errorText}>{error}</Text>
+                </View>
+              ) : null}
+
               <Field
                 fieldKey="subject"
                 label="Subject"
@@ -218,6 +226,12 @@ export function QuizMeScreen({
                 How would you like to practice today?
               </Text>
             </View>
+
+            {error ? (
+              <View style={styles.errorBanner}>
+                <Text style={styles.errorText}>{error}</Text>
+              </View>
+            ) : null}
 
             <View style={styles.formatGrid}>
               <FormatOption
@@ -519,6 +533,20 @@ const styles = StyleSheet.create({
     borderColor: '#E5E7EB',
     padding: 24,
     gap: 18,
+  },
+  errorBanner: {
+    backgroundColor: '#FEF2F2',
+    borderColor: '#FCA5A5',
+    borderRadius: 16,
+    borderWidth: 1,
+    paddingHorizontal: 14,
+    paddingVertical: 12,
+  },
+  errorText: {
+    color: '#991B1B',
+    fontSize: 14,
+    fontWeight: '700',
+    lineHeight: 20,
   },
   fieldWrap: {
     gap: 8,

@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-grade-5-kiswahili",
+  "title": "KITABU QUEST Grade 5 Kiswahili",
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 5",
+  "subject": "Kiswahili",
+  "subjectSlug": "kiswahili",
+  "subjectColor": "#C2410C",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "learner-first-language-depth-renderers-2026-07-01-v10",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-reviewed-draft",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T11:30:54Z",
+  "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534",
+  "bookPlanHash": "ec8dffcacbd6a45b22f17c5fa2298a18be0948573cbad33c7a9c70f36e86e15f",
+  "pageCount": 247,
+  "wordCount": 34519,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "ageBand": "upper-primary",
+    "coversDeferred": true,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "topicCount": 60,
+    "outcomeCount": 154,
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "KEN",
+    "subject": "Kiswahili",
+    "species": "hare",
+    "role": "oral language and folktale guide",
+    "sourceRationale": "East African folktale association for methali, vitendawili, and stories."
+  },
+  "cover": {
+    "scene": "learners in a storytelling circle with books, proverbs cards, and a friendly hare mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Kenya CBC Grade 5 Kiswahili. Scene: learners in a storytelling circle with books, proverbs cards, and a friendly hare mascot. Include a friendly hare mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "assets": [],
+  "downloads": {
+    "markdown": "kitabu-quest-grade-5-kiswahili.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-grade-5-kiswahili.pdf"
+  },
+  "sourceDocuments": [
+    {
+      "id": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+      "subject": "Kiswahili",
+      "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_5",
+      "gradeLocalLevel": "Grade 5",
+      "localLevel": "Grade 5",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/1aGnwbMdfKkwTBtVOcliEiyge6qAHpHhd/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_5",
+        "documentUrl": "https://drive.google.com/file/d/1aGnwbMdfKkwTBtVOcliEiyge6qAHpHhd/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_5/kiswahili/0dd4aa16-4089-40b6-94fb-5a1e22cedff4.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-five-designs/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "fb0853ccc79135b4b1e3d1fd33db3ed2774949ea61b9ce23f4670455661010d1",
+        "markdownPageCount": 135,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_5/kiswahili/0dd4aa16-4089-40b6-94fb-5a1e22cedff4.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "fb0853ccc79135b4b1e3d1fd33db3ed2774949ea61b9ce23f4670455661010d1",
+          "pageCount": 135,
+          "generatedAt": "2026-06-29T16:35:08.602Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "bb018c4a82deda2f3f2a2883bfb4743e4c950db79646ccb99131695886fe576c"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:08.602Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    }
+  ]
+}

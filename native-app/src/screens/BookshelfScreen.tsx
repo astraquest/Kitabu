@@ -1,5 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import {
+  ImageBackground,
+  ActivityIndicator,
   Modal,
   Pressable,
   ScrollView,
@@ -23,6 +25,7 @@ import {
   X,
 } from 'lucide-react-native';
 
+import { getBookCoverPreviewUri } from '../services/contentService';
 import { Book, UserProfile } from '../types/app';
 
 interface BookshelfScreenProps {
@@ -36,10 +39,9 @@ interface BookshelfScreenProps {
   onOpenBook: (book: Book, startPage?: number) => void;
   onSetPreviewBookId: (bookId: string | null) => void;
   onToggleSpotlight: () => void;
-  onToggleDownload: (bookId: string) => void;
+  onToggleDownload: (bookId: string) => Promise<void> | void;
 }
 
-const shelfGroups = [0, 1];
 const BOOKS_PER_SHELF = 6;
 
 export function BookshelfScreen({
@@ -61,6 +63,9 @@ export function BookshelfScreen({
   const [requestedTitle, setRequestedTitle] = useState('');
   const [requestedSubject, setRequestedSubject] = useState('');
   const [requestMessage, setRequestMessage] = useState<string | null>(null);
+  const [downloadError, setDownloadError] = useState<string | null>(null);
+  const [coverPreviewUri, setCoverPreviewUri] = useState<string | null>(null);
+  const [coverPreviewLoading, setCoverPreviewLoading] = useState(false);
 
   useEffect(() => {
     if (!previewBookId) {
@@ -76,6 +81,54 @@ export function BookshelfScreen({
     setDownloadingBookId(null);
   }, [selectedBook]);
 
+  useEffect(() => {
+    if (!selectedBook) {
+      setCoverPreviewUri(null);
+      setCoverPreviewLoading(false);
+      return;
+    }
+
+    let cancelled = false;
+    let objectUrl: string | null = null;
+    setCoverPreviewUri(selectedBook.localCoverUri ?? null);
+    setCoverPreviewLoading(Boolean(selectedBook.coverImageUrl && !selectedBook.localCoverUri));
+
+    getBookCoverPreviewUri(selectedBook)
+      .then(uri => {
+        if (cancelled) {
+          if (uri?.startsWith('blob:')) {
+            URL.revokeObjectURL(uri);
+          }
+          return;
+        }
+        objectUrl = uri?.startsWith('blob:') ? uri : null;
+        setCoverPreviewUri(uri);
+        setCoverPreviewLoading(false);
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setCoverPreviewUri(null);
+          setCoverPreviewLoading(false);
+        }
+      });
+
+    return () => {
+      cancelled = true;
+      if (objectUrl) {
+        URL.revokeObjectURL(objectUrl);
+      }
+    };
+  }, [selectedBook]);
+
+  const shelfGroups = useMemo(
+    () =>
+      Array.from(
+        { length: Math.max(2, Math.ceil(books.length / BOOKS_PER_SHELF)) },
+        (_, index) => index,
+      ),
+    [books.length],
+  );
+
   const shelfBooks = useMemo(
     () =>
       shelfGroups.map(groupIndex => {
@@ -84,7 +137,7 @@ export function BookshelfScreen({
         const placeholders = Math.max(0, BOOKS_PER_SHELF - visibleBooks.length);
         return [...visibleBooks, ...Array.from({ length: placeholders }, () => null)];
       }),
-    [books],
+    [books, shelfGroups],
   );
 
   function handlePreviewBook(book: Book) {
@@ -95,6 +148,7 @@ export function BookshelfScreen({
   function handleCloseModal() {
     setSelectedBook(null);
     setDownloadingBookId(null);
+    setDownloadError(null);
     onSetPreviewBookId(null);
   }
 
@@ -102,17 +156,16 @@ export function BookshelfScreen({
     return readingProgress[bookId] || 1;
   }
 
-  function handleDownload(bookId: string) {
-    if (downloadedBooks.has(bookId)) {
-      onToggleDownload(bookId);
-      return;
-    }
-
+  async function handleDownload(bookId: string) {
+    setDownloadError(null);
     setDownloadingBookId(bookId);
-    setTimeout(() => {
-      onToggleDownload(bookId);
+    try {
+      await onToggleDownload(bookId);
+    } catch (error) {
+      setDownloadError(error instanceof Error ? error.message : 'Unable to update offline book.');
+    } finally {
       setDownloadingBookId(null);
-    }, 2000);
+    }
   }
 
   function openBookFromModal(startPage: number) {
@@ -261,7 +314,7 @@ export function BookshelfScreen({
                       <Text
                         numberOfLines={2}
                         style={[styles.bookSpineTitle, { color: book.textColor }]}>
-                        {book.title}
+                        {getBookSpineLabel(book)}
                       </Text>
                     </View>
 
@@ -359,60 +412,79 @@ export function BookshelfScreen({
                     styles.bookPreview,
                     { backgroundColor: selectedBook.spineColor },
                   ]}>
-                  <View style={styles.bookPreviewSpineShadow} />
-                  <View
-                    style={[
-                      styles.previewRule,
-                      { borderColor: withAlpha(selectedBook.textColor, 0.32) },
-                    ]}
-                  />
-                  <Text
-                    style={[
-                      styles.previewTitle,
-                      { color: selectedBook.textColor },
-                    ]}>
-                    {selectedBook.title}
-                  </Text>
-                  <View
-                    style={[
-                      styles.previewDivider,
-                      { backgroundColor: withAlpha(selectedBook.textColor, 0.5) },
-                    ]}
-                  />
-                  <Text
-                    style={[
-                      styles.previewAuthor,
-                      { color: selectedBook.textColor },
-                    ]}>
-                    {selectedBook.author}
-                  </Text>
-
-                  <View
-                    style={[
-                      styles.previewIconCircle,
-                      { borderColor: withAlpha(selectedBook.textColor, 0.2) },
-                    ]}>
-                    <BookIcon
-                      size={40}
-                      color={withAlpha(selectedBook.textColor, 0.7)}
-                      strokeWidth={2}
+                  {coverPreviewUri ? (
+                    <ImageBackground
+                      source={{ uri: coverPreviewUri }}
+                      resizeMode="cover"
+                      style={styles.coverPreviewImage}
+                      imageStyle={styles.coverPreviewImageStyle}
                     />
-                  </View>
+                  ) : selectedBook.coverImageUrl ? (
+                    <View style={styles.coverPreviewStatus}>
+                      {coverPreviewLoading ? (
+                        <ActivityIndicator color="#FFFFFF" size="large" />
+                      ) : (
+                        <BookIcon size={42} color="#FFFFFF" strokeWidth={2} />
+                      )}
+                    </View>
+                  ) : (
+                    <>
+                      <View style={styles.bookPreviewSpineShadow} />
+                      <View
+                        style={[
+                          styles.previewRule,
+                          { borderColor: withAlpha(selectedBook.textColor, 0.32) },
+                        ]}
+                      />
+                      <Text
+                        style={[
+                          styles.previewTitle,
+                          { color: selectedBook.textColor },
+                        ]}>
+                        {selectedBook.title}
+                      </Text>
+                      <View
+                        style={[
+                          styles.previewDivider,
+                          { backgroundColor: withAlpha(selectedBook.textColor, 0.5) },
+                        ]}
+                      />
+                      <Text
+                        style={[
+                          styles.previewAuthor,
+                          { color: selectedBook.textColor },
+                        ]}>
+                        {selectedBook.author}
+                      </Text>
 
-                  <View style={styles.previewSeriesRow}>
-                    <GraduationCap
-                      size={16}
-                      color={withAlpha(selectedBook.textColor, 0.65)}
-                      strokeWidth={2.2}
-                    />
-                    <Text
-                      style={[
-                        styles.previewSeriesText,
-                        { color: withAlpha(selectedBook.textColor, 0.7) },
-                      ]}>
-                      Education Series
-                    </Text>
-                  </View>
+                      <View
+                        style={[
+                          styles.previewIconCircle,
+                          { borderColor: withAlpha(selectedBook.textColor, 0.2) },
+                        ]}>
+                        <BookIcon
+                          size={40}
+                          color={withAlpha(selectedBook.textColor, 0.7)}
+                          strokeWidth={2}
+                        />
+                      </View>
+
+                      <View style={styles.previewSeriesRow}>
+                        <GraduationCap
+                          size={16}
+                          color={withAlpha(selectedBook.textColor, 0.65)}
+                          strokeWidth={2.2}
+                        />
+                        <Text
+                          style={[
+                            styles.previewSeriesText,
+                            { color: withAlpha(selectedBook.textColor, 0.7) },
+                          ]}>
+                          Education Series
+                        </Text>
+                      </View>
+                    </>
+                  )}
 
                   {downloadedBooks.has(selectedBook.id) ? (
                     <View style={styles.offlineBadge}>
@@ -453,6 +525,9 @@ export function BookshelfScreen({
                     </Text>
                   </Pressable>
                 </View>
+                {downloadError ? (
+                  <Text style={styles.downloadError}>{downloadError}</Text>
+                ) : null}
               </View>
             </View>
           ) : null}
@@ -514,6 +589,10 @@ function getHeightStyle(height: string) {
     default:
       return styles.height36;
   }
+}
+
+function getBookSpineLabel(book: Book) {
+  return book.subjectName?.trim() ?? '';
 }
 
 function withAlpha(hex: string, alpha: number) {
@@ -911,6 +990,22 @@ const styles = StyleSheet.create({
     shadowRadius: 18,
     shadowOffset: { width: 0, height: 14 },
     elevation: 12,
+    overflow: 'hidden',
+  },
+  coverPreviewImage: {
+    ...StyleSheet.absoluteFillObject,
+  },
+  coverPreviewImageStyle: {
+    borderTopLeftRadius: 10,
+    borderBottomLeftRadius: 10,
+    borderTopRightRadius: 18,
+    borderBottomRightRadius: 18,
+  },
+  coverPreviewStatus: {
+    ...StyleSheet.absoluteFillObject,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(15,23,42,0.72)',
   },
   bookPreviewSpineShadow: {
     position: 'absolute',
@@ -1031,5 +1126,13 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 16,
     fontWeight: '800',
+  },
+  downloadError: {
+    color: '#FEE2E2',
+    fontSize: 12,
+    fontWeight: '800',
+    lineHeight: 17,
+    marginTop: 12,
+    textAlign: 'center',
   },
 });

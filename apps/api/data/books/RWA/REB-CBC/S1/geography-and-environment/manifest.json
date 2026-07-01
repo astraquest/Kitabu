@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-rwa-reb-cbc-s1-geography-and-environment",
+  "title": "KITABU QUEST S1 Geography and Environment",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "S1",
+  "subject": "Geography and Environment",
+  "subjectSlug": "geography-and-environment",
+  "subjectColor": "#0E7490",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v17",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T06:42:19Z",
+  "sourceSnapshotHash": "0b8ded96a7c50a342b803061a525735779eadd2f9fa3ca67ea4a405a0a257fe5",
+  "bookPlanHash": "74f50bfd5e052e388bc29b31d95e6df30e9f8a40c36057e3b863ede2d7829a68",
+  "pageCount": 92,
+  "wordCount": 9112,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 9,
+    "outcomeCount": 52,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "RWA",
+    "subject": "Geography and Environment",
+    "species": "mountain gorilla",
+    "role": "environment and map guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners studying maps and hillsides with a mountain gorilla mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Rwanda REB-CBC S1 Geography and Environment. Scene: learners studying maps and hillsides with a mountain gorilla mascot. Include a friendly mountain gorilla mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 95470,
+    "sha256": "75119a07af0211c1c813a8e0dee8814ff4f7b40385b7c3f855b3ce2758a75f8e"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 95470,
+      "sha256": "75119a07af0211c1c813a8e0dee8814ff4f7b40385b7c3f855b3ce2758a75f8e",
+      "kind": "cover",
+      "altText": "KITABU QUEST S1 Geography and Environment cover with mountain gorilla",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-rwa-reb-cbc-s1-geography-and-environment.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-rwa-reb-cbc-s1-geography-and-environment.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "1c5fafe1-e517-4df6-b49f-aa6ef88c6e2c",
+      "subject": "Geography and Environment",
+      "officialTitle": "Rwanda Competence Based Curriculum S1 Geography and Environment",
+      "countryCode": "RWA",
+      "curriculumCode": "REB-CBC",
+      "gradeCode": "S1",
+      "gradeLocalLevel": "S1",
+      "localLevel": "S1",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://elearning.reb.rw/pluginfile.php/47383/mod_resource/content/1/GEOGRAPHY%20AND%20ENVIRONMENT%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20%20S1-S3%20%282%29.pdf",
+      "objectKey": "data/curriculum/source-files/RWA/b0e37639dd757edf382b9c9b84876bf3db96782966ceab543c0809f3d9008ee2.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "S1",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://elearning.reb.rw/pluginfile.php/47383/mod_resource/content/1/GEOGRAPHY%20AND%20ENVIRONMENT%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20%20S1-S3%20%282%29.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S1/geography-and-environment/1c5fafe1-e517-4df6-b49f-aa6ef88c6e2c.md",
+        "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "reb.gov.rw",
+          "reb.rw",
+          "elearning.reb.rw"
+        ],
+        "markdownChecksum": "e80ea64dbf3a5483c93a32cabb2a2043d820e5134737303ecf622d393354bd81",
+        "markdownPageCount": 135,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/RWA/REB-CBC/S1/geography-and-environment/1c5fafe1-e517-4df6-b49f-aa6ef88c6e2c.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "e80ea64dbf3a5483c93a32cabb2a2043d820e5134737303ecf622d393354bd81",
+          "pageCount": 135,
+          "generatedAt": "2026-07-01T01:15:54.990Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S1/geography-and-environment/1c5fafe1-e517-4df6-b49f-aa6ef88c6e2c.json",
+          "sourceChecksum": "9881b79960c6a08dab0d6de75be04d5fe324467fb51500074c78f0d2544c176a"
+        },
+        "markdownGeneratedAt": "2026-07-01T01:15:54.990Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

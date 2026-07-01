@@ -1,0 +1,1279 @@
+{
+  "schemaVersion": 1,
+  "sourceType": "normalized-curriculum",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Form IV",
+  "subject": "Geography",
+  "generatedAt": "2026-07-01T05:49:53Z",
+  "sourceSnapshotHash": "ac21af6ab8273a20431bc4ec78694ecb7ddaf21dfaea127878a4661d019e0654",
+  "writingStandard": {
+    "voice": "simple, conversational, purposeful, age-appropriate, and learner-first",
+    "antiFluff": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "coversDeferred": true
+  },
+  "strands": [
+    {
+      "strandId": "fallback-form-iv-geography-1",
+      "number": "",
+      "title": "Advanced Map Reading And Survey Skills",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-iv-geography-2",
+      "number": "",
+      "title": "Climate Change Disaster Risk And Adaptation",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-iv-geography-3",
+      "number": "",
+      "title": "Population Development And Resources",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-iv-geography-4",
+      "number": "",
+      "title": "Agriculture Industry And Trade Systems",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-iv-geography-5",
+      "number": "",
+      "title": "Environmental Management Case Studies",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-iv-geography-6",
+      "number": "",
+      "title": "Research Report Writing",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-iv-geography-7",
+      "number": "",
+      "title": "Geography Revision With Data",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-iv-geography-8",
+      "number": "",
+      "title": "Form IV Geography Examination Project",
+      "topicCount": 1
+    }
+  ],
+  "topics": [
+    {
+      "topicId": "TZA-FORM-IV-geography-topic-001",
+      "grade": "Form IV",
+      "strandId": "fallback-form-iv-geography-1",
+      "subStrandId": "fallback-form-iv-geography-1",
+      "parentSubStrandId": "fallback-form-iv-geography-1",
+      "strandTitle": "Advanced Map Reading And Survey Skills",
+      "unitTitle": "Advanced Map Reading And Survey Skills",
+      "sourceUnitTitle": "Advanced Map Reading And Survey Skills",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-iv-geography-1-outcome-1",
+          "text": "explain and apply advanced map reading and survey skills in a real learning situation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can advanced map reading and survey skills help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Advanced Map Reading And Survey Skills.",
+        "Review key vocabulary from the previous Geography lesson."
+      ],
+      "keyVocabulary": [
+        "Advanced Map Reading And Survey Skills",
+        "Advanced",
+        "Reading",
+        "Survey",
+        "Skills",
+        "idea",
+        "skill",
+        "example"
+      ],
+      "misconceptions": [
+        "giving a general answer about Advanced Map Reading And Survey Skills without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania map, community, citizenship, culture, environment, or heritage example for Advanced Map Reading And Survey Skills",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a real example",
+        "reasoning is clear",
+        "work is checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community evidence card",
+          "description": "map/timeline/community evidence card for Advanced Map Reading And Survey Skills",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "fieldwork table",
+          "description": "fieldwork table for Advanced Map Reading And Survey Skills",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Geography",
+          "subject": "Geography",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/22439a89e08a05f32ad8a5ff37e97903fac831feeab12513070c1c324c9b20e7.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/geography/a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0de29d670efe3c06064550e6ae5b987f55e21fbf4cde69a1339a7003f82dfc8e",
+            "markdownPageCount": 31,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/geography/a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0de29d670efe3c06064550e6ae5b987f55e21fbf4cde69a1339a7003f82dfc8e",
+              "pageCount": 31,
+              "generatedAt": "2026-06-29T16:46:45.785Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "89a9dd3eb858f8d04152cd2cdba70d9b7fbf62c1bdc89517a8e49705434e9fc3"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:46:45.785Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "ac21af6ab8273a20431bc4ec78694ecb7ddaf21dfaea127878a4661d019e0654"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Geography",
+          "subject": "Geography",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/22439a89e08a05f32ad8a5ff37e97903fac831feeab12513070c1c324c9b20e7.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/geography/a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0de29d670efe3c06064550e6ae5b987f55e21fbf4cde69a1339a7003f82dfc8e",
+            "markdownPageCount": 31,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/geography/a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0de29d670efe3c06064550e6ae5b987f55e21fbf4cde69a1339a7003f82dfc8e",
+              "pageCount": 31,
+              "generatedAt": "2026-06-29T16:46:45.785Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "89a9dd3eb858f8d04152cd2cdba70d9b7fbf62c1bdc89517a8e49705434e9fc3"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:46:45.785Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "ac21af6ab8273a20431bc4ec78694ecb7ddaf21dfaea127878a4661d019e0654"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-IV-geography-topic-002",
+      "grade": "Form IV",
+      "strandId": "fallback-form-iv-geography-2",
+      "subStrandId": "fallback-form-iv-geography-2",
+      "parentSubStrandId": "fallback-form-iv-geography-2",
+      "strandTitle": "Climate Change Disaster Risk And Adaptation",
+      "unitTitle": "Climate Change Disaster Risk And Adaptation",
+      "sourceUnitTitle": "Climate Change Disaster Risk And Adaptation",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-iv-geography-2-outcome-1",
+          "text": "explain and apply climate change disaster risk and adaptation in a real learning situation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can climate change disaster risk and adaptation help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Climate Change Disaster Risk And Adaptation.",
+        "Review key vocabulary from the previous Geography lesson."
+      ],
+      "keyVocabulary": [
+        "Climate Change Disaster Risk And Adaptation",
+        "Climate",
+        "Change",
+        "Disaster",
+        "Risk",
+        "Adaptation",
+        "idea",
+        "skill"
+      ],
+      "misconceptions": [
+        "giving a general answer about Climate Change Disaster Risk And Adaptation without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania map, community, citizenship, culture, environment, or heritage example for Climate Change Disaster Risk And Adaptation",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a real example",
+        "reasoning is clear",
+        "work is checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community evidence card",
+          "description": "map/timeline/community evidence card for Climate Change Disaster Risk And Adaptation",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "fieldwork table",
+          "description": "fieldwork table for Climate Change Disaster Risk And Adaptation",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Geography",
+          "subject": "Geography",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/22439a89e08a05f32ad8a5ff37e97903fac831feeab12513070c1c324c9b20e7.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/geography/a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0de29d670efe3c06064550e6ae5b987f55e21fbf4cde69a1339a7003f82dfc8e",
+            "markdownPageCount": 31,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/geography/a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0de29d670efe3c06064550e6ae5b987f55e21fbf4cde69a1339a7003f82dfc8e",
+              "pageCount": 31,
+              "generatedAt": "2026-06-29T16:46:45.785Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "89a9dd3eb858f8d04152cd2cdba70d9b7fbf62c1bdc89517a8e49705434e9fc3"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:46:45.785Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "ac21af6ab8273a20431bc4ec78694ecb7ddaf21dfaea127878a4661d019e0654"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Geography",
+          "subject": "Geography",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/22439a89e08a05f32ad8a5ff37e97903fac831feeab12513070c1c324c9b20e7.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/geography/a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0de29d670efe3c06064550e6ae5b987f55e21fbf4cde69a1339a7003f82dfc8e",
+            "markdownPageCount": 31,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/geography/a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0de29d670efe3c06064550e6ae5b987f55e21fbf4cde69a1339a7003f82dfc8e",
+              "pageCount": 31,
+              "generatedAt": "2026-06-29T16:46:45.785Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "89a9dd3eb858f8d04152cd2cdba70d9b7fbf62c1bdc89517a8e49705434e9fc3"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:46:45.785Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "ac21af6ab8273a20431bc4ec78694ecb7ddaf21dfaea127878a4661d019e0654"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-IV-geography-topic-003",
+      "grade": "Form IV",
+      "strandId": "fallback-form-iv-geography-3",
+      "subStrandId": "fallback-form-iv-geography-3",
+      "parentSubStrandId": "fallback-form-iv-geography-3",
+      "strandTitle": "Population Development And Resources",
+      "unitTitle": "Population Development And Resources",
+      "sourceUnitTitle": "Population Development And Resources",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-iv-geography-3-outcome-1",
+          "text": "explain and apply population development and resources in a real learning situation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can population development and resources help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Population Development And Resources.",
+        "Review key vocabulary from the previous Geography lesson."
+      ],
+      "keyVocabulary": [
+        "Population Development And Resources",
+        "Population",
+        "Development",
+        "Resources",
+        "idea",
+        "skill",
+        "example",
+        "practice"
+      ],
+      "misconceptions": [
+        "giving a general answer about Population Development And Resources without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania map, community, citizenship, culture, environment, or heritage example for Population Development And Resources",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a real example",
+        "reasoning is clear",
+        "work is checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community evidence card",
+          "description": "map/timeline/community evidence card for Population Development And Resources",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "fieldwork table",
+          "description": "fieldwork table for Population Development And Resources",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Geography",
+          "subject": "Geography",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/22439a89e08a05f32ad8a5ff37e97903fac831feeab12513070c1c324c9b20e7.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/geography/a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0de29d670efe3c06064550e6ae5b987f55e21fbf4cde69a1339a7003f82dfc8e",
+            "markdownPageCount": 31,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/geography/a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0de29d670efe3c06064550e6ae5b987f55e21fbf4cde69a1339a7003f82dfc8e",
+              "pageCount": 31,
+              "generatedAt": "2026-06-29T16:46:45.785Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "89a9dd3eb858f8d04152cd2cdba70d9b7fbf62c1bdc89517a8e49705434e9fc3"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:46:45.785Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "ac21af6ab8273a20431bc4ec78694ecb7ddaf21dfaea127878a4661d019e0654"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Geography",
+          "subject": "Geography",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/22439a89e08a05f32ad8a5ff37e97903fac831feeab12513070c1c324c9b20e7.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/geography/a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0de29d670efe3c06064550e6ae5b987f55e21fbf4cde69a1339a7003f82dfc8e",
+            "markdownPageCount": 31,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/geography/a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0de29d670efe3c06064550e6ae5b987f55e21fbf4cde69a1339a7003f82dfc8e",
+              "pageCount": 31,
+              "generatedAt": "2026-06-29T16:46:45.785Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "89a9dd3eb858f8d04152cd2cdba70d9b7fbf62c1bdc89517a8e49705434e9fc3"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:46:45.785Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "ac21af6ab8273a20431bc4ec78694ecb7ddaf21dfaea127878a4661d019e0654"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-IV-geography-topic-004",
+      "grade": "Form IV",
+      "strandId": "fallback-form-iv-geography-4",
+      "subStrandId": "fallback-form-iv-geography-4",
+      "parentSubStrandId": "fallback-form-iv-geography-4",
+      "strandTitle": "Agriculture Industry And Trade Systems",
+      "unitTitle": "Agriculture Industry And Trade Systems",
+      "sourceUnitTitle": "Agriculture Industry And Trade Systems",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-iv-geography-4-outcome-1",
+          "text": "explain and apply agriculture industry and trade systems in a real learning situation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can agriculture industry and trade systems help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Agriculture Industry And Trade Systems.",
+        "Review key vocabulary from the previous Geography lesson."
+      ],
+      "keyVocabulary": [
+        "Agriculture Industry And Trade Systems",
+        "Agriculture",
+        "Industry",
+        "Trade",
+        "Systems",
+        "idea",
+        "skill",
+        "example"
+      ],
+      "misconceptions": [
+        "giving a general answer about Agriculture Industry And Trade Systems without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania map, community, citizenship, culture, environment, or heritage example for Agriculture Industry And Trade Systems",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a real example",
+        "reasoning is clear",
+        "work is checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community evidence card",
+          "description": "map/timeline/community evidence card for Agriculture Industry And Trade Systems",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "fieldwork table",
+          "description": "fieldwork table for Agriculture Industry And Trade Systems",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Geography",
+          "subject": "Geography",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/22439a89e08a05f32ad8a5ff37e97903fac831feeab12513070c1c324c9b20e7.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/geography/a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0de29d670efe3c06064550e6ae5b987f55e21fbf4cde69a1339a7003f82dfc8e",
+            "markdownPageCount": 31,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/geography/a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0de29d670efe3c06064550e6ae5b987f55e21fbf4cde69a1339a7003f82dfc8e",
+              "pageCount": 31,
+              "generatedAt": "2026-06-29T16:46:45.785Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "89a9dd3eb858f8d04152cd2cdba70d9b7fbf62c1bdc89517a8e49705434e9fc3"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:46:45.785Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "ac21af6ab8273a20431bc4ec78694ecb7ddaf21dfaea127878a4661d019e0654"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Geography",
+          "subject": "Geography",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/22439a89e08a05f32ad8a5ff37e97903fac831feeab12513070c1c324c9b20e7.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/geography/a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0de29d670efe3c06064550e6ae5b987f55e21fbf4cde69a1339a7003f82dfc8e",
+            "markdownPageCount": 31,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/geography/a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0de29d670efe3c06064550e6ae5b987f55e21fbf4cde69a1339a7003f82dfc8e",
+              "pageCount": 31,
+              "generatedAt": "2026-06-29T16:46:45.785Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "89a9dd3eb858f8d04152cd2cdba70d9b7fbf62c1bdc89517a8e49705434e9fc3"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:46:45.785Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "ac21af6ab8273a20431bc4ec78694ecb7ddaf21dfaea127878a4661d019e0654"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-IV-geography-topic-005",
+      "grade": "Form IV",
+      "strandId": "fallback-form-iv-geography-5",
+      "subStrandId": "fallback-form-iv-geography-5",
+      "parentSubStrandId": "fallback-form-iv-geography-5",
+      "strandTitle": "Environmental Management Case Studies",
+      "unitTitle": "Environmental Management Case Studies",
+      "sourceUnitTitle": "Environmental Management Case Studies",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-iv-geography-5-outcome-1",
+          "text": "explain and apply environmental management case studies in a real learning situation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can environmental management case studies help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Environmental Management Case Studies.",
+        "Review key vocabulary from the previous Geography lesson."
+      ],
+      "keyVocabulary": [
+        "Environmental Management Case Studies",
+        "Environmental",
+        "Management",
+        "Case",
+        "Studies",
+        "idea",
+        "skill",
+        "example"
+      ],
+      "misconceptions": [
+        "giving a general answer about Environmental Management Case Studies without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania map, community, citizenship, culture, environment, or heritage example for Environmental Management Case Studies",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a real example",
+        "reasoning is clear",
+        "work is checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community evidence card",
+          "description": "map/timeline/community evidence card for Environmental Management Case Studies",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "fieldwork table",
+          "description": "fieldwork table for Environmental Management Case Studies",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Geography",
+          "subject": "Geography",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/22439a89e08a05f32ad8a5ff37e97903fac831feeab12513070c1c324c9b20e7.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/geography/a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0de29d670efe3c06064550e6ae5b987f55e21fbf4cde69a1339a7003f82dfc8e",
+            "markdownPageCount": 31,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/geography/a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0de29d670efe3c06064550e6ae5b987f55e21fbf4cde69a1339a7003f82dfc8e",
+              "pageCount": 31,
+              "generatedAt": "2026-06-29T16:46:45.785Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "89a9dd3eb858f8d04152cd2cdba70d9b7fbf62c1bdc89517a8e49705434e9fc3"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:46:45.785Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "ac21af6ab8273a20431bc4ec78694ecb7ddaf21dfaea127878a4661d019e0654"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Geography",
+          "subject": "Geography",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/22439a89e08a05f32ad8a5ff37e97903fac831feeab12513070c1c324c9b20e7.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/geography/a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0de29d670efe3c06064550e6ae5b987f55e21fbf4cde69a1339a7003f82dfc8e",
+            "markdownPageCount": 31,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/geography/a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0de29d670efe3c06064550e6ae5b987f55e21fbf4cde69a1339a7003f82dfc8e",
+              "pageCount": 31,
+              "generatedAt": "2026-06-29T16:46:45.785Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "89a9dd3eb858f8d04152cd2cdba70d9b7fbf62c1bdc89517a8e49705434e9fc3"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:46:45.785Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "ac21af6ab8273a20431bc4ec78694ecb7ddaf21dfaea127878a4661d019e0654"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-IV-geography-topic-006",
+      "grade": "Form IV",
+      "strandId": "fallback-form-iv-geography-6",
+      "subStrandId": "fallback-form-iv-geography-6",
+      "parentSubStrandId": "fallback-form-iv-geography-6",
+      "strandTitle": "Research Report Writing",
+      "unitTitle": "Research Report Writing",
+      "sourceUnitTitle": "Research Report Writing",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-iv-geography-6-outcome-1",
+          "text": "explain and apply research report writing in a real learning situation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can research report writing help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Research Report Writing.",
+        "Review key vocabulary from the previous Geography lesson."
+      ],
+      "keyVocabulary": [
+        "Research Report Writing",
+        "Research",
+        "Report",
+        "Writing",
+        "idea",
+        "skill",
+        "example",
+        "practice"
+      ],
+      "misconceptions": [
+        "giving a general answer about Research Report Writing without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania map, community, citizenship, culture, environment, or heritage example for Research Report Writing",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a real example",
+        "reasoning is clear",
+        "work is checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community evidence card",
+          "description": "map/timeline/community evidence card for Research Report Writing",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "fieldwork table",
+          "description": "fieldwork table for Research Report Writing",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Geography",
+          "subject": "Geography",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/22439a89e08a05f32ad8a5ff37e97903fac831feeab12513070c1c324c9b20e7.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/geography/a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0de29d670efe3c06064550e6ae5b987f55e21fbf4cde69a1339a7003f82dfc8e",
+            "markdownPageCount": 31,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/geography/a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0de29d670efe3c06064550e6ae5b987f55e21fbf4cde69a1339a7003f82dfc8e",
+              "pageCount": 31,
+              "generatedAt": "2026-06-29T16:46:45.785Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "89a9dd3eb858f8d04152cd2cdba70d9b7fbf62c1bdc89517a8e49705434e9fc3"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:46:45.785Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "ac21af6ab8273a20431bc4ec78694ecb7ddaf21dfaea127878a4661d019e0654"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Geography",
+          "subject": "Geography",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/22439a89e08a05f32ad8a5ff37e97903fac831feeab12513070c1c324c9b20e7.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/geography/a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0de29d670efe3c06064550e6ae5b987f55e21fbf4cde69a1339a7003f82dfc8e",
+            "markdownPageCount": 31,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/geography/a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0de29d670efe3c06064550e6ae5b987f55e21fbf4cde69a1339a7003f82dfc8e",
+              "pageCount": 31,
+              "generatedAt": "2026-06-29T16:46:45.785Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "89a9dd3eb858f8d04152cd2cdba70d9b7fbf62c1bdc89517a8e49705434e9fc3"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:46:45.785Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "ac21af6ab8273a20431bc4ec78694ecb7ddaf21dfaea127878a4661d019e0654"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-IV-geography-topic-007",
+      "grade": "Form IV",
+      "strandId": "fallback-form-iv-geography-7",
+      "subStrandId": "fallback-form-iv-geography-7",
+      "parentSubStrandId": "fallback-form-iv-geography-7",
+      "strandTitle": "Geography Revision With Data",
+      "unitTitle": "Geography Revision With Data",
+      "sourceUnitTitle": "Geography Revision With Data",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-iv-geography-7-outcome-1",
+          "text": "explain and apply geography revision with data in a real learning situation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can geography revision with data help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Geography Revision With Data.",
+        "Review key vocabulary from the previous Geography lesson."
+      ],
+      "keyVocabulary": [
+        "Geography Revision With Data",
+        "Geography",
+        "Revision",
+        "With",
+        "Data",
+        "idea",
+        "skill",
+        "example"
+      ],
+      "misconceptions": [
+        "giving a general answer about Geography Revision With Data without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania map, community, citizenship, culture, environment, or heritage example for Geography Revision With Data",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a real example",
+        "reasoning is clear",
+        "work is checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community evidence card",
+          "description": "map/timeline/community evidence card for Geography Revision With Data",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "fieldwork table",
+          "description": "fieldwork table for Geography Revision With Data",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Geography",
+          "subject": "Geography",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/22439a89e08a05f32ad8a5ff37e97903fac831feeab12513070c1c324c9b20e7.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/geography/a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0de29d670efe3c06064550e6ae5b987f55e21fbf4cde69a1339a7003f82dfc8e",
+            "markdownPageCount": 31,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/geography/a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0de29d670efe3c06064550e6ae5b987f55e21fbf4cde69a1339a7003f82dfc8e",
+              "pageCount": 31,
+              "generatedAt": "2026-06-29T16:46:45.785Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "89a9dd3eb858f8d04152cd2cdba70d9b7fbf62c1bdc89517a8e49705434e9fc3"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:46:45.785Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "ac21af6ab8273a20431bc4ec78694ecb7ddaf21dfaea127878a4661d019e0654"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Geography",
+          "subject": "Geography",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/22439a89e08a05f32ad8a5ff37e97903fac831feeab12513070c1c324c9b20e7.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/geography/a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0de29d670efe3c06064550e6ae5b987f55e21fbf4cde69a1339a7003f82dfc8e",
+            "markdownPageCount": 31,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/geography/a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0de29d670efe3c06064550e6ae5b987f55e21fbf4cde69a1339a7003f82dfc8e",
+              "pageCount": 31,
+              "generatedAt": "2026-06-29T16:46:45.785Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "89a9dd3eb858f8d04152cd2cdba70d9b7fbf62c1bdc89517a8e49705434e9fc3"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:46:45.785Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "ac21af6ab8273a20431bc4ec78694ecb7ddaf21dfaea127878a4661d019e0654"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-IV-geography-topic-008",
+      "grade": "Form IV",
+      "strandId": "fallback-form-iv-geography-8",
+      "subStrandId": "fallback-form-iv-geography-8",
+      "parentSubStrandId": "fallback-form-iv-geography-8",
+      "strandTitle": "Form IV Geography Examination Project",
+      "unitTitle": "Form IV Geography Examination Project",
+      "sourceUnitTitle": "Form IV Geography Examination Project",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-iv-geography-8-outcome-1",
+          "text": "explain and apply form iv geography examination project in a real learning situation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can form iv geography examination project help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Form IV Geography Examination Project.",
+        "Review key vocabulary from the previous Geography lesson."
+      ],
+      "keyVocabulary": [
+        "Form IV Geography Examination Project",
+        "Form",
+        "Geography",
+        "Examination",
+        "Project",
+        "idea",
+        "skill",
+        "example"
+      ],
+      "misconceptions": [
+        "giving a general answer about Form IV Geography Examination Project without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania map, community, citizenship, culture, environment, or heritage example for Form IV Geography Examination Project",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a real example",
+        "reasoning is clear",
+        "work is checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community evidence card",
+          "description": "map/timeline/community evidence card for Form IV Geography Examination Project",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "fieldwork table",
+          "description": "fieldwork table for Form IV Geography Examination Project",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Geography",
+          "subject": "Geography",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/22439a89e08a05f32ad8a5ff37e97903fac831feeab12513070c1c324c9b20e7.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/geography/a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0de29d670efe3c06064550e6ae5b987f55e21fbf4cde69a1339a7003f82dfc8e",
+            "markdownPageCount": 31,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/geography/a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0de29d670efe3c06064550e6ae5b987f55e21fbf4cde69a1339a7003f82dfc8e",
+              "pageCount": 31,
+              "generatedAt": "2026-06-29T16:46:45.785Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "89a9dd3eb858f8d04152cd2cdba70d9b7fbf62c1bdc89517a8e49705434e9fc3"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:46:45.785Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "ac21af6ab8273a20431bc4ec78694ecb7ddaf21dfaea127878a4661d019e0654"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Geography",
+          "subject": "Geography",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/22439a89e08a05f32ad8a5ff37e97903fac831feeab12513070c1c324c9b20e7.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/geography/a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0de29d670efe3c06064550e6ae5b987f55e21fbf4cde69a1339a7003f82dfc8e",
+            "markdownPageCount": 31,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/geography/a6853d0e-ec7b-46a7-b4be-2f1e3c2c585a.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0de29d670efe3c06064550e6ae5b987f55e21fbf4cde69a1339a7003f82dfc8e",
+              "pageCount": 31,
+              "generatedAt": "2026-06-29T16:46:45.785Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "89a9dd3eb858f8d04152cd2cdba70d9b7fbf62c1bdc89517a8e49705434e9fc3"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:46:45.785Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "ac21af6ab8273a20431bc4ec78694ecb7ddaf21dfaea127878a4661d019e0654"
+        }
+      ]
+    }
+  ]
+}

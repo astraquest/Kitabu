@@ -1,0 +1,1279 @@
+{
+  "schemaVersion": 1,
+  "sourceType": "normalized-curriculum",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Standard VI",
+  "subject": "Hisabati",
+  "generatedAt": "2026-07-01T05:42:10Z",
+  "sourceSnapshotHash": "717f4c70c27d6976bec9e686c1641da009646afeb4a0dc9acab15ce3e9df04a0",
+  "writingStandard": {
+    "voice": "simple, conversational, purposeful, age-appropriate, and learner-first",
+    "antiFluff": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "coversDeferred": true
+  },
+  "strands": [
+    {
+      "strandId": "fallback-standard-vi-hisabati-1",
+      "number": "",
+      "title": "Integers And Number Patterns",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-standard-vi-hisabati-2",
+      "number": "",
+      "title": "Fractions Decimals Percentages And Ratios",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-standard-vi-hisabati-3",
+      "number": "",
+      "title": "Algebraic Thinking And Missing Values",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-standard-vi-hisabati-4",
+      "number": "",
+      "title": "Geometry Constructions And Symmetry",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-standard-vi-hisabati-5",
+      "number": "",
+      "title": "Measurement Area Volume And Capacity",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-standard-vi-hisabati-6",
+      "number": "",
+      "title": "Data Handling And Probability",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-standard-vi-hisabati-7",
+      "number": "",
+      "title": "Money Rate Time And Scale",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-standard-vi-hisabati-8",
+      "number": "",
+      "title": "Primary Mathematics Transition Review",
+      "topicCount": 1
+    }
+  ],
+  "topics": [
+    {
+      "topicId": "TZA-STANDARD-VI-hisabati-topic-001",
+      "grade": "Standard VI",
+      "strandId": "fallback-standard-vi-hisabati-1",
+      "subStrandId": "fallback-standard-vi-hisabati-1",
+      "parentSubStrandId": "fallback-standard-vi-hisabati-1",
+      "strandTitle": "Integers And Number Patterns",
+      "unitTitle": "Integers And Number Patterns",
+      "sourceUnitTitle": "Integers And Number Patterns",
+      "learningOutcomes": [
+        {
+          "id": "fallback-standard-vi-hisabati-1-outcome-1",
+          "text": "solve and explain problems about integers and number patterns"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can integers and number patterns help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Integers And Number Patterns.",
+        "Review key vocabulary from the previous Hisabati lesson."
+      ],
+      "keyVocabulary": [
+        "Integers And Number Patterns",
+        "Integers",
+        "Number",
+        "Patterns",
+        "method",
+        "model",
+        "unit",
+        "answer"
+      ],
+      "misconceptions": [
+        "giving a general answer about Integers And Number Patterns without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania school, market, farming, building, transport, or data problem for Integers And Number Patterns",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Integers And Number Patterns",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for Integers And Number Patterns",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ee5ef012-4723-4515-af51-1f69b0bbb954",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard VI Hisabati",
+          "subject": "Hisabati",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/254ed101fe7246a14c809aa0296752b9faf9b156f180bc052a5cb440f0b7fd21.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_VI",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/hisabati/ee5ef012-4723-4515-af51-1f69b0bbb954.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3c1935941d77aaf548949ff3573b6b824bd518db256c310c2d047fba7a1fd711",
+            "markdownPageCount": 47,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/hisabati/ee5ef012-4723-4515-af51-1f69b0bbb954.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3c1935941d77aaf548949ff3573b6b824bd518db256c310c2d047fba7a1fd711",
+              "pageCount": 47,
+              "generatedAt": "2026-06-29T16:48:38.664Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "010d846390a8359e8d97dc89edfab30f65a6c384e55961bf4b6b6decb22d5404"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:38.664Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "717f4c70c27d6976bec9e686c1641da009646afeb4a0dc9acab15ce3e9df04a0"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ee5ef012-4723-4515-af51-1f69b0bbb954",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard VI Hisabati",
+          "subject": "Hisabati",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/254ed101fe7246a14c809aa0296752b9faf9b156f180bc052a5cb440f0b7fd21.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_VI",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/hisabati/ee5ef012-4723-4515-af51-1f69b0bbb954.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3c1935941d77aaf548949ff3573b6b824bd518db256c310c2d047fba7a1fd711",
+            "markdownPageCount": 47,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/hisabati/ee5ef012-4723-4515-af51-1f69b0bbb954.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3c1935941d77aaf548949ff3573b6b824bd518db256c310c2d047fba7a1fd711",
+              "pageCount": 47,
+              "generatedAt": "2026-06-29T16:48:38.664Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "010d846390a8359e8d97dc89edfab30f65a6c384e55961bf4b6b6decb22d5404"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:38.664Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "717f4c70c27d6976bec9e686c1641da009646afeb4a0dc9acab15ce3e9df04a0"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-STANDARD-VI-hisabati-topic-002",
+      "grade": "Standard VI",
+      "strandId": "fallback-standard-vi-hisabati-2",
+      "subStrandId": "fallback-standard-vi-hisabati-2",
+      "parentSubStrandId": "fallback-standard-vi-hisabati-2",
+      "strandTitle": "Fractions Decimals Percentages And Ratios",
+      "unitTitle": "Fractions Decimals Percentages And Ratios",
+      "sourceUnitTitle": "Fractions Decimals Percentages And Ratios",
+      "learningOutcomes": [
+        {
+          "id": "fallback-standard-vi-hisabati-2-outcome-1",
+          "text": "solve and explain problems about fractions decimals percentages and ratios"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can fractions decimals percentages and ratios help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Fractions Decimals Percentages And Ratios.",
+        "Review key vocabulary from the previous Hisabati lesson."
+      ],
+      "keyVocabulary": [
+        "Fractions Decimals Percentages And Ratios",
+        "Fractions",
+        "Decimals",
+        "Percentages",
+        "Ratios",
+        "method",
+        "model",
+        "unit"
+      ],
+      "misconceptions": [
+        "giving a general answer about Fractions Decimals Percentages And Ratios without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania school, market, farming, building, transport, or data problem for Fractions Decimals Percentages And Ratios",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Fractions Decimals Percentages And Ratios",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for Fractions Decimals Percentages And Ratios",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ee5ef012-4723-4515-af51-1f69b0bbb954",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard VI Hisabati",
+          "subject": "Hisabati",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/254ed101fe7246a14c809aa0296752b9faf9b156f180bc052a5cb440f0b7fd21.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_VI",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/hisabati/ee5ef012-4723-4515-af51-1f69b0bbb954.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3c1935941d77aaf548949ff3573b6b824bd518db256c310c2d047fba7a1fd711",
+            "markdownPageCount": 47,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/hisabati/ee5ef012-4723-4515-af51-1f69b0bbb954.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3c1935941d77aaf548949ff3573b6b824bd518db256c310c2d047fba7a1fd711",
+              "pageCount": 47,
+              "generatedAt": "2026-06-29T16:48:38.664Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "010d846390a8359e8d97dc89edfab30f65a6c384e55961bf4b6b6decb22d5404"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:38.664Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "717f4c70c27d6976bec9e686c1641da009646afeb4a0dc9acab15ce3e9df04a0"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ee5ef012-4723-4515-af51-1f69b0bbb954",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard VI Hisabati",
+          "subject": "Hisabati",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/254ed101fe7246a14c809aa0296752b9faf9b156f180bc052a5cb440f0b7fd21.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_VI",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/hisabati/ee5ef012-4723-4515-af51-1f69b0bbb954.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3c1935941d77aaf548949ff3573b6b824bd518db256c310c2d047fba7a1fd711",
+            "markdownPageCount": 47,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/hisabati/ee5ef012-4723-4515-af51-1f69b0bbb954.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3c1935941d77aaf548949ff3573b6b824bd518db256c310c2d047fba7a1fd711",
+              "pageCount": 47,
+              "generatedAt": "2026-06-29T16:48:38.664Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "010d846390a8359e8d97dc89edfab30f65a6c384e55961bf4b6b6decb22d5404"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:38.664Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "717f4c70c27d6976bec9e686c1641da009646afeb4a0dc9acab15ce3e9df04a0"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-STANDARD-VI-hisabati-topic-003",
+      "grade": "Standard VI",
+      "strandId": "fallback-standard-vi-hisabati-3",
+      "subStrandId": "fallback-standard-vi-hisabati-3",
+      "parentSubStrandId": "fallback-standard-vi-hisabati-3",
+      "strandTitle": "Algebraic Thinking And Missing Values",
+      "unitTitle": "Algebraic Thinking And Missing Values",
+      "sourceUnitTitle": "Algebraic Thinking And Missing Values",
+      "learningOutcomes": [
+        {
+          "id": "fallback-standard-vi-hisabati-3-outcome-1",
+          "text": "solve and explain problems about algebraic thinking and missing values"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can algebraic thinking and missing values help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Algebraic Thinking And Missing Values.",
+        "Review key vocabulary from the previous Hisabati lesson."
+      ],
+      "keyVocabulary": [
+        "Algebraic Thinking And Missing Values",
+        "Algebraic",
+        "Thinking",
+        "Missing",
+        "Values",
+        "method",
+        "model",
+        "unit"
+      ],
+      "misconceptions": [
+        "giving a general answer about Algebraic Thinking And Missing Values without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania school, market, farming, building, transport, or data problem for Algebraic Thinking And Missing Values",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Algebraic Thinking And Missing Values",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for Algebraic Thinking And Missing Values",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ee5ef012-4723-4515-af51-1f69b0bbb954",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard VI Hisabati",
+          "subject": "Hisabati",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/254ed101fe7246a14c809aa0296752b9faf9b156f180bc052a5cb440f0b7fd21.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_VI",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/hisabati/ee5ef012-4723-4515-af51-1f69b0bbb954.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3c1935941d77aaf548949ff3573b6b824bd518db256c310c2d047fba7a1fd711",
+            "markdownPageCount": 47,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/hisabati/ee5ef012-4723-4515-af51-1f69b0bbb954.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3c1935941d77aaf548949ff3573b6b824bd518db256c310c2d047fba7a1fd711",
+              "pageCount": 47,
+              "generatedAt": "2026-06-29T16:48:38.664Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "010d846390a8359e8d97dc89edfab30f65a6c384e55961bf4b6b6decb22d5404"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:38.664Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "717f4c70c27d6976bec9e686c1641da009646afeb4a0dc9acab15ce3e9df04a0"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ee5ef012-4723-4515-af51-1f69b0bbb954",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard VI Hisabati",
+          "subject": "Hisabati",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/254ed101fe7246a14c809aa0296752b9faf9b156f180bc052a5cb440f0b7fd21.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_VI",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/hisabati/ee5ef012-4723-4515-af51-1f69b0bbb954.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3c1935941d77aaf548949ff3573b6b824bd518db256c310c2d047fba7a1fd711",
+            "markdownPageCount": 47,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/hisabati/ee5ef012-4723-4515-af51-1f69b0bbb954.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3c1935941d77aaf548949ff3573b6b824bd518db256c310c2d047fba7a1fd711",
+              "pageCount": 47,
+              "generatedAt": "2026-06-29T16:48:38.664Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "010d846390a8359e8d97dc89edfab30f65a6c384e55961bf4b6b6decb22d5404"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:38.664Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "717f4c70c27d6976bec9e686c1641da009646afeb4a0dc9acab15ce3e9df04a0"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-STANDARD-VI-hisabati-topic-004",
+      "grade": "Standard VI",
+      "strandId": "fallback-standard-vi-hisabati-4",
+      "subStrandId": "fallback-standard-vi-hisabati-4",
+      "parentSubStrandId": "fallback-standard-vi-hisabati-4",
+      "strandTitle": "Geometry Constructions And Symmetry",
+      "unitTitle": "Geometry Constructions And Symmetry",
+      "sourceUnitTitle": "Geometry Constructions And Symmetry",
+      "learningOutcomes": [
+        {
+          "id": "fallback-standard-vi-hisabati-4-outcome-1",
+          "text": "solve and explain problems about geometry constructions and symmetry"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can geometry constructions and symmetry help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Geometry Constructions And Symmetry.",
+        "Review key vocabulary from the previous Hisabati lesson."
+      ],
+      "keyVocabulary": [
+        "Geometry Constructions And Symmetry",
+        "Geometry",
+        "Constructions",
+        "Symmetry",
+        "method",
+        "model",
+        "unit",
+        "answer"
+      ],
+      "misconceptions": [
+        "giving a general answer about Geometry Constructions And Symmetry without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania school, market, farming, building, transport, or data problem for Geometry Constructions And Symmetry",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Geometry Constructions And Symmetry",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for Geometry Constructions And Symmetry",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ee5ef012-4723-4515-af51-1f69b0bbb954",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard VI Hisabati",
+          "subject": "Hisabati",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/254ed101fe7246a14c809aa0296752b9faf9b156f180bc052a5cb440f0b7fd21.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_VI",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/hisabati/ee5ef012-4723-4515-af51-1f69b0bbb954.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3c1935941d77aaf548949ff3573b6b824bd518db256c310c2d047fba7a1fd711",
+            "markdownPageCount": 47,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/hisabati/ee5ef012-4723-4515-af51-1f69b0bbb954.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3c1935941d77aaf548949ff3573b6b824bd518db256c310c2d047fba7a1fd711",
+              "pageCount": 47,
+              "generatedAt": "2026-06-29T16:48:38.664Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "010d846390a8359e8d97dc89edfab30f65a6c384e55961bf4b6b6decb22d5404"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:38.664Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "717f4c70c27d6976bec9e686c1641da009646afeb4a0dc9acab15ce3e9df04a0"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ee5ef012-4723-4515-af51-1f69b0bbb954",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard VI Hisabati",
+          "subject": "Hisabati",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/254ed101fe7246a14c809aa0296752b9faf9b156f180bc052a5cb440f0b7fd21.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_VI",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/hisabati/ee5ef012-4723-4515-af51-1f69b0bbb954.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3c1935941d77aaf548949ff3573b6b824bd518db256c310c2d047fba7a1fd711",
+            "markdownPageCount": 47,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/hisabati/ee5ef012-4723-4515-af51-1f69b0bbb954.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3c1935941d77aaf548949ff3573b6b824bd518db256c310c2d047fba7a1fd711",
+              "pageCount": 47,
+              "generatedAt": "2026-06-29T16:48:38.664Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "010d846390a8359e8d97dc89edfab30f65a6c384e55961bf4b6b6decb22d5404"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:38.664Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "717f4c70c27d6976bec9e686c1641da009646afeb4a0dc9acab15ce3e9df04a0"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-STANDARD-VI-hisabati-topic-005",
+      "grade": "Standard VI",
+      "strandId": "fallback-standard-vi-hisabati-5",
+      "subStrandId": "fallback-standard-vi-hisabati-5",
+      "parentSubStrandId": "fallback-standard-vi-hisabati-5",
+      "strandTitle": "Measurement Area Volume And Capacity",
+      "unitTitle": "Measurement Area Volume And Capacity",
+      "sourceUnitTitle": "Measurement Area Volume And Capacity",
+      "learningOutcomes": [
+        {
+          "id": "fallback-standard-vi-hisabati-5-outcome-1",
+          "text": "solve and explain problems about measurement area volume and capacity"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can measurement area volume and capacity help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Measurement Area Volume And Capacity.",
+        "Review key vocabulary from the previous Hisabati lesson."
+      ],
+      "keyVocabulary": [
+        "Measurement Area Volume And Capacity",
+        "Measurement",
+        "Area",
+        "Volume",
+        "Capacity",
+        "method",
+        "model",
+        "unit"
+      ],
+      "misconceptions": [
+        "giving a general answer about Measurement Area Volume And Capacity without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania school, market, farming, building, transport, or data problem for Measurement Area Volume And Capacity",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Measurement Area Volume And Capacity",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for Measurement Area Volume And Capacity",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ee5ef012-4723-4515-af51-1f69b0bbb954",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard VI Hisabati",
+          "subject": "Hisabati",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/254ed101fe7246a14c809aa0296752b9faf9b156f180bc052a5cb440f0b7fd21.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_VI",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/hisabati/ee5ef012-4723-4515-af51-1f69b0bbb954.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3c1935941d77aaf548949ff3573b6b824bd518db256c310c2d047fba7a1fd711",
+            "markdownPageCount": 47,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/hisabati/ee5ef012-4723-4515-af51-1f69b0bbb954.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3c1935941d77aaf548949ff3573b6b824bd518db256c310c2d047fba7a1fd711",
+              "pageCount": 47,
+              "generatedAt": "2026-06-29T16:48:38.664Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "010d846390a8359e8d97dc89edfab30f65a6c384e55961bf4b6b6decb22d5404"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:38.664Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "717f4c70c27d6976bec9e686c1641da009646afeb4a0dc9acab15ce3e9df04a0"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ee5ef012-4723-4515-af51-1f69b0bbb954",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard VI Hisabati",
+          "subject": "Hisabati",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/254ed101fe7246a14c809aa0296752b9faf9b156f180bc052a5cb440f0b7fd21.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_VI",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/hisabati/ee5ef012-4723-4515-af51-1f69b0bbb954.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3c1935941d77aaf548949ff3573b6b824bd518db256c310c2d047fba7a1fd711",
+            "markdownPageCount": 47,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/hisabati/ee5ef012-4723-4515-af51-1f69b0bbb954.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3c1935941d77aaf548949ff3573b6b824bd518db256c310c2d047fba7a1fd711",
+              "pageCount": 47,
+              "generatedAt": "2026-06-29T16:48:38.664Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "010d846390a8359e8d97dc89edfab30f65a6c384e55961bf4b6b6decb22d5404"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:38.664Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "717f4c70c27d6976bec9e686c1641da009646afeb4a0dc9acab15ce3e9df04a0"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-STANDARD-VI-hisabati-topic-006",
+      "grade": "Standard VI",
+      "strandId": "fallback-standard-vi-hisabati-6",
+      "subStrandId": "fallback-standard-vi-hisabati-6",
+      "parentSubStrandId": "fallback-standard-vi-hisabati-6",
+      "strandTitle": "Data Handling And Probability",
+      "unitTitle": "Data Handling And Probability",
+      "sourceUnitTitle": "Data Handling And Probability",
+      "learningOutcomes": [
+        {
+          "id": "fallback-standard-vi-hisabati-6-outcome-1",
+          "text": "solve and explain problems about data handling and probability"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can data handling and probability help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Data Handling And Probability.",
+        "Review key vocabulary from the previous Hisabati lesson."
+      ],
+      "keyVocabulary": [
+        "Data Handling And Probability",
+        "Data",
+        "Handling",
+        "Probability",
+        "method",
+        "model",
+        "unit",
+        "answer"
+      ],
+      "misconceptions": [
+        "giving a general answer about Data Handling And Probability without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania school, market, farming, building, transport, or data problem for Data Handling And Probability",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Data Handling And Probability",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for Data Handling And Probability",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ee5ef012-4723-4515-af51-1f69b0bbb954",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard VI Hisabati",
+          "subject": "Hisabati",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/254ed101fe7246a14c809aa0296752b9faf9b156f180bc052a5cb440f0b7fd21.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_VI",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/hisabati/ee5ef012-4723-4515-af51-1f69b0bbb954.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3c1935941d77aaf548949ff3573b6b824bd518db256c310c2d047fba7a1fd711",
+            "markdownPageCount": 47,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/hisabati/ee5ef012-4723-4515-af51-1f69b0bbb954.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3c1935941d77aaf548949ff3573b6b824bd518db256c310c2d047fba7a1fd711",
+              "pageCount": 47,
+              "generatedAt": "2026-06-29T16:48:38.664Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "010d846390a8359e8d97dc89edfab30f65a6c384e55961bf4b6b6decb22d5404"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:38.664Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "717f4c70c27d6976bec9e686c1641da009646afeb4a0dc9acab15ce3e9df04a0"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ee5ef012-4723-4515-af51-1f69b0bbb954",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard VI Hisabati",
+          "subject": "Hisabati",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/254ed101fe7246a14c809aa0296752b9faf9b156f180bc052a5cb440f0b7fd21.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_VI",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/hisabati/ee5ef012-4723-4515-af51-1f69b0bbb954.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3c1935941d77aaf548949ff3573b6b824bd518db256c310c2d047fba7a1fd711",
+            "markdownPageCount": 47,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/hisabati/ee5ef012-4723-4515-af51-1f69b0bbb954.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3c1935941d77aaf548949ff3573b6b824bd518db256c310c2d047fba7a1fd711",
+              "pageCount": 47,
+              "generatedAt": "2026-06-29T16:48:38.664Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "010d846390a8359e8d97dc89edfab30f65a6c384e55961bf4b6b6decb22d5404"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:38.664Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "717f4c70c27d6976bec9e686c1641da009646afeb4a0dc9acab15ce3e9df04a0"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-STANDARD-VI-hisabati-topic-007",
+      "grade": "Standard VI",
+      "strandId": "fallback-standard-vi-hisabati-7",
+      "subStrandId": "fallback-standard-vi-hisabati-7",
+      "parentSubStrandId": "fallback-standard-vi-hisabati-7",
+      "strandTitle": "Money Rate Time And Scale",
+      "unitTitle": "Money Rate Time And Scale",
+      "sourceUnitTitle": "Money Rate Time And Scale",
+      "learningOutcomes": [
+        {
+          "id": "fallback-standard-vi-hisabati-7-outcome-1",
+          "text": "solve and explain problems about money rate time and scale"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can money rate time and scale help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Money Rate Time And Scale.",
+        "Review key vocabulary from the previous Hisabati lesson."
+      ],
+      "keyVocabulary": [
+        "Money Rate Time And Scale",
+        "Money",
+        "Rate",
+        "Time",
+        "Scale",
+        "method",
+        "model",
+        "unit"
+      ],
+      "misconceptions": [
+        "giving a general answer about Money Rate Time And Scale without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania school, market, farming, building, transport, or data problem for Money Rate Time And Scale",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Money Rate Time And Scale",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for Money Rate Time And Scale",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ee5ef012-4723-4515-af51-1f69b0bbb954",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard VI Hisabati",
+          "subject": "Hisabati",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/254ed101fe7246a14c809aa0296752b9faf9b156f180bc052a5cb440f0b7fd21.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_VI",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/hisabati/ee5ef012-4723-4515-af51-1f69b0bbb954.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3c1935941d77aaf548949ff3573b6b824bd518db256c310c2d047fba7a1fd711",
+            "markdownPageCount": 47,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/hisabati/ee5ef012-4723-4515-af51-1f69b0bbb954.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3c1935941d77aaf548949ff3573b6b824bd518db256c310c2d047fba7a1fd711",
+              "pageCount": 47,
+              "generatedAt": "2026-06-29T16:48:38.664Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "010d846390a8359e8d97dc89edfab30f65a6c384e55961bf4b6b6decb22d5404"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:38.664Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "717f4c70c27d6976bec9e686c1641da009646afeb4a0dc9acab15ce3e9df04a0"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ee5ef012-4723-4515-af51-1f69b0bbb954",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard VI Hisabati",
+          "subject": "Hisabati",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/254ed101fe7246a14c809aa0296752b9faf9b156f180bc052a5cb440f0b7fd21.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_VI",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/hisabati/ee5ef012-4723-4515-af51-1f69b0bbb954.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3c1935941d77aaf548949ff3573b6b824bd518db256c310c2d047fba7a1fd711",
+            "markdownPageCount": 47,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/hisabati/ee5ef012-4723-4515-af51-1f69b0bbb954.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3c1935941d77aaf548949ff3573b6b824bd518db256c310c2d047fba7a1fd711",
+              "pageCount": 47,
+              "generatedAt": "2026-06-29T16:48:38.664Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "010d846390a8359e8d97dc89edfab30f65a6c384e55961bf4b6b6decb22d5404"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:38.664Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "717f4c70c27d6976bec9e686c1641da009646afeb4a0dc9acab15ce3e9df04a0"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-STANDARD-VI-hisabati-topic-008",
+      "grade": "Standard VI",
+      "strandId": "fallback-standard-vi-hisabati-8",
+      "subStrandId": "fallback-standard-vi-hisabati-8",
+      "parentSubStrandId": "fallback-standard-vi-hisabati-8",
+      "strandTitle": "Primary Mathematics Transition Review",
+      "unitTitle": "Primary Mathematics Transition Review",
+      "sourceUnitTitle": "Primary Mathematics Transition Review",
+      "learningOutcomes": [
+        {
+          "id": "fallback-standard-vi-hisabati-8-outcome-1",
+          "text": "solve and explain problems about primary mathematics transition review"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can primary mathematics transition review help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Primary Mathematics Transition Review.",
+        "Review key vocabulary from the previous Hisabati lesson."
+      ],
+      "keyVocabulary": [
+        "Primary Mathematics Transition Review",
+        "Primary",
+        "Mathematics",
+        "Transition",
+        "Review",
+        "method",
+        "model",
+        "unit"
+      ],
+      "misconceptions": [
+        "giving a general answer about Primary Mathematics Transition Review without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania school, market, farming, building, transport, or data problem for Primary Mathematics Transition Review",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Primary Mathematics Transition Review",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for Primary Mathematics Transition Review",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ee5ef012-4723-4515-af51-1f69b0bbb954",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard VI Hisabati",
+          "subject": "Hisabati",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/254ed101fe7246a14c809aa0296752b9faf9b156f180bc052a5cb440f0b7fd21.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_VI",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/hisabati/ee5ef012-4723-4515-af51-1f69b0bbb954.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3c1935941d77aaf548949ff3573b6b824bd518db256c310c2d047fba7a1fd711",
+            "markdownPageCount": 47,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/hisabati/ee5ef012-4723-4515-af51-1f69b0bbb954.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3c1935941d77aaf548949ff3573b6b824bd518db256c310c2d047fba7a1fd711",
+              "pageCount": 47,
+              "generatedAt": "2026-06-29T16:48:38.664Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "010d846390a8359e8d97dc89edfab30f65a6c384e55961bf4b6b6decb22d5404"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:38.664Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "717f4c70c27d6976bec9e686c1641da009646afeb4a0dc9acab15ce3e9df04a0"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ee5ef012-4723-4515-af51-1f69b0bbb954",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard VI Hisabati",
+          "subject": "Hisabati",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/254ed101fe7246a14c809aa0296752b9faf9b156f180bc052a5cb440f0b7fd21.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_VI",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/hisabati/ee5ef012-4723-4515-af51-1f69b0bbb954.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3c1935941d77aaf548949ff3573b6b824bd518db256c310c2d047fba7a1fd711",
+            "markdownPageCount": 47,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/hisabati/ee5ef012-4723-4515-af51-1f69b0bbb954.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3c1935941d77aaf548949ff3573b6b824bd518db256c310c2d047fba7a1fd711",
+              "pageCount": 47,
+              "generatedAt": "2026-06-29T16:48:38.664Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "010d846390a8359e8d97dc89edfab30f65a6c384e55961bf4b6b6decb22d5404"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:38.664Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "717f4c70c27d6976bec9e686c1641da009646afeb4a0dc9acab15ce3e9df04a0"
+        }
+      ]
+    }
+  ]
+}

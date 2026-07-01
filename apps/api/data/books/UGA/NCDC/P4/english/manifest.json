@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-uga-ncdc-p4-english",
+  "title": "KITABU QUEST P4 English",
+  "country": "UGA",
+  "curriculum": "NCDC",
+  "grade": "P4",
+  "subject": "English",
+  "subjectSlug": "english",
+  "subjectColor": "#2563EB",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v12",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:12:07Z",
+  "sourceSnapshotHash": "65729b1f098635c23d77bc81144e4b5222830ab4345f52ad3a2922012e12c479",
+  "bookPlanHash": "c3b0c746a3852efadb2505b47319f42b8f8d807303513ba0b9ea89ee9aba205b",
+  "pageCount": 111,
+  "wordCount": 9472,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 6,
+    "outcomeCount": 6,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "UGA",
+    "subject": "English",
+    "species": "hare",
+    "role": "storytelling and reading guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners reading and speaking in a school library with a friendly hare mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Uganda NCDC P4 English. Scene: learners reading and speaking in a school library with a friendly hare mascot. Include a friendly hare mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 85234,
+    "sha256": "5fe6e933d5b53d9ee246abed13fc917b2afb56f14dff76a1c1c10f4862b1bd41"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 85234,
+      "sha256": "5fe6e933d5b53d9ee246abed13fc917b2afb56f14dff76a1c1c10f4862b1bd41",
+      "kind": "cover",
+      "altText": "KITABU QUEST P4 English cover with hare",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-uga-ncdc-p4-english.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-uga-ncdc-p4-english.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "6d8d9fd4-d757-4882-ba88-f1c8138ae22e",
+      "subject": "English",
+      "officialTitle": "Uganda Curriculum P4 English",
+      "countryCode": "UGA",
+      "curriculumCode": "NCDC",
+      "gradeCode": "P4",
+      "gradeLocalLevel": "P4",
+      "localLevel": "P4",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/P4_ENGLISH_SYLLABUS-1.pdf",
+      "objectKey": "data/curriculum/source-files/UGA/d90f973c1d0b3bb8d9db9d75be053f062d1f4ee4eda8718324ed904d3f109849.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "P4",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/P4_ENGLISH_SYLLABUS-1.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/UGA/NCDC/P4/english/6d8d9fd4-d757-4882-ba88-f1c8138ae22e.md",
+        "sourcePageUrl": "https://ncdc.go.ug/resource/",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "ncdc.go.ug"
+        ],
+        "markdownChecksum": "b4755fcf2706b19f32dec4b75613c36aa18e35ac4f760e93dd0f674aae3cc10b",
+        "markdownPageCount": 38,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/UGA/NCDC/P4/english/6d8d9fd4-d757-4882-ba88-f1c8138ae22e.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "b4755fcf2706b19f32dec4b75613c36aa18e35ac4f760e93dd0f674aae3cc10b",
+          "pageCount": 38,
+          "generatedAt": "2026-06-29T17:32:38.432Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "d6ac2e28025576c8bd7abff5a3157ab8aef98614a3b06c7b3d74487934c4f00d"
+        },
+        "markdownGeneratedAt": "2026-06-29T17:32:38.432Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

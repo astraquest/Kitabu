@@ -1,0 +1,1279 @@
+{
+  "schemaVersion": 1,
+  "sourceType": "normalized-curriculum",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Form I",
+  "subject": "Agriculture",
+  "generatedAt": "2026-07-01T05:44:29Z",
+  "sourceSnapshotHash": "224c9ce61286115d6028e67acff3084631ba75a917e3aee5088fdcadde964a0a",
+  "writingStandard": {
+    "voice": "simple, conversational, purposeful, age-appropriate, and learner-first",
+    "antiFluff": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "coversDeferred": true
+  },
+  "strands": [
+    {
+      "strandId": "fallback-form-i-agriculture-1",
+      "number": "",
+      "title": "Agriculture Meaning Importance And Safety",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-i-agriculture-2",
+      "number": "",
+      "title": "Soil Formation Properties And Conservation",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-i-agriculture-3",
+      "number": "",
+      "title": "Farm Tools Equipment And Maintenance",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-i-agriculture-4",
+      "number": "",
+      "title": "Crop Production Basics",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-i-agriculture-5",
+      "number": "",
+      "title": "Animal Care And Housing",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-i-agriculture-6",
+      "number": "",
+      "title": "Water Use And Irrigation Basics",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-i-agriculture-7",
+      "number": "",
+      "title": "Farm Records And School Garden Logs",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-i-agriculture-8",
+      "number": "",
+      "title": "Form I Agriculture Project",
+      "topicCount": 1
+    }
+  ],
+  "topics": [
+    {
+      "topicId": "TZA-FORM-I-agriculture-topic-001",
+      "grade": "Form I",
+      "strandId": "fallback-form-i-agriculture-1",
+      "subStrandId": "fallback-form-i-agriculture-1",
+      "parentSubStrandId": "fallback-form-i-agriculture-1",
+      "strandTitle": "Agriculture Meaning Importance And Safety",
+      "unitTitle": "Agriculture Meaning Importance And Safety",
+      "sourceUnitTitle": "Agriculture Meaning Importance And Safety",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-i-agriculture-1-outcome-1",
+          "text": "explain and apply agriculture meaning importance and safety in a real learning situation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can agriculture meaning importance and safety help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Agriculture Meaning Importance And Safety.",
+        "Review key vocabulary from the previous Agriculture lesson."
+      ],
+      "keyVocabulary": [
+        "Agriculture Meaning Importance And Safety",
+        "Agriculture",
+        "Meaning",
+        "Importance",
+        "Safety",
+        "idea",
+        "skill",
+        "example"
+      ],
+      "misconceptions": [
+        "giving a general answer about Agriculture Meaning Importance And Safety without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania school garden, home garden, farm, livestock, soil, water, or food-security example for Agriculture Meaning Importance And Safety",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are practical",
+        "tools/materials are named",
+        "safety and care are included"
+      ],
+      "visualNeeds": [
+        {
+          "type": "tool/procedure diagram",
+          "description": "tool/procedure diagram for Agriculture Meaning Importance And Safety",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "observation log",
+          "description": "observation log for Agriculture Meaning Importance And Safety",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "010c4f3a-cd36-4300-b87a-b716daa532cb",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Agriculture",
+          "subject": "Agriculture",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192126-AGRICULTURE_%20O-LEVEL%20SYLLABUS%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/1e289b4fbfdee2dc67dc7b7431649168b5cfa699f5f6171ee11201021ff6a7b4.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192126-AGRICULTURE_%20O-LEVEL%20SYLLABUS%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/agriculture/010c4f3a-cd36-4300-b87a-b716daa532cb.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "b93b71d1f29978633103f5073a7adb8e574c55f60ebf522b2b0358e6f6b86b39",
+            "markdownPageCount": 34,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/agriculture/010c4f3a-cd36-4300-b87a-b716daa532cb.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "b93b71d1f29978633103f5073a7adb8e574c55f60ebf522b2b0358e6f6b86b39",
+              "pageCount": 34,
+              "generatedAt": "2026-06-29T16:43:52.753Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "e444bceed232ec9b439d616ddfc574c564b6d576d4f53efbe86913fb7b91a22b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:43:52.753Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "224c9ce61286115d6028e67acff3084631ba75a917e3aee5088fdcadde964a0a"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "010c4f3a-cd36-4300-b87a-b716daa532cb",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Agriculture",
+          "subject": "Agriculture",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192126-AGRICULTURE_%20O-LEVEL%20SYLLABUS%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/1e289b4fbfdee2dc67dc7b7431649168b5cfa699f5f6171ee11201021ff6a7b4.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192126-AGRICULTURE_%20O-LEVEL%20SYLLABUS%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/agriculture/010c4f3a-cd36-4300-b87a-b716daa532cb.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "b93b71d1f29978633103f5073a7adb8e574c55f60ebf522b2b0358e6f6b86b39",
+            "markdownPageCount": 34,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/agriculture/010c4f3a-cd36-4300-b87a-b716daa532cb.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "b93b71d1f29978633103f5073a7adb8e574c55f60ebf522b2b0358e6f6b86b39",
+              "pageCount": 34,
+              "generatedAt": "2026-06-29T16:43:52.753Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "e444bceed232ec9b439d616ddfc574c564b6d576d4f53efbe86913fb7b91a22b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:43:52.753Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "224c9ce61286115d6028e67acff3084631ba75a917e3aee5088fdcadde964a0a"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-I-agriculture-topic-002",
+      "grade": "Form I",
+      "strandId": "fallback-form-i-agriculture-2",
+      "subStrandId": "fallback-form-i-agriculture-2",
+      "parentSubStrandId": "fallback-form-i-agriculture-2",
+      "strandTitle": "Soil Formation Properties And Conservation",
+      "unitTitle": "Soil Formation Properties And Conservation",
+      "sourceUnitTitle": "Soil Formation Properties And Conservation",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-i-agriculture-2-outcome-1",
+          "text": "explain and apply soil formation properties and conservation in a real learning situation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can soil formation properties and conservation help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Soil Formation Properties And Conservation.",
+        "Review key vocabulary from the previous Agriculture lesson."
+      ],
+      "keyVocabulary": [
+        "Soil Formation Properties And Conservation",
+        "Soil",
+        "Formation",
+        "Properties",
+        "Conservation",
+        "idea",
+        "skill",
+        "example"
+      ],
+      "misconceptions": [
+        "giving a general answer about Soil Formation Properties And Conservation without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania school garden, home garden, farm, livestock, soil, water, or food-security example for Soil Formation Properties And Conservation",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are practical",
+        "tools/materials are named",
+        "safety and care are included"
+      ],
+      "visualNeeds": [
+        {
+          "type": "tool/procedure diagram",
+          "description": "tool/procedure diagram for Soil Formation Properties And Conservation",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "observation log",
+          "description": "observation log for Soil Formation Properties And Conservation",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "010c4f3a-cd36-4300-b87a-b716daa532cb",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Agriculture",
+          "subject": "Agriculture",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192126-AGRICULTURE_%20O-LEVEL%20SYLLABUS%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/1e289b4fbfdee2dc67dc7b7431649168b5cfa699f5f6171ee11201021ff6a7b4.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192126-AGRICULTURE_%20O-LEVEL%20SYLLABUS%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/agriculture/010c4f3a-cd36-4300-b87a-b716daa532cb.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "b93b71d1f29978633103f5073a7adb8e574c55f60ebf522b2b0358e6f6b86b39",
+            "markdownPageCount": 34,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/agriculture/010c4f3a-cd36-4300-b87a-b716daa532cb.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "b93b71d1f29978633103f5073a7adb8e574c55f60ebf522b2b0358e6f6b86b39",
+              "pageCount": 34,
+              "generatedAt": "2026-06-29T16:43:52.753Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "e444bceed232ec9b439d616ddfc574c564b6d576d4f53efbe86913fb7b91a22b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:43:52.753Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "224c9ce61286115d6028e67acff3084631ba75a917e3aee5088fdcadde964a0a"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "010c4f3a-cd36-4300-b87a-b716daa532cb",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Agriculture",
+          "subject": "Agriculture",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192126-AGRICULTURE_%20O-LEVEL%20SYLLABUS%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/1e289b4fbfdee2dc67dc7b7431649168b5cfa699f5f6171ee11201021ff6a7b4.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192126-AGRICULTURE_%20O-LEVEL%20SYLLABUS%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/agriculture/010c4f3a-cd36-4300-b87a-b716daa532cb.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "b93b71d1f29978633103f5073a7adb8e574c55f60ebf522b2b0358e6f6b86b39",
+            "markdownPageCount": 34,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/agriculture/010c4f3a-cd36-4300-b87a-b716daa532cb.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "b93b71d1f29978633103f5073a7adb8e574c55f60ebf522b2b0358e6f6b86b39",
+              "pageCount": 34,
+              "generatedAt": "2026-06-29T16:43:52.753Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "e444bceed232ec9b439d616ddfc574c564b6d576d4f53efbe86913fb7b91a22b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:43:52.753Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "224c9ce61286115d6028e67acff3084631ba75a917e3aee5088fdcadde964a0a"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-I-agriculture-topic-003",
+      "grade": "Form I",
+      "strandId": "fallback-form-i-agriculture-3",
+      "subStrandId": "fallback-form-i-agriculture-3",
+      "parentSubStrandId": "fallback-form-i-agriculture-3",
+      "strandTitle": "Farm Tools Equipment And Maintenance",
+      "unitTitle": "Farm Tools Equipment And Maintenance",
+      "sourceUnitTitle": "Farm Tools Equipment And Maintenance",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-i-agriculture-3-outcome-1",
+          "text": "explain and apply farm tools equipment and maintenance in a real learning situation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can farm tools equipment and maintenance help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Farm Tools Equipment And Maintenance.",
+        "Review key vocabulary from the previous Agriculture lesson."
+      ],
+      "keyVocabulary": [
+        "Farm Tools Equipment And Maintenance",
+        "Farm",
+        "Tools",
+        "Equipment",
+        "Maintenance",
+        "idea",
+        "skill",
+        "example"
+      ],
+      "misconceptions": [
+        "giving a general answer about Farm Tools Equipment And Maintenance without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania school garden, home garden, farm, livestock, soil, water, or food-security example for Farm Tools Equipment And Maintenance",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are practical",
+        "tools/materials are named",
+        "safety and care are included"
+      ],
+      "visualNeeds": [
+        {
+          "type": "tool/procedure diagram",
+          "description": "tool/procedure diagram for Farm Tools Equipment And Maintenance",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "observation log",
+          "description": "observation log for Farm Tools Equipment And Maintenance",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "010c4f3a-cd36-4300-b87a-b716daa532cb",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Agriculture",
+          "subject": "Agriculture",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192126-AGRICULTURE_%20O-LEVEL%20SYLLABUS%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/1e289b4fbfdee2dc67dc7b7431649168b5cfa699f5f6171ee11201021ff6a7b4.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192126-AGRICULTURE_%20O-LEVEL%20SYLLABUS%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/agriculture/010c4f3a-cd36-4300-b87a-b716daa532cb.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "b93b71d1f29978633103f5073a7adb8e574c55f60ebf522b2b0358e6f6b86b39",
+            "markdownPageCount": 34,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/agriculture/010c4f3a-cd36-4300-b87a-b716daa532cb.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "b93b71d1f29978633103f5073a7adb8e574c55f60ebf522b2b0358e6f6b86b39",
+              "pageCount": 34,
+              "generatedAt": "2026-06-29T16:43:52.753Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "e444bceed232ec9b439d616ddfc574c564b6d576d4f53efbe86913fb7b91a22b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:43:52.753Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "224c9ce61286115d6028e67acff3084631ba75a917e3aee5088fdcadde964a0a"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "010c4f3a-cd36-4300-b87a-b716daa532cb",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Agriculture",
+          "subject": "Agriculture",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192126-AGRICULTURE_%20O-LEVEL%20SYLLABUS%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/1e289b4fbfdee2dc67dc7b7431649168b5cfa699f5f6171ee11201021ff6a7b4.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192126-AGRICULTURE_%20O-LEVEL%20SYLLABUS%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/agriculture/010c4f3a-cd36-4300-b87a-b716daa532cb.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "b93b71d1f29978633103f5073a7adb8e574c55f60ebf522b2b0358e6f6b86b39",
+            "markdownPageCount": 34,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/agriculture/010c4f3a-cd36-4300-b87a-b716daa532cb.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "b93b71d1f29978633103f5073a7adb8e574c55f60ebf522b2b0358e6f6b86b39",
+              "pageCount": 34,
+              "generatedAt": "2026-06-29T16:43:52.753Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "e444bceed232ec9b439d616ddfc574c564b6d576d4f53efbe86913fb7b91a22b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:43:52.753Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "224c9ce61286115d6028e67acff3084631ba75a917e3aee5088fdcadde964a0a"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-I-agriculture-topic-004",
+      "grade": "Form I",
+      "strandId": "fallback-form-i-agriculture-4",
+      "subStrandId": "fallback-form-i-agriculture-4",
+      "parentSubStrandId": "fallback-form-i-agriculture-4",
+      "strandTitle": "Crop Production Basics",
+      "unitTitle": "Crop Production Basics",
+      "sourceUnitTitle": "Crop Production Basics",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-i-agriculture-4-outcome-1",
+          "text": "explain and apply crop production basics in a real learning situation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can crop production basics help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Crop Production Basics.",
+        "Review key vocabulary from the previous Agriculture lesson."
+      ],
+      "keyVocabulary": [
+        "Crop Production Basics",
+        "Crop",
+        "Production",
+        "Basics",
+        "idea",
+        "skill",
+        "example",
+        "practice"
+      ],
+      "misconceptions": [
+        "giving a general answer about Crop Production Basics without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania school garden, home garden, farm, livestock, soil, water, or food-security example for Crop Production Basics",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are practical",
+        "tools/materials are named",
+        "safety and care are included"
+      ],
+      "visualNeeds": [
+        {
+          "type": "tool/procedure diagram",
+          "description": "tool/procedure diagram for Crop Production Basics",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "observation log",
+          "description": "observation log for Crop Production Basics",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "010c4f3a-cd36-4300-b87a-b716daa532cb",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Agriculture",
+          "subject": "Agriculture",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192126-AGRICULTURE_%20O-LEVEL%20SYLLABUS%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/1e289b4fbfdee2dc67dc7b7431649168b5cfa699f5f6171ee11201021ff6a7b4.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192126-AGRICULTURE_%20O-LEVEL%20SYLLABUS%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/agriculture/010c4f3a-cd36-4300-b87a-b716daa532cb.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "b93b71d1f29978633103f5073a7adb8e574c55f60ebf522b2b0358e6f6b86b39",
+            "markdownPageCount": 34,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/agriculture/010c4f3a-cd36-4300-b87a-b716daa532cb.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "b93b71d1f29978633103f5073a7adb8e574c55f60ebf522b2b0358e6f6b86b39",
+              "pageCount": 34,
+              "generatedAt": "2026-06-29T16:43:52.753Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "e444bceed232ec9b439d616ddfc574c564b6d576d4f53efbe86913fb7b91a22b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:43:52.753Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "224c9ce61286115d6028e67acff3084631ba75a917e3aee5088fdcadde964a0a"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "010c4f3a-cd36-4300-b87a-b716daa532cb",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Agriculture",
+          "subject": "Agriculture",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192126-AGRICULTURE_%20O-LEVEL%20SYLLABUS%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/1e289b4fbfdee2dc67dc7b7431649168b5cfa699f5f6171ee11201021ff6a7b4.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192126-AGRICULTURE_%20O-LEVEL%20SYLLABUS%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/agriculture/010c4f3a-cd36-4300-b87a-b716daa532cb.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "b93b71d1f29978633103f5073a7adb8e574c55f60ebf522b2b0358e6f6b86b39",
+            "markdownPageCount": 34,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/agriculture/010c4f3a-cd36-4300-b87a-b716daa532cb.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "b93b71d1f29978633103f5073a7adb8e574c55f60ebf522b2b0358e6f6b86b39",
+              "pageCount": 34,
+              "generatedAt": "2026-06-29T16:43:52.753Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "e444bceed232ec9b439d616ddfc574c564b6d576d4f53efbe86913fb7b91a22b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:43:52.753Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "224c9ce61286115d6028e67acff3084631ba75a917e3aee5088fdcadde964a0a"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-I-agriculture-topic-005",
+      "grade": "Form I",
+      "strandId": "fallback-form-i-agriculture-5",
+      "subStrandId": "fallback-form-i-agriculture-5",
+      "parentSubStrandId": "fallback-form-i-agriculture-5",
+      "strandTitle": "Animal Care And Housing",
+      "unitTitle": "Animal Care And Housing",
+      "sourceUnitTitle": "Animal Care And Housing",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-i-agriculture-5-outcome-1",
+          "text": "explain and apply animal care and housing in a real learning situation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can animal care and housing help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Animal Care And Housing.",
+        "Review key vocabulary from the previous Agriculture lesson."
+      ],
+      "keyVocabulary": [
+        "Animal Care And Housing",
+        "Animal",
+        "Care",
+        "Housing",
+        "idea",
+        "skill",
+        "example",
+        "practice"
+      ],
+      "misconceptions": [
+        "giving a general answer about Animal Care And Housing without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania school garden, home garden, farm, livestock, soil, water, or food-security example for Animal Care And Housing",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are practical",
+        "tools/materials are named",
+        "safety and care are included"
+      ],
+      "visualNeeds": [
+        {
+          "type": "tool/procedure diagram",
+          "description": "tool/procedure diagram for Animal Care And Housing",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "observation log",
+          "description": "observation log for Animal Care And Housing",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "010c4f3a-cd36-4300-b87a-b716daa532cb",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Agriculture",
+          "subject": "Agriculture",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192126-AGRICULTURE_%20O-LEVEL%20SYLLABUS%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/1e289b4fbfdee2dc67dc7b7431649168b5cfa699f5f6171ee11201021ff6a7b4.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192126-AGRICULTURE_%20O-LEVEL%20SYLLABUS%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/agriculture/010c4f3a-cd36-4300-b87a-b716daa532cb.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "b93b71d1f29978633103f5073a7adb8e574c55f60ebf522b2b0358e6f6b86b39",
+            "markdownPageCount": 34,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/agriculture/010c4f3a-cd36-4300-b87a-b716daa532cb.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "b93b71d1f29978633103f5073a7adb8e574c55f60ebf522b2b0358e6f6b86b39",
+              "pageCount": 34,
+              "generatedAt": "2026-06-29T16:43:52.753Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "e444bceed232ec9b439d616ddfc574c564b6d576d4f53efbe86913fb7b91a22b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:43:52.753Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "224c9ce61286115d6028e67acff3084631ba75a917e3aee5088fdcadde964a0a"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "010c4f3a-cd36-4300-b87a-b716daa532cb",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Agriculture",
+          "subject": "Agriculture",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192126-AGRICULTURE_%20O-LEVEL%20SYLLABUS%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/1e289b4fbfdee2dc67dc7b7431649168b5cfa699f5f6171ee11201021ff6a7b4.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192126-AGRICULTURE_%20O-LEVEL%20SYLLABUS%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/agriculture/010c4f3a-cd36-4300-b87a-b716daa532cb.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "b93b71d1f29978633103f5073a7adb8e574c55f60ebf522b2b0358e6f6b86b39",
+            "markdownPageCount": 34,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/agriculture/010c4f3a-cd36-4300-b87a-b716daa532cb.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "b93b71d1f29978633103f5073a7adb8e574c55f60ebf522b2b0358e6f6b86b39",
+              "pageCount": 34,
+              "generatedAt": "2026-06-29T16:43:52.753Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "e444bceed232ec9b439d616ddfc574c564b6d576d4f53efbe86913fb7b91a22b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:43:52.753Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "224c9ce61286115d6028e67acff3084631ba75a917e3aee5088fdcadde964a0a"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-I-agriculture-topic-006",
+      "grade": "Form I",
+      "strandId": "fallback-form-i-agriculture-6",
+      "subStrandId": "fallback-form-i-agriculture-6",
+      "parentSubStrandId": "fallback-form-i-agriculture-6",
+      "strandTitle": "Water Use And Irrigation Basics",
+      "unitTitle": "Water Use And Irrigation Basics",
+      "sourceUnitTitle": "Water Use And Irrigation Basics",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-i-agriculture-6-outcome-1",
+          "text": "explain and apply water use and irrigation basics in a real learning situation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can water use and irrigation basics help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Water Use And Irrigation Basics.",
+        "Review key vocabulary from the previous Agriculture lesson."
+      ],
+      "keyVocabulary": [
+        "Water Use And Irrigation Basics",
+        "Water",
+        "Irrigation",
+        "Basics",
+        "idea",
+        "skill",
+        "example",
+        "practice"
+      ],
+      "misconceptions": [
+        "giving a general answer about Water Use And Irrigation Basics without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania school garden, home garden, farm, livestock, soil, water, or food-security example for Water Use And Irrigation Basics",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are practical",
+        "tools/materials are named",
+        "safety and care are included"
+      ],
+      "visualNeeds": [
+        {
+          "type": "tool/procedure diagram",
+          "description": "tool/procedure diagram for Water Use And Irrigation Basics",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "observation log",
+          "description": "observation log for Water Use And Irrigation Basics",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "010c4f3a-cd36-4300-b87a-b716daa532cb",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Agriculture",
+          "subject": "Agriculture",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192126-AGRICULTURE_%20O-LEVEL%20SYLLABUS%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/1e289b4fbfdee2dc67dc7b7431649168b5cfa699f5f6171ee11201021ff6a7b4.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192126-AGRICULTURE_%20O-LEVEL%20SYLLABUS%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/agriculture/010c4f3a-cd36-4300-b87a-b716daa532cb.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "b93b71d1f29978633103f5073a7adb8e574c55f60ebf522b2b0358e6f6b86b39",
+            "markdownPageCount": 34,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/agriculture/010c4f3a-cd36-4300-b87a-b716daa532cb.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "b93b71d1f29978633103f5073a7adb8e574c55f60ebf522b2b0358e6f6b86b39",
+              "pageCount": 34,
+              "generatedAt": "2026-06-29T16:43:52.753Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "e444bceed232ec9b439d616ddfc574c564b6d576d4f53efbe86913fb7b91a22b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:43:52.753Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "224c9ce61286115d6028e67acff3084631ba75a917e3aee5088fdcadde964a0a"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "010c4f3a-cd36-4300-b87a-b716daa532cb",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Agriculture",
+          "subject": "Agriculture",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192126-AGRICULTURE_%20O-LEVEL%20SYLLABUS%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/1e289b4fbfdee2dc67dc7b7431649168b5cfa699f5f6171ee11201021ff6a7b4.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192126-AGRICULTURE_%20O-LEVEL%20SYLLABUS%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/agriculture/010c4f3a-cd36-4300-b87a-b716daa532cb.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "b93b71d1f29978633103f5073a7adb8e574c55f60ebf522b2b0358e6f6b86b39",
+            "markdownPageCount": 34,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/agriculture/010c4f3a-cd36-4300-b87a-b716daa532cb.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "b93b71d1f29978633103f5073a7adb8e574c55f60ebf522b2b0358e6f6b86b39",
+              "pageCount": 34,
+              "generatedAt": "2026-06-29T16:43:52.753Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "e444bceed232ec9b439d616ddfc574c564b6d576d4f53efbe86913fb7b91a22b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:43:52.753Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "224c9ce61286115d6028e67acff3084631ba75a917e3aee5088fdcadde964a0a"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-I-agriculture-topic-007",
+      "grade": "Form I",
+      "strandId": "fallback-form-i-agriculture-7",
+      "subStrandId": "fallback-form-i-agriculture-7",
+      "parentSubStrandId": "fallback-form-i-agriculture-7",
+      "strandTitle": "Farm Records And School Garden Logs",
+      "unitTitle": "Farm Records And School Garden Logs",
+      "sourceUnitTitle": "Farm Records And School Garden Logs",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-i-agriculture-7-outcome-1",
+          "text": "explain and apply farm records and school garden logs in a real learning situation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can farm records and school garden logs help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Farm Records And School Garden Logs.",
+        "Review key vocabulary from the previous Agriculture lesson."
+      ],
+      "keyVocabulary": [
+        "Farm Records And School Garden Logs",
+        "Farm",
+        "Records",
+        "School",
+        "Garden",
+        "Logs",
+        "idea",
+        "skill"
+      ],
+      "misconceptions": [
+        "giving a general answer about Farm Records And School Garden Logs without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania school garden, home garden, farm, livestock, soil, water, or food-security example for Farm Records And School Garden Logs",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are practical",
+        "tools/materials are named",
+        "safety and care are included"
+      ],
+      "visualNeeds": [
+        {
+          "type": "tool/procedure diagram",
+          "description": "tool/procedure diagram for Farm Records And School Garden Logs",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "observation log",
+          "description": "observation log for Farm Records And School Garden Logs",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "010c4f3a-cd36-4300-b87a-b716daa532cb",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Agriculture",
+          "subject": "Agriculture",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192126-AGRICULTURE_%20O-LEVEL%20SYLLABUS%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/1e289b4fbfdee2dc67dc7b7431649168b5cfa699f5f6171ee11201021ff6a7b4.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192126-AGRICULTURE_%20O-LEVEL%20SYLLABUS%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/agriculture/010c4f3a-cd36-4300-b87a-b716daa532cb.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "b93b71d1f29978633103f5073a7adb8e574c55f60ebf522b2b0358e6f6b86b39",
+            "markdownPageCount": 34,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/agriculture/010c4f3a-cd36-4300-b87a-b716daa532cb.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "b93b71d1f29978633103f5073a7adb8e574c55f60ebf522b2b0358e6f6b86b39",
+              "pageCount": 34,
+              "generatedAt": "2026-06-29T16:43:52.753Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "e444bceed232ec9b439d616ddfc574c564b6d576d4f53efbe86913fb7b91a22b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:43:52.753Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "224c9ce61286115d6028e67acff3084631ba75a917e3aee5088fdcadde964a0a"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "010c4f3a-cd36-4300-b87a-b716daa532cb",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Agriculture",
+          "subject": "Agriculture",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192126-AGRICULTURE_%20O-LEVEL%20SYLLABUS%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/1e289b4fbfdee2dc67dc7b7431649168b5cfa699f5f6171ee11201021ff6a7b4.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192126-AGRICULTURE_%20O-LEVEL%20SYLLABUS%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/agriculture/010c4f3a-cd36-4300-b87a-b716daa532cb.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "b93b71d1f29978633103f5073a7adb8e574c55f60ebf522b2b0358e6f6b86b39",
+            "markdownPageCount": 34,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/agriculture/010c4f3a-cd36-4300-b87a-b716daa532cb.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "b93b71d1f29978633103f5073a7adb8e574c55f60ebf522b2b0358e6f6b86b39",
+              "pageCount": 34,
+              "generatedAt": "2026-06-29T16:43:52.753Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "e444bceed232ec9b439d616ddfc574c564b6d576d4f53efbe86913fb7b91a22b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:43:52.753Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "224c9ce61286115d6028e67acff3084631ba75a917e3aee5088fdcadde964a0a"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-I-agriculture-topic-008",
+      "grade": "Form I",
+      "strandId": "fallback-form-i-agriculture-8",
+      "subStrandId": "fallback-form-i-agriculture-8",
+      "parentSubStrandId": "fallback-form-i-agriculture-8",
+      "strandTitle": "Form I Agriculture Project",
+      "unitTitle": "Form I Agriculture Project",
+      "sourceUnitTitle": "Form I Agriculture Project",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-i-agriculture-8-outcome-1",
+          "text": "explain and apply form i agriculture project in a real learning situation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can form i agriculture project help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Form I Agriculture Project.",
+        "Review key vocabulary from the previous Agriculture lesson."
+      ],
+      "keyVocabulary": [
+        "Form I Agriculture Project",
+        "Form",
+        "Agriculture",
+        "Project",
+        "idea",
+        "skill",
+        "example",
+        "practice"
+      ],
+      "misconceptions": [
+        "giving a general answer about Form I Agriculture Project without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania school garden, home garden, farm, livestock, soil, water, or food-security example for Form I Agriculture Project",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are practical",
+        "tools/materials are named",
+        "safety and care are included"
+      ],
+      "visualNeeds": [
+        {
+          "type": "tool/procedure diagram",
+          "description": "tool/procedure diagram for Form I Agriculture Project",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "observation log",
+          "description": "observation log for Form I Agriculture Project",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "010c4f3a-cd36-4300-b87a-b716daa532cb",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Agriculture",
+          "subject": "Agriculture",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192126-AGRICULTURE_%20O-LEVEL%20SYLLABUS%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/1e289b4fbfdee2dc67dc7b7431649168b5cfa699f5f6171ee11201021ff6a7b4.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192126-AGRICULTURE_%20O-LEVEL%20SYLLABUS%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/agriculture/010c4f3a-cd36-4300-b87a-b716daa532cb.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "b93b71d1f29978633103f5073a7adb8e574c55f60ebf522b2b0358e6f6b86b39",
+            "markdownPageCount": 34,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/agriculture/010c4f3a-cd36-4300-b87a-b716daa532cb.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "b93b71d1f29978633103f5073a7adb8e574c55f60ebf522b2b0358e6f6b86b39",
+              "pageCount": 34,
+              "generatedAt": "2026-06-29T16:43:52.753Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "e444bceed232ec9b439d616ddfc574c564b6d576d4f53efbe86913fb7b91a22b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:43:52.753Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "224c9ce61286115d6028e67acff3084631ba75a917e3aee5088fdcadde964a0a"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "010c4f3a-cd36-4300-b87a-b716daa532cb",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Agriculture",
+          "subject": "Agriculture",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192126-AGRICULTURE_%20O-LEVEL%20SYLLABUS%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/1e289b4fbfdee2dc67dc7b7431649168b5cfa699f5f6171ee11201021ff6a7b4.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192126-AGRICULTURE_%20O-LEVEL%20SYLLABUS%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/agriculture/010c4f3a-cd36-4300-b87a-b716daa532cb.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "b93b71d1f29978633103f5073a7adb8e574c55f60ebf522b2b0358e6f6b86b39",
+            "markdownPageCount": 34,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/agriculture/010c4f3a-cd36-4300-b87a-b716daa532cb.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "b93b71d1f29978633103f5073a7adb8e574c55f60ebf522b2b0358e6f6b86b39",
+              "pageCount": 34,
+              "generatedAt": "2026-06-29T16:43:52.753Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "e444bceed232ec9b439d616ddfc574c564b6d576d4f53efbe86913fb7b91a22b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:43:52.753Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "224c9ce61286115d6028e67acff3084631ba75a917e3aee5088fdcadde964a0a"
+        }
+      ]
+    }
+  ]
+}

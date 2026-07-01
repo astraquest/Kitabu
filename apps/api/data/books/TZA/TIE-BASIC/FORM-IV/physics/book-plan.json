@@ -1,0 +1,1279 @@
+{
+  "schemaVersion": 1,
+  "sourceType": "normalized-curriculum",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Form IV",
+  "subject": "Physics",
+  "generatedAt": "2026-07-01T05:49:44Z",
+  "sourceSnapshotHash": "61f1ba0dccd0f961d45d08c632313a776f1bc0ea6d5c8c8ac92ed178f2c206c8",
+  "writingStandard": {
+    "voice": "simple, conversational, purposeful, age-appropriate, and learner-first",
+    "antiFluff": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "coversDeferred": true
+  },
+  "strands": [
+    {
+      "strandId": "fallback-form-iv-physics-1",
+      "number": "",
+      "title": "Mechanics Momentum And Energy Review",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-iv-physics-2",
+      "number": "",
+      "title": "Waves Optics And Communication",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-iv-physics-3",
+      "number": "",
+      "title": "Electricity Magnetism And Applications",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-iv-physics-4",
+      "number": "",
+      "title": "Heat Thermodynamics And Matter",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-iv-physics-5",
+      "number": "",
+      "title": "Modern Physics And Radiation Safety",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-iv-physics-6",
+      "number": "",
+      "title": "Practical Skills And Graph Analysis",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-iv-physics-7",
+      "number": "",
+      "title": "Physics In Technology And Society",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-iv-physics-8",
+      "number": "",
+      "title": "Form IV Physics Examination Project",
+      "topicCount": 1
+    }
+  ],
+  "topics": [
+    {
+      "topicId": "TZA-FORM-IV-physics-topic-001",
+      "grade": "Form IV",
+      "strandId": "fallback-form-iv-physics-1",
+      "subStrandId": "fallback-form-iv-physics-1",
+      "parentSubStrandId": "fallback-form-iv-physics-1",
+      "strandTitle": "Mechanics Momentum And Energy Review",
+      "unitTitle": "Mechanics Momentum And Energy Review",
+      "sourceUnitTitle": "Mechanics Momentum And Energy Review",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-iv-physics-1-outcome-1",
+          "text": "investigate and explain mechanics momentum and energy review using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can mechanics momentum and energy review help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Mechanics Momentum And Energy Review.",
+        "Review key vocabulary from the previous Physics lesson."
+      ],
+      "keyVocabulary": [
+        "Mechanics Momentum And Energy Review",
+        "Mechanics",
+        "Momentum",
+        "Energy",
+        "Review",
+        "concept",
+        "observation",
+        "evidence"
+      ],
+      "misconceptions": [
+        "giving a general answer about Mechanics Momentum And Energy Review without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Mechanics Momentum And Energy Review",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Mechanics Momentum And Energy Review",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Mechanics Momentum And Energy Review",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "fe21fa41-a8c7-4f1a-9767-9c6d73537eda",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Physics",
+          "subject": "Physics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/0d7c0b23b510f3b4aa3794b3686673426584be94dd1f84f8204e273a9e24b0d6.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/physics/fe21fa41-a8c7-4f1a-9767-9c6d73537eda.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0d421eb9146f1fbd70dd82dc3dfd0a45926bdd71c1d30783b68a104a6641a693",
+            "markdownPageCount": 61,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/physics/fe21fa41-a8c7-4f1a-9767-9c6d73537eda.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0d421eb9146f1fbd70dd82dc3dfd0a45926bdd71c1d30783b68a104a6641a693",
+              "pageCount": 61,
+              "generatedAt": "2026-06-29T16:47:07.443Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "0e0f96e61e9ec349deb3f46933e4a6d045aa58c5a12c7c450c9247521f33669f"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:47:07.443Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "61f1ba0dccd0f961d45d08c632313a776f1bc0ea6d5c8c8ac92ed178f2c206c8"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "fe21fa41-a8c7-4f1a-9767-9c6d73537eda",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Physics",
+          "subject": "Physics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/0d7c0b23b510f3b4aa3794b3686673426584be94dd1f84f8204e273a9e24b0d6.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/physics/fe21fa41-a8c7-4f1a-9767-9c6d73537eda.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0d421eb9146f1fbd70dd82dc3dfd0a45926bdd71c1d30783b68a104a6641a693",
+            "markdownPageCount": 61,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/physics/fe21fa41-a8c7-4f1a-9767-9c6d73537eda.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0d421eb9146f1fbd70dd82dc3dfd0a45926bdd71c1d30783b68a104a6641a693",
+              "pageCount": 61,
+              "generatedAt": "2026-06-29T16:47:07.443Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "0e0f96e61e9ec349deb3f46933e4a6d045aa58c5a12c7c450c9247521f33669f"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:47:07.443Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "61f1ba0dccd0f961d45d08c632313a776f1bc0ea6d5c8c8ac92ed178f2c206c8"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-IV-physics-topic-002",
+      "grade": "Form IV",
+      "strandId": "fallback-form-iv-physics-2",
+      "subStrandId": "fallback-form-iv-physics-2",
+      "parentSubStrandId": "fallback-form-iv-physics-2",
+      "strandTitle": "Waves Optics And Communication",
+      "unitTitle": "Waves Optics And Communication",
+      "sourceUnitTitle": "Waves Optics And Communication",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-iv-physics-2-outcome-1",
+          "text": "investigate and explain waves optics and communication using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can waves optics and communication help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Waves Optics And Communication.",
+        "Review key vocabulary from the previous Physics lesson."
+      ],
+      "keyVocabulary": [
+        "Waves Optics And Communication",
+        "Waves",
+        "Optics",
+        "Communication",
+        "concept",
+        "observation",
+        "evidence",
+        "safety"
+      ],
+      "misconceptions": [
+        "giving a general answer about Waves Optics And Communication without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Waves Optics And Communication",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Waves Optics And Communication",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Waves Optics And Communication",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "fe21fa41-a8c7-4f1a-9767-9c6d73537eda",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Physics",
+          "subject": "Physics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/0d7c0b23b510f3b4aa3794b3686673426584be94dd1f84f8204e273a9e24b0d6.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/physics/fe21fa41-a8c7-4f1a-9767-9c6d73537eda.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0d421eb9146f1fbd70dd82dc3dfd0a45926bdd71c1d30783b68a104a6641a693",
+            "markdownPageCount": 61,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/physics/fe21fa41-a8c7-4f1a-9767-9c6d73537eda.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0d421eb9146f1fbd70dd82dc3dfd0a45926bdd71c1d30783b68a104a6641a693",
+              "pageCount": 61,
+              "generatedAt": "2026-06-29T16:47:07.443Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "0e0f96e61e9ec349deb3f46933e4a6d045aa58c5a12c7c450c9247521f33669f"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:47:07.443Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "61f1ba0dccd0f961d45d08c632313a776f1bc0ea6d5c8c8ac92ed178f2c206c8"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "fe21fa41-a8c7-4f1a-9767-9c6d73537eda",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Physics",
+          "subject": "Physics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/0d7c0b23b510f3b4aa3794b3686673426584be94dd1f84f8204e273a9e24b0d6.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/physics/fe21fa41-a8c7-4f1a-9767-9c6d73537eda.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0d421eb9146f1fbd70dd82dc3dfd0a45926bdd71c1d30783b68a104a6641a693",
+            "markdownPageCount": 61,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/physics/fe21fa41-a8c7-4f1a-9767-9c6d73537eda.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0d421eb9146f1fbd70dd82dc3dfd0a45926bdd71c1d30783b68a104a6641a693",
+              "pageCount": 61,
+              "generatedAt": "2026-06-29T16:47:07.443Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "0e0f96e61e9ec349deb3f46933e4a6d045aa58c5a12c7c450c9247521f33669f"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:47:07.443Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "61f1ba0dccd0f961d45d08c632313a776f1bc0ea6d5c8c8ac92ed178f2c206c8"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-IV-physics-topic-003",
+      "grade": "Form IV",
+      "strandId": "fallback-form-iv-physics-3",
+      "subStrandId": "fallback-form-iv-physics-3",
+      "parentSubStrandId": "fallback-form-iv-physics-3",
+      "strandTitle": "Electricity Magnetism And Applications",
+      "unitTitle": "Electricity Magnetism And Applications",
+      "sourceUnitTitle": "Electricity Magnetism And Applications",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-iv-physics-3-outcome-1",
+          "text": "investigate and explain electricity magnetism and applications using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can electricity magnetism and applications help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Electricity Magnetism And Applications.",
+        "Review key vocabulary from the previous Physics lesson."
+      ],
+      "keyVocabulary": [
+        "Electricity Magnetism And Applications",
+        "Electricity",
+        "Magnetism",
+        "Applications",
+        "concept",
+        "observation",
+        "evidence",
+        "safety"
+      ],
+      "misconceptions": [
+        "giving a general answer about Electricity Magnetism And Applications without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Electricity Magnetism And Applications",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Electricity Magnetism And Applications",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Electricity Magnetism And Applications",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "fe21fa41-a8c7-4f1a-9767-9c6d73537eda",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Physics",
+          "subject": "Physics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/0d7c0b23b510f3b4aa3794b3686673426584be94dd1f84f8204e273a9e24b0d6.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/physics/fe21fa41-a8c7-4f1a-9767-9c6d73537eda.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0d421eb9146f1fbd70dd82dc3dfd0a45926bdd71c1d30783b68a104a6641a693",
+            "markdownPageCount": 61,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/physics/fe21fa41-a8c7-4f1a-9767-9c6d73537eda.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0d421eb9146f1fbd70dd82dc3dfd0a45926bdd71c1d30783b68a104a6641a693",
+              "pageCount": 61,
+              "generatedAt": "2026-06-29T16:47:07.443Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "0e0f96e61e9ec349deb3f46933e4a6d045aa58c5a12c7c450c9247521f33669f"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:47:07.443Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "61f1ba0dccd0f961d45d08c632313a776f1bc0ea6d5c8c8ac92ed178f2c206c8"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "fe21fa41-a8c7-4f1a-9767-9c6d73537eda",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Physics",
+          "subject": "Physics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/0d7c0b23b510f3b4aa3794b3686673426584be94dd1f84f8204e273a9e24b0d6.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/physics/fe21fa41-a8c7-4f1a-9767-9c6d73537eda.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0d421eb9146f1fbd70dd82dc3dfd0a45926bdd71c1d30783b68a104a6641a693",
+            "markdownPageCount": 61,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/physics/fe21fa41-a8c7-4f1a-9767-9c6d73537eda.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0d421eb9146f1fbd70dd82dc3dfd0a45926bdd71c1d30783b68a104a6641a693",
+              "pageCount": 61,
+              "generatedAt": "2026-06-29T16:47:07.443Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "0e0f96e61e9ec349deb3f46933e4a6d045aa58c5a12c7c450c9247521f33669f"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:47:07.443Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "61f1ba0dccd0f961d45d08c632313a776f1bc0ea6d5c8c8ac92ed178f2c206c8"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-IV-physics-topic-004",
+      "grade": "Form IV",
+      "strandId": "fallback-form-iv-physics-4",
+      "subStrandId": "fallback-form-iv-physics-4",
+      "parentSubStrandId": "fallback-form-iv-physics-4",
+      "strandTitle": "Heat Thermodynamics And Matter",
+      "unitTitle": "Heat Thermodynamics And Matter",
+      "sourceUnitTitle": "Heat Thermodynamics And Matter",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-iv-physics-4-outcome-1",
+          "text": "investigate and explain heat thermodynamics and matter using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can heat thermodynamics and matter help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Heat Thermodynamics And Matter.",
+        "Review key vocabulary from the previous Physics lesson."
+      ],
+      "keyVocabulary": [
+        "Heat Thermodynamics And Matter",
+        "Heat",
+        "Thermodynamics",
+        "Matter",
+        "concept",
+        "observation",
+        "evidence",
+        "safety"
+      ],
+      "misconceptions": [
+        "giving a general answer about Heat Thermodynamics And Matter without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Heat Thermodynamics And Matter",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Heat Thermodynamics And Matter",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Heat Thermodynamics And Matter",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "fe21fa41-a8c7-4f1a-9767-9c6d73537eda",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Physics",
+          "subject": "Physics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/0d7c0b23b510f3b4aa3794b3686673426584be94dd1f84f8204e273a9e24b0d6.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/physics/fe21fa41-a8c7-4f1a-9767-9c6d73537eda.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0d421eb9146f1fbd70dd82dc3dfd0a45926bdd71c1d30783b68a104a6641a693",
+            "markdownPageCount": 61,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/physics/fe21fa41-a8c7-4f1a-9767-9c6d73537eda.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0d421eb9146f1fbd70dd82dc3dfd0a45926bdd71c1d30783b68a104a6641a693",
+              "pageCount": 61,
+              "generatedAt": "2026-06-29T16:47:07.443Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "0e0f96e61e9ec349deb3f46933e4a6d045aa58c5a12c7c450c9247521f33669f"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:47:07.443Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "61f1ba0dccd0f961d45d08c632313a776f1bc0ea6d5c8c8ac92ed178f2c206c8"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "fe21fa41-a8c7-4f1a-9767-9c6d73537eda",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Physics",
+          "subject": "Physics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/0d7c0b23b510f3b4aa3794b3686673426584be94dd1f84f8204e273a9e24b0d6.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/physics/fe21fa41-a8c7-4f1a-9767-9c6d73537eda.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0d421eb9146f1fbd70dd82dc3dfd0a45926bdd71c1d30783b68a104a6641a693",
+            "markdownPageCount": 61,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/physics/fe21fa41-a8c7-4f1a-9767-9c6d73537eda.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0d421eb9146f1fbd70dd82dc3dfd0a45926bdd71c1d30783b68a104a6641a693",
+              "pageCount": 61,
+              "generatedAt": "2026-06-29T16:47:07.443Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "0e0f96e61e9ec349deb3f46933e4a6d045aa58c5a12c7c450c9247521f33669f"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:47:07.443Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "61f1ba0dccd0f961d45d08c632313a776f1bc0ea6d5c8c8ac92ed178f2c206c8"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-IV-physics-topic-005",
+      "grade": "Form IV",
+      "strandId": "fallback-form-iv-physics-5",
+      "subStrandId": "fallback-form-iv-physics-5",
+      "parentSubStrandId": "fallback-form-iv-physics-5",
+      "strandTitle": "Modern Physics And Radiation Safety",
+      "unitTitle": "Modern Physics And Radiation Safety",
+      "sourceUnitTitle": "Modern Physics And Radiation Safety",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-iv-physics-5-outcome-1",
+          "text": "investigate and explain modern physics and radiation safety using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can modern physics and radiation safety help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Modern Physics And Radiation Safety.",
+        "Review key vocabulary from the previous Physics lesson."
+      ],
+      "keyVocabulary": [
+        "Modern Physics And Radiation Safety",
+        "Modern",
+        "Physics",
+        "Radiation",
+        "Safety",
+        "concept",
+        "observation",
+        "evidence"
+      ],
+      "misconceptions": [
+        "giving a general answer about Modern Physics And Radiation Safety without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Modern Physics And Radiation Safety",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Modern Physics And Radiation Safety",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Modern Physics And Radiation Safety",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "fe21fa41-a8c7-4f1a-9767-9c6d73537eda",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Physics",
+          "subject": "Physics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/0d7c0b23b510f3b4aa3794b3686673426584be94dd1f84f8204e273a9e24b0d6.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/physics/fe21fa41-a8c7-4f1a-9767-9c6d73537eda.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0d421eb9146f1fbd70dd82dc3dfd0a45926bdd71c1d30783b68a104a6641a693",
+            "markdownPageCount": 61,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/physics/fe21fa41-a8c7-4f1a-9767-9c6d73537eda.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0d421eb9146f1fbd70dd82dc3dfd0a45926bdd71c1d30783b68a104a6641a693",
+              "pageCount": 61,
+              "generatedAt": "2026-06-29T16:47:07.443Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "0e0f96e61e9ec349deb3f46933e4a6d045aa58c5a12c7c450c9247521f33669f"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:47:07.443Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "61f1ba0dccd0f961d45d08c632313a776f1bc0ea6d5c8c8ac92ed178f2c206c8"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "fe21fa41-a8c7-4f1a-9767-9c6d73537eda",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Physics",
+          "subject": "Physics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/0d7c0b23b510f3b4aa3794b3686673426584be94dd1f84f8204e273a9e24b0d6.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/physics/fe21fa41-a8c7-4f1a-9767-9c6d73537eda.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0d421eb9146f1fbd70dd82dc3dfd0a45926bdd71c1d30783b68a104a6641a693",
+            "markdownPageCount": 61,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/physics/fe21fa41-a8c7-4f1a-9767-9c6d73537eda.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0d421eb9146f1fbd70dd82dc3dfd0a45926bdd71c1d30783b68a104a6641a693",
+              "pageCount": 61,
+              "generatedAt": "2026-06-29T16:47:07.443Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "0e0f96e61e9ec349deb3f46933e4a6d045aa58c5a12c7c450c9247521f33669f"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:47:07.443Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "61f1ba0dccd0f961d45d08c632313a776f1bc0ea6d5c8c8ac92ed178f2c206c8"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-IV-physics-topic-006",
+      "grade": "Form IV",
+      "strandId": "fallback-form-iv-physics-6",
+      "subStrandId": "fallback-form-iv-physics-6",
+      "parentSubStrandId": "fallback-form-iv-physics-6",
+      "strandTitle": "Practical Skills And Graph Analysis",
+      "unitTitle": "Practical Skills And Graph Analysis",
+      "sourceUnitTitle": "Practical Skills And Graph Analysis",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-iv-physics-6-outcome-1",
+          "text": "investigate and explain practical skills and graph analysis using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can practical skills and graph analysis help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Practical Skills And Graph Analysis.",
+        "Review key vocabulary from the previous Physics lesson."
+      ],
+      "keyVocabulary": [
+        "Practical Skills And Graph Analysis",
+        "Practical",
+        "Skills",
+        "Graph",
+        "Analysis",
+        "concept",
+        "observation",
+        "evidence"
+      ],
+      "misconceptions": [
+        "giving a general answer about Practical Skills And Graph Analysis without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Practical Skills And Graph Analysis",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Practical Skills And Graph Analysis",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Practical Skills And Graph Analysis",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "fe21fa41-a8c7-4f1a-9767-9c6d73537eda",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Physics",
+          "subject": "Physics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/0d7c0b23b510f3b4aa3794b3686673426584be94dd1f84f8204e273a9e24b0d6.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/physics/fe21fa41-a8c7-4f1a-9767-9c6d73537eda.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0d421eb9146f1fbd70dd82dc3dfd0a45926bdd71c1d30783b68a104a6641a693",
+            "markdownPageCount": 61,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/physics/fe21fa41-a8c7-4f1a-9767-9c6d73537eda.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0d421eb9146f1fbd70dd82dc3dfd0a45926bdd71c1d30783b68a104a6641a693",
+              "pageCount": 61,
+              "generatedAt": "2026-06-29T16:47:07.443Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "0e0f96e61e9ec349deb3f46933e4a6d045aa58c5a12c7c450c9247521f33669f"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:47:07.443Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "61f1ba0dccd0f961d45d08c632313a776f1bc0ea6d5c8c8ac92ed178f2c206c8"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "fe21fa41-a8c7-4f1a-9767-9c6d73537eda",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Physics",
+          "subject": "Physics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/0d7c0b23b510f3b4aa3794b3686673426584be94dd1f84f8204e273a9e24b0d6.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/physics/fe21fa41-a8c7-4f1a-9767-9c6d73537eda.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0d421eb9146f1fbd70dd82dc3dfd0a45926bdd71c1d30783b68a104a6641a693",
+            "markdownPageCount": 61,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/physics/fe21fa41-a8c7-4f1a-9767-9c6d73537eda.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0d421eb9146f1fbd70dd82dc3dfd0a45926bdd71c1d30783b68a104a6641a693",
+              "pageCount": 61,
+              "generatedAt": "2026-06-29T16:47:07.443Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "0e0f96e61e9ec349deb3f46933e4a6d045aa58c5a12c7c450c9247521f33669f"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:47:07.443Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "61f1ba0dccd0f961d45d08c632313a776f1bc0ea6d5c8c8ac92ed178f2c206c8"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-IV-physics-topic-007",
+      "grade": "Form IV",
+      "strandId": "fallback-form-iv-physics-7",
+      "subStrandId": "fallback-form-iv-physics-7",
+      "parentSubStrandId": "fallback-form-iv-physics-7",
+      "strandTitle": "Physics In Technology And Society",
+      "unitTitle": "Physics In Technology And Society",
+      "sourceUnitTitle": "Physics In Technology And Society",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-iv-physics-7-outcome-1",
+          "text": "investigate and explain physics in technology and society using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can physics in technology and society help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Physics In Technology And Society.",
+        "Review key vocabulary from the previous Physics lesson."
+      ],
+      "keyVocabulary": [
+        "Physics In Technology And Society",
+        "Physics",
+        "Technology",
+        "Society",
+        "concept",
+        "observation",
+        "evidence",
+        "safety"
+      ],
+      "misconceptions": [
+        "giving a general answer about Physics In Technology And Society without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Physics In Technology And Society",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Physics In Technology And Society",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Physics In Technology And Society",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "fe21fa41-a8c7-4f1a-9767-9c6d73537eda",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Physics",
+          "subject": "Physics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/0d7c0b23b510f3b4aa3794b3686673426584be94dd1f84f8204e273a9e24b0d6.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/physics/fe21fa41-a8c7-4f1a-9767-9c6d73537eda.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0d421eb9146f1fbd70dd82dc3dfd0a45926bdd71c1d30783b68a104a6641a693",
+            "markdownPageCount": 61,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/physics/fe21fa41-a8c7-4f1a-9767-9c6d73537eda.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0d421eb9146f1fbd70dd82dc3dfd0a45926bdd71c1d30783b68a104a6641a693",
+              "pageCount": 61,
+              "generatedAt": "2026-06-29T16:47:07.443Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "0e0f96e61e9ec349deb3f46933e4a6d045aa58c5a12c7c450c9247521f33669f"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:47:07.443Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "61f1ba0dccd0f961d45d08c632313a776f1bc0ea6d5c8c8ac92ed178f2c206c8"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "fe21fa41-a8c7-4f1a-9767-9c6d73537eda",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Physics",
+          "subject": "Physics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/0d7c0b23b510f3b4aa3794b3686673426584be94dd1f84f8204e273a9e24b0d6.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/physics/fe21fa41-a8c7-4f1a-9767-9c6d73537eda.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0d421eb9146f1fbd70dd82dc3dfd0a45926bdd71c1d30783b68a104a6641a693",
+            "markdownPageCount": 61,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/physics/fe21fa41-a8c7-4f1a-9767-9c6d73537eda.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0d421eb9146f1fbd70dd82dc3dfd0a45926bdd71c1d30783b68a104a6641a693",
+              "pageCount": 61,
+              "generatedAt": "2026-06-29T16:47:07.443Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "0e0f96e61e9ec349deb3f46933e4a6d045aa58c5a12c7c450c9247521f33669f"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:47:07.443Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "61f1ba0dccd0f961d45d08c632313a776f1bc0ea6d5c8c8ac92ed178f2c206c8"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-IV-physics-topic-008",
+      "grade": "Form IV",
+      "strandId": "fallback-form-iv-physics-8",
+      "subStrandId": "fallback-form-iv-physics-8",
+      "parentSubStrandId": "fallback-form-iv-physics-8",
+      "strandTitle": "Form IV Physics Examination Project",
+      "unitTitle": "Form IV Physics Examination Project",
+      "sourceUnitTitle": "Form IV Physics Examination Project",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-iv-physics-8-outcome-1",
+          "text": "investigate and explain form iv physics examination project using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can form iv physics examination project help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Form IV Physics Examination Project.",
+        "Review key vocabulary from the previous Physics lesson."
+      ],
+      "keyVocabulary": [
+        "Form IV Physics Examination Project",
+        "Form",
+        "Physics",
+        "Examination",
+        "Project",
+        "concept",
+        "observation",
+        "evidence"
+      ],
+      "misconceptions": [
+        "giving a general answer about Form IV Physics Examination Project without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Form IV Physics Examination Project",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Form IV Physics Examination Project",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Form IV Physics Examination Project",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "fe21fa41-a8c7-4f1a-9767-9c6d73537eda",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Physics",
+          "subject": "Physics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/0d7c0b23b510f3b4aa3794b3686673426584be94dd1f84f8204e273a9e24b0d6.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/physics/fe21fa41-a8c7-4f1a-9767-9c6d73537eda.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0d421eb9146f1fbd70dd82dc3dfd0a45926bdd71c1d30783b68a104a6641a693",
+            "markdownPageCount": 61,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/physics/fe21fa41-a8c7-4f1a-9767-9c6d73537eda.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0d421eb9146f1fbd70dd82dc3dfd0a45926bdd71c1d30783b68a104a6641a693",
+              "pageCount": 61,
+              "generatedAt": "2026-06-29T16:47:07.443Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "0e0f96e61e9ec349deb3f46933e4a6d045aa58c5a12c7c450c9247521f33669f"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:47:07.443Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "61f1ba0dccd0f961d45d08c632313a776f1bc0ea6d5c8c8ac92ed178f2c206c8"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "fe21fa41-a8c7-4f1a-9767-9c6d73537eda",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Physics",
+          "subject": "Physics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/0d7c0b23b510f3b4aa3794b3686673426584be94dd1f84f8204e273a9e24b0d6.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/physics/fe21fa41-a8c7-4f1a-9767-9c6d73537eda.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0d421eb9146f1fbd70dd82dc3dfd0a45926bdd71c1d30783b68a104a6641a693",
+            "markdownPageCount": 61,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/physics/fe21fa41-a8c7-4f1a-9767-9c6d73537eda.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0d421eb9146f1fbd70dd82dc3dfd0a45926bdd71c1d30783b68a104a6641a693",
+              "pageCount": 61,
+              "generatedAt": "2026-06-29T16:47:07.443Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "0e0f96e61e9ec349deb3f46933e4a6d045aa58c5a12c7c450c9247521f33669f"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:47:07.443Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "61f1ba0dccd0f961d45d08c632313a776f1bc0ea6d5c8c8ac92ed178f2c206c8"
+        }
+      ]
+    }
+  ]
+}

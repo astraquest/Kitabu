@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-rwa-reb-cbc-s3-physics",
+  "title": "KITABU QUEST S3 Physics",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "S3",
+  "subject": "Physics",
+  "subjectSlug": "physics",
+  "subjectColor": "#0E7490",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v17",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T06:46:21Z",
+  "sourceSnapshotHash": "e8f9537392f0863ba227eb44d12c9a965820c9fab947d39aa9991aa9f70870dc",
+  "bookPlanHash": "15b9da276ebecc5e8a54b6562047b52f90f8f5d677ec50e66e7b919852092ac9",
+  "pageCount": 123,
+  "wordCount": 11367,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 14,
+    "outcomeCount": 14,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "RWA",
+    "subject": "Physics",
+    "species": "mountain gorilla",
+    "role": "measurement and systems guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners exploring physics with simple apparatus and a mountain gorilla mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Rwanda REB-CBC S3 Physics. Scene: learners exploring physics with simple apparatus and a mountain gorilla mascot. Include a friendly mountain gorilla mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "cover-not-started",
+  "assets": [],
+  "downloads": {
+    "markdown": "kitabu-quest-rwa-reb-cbc-s3-physics.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-rwa-reb-cbc-s3-physics.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "2361cd11-9f06-4c31-ba01-38c701e323bc",
+      "subject": "Physics",
+      "officialTitle": "Rwanda Competence Based Curriculum S3 Physics",
+      "countryCode": "RWA",
+      "curriculumCode": "REB-CBC",
+      "gradeCode": "S3",
+      "gradeLocalLevel": "S3",
+      "localLevel": "S3",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://elearning.reb.rw/pluginfile.php/51688/mod_resource/content/1/Physics--OLevel.pdf",
+      "objectKey": "data/curriculum/source-files/RWA/62ca0546fb914ab52828f10c549d000e54807ff03d15d191e016836e8f16a383.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "S3",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://elearning.reb.rw/pluginfile.php/51688/mod_resource/content/1/Physics--OLevel.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S3/physics/2361cd11-9f06-4c31-ba01-38c701e323bc.md",
+        "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "reb.gov.rw",
+          "reb.rw",
+          "elearning.reb.rw"
+        ],
+        "markdownChecksum": "4cfc0a9ce78bbbf8867383caf4caa68f10fc079f1c0f6d38cef679d9e1265b71",
+        "markdownPageCount": 104,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/RWA/REB-CBC/S3/physics/2361cd11-9f06-4c31-ba01-38c701e323bc.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "4cfc0a9ce78bbbf8867383caf4caa68f10fc079f1c0f6d38cef679d9e1265b71",
+          "pageCount": 104,
+          "generatedAt": "2026-07-01T01:20:59.726Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S3/physics/2361cd11-9f06-4c31-ba01-38c701e323bc.json",
+          "sourceChecksum": "f70149ce6836f20aa1456722282ce80b08baa8af3ad074f5b7e8d7de4ec59a80"
+        },
+        "markdownGeneratedAt": "2026-07-01T01:20:59.726Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

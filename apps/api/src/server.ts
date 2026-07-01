@@ -5,11 +5,19 @@ import rateLimit from '@fastify/rate-limit';
 import sensible from '@fastify/sensible';
 import swagger from '@fastify/swagger';
 import swaggerUi from '@fastify/swagger-ui';
-import { randomBytes, randomInt, timingSafeEqual } from 'node:crypto';
+import { createHash, randomBytes, randomInt, timingSafeEqual } from 'node:crypto';
 import { z } from 'zod';
 import { appConfig } from './config.js';
 import { checkDatabaseHealth, checkRedisHealth, redis } from './db.js';
 import {
+  listGeneratedBooksForUser,
+  openGeneratedBookAssetForUser,
+  readGeneratedBookManifestForUser
+} from './generatedBooks.js';
+import {
+  type AiExecutionPlan,
+  type AiProviderAttempt,
+  type AudioTranscriptionPlan,
   estimateCostUsdMicros,
   generateTextWithFallback,
   resolveAiExecutionPlans,
@@ -18,6 +26,12 @@ import {
   transcribeAudio,
   usdMicrosToKshCents
 } from './ai.js';
+import {
+  buildFeatureSystemInstruction,
+  getFeatureCachePolicy,
+  getFeatureSchemaVersion,
+  resolveAiPromptVersion
+} from './aiFeatures.js';
 import {
   buildTotpUri,
   deriveSessionBindingFingerprint,
@@ -34,6 +48,7 @@ import { registerLiveAudioStreamRoutes } from './liveAudioStream.js';
 import {
   type CurriculumStrandInput,
   createAdminManagedUser,
+  createAiGenerationRun,
   createBannerAnnouncement,
   createTeacherAssignment,
   createSelfServiceUser,
@@ -83,6 +98,7 @@ import {
   getActiveBannerAnnouncement,
   getAdminAiAnalytics,
   getAdminSubjectEngagementAnalytics,
+  getAiGenerationCacheEntry,
   listAdminUsers,
   getSubscriptionAiSpendKshCents,
   getTotpSecret,
@@ -102,7 +118,6 @@ import {
   listParentChildrenDashboard,
   listAssignmentSubmissionsForTeacher,
   listLearningPodcastsForUser,
-  listLibraryBooksForUser,
   listQuizBankQuestions,
   listSchoolDiscounts,
   listSchools,
@@ -121,6 +136,7 @@ import {
   markUserEmailVerified,
   markSpacedReviewCompleted,
   recordDiagnosticAnswer,
+  recordAiGenerationAttempt,
   recordUserPresence,
   recordPhoneVerificationFailure,
   replaceCurriculumSubject,
@@ -132,6 +148,7 @@ import {
   unlinkParentStudent,
   completeDiagnosticSession,
   saveCurriculumSubStrandPages,
+  setAiGenerationCacheEntry,
   submitStudentAssignment,
   startWeeklyExamAttempt,
   submitWeeklyExamAttempt,
@@ -569,9 +586,14 @@ const TEST_ACCOUNT_EMAILS = new Set([
   'teacher@kitabu.ai',
   'admin@kitabu.ai'
 ]);
+const DEMO_STUDENT_EMAIL = 'student@kitabu.ai';
 
 const checkoutParamsSchema = z.object({
   paymentRequestId: z.string().uuid()
+});
+
+const libraryBooksQuerySchema = z.object({
+  grade: z.string().trim().min(1).max(40).optional()
 });
 
 const queryBoolean = z.preprocess(value => {
@@ -881,6 +903,7 @@ const generateTextSchema = z.object({
   systemInstruction: z.string().optional(),
   responseMimeType: z.string().optional(),
   feature: z.string().min(1).default('chat'),
+  context: z.record(z.string(), z.unknown()).optional(),
   attachment: z
     .object({
       mimeType: z.string().min(1),
@@ -898,6 +921,156 @@ const generateTextSchema = z.object({
     )
     .optional()
 });
+
+type GenerateTextBody = z.infer<typeof generateTextSchema>;
+
+type AiGenerationMetadata = {
+  id?: string;
+  feature: string;
+  promptVersion: string;
+  schemaVersion: string;
+  provider: string;
+  model: string;
+  cacheStatus: 'hit' | 'miss' | 'stored' | 'bypassed' | 'not_checked';
+  promptTokens: number;
+  completionTokens: number;
+  totalTokens: number;
+  latencyMs: number;
+};
+
+function sha256Text(value: string) {
+  return createHash('sha256').update(value).digest('hex');
+}
+
+function stableJsonStringify(value: unknown): string {
+  if (value === undefined) {
+    return '"__undefined__"';
+  }
+
+  if (value === null) {
+    return 'null';
+  }
+
+  if (Array.isArray(value)) {
+    return `[${value.map(item => stableJsonStringify(item)).join(',')}]`;
+  }
+
+  if (value instanceof Date) {
+    return JSON.stringify(value.toISOString());
+  }
+
+  if (typeof value === 'object') {
+    return `{${Object.entries(value as Record<string, unknown>)
+      .sort(([left], [right]) => left.localeCompare(right))
+      .map(([key, item]) => `${JSON.stringify(key)}:${stableJsonStringify(item)}`)
+      .join(',')}}`;
+  }
+
+  return JSON.stringify(value);
+}
+
+function hashStableJson(value: unknown) {
+  return sha256Text(stableJsonStringify(value));
+}
+
+function summarizeAttachmentForHash(attachment: GenerateTextBody['attachment']) {
+  if (!attachment) {
+    return null;
+  }
+
+  return {
+    type: attachment.type,
+    mimeType: attachment.mimeType,
+    name: attachment.name ?? null,
+    dataHash: sha256Text(attachment.data),
+    dataLength: attachment.data.length
+  };
+}
+
+function buildGenerationInputFingerprint(body: GenerateTextBody) {
+  return {
+    prompt: body.prompt,
+    systemInstruction: body.systemInstruction ?? null,
+    responseMimeType: body.responseMimeType ?? null,
+    feature: body.feature,
+    context: body.context ?? null,
+    history: body.history ?? [],
+    attachment: summarizeAttachmentForHash(body.attachment)
+  };
+}
+
+function buildGenerationCacheKey(args: {
+  feature: string;
+  promptVersion: string;
+  schemaVersion: string;
+  inputHash: string;
+}) {
+  return `kitabu-ai:${args.feature}:${args.promptVersion}:${args.schemaVersion}:${args.inputHash}`;
+}
+
+function hydrateCachedGenerationText(valueJson: unknown | null, valueText: string | null) {
+  if (valueText !== null) {
+    return valueText;
+  }
+
+  return JSON.stringify(valueJson);
+}
+
+function parseJsonResponseForCache(text: string, responseMimeType?: string) {
+  if (!responseMimeType?.toLowerCase().includes('json')) {
+    return undefined;
+  }
+
+  try {
+    return JSON.parse(text) as unknown;
+  } catch {
+    return undefined;
+  }
+}
+
+function truncateAiError(error: unknown) {
+  const message = error instanceof Error ? error.message : String(error);
+  return message.slice(0, 500);
+}
+
+function getAiProviderAttempts(error: unknown) {
+  if (error && typeof error === 'object' && 'attempts' in error) {
+    const attempts = (error as { attempts?: unknown }).attempts;
+    return Array.isArray(attempts) ? (attempts as AiProviderAttempt[]) : [];
+  }
+
+  return [];
+}
+
+function estimateAttemptCostUsdMicros(attempt: AiProviderAttempt) {
+  return estimateCostUsdMicros(
+    {
+      provider: attempt.provider,
+      model: attempt.model
+    },
+    attempt.promptTokens,
+    attempt.completionTokens
+  );
+}
+
+function buildFallbackCompletedAttempt(
+  plan: AiExecutionPlan,
+  result: {
+    promptTokens: number;
+    completionTokens: number;
+    totalTokens: number;
+  }
+): AiProviderAttempt {
+  return {
+    provider: plan.provider,
+    model: plan.model,
+    status: 'completed',
+    latencyMs: 0,
+    promptTokens: result.promptTokens,
+    completionTokens: result.completionTokens,
+    totalTokens: result.totalTokens
+  };
+}
 
 const transcribeAudioSchema = z.object({
   base64Audio: z.string().min(1),
@@ -1242,6 +1415,8 @@ export function buildServer(options: BuildServerOptions = {}) {
           roles: args.user.roles,
           gender: args.user.gender ?? 'not_specified',
           grade: args.user.grade ?? null,
+          countryCode: args.user.countryCode ?? 'KEN',
+          curriculumCode: args.user.curriculumCode ?? 'CBC',
           onboardingCompleted: Boolean(args.user.onboardingCompleted),
           mustRotatePassword: Boolean(args.user.mustRotatePassword),
           isBreakGlass: Boolean(args.user.isBreakGlass)
@@ -1259,6 +1434,8 @@ export function buildServer(options: BuildServerOptions = {}) {
           roles: args.user.roles,
           gender: args.user.gender,
           grade: args.user.grade_level,
+          countryCode: args.user.country_code,
+          curriculumCode: args.user.curriculum_code,
           onboardingCompleted: args.user.onboarding_completed,
           mustRotatePassword: args.user.must_rotate_password,
           isBreakGlass: args.user.is_break_glass
@@ -1281,6 +1458,8 @@ export function buildServer(options: BuildServerOptions = {}) {
         roles: normalizedUser.roles,
         gender: normalizedUser.gender,
         grade: normalizedUser.grade,
+        countryCode: normalizedUser.countryCode,
+        curriculumCode: normalizedUser.curriculumCode,
         onboardingCompleted: normalizedUser.onboardingCompleted
       },
       authState: {
@@ -1337,6 +1516,8 @@ export function buildServer(options: BuildServerOptions = {}) {
       roles: user.roles,
       gender: user.gender,
       grade: user.grade_level,
+      countryCode: user.country_code,
+      curriculumCode: user.curriculum_code,
       onboardingCompleted: user.onboarding_completed,
       stepUp: shouldBypassStepUp,
       mustRotatePassword: user.must_rotate_password,
@@ -1385,19 +1566,12 @@ export function buildServer(options: BuildServerOptions = {}) {
     return TEST_ACCOUNT_EMAILS.has(user.email.trim().toLowerCase());
   }
 
-  function resolvePromptVersion(feature: string) {
-    const versions: Record<string, string> = {
-      homework_helper_chat: '2026-03-30.chat.v1',
-      homework_helper_explanation: '2026-03-30.explanation.v1',
-      audio_transcription: '2026-03-30.transcription.v1',
-      speech_synthesis: '2026-03-30.tts.v1',
-      flashcard_generation: '2026-03-30.flashcards.v1',
-      quiz_generation: '2026-03-30.quiz.v1',
-      assignment_generation: '2026-03-30.assignment.v1',
-      curriculum_extraction: '2026-03-30.curriculum-pdf.v1'
-    };
+  function isDemoStudentUser(user: NonNullable<FastifyRequest['user']>) {
+    return user.email.trim().toLowerCase() === DEMO_STUDENT_EMAIL && user.roles.includes('student');
+  }
 
-    return versions[feature] ?? '2026-03-30.default.v1';
+  function resolvePromptVersion(feature: string) {
+    return resolveAiPromptVersion(feature);
   }
 
   function slugifySchoolName(name: string) {
@@ -1446,6 +1620,19 @@ export function buildServer(options: BuildServerOptions = {}) {
       isPopular: Boolean(args.isPopular),
       isSchoolManaged: Boolean(args.isSchoolManaged),
       discountLabel: args.discountName ?? null
+    };
+  }
+
+  function serializeDemoStudentSubscription() {
+    return {
+      id: '00000000-0000-4000-8000-000000000001',
+      code: 'monthly' as const,
+      name: 'Demo Student Access',
+      billingCycle: 'monthly' as const,
+      priceKsh: 0,
+      periodStart: '2026-01-01T00:00:00.000Z',
+      periodEnd: '2099-12-31T23:59:59.000Z',
+      status: 'active'
     };
   }
 
@@ -1695,6 +1882,10 @@ function buildDiagnosticResultSummary(answers: Awaited<ReturnType<typeof listDia
     reply: FastifyReply,
     user: NonNullable<FastifyRequest['user']>
   ) {
+    if (isDemoStudentUser(user)) {
+      return { error: null, subscription: null };
+    }
+
     const subscription = await getActiveSubscription(user.id);
     if (!subscription) {
       reply.status(402);
@@ -1705,6 +1896,10 @@ function buildDiagnosticResultSummary(answers: Awaited<ReturnType<typeof listDia
   }
 
   function canBypassAiSubscription(user: NonNullable<FastifyRequest['user']>, feature: string) {
+    if (isDemoStudentUser(user)) {
+      return true;
+    }
+
     const operationalAiFeatures = new Set([
       'assignment_generation',
       'curriculum_extraction',
@@ -1801,9 +1996,30 @@ Requirements:
   async function runSubscriptionScopedAiText(args: {
     request: FastifyRequest;
     reply: FastifyReply;
-    body: z.infer<typeof generateTextSchema>;
+    body: GenerateTextBody;
   }) {
     const currentUser = args.request.user!;
+    const feature = args.body.feature;
+    const featureSystemInstruction = buildFeatureSystemInstruction(feature, args.body.context);
+    const effectiveBody: GenerateTextBody = {
+      ...args.body,
+      systemInstruction: featureSystemInstruction ?? args.body.systemInstruction
+    };
+    const promptVersion = resolvePromptVersion(feature);
+    const schemaVersion = getFeatureSchemaVersion(feature);
+    const promptHash = hashStableJson({
+      feature,
+      promptVersion,
+      schemaVersion,
+      systemInstruction: effectiveBody.systemInstruction ?? null
+    });
+    const inputFingerprint = buildGenerationInputFingerprint(effectiveBody);
+    const inputHash = hashStableJson(inputFingerprint);
+    const cacheKey =
+      getFeatureCachePolicy(feature) === 'deterministic'
+        ? buildGenerationCacheKey({ feature, promptVersion, schemaVersion, inputHash })
+        : null;
+
     const subscriptionCheck = canBypassAiSubscription(currentUser, args.body.feature)
       ? { error: null, subscription: null }
       : await requireActiveSubscriptionForAi(args.reply, currentUser);
@@ -1815,16 +2031,91 @@ Requirements:
       };
     }
 
-    let executionPlans;
+    const subscription = subscriptionCheck.subscription;
+
+    if (cacheKey) {
+      const cachedEntry = await withTransaction(client => getAiGenerationCacheEntry(client, cacheKey));
+      if (cachedEntry) {
+        const cachedText = hydrateCachedGenerationText(cachedEntry.value_json, cachedEntry.value_text);
+        const cachedProvider =
+          typeof cachedEntry.metadata.provider === 'string' ? cachedEntry.metadata.provider : 'cache';
+        const cachedModel = typeof cachedEntry.metadata.model === 'string' ? cachedEntry.metadata.model : 'cache';
+        const outputHash = sha256Text(cachedText);
+
+        const run = await withTransaction(async client => {
+          const generationRun = await createAiGenerationRun(client, {
+            userId: currentUser.id,
+            schoolId: currentUser.schoolId,
+            subscriptionId: subscription?.id ?? null,
+            feature,
+            promptVersion,
+            provider: cachedProvider,
+            model: cachedModel,
+            status: 'completed',
+            latencyMs: 0,
+            promptTokens: 0,
+            completionTokens: 0,
+            totalTokens: 0,
+            estimatedCostUsdMicros: 0,
+            estimatedCostKshCents: 0,
+            cacheStatus: 'hit',
+            cacheKey,
+            promptHash,
+            inputHash,
+            outputHash
+          });
+          await createAiUsageEvent(client, {
+            userId: currentUser.id,
+            schoolId: currentUser.schoolId,
+            subscriptionId: subscription?.id ?? null,
+            feature,
+            provider: cachedProvider,
+            model: cachedModel,
+            promptTokens: 0,
+            completionTokens: 0,
+            totalTokens: 0,
+            estimatedCostUsdMicros: 0,
+            fxRateKshPerUsd: appConfig.KITABU_KSH_PER_USD,
+            estimatedCostKshCents: 0,
+            promptVersion,
+            status: 'completed'
+          });
+          return generationRun;
+        });
+
+        const generation: AiGenerationMetadata = {
+          id: run.id,
+          feature,
+          promptVersion,
+          schemaVersion,
+          provider: cachedProvider,
+          model: cachedModel,
+          cacheStatus: 'hit',
+          promptTokens: 0,
+          completionTokens: 0,
+          totalTokens: 0,
+          latencyMs: 0
+        };
+
+        return {
+          error: null,
+          text: cachedText,
+          subscription,
+          generation
+        };
+      }
+    }
+
+    let executionPlans: AiExecutionPlan[];
     try {
-      executionPlans = resolveAiExecutionPlans(args.body);
+      executionPlans = resolveAiExecutionPlans(effectiveBody);
     } catch (error) {
       args.reply.status(503);
       return {
         error: {
           message:
             error instanceof Error && error.message === 'No AI provider is configured'
-              ? 'No AI provider is configured. Set KITABU_OPENAI_API_KEY or OPENAI_API_KEY on the API server.'
+              ? 'No AI provider is configured. Set KITABU_NVIDIA_API_KEY, KITABU_OPENAI_API_KEY, or another supported provider key on the API server.'
               : 'AI assistance is currently unavailable. Please try again later.'
         },
         text: null,
@@ -1832,21 +2123,40 @@ Requirements:
       };
     }
     const executionPlan = executionPlans[0];
-    const promptVersion = resolvePromptVersion(args.body.feature);
-    const subscription = subscriptionCheck.subscription;
     const existingSpend = subscription ? await getSubscriptionAiSpendKshCents(subscription.id) : 0;
-    const provisionalTokenEstimate = Math.max(Math.ceil(args.body.prompt.length / 4), 150);
+    const provisionalTokenEstimate = Math.max(Math.ceil(stableJsonStringify(inputFingerprint).length / 4), 150);
     const provisionalCostUsdMicros = estimateCostUsdMicros(executionPlan, provisionalTokenEstimate, 0);
     const provisionalCostKshCents = usdMicrosToKshCents(provisionalCostUsdMicros, appConfig.KITABU_KSH_PER_USD);
     const budgetKshCents = subscription ? Number(subscription.price_ksh_cents) : Number.MAX_SAFE_INTEGER;
+    const uncachedCacheStatus = cacheKey ? 'miss' : 'bypassed';
 
     if (subscription && existingSpend + provisionalCostKshCents > budgetKshCents) {
       await withTransaction(async client => {
+        await createAiGenerationRun(client, {
+          userId: currentUser.id,
+          schoolId: currentUser.schoolId,
+          subscriptionId: subscription.id,
+          feature,
+          promptVersion,
+          provider: executionPlan.provider,
+          model: executionPlan.model,
+          status: 'blocked',
+          latencyMs: 0,
+          promptTokens: provisionalTokenEstimate,
+          completionTokens: 0,
+          totalTokens: provisionalTokenEstimate,
+          estimatedCostUsdMicros: provisionalCostUsdMicros,
+          estimatedCostKshCents: provisionalCostKshCents,
+          cacheStatus: uncachedCacheStatus,
+          cacheKey,
+          promptHash,
+          inputHash
+        });
         await createAiUsageEvent(client, {
           userId: currentUser.id,
           schoolId: currentUser.schoolId,
           subscriptionId: subscription?.id ?? null,
-          feature: args.body.feature,
+          feature,
           provider: executionPlan.provider,
           model: executionPlan.model,
           promptTokens: provisionalTokenEstimate,
@@ -1859,7 +2169,7 @@ Requirements:
           status: 'blocked'
         });
         await createAuditLog(client, currentUser.id, currentUser.schoolId, 'ai.limit.blocked', {
-          feature: args.body.feature,
+          feature,
           budgetKshCents,
           existingSpendKshCents: existingSpend
         });
@@ -1877,17 +2187,65 @@ Requirements:
     }
 
     try {
-      const result = await generateTextWithFallback(args.body, executionPlans);
+      const startedAt = Date.now();
+      const result = await generateTextWithFallback(effectiveBody, executionPlans);
       const completedPlan = result.plan ?? executionPlan;
+      const latencyMs = Date.now() - startedAt;
       const costUsdMicros = estimateCostUsdMicros(completedPlan, result.promptTokens, result.completionTokens);
       const costKshCents = usdMicrosToKshCents(costUsdMicros, appConfig.KITABU_KSH_PER_USD);
+      const outputHash = sha256Text(result.text);
+      const attempts = result.attempts?.length
+        ? result.attempts
+        : [buildFallbackCompletedAttempt(completedPlan, result)];
 
-      await withTransaction(async client => {
+      const run = await withTransaction(async client => {
+        const generationRun = await createAiGenerationRun(client, {
+          userId: currentUser.id,
+          schoolId: currentUser.schoolId,
+          subscriptionId: subscription?.id ?? null,
+          feature,
+          promptVersion,
+          provider: completedPlan.provider,
+          model: completedPlan.model,
+          status: 'completed',
+          latencyMs,
+          promptTokens: result.promptTokens,
+          completionTokens: result.completionTokens,
+          totalTokens: result.totalTokens,
+          estimatedCostUsdMicros: costUsdMicros,
+          estimatedCostKshCents: costKshCents,
+          cacheStatus: cacheKey ? 'stored' : 'bypassed',
+          cacheKey,
+          promptHash,
+          inputHash,
+          outputHash
+        });
+
+        let attemptNumber = 1;
+        for (const attempt of attempts) {
+          const attemptCostUsdMicros = estimateAttemptCostUsdMicros(attempt);
+          await recordAiGenerationAttempt(client, {
+            runId: generationRun.id,
+            attemptNumber,
+            provider: attempt.provider,
+            model: attempt.model,
+            status: attempt.status,
+            latencyMs: attempt.latencyMs,
+            promptTokens: attempt.promptTokens,
+            completionTokens: attempt.completionTokens,
+            totalTokens: attempt.totalTokens,
+            estimatedCostUsdMicros: attemptCostUsdMicros,
+            estimatedCostKshCents: usdMicrosToKshCents(attemptCostUsdMicros, appConfig.KITABU_KSH_PER_USD),
+            errorSummary: attempt.errorMessage ?? null
+          });
+          attemptNumber += 1;
+        }
+
         await createAiUsageEvent(client, {
           userId: currentUser.id,
           schoolId: currentUser.schoolId,
           subscriptionId: subscription?.id ?? null,
-          feature: args.body.feature,
+          feature,
           provider: completedPlan.provider,
           model: completedPlan.model,
           promptTokens: result.promptTokens,
@@ -1899,20 +2257,103 @@ Requirements:
           promptVersion,
           status: 'completed'
         });
+
+        if (cacheKey) {
+          await setAiGenerationCacheEntry(client, {
+            cacheKey,
+            feature,
+            promptVersion,
+            schemaVersion,
+            valueJson: parseJsonResponseForCache(result.text, effectiveBody.responseMimeType),
+            valueText: result.text,
+            metadata: {
+              provider: completedPlan.provider,
+              model: completedPlan.model,
+              responseMimeType: effectiveBody.responseMimeType ?? null,
+              promptHash,
+              inputHash,
+              outputHash,
+              promptTokens: result.promptTokens,
+              completionTokens: result.completionTokens,
+              totalTokens: result.totalTokens
+            },
+            expiresAt: null
+          });
+        }
+
+        return generationRun;
       });
+
+      const generation: AiGenerationMetadata = {
+        id: run.id,
+        feature,
+        promptVersion,
+        schemaVersion,
+        provider: completedPlan.provider,
+        model: completedPlan.model,
+        cacheStatus: cacheKey ? 'stored' : 'bypassed',
+        promptTokens: result.promptTokens,
+        completionTokens: result.completionTokens,
+        totalTokens: result.totalTokens,
+        latencyMs
+      };
 
       return {
         error: null,
         text: result.text,
-        subscription
+        subscription,
+        generation
       };
     } catch (error) {
+      const attempts = getAiProviderAttempts(error);
+      const failedLatencyMs = attempts.reduce((total, attempt) => total + attempt.latencyMs, 0);
       await withTransaction(async client => {
+        const generationRun = await createAiGenerationRun(client, {
+          userId: currentUser.id,
+          schoolId: currentUser.schoolId,
+          subscriptionId: subscription?.id ?? null,
+          feature,
+          promptVersion,
+          provider: executionPlan.provider,
+          model: executionPlan.model,
+          status: 'failed',
+          latencyMs: failedLatencyMs,
+          promptTokens: provisionalTokenEstimate,
+          completionTokens: 0,
+          totalTokens: provisionalTokenEstimate,
+          estimatedCostUsdMicros: provisionalCostUsdMicros,
+          estimatedCostKshCents: provisionalCostKshCents,
+          cacheStatus: uncachedCacheStatus,
+          cacheKey,
+          promptHash,
+          inputHash
+        });
+
+        let attemptNumber = 1;
+        for (const attempt of attempts) {
+          const attemptCostUsdMicros = estimateAttemptCostUsdMicros(attempt);
+          await recordAiGenerationAttempt(client, {
+            runId: generationRun.id,
+            attemptNumber,
+            provider: attempt.provider,
+            model: attempt.model,
+            status: attempt.status,
+            latencyMs: attempt.latencyMs,
+            promptTokens: attempt.promptTokens,
+            completionTokens: attempt.completionTokens,
+            totalTokens: attempt.totalTokens,
+            estimatedCostUsdMicros: attemptCostUsdMicros,
+            estimatedCostKshCents: usdMicrosToKshCents(attemptCostUsdMicros, appConfig.KITABU_KSH_PER_USD),
+            errorSummary: attempt.errorMessage ?? null
+          });
+          attemptNumber += 1;
+        }
+
         await createAiUsageEvent(client, {
           userId: currentUser.id,
           schoolId: currentUser.schoolId,
           subscriptionId: subscription?.id ?? null,
-          feature: args.body.feature,
+          feature,
           provider: executionPlan.provider,
           model: executionPlan.model,
           promptTokens: provisionalTokenEstimate,
@@ -1930,7 +2371,8 @@ Requirements:
       args.reply.status(500);
       return {
         error: {
-          message: 'AI request failed'
+          message: 'AI request failed',
+          detail: truncateAiError(error)
         },
         text: null,
         subscription
@@ -1945,7 +2387,7 @@ Requirements:
   }) {
     const currentUser = args.request.user!;
     const subscriptionCheck = await requireActiveSubscriptionForAi(args.reply, currentUser);
-    if (subscriptionCheck.error || !subscriptionCheck.subscription) {
+    if (subscriptionCheck.error) {
       return {
         error: subscriptionCheck.error,
         text: null,
@@ -1954,19 +2396,88 @@ Requirements:
     }
 
     const subscription = subscriptionCheck.subscription;
-    const promptVersion = resolvePromptVersion('audio_transcription');
-    const transcriptionPlans = resolveAudioTranscriptionPlans();
+    const feature = 'audio_transcription';
+    const promptVersion = resolvePromptVersion(feature);
+    const schemaVersion = getFeatureSchemaVersion(feature);
+    const promptHash = hashStableJson({
+      feature,
+      promptVersion,
+      schemaVersion,
+      prompt: args.body.prompt ?? null
+    });
+    const inputHash = hashStableJson({
+      mimeType: args.body.mimeType,
+      fileName: args.body.fileName ?? null,
+      language: args.body.language ?? null,
+      prompt: args.body.prompt ?? null,
+      audioHash: sha256Text(args.body.base64Audio),
+      audioLength: args.body.base64Audio.length
+    });
+    let transcriptionPlans: AudioTranscriptionPlan[];
+    try {
+      transcriptionPlans = resolveAudioTranscriptionPlans();
+    } catch (error) {
+      args.reply.status(503);
+      return {
+        error: {
+          message:
+            error instanceof Error && error.message === 'No audio transcription provider is configured'
+              ? 'No audio transcription provider is configured. Set KITABU_OPENAI_API_KEY or KITABU_GROQ_API_KEY on the API server.'
+              : 'Audio transcription is currently unavailable. Please try again later.'
+        },
+        text: null,
+        subscription
+      };
+    }
     const primaryPlan = transcriptionPlans[0];
 
     try {
+      const startedAt = Date.now();
       const result = await transcribeAudio(args.body, transcriptionPlans);
+      const latencyMs = Date.now() - startedAt;
+      const outputHash = sha256Text(result.text);
 
       await withTransaction(async client => {
+        const generationRun = await createAiGenerationRun(client, {
+          userId: currentUser.id,
+          schoolId: currentUser.schoolId,
+          subscriptionId: subscription?.id ?? null,
+          feature,
+          promptVersion,
+          provider: result.plan.provider,
+          model: result.plan.model,
+          status: 'completed',
+          latencyMs,
+          promptTokens: 0,
+          completionTokens: 0,
+          totalTokens: 0,
+          estimatedCostUsdMicros: 0,
+          estimatedCostKshCents: 0,
+          cacheStatus: 'bypassed',
+          cacheKey: null,
+          promptHash,
+          inputHash,
+          outputHash
+        });
+        await recordAiGenerationAttempt(client, {
+          runId: generationRun.id,
+          attemptNumber: 1,
+          provider: result.plan.provider,
+          model: result.plan.model,
+          status: 'completed',
+          latencyMs,
+          promptTokens: 0,
+          completionTokens: 0,
+          totalTokens: 0,
+          estimatedCostUsdMicros: 0,
+          estimatedCostKshCents: 0,
+          errorSummary: null
+        });
         await createAiUsageEvent(client, {
           userId: currentUser.id,
           schoolId: currentUser.schoolId,
-          subscriptionId: subscription.id,
-          feature: 'audio_transcription',
+          subscriptionId: subscription?.id ?? null,
+          feature,
           provider: result.plan.provider,
           model: result.plan.model,
           promptTokens: 0,
@@ -1987,11 +2498,45 @@ Requirements:
       };
     } catch (error) {
       await withTransaction(async client => {
+        const generationRun = await createAiGenerationRun(client, {
+          userId: currentUser.id,
+          schoolId: currentUser.schoolId,
+          subscriptionId: subscription?.id ?? null,
+          feature,
+          promptVersion,
+          provider: primaryPlan.provider,
+          model: primaryPlan.model,
+          status: 'failed',
+          latencyMs: 0,
+          promptTokens: 0,
+          completionTokens: 0,
+          totalTokens: 0,
+          estimatedCostUsdMicros: 0,
+          estimatedCostKshCents: 0,
+          cacheStatus: 'bypassed',
+          cacheKey: null,
+          promptHash,
+          inputHash
+        });
+        await recordAiGenerationAttempt(client, {
+          runId: generationRun.id,
+          attemptNumber: 1,
+          provider: primaryPlan.provider,
+          model: primaryPlan.model,
+          status: 'failed',
+          latencyMs: 0,
+          promptTokens: 0,
+          completionTokens: 0,
+          totalTokens: 0,
+          estimatedCostUsdMicros: 0,
+          estimatedCostKshCents: 0,
+          errorSummary: truncateAiError(error)
+        });
         await createAiUsageEvent(client, {
           userId: currentUser.id,
           schoolId: currentUser.schoolId,
-          subscriptionId: subscription.id,
-          feature: 'audio_transcription',
+          subscriptionId: subscription?.id ?? null,
+          feature,
           provider: primaryPlan.provider,
           model: primaryPlan.model,
           promptTokens: 0,
@@ -2024,7 +2569,7 @@ Requirements:
   }) {
     const currentUser = args.request.user!;
     const subscriptionCheck = await requireActiveSubscriptionForAi(args.reply, currentUser);
-    if (subscriptionCheck.error || !subscriptionCheck.subscription) {
+    if (subscriptionCheck.error) {
       return {
         error: subscriptionCheck.error,
         audio: null,
@@ -2033,21 +2578,72 @@ Requirements:
     }
 
     const subscription = subscriptionCheck.subscription;
-    const promptVersion = resolvePromptVersion('speech_synthesis');
+    const feature = 'speech_synthesis';
+    const promptVersion = resolvePromptVersion(feature);
+    const schemaVersion = getFeatureSchemaVersion(feature);
     const model = appConfig.KITABU_GROQ_TTS_ENGLISH_MODEL;
+    const promptHash = hashStableJson({
+      feature,
+      promptVersion,
+      schemaVersion,
+      voice: args.body.voice ?? null
+    });
+    const inputHash = hashStableJson({
+      textHash: sha256Text(args.body.text),
+      textLength: args.body.text.length,
+      voice: args.body.voice ?? null
+    });
 
     try {
+      const startedAt = Date.now();
       const result = await synthesizeSpeechWithGroq({
         text: args.body.text,
         voice: args.body.voice
       });
+      const latencyMs = Date.now() - startedAt;
+      const outputHash = sha256Text(result.base64Audio);
 
       await withTransaction(async client => {
+        const generationRun = await createAiGenerationRun(client, {
+          userId: currentUser.id,
+          schoolId: currentUser.schoolId,
+          subscriptionId: subscription?.id ?? null,
+          feature,
+          promptVersion,
+          provider: 'groq',
+          model: result.model,
+          status: 'completed',
+          latencyMs,
+          promptTokens: args.body.text.length,
+          completionTokens: 0,
+          totalTokens: args.body.text.length,
+          estimatedCostUsdMicros: 0,
+          estimatedCostKshCents: 0,
+          cacheStatus: 'bypassed',
+          cacheKey: null,
+          promptHash,
+          inputHash,
+          outputHash
+        });
+        await recordAiGenerationAttempt(client, {
+          runId: generationRun.id,
+          attemptNumber: 1,
+          provider: 'groq',
+          model: result.model,
+          status: 'completed',
+          latencyMs,
+          promptTokens: args.body.text.length,
+          completionTokens: 0,
+          totalTokens: args.body.text.length,
+          estimatedCostUsdMicros: 0,
+          estimatedCostKshCents: 0,
+          errorSummary: null
+        });
         await createAiUsageEvent(client, {
           userId: currentUser.id,
           schoolId: currentUser.schoolId,
-          subscriptionId: subscription.id,
-          feature: 'speech_synthesis',
+          subscriptionId: subscription?.id ?? null,
+          feature,
           provider: 'groq',
           model: result.model,
           promptTokens: args.body.text.length,
@@ -2068,11 +2664,45 @@ Requirements:
       };
     } catch (error) {
       await withTransaction(async client => {
+        const generationRun = await createAiGenerationRun(client, {
+          userId: currentUser.id,
+          schoolId: currentUser.schoolId,
+          subscriptionId: subscription?.id ?? null,
+          feature,
+          promptVersion,
+          provider: 'groq',
+          model,
+          status: 'failed',
+          latencyMs: 0,
+          promptTokens: args.body.text.length,
+          completionTokens: 0,
+          totalTokens: args.body.text.length,
+          estimatedCostUsdMicros: 0,
+          estimatedCostKshCents: 0,
+          cacheStatus: 'bypassed',
+          cacheKey: null,
+          promptHash,
+          inputHash
+        });
+        await recordAiGenerationAttempt(client, {
+          runId: generationRun.id,
+          attemptNumber: 1,
+          provider: 'groq',
+          model,
+          status: 'failed',
+          latencyMs: 0,
+          promptTokens: args.body.text.length,
+          completionTokens: 0,
+          totalTokens: args.body.text.length,
+          estimatedCostUsdMicros: 0,
+          estimatedCostKshCents: 0,
+          errorSummary: truncateAiError(error)
+        });
         await createAiUsageEvent(client, {
           userId: currentUser.id,
           schoolId: currentUser.schoolId,
-          subscriptionId: subscription.id,
-          feature: 'speech_synthesis',
+          subscriptionId: subscription?.id ?? null,
+          feature,
           provider: 'groq',
           model,
           promptTokens: args.body.text.length,
@@ -2181,6 +2811,8 @@ Requirements:
         roles: user.roles,
         gender: user.gender,
         grade: user.grade_level,
+        countryCode: user.country_code,
+        curriculumCode: user.curriculum_code,
         onboardingCompleted: user.onboarding_completed,
         stepUp: shouldBypassStepUp,
         mustRotatePassword: user.must_rotate_password,
@@ -2468,6 +3100,8 @@ Requirements:
         roles: user.roles,
         gender: user.gender,
         grade: user.grade ?? null,
+        countryCode: user.countryCode ?? 'KEN',
+        curriculumCode: user.curriculumCode ?? 'CBC',
         onboardingCompleted: user.onboardingCompleted,
         stepUp: false,
         mustRotatePassword: false,
@@ -2835,6 +3469,8 @@ Requirements:
         roles: user.roles,
         gender: user.gender,
         grade: user.grade ?? null,
+        countryCode: user.countryCode ?? 'KEN',
+        curriculumCode: user.curriculumCode ?? 'CBC',
         onboardingCompleted: user.onboardingCompleted,
         stepUp: false,
         mustRotatePassword: user.mustRotatePassword,
@@ -2853,7 +3489,7 @@ Requirements:
   app.post('/auth/password/rotate', async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
     }
     const currentUser = request.user!;
 
@@ -2886,6 +3522,8 @@ Requirements:
         roles: refreshedUser.roles,
         gender: refreshedUser.gender,
         grade: refreshedUser.grade ?? null,
+        countryCode: refreshedUser.countryCode ?? 'KEN',
+        curriculumCode: refreshedUser.curriculumCode ?? 'CBC',
         onboardingCompleted: refreshedUser.onboardingCompleted,
         stepUp: refreshedUser.stepUp,
         mustRotatePassword: false,
@@ -2962,6 +3600,8 @@ Requirements:
         roles: refreshedUser.roles,
         gender: refreshedUser.gender,
         grade: refreshedUser.grade ?? null,
+        countryCode: refreshedUser.countryCode ?? 'KEN',
+        curriculumCode: refreshedUser.curriculumCode ?? 'CBC',
         onboardingCompleted: refreshedUser.onboardingCompleted,
         stepUp: true,
         mustRotatePassword: refreshedUser.mustRotatePassword,
@@ -2982,7 +3622,7 @@ Requirements:
   app.post('/auth/step-up/totp', async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
     }
     const currentUser = request.user!;
     if (!currentUser.roles.includes('platform_admin')) {
@@ -3011,6 +3651,8 @@ Requirements:
         roles: currentUser.roles,
         gender: currentUser.gender,
         grade: currentUser.grade ?? null,
+        countryCode: currentUser.countryCode ?? 'KEN',
+        curriculumCode: currentUser.curriculumCode ?? 'CBC',
         onboardingCompleted: currentUser.onboardingCompleted,
         stepUp: true,
         mustRotatePassword: currentUser.mustRotatePassword,
@@ -3028,7 +3670,7 @@ Requirements:
   app.get('/curriculum', async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
     }
 
     const query = curriculumQuerySchema.parse(request.query);
@@ -3044,7 +3686,7 @@ Requirements:
   app.post('/analytics/subject-engagement', async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
     }
 
     const body = subjectEngagementSchema.parse(request.body);
@@ -3066,7 +3708,7 @@ Requirements:
   app.put('/curriculum/subjects/:subjectId', async (request, reply) => {
     const authError = await requireRoles(request, reply, ['school_admin', 'platform_admin']);
     if (authError) {
-      return authError;
+      return;
     }
 
     const params = curriculumSubjectParamsSchema.parse(request.params);
@@ -3097,7 +3739,7 @@ Requirements:
   app.post('/curriculum/subjects', async (request, reply) => {
     const authError = await requireRoles(request, reply, ['school_admin', 'platform_admin']);
     if (authError) {
-      return authError;
+      return;
     }
 
     const body = curriculumCreateSubjectSchema.parse(request.body);
@@ -3153,7 +3795,7 @@ Requirements:
   }, async (request, reply) => {
     const authError = await requireRoles(request, reply, ['school_admin', 'platform_admin']);
     if (authError) {
-      return authError;
+      return;
     }
 
     const body = curriculumImportSchema.parse(request.body);
@@ -3184,6 +3826,11 @@ Return valid JSON with this shape:
         prompt,
         responseMimeType: 'application/json',
         feature: 'curriculum_import_processing',
+        context: {
+          grade: body.grade,
+          subjectName: body.subjectName,
+          subjectId: body.subjectId
+        },
         attachment: {
           mimeType: body.mimeType,
           data: body.base64Data,
@@ -3267,7 +3914,7 @@ Return valid JSON with this shape:
   }, async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
     }
 
     const params = subStrandParamsSchema.parse(request.params);
@@ -3289,7 +3936,15 @@ Return valid JSON with this shape:
       body: {
         prompt: buildLessonGenerationPrompt(context),
         responseMimeType: 'application/json',
-        feature: 'curriculum_lesson_generation'
+        feature: 'curriculum_lesson_generation',
+        context: {
+          grade: context.grade_level,
+          subjectName: context.subject_name,
+          strandTitle: context.strand_title,
+          subStrandTitle: context.sub_strand_title,
+          learningOutcomes: context.outcomes,
+          inquiryQuestions: context.inquiry_questions
+        }
       }
     });
 
@@ -3328,7 +3983,7 @@ Return valid JSON with this shape:
   }, async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
     }
 
     const params = subStrandParamsSchema.parse(request.params);
@@ -3356,7 +4011,16 @@ Return valid JSON with this shape:
         body: {
           prompt: buildLessonQuizPrompt(context, body.questionCount),
           responseMimeType: 'application/json',
-          feature: 'curriculum_quiz_generation'
+          feature: 'curriculum_quiz_generation',
+          context: {
+            grade: context.grade_level,
+            subjectName: context.subject_name,
+            strandTitle: context.strand_title,
+            subStrandTitle: context.sub_strand_title,
+            learningOutcomes: context.outcomes,
+            inquiryQuestions: context.inquiry_questions,
+            questionCount: body.questionCount
+          }
         }
       });
 
@@ -3368,26 +4032,11 @@ Return valid JSON with this shape:
         parsed = JSON.parse(aiResult.text) as typeof parsed;
       }
     } catch (error) {
-      request.log.warn({ err: error, subStrandId: params.subStrandId }, 'Curriculum quiz AI failed; using QuizBank fallback');
+      request.log.warn({ err: error, subStrandId: params.subStrandId }, 'Curriculum quiz AI failed');
     }
 
     if (!parsed.questions?.length) {
-      const bankQuestions = await listQuizBankQuestions({
-        gradeLevel: context.grade_level,
-        subjectId: context.subject_id,
-        limit: body.questionCount
-      });
-
-      if (!bankQuestions.length) {
-        return reply.serviceUnavailable('QuizBank fallback is not available for this grade yet');
-      }
-
-      reply.status(200);
-      return {
-        subStrandId: params.subStrandId,
-        source: 'quiz_bank',
-        questions: bankQuestions.map(serializeQuizBankQuestion)
-      };
+      return reply.serviceUnavailable('AI quiz generation did not return questions');
     }
 
     return {
@@ -3403,7 +4052,7 @@ Return valid JSON with this shape:
   app.post('/curriculum/sub-strands/:subStrandId/complete', async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
     }
 
     const params = subStrandParamsSchema.parse(request.params);
@@ -3455,7 +4104,7 @@ Return valid JSON with this shape:
   app.get('/quiz-bank', async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
     }
 
     const query = quizBankQuerySchema.parse(request.query);
@@ -3475,7 +4124,7 @@ Return valid JSON with this shape:
   app.get('/diagnostics/onboarding/status', async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
     }
 
     const isStudent = request.user!.roles.includes('student');
@@ -3512,7 +4161,7 @@ Return valid JSON with this shape:
   app.post('/diagnostics/onboarding/start', async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
     }
     if (!request.user!.roles.includes('student')) {
       return reply.forbidden('Only student accounts can complete onboarding diagnostics');
@@ -3555,7 +4204,7 @@ Return valid JSON with this shape:
   app.post('/diagnostics/onboarding/:sessionId/answer', async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
     }
 
     const params = diagnosticParamsSchema.parse(request.params);
@@ -3614,7 +4263,7 @@ Return valid JSON with this shape:
   app.post('/diagnostics/onboarding/:sessionId/complete', async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
     }
 
     const params = diagnosticParamsSchema.parse(request.params);
@@ -3652,7 +4301,7 @@ Return valid JSON with this shape:
   app.get('/diagnostics/progressive/:subjectId/status', async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
     }
     const params = progressiveSubjectParamsSchema.parse(request.params);
     if (!request.user!.roles.includes('student')) {
@@ -3682,7 +4331,7 @@ Return valid JSON with this shape:
   app.post('/diagnostics/progressive/:subjectId/start', async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
     }
     const params = progressiveSubjectParamsSchema.parse(request.params);
     if (!request.user!.roles.includes('student')) {
@@ -3723,7 +4372,7 @@ Return valid JSON with this shape:
   app.post('/diagnostics/progressive/:subjectId/:sessionId/answer', async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
     }
 
     const params = progressiveDiagnosticParamsSchema.parse(request.params);
@@ -3777,7 +4426,7 @@ Return valid JSON with this shape:
   app.post('/diagnostics/progressive/:subjectId/:sessionId/complete', async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
     }
 
     const params = progressiveDiagnosticParamsSchema.parse(request.params);
@@ -3811,7 +4460,7 @@ Return valid JSON with this shape:
   app.get('/learning/weekly-exam', async (request, reply) => {
     const authError = await requireRoles(request, reply, ['student']);
     if (authError) {
-      return authError;
+      return;
     }
 
     const gradeLevel = request.user!.grade || 'Grade 8';
@@ -3861,7 +4510,7 @@ Return valid JSON with this shape:
   app.post('/learning/weekly-exam/:examId/start', async (request, reply) => {
     const authError = await requireRoles(request, reply, ['student']);
     if (authError) {
-      return authError;
+      return;
     }
 
     const params = weeklyExamParamsSchema.parse(request.params);
@@ -3901,7 +4550,7 @@ Return valid JSON with this shape:
   app.post('/learning/weekly-exam/:examId/submit', async (request, reply) => {
     const authError = await requireRoles(request, reply, ['student']);
     if (authError) {
-      return authError;
+      return;
     }
 
     const params = weeklyExamParamsSchema.parse(request.params);
@@ -3969,7 +4618,7 @@ Return valid JSON with this shape:
   app.get('/learning/reviews/due', async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
     }
 
     if (!request.user!.roles.includes('student')) {
@@ -3995,7 +4644,7 @@ Return valid JSON with this shape:
   app.post('/learning/reviews/:reviewId/complete', async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
     }
 
     const params = reviewParamsSchema.parse(request.params);
@@ -4019,7 +4668,7 @@ Return valid JSON with this shape:
   app.get('/schools', async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
     }
 
     const schools = await listSchools();
@@ -4031,7 +4680,7 @@ Return valid JSON with this shape:
   app.get('/app/banner', async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
     }
 
     const firstName = request.user!.fullName.trim().split(/\s+/)[0] || 'there';
@@ -4066,7 +4715,7 @@ Return valid JSON with this shape:
   app.get('/notifications', async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
     }
 
     const query = notificationsQuerySchema.parse(request.query);
@@ -4093,7 +4742,7 @@ Return valid JSON with this shape:
   app.post('/notifications/:notificationId/read', async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
     }
 
     const params = notificationParamsSchema.parse(request.params);
@@ -4107,7 +4756,7 @@ Return valid JSON with this shape:
   app.post('/notifications/read-all', async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
     }
 
     await withTransaction(async client => {
@@ -4120,7 +4769,7 @@ Return valid JSON with this shape:
   app.post('/notifications/push-token', async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
     }
 
     const body = pushTokenSchema.parse(request.body);
@@ -4139,27 +4788,54 @@ Return valid JSON with this shape:
   app.get('/app/library/books', async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
     }
 
-    const books = await listLibraryBooksForUser(request.user!);
-    return {
-      books: books.map(book => ({
-        id: book.id,
-        title: book.title,
-        author: book.author,
-        spineColor: book.spine_color,
-        textColor: book.text_color,
-        height: book.height,
-        spinePattern: book.spine_pattern
-      }))
-    };
+    const query = libraryBooksQuerySchema.parse(request.query);
+    return { books: await listGeneratedBooksForUser(request.user!, { grade: query.grade }) };
+  });
+
+  app.get('/app/library/books/:bookId/manifest', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return;
+    }
+
+    const params = z.object({ bookId: z.string().min(1) }).parse(request.params);
+    const manifest = await readGeneratedBookManifestForUser(request.user!, params.bookId);
+    if (!manifest) {
+      return reply.notFound('Book manifest not found');
+    }
+
+    return { manifest };
+  });
+
+  app.get('/app/library/books/:bookId/download', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return;
+    }
+
+    const params = z.object({ bookId: z.string().min(1) }).parse(request.params);
+    const query = z.object({
+      format: z.enum(['pdf', 'markdown', 'pages', 'source-map', 'cover']).default('pdf')
+    }).parse(request.query);
+    const asset = await openGeneratedBookAssetForUser(request.user!, params.bookId, query.format);
+    if (!asset) {
+      return reply.notFound('Book asset not found');
+    }
+
+    reply
+      .type(asset.contentType)
+      .header('Content-Length', String(asset.sizeBytes))
+      .header('Content-Disposition', `attachment; filename="${asset.fileName}"`);
+    return reply.send(asset.stream);
   });
 
   app.get('/app/podcasts', async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
     }
 
     const podcasts = await listLearningPodcastsForUser(request.user!);
@@ -4498,7 +5174,7 @@ Return valid JSON with this shape:
   app.post('/me/presence', async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
     }
 
     const body = presenceSchema.parse(request.body);
@@ -4517,7 +5193,7 @@ Return valid JSON with this shape:
   app.post('/me/onboarding', async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
     }
 
     if (!request.user!.roles.includes('student')) {
@@ -4559,6 +5235,8 @@ Return valid JSON with this shape:
       roles: refreshedUser.roles,
       gender: refreshedUser.gender,
       grade: refreshedUser.grade ?? null,
+      countryCode: refreshedUser.countryCode ?? 'KEN',
+      curriculumCode: refreshedUser.curriculumCode ?? 'CBC',
       onboardingCompleted: refreshedUser.onboardingCompleted,
       stepUp: refreshedUser.stepUp,
       mustRotatePassword: refreshedUser.mustRotatePassword,
@@ -4577,6 +5255,8 @@ Return valid JSON with this shape:
         roles: refreshedUser.roles,
         gender: refreshedUser.gender,
         grade: refreshedUser.grade ?? null,
+        countryCode: refreshedUser.countryCode ?? 'KEN',
+        curriculumCode: refreshedUser.curriculumCode ?? 'CBC',
         onboardingCompleted: refreshedUser.onboardingCompleted
       }
     };
@@ -4585,7 +5265,7 @@ Return valid JSON with this shape:
   app.delete('/me/account', async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
     }
 
     const body = deleteAccountSchema.parse(request.body);
@@ -4987,7 +5667,15 @@ Return valid JSON with this shape:
   app.get('/billing/plans', async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
+    }
+
+    if (isDemoStudentUser(request.user!)) {
+      return {
+        plans: [],
+        school: null,
+        trialOffer: null
+      };
     }
 
     const [schoolPricing, hiddenTrialPlan, hasPaidBefore] = await Promise.all([
@@ -5046,7 +5734,17 @@ Return valid JSON with this shape:
   app.get('/billing/subscription', async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
+    }
+
+    if (isDemoStudentUser(request.user!)) {
+      return {
+        subscription: serializeDemoStudentSubscription(),
+        savedMpesaPhoneNumber: null,
+        maskedMpesaPhoneNumber: null,
+        hasPaidBefore: true,
+        school: null
+      };
     }
 
     const [subscription, billingProfile, schoolPricing, hasPaidBefore] = await Promise.all([
@@ -5081,7 +5779,11 @@ Return valid JSON with this shape:
   }, async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
+    }
+
+    if (isDemoStudentUser(request.user!)) {
+      return reply.forbidden('Demo student account already has full access and does not require payment');
     }
 
     await withTransaction(async client => {
@@ -5219,7 +5921,7 @@ Return valid JSON with this shape:
   app.get('/billing/checkout/:paymentRequestId', async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
     }
 
     const params = checkoutParamsSchema.parse(request.params);
@@ -5372,7 +6074,7 @@ Return valid JSON with this shape:
     }
     const schoolContextError = await requireSchoolContext(request, reply, { allowPlatformAdmin: true });
     if (schoolContextError) {
-      return schoolContextError;
+      return;
     }
     return getAdminAiAnalytics(request.user!);
   });
@@ -5394,7 +6096,7 @@ Return valid JSON with this shape:
     }
     const schoolContextError = await requireSchoolContext(request, reply, { allowPlatformAdmin: true });
     if (schoolContextError) {
-      return schoolContextError;
+      return;
     }
     const query = subjectEngagementQuerySchema.parse(request.query);
     return getAdminSubjectEngagementAnalytics(request.user!, query);
@@ -5417,7 +6119,7 @@ Return valid JSON with this shape:
     }
     const schoolContextError = await requireSchoolContext(request, reply, { allowPlatformAdmin: true });
     if (schoolContextError) {
-      return schoolContextError;
+      return;
     }
     return getBillingAnalytics(request.user!);
   });
@@ -5425,7 +6127,7 @@ Return valid JSON with this shape:
   const generateTextHandler = async (request: FastifyRequest, reply: FastifyReply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
     }
     const body = generateTextSchema.parse(request.body);
 
@@ -5439,13 +6141,13 @@ Return valid JSON with this shape:
       return result.error;
     }
 
-    return { text: result.text };
+    return { text: result.text, generation: result.generation };
   };
 
   const transcribeAudioHandler = async (request: FastifyRequest, reply: FastifyReply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
     }
 
     const body = transcribeAudioSchema.parse(request.body);
@@ -5465,7 +6167,7 @@ Return valid JSON with this shape:
   const synthesizeSpeechHandler = async (request: FastifyRequest, reply: FastifyReply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
-      return authError;
+      return;
     }
 
     const body = synthesizeSpeechSchema.parse(request.body);

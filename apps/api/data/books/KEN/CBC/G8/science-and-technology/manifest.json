@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-grade-8-science-and-technology",
+  "title": "KITABU QUEST Grade 8 Science and Technology",
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 8",
+  "subject": "Science and Technology",
+  "subjectSlug": "science-and-technology",
+  "subjectColor": "#7C3AED",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "learner-first-language-depth-renderers-2026-07-01-v10",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-reviewed-draft",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T11:44:19Z",
+  "sourceSnapshotHash": "80ea9c263f5e383909f1ea9f5fa7bea55582f8cfce9d1e295426dd3d7250c4c3",
+  "bookPlanHash": "9ba65c5375153d404be4a568a4840eff597ee45db12353c1f8bd34f9783c0202",
+  "pageCount": 120,
+  "wordCount": 17872,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "ageBand": "junior-secondary",
+    "coversDeferred": true,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "topicCount": 14,
+    "outcomeCount": 33,
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "KEN",
+    "subject": "Science and Technology",
+    "species": "chameleon",
+    "role": "curiosity and observation guide",
+    "sourceRationale": "Observation, adaptation, biology, and learner investigations."
+  },
+  "cover": {
+    "scene": "learners observing a chameleon and plants during a safe outdoor investigation",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Kenya CBC Grade 8 Science and Technology. Scene: learners observing a chameleon and plants during a safe outdoor investigation. Include a friendly chameleon mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "assets": [],
+  "downloads": {
+    "markdown": "kitabu-quest-grade-8-science-and-technology.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-grade-8-science-and-technology.pdf"
+  },
+  "sourceDocuments": [
+    {
+      "id": "187ad86d-bd8a-460b-aab1-bf2137109a4e",
+      "subject": "Integrated Science",
+      "officialTitle": "Competency Based Curriculum Grade 8 Integrated Science",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_8",
+      "gradeLocalLevel": "Grade 8",
+      "localLevel": "Grade 8",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/1RpqZRmeMywbc1Tya0_x-tNJBs75Gy0-v/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_8",
+        "documentUrl": "https://drive.google.com/file/d/1RpqZRmeMywbc1Tya0_x-tNJBs75Gy0-v/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_8/integrated-science/187ad86d-bd8a-460b-aab1-bf2137109a4e.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-eight-designs/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "624721c973a10be681342b0cd41eb53d72214a87c70b66aa2541ef601e02caa1",
+        "markdownPageCount": 37,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_8/integrated-science/187ad86d-bd8a-460b-aab1-bf2137109a4e.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "624721c973a10be681342b0cd41eb53d72214a87c70b66aa2541ef601e02caa1",
+          "pageCount": 37,
+          "generatedAt": "2026-06-29T16:35:09.601Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "ce506c5f86a011f7cc5526289d3acd199223dcb4e0c748922ce74b3f1be2cf86"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:09.601Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    }
+  ]
+}

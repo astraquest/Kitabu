@@ -1,0 +1,2083 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-rwa-reb-cbc-s5-computer-science",
+  "title": "KITABU QUEST S5 Computer Science",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "S5",
+  "subject": "Computer Science",
+  "subjectSlug": "computer-science",
+  "subjectColor": "#4338CA",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v5",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T04:12:48Z",
+  "sourceSnapshotHash": "e83a1e9975be621e56ed1f8277eec8bea59b8884320feb5e73e7046e31c73ae5",
+  "bookPlanHash": "855bd8dfe01150b3ef14bb1011bb013ec512be924dc805403a63570958ad8858",
+  "pageCount": 83,
+  "wordCount": 7914,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 9,
+    "outcomeCount": 9,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "RWA",
+    "subject": "Computer Science",
+    "species": "mountain gorilla",
+    "role": "computing guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "students using computers and code safely with a mountain gorilla mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Rwanda REB-CBC S5 Computer Science. Scene: students using computers and code safely with a mountain gorilla mascot. Include a friendly mountain gorilla mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 93958,
+    "sha256": "20ad24193619ba8d5091dda2410e8804b2c149acc32a42e1457aaf52d0e12603"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 93958,
+      "sha256": "20ad24193619ba8d5091dda2410e8804b2c149acc32a42e1457aaf52d0e12603",
+      "kind": "cover",
+      "altText": "KITABU QUEST S5 Computer Science cover with mountain gorilla",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-rwa-reb-cbc-s5-computer-science.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-rwa-reb-cbc-s5-computer-science.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "0b3c67d1-5609-434a-b9b3-3f0f43376256",
+      "subject": "Computer Science",
+      "officialTitle": "Rwanda Competence Based Curriculum S5 Computer Science",
+      "countryCode": "RWA",
+      "curriculumCode": "REB-CBC",
+      "gradeCode": "S5",
+      "gradeLocalLevel": "S5",
+      "localLevel": "S5",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://elearning.reb.rw/pluginfile.php/15471/mod_resource/content/1/Computer%20Science%20Competence%20Based%20Syllabus.pdf",
+      "objectKey": "data/curriculum/source-files/RWA/d431700bbf589d86b89fbdfa73da3fb48d5d2268337bf347d6f2ddfbd1a844ae.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "S5",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://elearning.reb.rw/pluginfile.php/15471/mod_resource/content/1/Computer%20Science%20Competence%20Based%20Syllabus.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S5/computer-science/0b3c67d1-5609-434a-b9b3-3f0f43376256.md",
+        "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "reb.gov.rw",
+          "reb.rw",
+          "elearning.reb.rw"
+        ],
+        "markdownChecksum": "e8b2f15ce6b661bfadaf0184b185bd6e006aa1996f7a003d0209dc6c8ca7045f",
+        "markdownPageCount": 130,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/RWA/REB-CBC/S5/computer-science/0b3c67d1-5609-434a-b9b3-3f0f43376256.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "e8b2f15ce6b661bfadaf0184b185bd6e006aa1996f7a003d0209dc6c8ca7045f",
+          "pageCount": 130,
+          "generatedAt": "2026-07-01T01:23:38.944Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S5/computer-science/0b3c67d1-5609-434a-b9b3-3f0f43376256.json",
+          "sourceChecksum": "deb7e9f73d42ecb5090e6f80c9ae0bed1f3df353e27c67d842be9807f68ef00d"
+        },
+        "markdownGeneratedAt": "2026-07-01T01:23:38.944Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p001",
+      "title": "Title Page",
+      "content": "KITABU QUEST S5 Computer Science\n\nRwanda REB-CBC learner book\n\nMascot: mountain gorilla\n\nThis KITABU QUEST book turns the curriculum into short lessons, worked examples, guided activities, practice, review, and home links for Rwanda learners.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 3,
+      "wordCount": 34,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p002",
+      "title": "How To Use This Book",
+      "content": "This book helps S5 learners study Computer Science one teachable topic at a time.\n\n1. Start with the inquiry question and say what you already know.\n2. Read the Learn section slowly and mark new words.\n3. Try the worked example before reading the full solution.\n4. Complete the activity and practice tasks.\n5. Correct your answer using the success criteria.\n6. Ask for support when your answer is still unclear.\n\nSubject method: Practise safe computing, algorithms, data, systems thinking, and clear step-by-step explanations.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 84,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p003",
+      "title": "Learning Skills In This Book",
+      "content": "Each topic builds knowledge, skill, values, communication, collaboration, critical thinking, creativity, digital awareness, and self-confidence.\n\nStudy actively: speak answers aloud, draw when useful, show your working, cite evidence, use local examples, and correct mistakes after feedback.\n\nA strong answer is specific. It names the idea, gives evidence or method, applies it to the task, and checks whether it answers the question.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p004",
+      "title": "Table Of Contents",
+      "content": "Use this table to move through the book one topic at a time. Each topic has a lesson opener, clear teaching, a model or example, guided work, practice, and checks for understanding.\n\n1. Fundamental of laptop and portable devices\n2. Complex data structure in algorithm\n3. Database design\n4. Pointers and Structure in C++\n5. Object Oriented Programming in C++\n6. Variables, Operators, Expressions and Control structures\n7. OOP and Java\n8. IO and Java\n9. Process Management and scheduling algorithm\n\nAs you finish each topic, return to the success criteria and correct one answer before moving on.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p005",
+      "title": "Fundamental of laptop and portable devices: Lesson Opener",
+      "content": "Learning focus: Fundamental of laptop and portable devices\n\nCountry link: a safe Rwanda observation, model, data table, or investigation for Fundamental of laptop and portable devices.\n\nBy the end of this topic, you should be able to:\n- identify, use and maintain safely laptops and other portable devices\n\nInquiry questions:\n- How can fundamental of laptop and portable devices help you solve a real problem in Computer Science?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 83,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-001:opener:visual-1:planned",
+        "RWA-S5-computer-science-topic-001:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p006",
+      "title": "Fundamental of laptop and portable devices: Learn",
+      "content": "Fundamental of laptop and portable devices is learned by turning the topic into a clear, safe, evidence-based science task.\n\nCore idea:\n- Name the science idea before starting: structure, process, material, force, energy, organism, environment, or system.\n- Use a diagram, data table, labelled model, safe observation, or teacher-approved investigation.\n- Record what is seen or measured, not what is guessed.\n- Explain the result using the vocabulary from this topic.\n- Finish with one conclusion and one question for further study.\n\nKey words:\n- Fundamental of laptop and portable devices\n- Fundamental\n- laptop\n- portable\n- devices\n- concept\n- observation\n- evidence",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-001:learn:visual-1:planned",
+        "RWA-S5-computer-science-topic-001:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p007",
+      "title": "Fundamental of laptop and portable devices: Worked Example",
+      "content": "Investigation model for Fundamental of laptop and portable devices: Turn the topic into a safe, clear classroom investigation or model.\n\n1. Question: write one question that can be answered by observing, comparing, classifying, measuring, modelling, or reading data.\n2. Materials: list safe classroom materials, diagrams, samples, cards, tables, or teacher-approved apparatus.\n3. Method: do one step at a time and keep one condition fair where comparison is needed.\n4. Safety: name any heat, glass, sharp tool, chemical, hygiene, electrical, or body-safety rule before starting.\n5. Record: use a labelled table, diagram, or sentence notes.\n6. Conclusion: state what the evidence shows and one limit of the investigation.\n\nAnswer check: a strong response names the concept, uses correct vocabulary, records evidence, and does not claim more than the evidence supports.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 129,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-001:example:visual-1:planned",
+        "RWA-S5-computer-science-topic-001:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p008",
+      "title": "Fundamental of laptop and portable devices: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Fundamental of laptop and portable devices. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Fundamental of laptop and portable devices\n- Fundamental\n- laptop\n- portable\n- devices\n- concept\n- observation\n- evidence\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Fundamental of laptop and portable devices without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 124,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-001:vocabulary:visual-1:planned",
+        "RWA-S5-computer-science-topic-001:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p009",
+      "title": "Fundamental of laptop and portable devices: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwanda observation, model, data table, or investigation for Fundamental of laptop and portable devices.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-001:activity:visual-1:planned",
+        "RWA-S5-computer-science-topic-001:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p010",
+      "title": "Fundamental of laptop and portable devices: Practice And Correction",
+      "content": "Practice for Fundamental of laptop and portable devices:\n\nMain outcome: identify, use and maintain safely laptops and other portable devices.\n\n1. Write one safe investigation question.\n2. Name materials and observations needed.\n3. Use the evidence to write a conclusion.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 86,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-001:practice:visual-1:planned",
+        "RWA-S5-computer-science-topic-001:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p011",
+      "title": "Fundamental of laptop and portable devices: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Fundamental of laptop and portable devices.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-001:remediation:visual-1:planned",
+        "RWA-S5-computer-science-topic-001:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p012",
+      "title": "Fundamental of laptop and portable devices: Outcome Check",
+      "content": "Outcome check for Fundamental of laptop and portable devices: Identify, use and maintain safely laptops and other portable devices.\n\n1. State a safe investigation question.\n2. Name the evidence needed.\n3. Write a conclusion from the evidence.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 52,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-001:assessment:visual-1:planned",
+        "RWA-S5-computer-science-topic-001:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p013",
+      "title": "Complex data structure in algorithm: Lesson Opener",
+      "content": "Learning focus: Complex data structure in algorithm\n\nCountry link: a safe Rwanda observation, model, data table, or investigation for Complex data structure in algorithm.\n\nBy the end of this topic, you should be able to:\n- utilize complex data structure in algorithm\n\nInquiry questions:\n- How can complex data structure in algorithm help you solve a real problem in Computer Science?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 76,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-002:opener:visual-1:planned",
+        "RWA-S5-computer-science-topic-002:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p014",
+      "title": "Complex data structure in algorithm: Learn",
+      "content": "Complex data structure in algorithm is learned by connecting a computing concept to a clear problem, exact steps, and a checked output.\n\nCore idea:\n- Name the computing object first: data, algorithm, program, web page, database, network, device, or security control.\n- Break the task into steps before using a computer.\n- Use correct technical vocabulary such as input, process, output, variable, file, table, tag, command, or protocol where it fits.\n- Test the result with a small example and correct one error.\n- Save or present the work in a way another learner can inspect.\n\nKey words:\n- Complex data structure in algorithm\n- Complex\n- data\n- structure\n- algorithm\n- concept\n- observation\n- evidence",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-002:learn:visual-1:planned",
+        "RWA-S5-computer-science-topic-002:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p015",
+      "title": "Complex data structure in algorithm: Worked Example",
+      "content": "Worked example for Complex data structure in algorithm: Build a small checked computing output.\n\n1. Define the task in one sentence.\n2. List the inputs needed, such as text, numbers, records, tags, commands, or devices.\n3. Write the steps before using the computer.\n4. Create a small version of the output: a web page, algorithm trace, table, query, program fragment, network diagram, or security checklist.\n5. Test with one example and correct one error.\n\nAnswer check: the output should match the task, use correct vocabulary, and be easy for another learner to inspect.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-002:example:visual-1:planned",
+        "RWA-S5-computer-science-topic-002:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p016",
+      "title": "Complex data structure in algorithm: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Complex data structure in algorithm. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Complex data structure in algorithm\n- Complex\n- data\n- structure\n- algorithm\n- concept\n- observation\n- evidence\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Complex data structure in algorithm without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-002:vocabulary:visual-1:planned",
+        "RWA-S5-computer-science-topic-002:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p017",
+      "title": "Complex data structure in algorithm: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwanda observation, model, data table, or investigation for Complex data structure in algorithm.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-002:activity:visual-1:planned",
+        "RWA-S5-computer-science-topic-002:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p018",
+      "title": "Complex data structure in algorithm: Practice And Correction",
+      "content": "Practice for Complex data structure in algorithm:\n\nMain outcome: utilize complex data structure in algorithm.\n\n1. Write the purpose of the computing task in one sentence.\n2. Create a small algorithm, code fragment, table, diagram, web page structure, database record, or network/security checklist.\n3. Test it with one example and write one correction.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 99,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-002:practice:visual-1:planned",
+        "RWA-S5-computer-science-topic-002:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p019",
+      "title": "Complex data structure in algorithm: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Complex data structure in algorithm.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-002:remediation:visual-1:planned",
+        "RWA-S5-computer-science-topic-002:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p020",
+      "title": "Complex data structure in algorithm: Outcome Check",
+      "content": "Outcome check for Complex data structure in algorithm: Utilize complex data structure in algorithm.\n\n1. State the computing task or problem.\n2. Show the algorithm, code fragment, table, web page structure, database object, diagram, or security control.\n3. Test with one example and write one correction.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-002:assessment:visual-1:planned",
+        "RWA-S5-computer-science-topic-002:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p021",
+      "title": "Database design: Lesson Opener",
+      "content": "Learning focus: Database design\n\nCountry link: a safe Rwanda observation, model, data table, or investigation for Database design.\n\nBy the end of this topic, you should be able to:\n- define conceptual, logical and physical levels of a database with database creation and manipulation\n\nInquiry questions:\n- How can database design help you solve a real problem in Computer Science?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 75,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-003:opener:visual-1:planned",
+        "RWA-S5-computer-science-topic-003:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p022",
+      "title": "Database design: Learn",
+      "content": "Database design is learned by connecting a computing concept to a clear problem, exact steps, and a checked output.\n\nCore idea:\n- Name the computing object first: data, algorithm, program, web page, database, network, device, or security control.\n- Break the task into steps before using a computer.\n- Use correct technical vocabulary such as input, process, output, variable, file, table, tag, command, or protocol where it fits.\n- Test the result with a small example and correct one error.\n- Save or present the work in a way another learner can inspect.\n\nKey words:\n- Database design\n- Database\n- design\n- concept\n- observation\n- evidence\n- safety\n- conclusion",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-003:learn:visual-1:planned",
+        "RWA-S5-computer-science-topic-003:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p023",
+      "title": "Database design: Worked Example",
+      "content": "Worked example for Database design: Build a small checked computing output.\n\n1. Define the task in one sentence.\n2. List the inputs needed, such as text, numbers, records, tags, commands, or devices.\n3. Write the steps before using the computer.\n4. Create a small version of the output: a web page, algorithm trace, table, query, program fragment, network diagram, or security checklist.\n5. Test with one example and correct one error.\n\nAnswer check: the output should match the task, use correct vocabulary, and be easy for another learner to inspect.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-003:example:visual-1:planned",
+        "RWA-S5-computer-science-topic-003:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p024",
+      "title": "Database design: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Database design. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Database design\n- Database\n- design\n- concept\n- observation\n- evidence\n- safety\n- conclusion\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Database design without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-003:vocabulary:visual-1:planned",
+        "RWA-S5-computer-science-topic-003:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p025",
+      "title": "Database design: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwanda observation, model, data table, or investigation for Database design.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-003:activity:visual-1:planned",
+        "RWA-S5-computer-science-topic-003:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p026",
+      "title": "Database design: Practice And Correction",
+      "content": "Practice for Database design:\n\nMain outcome: define conceptual, logical and physical levels of a database with database creation and manipulation.\n\n1. Write the purpose of the computing task in one sentence.\n2. Create a small algorithm, code fragment, table, diagram, web page structure, database record, or network/security checklist.\n3. Test it with one example and write one correction.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 104,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-003:practice:visual-1:planned",
+        "RWA-S5-computer-science-topic-003:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p027",
+      "title": "Database design: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Database design.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-003:remediation:visual-1:planned",
+        "RWA-S5-computer-science-topic-003:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p028",
+      "title": "Database design: Outcome Check",
+      "content": "Outcome check for Database design: Define conceptual, logical and physical levels of a database with database creation and manipulation.\n\n1. State the computing task or problem.\n2. Show the algorithm, code fragment, table, web page structure, database object, diagram, or security control.\n3. Test with one example and write one correction.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 66,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-003:assessment:visual-1:planned",
+        "RWA-S5-computer-science-topic-003:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p029",
+      "title": "Pointers and Structure in C++: Lesson Opener",
+      "content": "Learning focus: Pointers and Structure in C++\n\nCountry link: a safe Rwanda observation, model, data table, or investigation for Pointers and Structure in C++.\n\nBy the end of this topic, you should be able to:\n- apply pointers for dynamic memory allocation and structure as user defined data type in C ++ program\n\nInquiry questions:\n- How can pointers and structure in c++ help you solve a real problem in Computer Science?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 87,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-004:opener:visual-1:planned",
+        "RWA-S5-computer-science-topic-004:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p030",
+      "title": "Pointers and Structure in C++: Learn",
+      "content": "Pointers and Structure in C++ is learned by connecting a computing concept to a clear problem, exact steps, and a checked output.\n\nCore idea:\n- Name the computing object first: data, algorithm, program, web page, database, network, device, or security control.\n- Break the task into steps before using a computer.\n- Use correct technical vocabulary such as input, process, output, variable, file, table, tag, command, or protocol where it fits.\n- Test the result with a small example and correct one error.\n- Save or present the work in a way another learner can inspect.\n\nKey words:\n- Pointers and Structure in C++\n- Pointers\n- Structure\n- concept\n- observation\n- evidence\n- safety\n- conclusion",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-004:learn:visual-1:planned",
+        "RWA-S5-computer-science-topic-004:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p031",
+      "title": "Pointers and Structure in C++: Worked Example",
+      "content": "Worked example for Pointers and Structure in C++: Build a small checked computing output.\n\n1. Define the task in one sentence.\n2. List the inputs needed, such as text, numbers, records, tags, commands, or devices.\n3. Write the steps before using the computer.\n4. Create a small version of the output: a web page, algorithm trace, table, query, program fragment, network diagram, or security checklist.\n5. Test with one example and correct one error.\n\nAnswer check: the output should match the task, use correct vocabulary, and be easy for another learner to inspect.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-004:example:visual-1:planned",
+        "RWA-S5-computer-science-topic-004:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p032",
+      "title": "Pointers and Structure in C++: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Pointers and Structure in C++. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Pointers and Structure in C++\n- Pointers\n- Structure\n- concept\n- observation\n- evidence\n- safety\n- conclusion\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Pointers and Structure in C++ without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-004:vocabulary:visual-1:planned",
+        "RWA-S5-computer-science-topic-004:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p033",
+      "title": "Pointers and Structure in C++: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwanda observation, model, data table, or investigation for Pointers and Structure in C++.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-004:activity:visual-1:planned",
+        "RWA-S5-computer-science-topic-004:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p034",
+      "title": "Pointers and Structure in C++: Practice And Correction",
+      "content": "Practice for Pointers and Structure in C++:\n\nMain outcome: apply pointers for dynamic memory allocation and structure as user defined data type in C ++ program.\n\n1. Write the purpose of the computing task in one sentence.\n2. Create a small algorithm, code fragment, table, diagram, web page structure, database record, or network/security checklist.\n3. Test it with one example and write one correction.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 110,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-004:practice:visual-1:planned",
+        "RWA-S5-computer-science-topic-004:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p035",
+      "title": "Pointers and Structure in C++: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Pointers and Structure in C++.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-004:remediation:visual-1:planned",
+        "RWA-S5-computer-science-topic-004:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p036",
+      "title": "Pointers and Structure in C++: Outcome Check",
+      "content": "Outcome check for Pointers and Structure in C++: Apply pointers for dynamic memory allocation and structure as user defined data type in C ++ program.\n\n1. State the computing task or problem.\n2. Show the algorithm, code fragment, table, web page structure, database object, diagram, or security control.\n3. Test with one example and write one correction.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 72,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-004:assessment:visual-1:planned",
+        "RWA-S5-computer-science-topic-004:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p037",
+      "title": "Object Oriented Programming in C++: Lesson Opener",
+      "content": "Learning focus: Object Oriented Programming in C++\n\nCountry link: a safe Rwanda observation, model, data table, or investigation for Object Oriented Programming in C++.\n\nBy the end of this topic, you should be able to:\n- explain common concepts of Object Oriented Programming(OOP) and implement them in C++\n\nInquiry questions:\n- How can object oriented programming in c++ help you solve a real problem in Computer Science?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 82,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-005:opener:visual-1:planned",
+        "RWA-S5-computer-science-topic-005:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p038",
+      "title": "Object Oriented Programming in C++: Learn",
+      "content": "Object Oriented Programming in C++ is learned by connecting a computing concept to a clear problem, exact steps, and a checked output.\n\nCore idea:\n- Name the computing object first: data, algorithm, program, web page, database, network, device, or security control.\n- Break the task into steps before using a computer.\n- Use correct technical vocabulary such as input, process, output, variable, file, table, tag, command, or protocol where it fits.\n- Test the result with a small example and correct one error.\n- Save or present the work in a way another learner can inspect.\n\nKey words:\n- Object Oriented Programming in C++\n- Object\n- Oriented\n- Programming\n- concept\n- observation\n- evidence\n- safety",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-005:learn:visual-1:planned",
+        "RWA-S5-computer-science-topic-005:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p039",
+      "title": "Object Oriented Programming in C++: Worked Example",
+      "content": "Worked example for Object Oriented Programming in C++: Build a small checked computing output.\n\n1. Define the task in one sentence.\n2. List the inputs needed, such as text, numbers, records, tags, commands, or devices.\n3. Write the steps before using the computer.\n4. Create a small version of the output: a web page, algorithm trace, table, query, program fragment, network diagram, or security checklist.\n5. Test with one example and correct one error.\n\nAnswer check: the output should match the task, use correct vocabulary, and be easy for another learner to inspect.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-005:example:visual-1:planned",
+        "RWA-S5-computer-science-topic-005:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p040",
+      "title": "Object Oriented Programming in C++: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Object Oriented Programming in C++. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Object Oriented Programming in C++\n- Object\n- Oriented\n- Programming\n- concept\n- observation\n- evidence\n- safety\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Object Oriented Programming in C++ without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-005:vocabulary:visual-1:planned",
+        "RWA-S5-computer-science-topic-005:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p041",
+      "title": "Object Oriented Programming in C++: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwanda observation, model, data table, or investigation for Object Oriented Programming in C++.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-005:activity:visual-1:planned",
+        "RWA-S5-computer-science-topic-005:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p042",
+      "title": "Object Oriented Programming in C++: Practice And Correction",
+      "content": "Practice for Object Oriented Programming in C++:\n\nMain outcome: explain common concepts of Object Oriented Programming(OOP) and implement them in C++.\n\n1. Write the purpose of the computing task in one sentence.\n2. Create a small algorithm, code fragment, table, diagram, web page structure, database record, or network/security checklist.\n3. Test it with one example and write one correction.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-005:practice:visual-1:planned",
+        "RWA-S5-computer-science-topic-005:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p043",
+      "title": "Object Oriented Programming in C++: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Object Oriented Programming in C++.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-005:remediation:visual-1:planned",
+        "RWA-S5-computer-science-topic-005:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p044",
+      "title": "Object Oriented Programming in C++: Outcome Check",
+      "content": "Outcome check for Object Oriented Programming in C++: Explain common concepts of Object Oriented Programming(OOP) and implement them in C++.\n\n1. State the computing task or problem.\n2. Show the algorithm, code fragment, table, web page structure, database object, diagram, or security control.\n3. Test with one example and write one correction.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 67,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-005:assessment:visual-1:planned",
+        "RWA-S5-computer-science-topic-005:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p045",
+      "title": "Variables, Operators, Expressions and Control structures: Lesson Opener",
+      "content": "Learning focus: Variables, Operators, Expressions and Control structures\n\nCountry link: a safe Rwanda observation, model, data table, or investigation for Variables, Operators, Expressions and Control structures.\n\nBy the end of this topic, you should be able to:\n- use variables, operators, expressions and control structure in a Visual Basic program\n\nInquiry questions:\n- How can variables, operators, expressions and control structures help you solve a real problem in Computer Science?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 85,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-006:opener:visual-1:planned",
+        "RWA-S5-computer-science-topic-006:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p046",
+      "title": "Variables, Operators, Expressions and Control structures: Learn",
+      "content": "Variables, Operators, Expressions and Control structures is learned by connecting a computing concept to a clear problem, exact steps, and a checked output.\n\nCore idea:\n- Name the computing object first: data, algorithm, program, web page, database, network, device, or security control.\n- Break the task into steps before using a computer.\n- Use correct technical vocabulary such as input, process, output, variable, file, table, tag, command, or protocol where it fits.\n- Test the result with a small example and correct one error.\n- Save or present the work in a way another learner can inspect.\n\nKey words:\n- Variables, Operators, Expressions and Control structures\n- Variables\n- Operators\n- Expressions\n- Control\n- structures\n- concept\n- observation",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 120,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-006:learn:visual-1:planned",
+        "RWA-S5-computer-science-topic-006:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p047",
+      "title": "Variables, Operators, Expressions and Control structures: Worked Example",
+      "content": "Worked example for Variables, Operators, Expressions and Control structures: Build a small checked computing output.\n\n1. Define the task in one sentence.\n2. List the inputs needed, such as text, numbers, records, tags, commands, or devices.\n3. Write the steps before using the computer.\n4. Create a small version of the output: a web page, algorithm trace, table, query, program fragment, network diagram, or security checklist.\n5. Test with one example and correct one error.\n\nAnswer check: the output should match the task, use correct vocabulary, and be easy for another learner to inspect.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-006:example:visual-1:planned",
+        "RWA-S5-computer-science-topic-006:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p048",
+      "title": "Variables, Operators, Expressions and Control structures: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Variables, Operators, Expressions and Control structures. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Variables, Operators, Expressions and Control structures\n- Variables\n- Operators\n- Expressions\n- Control\n- structures\n- concept\n- observation\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Variables, Operators, Expressions and Control structures without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 124,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-006:vocabulary:visual-1:planned",
+        "RWA-S5-computer-science-topic-006:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p049",
+      "title": "Variables, Operators, Expressions and Control structures: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwanda observation, model, data table, or investigation for Variables, Operators, Expressions and Control structures.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-006:activity:visual-1:planned",
+        "RWA-S5-computer-science-topic-006:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p050",
+      "title": "Variables, Operators, Expressions and Control structures: Practice And Correction",
+      "content": "Practice for Variables, Operators, Expressions and Control structures:\n\nMain outcome: use variables, operators, expressions and control structure in a Visual Basic program.\n\n1. Write the purpose of the computing task in one sentence.\n2. Create a small algorithm, code fragment, table, diagram, web page structure, database record, or network/security checklist.\n3. Test it with one example and write one correction.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-006:practice:visual-1:planned",
+        "RWA-S5-computer-science-topic-006:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p051",
+      "title": "Variables, Operators, Expressions and Control structures: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Variables, Operators, Expressions and Control structures.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-006:remediation:visual-1:planned",
+        "RWA-S5-computer-science-topic-006:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p052",
+      "title": "Variables, Operators, Expressions and Control structures: Outcome Check",
+      "content": "Outcome check for Variables, Operators, Expressions and Control structures: Use variables, operators, expressions and control structure in a Visual Basic program.\n\n1. State the computing task or problem.\n2. Show the algorithm, code fragment, table, web page structure, database object, diagram, or security control.\n3. Test with one example and write one correction.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 68,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-006:assessment:visual-1:planned",
+        "RWA-S5-computer-science-topic-006:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p053",
+      "title": "OOP and Java: Lesson Opener",
+      "content": "Learning focus: OOP and Java\n\nCountry link: a safe Rwanda observation, model, data table, or investigation for OOP and Java.\n\nBy the end of this topic, you should be able to:\n- use objects to manipulate data in Java program\n\nInquiry questions:\n- How can oop and java help you solve a real problem in Computer Science?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 72,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-007:opener:visual-1:planned",
+        "RWA-S5-computer-science-topic-007:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p054",
+      "title": "OOP and Java: Learn",
+      "content": "OOP and Java is learned by connecting a computing concept to a clear problem, exact steps, and a checked output.\n\nCore idea:\n- Name the computing object first: data, algorithm, program, web page, database, network, device, or security control.\n- Break the task into steps before using a computer.\n- Use correct technical vocabulary such as input, process, output, variable, file, table, tag, command, or protocol where it fits.\n- Test the result with a small example and correct one error.\n- Save or present the work in a way another learner can inspect.\n\nKey words:\n- OOP and Java\n- Java\n- concept\n- observation\n- evidence\n- safety\n- conclusion",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-007:learn:visual-1:planned",
+        "RWA-S5-computer-science-topic-007:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p055",
+      "title": "OOP and Java: Worked Example",
+      "content": "Worked example for OOP and Java: Build a small checked computing output.\n\n1. Define the task in one sentence.\n2. List the inputs needed, such as text, numbers, records, tags, commands, or devices.\n3. Write the steps before using the computer.\n4. Create a small version of the output: a web page, algorithm trace, table, query, program fragment, network diagram, or security checklist.\n5. Test with one example and correct one error.\n\nAnswer check: the output should match the task, use correct vocabulary, and be easy for another learner to inspect.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-007:example:visual-1:planned",
+        "RWA-S5-computer-science-topic-007:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p056",
+      "title": "OOP and Java: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise OOP and Java. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- OOP and Java\n- Java\n- concept\n- observation\n- evidence\n- safety\n- conclusion\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about OOP and Java without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 113,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-007:vocabulary:visual-1:planned",
+        "RWA-S5-computer-science-topic-007:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p057",
+      "title": "OOP and Java: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwanda observation, model, data table, or investigation for OOP and Java.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-007:activity:visual-1:planned",
+        "RWA-S5-computer-science-topic-007:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p058",
+      "title": "OOP and Java: Practice And Correction",
+      "content": "Practice for OOP and Java:\n\nMain outcome: use objects to manipulate data in Java program.\n\n1. Write the purpose of the computing task in one sentence.\n2. Create a small algorithm, code fragment, table, diagram, web page structure, database record, or network/security checklist.\n3. Test it with one example and write one correction.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 99,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-007:practice:visual-1:planned",
+        "RWA-S5-computer-science-topic-007:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p059",
+      "title": "OOP and Java: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from OOP and Java.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 104,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-007:remediation:visual-1:planned",
+        "RWA-S5-computer-science-topic-007:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p060",
+      "title": "OOP and Java: Outcome Check",
+      "content": "Outcome check for OOP and Java: Use objects to manipulate data in Java program.\n\n1. State the computing task or problem.\n2. Show the algorithm, code fragment, table, web page structure, database object, diagram, or security control.\n3. Test with one example and write one correction.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-007:assessment:visual-1:planned",
+        "RWA-S5-computer-science-topic-007:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p061",
+      "title": "IO and Java: Lesson Opener",
+      "content": "Learning focus: IO and Java\n\nCountry link: a safe Rwanda observation, model, data table, or investigation for IO and Java.\n\nBy the end of this topic, you should be able to:\n- use streams, readers and writers in Java\n\nInquiry questions:\n- How can io and java help you solve a real problem in Computer Science?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 71,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-008:opener:visual-1:planned",
+        "RWA-S5-computer-science-topic-008:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p062",
+      "title": "IO and Java: Learn",
+      "content": "IO and Java is learned by connecting a computing concept to a clear problem, exact steps, and a checked output.\n\nCore idea:\n- Name the computing object first: data, algorithm, program, web page, database, network, device, or security control.\n- Break the task into steps before using a computer.\n- Use correct technical vocabulary such as input, process, output, variable, file, table, tag, command, or protocol where it fits.\n- Test the result with a small example and correct one error.\n- Save or present the work in a way another learner can inspect.\n\nKey words:\n- IO and Java\n- Java\n- concept\n- observation\n- evidence\n- safety\n- conclusion",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-008:learn:visual-1:planned",
+        "RWA-S5-computer-science-topic-008:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p063",
+      "title": "IO and Java: Worked Example",
+      "content": "Worked example for IO and Java: Build a small checked computing output.\n\n1. Define the task in one sentence.\n2. List the inputs needed, such as text, numbers, records, tags, commands, or devices.\n3. Write the steps before using the computer.\n4. Create a small version of the output: a web page, algorithm trace, table, query, program fragment, network diagram, or security checklist.\n5. Test with one example and correct one error.\n\nAnswer check: the output should match the task, use correct vocabulary, and be easy for another learner to inspect.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-008:example:visual-1:planned",
+        "RWA-S5-computer-science-topic-008:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p064",
+      "title": "IO and Java: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise IO and Java. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- IO and Java\n- Java\n- concept\n- observation\n- evidence\n- safety\n- conclusion\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about IO and Java without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 113,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-008:vocabulary:visual-1:planned",
+        "RWA-S5-computer-science-topic-008:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p065",
+      "title": "IO and Java: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwanda observation, model, data table, or investigation for IO and Java.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-008:activity:visual-1:planned",
+        "RWA-S5-computer-science-topic-008:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p066",
+      "title": "IO and Java: Practice And Correction",
+      "content": "Practice for IO and Java:\n\nMain outcome: use streams, readers and writers in Java.\n\n1. Write the purpose of the computing task in one sentence.\n2. Create a small algorithm, code fragment, table, diagram, web page structure, database record, or network/security checklist.\n3. Test it with one example and write one correction.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-008:practice:visual-1:planned",
+        "RWA-S5-computer-science-topic-008:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p067",
+      "title": "IO and Java: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from IO and Java.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 104,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-008:remediation:visual-1:planned",
+        "RWA-S5-computer-science-topic-008:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p068",
+      "title": "IO and Java: Outcome Check",
+      "content": "Outcome check for IO and Java: Use streams, readers and writers in Java.\n\n1. State the computing task or problem.\n2. Show the algorithm, code fragment, table, web page structure, database object, diagram, or security control.\n3. Test with one example and write one correction.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 60,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-008:assessment:visual-1:planned",
+        "RWA-S5-computer-science-topic-008:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p069",
+      "title": "Process Management and scheduling algorithm: Lesson Opener",
+      "content": "Learning focus: Process Management and scheduling algorithm\n\nCountry link: a safe Rwanda observation, model, data table, or investigation for Process Management and scheduling algorithm.\n\nBy the end of this topic, you should be able to:\n- explain how processes are managed by Operating System and to understand process scheduling algorithms\n\nInquiry questions:\n- How can process management and scheduling algorithm help you solve a real problem in Computer Science?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 84,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-009:opener:visual-1:planned",
+        "RWA-S5-computer-science-topic-009:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p070",
+      "title": "Process Management and scheduling algorithm: Learn",
+      "content": "Process Management and scheduling algorithm is learned by connecting a computing concept to a clear problem, exact steps, and a checked output.\n\nCore idea:\n- Name the computing object first: data, algorithm, program, web page, database, network, device, or security control.\n- Break the task into steps before using a computer.\n- Use correct technical vocabulary such as input, process, output, variable, file, table, tag, command, or protocol where it fits.\n- Test the result with a small example and correct one error.\n- Save or present the work in a way another learner can inspect.\n\nKey words:\n- Process Management and scheduling algorithm\n- Process\n- Management\n- scheduling\n- algorithm\n- concept\n- observation\n- evidence",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-009:learn:visual-1:planned",
+        "RWA-S5-computer-science-topic-009:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p071",
+      "title": "Process Management and scheduling algorithm: Worked Example",
+      "content": "Worked example for Process Management and scheduling algorithm: Build a small checked computing output.\n\n1. Define the task in one sentence.\n2. List the inputs needed, such as text, numbers, records, tags, commands, or devices.\n3. Write the steps before using the computer.\n4. Create a small version of the output: a web page, algorithm trace, table, query, program fragment, network diagram, or security checklist.\n5. Test with one example and correct one error.\n\nAnswer check: the output should match the task, use correct vocabulary, and be easy for another learner to inspect.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-009:example:visual-1:planned",
+        "RWA-S5-computer-science-topic-009:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p072",
+      "title": "Process Management and scheduling algorithm: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Process Management and scheduling algorithm. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Process Management and scheduling algorithm\n- Process\n- Management\n- scheduling\n- algorithm\n- concept\n- observation\n- evidence\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Process Management and scheduling algorithm without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-009:vocabulary:visual-1:planned",
+        "RWA-S5-computer-science-topic-009:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p073",
+      "title": "Process Management and scheduling algorithm: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwanda observation, model, data table, or investigation for Process Management and scheduling algorithm.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-009:activity:visual-1:planned",
+        "RWA-S5-computer-science-topic-009:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p074",
+      "title": "Process Management and scheduling algorithm: Practice And Correction",
+      "content": "Practice for Process Management and scheduling algorithm:\n\nMain outcome: explain how processes are managed by Operating System and to understand process scheduling algorithms.\n\n1. Write the purpose of the computing task in one sentence.\n2. Create a small algorithm, code fragment, table, diagram, web page structure, database record, or network/security checklist.\n3. Test it with one example and write one correction.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-009:practice:visual-1:planned",
+        "RWA-S5-computer-science-topic-009:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p075",
+      "title": "Process Management and scheduling algorithm: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Process Management and scheduling algorithm.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-009:remediation:visual-1:planned",
+        "RWA-S5-computer-science-topic-009:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p076",
+      "title": "Process Management and scheduling algorithm: Outcome Check",
+      "content": "Outcome check for Process Management and scheduling algorithm: Explain how processes are managed by Operating System and to understand process scheduling algorithms.\n\n1. State the computing task or problem.\n2. Show the algorithm, code fragment, table, web page structure, database object, diagram, or security control.\n3. Test with one example and write one correction.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 69,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-009:assessment:visual-1:planned",
+        "RWA-S5-computer-science-topic-009:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-topic"
+      ],
+      "parentUnitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p077",
+      "title": "Fundamental of laptop and portable devices: Review Clinic 1",
+      "content": "Use this review clinic to strengthen Computer Science without copying earlier answers.\n\n1. Choose one idea from Fundamental of laptop and portable devices that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Rwanda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 80,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-001:review:visual-1:planned",
+        "RWA-S5-computer-science-topic-001:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p078",
+      "title": "Complex data structure in algorithm: Review Clinic 2",
+      "content": "Use this review clinic to strengthen Computer Science without copying earlier answers.\n\n1. Choose one idea from Complex data structure in algorithm that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Rwanda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 79,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-002:review:visual-1:planned",
+        "RWA-S5-computer-science-topic-002:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p079",
+      "title": "Database design: Review Clinic 3",
+      "content": "Use this review clinic to strengthen Computer Science without copying earlier answers.\n\n1. Choose one idea from Database design that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Rwanda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 76,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-003:review:visual-1:planned",
+        "RWA-S5-computer-science-topic-003:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p080",
+      "title": "Pointers and Structure in C++: Review Clinic 4",
+      "content": "Use this review clinic to strengthen Computer Science without copying earlier answers.\n\n1. Choose one idea from Pointers and Structure in C++ that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Rwanda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 79,
+      "imageRefs": [
+        "RWA-S5-computer-science-topic-004:review:visual-1:planned",
+        "RWA-S5-computer-science-topic-004:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-strand"
+      ],
+      "unitIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-topic"
+      ],
+      "outcomeIds": [
+        "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p081",
+      "title": "Glossary",
+      "content": "Use this glossary to revise important words in Computer Science.\n\n- Fundamental of laptop and portable devices: Explain this term using an example from the book, your school, or your community.\n- Complex data structure in algorithm: Explain this term using an example from the book, your school, or your community.\n- Database design: Explain this term using an example from the book, your school, or your community.\n- Pointers and Structure in C++: Explain this term using an example from the book, your school, or your community.\n- Object Oriented Programming in C++: Explain this term using an example from the book, your school, or your community.\n- Variables, Operators, Expressions and Control structures: Explain this term using an example from the book, your school, or your community.\n- OOP and Java: Explain this term using an example from the book, your school, or your community.\n- IO and Java: Explain this term using an example from the book, your school, or your community.\n- Process Management and scheduling algorithm: Explain this term using an example from the book, your school, or your community.\n\nAdd five more words from your lessons and write your own meanings.",
+      "pageType": "glossary",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 197,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p082",
+      "title": "Answer And Teacher Notes",
+      "content": "A strong Computer Science answer states the idea, uses correct scientific vocabulary, records observations or data, includes units or labels where needed, and writes a conclusion that follows from evidence. Safety rules always come first. If evidence is missing, repeat the observation safely or explain what evidence would be needed.",
+      "pageType": "answer-notes",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 50,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s5-computer-science-p083",
+      "title": "Final Project",
+      "content": "Create a final project for Computer Science that shows what you can now do independently.\n\nYour project must include:\n1. A clear title.\n2. A real-life problem, question, text, performance, investigation, design, or worked task.\n3. Evidence from at least three lessons in this book.\n4. A drawing, table, map, chart, model, dialogue, paragraph, performance plan, practical product, or worked solution.\n5. A correction note showing one improvement after feedback.\n6. A short reflection explaining what you learned, what was difficult, and what you will practise next.\n\nPresentation check: keep the work neat, label important parts, use correct vocabulary, and be ready to explain your choices to a classmate or teacher.",
+      "pageType": "project",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 111,
+      "imageRefs": []
+    }
+  ]
+}

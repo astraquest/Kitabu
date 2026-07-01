@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-rwa-reb-cbc-s2-physical-education-and-sports",
+  "title": "KITABU QUEST S2 Physical Education and Sports",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "S2",
+  "subject": "Physical Education and Sports",
+  "subjectSlug": "physical-education-and-sports",
+  "subjectColor": "#0E7490",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v17",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T06:45:02Z",
+  "sourceSnapshotHash": "6e527a25af7b95dbaaac01fbc0b132c1cacf66fd707889daa81afa89cb9d5f4c",
+  "bookPlanHash": "15d42abf9e06667e27bab82fd3d9cedaa4954541756d649c5c568e39a920d7ee",
+  "pageCount": 117,
+  "wordCount": 12141,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 11,
+    "outcomeCount": 63,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "RWA",
+    "subject": "Physical Education and Sports",
+    "species": "impala",
+    "role": "movement and teamwork guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners training safely on a sports field with an impala mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Rwanda REB-CBC S2 Physical Education and Sports. Scene: learners training safely on a sports field with an impala mascot. Include a friendly impala mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 97009,
+    "sha256": "c65303bc7c164ee96db016ef7c08a05e81e8f329d364094400ba083c56292b8b"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 97009,
+      "sha256": "c65303bc7c164ee96db016ef7c08a05e81e8f329d364094400ba083c56292b8b",
+      "kind": "cover",
+      "altText": "KITABU QUEST S2 Physical Education and Sports cover with impala",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-rwa-reb-cbc-s2-physical-education-and-sports.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-rwa-reb-cbc-s2-physical-education-and-sports.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "c5401029-d4be-40e8-9366-57f91f3f7a81",
+      "subject": "Physical Education and Sports",
+      "officialTitle": "Rwanda Competence Based Curriculum S2 Physical Education and Sports",
+      "countryCode": "RWA",
+      "curriculumCode": "REB-CBC",
+      "gradeCode": "S2",
+      "gradeLocalLevel": "S2",
+      "localLevel": "S2",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/PES%20Lower%20Secondary%20Schools%20Adapted%20Syllabus.pdf?forcedownload=1",
+      "objectKey": "data/curriculum/source-files/RWA/d73465c1800b3c3e2dde8047cdc6eb7bc115aa7f2c4cd410eb62e41d5937e02b.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "S2",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/PES%20Lower%20Secondary%20Schools%20Adapted%20Syllabus.pdf?forcedownload=1",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S2/physical-education-and-sports/c5401029-d4be-40e8-9366-57f91f3f7a81.md",
+        "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "reb.gov.rw",
+          "reb.rw",
+          "elearning.reb.rw"
+        ],
+        "markdownChecksum": "ef029008b0b3afb5a06cf58c3a657d24f402f4f8c666288902b3b02518050a20",
+        "markdownPageCount": 82,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/RWA/REB-CBC/S2/physical-education-and-sports/c5401029-d4be-40e8-9366-57f91f3f7a81.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "ef029008b0b3afb5a06cf58c3a657d24f402f4f8c666288902b3b02518050a20",
+          "pageCount": 82,
+          "generatedAt": "2026-07-01T01:18:49.907Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S2/physical-education-and-sports/c5401029-d4be-40e8-9366-57f91f3f7a81.json",
+          "sourceChecksum": "743d1ec0bf4ac50eacf3ab519b58c40f5ffcb44b25de23bb4f51780bef43aa49"
+        },
+        "markdownGeneratedAt": "2026-07-01T01:18:49.907Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

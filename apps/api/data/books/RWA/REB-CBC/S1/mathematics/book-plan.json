@@ -1,0 +1,1034 @@
+{
+  "schemaVersion": 1,
+  "sourceType": "normalized-curriculum",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "S1",
+  "subject": "Mathematics",
+  "generatedAt": "2026-07-01T06:41:44Z",
+  "sourceSnapshotHash": "6891936dbcd2a5a60b371029cf218da39c90885f858587de8f7c58f9efa46e47",
+  "writingStandard": {
+    "voice": "simple, conversational, purposeful, age-appropriate, and learner-first",
+    "antiFluff": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "coversDeferred": true
+  },
+  "strands": [
+    {
+      "strandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-1-strand",
+      "number": "",
+      "title": "Sets",
+      "topicCount": 1
+    },
+    {
+      "strandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-2-strand",
+      "number": "",
+      "title": "Sets of numbers",
+      "topicCount": 1
+    },
+    {
+      "strandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-3-strand",
+      "number": "",
+      "title": "Linear functions, equations, and inequalities",
+      "topicCount": 1
+    },
+    {
+      "strandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-4-strand",
+      "number": "",
+      "title": "Percentage, discount, profit, and loss",
+      "topicCount": 1
+    },
+    {
+      "strandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-5-strand",
+      "number": "",
+      "title": "Ratio and proportions",
+      "topicCount": 1
+    },
+    {
+      "strandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-6-strand",
+      "number": "",
+      "title": "Points, lines, and angles",
+      "topicCount": 1
+    },
+    {
+      "strandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-7-strand",
+      "number": "",
+      "title": "Solids",
+      "topicCount": 1
+    },
+    {
+      "strandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-8-strand",
+      "number": "",
+      "title": "Statistics (ungrouped data)",
+      "topicCount": 1
+    },
+    {
+      "strandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-9-strand",
+      "number": "",
+      "title": "Probability",
+      "topicCount": 1
+    }
+  ],
+  "topics": [
+    {
+      "topicId": "RWA-S1-mathematics-topic-001",
+      "grade": "S1",
+      "strandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-1-strand",
+      "subStrandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-1-topic",
+      "parentSubStrandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-1-topic",
+      "strandTitle": "Sets",
+      "unitTitle": "Sets",
+      "sourceUnitTitle": "Sets",
+      "learningOutcomes": [
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-1-outcome-1",
+          "text": "use sets, Venn diagrams, and relations to represent situations and solve problems"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-1-outcome-2",
+          "text": "define and give examples of sets"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-1-outcome-3",
+          "text": "indicate what a specified region in a Venn diagram represents, using connecting words (and, or, not) or set notation"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-1-outcome-4",
+          "text": "show how sets are used in representing given information"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-1-outcome-5",
+          "text": "observe a contextual problem that involves sets, record the solution using set notation, and give explanations"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-1-outcome-6",
+          "text": "demonstrate algebraic and graphical reasoning through the"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can sets help you solve a real problem in Mathematics?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Sets.",
+        "Review key vocabulary from the previous Mathematics lesson."
+      ],
+      "keyVocabulary": [
+        "Sets",
+        "method",
+        "model",
+        "unit",
+        "answer",
+        "check"
+      ],
+      "misconceptions": [
+        "giving a general answer about Sets without a clear example, method, or evidence"
+      ],
+      "localContext": "a Rwandan school, market, farming, building, transport, or data problem for Sets",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Sets",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for Sets",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "00c8693b-cb8e-48de-ab38-0075f2a0b133",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/mathematics/00c8693b-cb8e-48de-ab38-0075f2a0b133.md",
+          "sourceSectionHash": "37fc0023ea268ba600c31a653736b3f89806d2d05be066dfb3df9825a0e3c0b8",
+          "sourceSnapshotHash": "6891936dbcd2a5a60b371029cf218da39c90885f858587de8f7c58f9efa46e47"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "00c8693b-cb8e-48de-ab38-0075f2a0b133",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/mathematics/00c8693b-cb8e-48de-ab38-0075f2a0b133.md",
+          "sourceSectionHash": "37fc0023ea268ba600c31a653736b3f89806d2d05be066dfb3df9825a0e3c0b8",
+          "sourceSnapshotHash": "6891936dbcd2a5a60b371029cf218da39c90885f858587de8f7c58f9efa46e47"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S1-mathematics-topic-002",
+      "grade": "S1",
+      "strandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-2-strand",
+      "subStrandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-2-topic",
+      "parentSubStrandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-2-topic",
+      "strandTitle": "Sets of numbers",
+      "unitTitle": "Sets of numbers",
+      "sourceUnitTitle": "Sets of numbers",
+      "learningOutcomes": [
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-2-outcome-1",
+          "text": "use operations to explore properties of sets of numbers and their relationships"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-2-outcome-2",
+          "text": "identify sets of numbers (natural, integer, rational, and real) and relationships between them"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-2-outcome-3",
+          "text": "illustrate different sets of numbers on a number line"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-2-outcome-4",
+          "text": "show that irrational numbers cannot be expressed exactly as a decimal"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-2-outcome-5",
+          "text": "carry out mathematical operations on sets of numbers"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-2-outcome-6",
+          "text": "work systematically to determine the operation properties of sets of numbers"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can sets of numbers help you solve a real problem in Mathematics?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Sets of numbers.",
+        "Review key vocabulary from the previous Mathematics lesson."
+      ],
+      "keyVocabulary": [
+        "Sets of numbers",
+        "Sets",
+        "numbers",
+        "method",
+        "model",
+        "unit",
+        "answer",
+        "check"
+      ],
+      "misconceptions": [
+        "giving a general answer about Sets of numbers without a clear example, method, or evidence"
+      ],
+      "localContext": "a Rwandan school, market, farming, building, transport, or data problem for Sets of numbers",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Sets of numbers",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for Sets of numbers",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "00c8693b-cb8e-48de-ab38-0075f2a0b133",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/mathematics/00c8693b-cb8e-48de-ab38-0075f2a0b133.md",
+          "sourceSectionHash": "e43d6b3d589156bd82cebdfd8871f06fa1350939329308f43116a6f380c64824",
+          "sourceSnapshotHash": "6891936dbcd2a5a60b371029cf218da39c90885f858587de8f7c58f9efa46e47"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "00c8693b-cb8e-48de-ab38-0075f2a0b133",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/mathematics/00c8693b-cb8e-48de-ab38-0075f2a0b133.md",
+          "sourceSectionHash": "e43d6b3d589156bd82cebdfd8871f06fa1350939329308f43116a6f380c64824",
+          "sourceSnapshotHash": "6891936dbcd2a5a60b371029cf218da39c90885f858587de8f7c58f9efa46e47"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S1-mathematics-topic-003",
+      "grade": "S1",
+      "strandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-3-strand",
+      "subStrandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-3-topic",
+      "parentSubStrandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-3-topic",
+      "strandTitle": "Linear functions, equations, and inequalities",
+      "unitTitle": "Linear functions, equations, and inequalities",
+      "sourceUnitTitle": "Linear functions, equations, and inequalities",
+      "learningOutcomes": [
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-3-outcome-1",
+          "text": "represent and interpret graphs of linear functions and apply them in real life situations; solve linear equations and inequalities; appreciate the importance of checking solutions; and represent the solution"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-3-outcome-2",
+          "text": "define a linear function and recognize its graph"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-3-outcome-3",
+          "text": "illustrate that a linear function is written in the form , where c is the y-intercept, m is a measure of steepness, and the solution of the equation is the x-intercept"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-3-outcome-4",
+          "text": "explain what is meant by the solution of a linear equation and inequality"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-3-outcome-5",
+          "text": "plot linear functions on the Cartesian plane"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-3-outcome-6",
+          "text": "interpret the graph of a linear function linking the parameters of the function with the features of the graph, including intercepts and steepness"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can linear functions, equations, and inequalities help you solve a real problem in Mathematics?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Linear functions, equations, and inequalities.",
+        "Review key vocabulary from the previous Mathematics lesson."
+      ],
+      "keyVocabulary": [
+        "Linear functions, equations, and inequalities",
+        "Linear",
+        "functions",
+        "equations",
+        "inequalities",
+        "method",
+        "model",
+        "unit"
+      ],
+      "misconceptions": [
+        "giving a general answer about Linear functions, equations, and inequalities without a clear example, method, or evidence"
+      ],
+      "localContext": "a Rwandan school, market, farming, building, transport, or data problem for Linear functions, equations, and inequalities",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Linear functions, equations, and inequalities",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for Linear functions, equations, and inequalities",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "00c8693b-cb8e-48de-ab38-0075f2a0b133",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/mathematics/00c8693b-cb8e-48de-ab38-0075f2a0b133.md",
+          "sourceSectionHash": "b4f8036805120a2f62e3c2916c681002a995b0ab9cc553b96f80578b49437f05",
+          "sourceSnapshotHash": "6891936dbcd2a5a60b371029cf218da39c90885f858587de8f7c58f9efa46e47"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "00c8693b-cb8e-48de-ab38-0075f2a0b133",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/mathematics/00c8693b-cb8e-48de-ab38-0075f2a0b133.md",
+          "sourceSectionHash": "b4f8036805120a2f62e3c2916c681002a995b0ab9cc553b96f80578b49437f05",
+          "sourceSnapshotHash": "6891936dbcd2a5a60b371029cf218da39c90885f858587de8f7c58f9efa46e47"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S1-mathematics-topic-004",
+      "grade": "S1",
+      "strandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-4-strand",
+      "subStrandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-4-topic",
+      "parentSubStrandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-4-topic",
+      "strandTitle": "Percentage, discount, profit, and loss",
+      "unitTitle": "Percentage, discount, profit, and loss",
+      "sourceUnitTitle": "Percentage, discount, profit, and loss",
+      "learningOutcomes": [
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-4-outcome-1",
+          "text": "solve problems that involves calculating percentage, discount, profit, loss, and other financial calculations"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-4-outcome-2",
+          "text": "explain how to calculate discount, commission, profit and loss, simple interest, tax"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-4-outcome-3",
+          "text": "use percentages to calculate discount, commission, profit, loss, interest, taxes"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-4-outcome-4",
+          "text": "solve problems involving: Discount, commission, profit, loss, loans, savings, tax and insurance"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-4-outcome-5",
+          "text": "appreciate the role money plays in our lives"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-4-outcome-6",
+          "text": "be honest in managing and using money"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can percentage, discount, profit, and loss help you solve a real problem in Mathematics?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Percentage, discount, profit, and loss.",
+        "Review key vocabulary from the previous Mathematics lesson."
+      ],
+      "keyVocabulary": [
+        "Percentage, discount, profit, and loss",
+        "Percentage",
+        "discount",
+        "profit",
+        "loss",
+        "method",
+        "model",
+        "unit"
+      ],
+      "misconceptions": [
+        "giving a general answer about Percentage, discount, profit, and loss without a clear example, method, or evidence"
+      ],
+      "localContext": "a Rwandan school, market, farming, building, transport, or data problem for Percentage, discount, profit, and loss",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Percentage, discount, profit, and loss",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for Percentage, discount, profit, and loss",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "00c8693b-cb8e-48de-ab38-0075f2a0b133",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/mathematics/00c8693b-cb8e-48de-ab38-0075f2a0b133.md",
+          "sourceSectionHash": "32c3d16bcda28e7e7c290ad338f8af20e8249ad18b09c189ac2f71ad9c6230a3",
+          "sourceSnapshotHash": "6891936dbcd2a5a60b371029cf218da39c90885f858587de8f7c58f9efa46e47"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "00c8693b-cb8e-48de-ab38-0075f2a0b133",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/mathematics/00c8693b-cb8e-48de-ab38-0075f2a0b133.md",
+          "sourceSectionHash": "32c3d16bcda28e7e7c290ad338f8af20e8249ad18b09c189ac2f71ad9c6230a3",
+          "sourceSnapshotHash": "6891936dbcd2a5a60b371029cf218da39c90885f858587de8f7c58f9efa46e47"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S1-mathematics-topic-005",
+      "grade": "S1",
+      "strandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-5-strand",
+      "subStrandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-5-topic",
+      "parentSubStrandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-5-topic",
+      "strandTitle": "Ratio and proportions",
+      "unitTitle": "Ratio and proportions",
+      "sourceUnitTitle": "Ratio and proportions",
+      "learningOutcomes": [
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-5-outcome-1",
+          "text": "solve problems involving ratio and proportion"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-5-outcome-2",
+          "text": "express ratios in their simplest form"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-5-outcome-3",
+          "text": "identify a direct and indirect proportion"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-5-outcome-4",
+          "text": "differentiate direct from indirect proportion"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-5-outcome-5",
+          "text": "compare quantities using proportions"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-5-outcome-6",
+          "text": "share quantities in a given proportion or ratio"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can ratio and proportions help you solve a real problem in Mathematics?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Ratio and proportions.",
+        "Review key vocabulary from the previous Mathematics lesson."
+      ],
+      "keyVocabulary": [
+        "Ratio and proportions",
+        "Ratio",
+        "proportions",
+        "method",
+        "model",
+        "unit",
+        "answer",
+        "check"
+      ],
+      "misconceptions": [
+        "giving a general answer about Ratio and proportions without a clear example, method, or evidence"
+      ],
+      "localContext": "a Rwandan school, market, farming, building, transport, or data problem for Ratio and proportions",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Ratio and proportions",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for Ratio and proportions",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "00c8693b-cb8e-48de-ab38-0075f2a0b133",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/mathematics/00c8693b-cb8e-48de-ab38-0075f2a0b133.md",
+          "sourceSectionHash": "5eb1bcf3006a8ae2256e6eea6b2bf0987fe1e0ac07722318759d0c9427f7497d",
+          "sourceSnapshotHash": "6891936dbcd2a5a60b371029cf218da39c90885f858587de8f7c58f9efa46e47"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "00c8693b-cb8e-48de-ab38-0075f2a0b133",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/mathematics/00c8693b-cb8e-48de-ab38-0075f2a0b133.md",
+          "sourceSectionHash": "5eb1bcf3006a8ae2256e6eea6b2bf0987fe1e0ac07722318759d0c9427f7497d",
+          "sourceSnapshotHash": "6891936dbcd2a5a60b371029cf218da39c90885f858587de8f7c58f9efa46e47"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S1-mathematics-topic-006",
+      "grade": "S1",
+      "strandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-6-strand",
+      "subStrandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-6-topic",
+      "parentSubStrandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-6-topic",
+      "strandTitle": "Points, lines, and angles",
+      "unitTitle": "Points, lines, and angles",
+      "sourceUnitTitle": "Points, lines, and angles",
+      "learningOutcomes": [
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-6-outcome-1",
+          "text": "to be able toconstruct mathematical arguments using the angle properties of parallel lines"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-6-outcome-2",
+          "text": "recognize that the position of an angle at a point sum to 360o; angles at a point on a straight line sum to 1800"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-6-outcome-3",
+          "text": "distinguish and recognize vertically opposite, corresponding, alternate, and supplementary angles"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-6-outcome-4",
+          "text": "use knowledge of angle properties of parallel lines and shapes to construct arguments when finding missing angles in geometric diagrams"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-6-outcome-5",
+          "text": "construct and calculate angles"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-6-outcome-6",
+          "text": "appreciate the need to give reasons when developing solutions to missing angle problems"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can points, lines, and angles help you solve a real problem in Mathematics?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Points, lines, and angles.",
+        "Review key vocabulary from the previous Mathematics lesson."
+      ],
+      "keyVocabulary": [
+        "Points, lines, and angles",
+        "Points",
+        "lines",
+        "angles",
+        "method",
+        "model",
+        "unit",
+        "answer"
+      ],
+      "misconceptions": [
+        "giving a general answer about Points, lines, and angles without a clear example, method, or evidence"
+      ],
+      "localContext": "a Rwandan school, market, farming, building, transport, or data problem for Points, lines, and angles",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Points, lines, and angles",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for Points, lines, and angles",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "00c8693b-cb8e-48de-ab38-0075f2a0b133",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/mathematics/00c8693b-cb8e-48de-ab38-0075f2a0b133.md",
+          "sourceSectionHash": "a5de6cb08c0f60de42babecb0b6a35f98a9cebf03049577ff7a5458393bd8120",
+          "sourceSnapshotHash": "6891936dbcd2a5a60b371029cf218da39c90885f858587de8f7c58f9efa46e47"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "00c8693b-cb8e-48de-ab38-0075f2a0b133",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/mathematics/00c8693b-cb8e-48de-ab38-0075f2a0b133.md",
+          "sourceSectionHash": "a5de6cb08c0f60de42babecb0b6a35f98a9cebf03049577ff7a5458393bd8120",
+          "sourceSnapshotHash": "6891936dbcd2a5a60b371029cf218da39c90885f858587de8f7c58f9efa46e47"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S1-mathematics-topic-007",
+      "grade": "S1",
+      "strandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-7-strand",
+      "subStrandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-7-topic",
+      "parentSubStrandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-7-topic",
+      "strandTitle": "Solids",
+      "unitTitle": "Solids",
+      "sourceUnitTitle": "Solids",
+      "learningOutcomes": [
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-7-outcome-1",
+          "text": "select and use formulae to find the surface area and volume of solids"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-7-outcome-2",
+          "text": "explain the surface area of a solid as the area of the net"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-7-outcome-3",
+          "text": "illustrate the volume as the space occupied by a solid"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-7-outcome-4",
+          "text": "distinguish between surface area and volume and know the correct units"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-7-outcome-5",
+          "text": "derive the surface area for prisms and cylinders"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-7-outcome-6",
+          "text": "calculate the surface area and volume of common geometrical solids using formulas where necessary"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can solids help you solve a real problem in Mathematics?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Solids.",
+        "Review key vocabulary from the previous Mathematics lesson."
+      ],
+      "keyVocabulary": [
+        "Solids",
+        "method",
+        "model",
+        "unit",
+        "answer",
+        "check"
+      ],
+      "misconceptions": [
+        "giving a general answer about Solids without a clear example, method, or evidence"
+      ],
+      "localContext": "a Rwandan school, market, farming, building, transport, or data problem for Solids",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Solids",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for Solids",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "00c8693b-cb8e-48de-ab38-0075f2a0b133",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/mathematics/00c8693b-cb8e-48de-ab38-0075f2a0b133.md",
+          "sourceSectionHash": "dae5b3987c8aef1f2a933b4f024dd6bf2b9263ea19fb56f368fb1877b85ff394",
+          "sourceSnapshotHash": "6891936dbcd2a5a60b371029cf218da39c90885f858587de8f7c58f9efa46e47"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "00c8693b-cb8e-48de-ab38-0075f2a0b133",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/mathematics/00c8693b-cb8e-48de-ab38-0075f2a0b133.md",
+          "sourceSectionHash": "dae5b3987c8aef1f2a933b4f024dd6bf2b9263ea19fb56f368fb1877b85ff394",
+          "sourceSnapshotHash": "6891936dbcd2a5a60b371029cf218da39c90885f858587de8f7c58f9efa46e47"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S1-mathematics-topic-008",
+      "grade": "S1",
+      "strandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-8-strand",
+      "subStrandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-8-topic",
+      "parentSubStrandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-8-topic",
+      "strandTitle": "Statistics (ungrouped data)",
+      "unitTitle": "Statistics (ungrouped data)",
+      "sourceUnitTitle": "Statistics (ungrouped data)",
+      "learningOutcomes": [
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-8-outcome-1",
+          "text": "to be able tocollect, represent, and interpret quantitative discrete data appropriate to a question or problem"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-8-outcome-2",
+          "text": "define quantitative data and qualitative data"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-8-outcome-3",
+          "text": "differentiate discrete and continuous data"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-8-outcome-4",
+          "text": "present data on a frequency distribution"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-8-outcome-5",
+          "text": "define mode and median of given statistical data"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-8-outcome-6",
+          "text": "recognize formulae used to calculate the mean and median"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can statistics (ungrouped data) help you solve a real problem in Mathematics?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Statistics (ungrouped data).",
+        "Review key vocabulary from the previous Mathematics lesson."
+      ],
+      "keyVocabulary": [
+        "Statistics (ungrouped data)",
+        "Statistics",
+        "ungrouped",
+        "data",
+        "method",
+        "model",
+        "unit",
+        "answer"
+      ],
+      "misconceptions": [
+        "giving a general answer about Statistics (ungrouped data) without a clear example, method, or evidence"
+      ],
+      "localContext": "a Rwandan school, market, farming, building, transport, or data problem for Statistics (ungrouped data)",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Statistics (ungrouped data)",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for Statistics (ungrouped data)",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "00c8693b-cb8e-48de-ab38-0075f2a0b133",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/mathematics/00c8693b-cb8e-48de-ab38-0075f2a0b133.md",
+          "sourceSectionHash": "cdc82b66159fa458b00da541475991131a0eb8449e630a689f292d5c0c2d9698",
+          "sourceSnapshotHash": "6891936dbcd2a5a60b371029cf218da39c90885f858587de8f7c58f9efa46e47"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "00c8693b-cb8e-48de-ab38-0075f2a0b133",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/mathematics/00c8693b-cb8e-48de-ab38-0075f2a0b133.md",
+          "sourceSectionHash": "cdc82b66159fa458b00da541475991131a0eb8449e630a689f292d5c0c2d9698",
+          "sourceSnapshotHash": "6891936dbcd2a5a60b371029cf218da39c90885f858587de8f7c58f9efa46e47"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S1-mathematics-topic-009",
+      "grade": "S1",
+      "strandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-9-strand",
+      "subStrandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-9-topic",
+      "parentSubStrandId": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-9-topic",
+      "strandTitle": "Probability",
+      "unitTitle": "Probability",
+      "sourceUnitTitle": "Probability",
+      "learningOutcomes": [
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-9-outcome-1",
+          "text": "to be able todetermine the probability of an event happening using equally likely events or experiments"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-9-outcome-2",
+          "text": "define an event and explain why probabilities can only be between 0 (impossible) and 1 (certain)"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-9-outcome-3",
+          "text": "explain that probabilities can be calculated using equally likely outcomes (e.g. tossing a coin or dice, drawing a card from a deck) or estimated using experimental data (e.g. weather, sports, arriving late to school)"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-9-outcome-4",
+          "text": "demonstrate that the more data collected, the better the estimate of the probability"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-9-outcome-5",
+          "text": "calculate the probability of an event where there are equally likely outcomes e.g. heads or tails on a coin, a score on a dice"
+        },
+        {
+          "id": "00c8693b-cb8e-48de-ab38-0075f2a0b133-unit-9-outcome-6",
+          "text": "estimate probabilities using data"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can probability help you solve a real problem in Mathematics?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Probability.",
+        "Review key vocabulary from the previous Mathematics lesson."
+      ],
+      "keyVocabulary": [
+        "Probability",
+        "method",
+        "model",
+        "unit",
+        "answer",
+        "check"
+      ],
+      "misconceptions": [
+        "giving a general answer about Probability without a clear example, method, or evidence"
+      ],
+      "localContext": "a Rwandan school, market, farming, building, transport, or data problem for Probability",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Probability",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for Probability",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "00c8693b-cb8e-48de-ab38-0075f2a0b133",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/mathematics/00c8693b-cb8e-48de-ab38-0075f2a0b133.md",
+          "sourceSectionHash": "f450d6530822afa80e3e6640bb985aa12320bd5c9197a31ab14c8fa772fe7ffd",
+          "sourceSnapshotHash": "6891936dbcd2a5a60b371029cf218da39c90885f858587de8f7c58f9efa46e47"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "00c8693b-cb8e-48de-ab38-0075f2a0b133",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/mathematics/00c8693b-cb8e-48de-ab38-0075f2a0b133.md",
+          "sourceSectionHash": "f450d6530822afa80e3e6640bb985aa12320bd5c9197a31ab14c8fa772fe7ffd",
+          "sourceSnapshotHash": "6891936dbcd2a5a60b371029cf218da39c90885f858587de8f7c58f9efa46e47"
+        }
+      ]
+    }
+  ]
+}

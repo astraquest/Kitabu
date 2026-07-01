@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-grade-9-creative-arts",
+  "title": "KITABU QUEST Grade 9 Creative Arts",
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 9",
+  "subject": "Creative Arts",
+  "subjectSlug": "creative-arts",
+  "subjectColor": "#DB2777",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "learner-first-language-depth-renderers-2026-07-01-v10",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-reviewed-draft",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T11:45:21Z",
+  "sourceSnapshotHash": "661410c1f1c1f05a0342582d7d5f8f966753d49d92c1f51ac49ff3fde3374240",
+  "bookPlanHash": "eca0d28b6cef040305721e2e4cf4897348e3cfb6b8eacf4994d588c24381e587",
+  "pageCount": 170,
+  "wordCount": 22014,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "ageBand": "junior-secondary",
+    "coversDeferred": true,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "topicCount": 21,
+    "outcomeCount": 64,
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "KEN",
+    "subject": "Creative Arts",
+    "species": "lilac-breasted roller",
+    "role": "creative colour guide",
+    "sourceRationale": "Colorful bird associated with Kenya and strong visual-arts fit."
+  },
+  "cover": {
+    "scene": "learners painting a mural and playing percussion instruments with a colorful bird mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Kenya CBC Grade 9 Creative Arts. Scene: learners painting a mural and playing percussion instruments with a colorful bird mascot. Include a friendly lilac-breasted roller mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "assets": [],
+  "downloads": {
+    "markdown": "kitabu-quest-grade-9-creative-arts.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-grade-9-creative-arts.pdf"
+  },
+  "sourceDocuments": [
+    {
+      "id": "66c9e370-ff00-45cb-b8f6-f6146ef5edc8",
+      "subject": "Creative Arts",
+      "officialTitle": "Competency Based Curriculum Grade 9 Creative Arts",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_9",
+      "gradeLocalLevel": "Grade 9",
+      "localLevel": "Grade 9",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/1XONxUP98Z6I85bPKx7CYIsAkEucl_dm-/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_9",
+        "documentUrl": "https://drive.google.com/file/d/1XONxUP98Z6I85bPKx7CYIsAkEucl_dm-/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_9/creative-arts/66c9e370-ff00-45cb-b8f6-f6146ef5edc8.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-nine-designs/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "4c47428c7e59ee01be8869ab31b4968bff593bc9a278f74d55b992516b685c7e",
+        "markdownPageCount": 62,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_9/creative-arts/66c9e370-ff00-45cb-b8f6-f6146ef5edc8.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "4c47428c7e59ee01be8869ab31b4968bff593bc9a278f74d55b992516b685c7e",
+          "pageCount": 62,
+          "generatedAt": "2026-06-29T16:35:09.857Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "cbf85dcee2dcf4d2f9fc06bd34c3c2f7e866ce8a660ab50badf9e79164cbf8db"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:09.857Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    }
+  ]
+}

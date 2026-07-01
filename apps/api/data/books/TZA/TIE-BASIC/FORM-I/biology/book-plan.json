@@ -1,0 +1,1279 @@
+{
+  "schemaVersion": 1,
+  "sourceType": "normalized-curriculum",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Form I",
+  "subject": "Biology",
+  "generatedAt": "2026-07-01T05:43:38Z",
+  "sourceSnapshotHash": "1837d40c1769db4bc35c215e3b903144a718cf211e9ca9ea7c0da151ec037d7d",
+  "writingStandard": {
+    "voice": "simple, conversational, purposeful, age-appropriate, and learner-first",
+    "antiFluff": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "coversDeferred": true
+  },
+  "strands": [
+    {
+      "strandId": "fallback-form-i-biology-1",
+      "number": "",
+      "title": "Biology As A Science And Laboratory Safety",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-i-biology-2",
+      "number": "",
+      "title": "Cells Structure And Microscopes",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-i-biology-3",
+      "number": "",
+      "title": "Classification Of Living Things",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-i-biology-4",
+      "number": "",
+      "title": "Nutrition In Plants And Animals",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-i-biology-5",
+      "number": "",
+      "title": "Respiration And Gas Exchange Basics",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-i-biology-6",
+      "number": "",
+      "title": "Movement Support And Coordination",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-i-biology-7",
+      "number": "",
+      "title": "Health Hygiene And Disease Prevention",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-i-biology-8",
+      "number": "",
+      "title": "Form I Biology Investigation",
+      "topicCount": 1
+    }
+  ],
+  "topics": [
+    {
+      "topicId": "TZA-FORM-I-biology-topic-001",
+      "grade": "Form I",
+      "strandId": "fallback-form-i-biology-1",
+      "subStrandId": "fallback-form-i-biology-1",
+      "parentSubStrandId": "fallback-form-i-biology-1",
+      "strandTitle": "Biology As A Science And Laboratory Safety",
+      "unitTitle": "Biology As A Science And Laboratory Safety",
+      "sourceUnitTitle": "Biology As A Science And Laboratory Safety",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-i-biology-1-outcome-1",
+          "text": "investigate and explain biology as a science and laboratory safety using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can biology as a science and laboratory safety help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Biology As A Science And Laboratory Safety.",
+        "Review key vocabulary from the previous Biology lesson."
+      ],
+      "keyVocabulary": [
+        "Biology As A Science And Laboratory Safety",
+        "Biology",
+        "Science",
+        "Laboratory",
+        "Safety",
+        "concept",
+        "observation",
+        "evidence"
+      ],
+      "misconceptions": [
+        "giving a general answer about Biology As A Science And Laboratory Safety without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Biology As A Science And Laboratory Safety",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Biology As A Science And Laboratory Safety",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Biology As A Science And Laboratory Safety",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ec95db25-2fe6-4a71-b574-cf6032f215b6",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Biology",
+          "subject": "Biology",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192422-BIOLOGY%20SYLLABUS%20ORDINARY%20SECONDARY%20FINAL%20.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/cdc52f12c698da022b672772a3834430122137e2935d7b7082b8f851a44db015.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192422-BIOLOGY%20SYLLABUS%20ORDINARY%20SECONDARY%20FINAL%20.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/biology/ec95db25-2fe6-4a71-b574-cf6032f215b6.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3dc2fe091a9024ffc3884fe11d86ff4008225be4dc538ed7ae8c6109d3b6ea8e",
+            "markdownPageCount": 44,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/biology/ec95db25-2fe6-4a71-b574-cf6032f215b6.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3dc2fe091a9024ffc3884fe11d86ff4008225be4dc538ed7ae8c6109d3b6ea8e",
+              "pageCount": 44,
+              "generatedAt": "2026-06-29T16:44:00.427Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "06537e79ec6d005a804e9d911748bc2c45c0b45b139b70a0b331058affb563c6"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:00.427Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "1837d40c1769db4bc35c215e3b903144a718cf211e9ca9ea7c0da151ec037d7d"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ec95db25-2fe6-4a71-b574-cf6032f215b6",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Biology",
+          "subject": "Biology",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192422-BIOLOGY%20SYLLABUS%20ORDINARY%20SECONDARY%20FINAL%20.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/cdc52f12c698da022b672772a3834430122137e2935d7b7082b8f851a44db015.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192422-BIOLOGY%20SYLLABUS%20ORDINARY%20SECONDARY%20FINAL%20.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/biology/ec95db25-2fe6-4a71-b574-cf6032f215b6.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3dc2fe091a9024ffc3884fe11d86ff4008225be4dc538ed7ae8c6109d3b6ea8e",
+            "markdownPageCount": 44,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/biology/ec95db25-2fe6-4a71-b574-cf6032f215b6.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3dc2fe091a9024ffc3884fe11d86ff4008225be4dc538ed7ae8c6109d3b6ea8e",
+              "pageCount": 44,
+              "generatedAt": "2026-06-29T16:44:00.427Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "06537e79ec6d005a804e9d911748bc2c45c0b45b139b70a0b331058affb563c6"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:00.427Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "1837d40c1769db4bc35c215e3b903144a718cf211e9ca9ea7c0da151ec037d7d"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-I-biology-topic-002",
+      "grade": "Form I",
+      "strandId": "fallback-form-i-biology-2",
+      "subStrandId": "fallback-form-i-biology-2",
+      "parentSubStrandId": "fallback-form-i-biology-2",
+      "strandTitle": "Cells Structure And Microscopes",
+      "unitTitle": "Cells Structure And Microscopes",
+      "sourceUnitTitle": "Cells Structure And Microscopes",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-i-biology-2-outcome-1",
+          "text": "investigate and explain cells structure and microscopes using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can cells structure and microscopes help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Cells Structure And Microscopes.",
+        "Review key vocabulary from the previous Biology lesson."
+      ],
+      "keyVocabulary": [
+        "Cells Structure And Microscopes",
+        "Cells",
+        "Structure",
+        "Microscopes",
+        "concept",
+        "observation",
+        "evidence",
+        "safety"
+      ],
+      "misconceptions": [
+        "giving a general answer about Cells Structure And Microscopes without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Cells Structure And Microscopes",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Cells Structure And Microscopes",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Cells Structure And Microscopes",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ec95db25-2fe6-4a71-b574-cf6032f215b6",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Biology",
+          "subject": "Biology",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192422-BIOLOGY%20SYLLABUS%20ORDINARY%20SECONDARY%20FINAL%20.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/cdc52f12c698da022b672772a3834430122137e2935d7b7082b8f851a44db015.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192422-BIOLOGY%20SYLLABUS%20ORDINARY%20SECONDARY%20FINAL%20.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/biology/ec95db25-2fe6-4a71-b574-cf6032f215b6.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3dc2fe091a9024ffc3884fe11d86ff4008225be4dc538ed7ae8c6109d3b6ea8e",
+            "markdownPageCount": 44,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/biology/ec95db25-2fe6-4a71-b574-cf6032f215b6.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3dc2fe091a9024ffc3884fe11d86ff4008225be4dc538ed7ae8c6109d3b6ea8e",
+              "pageCount": 44,
+              "generatedAt": "2026-06-29T16:44:00.427Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "06537e79ec6d005a804e9d911748bc2c45c0b45b139b70a0b331058affb563c6"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:00.427Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "1837d40c1769db4bc35c215e3b903144a718cf211e9ca9ea7c0da151ec037d7d"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ec95db25-2fe6-4a71-b574-cf6032f215b6",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Biology",
+          "subject": "Biology",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192422-BIOLOGY%20SYLLABUS%20ORDINARY%20SECONDARY%20FINAL%20.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/cdc52f12c698da022b672772a3834430122137e2935d7b7082b8f851a44db015.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192422-BIOLOGY%20SYLLABUS%20ORDINARY%20SECONDARY%20FINAL%20.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/biology/ec95db25-2fe6-4a71-b574-cf6032f215b6.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3dc2fe091a9024ffc3884fe11d86ff4008225be4dc538ed7ae8c6109d3b6ea8e",
+            "markdownPageCount": 44,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/biology/ec95db25-2fe6-4a71-b574-cf6032f215b6.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3dc2fe091a9024ffc3884fe11d86ff4008225be4dc538ed7ae8c6109d3b6ea8e",
+              "pageCount": 44,
+              "generatedAt": "2026-06-29T16:44:00.427Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "06537e79ec6d005a804e9d911748bc2c45c0b45b139b70a0b331058affb563c6"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:00.427Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "1837d40c1769db4bc35c215e3b903144a718cf211e9ca9ea7c0da151ec037d7d"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-I-biology-topic-003",
+      "grade": "Form I",
+      "strandId": "fallback-form-i-biology-3",
+      "subStrandId": "fallback-form-i-biology-3",
+      "parentSubStrandId": "fallback-form-i-biology-3",
+      "strandTitle": "Classification Of Living Things",
+      "unitTitle": "Classification Of Living Things",
+      "sourceUnitTitle": "Classification Of Living Things",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-i-biology-3-outcome-1",
+          "text": "investigate and explain classification of living things using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can classification of living things help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Classification Of Living Things.",
+        "Review key vocabulary from the previous Biology lesson."
+      ],
+      "keyVocabulary": [
+        "Classification Of Living Things",
+        "Classification",
+        "Living",
+        "Things",
+        "concept",
+        "observation",
+        "evidence",
+        "safety"
+      ],
+      "misconceptions": [
+        "giving a general answer about Classification Of Living Things without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Classification Of Living Things",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Classification Of Living Things",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Classification Of Living Things",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ec95db25-2fe6-4a71-b574-cf6032f215b6",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Biology",
+          "subject": "Biology",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192422-BIOLOGY%20SYLLABUS%20ORDINARY%20SECONDARY%20FINAL%20.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/cdc52f12c698da022b672772a3834430122137e2935d7b7082b8f851a44db015.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192422-BIOLOGY%20SYLLABUS%20ORDINARY%20SECONDARY%20FINAL%20.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/biology/ec95db25-2fe6-4a71-b574-cf6032f215b6.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3dc2fe091a9024ffc3884fe11d86ff4008225be4dc538ed7ae8c6109d3b6ea8e",
+            "markdownPageCount": 44,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/biology/ec95db25-2fe6-4a71-b574-cf6032f215b6.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3dc2fe091a9024ffc3884fe11d86ff4008225be4dc538ed7ae8c6109d3b6ea8e",
+              "pageCount": 44,
+              "generatedAt": "2026-06-29T16:44:00.427Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "06537e79ec6d005a804e9d911748bc2c45c0b45b139b70a0b331058affb563c6"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:00.427Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "1837d40c1769db4bc35c215e3b903144a718cf211e9ca9ea7c0da151ec037d7d"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ec95db25-2fe6-4a71-b574-cf6032f215b6",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Biology",
+          "subject": "Biology",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192422-BIOLOGY%20SYLLABUS%20ORDINARY%20SECONDARY%20FINAL%20.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/cdc52f12c698da022b672772a3834430122137e2935d7b7082b8f851a44db015.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192422-BIOLOGY%20SYLLABUS%20ORDINARY%20SECONDARY%20FINAL%20.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/biology/ec95db25-2fe6-4a71-b574-cf6032f215b6.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3dc2fe091a9024ffc3884fe11d86ff4008225be4dc538ed7ae8c6109d3b6ea8e",
+            "markdownPageCount": 44,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/biology/ec95db25-2fe6-4a71-b574-cf6032f215b6.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3dc2fe091a9024ffc3884fe11d86ff4008225be4dc538ed7ae8c6109d3b6ea8e",
+              "pageCount": 44,
+              "generatedAt": "2026-06-29T16:44:00.427Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "06537e79ec6d005a804e9d911748bc2c45c0b45b139b70a0b331058affb563c6"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:00.427Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "1837d40c1769db4bc35c215e3b903144a718cf211e9ca9ea7c0da151ec037d7d"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-I-biology-topic-004",
+      "grade": "Form I",
+      "strandId": "fallback-form-i-biology-4",
+      "subStrandId": "fallback-form-i-biology-4",
+      "parentSubStrandId": "fallback-form-i-biology-4",
+      "strandTitle": "Nutrition In Plants And Animals",
+      "unitTitle": "Nutrition In Plants And Animals",
+      "sourceUnitTitle": "Nutrition In Plants And Animals",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-i-biology-4-outcome-1",
+          "text": "investigate and explain nutrition in plants and animals using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can nutrition in plants and animals help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Nutrition In Plants And Animals.",
+        "Review key vocabulary from the previous Biology lesson."
+      ],
+      "keyVocabulary": [
+        "Nutrition In Plants And Animals",
+        "Nutrition",
+        "Plants",
+        "Animals",
+        "concept",
+        "observation",
+        "evidence",
+        "safety"
+      ],
+      "misconceptions": [
+        "giving a general answer about Nutrition In Plants And Animals without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Nutrition In Plants And Animals",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Nutrition In Plants And Animals",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Nutrition In Plants And Animals",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ec95db25-2fe6-4a71-b574-cf6032f215b6",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Biology",
+          "subject": "Biology",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192422-BIOLOGY%20SYLLABUS%20ORDINARY%20SECONDARY%20FINAL%20.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/cdc52f12c698da022b672772a3834430122137e2935d7b7082b8f851a44db015.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192422-BIOLOGY%20SYLLABUS%20ORDINARY%20SECONDARY%20FINAL%20.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/biology/ec95db25-2fe6-4a71-b574-cf6032f215b6.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3dc2fe091a9024ffc3884fe11d86ff4008225be4dc538ed7ae8c6109d3b6ea8e",
+            "markdownPageCount": 44,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/biology/ec95db25-2fe6-4a71-b574-cf6032f215b6.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3dc2fe091a9024ffc3884fe11d86ff4008225be4dc538ed7ae8c6109d3b6ea8e",
+              "pageCount": 44,
+              "generatedAt": "2026-06-29T16:44:00.427Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "06537e79ec6d005a804e9d911748bc2c45c0b45b139b70a0b331058affb563c6"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:00.427Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "1837d40c1769db4bc35c215e3b903144a718cf211e9ca9ea7c0da151ec037d7d"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ec95db25-2fe6-4a71-b574-cf6032f215b6",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Biology",
+          "subject": "Biology",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192422-BIOLOGY%20SYLLABUS%20ORDINARY%20SECONDARY%20FINAL%20.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/cdc52f12c698da022b672772a3834430122137e2935d7b7082b8f851a44db015.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192422-BIOLOGY%20SYLLABUS%20ORDINARY%20SECONDARY%20FINAL%20.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/biology/ec95db25-2fe6-4a71-b574-cf6032f215b6.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3dc2fe091a9024ffc3884fe11d86ff4008225be4dc538ed7ae8c6109d3b6ea8e",
+            "markdownPageCount": 44,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/biology/ec95db25-2fe6-4a71-b574-cf6032f215b6.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3dc2fe091a9024ffc3884fe11d86ff4008225be4dc538ed7ae8c6109d3b6ea8e",
+              "pageCount": 44,
+              "generatedAt": "2026-06-29T16:44:00.427Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "06537e79ec6d005a804e9d911748bc2c45c0b45b139b70a0b331058affb563c6"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:00.427Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "1837d40c1769db4bc35c215e3b903144a718cf211e9ca9ea7c0da151ec037d7d"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-I-biology-topic-005",
+      "grade": "Form I",
+      "strandId": "fallback-form-i-biology-5",
+      "subStrandId": "fallback-form-i-biology-5",
+      "parentSubStrandId": "fallback-form-i-biology-5",
+      "strandTitle": "Respiration And Gas Exchange Basics",
+      "unitTitle": "Respiration And Gas Exchange Basics",
+      "sourceUnitTitle": "Respiration And Gas Exchange Basics",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-i-biology-5-outcome-1",
+          "text": "investigate and explain respiration and gas exchange basics using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can respiration and gas exchange basics help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Respiration And Gas Exchange Basics.",
+        "Review key vocabulary from the previous Biology lesson."
+      ],
+      "keyVocabulary": [
+        "Respiration And Gas Exchange Basics",
+        "Respiration",
+        "Exchange",
+        "Basics",
+        "concept",
+        "observation",
+        "evidence",
+        "safety"
+      ],
+      "misconceptions": [
+        "giving a general answer about Respiration And Gas Exchange Basics without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Respiration And Gas Exchange Basics",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Respiration And Gas Exchange Basics",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Respiration And Gas Exchange Basics",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ec95db25-2fe6-4a71-b574-cf6032f215b6",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Biology",
+          "subject": "Biology",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192422-BIOLOGY%20SYLLABUS%20ORDINARY%20SECONDARY%20FINAL%20.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/cdc52f12c698da022b672772a3834430122137e2935d7b7082b8f851a44db015.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192422-BIOLOGY%20SYLLABUS%20ORDINARY%20SECONDARY%20FINAL%20.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/biology/ec95db25-2fe6-4a71-b574-cf6032f215b6.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3dc2fe091a9024ffc3884fe11d86ff4008225be4dc538ed7ae8c6109d3b6ea8e",
+            "markdownPageCount": 44,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/biology/ec95db25-2fe6-4a71-b574-cf6032f215b6.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3dc2fe091a9024ffc3884fe11d86ff4008225be4dc538ed7ae8c6109d3b6ea8e",
+              "pageCount": 44,
+              "generatedAt": "2026-06-29T16:44:00.427Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "06537e79ec6d005a804e9d911748bc2c45c0b45b139b70a0b331058affb563c6"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:00.427Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "1837d40c1769db4bc35c215e3b903144a718cf211e9ca9ea7c0da151ec037d7d"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ec95db25-2fe6-4a71-b574-cf6032f215b6",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Biology",
+          "subject": "Biology",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192422-BIOLOGY%20SYLLABUS%20ORDINARY%20SECONDARY%20FINAL%20.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/cdc52f12c698da022b672772a3834430122137e2935d7b7082b8f851a44db015.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192422-BIOLOGY%20SYLLABUS%20ORDINARY%20SECONDARY%20FINAL%20.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/biology/ec95db25-2fe6-4a71-b574-cf6032f215b6.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3dc2fe091a9024ffc3884fe11d86ff4008225be4dc538ed7ae8c6109d3b6ea8e",
+            "markdownPageCount": 44,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/biology/ec95db25-2fe6-4a71-b574-cf6032f215b6.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3dc2fe091a9024ffc3884fe11d86ff4008225be4dc538ed7ae8c6109d3b6ea8e",
+              "pageCount": 44,
+              "generatedAt": "2026-06-29T16:44:00.427Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "06537e79ec6d005a804e9d911748bc2c45c0b45b139b70a0b331058affb563c6"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:00.427Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "1837d40c1769db4bc35c215e3b903144a718cf211e9ca9ea7c0da151ec037d7d"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-I-biology-topic-006",
+      "grade": "Form I",
+      "strandId": "fallback-form-i-biology-6",
+      "subStrandId": "fallback-form-i-biology-6",
+      "parentSubStrandId": "fallback-form-i-biology-6",
+      "strandTitle": "Movement Support And Coordination",
+      "unitTitle": "Movement Support And Coordination",
+      "sourceUnitTitle": "Movement Support And Coordination",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-i-biology-6-outcome-1",
+          "text": "investigate and explain movement support and coordination using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can movement support and coordination help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Movement Support And Coordination.",
+        "Review key vocabulary from the previous Biology lesson."
+      ],
+      "keyVocabulary": [
+        "Movement Support And Coordination",
+        "Movement",
+        "Support",
+        "Coordination",
+        "concept",
+        "observation",
+        "evidence",
+        "safety"
+      ],
+      "misconceptions": [
+        "giving a general answer about Movement Support And Coordination without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Movement Support And Coordination",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Movement Support And Coordination",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Movement Support And Coordination",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ec95db25-2fe6-4a71-b574-cf6032f215b6",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Biology",
+          "subject": "Biology",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192422-BIOLOGY%20SYLLABUS%20ORDINARY%20SECONDARY%20FINAL%20.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/cdc52f12c698da022b672772a3834430122137e2935d7b7082b8f851a44db015.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192422-BIOLOGY%20SYLLABUS%20ORDINARY%20SECONDARY%20FINAL%20.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/biology/ec95db25-2fe6-4a71-b574-cf6032f215b6.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3dc2fe091a9024ffc3884fe11d86ff4008225be4dc538ed7ae8c6109d3b6ea8e",
+            "markdownPageCount": 44,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/biology/ec95db25-2fe6-4a71-b574-cf6032f215b6.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3dc2fe091a9024ffc3884fe11d86ff4008225be4dc538ed7ae8c6109d3b6ea8e",
+              "pageCount": 44,
+              "generatedAt": "2026-06-29T16:44:00.427Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "06537e79ec6d005a804e9d911748bc2c45c0b45b139b70a0b331058affb563c6"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:00.427Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "1837d40c1769db4bc35c215e3b903144a718cf211e9ca9ea7c0da151ec037d7d"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ec95db25-2fe6-4a71-b574-cf6032f215b6",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Biology",
+          "subject": "Biology",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192422-BIOLOGY%20SYLLABUS%20ORDINARY%20SECONDARY%20FINAL%20.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/cdc52f12c698da022b672772a3834430122137e2935d7b7082b8f851a44db015.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192422-BIOLOGY%20SYLLABUS%20ORDINARY%20SECONDARY%20FINAL%20.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/biology/ec95db25-2fe6-4a71-b574-cf6032f215b6.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3dc2fe091a9024ffc3884fe11d86ff4008225be4dc538ed7ae8c6109d3b6ea8e",
+            "markdownPageCount": 44,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/biology/ec95db25-2fe6-4a71-b574-cf6032f215b6.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3dc2fe091a9024ffc3884fe11d86ff4008225be4dc538ed7ae8c6109d3b6ea8e",
+              "pageCount": 44,
+              "generatedAt": "2026-06-29T16:44:00.427Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "06537e79ec6d005a804e9d911748bc2c45c0b45b139b70a0b331058affb563c6"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:00.427Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "1837d40c1769db4bc35c215e3b903144a718cf211e9ca9ea7c0da151ec037d7d"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-I-biology-topic-007",
+      "grade": "Form I",
+      "strandId": "fallback-form-i-biology-7",
+      "subStrandId": "fallback-form-i-biology-7",
+      "parentSubStrandId": "fallback-form-i-biology-7",
+      "strandTitle": "Health Hygiene And Disease Prevention",
+      "unitTitle": "Health Hygiene And Disease Prevention",
+      "sourceUnitTitle": "Health Hygiene And Disease Prevention",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-i-biology-7-outcome-1",
+          "text": "investigate and explain health hygiene and disease prevention using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can health hygiene and disease prevention help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Health Hygiene And Disease Prevention.",
+        "Review key vocabulary from the previous Biology lesson."
+      ],
+      "keyVocabulary": [
+        "Health Hygiene And Disease Prevention",
+        "Health",
+        "Hygiene",
+        "Disease",
+        "Prevention",
+        "concept",
+        "observation",
+        "evidence"
+      ],
+      "misconceptions": [
+        "giving a general answer about Health Hygiene And Disease Prevention without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Health Hygiene And Disease Prevention",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Health Hygiene And Disease Prevention",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Health Hygiene And Disease Prevention",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ec95db25-2fe6-4a71-b574-cf6032f215b6",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Biology",
+          "subject": "Biology",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192422-BIOLOGY%20SYLLABUS%20ORDINARY%20SECONDARY%20FINAL%20.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/cdc52f12c698da022b672772a3834430122137e2935d7b7082b8f851a44db015.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192422-BIOLOGY%20SYLLABUS%20ORDINARY%20SECONDARY%20FINAL%20.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/biology/ec95db25-2fe6-4a71-b574-cf6032f215b6.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3dc2fe091a9024ffc3884fe11d86ff4008225be4dc538ed7ae8c6109d3b6ea8e",
+            "markdownPageCount": 44,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/biology/ec95db25-2fe6-4a71-b574-cf6032f215b6.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3dc2fe091a9024ffc3884fe11d86ff4008225be4dc538ed7ae8c6109d3b6ea8e",
+              "pageCount": 44,
+              "generatedAt": "2026-06-29T16:44:00.427Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "06537e79ec6d005a804e9d911748bc2c45c0b45b139b70a0b331058affb563c6"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:00.427Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "1837d40c1769db4bc35c215e3b903144a718cf211e9ca9ea7c0da151ec037d7d"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ec95db25-2fe6-4a71-b574-cf6032f215b6",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Biology",
+          "subject": "Biology",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192422-BIOLOGY%20SYLLABUS%20ORDINARY%20SECONDARY%20FINAL%20.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/cdc52f12c698da022b672772a3834430122137e2935d7b7082b8f851a44db015.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192422-BIOLOGY%20SYLLABUS%20ORDINARY%20SECONDARY%20FINAL%20.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/biology/ec95db25-2fe6-4a71-b574-cf6032f215b6.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3dc2fe091a9024ffc3884fe11d86ff4008225be4dc538ed7ae8c6109d3b6ea8e",
+            "markdownPageCount": 44,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/biology/ec95db25-2fe6-4a71-b574-cf6032f215b6.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3dc2fe091a9024ffc3884fe11d86ff4008225be4dc538ed7ae8c6109d3b6ea8e",
+              "pageCount": 44,
+              "generatedAt": "2026-06-29T16:44:00.427Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "06537e79ec6d005a804e9d911748bc2c45c0b45b139b70a0b331058affb563c6"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:00.427Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "1837d40c1769db4bc35c215e3b903144a718cf211e9ca9ea7c0da151ec037d7d"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-I-biology-topic-008",
+      "grade": "Form I",
+      "strandId": "fallback-form-i-biology-8",
+      "subStrandId": "fallback-form-i-biology-8",
+      "parentSubStrandId": "fallback-form-i-biology-8",
+      "strandTitle": "Form I Biology Investigation",
+      "unitTitle": "Form I Biology Investigation",
+      "sourceUnitTitle": "Form I Biology Investigation",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-i-biology-8-outcome-1",
+          "text": "investigate and explain form i biology investigation using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can form i biology investigation help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Form I Biology Investigation.",
+        "Review key vocabulary from the previous Biology lesson."
+      ],
+      "keyVocabulary": [
+        "Form I Biology Investigation",
+        "Form",
+        "Biology",
+        "Investigation",
+        "concept",
+        "observation",
+        "evidence",
+        "safety"
+      ],
+      "misconceptions": [
+        "giving a general answer about Form I Biology Investigation without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Form I Biology Investigation",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Form I Biology Investigation",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Form I Biology Investigation",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ec95db25-2fe6-4a71-b574-cf6032f215b6",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Biology",
+          "subject": "Biology",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192422-BIOLOGY%20SYLLABUS%20ORDINARY%20SECONDARY%20FINAL%20.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/cdc52f12c698da022b672772a3834430122137e2935d7b7082b8f851a44db015.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192422-BIOLOGY%20SYLLABUS%20ORDINARY%20SECONDARY%20FINAL%20.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/biology/ec95db25-2fe6-4a71-b574-cf6032f215b6.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3dc2fe091a9024ffc3884fe11d86ff4008225be4dc538ed7ae8c6109d3b6ea8e",
+            "markdownPageCount": 44,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/biology/ec95db25-2fe6-4a71-b574-cf6032f215b6.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3dc2fe091a9024ffc3884fe11d86ff4008225be4dc538ed7ae8c6109d3b6ea8e",
+              "pageCount": 44,
+              "generatedAt": "2026-06-29T16:44:00.427Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "06537e79ec6d005a804e9d911748bc2c45c0b45b139b70a0b331058affb563c6"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:00.427Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "1837d40c1769db4bc35c215e3b903144a718cf211e9ca9ea7c0da151ec037d7d"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ec95db25-2fe6-4a71-b574-cf6032f215b6",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Biology",
+          "subject": "Biology",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192422-BIOLOGY%20SYLLABUS%20ORDINARY%20SECONDARY%20FINAL%20.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/cdc52f12c698da022b672772a3834430122137e2935d7b7082b8f851a44db015.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192422-BIOLOGY%20SYLLABUS%20ORDINARY%20SECONDARY%20FINAL%20.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/biology/ec95db25-2fe6-4a71-b574-cf6032f215b6.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3dc2fe091a9024ffc3884fe11d86ff4008225be4dc538ed7ae8c6109d3b6ea8e",
+            "markdownPageCount": 44,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/biology/ec95db25-2fe6-4a71-b574-cf6032f215b6.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3dc2fe091a9024ffc3884fe11d86ff4008225be4dc538ed7ae8c6109d3b6ea8e",
+              "pageCount": 44,
+              "generatedAt": "2026-06-29T16:44:00.427Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "06537e79ec6d005a804e9d911748bc2c45c0b45b139b70a0b331058affb563c6"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:00.427Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "1837d40c1769db4bc35c215e3b903144a718cf211e9ca9ea7c0da151ec037d7d"
+        }
+      ]
+    }
+  ]
+}

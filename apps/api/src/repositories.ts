@@ -27,6 +27,8 @@ export interface UserRecord {
   email_verified: boolean;
   gender: 'male' | 'female' | 'not_specified';
   grade_level: string | null;
+  country_code: string;
+  curriculum_code: string;
   onboarding_completed: boolean;
   terms_accepted_at: Date | null;
   terms_version: string | null;
@@ -457,6 +459,128 @@ export interface WeeklyExamAttemptRecord {
   submitted_at: Date | null;
 }
 
+export type AiGenerationRunStatus = 'pending' | 'completed' | 'failed' | 'blocked';
+export type AiGenerationCacheStatus = 'not_checked' | 'miss' | 'hit' | 'stored' | 'bypassed';
+export type AiGenerationAttemptStatus = 'started' | 'completed' | 'failed';
+
+export interface AiGenerationRunRecord {
+  id: string;
+  user_id: string | null;
+  school_id: string | null;
+  subscription_id: string | null;
+  feature: string;
+  prompt_version: string;
+  provider: string | null;
+  model: string | null;
+  status: AiGenerationRunStatus;
+  latency_ms: number | null;
+  prompt_tokens: number;
+  completion_tokens: number;
+  total_tokens: number;
+  estimated_cost_usd_micros: string;
+  estimated_cost_ksh_cents: string;
+  cache_status: AiGenerationCacheStatus;
+  cache_key: string | null;
+  prompt_hash: string;
+  input_hash: string;
+  output_hash: string | null;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface CreateAiGenerationRunInput {
+  userId: string;
+  schoolId: string | null;
+  subscriptionId: string | null;
+  feature: string;
+  promptVersion: string;
+  provider?: string | null;
+  model?: string | null;
+  status?: AiGenerationRunStatus;
+  latencyMs?: number;
+  promptTokens?: number;
+  completionTokens?: number;
+  totalTokens?: number;
+  estimatedCostUsdMicros?: number;
+  estimatedCostKshCents?: number;
+  cacheStatus?: AiGenerationCacheStatus;
+  cacheKey?: string | null;
+  promptHash: string;
+  inputHash: string;
+  outputHash?: string | null;
+}
+
+export interface UpdateAiGenerationRunInput {
+  provider?: string;
+  model?: string;
+  status?: AiGenerationRunStatus;
+  latencyMs?: number;
+  promptTokens?: number;
+  completionTokens?: number;
+  totalTokens?: number;
+  estimatedCostUsdMicros?: number;
+  estimatedCostKshCents?: number;
+  cacheStatus?: AiGenerationCacheStatus;
+  cacheKey?: string;
+  outputHash?: string;
+}
+
+export interface AiGenerationAttemptRecord {
+  id: string;
+  run_id: string;
+  attempt_order: number;
+  provider: string;
+  model: string;
+  status: AiGenerationAttemptStatus;
+  latency_ms: number | null;
+  prompt_tokens: number;
+  completion_tokens: number;
+  total_tokens: number;
+  estimated_cost_usd_micros: string;
+  estimated_cost_ksh_cents: string;
+  error_summary: string | null;
+  created_at: Date;
+}
+
+export interface RecordAiGenerationAttemptInput {
+  runId: string;
+  attemptNumber: number;
+  provider: string;
+  model: string;
+  status: AiGenerationAttemptStatus;
+  latencyMs?: number;
+  promptTokens?: number;
+  completionTokens?: number;
+  totalTokens?: number;
+  estimatedCostUsdMicros?: number;
+  estimatedCostKshCents?: number;
+  errorSummary?: string | null;
+}
+
+export interface AiGenerationCacheRecord {
+  cache_key: string;
+  feature: string;
+  prompt_version: string;
+  schema_version: string;
+  value_json: unknown | null;
+  value_text: string | null;
+  metadata: Record<string, unknown>;
+  expires_at: Date | null;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface SetAiGenerationCacheEntryInput {
+  cacheKey: string;
+  feature: string;
+  promptVersion: string;
+  schemaVersion: string;
+  valueJson?: unknown;
+  valueText?: string | null;
+  metadata?: Record<string, unknown>;
+  expiresAt?: Date | null;
+}
+
 export async function withTransaction<T>(fn: (client: PoolClient) => Promise<T>): Promise<T> {
   const client = await db.connect();
   try {
@@ -475,6 +599,7 @@ export async function withTransaction<T>(fn: (client: PoolClient) => Promise<T>)
 export async function findUserByEmail(email: string): Promise<(UserRecord & { roles: AppRole[] }) | null> {
   const userResult = await db.query<UserRecord>(
     `SELECT id, school_id, status, email, phone_number, phone_verified, phone_verified_at, full_name, password_hash, email_verified, gender, grade_level,
+            country_code, curriculum_code,
             onboarding_completed, terms_accepted_at, terms_version, privacy_version,
             must_rotate_password, is_break_glass
      FROM users
@@ -500,6 +625,7 @@ export async function findUserByEmail(email: string): Promise<(UserRecord & { ro
 export async function findUserByPhone(phoneNumber: string): Promise<(UserRecord & { roles: AppRole[] }) | null> {
   const userResult = await db.query<UserRecord>(
     `SELECT id, school_id, status, email, phone_number, phone_verified, phone_verified_at, full_name, password_hash, email_verified, gender, grade_level,
+            country_code, curriculum_code,
             onboarding_completed, terms_accepted_at, terms_version, privacy_version,
             must_rotate_password, is_break_glass
      FROM users
@@ -637,6 +763,7 @@ export async function findUserByAuthIdentity(
   const userResult = await db.query<UserRecord>(
     `SELECT id, school_id, status, email, phone_number, phone_verified, phone_verified_at,
             full_name, password_hash, email_verified, gender, grade_level,
+            country_code, curriculum_code,
             onboarding_completed, terms_accepted_at, terms_version, privacy_version,
             must_rotate_password, is_break_glass
      FROM users
@@ -707,6 +834,8 @@ export async function findUserById(userId: string): Promise<AuthenticatedUser | 
     email_verified: boolean;
     gender: 'male' | 'female' | 'not_specified';
     grade_level: string | null;
+    country_code: string;
+    curriculum_code: string;
     onboarding_completed: boolean;
     terms_accepted_at: Date | null;
     terms_version: string | null;
@@ -715,6 +844,7 @@ export async function findUserById(userId: string): Promise<AuthenticatedUser | 
     is_break_glass: boolean;
   }>(
     `SELECT id, school_id, status, email, phone_number, phone_verified, phone_verified_at, full_name, email_verified, gender, grade_level,
+            country_code, curriculum_code,
             onboarding_completed, terms_accepted_at, terms_version, privacy_version,
             must_rotate_password, is_break_glass
      FROM users
@@ -740,6 +870,8 @@ export async function findUserById(userId: string): Promise<AuthenticatedUser | 
     roles: roleResult.rows.map(row => row.role),
     gender: user.gender,
     grade: user.grade_level,
+    countryCode: user.country_code,
+    curriculumCode: user.curriculum_code,
     onboardingCompleted: user.onboarding_completed,
     termsAcceptedAt: user.terms_accepted_at?.toISOString() ?? null,
     termsVersion: user.terms_version,
@@ -777,6 +909,8 @@ export async function createSelfServiceUser(input: {
       email_verified: boolean;
       gender: 'male' | 'female' | 'not_specified';
       grade_level: string | null;
+      country_code: string;
+      curriculum_code: string;
       onboarding_completed: boolean;
       terms_accepted_at: Date | null;
       terms_version: string | null;
@@ -791,6 +925,7 @@ export async function createSelfServiceUser(input: {
        )
        VALUES ($1, $2, $3, $4, CASE WHEN $4::boolean THEN NOW() ELSE NULL END, $5, $6, $7, $8, $9, $10, $11, $12)
        RETURNING id, school_id, email, phone_number, phone_verified, phone_verified_at, full_name, email_verified, gender, grade_level,
+                 country_code, curriculum_code,
                  onboarding_completed, terms_accepted_at, terms_version, privacy_version,
                  must_rotate_password, is_break_glass`,
       [
@@ -827,6 +962,8 @@ export async function createSelfServiceUser(input: {
       roles: [input.role] as AppRole[],
       gender: user.gender,
       grade: user.grade_level,
+      countryCode: user.country_code,
+      curriculumCode: user.curriculum_code,
       onboardingCompleted: user.onboarding_completed,
       termsAcceptedAt: user.terms_accepted_at?.toISOString() ?? null,
       termsVersion: user.terms_version,
@@ -2510,6 +2647,199 @@ export async function createAiUsageEvent(
       payload.status
     ]
   );
+}
+
+export async function createAiGenerationRun(
+  client: MaybeClient,
+  input: CreateAiGenerationRunInput
+): Promise<AiGenerationRunRecord> {
+  const result = await q<AiGenerationRunRecord>(
+    client,
+    `INSERT INTO ai_generation_runs (
+      user_id, school_id, subscription_id, feature, prompt_version, provider, model,
+      status, latency_ms, prompt_tokens, completion_tokens, total_tokens,
+      estimated_cost_usd_micros, estimated_cost_ksh_cents, cache_status, cache_key,
+      prompt_hash, input_hash, output_hash
+     ) VALUES (
+      $1, $2, $3, $4, $5, $6, $7,
+      $8, $9, $10, $11, $12,
+      $13, $14, $15, $16,
+      $17, $18, $19
+     )
+     RETURNING id, user_id, school_id, subscription_id, feature, prompt_version,
+       provider, model, status, latency_ms, prompt_tokens, completion_tokens,
+       total_tokens, estimated_cost_usd_micros, estimated_cost_ksh_cents,
+       cache_status, cache_key, prompt_hash, input_hash, output_hash,
+       created_at, updated_at`,
+    [
+      input.userId,
+      input.schoolId,
+      input.subscriptionId,
+      input.feature,
+      input.promptVersion,
+      input.provider ?? null,
+      input.model ?? null,
+      input.status ?? 'pending',
+      input.latencyMs ?? null,
+      input.promptTokens ?? 0,
+      input.completionTokens ?? 0,
+      input.totalTokens ?? 0,
+      input.estimatedCostUsdMicros ?? 0,
+      input.estimatedCostKshCents ?? 0,
+      input.cacheStatus ?? 'not_checked',
+      input.cacheKey ?? null,
+      input.promptHash,
+      input.inputHash,
+      input.outputHash ?? null
+    ]
+  );
+
+  return result.rows[0];
+}
+
+export async function updateAiGenerationRun(
+  client: MaybeClient,
+  runId: string,
+  input: UpdateAiGenerationRunInput
+): Promise<AiGenerationRunRecord | null> {
+  const result = await q<AiGenerationRunRecord>(
+    client,
+    `UPDATE ai_generation_runs
+     SET provider = COALESCE($2, provider),
+         model = COALESCE($3, model),
+         status = COALESCE($4, status),
+         latency_ms = COALESCE($5, latency_ms),
+         prompt_tokens = COALESCE($6, prompt_tokens),
+         completion_tokens = COALESCE($7, completion_tokens),
+         total_tokens = COALESCE($8, total_tokens),
+         estimated_cost_usd_micros = COALESCE($9, estimated_cost_usd_micros),
+         estimated_cost_ksh_cents = COALESCE($10, estimated_cost_ksh_cents),
+         cache_status = COALESCE($11, cache_status),
+         cache_key = COALESCE($12, cache_key),
+         output_hash = COALESCE($13, output_hash),
+         updated_at = NOW()
+     WHERE id = $1
+     RETURNING id, user_id, school_id, subscription_id, feature, prompt_version,
+       provider, model, status, latency_ms, prompt_tokens, completion_tokens,
+       total_tokens, estimated_cost_usd_micros, estimated_cost_ksh_cents,
+       cache_status, cache_key, prompt_hash, input_hash, output_hash,
+       created_at, updated_at`,
+    [
+      runId,
+      input.provider ?? null,
+      input.model ?? null,
+      input.status ?? null,
+      input.latencyMs ?? null,
+      input.promptTokens ?? null,
+      input.completionTokens ?? null,
+      input.totalTokens ?? null,
+      input.estimatedCostUsdMicros ?? null,
+      input.estimatedCostKshCents ?? null,
+      input.cacheStatus ?? null,
+      input.cacheKey ?? null,
+      input.outputHash ?? null
+    ]
+  );
+
+  return result.rows[0] ?? null;
+}
+
+export async function recordAiGenerationAttempt(
+  client: MaybeClient,
+  input: RecordAiGenerationAttemptInput
+): Promise<AiGenerationAttemptRecord> {
+  const result = await q<AiGenerationAttemptRecord>(
+    client,
+    `INSERT INTO ai_generation_attempts (
+      run_id, attempt_order, provider, model, status, latency_ms,
+      prompt_tokens, completion_tokens, total_tokens,
+      estimated_cost_usd_micros, estimated_cost_ksh_cents, error_summary
+     ) VALUES (
+      $1, $2, $3, $4, $5, $6,
+      $7, $8, $9,
+      $10, $11, $12
+     )
+     RETURNING id, run_id, attempt_order, provider, model, status, latency_ms,
+       prompt_tokens, completion_tokens, total_tokens, estimated_cost_usd_micros,
+       estimated_cost_ksh_cents, error_summary, created_at`,
+    [
+      input.runId,
+      input.attemptNumber,
+      input.provider,
+      input.model,
+      input.status,
+      input.latencyMs ?? 0,
+      input.promptTokens ?? 0,
+      input.completionTokens ?? 0,
+      input.totalTokens ?? 0,
+      input.estimatedCostUsdMicros ?? 0,
+      input.estimatedCostKshCents ?? 0,
+      input.errorSummary ?? null
+    ]
+  );
+
+  return result.rows[0];
+}
+
+export async function getAiGenerationCacheEntry(
+  client: MaybeClient,
+  cacheKey: string
+): Promise<AiGenerationCacheRecord | null> {
+  const result = await q<AiGenerationCacheRecord>(
+    client,
+    `SELECT cache_key, feature, prompt_version, schema_version, value_json,
+       value_text, metadata, expires_at, created_at, updated_at
+     FROM ai_generation_cache
+     WHERE cache_key = $1
+       AND (expires_at IS NULL OR expires_at > NOW())`,
+    [cacheKey]
+  );
+
+  return result.rows[0] ?? null;
+}
+
+export async function setAiGenerationCacheEntry(
+  client: MaybeClient,
+  input: SetAiGenerationCacheEntryInput
+): Promise<AiGenerationCacheRecord> {
+  const valueJson = input.valueJson === undefined ? null : JSON.stringify(input.valueJson);
+  if (valueJson === null && input.valueText == null) {
+    throw new Error('AI generation cache entry requires valueJson or valueText');
+  }
+
+  const result = await q<AiGenerationCacheRecord>(
+    client,
+    `INSERT INTO ai_generation_cache (
+      cache_key, feature, prompt_version, schema_version, value_json,
+      value_text, metadata, expires_at
+     ) VALUES (
+      $1, $2, $3, $4, $5::jsonb,
+      $6, $7::jsonb, $8
+     )
+     ON CONFLICT (cache_key) DO UPDATE
+     SET feature = EXCLUDED.feature,
+         prompt_version = EXCLUDED.prompt_version,
+         schema_version = EXCLUDED.schema_version,
+         value_json = EXCLUDED.value_json,
+         value_text = EXCLUDED.value_text,
+         metadata = EXCLUDED.metadata,
+         expires_at = EXCLUDED.expires_at,
+         updated_at = NOW()
+     RETURNING cache_key, feature, prompt_version, schema_version, value_json,
+       value_text, metadata, expires_at, created_at, updated_at`,
+    [
+      input.cacheKey,
+      input.feature,
+      input.promptVersion,
+      input.schemaVersion,
+      valueJson,
+      input.valueText ?? null,
+      JSON.stringify(input.metadata ?? {}),
+      input.expiresAt ?? null
+    ]
+  );
+
+  return result.rows[0];
 }
 
 export async function getAdminAiAnalytics(user: AuthenticatedUser) {

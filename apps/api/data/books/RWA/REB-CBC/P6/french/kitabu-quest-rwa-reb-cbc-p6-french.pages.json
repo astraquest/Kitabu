@@ -1,0 +1,2784 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-rwa-reb-cbc-p6-french",
+  "title": "KITABU QUEST P6 French",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "P6",
+  "subject": "French",
+  "subjectSlug": "french",
+  "subjectColor": "#4338CA",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v17",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T06:40:57Z",
+  "sourceSnapshotHash": "4f988fef364dab12a6248499cb707fc0801542a082928436b265a211659858fa",
+  "bookPlanHash": "bfb569190284117dc522689f85b9e900b7cc728e79dc6dbfa3b8736ba1ffb20b",
+  "pageCount": 111,
+  "wordCount": 10711,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 9,
+    "outcomeCount": 9,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "RWA",
+    "subject": "French",
+    "species": "hare",
+    "role": "language practice guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners practising French dialogue with a friendly hare mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Rwanda REB-CBC P6 French. Scene: learners practising French dialogue with a friendly hare mascot. Include a friendly hare mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 84948,
+    "sha256": "f261602f329e6d629dfc75aa8e559e9531826d69e3d4cedf76fb48162d029d98"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 84948,
+      "sha256": "f261602f329e6d629dfc75aa8e559e9531826d69e3d4cedf76fb48162d029d98",
+      "kind": "cover",
+      "altText": "KITABU QUEST P6 French cover with hare",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-rwa-reb-cbc-p6-french.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-rwa-reb-cbc-p6-french.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "536eac92-4c19-4125-8196-5812333fe38f",
+      "subject": "French",
+      "officialTitle": "Rwanda Competence Based Curriculum P6 French",
+      "countryCode": "RWA",
+      "curriculumCode": "REB-CBC",
+      "gradeCode": "P6",
+      "gradeLocalLevel": "P6",
+      "localLevel": "P6",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://elearning.reb.rw/pluginfile.php/177314/mod_folder/content/0/Upper-French-Syllabus.pdf?forcedownload=1",
+      "objectKey": "data/curriculum/source-files/RWA/ed00de252655b9b61feca3f73297aee43161f92ab616c24d81d626b1caf5f601.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "P6",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://elearning.reb.rw/pluginfile.php/177314/mod_folder/content/0/Upper-French-Syllabus.pdf?forcedownload=1",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/P6/french/536eac92-4c19-4125-8196-5812333fe38f.md",
+        "sourcePageUrl": "https://elearning.reb.rw/mod/folder/view.php?id=14427",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "reb.gov.rw",
+          "reb.rw",
+          "elearning.reb.rw"
+        ],
+        "markdownChecksum": "44febc08723ec8f6b836a402da2703072896095bef4a401aa133b0e1d0067faa",
+        "markdownPageCount": 117,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/RWA/REB-CBC/P6/french/536eac92-4c19-4125-8196-5812333fe38f.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "44febc08723ec8f6b836a402da2703072896095bef4a401aa133b0e1d0067faa",
+          "pageCount": 117,
+          "generatedAt": "2026-07-01T01:14:29.218Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/P6/french/536eac92-4c19-4125-8196-5812333fe38f.json",
+          "sourceChecksum": "86729c56c77c2905bc2f79bcf9c776e126088fbab519a067cbede4675712ccdd"
+        },
+        "markdownGeneratedAt": "2026-07-01T01:14:29.218Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p001",
+      "title": "Page de titre",
+      "content": "KITABU QUEST P6 French\n\nLivre de l'apprenant Rwanda REB-CBC\n\nMascotte: hare\n\nCe livre KITABU QUEST transforme le programme en leçons courtes, modèles, activités guidées, entraînements, révisions et liens avec la maison.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 3,
+      "wordCount": 31,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p002",
+      "title": "Comment utiliser ce livre",
+      "content": "Ce livre aide les apprenants de P6 à étudier French thème par thème.\n\n1. Commence par la question du thème.\n2. Lis la leçon lentement et marque les mots nouveaux.\n3. Essaie le modèle avant de regarder l'aide.\n4. Fais l'activité et l'entraînement.\n5. Corrige ta réponse avec les critères de réussite.\n6. Demande de l'aide si le sens reste flou.\n\nMéthode: Listen, speak, read, write, and revise short French responses with a clear purpose and audience.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 77,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p003",
+      "title": "Compétences dans ce livre",
+      "content": "Chaque thème développe la compréhension, l'expression orale, l'écoute, la lecture, l'écriture, la collaboration et la confiance.\n\nÉtudie activement: lis à haute voix, utilise les mots nouveaux, parle avec un partenaire, écris des phrases complètes et corrige après feedback.\n\nUne bonne réponse est claire. Elle reste sur le thème, utilise le vocabulaire juste et montre une correction.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 56,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p004",
+      "title": "Table des matières",
+      "content": "Utilise cette table pour avancer thème par thème. Chaque thème propose une ouverture, une leçon, un modèle, une activité guidée, un entraînement et une vérification.\n\n1. Révision de ce qu'on a appris en 5ème année\n2. Les droits de l'enfant\n3. Pays et nationalités\n4. Les traditions nationales\n5. Fêtes et anniversaires\n6. Les loisirs et les sports\n7. Les réseaux sociaux\n8. La nature et les animaux\n9. Mes projets futurs\n\nAprès chaque thème, reviens aux critères de réussite et corrige une réponse.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 84,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p005",
+      "title": "Révision de ce qu'on a appris en 5ème année: Ouverture",
+      "content": "Point d'apprentissage: Révision de ce qu'on a appris en 5ème année\n\nLien avec le pays: une activité de lecture, d'écoute, de parole ou d'écriture en Rwanda pour Révision de ce qu'on a appris en 5ème année.\n\nÀ la fin de ce thème, tu devrais pouvoir:\n- lire, comprendre, parler et écrire sur révision de ce qu'on a appris en 5ème année\n\nQuestions de recherche:\n- Comment utiliser révision de ce qu'on a appris en 5ème année dans une situation reelle au Rwanda?\n\nCritères de réussite:\n- le sens est clair\n- les mots du thème sont bien utilisés\n- l’orthographe, les accents, la grammaire et la ponctuation sont vérifiés",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "RWA-P6-french-topic-001:opener:visual-1:planned",
+        "RWA-P6-french-topic-001:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p006",
+      "title": "Révision de ce qu'on a appris en 5ème année: Leçon",
+      "content": "Révision de ce qu'on a appris en 5ème année aide l'apprenant à utiliser un français simple dans une situation réelle.\n\nMini-texte: Pour travailler le thème Révision de ce qu'on a appris en 5ème année, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nÀ retenir:\n- Écoute ou lis l'idée principale avant d'écrire.\n- Utilise des phrases courtes, puis ajoute un détail utile.\n- Vérifie les accents, l'orthographe, la ponctuation et le sens.\n\nMots clés:\n- Révision de ce qu'on a appris en 5ème année\n- Révision\n- qu'on\n- appris\n- 5ème\n- année\n- lire\n- écouter",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 132,
+      "imageRefs": [
+        "RWA-P6-french-topic-001:learn:visual-1:planned",
+        "RWA-P6-french-topic-001:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p007",
+      "title": "Révision de ce qu'on a appris en 5ème année: Modèle",
+      "content": "Modèle pour Révision de ce qu'on a appris en 5ème année: Lis le mini-texte, trouve l'idée principale et réponds clairement.\n\nRéponse modèle:\nLe texte parle de révision de ce qu'on a appris en 5ème année. Un détail important est _____. Ce détail aide le lecteur à comprendre le thème parce qu'il donne un exemple précis. Je peux utiliser cette idée quand je parle avec un partenaire, quand j'écris un court paragraphe ou quand je prépare une présentation.\n\nPourquoi c'est correct:\n- La réponse reste sur le thème.\n- Elle utilise un détail du texte.\n- Elle explique comment utiliser l'idée.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 100,
+      "imageRefs": [
+        "RWA-P6-french-topic-001:example:visual-1:planned",
+        "RWA-P6-french-topic-001:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p008",
+      "title": "Révision de ce qu'on a appris en 5ème année: Vocabulaire et méthode",
+      "content": "Utilise ces mots avant de t'entraîner sur Révision de ce qu'on a appris en 5ème année.\n\nMots clés:\n- Révision de ce qu'on a appris en 5ème année\n- Révision\n- qu'on\n- appris\n- 5ème\n- année\n- lire\n- écouter\n\nMéthode d'étude:\n1. Choisis trois mots.\n2. Explique chaque mot avec tes propres mots.\n3. Donne un exemple simple du Rwanda ou de ton école.\n4. Utilise chaque mot dans une phrase correcte.\n5. Demande à un partenaire de vérifier le sens.\n\nErreur à éviter: répondre sans utiliser le vocabulaire du thème.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "RWA-P6-french-topic-001:vocabulary:visual-1:planned",
+        "RWA-P6-french-topic-001:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p009",
+      "title": "Révision de ce qu'on a appris en 5ème année: Activité guidée",
+      "content": "Activité guidée pour Révision de ce qu'on a appris en 5ème année:\n\n1. Lis le mini-texte ou le dialogue à haute voix.\n2. Souligne trois mots ou expressions utiles.\n3. Réponds oralement à une question sur le texte.\n4. Écris trois à cinq phrases liées à Révision de ce qu'on a appris en 5ème année.\n5. Lis ta réponse à un partenaire et améliore une phrase.\n\nVérification: la réponse doit utiliser le vocabulaire du thème et des phrases complètes.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 79,
+      "imageRefs": [
+        "RWA-P6-french-topic-001:activity:visual-1:planned",
+        "RWA-P6-french-topic-001:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p010",
+      "title": "Révision de ce qu'on a appris en 5ème année: Entraînement et correction",
+      "content": "Entraînement pour Révision de ce qu'on a appris en 5ème année:\n\nObjectif principal: lire, comprendre, parler et écrire sur révision de ce qu'on a appris en 5ème année.\n\n1. Lis le mini-texte à haute voix.\n2. Choisis quatre mots importants et explique leur sens simplement.\n3. Écris trois phrases complètes sur révision de ce qu'on a appris en 5ème année.\n4. Pose une question à un partenaire et réponds à sa question.\n5. Corrige les accents, la ponctuation et le sens.\n\nVérification:\n- Les phrases sont-elles complètes?\n- Les mots du thème sont-ils utilisés correctement?\n- La réponse correspond-elle au sujet?\n\nLien maison: demande à quelqu'un un exemple lié à révision de ce qu'on a appris en 5ème année et écris deux phrases en français.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 125,
+      "imageRefs": [
+        "RWA-P6-french-topic-001:practice:visual-1:planned",
+        "RWA-P6-french-topic-001:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p011",
+      "title": "Révision de ce qu'on a appris en 5ème année: Aide et défi",
+      "content": "Utilise cette page après l'entraînement.\n\nSi tu as besoin d'aide:\n1. Relis les critères de réussite.\n2. Reprends le modèle étape par étape.\n3. Remplace les détails par des idées liées à Révision de ce qu'on a appris en 5ème année.\n4. Pose une question claire sur ce qui reste difficile.\n\nSi tu es prêt pour un défi:\n1. Crée une nouvelle petite tâche de lecture, d'écoute, de parole ou d'écriture.\n2. Utilise le vocabulaire correct.\n3. Explique pourquoi ta réponse est claire.\n4. Écris une question pour un camarade.\n\nVérifie:\n- le sens est clair\n- les mots du thème sont bien utilisés\n- l’orthographe, les accents, la grammaire et la ponctuation sont vérifiés",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "RWA-P6-french-topic-001:remediation:visual-1:planned",
+        "RWA-P6-french-topic-001:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p012",
+      "title": "Révision de ce qu'on a appris en 5ème année: Vérification de l'objectif",
+      "content": "Vérification de l’objectif pour Révision de ce qu'on a appris en 5ème année: Lire, comprendre, parler et écrire sur révision de ce qu'on a appris en 5ème année.\n\n1. Lis, écoute, parle ou écris une réponse courte liée au thème.\n2. Utilise au moins trois mots du thème correctement.\n3. Écris des phrases complètes.\n4. Vérifie les accents, l’orthographe, la ponctuation et le sens.\n5. Améliore une phrase après le feedback.\n\nCritères de réussite:\n- le sens est clair\n- les mots du thème sont bien utilisés\n- l’orthographe, les accents, la grammaire et la ponctuation sont vérifiés",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "RWA-P6-french-topic-001:assessment:visual-1:planned",
+        "RWA-P6-french-topic-001:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p013",
+      "title": "Les droits de l'enfant: Ouverture",
+      "content": "Point d'apprentissage: Les droits de l'enfant\n\nLien avec le pays: une activité de lecture, d'écoute, de parole ou d'écriture en Rwanda pour Les droits de l'enfant.\n\nÀ la fin de ce thème, tu devrais pouvoir:\n- lire, comprendre, parler et écrire sur les droits de l'enfant\n\nQuestions de recherche:\n- Comment utiliser les droits de l'enfant dans une situation reelle au Rwanda?\n\nCritères de réussite:\n- le sens est clair\n- les mots du thème sont bien utilisés\n- l’orthographe, les accents, la grammaire et la ponctuation sont vérifiés",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 89,
+      "imageRefs": [
+        "RWA-P6-french-topic-002:opener:visual-1:planned",
+        "RWA-P6-french-topic-002:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p014",
+      "title": "Les droits de l'enfant: Leçon",
+      "content": "Les droits de l'enfant aide l'apprenant à utiliser un français simple dans une situation réelle.\n\nMini-texte: Pour travailler le thème Les droits de l'enfant, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nÀ retenir:\n- Écoute ou lis l'idée principale avant d'écrire.\n- Utilise des phrases courtes, puis ajoute un détail utile.\n- Vérifie les accents, l'orthographe, la ponctuation et le sens.\n\nMots clés:\n- Les droits de l'enfant\n- droits\n- l'enfant\n- lire\n- écouter\n- parler\n- écrire\n- phrase",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 117,
+      "imageRefs": [
+        "RWA-P6-french-topic-002:learn:visual-1:planned",
+        "RWA-P6-french-topic-002:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p015",
+      "title": "Les droits de l'enfant: Modèle",
+      "content": "Modèle pour Les droits de l'enfant: Lis le mini-texte, trouve l'idée principale et réponds clairement.\n\nRéponse modèle:\nLe texte parle de les droits de l'enfant. Un détail important est _____. Ce détail aide le lecteur à comprendre le thème parce qu'il donne un exemple précis. Je peux utiliser cette idée quand je parle avec un partenaire, quand j'écris un court paragraphe ou quand je prépare une présentation.\n\nPourquoi c'est correct:\n- La réponse reste sur le thème.\n- Elle utilise un détail du texte.\n- Elle explique comment utiliser l'idée.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "RWA-P6-french-topic-002:example:visual-1:planned",
+        "RWA-P6-french-topic-002:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p016",
+      "title": "Les droits de l'enfant: Vocabulaire et méthode",
+      "content": "Utilise ces mots avant de t'entraîner sur Les droits de l'enfant.\n\nMots clés:\n- Les droits de l'enfant\n- droits\n- l'enfant\n- lire\n- écouter\n- parler\n- écrire\n- phrase\n\nMéthode d'étude:\n1. Choisis trois mots.\n2. Explique chaque mot avec tes propres mots.\n3. Donne un exemple simple du Rwanda ou de ton école.\n4. Utilise chaque mot dans une phrase correcte.\n5. Demande à un partenaire de vérifier le sens.\n\nErreur à éviter: répondre sans utiliser le vocabulaire du thème.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 84,
+      "imageRefs": [
+        "RWA-P6-french-topic-002:vocabulary:visual-1:planned",
+        "RWA-P6-french-topic-002:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p017",
+      "title": "Les droits de l'enfant: Activité guidée",
+      "content": "Activité guidée pour Les droits de l'enfant:\n\n1. Lis le mini-texte ou le dialogue à haute voix.\n2. Souligne trois mots ou expressions utiles.\n3. Réponds oralement à une question sur le texte.\n4. Écris trois à cinq phrases liées à Les droits de l'enfant.\n5. Lis ta réponse à un partenaire et améliore une phrase.\n\nVérification: la réponse doit utiliser le vocabulaire du thème et des phrases complètes.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 69,
+      "imageRefs": [
+        "RWA-P6-french-topic-002:activity:visual-1:planned",
+        "RWA-P6-french-topic-002:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p018",
+      "title": "Les droits de l'enfant: Entraînement et correction",
+      "content": "Entraînement pour Les droits de l'enfant:\n\nObjectif principal: lire, comprendre, parler et écrire sur les droits de l'enfant.\n\n1. Lis le mini-texte à haute voix.\n2. Choisis quatre mots importants et explique leur sens simplement.\n3. Écris trois phrases complètes sur les droits de l'enfant.\n4. Pose une question à un partenaire et réponds à sa question.\n5. Corrige les accents, la ponctuation et le sens.\n\nVérification:\n- Les phrases sont-elles complètes?\n- Les mots du thème sont-ils utilisés correctement?\n- La réponse correspond-elle au sujet?\n\nLien maison: demande à quelqu'un un exemple lié à les droits de l'enfant et écris deux phrases en français.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "RWA-P6-french-topic-002:practice:visual-1:planned",
+        "RWA-P6-french-topic-002:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p019",
+      "title": "Les droits de l'enfant: Aide et défi",
+      "content": "Utilise cette page après l'entraînement.\n\nSi tu as besoin d'aide:\n1. Relis les critères de réussite.\n2. Reprends le modèle étape par étape.\n3. Remplace les détails par des idées liées à Les droits de l'enfant.\n4. Pose une question claire sur ce qui reste difficile.\n\nSi tu es prêt pour un défi:\n1. Crée une nouvelle petite tâche de lecture, d'écoute, de parole ou d'écriture.\n2. Utilise le vocabulaire correct.\n3. Explique pourquoi ta réponse est claire.\n4. Écris une question pour un camarade.\n\nVérifie:\n- le sens est clair\n- les mots du thème sont bien utilisés\n- l’orthographe, les accents, la grammaire et la ponctuation sont vérifiés",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 110,
+      "imageRefs": [
+        "RWA-P6-french-topic-002:remediation:visual-1:planned",
+        "RWA-P6-french-topic-002:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p020",
+      "title": "Les droits de l'enfant: Vérification de l'objectif",
+      "content": "Vérification de l’objectif pour Les droits de l'enfant: Lire, comprendre, parler et écrire sur les droits de l'enfant.\n\n1. Lis, écoute, parle ou écris une réponse courte liée au thème.\n2. Utilise au moins trois mots du thème correctement.\n3. Écris des phrases complètes.\n4. Vérifie les accents, l’orthographe, la ponctuation et le sens.\n5. Améliore une phrase après le feedback.\n\nCritères de réussite:\n- le sens est clair\n- les mots du thème sont bien utilisés\n- l’orthographe, les accents, la grammaire et la ponctuation sont vérifiés",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 88,
+      "imageRefs": [
+        "RWA-P6-french-topic-002:assessment:visual-1:planned",
+        "RWA-P6-french-topic-002:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p021",
+      "title": "Pays et nationalités: Ouverture",
+      "content": "Point d'apprentissage: Pays et nationalités\n\nLien avec le pays: une activité de lecture, d'écoute, de parole ou d'écriture en Rwanda pour Pays et nationalités.\n\nÀ la fin de ce thème, tu devrais pouvoir:\n- lire, comprendre, parler et écrire sur pays et nationalités\n\nQuestions de recherche:\n- Comment utiliser pays et nationalités dans une situation reelle au Rwanda?\n\nCritères de réussite:\n- le sens est clair\n- les mots du thème sont bien utilisés\n- l’orthographe, les accents, la grammaire et la ponctuation sont vérifiés",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 85,
+      "imageRefs": [
+        "RWA-P6-french-topic-003:opener:visual-1:planned",
+        "RWA-P6-french-topic-003:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p022",
+      "title": "Pays et nationalités: Leçon",
+      "content": "Pays et nationalités aide l'apprenant à utiliser un français simple dans une situation réelle.\n\nMini-texte: Pour travailler le thème Pays et nationalités, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nÀ retenir:\n- Écoute ou lis l'idée principale avant d'écrire.\n- Utilise des phrases courtes, puis ajoute un détail utile.\n- Vérifie les accents, l'orthographe, la ponctuation et le sens.\n\nMots clés:\n- Pays et nationalités\n- Pays\n- nationalités\n- lire\n- écouter\n- parler\n- écrire\n- phrase",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 114,
+      "imageRefs": [
+        "RWA-P6-french-topic-003:learn:visual-1:planned",
+        "RWA-P6-french-topic-003:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p023",
+      "title": "Pays et nationalités: Modèle",
+      "content": "Modèle pour Pays et nationalités: Lis le mini-texte, trouve l'idée principale et réponds clairement.\n\nRéponse modèle:\nLe texte parle de pays et nationalités. Un détail important est _____. Ce détail aide le lecteur à comprendre le thème parce qu'il donne un exemple précis. Je peux utiliser cette idée quand je parle avec un partenaire, quand j'écris un court paragraphe ou quand je prépare une présentation.\n\nPourquoi c'est correct:\n- La réponse reste sur le thème.\n- Elle utilise un détail du texte.\n- Elle explique comment utiliser l'idée.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 88,
+      "imageRefs": [
+        "RWA-P6-french-topic-003:example:visual-1:planned",
+        "RWA-P6-french-topic-003:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p024",
+      "title": "Pays et nationalités: Vocabulaire et méthode",
+      "content": "Utilise ces mots avant de t'entraîner sur Pays et nationalités.\n\nMots clés:\n- Pays et nationalités\n- Pays\n- nationalités\n- lire\n- écouter\n- parler\n- écrire\n- phrase\n\nMéthode d'étude:\n1. Choisis trois mots.\n2. Explique chaque mot avec tes propres mots.\n3. Donne un exemple simple du Rwanda ou de ton école.\n4. Utilise chaque mot dans une phrase correcte.\n5. Demande à un partenaire de vérifier le sens.\n\nErreur à éviter: répondre sans utiliser le vocabulaire du thème.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 82,
+      "imageRefs": [
+        "RWA-P6-french-topic-003:vocabulary:visual-1:planned",
+        "RWA-P6-french-topic-003:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p025",
+      "title": "Pays et nationalités: Activité guidée",
+      "content": "Activité guidée pour Pays et nationalités:\n\n1. Lis le mini-texte ou le dialogue à haute voix.\n2. Souligne trois mots ou expressions utiles.\n3. Réponds oralement à une question sur le texte.\n4. Écris trois à cinq phrases liées à Pays et nationalités.\n5. Lis ta réponse à un partenaire et améliore une phrase.\n\nVérification: la réponse doit utiliser le vocabulaire du thème et des phrases complètes.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 67,
+      "imageRefs": [
+        "RWA-P6-french-topic-003:activity:visual-1:planned",
+        "RWA-P6-french-topic-003:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p026",
+      "title": "Pays et nationalités: Entraînement et correction",
+      "content": "Entraînement pour Pays et nationalités:\n\nObjectif principal: lire, comprendre, parler et écrire sur pays et nationalités.\n\n1. Lis le mini-texte à haute voix.\n2. Choisis quatre mots importants et explique leur sens simplement.\n3. Écris trois phrases complètes sur pays et nationalités.\n4. Pose une question à un partenaire et réponds à sa question.\n5. Corrige les accents, la ponctuation et le sens.\n\nVérification:\n- Les phrases sont-elles complètes?\n- Les mots du thème sont-ils utilisés correctement?\n- La réponse correspond-elle au sujet?\n\nLien maison: demande à quelqu'un un exemple lié à pays et nationalités et écris deux phrases en français.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "RWA-P6-french-topic-003:practice:visual-1:planned",
+        "RWA-P6-french-topic-003:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p027",
+      "title": "Pays et nationalités: Aide et défi",
+      "content": "Utilise cette page après l'entraînement.\n\nSi tu as besoin d'aide:\n1. Relis les critères de réussite.\n2. Reprends le modèle étape par étape.\n3. Remplace les détails par des idées liées à Pays et nationalités.\n4. Pose une question claire sur ce qui reste difficile.\n\nSi tu es prêt pour un défi:\n1. Crée une nouvelle petite tâche de lecture, d'écoute, de parole ou d'écriture.\n2. Utilise le vocabulaire correct.\n3. Explique pourquoi ta réponse est claire.\n4. Écris une question pour un camarade.\n\nVérifie:\n- le sens est clair\n- les mots du thème sont bien utilisés\n- l’orthographe, les accents, la grammaire et la ponctuation sont vérifiés",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "RWA-P6-french-topic-003:remediation:visual-1:planned",
+        "RWA-P6-french-topic-003:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p028",
+      "title": "Pays et nationalités: Vérification de l'objectif",
+      "content": "Vérification de l’objectif pour Pays et nationalités: Lire, comprendre, parler et écrire sur pays et nationalités.\n\n1. Lis, écoute, parle ou écris une réponse courte liée au thème.\n2. Utilise au moins trois mots du thème correctement.\n3. Écris des phrases complètes.\n4. Vérifie les accents, l’orthographe, la ponctuation et le sens.\n5. Améliore une phrase après le feedback.\n\nCritères de réussite:\n- le sens est clair\n- les mots du thème sont bien utilisés\n- l’orthographe, les accents, la grammaire et la ponctuation sont vérifiés",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 86,
+      "imageRefs": [
+        "RWA-P6-french-topic-003:assessment:visual-1:planned",
+        "RWA-P6-french-topic-003:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p029",
+      "title": "Les traditions nationales: Ouverture",
+      "content": "Point d'apprentissage: Les traditions nationales\n\nLien avec le pays: une activité de lecture, d'écoute, de parole ou d'écriture en Rwanda pour Les traditions nationales.\n\nÀ la fin de ce thème, tu devrais pouvoir:\n- lire, comprendre, parler et écrire sur les traditions nationales\n\nQuestions de recherche:\n- Comment utiliser les traditions nationales dans une situation reelle au Rwanda?\n\nCritères de réussite:\n- le sens est clair\n- les mots du thème sont bien utilisés\n- l’orthographe, les accents, la grammaire et la ponctuation sont vérifiés",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 85,
+      "imageRefs": [
+        "RWA-P6-french-topic-004:opener:visual-1:planned",
+        "RWA-P6-french-topic-004:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p030",
+      "title": "Les traditions nationales: Leçon",
+      "content": "Les traditions nationales aide l'apprenant à utiliser un français simple dans une situation réelle.\n\nMini-texte: Pour travailler le thème Les traditions nationales, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nÀ retenir:\n- Écoute ou lis l'idée principale avant d'écrire.\n- Utilise des phrases courtes, puis ajoute un détail utile.\n- Vérifie les accents, l'orthographe, la ponctuation et le sens.\n\nMots clés:\n- Les traditions nationales\n- traditions\n- nationales\n- lire\n- écouter\n- parler\n- écrire\n- phrase",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 114,
+      "imageRefs": [
+        "RWA-P6-french-topic-004:learn:visual-1:planned",
+        "RWA-P6-french-topic-004:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p031",
+      "title": "Les traditions nationales: Modèle",
+      "content": "Modèle pour Les traditions nationales: Lis le mini-texte, trouve l'idée principale et réponds clairement.\n\nRéponse modèle:\nLe texte parle de les traditions nationales. Un détail important est _____. Ce détail aide le lecteur à comprendre le thème parce qu'il donne un exemple précis. Je peux utiliser cette idée quand je parle avec un partenaire, quand j'écris un court paragraphe ou quand je prépare une présentation.\n\nPourquoi c'est correct:\n- La réponse reste sur le thème.\n- Elle utilise un détail du texte.\n- Elle explique comment utiliser l'idée.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 88,
+      "imageRefs": [
+        "RWA-P6-french-topic-004:example:visual-1:planned",
+        "RWA-P6-french-topic-004:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p032",
+      "title": "Les traditions nationales: Vocabulaire et méthode",
+      "content": "Utilise ces mots avant de t'entraîner sur Les traditions nationales.\n\nMots clés:\n- Les traditions nationales\n- traditions\n- nationales\n- lire\n- écouter\n- parler\n- écrire\n- phrase\n\nMéthode d'étude:\n1. Choisis trois mots.\n2. Explique chaque mot avec tes propres mots.\n3. Donne un exemple simple du Rwanda ou de ton école.\n4. Utilise chaque mot dans une phrase correcte.\n5. Demande à un partenaire de vérifier le sens.\n\nErreur à éviter: répondre sans utiliser le vocabulaire du thème.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 82,
+      "imageRefs": [
+        "RWA-P6-french-topic-004:vocabulary:visual-1:planned",
+        "RWA-P6-french-topic-004:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p033",
+      "title": "Les traditions nationales: Activité guidée",
+      "content": "Activité guidée pour Les traditions nationales:\n\n1. Lis le mini-texte ou le dialogue à haute voix.\n2. Souligne trois mots ou expressions utiles.\n3. Réponds oralement à une question sur le texte.\n4. Écris trois à cinq phrases liées à Les traditions nationales.\n5. Lis ta réponse à un partenaire et améliore une phrase.\n\nVérification: la réponse doit utiliser le vocabulaire du thème et des phrases complètes.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 67,
+      "imageRefs": [
+        "RWA-P6-french-topic-004:activity:visual-1:planned",
+        "RWA-P6-french-topic-004:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p034",
+      "title": "Les traditions nationales: Entraînement et correction",
+      "content": "Entraînement pour Les traditions nationales:\n\nObjectif principal: lire, comprendre, parler et écrire sur les traditions nationales.\n\n1. Lis le mini-texte à haute voix.\n2. Choisis quatre mots importants et explique leur sens simplement.\n3. Écris trois phrases complètes sur les traditions nationales.\n4. Pose une question à un partenaire et réponds à sa question.\n5. Corrige les accents, la ponctuation et le sens.\n\nVérification:\n- Les phrases sont-elles complètes?\n- Les mots du thème sont-ils utilisés correctement?\n- La réponse correspond-elle au sujet?\n\nLien maison: demande à quelqu'un un exemple lié à les traditions nationales et écris deux phrases en français.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "RWA-P6-french-topic-004:practice:visual-1:planned",
+        "RWA-P6-french-topic-004:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p035",
+      "title": "Les traditions nationales: Aide et défi",
+      "content": "Utilise cette page après l'entraînement.\n\nSi tu as besoin d'aide:\n1. Relis les critères de réussite.\n2. Reprends le modèle étape par étape.\n3. Remplace les détails par des idées liées à Les traditions nationales.\n4. Pose une question claire sur ce qui reste difficile.\n\nSi tu es prêt pour un défi:\n1. Crée une nouvelle petite tâche de lecture, d'écoute, de parole ou d'écriture.\n2. Utilise le vocabulaire correct.\n3. Explique pourquoi ta réponse est claire.\n4. Écris une question pour un camarade.\n\nVérifie:\n- le sens est clair\n- les mots du thème sont bien utilisés\n- l’orthographe, les accents, la grammaire et la ponctuation sont vérifiés",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "RWA-P6-french-topic-004:remediation:visual-1:planned",
+        "RWA-P6-french-topic-004:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p036",
+      "title": "Les traditions nationales: Vérification de l'objectif",
+      "content": "Vérification de l’objectif pour Les traditions nationales: Lire, comprendre, parler et écrire sur les traditions nationales.\n\n1. Lis, écoute, parle ou écris une réponse courte liée au thème.\n2. Utilise au moins trois mots du thème correctement.\n3. Écris des phrases complètes.\n4. Vérifie les accents, l’orthographe, la ponctuation et le sens.\n5. Améliore une phrase après le feedback.\n\nCritères de réussite:\n- le sens est clair\n- les mots du thème sont bien utilisés\n- l’orthographe, les accents, la grammaire et la ponctuation sont vérifiés",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 86,
+      "imageRefs": [
+        "RWA-P6-french-topic-004:assessment:visual-1:planned",
+        "RWA-P6-french-topic-004:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p037",
+      "title": "Fêtes et anniversaires: Ouverture",
+      "content": "Point d'apprentissage: Fêtes et anniversaires\n\nLien avec le pays: une activité de lecture, d'écoute, de parole ou d'écriture en Rwanda pour Fêtes et anniversaires.\n\nÀ la fin de ce thème, tu devrais pouvoir:\n- lire, comprendre, parler et écrire sur fêtes et anniversaires\n\nQuestions de recherche:\n- Comment utiliser fêtes et anniversaires dans une situation reelle au Rwanda?\n\nCritères de réussite:\n- le sens est clair\n- les mots du thème sont bien utilisés\n- l’orthographe, les accents, la grammaire et la ponctuation sont vérifiés",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 85,
+      "imageRefs": [
+        "RWA-P6-french-topic-005:opener:visual-1:planned",
+        "RWA-P6-french-topic-005:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p038",
+      "title": "Fêtes et anniversaires: Leçon",
+      "content": "Fêtes et anniversaires aide l'apprenant à utiliser un français simple dans une situation réelle.\n\nMini-texte: Pour travailler le thème Fêtes et anniversaires, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nÀ retenir:\n- Écoute ou lis l'idée principale avant d'écrire.\n- Utilise des phrases courtes, puis ajoute un détail utile.\n- Vérifie les accents, l'orthographe, la ponctuation et le sens.\n\nMots clés:\n- Fêtes et anniversaires\n- Fêtes\n- anniversaires\n- lire\n- écouter\n- parler\n- écrire\n- phrase",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 114,
+      "imageRefs": [
+        "RWA-P6-french-topic-005:learn:visual-1:planned",
+        "RWA-P6-french-topic-005:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p039",
+      "title": "Fêtes et anniversaires: Modèle",
+      "content": "Modèle pour Fêtes et anniversaires: Lis le mini-texte, trouve l'idée principale et réponds clairement.\n\nRéponse modèle:\nLe texte parle de fêtes et anniversaires. Un détail important est _____. Ce détail aide le lecteur à comprendre le thème parce qu'il donne un exemple précis. Je peux utiliser cette idée quand je parle avec un partenaire, quand j'écris un court paragraphe ou quand je prépare une présentation.\n\nPourquoi c'est correct:\n- La réponse reste sur le thème.\n- Elle utilise un détail du texte.\n- Elle explique comment utiliser l'idée.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 88,
+      "imageRefs": [
+        "RWA-P6-french-topic-005:example:visual-1:planned",
+        "RWA-P6-french-topic-005:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p040",
+      "title": "Fêtes et anniversaires: Vocabulaire et méthode",
+      "content": "Utilise ces mots avant de t'entraîner sur Fêtes et anniversaires.\n\nMots clés:\n- Fêtes et anniversaires\n- Fêtes\n- anniversaires\n- lire\n- écouter\n- parler\n- écrire\n- phrase\n\nMéthode d'étude:\n1. Choisis trois mots.\n2. Explique chaque mot avec tes propres mots.\n3. Donne un exemple simple du Rwanda ou de ton école.\n4. Utilise chaque mot dans une phrase correcte.\n5. Demande à un partenaire de vérifier le sens.\n\nErreur à éviter: répondre sans utiliser le vocabulaire du thème.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 82,
+      "imageRefs": [
+        "RWA-P6-french-topic-005:vocabulary:visual-1:planned",
+        "RWA-P6-french-topic-005:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p041",
+      "title": "Fêtes et anniversaires: Activité guidée",
+      "content": "Activité guidée pour Fêtes et anniversaires:\n\n1. Lis le mini-texte ou le dialogue à haute voix.\n2. Souligne trois mots ou expressions utiles.\n3. Réponds oralement à une question sur le texte.\n4. Écris trois à cinq phrases liées à Fêtes et anniversaires.\n5. Lis ta réponse à un partenaire et améliore une phrase.\n\nVérification: la réponse doit utiliser le vocabulaire du thème et des phrases complètes.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 67,
+      "imageRefs": [
+        "RWA-P6-french-topic-005:activity:visual-1:planned",
+        "RWA-P6-french-topic-005:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p042",
+      "title": "Fêtes et anniversaires: Entraînement et correction",
+      "content": "Entraînement pour Fêtes et anniversaires:\n\nObjectif principal: lire, comprendre, parler et écrire sur fêtes et anniversaires.\n\n1. Lis le mini-texte à haute voix.\n2. Choisis quatre mots importants et explique leur sens simplement.\n3. Écris trois phrases complètes sur fêtes et anniversaires.\n4. Pose une question à un partenaire et réponds à sa question.\n5. Corrige les accents, la ponctuation et le sens.\n\nVérification:\n- Les phrases sont-elles complètes?\n- Les mots du thème sont-ils utilisés correctement?\n- La réponse correspond-elle au sujet?\n\nLien maison: demande à quelqu'un un exemple lié à fêtes et anniversaires et écris deux phrases en français.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "RWA-P6-french-topic-005:practice:visual-1:planned",
+        "RWA-P6-french-topic-005:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p043",
+      "title": "Fêtes et anniversaires: Aide et défi",
+      "content": "Utilise cette page après l'entraînement.\n\nSi tu as besoin d'aide:\n1. Relis les critères de réussite.\n2. Reprends le modèle étape par étape.\n3. Remplace les détails par des idées liées à Fêtes et anniversaires.\n4. Pose une question claire sur ce qui reste difficile.\n\nSi tu es prêt pour un défi:\n1. Crée une nouvelle petite tâche de lecture, d'écoute, de parole ou d'écriture.\n2. Utilise le vocabulaire correct.\n3. Explique pourquoi ta réponse est claire.\n4. Écris une question pour un camarade.\n\nVérifie:\n- le sens est clair\n- les mots du thème sont bien utilisés\n- l’orthographe, les accents, la grammaire et la ponctuation sont vérifiés",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "RWA-P6-french-topic-005:remediation:visual-1:planned",
+        "RWA-P6-french-topic-005:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p044",
+      "title": "Fêtes et anniversaires: Vérification de l'objectif",
+      "content": "Vérification de l’objectif pour Fêtes et anniversaires: Lire, comprendre, parler et écrire sur fêtes et anniversaires.\n\n1. Lis, écoute, parle ou écris une réponse courte liée au thème.\n2. Utilise au moins trois mots du thème correctement.\n3. Écris des phrases complètes.\n4. Vérifie les accents, l’orthographe, la ponctuation et le sens.\n5. Améliore une phrase après le feedback.\n\nCritères de réussite:\n- le sens est clair\n- les mots du thème sont bien utilisés\n- l’orthographe, les accents, la grammaire et la ponctuation sont vérifiés",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 86,
+      "imageRefs": [
+        "RWA-P6-french-topic-005:assessment:visual-1:planned",
+        "RWA-P6-french-topic-005:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p045",
+      "title": "Les loisirs et les sports: Ouverture",
+      "content": "Point d'apprentissage: Les loisirs et les sports\n\nLien avec le pays: une activité de lecture, d'écoute, de parole ou d'écriture en Rwanda pour Les loisirs et les sports.\n\nÀ la fin de ce thème, tu devrais pouvoir:\n- lire, comprendre, parler et écrire sur les loisirs et les sports\n\nQuestions de recherche:\n- Comment utiliser les loisirs et les sports dans une situation reelle au Rwanda?\n\nCritères de réussite:\n- le sens est clair\n- les mots du thème sont bien utilisés\n- l’orthographe, les accents, la grammaire et la ponctuation sont vérifiés",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "RWA-P6-french-topic-006:opener:visual-1:planned",
+        "RWA-P6-french-topic-006:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p046",
+      "title": "Les loisirs et les sports: Leçon",
+      "content": "Les loisirs et les sports aide l'apprenant à utiliser un français simple dans une situation réelle.\n\nMini-texte: Pour travailler le thème Les loisirs et les sports, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nÀ retenir:\n- Écoute ou lis l'idée principale avant d'écrire.\n- Utilise des phrases courtes, puis ajoute un détail utile.\n- Vérifie les accents, l'orthographe, la ponctuation et le sens.\n\nMots clés:\n- Les loisirs et les sports\n- loisirs\n- sports\n- lire\n- écouter\n- parler\n- écrire\n- phrase",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 120,
+      "imageRefs": [
+        "RWA-P6-french-topic-006:learn:visual-1:planned",
+        "RWA-P6-french-topic-006:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p047",
+      "title": "Les loisirs et les sports: Modèle",
+      "content": "Modèle pour Les loisirs et les sports: Lis le mini-texte, trouve l'idée principale et réponds clairement.\n\nRéponse modèle:\nLe texte parle de les loisirs et les sports. Un détail important est _____. Ce détail aide le lecteur à comprendre le thème parce qu'il donne un exemple précis. Je peux utiliser cette idée quand je parle avec un partenaire, quand j'écris un court paragraphe ou quand je prépare une présentation.\n\nPourquoi c'est correct:\n- La réponse reste sur le thème.\n- Elle utilise un détail du texte.\n- Elle explique comment utiliser l'idée.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "RWA-P6-french-topic-006:example:visual-1:planned",
+        "RWA-P6-french-topic-006:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p048",
+      "title": "Les loisirs et les sports: Vocabulaire et méthode",
+      "content": "Utilise ces mots avant de t'entraîner sur Les loisirs et les sports.\n\nMots clés:\n- Les loisirs et les sports\n- loisirs\n- sports\n- lire\n- écouter\n- parler\n- écrire\n- phrase\n\nMéthode d'étude:\n1. Choisis trois mots.\n2. Explique chaque mot avec tes propres mots.\n3. Donne un exemple simple du Rwanda ou de ton école.\n4. Utilise chaque mot dans une phrase correcte.\n5. Demande à un partenaire de vérifier le sens.\n\nErreur à éviter: répondre sans utiliser le vocabulaire du thème.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 86,
+      "imageRefs": [
+        "RWA-P6-french-topic-006:vocabulary:visual-1:planned",
+        "RWA-P6-french-topic-006:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p049",
+      "title": "Les loisirs et les sports: Activité guidée",
+      "content": "Activité guidée pour Les loisirs et les sports:\n\n1. Lis le mini-texte ou le dialogue à haute voix.\n2. Souligne trois mots ou expressions utiles.\n3. Réponds oralement à une question sur le texte.\n4. Écris trois à cinq phrases liées à Les loisirs et les sports.\n5. Lis ta réponse à un partenaire et améliore une phrase.\n\nVérification: la réponse doit utiliser le vocabulaire du thème et des phrases complètes.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 71,
+      "imageRefs": [
+        "RWA-P6-french-topic-006:activity:visual-1:planned",
+        "RWA-P6-french-topic-006:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p050",
+      "title": "Les loisirs et les sports: Entraînement et correction",
+      "content": "Entraînement pour Les loisirs et les sports:\n\nObjectif principal: lire, comprendre, parler et écrire sur les loisirs et les sports.\n\n1. Lis le mini-texte à haute voix.\n2. Choisis quatre mots importants et explique leur sens simplement.\n3. Écris trois phrases complètes sur les loisirs et les sports.\n4. Pose une question à un partenaire et réponds à sa question.\n5. Corrige les accents, la ponctuation et le sens.\n\nVérification:\n- Les phrases sont-elles complètes?\n- Les mots du thème sont-ils utilisés correctement?\n- La réponse correspond-elle au sujet?\n\nLien maison: demande à quelqu'un un exemple lié à les loisirs et les sports et écris deux phrases en français.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "RWA-P6-french-topic-006:practice:visual-1:planned",
+        "RWA-P6-french-topic-006:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p051",
+      "title": "Les loisirs et les sports: Aide et défi",
+      "content": "Utilise cette page après l'entraînement.\n\nSi tu as besoin d'aide:\n1. Relis les critères de réussite.\n2. Reprends le modèle étape par étape.\n3. Remplace les détails par des idées liées à Les loisirs et les sports.\n4. Pose une question claire sur ce qui reste difficile.\n\nSi tu es prêt pour un défi:\n1. Crée une nouvelle petite tâche de lecture, d'écoute, de parole ou d'écriture.\n2. Utilise le vocabulaire correct.\n3. Explique pourquoi ta réponse est claire.\n4. Écris une question pour un camarade.\n\nVérifie:\n- le sens est clair\n- les mots du thème sont bien utilisés\n- l’orthographe, les accents, la grammaire et la ponctuation sont vérifiés",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 111,
+      "imageRefs": [
+        "RWA-P6-french-topic-006:remediation:visual-1:planned",
+        "RWA-P6-french-topic-006:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p052",
+      "title": "Les loisirs et les sports: Vérification de l'objectif",
+      "content": "Vérification de l’objectif pour Les loisirs et les sports: Lire, comprendre, parler et écrire sur les loisirs et les sports.\n\n1. Lis, écoute, parle ou écris une réponse courte liée au thème.\n2. Utilise au moins trois mots du thème correctement.\n3. Écris des phrases complètes.\n4. Vérifie les accents, l’orthographe, la ponctuation et le sens.\n5. Améliore une phrase après le feedback.\n\nCritères de réussite:\n- le sens est clair\n- les mots du thème sont bien utilisés\n- l’orthographe, les accents, la grammaire et la ponctuation sont vérifiés",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "RWA-P6-french-topic-006:assessment:visual-1:planned",
+        "RWA-P6-french-topic-006:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p053",
+      "title": "Les réseaux sociaux: Ouverture",
+      "content": "Point d'apprentissage: Les réseaux sociaux\n\nLien avec le pays: une activité de lecture, d'écoute, de parole ou d'écriture en Rwanda pour Les réseaux sociaux.\n\nÀ la fin de ce thème, tu devrais pouvoir:\n- lire, comprendre, parler et écrire sur les réseaux sociaux\n\nQuestions de recherche:\n- Comment utiliser les réseaux sociaux dans une situation reelle au Rwanda?\n\nCritères de réussite:\n- le sens est clair\n- les mots du thème sont bien utilisés\n- l’orthographe, les accents, la grammaire et la ponctuation sont vérifiés",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 85,
+      "imageRefs": [
+        "RWA-P6-french-topic-007:opener:visual-1:planned",
+        "RWA-P6-french-topic-007:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p054",
+      "title": "Les réseaux sociaux: Leçon",
+      "content": "Les réseaux sociaux aide l'apprenant à utiliser un français simple dans une situation réelle.\n\nMini-texte: Pour travailler le thème Les réseaux sociaux, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nÀ retenir:\n- Écoute ou lis l'idée principale avant d'écrire.\n- Utilise des phrases courtes, puis ajoute un détail utile.\n- Vérifie les accents, l'orthographe, la ponctuation et le sens.\n\nMots clés:\n- Les réseaux sociaux\n- réseaux\n- sociaux\n- lire\n- écouter\n- parler\n- écrire\n- phrase",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 114,
+      "imageRefs": [
+        "RWA-P6-french-topic-007:learn:visual-1:planned",
+        "RWA-P6-french-topic-007:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p055",
+      "title": "Les réseaux sociaux: Modèle",
+      "content": "Modèle pour Les réseaux sociaux: Lis le mini-texte, trouve l'idée principale et réponds clairement.\n\nRéponse modèle:\nLe texte parle de les réseaux sociaux. Un détail important est _____. Ce détail aide le lecteur à comprendre le thème parce qu'il donne un exemple précis. Je peux utiliser cette idée quand je parle avec un partenaire, quand j'écris un court paragraphe ou quand je prépare une présentation.\n\nPourquoi c'est correct:\n- La réponse reste sur le thème.\n- Elle utilise un détail du texte.\n- Elle explique comment utiliser l'idée.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 88,
+      "imageRefs": [
+        "RWA-P6-french-topic-007:example:visual-1:planned",
+        "RWA-P6-french-topic-007:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p056",
+      "title": "Les réseaux sociaux: Vocabulaire et méthode",
+      "content": "Utilise ces mots avant de t'entraîner sur Les réseaux sociaux.\n\nMots clés:\n- Les réseaux sociaux\n- réseaux\n- sociaux\n- lire\n- écouter\n- parler\n- écrire\n- phrase\n\nMéthode d'étude:\n1. Choisis trois mots.\n2. Explique chaque mot avec tes propres mots.\n3. Donne un exemple simple du Rwanda ou de ton école.\n4. Utilise chaque mot dans une phrase correcte.\n5. Demande à un partenaire de vérifier le sens.\n\nErreur à éviter: répondre sans utiliser le vocabulaire du thème.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 82,
+      "imageRefs": [
+        "RWA-P6-french-topic-007:vocabulary:visual-1:planned",
+        "RWA-P6-french-topic-007:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p057",
+      "title": "Les réseaux sociaux: Activité guidée",
+      "content": "Activité guidée pour Les réseaux sociaux:\n\n1. Lis le mini-texte ou le dialogue à haute voix.\n2. Souligne trois mots ou expressions utiles.\n3. Réponds oralement à une question sur le texte.\n4. Écris trois à cinq phrases liées à Les réseaux sociaux.\n5. Lis ta réponse à un partenaire et améliore une phrase.\n\nVérification: la réponse doit utiliser le vocabulaire du thème et des phrases complètes.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 67,
+      "imageRefs": [
+        "RWA-P6-french-topic-007:activity:visual-1:planned",
+        "RWA-P6-french-topic-007:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p058",
+      "title": "Les réseaux sociaux: Entraînement et correction",
+      "content": "Entraînement pour Les réseaux sociaux:\n\nObjectif principal: lire, comprendre, parler et écrire sur les réseaux sociaux.\n\n1. Lis le mini-texte à haute voix.\n2. Choisis quatre mots importants et explique leur sens simplement.\n3. Écris trois phrases complètes sur les réseaux sociaux.\n4. Pose une question à un partenaire et réponds à sa question.\n5. Corrige les accents, la ponctuation et le sens.\n\nVérification:\n- Les phrases sont-elles complètes?\n- Les mots du thème sont-ils utilisés correctement?\n- La réponse correspond-elle au sujet?\n\nLien maison: demande à quelqu'un un exemple lié à les réseaux sociaux et écris deux phrases en français.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "RWA-P6-french-topic-007:practice:visual-1:planned",
+        "RWA-P6-french-topic-007:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p059",
+      "title": "Les réseaux sociaux: Aide et défi",
+      "content": "Utilise cette page après l'entraînement.\n\nSi tu as besoin d'aide:\n1. Relis les critères de réussite.\n2. Reprends le modèle étape par étape.\n3. Remplace les détails par des idées liées à Les réseaux sociaux.\n4. Pose une question claire sur ce qui reste difficile.\n\nSi tu es prêt pour un défi:\n1. Crée une nouvelle petite tâche de lecture, d'écoute, de parole ou d'écriture.\n2. Utilise le vocabulaire correct.\n3. Explique pourquoi ta réponse est claire.\n4. Écris une question pour un camarade.\n\nVérifie:\n- le sens est clair\n- les mots du thème sont bien utilisés\n- l’orthographe, les accents, la grammaire et la ponctuation sont vérifiés",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "RWA-P6-french-topic-007:remediation:visual-1:planned",
+        "RWA-P6-french-topic-007:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p060",
+      "title": "Les réseaux sociaux: Vérification de l'objectif",
+      "content": "Vérification de l’objectif pour Les réseaux sociaux: Lire, comprendre, parler et écrire sur les réseaux sociaux.\n\n1. Lis, écoute, parle ou écris une réponse courte liée au thème.\n2. Utilise au moins trois mots du thème correctement.\n3. Écris des phrases complètes.\n4. Vérifie les accents, l’orthographe, la ponctuation et le sens.\n5. Améliore une phrase après le feedback.\n\nCritères de réussite:\n- le sens est clair\n- les mots du thème sont bien utilisés\n- l’orthographe, les accents, la grammaire et la ponctuation sont vérifiés",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 86,
+      "imageRefs": [
+        "RWA-P6-french-topic-007:assessment:visual-1:planned",
+        "RWA-P6-french-topic-007:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p061",
+      "title": "La nature et les animaux: Ouverture",
+      "content": "Point d'apprentissage: La nature et les animaux\n\nLien avec le pays: une activité de lecture, d'écoute, de parole ou d'écriture en Rwanda pour La nature et les animaux.\n\nÀ la fin de ce thème, tu devrais pouvoir:\n- lire, comprendre, parler et écrire sur la nature et les animaux\n\nQuestions de recherche:\n- Comment utiliser la nature et les animaux dans une situation reelle au Rwanda?\n\nCritères de réussite:\n- le sens est clair\n- les mots du thème sont bien utilisés\n- l’orthographe, les accents, la grammaire et la ponctuation sont vérifiés",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "RWA-P6-french-topic-008:opener:visual-1:planned",
+        "RWA-P6-french-topic-008:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p062",
+      "title": "La nature et les animaux: Leçon",
+      "content": "La nature et les animaux aide l'apprenant à utiliser un français simple dans une situation réelle.\n\nMini-texte: Pour travailler le thème La nature et les animaux, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nÀ retenir:\n- Écoute ou lis l'idée principale avant d'écrire.\n- Utilise des phrases courtes, puis ajoute un détail utile.\n- Vérifie les accents, l'orthographe, la ponctuation et le sens.\n\nMots clés:\n- La nature et les animaux\n- nature\n- animaux\n- lire\n- écouter\n- parler\n- écrire\n- phrase",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 120,
+      "imageRefs": [
+        "RWA-P6-french-topic-008:learn:visual-1:planned",
+        "RWA-P6-french-topic-008:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p063",
+      "title": "La nature et les animaux: Modèle",
+      "content": "Modèle pour La nature et les animaux: Lis le mini-texte, trouve l'idée principale et réponds clairement.\n\nRéponse modèle:\nLe texte parle de la nature et les animaux. Un détail important est _____. Ce détail aide le lecteur à comprendre le thème parce qu'il donne un exemple précis. Je peux utiliser cette idée quand je parle avec un partenaire, quand j'écris un court paragraphe ou quand je prépare une présentation.\n\nPourquoi c'est correct:\n- La réponse reste sur le thème.\n- Elle utilise un détail du texte.\n- Elle explique comment utiliser l'idée.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "RWA-P6-french-topic-008:example:visual-1:planned",
+        "RWA-P6-french-topic-008:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p064",
+      "title": "La nature et les animaux: Vocabulaire et méthode",
+      "content": "Utilise ces mots avant de t'entraîner sur La nature et les animaux.\n\nMots clés:\n- La nature et les animaux\n- nature\n- animaux\n- lire\n- écouter\n- parler\n- écrire\n- phrase\n\nMéthode d'étude:\n1. Choisis trois mots.\n2. Explique chaque mot avec tes propres mots.\n3. Donne un exemple simple du Rwanda ou de ton école.\n4. Utilise chaque mot dans une phrase correcte.\n5. Demande à un partenaire de vérifier le sens.\n\nErreur à éviter: répondre sans utiliser le vocabulaire du thème.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 86,
+      "imageRefs": [
+        "RWA-P6-french-topic-008:vocabulary:visual-1:planned",
+        "RWA-P6-french-topic-008:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p065",
+      "title": "La nature et les animaux: Activité guidée",
+      "content": "Activité guidée pour La nature et les animaux:\n\n1. Lis le mini-texte ou le dialogue à haute voix.\n2. Souligne trois mots ou expressions utiles.\n3. Réponds oralement à une question sur le texte.\n4. Écris trois à cinq phrases liées à La nature et les animaux.\n5. Lis ta réponse à un partenaire et améliore une phrase.\n\nVérification: la réponse doit utiliser le vocabulaire du thème et des phrases complètes.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 71,
+      "imageRefs": [
+        "RWA-P6-french-topic-008:activity:visual-1:planned",
+        "RWA-P6-french-topic-008:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p066",
+      "title": "La nature et les animaux: Entraînement et correction",
+      "content": "Entraînement pour La nature et les animaux:\n\nObjectif principal: lire, comprendre, parler et écrire sur la nature et les animaux.\n\n1. Lis le mini-texte à haute voix.\n2. Choisis quatre mots importants et explique leur sens simplement.\n3. Écris trois phrases complètes sur la nature et les animaux.\n4. Pose une question à un partenaire et réponds à sa question.\n5. Corrige les accents, la ponctuation et le sens.\n\nVérification:\n- Les phrases sont-elles complètes?\n- Les mots du thème sont-ils utilisés correctement?\n- La réponse correspond-elle au sujet?\n\nLien maison: demande à quelqu'un un exemple lié à la nature et les animaux et écris deux phrases en français.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "RWA-P6-french-topic-008:practice:visual-1:planned",
+        "RWA-P6-french-topic-008:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p067",
+      "title": "La nature et les animaux: Aide et défi",
+      "content": "Utilise cette page après l'entraînement.\n\nSi tu as besoin d'aide:\n1. Relis les critères de réussite.\n2. Reprends le modèle étape par étape.\n3. Remplace les détails par des idées liées à La nature et les animaux.\n4. Pose une question claire sur ce qui reste difficile.\n\nSi tu es prêt pour un défi:\n1. Crée une nouvelle petite tâche de lecture, d'écoute, de parole ou d'écriture.\n2. Utilise le vocabulaire correct.\n3. Explique pourquoi ta réponse est claire.\n4. Écris une question pour un camarade.\n\nVérifie:\n- le sens est clair\n- les mots du thème sont bien utilisés\n- l’orthographe, les accents, la grammaire et la ponctuation sont vérifiés",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 111,
+      "imageRefs": [
+        "RWA-P6-french-topic-008:remediation:visual-1:planned",
+        "RWA-P6-french-topic-008:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p068",
+      "title": "La nature et les animaux: Vérification de l'objectif",
+      "content": "Vérification de l’objectif pour La nature et les animaux: Lire, comprendre, parler et écrire sur la nature et les animaux.\n\n1. Lis, écoute, parle ou écris une réponse courte liée au thème.\n2. Utilise au moins trois mots du thème correctement.\n3. Écris des phrases complètes.\n4. Vérifie les accents, l’orthographe, la ponctuation et le sens.\n5. Améliore une phrase après le feedback.\n\nCritères de réussite:\n- le sens est clair\n- les mots du thème sont bien utilisés\n- l’orthographe, les accents, la grammaire et la ponctuation sont vérifiés",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "RWA-P6-french-topic-008:assessment:visual-1:planned",
+        "RWA-P6-french-topic-008:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p069",
+      "title": "Mes projets futurs: Ouverture",
+      "content": "Point d'apprentissage: Mes projets futurs\n\nLien avec le pays: une activité de lecture, d'écoute, de parole ou d'écriture en Rwanda pour Mes projets futurs.\n\nÀ la fin de ce thème, tu devrais pouvoir:\n- lire, comprendre, parler et écrire sur mes projets futurs\n\nQuestions de recherche:\n- Comment utiliser mes projets futurs dans une situation reelle au Rwanda?\n\nCritères de réussite:\n- le sens est clair\n- les mots du thème sont bien utilisés\n- l’orthographe, les accents, la grammaire et la ponctuation sont vérifiés",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 85,
+      "imageRefs": [
+        "RWA-P6-french-topic-009:opener:visual-1:planned",
+        "RWA-P6-french-topic-009:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p070",
+      "title": "Mes projets futurs: Leçon",
+      "content": "Mes projets futurs aide l'apprenant à utiliser un français simple dans une situation réelle.\n\nMini-texte: Pour travailler le thème Mes projets futurs, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nÀ retenir:\n- Écoute ou lis l'idée principale avant d'écrire.\n- Utilise des phrases courtes, puis ajoute un détail utile.\n- Vérifie les accents, l'orthographe, la ponctuation et le sens.\n\nMots clés:\n- Mes projets futurs\n- projets\n- futurs\n- lire\n- écouter\n- parler\n- écrire\n- phrase",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 114,
+      "imageRefs": [
+        "RWA-P6-french-topic-009:learn:visual-1:planned",
+        "RWA-P6-french-topic-009:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p071",
+      "title": "Mes projets futurs: Modèle",
+      "content": "Modèle pour Mes projets futurs: Lis le mini-texte, trouve l'idée principale et réponds clairement.\n\nRéponse modèle:\nLe texte parle de mes projets futurs. Un détail important est _____. Ce détail aide le lecteur à comprendre le thème parce qu'il donne un exemple précis. Je peux utiliser cette idée quand je parle avec un partenaire, quand j'écris un court paragraphe ou quand je prépare une présentation.\n\nPourquoi c'est correct:\n- La réponse reste sur le thème.\n- Elle utilise un détail du texte.\n- Elle explique comment utiliser l'idée.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 88,
+      "imageRefs": [
+        "RWA-P6-french-topic-009:example:visual-1:planned",
+        "RWA-P6-french-topic-009:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p072",
+      "title": "Mes projets futurs: Vocabulaire et méthode",
+      "content": "Utilise ces mots avant de t'entraîner sur Mes projets futurs.\n\nMots clés:\n- Mes projets futurs\n- projets\n- futurs\n- lire\n- écouter\n- parler\n- écrire\n- phrase\n\nMéthode d'étude:\n1. Choisis trois mots.\n2. Explique chaque mot avec tes propres mots.\n3. Donne un exemple simple du Rwanda ou de ton école.\n4. Utilise chaque mot dans une phrase correcte.\n5. Demande à un partenaire de vérifier le sens.\n\nErreur à éviter: répondre sans utiliser le vocabulaire du thème.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 82,
+      "imageRefs": [
+        "RWA-P6-french-topic-009:vocabulary:visual-1:planned",
+        "RWA-P6-french-topic-009:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p073",
+      "title": "Mes projets futurs: Activité guidée",
+      "content": "Activité guidée pour Mes projets futurs:\n\n1. Lis le mini-texte ou le dialogue à haute voix.\n2. Souligne trois mots ou expressions utiles.\n3. Réponds oralement à une question sur le texte.\n4. Écris trois à cinq phrases liées à Mes projets futurs.\n5. Lis ta réponse à un partenaire et améliore une phrase.\n\nVérification: la réponse doit utiliser le vocabulaire du thème et des phrases complètes.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 67,
+      "imageRefs": [
+        "RWA-P6-french-topic-009:activity:visual-1:planned",
+        "RWA-P6-french-topic-009:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p074",
+      "title": "Mes projets futurs: Entraînement et correction",
+      "content": "Entraînement pour Mes projets futurs:\n\nObjectif principal: lire, comprendre, parler et écrire sur mes projets futurs.\n\n1. Lis le mini-texte à haute voix.\n2. Choisis quatre mots importants et explique leur sens simplement.\n3. Écris trois phrases complètes sur mes projets futurs.\n4. Pose une question à un partenaire et réponds à sa question.\n5. Corrige les accents, la ponctuation et le sens.\n\nVérification:\n- Les phrases sont-elles complètes?\n- Les mots du thème sont-ils utilisés correctement?\n- La réponse correspond-elle au sujet?\n\nLien maison: demande à quelqu'un un exemple lié à mes projets futurs et écris deux phrases en français.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "RWA-P6-french-topic-009:practice:visual-1:planned",
+        "RWA-P6-french-topic-009:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p075",
+      "title": "Mes projets futurs: Aide et défi",
+      "content": "Utilise cette page après l'entraînement.\n\nSi tu as besoin d'aide:\n1. Relis les critères de réussite.\n2. Reprends le modèle étape par étape.\n3. Remplace les détails par des idées liées à Mes projets futurs.\n4. Pose une question claire sur ce qui reste difficile.\n\nSi tu es prêt pour un défi:\n1. Crée une nouvelle petite tâche de lecture, d'écoute, de parole ou d'écriture.\n2. Utilise le vocabulaire correct.\n3. Explique pourquoi ta réponse est claire.\n4. Écris une question pour un camarade.\n\nVérifie:\n- le sens est clair\n- les mots du thème sont bien utilisés\n- l’orthographe, les accents, la grammaire et la ponctuation sont vérifiés",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "RWA-P6-french-topic-009:remediation:visual-1:planned",
+        "RWA-P6-french-topic-009:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p076",
+      "title": "Mes projets futurs: Vérification de l'objectif",
+      "content": "Vérification de l’objectif pour Mes projets futurs: Lire, comprendre, parler et écrire sur mes projets futurs.\n\n1. Lis, écoute, parle ou écris une réponse courte liée au thème.\n2. Utilise au moins trois mots du thème correctement.\n3. Écris des phrases complètes.\n4. Vérifie les accents, l’orthographe, la ponctuation et le sens.\n5. Améliore une phrase après le feedback.\n\nCritères de réussite:\n- le sens est clair\n- les mots du thème sont bien utilisés\n- l’orthographe, les accents, la grammaire et la ponctuation sont vérifiés",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 86,
+      "imageRefs": [
+        "RWA-P6-french-topic-009:assessment:visual-1:planned",
+        "RWA-P6-french-topic-009:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p077",
+      "title": "Révision de ce qu'on a appris en 5ème année: Lecture 1",
+      "content": "Séance 1: Révision de ce qu'on a appris en 5ème année - Lecture\n\nMini-texte: Pour travailler le thème Révision de ce qu'on a appris en 5ème année, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nActivités:\n1. Lis le mini-texte deux fois.\n2. Dis l'idée principale en une phrase.\n3. Trouve deux détails qui prouvent ta réponse.\n4. Explique le lien avec le thème.\n\nVérification: parle clairement, reste sur le thème, utilise les mots nouveaux, puis corrige au moins une phrase.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "RWA-P6-french-topic-001:language-reading:visual-1:planned",
+        "RWA-P6-french-topic-001:language-reading:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p078",
+      "title": "Les droits de l'enfant: Vocabulaire 1",
+      "content": "Séance 1: Les droits de l'enfant - Vocabulaire\n\nMini-texte: Pour travailler le thème Les droits de l'enfant, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nActivités:\n1. Choisis quatre mots du thème.\n2. Explique chaque mot simplement.\n3. Écris une phrase avec chaque mot.\n4. Ajoute un dessin, un synonyme ou un exemple.\n\nVérification: parle clairement, reste sur le thème, utilise les mots nouveaux, puis corrige au moins une phrase.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 104,
+      "imageRefs": [
+        "RWA-P6-french-topic-002:language-vocabulary:visual-1:planned",
+        "RWA-P6-french-topic-002:language-vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p079",
+      "title": "Pays et nationalités: Expression orale et écoute 1",
+      "content": "Séance 1: Pays et nationalités - Expression orale et écoute\n\nMini-texte: Pour travailler le thème Pays et nationalités, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nActivités:\n1. Pose une question simple à un partenaire.\n2. Réponds avec deux phrases complètes.\n3. Répète l'idée de ton partenaire pour montrer que tu as écouté.\n4. Améliore une phrase.\n\nVérification: parle clairement, reste sur le thème, utilise les mots nouveaux, puis corrige au moins une phrase.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "RWA-P6-french-topic-003:language-speaking:visual-1:planned",
+        "RWA-P6-french-topic-003:language-speaking:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p080",
+      "title": "Les traditions nationales: Grammaire 1",
+      "content": "Séance 1: Les traditions nationales - Grammaire\n\nMini-texte: Pour travailler le thème Les traditions nationales, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nActivités:\n1. Écris une phrase courte.\n2. Ajoute un lieu, un temps, une description ou une raison.\n3. Vérifie l'accord sujet-verbe.\n4. Corrige les accents et la ponctuation.\n\nVérification: parle clairement, reste sur le thème, utilise les mots nouveaux, puis corrige au moins une phrase.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 102,
+      "imageRefs": [
+        "RWA-P6-french-topic-004:language-grammar:visual-1:planned",
+        "RWA-P6-french-topic-004:language-grammar:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p081",
+      "title": "Fêtes et anniversaires: Écriture 1",
+      "content": "Séance 1: Fêtes et anniversaires - Écriture\n\nMini-texte: Pour travailler le thème Fêtes et anniversaires, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nActivités:\n1. Prépare une phrase d'ouverture.\n2. Ajoute deux détails utiles.\n3. Écris une phrase de conclusion.\n4. Relis et corrige une phrase faible.\n\nVérification: parle clairement, reste sur le thème, utilise les mots nouveaux, puis corrige au moins une phrase.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "RWA-P6-french-topic-005:language-writing:visual-1:planned",
+        "RWA-P6-french-topic-005:language-writing:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p082",
+      "title": "Les loisirs et les sports: Compréhension 1",
+      "content": "Séance 1: Les loisirs et les sports - Compréhension\n\nMini-texte: Pour travailler le thème Les loisirs et les sports, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nActivités:\n1. Quelle est l'idée principale?\n2. Quels deux détails la prouvent?\n3. Que signifie un mot important?\n4. Quelle question veux-tu encore poser?\n\nVérification: parle clairement, reste sur le thème, utilise les mots nouveaux, puis corrige au moins une phrase.",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 102,
+      "imageRefs": [
+        "RWA-P6-french-topic-006:language-comprehension:visual-1:planned",
+        "RWA-P6-french-topic-006:language-comprehension:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p083",
+      "title": "Les réseaux sociaux: Correction 1",
+      "content": "Séance 1: Les réseaux sociaux - Correction\n\nMini-texte: Pour travailler le thème Les réseaux sociaux, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nActivités:\n1. Entoure une phrase à améliorer.\n2. Corrige l'orthographe et les accents.\n3. Remplace un mot vague par un mot du thème.\n4. Lis la phrase finale à voix haute.\n\nVérification: parle clairement, reste sur le thème, utilise les mots nouveaux, puis corrige au moins une phrase.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "RWA-P6-french-topic-007:language-editing:visual-1:planned",
+        "RWA-P6-french-topic-007:language-editing:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p084",
+      "title": "La nature et les animaux: Fluidité 1",
+      "content": "Séance 1: La nature et les animaux - Fluidité\n\nMini-texte: Pour travailler le thème La nature et les animaux, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nActivités:\n1. Lis le mini-texte avec calme.\n2. Répète la phrase la plus difficile.\n3. Dis une nouvelle phrase sans regarder.\n4. Demande à un partenaire si le sens est clair.\n\nVérification: parle clairement, reste sur le thème, utilise les mots nouveaux, puis corrige au moins une phrase.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "RWA-P6-french-topic-008:language-fluency:visual-1:planned",
+        "RWA-P6-french-topic-008:language-fluency:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p085",
+      "title": "Mes projets futurs: Lecture 1",
+      "content": "Séance 1: Mes projets futurs - Lecture\n\nMini-texte: Pour travailler le thème Mes projets futurs, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nActivités:\n1. Lis le mini-texte deux fois.\n2. Dis l'idée principale en une phrase.\n3. Trouve deux détails qui prouvent ta réponse.\n4. Explique le lien avec le thème.\n\nVérification: parle clairement, reste sur le thème, utilise les mots nouveaux, puis corrige au moins une phrase.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "RWA-P6-french-topic-009:language-reading:visual-1:planned",
+        "RWA-P6-french-topic-009:language-reading:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p086",
+      "title": "Révision de ce qu'on a appris en 5ème année: Vocabulaire 2",
+      "content": "Séance 2: Révision de ce qu'on a appris en 5ème année - Vocabulaire\n\nMini-texte: Pour travailler le thème Révision de ce qu'on a appris en 5ème année, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nActivités:\n1. Choisis quatre mots du thème.\n2. Explique chaque mot simplement.\n3. Écris une phrase avec chaque mot.\n4. Ajoute un dessin, un synonyme ou un exemple.\n\nVérification: parle clairement, reste sur le thème, utilise les mots nouveaux, puis corrige au moins une phrase.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 114,
+      "imageRefs": [
+        "RWA-P6-french-topic-001:language-vocabulary:visual-1:planned",
+        "RWA-P6-french-topic-001:language-vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p087",
+      "title": "Les droits de l'enfant: Expression orale et écoute 2",
+      "content": "Séance 2: Les droits de l'enfant - Expression orale et écoute\n\nMini-texte: Pour travailler le thème Les droits de l'enfant, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nActivités:\n1. Pose une question simple à un partenaire.\n2. Réponds avec deux phrases complètes.\n3. Répète l'idée de ton partenaire pour montrer que tu as écouté.\n4. Améliore une phrase.\n\nVérification: parle clairement, reste sur le thème, utilise les mots nouveaux, puis corrige au moins une phrase.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 110,
+      "imageRefs": [
+        "RWA-P6-french-topic-002:language-speaking:visual-1:planned",
+        "RWA-P6-french-topic-002:language-speaking:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p088",
+      "title": "Pays et nationalités: Grammaire 2",
+      "content": "Séance 2: Pays et nationalités - Grammaire\n\nMini-texte: Pour travailler le thème Pays et nationalités, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nActivités:\n1. Écris une phrase courte.\n2. Ajoute un lieu, un temps, une description ou une raison.\n3. Vérifie l'accord sujet-verbe.\n4. Corrige les accents et la ponctuation.\n\nVérification: parle clairement, reste sur le thème, utilise les mots nouveaux, puis corrige au moins une phrase.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 102,
+      "imageRefs": [
+        "RWA-P6-french-topic-003:language-grammar:visual-1:planned",
+        "RWA-P6-french-topic-003:language-grammar:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p089",
+      "title": "Les traditions nationales: Écriture 2",
+      "content": "Séance 2: Les traditions nationales - Écriture\n\nMini-texte: Pour travailler le thème Les traditions nationales, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nActivités:\n1. Prépare une phrase d'ouverture.\n2. Ajoute deux détails utiles.\n3. Écris une phrase de conclusion.\n4. Relis et corrige une phrase faible.\n\nVérification: parle clairement, reste sur le thème, utilise les mots nouveaux, puis corrige au moins une phrase.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "RWA-P6-french-topic-004:language-writing:visual-1:planned",
+        "RWA-P6-french-topic-004:language-writing:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p090",
+      "title": "Fêtes et anniversaires: Compréhension 2",
+      "content": "Séance 2: Fêtes et anniversaires - Compréhension\n\nMini-texte: Pour travailler le thème Fêtes et anniversaires, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nActivités:\n1. Quelle est l'idée principale?\n2. Quels deux détails la prouvent?\n3. Que signifie un mot important?\n4. Quelle question veux-tu encore poser?\n\nVérification: parle clairement, reste sur le thème, utilise les mots nouveaux, puis corrige au moins une phrase.",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "RWA-P6-french-topic-005:language-comprehension:visual-1:planned",
+        "RWA-P6-french-topic-005:language-comprehension:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p091",
+      "title": "Les loisirs et les sports: Correction 2",
+      "content": "Séance 2: Les loisirs et les sports - Correction\n\nMini-texte: Pour travailler le thème Les loisirs et les sports, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nActivités:\n1. Entoure une phrase à améliorer.\n2. Corrige l'orthographe et les accents.\n3. Remplace un mot vague par un mot du thème.\n4. Lis la phrase finale à voix haute.\n\nVérification: parle clairement, reste sur le thème, utilise les mots nouveaux, puis corrige au moins une phrase.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "RWA-P6-french-topic-006:language-editing:visual-1:planned",
+        "RWA-P6-french-topic-006:language-editing:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p092",
+      "title": "Les réseaux sociaux: Fluidité 2",
+      "content": "Séance 2: Les réseaux sociaux - Fluidité\n\nMini-texte: Pour travailler le thème Les réseaux sociaux, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nActivités:\n1. Lis le mini-texte avec calme.\n2. Répète la phrase la plus difficile.\n3. Dis une nouvelle phrase sans regarder.\n4. Demande à un partenaire si le sens est clair.\n\nVérification: parle clairement, reste sur le thème, utilise les mots nouveaux, puis corrige au moins une phrase.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "RWA-P6-french-topic-007:language-fluency:visual-1:planned",
+        "RWA-P6-french-topic-007:language-fluency:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p093",
+      "title": "La nature et les animaux: Lecture 2",
+      "content": "Séance 2: La nature et les animaux - Lecture\n\nMini-texte: Pour travailler le thème La nature et les animaux, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nActivités:\n1. Lis le mini-texte deux fois.\n2. Dis l'idée principale en une phrase.\n3. Trouve deux détails qui prouvent ta réponse.\n4. Explique le lien avec le thème.\n\nVérification: parle clairement, reste sur le thème, utilise les mots nouveaux, puis corrige au moins une phrase.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "RWA-P6-french-topic-008:language-reading:visual-1:planned",
+        "RWA-P6-french-topic-008:language-reading:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p094",
+      "title": "Mes projets futurs: Vocabulaire 2",
+      "content": "Séance 2: Mes projets futurs - Vocabulaire\n\nMini-texte: Pour travailler le thème Mes projets futurs, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nActivités:\n1. Choisis quatre mots du thème.\n2. Explique chaque mot simplement.\n3. Écris une phrase avec chaque mot.\n4. Ajoute un dessin, un synonyme ou un exemple.\n\nVérification: parle clairement, reste sur le thème, utilise les mots nouveaux, puis corrige au moins une phrase.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 102,
+      "imageRefs": [
+        "RWA-P6-french-topic-009:language-vocabulary:visual-1:planned",
+        "RWA-P6-french-topic-009:language-vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p095",
+      "title": "Révision de ce qu'on a appris en 5ème année: Expression orale et écoute 3",
+      "content": "Séance 3: Révision de ce qu'on a appris en 5ème année - Expression orale et écoute\n\nMini-texte: Pour travailler le thème Révision de ce qu'on a appris en 5ème année, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nActivités:\n1. Pose une question simple à un partenaire.\n2. Réponds avec deux phrases complètes.\n3. Répète l'idée de ton partenaire pour montrer que tu as écouté.\n4. Améliore une phrase.\n\nVérification: parle clairement, reste sur le thème, utilise les mots nouveaux, puis corrige au moins une phrase.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 120,
+      "imageRefs": [
+        "RWA-P6-french-topic-001:language-speaking:visual-1:planned",
+        "RWA-P6-french-topic-001:language-speaking:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p096",
+      "title": "Les droits de l'enfant: Grammaire 3",
+      "content": "Séance 3: Les droits de l'enfant - Grammaire\n\nMini-texte: Pour travailler le thème Les droits de l'enfant, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nActivités:\n1. Écris une phrase courte.\n2. Ajoute un lieu, un temps, une description ou une raison.\n3. Vérifie l'accord sujet-verbe.\n4. Corrige les accents et la ponctuation.\n\nVérification: parle clairement, reste sur le thème, utilise les mots nouveaux, puis corrige au moins une phrase.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 104,
+      "imageRefs": [
+        "RWA-P6-french-topic-002:language-grammar:visual-1:planned",
+        "RWA-P6-french-topic-002:language-grammar:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p097",
+      "title": "Pays et nationalités: Écriture 3",
+      "content": "Séance 3: Pays et nationalités - Écriture\n\nMini-texte: Pour travailler le thème Pays et nationalités, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nActivités:\n1. Prépare une phrase d'ouverture.\n2. Ajoute deux détails utiles.\n3. Écris une phrase de conclusion.\n4. Relis et corrige une phrase faible.\n\nVérification: parle clairement, reste sur le thème, utilise les mots nouveaux, puis corrige au moins une phrase.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "RWA-P6-french-topic-003:language-writing:visual-1:planned",
+        "RWA-P6-french-topic-003:language-writing:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p098",
+      "title": "Les traditions nationales: Compréhension 3",
+      "content": "Séance 3: Les traditions nationales - Compréhension\n\nMini-texte: Pour travailler le thème Les traditions nationales, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nActivités:\n1. Quelle est l'idée principale?\n2. Quels deux détails la prouvent?\n3. Que signifie un mot important?\n4. Quelle question veux-tu encore poser?\n\nVérification: parle clairement, reste sur le thème, utilise les mots nouveaux, puis corrige au moins une phrase.",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "RWA-P6-french-topic-004:language-comprehension:visual-1:planned",
+        "RWA-P6-french-topic-004:language-comprehension:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p099",
+      "title": "Fêtes et anniversaires: Correction 3",
+      "content": "Séance 3: Fêtes et anniversaires - Correction\n\nMini-texte: Pour travailler le thème Fêtes et anniversaires, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nActivités:\n1. Entoure une phrase à améliorer.\n2. Corrige l'orthographe et les accents.\n3. Remplace un mot vague par un mot du thème.\n4. Lis la phrase finale à voix haute.\n\nVérification: parle clairement, reste sur le thème, utilise les mots nouveaux, puis corrige au moins une phrase.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "RWA-P6-french-topic-005:language-editing:visual-1:planned",
+        "RWA-P6-french-topic-005:language-editing:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p100",
+      "title": "Les loisirs et les sports: Fluidité 3",
+      "content": "Séance 3: Les loisirs et les sports - Fluidité\n\nMini-texte: Pour travailler le thème Les loisirs et les sports, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nActivités:\n1. Lis le mini-texte avec calme.\n2. Répète la phrase la plus difficile.\n3. Dis une nouvelle phrase sans regarder.\n4. Demande à un partenaire si le sens est clair.\n\nVérification: parle clairement, reste sur le thème, utilise les mots nouveaux, puis corrige au moins une phrase.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "RWA-P6-french-topic-006:language-fluency:visual-1:planned",
+        "RWA-P6-french-topic-006:language-fluency:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p101",
+      "title": "Les réseaux sociaux: Lecture 3",
+      "content": "Séance 3: Les réseaux sociaux - Lecture\n\nMini-texte: Pour travailler le thème Les réseaux sociaux, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nActivités:\n1. Lis le mini-texte deux fois.\n2. Dis l'idée principale en une phrase.\n3. Trouve deux détails qui prouvent ta réponse.\n4. Explique le lien avec le thème.\n\nVérification: parle clairement, reste sur le thème, utilise les mots nouveaux, puis corrige au moins une phrase.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "RWA-P6-french-topic-007:language-reading:visual-1:planned",
+        "RWA-P6-french-topic-007:language-reading:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p102",
+      "title": "La nature et les animaux: Vocabulaire 3",
+      "content": "Séance 3: La nature et les animaux - Vocabulaire\n\nMini-texte: Pour travailler le thème La nature et les animaux, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nActivités:\n1. Choisis quatre mots du thème.\n2. Explique chaque mot simplement.\n3. Écris une phrase avec chaque mot.\n4. Ajoute un dessin, un synonyme ou un exemple.\n\nVérification: parle clairement, reste sur le thème, utilise les mots nouveaux, puis corrige au moins une phrase.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "RWA-P6-french-topic-008:language-vocabulary:visual-1:planned",
+        "RWA-P6-french-topic-008:language-vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p103",
+      "title": "Mes projets futurs: Expression orale et écoute 3",
+      "content": "Séance 3: Mes projets futurs - Expression orale et écoute\n\nMini-texte: Pour travailler le thème Mes projets futurs, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nActivités:\n1. Pose une question simple à un partenaire.\n2. Réponds avec deux phrases complètes.\n3. Répète l'idée de ton partenaire pour montrer que tu as écouté.\n4. Améliore une phrase.\n\nVérification: parle clairement, reste sur le thème, utilise les mots nouveaux, puis corrige au moins une phrase.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "RWA-P6-french-topic-009:language-speaking:visual-1:planned",
+        "RWA-P6-french-topic-009:language-speaking:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p104",
+      "title": "Révision de ce qu'on a appris en 5ème année: Grammaire 4",
+      "content": "Séance 4: Révision de ce qu'on a appris en 5ème année - Grammaire\n\nMini-texte: Pour travailler le thème Révision de ce qu'on a appris en 5ème année, je lis d'abord la consigne. Ensuite, je choisis les mots importants, je prépare une phrase claire, puis je demande à un partenaire si le sens est facile à comprendre.\n\nNiveau: compare deux idees, cite un detail du texte et corrige ta reponse.\n\nActivités:\n1. Écris une phrase courte.\n2. Ajoute un lieu, un temps, une description ou une raison.\n3. Vérifie l'accord sujet-verbe.\n4. Corrige les accents et la ponctuation.\n\nVérification: parle clairement, reste sur le thème, utilise les mots nouveaux, puis corrige au moins une phrase.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 114,
+      "imageRefs": [
+        "RWA-P6-french-topic-001:language-grammar:visual-1:planned",
+        "RWA-P6-french-topic-001:language-grammar:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p105",
+      "title": "Révision de ce qu'on a appris en 5ème année: Révision 1",
+      "content": "Utilise cette révision pour renforcer French sans copier tes anciennes réponses.\n\n1. Choisis une idée difficile dans Révision de ce qu'on a appris en 5ème année.\n2. Explique l'idée avec tes propres mots.\n3. Écris un nouvel exemple simple du Rwanda, de l'école ou de la maison.\n4. Crée une question de vocabulaire.\n5. Crée une question de lecture, parole ou écriture.\n6. Réponds aux deux questions et corrige ton travail.\n\nDéfi: transforme l'idée en dialogue, court paragraphe, carte de mots ou présentation orale.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 84,
+      "imageRefs": [
+        "RWA-P6-french-topic-001:review:visual-1:planned",
+        "RWA-P6-french-topic-001:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p106",
+      "title": "Les droits de l'enfant: Révision 2",
+      "content": "Utilise cette révision pour renforcer French sans copier tes anciennes réponses.\n\n1. Choisis une idée difficile dans Les droits de l'enfant.\n2. Explique l'idée avec tes propres mots.\n3. Écris un nouvel exemple simple du Rwanda, de l'école ou de la maison.\n4. Crée une question de vocabulaire.\n5. Crée une question de lecture, parole ou écriture.\n6. Réponds aux deux questions et corrige ton travail.\n\nDéfi: transforme l'idée en dialogue, court paragraphe, carte de mots ou présentation orale.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 79,
+      "imageRefs": [
+        "RWA-P6-french-topic-002:review:visual-1:planned",
+        "RWA-P6-french-topic-002:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p107",
+      "title": "Pays et nationalités: Révision 3",
+      "content": "Utilise cette révision pour renforcer French sans copier tes anciennes réponses.\n\n1. Choisis une idée difficile dans Pays et nationalités.\n2. Explique l'idée avec tes propres mots.\n3. Écris un nouvel exemple simple du Rwanda, de l'école ou de la maison.\n4. Crée une question de vocabulaire.\n5. Crée une question de lecture, parole ou écriture.\n6. Réponds aux deux questions et corrige ton travail.\n\nDéfi: transforme l'idée en dialogue, court paragraphe, carte de mots ou présentation orale.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 78,
+      "imageRefs": [
+        "RWA-P6-french-topic-003:review:visual-1:planned",
+        "RWA-P6-french-topic-003:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p108",
+      "title": "Les traditions nationales: Révision 4",
+      "content": "Utilise cette révision pour renforcer French sans copier tes anciennes réponses.\n\n1. Choisis une idée difficile dans Les traditions nationales.\n2. Explique l'idée avec tes propres mots.\n3. Écris un nouvel exemple simple du Rwanda, de l'école ou de la maison.\n4. Crée une question de vocabulaire.\n5. Crée une question de lecture, parole ou écriture.\n6. Réponds aux deux questions et corrige ton travail.\n\nDéfi: transforme l'idée en dialogue, court paragraphe, carte de mots ou présentation orale.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 78,
+      "imageRefs": [
+        "RWA-P6-french-topic-004:review:visual-1:planned",
+        "RWA-P6-french-topic-004:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-strand"
+      ],
+      "unitIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "536eac92-4c19-4125-8196-5812333fe38f-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p109",
+      "title": "Glossaire",
+      "content": "Utilise ce glossaire pour réviser les mots importants en French.\n\n- Révision de ce qu'on a appris en 5ème année: Explique ce mot ou ce thème avec un exemple du livre, de l'école ou de la maison.\n- Les droits de l'enfant: Explique ce mot ou ce thème avec un exemple du livre, de l'école ou de la maison.\n- Pays et nationalités: Explique ce mot ou ce thème avec un exemple du livre, de l'école ou de la maison.\n- Les traditions nationales: Explique ce mot ou ce thème avec un exemple du livre, de l'école ou de la maison.\n- Fêtes et anniversaires: Explique ce mot ou ce thème avec un exemple du livre, de l'école ou de la maison.\n- Les loisirs et les sports: Explique ce mot ou ce thème avec un exemple du livre, de l'école ou de la maison.\n- Les réseaux sociaux: Explique ce mot ou ce thème avec un exemple du livre, de l'école ou de la maison.\n- La nature et les animaux: Explique ce mot ou ce thème avec un exemple du livre, de l'école ou de la maison.\n- Mes projets futurs: Explique ce mot ou ce thème avec un exemple du livre, de l'école ou de la maison.\n\nAjoute cinq autres mots de tes leçons et écris leur sens avec tes propres mots.",
+      "pageType": "glossary",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 225,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p110",
+      "title": "Réponses et notes",
+      "content": "Une bonne réponse en French reste sur le thème, utilise le vocabulaire appris, garde un sens clair, puis vérifie les accents, l'orthographe, la ponctuation, la grammaire et la prononciation après feedback. Si une phrase est faible, réécris-la avec un mot du thème et un détail précis.",
+      "pageType": "answer-notes",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 46,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p6-french-p111",
+      "title": "Projet final",
+      "content": "Crée un projet final en French pour montrer ce que tu peux faire seul.\n\nTon projet doit contenir:\n1. Un titre clair.\n2. Un problème, une question, un texte, un dialogue ou une présentation lié au vrai monde.\n3. Des éléments d'au moins trois leçons de ce livre.\n4. Un dessin, un tableau, une carte de mots, un dialogue, un paragraphe ou une courte présentation.\n5. Une note de correction qui montre une amélioration après feedback.\n6. Une courte réflexion: ce que tu as appris, ce qui était difficile et ce que tu vas pratiquer ensuite.\n\nVérification: écris lisiblement, utilise le vocabulaire correct et prépare-toi à expliquer tes choix.",
+      "pageType": "project",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": []
+    }
+  ]
+}

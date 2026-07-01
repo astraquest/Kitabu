@@ -1,0 +1,2134 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-rwa-reb-cbc-s1-ict",
+  "title": "KITABU QUEST S1 ICT",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "S1",
+  "subject": "ICT",
+  "subjectSlug": "ict",
+  "subjectColor": "#4338CA",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v17",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T06:42:47Z",
+  "sourceSnapshotHash": "5635e999b4635fb7831a728ded9b591c33b5944af1baa3312f7d1fa4b0a7fa34",
+  "bookPlanHash": "92b4ea15b405fd8859942ec8538411fe36a7e6e75025d8c1f075cab638985d0d",
+  "pageCount": 85,
+  "wordCount": 8558,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 9,
+    "outcomeCount": 9,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "RWA",
+    "subject": "ICT",
+    "species": "mountain gorilla",
+    "role": "digital skills guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners using computers safely with a mountain gorilla mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Rwanda REB-CBC S1 ICT. Scene: learners using computers safely with a mountain gorilla mascot. Include a friendly mountain gorilla mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 82446,
+    "sha256": "485acd9973e09ffebc12635cdd8a6a7f3ab962feb2d8f0cbd0dc25b8fa2c88b3"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 82446,
+      "sha256": "485acd9973e09ffebc12635cdd8a6a7f3ab962feb2d8f0cbd0dc25b8fa2c88b3",
+      "kind": "cover",
+      "altText": "KITABU QUEST S1 ICT cover with mountain gorilla",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-rwa-reb-cbc-s1-ict.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-rwa-reb-cbc-s1-ict.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "78cd8260-d04a-4685-9531-652db20efea9",
+      "subject": "ICT",
+      "officialTitle": "Rwanda Competence Based Curriculum S1 ICT",
+      "countryCode": "RWA",
+      "curriculumCode": "REB-CBC",
+      "gradeCode": "S1",
+      "gradeLocalLevel": "S1",
+      "localLevel": "S1",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://elearning.reb.rw/pluginfile.php/55032/mod_resource/content/1/ICT%20Syllabus%20Lower%20Secondary.pdf",
+      "objectKey": "data/curriculum/source-files/RWA/ea0f23d5bd890695730aa56f7454bc6ed6a7ef94f93a66a6d8e1aaf6fe4a0374.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "S1",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://elearning.reb.rw/pluginfile.php/55032/mod_resource/content/1/ICT%20Syllabus%20Lower%20Secondary.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S1/ict/78cd8260-d04a-4685-9531-652db20efea9.md",
+        "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "reb.gov.rw",
+          "reb.rw",
+          "elearning.reb.rw"
+        ],
+        "markdownChecksum": "3c849f8211333de3b7fb317168a335bdfbddc0488ae68a854296aeca1cf6041e",
+        "markdownPageCount": 84,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/RWA/REB-CBC/S1/ict/78cd8260-d04a-4685-9531-652db20efea9.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "3c849f8211333de3b7fb317168a335bdfbddc0488ae68a854296aeca1cf6041e",
+          "pageCount": 84,
+          "generatedAt": "2026-07-01T01:16:30.119Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S1/ict/78cd8260-d04a-4685-9531-652db20efea9.json",
+          "sourceChecksum": "cdb0d528506adf03c1d4dcdf2aec2de39f1a9416f94172e0f1a69d67bc5fba66"
+        },
+        "markdownGeneratedAt": "2026-07-01T01:16:30.119Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p001",
+      "title": "Title Page",
+      "content": "KITABU QUEST S1 ICT\n\nRwanda REB-CBC learner book\n\nMascot: mountain gorilla\n\nThis KITABU QUEST book turns the curriculum into short lessons, worked examples, guided activities, practice, review, and home links for Rwanda learners.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 3,
+      "wordCount": 33,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p002",
+      "title": "How To Use This Book",
+      "content": "This book helps S1 learners study ICT one teachable topic at a time.\n\n1. Start with the inquiry question and say what you already know.\n2. Read the Learn section slowly and mark new words.\n3. Try the worked example before reading the full solution.\n4. Complete the activity and practice tasks.\n5. Correct your answer using the success criteria.\n6. Ask for support when your answer is still unclear.\n\nSubject method: Practise safe, useful digital skills and explain each step clearly.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 82,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p003",
+      "title": "Learning Skills In This Book",
+      "content": "Each topic builds knowledge, skill, values, communication, collaboration, critical thinking, creativity, digital awareness, and self-confidence.\n\nStudy actively: speak answers aloud, draw when useful, show your working, cite evidence, use local examples, and correct mistakes after feedback.\n\nA strong answer is specific. It names the idea, gives evidence or method, applies it to the task, and checks whether it answers the question.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p004",
+      "title": "Table Of Contents",
+      "content": "Use this table to move through the book one topic at a time. Each topic has a lesson opener, clear teaching, a model or example, guided work, practice, and checks for understanding.\n\n1. ICT foundation\n2. Computer systems\n3. Computer navigation\n4. Safe, secure and ethical use of computers\n5. Word processing basics I\n6. Word processing basics II\n7. GIS and maps\n8. Network and internet fundamentals\n9. Music Sprite programming\n\nAs you finish each topic, return to the success criteria and correct one answer before moving on.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 89,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p005",
+      "title": "ICT foundation: Lesson Opener",
+      "content": "Learning focus: ICT foundation\n\nCountry link: a Rwandan school computer, phone, file, document, spreadsheet, network, or online-safety task for ICT foundation.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; produce a checkable digital output and explain safe steps.\n\nBy the end of this topic, you should be able to:\n- explain the foundation of Information and Communication Technology (ICT)\n\nInquiry questions:\n- How can ict foundation help you solve a real problem in ICT?\n\nSuccess criteria:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "RWA-S1-ict-topic-001:opener:visual-1:planned",
+        "RWA-S1-ict-topic-001:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p006",
+      "title": "ICT foundation: Learn",
+      "content": "ICT foundation is a practical digital skill. Learn it by naming the task, following exact steps, checking the output, and using devices safely.\n\nCore idea:\n- Start with the purpose: communication, data handling, file management, research, creation, or problem solving.\n- Name the tool: device, keyboard, folder, document, spreadsheet, browser, network, software, or file.\n- Follow steps in order and avoid random clicking.\n- Protect privacy, passwords, shared devices, and other people's files.\n- Check the result by reopening, testing, proofreading, or asking whether the output matches the task.\n\nKey words:\n- ICT foundation\n- foundation\n- idea\n- skill\n- example\n- practice\n- correction",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "RWA-S1-ict-topic-001:learn:visual-1:planned",
+        "RWA-S1-ict-topic-001:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p007",
+      "title": "ICT foundation: Worked Example",
+      "content": "Worked example for ICT foundation: Organize a class assignment file safely.\n\n1. Task: create a folder named class-work on the school computer or approved device.\n2. Inside the folder, create a document called ict-foundation-notes.\n3. Type a clear heading and three short notes about the topic.\n4. Save the file, close it, reopen it, and check that the content is still there.\n5. Apply one safety rule: use only your own file, keep passwords private, and ask before using shared devices.\n\nAnswer check: the folder name is clear, the file opens correctly, and the learner can explain every step without guessing.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "RWA-S1-ict-topic-001:example:visual-1:planned",
+        "RWA-S1-ict-topic-001:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p008",
+      "title": "ICT foundation: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise ICT foundation. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- ICT foundation\n- foundation\n- idea\n- skill\n- example\n- practice\n- correction\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about ICT foundation without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 110,
+      "imageRefs": [
+        "RWA-S1-ict-topic-001:vocabulary:visual-1:planned",
+        "RWA-S1-ict-topic-001:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p009",
+      "title": "ICT foundation: Guided Activity",
+      "content": "Guided digital activity for ICT foundation:\n\n1. Read the task and name the exact output: file, table, document, diagram, message, algorithm, or safety checklist.\n2. List the device, software, data, and safety rule needed before starting.\n3. Complete the output in small steps and say each step aloud to a partner.\n4. Save, reopen, test, proofread, or inspect the output.\n5. Write one correction you made and one rule that protects privacy or shared equipment.\n\nTeacher check: the learner should explain the process, not only show a finished screen.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 89,
+      "imageRefs": [
+        "RWA-S1-ict-topic-001:activity:visual-1:planned",
+        "RWA-S1-ict-topic-001:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p010",
+      "title": "ICT foundation: Practice And Correction",
+      "content": "Digital practice for ICT foundation:\n\n1. Complete a small digital-skills task for ICT foundation: explain the foundation of Information and Communication Technology (ICT). Write the exact steps, safety rule, file or device choice, check result, and one correction.\n\nQuality checklist:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected\n\nEvidence to show:\n- a clear file name, table, document, diagram, algorithm, screenshot description, or step list\n- one safety or privacy rule\n- one test or correction\n\nHome link: describe one safe digital habit someone at home or school should follow.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "RWA-S1-ict-topic-001:practice:visual-1:planned",
+        "RWA-S1-ict-topic-001:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p011",
+      "title": "ICT foundation: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from ICT foundation.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "RWA-S1-ict-topic-001:remediation:visual-1:planned",
+        "RWA-S1-ict-topic-001:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p012",
+      "title": "ICT foundation: Outcome Check",
+      "content": "Outcome check for ICT foundation: Explain the foundation of Information and Communication Technology (ICT).\n\n1. State the digital task and the intended output.\n2. List the exact device, software, file, data, or network step needed.\n3. Create or describe the output in a way another learner can inspect.\n4. Test the output and write one correction.\n5. Add one privacy, password, copyright, ergonomics, or shared-device safety rule.\n\nSuccess criteria:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 85,
+      "imageRefs": [
+        "RWA-S1-ict-topic-001:assessment:visual-1:planned",
+        "RWA-S1-ict-topic-001:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p013",
+      "title": "Computer systems: Lesson Opener",
+      "content": "Learning focus: Computer systems\n\nCountry link: a Rwandan school computer, phone, file, document, spreadsheet, network, or online-safety task for Computer systems.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; produce a checkable digital output and explain safe steps.\n\nBy the end of this topic, you should be able to:\n- explain the evolution, categories, parts and role of computers\n\nInquiry questions:\n- How can computer systems help you solve a real problem in ICT?\n\nSuccess criteria:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "RWA-S1-ict-topic-002:opener:visual-1:planned",
+        "RWA-S1-ict-topic-002:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p014",
+      "title": "Computer systems: Learn",
+      "content": "Computer systems is a practical digital skill. Learn it by naming the task, following exact steps, checking the output, and using devices safely.\n\nCore idea:\n- Start with the purpose: communication, data handling, file management, research, creation, or problem solving.\n- Name the tool: device, keyboard, folder, document, spreadsheet, browser, network, software, or file.\n- Follow steps in order and avoid random clicking.\n- Protect privacy, passwords, shared devices, and other people's files.\n- Check the result by reopening, testing, proofreading, or asking whether the output matches the task.\n\nKey words:\n- Computer systems\n- Computer\n- systems\n- idea\n- skill\n- example\n- practice\n- correction",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "RWA-S1-ict-topic-002:learn:visual-1:planned",
+        "RWA-S1-ict-topic-002:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p015",
+      "title": "Computer systems: Worked Example",
+      "content": "Worked example for Computer systems: Organize a class assignment file safely.\n\n1. Task: create a folder named class-work on the school computer or approved device.\n2. Inside the folder, create a document called computer-systems-notes.\n3. Type a clear heading and three short notes about the topic.\n4. Save the file, close it, reopen it, and check that the content is still there.\n5. Apply one safety rule: use only your own file, keep passwords private, and ask before using shared devices.\n\nAnswer check: the folder name is clear, the file opens correctly, and the learner can explain every step without guessing.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "RWA-S1-ict-topic-002:example:visual-1:planned",
+        "RWA-S1-ict-topic-002:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p016",
+      "title": "Computer systems: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Computer systems. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Computer systems\n- Computer\n- systems\n- idea\n- skill\n- example\n- practice\n- correction\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Computer systems without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "RWA-S1-ict-topic-002:vocabulary:visual-1:planned",
+        "RWA-S1-ict-topic-002:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p017",
+      "title": "Computer systems: Guided Activity",
+      "content": "Guided digital activity for Computer systems:\n\n1. Read the task and name the exact output: file, table, document, diagram, message, algorithm, or safety checklist.\n2. List the device, software, data, and safety rule needed before starting.\n3. Complete the output in small steps and say each step aloud to a partner.\n4. Save, reopen, test, proofread, or inspect the output.\n5. Write one correction you made and one rule that protects privacy or shared equipment.\n\nTeacher check: the learner should explain the process, not only show a finished screen.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 89,
+      "imageRefs": [
+        "RWA-S1-ict-topic-002:activity:visual-1:planned",
+        "RWA-S1-ict-topic-002:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p018",
+      "title": "Computer systems: Practice And Correction",
+      "content": "Digital practice for Computer systems:\n\n1. Complete a small digital-skills task for Computer systems: explain the evolution, categories, parts and role of computers. Write the exact steps, safety rule, file or device choice, check result, and one correction.\n\nQuality checklist:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected\n\nEvidence to show:\n- a clear file name, table, document, diagram, algorithm, screenshot description, or step list\n- one safety or privacy rule\n- one test or correction\n\nHome link: describe one safe digital habit someone at home or school should follow.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "RWA-S1-ict-topic-002:practice:visual-1:planned",
+        "RWA-S1-ict-topic-002:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p019",
+      "title": "Computer systems: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Computer systems.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "RWA-S1-ict-topic-002:remediation:visual-1:planned",
+        "RWA-S1-ict-topic-002:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p020",
+      "title": "Computer systems: Outcome Check",
+      "content": "Outcome check for Computer systems: Explain the evolution, categories, parts and role of computers.\n\n1. State the digital task and the intended output.\n2. List the exact device, software, file, data, or network step needed.\n3. Create or describe the output in a way another learner can inspect.\n4. Test the output and write one correction.\n5. Add one privacy, password, copyright, ergonomics, or shared-device safety rule.\n\nSuccess criteria:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 85,
+      "imageRefs": [
+        "RWA-S1-ict-topic-002:assessment:visual-1:planned",
+        "RWA-S1-ict-topic-002:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p021",
+      "title": "Computer navigation: Lesson Opener",
+      "content": "Learning focus: Computer navigation\n\nCountry link: a Rwandan school computer, phone, file, document, spreadsheet, network, or online-safety task for Computer navigation.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; produce a checkable digital output and explain safe steps.\n\nBy the end of this topic, you should be able to:\n- navigate the Windows environment and work with Windows explorer to introduce the techniques of folder and file management\n\nInquiry questions:\n- How can computer navigation help you solve a real problem in ICT?\n\nSuccess criteria:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 104,
+      "imageRefs": [
+        "RWA-S1-ict-topic-003:opener:visual-1:planned",
+        "RWA-S1-ict-topic-003:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-3-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p022",
+      "title": "Computer navigation: Learn",
+      "content": "Computer navigation is a practical digital skill. Learn it by naming the task, following exact steps, checking the output, and using devices safely.\n\nCore idea:\n- Start with the purpose: communication, data handling, file management, research, creation, or problem solving.\n- Name the tool: device, keyboard, folder, document, spreadsheet, browser, network, software, or file.\n- Follow steps in order and avoid random clicking.\n- Protect privacy, passwords, shared devices, and other people's files.\n- Check the result by reopening, testing, proofreading, or asking whether the output matches the task.\n\nKey words:\n- Computer navigation\n- Computer\n- navigation\n- idea\n- skill\n- example\n- practice\n- correction",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "RWA-S1-ict-topic-003:learn:visual-1:planned",
+        "RWA-S1-ict-topic-003:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-3-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p023",
+      "title": "Computer navigation: Worked Example",
+      "content": "Worked example for Computer navigation: Organize a class assignment file safely.\n\n1. Task: create a folder named class-work on the school computer or approved device.\n2. Inside the folder, create a document called computer-navigation-notes.\n3. Type a clear heading and three short notes about the topic.\n4. Save the file, close it, reopen it, and check that the content is still there.\n5. Apply one safety rule: use only your own file, keep passwords private, and ask before using shared devices.\n\nAnswer check: the folder name is clear, the file opens correctly, and the learner can explain every step without guessing.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "RWA-S1-ict-topic-003:example:visual-1:planned",
+        "RWA-S1-ict-topic-003:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-3-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p024",
+      "title": "Computer navigation: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Computer navigation. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Computer navigation\n- Computer\n- navigation\n- idea\n- skill\n- example\n- practice\n- correction\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Computer navigation without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "RWA-S1-ict-topic-003:vocabulary:visual-1:planned",
+        "RWA-S1-ict-topic-003:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-3-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p025",
+      "title": "Computer navigation: Guided Activity",
+      "content": "Guided digital activity for Computer navigation:\n\n1. Read the task and name the exact output: file, table, document, diagram, message, algorithm, or safety checklist.\n2. List the device, software, data, and safety rule needed before starting.\n3. Complete the output in small steps and say each step aloud to a partner.\n4. Save, reopen, test, proofread, or inspect the output.\n5. Write one correction you made and one rule that protects privacy or shared equipment.\n\nTeacher check: the learner should explain the process, not only show a finished screen.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 89,
+      "imageRefs": [
+        "RWA-S1-ict-topic-003:activity:visual-1:planned",
+        "RWA-S1-ict-topic-003:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-3-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p026",
+      "title": "Computer navigation: Practice And Correction",
+      "content": "Digital practice for Computer navigation:\n\n1. Complete a small digital-skills task for Computer navigation: navigate the Windows environment and work with Windows explorer to introduce the techniques of folder and file management. Write the exact steps, safety rule, file or device choice, check result, and one correction.\n\nQuality checklist:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected\n\nEvidence to show:\n- a clear file name, table, document, diagram, algorithm, screenshot description, or step list\n- one safety or privacy rule\n- one test or correction\n\nHome link: describe one safe digital habit someone at home or school should follow.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "RWA-S1-ict-topic-003:practice:visual-1:planned",
+        "RWA-S1-ict-topic-003:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-3-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p027",
+      "title": "Computer navigation: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Computer navigation.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "RWA-S1-ict-topic-003:remediation:visual-1:planned",
+        "RWA-S1-ict-topic-003:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-3-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p028",
+      "title": "Computer navigation: Outcome Check",
+      "content": "Outcome check for Computer navigation: Navigate the Windows environment and work with Windows explorer to introduce the techniques of folder and file management.\n\n1. State the digital task and the intended output.\n2. List the exact device, software, file, data, or network step needed.\n3. Create or describe the output in a way another learner can inspect.\n4. Test the output and write one correction.\n5. Add one privacy, password, copyright, ergonomics, or shared-device safety rule.\n\nSuccess criteria:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "RWA-S1-ict-topic-003:assessment:visual-1:planned",
+        "RWA-S1-ict-topic-003:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-3-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p029",
+      "title": "Safe, secure and ethical use of computers: Lesson Opener",
+      "content": "Learning focus: Safe, secure and ethical use of computers\n\nCountry link: a Rwandan school computer, phone, file, document, spreadsheet, network, or online-safety task for Safe, secure and ethical use of computers.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; produce a checkable digital output and explain safe steps.\n\nBy the end of this topic, you should be able to:\n- maintain a computer in good working condition and use it safely, securely and ethically\n\nInquiry questions:\n- How can safe, secure and ethical use of computers help you solve a real problem in ICT?\n\nSuccess criteria:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "RWA-S1-ict-topic-004:opener:visual-1:planned",
+        "RWA-S1-ict-topic-004:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-4-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p030",
+      "title": "Safe, secure and ethical use of computers: Learn",
+      "content": "Safe, secure and ethical use of computers is a practical digital skill. Learn it by naming the task, following exact steps, checking the output, and using devices safely.\n\nCore idea:\n- Start with the purpose: communication, data handling, file management, research, creation, or problem solving.\n- Name the tool: device, keyboard, folder, document, spreadsheet, browser, network, software, or file.\n- Follow steps in order and avoid random clicking.\n- Protect privacy, passwords, shared devices, and other people's files.\n- Check the result by reopening, testing, proofreading, or asking whether the output matches the task.\n\nKey words:\n- Safe, secure and ethical use of computers\n- Safe\n- secure\n- ethical\n- computers\n- idea\n- skill\n- example",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "RWA-S1-ict-topic-004:learn:visual-1:planned",
+        "RWA-S1-ict-topic-004:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-4-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p031",
+      "title": "Safe, secure and ethical use of computers: Worked Example",
+      "content": "Worked example for Safe, secure and ethical use of computers: Organize a class assignment file safely.\n\n1. Task: create a folder named class-work on the school computer or approved device.\n2. Inside the folder, create a document called safe-secure-and-ethical-use-of-computers-notes.\n3. Type a clear heading and three short notes about the topic.\n4. Save the file, close it, reopen it, and check that the content is still there.\n5. Apply one safety rule: use only your own file, keep passwords private, and ask before using shared devices.\n\nAnswer check: the folder name is clear, the file opens correctly, and the learner can explain every step without guessing.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "RWA-S1-ict-topic-004:example:visual-1:planned",
+        "RWA-S1-ict-topic-004:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-4-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p032",
+      "title": "Safe, secure and ethical use of computers: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Safe, secure and ethical use of computers. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Safe, secure and ethical use of computers\n- Safe\n- secure\n- ethical\n- computers\n- idea\n- skill\n- example\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Safe, secure and ethical use of computers without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 127,
+      "imageRefs": [
+        "RWA-S1-ict-topic-004:vocabulary:visual-1:planned",
+        "RWA-S1-ict-topic-004:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-4-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p033",
+      "title": "Safe, secure and ethical use of computers: Guided Activity",
+      "content": "Guided digital activity for Safe, secure and ethical use of computers:\n\n1. Read the task and name the exact output: file, table, document, diagram, message, algorithm, or safety checklist.\n2. List the device, software, data, and safety rule needed before starting.\n3. Complete the output in small steps and say each step aloud to a partner.\n4. Save, reopen, test, proofread, or inspect the output.\n5. Write one correction you made and one rule that protects privacy or shared equipment.\n\nTeacher check: the learner should explain the process, not only show a finished screen.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "RWA-S1-ict-topic-004:activity:visual-1:planned",
+        "RWA-S1-ict-topic-004:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-4-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p034",
+      "title": "Safe, secure and ethical use of computers: Practice And Correction",
+      "content": "Digital practice for Safe, secure and ethical use of computers:\n\n1. Complete a small digital-skills task for Safe, secure and ethical use of computers: maintain a computer in good working condition and use it safely, securely and ethically. Write the exact steps, safety rule, file or device choice, check result, and one correction.\n\nQuality checklist:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected\n\nEvidence to show:\n- a clear file name, table, document, diagram, algorithm, screenshot description, or step list\n- one safety or privacy rule\n- one test or correction\n\nHome link: describe one safe digital habit someone at home or school should follow.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 113,
+      "imageRefs": [
+        "RWA-S1-ict-topic-004:practice:visual-1:planned",
+        "RWA-S1-ict-topic-004:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-4-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p035",
+      "title": "Safe, secure and ethical use of computers: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Safe, secure and ethical use of computers.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 111,
+      "imageRefs": [
+        "RWA-S1-ict-topic-004:remediation:visual-1:planned",
+        "RWA-S1-ict-topic-004:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-4-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p036",
+      "title": "Safe, secure and ethical use of computers: Outcome Check",
+      "content": "Outcome check for Safe, secure and ethical use of computers: Maintain a computer in good working condition and use it safely, securely and ethically.\n\n1. State the digital task and the intended output.\n2. List the exact device, software, file, data, or network step needed.\n3. Create or describe the output in a way another learner can inspect.\n4. Test the output and write one correction.\n5. Add one privacy, password, copyright, ergonomics, or shared-device safety rule.\n\nSuccess criteria:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "RWA-S1-ict-topic-004:assessment:visual-1:planned",
+        "RWA-S1-ict-topic-004:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-4-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p037",
+      "title": "Word processing basics I: Lesson Opener",
+      "content": "Learning focus: Word processing basics I\n\nCountry link: a Rwandan school computer, phone, file, document, spreadsheet, network, or online-safety task for Word processing basics I.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; produce a checkable digital output and explain safe steps.\n\nBy the end of this topic, you should be able to:\n- create and manipulate a document using basic word processing features\n\nInquiry questions:\n- How can word processing basics i help you solve a real problem in ICT?\n\nSuccess criteria:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 102,
+      "imageRefs": [
+        "RWA-S1-ict-topic-005:opener:visual-1:planned",
+        "RWA-S1-ict-topic-005:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-5-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p038",
+      "title": "Word processing basics I: Learn",
+      "content": "Word processing basics I is a practical digital skill. Learn it by naming the task, following exact steps, checking the output, and using devices safely.\n\nCore idea:\n- Start with the purpose: communication, data handling, file management, research, creation, or problem solving.\n- Name the tool: device, keyboard, folder, document, spreadsheet, browser, network, software, or file.\n- Follow steps in order and avoid random clicking.\n- Protect privacy, passwords, shared devices, and other people's files.\n- Check the result by reopening, testing, proofreading, or asking whether the output matches the task.\n\nKey words:\n- Word processing basics I\n- Word\n- processing\n- basics\n- idea\n- skill\n- example\n- practice",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "RWA-S1-ict-topic-005:learn:visual-1:planned",
+        "RWA-S1-ict-topic-005:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-5-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p039",
+      "title": "Word processing basics I: Worked Example",
+      "content": "Worked example for Word processing basics I: Organize a class assignment file safely.\n\n1. Task: create a folder named class-work on the school computer or approved device.\n2. Inside the folder, create a document called word-processing-basics-i-notes.\n3. Type a clear heading and three short notes about the topic.\n4. Save the file, close it, reopen it, and check that the content is still there.\n5. Apply one safety rule: use only your own file, keep passwords private, and ask before using shared devices.\n\nAnswer check: the folder name is clear, the file opens correctly, and the learner can explain every step without guessing.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "RWA-S1-ict-topic-005:example:visual-1:planned",
+        "RWA-S1-ict-topic-005:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-5-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p040",
+      "title": "Word processing basics I: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Word processing basics I. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Word processing basics I\n- Word\n- processing\n- basics\n- idea\n- skill\n- example\n- practice\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Word processing basics I without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "RWA-S1-ict-topic-005:vocabulary:visual-1:planned",
+        "RWA-S1-ict-topic-005:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-5-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p041",
+      "title": "Word processing basics I: Guided Activity",
+      "content": "Guided digital activity for Word processing basics I:\n\n1. Read the task and name the exact output: file, table, document, diagram, message, algorithm, or safety checklist.\n2. List the device, software, data, and safety rule needed before starting.\n3. Complete the output in small steps and say each step aloud to a partner.\n4. Save, reopen, test, proofread, or inspect the output.\n5. Write one correction you made and one rule that protects privacy or shared equipment.\n\nTeacher check: the learner should explain the process, not only show a finished screen.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "RWA-S1-ict-topic-005:activity:visual-1:planned",
+        "RWA-S1-ict-topic-005:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-5-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p042",
+      "title": "Word processing basics I: Practice And Correction",
+      "content": "Digital practice for Word processing basics I:\n\n1. Complete a small digital-skills task for Word processing basics I: create and manipulate a document using basic word processing features. Write the exact steps, safety rule, file or device choice, check result, and one correction.\n\nQuality checklist:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected\n\nEvidence to show:\n- a clear file name, table, document, diagram, algorithm, screenshot description, or step list\n- one safety or privacy rule\n- one test or correction\n\nHome link: describe one safe digital habit someone at home or school should follow.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "RWA-S1-ict-topic-005:practice:visual-1:planned",
+        "RWA-S1-ict-topic-005:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-5-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p043",
+      "title": "Word processing basics I: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Word processing basics I.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "RWA-S1-ict-topic-005:remediation:visual-1:planned",
+        "RWA-S1-ict-topic-005:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-5-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p044",
+      "title": "Word processing basics I: Outcome Check",
+      "content": "Outcome check for Word processing basics I: Create and manipulate a document using basic word processing features.\n\n1. State the digital task and the intended output.\n2. List the exact device, software, file, data, or network step needed.\n3. Create or describe the output in a way another learner can inspect.\n4. Test the output and write one correction.\n5. Add one privacy, password, copyright, ergonomics, or shared-device safety rule.\n\nSuccess criteria:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 88,
+      "imageRefs": [
+        "RWA-S1-ict-topic-005:assessment:visual-1:planned",
+        "RWA-S1-ict-topic-005:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-5-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p045",
+      "title": "Word processing basics II: Lesson Opener",
+      "content": "Learning focus: Word processing basics II\n\nCountry link: a Rwandan school computer, phone, file, document, spreadsheet, network, or online-safety task for Word processing basics II.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; produce a checkable digital output and explain safe steps.\n\nBy the end of this topic, you should be able to:\n- manipulate text and use advanced formatting methods and add simple objects in a document\n\nInquiry questions:\n- How can word processing basics ii help you solve a real problem in ICT?\n\nSuccess criteria:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "RWA-S1-ict-topic-006:opener:visual-1:planned",
+        "RWA-S1-ict-topic-006:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-6-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p046",
+      "title": "Word processing basics II: Learn",
+      "content": "Word processing basics II is a practical digital skill. Learn it by naming the task, following exact steps, checking the output, and using devices safely.\n\nCore idea:\n- Start with the purpose: communication, data handling, file management, research, creation, or problem solving.\n- Name the tool: device, keyboard, folder, document, spreadsheet, browser, network, software, or file.\n- Follow steps in order and avoid random clicking.\n- Protect privacy, passwords, shared devices, and other people's files.\n- Check the result by reopening, testing, proofreading, or asking whether the output matches the task.\n\nKey words:\n- Word processing basics II\n- Word\n- processing\n- basics\n- idea\n- skill\n- example\n- practice",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "RWA-S1-ict-topic-006:learn:visual-1:planned",
+        "RWA-S1-ict-topic-006:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-6-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p047",
+      "title": "Word processing basics II: Worked Example",
+      "content": "Worked example for Word processing basics II: Organize a class assignment file safely.\n\n1. Task: create a folder named class-work on the school computer or approved device.\n2. Inside the folder, create a document called word-processing-basics-ii-notes.\n3. Type a clear heading and three short notes about the topic.\n4. Save the file, close it, reopen it, and check that the content is still there.\n5. Apply one safety rule: use only your own file, keep passwords private, and ask before using shared devices.\n\nAnswer check: the folder name is clear, the file opens correctly, and the learner can explain every step without guessing.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "RWA-S1-ict-topic-006:example:visual-1:planned",
+        "RWA-S1-ict-topic-006:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-6-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p048",
+      "title": "Word processing basics II: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Word processing basics II. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Word processing basics II\n- Word\n- processing\n- basics\n- idea\n- skill\n- example\n- practice\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Word processing basics II without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "RWA-S1-ict-topic-006:vocabulary:visual-1:planned",
+        "RWA-S1-ict-topic-006:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-6-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p049",
+      "title": "Word processing basics II: Guided Activity",
+      "content": "Guided digital activity for Word processing basics II:\n\n1. Read the task and name the exact output: file, table, document, diagram, message, algorithm, or safety checklist.\n2. List the device, software, data, and safety rule needed before starting.\n3. Complete the output in small steps and say each step aloud to a partner.\n4. Save, reopen, test, proofread, or inspect the output.\n5. Write one correction you made and one rule that protects privacy or shared equipment.\n\nTeacher check: the learner should explain the process, not only show a finished screen.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "RWA-S1-ict-topic-006:activity:visual-1:planned",
+        "RWA-S1-ict-topic-006:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-6-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p050",
+      "title": "Word processing basics II: Practice And Correction",
+      "content": "Digital practice for Word processing basics II:\n\n1. Complete a small digital-skills task for Word processing basics II: manipulate text and use advanced formatting methods and add simple objects in a document. Write the exact steps, safety rule, file or device choice, check result, and one correction.\n\nQuality checklist:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected\n\nEvidence to show:\n- a clear file name, table, document, diagram, algorithm, screenshot description, or step list\n- one safety or privacy rule\n- one test or correction\n\nHome link: describe one safe digital habit someone at home or school should follow.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "RWA-S1-ict-topic-006:practice:visual-1:planned",
+        "RWA-S1-ict-topic-006:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-6-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p051",
+      "title": "Word processing basics II: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Word processing basics II.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "RWA-S1-ict-topic-006:remediation:visual-1:planned",
+        "RWA-S1-ict-topic-006:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-6-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p052",
+      "title": "Word processing basics II: Outcome Check",
+      "content": "Outcome check for Word processing basics II: Manipulate text and use advanced formatting methods and add simple objects in a document.\n\n1. State the digital task and the intended output.\n2. List the exact device, software, file, data, or network step needed.\n3. Create or describe the output in a way another learner can inspect.\n4. Test the output and write one correction.\n5. Add one privacy, password, copyright, ergonomics, or shared-device safety rule.\n\nSuccess criteria:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "RWA-S1-ict-topic-006:assessment:visual-1:planned",
+        "RWA-S1-ict-topic-006:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-6-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p053",
+      "title": "GIS and maps: Lesson Opener",
+      "content": "Learning focus: GIS and maps\n\nCountry link: a Rwandan school computer, phone, file, document, spreadsheet, network, or online-safety task for GIS and maps.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; produce a checkable digital output and explain safe steps.\n\nBy the end of this topic, you should be able to:\n- explain and apply gis and maps in a real learning situation\n\nInquiry questions:\n- How can gis and maps help you solve a real problem in ICT?\n\nSuccess criteria:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 100,
+      "imageRefs": [
+        "RWA-S1-ict-topic-007:opener:visual-1:planned",
+        "RWA-S1-ict-topic-007:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-7-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p054",
+      "title": "GIS and maps: Learn",
+      "content": "GIS and maps is a practical digital skill. Learn it by naming the task, following exact steps, checking the output, and using devices safely.\n\nCore idea:\n- Start with the purpose: communication, data handling, file management, research, creation, or problem solving.\n- Name the tool: device, keyboard, folder, document, spreadsheet, browser, network, software, or file.\n- Follow steps in order and avoid random clicking.\n- Protect privacy, passwords, shared devices, and other people's files.\n- Check the result by reopening, testing, proofreading, or asking whether the output matches the task.\n\nKey words:\n- GIS and maps\n- maps\n- idea\n- skill\n- example\n- practice\n- correction",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "RWA-S1-ict-topic-007:learn:visual-1:planned",
+        "RWA-S1-ict-topic-007:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-7-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p055",
+      "title": "GIS and maps: Worked Example",
+      "content": "Worked example for GIS and maps: Organize a class assignment file safely.\n\n1. Task: create a folder named class-work on the school computer or approved device.\n2. Inside the folder, create a document called gis-and-maps-notes.\n3. Type a clear heading and three short notes about the topic.\n4. Save the file, close it, reopen it, and check that the content is still there.\n5. Apply one safety rule: use only your own file, keep passwords private, and ask before using shared devices.\n\nAnswer check: the folder name is clear, the file opens correctly, and the learner can explain every step without guessing.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 102,
+      "imageRefs": [
+        "RWA-S1-ict-topic-007:example:visual-1:planned",
+        "RWA-S1-ict-topic-007:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-7-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p056",
+      "title": "GIS and maps: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise GIS and maps. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- GIS and maps\n- maps\n- idea\n- skill\n- example\n- practice\n- correction\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about GIS and maps without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 113,
+      "imageRefs": [
+        "RWA-S1-ict-topic-007:vocabulary:visual-1:planned",
+        "RWA-S1-ict-topic-007:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-7-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p057",
+      "title": "GIS and maps: Guided Activity",
+      "content": "Guided digital activity for GIS and maps:\n\n1. Read the task and name the exact output: file, table, document, diagram, message, algorithm, or safety checklist.\n2. List the device, software, data, and safety rule needed before starting.\n3. Complete the output in small steps and say each step aloud to a partner.\n4. Save, reopen, test, proofread, or inspect the output.\n5. Write one correction you made and one rule that protects privacy or shared equipment.\n\nTeacher check: the learner should explain the process, not only show a finished screen.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "RWA-S1-ict-topic-007:activity:visual-1:planned",
+        "RWA-S1-ict-topic-007:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-7-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p058",
+      "title": "GIS and maps: Practice And Correction",
+      "content": "Digital practice for GIS and maps:\n\n1. Complete a small digital-skills task for GIS and maps: explain and apply gis and maps in a real learning situation. Write the exact steps, safety rule, file or device choice, check result, and one correction.\n\nQuality checklist:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected\n\nEvidence to show:\n- a clear file name, table, document, diagram, algorithm, screenshot description, or step list\n- one safety or privacy rule\n- one test or correction\n\nHome link: describe one safe digital habit someone at home or school should follow.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 102,
+      "imageRefs": [
+        "RWA-S1-ict-topic-007:practice:visual-1:planned",
+        "RWA-S1-ict-topic-007:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-7-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p059",
+      "title": "GIS and maps: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from GIS and maps.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "RWA-S1-ict-topic-007:remediation:visual-1:planned",
+        "RWA-S1-ict-topic-007:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-7-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p060",
+      "title": "GIS and maps: Outcome Check",
+      "content": "Outcome check for GIS and maps: Explain and apply gis and maps in a real learning situation.\n\n1. State the digital task and the intended output.\n2. List the exact device, software, file, data, or network step needed.\n3. Create or describe the output in a way another learner can inspect.\n4. Test the output and write one correction.\n5. Add one privacy, password, copyright, ergonomics, or shared-device safety rule.\n\nSuccess criteria:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 88,
+      "imageRefs": [
+        "RWA-S1-ict-topic-007:assessment:visual-1:planned",
+        "RWA-S1-ict-topic-007:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-7-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p061",
+      "title": "Network and internet fundamentals: Lesson Opener",
+      "content": "Learning focus: Network and internet fundamentals\n\nCountry link: a Rwandan school computer, phone, file, document, spreadsheet, network, or online-safety task for Network and internet fundamentals.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; produce a checkable digital output and explain safe steps.\n\nBy the end of this topic, you should be able to:\n- understand the rationale of a computer network and use the internet efficiently and effectively\n\nInquiry questions:\n- How can network and internet fundamentals help you solve a real problem in ICT?\n\nSuccess criteria:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "RWA-S1-ict-topic-008:opener:visual-1:planned",
+        "RWA-S1-ict-topic-008:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-8-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p062",
+      "title": "Network and internet fundamentals: Learn",
+      "content": "Network and internet fundamentals is a practical digital skill. Learn it by naming the task, following exact steps, checking the output, and using devices safely.\n\nCore idea:\n- Start with the purpose: communication, data handling, file management, research, creation, or problem solving.\n- Name the tool: device, keyboard, folder, document, spreadsheet, browser, network, software, or file.\n- Follow steps in order and avoid random clicking.\n- Protect privacy, passwords, shared devices, and other people's files.\n- Check the result by reopening, testing, proofreading, or asking whether the output matches the task.\n\nKey words:\n- Network and internet fundamentals\n- Network\n- internet\n- fundamentals\n- idea\n- skill\n- example\n- practice",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "RWA-S1-ict-topic-008:learn:visual-1:planned",
+        "RWA-S1-ict-topic-008:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-8-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p063",
+      "title": "Network and internet fundamentals: Worked Example",
+      "content": "Worked example for Network and internet fundamentals: Organize a class assignment file safely.\n\n1. Task: create a folder named class-work on the school computer or approved device.\n2. Inside the folder, create a document called network-and-internet-fundamentals-notes.\n3. Type a clear heading and three short notes about the topic.\n4. Save the file, close it, reopen it, and check that the content is still there.\n5. Apply one safety rule: use only your own file, keep passwords private, and ask before using shared devices.\n\nAnswer check: the folder name is clear, the file opens correctly, and the learner can explain every step without guessing.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "RWA-S1-ict-topic-008:example:visual-1:planned",
+        "RWA-S1-ict-topic-008:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-8-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p064",
+      "title": "Network and internet fundamentals: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Network and internet fundamentals. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Network and internet fundamentals\n- Network\n- internet\n- fundamentals\n- idea\n- skill\n- example\n- practice\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Network and internet fundamentals without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "RWA-S1-ict-topic-008:vocabulary:visual-1:planned",
+        "RWA-S1-ict-topic-008:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-8-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p065",
+      "title": "Network and internet fundamentals: Guided Activity",
+      "content": "Guided digital activity for Network and internet fundamentals:\n\n1. Read the task and name the exact output: file, table, document, diagram, message, algorithm, or safety checklist.\n2. List the device, software, data, and safety rule needed before starting.\n3. Complete the output in small steps and say each step aloud to a partner.\n4. Save, reopen, test, proofread, or inspect the output.\n5. Write one correction you made and one rule that protects privacy or shared equipment.\n\nTeacher check: the learner should explain the process, not only show a finished screen.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "RWA-S1-ict-topic-008:activity:visual-1:planned",
+        "RWA-S1-ict-topic-008:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-8-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p066",
+      "title": "Network and internet fundamentals: Practice And Correction",
+      "content": "Digital practice for Network and internet fundamentals:\n\n1. Complete a small digital-skills task for Network and internet fundamentals: understand the rationale of a computer network and use the internet efficiently and effectively. Write the exact steps, safety rule, file or device choice, check result, and one correction.\n\nQuality checklist:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected\n\nEvidence to show:\n- a clear file name, table, document, diagram, algorithm, screenshot description, or step list\n- one safety or privacy rule\n- one test or correction\n\nHome link: describe one safe digital habit someone at home or school should follow.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "RWA-S1-ict-topic-008:practice:visual-1:planned",
+        "RWA-S1-ict-topic-008:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-8-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p067",
+      "title": "Network and internet fundamentals: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Network and internet fundamentals.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "RWA-S1-ict-topic-008:remediation:visual-1:planned",
+        "RWA-S1-ict-topic-008:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-8-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p068",
+      "title": "Network and internet fundamentals: Outcome Check",
+      "content": "Outcome check for Network and internet fundamentals: Understand the rationale of a computer network and use the internet efficiently and effectively.\n\n1. State the digital task and the intended output.\n2. List the exact device, software, file, data, or network step needed.\n3. Create or describe the output in a way another learner can inspect.\n4. Test the output and write one correction.\n5. Add one privacy, password, copyright, ergonomics, or shared-device safety rule.\n\nSuccess criteria:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "RWA-S1-ict-topic-008:assessment:visual-1:planned",
+        "RWA-S1-ict-topic-008:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-8-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p069",
+      "title": "Music Sprite programming: Lesson Opener",
+      "content": "Learning focus: Music Sprite programming\n\nCountry link: a Rwandan school computer, phone, file, document, spreadsheet, network, or online-safety task for Music Sprite programming.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; produce a checkable digital output and explain safe steps.\n\nBy the end of this topic, you should be able to:\n- create a music sprite and add music with scratch and audacity\n\nInquiry questions:\n- How can music sprite programming help you solve a real problem in ICT?\n\nSuccess criteria:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 100,
+      "imageRefs": [
+        "RWA-S1-ict-topic-009:opener:visual-1:planned",
+        "RWA-S1-ict-topic-009:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-9-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p070",
+      "title": "Music Sprite programming: Learn",
+      "content": "Music Sprite programming is a practical digital skill. Learn it by naming the task, following exact steps, checking the output, and using devices safely.\n\nCore idea:\n- Start with the purpose: communication, data handling, file management, research, creation, or problem solving.\n- Name the tool: device, keyboard, folder, document, spreadsheet, browser, network, software, or file.\n- Follow steps in order and avoid random clicking.\n- Protect privacy, passwords, shared devices, and other people's files.\n- Check the result by reopening, testing, proofreading, or asking whether the output matches the task.\n\nKey words:\n- Music Sprite programming\n- Music\n- Sprite\n- programming\n- idea\n- skill\n- example\n- practice",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 110,
+      "imageRefs": [
+        "RWA-S1-ict-topic-009:learn:visual-1:planned",
+        "RWA-S1-ict-topic-009:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-9-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p071",
+      "title": "Music Sprite programming: Worked Example",
+      "content": "Worked example for Music Sprite programming: Organize a class assignment file safely.\n\n1. Task: create a folder named class-work on the school computer or approved device.\n2. Inside the folder, create a document called music-sprite-programming-notes.\n3. Type a clear heading and three short notes about the topic.\n4. Save the file, close it, reopen it, and check that the content is still there.\n5. Apply one safety rule: use only your own file, keep passwords private, and ask before using shared devices.\n\nAnswer check: the folder name is clear, the file opens correctly, and the learner can explain every step without guessing.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 102,
+      "imageRefs": [
+        "RWA-S1-ict-topic-009:example:visual-1:planned",
+        "RWA-S1-ict-topic-009:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-9-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p072",
+      "title": "Music Sprite programming: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Music Sprite programming. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Music Sprite programming\n- Music\n- Sprite\n- programming\n- idea\n- skill\n- example\n- practice\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Music Sprite programming without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "RWA-S1-ict-topic-009:vocabulary:visual-1:planned",
+        "RWA-S1-ict-topic-009:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-9-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p073",
+      "title": "Music Sprite programming: Guided Activity",
+      "content": "Guided digital activity for Music Sprite programming:\n\n1. Read the task and name the exact output: file, table, document, diagram, message, algorithm, or safety checklist.\n2. List the device, software, data, and safety rule needed before starting.\n3. Complete the output in small steps and say each step aloud to a partner.\n4. Save, reopen, test, proofread, or inspect the output.\n5. Write one correction you made and one rule that protects privacy or shared equipment.\n\nTeacher check: the learner should explain the process, not only show a finished screen.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "RWA-S1-ict-topic-009:activity:visual-1:planned",
+        "RWA-S1-ict-topic-009:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-9-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p074",
+      "title": "Music Sprite programming: Practice And Correction",
+      "content": "Digital practice for Music Sprite programming:\n\n1. Complete a small digital-skills task for Music Sprite programming: create a music sprite and add music with scratch and audacity. Write the exact steps, safety rule, file or device choice, check result, and one correction.\n\nQuality checklist:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected\n\nEvidence to show:\n- a clear file name, table, document, diagram, algorithm, screenshot description, or step list\n- one safety or privacy rule\n- one test or correction\n\nHome link: describe one safe digital habit someone at home or school should follow.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 102,
+      "imageRefs": [
+        "RWA-S1-ict-topic-009:practice:visual-1:planned",
+        "RWA-S1-ict-topic-009:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-9-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p075",
+      "title": "Music Sprite programming: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Music Sprite programming.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "RWA-S1-ict-topic-009:remediation:visual-1:planned",
+        "RWA-S1-ict-topic-009:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-9-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p076",
+      "title": "Music Sprite programming: Outcome Check",
+      "content": "Outcome check for Music Sprite programming: Create a music sprite and add music with scratch and audacity.\n\n1. State the digital task and the intended output.\n2. List the exact device, software, file, data, or network step needed.\n3. Create or describe the output in a way another learner can inspect.\n4. Test the output and write one correction.\n5. Add one privacy, password, copyright, ergonomics, or shared-device safety rule.\n\nSuccess criteria:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 88,
+      "imageRefs": [
+        "RWA-S1-ict-topic-009:assessment:visual-1:planned",
+        "RWA-S1-ict-topic-009:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-9-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p077",
+      "title": "ICT foundation: Review Clinic 1",
+      "content": "Use this review clinic to strengthen ICT without copying earlier answers.\n\n1. Choose one idea from ICT foundation that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Rwanda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 75,
+      "imageRefs": [
+        "RWA-S1-ict-topic-001:review:visual-1:planned",
+        "RWA-S1-ict-topic-001:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p078",
+      "title": "Computer systems: Review Clinic 2",
+      "content": "Use this review clinic to strengthen ICT without copying earlier answers.\n\n1. Choose one idea from Computer systems that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Rwanda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 75,
+      "imageRefs": [
+        "RWA-S1-ict-topic-002:review:visual-1:planned",
+        "RWA-S1-ict-topic-002:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p079",
+      "title": "Computer navigation: Review Clinic 3",
+      "content": "Use this review clinic to strengthen ICT without copying earlier answers.\n\n1. Choose one idea from Computer navigation that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Rwanda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 75,
+      "imageRefs": [
+        "RWA-S1-ict-topic-003:review:visual-1:planned",
+        "RWA-S1-ict-topic-003:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-3-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p080",
+      "title": "Safe, secure and ethical use of computers: Review Clinic 4",
+      "content": "Use this review clinic to strengthen ICT without copying earlier answers.\n\n1. Choose one idea from Safe, secure and ethical use of computers that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Rwanda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 80,
+      "imageRefs": [
+        "RWA-S1-ict-topic-004:review:visual-1:planned",
+        "RWA-S1-ict-topic-004:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-4-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p081",
+      "title": "ICT foundation: Application Workshop 1",
+      "content": "Digital application workshop 1 for ICT foundation.\n\nGrade move: build lower-secondary foundations with clear vocabulary and guided application; produce a checkable digital output and explain safe steps.\n\nUse this page to make the digital skill practical and checkable.\n\n1. Define the task and output: document, table, folder, message, search result, algorithm, diagram, or safety checklist.\n2. List the device, software, file name, data, and safety rule needed.\n3. Write the exact steps before using the device.\n4. Create or describe the output clearly enough for another learner to inspect.\n5. Test the result by reopening, checking, proofreading, tracing, or comparing with the task.\n6. Record one correction and one digital-safety habit.\n\nExtension: explain how the same skill could help a class project.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 122,
+      "imageRefs": [
+        "RWA-S1-ict-topic-001:application-workshop:visual-1:planned",
+        "RWA-S1-ict-topic-001:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p082",
+      "title": "Computer systems: Application Workshop 2",
+      "content": "Digital application workshop 2 for Computer systems.\n\nGrade move: build lower-secondary foundations with clear vocabulary and guided application; produce a checkable digital output and explain safe steps.\n\nUse this page to make the digital skill practical and checkable.\n\n1. Define the task and output: document, table, folder, message, search result, algorithm, diagram, or safety checklist.\n2. List the device, software, file name, data, and safety rule needed.\n3. Write the exact steps before using the device.\n4. Create or describe the output clearly enough for another learner to inspect.\n5. Test the result by reopening, checking, proofreading, tracing, or comparing with the task.\n6. Record one correction and one digital-safety habit.\n\nExtension: explain how the same skill could help a class project.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 122,
+      "imageRefs": [
+        "RWA-S1-ict-topic-002:application-workshop:visual-1:planned",
+        "RWA-S1-ict-topic-002:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-strand"
+      ],
+      "unitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "78cd8260-d04a-4685-9531-652db20efea9-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p083",
+      "title": "Glossary",
+      "content": "Use this glossary to revise important words in ICT.\n\n- ICT foundation: Explain this term using an example from the book, your school, or your community.\n- Computer systems: Explain this term using an example from the book, your school, or your community.\n- Computer navigation: Explain this term using an example from the book, your school, or your community.\n- Safe, secure and ethical use of computers: Explain this term using an example from the book, your school, or your community.\n- Word processing basics I: Explain this term using an example from the book, your school, or your community.\n- Word processing basics II: Explain this term using an example from the book, your school, or your community.\n- GIS and maps: Explain this term using an example from the book, your school, or your community.\n- Network and internet fundamentals: Explain this term using an example from the book, your school, or your community.\n- Music Sprite programming: Explain this term using an example from the book, your school, or your community.\n\nAdd five more words from your lessons and write your own meanings.",
+      "pageType": "glossary",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 187,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p084",
+      "title": "Answer And Teacher Notes",
+      "content": "A strong ICT answer responds to the exact task, uses correct vocabulary, gives a clear example or evidence, and shows correction after feedback. For practical work, name materials, safety, process, quality checks, peer feedback, and one improvement made after review.",
+      "pageType": "answer-notes",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 40,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-ict-p085",
+      "title": "Final Project",
+      "content": "Create a final project for ICT that shows what you can now do independently.\n\nYour project must include:\n1. A clear title.\n2. A real-life problem, question, text, performance, investigation, design, or worked task.\n3. Evidence from at least three lessons in this book.\n4. A drawing, table, map, chart, model, dialogue, paragraph, performance plan, practical product, or worked solution.\n5. A correction note showing one improvement after feedback.\n6. A short reflection explaining what you learned, what was difficult, and what you will practise next.\n\nPresentation check: keep the work neat, label important parts, use correct vocabulary, and be ready to explain your choices to a classmate or teacher.",
+      "pageType": "project",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 110,
+      "imageRefs": []
+    }
+  ]
+}

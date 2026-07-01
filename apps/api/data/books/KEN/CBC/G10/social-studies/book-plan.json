@@ -1,0 +1,2817 @@
+{
+  "schemaVersion": 1,
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 10",
+  "subject": "Social Studies",
+  "generatedAt": "2026-07-01T13:20:31Z",
+  "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142",
+  "ageBand": {
+    "band": "senior-secondary",
+    "language": "exam-ready precision with terms explained before use",
+    "taskDepth": "worked solutions, synthesis tasks, and evidence-based explanations"
+  },
+  "writingStandard": {
+    "voice": "simple, conversational, purposeful, and learner-first",
+    "antiFluff": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "coversDeferred": true
+  },
+  "strands": [
+    {
+      "strandId": "ccddfe48-013f-4fe1-ab1e-392971eb298a",
+      "number": "1.0",
+      "title": "Themes in Kenyan History and Citizenship",
+      "topicCount": 15
+    },
+    {
+      "strandId": "cd3b4612-f36e-46b3-954c-1c9018b90c9e",
+      "number": "2.0",
+      "title": "Themes in African History and Citizenship",
+      "topicCount": 5
+    },
+    {
+      "strandId": "a9f3333c-ed96-47f0-a70d-67afacc9400f",
+      "number": "3.0",
+      "title": "Themes in World History and Citizenship",
+      "topicCount": 9
+    },
+    {
+      "strandId": "7ae2f5d5-ec49-4baf-b3bf-023e5411b8a0",
+      "number": "4.0",
+      "title": "Themes in Contemporary History and Citizenship",
+      "topicCount": 3
+    }
+  ],
+  "topics": [
+    {
+      "topicId": "G10-social-studies-topic-001",
+      "strandId": "ccddfe48-013f-4fe1-ab1e-392971eb298a",
+      "parentSubStrandId": "5f4b5e6e-01f2-460e-96df-7933aa7727ca",
+      "subStrandId": "5f4b5e6e-01f2-460e-96df-7933aa7727ca",
+      "strandTitle": "Themes in Kenyan History and Citizenship",
+      "unitTitle": "Introduction to History and Citizenship",
+      "sourceUnitTitle": "Introduction to History and Citizenship",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-social-1-1-outcome-1",
+          "text": "analyse the extent to which the different branches of History and Citizenship influence contemporary society"
+        },
+        {
+          "id": "grade-10-social-1-1-outcome-2",
+          "text": "classify sources of information on History and Citizenship in Kenya"
+        },
+        {
+          "id": "grade-10-social-1-1-outcome-3",
+          "text": "examine how the past historical information has shaped the modern History and Citizenship"
+        },
+        {
+          "id": "grade-10-social-1-1-outcome-4",
+          "text": "studying History and Citizenship"
+        }
+      ],
+      "inquiryQuestions": [
+        "What are the sources of history and citizenship in Kenya?",
+        "How do primary and secondary sources differ in their usefulness and limitations when studying historical events?",
+        "How can digital tools and archives be strategically used to enhance access to diverse historical sources?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Introduction to History and Citizenship.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Introduction to History and Citizenship",
+        "Introduction",
+        "History",
+        "Citizenship"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Introduction to History and Citizenship",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Introduction to History and Citizenship",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Introduction to History and Citizenship",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ba2d8ce8-fd00-4322-ba3f-02cdb0ae38c0",
+          "officialTitle": "Competency Based Curriculum Grade 10 Geography",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e4e32dda-56e1-4dfa-b66f-d9ed6c7af335",
+          "officialTitle": "Competency Based Curriculum Grade 10 History and Citizenship",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-social-studies-topic-002",
+      "strandId": "ccddfe48-013f-4fe1-ab1e-392971eb298a",
+      "parentSubStrandId": "070667c8-20ab-4274-90eb-fde8cf0071c8",
+      "subStrandId": "070667c8-20ab-4274-90eb-fde8cf0071c8:topic-1",
+      "strandTitle": "Themes in Kenyan History and Citizenship",
+      "unitTitle": "Linguistic groups in Kenya: explore the causes of migration, settlement and expansion",
+      "sourceUnitTitle": "Linguistic groups in Kenya",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-social-1-2-outcome-1",
+          "text": "explore the causes of migration, settlement and expansion of Linguistic groups"
+        },
+        {
+          "id": "grade-10-social-1-2-outcome-2",
+          "text": "discuss the effects of migration, settlement and expansion of Linguistic groups"
+        },
+        {
+          "id": "grade-10-social-1-2-outcome-3",
+          "text": "trace the origin,,migration routes and settlement areas of the linguistic groups in Kenya"
+        },
+        {
+          "id": "grade-10-social-1-2-outcome-4",
+          "text": "illustrate knowledge of how diverse communities promote socio-economic and political interactions in Kenya"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can you promote harmonious living among the diverse communities of Kenya?",
+        "What are the factors influencing migrations and settlement in the contemporary society?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Linguistic groups in Kenya.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Linguistic groups in Kenya: explore the causes of migration, settlement and expansion",
+        "Linguistic groups in Kenya",
+        "Linguistic",
+        "groups",
+        "Kenya",
+        "explore",
+        "causes",
+        "migration"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Linguistic groups in Kenya: explore the causes of migration, settlement and expansion",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Linguistic groups in Kenya: explore the causes of migration, settlement and expansion",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Linguistic groups in Kenya: explore the causes of migration, settlement and expansion",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ba2d8ce8-fd00-4322-ba3f-02cdb0ae38c0",
+          "officialTitle": "Competency Based Curriculum Grade 10 Geography",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e4e32dda-56e1-4dfa-b66f-d9ed6c7af335",
+          "officialTitle": "Competency Based Curriculum Grade 10 History and Citizenship",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-social-studies-topic-003",
+      "strandId": "ccddfe48-013f-4fe1-ab1e-392971eb298a",
+      "parentSubStrandId": "070667c8-20ab-4274-90eb-fde8cf0071c8",
+      "subStrandId": "070667c8-20ab-4274-90eb-fde8cf0071c8:topic-2",
+      "strandTitle": "Themes in Kenyan History and Citizenship",
+      "unitTitle": "Linguistic groups in Kenya: diversity of communities in Kenya.",
+      "sourceUnitTitle": "Linguistic groups in Kenya",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-social-1-2-outcome-5",
+          "text": "recognise the diversity of communities in Kenya."
+        }
+      ],
+      "inquiryQuestions": [
+        "What are the factors influencing migrations and settlement in the contemporary society?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Linguistic groups in Kenya.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Linguistic groups in Kenya: diversity of communities in Kenya.",
+        "Linguistic groups in Kenya",
+        "Linguistic",
+        "groups",
+        "Kenya",
+        "diversity",
+        "communities",
+        "Kenya."
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Linguistic groups in Kenya: diversity of communities in Kenya.",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Linguistic groups in Kenya: diversity of communities in Kenya.",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Linguistic groups in Kenya: diversity of communities in Kenya.",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ba2d8ce8-fd00-4322-ba3f-02cdb0ae38c0",
+          "officialTitle": "Competency Based Curriculum Grade 10 Geography",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e4e32dda-56e1-4dfa-b66f-d9ed6c7af335",
+          "officialTitle": "Competency Based Curriculum Grade 10 History and Citizenship",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-social-studies-topic-004",
+      "strandId": "ccddfe48-013f-4fe1-ab1e-392971eb298a",
+      "parentSubStrandId": "bc175ae6-bf27-471e-af79-4afd99b98993",
+      "subStrandId": "bc175ae6-bf27-471e-af79-4afd99b98993:topic-1",
+      "strandTitle": "Themes in Kenyan History and Citizenship",
+      "unitTitle": "Establishment of colonial rule: examine the reasons for the establishment of colonial",
+      "sourceUnitTitle": "Establishment of colonial rule",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-social-1-3-outcome-1",
+          "text": "examine the reasons for the establishment of colonial rule in Kenya"
+        },
+        {
+          "id": "grade-10-social-1-3-outcome-2",
+          "text": "evaluate the methods applied by the British to establish colonial rule in Kenya"
+        },
+        {
+          "id": "grade-10-social-1-3-outcome-3",
+          "text": "discuss the process of establishment of colonial rule in Kenya"
+        },
+        {
+          "id": "grade-10-social-1-3-outcome-4",
+          "text": "explore the extent to which colonial system of administration has influenced the contemporary form of government"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can we maintain independence in daily lives?",
+        "Which examples of colonial system of administration are practised in the society today?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Establishment of colonial rule.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Establishment of colonial rule: examine the reasons for the establishment of colonial",
+        "Establishment of colonial rule",
+        "Establishment",
+        "colonial",
+        "rule",
+        "examine",
+        "reasons"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Establishment of colonial rule: examine the reasons for the establishment of colonial",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Establishment of colonial rule: examine the reasons for the establishment of colonial",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Establishment of colonial rule: examine the reasons for the establishment of colonial",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ba2d8ce8-fd00-4322-ba3f-02cdb0ae38c0",
+          "officialTitle": "Competency Based Curriculum Grade 10 Geography",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e4e32dda-56e1-4dfa-b66f-d9ed6c7af335",
+          "officialTitle": "Competency Based Curriculum Grade 10 History and Citizenship",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-social-studies-topic-005",
+      "strandId": "ccddfe48-013f-4fe1-ab1e-392971eb298a",
+      "parentSubStrandId": "bc175ae6-bf27-471e-af79-4afd99b98993",
+      "subStrandId": "bc175ae6-bf27-471e-af79-4afd99b98993:topic-2",
+      "strandTitle": "Themes in Kenyan History and Citizenship",
+      "unitTitle": "Establishment of colonial rule: desire to promote the sustainable self-rule in Kenya.",
+      "sourceUnitTitle": "Establishment of colonial rule",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-social-1-3-outcome-5",
+          "text": "desire to promote the sustainable self-rule in Kenya."
+        }
+      ],
+      "inquiryQuestions": [
+        "Which examples of colonial system of administration are practised in the society today?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Establishment of colonial rule.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Establishment of colonial rule: desire to promote the sustainable self-rule in Kenya.",
+        "Establishment of colonial rule",
+        "Establishment",
+        "colonial",
+        "rule",
+        "desire",
+        "promote",
+        "sustainable"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Establishment of colonial rule: desire to promote the sustainable self-rule in Kenya.",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Establishment of colonial rule: desire to promote the sustainable self-rule in Kenya.",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Establishment of colonial rule: desire to promote the sustainable self-rule in Kenya.",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ba2d8ce8-fd00-4322-ba3f-02cdb0ae38c0",
+          "officialTitle": "Competency Based Curriculum Grade 10 Geography",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e4e32dda-56e1-4dfa-b66f-d9ed6c7af335",
+          "officialTitle": "Competency Based Curriculum Grade 10 History and Citizenship",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-social-studies-topic-006",
+      "strandId": "ccddfe48-013f-4fe1-ab1e-392971eb298a",
+      "parentSubStrandId": "348a987d-7268-4426-96cb-7abd89cbb658",
+      "subStrandId": "348a987d-7268-4426-96cb-7abd89cbb658:topic-1",
+      "strandTitle": "Themes in Kenyan History and Citizenship",
+      "unitTitle": "Public Participation: categorise levels of public participation as enshrined",
+      "sourceUnitTitle": "Public Participation",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-social-1-4-outcome-1",
+          "text": "categorise levels of public participation as enshrined the Constitution of Kenya(2010)"
+        },
+        {
+          "id": "grade-10-social-1-4-outcome-2",
+          "text": "assess role of public participation in fostering constitutional principles"
+        },
+        {
+          "id": "grade-10-social-1-4-outcome-3",
+          "text": "analyse emerging issues that affect effective public participation and suggest appropriate solutions"
+        },
+        {
+          "id": "grade-10-social-1-4-outcome-4",
+          "text": "investigate into the best practices that promote sustainable public participation in Kenya"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why should members of the society be encouraged to take part in public participation?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Public Participation.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Public Participation: categorise levels of public participation as enshrined",
+        "Public Participation",
+        "Public",
+        "Participation",
+        "categorise",
+        "levels",
+        "enshrined"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Public Participation: categorise levels of public participation as enshrined",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Public Participation: categorise levels of public participation as enshrined",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Public Participation: categorise levels of public participation as enshrined",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ba2d8ce8-fd00-4322-ba3f-02cdb0ae38c0",
+          "officialTitle": "Competency Based Curriculum Grade 10 Geography",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e4e32dda-56e1-4dfa-b66f-d9ed6c7af335",
+          "officialTitle": "Competency Based Curriculum Grade 10 History and Citizenship",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-social-studies-topic-007",
+      "strandId": "ccddfe48-013f-4fe1-ab1e-392971eb298a",
+      "parentSubStrandId": "348a987d-7268-4426-96cb-7abd89cbb658",
+      "subStrandId": "348a987d-7268-4426-96cb-7abd89cbb658:topic-2",
+      "strandTitle": "Themes in Kenyan History and Citizenship",
+      "unitTitle": "Public Participation: embrace to support public participation in the society",
+      "sourceUnitTitle": "Public Participation",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-social-1-4-outcome-5",
+          "text": "embrace to support public participation in the society"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why should members of the society be encouraged to take part in public participation?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Public Participation.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Public Participation: embrace to support public participation in the society",
+        "Public Participation",
+        "Public",
+        "Participation",
+        "embrace",
+        "support",
+        "society"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Public Participation: embrace to support public participation in the society",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Public Participation: embrace to support public participation in the society",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Public Participation: embrace to support public participation in the society",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ba2d8ce8-fd00-4322-ba3f-02cdb0ae38c0",
+          "officialTitle": "Competency Based Curriculum Grade 10 Geography",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e4e32dda-56e1-4dfa-b66f-d9ed6c7af335",
+          "officialTitle": "Competency Based Curriculum Grade 10 History and Citizenship",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-social-studies-topic-008",
+      "strandId": "ccddfe48-013f-4fe1-ab1e-392971eb298a",
+      "parentSubStrandId": "f922968a-4155-4db3-890a-12e2ec6a2bba",
+      "subStrandId": "f922968a-4155-4db3-890a-12e2ec6a2bba:topic-1",
+      "strandTitle": "Themes in Kenyan History and Citizenship",
+      "unitTitle": "Political and Constitutional developments and challenges since Independence: major political and Constitutional developments in Kenya since",
+      "sourceUnitTitle": "Political and Constitutional developments and challenges since Independence",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-social-1-5-outcome-1",
+          "text": "analyse major political and Constitutional developments in Kenya since Independence"
+        },
+        {
+          "id": "grade-10-social-1-5-outcome-2",
+          "text": "discuss the major political and Constitutional challenges since independence"
+        },
+        {
+          "id": "grade-10-social-1-5-outcome-3",
+          "text": "propose solutions to the major political and constitutional challenges in Kenya"
+        },
+        {
+          "id": "grade-10-social-1-5-outcome-4",
+          "text": "develop activities that promote peaceful political environments in Kenya"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can you promote peaceful coexistence in political activities in your community?",
+        "What solutions can you provide for challenges facing our society?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Political and Constitutional developments and challenges since Independence.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Political and Constitutional developments and challenges since Independence: major political and Constitutional developments in Kenya since",
+        "Political and Constitutional developments and challenges since Independence",
+        "Political",
+        "Constitutional",
+        "developments",
+        "challenges",
+        "since",
+        "Independence"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Political and Constitutional developments and challenges since Independence: major political and Constitutional developments in Kenya since",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Political and Constitutional developments and challenges since Independence: major political and Constitutional developments in Kenya since",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Political and Constitutional developments and challenges since Independence: major political and Constitutional developments in Kenya since",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ba2d8ce8-fd00-4322-ba3f-02cdb0ae38c0",
+          "officialTitle": "Competency Based Curriculum Grade 10 Geography",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e4e32dda-56e1-4dfa-b66f-d9ed6c7af335",
+          "officialTitle": "Competency Based Curriculum Grade 10 History and Citizenship",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-social-studies-topic-009",
+      "strandId": "ccddfe48-013f-4fe1-ab1e-392971eb298a",
+      "parentSubStrandId": "f922968a-4155-4db3-890a-12e2ec6a2bba",
+      "subStrandId": "f922968a-4155-4db3-890a-12e2ec6a2bba:topic-2",
+      "strandTitle": "Themes in Kenyan History and Citizenship",
+      "unitTitle": "Political and Constitutional developments and challenges since Independence: embrace peaceful coexistence",
+      "sourceUnitTitle": "Political and Constitutional developments and challenges since Independence",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-social-1-5-outcome-5",
+          "text": "embrace peaceful coexistence"
+        }
+      ],
+      "inquiryQuestions": [
+        "What solutions can you provide for challenges facing our society?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Political and Constitutional developments and challenges since Independence.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Political and Constitutional developments and challenges since Independence: embrace peaceful coexistence",
+        "Political and Constitutional developments and challenges since Independence",
+        "Political",
+        "Constitutional",
+        "developments",
+        "challenges",
+        "since",
+        "Independence"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Political and Constitutional developments and challenges since Independence: embrace peaceful coexistence",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Political and Constitutional developments and challenges since Independence: embrace peaceful coexistence",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Political and Constitutional developments and challenges since Independence: embrace peaceful coexistence",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ba2d8ce8-fd00-4322-ba3f-02cdb0ae38c0",
+          "officialTitle": "Competency Based Curriculum Grade 10 Geography",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e4e32dda-56e1-4dfa-b66f-d9ed6c7af335",
+          "officialTitle": "Competency Based Curriculum Grade 10 History and Citizenship",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-social-studies-topic-010",
+      "strandId": "ccddfe48-013f-4fe1-ab1e-392971eb298a",
+      "parentSubStrandId": "d3b1c32a-d4cf-4d9d-97af-b18132335ea6",
+      "subStrandId": "d3b1c32a-d4cf-4d9d-97af-b18132335ea6:topic-1",
+      "strandTitle": "Themes in Kenyan History and Citizenship",
+      "unitTitle": "Elections in Kenya: guidelines governing elections in Kenya",
+      "sourceUnitTitle": "Elections in Kenya",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-social-1-6-outcome-1",
+          "text": "identify the guidelines governing elections in Kenya"
+        },
+        {
+          "id": "grade-10-social-1-6-outcome-2",
+          "text": "describe the roles and functions of IEBC in Kenya"
+        },
+        {
+          "id": "grade-10-social-1-6-outcome-3",
+          "text": "elaborate the electoral processes in Kenya"
+        },
+        {
+          "id": "grade-10-social-1-6-outcome-4",
+          "text": "enumerate measures taken by IEBC in curbing election malpractices in management of elections"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why are elections important?",
+        "Which values can citizens embrace to avoid election malpractices?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Elections in Kenya.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Elections in Kenya: guidelines governing elections in Kenya",
+        "Elections in Kenya",
+        "Elections",
+        "Kenya",
+        "guidelines",
+        "governing"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Elections in Kenya: guidelines governing elections in Kenya",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Elections in Kenya: guidelines governing elections in Kenya",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Elections in Kenya: guidelines governing elections in Kenya",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ba2d8ce8-fd00-4322-ba3f-02cdb0ae38c0",
+          "officialTitle": "Competency Based Curriculum Grade 10 Geography",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e4e32dda-56e1-4dfa-b66f-d9ed6c7af335",
+          "officialTitle": "Competency Based Curriculum Grade 10 History and Citizenship",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-social-studies-topic-011",
+      "strandId": "ccddfe48-013f-4fe1-ab1e-392971eb298a",
+      "parentSubStrandId": "d3b1c32a-d4cf-4d9d-97af-b18132335ea6",
+      "subStrandId": "d3b1c32a-d4cf-4d9d-97af-b18132335ea6:topic-2",
+      "strandTitle": "Themes in Kenyan History and Citizenship",
+      "unitTitle": "Elections in Kenya: roles and functions of IEBC in Kenya.",
+      "sourceUnitTitle": "Elections in Kenya",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-social-1-6-outcome-5",
+          "text": "appreciate the roles and functions of IEBC in Kenya."
+        }
+      ],
+      "inquiryQuestions": [
+        "Which values can citizens embrace to avoid election malpractices?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Elections in Kenya.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Elections in Kenya: roles and functions of IEBC in Kenya.",
+        "Elections in Kenya",
+        "Elections",
+        "Kenya",
+        "roles",
+        "functions",
+        "Kenya."
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Elections in Kenya: roles and functions of IEBC in Kenya.",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Elections in Kenya: roles and functions of IEBC in Kenya.",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Elections in Kenya: roles and functions of IEBC in Kenya.",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ba2d8ce8-fd00-4322-ba3f-02cdb0ae38c0",
+          "officialTitle": "Competency Based Curriculum Grade 10 Geography",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e4e32dda-56e1-4dfa-b66f-d9ed6c7af335",
+          "officialTitle": "Competency Based Curriculum Grade 10 History and Citizenship",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-social-studies-topic-012",
+      "strandId": "ccddfe48-013f-4fe1-ab1e-392971eb298a",
+      "parentSubStrandId": "62cd3364-cea9-4956-9340-7e1142841d6f",
+      "subStrandId": "62cd3364-cea9-4956-9340-7e1142841d6f:topic-1",
+      "strandTitle": "Themes in Kenyan History and Citizenship",
+      "unitTitle": "National integration: discuss the importance of national integration in Kenya",
+      "sourceUnitTitle": "National integration",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-social-1-7-outcome-1",
+          "text": "discuss the importance of national integration in Kenya"
+        },
+        {
+          "id": "grade-10-social-1-7-outcome-2",
+          "text": "explain the components of national integration"
+        },
+        {
+          "id": "grade-10-social-1-7-outcome-3",
+          "text": "appraise factors that promote and limit national integration for posterity"
+        },
+        {
+          "id": "grade-10-social-1-7-outcome-4",
+          "text": "illustrate ways of enhancing national integration in Kenya"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can you enhance national integration in your school and community?",
+        "How can socio-economic factors contribute to national unity?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to National integration.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "National integration: discuss the importance of national integration in Kenya",
+        "National integration",
+        "National",
+        "integration",
+        "discuss",
+        "Kenya"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to National integration: discuss the importance of national integration in Kenya",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for National integration: discuss the importance of national integration in Kenya",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for National integration: discuss the importance of national integration in Kenya",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ba2d8ce8-fd00-4322-ba3f-02cdb0ae38c0",
+          "officialTitle": "Competency Based Curriculum Grade 10 Geography",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e4e32dda-56e1-4dfa-b66f-d9ed6c7af335",
+          "officialTitle": "Competency Based Curriculum Grade 10 History and Citizenship",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-social-studies-topic-013",
+      "strandId": "ccddfe48-013f-4fe1-ab1e-392971eb298a",
+      "parentSubStrandId": "62cd3364-cea9-4956-9340-7e1142841d6f",
+      "subStrandId": "62cd3364-cea9-4956-9340-7e1142841d6f:topic-2",
+      "strandTitle": "Themes in Kenyan History and Citizenship",
+      "unitTitle": "National integration: acknowledge the importance of national integration in Kenya.",
+      "sourceUnitTitle": "National integration",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-social-1-7-outcome-5",
+          "text": "acknowledge the importance of national integration in Kenya."
+        }
+      ],
+      "inquiryQuestions": [
+        "How can socio-economic factors contribute to national unity?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to National integration.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "National integration: acknowledge the importance of national integration in Kenya.",
+        "National integration",
+        "National",
+        "integration",
+        "acknowledge",
+        "Kenya."
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to National integration: acknowledge the importance of national integration in Kenya.",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for National integration: acknowledge the importance of national integration in Kenya.",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for National integration: acknowledge the importance of national integration in Kenya.",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ba2d8ce8-fd00-4322-ba3f-02cdb0ae38c0",
+          "officialTitle": "Competency Based Curriculum Grade 10 Geography",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e4e32dda-56e1-4dfa-b66f-d9ed6c7af335",
+          "officialTitle": "Competency Based Curriculum Grade 10 History and Citizenship",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-social-studies-topic-014",
+      "strandId": "ccddfe48-013f-4fe1-ab1e-392971eb298a",
+      "parentSubStrandId": "fc8d583e-dc49-4cd2-a09c-2dcaadd1791c",
+      "subStrandId": "fc8d583e-dc49-4cd2-a09c-2dcaadd1791c:topic-1",
+      "strandTitle": "Themes in Kenyan History and Citizenship",
+      "unitTitle": "Human Developments in Africa: explain the factors that led to transition",
+      "sourceUnitTitle": "Human Developments in Africa",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-social-2-1-outcome-1",
+          "text": "explain the factors that led to transition from migratory to sedentary lifestyle by early humans"
+        },
+        {
+          "id": "grade-10-social-2-1-outcome-2",
+          "text": "analyse advancements that took place during the Neolithic revolution"
+        },
+        {
+          "id": "grade-10-social-2-1-outcome-3",
+          "text": "examine the contributions of Neolithic revolution to the modern society"
+        },
+        {
+          "id": "grade-10-social-2-1-outcome-4",
+          "text": "classify the characteristics of pastoralism in selected communities across Africa"
+        }
+      ],
+      "inquiryQuestions": [
+        "How did daily life change due to shifting from a nomadic lifestyle to a sedentary life?",
+        "Which factors influenced pastoralism in the pre-colonial period?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Human Developments in Africa.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Human Developments in Africa: explain the factors that led to transition",
+        "Human Developments in Africa",
+        "Human",
+        "Developments",
+        "Africa",
+        "explain",
+        "factors",
+        "transition"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Human Developments in Africa: explain the factors that led to transition",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Human Developments in Africa: explain the factors that led to transition",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Human Developments in Africa: explain the factors that led to transition",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ba2d8ce8-fd00-4322-ba3f-02cdb0ae38c0",
+          "officialTitle": "Competency Based Curriculum Grade 10 Geography",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e4e32dda-56e1-4dfa-b66f-d9ed6c7af335",
+          "officialTitle": "Competency Based Curriculum Grade 10 History and Citizenship",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-social-studies-topic-015",
+      "strandId": "ccddfe48-013f-4fe1-ab1e-392971eb298a",
+      "parentSubStrandId": "fc8d583e-dc49-4cd2-a09c-2dcaadd1791c",
+      "subStrandId": "fc8d583e-dc49-4cd2-a09c-2dcaadd1791c:topic-2",
+      "strandTitle": "Themes in Kenyan History and Citizenship",
+      "unitTitle": "Human Developments in Africa: devise solutions to challenges facing contemporary pastoralism",
+      "sourceUnitTitle": "Human Developments in Africa",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-social-2-1-outcome-5",
+          "text": "devise solutions to challenges facing contemporary pastoralism in Africa"
+        },
+        {
+          "id": "grade-10-social-2-1-outcome-6",
+          "text": "appreciate the advancements that took"
+        }
+      ],
+      "inquiryQuestions": [
+        "Which factors influenced pastoralism in the pre-colonial period?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Human Developments in Africa.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Human Developments in Africa: devise solutions to challenges facing contemporary pastoralism",
+        "Human Developments in Africa",
+        "Human",
+        "Developments",
+        "Africa",
+        "devise",
+        "solutions",
+        "challenges"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Human Developments in Africa: devise solutions to challenges facing contemporary pastoralism",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Human Developments in Africa: devise solutions to challenges facing contemporary pastoralism",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Human Developments in Africa: devise solutions to challenges facing contemporary pastoralism",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ba2d8ce8-fd00-4322-ba3f-02cdb0ae38c0",
+          "officialTitle": "Competency Based Curriculum Grade 10 Geography",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e4e32dda-56e1-4dfa-b66f-d9ed6c7af335",
+          "officialTitle": "Competency Based Curriculum Grade 10 History and Citizenship",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-social-studies-topic-016",
+      "strandId": "cd3b4612-f36e-46b3-954c-1c9018b90c9e",
+      "parentSubStrandId": "3824c135-5efd-4c7f-9b67-46e4095ed487",
+      "subStrandId": "3824c135-5efd-4c7f-9b67-46e4095ed487",
+      "strandTitle": "Themes in African History and Citizenship",
+      "unitTitle": "African Civilisations up to 19th Century",
+      "sourceUnitTitle": "African Civilisations up to 19th Century",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-social-2-2-outcome-1",
+          "text": "examine the factors for growth and development of selected early civilisations in Africa"
+        },
+        {
+          "id": "grade-10-social-2-2-outcome-2",
+          "text": "examine the significance of ancient African civilisations and their contributions to modern society."
+        },
+        {
+          "id": "grade-10-social-2-2-outcome-3",
+          "text": "deduce how best practices from selected early Civilisations are applied in modern society"
+        },
+        {
+          "id": "grade-10-social-2-2-outcome-4",
+          "text": "appreciate contributions of early civilisations."
+        }
+      ],
+      "inquiryQuestions": [
+        "How do the early civilisations differ from the current leadership structure?",
+        "Why is it important to study early civilisations in Africa?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to African Civilisations up to 19th Century.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "African Civilisations up to 19th Century",
+        "African",
+        "Civilisations",
+        "Century"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to African Civilisations up to 19th Century",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for African Civilisations up to 19th Century",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for African Civilisations up to 19th Century",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ba2d8ce8-fd00-4322-ba3f-02cdb0ae38c0",
+          "officialTitle": "Competency Based Curriculum Grade 10 Geography",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e4e32dda-56e1-4dfa-b66f-d9ed6c7af335",
+          "officialTitle": "Competency Based Curriculum Grade 10 History and Citizenship",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-social-studies-topic-017",
+      "strandId": "cd3b4612-f36e-46b3-954c-1c9018b90c9e",
+      "parentSubStrandId": "b3463a2b-92cc-4a9f-a59f-172863e01fd8",
+      "subStrandId": "b3463a2b-92cc-4a9f-a59f-172863e01fd8:topic-1",
+      "strandTitle": "Themes in African History and Citizenship",
+      "unitTitle": "Colonization of Africa: discuss the significance of the Berlin conference",
+      "sourceUnitTitle": "Colonization of Africa",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-social-2-3-outcome-1",
+          "text": "discuss the significance of the Berlin conference in relation to scramble for and partition of Africa"
+        },
+        {
+          "id": "grade-10-social-2-3-outcome-2",
+          "text": "discern the extent to which different reasons influenced colonisation of Africa"
+        },
+        {
+          "id": "grade-10-social-2-3-outcome-3",
+          "text": "evaluate how key players contributed to the colonisation of Africa"
+        },
+        {
+          "id": "grade-10-social-2-3-outcome-4",
+          "text": "justify why the end of colonisation in Africa was necessary"
+        }
+      ],
+      "inquiryQuestions": [
+        "How did Otto Von Bismarck fast-track the process towards scramble for and partition of Africa?",
+        "Why was colonialism unfair to Africans?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Colonization of Africa.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Colonization of Africa: discuss the significance of the Berlin conference",
+        "Colonization of Africa",
+        "Colonization",
+        "Africa",
+        "discuss",
+        "significance",
+        "Berlin",
+        "conference"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Colonization of Africa: discuss the significance of the Berlin conference",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Colonization of Africa: discuss the significance of the Berlin conference",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Colonization of Africa: discuss the significance of the Berlin conference",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ba2d8ce8-fd00-4322-ba3f-02cdb0ae38c0",
+          "officialTitle": "Competency Based Curriculum Grade 10 Geography",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e4e32dda-56e1-4dfa-b66f-d9ed6c7af335",
+          "officialTitle": "Competency Based Curriculum Grade 10 History and Citizenship",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-social-studies-topic-018",
+      "strandId": "cd3b4612-f36e-46b3-954c-1c9018b90c9e",
+      "parentSubStrandId": "b3463a2b-92cc-4a9f-a59f-172863e01fd8",
+      "subStrandId": "b3463a2b-92cc-4a9f-a59f-172863e01fd8:topic-2",
+      "strandTitle": "Themes in African History and Citizenship",
+      "unitTitle": "Colonization of Africa: reasons behind the end of colonisation in Africa",
+      "sourceUnitTitle": "Colonization of Africa",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-social-2-3-outcome-5",
+          "text": "appreciate the reasons behind the end of colonisation in Africa as a means to promote"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why was colonialism unfair to Africans?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Colonization of Africa.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Colonization of Africa: reasons behind the end of colonisation in Africa",
+        "Colonization of Africa",
+        "Colonization",
+        "Africa",
+        "reasons",
+        "behind",
+        "colonisation"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Colonization of Africa: reasons behind the end of colonisation in Africa",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Colonization of Africa: reasons behind the end of colonisation in Africa",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Colonization of Africa: reasons behind the end of colonisation in Africa",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ba2d8ce8-fd00-4322-ba3f-02cdb0ae38c0",
+          "officialTitle": "Competency Based Curriculum Grade 10 Geography",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e4e32dda-56e1-4dfa-b66f-d9ed6c7af335",
+          "officialTitle": "Competency Based Curriculum Grade 10 History and Citizenship",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-social-studies-topic-019",
+      "strandId": "cd3b4612-f36e-46b3-954c-1c9018b90c9e",
+      "parentSubStrandId": "367ab66c-3fcb-4ddd-a569-46e21c345fc6",
+      "subStrandId": "367ab66c-3fcb-4ddd-a569-46e21c345fc6",
+      "strandTitle": "Themes in African History and Citizenship",
+      "unitTitle": "Modern Nationalism in Africa",
+      "sourceUnitTitle": "Modern Nationalism in Africa",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-social-2-4-outcome-1",
+          "text": "explore factors that have influenced modern nationalism in Africa"
+        },
+        {
+          "id": "grade-10-social-2-4-outcome-2",
+          "text": "draw lessons from key leaders who contributed to the rise of modern nationalism in African countries"
+        },
+        {
+          "id": "grade-10-social-2-4-outcome-3",
+          "text": "exemplify best practices adopted by African nations to strengthen modern nationalism"
+        },
+        {
+          "id": "grade-10-social-2-4-outcome-4",
+          "text": "acknowledge lessons from key leaders who contributed to modern nationalism in African countries."
+        }
+      ],
+      "inquiryQuestions": [
+        "How can you advance progressive modern nationalism?",
+        "Which factors speeded up nationalism in Africa?",
+        "What are the benefits of promoting non - violent nationalism practices?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Modern Nationalism in Africa.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Modern Nationalism in Africa",
+        "Modern",
+        "Nationalism",
+        "Africa"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Modern Nationalism in Africa",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Modern Nationalism in Africa",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Modern Nationalism in Africa",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ba2d8ce8-fd00-4322-ba3f-02cdb0ae38c0",
+          "officialTitle": "Competency Based Curriculum Grade 10 Geography",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e4e32dda-56e1-4dfa-b66f-d9ed6c7af335",
+          "officialTitle": "Competency Based Curriculum Grade 10 History and Citizenship",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-social-studies-topic-020",
+      "strandId": "cd3b4612-f36e-46b3-954c-1c9018b90c9e",
+      "parentSubStrandId": "92956292-a45f-4dc6-bcb0-6ff893f0843e",
+      "subStrandId": "92956292-a45f-4dc6-bcb0-6ff893f0843e",
+      "strandTitle": "Themes in African History and Citizenship",
+      "unitTitle": "Global Wars",
+      "sourceUnitTitle": "Global Wars",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-social-2-5-outcome-1",
+          "text": "explore how global wars have affected Africa from the past to the present day"
+        },
+        {
+          "id": "grade-10-social-2-5-outcome-2",
+          "text": "apply the lessons learned from global wars to build a better society"
+        },
+        {
+          "id": "grade-10-social-2-5-outcome-3",
+          "text": "enumerate strategies to safeguard African states from the negative impact of global wars"
+        },
+        {
+          "id": "grade-10-social-2-5-outcome-4",
+          "text": "advocate for a world free of war to achieve sustainable peace"
+        }
+      ],
+      "inquiryQuestions": [
+        "Which strategies does the UN apply to discourage global wars?",
+        "How did Africa's involvement in global wars shape its political, social, and economic landscape?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Global Wars.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Global Wars",
+        "Global"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Global Wars",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Global Wars",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Global Wars",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ba2d8ce8-fd00-4322-ba3f-02cdb0ae38c0",
+          "officialTitle": "Competency Based Curriculum Grade 10 Geography",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e4e32dda-56e1-4dfa-b66f-d9ed6c7af335",
+          "officialTitle": "Competency Based Curriculum Grade 10 History and Citizenship",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-social-studies-topic-021",
+      "strandId": "a9f3333c-ed96-47f0-a70d-67afacc9400f",
+      "parentSubStrandId": "ae0e6f56-b3f2-49a6-a401-faeb46d27f28",
+      "subStrandId": "ae0e6f56-b3f2-49a6-a401-faeb46d27f28:topic-1",
+      "strandTitle": "Themes in World History and Citizenship",
+      "unitTitle": "American Revolution (1776): assess how the enlightenment ideas of selected thinkers",
+      "sourceUnitTitle": "American Revolution (1776)",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-social-3-1-outcome-1",
+          "text": "assess how the enlightenment ideas of selected thinkers contributed to the American Revolution"
+        },
+        {
+          "id": "grade-10-social-3-1-outcome-2",
+          "text": "classify how different factors led to the American revolution"
+        },
+        {
+          "id": "grade-10-social-3-1-outcome-3",
+          "text": "deduce impact of the American revolution in the USA and other parts of the world"
+        },
+        {
+          "id": "grade-10-social-3-1-outcome-4",
+          "text": "apply key lessons from the American Revolution to promote positive practices in daily interactions"
+        }
+      ],
+      "inquiryQuestions": [
+        "Which factors had the greatest influence on the American Revolution?",
+        "Which other revolts were influenced by the American Revolution?",
+        "What was the main impact of the American Revolution on Europe?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to American Revolution (1776).",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "American Revolution (1776): assess how the enlightenment ideas of selected thinkers",
+        "American Revolution (1776)",
+        "American",
+        "Revolution",
+        "1776)",
+        "assess",
+        "enlightenment",
+        "ideas"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to American Revolution (1776): assess how the enlightenment ideas of selected thinkers",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for American Revolution (1776): assess how the enlightenment ideas of selected thinkers",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for American Revolution (1776): assess how the enlightenment ideas of selected thinkers",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ba2d8ce8-fd00-4322-ba3f-02cdb0ae38c0",
+          "officialTitle": "Competency Based Curriculum Grade 10 Geography",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e4e32dda-56e1-4dfa-b66f-d9ed6c7af335",
+          "officialTitle": "Competency Based Curriculum Grade 10 History and Citizenship",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-social-studies-topic-022",
+      "strandId": "a9f3333c-ed96-47f0-a70d-67afacc9400f",
+      "parentSubStrandId": "ae0e6f56-b3f2-49a6-a401-faeb46d27f28",
+      "subStrandId": "ae0e6f56-b3f2-49a6-a401-faeb46d27f28:topic-2",
+      "strandTitle": "Themes in World History and Citizenship",
+      "unitTitle": "American Revolution (1776): embrace impact of the American revolution",
+      "sourceUnitTitle": "American Revolution (1776)",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-social-3-1-outcome-5",
+          "text": "embrace impact of the American revolution"
+        }
+      ],
+      "inquiryQuestions": [
+        "Which other revolts were influenced by the American Revolution?",
+        "What was the main impact of the American Revolution on Europe?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to American Revolution (1776).",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "American Revolution (1776): embrace impact of the American revolution",
+        "American Revolution (1776)",
+        "American",
+        "Revolution",
+        "1776)",
+        "embrace",
+        "impact"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to American Revolution (1776): embrace impact of the American revolution",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for American Revolution (1776): embrace impact of the American revolution",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for American Revolution (1776): embrace impact of the American revolution",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ba2d8ce8-fd00-4322-ba3f-02cdb0ae38c0",
+          "officialTitle": "Competency Based Curriculum Grade 10 Geography",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e4e32dda-56e1-4dfa-b66f-d9ed6c7af335",
+          "officialTitle": "Competency Based Curriculum Grade 10 History and Citizenship",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-social-studies-topic-023",
+      "strandId": "a9f3333c-ed96-47f0-a70d-67afacc9400f",
+      "parentSubStrandId": "ed9c2140-c4dd-432d-9d49-c0675ba8efec",
+      "subStrandId": "ed9c2140-c4dd-432d-9d49-c0675ba8efec",
+      "strandTitle": "Themes in World History and Citizenship",
+      "unitTitle": "International organisations",
+      "sourceUnitTitle": "International organisations",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-social-3-2-outcome-1",
+          "text": "explain the importance of different categories of international organisations and their roles in global affairs"
+        },
+        {
+          "id": "grade-10-social-3-2-outcome-2",
+          "text": "examine factors that strengthen ties among commonwealth countries"
+        },
+        {
+          "id": "grade-10-social-3-2-outcome-3",
+          "text": "illustrate opportunities and challenges facing commonwealth nations"
+        },
+        {
+          "id": "grade-10-social-3-2-outcome-4",
+          "text": "different categories of international organisations and their roles in global affairs"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why are values important for sustainable relations among commonwealth nations?",
+        "Which activities can promote strong ties in international organisations?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to International organisations.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "International organisations",
+        "International",
+        "organisations"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to International organisations",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for International organisations",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for International organisations",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ba2d8ce8-fd00-4322-ba3f-02cdb0ae38c0",
+          "officialTitle": "Competency Based Curriculum Grade 10 Geography",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e4e32dda-56e1-4dfa-b66f-d9ed6c7af335",
+          "officialTitle": "Competency Based Curriculum Grade 10 History and Citizenship",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-social-studies-topic-024",
+      "strandId": "a9f3333c-ed96-47f0-a70d-67afacc9400f",
+      "parentSubStrandId": "3f64965a-0546-4a9a-90a5-303661f637f8",
+      "subStrandId": "3f64965a-0546-4a9a-90a5-303661f637f8:topic-1",
+      "strandTitle": "Themes in World History and Citizenship",
+      "unitTitle": "Modern Slavery and Servitude: discuss various forms of slavery and servitude",
+      "sourceUnitTitle": "Modern Slavery and Servitude",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-social-3-3-outcome-1",
+          "text": "discuss various forms of slavery and servitude in the modern world"
+        },
+        {
+          "id": "grade-10-social-3-3-outcome-2",
+          "text": "assess the factors that lead to slavery and servitude in the modern world"
+        },
+        {
+          "id": "grade-10-social-3-3-outcome-3",
+          "text": "illustrate ways in which governments and civil society collaborate to end various forms of slavery"
+        },
+        {
+          "id": "grade-10-social-3-3-outcome-4",
+          "text": "elaborate the roles of Abolitionist Movements since 18th century to date"
+        }
+      ],
+      "inquiryQuestions": [
+        "What can you do to end slavery and servitude in the world?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Modern Slavery and Servitude.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Modern Slavery and Servitude: discuss various forms of slavery and servitude",
+        "Modern Slavery and Servitude",
+        "Modern",
+        "Slavery",
+        "Servitude",
+        "discuss",
+        "various",
+        "forms"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Modern Slavery and Servitude: discuss various forms of slavery and servitude",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Modern Slavery and Servitude: discuss various forms of slavery and servitude",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Modern Slavery and Servitude: discuss various forms of slavery and servitude",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ba2d8ce8-fd00-4322-ba3f-02cdb0ae38c0",
+          "officialTitle": "Competency Based Curriculum Grade 10 Geography",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e4e32dda-56e1-4dfa-b66f-d9ed6c7af335",
+          "officialTitle": "Competency Based Curriculum Grade 10 History and Citizenship",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-social-studies-topic-025",
+      "strandId": "a9f3333c-ed96-47f0-a70d-67afacc9400f",
+      "parentSubStrandId": "3f64965a-0546-4a9a-90a5-303661f637f8",
+      "subStrandId": "3f64965a-0546-4a9a-90a5-303661f637f8:topic-2",
+      "strandTitle": "Themes in World History and Citizenship",
+      "unitTitle": "Modern Slavery and Servitude: need to free the world from slavery",
+      "sourceUnitTitle": "Modern Slavery and Servitude",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-social-3-3-outcome-5",
+          "text": "recognise the need to free the world from slavery and servitude."
+        }
+      ],
+      "inquiryQuestions": [
+        "What can you do to end slavery and servitude in the world?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Modern Slavery and Servitude.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Modern Slavery and Servitude: need to free the world from slavery",
+        "Modern Slavery and Servitude",
+        "Modern",
+        "Slavery",
+        "Servitude",
+        "world"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Modern Slavery and Servitude: need to free the world from slavery",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Modern Slavery and Servitude: need to free the world from slavery",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Modern Slavery and Servitude: need to free the world from slavery",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ba2d8ce8-fd00-4322-ba3f-02cdb0ae38c0",
+          "officialTitle": "Competency Based Curriculum Grade 10 Geography",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e4e32dda-56e1-4dfa-b66f-d9ed6c7af335",
+          "officialTitle": "Competency Based Curriculum Grade 10 History and Citizenship",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-social-studies-topic-026",
+      "strandId": "a9f3333c-ed96-47f0-a70d-67afacc9400f",
+      "parentSubStrandId": "9a67c175-1a02-4ef6-a1af-49b4493a0f29",
+      "subStrandId": "9a67c175-1a02-4ef6-a1af-49b4493a0f29:topic-1",
+      "strandTitle": "Themes in World History and Citizenship",
+      "unitTitle": "Global Governance: guiding principles for global governance for a sustainable",
+      "sourceUnitTitle": "Global Governance",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-social-3-4-outcome-1",
+          "text": "identify the guiding principles for global governance for a sustainable society"
+        },
+        {
+          "id": "grade-10-social-3-4-outcome-2",
+          "text": "explore the need for global governance in addressing transnational challenges and their effective solutions"
+        },
+        {
+          "id": "grade-10-social-3-4-outcome-3",
+          "text": "illustrate the key areas of global governance that help ensure stability in global trends"
+        },
+        {
+          "id": "grade-10-social-3-4-outcome-4",
+          "text": "distinguish key organisations that play a role in global governance"
+        }
+      ],
+      "inquiryQuestions": [
+        "Which activities are significant in promoting global governance?",
+        "What is the role of UN in fostering global governance?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Global Governance.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Global Governance: guiding principles for global governance for a sustainable",
+        "Global Governance",
+        "Global",
+        "Governance",
+        "guiding",
+        "principles",
+        "sustainable"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Global Governance: guiding principles for global governance for a sustainable",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Global Governance: guiding principles for global governance for a sustainable",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Global Governance: guiding principles for global governance for a sustainable",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ba2d8ce8-fd00-4322-ba3f-02cdb0ae38c0",
+          "officialTitle": "Competency Based Curriculum Grade 10 Geography",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e4e32dda-56e1-4dfa-b66f-d9ed6c7af335",
+          "officialTitle": "Competency Based Curriculum Grade 10 History and Citizenship",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-social-studies-topic-027",
+      "strandId": "a9f3333c-ed96-47f0-a70d-67afacc9400f",
+      "parentSubStrandId": "9a67c175-1a02-4ef6-a1af-49b4493a0f29",
+      "subStrandId": "9a67c175-1a02-4ef6-a1af-49b4493a0f29:topic-2",
+      "strandTitle": "Themes in World History and Citizenship",
+      "unitTitle": "Global Governance: explore emerging issues and possible",
+      "sourceUnitTitle": "Global Governance",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-social-3-4-outcome-5",
+          "text": "explore emerging issues and possible"
+        }
+      ],
+      "inquiryQuestions": [
+        "What is the role of UN in fostering global governance?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Global Governance.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Global Governance: explore emerging issues and possible",
+        "Global Governance",
+        "Global",
+        "Governance",
+        "explore",
+        "emerging",
+        "issues",
+        "possible"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Global Governance: explore emerging issues and possible",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Global Governance: explore emerging issues and possible",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Global Governance: explore emerging issues and possible",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ba2d8ce8-fd00-4322-ba3f-02cdb0ae38c0",
+          "officialTitle": "Competency Based Curriculum Grade 10 Geography",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e4e32dda-56e1-4dfa-b66f-d9ed6c7af335",
+          "officialTitle": "Competency Based Curriculum Grade 10 History and Citizenship",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-social-studies-topic-028",
+      "strandId": "a9f3333c-ed96-47f0-a70d-67afacc9400f",
+      "parentSubStrandId": "d2b8ef59-997e-480a-aded-4de5acfe513c",
+      "subStrandId": "d2b8ef59-997e-480a-aded-4de5acfe513c:topic-1",
+      "strandTitle": "Themes in World History and Citizenship",
+      "unitTitle": "The 1st Generation of Industrial Revolution (1760s to 1840s): factors that led to industrial revolution in Britain",
+      "sourceUnitTitle": "The 1st Generation of Industrial Revolution (1760s to 1840s)",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-social-3-5-outcome-1",
+          "text": "compare the factors that led to industrial revolution in Britain and USA"
+        },
+        {
+          "id": "grade-10-social-3-5-outcome-2",
+          "text": "assess the contributions of early inventions and machines during the 1st phase of industrial revolution"
+        },
+        {
+          "id": "grade-10-social-3-5-outcome-3",
+          "text": "discuss impacts of the 1st phase of industrial revolution on Africa"
+        },
+        {
+          "id": "grade-10-social-3-5-outcome-4",
+          "text": "appraise measures taken to address the impact of the 1st Generation of Industrial Revolution on Africa"
+        }
+      ],
+      "inquiryQuestions": [
+        "How did the st phase of 1 industrial revolution under develop Africa?",
+        "How did the st phase of 1 industrial revolution contribute to colonization in Africa?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to The 1st Generation of Industrial Revolution (1760s to 1840s).",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "The 1st Generation of Industrial Revolution (1760s to 1840s): factors that led to industrial revolution in Britain",
+        "The 1st Generation of Industrial Revolution (1760s to 1840s)",
+        "Generation",
+        "Industrial",
+        "Revolution",
+        "1760s",
+        "1840s)",
+        "factors"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to The 1st Generation of Industrial Revolution (1760s to 1840s): factors that led to industrial revolution in Britain",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for The 1st Generation of Industrial Revolution (1760s to 1840s): factors that led to industrial revolution in Britain",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for The 1st Generation of Industrial Revolution (1760s to 1840s): factors that led to industrial revolution in Britain",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ba2d8ce8-fd00-4322-ba3f-02cdb0ae38c0",
+          "officialTitle": "Competency Based Curriculum Grade 10 Geography",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e4e32dda-56e1-4dfa-b66f-d9ed6c7af335",
+          "officialTitle": "Competency Based Curriculum Grade 10 History and Citizenship",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-social-studies-topic-029",
+      "strandId": "a9f3333c-ed96-47f0-a70d-67afacc9400f",
+      "parentSubStrandId": "d2b8ef59-997e-480a-aded-4de5acfe513c",
+      "subStrandId": "d2b8ef59-997e-480a-aded-4de5acfe513c:topic-2",
+      "strandTitle": "Themes in World History and Citizenship",
+      "unitTitle": "The 1st Generation of Industrial Revolution (1760s to 1840s): measures taken by the Africans to address",
+      "sourceUnitTitle": "The 1st Generation of Industrial Revolution (1760s to 1840s)",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-social-3-5-outcome-5",
+          "text": "recognise the measures taken by the Africans to address the impact of the 1st Generation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How did the st phase of 1 industrial revolution contribute to colonization in Africa?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to The 1st Generation of Industrial Revolution (1760s to 1840s).",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "The 1st Generation of Industrial Revolution (1760s to 1840s): measures taken by the Africans to address",
+        "The 1st Generation of Industrial Revolution (1760s to 1840s)",
+        "Generation",
+        "Industrial",
+        "Revolution",
+        "1760s",
+        "1840s)",
+        "measures"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to The 1st Generation of Industrial Revolution (1760s to 1840s): measures taken by the Africans to address",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for The 1st Generation of Industrial Revolution (1760s to 1840s): measures taken by the Africans to address",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for The 1st Generation of Industrial Revolution (1760s to 1840s): measures taken by the Africans to address",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ba2d8ce8-fd00-4322-ba3f-02cdb0ae38c0",
+          "officialTitle": "Competency Based Curriculum Grade 10 Geography",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e4e32dda-56e1-4dfa-b66f-d9ed6c7af335",
+          "officialTitle": "Competency Based Curriculum Grade 10 History and Citizenship",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-social-studies-topic-030",
+      "strandId": "7ae2f5d5-ec49-4baf-b3bf-023e5411b8a0",
+      "parentSubStrandId": "4157b6e5-93f5-4f78-a123-33fc46a05d15",
+      "subStrandId": "4157b6e5-93f5-4f78-a123-33fc46a05d15",
+      "strandTitle": "Themes in Contemporary History and Citizenship",
+      "unitTitle": "Peace and Conflict transformations in Kenya",
+      "sourceUnitTitle": "Peace and Conflict transformations in Kenya",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-social-4-1-outcome-1",
+          "text": "identify national activities that promote peace in Kenya for harmonious living"
+        },
+        {
+          "id": "grade-10-social-4-1-outcome-2",
+          "text": "examine ways"
+        }
+      ],
+      "inquiryQuestions": [
+        "What are the benefits of a peaceful nation?",
+        "How do you promote peace and conflict transformation in the community?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Peace and Conflict transformations in Kenya.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Peace and Conflict transformations in Kenya",
+        "Peace",
+        "Conflict",
+        "transformations",
+        "Kenya"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Peace and Conflict transformations in Kenya",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Peace and Conflict transformations in Kenya",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Peace and Conflict transformations in Kenya",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ba2d8ce8-fd00-4322-ba3f-02cdb0ae38c0",
+          "officialTitle": "Competency Based Curriculum Grade 10 Geography",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e4e32dda-56e1-4dfa-b66f-d9ed6c7af335",
+          "officialTitle": "Competency Based Curriculum Grade 10 History and Citizenship",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-social-studies-topic-031",
+      "strandId": "7ae2f5d5-ec49-4baf-b3bf-023e5411b8a0",
+      "parentSubStrandId": "33732b29-6824-418a-a64e-668881679869",
+      "subStrandId": "33732b29-6824-418a-a64e-668881679869",
+      "strandTitle": "Themes in Contemporary History and Citizenship",
+      "unitTitle": "Digital Citizenship technology",
+      "sourceUnitTitle": "Digital Citizenship technology",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-social-4-2-outcome-1",
+          "text": "explain the major historical milestones in the history of communication and technology"
+        },
+        {
+          "id": "grade-10-social-4-2-outcome-2",
+          "text": "analyse factors that led to evolution of communication and technology up to 20th century"
+        },
+        {
+          "id": "grade-10-social-4-2-outcome-3",
+          "text": "evaluate the impact of evolution of communication and technology in developed and developing nations up to 20th century"
+        },
+        {
+          "id": "grade-10-social-4-2-outcome-4",
+          "text": "propose solutions to challenges that faced the evolution of communication"
+        }
+      ],
+      "inquiryQuestions": [
+        "How has the technological revolution evolved over time?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Digital Citizenship technology.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Digital Citizenship technology",
+        "Digital",
+        "Citizenship",
+        "technology"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Digital Citizenship technology",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Digital Citizenship technology",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Digital Citizenship technology",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ba2d8ce8-fd00-4322-ba3f-02cdb0ae38c0",
+          "officialTitle": "Competency Based Curriculum Grade 10 Geography",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e4e32dda-56e1-4dfa-b66f-d9ed6c7af335",
+          "officialTitle": "Competency Based Curriculum Grade 10 History and Citizenship",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-social-studies-topic-032",
+      "strandId": "7ae2f5d5-ec49-4baf-b3bf-023e5411b8a0",
+      "parentSubStrandId": "a3b880b1-5ea2-456d-b662-315dc750c1fc",
+      "subStrandId": "a3b880b1-5ea2-456d-b662-315dc750c1fc",
+      "strandTitle": "Themes in Contemporary History and Citizenship",
+      "unitTitle": "Equity and non-discrimination",
+      "sourceUnitTitle": "Equity and non-discrimination",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-social-4-3-outcome-1",
+          "text": "analyse factors that promote equity and non-discrimination in the society"
+        },
+        {
+          "id": "grade-10-social-4-3-outcome-2",
+          "text": "identify historical injustices in the society that promote inequality and discrimination in the society"
+        },
+        {
+          "id": "grade-10-social-4-3-outcome-3",
+          "text": "develop measures that promote equity and non-discrimination in the society"
+        },
+        {
+          "id": "grade-10-social-4-3-outcome-4",
+          "text": "desire to promote equity and non-discrimination in the society."
+        }
+      ],
+      "inquiryQuestions": [
+        "How can we eradicate inequality and discrimination in society?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Equity and non-discrimination.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Equity and non-discrimination",
+        "Equity",
+        "non-discrimination"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Equity and non-discrimination",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Equity and non-discrimination",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Equity and non-discrimination",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ba2d8ce8-fd00-4322-ba3f-02cdb0ae38c0",
+          "officialTitle": "Competency Based Curriculum Grade 10 Geography",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        },
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e4e32dda-56e1-4dfa-b66f-d9ed6c7af335",
+          "officialTitle": "Competency Based Curriculum Grade 10 History and Citizenship",
+          "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2134 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-rwa-reb-cbc-s3-ict",
+  "title": "KITABU QUEST S3 ICT",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "S3",
+  "subject": "ICT",
+  "subjectSlug": "ict",
+  "subjectColor": "#4338CA",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v17",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T06:47:16Z",
+  "sourceSnapshotHash": "2bf04ff47e6b8189b533731adba2c84a5fdb597ac798054307c2a0e568fb8891",
+  "bookPlanHash": "5801925bb0424661e6da457c5a9fba8f4de7103563344bca6a585736a7fb2457",
+  "pageCount": 85,
+  "wordCount": 8830,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 7,
+    "outcomeCount": 7,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "RWA",
+    "subject": "ICT",
+    "species": "mountain gorilla",
+    "role": "digital skills guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners using computers safely with a mountain gorilla mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Rwanda REB-CBC S3 ICT. Scene: learners using computers safely with a mountain gorilla mascot. Include a friendly mountain gorilla mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 85582,
+    "sha256": "031ffc2119b90cee76d6e6d26c085306341751f139e9e1d8aabfb5cf1851274a"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 85582,
+      "sha256": "031ffc2119b90cee76d6e6d26c085306341751f139e9e1d8aabfb5cf1851274a",
+      "kind": "cover",
+      "altText": "KITABU QUEST S3 ICT cover with mountain gorilla",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-rwa-reb-cbc-s3-ict.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-rwa-reb-cbc-s3-ict.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "d8431656-7911-4aef-8b19-59f164c81a42",
+      "subject": "ICT",
+      "officialTitle": "Rwanda Competence Based Curriculum S3 ICT",
+      "countryCode": "RWA",
+      "curriculumCode": "REB-CBC",
+      "gradeCode": "S3",
+      "gradeLocalLevel": "S3",
+      "localLevel": "S3",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://elearning.reb.rw/pluginfile.php/55032/mod_resource/content/1/ICT%20Syllabus%20Lower%20Secondary.pdf",
+      "objectKey": "data/curriculum/source-files/RWA/ea0f23d5bd890695730aa56f7454bc6ed6a7ef94f93a66a6d8e1aaf6fe4a0374.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "S3",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://elearning.reb.rw/pluginfile.php/55032/mod_resource/content/1/ICT%20Syllabus%20Lower%20Secondary.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S3/ict/d8431656-7911-4aef-8b19-59f164c81a42.md",
+        "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "reb.gov.rw",
+          "reb.rw",
+          "elearning.reb.rw"
+        ],
+        "markdownChecksum": "ce12e113462aeeaf7a7454ed1ae4fd802333abaf0fb155277737d0d621b920a6",
+        "markdownPageCount": 84,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/RWA/REB-CBC/S3/ict/d8431656-7911-4aef-8b19-59f164c81a42.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "ce12e113462aeeaf7a7454ed1ae4fd802333abaf0fb155277737d0d621b920a6",
+          "pageCount": 84,
+          "generatedAt": "2026-07-01T01:20:11.815Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S3/ict/d8431656-7911-4aef-8b19-59f164c81a42.json",
+          "sourceChecksum": "cdb0d528506adf03c1d4dcdf2aec2de39f1a9416f94172e0f1a69d67bc5fba66"
+        },
+        "markdownGeneratedAt": "2026-07-01T01:20:11.815Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p001",
+      "title": "Title Page",
+      "content": "KITABU QUEST S3 ICT\n\nRwanda REB-CBC learner book\n\nMascot: mountain gorilla\n\nThis KITABU QUEST book turns the curriculum into short lessons, worked examples, guided activities, practice, review, and home links for Rwanda learners.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 3,
+      "wordCount": 33,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p002",
+      "title": "How To Use This Book",
+      "content": "This book helps S3 learners study ICT one teachable topic at a time.\n\n1. Start with the inquiry question and say what you already know.\n2. Read the Learn section slowly and mark new words.\n3. Try the worked example before reading the full solution.\n4. Complete the activity and practice tasks.\n5. Correct your answer using the success criteria.\n6. Ask for support when your answer is still unclear.\n\nSubject method: Practise safe, useful digital skills and explain each step clearly.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 82,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p003",
+      "title": "Learning Skills In This Book",
+      "content": "Each topic builds knowledge, skill, values, communication, collaboration, critical thinking, creativity, digital awareness, and self-confidence.\n\nStudy actively: speak answers aloud, draw when useful, show your working, cite evidence, use local examples, and correct mistakes after feedback.\n\nA strong answer is specific. It names the idea, gives evidence or method, applies it to the task, and checks whether it answers the question.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p004",
+      "title": "Table Of Contents",
+      "content": "Use this table to move through the book one topic at a time. Each topic has a lesson opener, clear teaching, a model or example, guided work, practice, and checks for understanding.\n\n1. Application and utility software installation\n2. Charts and advanced objects\n3. Arc GIS\n4. Charts and objects in spreadsheet\n5. Presentation\n6. Network security\n7. Platform game programming\n\nAs you finish each topic, return to the success criteria and correct one answer before moving on.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 78,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p005",
+      "title": "Application and utility software installation: Lesson Opener",
+      "content": "Learning focus: Application and utility software installation\n\nCountry link: a Rwandan school computer, phone, file, document, spreadsheet, network, or online-safety task for Application and utility software installation.\n\nProgression focus: apply ideas to unfamiliar situations and justify decisions with evidence; produce a checkable digital output and explain safe steps.\n\nBy the end of this topic, you should be able to:\n- understand the functions of operating system, install and use application and utility software\n\nInquiry questions:\n- How can application and utility software installation help you solve a real problem in ICT?\n\nSuccess criteria:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "RWA-S3-ict-topic-001:opener:visual-1:planned",
+        "RWA-S3-ict-topic-001:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p006",
+      "title": "Application and utility software installation: Learn",
+      "content": "Application and utility software installation is a practical digital skill. Learn it by naming the task, following exact steps, checking the output, and using devices safely.\n\nCore idea:\n- Start with the purpose: communication, data handling, file management, research, creation, or problem solving.\n- Name the tool: device, keyboard, folder, document, spreadsheet, browser, network, software, or file.\n- Follow steps in order and avoid random clicking.\n- Protect privacy, passwords, shared devices, and other people's files.\n- Check the result by reopening, testing, proofreading, or asking whether the output matches the task.\n\nKey words:\n- Application and utility software installation\n- Application\n- utility\n- software\n- installation\n- idea\n- skill\n- example",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 114,
+      "imageRefs": [
+        "RWA-S3-ict-topic-001:learn:visual-1:planned",
+        "RWA-S3-ict-topic-001:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p007",
+      "title": "Application and utility software installation: Worked Example",
+      "content": "Worked example for Application and utility software installation: Organize a class assignment file safely.\n\n1. Task: create a folder named class-work on the school computer or approved device.\n2. Inside the folder, create a document called application-and-utility-software-installation-notes.\n3. Type a clear heading and three short notes about the topic.\n4. Save the file, close it, reopen it, and check that the content is still there.\n5. Apply one safety rule: use only your own file, keep passwords private, and ask before using shared devices.\n\nAnswer check: the folder name is clear, the file opens correctly, and the learner can explain every step without guessing.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 104,
+      "imageRefs": [
+        "RWA-S3-ict-topic-001:example:visual-1:planned",
+        "RWA-S3-ict-topic-001:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p008",
+      "title": "Application and utility software installation: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Application and utility software installation. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Application and utility software installation\n- Application\n- utility\n- software\n- installation\n- idea\n- skill\n- example\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Application and utility software installation without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "RWA-S3-ict-topic-001:vocabulary:visual-1:planned",
+        "RWA-S3-ict-topic-001:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p009",
+      "title": "Application and utility software installation: Guided Activity",
+      "content": "Guided digital activity for Application and utility software installation:\n\n1. Read the task and name the exact output: file, table, document, diagram, message, algorithm, or safety checklist.\n2. List the device, software, data, and safety rule needed before starting.\n3. Complete the output in small steps and say each step aloud to a partner.\n4. Save, reopen, test, proofread, or inspect the output.\n5. Write one correction you made and one rule that protects privacy or shared equipment.\n\nTeacher check: the learner should explain the process, not only show a finished screen.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "RWA-S3-ict-topic-001:activity:visual-1:planned",
+        "RWA-S3-ict-topic-001:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p010",
+      "title": "Application and utility software installation: Practice And Correction",
+      "content": "Digital practice for Application and utility software installation:\n\n1. Complete a small digital-skills task for Application and utility software installation: understand the functions of operating system, install and use application and utility software. Write the exact steps, safety rule, file or device choice, check result, and one correction.\n\nQuality checklist:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected\n\nEvidence to show:\n- a clear file name, table, document, diagram, algorithm, screenshot description, or step list\n- one safety or privacy rule\n- one test or correction\n\nHome link: describe one safe digital habit someone at home or school should follow.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "RWA-S3-ict-topic-001:practice:visual-1:planned",
+        "RWA-S3-ict-topic-001:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p011",
+      "title": "Application and utility software installation: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Application and utility software installation.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "RWA-S3-ict-topic-001:remediation:visual-1:planned",
+        "RWA-S3-ict-topic-001:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p012",
+      "title": "Application and utility software installation: Outcome Check",
+      "content": "Outcome check for Application and utility software installation: Understand the functions of operating system, install and use application and utility software.\n\n1. State the digital task and the intended output.\n2. List the exact device, software, file, data, or network step needed.\n3. Create or describe the output in a way another learner can inspect.\n4. Test the output and write one correction.\n5. Add one privacy, password, copyright, ergonomics, or shared-device safety rule.\n\nSuccess criteria:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "RWA-S3-ict-topic-001:assessment:visual-1:planned",
+        "RWA-S3-ict-topic-001:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p013",
+      "title": "Charts and advanced objects: Lesson Opener",
+      "content": "Learning focus: Charts and advanced objects\n\nCountry link: a Rwandan school computer, phone, file, document, spreadsheet, network, or online-safety task for Charts and advanced objects.\n\nProgression focus: apply ideas to unfamiliar situations and justify decisions with evidence; produce a checkable digital output and explain safe steps.\n\nBy the end of this topic, you should be able to:\n- present data graphically and use different objects in a document\n\nInquiry questions:\n- How can charts and advanced objects help you solve a real problem in ICT?\n\nSuccess criteria:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "RWA-S3-ict-topic-002:opener:visual-1:planned",
+        "RWA-S3-ict-topic-002:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p014",
+      "title": "Charts and advanced objects: Learn",
+      "content": "Charts and advanced objects is a practical digital skill. Learn it by naming the task, following exact steps, checking the output, and using devices safely.\n\nCore idea:\n- Start with the purpose: communication, data handling, file management, research, creation, or problem solving.\n- Name the tool: device, keyboard, folder, document, spreadsheet, browser, network, software, or file.\n- Follow steps in order and avoid random clicking.\n- Protect privacy, passwords, shared devices, and other people's files.\n- Check the result by reopening, testing, proofreading, or asking whether the output matches the task.\n\nKey words:\n- Charts and advanced objects\n- Charts\n- advanced\n- objects\n- idea\n- skill\n- example\n- practice",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "RWA-S3-ict-topic-002:learn:visual-1:planned",
+        "RWA-S3-ict-topic-002:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p015",
+      "title": "Charts and advanced objects: Worked Example",
+      "content": "Worked example for Charts and advanced objects: Organize a class assignment file safely.\n\n1. Task: create a folder named class-work on the school computer or approved device.\n2. Inside the folder, create a document called charts-and-advanced-objects-notes.\n3. Type a clear heading and three short notes about the topic.\n4. Save the file, close it, reopen it, and check that the content is still there.\n5. Apply one safety rule: use only your own file, keep passwords private, and ask before using shared devices.\n\nAnswer check: the folder name is clear, the file opens correctly, and the learner can explain every step without guessing.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "RWA-S3-ict-topic-002:example:visual-1:planned",
+        "RWA-S3-ict-topic-002:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p016",
+      "title": "Charts and advanced objects: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Charts and advanced objects. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Charts and advanced objects\n- Charts\n- advanced\n- objects\n- idea\n- skill\n- example\n- practice\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Charts and advanced objects without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "RWA-S3-ict-topic-002:vocabulary:visual-1:planned",
+        "RWA-S3-ict-topic-002:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p017",
+      "title": "Charts and advanced objects: Guided Activity",
+      "content": "Guided digital activity for Charts and advanced objects:\n\n1. Read the task and name the exact output: file, table, document, diagram, message, algorithm, or safety checklist.\n2. List the device, software, data, and safety rule needed before starting.\n3. Complete the output in small steps and say each step aloud to a partner.\n4. Save, reopen, test, proofread, or inspect the output.\n5. Write one correction you made and one rule that protects privacy or shared equipment.\n\nTeacher check: the learner should explain the process, not only show a finished screen.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "RWA-S3-ict-topic-002:activity:visual-1:planned",
+        "RWA-S3-ict-topic-002:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p018",
+      "title": "Charts and advanced objects: Practice And Correction",
+      "content": "Digital practice for Charts and advanced objects:\n\n1. Complete a small digital-skills task for Charts and advanced objects: present data graphically and use different objects in a document. Write the exact steps, safety rule, file or device choice, check result, and one correction.\n\nQuality checklist:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected\n\nEvidence to show:\n- a clear file name, table, document, diagram, algorithm, screenshot description, or step list\n- one safety or privacy rule\n- one test or correction\n\nHome link: describe one safe digital habit someone at home or school should follow.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "RWA-S3-ict-topic-002:practice:visual-1:planned",
+        "RWA-S3-ict-topic-002:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p019",
+      "title": "Charts and advanced objects: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Charts and advanced objects.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "RWA-S3-ict-topic-002:remediation:visual-1:planned",
+        "RWA-S3-ict-topic-002:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p020",
+      "title": "Charts and advanced objects: Outcome Check",
+      "content": "Outcome check for Charts and advanced objects: Present data graphically and use different objects in a document.\n\n1. State the digital task and the intended output.\n2. List the exact device, software, file, data, or network step needed.\n3. Create or describe the output in a way another learner can inspect.\n4. Test the output and write one correction.\n5. Add one privacy, password, copyright, ergonomics, or shared-device safety rule.\n\nSuccess criteria:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 88,
+      "imageRefs": [
+        "RWA-S3-ict-topic-002:assessment:visual-1:planned",
+        "RWA-S3-ict-topic-002:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p021",
+      "title": "Arc GIS: Lesson Opener",
+      "content": "Learning focus: Arc GIS\n\nCountry link: a Rwandan school computer, phone, file, document, spreadsheet, network, or online-safety task for Arc GIS.\n\nProgression focus: apply ideas to unfamiliar situations and justify decisions with evidence; produce a checkable digital output and explain safe steps.\n\nBy the end of this topic, you should be able to:\n- query a map using selections (attribute and location). Create a map layout and insert map elements. Use advanced symbology and labeling. Print, export and send a map\n\nInquiry questions:\n- How can arcgis help you solve a real problem in ICT?\n\nSuccess criteria:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 113,
+      "imageRefs": [
+        "RWA-S3-ict-topic-003:opener:visual-1:planned",
+        "RWA-S3-ict-topic-003:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p022",
+      "title": "Arc GIS: Learn",
+      "content": "Arc GIS is a practical digital skill. Learn it by naming the task, following exact steps, checking the output, and using devices safely.\n\nCore idea:\n- Start with the purpose: communication, data handling, file management, research, creation, or problem solving.\n- Name the tool: device, keyboard, folder, document, spreadsheet, browser, network, software, or file.\n- Follow steps in order and avoid random clicking.\n- Protect privacy, passwords, shared devices, and other people's files.\n- Check the result by reopening, testing, proofreading, or asking whether the output matches the task.\n\nKey words:\n- Arc GIS\n- idea\n- skill\n- example\n- practice\n- correction",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 104,
+      "imageRefs": [
+        "RWA-S3-ict-topic-003:learn:visual-1:planned",
+        "RWA-S3-ict-topic-003:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p023",
+      "title": "Arc GIS: Worked Example",
+      "content": "Worked example for Arc GIS: Organize a class assignment file safely.\n\n1. Task: create a folder named class-work on the school computer or approved device.\n2. Inside the folder, create a document called arc-gis-notes.\n3. Type a clear heading and three short notes about the topic.\n4. Save the file, close it, reopen it, and check that the content is still there.\n5. Apply one safety rule: use only your own file, keep passwords private, and ask before using shared devices.\n\nAnswer check: the folder name is clear, the file opens correctly, and the learner can explain every step without guessing.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "RWA-S3-ict-topic-003:example:visual-1:planned",
+        "RWA-S3-ict-topic-003:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p024",
+      "title": "Arc GIS: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Arc GIS. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Arc GIS\n- idea\n- skill\n- example\n- practice\n- correction\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Arc GIS without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "RWA-S3-ict-topic-003:vocabulary:visual-1:planned",
+        "RWA-S3-ict-topic-003:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p025",
+      "title": "Arc GIS: Guided Activity",
+      "content": "Guided digital activity for Arc GIS:\n\n1. Read the task and name the exact output: file, table, document, diagram, message, algorithm, or safety checklist.\n2. List the device, software, data, and safety rule needed before starting.\n3. Complete the output in small steps and say each step aloud to a partner.\n4. Save, reopen, test, proofread, or inspect the output.\n5. Write one correction you made and one rule that protects privacy or shared equipment.\n\nTeacher check: the learner should explain the process, not only show a finished screen.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 89,
+      "imageRefs": [
+        "RWA-S3-ict-topic-003:activity:visual-1:planned",
+        "RWA-S3-ict-topic-003:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p026",
+      "title": "Arc GIS: Practice And Correction",
+      "content": "Digital practice for Arc GIS:\n\n1. Complete a small digital-skills task for Arc GIS: query a map using selections (attribute and location). Create a map layout and insert map elements. Use advanced symbology and labeling. Print, export and send a map. Write the exact steps, safety rule, file or device choice, check result, and one correction.\n\nQuality checklist:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected\n\nEvidence to show:\n- a clear file name, table, document, diagram, algorithm, screenshot description, or step list\n- one safety or privacy rule\n- one test or correction\n\nHome link: describe one safe digital habit someone at home or school should follow.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 116,
+      "imageRefs": [
+        "RWA-S3-ict-topic-003:practice:visual-1:planned",
+        "RWA-S3-ict-topic-003:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p027",
+      "title": "Arc GIS: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Arc GIS.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "RWA-S3-ict-topic-003:remediation:visual-1:planned",
+        "RWA-S3-ict-topic-003:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p028",
+      "title": "Arc GIS: Outcome Check",
+      "content": "Outcome check for Arc GIS: Query a map using selections (attribute and location). Create a map layout and insert map elements. Use advanced symbology and labeling. Print, export and send a map.\n\n1. State the digital task and the intended output.\n2. List the exact device, software, file, data, or network step needed.\n3. Create or describe the output in a way another learner can inspect.\n4. Test the output and write one correction.\n5. Add one privacy, password, copyright, ergonomics, or shared-device safety rule.\n\nSuccess criteria:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "RWA-S3-ict-topic-003:assessment:visual-1:planned",
+        "RWA-S3-ict-topic-003:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p029",
+      "title": "Charts and objects in spreadsheet: Lesson Opener",
+      "content": "Learning focus: Charts and objects in spreadsheet\n\nCountry link: a Rwandan school computer, phone, file, document, spreadsheet, network, or online-safety task for Charts and objects in spreadsheet.\n\nProgression focus: apply ideas to unfamiliar situations and justify decisions with evidence; produce a checkable digital output and explain safe steps.\n\nBy the end of this topic, you should be able to:\n- use charts and objects in a spreadsheet, use different techniques to organise a printable datasheet\n\nInquiry questions:\n- How can charts and objects in spreadsheet help you solve a real problem in ICT?\n\nSuccess criteria:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 111,
+      "imageRefs": [
+        "RWA-S3-ict-topic-004:opener:visual-1:planned",
+        "RWA-S3-ict-topic-004:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p030",
+      "title": "Charts and objects in spreadsheet: Learn",
+      "content": "Charts and objects in spreadsheet is a practical digital skill. Learn it by naming the task, following exact steps, checking the output, and using devices safely.\n\nCore idea:\n- Start with the purpose: communication, data handling, file management, research, creation, or problem solving.\n- Name the tool: device, keyboard, folder, document, spreadsheet, browser, network, software, or file.\n- Follow steps in order and avoid random clicking.\n- Protect privacy, passwords, shared devices, and other people's files.\n- Check the result by reopening, testing, proofreading, or asking whether the output matches the task.\n\nKey words:\n- Charts and objects in spreadsheet\n- Charts\n- objects\n- spreadsheet\n- idea\n- skill\n- example\n- practice",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 114,
+      "imageRefs": [
+        "RWA-S3-ict-topic-004:learn:visual-1:planned",
+        "RWA-S3-ict-topic-004:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p031",
+      "title": "Charts and objects in spreadsheet: Worked Example",
+      "content": "Worked example for Charts and objects in spreadsheet: Organize a class assignment file safely.\n\n1. Task: create a folder named class-work on the school computer or approved device.\n2. Inside the folder, create a document called charts-and-objects-in-spreadsheet-notes.\n3. Type a clear heading and three short notes about the topic.\n4. Save the file, close it, reopen it, and check that the content is still there.\n5. Apply one safety rule: use only your own file, keep passwords private, and ask before using shared devices.\n\nAnswer check: the folder name is clear, the file opens correctly, and the learner can explain every step without guessing.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 104,
+      "imageRefs": [
+        "RWA-S3-ict-topic-004:example:visual-1:planned",
+        "RWA-S3-ict-topic-004:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p032",
+      "title": "Charts and objects in spreadsheet: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Charts and objects in spreadsheet. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Charts and objects in spreadsheet\n- Charts\n- objects\n- spreadsheet\n- idea\n- skill\n- example\n- practice\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Charts and objects in spreadsheet without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "RWA-S3-ict-topic-004:vocabulary:visual-1:planned",
+        "RWA-S3-ict-topic-004:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p033",
+      "title": "Charts and objects in spreadsheet: Guided Activity",
+      "content": "Guided digital activity for Charts and objects in spreadsheet:\n\n1. Read the task and name the exact output: file, table, document, diagram, message, algorithm, or safety checklist.\n2. List the device, software, data, and safety rule needed before starting.\n3. Complete the output in small steps and say each step aloud to a partner.\n4. Save, reopen, test, proofread, or inspect the output.\n5. Write one correction you made and one rule that protects privacy or shared equipment.\n\nTeacher check: the learner should explain the process, not only show a finished screen.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "RWA-S3-ict-topic-004:activity:visual-1:planned",
+        "RWA-S3-ict-topic-004:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p034",
+      "title": "Charts and objects in spreadsheet: Practice And Correction",
+      "content": "Digital practice for Charts and objects in spreadsheet:\n\n1. Complete a small digital-skills task for Charts and objects in spreadsheet: use charts and objects in a spreadsheet, use different techniques to organise a printable datasheet. Write the exact steps, safety rule, file or device choice, check result, and one correction.\n\nQuality checklist:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected\n\nEvidence to show:\n- a clear file name, table, document, diagram, algorithm, screenshot description, or step list\n- one safety or privacy rule\n- one test or correction\n\nHome link: describe one safe digital habit someone at home or school should follow.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 110,
+      "imageRefs": [
+        "RWA-S3-ict-topic-004:practice:visual-1:planned",
+        "RWA-S3-ict-topic-004:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p035",
+      "title": "Charts and objects in spreadsheet: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Charts and objects in spreadsheet.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "RWA-S3-ict-topic-004:remediation:visual-1:planned",
+        "RWA-S3-ict-topic-004:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p036",
+      "title": "Charts and objects in spreadsheet: Outcome Check",
+      "content": "Outcome check for Charts and objects in spreadsheet: Use charts and objects in a spreadsheet, use different techniques to organise a printable datasheet.\n\n1. State the digital task and the intended output.\n2. List the exact device, software, file, data, or network step needed.\n3. Create or describe the output in a way another learner can inspect.\n4. Test the output and write one correction.\n5. Add one privacy, password, copyright, ergonomics, or shared-device safety rule.\n\nSuccess criteria:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "RWA-S3-ict-topic-004:assessment:visual-1:planned",
+        "RWA-S3-ict-topic-004:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p037",
+      "title": "Presentation: Lesson Opener",
+      "content": "Learning focus: Presentation\n\nCountry link: a Rwandan school computer, phone, file, document, spreadsheet, network, or online-safety task for Presentation.\n\nProgression focus: apply ideas to unfamiliar situations and justify decisions with evidence; produce a checkable digital output and explain safe steps.\n\nBy the end of this topic, you should be able to:\n- prepare and make a presentation\n\nInquiry questions:\n- How can presentation help you solve a real problem in ICT?\n\nSuccess criteria:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 89,
+      "imageRefs": [
+        "RWA-S3-ict-topic-005:opener:visual-1:planned",
+        "RWA-S3-ict-topic-005:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p038",
+      "title": "Presentation: Learn",
+      "content": "Presentation is a practical digital skill. Learn it by naming the task, following exact steps, checking the output, and using devices safely.\n\nCore idea:\n- Start with the purpose: communication, data handling, file management, research, creation, or problem solving.\n- Name the tool: device, keyboard, folder, document, spreadsheet, browser, network, software, or file.\n- Follow steps in order and avoid random clicking.\n- Protect privacy, passwords, shared devices, and other people's files.\n- Check the result by reopening, testing, proofreading, or asking whether the output matches the task.\n\nKey words:\n- Presentation\n- idea\n- skill\n- example\n- practice\n- correction",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 102,
+      "imageRefs": [
+        "RWA-S3-ict-topic-005:learn:visual-1:planned",
+        "RWA-S3-ict-topic-005:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p039",
+      "title": "Presentation: Worked Example",
+      "content": "Worked example for Presentation: Organize a class assignment file safely.\n\n1. Task: create a folder named class-work on the school computer or approved device.\n2. Inside the folder, create a document called presentation-notes.\n3. Type a clear heading and three short notes about the topic.\n4. Save the file, close it, reopen it, and check that the content is still there.\n5. Apply one safety rule: use only your own file, keep passwords private, and ask before using shared devices.\n\nAnswer check: the folder name is clear, the file opens correctly, and the learner can explain every step without guessing.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 100,
+      "imageRefs": [
+        "RWA-S3-ict-topic-005:example:visual-1:planned",
+        "RWA-S3-ict-topic-005:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p040",
+      "title": "Presentation: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Presentation. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Presentation\n- idea\n- skill\n- example\n- practice\n- correction\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Presentation without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "RWA-S3-ict-topic-005:vocabulary:visual-1:planned",
+        "RWA-S3-ict-topic-005:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p041",
+      "title": "Presentation: Guided Activity",
+      "content": "Guided digital activity for Presentation:\n\n1. Read the task and name the exact output: file, table, document, diagram, message, algorithm, or safety checklist.\n2. List the device, software, data, and safety rule needed before starting.\n3. Complete the output in small steps and say each step aloud to a partner.\n4. Save, reopen, test, proofread, or inspect the output.\n5. Write one correction you made and one rule that protects privacy or shared equipment.\n\nTeacher check: the learner should explain the process, not only show a finished screen.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 88,
+      "imageRefs": [
+        "RWA-S3-ict-topic-005:activity:visual-1:planned",
+        "RWA-S3-ict-topic-005:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p042",
+      "title": "Presentation: Practice And Correction",
+      "content": "Digital practice for Presentation:\n\n1. Complete a small digital-skills task for Presentation: prepare and make a presentation. Write the exact steps, safety rule, file or device choice, check result, and one correction.\n\nQuality checklist:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected\n\nEvidence to show:\n- a clear file name, table, document, diagram, algorithm, screenshot description, or step list\n- one safety or privacy rule\n- one test or correction\n\nHome link: describe one safe digital habit someone at home or school should follow.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "RWA-S3-ict-topic-005:practice:visual-1:planned",
+        "RWA-S3-ict-topic-005:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p043",
+      "title": "Presentation: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Presentation.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "RWA-S3-ict-topic-005:remediation:visual-1:planned",
+        "RWA-S3-ict-topic-005:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p044",
+      "title": "Presentation: Outcome Check",
+      "content": "Outcome check for Presentation: Prepare and make a presentation.\n\n1. State the digital task and the intended output.\n2. List the exact device, software, file, data, or network step needed.\n3. Create or describe the output in a way another learner can inspect.\n4. Test the output and write one correction.\n5. Add one privacy, password, copyright, ergonomics, or shared-device safety rule.\n\nSuccess criteria:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 80,
+      "imageRefs": [
+        "RWA-S3-ict-topic-005:assessment:visual-1:planned",
+        "RWA-S3-ict-topic-005:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p045",
+      "title": "Network security: Lesson Opener",
+      "content": "Learning focus: Network security\n\nCountry link: a Rwandan school computer, phone, file, document, spreadsheet, network, or online-safety task for Network security.\n\nProgression focus: apply ideas to unfamiliar situations and justify decisions with evidence; produce a checkable digital output and explain safe steps.\n\nBy the end of this topic, you should be able to:\n- explain network security and apply basic security measures\n\nInquiry questions:\n- How can network security help you solve a real problem in ICT?\n\nSuccess criteria:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "RWA-S3-ict-topic-006:opener:visual-1:planned",
+        "RWA-S3-ict-topic-006:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p046",
+      "title": "Network security: Learn",
+      "content": "Network security is a practical digital skill. Learn it by naming the task, following exact steps, checking the output, and using devices safely.\n\nCore idea:\n- Start with the purpose: communication, data handling, file management, research, creation, or problem solving.\n- Name the tool: device, keyboard, folder, document, spreadsheet, browser, network, software, or file.\n- Follow steps in order and avoid random clicking.\n- Protect privacy, passwords, shared devices, and other people's files.\n- Check the result by reopening, testing, proofreading, or asking whether the output matches the task.\n\nKey words:\n- Network security\n- Network\n- security\n- idea\n- skill\n- example\n- practice\n- correction",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "RWA-S3-ict-topic-006:learn:visual-1:planned",
+        "RWA-S3-ict-topic-006:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p047",
+      "title": "Network security: Worked Example",
+      "content": "Worked example for Network security: Organize a class assignment file safely.\n\n1. Task: create a folder named class-work on the school computer or approved device.\n2. Inside the folder, create a document called network-security-notes.\n3. Type a clear heading and three short notes about the topic.\n4. Save the file, close it, reopen it, and check that the content is still there.\n5. Apply one safety rule: use only your own file, keep passwords private, and ask before using shared devices.\n\nAnswer check: the folder name is clear, the file opens correctly, and the learner can explain every step without guessing.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "RWA-S3-ict-topic-006:example:visual-1:planned",
+        "RWA-S3-ict-topic-006:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p048",
+      "title": "Network security: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Network security. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Network security\n- Network\n- security\n- idea\n- skill\n- example\n- practice\n- correction\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Network security without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "RWA-S3-ict-topic-006:vocabulary:visual-1:planned",
+        "RWA-S3-ict-topic-006:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p049",
+      "title": "Network security: Guided Activity",
+      "content": "Guided digital activity for Network security:\n\n1. Read the task and name the exact output: file, table, document, diagram, message, algorithm, or safety checklist.\n2. List the device, software, data, and safety rule needed before starting.\n3. Complete the output in small steps and say each step aloud to a partner.\n4. Save, reopen, test, proofread, or inspect the output.\n5. Write one correction you made and one rule that protects privacy or shared equipment.\n\nTeacher check: the learner should explain the process, not only show a finished screen.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 89,
+      "imageRefs": [
+        "RWA-S3-ict-topic-006:activity:visual-1:planned",
+        "RWA-S3-ict-topic-006:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p050",
+      "title": "Network security: Practice And Correction",
+      "content": "Digital practice for Network security:\n\n1. Complete a small digital-skills task for Network security: explain network security and apply basic security measures. Write the exact steps, safety rule, file or device choice, check result, and one correction.\n\nQuality checklist:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected\n\nEvidence to show:\n- a clear file name, table, document, diagram, algorithm, screenshot description, or step list\n- one safety or privacy rule\n- one test or correction\n\nHome link: describe one safe digital habit someone at home or school should follow.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 97,
+      "imageRefs": [
+        "RWA-S3-ict-topic-006:practice:visual-1:planned",
+        "RWA-S3-ict-topic-006:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p051",
+      "title": "Network security: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Network security.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "RWA-S3-ict-topic-006:remediation:visual-1:planned",
+        "RWA-S3-ict-topic-006:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p052",
+      "title": "Network security: Outcome Check",
+      "content": "Outcome check for Network security: Explain network security and apply basic security measures.\n\n1. State the digital task and the intended output.\n2. List the exact device, software, file, data, or network step needed.\n3. Create or describe the output in a way another learner can inspect.\n4. Test the output and write one correction.\n5. Add one privacy, password, copyright, ergonomics, or shared-device safety rule.\n\nSuccess criteria:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 84,
+      "imageRefs": [
+        "RWA-S3-ict-topic-006:assessment:visual-1:planned",
+        "RWA-S3-ict-topic-006:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p053",
+      "title": "Platform game programming: Lesson Opener",
+      "content": "Learning focus: Platform game programming\n\nCountry link: a Rwandan school computer, phone, file, document, spreadsheet, network, or online-safety task for Platform game programming.\n\nProgression focus: apply ideas to unfamiliar situations and justify decisions with evidence; produce a checkable digital output and explain safe steps.\n\nBy the end of this topic, you should be able to:\n- use complex expressions, operators and controls to design platforms\n\nInquiry questions:\n- How can platform game programming help you solve a real problem in ICT?\n\nSuccess criteria:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 99,
+      "imageRefs": [
+        "RWA-S3-ict-topic-007:opener:visual-1:planned",
+        "RWA-S3-ict-topic-007:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p054",
+      "title": "Platform game programming: Learn",
+      "content": "Platform game programming is a practical digital skill. Learn it by naming the task, following exact steps, checking the output, and using devices safely.\n\nCore idea:\n- Start with the purpose: communication, data handling, file management, research, creation, or problem solving.\n- Name the tool: device, keyboard, folder, document, spreadsheet, browser, network, software, or file.\n- Follow steps in order and avoid random clicking.\n- Protect privacy, passwords, shared devices, and other people's files.\n- Check the result by reopening, testing, proofreading, or asking whether the output matches the task.\n\nKey words:\n- Platform game programming\n- Platform\n- game\n- programming\n- idea\n- skill\n- example\n- practice",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 110,
+      "imageRefs": [
+        "RWA-S3-ict-topic-007:learn:visual-1:planned",
+        "RWA-S3-ict-topic-007:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p055",
+      "title": "Platform game programming: Worked Example",
+      "content": "Worked example for Platform game programming: Organize a class assignment file safely.\n\n1. Task: create a folder named class-work on the school computer or approved device.\n2. Inside the folder, create a document called platform-game-programming-notes.\n3. Type a clear heading and three short notes about the topic.\n4. Save the file, close it, reopen it, and check that the content is still there.\n5. Apply one safety rule: use only your own file, keep passwords private, and ask before using shared devices.\n\nAnswer check: the folder name is clear, the file opens correctly, and the learner can explain every step without guessing.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 102,
+      "imageRefs": [
+        "RWA-S3-ict-topic-007:example:visual-1:planned",
+        "RWA-S3-ict-topic-007:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p056",
+      "title": "Platform game programming: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Platform game programming. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Platform game programming\n- Platform\n- game\n- programming\n- idea\n- skill\n- example\n- practice\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Platform game programming without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "RWA-S3-ict-topic-007:vocabulary:visual-1:planned",
+        "RWA-S3-ict-topic-007:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p057",
+      "title": "Platform game programming: Guided Activity",
+      "content": "Guided digital activity for Platform game programming:\n\n1. Read the task and name the exact output: file, table, document, diagram, message, algorithm, or safety checklist.\n2. List the device, software, data, and safety rule needed before starting.\n3. Complete the output in small steps and say each step aloud to a partner.\n4. Save, reopen, test, proofread, or inspect the output.\n5. Write one correction you made and one rule that protects privacy or shared equipment.\n\nTeacher check: the learner should explain the process, not only show a finished screen.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "RWA-S3-ict-topic-007:activity:visual-1:planned",
+        "RWA-S3-ict-topic-007:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p058",
+      "title": "Platform game programming: Practice And Correction",
+      "content": "Digital practice for Platform game programming:\n\n1. Complete a small digital-skills task for Platform game programming: use complex expressions, operators and controls to design platforms. Write the exact steps, safety rule, file or device choice, check result, and one correction.\n\nQuality checklist:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected\n\nEvidence to show:\n- a clear file name, table, document, diagram, algorithm, screenshot description, or step list\n- one safety or privacy rule\n- one test or correction\n\nHome link: describe one safe digital habit someone at home or school should follow.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 100,
+      "imageRefs": [
+        "RWA-S3-ict-topic-007:practice:visual-1:planned",
+        "RWA-S3-ict-topic-007:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p059",
+      "title": "Platform game programming: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Platform game programming.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "RWA-S3-ict-topic-007:remediation:visual-1:planned",
+        "RWA-S3-ict-topic-007:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p060",
+      "title": "Platform game programming: Outcome Check",
+      "content": "Outcome check for Platform game programming: Use complex expressions, operators and controls to design platforms.\n\n1. State the digital task and the intended output.\n2. List the exact device, software, file, data, or network step needed.\n3. Create or describe the output in a way another learner can inspect.\n4. Test the output and write one correction.\n5. Add one privacy, password, copyright, ergonomics, or shared-device safety rule.\n\nSuccess criteria:\n- steps are exact\n- digital safety is included\n- output is saved, checked, or corrected",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 86,
+      "imageRefs": [
+        "RWA-S3-ict-topic-007:assessment:visual-1:planned",
+        "RWA-S3-ict-topic-007:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p061",
+      "title": "Application and utility software installation: Review Clinic 1",
+      "content": "Use this review clinic to strengthen ICT without copying earlier answers.\n\n1. Choose one idea from Application and utility software installation that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Rwanda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 78,
+      "imageRefs": [
+        "RWA-S3-ict-topic-001:review:visual-1:planned",
+        "RWA-S3-ict-topic-001:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p062",
+      "title": "Charts and advanced objects: Review Clinic 2",
+      "content": "Use this review clinic to strengthen ICT without copying earlier answers.\n\n1. Choose one idea from Charts and advanced objects that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Rwanda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 77,
+      "imageRefs": [
+        "RWA-S3-ict-topic-002:review:visual-1:planned",
+        "RWA-S3-ict-topic-002:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p063",
+      "title": "Arc GIS: Review Clinic 3",
+      "content": "Use this review clinic to strengthen ICT without copying earlier answers.\n\n1. Choose one idea from Arc GIS that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Rwanda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 75,
+      "imageRefs": [
+        "RWA-S3-ict-topic-003:review:visual-1:planned",
+        "RWA-S3-ict-topic-003:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p064",
+      "title": "Charts and objects in spreadsheet: Review Clinic 4",
+      "content": "Use this review clinic to strengthen ICT without copying earlier answers.\n\n1. Choose one idea from Charts and objects in spreadsheet that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Rwanda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 78,
+      "imageRefs": [
+        "RWA-S3-ict-topic-004:review:visual-1:planned",
+        "RWA-S3-ict-topic-004:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p065",
+      "title": "Application and utility software installation: Application Workshop 1",
+      "content": "Digital application workshop 1 for Application and utility software installation.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; produce a checkable digital output and explain safe steps.\n\nUse this page to make the digital skill practical and checkable.\n\n1. Define the task and output: document, table, folder, message, search result, algorithm, diagram, or safety checklist.\n2. List the device, software, file name, data, and safety rule needed.\n3. Write the exact steps before using the device.\n4. Create or describe the output clearly enough for another learner to inspect.\n5. Test the result by reopening, checking, proofreading, tracing, or comparing with the task.\n6. Record one correction and one digital-safety habit.\n\nExtension: explain how the same skill could help a class project.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 126,
+      "imageRefs": [
+        "RWA-S3-ict-topic-001:application-workshop:visual-1:planned",
+        "RWA-S3-ict-topic-001:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p066",
+      "title": "Charts and advanced objects: Application Workshop 2",
+      "content": "Digital application workshop 2 for Charts and advanced objects.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; produce a checkable digital output and explain safe steps.\n\nUse this page to make the digital skill practical and checkable.\n\n1. Define the task and output: document, table, folder, message, search result, algorithm, diagram, or safety checklist.\n2. List the device, software, file name, data, and safety rule needed.\n3. Write the exact steps before using the device.\n4. Create or describe the output clearly enough for another learner to inspect.\n5. Test the result by reopening, checking, proofreading, tracing, or comparing with the task.\n6. Record one correction and one digital-safety habit.\n\nExtension: explain how the same skill could help a class project.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 125,
+      "imageRefs": [
+        "RWA-S3-ict-topic-002:application-workshop:visual-1:planned",
+        "RWA-S3-ict-topic-002:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p067",
+      "title": "Arc GIS: Application Workshop 3",
+      "content": "Digital application workshop 3 for Arc GIS.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; produce a checkable digital output and explain safe steps.\n\nUse this page to make the digital skill practical and checkable.\n\n1. Define the task and output: document, table, folder, message, search result, algorithm, diagram, or safety checklist.\n2. List the device, software, file name, data, and safety rule needed.\n3. Write the exact steps before using the device.\n4. Create or describe the output clearly enough for another learner to inspect.\n5. Test the result by reopening, checking, proofreading, tracing, or comparing with the task.\n6. Record one correction and one digital-safety habit.\n\nExtension: explain how the same skill could help a class project.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 123,
+      "imageRefs": [
+        "RWA-S3-ict-topic-003:application-workshop:visual-1:planned",
+        "RWA-S3-ict-topic-003:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p068",
+      "title": "Charts and objects in spreadsheet: Application Workshop 4",
+      "content": "Digital application workshop 4 for Charts and objects in spreadsheet.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; produce a checkable digital output and explain safe steps.\n\nUse this page to make the digital skill practical and checkable.\n\n1. Define the task and output: document, table, folder, message, search result, algorithm, diagram, or safety checklist.\n2. List the device, software, file name, data, and safety rule needed.\n3. Write the exact steps before using the device.\n4. Create or describe the output clearly enough for another learner to inspect.\n5. Test the result by reopening, checking, proofreading, tracing, or comparing with the task.\n6. Record one correction and one digital-safety habit.\n\nExtension: explain how the same skill could help a class project.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 126,
+      "imageRefs": [
+        "RWA-S3-ict-topic-004:application-workshop:visual-1:planned",
+        "RWA-S3-ict-topic-004:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p069",
+      "title": "Presentation: Application Workshop 5",
+      "content": "Digital application workshop 5 for Presentation.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; produce a checkable digital output and explain safe steps.\n\nUse this page to make the digital skill practical and checkable.\n\n1. Define the task and output: document, table, folder, message, search result, algorithm, diagram, or safety checklist.\n2. List the device, software, file name, data, and safety rule needed.\n3. Write the exact steps before using the device.\n4. Create or describe the output clearly enough for another learner to inspect.\n5. Test the result by reopening, checking, proofreading, tracing, or comparing with the task.\n6. Record one correction and one digital-safety habit.\n\nExtension: explain how the same skill could help a class project.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 122,
+      "imageRefs": [
+        "RWA-S3-ict-topic-005:application-workshop:visual-1:planned",
+        "RWA-S3-ict-topic-005:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p070",
+      "title": "Network security: Application Workshop 6",
+      "content": "Digital application workshop 6 for Network security.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; produce a checkable digital output and explain safe steps.\n\nUse this page to make the digital skill practical and checkable.\n\n1. Define the task and output: document, table, folder, message, search result, algorithm, diagram, or safety checklist.\n2. List the device, software, file name, data, and safety rule needed.\n3. Write the exact steps before using the device.\n4. Create or describe the output clearly enough for another learner to inspect.\n5. Test the result by reopening, checking, proofreading, tracing, or comparing with the task.\n6. Record one correction and one digital-safety habit.\n\nExtension: explain how the same skill could help a class project.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 123,
+      "imageRefs": [
+        "RWA-S3-ict-topic-006:application-workshop:visual-1:planned",
+        "RWA-S3-ict-topic-006:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p071",
+      "title": "Platform game programming: Application Workshop 7",
+      "content": "Digital application workshop 7 for Platform game programming.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; produce a checkable digital output and explain safe steps.\n\nUse this page to make the digital skill practical and checkable.\n\n1. Define the task and output: document, table, folder, message, search result, algorithm, diagram, or safety checklist.\n2. List the device, software, file name, data, and safety rule needed.\n3. Write the exact steps before using the device.\n4. Create or describe the output clearly enough for another learner to inspect.\n5. Test the result by reopening, checking, proofreading, tracing, or comparing with the task.\n6. Record one correction and one digital-safety habit.\n\nExtension: explain how the same skill could help a class project.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 124,
+      "imageRefs": [
+        "RWA-S3-ict-topic-007:application-workshop:visual-1:planned",
+        "RWA-S3-ict-topic-007:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p072",
+      "title": "Application and utility software installation: Application Workshop 8",
+      "content": "Digital application workshop 8 for Application and utility software installation.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; produce a checkable digital output and explain safe steps.\n\nUse this page to make the digital skill practical and checkable.\n\n1. Define the task and output: document, table, folder, message, search result, algorithm, diagram, or safety checklist.\n2. List the device, software, file name, data, and safety rule needed.\n3. Write the exact steps before using the device.\n4. Create or describe the output clearly enough for another learner to inspect.\n5. Test the result by reopening, checking, proofreading, tracing, or comparing with the task.\n6. Record one correction and one digital-safety habit.\n\nExtension: explain how the same skill could help a class project.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 126,
+      "imageRefs": [
+        "RWA-S3-ict-topic-001:application-workshop:visual-1:planned",
+        "RWA-S3-ict-topic-001:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p073",
+      "title": "Charts and advanced objects: Application Workshop 9",
+      "content": "Digital application workshop 9 for Charts and advanced objects.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; produce a checkable digital output and explain safe steps.\n\nUse this page to make the digital skill practical and checkable.\n\n1. Define the task and output: document, table, folder, message, search result, algorithm, diagram, or safety checklist.\n2. List the device, software, file name, data, and safety rule needed.\n3. Write the exact steps before using the device.\n4. Create or describe the output clearly enough for another learner to inspect.\n5. Test the result by reopening, checking, proofreading, tracing, or comparing with the task.\n6. Record one correction and one digital-safety habit.\n\nExtension: explain how the same skill could help a class project.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 125,
+      "imageRefs": [
+        "RWA-S3-ict-topic-002:application-workshop:visual-1:planned",
+        "RWA-S3-ict-topic-002:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p074",
+      "title": "Arc GIS: Application Workshop 10",
+      "content": "Digital application workshop 10 for Arc GIS.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; produce a checkable digital output and explain safe steps.\n\nUse this page to make the digital skill practical and checkable.\n\n1. Define the task and output: document, table, folder, message, search result, algorithm, diagram, or safety checklist.\n2. List the device, software, file name, data, and safety rule needed.\n3. Write the exact steps before using the device.\n4. Create or describe the output clearly enough for another learner to inspect.\n5. Test the result by reopening, checking, proofreading, tracing, or comparing with the task.\n6. Record one correction and one digital-safety habit.\n\nExtension: explain how the same skill could help a class project.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 123,
+      "imageRefs": [
+        "RWA-S3-ict-topic-003:application-workshop:visual-1:planned",
+        "RWA-S3-ict-topic-003:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p075",
+      "title": "Charts and objects in spreadsheet: Application Workshop 11",
+      "content": "Digital application workshop 11 for Charts and objects in spreadsheet.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; produce a checkable digital output and explain safe steps.\n\nUse this page to make the digital skill practical and checkable.\n\n1. Define the task and output: document, table, folder, message, search result, algorithm, diagram, or safety checklist.\n2. List the device, software, file name, data, and safety rule needed.\n3. Write the exact steps before using the device.\n4. Create or describe the output clearly enough for another learner to inspect.\n5. Test the result by reopening, checking, proofreading, tracing, or comparing with the task.\n6. Record one correction and one digital-safety habit.\n\nExtension: explain how the same skill could help a class project.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 126,
+      "imageRefs": [
+        "RWA-S3-ict-topic-004:application-workshop:visual-1:planned",
+        "RWA-S3-ict-topic-004:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p076",
+      "title": "Presentation: Application Workshop 12",
+      "content": "Digital application workshop 12 for Presentation.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; produce a checkable digital output and explain safe steps.\n\nUse this page to make the digital skill practical and checkable.\n\n1. Define the task and output: document, table, folder, message, search result, algorithm, diagram, or safety checklist.\n2. List the device, software, file name, data, and safety rule needed.\n3. Write the exact steps before using the device.\n4. Create or describe the output clearly enough for another learner to inspect.\n5. Test the result by reopening, checking, proofreading, tracing, or comparing with the task.\n6. Record one correction and one digital-safety habit.\n\nExtension: explain how the same skill could help a class project.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 122,
+      "imageRefs": [
+        "RWA-S3-ict-topic-005:application-workshop:visual-1:planned",
+        "RWA-S3-ict-topic-005:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p077",
+      "title": "Network security: Application Workshop 13",
+      "content": "Digital application workshop 13 for Network security.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; produce a checkable digital output and explain safe steps.\n\nUse this page to make the digital skill practical and checkable.\n\n1. Define the task and output: document, table, folder, message, search result, algorithm, diagram, or safety checklist.\n2. List the device, software, file name, data, and safety rule needed.\n3. Write the exact steps before using the device.\n4. Create or describe the output clearly enough for another learner to inspect.\n5. Test the result by reopening, checking, proofreading, tracing, or comparing with the task.\n6. Record one correction and one digital-safety habit.\n\nExtension: explain how the same skill could help a class project.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 123,
+      "imageRefs": [
+        "RWA-S3-ict-topic-006:application-workshop:visual-1:planned",
+        "RWA-S3-ict-topic-006:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p078",
+      "title": "Platform game programming: Application Workshop 14",
+      "content": "Digital application workshop 14 for Platform game programming.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; produce a checkable digital output and explain safe steps.\n\nUse this page to make the digital skill practical and checkable.\n\n1. Define the task and output: document, table, folder, message, search result, algorithm, diagram, or safety checklist.\n2. List the device, software, file name, data, and safety rule needed.\n3. Write the exact steps before using the device.\n4. Create or describe the output clearly enough for another learner to inspect.\n5. Test the result by reopening, checking, proofreading, tracing, or comparing with the task.\n6. Record one correction and one digital-safety habit.\n\nExtension: explain how the same skill could help a class project.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 124,
+      "imageRefs": [
+        "RWA-S3-ict-topic-007:application-workshop:visual-1:planned",
+        "RWA-S3-ict-topic-007:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-10-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p079",
+      "title": "Application and utility software installation: Application Workshop 15",
+      "content": "Digital application workshop 15 for Application and utility software installation.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; produce a checkable digital output and explain safe steps.\n\nUse this page to make the digital skill practical and checkable.\n\n1. Define the task and output: document, table, folder, message, search result, algorithm, diagram, or safety checklist.\n2. List the device, software, file name, data, and safety rule needed.\n3. Write the exact steps before using the device.\n4. Create or describe the output clearly enough for another learner to inspect.\n5. Test the result by reopening, checking, proofreading, tracing, or comparing with the task.\n6. Record one correction and one digital-safety habit.\n\nExtension: explain how the same skill could help a class project.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 126,
+      "imageRefs": [
+        "RWA-S3-ict-topic-001:application-workshop:visual-1:planned",
+        "RWA-S3-ict-topic-001:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p080",
+      "title": "Charts and advanced objects: Application Workshop 16",
+      "content": "Digital application workshop 16 for Charts and advanced objects.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; produce a checkable digital output and explain safe steps.\n\nUse this page to make the digital skill practical and checkable.\n\n1. Define the task and output: document, table, folder, message, search result, algorithm, diagram, or safety checklist.\n2. List the device, software, file name, data, and safety rule needed.\n3. Write the exact steps before using the device.\n4. Create or describe the output clearly enough for another learner to inspect.\n5. Test the result by reopening, checking, proofreading, tracing, or comparing with the task.\n6. Record one correction and one digital-safety habit.\n\nExtension: explain how the same skill could help a class project.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 125,
+      "imageRefs": [
+        "RWA-S3-ict-topic-002:application-workshop:visual-1:planned",
+        "RWA-S3-ict-topic-002:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p081",
+      "title": "Arc GIS: Application Workshop 17",
+      "content": "Digital application workshop 17 for Arc GIS.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; produce a checkable digital output and explain safe steps.\n\nUse this page to make the digital skill practical and checkable.\n\n1. Define the task and output: document, table, folder, message, search result, algorithm, diagram, or safety checklist.\n2. List the device, software, file name, data, and safety rule needed.\n3. Write the exact steps before using the device.\n4. Create or describe the output clearly enough for another learner to inspect.\n5. Test the result by reopening, checking, proofreading, tracing, or comparing with the task.\n6. Record one correction and one digital-safety habit.\n\nExtension: explain how the same skill could help a class project.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 123,
+      "imageRefs": [
+        "RWA-S3-ict-topic-003:application-workshop:visual-1:planned",
+        "RWA-S3-ict-topic-003:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p082",
+      "title": "Charts and objects in spreadsheet: Application Workshop 18",
+      "content": "Digital application workshop 18 for Charts and objects in spreadsheet.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; produce a checkable digital output and explain safe steps.\n\nUse this page to make the digital skill practical and checkable.\n\n1. Define the task and output: document, table, folder, message, search result, algorithm, diagram, or safety checklist.\n2. List the device, software, file name, data, and safety rule needed.\n3. Write the exact steps before using the device.\n4. Create or describe the output clearly enough for another learner to inspect.\n5. Test the result by reopening, checking, proofreading, tracing, or comparing with the task.\n6. Record one correction and one digital-safety habit.\n\nExtension: explain how the same skill could help a class project.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 126,
+      "imageRefs": [
+        "RWA-S3-ict-topic-004:application-workshop:visual-1:planned",
+        "RWA-S3-ict-topic-004:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-strand"
+      ],
+      "unitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "d8431656-7911-4aef-8b19-59f164c81a42-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p083",
+      "title": "Glossary",
+      "content": "Use this glossary to revise important words in ICT.\n\n- Application and utility software installation: Explain this term using an example from the book, your school, or your community.\n- Charts and advanced objects: Explain this term using an example from the book, your school, or your community.\n- Arc GIS: Explain this term using an example from the book, your school, or your community.\n- Charts and objects in spreadsheet: Explain this term using an example from the book, your school, or your community.\n- Presentation: Explain this term using an example from the book, your school, or your community.\n- Network security: Explain this term using an example from the book, your school, or your community.\n- Platform game programming: Explain this term using an example from the book, your school, or your community.\n\nAdd five more words from your lessons and write your own meanings.",
+      "pageType": "glossary",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 148,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p084",
+      "title": "Answer And Teacher Notes",
+      "content": "A strong ICT answer responds to the exact task, uses correct vocabulary, gives a clear example or evidence, and shows correction after feedback. For practical work, name materials, safety, process, quality checks, peer feedback, and one improvement made after review.",
+      "pageType": "answer-notes",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 40,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s3-ict-p085",
+      "title": "Final Project",
+      "content": "Create a final project for ICT that shows what you can now do independently.\n\nYour project must include:\n1. A clear title.\n2. A real-life problem, question, text, performance, investigation, design, or worked task.\n3. Evidence from at least three lessons in this book.\n4. A drawing, table, map, chart, model, dialogue, paragraph, performance plan, practical product, or worked solution.\n5. A correction note showing one improvement after feedback.\n6. A short reflection explaining what you learned, what was difficult, and what you will practise next.\n\nPresentation check: keep the work neat, label important parts, use correct vocabulary, and be ready to explain your choices to a classmate or teacher.",
+      "pageType": "project",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 110,
+      "imageRefs": []
+    }
+  ]
+}

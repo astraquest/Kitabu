@@ -1,0 +1,2489 @@
+{
+  "schemaVersion": 1,
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 9",
+  "subject": "Mathematics",
+  "generatedAt": "2026-07-01T11:47:15Z",
+  "sourceSnapshotHash": "2a6b642fb16725190fa1ce4a3c69e98c6dc82ca9843c4bee7cbb0f82820d0356",
+  "ageBand": {
+    "band": "junior-secondary",
+    "language": "clear academic words introduced through examples",
+    "taskDepth": "multi-step reasoning, comparison, and application"
+  },
+  "writingStandard": {
+    "voice": "simple, conversational, purposeful, and learner-first",
+    "antiFluff": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "coversDeferred": true
+  },
+  "strands": [
+    {
+      "strandId": "bc56e14e-66b4-46f6-bdd2-f253b713db7d",
+      "number": "1.0",
+      "title": "Numbers 1.1 Integers",
+      "topicCount": 5
+    },
+    {
+      "strandId": "117211b9-ff42-4ec0-8579-b5bb61ce2eab",
+      "number": "2.0",
+      "title": "Algebra",
+      "topicCount": 5
+    },
+    {
+      "strandId": "183a9fe6-3bb8-4fda-8af5-2000c2e9d473",
+      "number": "3.0",
+      "title": "Measurements 3.1 Area",
+      "topicCount": 9
+    },
+    {
+      "strandId": "2572071c-2499-45ad-9264-93b133ec5618",
+      "number": "4.0",
+      "title": "Geometry 4.1 Coordinates",
+      "topicCount": 6
+    },
+    {
+      "strandId": "f88501b6-da63-476c-ab46-ea38fb803bb1",
+      "number": "5.0",
+      "title": "Data Handling and Probability",
+      "topicCount": 4
+    }
+  ],
+  "topics": [
+    {
+      "topicId": "G9-mathematics-topic-001",
+      "strandId": "bc56e14e-66b4-46f6-bdd2-f253b713db7d",
+      "parentSubStrandId": "d880653c-ba2c-439d-b33e-f8447e7408da",
+      "subStrandId": "d880653c-ba2c-439d-b33e-f8447e7408da:topic-1",
+      "strandTitle": "Numbers 1.1 Integers",
+      "unitTitle": "Numbers 1.1 Integers: basic operations on Integers",
+      "sourceUnitTitle": "Numbers 1.1 Integers",
+      "learningOutcomes": [
+        {
+          "id": "grade-9-math-1-0-outcome-1",
+          "text": "perform basic operations on Integers in different situations"
+        },
+        {
+          "id": "grade-9-math-1-0-outcome-2",
+          "text": "work out combined operations on Integers in different situations"
+        },
+        {
+          "id": "grade-9-math-1-0-outcome-3",
+          "text": "apply Integers to real- life situations"
+        },
+        {
+          "id": "grade-9-math-1-0-outcome-4",
+          "text": "appreciate the use of integers in real-life situations."
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we carry out operations of integers in real-life situations?",
+        "How do we apply integers in daily activities?",
+        "How do we work out the cubes of numbers?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Numbers 1.1 Integers.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Numbers 1.1 Integers: basic operations on Integers",
+        "Numbers 1.1 Integers",
+        "Numbers",
+        "Integers",
+        "basic",
+        "operations"
+      ],
+      "misconceptions": [
+        "mixing up the method for Numbers 1.1 Integers: basic operations on Integers with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Numbers 1.1 Integers: basic operations on Integers",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Numbers 1.1 Integers: basic operations on Integers",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Numbers 1.1 Integers: basic operations on Integers",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f957178b-978f-476a-8368-7823ea91a905",
+          "officialTitle": "Competency Based Curriculum Grade 9 Mathematics",
+          "sourceSnapshotHash": "2a6b642fb16725190fa1ce4a3c69e98c6dc82ca9843c4bee7cbb0f82820d0356"
+        }
+      ]
+    },
+    {
+      "topicId": "G9-mathematics-topic-002",
+      "strandId": "bc56e14e-66b4-46f6-bdd2-f253b713db7d",
+      "parentSubStrandId": "d880653c-ba2c-439d-b33e-f8447e7408da",
+      "subStrandId": "d880653c-ba2c-439d-b33e-f8447e7408da:topic-2",
+      "strandTitle": "Numbers 1.1 Integers",
+      "unitTitle": "Numbers 1.1 Integers: cubes of numbers by multiplication",
+      "sourceUnitTitle": "Numbers 1.1 Integers",
+      "learningOutcomes": [
+        {
+          "id": "grade-9-math-1-0-outcome-5",
+          "text": "work out cubes of numbers by multiplication in real-life situations"
+        },
+        {
+          "id": "grade-9-math-1-0-outcome-6",
+          "text": "determine cubes of numbers from mathematical tables in different situations"
+        },
+        {
+          "id": "grade-9-math-1-0-outcome-7",
+          "text": "determine cube roots of numbers by factor method in different situations"
+        },
+        {
+          "id": "grade-9-math-1-0-outcome-8",
+          "text": "determine cube roots of numbers from mathematical tables in different situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we apply integers in daily activities?",
+        "How do we work out the cubes of numbers?",
+        "How do we work out the cube roots of numbers?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Numbers 1.1 Integers.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Numbers 1.1 Integers: cubes of numbers by multiplication",
+        "Numbers 1.1 Integers",
+        "Numbers",
+        "Integers",
+        "cubes",
+        "multiplication"
+      ],
+      "misconceptions": [
+        "mixing up the method for Numbers 1.1 Integers: cubes of numbers by multiplication with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Numbers 1.1 Integers: cubes of numbers by multiplication",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Numbers 1.1 Integers: cubes of numbers by multiplication",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Numbers 1.1 Integers: cubes of numbers by multiplication",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f957178b-978f-476a-8368-7823ea91a905",
+          "officialTitle": "Competency Based Curriculum Grade 9 Mathematics",
+          "sourceSnapshotHash": "2a6b642fb16725190fa1ce4a3c69e98c6dc82ca9843c4bee7cbb0f82820d0356"
+        }
+      ]
+    },
+    {
+      "topicId": "G9-mathematics-topic-003",
+      "strandId": "bc56e14e-66b4-46f6-bdd2-f253b713db7d",
+      "parentSubStrandId": "d880653c-ba2c-439d-b33e-f8447e7408da",
+      "subStrandId": "d880653c-ba2c-439d-b33e-f8447e7408da:topic-3",
+      "strandTitle": "Numbers 1.1 Integers",
+      "unitTitle": "Numbers 1.1 Integers: cube and cube roots of numbers using",
+      "sourceUnitTitle": "Numbers 1.1 Integers",
+      "learningOutcomes": [
+        {
+          "id": "grade-9-math-1-0-outcome-9",
+          "text": "determine cube and cube roots of numbers using a calculator"
+        },
+        {
+          "id": "grade-9-math-1-0-outcome-10",
+          "text": "apply cubes and cube roots in real-life situations."
+        },
+        {
+          "id": "grade-9-math-1-0-outcome-11",
+          "text": "express numbers in index form in different situations"
+        },
+        {
+          "id": "grade-9-math-1-0-outcome-12",
+          "text": "generate the laws of Indices in different situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we work out the cubes of numbers?",
+        "How do we work out the cube roots of numbers?",
+        "Where do we apply cubes and cube roots in real- life situations?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Numbers 1.1 Integers.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Numbers 1.1 Integers: cube and cube roots of numbers using",
+        "Numbers 1.1 Integers",
+        "Numbers",
+        "Integers",
+        "roots",
+        "using"
+      ],
+      "misconceptions": [
+        "mixing up the method for Numbers 1.1 Integers: cube and cube roots of numbers using with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Numbers 1.1 Integers: cube and cube roots of numbers using",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Numbers 1.1 Integers: cube and cube roots of numbers using",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Numbers 1.1 Integers: cube and cube roots of numbers using",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f957178b-978f-476a-8368-7823ea91a905",
+          "officialTitle": "Competency Based Curriculum Grade 9 Mathematics",
+          "sourceSnapshotHash": "2a6b642fb16725190fa1ce4a3c69e98c6dc82ca9843c4bee7cbb0f82820d0356"
+        }
+      ]
+    },
+    {
+      "topicId": "G9-mathematics-topic-004",
+      "strandId": "bc56e14e-66b4-46f6-bdd2-f253b713db7d",
+      "parentSubStrandId": "d880653c-ba2c-439d-b33e-f8447e7408da",
+      "subStrandId": "d880653c-ba2c-439d-b33e-f8447e7408da:topic-4",
+      "strandTitle": "Numbers 1.1 Integers",
+      "unitTitle": "Numbers 1.1 Integers: laws of indices",
+      "sourceUnitTitle": "Numbers 1.1 Integers",
+      "learningOutcomes": [
+        {
+          "id": "grade-9-math-1-0-outcome-13",
+          "text": "apply the laws of indices in different situations"
+        },
+        {
+          "id": "grade-9-math-1-0-outcome-14",
+          "text": "relate powers of 10 to common logarithms in different situations"
+        },
+        {
+          "id": "grade-9-math-1-0-outcome-15",
+          "text": "appreciate the use of indices and logarithms in real-life situations."
+        },
+        {
+          "id": "grade-9-math-1-0-outcome-16",
+          "text": "divide quantities into proportional parts in real-life situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we work out the cube roots of numbers?",
+        "Where do we apply cubes and cube roots in real- life situations?",
+        "(s) How do we express numbers in powers?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Numbers 1.1 Integers.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Numbers 1.1 Integers: laws of indices",
+        "Numbers 1.1 Integers",
+        "Numbers",
+        "Integers",
+        "indices"
+      ],
+      "misconceptions": [
+        "mixing up the method for Numbers 1.1 Integers: laws of indices with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Numbers 1.1 Integers: laws of indices",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Numbers 1.1 Integers: laws of indices",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Numbers 1.1 Integers: laws of indices",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f957178b-978f-476a-8368-7823ea91a905",
+          "officialTitle": "Competency Based Curriculum Grade 9 Mathematics",
+          "sourceSnapshotHash": "2a6b642fb16725190fa1ce4a3c69e98c6dc82ca9843c4bee7cbb0f82820d0356"
+        }
+      ]
+    },
+    {
+      "topicId": "G9-mathematics-topic-005",
+      "strandId": "bc56e14e-66b4-46f6-bdd2-f253b713db7d",
+      "parentSubStrandId": "d880653c-ba2c-439d-b33e-f8447e7408da",
+      "subStrandId": "d880653c-ba2c-439d-b33e-f8447e7408da:topic-5",
+      "strandTitle": "Numbers 1.1 Integers",
+      "unitTitle": "Numbers 1.1 Integers: relate different proportional parts",
+      "sourceUnitTitle": "Numbers 1.1 Integers",
+      "learningOutcomes": [
+        {
+          "id": "grade-9-math-1-0-outcome-17",
+          "text": "relate different proportional parts in real-life situations"
+        },
+        {
+          "id": "grade-9-math-1-0-outcome-18",
+          "text": "work out compound proportions using the ratio method in different situations"
+        },
+        {
+          "id": "grade-9-math-1-0-outcome-19",
+          "text": "calculate rates of work in real-life situations"
+        },
+        {
+          "id": "grade-9-math-1-0-outcome-20",
+          "text": "appreciate the use of compound proportions and rates of work in real-life situations."
+        }
+      ],
+      "inquiryQuestions": [
+        "Where do we apply cubes and cube roots in real- life situations?",
+        "(s) How do we express numbers in powers?",
+        "What are proportions?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Numbers 1.1 Integers.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Numbers 1.1 Integers: relate different proportional parts",
+        "Numbers 1.1 Integers",
+        "Numbers",
+        "Integers",
+        "relate",
+        "different",
+        "proportional",
+        "parts"
+      ],
+      "misconceptions": [
+        "mixing up the method for Numbers 1.1 Integers: relate different proportional parts with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Numbers 1.1 Integers: relate different proportional parts",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Numbers 1.1 Integers: relate different proportional parts",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Numbers 1.1 Integers: relate different proportional parts",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f957178b-978f-476a-8368-7823ea91a905",
+          "officialTitle": "Competency Based Curriculum Grade 9 Mathematics",
+          "sourceSnapshotHash": "2a6b642fb16725190fa1ce4a3c69e98c6dc82ca9843c4bee7cbb0f82820d0356"
+        }
+      ]
+    },
+    {
+      "topicId": "G9-mathematics-topic-006",
+      "strandId": "117211b9-ff42-4ec0-8579-b5bb61ce2eab",
+      "parentSubStrandId": "aa33b1f6-fe39-4147-84b4-a991a5e6e7b6",
+      "subStrandId": "aa33b1f6-fe39-4147-84b4-a991a5e6e7b6:topic-1",
+      "strandTitle": "Algebra",
+      "unitTitle": "Algebra 2.2 Equations: gradient",
+      "sourceUnitTitle": "Algebra 2.2 Equations",
+      "learningOutcomes": [
+        {
+          "id": "grade-9-math-2-0-outcome-1",
+          "text": "identify the gradient in real-life situations."
+        },
+        {
+          "id": "grade-9-math-2-0-outcome-2",
+          "text": "determine the gradient of a line from two known points."
+        },
+        {
+          "id": "grade-9-math-2-0-outcome-3",
+          "text": "determine the equation of a straight line given two points."
+        },
+        {
+          "id": "grade-9-math-2-0-outcome-4",
+          "text": "determine the equation of a straight line from a known point and a gradient."
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we use gradient or steepness in our daily activities?",
+        "How do we represent linear inequalities in graphs?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Algebra 2.2 Equations.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Algebra 2.2 Equations: gradient",
+        "Algebra 2.2 Equations",
+        "Algebra",
+        "Equations",
+        "gradient"
+      ],
+      "misconceptions": [
+        "mixing up the method for Algebra 2.2 Equations: gradient with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Algebra 2.2 Equations: gradient",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Algebra 2.2 Equations: gradient",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Algebra 2.2 Equations: gradient",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f957178b-978f-476a-8368-7823ea91a905",
+          "officialTitle": "Competency Based Curriculum Grade 9 Mathematics",
+          "sourceSnapshotHash": "2a6b642fb16725190fa1ce4a3c69e98c6dc82ca9843c4bee7cbb0f82820d0356"
+        }
+      ]
+    },
+    {
+      "topicId": "G9-mathematics-topic-007",
+      "strandId": "117211b9-ff42-4ec0-8579-b5bb61ce2eab",
+      "parentSubStrandId": "aa33b1f6-fe39-4147-84b4-a991a5e6e7b6",
+      "subStrandId": "aa33b1f6-fe39-4147-84b4-a991a5e6e7b6:topic-2",
+      "strandTitle": "Algebra",
+      "unitTitle": "Algebra 2.2 Equations: equation of a straight line in the form",
+      "sourceUnitTitle": "Algebra 2.2 Equations",
+      "learningOutcomes": [
+        {
+          "id": "grade-9-math-2-0-outcome-5",
+          "text": "express the equation of a straight line in the form of y = mx + c"
+        },
+        {
+          "id": "grade-9-math-2-0-outcome-6",
+          "text": "interpret the equation y = mx + c in different situations."
+        },
+        {
+          "id": "grade-9-math-2-0-outcome-7",
+          "text": "determine the x and y intercepts of a straight line."
+        },
+        {
+          "id": "grade-9-math-2-0-outcome-8",
+          "text": "recognize the use of equations of straight lines in real life."
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we represent linear inequalities in graphs?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Algebra 2.2 Equations.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Algebra 2.2 Equations: equation of a straight line in the form",
+        "Algebra 2.2 Equations",
+        "Algebra",
+        "Equations",
+        "equation",
+        "straight"
+      ],
+      "misconceptions": [
+        "mixing up the method for Algebra 2.2 Equations: equation of a straight line in the form with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Algebra 2.2 Equations: equation of a straight line in the form",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Algebra 2.2 Equations: equation of a straight line in the form",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Algebra 2.2 Equations: equation of a straight line in the form",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f957178b-978f-476a-8368-7823ea91a905",
+          "officialTitle": "Competency Based Curriculum Grade 9 Mathematics",
+          "sourceSnapshotHash": "2a6b642fb16725190fa1ce4a3c69e98c6dc82ca9843c4bee7cbb0f82820d0356"
+        }
+      ]
+    },
+    {
+      "topicId": "G9-mathematics-topic-008",
+      "strandId": "117211b9-ff42-4ec0-8579-b5bb61ce2eab",
+      "parentSubStrandId": "aa33b1f6-fe39-4147-84b4-a991a5e6e7b6",
+      "subStrandId": "aa33b1f6-fe39-4147-84b4-a991a5e6e7b6:topic-3",
+      "strandTitle": "Algebra",
+      "unitTitle": "Algebra 2.2 Equations: solve linear discuss simple inequality inequalities in one",
+      "sourceUnitTitle": "Algebra 2.2 Equations",
+      "learningOutcomes": [
+        {
+          "id": "grade-9-math-2-0-outcome-9",
+          "text": "solve linear discuss simple inequality inequalities in one unknown."
+        },
+        {
+          "id": "grade-9-math-2-0-outcome-10",
+          "text": "represent linear discuss and generate a table"
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we use gradient or steepness in our daily activities?",
+        "How do we represent linear inequalities in graphs?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Algebra 2.2 Equations.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Algebra 2.2 Equations: solve linear discuss simple inequality inequalities in one",
+        "Algebra 2.2 Equations",
+        "Algebra",
+        "Equations",
+        "solve",
+        "linear",
+        "discuss",
+        "simple"
+      ],
+      "misconceptions": [
+        "mixing up the method for Algebra 2.2 Equations: solve linear discuss simple inequality inequalities in one with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Algebra 2.2 Equations: solve linear discuss simple inequality inequalities in one",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Algebra 2.2 Equations: solve linear discuss simple inequality inequalities in one",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Algebra 2.2 Equations: solve linear discuss simple inequality inequalities in one",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f957178b-978f-476a-8368-7823ea91a905",
+          "officialTitle": "Competency Based Curriculum Grade 9 Mathematics",
+          "sourceSnapshotHash": "2a6b642fb16725190fa1ce4a3c69e98c6dc82ca9843c4bee7cbb0f82820d0356"
+        }
+      ]
+    },
+    {
+      "topicId": "G9-mathematics-topic-009",
+      "strandId": "117211b9-ff42-4ec0-8579-b5bb61ce2eab",
+      "parentSubStrandId": "5f05464b-c296-4cef-a174-27aa0a2608d0",
+      "subStrandId": "5f05464b-c296-4cef-a174-27aa0a2608d0:topic-1",
+      "strandTitle": "Algebra",
+      "unitTitle": "Matrices: matrix",
+      "sourceUnitTitle": "Matrices",
+      "learningOutcomes": [
+        {
+          "id": "grade-9-math-2-1-outcome-1",
+          "text": "identify a matrix in different situations."
+        },
+        {
+          "id": "grade-9-math-2-1-outcome-2",
+          "text": "determine the order of a matrix in different arrange items in rows and columns situations."
+        },
+        {
+          "id": "grade-9-math-2-1-outcome-3",
+          "text": "determine the position of items in a matrix in organise objects in rows and different situations."
+        },
+        {
+          "id": "grade-9-math-2-1-outcome-4",
+          "text": "determine the compatibility of matrices in addition and discuss and identify the position of subtraction."
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we use matrices in real-life situations?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Matrices.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Matrices: matrix",
+        "Matrices",
+        "matrix"
+      ],
+      "misconceptions": [
+        "mixing up the method for Matrices: matrix with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Matrices: matrix",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Matrices: matrix",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Matrices: matrix",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f957178b-978f-476a-8368-7823ea91a905",
+          "officialTitle": "Competency Based Curriculum Grade 9 Mathematics",
+          "sourceSnapshotHash": "2a6b642fb16725190fa1ce4a3c69e98c6dc82ca9843c4bee7cbb0f82820d0356"
+        }
+      ]
+    },
+    {
+      "topicId": "G9-mathematics-topic-010",
+      "strandId": "117211b9-ff42-4ec0-8579-b5bb61ce2eab",
+      "parentSubStrandId": "5f05464b-c296-4cef-a174-27aa0a2608d0",
+      "subStrandId": "5f05464b-c296-4cef-a174-27aa0a2608d0:topic-2",
+      "strandTitle": "Algebra",
+      "unitTitle": "Matrices: carry out addition and subtraction of matrices discuss",
+      "sourceUnitTitle": "Matrices",
+      "learningOutcomes": [
+        {
+          "id": "grade-9-math-2-1-outcome-5",
+          "text": "carry out addition and subtraction of matrices discuss and identify matrices that in real-life situations."
+        },
+        {
+          "id": "grade-9-math-2-1-outcome-6",
+          "text": "reflect on the use of matrices in real-life situations. discuss and note what is represented"
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we use matrices in real-life situations?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Matrices.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Matrices: carry out addition and subtraction of matrices discuss",
+        "Matrices",
+        "carry",
+        "addition",
+        "subtraction",
+        "discuss"
+      ],
+      "misconceptions": [
+        "mixing up the method for Matrices: carry out addition and subtraction of matrices discuss with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Matrices: carry out addition and subtraction of matrices discuss",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Matrices: carry out addition and subtraction of matrices discuss",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Matrices: carry out addition and subtraction of matrices discuss",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f957178b-978f-476a-8368-7823ea91a905",
+          "officialTitle": "Competency Based Curriculum Grade 9 Mathematics",
+          "sourceSnapshotHash": "2a6b642fb16725190fa1ce4a3c69e98c6dc82ca9843c4bee7cbb0f82820d0356"
+        }
+      ]
+    },
+    {
+      "topicId": "G9-mathematics-topic-011",
+      "strandId": "183a9fe6-3bb8-4fda-8af5-2000c2e9d473",
+      "parentSubStrandId": "73e9af44-ad42-4032-b2d4-2da53194fa3a",
+      "subStrandId": "73e9af44-ad42-4032-b2d4-2da53194fa3a:topic-1",
+      "strandTitle": "Measurements 3.1 Area",
+      "unitTitle": "Measurements 3.1 Area: calculate the area of a pentagon",
+      "sourceUnitTitle": "Measurements 3.1 Area",
+      "learningOutcomes": [
+        {
+          "id": "grade-9-math-3-0-outcome-1",
+          "text": "calculate the area of a pentagon and a hexagon in different situations."
+        },
+        {
+          "id": "grade-9-math-3-0-outcome-2",
+          "text": "work out the surface area of triangular and rectangular-based prisms."
+        },
+        {
+          "id": "grade-9-math-3-0-outcome-3",
+          "text": "work out the surface area of triangular, rectangular, and square-based pyramids."
+        },
+        {
+          "id": "grade-9-math-3-0-outcome-4",
+          "text": "calculate the area of a sector and segment of a circle."
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we work out the area of different surfaces?",
+        "How do we determine the volume of different solids?",
+        "How do we use the volume of solids in real- life situations?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Measurements 3.1 Area.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Measurements 3.1 Area: calculate the area of a pentagon",
+        "Measurements 3.1 Area",
+        "Measurements",
+        "Area",
+        "calculate",
+        "pentagon"
+      ],
+      "misconceptions": [
+        "mixing up the method for Measurements 3.1 Area: calculate the area of a pentagon with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Measurements 3.1 Area: calculate the area of a pentagon",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Measurements 3.1 Area: calculate the area of a pentagon",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Measurements 3.1 Area: calculate the area of a pentagon",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f957178b-978f-476a-8368-7823ea91a905",
+          "officialTitle": "Competency Based Curriculum Grade 9 Mathematics",
+          "sourceSnapshotHash": "2a6b642fb16725190fa1ce4a3c69e98c6dc82ca9843c4bee7cbb0f82820d0356"
+        }
+      ]
+    },
+    {
+      "topicId": "G9-mathematics-topic-012",
+      "strandId": "183a9fe6-3bb8-4fda-8af5-2000c2e9d473",
+      "parentSubStrandId": "73e9af44-ad42-4032-b2d4-2da53194fa3a",
+      "subStrandId": "73e9af44-ad42-4032-b2d4-2da53194fa3a:topic-2",
+      "strandTitle": "Measurements 3.1 Area",
+      "unitTitle": "Measurements 3.1 Area: surface area of a cone in real- life",
+      "sourceUnitTitle": "Measurements 3.1 Area",
+      "learningOutcomes": [
+        {
+          "id": "grade-9-math-3-0-outcome-5",
+          "text": "work out the surface area of a cone in real- life situations."
+        },
+        {
+          "id": "grade-9-math-3-0-outcome-6",
+          "text": "calculate the surface area of a sphere in real-life situations."
+        },
+        {
+          "id": "grade-9-math-3-0-outcome-7",
+          "text": "work out the volume of triangular and rectangular-based prisms."
+        },
+        {
+          "id": "grade-9-math-3-0-outcome-8",
+          "text": "calculate the volume of a triangular, rectangular, and square-based pyramid."
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we determine the volume of different solids?",
+        "How do we use the volume of solids in real- life situations?",
+        "How do you weigh materials and objects?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Measurements 3.1 Area.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Measurements 3.1 Area: surface area of a cone in real- life",
+        "Measurements 3.1 Area",
+        "Measurements",
+        "Area",
+        "surface"
+      ],
+      "misconceptions": [
+        "mixing up the method for Measurements 3.1 Area: surface area of a cone in real- life with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Measurements 3.1 Area: surface area of a cone in real- life",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Measurements 3.1 Area: surface area of a cone in real- life",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Measurements 3.1 Area: surface area of a cone in real- life",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f957178b-978f-476a-8368-7823ea91a905",
+          "officialTitle": "Competency Based Curriculum Grade 9 Mathematics",
+          "sourceSnapshotHash": "2a6b642fb16725190fa1ce4a3c69e98c6dc82ca9843c4bee7cbb0f82820d0356"
+        }
+      ]
+    },
+    {
+      "topicId": "G9-mathematics-topic-013",
+      "strandId": "183a9fe6-3bb8-4fda-8af5-2000c2e9d473",
+      "parentSubStrandId": "73e9af44-ad42-4032-b2d4-2da53194fa3a",
+      "subStrandId": "73e9af44-ad42-4032-b2d4-2da53194fa3a:topic-3",
+      "strandTitle": "Measurements 3.1 Area",
+      "unitTitle": "Measurements 3.1 Area: volume of a cone",
+      "sourceUnitTitle": "Measurements 3.1 Area",
+      "learningOutcomes": [
+        {
+          "id": "grade-9-math-3-0-outcome-9",
+          "text": "work out the volume of a cone in real-life situations."
+        },
+        {
+          "id": "grade-9-math-3-0-outcome-10",
+          "text": "determine the volume of a frustum in real- life situations."
+        },
+        {
+          "id": "grade-9-math-3-0-outcome-11",
+          "text": "calculate the volume of a sphere in real-life situations."
+        },
+        {
+          "id": "grade-9-math-3-0-outcome-12",
+          "text": "promote the use of volume and capacity of different containers in real-life situations."
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we use the volume of solids in real- life situations?",
+        "How do you weigh materials and objects?",
+        "How do we observe speed in daily activities?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Measurements 3.1 Area.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Measurements 3.1 Area: volume of a cone",
+        "Measurements 3.1 Area",
+        "Measurements",
+        "Area",
+        "volume"
+      ],
+      "misconceptions": [
+        "mixing up the method for Measurements 3.1 Area: volume of a cone with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Measurements 3.1 Area: volume of a cone",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Measurements 3.1 Area: volume of a cone",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Measurements 3.1 Area: volume of a cone",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f957178b-978f-476a-8368-7823ea91a905",
+          "officialTitle": "Competency Based Curriculum Grade 9 Mathematics",
+          "sourceSnapshotHash": "2a6b642fb16725190fa1ce4a3c69e98c6dc82ca9843c4bee7cbb0f82820d0356"
+        }
+      ]
+    },
+    {
+      "topicId": "G9-mathematics-topic-014",
+      "strandId": "183a9fe6-3bb8-4fda-8af5-2000c2e9d473",
+      "parentSubStrandId": "73e9af44-ad42-4032-b2d4-2da53194fa3a",
+      "subStrandId": "73e9af44-ad42-4032-b2d4-2da53194fa3a:topic-4",
+      "strandTitle": "Measurements 3.1 Area",
+      "unitTitle": "Measurements 3.1 Area: convert units of mass from one form",
+      "sourceUnitTitle": "Measurements 3.1 Area",
+      "learningOutcomes": [
+        {
+          "id": "grade-9-math-3-0-outcome-13",
+          "text": "convert units of mass from one form to another in different situations"
+        },
+        {
+          "id": "grade-9-math-3-0-outcome-14",
+          "text": "relate mass and weight in real-life situations."
+        },
+        {
+          "id": "grade-9-math-3-0-outcome-15",
+          "text": "determine mass, volume, and density of different substances"
+        },
+        {
+          "id": "grade-9-math-3-0-outcome-16",
+          "text": "apply density to real-life situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "How do you weigh materials and objects?",
+        "How do we observe speed in daily activities?",
+        "Why does time vary in different places of the world?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Measurements 3.1 Area.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Measurements 3.1 Area: convert units of mass from one form",
+        "Measurements 3.1 Area",
+        "Measurements",
+        "Area",
+        "convert",
+        "units"
+      ],
+      "misconceptions": [
+        "mixing up the method for Measurements 3.1 Area: convert units of mass from one form with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Measurements 3.1 Area: convert units of mass from one form",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Measurements 3.1 Area: convert units of mass from one form",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Measurements 3.1 Area: convert units of mass from one form",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f957178b-978f-476a-8368-7823ea91a905",
+          "officialTitle": "Competency Based Curriculum Grade 9 Mathematics",
+          "sourceSnapshotHash": "2a6b642fb16725190fa1ce4a3c69e98c6dc82ca9843c4bee7cbb0f82820d0356"
+        }
+      ]
+    },
+    {
+      "topicId": "G9-mathematics-topic-015",
+      "strandId": "183a9fe6-3bb8-4fda-8af5-2000c2e9d473",
+      "parentSubStrandId": "73e9af44-ad42-4032-b2d4-2da53194fa3a",
+      "subStrandId": "73e9af44-ad42-4032-b2d4-2da53194fa3a:topic-5",
+      "strandTitle": "Measurements 3.1 Area",
+      "unitTitle": "Measurements 3.1 Area: use of density in daily life.",
+      "sourceUnitTitle": "Measurements 3.1 Area",
+      "learningOutcomes": [
+        {
+          "id": "grade-9-math-3-0-outcome-17",
+          "text": "recognise the use of density in daily life."
+        },
+        {
+          "id": "grade-9-math-3-0-outcome-18",
+          "text": "work out speed in km/h and m/s in real-life situations."
+        },
+        {
+          "id": "grade-9-math-3-0-outcome-19",
+          "text": "work out average speed in real-life situations."
+        },
+        {
+          "id": "grade-9-math-3-0-outcome-20",
+          "text": "determine velocity in real-life situations."
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we observe speed in daily activities?",
+        "Why does time vary in different places of the world?",
+        "Why do we change currencies from one form to another?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Measurements 3.1 Area.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Measurements 3.1 Area: use of density in daily life.",
+        "Measurements 3.1 Area",
+        "Measurements",
+        "Area",
+        "density",
+        "daily",
+        "life."
+      ],
+      "misconceptions": [
+        "mixing up the method for Measurements 3.1 Area: use of density in daily life. with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Measurements 3.1 Area: use of density in daily life.",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Measurements 3.1 Area: use of density in daily life.",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Measurements 3.1 Area: use of density in daily life.",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f957178b-978f-476a-8368-7823ea91a905",
+          "officialTitle": "Competency Based Curriculum Grade 9 Mathematics",
+          "sourceSnapshotHash": "2a6b642fb16725190fa1ce4a3c69e98c6dc82ca9843c4bee7cbb0f82820d0356"
+        }
+      ]
+    },
+    {
+      "topicId": "G9-mathematics-topic-016",
+      "strandId": "183a9fe6-3bb8-4fda-8af5-2000c2e9d473",
+      "parentSubStrandId": "73e9af44-ad42-4032-b2d4-2da53194fa3a",
+      "subStrandId": "73e9af44-ad42-4032-b2d4-2da53194fa3a:topic-6",
+      "strandTitle": "Measurements 3.1 Area",
+      "unitTitle": "Measurements 3.1 Area: acceleration",
+      "sourceUnitTitle": "Measurements 3.1 Area",
+      "learningOutcomes": [
+        {
+          "id": "grade-9-math-3-0-outcome-21",
+          "text": "work out acceleration in real-life situations."
+        },
+        {
+          "id": "grade-9-math-3-0-outcome-22",
+          "text": "identify the longitudes on the globe."
+        },
+        {
+          "id": "grade-9-math-3-0-outcome-23",
+          "text": "relate longitudes to time on the globe."
+        },
+        {
+          "id": "grade-9-math-3-0-outcome-24",
+          "text": "determine the local time of places on the earth along different longitudes."
+        }
+      ],
+      "inquiryQuestions": [
+        "Why does time vary in different places of the world?",
+        "Why do we change currencies from one form to another?",
+        "How do we estimate measurements of different quantities?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Measurements 3.1 Area.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Measurements 3.1 Area: acceleration",
+        "Measurements 3.1 Area",
+        "Measurements",
+        "Area",
+        "acceleration"
+      ],
+      "misconceptions": [
+        "mixing up the method for Measurements 3.1 Area: acceleration with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Measurements 3.1 Area: acceleration",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Measurements 3.1 Area: acceleration",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Measurements 3.1 Area: acceleration",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f957178b-978f-476a-8368-7823ea91a905",
+          "officialTitle": "Competency Based Curriculum Grade 9 Mathematics",
+          "sourceSnapshotHash": "2a6b642fb16725190fa1ce4a3c69e98c6dc82ca9843c4bee7cbb0f82820d0356"
+        }
+      ]
+    },
+    {
+      "topicId": "G9-mathematics-topic-017",
+      "strandId": "183a9fe6-3bb8-4fda-8af5-2000c2e9d473",
+      "parentSubStrandId": "73e9af44-ad42-4032-b2d4-2da53194fa3a",
+      "subStrandId": "73e9af44-ad42-4032-b2d4-2da53194fa3a:topic-7",
+      "strandTitle": "Measurements 3.1 Area",
+      "unitTitle": "Measurements 3.1 Area: use of time and distance",
+      "sourceUnitTitle": "Measurements 3.1 Area",
+      "learningOutcomes": [
+        {
+          "id": "grade-9-math-3-0-outcome-25",
+          "text": "appreciate the use of time and distance in real-life situations."
+        },
+        {
+          "id": "grade-9-math-3-0-outcome-26",
+          "text": "identify currencies that are used in different countries."
+        },
+        {
+          "id": "grade-9-math-3-0-outcome-27",
+          "text": "convert currency from one form to another in real-life situations."
+        },
+        {
+          "id": "grade-9-math-3-0-outcome-28",
+          "text": "determine export duties charged on goods in real-life situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why do we change currencies from one form to another?",
+        "How do we estimate measurements of different quantities?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Measurements 3.1 Area.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Measurements 3.1 Area: use of time and distance",
+        "Measurements 3.1 Area",
+        "Measurements",
+        "Area",
+        "distance"
+      ],
+      "misconceptions": [
+        "mixing up the method for Measurements 3.1 Area: use of time and distance with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Measurements 3.1 Area: use of time and distance",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Measurements 3.1 Area: use of time and distance",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Measurements 3.1 Area: use of time and distance",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f957178b-978f-476a-8368-7823ea91a905",
+          "officialTitle": "Competency Based Curriculum Grade 9 Mathematics",
+          "sourceSnapshotHash": "2a6b642fb16725190fa1ce4a3c69e98c6dc82ca9843c4bee7cbb0f82820d0356"
+        }
+      ]
+    },
+    {
+      "topicId": "G9-mathematics-topic-018",
+      "strandId": "183a9fe6-3bb8-4fda-8af5-2000c2e9d473",
+      "parentSubStrandId": "73e9af44-ad42-4032-b2d4-2da53194fa3a",
+      "subStrandId": "73e9af44-ad42-4032-b2d4-2da53194fa3a:topic-8",
+      "strandTitle": "Measurements 3.1 Area",
+      "unitTitle": "Measurements 3.1 Area: import duties charged on goods",
+      "sourceUnitTitle": "Measurements 3.1 Area",
+      "learningOutcomes": [
+        {
+          "id": "grade-9-math-3-0-outcome-29",
+          "text": "determine import duties charged on goods"
+        },
+        {
+          "id": "grade-9-math-3-0-outcome-30",
+          "text": "work out excise duty charged on goods and services in real-life situations"
+        },
+        {
+          "id": "grade-9-math-3-0-outcome-31",
+          "text": "calculate value added tax charged on goods and services"
+        },
+        {
+          "id": "grade-9-math-3-0-outcome-32",
+          "text": "appreciate the use of money in day-to-day activities."
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we estimate measurements of different quantities?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Measurements 3.1 Area.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Measurements 3.1 Area: import duties charged on goods",
+        "Measurements 3.1 Area",
+        "Measurements",
+        "Area",
+        "import",
+        "duties",
+        "charged",
+        "goods"
+      ],
+      "misconceptions": [
+        "mixing up the method for Measurements 3.1 Area: import duties charged on goods with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Measurements 3.1 Area: import duties charged on goods",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Measurements 3.1 Area: import duties charged on goods",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Measurements 3.1 Area: import duties charged on goods",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f957178b-978f-476a-8368-7823ea91a905",
+          "officialTitle": "Competency Based Curriculum Grade 9 Mathematics",
+          "sourceSnapshotHash": "2a6b642fb16725190fa1ce4a3c69e98c6dc82ca9843c4bee7cbb0f82820d0356"
+        }
+      ]
+    },
+    {
+      "topicId": "G9-mathematics-topic-019",
+      "strandId": "183a9fe6-3bb8-4fda-8af5-2000c2e9d473",
+      "parentSubStrandId": "73e9af44-ad42-4032-b2d4-2da53194fa3a",
+      "subStrandId": "73e9af44-ad42-4032-b2d4-2da53194fa3a:topic-9",
+      "strandTitle": "Measurements 3.1 Area",
+      "unitTitle": "Measurements 3.1 Area: approximate quantities in measurements",
+      "sourceUnitTitle": "Measurements 3.1 Area",
+      "learningOutcomes": [
+        {
+          "id": "grade-9-math-3-0-outcome-33",
+          "text": "approximate quantities in measurements in different situations"
+        },
+        {
+          "id": "grade-9-math-3-0-outcome-34",
+          "text": "determine errors using estimations and actual measurements of quantities"
+        },
+        {
+          "id": "grade-9-math-3-0-outcome-35",
+          "text": "determine percentage errors using actual measurements of quantities"
+        },
+        {
+          "id": "grade-9-math-3-0-outcome-36",
+          "text": "appreciate approximations and errors in real-life situations."
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we work out the area of different surfaces?",
+        "How do we determine the volume of different solids?",
+        "How do we use the volume of solids in real- life situations?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Measurements 3.1 Area.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Measurements 3.1 Area: approximate quantities in measurements",
+        "Measurements 3.1 Area",
+        "Measurements",
+        "Area",
+        "approximate",
+        "quantities"
+      ],
+      "misconceptions": [
+        "mixing up the method for Measurements 3.1 Area: approximate quantities in measurements with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Measurements 3.1 Area: approximate quantities in measurements",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Measurements 3.1 Area: approximate quantities in measurements",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Measurements 3.1 Area: approximate quantities in measurements",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f957178b-978f-476a-8368-7823ea91a905",
+          "officialTitle": "Competency Based Curriculum Grade 9 Mathematics",
+          "sourceSnapshotHash": "2a6b642fb16725190fa1ce4a3c69e98c6dc82ca9843c4bee7cbb0f82820d0356"
+        }
+      ]
+    },
+    {
+      "topicId": "G9-mathematics-topic-020",
+      "strandId": "2572071c-2499-45ad-9264-93b133ec5618",
+      "parentSubStrandId": "ca660afd-20d5-46e1-9250-fffc76750070",
+      "subStrandId": "ca660afd-20d5-46e1-9250-fffc76750070:topic-1",
+      "strandTitle": "Geometry 4.1 Coordinates",
+      "unitTitle": "Geometry 4.1 Coordinates: plot out points on a Cartesian plane",
+      "sourceUnitTitle": "Geometry 4.1 Coordinates",
+      "learningOutcomes": [
+        {
+          "id": "grade-9-math-4-0-outcome-1",
+          "text": "plot out points on a Cartesian plane"
+        },
+        {
+          "id": "grade-9-math-4-0-outcome-2",
+          "text": "identify compass and true bearings in real- life situations."
+        },
+        {
+          "id": "grade-9-math-4-0-outcome-3",
+          "text": "determine the bearing of a point from another point in real-life situations."
+        },
+        {
+          "id": "grade-9-math-4-0-outcome-4",
+          "text": "locate a point using bearing and distance in real-life situations."
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we draw graphs of straight lines?",
+        "How do we use scale drawing in real life?",
+        "What are similar objects?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Geometry 4.1 Coordinates.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Geometry 4.1 Coordinates: plot out points on a Cartesian plane",
+        "Geometry 4.1 Coordinates",
+        "Geometry",
+        "Coordinates",
+        "points",
+        "Cartesian",
+        "plane"
+      ],
+      "misconceptions": [
+        "mixing up the method for Geometry 4.1 Coordinates: plot out points on a Cartesian plane with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Geometry 4.1 Coordinates: plot out points on a Cartesian plane",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Geometry 4.1 Coordinates: plot out points on a Cartesian plane",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Geometry 4.1 Coordinates: plot out points on a Cartesian plane",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f957178b-978f-476a-8368-7823ea91a905",
+          "officialTitle": "Competency Based Curriculum Grade 9 Mathematics",
+          "sourceSnapshotHash": "2a6b642fb16725190fa1ce4a3c69e98c6dc82ca9843c4bee7cbb0f82820d0356"
+        }
+      ]
+    },
+    {
+      "topicId": "G9-mathematics-topic-021",
+      "strandId": "2572071c-2499-45ad-9264-93b133ec5618",
+      "parentSubStrandId": "ca660afd-20d5-46e1-9250-fffc76750070",
+      "subStrandId": "ca660afd-20d5-46e1-9250-fffc76750070:topic-2",
+      "strandTitle": "Geometry 4.1 Coordinates",
+      "unitTitle": "Geometry 4.1 Coordinates: angles of elevation",
+      "sourceUnitTitle": "Geometry 4.1 Coordinates",
+      "learningOutcomes": [
+        {
+          "id": "grade-9-math-4-0-outcome-5",
+          "text": "identify angles of elevation in real-life situations."
+        },
+        {
+          "id": "grade-9-math-4-0-outcome-6",
+          "text": "determine angles of elevation in different situations."
+        },
+        {
+          "id": "grade-9-math-4-0-outcome-7",
+          "text": "identify angles of depression in real-life situations."
+        },
+        {
+          "id": "grade-9-math-4-0-outcome-8",
+          "text": "determine angles of depression in different situations."
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we use scale drawing in real life?",
+        "What are similar objects?",
+        "How do we use enlargement in real-life situations?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Geometry 4.1 Coordinates.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Geometry 4.1 Coordinates: angles of elevation",
+        "Geometry 4.1 Coordinates",
+        "Geometry",
+        "Coordinates",
+        "angles",
+        "elevation"
+      ],
+      "misconceptions": [
+        "mixing up the method for Geometry 4.1 Coordinates: angles of elevation with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Geometry 4.1 Coordinates: angles of elevation",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Geometry 4.1 Coordinates: angles of elevation",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Geometry 4.1 Coordinates: angles of elevation",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f957178b-978f-476a-8368-7823ea91a905",
+          "officialTitle": "Competency Based Curriculum Grade 9 Mathematics",
+          "sourceSnapshotHash": "2a6b642fb16725190fa1ce4a3c69e98c6dc82ca9843c4bee7cbb0f82820d0356"
+        }
+      ]
+    },
+    {
+      "topicId": "G9-mathematics-topic-022",
+      "strandId": "2572071c-2499-45ad-9264-93b133ec5618",
+      "parentSubStrandId": "ca660afd-20d5-46e1-9250-fffc76750070",
+      "subStrandId": "ca660afd-20d5-46e1-9250-fffc76750070:topic-3",
+      "strandTitle": "Geometry 4.1 Coordinates",
+      "unitTitle": "Geometry 4.1 Coordinates: similar figures and their properties.",
+      "sourceUnitTitle": "Geometry 4.1 Coordinates",
+      "learningOutcomes": [
+        {
+          "id": "grade-9-math-4-0-outcome-9",
+          "text": "identify similar figures and their properties."
+        },
+        {
+          "id": "grade-9-math-4-0-outcome-10",
+          "text": "draw similar figures in different situations."
+        },
+        {
+          "id": "grade-9-math-4-0-outcome-11",
+          "text": "determine properties of enlargement of different figures."
+        },
+        {
+          "id": "grade-9-math-4-0-outcome-12",
+          "text": "apply properties of enlargement to draw similar objects and their images."
+        }
+      ],
+      "inquiryQuestions": [
+        "What are similar objects?",
+        "How do we use enlargement in real-life situations?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Geometry 4.1 Coordinates.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Geometry 4.1 Coordinates: similar figures and their properties.",
+        "Geometry 4.1 Coordinates",
+        "Geometry",
+        "Coordinates",
+        "similar",
+        "figures",
+        "their",
+        "properties."
+      ],
+      "misconceptions": [
+        "mixing up the method for Geometry 4.1 Coordinates: similar figures and their properties. with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Geometry 4.1 Coordinates: similar figures and their properties.",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Geometry 4.1 Coordinates: similar figures and their properties.",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Geometry 4.1 Coordinates: similar figures and their properties.",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f957178b-978f-476a-8368-7823ea91a905",
+          "officialTitle": "Competency Based Curriculum Grade 9 Mathematics",
+          "sourceSnapshotHash": "2a6b642fb16725190fa1ce4a3c69e98c6dc82ca9843c4bee7cbb0f82820d0356"
+        }
+      ]
+    },
+    {
+      "topicId": "G9-mathematics-topic-023",
+      "strandId": "2572071c-2499-45ad-9264-93b133ec5618",
+      "parentSubStrandId": "ca660afd-20d5-46e1-9250-fffc76750070",
+      "subStrandId": "ca660afd-20d5-46e1-9250-fffc76750070:topic-4",
+      "strandTitle": "Geometry 4.1 Coordinates",
+      "unitTitle": "Geometry 4.1 Coordinates: linear scale factor of similar figures.",
+      "sourceUnitTitle": "Geometry 4.1 Coordinates",
+      "learningOutcomes": [
+        {
+          "id": "grade-9-math-4-0-outcome-13",
+          "text": "determine the linear scale factor of similar figures."
+        },
+        {
+          "id": "grade-9-math-4-0-outcome-14",
+          "text": "promote the use of similarity and enlargement in real-life situations."
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we use enlargement in real-life situations?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Geometry 4.1 Coordinates.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Geometry 4.1 Coordinates: linear scale factor of similar figures.",
+        "Geometry 4.1 Coordinates",
+        "Geometry",
+        "Coordinates",
+        "linear",
+        "scale",
+        "factor",
+        "similar"
+      ],
+      "misconceptions": [
+        "mixing up the method for Geometry 4.1 Coordinates: linear scale factor of similar figures. with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Geometry 4.1 Coordinates: linear scale factor of similar figures.",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Geometry 4.1 Coordinates: linear scale factor of similar figures.",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Geometry 4.1 Coordinates: linear scale factor of similar figures.",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f957178b-978f-476a-8368-7823ea91a905",
+          "officialTitle": "Competency Based Curriculum Grade 9 Mathematics",
+          "sourceSnapshotHash": "2a6b642fb16725190fa1ce4a3c69e98c6dc82ca9843c4bee7cbb0f82820d0356"
+        }
+      ]
+    },
+    {
+      "topicId": "G9-mathematics-topic-024",
+      "strandId": "2572071c-2499-45ad-9264-93b133ec5618",
+      "parentSubStrandId": "cdeb02db-8b2a-4897-8d60-7d0cee0fe97c",
+      "subStrandId": "cdeb02db-8b2a-4897-8d60-7d0cee0fe97c:topic-1",
+      "strandTitle": "Geometry 4.1 Coordinates",
+      "unitTitle": "Trigonometry: angles and sides of right-angled triangles",
+      "sourceUnitTitle": "Trigonometry",
+      "learningOutcomes": [
+        {
+          "id": "grade-9-math-4-4-outcome-1",
+          "text": "identify angles and sides of right-angled triangles in different situations."
+        },
+        {
+          "id": "grade-9-math-4-4-outcome-2",
+          "text": "identify Sine, Cosine, and Tangent ratios from a right- angled triangle in different situations."
+        },
+        {
+          "id": "grade-9-math-4-4-outcome-3",
+          "text": "read tables of trigonometric ratios for acute angles."
+        },
+        {
+          "id": "grade-9-math-4-4-outcome-4",
+          "text": "determine trigonometric ratios of acute angles using calculators"
+        }
+      ],
+      "inquiryQuestions": [
+        "What is the relationship between angles and sides in a right-angled triangle?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Trigonometry.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Trigonometry: angles and sides of right-angled triangles",
+        "Trigonometry",
+        "angles",
+        "sides",
+        "right-angled",
+        "triangles"
+      ],
+      "misconceptions": [
+        "mixing up the method for Trigonometry: angles and sides of right-angled triangles with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Trigonometry: angles and sides of right-angled triangles",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Trigonometry: angles and sides of right-angled triangles",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Trigonometry: angles and sides of right-angled triangles",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f957178b-978f-476a-8368-7823ea91a905",
+          "officialTitle": "Competency Based Curriculum Grade 9 Mathematics",
+          "sourceSnapshotHash": "2a6b642fb16725190fa1ce4a3c69e98c6dc82ca9843c4bee7cbb0f82820d0356"
+        }
+      ]
+    },
+    {
+      "topicId": "G9-mathematics-topic-025",
+      "strandId": "2572071c-2499-45ad-9264-93b133ec5618",
+      "parentSubStrandId": "cdeb02db-8b2a-4897-8d60-7d0cee0fe97c",
+      "subStrandId": "cdeb02db-8b2a-4897-8d60-7d0cee0fe97c:topic-2",
+      "strandTitle": "Geometry 4.1 Coordinates",
+      "unitTitle": "Trigonometry: trigonometric ratios to calculate lengths and angles",
+      "sourceUnitTitle": "Trigonometry",
+      "learningOutcomes": [
+        {
+          "id": "grade-9-math-4-4-outcome-5",
+          "text": "apply trigonometric ratios to calculate lengths and angles of right-angled triangles in different situations."
+        },
+        {
+          "id": "grade-9-math-4-4-outcome-6",
+          "text": "appreciate the use of trigonometric ratios in real-life situations."
+        }
+      ],
+      "inquiryQuestions": [
+        "What is the relationship between angles and sides in a right-angled triangle?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Trigonometry.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Trigonometry: trigonometric ratios to calculate lengths and angles",
+        "Trigonometry",
+        "trigonometric",
+        "ratios",
+        "calculate",
+        "lengths",
+        "angles"
+      ],
+      "misconceptions": [
+        "mixing up the method for Trigonometry: trigonometric ratios to calculate lengths and angles with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Trigonometry: trigonometric ratios to calculate lengths and angles",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Trigonometry: trigonometric ratios to calculate lengths and angles",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Trigonometry: trigonometric ratios to calculate lengths and angles",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f957178b-978f-476a-8368-7823ea91a905",
+          "officialTitle": "Competency Based Curriculum Grade 9 Mathematics",
+          "sourceSnapshotHash": "2a6b642fb16725190fa1ce4a3c69e98c6dc82ca9843c4bee7cbb0f82820d0356"
+        }
+      ]
+    },
+    {
+      "topicId": "G9-mathematics-topic-026",
+      "strandId": "f88501b6-da63-476c-ab46-ea38fb803bb1",
+      "parentSubStrandId": "3f131639-33bb-4311-a843-52b1de9c6678",
+      "subStrandId": "3f131639-33bb-4311-a843-52b1de9c6678:topic-1",
+      "strandTitle": "Data Handling and Probability",
+      "unitTitle": "Data Interpretation (Grouped Data): appropriate class width for grouping data.",
+      "sourceUnitTitle": "Data Interpretation (Grouped Data)",
+      "learningOutcomes": [
+        {
+          "id": "grade-9-math-5-1-outcome-1",
+          "text": "determine appropriate class width for grouping data."
+        },
+        {
+          "id": "grade-9-math-5-1-outcome-2",
+          "text": "draw frequency distribution tables of grouped data"
+        },
+        {
+          "id": "grade-9-math-5-1-outcome-3",
+          "text": "identify the modal class of grouped data."
+        },
+        {
+          "id": "grade-9-math-5-1-outcome-4",
+          "text": "calculate the mean of grouped data from real- life situations."
+        }
+      ],
+      "inquiryQuestions": [
+        "(s) How do we interpret data?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Data Interpretation (Grouped Data).",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Data Interpretation (Grouped Data): appropriate class width for grouping data.",
+        "Data Interpretation (Grouped Data)",
+        "Interpretation",
+        "Grouped",
+        "Data)",
+        "appropriate",
+        "class",
+        "width"
+      ],
+      "misconceptions": [
+        "mixing up the method for Data Interpretation (Grouped Data): appropriate class width for grouping data. with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Data Interpretation (Grouped Data): appropriate class width for grouping data.",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Data Interpretation (Grouped Data): appropriate class width for grouping data.",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Data Interpretation (Grouped Data): appropriate class width for grouping data.",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f957178b-978f-476a-8368-7823ea91a905",
+          "officialTitle": "Competency Based Curriculum Grade 9 Mathematics",
+          "sourceSnapshotHash": "2a6b642fb16725190fa1ce4a3c69e98c6dc82ca9843c4bee7cbb0f82820d0356"
+        }
+      ]
+    },
+    {
+      "topicId": "G9-mathematics-topic-027",
+      "strandId": "f88501b6-da63-476c-ab46-ea38fb803bb1",
+      "parentSubStrandId": "3f131639-33bb-4311-a843-52b1de9c6678",
+      "subStrandId": "3f131639-33bb-4311-a843-52b1de9c6678:topic-2",
+      "strandTitle": "Data Handling and Probability",
+      "unitTitle": "Data Interpretation (Grouped Data): median of grouped data from real- life situations.",
+      "sourceUnitTitle": "Data Interpretation (Grouped Data)",
+      "learningOutcomes": [
+        {
+          "id": "grade-9-math-5-1-outcome-5",
+          "text": "determine the median of grouped data from real- life situations."
+        },
+        {
+          "id": "grade-9-math-5-1-outcome-6",
+          "text": "appreciate data interpretation in real-life situations."
+        }
+      ],
+      "inquiryQuestions": [
+        "(s) How do we interpret data?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Data Interpretation (Grouped Data).",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Data Interpretation (Grouped Data): median of grouped data from real- life situations.",
+        "Data Interpretation (Grouped Data)",
+        "Interpretation",
+        "Grouped",
+        "Data)",
+        "median",
+        "situations."
+      ],
+      "misconceptions": [
+        "mixing up the method for Data Interpretation (Grouped Data): median of grouped data from real- life situations. with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Data Interpretation (Grouped Data): median of grouped data from real- life situations.",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Data Interpretation (Grouped Data): median of grouped data from real- life situations.",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Data Interpretation (Grouped Data): median of grouped data from real- life situations.",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f957178b-978f-476a-8368-7823ea91a905",
+          "officialTitle": "Competency Based Curriculum Grade 9 Mathematics",
+          "sourceSnapshotHash": "2a6b642fb16725190fa1ce4a3c69e98c6dc82ca9843c4bee7cbb0f82820d0356"
+        }
+      ]
+    },
+    {
+      "topicId": "G9-mathematics-topic-028",
+      "strandId": "f88501b6-da63-476c-ab46-ea38fb803bb1",
+      "parentSubStrandId": "32a06943-8902-4952-bef7-ef724c762fdf",
+      "subStrandId": "32a06943-8902-4952-bef7-ef724c762fdf:topic-1",
+      "strandTitle": "Data Handling and Probability",
+      "unitTitle": "Probability: experiments involving equal and likely outcomes",
+      "sourceUnitTitle": "Probability",
+      "learningOutcomes": [
+        {
+          "id": "grade-9-math-5-2-outcome-1",
+          "text": "perform experiments involving equal and likely outcomes in different situations."
+        },
+        {
+          "id": "grade-9-math-5-2-outcome-2",
+          "text": "determine the range of probability of an event."
+        },
+        {
+          "id": "grade-9-math-5-2-outcome-3",
+          "text": "identify mutually exclusive events in real-life situations."
+        },
+        {
+          "id": "grade-9-math-5-2-outcome-4",
+          "text": "perform experiments of single chance involving mutually exclusive events"
+        }
+      ],
+      "inquiryQuestions": [
+        "(s) Why is probability important in real-life situations?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Probability.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Probability: experiments involving equal and likely outcomes",
+        "Probability",
+        "experiments",
+        "involving",
+        "equal",
+        "likely",
+        "outcomes"
+      ],
+      "misconceptions": [
+        "mixing up the method for Probability: experiments involving equal and likely outcomes with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Probability: experiments involving equal and likely outcomes",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Probability: experiments involving equal and likely outcomes",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Probability: experiments involving equal and likely outcomes",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f957178b-978f-476a-8368-7823ea91a905",
+          "officialTitle": "Competency Based Curriculum Grade 9 Mathematics",
+          "sourceSnapshotHash": "2a6b642fb16725190fa1ce4a3c69e98c6dc82ca9843c4bee7cbb0f82820d0356"
+        }
+      ]
+    },
+    {
+      "topicId": "G9-mathematics-topic-029",
+      "strandId": "f88501b6-da63-476c-ab46-ea38fb803bb1",
+      "parentSubStrandId": "32a06943-8902-4952-bef7-ef724c762fdf",
+      "subStrandId": "32a06943-8902-4952-bef7-ef724c762fdf:topic-2",
+      "strandTitle": "Data Handling and Probability",
+      "unitTitle": "Probability: experiments involving independent events",
+      "sourceUnitTitle": "Probability",
+      "learningOutcomes": [
+        {
+          "id": "grade-9-math-5-2-outcome-5",
+          "text": "perform experiments involving independent events in different situations"
+        },
+        {
+          "id": "grade-9-math-5-2-outcome-6",
+          "text": "draw a tree diagram for a single outcome"
+        },
+        {
+          "id": "grade-9-math-5-2-outcome-7",
+          "text": "appreciate the probability of events occurring in real-life situations."
+        }
+      ],
+      "inquiryQuestions": [
+        "(s) Why is probability important in real-life situations?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Probability.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Probability: experiments involving independent events",
+        "Probability",
+        "experiments",
+        "involving",
+        "independent",
+        "events"
+      ],
+      "misconceptions": [
+        "mixing up the method for Probability: experiments involving independent events with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Probability: experiments involving independent events",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Probability: experiments involving independent events",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Probability: experiments involving independent events",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f957178b-978f-476a-8368-7823ea91a905",
+          "officialTitle": "Competency Based Curriculum Grade 9 Mathematics",
+          "sourceSnapshotHash": "2a6b642fb16725190fa1ce4a3c69e98c6dc82ca9843c4bee7cbb0f82820d0356"
+        }
+      ]
+    }
+  ]
+}

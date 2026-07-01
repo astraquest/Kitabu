@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-rwa-reb-cbc-s2-french",
+  "title": "KITABU QUEST S2 French",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "S2",
+  "subject": "French",
+  "subjectSlug": "french",
+  "subjectColor": "#4338CA",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v17",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T06:43:38Z",
+  "sourceSnapshotHash": "53f797709a5d1cbb8c9dc90ee19847bb6e35431d3c8f3256757cb0eec43c6fad",
+  "bookPlanHash": "9fc7ca44f0448093357dca953bf22f5530e1190c1744890b1ff6df68ba3f5286",
+  "pageCount": 111,
+  "wordCount": 10632,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 8,
+    "outcomeCount": 8,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "RWA",
+    "subject": "French",
+    "species": "hare",
+    "role": "language practice guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners practising French dialogue with a friendly hare mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Rwanda REB-CBC S2 French. Scene: learners practising French dialogue with a friendly hare mascot. Include a friendly hare mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "cover-not-started",
+  "assets": [],
+  "downloads": {
+    "markdown": "kitabu-quest-rwa-reb-cbc-s2-french.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-rwa-reb-cbc-s2-french.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "ef04caa8-c273-47e7-842c-9cea72e2b274",
+      "subject": "French",
+      "officialTitle": "Rwanda Competence Based Curriculum S2 French",
+      "countryCode": "RWA",
+      "curriculumCode": "REB-CBC",
+      "gradeCode": "S2",
+      "gradeLocalLevel": "S2",
+      "localLevel": "S2",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/Programme%20de%20Fran%C3%A7ais%20aux%20TC%202022.pdf?forcedownload=1",
+      "objectKey": "data/curriculum/source-files/RWA/b7ed08819606380f48414c74aa89e43d1c6cac18c3caf56460df8db01095dd76.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "S2",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/Programme%20de%20Fran%C3%A7ais%20aux%20TC%202022.pdf?forcedownload=1",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.md",
+        "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "reb.gov.rw",
+          "reb.rw",
+          "elearning.reb.rw"
+        ],
+        "markdownChecksum": "7d40fb180aed4de0803b2e123211d4c61950be4691194492e8569f8cacbd4b4a",
+        "markdownPageCount": 46,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "7d40fb180aed4de0803b2e123211d4c61950be4691194492e8569f8cacbd4b4a",
+          "pageCount": 46,
+          "generatedAt": "2026-07-01T01:17:36.103Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.json",
+          "sourceChecksum": "86a09db6917fcd55934e27fa6062d0ed2e88cec7510af2a4e879de273d25129c"
+        },
+        "markdownGeneratedAt": "2026-07-01T01:17:36.103Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

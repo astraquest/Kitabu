@@ -1,0 +1,1279 @@
+{
+  "schemaVersion": 1,
+  "sourceType": "normalized-curriculum",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Form I",
+  "subject": "Kiswahili",
+  "generatedAt": "2026-07-01T05:43:04Z",
+  "sourceSnapshotHash": "fa442e8ba975a4df7e53cfab82c8618eacd37c71e463595e300a42e75a18fdbe",
+  "writingStandard": {
+    "voice": "simple, conversational, purposeful, age-appropriate, and learner-first",
+    "antiFluff": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "coversDeferred": true
+  },
+  "strands": [
+    {
+      "strandId": "fallback-form-i-kiswahili-1",
+      "number": "",
+      "title": "Ufahamu Wa Hadithi Na Makala",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-i-kiswahili-2",
+      "number": "",
+      "title": "Msamiati Na Matumizi Ya Lugha",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-i-kiswahili-3",
+      "number": "",
+      "title": "Kusikiliza Na Kujieleza",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-i-kiswahili-4",
+      "number": "",
+      "title": "Sarufi Ya Nomino Vitenzi Na Vivumishi",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-i-kiswahili-5",
+      "number": "",
+      "title": "Uandishi Wa Aya Na Barua",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-i-kiswahili-6",
+      "number": "",
+      "title": "Fasihi Simulizi",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-i-kiswahili-7",
+      "number": "",
+      "title": "Usahihishaji Na Uwasilishaji",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-i-kiswahili-8",
+      "number": "",
+      "title": "Mradi Wa Kidato Cha Kwanza",
+      "topicCount": 1
+    }
+  ],
+  "topics": [
+    {
+      "topicId": "TZA-FORM-I-kiswahili-topic-001",
+      "grade": "Form I",
+      "strandId": "fallback-form-i-kiswahili-1",
+      "subStrandId": "fallback-form-i-kiswahili-1",
+      "parentSubStrandId": "fallback-form-i-kiswahili-1",
+      "strandTitle": "Ufahamu Wa Hadithi Na Makala",
+      "unitTitle": "Ufahamu Wa Hadithi Na Makala",
+      "sourceUnitTitle": "Ufahamu Wa Hadithi Na Makala",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-i-kiswahili-1-outcome-1",
+          "text": "kusoma, kuelewa, kuzungumza na kuandika kuhusu ufahamu wa hadithi na makala"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can ufahamu wa hadithi na makala help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Ufahamu Wa Hadithi Na Makala.",
+        "Review key vocabulary from the previous Kiswahili lesson."
+      ],
+      "keyVocabulary": [
+        "Ufahamu Wa Hadithi Na Makala",
+        "Ufahamu",
+        "Hadithi",
+        "Makala",
+        "kusoma",
+        "kusikiliza",
+        "kuzungumza",
+        "kuandika"
+      ],
+      "misconceptions": [
+        "giving a general answer about Ufahamu Wa Hadithi Na Makala without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania reading, speaking, listening, writing, or discussion task for Ufahamu Wa Hadithi Na Makala",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, grammar, and structure are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Ufahamu Wa Hadithi Na Makala",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "writing or dialogue checklist",
+          "description": "writing or dialogue checklist for Ufahamu Wa Hadithi Na Makala",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "8f6c625e-7d3b-4c5a-b520-8ca157bc8954",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Kiswahili",
+          "subject": "Kiswahili",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1741937359-MUHTASARI%20WA%20KISWAHILI%20KIDATO%20%20I-IV%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/831e9ce0948d4e9ff6c64bce41dd75f5ef948c8cac946024b5b6c60ce0f8b1f2.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1741937359-MUHTASARI%20WA%20KISWAHILI%20KIDATO%20%20I-IV%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/kiswahili/8f6c625e-7d3b-4c5a-b520-8ca157bc8954.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "d6ae327fb19e12e4183dfc185296d4f9d9d05eb454179620126b7751da75a35f",
+            "markdownPageCount": 56,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/kiswahili/8f6c625e-7d3b-4c5a-b520-8ca157bc8954.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "d6ae327fb19e12e4183dfc185296d4f9d9d05eb454179620126b7751da75a35f",
+              "pageCount": 56,
+              "generatedAt": "2026-06-29T16:44:39.066Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "882332bb296bc6934a773e885b84696f2d50e48c4e411b04196d15c11677110b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:39.066Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "fa442e8ba975a4df7e53cfab82c8618eacd37c71e463595e300a42e75a18fdbe"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "8f6c625e-7d3b-4c5a-b520-8ca157bc8954",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Kiswahili",
+          "subject": "Kiswahili",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1741937359-MUHTASARI%20WA%20KISWAHILI%20KIDATO%20%20I-IV%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/831e9ce0948d4e9ff6c64bce41dd75f5ef948c8cac946024b5b6c60ce0f8b1f2.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1741937359-MUHTASARI%20WA%20KISWAHILI%20KIDATO%20%20I-IV%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/kiswahili/8f6c625e-7d3b-4c5a-b520-8ca157bc8954.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "d6ae327fb19e12e4183dfc185296d4f9d9d05eb454179620126b7751da75a35f",
+            "markdownPageCount": 56,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/kiswahili/8f6c625e-7d3b-4c5a-b520-8ca157bc8954.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "d6ae327fb19e12e4183dfc185296d4f9d9d05eb454179620126b7751da75a35f",
+              "pageCount": 56,
+              "generatedAt": "2026-06-29T16:44:39.066Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "882332bb296bc6934a773e885b84696f2d50e48c4e411b04196d15c11677110b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:39.066Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "fa442e8ba975a4df7e53cfab82c8618eacd37c71e463595e300a42e75a18fdbe"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-I-kiswahili-topic-002",
+      "grade": "Form I",
+      "strandId": "fallback-form-i-kiswahili-2",
+      "subStrandId": "fallback-form-i-kiswahili-2",
+      "parentSubStrandId": "fallback-form-i-kiswahili-2",
+      "strandTitle": "Msamiati Na Matumizi Ya Lugha",
+      "unitTitle": "Msamiati Na Matumizi Ya Lugha",
+      "sourceUnitTitle": "Msamiati Na Matumizi Ya Lugha",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-i-kiswahili-2-outcome-1",
+          "text": "kusoma, kuelewa, kuzungumza na kuandika kuhusu msamiati na matumizi ya lugha"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can msamiati na matumizi ya lugha help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Msamiati Na Matumizi Ya Lugha.",
+        "Review key vocabulary from the previous Kiswahili lesson."
+      ],
+      "keyVocabulary": [
+        "Msamiati Na Matumizi Ya Lugha",
+        "Msamiati",
+        "Matumizi",
+        "Lugha",
+        "kusoma",
+        "kusikiliza",
+        "kuzungumza",
+        "kuandika"
+      ],
+      "misconceptions": [
+        "giving a general answer about Msamiati Na Matumizi Ya Lugha without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania reading, speaking, listening, writing, or discussion task for Msamiati Na Matumizi Ya Lugha",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, grammar, and structure are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Msamiati Na Matumizi Ya Lugha",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "writing or dialogue checklist",
+          "description": "writing or dialogue checklist for Msamiati Na Matumizi Ya Lugha",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "8f6c625e-7d3b-4c5a-b520-8ca157bc8954",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Kiswahili",
+          "subject": "Kiswahili",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1741937359-MUHTASARI%20WA%20KISWAHILI%20KIDATO%20%20I-IV%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/831e9ce0948d4e9ff6c64bce41dd75f5ef948c8cac946024b5b6c60ce0f8b1f2.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1741937359-MUHTASARI%20WA%20KISWAHILI%20KIDATO%20%20I-IV%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/kiswahili/8f6c625e-7d3b-4c5a-b520-8ca157bc8954.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "d6ae327fb19e12e4183dfc185296d4f9d9d05eb454179620126b7751da75a35f",
+            "markdownPageCount": 56,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/kiswahili/8f6c625e-7d3b-4c5a-b520-8ca157bc8954.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "d6ae327fb19e12e4183dfc185296d4f9d9d05eb454179620126b7751da75a35f",
+              "pageCount": 56,
+              "generatedAt": "2026-06-29T16:44:39.066Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "882332bb296bc6934a773e885b84696f2d50e48c4e411b04196d15c11677110b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:39.066Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "fa442e8ba975a4df7e53cfab82c8618eacd37c71e463595e300a42e75a18fdbe"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "8f6c625e-7d3b-4c5a-b520-8ca157bc8954",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Kiswahili",
+          "subject": "Kiswahili",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1741937359-MUHTASARI%20WA%20KISWAHILI%20KIDATO%20%20I-IV%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/831e9ce0948d4e9ff6c64bce41dd75f5ef948c8cac946024b5b6c60ce0f8b1f2.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1741937359-MUHTASARI%20WA%20KISWAHILI%20KIDATO%20%20I-IV%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/kiswahili/8f6c625e-7d3b-4c5a-b520-8ca157bc8954.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "d6ae327fb19e12e4183dfc185296d4f9d9d05eb454179620126b7751da75a35f",
+            "markdownPageCount": 56,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/kiswahili/8f6c625e-7d3b-4c5a-b520-8ca157bc8954.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "d6ae327fb19e12e4183dfc185296d4f9d9d05eb454179620126b7751da75a35f",
+              "pageCount": 56,
+              "generatedAt": "2026-06-29T16:44:39.066Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "882332bb296bc6934a773e885b84696f2d50e48c4e411b04196d15c11677110b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:39.066Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "fa442e8ba975a4df7e53cfab82c8618eacd37c71e463595e300a42e75a18fdbe"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-I-kiswahili-topic-003",
+      "grade": "Form I",
+      "strandId": "fallback-form-i-kiswahili-3",
+      "subStrandId": "fallback-form-i-kiswahili-3",
+      "parentSubStrandId": "fallback-form-i-kiswahili-3",
+      "strandTitle": "Kusikiliza Na Kujieleza",
+      "unitTitle": "Kusikiliza Na Kujieleza",
+      "sourceUnitTitle": "Kusikiliza Na Kujieleza",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-i-kiswahili-3-outcome-1",
+          "text": "kusoma, kuelewa, kuzungumza na kuandika kuhusu kusikiliza na kujieleza"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can kusikiliza na kujieleza help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Kusikiliza Na Kujieleza.",
+        "Review key vocabulary from the previous Kiswahili lesson."
+      ],
+      "keyVocabulary": [
+        "Kusikiliza Na Kujieleza",
+        "Kusikiliza",
+        "Kujieleza",
+        "kusoma",
+        "kusikiliza",
+        "kuzungumza",
+        "kuandika",
+        "sentensi"
+      ],
+      "misconceptions": [
+        "giving a general answer about Kusikiliza Na Kujieleza without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania reading, speaking, listening, writing, or discussion task for Kusikiliza Na Kujieleza",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, grammar, and structure are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Kusikiliza Na Kujieleza",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "writing or dialogue checklist",
+          "description": "writing or dialogue checklist for Kusikiliza Na Kujieleza",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "8f6c625e-7d3b-4c5a-b520-8ca157bc8954",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Kiswahili",
+          "subject": "Kiswahili",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1741937359-MUHTASARI%20WA%20KISWAHILI%20KIDATO%20%20I-IV%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/831e9ce0948d4e9ff6c64bce41dd75f5ef948c8cac946024b5b6c60ce0f8b1f2.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1741937359-MUHTASARI%20WA%20KISWAHILI%20KIDATO%20%20I-IV%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/kiswahili/8f6c625e-7d3b-4c5a-b520-8ca157bc8954.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "d6ae327fb19e12e4183dfc185296d4f9d9d05eb454179620126b7751da75a35f",
+            "markdownPageCount": 56,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/kiswahili/8f6c625e-7d3b-4c5a-b520-8ca157bc8954.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "d6ae327fb19e12e4183dfc185296d4f9d9d05eb454179620126b7751da75a35f",
+              "pageCount": 56,
+              "generatedAt": "2026-06-29T16:44:39.066Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "882332bb296bc6934a773e885b84696f2d50e48c4e411b04196d15c11677110b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:39.066Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "fa442e8ba975a4df7e53cfab82c8618eacd37c71e463595e300a42e75a18fdbe"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "8f6c625e-7d3b-4c5a-b520-8ca157bc8954",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Kiswahili",
+          "subject": "Kiswahili",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1741937359-MUHTASARI%20WA%20KISWAHILI%20KIDATO%20%20I-IV%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/831e9ce0948d4e9ff6c64bce41dd75f5ef948c8cac946024b5b6c60ce0f8b1f2.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1741937359-MUHTASARI%20WA%20KISWAHILI%20KIDATO%20%20I-IV%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/kiswahili/8f6c625e-7d3b-4c5a-b520-8ca157bc8954.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "d6ae327fb19e12e4183dfc185296d4f9d9d05eb454179620126b7751da75a35f",
+            "markdownPageCount": 56,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/kiswahili/8f6c625e-7d3b-4c5a-b520-8ca157bc8954.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "d6ae327fb19e12e4183dfc185296d4f9d9d05eb454179620126b7751da75a35f",
+              "pageCount": 56,
+              "generatedAt": "2026-06-29T16:44:39.066Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "882332bb296bc6934a773e885b84696f2d50e48c4e411b04196d15c11677110b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:39.066Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "fa442e8ba975a4df7e53cfab82c8618eacd37c71e463595e300a42e75a18fdbe"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-I-kiswahili-topic-004",
+      "grade": "Form I",
+      "strandId": "fallback-form-i-kiswahili-4",
+      "subStrandId": "fallback-form-i-kiswahili-4",
+      "parentSubStrandId": "fallback-form-i-kiswahili-4",
+      "strandTitle": "Sarufi Ya Nomino Vitenzi Na Vivumishi",
+      "unitTitle": "Sarufi Ya Nomino Vitenzi Na Vivumishi",
+      "sourceUnitTitle": "Sarufi Ya Nomino Vitenzi Na Vivumishi",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-i-kiswahili-4-outcome-1",
+          "text": "kusoma, kuelewa, kuzungumza na kuandika kuhusu sarufi ya nomino vitenzi na vivumishi"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can sarufi ya nomino vitenzi na vivumishi help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Sarufi Ya Nomino Vitenzi Na Vivumishi.",
+        "Review key vocabulary from the previous Kiswahili lesson."
+      ],
+      "keyVocabulary": [
+        "Sarufi Ya Nomino Vitenzi Na Vivumishi",
+        "Sarufi",
+        "Nomino",
+        "Vitenzi",
+        "Vivumishi",
+        "kusoma",
+        "kusikiliza",
+        "kuzungumza"
+      ],
+      "misconceptions": [
+        "giving a general answer about Sarufi Ya Nomino Vitenzi Na Vivumishi without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania reading, speaking, listening, writing, or discussion task for Sarufi Ya Nomino Vitenzi Na Vivumishi",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, grammar, and structure are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Sarufi Ya Nomino Vitenzi Na Vivumishi",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "writing or dialogue checklist",
+          "description": "writing or dialogue checklist for Sarufi Ya Nomino Vitenzi Na Vivumishi",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "8f6c625e-7d3b-4c5a-b520-8ca157bc8954",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Kiswahili",
+          "subject": "Kiswahili",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1741937359-MUHTASARI%20WA%20KISWAHILI%20KIDATO%20%20I-IV%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/831e9ce0948d4e9ff6c64bce41dd75f5ef948c8cac946024b5b6c60ce0f8b1f2.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1741937359-MUHTASARI%20WA%20KISWAHILI%20KIDATO%20%20I-IV%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/kiswahili/8f6c625e-7d3b-4c5a-b520-8ca157bc8954.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "d6ae327fb19e12e4183dfc185296d4f9d9d05eb454179620126b7751da75a35f",
+            "markdownPageCount": 56,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/kiswahili/8f6c625e-7d3b-4c5a-b520-8ca157bc8954.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "d6ae327fb19e12e4183dfc185296d4f9d9d05eb454179620126b7751da75a35f",
+              "pageCount": 56,
+              "generatedAt": "2026-06-29T16:44:39.066Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "882332bb296bc6934a773e885b84696f2d50e48c4e411b04196d15c11677110b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:39.066Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "fa442e8ba975a4df7e53cfab82c8618eacd37c71e463595e300a42e75a18fdbe"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "8f6c625e-7d3b-4c5a-b520-8ca157bc8954",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Kiswahili",
+          "subject": "Kiswahili",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1741937359-MUHTASARI%20WA%20KISWAHILI%20KIDATO%20%20I-IV%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/831e9ce0948d4e9ff6c64bce41dd75f5ef948c8cac946024b5b6c60ce0f8b1f2.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1741937359-MUHTASARI%20WA%20KISWAHILI%20KIDATO%20%20I-IV%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/kiswahili/8f6c625e-7d3b-4c5a-b520-8ca157bc8954.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "d6ae327fb19e12e4183dfc185296d4f9d9d05eb454179620126b7751da75a35f",
+            "markdownPageCount": 56,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/kiswahili/8f6c625e-7d3b-4c5a-b520-8ca157bc8954.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "d6ae327fb19e12e4183dfc185296d4f9d9d05eb454179620126b7751da75a35f",
+              "pageCount": 56,
+              "generatedAt": "2026-06-29T16:44:39.066Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "882332bb296bc6934a773e885b84696f2d50e48c4e411b04196d15c11677110b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:39.066Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "fa442e8ba975a4df7e53cfab82c8618eacd37c71e463595e300a42e75a18fdbe"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-I-kiswahili-topic-005",
+      "grade": "Form I",
+      "strandId": "fallback-form-i-kiswahili-5",
+      "subStrandId": "fallback-form-i-kiswahili-5",
+      "parentSubStrandId": "fallback-form-i-kiswahili-5",
+      "strandTitle": "Uandishi Wa Aya Na Barua",
+      "unitTitle": "Uandishi Wa Aya Na Barua",
+      "sourceUnitTitle": "Uandishi Wa Aya Na Barua",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-i-kiswahili-5-outcome-1",
+          "text": "kusoma, kuelewa, kuzungumza na kuandika kuhusu uandishi wa aya na barua"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can uandishi wa aya na barua help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Uandishi Wa Aya Na Barua.",
+        "Review key vocabulary from the previous Kiswahili lesson."
+      ],
+      "keyVocabulary": [
+        "Uandishi Wa Aya Na Barua",
+        "Uandishi",
+        "Barua",
+        "kusoma",
+        "kusikiliza",
+        "kuzungumza",
+        "kuandika",
+        "sentensi"
+      ],
+      "misconceptions": [
+        "giving a general answer about Uandishi Wa Aya Na Barua without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania reading, speaking, listening, writing, or discussion task for Uandishi Wa Aya Na Barua",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, grammar, and structure are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Uandishi Wa Aya Na Barua",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "writing or dialogue checklist",
+          "description": "writing or dialogue checklist for Uandishi Wa Aya Na Barua",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "8f6c625e-7d3b-4c5a-b520-8ca157bc8954",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Kiswahili",
+          "subject": "Kiswahili",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1741937359-MUHTASARI%20WA%20KISWAHILI%20KIDATO%20%20I-IV%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/831e9ce0948d4e9ff6c64bce41dd75f5ef948c8cac946024b5b6c60ce0f8b1f2.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1741937359-MUHTASARI%20WA%20KISWAHILI%20KIDATO%20%20I-IV%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/kiswahili/8f6c625e-7d3b-4c5a-b520-8ca157bc8954.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "d6ae327fb19e12e4183dfc185296d4f9d9d05eb454179620126b7751da75a35f",
+            "markdownPageCount": 56,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/kiswahili/8f6c625e-7d3b-4c5a-b520-8ca157bc8954.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "d6ae327fb19e12e4183dfc185296d4f9d9d05eb454179620126b7751da75a35f",
+              "pageCount": 56,
+              "generatedAt": "2026-06-29T16:44:39.066Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "882332bb296bc6934a773e885b84696f2d50e48c4e411b04196d15c11677110b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:39.066Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "fa442e8ba975a4df7e53cfab82c8618eacd37c71e463595e300a42e75a18fdbe"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "8f6c625e-7d3b-4c5a-b520-8ca157bc8954",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Kiswahili",
+          "subject": "Kiswahili",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1741937359-MUHTASARI%20WA%20KISWAHILI%20KIDATO%20%20I-IV%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/831e9ce0948d4e9ff6c64bce41dd75f5ef948c8cac946024b5b6c60ce0f8b1f2.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1741937359-MUHTASARI%20WA%20KISWAHILI%20KIDATO%20%20I-IV%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/kiswahili/8f6c625e-7d3b-4c5a-b520-8ca157bc8954.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "d6ae327fb19e12e4183dfc185296d4f9d9d05eb454179620126b7751da75a35f",
+            "markdownPageCount": 56,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/kiswahili/8f6c625e-7d3b-4c5a-b520-8ca157bc8954.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "d6ae327fb19e12e4183dfc185296d4f9d9d05eb454179620126b7751da75a35f",
+              "pageCount": 56,
+              "generatedAt": "2026-06-29T16:44:39.066Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "882332bb296bc6934a773e885b84696f2d50e48c4e411b04196d15c11677110b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:39.066Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "fa442e8ba975a4df7e53cfab82c8618eacd37c71e463595e300a42e75a18fdbe"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-I-kiswahili-topic-006",
+      "grade": "Form I",
+      "strandId": "fallback-form-i-kiswahili-6",
+      "subStrandId": "fallback-form-i-kiswahili-6",
+      "parentSubStrandId": "fallback-form-i-kiswahili-6",
+      "strandTitle": "Fasihi Simulizi",
+      "unitTitle": "Fasihi Simulizi",
+      "sourceUnitTitle": "Fasihi Simulizi",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-i-kiswahili-6-outcome-1",
+          "text": "kusoma, kuelewa, kuzungumza na kuandika kuhusu fasihi simulizi"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can fasihi simulizi help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Fasihi Simulizi.",
+        "Review key vocabulary from the previous Kiswahili lesson."
+      ],
+      "keyVocabulary": [
+        "Fasihi Simulizi",
+        "Fasihi",
+        "Simulizi",
+        "kusoma",
+        "kusikiliza",
+        "kuzungumza",
+        "kuandika",
+        "sentensi"
+      ],
+      "misconceptions": [
+        "giving a general answer about Fasihi Simulizi without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania reading, speaking, listening, writing, or discussion task for Fasihi Simulizi",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, grammar, and structure are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Fasihi Simulizi",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "writing or dialogue checklist",
+          "description": "writing or dialogue checklist for Fasihi Simulizi",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "8f6c625e-7d3b-4c5a-b520-8ca157bc8954",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Kiswahili",
+          "subject": "Kiswahili",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1741937359-MUHTASARI%20WA%20KISWAHILI%20KIDATO%20%20I-IV%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/831e9ce0948d4e9ff6c64bce41dd75f5ef948c8cac946024b5b6c60ce0f8b1f2.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1741937359-MUHTASARI%20WA%20KISWAHILI%20KIDATO%20%20I-IV%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/kiswahili/8f6c625e-7d3b-4c5a-b520-8ca157bc8954.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "d6ae327fb19e12e4183dfc185296d4f9d9d05eb454179620126b7751da75a35f",
+            "markdownPageCount": 56,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/kiswahili/8f6c625e-7d3b-4c5a-b520-8ca157bc8954.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "d6ae327fb19e12e4183dfc185296d4f9d9d05eb454179620126b7751da75a35f",
+              "pageCount": 56,
+              "generatedAt": "2026-06-29T16:44:39.066Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "882332bb296bc6934a773e885b84696f2d50e48c4e411b04196d15c11677110b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:39.066Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "fa442e8ba975a4df7e53cfab82c8618eacd37c71e463595e300a42e75a18fdbe"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "8f6c625e-7d3b-4c5a-b520-8ca157bc8954",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Kiswahili",
+          "subject": "Kiswahili",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1741937359-MUHTASARI%20WA%20KISWAHILI%20KIDATO%20%20I-IV%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/831e9ce0948d4e9ff6c64bce41dd75f5ef948c8cac946024b5b6c60ce0f8b1f2.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1741937359-MUHTASARI%20WA%20KISWAHILI%20KIDATO%20%20I-IV%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/kiswahili/8f6c625e-7d3b-4c5a-b520-8ca157bc8954.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "d6ae327fb19e12e4183dfc185296d4f9d9d05eb454179620126b7751da75a35f",
+            "markdownPageCount": 56,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/kiswahili/8f6c625e-7d3b-4c5a-b520-8ca157bc8954.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "d6ae327fb19e12e4183dfc185296d4f9d9d05eb454179620126b7751da75a35f",
+              "pageCount": 56,
+              "generatedAt": "2026-06-29T16:44:39.066Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "882332bb296bc6934a773e885b84696f2d50e48c4e411b04196d15c11677110b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:39.066Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "fa442e8ba975a4df7e53cfab82c8618eacd37c71e463595e300a42e75a18fdbe"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-I-kiswahili-topic-007",
+      "grade": "Form I",
+      "strandId": "fallback-form-i-kiswahili-7",
+      "subStrandId": "fallback-form-i-kiswahili-7",
+      "parentSubStrandId": "fallback-form-i-kiswahili-7",
+      "strandTitle": "Usahihishaji Na Uwasilishaji",
+      "unitTitle": "Usahihishaji Na Uwasilishaji",
+      "sourceUnitTitle": "Usahihishaji Na Uwasilishaji",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-i-kiswahili-7-outcome-1",
+          "text": "kusoma, kuelewa, kuzungumza na kuandika kuhusu usahihishaji na uwasilishaji"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can usahihishaji na uwasilishaji help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Usahihishaji Na Uwasilishaji.",
+        "Review key vocabulary from the previous Kiswahili lesson."
+      ],
+      "keyVocabulary": [
+        "Usahihishaji Na Uwasilishaji",
+        "Usahihishaji",
+        "Uwasilishaji",
+        "kusoma",
+        "kusikiliza",
+        "kuzungumza",
+        "kuandika",
+        "sentensi"
+      ],
+      "misconceptions": [
+        "giving a general answer about Usahihishaji Na Uwasilishaji without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania reading, speaking, listening, writing, or discussion task for Usahihishaji Na Uwasilishaji",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, grammar, and structure are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Usahihishaji Na Uwasilishaji",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "writing or dialogue checklist",
+          "description": "writing or dialogue checklist for Usahihishaji Na Uwasilishaji",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "8f6c625e-7d3b-4c5a-b520-8ca157bc8954",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Kiswahili",
+          "subject": "Kiswahili",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1741937359-MUHTASARI%20WA%20KISWAHILI%20KIDATO%20%20I-IV%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/831e9ce0948d4e9ff6c64bce41dd75f5ef948c8cac946024b5b6c60ce0f8b1f2.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1741937359-MUHTASARI%20WA%20KISWAHILI%20KIDATO%20%20I-IV%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/kiswahili/8f6c625e-7d3b-4c5a-b520-8ca157bc8954.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "d6ae327fb19e12e4183dfc185296d4f9d9d05eb454179620126b7751da75a35f",
+            "markdownPageCount": 56,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/kiswahili/8f6c625e-7d3b-4c5a-b520-8ca157bc8954.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "d6ae327fb19e12e4183dfc185296d4f9d9d05eb454179620126b7751da75a35f",
+              "pageCount": 56,
+              "generatedAt": "2026-06-29T16:44:39.066Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "882332bb296bc6934a773e885b84696f2d50e48c4e411b04196d15c11677110b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:39.066Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "fa442e8ba975a4df7e53cfab82c8618eacd37c71e463595e300a42e75a18fdbe"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "8f6c625e-7d3b-4c5a-b520-8ca157bc8954",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Kiswahili",
+          "subject": "Kiswahili",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1741937359-MUHTASARI%20WA%20KISWAHILI%20KIDATO%20%20I-IV%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/831e9ce0948d4e9ff6c64bce41dd75f5ef948c8cac946024b5b6c60ce0f8b1f2.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1741937359-MUHTASARI%20WA%20KISWAHILI%20KIDATO%20%20I-IV%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/kiswahili/8f6c625e-7d3b-4c5a-b520-8ca157bc8954.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "d6ae327fb19e12e4183dfc185296d4f9d9d05eb454179620126b7751da75a35f",
+            "markdownPageCount": 56,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/kiswahili/8f6c625e-7d3b-4c5a-b520-8ca157bc8954.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "d6ae327fb19e12e4183dfc185296d4f9d9d05eb454179620126b7751da75a35f",
+              "pageCount": 56,
+              "generatedAt": "2026-06-29T16:44:39.066Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "882332bb296bc6934a773e885b84696f2d50e48c4e411b04196d15c11677110b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:39.066Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "fa442e8ba975a4df7e53cfab82c8618eacd37c71e463595e300a42e75a18fdbe"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-I-kiswahili-topic-008",
+      "grade": "Form I",
+      "strandId": "fallback-form-i-kiswahili-8",
+      "subStrandId": "fallback-form-i-kiswahili-8",
+      "parentSubStrandId": "fallback-form-i-kiswahili-8",
+      "strandTitle": "Mradi Wa Kidato Cha Kwanza",
+      "unitTitle": "Mradi Wa Kidato Cha Kwanza",
+      "sourceUnitTitle": "Mradi Wa Kidato Cha Kwanza",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-i-kiswahili-8-outcome-1",
+          "text": "kusoma, kuelewa, kuzungumza na kuandika kuhusu mradi wa kidato cha kwanza"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can mradi wa kidato cha kwanza help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Mradi Wa Kidato Cha Kwanza.",
+        "Review key vocabulary from the previous Kiswahili lesson."
+      ],
+      "keyVocabulary": [
+        "Mradi Wa Kidato Cha Kwanza",
+        "Mradi",
+        "Kidato",
+        "Kwanza",
+        "kusoma",
+        "kusikiliza",
+        "kuzungumza",
+        "kuandika"
+      ],
+      "misconceptions": [
+        "giving a general answer about Mradi Wa Kidato Cha Kwanza without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania reading, speaking, listening, writing, or discussion task for Mradi Wa Kidato Cha Kwanza",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, grammar, and structure are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Mradi Wa Kidato Cha Kwanza",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "writing or dialogue checklist",
+          "description": "writing or dialogue checklist for Mradi Wa Kidato Cha Kwanza",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "8f6c625e-7d3b-4c5a-b520-8ca157bc8954",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Kiswahili",
+          "subject": "Kiswahili",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1741937359-MUHTASARI%20WA%20KISWAHILI%20KIDATO%20%20I-IV%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/831e9ce0948d4e9ff6c64bce41dd75f5ef948c8cac946024b5b6c60ce0f8b1f2.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1741937359-MUHTASARI%20WA%20KISWAHILI%20KIDATO%20%20I-IV%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/kiswahili/8f6c625e-7d3b-4c5a-b520-8ca157bc8954.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "d6ae327fb19e12e4183dfc185296d4f9d9d05eb454179620126b7751da75a35f",
+            "markdownPageCount": 56,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/kiswahili/8f6c625e-7d3b-4c5a-b520-8ca157bc8954.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "d6ae327fb19e12e4183dfc185296d4f9d9d05eb454179620126b7751da75a35f",
+              "pageCount": 56,
+              "generatedAt": "2026-06-29T16:44:39.066Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "882332bb296bc6934a773e885b84696f2d50e48c4e411b04196d15c11677110b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:39.066Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "fa442e8ba975a4df7e53cfab82c8618eacd37c71e463595e300a42e75a18fdbe"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "8f6c625e-7d3b-4c5a-b520-8ca157bc8954",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Kiswahili",
+          "subject": "Kiswahili",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1741937359-MUHTASARI%20WA%20KISWAHILI%20KIDATO%20%20I-IV%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/831e9ce0948d4e9ff6c64bce41dd75f5ef948c8cac946024b5b6c60ce0f8b1f2.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_I",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1741937359-MUHTASARI%20WA%20KISWAHILI%20KIDATO%20%20I-IV%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/kiswahili/8f6c625e-7d3b-4c5a-b520-8ca157bc8954.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "d6ae327fb19e12e4183dfc185296d4f9d9d05eb454179620126b7751da75a35f",
+            "markdownPageCount": 56,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/kiswahili/8f6c625e-7d3b-4c5a-b520-8ca157bc8954.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "d6ae327fb19e12e4183dfc185296d4f9d9d05eb454179620126b7751da75a35f",
+              "pageCount": 56,
+              "generatedAt": "2026-06-29T16:44:39.066Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "882332bb296bc6934a773e885b84696f2d50e48c4e411b04196d15c11677110b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:39.066Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "fa442e8ba975a4df7e53cfab82c8618eacd37c71e463595e300a42e75a18fdbe"
+        }
+      ]
+    }
+  ]
+}

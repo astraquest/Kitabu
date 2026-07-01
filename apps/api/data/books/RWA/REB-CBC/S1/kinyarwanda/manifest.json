@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-rwa-reb-cbc-s1-kinyarwanda",
+  "title": "KITABU QUEST S1 Kinyarwanda",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "S1",
+  "subject": "Kinyarwanda",
+  "subjectSlug": "kinyarwanda",
+  "subjectColor": "#C2410C",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v17",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T06:41:24Z",
+  "sourceSnapshotHash": "30273d84357cc88ccdc4c950cf448bed5cb615b8609a2c42986aa459b608603b",
+  "bookPlanHash": "b787004bd9c76f31aa752c3e901dc2f6aade202fce966ce1a19d9b2985339023",
+  "pageCount": 99,
+  "wordCount": 7287,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 11,
+    "outcomeCount": 11,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "RWA",
+    "subject": "Kinyarwanda",
+    "species": "grey crowned crane",
+    "role": "language and culture guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners presenting stories and poems with a grey crowned crane mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Rwanda REB-CBC S1 Kinyarwanda. Scene: learners presenting stories and poems with a grey crowned crane mascot. Include a friendly grey crowned crane mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 90733,
+    "sha256": "7781073d569654176b70375a0a8e9b717e6ec51f1b9badfc3ebbbd5697730801"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 90733,
+      "sha256": "7781073d569654176b70375a0a8e9b717e6ec51f1b9badfc3ebbbd5697730801",
+      "kind": "cover",
+      "altText": "KITABU QUEST S1 Kinyarwanda cover with grey crowned crane",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-rwa-reb-cbc-s1-kinyarwanda.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-rwa-reb-cbc-s1-kinyarwanda.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "01cd9add-5eb6-4354-8e5e-11ef81654af9",
+      "subject": "Kinyarwanda",
+      "officialTitle": "Rwanda Competence Based Curriculum S1 Kinyarwanda",
+      "countryCode": "RWA",
+      "curriculumCode": "REB-CBC",
+      "gradeCode": "S1",
+      "gradeLocalLevel": "S1",
+      "localLevel": "S1",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://elearning.reb.rw/pluginfile.php/15475/mod_resource/content/1/Ikinyarwnda%20O%20Level%20Adapted%20Syllabus.pdf?forcedownload=1",
+      "objectKey": "data/curriculum/source-files/RWA/19fa1e7a45fed39e0a2ca5ba812d93ac43a39faa8e1b66b66d243f48e2fc658e.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "S1",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://elearning.reb.rw/pluginfile.php/15475/mod_resource/content/1/Ikinyarwnda%20O%20Level%20Adapted%20Syllabus.pdf?forcedownload=1",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S1/kinyarwanda/01cd9add-5eb6-4354-8e5e-11ef81654af9.md",
+        "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "reb.gov.rw",
+          "reb.rw",
+          "elearning.reb.rw"
+        ],
+        "markdownChecksum": "ae7752c1284f76b06625b3e2abc82bd00e084cabb69bc8d94830173aed627b9d",
+        "markdownPageCount": 81,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/RWA/REB-CBC/S1/kinyarwanda/01cd9add-5eb6-4354-8e5e-11ef81654af9.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "ae7752c1284f76b06625b3e2abc82bd00e084cabb69bc8d94830173aed627b9d",
+          "pageCount": 81,
+          "generatedAt": "2026-07-01T01:16:38.540Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S1/kinyarwanda/01cd9add-5eb6-4354-8e5e-11ef81654af9.json",
+          "sourceChecksum": "0bf0d0c9a872be2b9c16b8aacc3a24149de8105f806fa22266300cf2ac3986b5"
+        },
+        "markdownGeneratedAt": "2026-07-01T01:16:38.540Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

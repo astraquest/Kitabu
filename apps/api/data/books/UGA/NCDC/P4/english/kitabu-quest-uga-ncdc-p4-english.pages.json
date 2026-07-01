@@ -1,0 +1,2780 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-uga-ncdc-p4-english",
+  "title": "KITABU QUEST P4 English",
+  "country": "UGA",
+  "curriculum": "NCDC",
+  "grade": "P4",
+  "subject": "English",
+  "subjectSlug": "english",
+  "subjectColor": "#2563EB",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v12",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:12:07Z",
+  "sourceSnapshotHash": "65729b1f098635c23d77bc81144e4b5222830ab4345f52ad3a2922012e12c479",
+  "bookPlanHash": "c3b0c746a3852efadb2505b47319f42b8f8d807303513ba0b9ea89ee9aba205b",
+  "pageCount": 111,
+  "wordCount": 9472,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 6,
+    "outcomeCount": 6,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "UGA",
+    "subject": "English",
+    "species": "hare",
+    "role": "storytelling and reading guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners reading and speaking in a school library with a friendly hare mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Uganda NCDC P4 English. Scene: learners reading and speaking in a school library with a friendly hare mascot. Include a friendly hare mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 85234,
+    "sha256": "5fe6e933d5b53d9ee246abed13fc917b2afb56f14dff76a1c1c10f4862b1bd41"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 85234,
+      "sha256": "5fe6e933d5b53d9ee246abed13fc917b2afb56f14dff76a1c1c10f4862b1bd41",
+      "kind": "cover",
+      "altText": "KITABU QUEST P4 English cover with hare",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-uga-ncdc-p4-english.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-uga-ncdc-p4-english.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "6d8d9fd4-d757-4882-ba88-f1c8138ae22e",
+      "subject": "English",
+      "officialTitle": "Uganda Curriculum P4 English",
+      "countryCode": "UGA",
+      "curriculumCode": "NCDC",
+      "gradeCode": "P4",
+      "gradeLocalLevel": "P4",
+      "localLevel": "P4",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/P4_ENGLISH_SYLLABUS-1.pdf",
+      "objectKey": "data/curriculum/source-files/UGA/d90f973c1d0b3bb8d9db9d75be053f062d1f4ee4eda8718324ed904d3f109849.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "P4",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/P4_ENGLISH_SYLLABUS-1.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/UGA/NCDC/P4/english/6d8d9fd4-d757-4882-ba88-f1c8138ae22e.md",
+        "sourcePageUrl": "https://ncdc.go.ug/resource/",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "ncdc.go.ug"
+        ],
+        "markdownChecksum": "b4755fcf2706b19f32dec4b75613c36aa18e35ac4f760e93dd0f674aae3cc10b",
+        "markdownPageCount": 38,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/UGA/NCDC/P4/english/6d8d9fd4-d757-4882-ba88-f1c8138ae22e.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "b4755fcf2706b19f32dec4b75613c36aa18e35ac4f760e93dd0f674aae3cc10b",
+          "pageCount": 38,
+          "generatedAt": "2026-06-29T17:32:38.432Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "d6ac2e28025576c8bd7abff5a3157ab8aef98614a3b06c7b3d74487934c4f00d"
+        },
+        "markdownGeneratedAt": "2026-06-29T17:32:38.432Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p001",
+      "title": "Title Page",
+      "content": "KITABU QUEST P4 English\n\nUganda NCDC learner book\n\nMascot: hare\n\nThis KITABU QUEST book turns the curriculum into short lessons, worked examples, guided activities, practice, review, and home links for Uganda learners.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 3,
+      "wordCount": 32,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p002",
+      "title": "How To Use This Book",
+      "content": "This book helps P4 learners study English one teachable topic at a time.\n\n1. Start with the inquiry question and say what you already know.\n2. Read the Learn section slowly and mark new words.\n3. Try the worked example before reading the full solution.\n4. Complete the activity and practice tasks.\n5. Correct your answer using the success criteria.\n6. Ask for support when your answer is still unclear.\n\nSubject method: Read, speak, listen, write, and edit in connected language tasks.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 82,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p003",
+      "title": "Learning Skills In This Book",
+      "content": "Each topic builds knowledge, skill, values, communication, collaboration, critical thinking, creativity, digital awareness, and self-confidence.\n\nStudy actively: speak answers aloud, draw when useful, show your working, cite evidence, use local examples, and correct mistakes after feedback.\n\nA strong answer is specific. It names the idea, gives evidence or method, applies it to the task, and checks whether it answers the question.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p004",
+      "title": "Table Of Contents",
+      "content": "Use this table to move through the book one topic at a time. Each topic has a lesson opener, clear teaching, a model or example, guided work, practice, and checks for understanding.\n\n1. THE REPUBLIC OF UGANDA\n2. National Curriculum Development Centre,\n3. NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA\n4. Table of Content\n5. Background to English Syllabus\n6. Background to English Syllabus\n\nAs you finish each topic, return to the success criteria and correct one answer before moving on.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 80,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p005",
+      "title": "THE REPUBLIC OF UGANDA: Lesson Opener",
+      "content": "Learning focus: THE REPUBLIC OF UGANDA\n\nCountry link: a Uganda reading, speaking, listening, writing, or discussion task for THE REPUBLIC OF UGANDA.\n\nProgression focus: build concrete foundations using simple examples and teacher-guided correction.\n\nBy the end of this topic, you should be able to:\n- read, speak, listen, write, and edit clearly about the republic of uganda\n\nInquiry questions:\n- How can the republic of uganda help you solve a real problem?\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "UGA-P4-english-topic-001:opener:visual-1:planned",
+        "UGA-P4-english-topic-001:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "unitIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "parentUnitIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "outcomeIds": [
+        "f17e8d71-afbf-4bf1-b3b9-dceb5b7ee60c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p006",
+      "title": "THE REPUBLIC OF UGANDA: Learn",
+      "content": "THE REPUBLIC OF UGANDA teaches learners to understand a message and respond clearly.\n\nMini task:\nRead or listen to a short text. Say the main idea. Name two details. Use the details to write or speak a clear answer.\n\nLanguage focus:\n- Use complete sentences.\n- Choose words that fit the situation.\n- Check spelling, punctuation, grammar, and meaning.\n\nLocal link: use examples from Uganda school, home, community, culture, environment, and daily responsibilities.\n\nKey words:\n- THE REPUBLIC OF UGANDA\n- REPUBLIC\n- UGANDA\n- read\n- listen\n- speak\n- write\n- sentence",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "UGA-P4-english-topic-001:learn:visual-1:planned",
+        "UGA-P4-english-topic-001:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "unitIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "parentUnitIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "outcomeIds": [
+        "f17e8d71-afbf-4bf1-b3b9-dceb5b7ee60c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p007",
+      "title": "THE REPUBLIC OF UGANDA: Worked Example",
+      "content": "Worked example for THE REPUBLIC OF UGANDA: Read a short text, find the main idea, and answer clearly.\n\nModel answer frame:\nThe text is about _____. One important detail is _____. Another detail is _____. I think _____ because _____.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 40,
+      "imageRefs": [
+        "UGA-P4-english-topic-001:example:visual-1:planned",
+        "UGA-P4-english-topic-001:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "unitIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "parentUnitIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "outcomeIds": [
+        "f17e8d71-afbf-4bf1-b3b9-dceb5b7ee60c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p008",
+      "title": "THE REPUBLIC OF UGANDA: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise THE REPUBLIC OF UGANDA. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- THE REPUBLIC OF UGANDA\n- REPUBLIC\n- UGANDA\n- read\n- listen\n- speak\n- write\n- sentence\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Uganda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about THE REPUBLIC OF UGANDA without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "UGA-P4-english-topic-001:vocabulary:visual-1:planned",
+        "UGA-P4-english-topic-001:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "unitIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "parentUnitIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "outcomeIds": [
+        "f17e8d71-afbf-4bf1-b3b9-dceb5b7ee60c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p009",
+      "title": "THE REPUBLIC OF UGANDA: Guided Activity",
+      "content": "Guided activity for THE REPUBLIC OF UGANDA:\n\n1. Read the mini passage or dialogue aloud.\n2. Underline three useful words or expressions.\n3. Answer one oral question about the text.\n4. Write three to five sentences linked to THE REPUBLIC OF UGANDA.\n5. Read your answer to a partner and improve one sentence.\n\nTeacher check: the answer should use the topic vocabulary and complete sentences.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 65,
+      "imageRefs": [
+        "UGA-P4-english-topic-001:activity:visual-1:planned",
+        "UGA-P4-english-topic-001:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "unitIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "parentUnitIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "outcomeIds": [
+        "f17e8d71-afbf-4bf1-b3b9-dceb5b7ee60c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p010",
+      "title": "THE REPUBLIC OF UGANDA: Practice And Correction",
+      "content": "Practice for THE REPUBLIC OF UGANDA:\n\nMain outcome: read, speak, listen, write, and edit clearly about the republic of uganda.\n\n1. Read or listen to a short text.\n2. Say the main idea.\n3. Write three clear sentences with correct punctuation.\n\nCorrection check:\n- Are the sentences complete?\n- Are spelling and punctuation checked?\n- Does the answer match the topic?\n\nHome link: Ask someone at home one question about the republic of uganda and write their answer in two clear sentences.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 82,
+      "imageRefs": [
+        "UGA-P4-english-topic-001:practice:visual-1:planned",
+        "UGA-P4-english-topic-001:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "unitIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "parentUnitIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "outcomeIds": [
+        "f17e8d71-afbf-4bf1-b3b9-dceb5b7ee60c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p011",
+      "title": "THE REPUBLIC OF UGANDA: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from THE REPUBLIC OF UGANDA.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "UGA-P4-english-topic-001:remediation:visual-1:planned",
+        "UGA-P4-english-topic-001:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "unitIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "parentUnitIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "outcomeIds": [
+        "f17e8d71-afbf-4bf1-b3b9-dceb5b7ee60c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p012",
+      "title": "THE REPUBLIC OF UGANDA: Outcome Check",
+      "content": "Outcome check for THE REPUBLIC OF UGANDA: Read, speak, listen, write, and edit clearly about the republic of uganda.\n\n1. Read, listen, speak, or write a short response linked to this topic.\n2. Use at least three topic words correctly.\n3. Use complete sentences.\n4. Check spelling, punctuation, grammar, and meaning.\n5. Improve one sentence after feedback.\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 76,
+      "imageRefs": [
+        "UGA-P4-english-topic-001:assessment:visual-1:planned",
+        "UGA-P4-english-topic-001:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "unitIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "parentUnitIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "outcomeIds": [
+        "f17e8d71-afbf-4bf1-b3b9-dceb5b7ee60c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p013",
+      "title": "National Curriculum Development Centre,: Lesson Opener",
+      "content": "Learning focus: National Curriculum Development Centre,\n\nCountry link: a Uganda reading, speaking, listening, writing, or discussion task for National Curriculum Development Centre,.\n\nProgression focus: build concrete foundations using simple examples and teacher-guided correction.\n\nBy the end of this topic, you should be able to:\n- read, speak, listen, write, and edit clearly about national curriculum development centre,\n\nInquiry questions:\n- How can national curriculum development centre, help you solve a real problem?\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "UGA-P4-english-topic-002:opener:visual-1:planned",
+        "UGA-P4-english-topic-002:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "unitIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "parentUnitIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "outcomeIds": [
+        "7305c424-b064-4989-b9cd-b43994206531"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p014",
+      "title": "National Curriculum Development Centre,: Learn",
+      "content": "National Curriculum Development Centre, teaches learners to understand a message and respond clearly.\n\nMini task:\nRead or listen to a short text. Say the main idea. Name two details. Use the details to write or speak a clear answer.\n\nLanguage focus:\n- Use complete sentences.\n- Choose words that fit the situation.\n- Check spelling, punctuation, grammar, and meaning.\n\nLocal link: use examples from Uganda school, home, community, culture, environment, and daily responsibilities.\n\nKey words:\n- National Curriculum Development Centre,\n- National\n- Curriculum\n- Development\n- Centre\n- read\n- listen\n- speak",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "UGA-P4-english-topic-002:learn:visual-1:planned",
+        "UGA-P4-english-topic-002:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "unitIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "parentUnitIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "outcomeIds": [
+        "7305c424-b064-4989-b9cd-b43994206531"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p015",
+      "title": "National Curriculum Development Centre,: Worked Example",
+      "content": "Worked example for National Curriculum Development Centre,: Read a short text, find the main idea, and answer clearly.\n\nModel answer frame:\nThe text is about _____. One important detail is _____. Another detail is _____. I think _____ because _____.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 40,
+      "imageRefs": [
+        "UGA-P4-english-topic-002:example:visual-1:planned",
+        "UGA-P4-english-topic-002:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "unitIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "parentUnitIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "outcomeIds": [
+        "7305c424-b064-4989-b9cd-b43994206531"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p016",
+      "title": "National Curriculum Development Centre,: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise National Curriculum Development Centre,. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- National Curriculum Development Centre,\n- National\n- Curriculum\n- Development\n- Centre\n- read\n- listen\n- speak\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Uganda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about National Curriculum Development Centre, without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "UGA-P4-english-topic-002:vocabulary:visual-1:planned",
+        "UGA-P4-english-topic-002:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "unitIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "parentUnitIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "outcomeIds": [
+        "7305c424-b064-4989-b9cd-b43994206531"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p017",
+      "title": "National Curriculum Development Centre,: Guided Activity",
+      "content": "Guided activity for National Curriculum Development Centre,:\n\n1. Read the mini passage or dialogue aloud.\n2. Underline three useful words or expressions.\n3. Answer one oral question about the text.\n4. Write three to five sentences linked to National Curriculum Development Centre,.\n5. Read your answer to a partner and improve one sentence.\n\nTeacher check: the answer should use the topic vocabulary and complete sentences.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 65,
+      "imageRefs": [
+        "UGA-P4-english-topic-002:activity:visual-1:planned",
+        "UGA-P4-english-topic-002:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "unitIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "parentUnitIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "outcomeIds": [
+        "7305c424-b064-4989-b9cd-b43994206531"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p018",
+      "title": "National Curriculum Development Centre,: Practice And Correction",
+      "content": "Practice for National Curriculum Development Centre,:\n\nMain outcome: read, speak, listen, write, and edit clearly about national curriculum development centre,.\n\n1. Read or listen to a short text.\n2. Say the main idea.\n3. Write three clear sentences with correct punctuation.\n\nCorrection check:\n- Are the sentences complete?\n- Are spelling and punctuation checked?\n- Does the answer match the topic?\n\nHome link: Ask someone at home one question about national curriculum development centre, and write their answer in two clear sentences.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 82,
+      "imageRefs": [
+        "UGA-P4-english-topic-002:practice:visual-1:planned",
+        "UGA-P4-english-topic-002:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "unitIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "parentUnitIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "outcomeIds": [
+        "7305c424-b064-4989-b9cd-b43994206531"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p019",
+      "title": "National Curriculum Development Centre,: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from National Curriculum Development Centre,.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "UGA-P4-english-topic-002:remediation:visual-1:planned",
+        "UGA-P4-english-topic-002:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "unitIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "parentUnitIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "outcomeIds": [
+        "7305c424-b064-4989-b9cd-b43994206531"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p020",
+      "title": "National Curriculum Development Centre,: Outcome Check",
+      "content": "Outcome check for National Curriculum Development Centre,: Read, speak, listen, write, and edit clearly about national curriculum development centre,.\n\n1. Read, listen, speak, or write a short response linked to this topic.\n2. Use at least three topic words correctly.\n3. Use complete sentences.\n4. Check spelling, punctuation, grammar, and meaning.\n5. Improve one sentence after feedback.\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 76,
+      "imageRefs": [
+        "UGA-P4-english-topic-002:assessment:visual-1:planned",
+        "UGA-P4-english-topic-002:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "unitIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "parentUnitIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "outcomeIds": [
+        "7305c424-b064-4989-b9cd-b43994206531"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p021",
+      "title": "NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA: Lesson Opener",
+      "content": "Learning focus: NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA\n\nCountry link: a Uganda reading, speaking, listening, writing, or discussion task for NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA.\n\nProgression focus: build concrete foundations using simple examples and teacher-guided correction.\n\nBy the end of this topic, you should be able to:\n- read, speak, listen, write, and edit clearly about national curriculum development centre (ncdc) uganda\n\nInquiry questions:\n- How can national curriculum development centre (ncdc) uganda help you solve a real problem?\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 99,
+      "imageRefs": [
+        "UGA-P4-english-topic-003:opener:visual-1:planned",
+        "UGA-P4-english-topic-003:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "unitIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "parentUnitIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "outcomeIds": [
+        "fd2f1234-f345-4ead-9248-944e02911f1b"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p022",
+      "title": "NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA: Learn",
+      "content": "NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA teaches learners to understand a message and respond clearly.\n\nMini task:\nRead or listen to a short text. Say the main idea. Name two details. Use the details to write or speak a clear answer.\n\nLanguage focus:\n- Use complete sentences.\n- Choose words that fit the situation.\n- Check spelling, punctuation, grammar, and meaning.\n\nLocal link: use examples from Uganda school, home, community, culture, environment, and daily responsibilities.\n\nKey words:\n- NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA\n- NATIONAL\n- CURRICULUM\n- DEVELOPMENT\n- CENTRE\n- NCDC\n- UGANDA\n- read",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "UGA-P4-english-topic-003:learn:visual-1:planned",
+        "UGA-P4-english-topic-003:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "unitIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "parentUnitIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "outcomeIds": [
+        "fd2f1234-f345-4ead-9248-944e02911f1b"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p023",
+      "title": "NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA: Worked Example",
+      "content": "Worked example for NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA: Read a short text, find the main idea, and answer clearly.\n\nModel answer frame:\nThe text is about _____. One important detail is _____. Another detail is _____. I think _____ because _____.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 42,
+      "imageRefs": [
+        "UGA-P4-english-topic-003:example:visual-1:planned",
+        "UGA-P4-english-topic-003:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "unitIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "parentUnitIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "outcomeIds": [
+        "fd2f1234-f345-4ead-9248-944e02911f1b"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p024",
+      "title": "NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA\n- NATIONAL\n- CURRICULUM\n- DEVELOPMENT\n- CENTRE\n- NCDC\n- UGANDA\n- read\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Uganda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 124,
+      "imageRefs": [
+        "UGA-P4-english-topic-003:vocabulary:visual-1:planned",
+        "UGA-P4-english-topic-003:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "unitIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "parentUnitIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "outcomeIds": [
+        "fd2f1234-f345-4ead-9248-944e02911f1b"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p025",
+      "title": "NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA: Guided Activity",
+      "content": "Guided activity for NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA:\n\n1. Read the mini passage or dialogue aloud.\n2. Underline three useful words or expressions.\n3. Answer one oral question about the text.\n4. Write three to five sentences linked to NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA.\n5. Read your answer to a partner and improve one sentence.\n\nTeacher check: the answer should use the topic vocabulary and complete sentences.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 69,
+      "imageRefs": [
+        "UGA-P4-english-topic-003:activity:visual-1:planned",
+        "UGA-P4-english-topic-003:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "unitIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "parentUnitIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "outcomeIds": [
+        "fd2f1234-f345-4ead-9248-944e02911f1b"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p026",
+      "title": "NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA: Practice And Correction",
+      "content": "Practice for NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA:\n\nMain outcome: read, speak, listen, write, and edit clearly about national curriculum development centre (ncdc) uganda.\n\n1. Read or listen to a short text.\n2. Say the main idea.\n3. Write three clear sentences with correct punctuation.\n\nCorrection check:\n- Are the sentences complete?\n- Are spelling and punctuation checked?\n- Does the answer match the topic?\n\nHome link: Ask someone at home one question about national curriculum development centre (ncdc) uganda and write their answer in two clear sentences.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 88,
+      "imageRefs": [
+        "UGA-P4-english-topic-003:practice:visual-1:planned",
+        "UGA-P4-english-topic-003:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "unitIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "parentUnitIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "outcomeIds": [
+        "fd2f1234-f345-4ead-9248-944e02911f1b"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p027",
+      "title": "NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 111,
+      "imageRefs": [
+        "UGA-P4-english-topic-003:remediation:visual-1:planned",
+        "UGA-P4-english-topic-003:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "unitIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "parentUnitIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "outcomeIds": [
+        "fd2f1234-f345-4ead-9248-944e02911f1b"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p028",
+      "title": "NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA: Outcome Check",
+      "content": "Outcome check for NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA: Read, speak, listen, write, and edit clearly about national curriculum development centre (ncdc) uganda.\n\n1. Read, listen, speak, or write a short response linked to this topic.\n2. Use at least three topic words correctly.\n3. Use complete sentences.\n4. Check spelling, punctuation, grammar, and meaning.\n5. Improve one sentence after feedback.\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 80,
+      "imageRefs": [
+        "UGA-P4-english-topic-003:assessment:visual-1:planned",
+        "UGA-P4-english-topic-003:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "unitIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "parentUnitIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "outcomeIds": [
+        "fd2f1234-f345-4ead-9248-944e02911f1b"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p029",
+      "title": "Table of Content: Lesson Opener",
+      "content": "Learning focus: Table of Content\n\nCountry link: a Uganda reading, speaking, listening, writing, or discussion task for Table of Content.\n\nProgression focus: build concrete foundations using simple examples and teacher-guided correction.\n\nBy the end of this topic, you should be able to:\n- read, speak, listen, write, and edit clearly about table of content\n\nInquiry questions:\n- How can table of content help you solve a real problem?\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 87,
+      "imageRefs": [
+        "UGA-P4-english-topic-004:opener:visual-1:planned",
+        "UGA-P4-english-topic-004:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "unitIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "parentUnitIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "outcomeIds": [
+        "51d95eec-22cd-4556-9e93-106072bcd233"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p030",
+      "title": "Table of Content: Learn",
+      "content": "Table of Content teaches learners to understand a message and respond clearly.\n\nMini task:\nRead or listen to a short text. Say the main idea. Name two details. Use the details to write or speak a clear answer.\n\nLanguage focus:\n- Use complete sentences.\n- Choose words that fit the situation.\n- Check spelling, punctuation, grammar, and meaning.\n\nLocal link: use examples from Uganda school, home, community, culture, environment, and daily responsibilities.\n\nKey words:\n- Table of Content\n- Table\n- Content\n- read\n- listen\n- speak\n- write\n- sentence",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "UGA-P4-english-topic-004:learn:visual-1:planned",
+        "UGA-P4-english-topic-004:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "unitIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "parentUnitIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "outcomeIds": [
+        "51d95eec-22cd-4556-9e93-106072bcd233"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p031",
+      "title": "Table of Content: Worked Example",
+      "content": "Worked example for Table of Content: Read a short text, find the main idea, and answer clearly.\n\nModel answer frame:\nThe text is about _____. One important detail is _____. Another detail is _____. I think _____ because _____.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 39,
+      "imageRefs": [
+        "UGA-P4-english-topic-004:example:visual-1:planned",
+        "UGA-P4-english-topic-004:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "unitIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "parentUnitIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "outcomeIds": [
+        "51d95eec-22cd-4556-9e93-106072bcd233"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p032",
+      "title": "Table of Content: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Table of Content. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Table of Content\n- Table\n- Content\n- read\n- listen\n- speak\n- write\n- sentence\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Uganda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Table of Content without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "UGA-P4-english-topic-004:vocabulary:visual-1:planned",
+        "UGA-P4-english-topic-004:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "unitIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "parentUnitIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "outcomeIds": [
+        "51d95eec-22cd-4556-9e93-106072bcd233"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p033",
+      "title": "Table of Content: Guided Activity",
+      "content": "Guided activity for Table of Content:\n\n1. Read the mini passage or dialogue aloud.\n2. Underline three useful words or expressions.\n3. Answer one oral question about the text.\n4. Write three to five sentences linked to Table of Content.\n5. Read your answer to a partner and improve one sentence.\n\nTeacher check: the answer should use the topic vocabulary and complete sentences.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 63,
+      "imageRefs": [
+        "UGA-P4-english-topic-004:activity:visual-1:planned",
+        "UGA-P4-english-topic-004:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "unitIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "parentUnitIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "outcomeIds": [
+        "51d95eec-22cd-4556-9e93-106072bcd233"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p034",
+      "title": "Table of Content: Practice And Correction",
+      "content": "Practice for Table of Content:\n\nMain outcome: read, speak, listen, write, and edit clearly about table of content.\n\n1. Read or listen to a short text.\n2. Say the main idea.\n3. Write three clear sentences with correct punctuation.\n\nCorrection check:\n- Are the sentences complete?\n- Are spelling and punctuation checked?\n- Does the answer match the topic?\n\nHome link: Ask someone at home one question about table of content and write their answer in two clear sentences.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 79,
+      "imageRefs": [
+        "UGA-P4-english-topic-004:practice:visual-1:planned",
+        "UGA-P4-english-topic-004:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "unitIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "parentUnitIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "outcomeIds": [
+        "51d95eec-22cd-4556-9e93-106072bcd233"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p035",
+      "title": "Table of Content: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Table of Content.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "UGA-P4-english-topic-004:remediation:visual-1:planned",
+        "UGA-P4-english-topic-004:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "unitIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "parentUnitIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "outcomeIds": [
+        "51d95eec-22cd-4556-9e93-106072bcd233"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p036",
+      "title": "Table of Content: Outcome Check",
+      "content": "Outcome check for Table of Content: Read, speak, listen, write, and edit clearly about table of content.\n\n1. Read, listen, speak, or write a short response linked to this topic.\n2. Use at least three topic words correctly.\n3. Use complete sentences.\n4. Check spelling, punctuation, grammar, and meaning.\n5. Improve one sentence after feedback.\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 74,
+      "imageRefs": [
+        "UGA-P4-english-topic-004:assessment:visual-1:planned",
+        "UGA-P4-english-topic-004:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "unitIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "parentUnitIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "outcomeIds": [
+        "51d95eec-22cd-4556-9e93-106072bcd233"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p037",
+      "title": "Background to English Syllabus: Lesson Opener",
+      "content": "Learning focus: Background to English Syllabus\n\nCountry link: a Uganda reading, speaking, listening, writing, or discussion task for Background to English Syllabus.\n\nProgression focus: build concrete foundations using simple examples and teacher-guided correction.\n\nBy the end of this topic, you should be able to:\n- read, speak, listen, write, and edit clearly about background to english syllabus\n\nInquiry questions:\n- How can background to english syllabus help you solve a real problem?\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "UGA-P4-english-topic-005:opener:visual-1:planned",
+        "UGA-P4-english-topic-005:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "unitIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "parentUnitIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "outcomeIds": [
+        "f4d4209a-cee5-45fc-8c6e-3c1d3c53eec1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p038",
+      "title": "Background to English Syllabus: Learn",
+      "content": "Background to English Syllabus teaches learners to understand a message and respond clearly.\n\nMini task:\nRead or listen to a short text. Say the main idea. Name two details. Use the details to write or speak a clear answer.\n\nLanguage focus:\n- Use complete sentences.\n- Choose words that fit the situation.\n- Check spelling, punctuation, grammar, and meaning.\n\nLocal link: use examples from Uganda school, home, community, culture, environment, and daily responsibilities.\n\nKey words:\n- Background to English Syllabus\n- Background\n- English\n- Syllabus\n- read\n- listen\n- speak\n- write",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "UGA-P4-english-topic-005:learn:visual-1:planned",
+        "UGA-P4-english-topic-005:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "unitIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "parentUnitIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "outcomeIds": [
+        "f4d4209a-cee5-45fc-8c6e-3c1d3c53eec1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p039",
+      "title": "Background to English Syllabus: Worked Example",
+      "content": "Worked example for Background to English Syllabus: Read a short text, find the main idea, and answer clearly.\n\nModel answer frame:\nThe text is about _____. One important detail is _____. Another detail is _____. I think _____ because _____.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 40,
+      "imageRefs": [
+        "UGA-P4-english-topic-005:example:visual-1:planned",
+        "UGA-P4-english-topic-005:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "unitIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "parentUnitIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "outcomeIds": [
+        "f4d4209a-cee5-45fc-8c6e-3c1d3c53eec1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p040",
+      "title": "Background to English Syllabus: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Background to English Syllabus. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Background to English Syllabus\n- Background\n- English\n- Syllabus\n- read\n- listen\n- speak\n- write\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Uganda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Background to English Syllabus without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "UGA-P4-english-topic-005:vocabulary:visual-1:planned",
+        "UGA-P4-english-topic-005:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "unitIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "parentUnitIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "outcomeIds": [
+        "f4d4209a-cee5-45fc-8c6e-3c1d3c53eec1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p041",
+      "title": "Background to English Syllabus: Guided Activity",
+      "content": "Guided activity for Background to English Syllabus:\n\n1. Read the mini passage or dialogue aloud.\n2. Underline three useful words or expressions.\n3. Answer one oral question about the text.\n4. Write three to five sentences linked to Background to English Syllabus.\n5. Read your answer to a partner and improve one sentence.\n\nTeacher check: the answer should use the topic vocabulary and complete sentences.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 65,
+      "imageRefs": [
+        "UGA-P4-english-topic-005:activity:visual-1:planned",
+        "UGA-P4-english-topic-005:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "unitIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "parentUnitIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "outcomeIds": [
+        "f4d4209a-cee5-45fc-8c6e-3c1d3c53eec1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p042",
+      "title": "Background to English Syllabus: Practice And Correction",
+      "content": "Practice for Background to English Syllabus:\n\nMain outcome: read, speak, listen, write, and edit clearly about background to english syllabus.\n\n1. Read or listen to a short text.\n2. Say the main idea.\n3. Write three clear sentences with correct punctuation.\n\nCorrection check:\n- Are the sentences complete?\n- Are spelling and punctuation checked?\n- Does the answer match the topic?\n\nHome link: Ask someone at home one question about background to english syllabus and write their answer in two clear sentences.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 82,
+      "imageRefs": [
+        "UGA-P4-english-topic-005:practice:visual-1:planned",
+        "UGA-P4-english-topic-005:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "unitIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "parentUnitIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "outcomeIds": [
+        "f4d4209a-cee5-45fc-8c6e-3c1d3c53eec1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p043",
+      "title": "Background to English Syllabus: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Background to English Syllabus.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "UGA-P4-english-topic-005:remediation:visual-1:planned",
+        "UGA-P4-english-topic-005:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "unitIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "parentUnitIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "outcomeIds": [
+        "f4d4209a-cee5-45fc-8c6e-3c1d3c53eec1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p044",
+      "title": "Background to English Syllabus: Outcome Check",
+      "content": "Outcome check for Background to English Syllabus: Read, speak, listen, write, and edit clearly about background to english syllabus.\n\n1. Read, listen, speak, or write a short response linked to this topic.\n2. Use at least three topic words correctly.\n3. Use complete sentences.\n4. Check spelling, punctuation, grammar, and meaning.\n5. Improve one sentence after feedback.\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 76,
+      "imageRefs": [
+        "UGA-P4-english-topic-005:assessment:visual-1:planned",
+        "UGA-P4-english-topic-005:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "unitIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "parentUnitIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "outcomeIds": [
+        "f4d4209a-cee5-45fc-8c6e-3c1d3c53eec1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p045",
+      "title": "Background to English Syllabus: Lesson Opener",
+      "content": "Learning focus: Background to English Syllabus\n\nCountry link: a Uganda reading, speaking, listening, writing, or discussion task for Background to English Syllabus.\n\nProgression focus: build concrete foundations using simple examples and teacher-guided correction.\n\nBy the end of this topic, you should be able to:\n- read, speak, listen, write, and edit clearly about background to english syllabus\n\nInquiry questions:\n- How can background to english syllabus help you solve a real problem?\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "UGA-P4-english-topic-006:opener:visual-1:planned",
+        "UGA-P4-english-topic-006:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "unitIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "parentUnitIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "outcomeIds": [
+        "9568b6b8-4e7d-42b7-984b-6a5b5bfce59c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p046",
+      "title": "Background to English Syllabus: Learn",
+      "content": "Background to English Syllabus teaches learners to understand a message and respond clearly.\n\nMini task:\nRead or listen to a short text. Say the main idea. Name two details. Use the details to write or speak a clear answer.\n\nLanguage focus:\n- Use complete sentences.\n- Choose words that fit the situation.\n- Check spelling, punctuation, grammar, and meaning.\n\nLocal link: use examples from Uganda school, home, community, culture, environment, and daily responsibilities.\n\nKey words:\n- Background to English Syllabus\n- Background\n- English\n- Syllabus\n- read\n- listen\n- speak\n- write",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "UGA-P4-english-topic-006:learn:visual-1:planned",
+        "UGA-P4-english-topic-006:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "unitIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "parentUnitIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "outcomeIds": [
+        "9568b6b8-4e7d-42b7-984b-6a5b5bfce59c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p047",
+      "title": "Background to English Syllabus: Worked Example",
+      "content": "Worked example for Background to English Syllabus: Read a short text, find the main idea, and answer clearly.\n\nModel answer frame:\nThe text is about _____. One important detail is _____. Another detail is _____. I think _____ because _____.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 40,
+      "imageRefs": [
+        "UGA-P4-english-topic-006:example:visual-1:planned",
+        "UGA-P4-english-topic-006:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "unitIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "parentUnitIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "outcomeIds": [
+        "9568b6b8-4e7d-42b7-984b-6a5b5bfce59c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p048",
+      "title": "Background to English Syllabus: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Background to English Syllabus. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Background to English Syllabus\n- Background\n- English\n- Syllabus\n- read\n- listen\n- speak\n- write\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Uganda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Background to English Syllabus without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "UGA-P4-english-topic-006:vocabulary:visual-1:planned",
+        "UGA-P4-english-topic-006:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "unitIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "parentUnitIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "outcomeIds": [
+        "9568b6b8-4e7d-42b7-984b-6a5b5bfce59c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p049",
+      "title": "Background to English Syllabus: Guided Activity",
+      "content": "Guided activity for Background to English Syllabus:\n\n1. Read the mini passage or dialogue aloud.\n2. Underline three useful words or expressions.\n3. Answer one oral question about the text.\n4. Write three to five sentences linked to Background to English Syllabus.\n5. Read your answer to a partner and improve one sentence.\n\nTeacher check: the answer should use the topic vocabulary and complete sentences.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 65,
+      "imageRefs": [
+        "UGA-P4-english-topic-006:activity:visual-1:planned",
+        "UGA-P4-english-topic-006:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "unitIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "parentUnitIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "outcomeIds": [
+        "9568b6b8-4e7d-42b7-984b-6a5b5bfce59c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p050",
+      "title": "Background to English Syllabus: Practice And Correction",
+      "content": "Practice for Background to English Syllabus:\n\nMain outcome: read, speak, listen, write, and edit clearly about background to english syllabus.\n\n1. Read or listen to a short text.\n2. Say the main idea.\n3. Write three clear sentences with correct punctuation.\n\nCorrection check:\n- Are the sentences complete?\n- Are spelling and punctuation checked?\n- Does the answer match the topic?\n\nHome link: Ask someone at home one question about background to english syllabus and write their answer in two clear sentences.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 82,
+      "imageRefs": [
+        "UGA-P4-english-topic-006:practice:visual-1:planned",
+        "UGA-P4-english-topic-006:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "unitIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "parentUnitIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "outcomeIds": [
+        "9568b6b8-4e7d-42b7-984b-6a5b5bfce59c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p051",
+      "title": "Background to English Syllabus: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Background to English Syllabus.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "UGA-P4-english-topic-006:remediation:visual-1:planned",
+        "UGA-P4-english-topic-006:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "unitIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "parentUnitIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "outcomeIds": [
+        "9568b6b8-4e7d-42b7-984b-6a5b5bfce59c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p052",
+      "title": "Background to English Syllabus: Outcome Check",
+      "content": "Outcome check for Background to English Syllabus: Read, speak, listen, write, and edit clearly about background to english syllabus.\n\n1. Read, listen, speak, or write a short response linked to this topic.\n2. Use at least three topic words correctly.\n3. Use complete sentences.\n4. Check spelling, punctuation, grammar, and meaning.\n5. Improve one sentence after feedback.\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 76,
+      "imageRefs": [
+        "UGA-P4-english-topic-006:assessment:visual-1:planned",
+        "UGA-P4-english-topic-006:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "unitIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "parentUnitIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "outcomeIds": [
+        "9568b6b8-4e7d-42b7-984b-6a5b5bfce59c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p053",
+      "title": "THE REPUBLIC OF UGANDA: Reading Practice 1",
+      "content": "Session 1: THE REPUBLIC OF UGANDA reading practice\n\nMini passage:\nOur class is learning the republic of uganda through a class discussion. First, we read the text silently. Then we say the main idea in our own words. We choose useful vocabulary, answer in complete sentences, and improve one sentence after feedback. A strong answer is clear, kind, accurate, and linked to the topic.\n\nLearner move: use short complete sentences, clear topic words, and one simple example.\n\nDo this:\n1. Read aloud, say the main idea, and answer with a complete sentence.\n2. Underline three words that carry the meaning of the text.\n3. Say the main idea in one sentence.\n4. Find one detail that supports the main idea.\n5. Explain how the text connects to a real learner in Uganda.\n\nCheck: your answer should use the topic, not a memorised sentence from another lesson.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 146,
+      "imageRefs": [
+        "UGA-P4-english-topic-001:language-reading:visual-1:planned",
+        "UGA-P4-english-topic-001:language-reading:visual-2:planned"
+      ],
+      "strandIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "unitIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "parentUnitIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "outcomeIds": [
+        "f17e8d71-afbf-4bf1-b3b9-dceb5b7ee60c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p054",
+      "title": "National Curriculum Development Centre,: Vocabulary Builder 1",
+      "content": "Session 1: National Curriculum Development Centre, vocabulary builder\n\nUseful words: National Curriculum Development Centre,, National, Curriculum, Development, Centre, read.\n\nBuild meaning:\n1. Choose four words from the list.\n2. Say each word in simple words.\n3. Use each word in a new sentence connected to national curriculum development centre,.\n4. Add one synonym, opposite, translation, picture clue, or real example where possible.\n5. Read the sentences aloud and check that each word is used correctly.\n\nMini challenge 1: create a small word bank for a younger learner and include one example from Uganda.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "UGA-P4-english-topic-002:language-vocabulary:visual-1:planned",
+        "UGA-P4-english-topic-002:language-vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "unitIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "parentUnitIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "outcomeIds": [
+        "7305c424-b064-4989-b9cd-b43994206531"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p055",
+      "title": "NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA: Speaking And Listening 1",
+      "content": "Session 1: NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA speaking and listening\n\nPair task:\n1. Partner A asks one clear question about national curriculum development centre (ncdc) uganda.\n2. Partner B answers in two complete sentences.\n3. Partner A repeats the main idea to show listening.\n4. Swap roles and improve one answer.\n5. Present the stronger answer to a small group.\n\nGood speaking is not shouting or guessing. Speak clearly, stay on topic, listen to the answer, and ask a follow-up question that helps the speaker explain more.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 88,
+      "imageRefs": [
+        "UGA-P4-english-topic-003:language-speaking:visual-1:planned",
+        "UGA-P4-english-topic-003:language-speaking:visual-2:planned"
+      ],
+      "strandIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "unitIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "parentUnitIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "outcomeIds": [
+        "fd2f1234-f345-4ead-9248-944e02911f1b"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p056",
+      "title": "Table of Content: Grammar Focus 1",
+      "content": "Session 1: Table of Content grammar focus\n\nUse this page to make accurate sentences.\n\n1. Write one short sentence about table of content.\n2. Add one describing word, place word, time word, connector, or reason.\n3. Check the subject and verb agree.\n4. Check punctuation and capital letters.\n5. Rewrite the sentence so it is clearer but still simple.\n\nModel frame:\nThe learner _____ because _____. In Uganda, this can be seen when _____.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 74,
+      "imageRefs": [
+        "UGA-P4-english-topic-004:language-grammar:visual-1:planned",
+        "UGA-P4-english-topic-004:language-grammar:visual-2:planned"
+      ],
+      "strandIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "unitIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "parentUnitIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "outcomeIds": [
+        "51d95eec-22cd-4556-9e93-106072bcd233"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p057",
+      "title": "Background to English Syllabus: Writing Workshop 1",
+      "content": "Session 1: Background to English Syllabus writing workshop\n\nPlan before writing:\n1. Topic sentence: say what the paragraph is about.\n2. Detail one: give a fact, example, event, or reason.\n3. Detail two: add another useful detail.\n4. Closing sentence: answer the task directly.\n5. Correction: read your paragraph aloud and fix one weak sentence.\n\nWrite six to eight lines. Keep the language simple and exact. Do not add ideas that are not connected to background to english syllabus.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 79,
+      "imageRefs": [
+        "UGA-P4-english-topic-005:language-writing:visual-1:planned",
+        "UGA-P4-english-topic-005:language-writing:visual-2:planned"
+      ],
+      "strandIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "unitIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "parentUnitIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "outcomeIds": [
+        "f4d4209a-cee5-45fc-8c6e-3c1d3c53eec1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p058",
+      "title": "Background to English Syllabus: Comprehension Check 1",
+      "content": "Session 1: Background to English Syllabus comprehension check\n\nUse the mini text or a teacher-selected passage.\n\n1. What is the main idea?\n2. Which two details prove your answer?\n3. What does one important word mean in this passage?\n4. What can a learner in Uganda do with this idea?\n5. Write one question you still have.\n\nA complete answer uses evidence from the passage and your own words.",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 69,
+      "imageRefs": [
+        "UGA-P4-english-topic-006:language-comprehension:visual-1:planned",
+        "UGA-P4-english-topic-006:language-comprehension:visual-2:planned"
+      ],
+      "strandIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "unitIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "parentUnitIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "outcomeIds": [
+        "9568b6b8-4e7d-42b7-984b-6a5b5bfce59c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p059",
+      "title": "THE REPUBLIC OF UGANDA: Editing And Correction 2",
+      "content": "Session 2: THE REPUBLIC OF UGANDA editing and correction\n\nTake one answer you wrote earlier and improve it.\n\n1. Circle the sentence that is hardest to understand.\n2. Check spelling or accents where your language uses them.\n3. Add missing punctuation.\n4. Replace one vague word with a stronger topic word.\n5. Read the final answer aloud.\n\nCorrection note: write what you changed and why the new version is clearer.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 70,
+      "imageRefs": [
+        "UGA-P4-english-topic-001:language-editing:visual-1:planned",
+        "UGA-P4-english-topic-001:language-editing:visual-2:planned"
+      ],
+      "strandIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "unitIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "parentUnitIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "outcomeIds": [
+        "f17e8d71-afbf-4bf1-b3b9-dceb5b7ee60c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p060",
+      "title": "National Curriculum Development Centre,: Fluency Practice 2",
+      "content": "Session 2: National Curriculum Development Centre, fluency practice\n\nFluency means you can use the language without stopping at every word.\n\n1. Read the mini text twice.\n2. Practise the hardest sentence three times.\n3. Say a new sentence about national curriculum development centre, without looking.\n4. Record or perform the sentence for a partner.\n5. Ask the partner whether the meaning was clear.\n\nFinish by writing the sentence neatly and correcting one small error.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 74,
+      "imageRefs": [
+        "UGA-P4-english-topic-002:language-fluency:visual-1:planned",
+        "UGA-P4-english-topic-002:language-fluency:visual-2:planned"
+      ],
+      "strandIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "unitIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "parentUnitIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "outcomeIds": [
+        "7305c424-b064-4989-b9cd-b43994206531"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p061",
+      "title": "NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA: Reading Practice 2",
+      "content": "Session 2: NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA reading practice\n\nMini passage:\nOur class is learning national curriculum development centre (ncdc) uganda through a class discussion. First, we read the text silently. Then we say the main idea in our own words. We choose useful vocabulary, answer in complete sentences, and improve one sentence after feedback. A strong answer is clear, kind, accurate, and linked to the topic.\n\nLearner move: use short complete sentences, clear topic words, and one simple example.\n\nDo this:\n1. Read aloud, say the main idea, and answer with a complete sentence.\n2. Underline three words that carry the meaning of the text.\n3. Say the main idea in one sentence.\n4. Find one detail that supports the main idea.\n5. Explain how the text connects to a real learner in Uganda.\n\nCheck: your answer should use the topic, not a memorised sentence from another lesson.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 150,
+      "imageRefs": [
+        "UGA-P4-english-topic-003:language-reading:visual-1:planned",
+        "UGA-P4-english-topic-003:language-reading:visual-2:planned"
+      ],
+      "strandIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "unitIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "parentUnitIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "outcomeIds": [
+        "fd2f1234-f345-4ead-9248-944e02911f1b"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p062",
+      "title": "Table of Content: Vocabulary Builder 2",
+      "content": "Session 2: Table of Content vocabulary builder\n\nUseful words: Table of Content, Table, Content, read, listen, speak.\n\nBuild meaning:\n1. Choose four words from the list.\n2. Say each word in simple words.\n3. Use each word in a new sentence connected to table of content.\n4. Add one synonym, opposite, translation, picture clue, or real example where possible.\n5. Read the sentences aloud and check that each word is used correctly.\n\nMini challenge 2: create a small word bank for a younger learner and include one example from Uganda.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "UGA-P4-english-topic-004:language-vocabulary:visual-1:planned",
+        "UGA-P4-english-topic-004:language-vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "unitIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "parentUnitIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "outcomeIds": [
+        "51d95eec-22cd-4556-9e93-106072bcd233"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p063",
+      "title": "Background to English Syllabus: Speaking And Listening 2",
+      "content": "Session 2: Background to English Syllabus speaking and listening\n\nPair task:\n1. Partner A asks one clear question about background to english syllabus.\n2. Partner B answers in two complete sentences.\n3. Partner A repeats the main idea to show listening.\n4. Swap roles and improve one answer.\n5. Present the stronger answer to a small group.\n\nGood speaking is not shouting or guessing. Speak clearly, stay on topic, listen to the answer, and ask a follow-up question that helps the speaker explain more.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 84,
+      "imageRefs": [
+        "UGA-P4-english-topic-005:language-speaking:visual-1:planned",
+        "UGA-P4-english-topic-005:language-speaking:visual-2:planned"
+      ],
+      "strandIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "unitIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "parentUnitIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "outcomeIds": [
+        "f4d4209a-cee5-45fc-8c6e-3c1d3c53eec1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p064",
+      "title": "Background to English Syllabus: Grammar Focus 2",
+      "content": "Session 2: Background to English Syllabus grammar focus\n\nUse this page to make accurate sentences.\n\n1. Write one short sentence about background to english syllabus.\n2. Add one describing word, place word, time word, connector, or reason.\n3. Check the subject and verb agree.\n4. Check punctuation and capital letters.\n5. Rewrite the sentence so it is clearer but still simple.\n\nModel frame:\nThe learner _____ because _____. In Uganda, this can be seen when _____.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 76,
+      "imageRefs": [
+        "UGA-P4-english-topic-006:language-grammar:visual-1:planned",
+        "UGA-P4-english-topic-006:language-grammar:visual-2:planned"
+      ],
+      "strandIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "unitIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "parentUnitIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "outcomeIds": [
+        "9568b6b8-4e7d-42b7-984b-6a5b5bfce59c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p065",
+      "title": "THE REPUBLIC OF UGANDA: Writing Workshop 3",
+      "content": "Session 3: THE REPUBLIC OF UGANDA writing workshop\n\nPlan before writing:\n1. Topic sentence: say what the paragraph is about.\n2. Detail one: give a fact, example, event, or reason.\n3. Detail two: add another useful detail.\n4. Closing sentence: answer the task directly.\n5. Correction: read your paragraph aloud and fix one weak sentence.\n\nWrite six to eight lines. Keep the language simple and exact. Do not add ideas that are not connected to the republic of uganda.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 79,
+      "imageRefs": [
+        "UGA-P4-english-topic-001:language-writing:visual-1:planned",
+        "UGA-P4-english-topic-001:language-writing:visual-2:planned"
+      ],
+      "strandIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "unitIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "parentUnitIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "outcomeIds": [
+        "f17e8d71-afbf-4bf1-b3b9-dceb5b7ee60c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p066",
+      "title": "National Curriculum Development Centre,: Comprehension Check 3",
+      "content": "Session 3: National Curriculum Development Centre, comprehension check\n\nUse the mini text or a teacher-selected passage.\n\n1. What is the main idea?\n2. Which two details prove your answer?\n3. What does one important word mean in this passage?\n4. What can a learner in Uganda do with this idea?\n5. Write one question you still have.\n\nA complete answer uses evidence from the passage and your own words.",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 69,
+      "imageRefs": [
+        "UGA-P4-english-topic-002:language-comprehension:visual-1:planned",
+        "UGA-P4-english-topic-002:language-comprehension:visual-2:planned"
+      ],
+      "strandIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "unitIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "parentUnitIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "outcomeIds": [
+        "7305c424-b064-4989-b9cd-b43994206531"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p067",
+      "title": "NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA: Editing And Correction 3",
+      "content": "Session 3: NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA editing and correction\n\nTake one answer you wrote earlier and improve it.\n\n1. Circle the sentence that is hardest to understand.\n2. Check spelling or accents where your language uses them.\n3. Add missing punctuation.\n4. Replace one vague word with a stronger topic word.\n5. Read the final answer aloud.\n\nCorrection note: write what you changed and why the new version is clearer.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 72,
+      "imageRefs": [
+        "UGA-P4-english-topic-003:language-editing:visual-1:planned",
+        "UGA-P4-english-topic-003:language-editing:visual-2:planned"
+      ],
+      "strandIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "unitIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "parentUnitIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "outcomeIds": [
+        "fd2f1234-f345-4ead-9248-944e02911f1b"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p068",
+      "title": "Table of Content: Fluency Practice 3",
+      "content": "Session 3: Table of Content fluency practice\n\nFluency means you can use the language without stopping at every word.\n\n1. Read the mini text twice.\n2. Practise the hardest sentence three times.\n3. Say a new sentence about table of content without looking.\n4. Record or perform the sentence for a partner.\n5. Ask the partner whether the meaning was clear.\n\nFinish by writing the sentence neatly and correcting one small error.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 72,
+      "imageRefs": [
+        "UGA-P4-english-topic-004:language-fluency:visual-1:planned",
+        "UGA-P4-english-topic-004:language-fluency:visual-2:planned"
+      ],
+      "strandIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "unitIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "parentUnitIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "outcomeIds": [
+        "51d95eec-22cd-4556-9e93-106072bcd233"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p069",
+      "title": "Background to English Syllabus: Reading Practice 3",
+      "content": "Session 3: Background to English Syllabus reading practice\n\nMini passage:\nOur class is learning background to english syllabus through a class discussion. First, we read the text silently. Then we say the main idea in our own words. We choose useful vocabulary, answer in complete sentences, and improve one sentence after feedback. A strong answer is clear, kind, accurate, and linked to the topic.\n\nLearner move: use short complete sentences, clear topic words, and one simple example.\n\nDo this:\n1. Read aloud, say the main idea, and answer with a complete sentence.\n2. Underline three words that carry the meaning of the text.\n3. Say the main idea in one sentence.\n4. Find one detail that supports the main idea.\n5. Explain how the text connects to a real learner in Uganda.\n\nCheck: your answer should use the topic, not a memorised sentence from another lesson.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 146,
+      "imageRefs": [
+        "UGA-P4-english-topic-005:language-reading:visual-1:planned",
+        "UGA-P4-english-topic-005:language-reading:visual-2:planned"
+      ],
+      "strandIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "unitIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "parentUnitIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "outcomeIds": [
+        "f4d4209a-cee5-45fc-8c6e-3c1d3c53eec1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p070",
+      "title": "Background to English Syllabus: Vocabulary Builder 3",
+      "content": "Session 3: Background to English Syllabus vocabulary builder\n\nUseful words: Background to English Syllabus, Background, English, Syllabus, read, listen.\n\nBuild meaning:\n1. Choose four words from the list.\n2. Say each word in simple words.\n3. Use each word in a new sentence connected to background to english syllabus.\n4. Add one synonym, opposite, translation, picture clue, or real example where possible.\n5. Read the sentences aloud and check that each word is used correctly.\n\nMini challenge 3: create a small word bank for a younger learner and include one example from Uganda.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "UGA-P4-english-topic-006:language-vocabulary:visual-1:planned",
+        "UGA-P4-english-topic-006:language-vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "unitIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "parentUnitIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "outcomeIds": [
+        "9568b6b8-4e7d-42b7-984b-6a5b5bfce59c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p071",
+      "title": "THE REPUBLIC OF UGANDA: Speaking And Listening 4",
+      "content": "Session 4: THE REPUBLIC OF UGANDA speaking and listening\n\nPair task:\n1. Partner A asks one clear question about the republic of uganda.\n2. Partner B answers in two complete sentences.\n3. Partner A repeats the main idea to show listening.\n4. Swap roles and improve one answer.\n5. Present the stronger answer to a small group.\n\nGood speaking is not shouting or guessing. Speak clearly, stay on topic, listen to the answer, and ask a follow-up question that helps the speaker explain more.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 84,
+      "imageRefs": [
+        "UGA-P4-english-topic-001:language-speaking:visual-1:planned",
+        "UGA-P4-english-topic-001:language-speaking:visual-2:planned"
+      ],
+      "strandIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "unitIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "parentUnitIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "outcomeIds": [
+        "f17e8d71-afbf-4bf1-b3b9-dceb5b7ee60c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p072",
+      "title": "National Curriculum Development Centre,: Grammar Focus 4",
+      "content": "Session 4: National Curriculum Development Centre, grammar focus\n\nUse this page to make accurate sentences.\n\n1. Write one short sentence about national curriculum development centre,.\n2. Add one describing word, place word, time word, connector, or reason.\n3. Check the subject and verb agree.\n4. Check punctuation and capital letters.\n5. Rewrite the sentence so it is clearer but still simple.\n\nModel frame:\nThe learner _____ because _____. In Uganda, this can be seen when _____.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 76,
+      "imageRefs": [
+        "UGA-P4-english-topic-002:language-grammar:visual-1:planned",
+        "UGA-P4-english-topic-002:language-grammar:visual-2:planned"
+      ],
+      "strandIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "unitIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "parentUnitIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "outcomeIds": [
+        "7305c424-b064-4989-b9cd-b43994206531"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p073",
+      "title": "NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA: Writing Workshop 4",
+      "content": "Session 4: NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA writing workshop\n\nPlan before writing:\n1. Topic sentence: say what the paragraph is about.\n2. Detail one: give a fact, example, event, or reason.\n3. Detail two: add another useful detail.\n4. Closing sentence: answer the task directly.\n5. Correction: read your paragraph aloud and fix one weak sentence.\n\nWrite six to eight lines. Keep the language simple and exact. Do not add ideas that are not connected to national curriculum development centre (ncdc) uganda.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 83,
+      "imageRefs": [
+        "UGA-P4-english-topic-003:language-writing:visual-1:planned",
+        "UGA-P4-english-topic-003:language-writing:visual-2:planned"
+      ],
+      "strandIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "unitIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "parentUnitIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "outcomeIds": [
+        "fd2f1234-f345-4ead-9248-944e02911f1b"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p074",
+      "title": "Table of Content: Comprehension Check 4",
+      "content": "Session 4: Table of Content comprehension check\n\nUse the mini text or a teacher-selected passage.\n\n1. What is the main idea?\n2. Which two details prove your answer?\n3. What does one important word mean in this passage?\n4. What can a learner in Uganda do with this idea?\n5. Write one question you still have.\n\nA complete answer uses evidence from the passage and your own words.",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 68,
+      "imageRefs": [
+        "UGA-P4-english-topic-004:language-comprehension:visual-1:planned",
+        "UGA-P4-english-topic-004:language-comprehension:visual-2:planned"
+      ],
+      "strandIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "unitIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "parentUnitIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "outcomeIds": [
+        "51d95eec-22cd-4556-9e93-106072bcd233"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p075",
+      "title": "Background to English Syllabus: Editing And Correction 4",
+      "content": "Session 4: Background to English Syllabus editing and correction\n\nTake one answer you wrote earlier and improve it.\n\n1. Circle the sentence that is hardest to understand.\n2. Check spelling or accents where your language uses them.\n3. Add missing punctuation.\n4. Replace one vague word with a stronger topic word.\n5. Read the final answer aloud.\n\nCorrection note: write what you changed and why the new version is clearer.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 70,
+      "imageRefs": [
+        "UGA-P4-english-topic-005:language-editing:visual-1:planned",
+        "UGA-P4-english-topic-005:language-editing:visual-2:planned"
+      ],
+      "strandIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "unitIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "parentUnitIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "outcomeIds": [
+        "f4d4209a-cee5-45fc-8c6e-3c1d3c53eec1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p076",
+      "title": "Background to English Syllabus: Fluency Practice 4",
+      "content": "Session 4: Background to English Syllabus fluency practice\n\nFluency means you can use the language without stopping at every word.\n\n1. Read the mini text twice.\n2. Practise the hardest sentence three times.\n3. Say a new sentence about background to english syllabus without looking.\n4. Record or perform the sentence for a partner.\n5. Ask the partner whether the meaning was clear.\n\nFinish by writing the sentence neatly and correcting one small error.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 74,
+      "imageRefs": [
+        "UGA-P4-english-topic-006:language-fluency:visual-1:planned",
+        "UGA-P4-english-topic-006:language-fluency:visual-2:planned"
+      ],
+      "strandIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "unitIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "parentUnitIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "outcomeIds": [
+        "9568b6b8-4e7d-42b7-984b-6a5b5bfce59c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p077",
+      "title": "THE REPUBLIC OF UGANDA: Reading Practice 5",
+      "content": "Session 5: THE REPUBLIC OF UGANDA reading practice\n\nMini passage:\nOur class is learning the republic of uganda through a class discussion. First, we read the text silently. Then we say the main idea in our own words. We choose useful vocabulary, answer in complete sentences, and improve one sentence after feedback. A strong answer is clear, kind, accurate, and linked to the topic.\n\nLearner move: use short complete sentences, clear topic words, and one simple example.\n\nDo this:\n1. Read aloud, say the main idea, and answer with a complete sentence.\n2. Underline three words that carry the meaning of the text.\n3. Say the main idea in one sentence.\n4. Find one detail that supports the main idea.\n5. Explain how the text connects to a real learner in Uganda.\n\nCheck: your answer should use the topic, not a memorised sentence from another lesson.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 146,
+      "imageRefs": [
+        "UGA-P4-english-topic-001:language-reading:visual-1:planned",
+        "UGA-P4-english-topic-001:language-reading:visual-2:planned"
+      ],
+      "strandIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "unitIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "parentUnitIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "outcomeIds": [
+        "f17e8d71-afbf-4bf1-b3b9-dceb5b7ee60c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p078",
+      "title": "National Curriculum Development Centre,: Vocabulary Builder 5",
+      "content": "Session 5: National Curriculum Development Centre, vocabulary builder\n\nUseful words: National Curriculum Development Centre,, National, Curriculum, Development, Centre, read.\n\nBuild meaning:\n1. Choose four words from the list.\n2. Say each word in simple words.\n3. Use each word in a new sentence connected to national curriculum development centre,.\n4. Add one synonym, opposite, translation, picture clue, or real example where possible.\n5. Read the sentences aloud and check that each word is used correctly.\n\nMini challenge 5: create a small word bank for a younger learner and include one example from Uganda.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "UGA-P4-english-topic-002:language-vocabulary:visual-1:planned",
+        "UGA-P4-english-topic-002:language-vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "unitIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "parentUnitIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "outcomeIds": [
+        "7305c424-b064-4989-b9cd-b43994206531"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p079",
+      "title": "NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA: Speaking And Listening 5",
+      "content": "Session 5: NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA speaking and listening\n\nPair task:\n1. Partner A asks one clear question about national curriculum development centre (ncdc) uganda.\n2. Partner B answers in two complete sentences.\n3. Partner A repeats the main idea to show listening.\n4. Swap roles and improve one answer.\n5. Present the stronger answer to a small group.\n\nGood speaking is not shouting or guessing. Speak clearly, stay on topic, listen to the answer, and ask a follow-up question that helps the speaker explain more.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 88,
+      "imageRefs": [
+        "UGA-P4-english-topic-003:language-speaking:visual-1:planned",
+        "UGA-P4-english-topic-003:language-speaking:visual-2:planned"
+      ],
+      "strandIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "unitIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "parentUnitIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "outcomeIds": [
+        "fd2f1234-f345-4ead-9248-944e02911f1b"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p080",
+      "title": "Table of Content: Grammar Focus 5",
+      "content": "Session 5: Table of Content grammar focus\n\nUse this page to make accurate sentences.\n\n1. Write one short sentence about table of content.\n2. Add one describing word, place word, time word, connector, or reason.\n3. Check the subject and verb agree.\n4. Check punctuation and capital letters.\n5. Rewrite the sentence so it is clearer but still simple.\n\nModel frame:\nThe learner _____ because _____. In Uganda, this can be seen when _____.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 74,
+      "imageRefs": [
+        "UGA-P4-english-topic-004:language-grammar:visual-1:planned",
+        "UGA-P4-english-topic-004:language-grammar:visual-2:planned"
+      ],
+      "strandIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "unitIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "parentUnitIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "outcomeIds": [
+        "51d95eec-22cd-4556-9e93-106072bcd233"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p081",
+      "title": "Background to English Syllabus: Writing Workshop 5",
+      "content": "Session 5: Background to English Syllabus writing workshop\n\nPlan before writing:\n1. Topic sentence: say what the paragraph is about.\n2. Detail one: give a fact, example, event, or reason.\n3. Detail two: add another useful detail.\n4. Closing sentence: answer the task directly.\n5. Correction: read your paragraph aloud and fix one weak sentence.\n\nWrite six to eight lines. Keep the language simple and exact. Do not add ideas that are not connected to background to english syllabus.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 79,
+      "imageRefs": [
+        "UGA-P4-english-topic-005:language-writing:visual-1:planned",
+        "UGA-P4-english-topic-005:language-writing:visual-2:planned"
+      ],
+      "strandIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "unitIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "parentUnitIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "outcomeIds": [
+        "f4d4209a-cee5-45fc-8c6e-3c1d3c53eec1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p082",
+      "title": "Background to English Syllabus: Comprehension Check 5",
+      "content": "Session 5: Background to English Syllabus comprehension check\n\nUse the mini text or a teacher-selected passage.\n\n1. What is the main idea?\n2. Which two details prove your answer?\n3. What does one important word mean in this passage?\n4. What can a learner in Uganda do with this idea?\n5. Write one question you still have.\n\nA complete answer uses evidence from the passage and your own words.",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 69,
+      "imageRefs": [
+        "UGA-P4-english-topic-006:language-comprehension:visual-1:planned",
+        "UGA-P4-english-topic-006:language-comprehension:visual-2:planned"
+      ],
+      "strandIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "unitIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "parentUnitIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "outcomeIds": [
+        "9568b6b8-4e7d-42b7-984b-6a5b5bfce59c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p083",
+      "title": "THE REPUBLIC OF UGANDA: Editing And Correction 6",
+      "content": "Session 6: THE REPUBLIC OF UGANDA editing and correction\n\nTake one answer you wrote earlier and improve it.\n\n1. Circle the sentence that is hardest to understand.\n2. Check spelling or accents where your language uses them.\n3. Add missing punctuation.\n4. Replace one vague word with a stronger topic word.\n5. Read the final answer aloud.\n\nCorrection note: write what you changed and why the new version is clearer.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 70,
+      "imageRefs": [
+        "UGA-P4-english-topic-001:language-editing:visual-1:planned",
+        "UGA-P4-english-topic-001:language-editing:visual-2:planned"
+      ],
+      "strandIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "unitIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "parentUnitIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "outcomeIds": [
+        "f17e8d71-afbf-4bf1-b3b9-dceb5b7ee60c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p084",
+      "title": "National Curriculum Development Centre,: Fluency Practice 6",
+      "content": "Session 6: National Curriculum Development Centre, fluency practice\n\nFluency means you can use the language without stopping at every word.\n\n1. Read the mini text twice.\n2. Practise the hardest sentence three times.\n3. Say a new sentence about national curriculum development centre, without looking.\n4. Record or perform the sentence for a partner.\n5. Ask the partner whether the meaning was clear.\n\nFinish by writing the sentence neatly and correcting one small error.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 74,
+      "imageRefs": [
+        "UGA-P4-english-topic-002:language-fluency:visual-1:planned",
+        "UGA-P4-english-topic-002:language-fluency:visual-2:planned"
+      ],
+      "strandIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "unitIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "parentUnitIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "outcomeIds": [
+        "7305c424-b064-4989-b9cd-b43994206531"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p085",
+      "title": "NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA: Reading Practice 6",
+      "content": "Session 6: NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA reading practice\n\nMini passage:\nOur class is learning national curriculum development centre (ncdc) uganda through a class discussion. First, we read the text silently. Then we say the main idea in our own words. We choose useful vocabulary, answer in complete sentences, and improve one sentence after feedback. A strong answer is clear, kind, accurate, and linked to the topic.\n\nLearner move: use short complete sentences, clear topic words, and one simple example.\n\nDo this:\n1. Read aloud, say the main idea, and answer with a complete sentence.\n2. Underline three words that carry the meaning of the text.\n3. Say the main idea in one sentence.\n4. Find one detail that supports the main idea.\n5. Explain how the text connects to a real learner in Uganda.\n\nCheck: your answer should use the topic, not a memorised sentence from another lesson.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 150,
+      "imageRefs": [
+        "UGA-P4-english-topic-003:language-reading:visual-1:planned",
+        "UGA-P4-english-topic-003:language-reading:visual-2:planned"
+      ],
+      "strandIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "unitIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "parentUnitIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "outcomeIds": [
+        "fd2f1234-f345-4ead-9248-944e02911f1b"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p086",
+      "title": "Table of Content: Vocabulary Builder 6",
+      "content": "Session 6: Table of Content vocabulary builder\n\nUseful words: Table of Content, Table, Content, read, listen, speak.\n\nBuild meaning:\n1. Choose four words from the list.\n2. Say each word in simple words.\n3. Use each word in a new sentence connected to table of content.\n4. Add one synonym, opposite, translation, picture clue, or real example where possible.\n5. Read the sentences aloud and check that each word is used correctly.\n\nMini challenge 6: create a small word bank for a younger learner and include one example from Uganda.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "UGA-P4-english-topic-004:language-vocabulary:visual-1:planned",
+        "UGA-P4-english-topic-004:language-vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "unitIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "parentUnitIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "outcomeIds": [
+        "51d95eec-22cd-4556-9e93-106072bcd233"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p087",
+      "title": "Background to English Syllabus: Speaking And Listening 6",
+      "content": "Session 6: Background to English Syllabus speaking and listening\n\nPair task:\n1. Partner A asks one clear question about background to english syllabus.\n2. Partner B answers in two complete sentences.\n3. Partner A repeats the main idea to show listening.\n4. Swap roles and improve one answer.\n5. Present the stronger answer to a small group.\n\nGood speaking is not shouting or guessing. Speak clearly, stay on topic, listen to the answer, and ask a follow-up question that helps the speaker explain more.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 84,
+      "imageRefs": [
+        "UGA-P4-english-topic-005:language-speaking:visual-1:planned",
+        "UGA-P4-english-topic-005:language-speaking:visual-2:planned"
+      ],
+      "strandIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "unitIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "parentUnitIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "outcomeIds": [
+        "f4d4209a-cee5-45fc-8c6e-3c1d3c53eec1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p088",
+      "title": "Background to English Syllabus: Grammar Focus 6",
+      "content": "Session 6: Background to English Syllabus grammar focus\n\nUse this page to make accurate sentences.\n\n1. Write one short sentence about background to english syllabus.\n2. Add one describing word, place word, time word, connector, or reason.\n3. Check the subject and verb agree.\n4. Check punctuation and capital letters.\n5. Rewrite the sentence so it is clearer but still simple.\n\nModel frame:\nThe learner _____ because _____. In Uganda, this can be seen when _____.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 76,
+      "imageRefs": [
+        "UGA-P4-english-topic-006:language-grammar:visual-1:planned",
+        "UGA-P4-english-topic-006:language-grammar:visual-2:planned"
+      ],
+      "strandIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "unitIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "parentUnitIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "outcomeIds": [
+        "9568b6b8-4e7d-42b7-984b-6a5b5bfce59c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p089",
+      "title": "THE REPUBLIC OF UGANDA: Writing Workshop 7",
+      "content": "Session 7: THE REPUBLIC OF UGANDA writing workshop\n\nPlan before writing:\n1. Topic sentence: say what the paragraph is about.\n2. Detail one: give a fact, example, event, or reason.\n3. Detail two: add another useful detail.\n4. Closing sentence: answer the task directly.\n5. Correction: read your paragraph aloud and fix one weak sentence.\n\nWrite six to eight lines. Keep the language simple and exact. Do not add ideas that are not connected to the republic of uganda.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 79,
+      "imageRefs": [
+        "UGA-P4-english-topic-001:language-writing:visual-1:planned",
+        "UGA-P4-english-topic-001:language-writing:visual-2:planned"
+      ],
+      "strandIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "unitIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "parentUnitIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "outcomeIds": [
+        "f17e8d71-afbf-4bf1-b3b9-dceb5b7ee60c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p090",
+      "title": "National Curriculum Development Centre,: Comprehension Check 7",
+      "content": "Session 7: National Curriculum Development Centre, comprehension check\n\nUse the mini text or a teacher-selected passage.\n\n1. What is the main idea?\n2. Which two details prove your answer?\n3. What does one important word mean in this passage?\n4. What can a learner in Uganda do with this idea?\n5. Write one question you still have.\n\nA complete answer uses evidence from the passage and your own words.",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 69,
+      "imageRefs": [
+        "UGA-P4-english-topic-002:language-comprehension:visual-1:planned",
+        "UGA-P4-english-topic-002:language-comprehension:visual-2:planned"
+      ],
+      "strandIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "unitIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "parentUnitIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "outcomeIds": [
+        "7305c424-b064-4989-b9cd-b43994206531"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p091",
+      "title": "NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA: Editing And Correction 7",
+      "content": "Session 7: NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA editing and correction\n\nTake one answer you wrote earlier and improve it.\n\n1. Circle the sentence that is hardest to understand.\n2. Check spelling or accents where your language uses them.\n3. Add missing punctuation.\n4. Replace one vague word with a stronger topic word.\n5. Read the final answer aloud.\n\nCorrection note: write what you changed and why the new version is clearer.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 72,
+      "imageRefs": [
+        "UGA-P4-english-topic-003:language-editing:visual-1:planned",
+        "UGA-P4-english-topic-003:language-editing:visual-2:planned"
+      ],
+      "strandIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "unitIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "parentUnitIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "outcomeIds": [
+        "fd2f1234-f345-4ead-9248-944e02911f1b"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p092",
+      "title": "Table of Content: Fluency Practice 7",
+      "content": "Session 7: Table of Content fluency practice\n\nFluency means you can use the language without stopping at every word.\n\n1. Read the mini text twice.\n2. Practise the hardest sentence three times.\n3. Say a new sentence about table of content without looking.\n4. Record or perform the sentence for a partner.\n5. Ask the partner whether the meaning was clear.\n\nFinish by writing the sentence neatly and correcting one small error.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 72,
+      "imageRefs": [
+        "UGA-P4-english-topic-004:language-fluency:visual-1:planned",
+        "UGA-P4-english-topic-004:language-fluency:visual-2:planned"
+      ],
+      "strandIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "unitIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "parentUnitIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "outcomeIds": [
+        "51d95eec-22cd-4556-9e93-106072bcd233"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p093",
+      "title": "Background to English Syllabus: Reading Practice 7",
+      "content": "Session 7: Background to English Syllabus reading practice\n\nMini passage:\nOur class is learning background to english syllabus through a class discussion. First, we read the text silently. Then we say the main idea in our own words. We choose useful vocabulary, answer in complete sentences, and improve one sentence after feedback. A strong answer is clear, kind, accurate, and linked to the topic.\n\nLearner move: use short complete sentences, clear topic words, and one simple example.\n\nDo this:\n1. Read aloud, say the main idea, and answer with a complete sentence.\n2. Underline three words that carry the meaning of the text.\n3. Say the main idea in one sentence.\n4. Find one detail that supports the main idea.\n5. Explain how the text connects to a real learner in Uganda.\n\nCheck: your answer should use the topic, not a memorised sentence from another lesson.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 146,
+      "imageRefs": [
+        "UGA-P4-english-topic-005:language-reading:visual-1:planned",
+        "UGA-P4-english-topic-005:language-reading:visual-2:planned"
+      ],
+      "strandIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "unitIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "parentUnitIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "outcomeIds": [
+        "f4d4209a-cee5-45fc-8c6e-3c1d3c53eec1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p094",
+      "title": "Background to English Syllabus: Vocabulary Builder 7",
+      "content": "Session 7: Background to English Syllabus vocabulary builder\n\nUseful words: Background to English Syllabus, Background, English, Syllabus, read, listen.\n\nBuild meaning:\n1. Choose four words from the list.\n2. Say each word in simple words.\n3. Use each word in a new sentence connected to background to english syllabus.\n4. Add one synonym, opposite, translation, picture clue, or real example where possible.\n5. Read the sentences aloud and check that each word is used correctly.\n\nMini challenge 7: create a small word bank for a younger learner and include one example from Uganda.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "UGA-P4-english-topic-006:language-vocabulary:visual-1:planned",
+        "UGA-P4-english-topic-006:language-vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "unitIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "parentUnitIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "outcomeIds": [
+        "9568b6b8-4e7d-42b7-984b-6a5b5bfce59c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p095",
+      "title": "THE REPUBLIC OF UGANDA: Speaking And Listening 8",
+      "content": "Session 8: THE REPUBLIC OF UGANDA speaking and listening\n\nPair task:\n1. Partner A asks one clear question about the republic of uganda.\n2. Partner B answers in two complete sentences.\n3. Partner A repeats the main idea to show listening.\n4. Swap roles and improve one answer.\n5. Present the stronger answer to a small group.\n\nGood speaking is not shouting or guessing. Speak clearly, stay on topic, listen to the answer, and ask a follow-up question that helps the speaker explain more.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 84,
+      "imageRefs": [
+        "UGA-P4-english-topic-001:language-speaking:visual-1:planned",
+        "UGA-P4-english-topic-001:language-speaking:visual-2:planned"
+      ],
+      "strandIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "unitIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "parentUnitIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "outcomeIds": [
+        "f17e8d71-afbf-4bf1-b3b9-dceb5b7ee60c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p096",
+      "title": "National Curriculum Development Centre,: Grammar Focus 8",
+      "content": "Session 8: National Curriculum Development Centre, grammar focus\n\nUse this page to make accurate sentences.\n\n1. Write one short sentence about national curriculum development centre,.\n2. Add one describing word, place word, time word, connector, or reason.\n3. Check the subject and verb agree.\n4. Check punctuation and capital letters.\n5. Rewrite the sentence so it is clearer but still simple.\n\nModel frame:\nThe learner _____ because _____. In Uganda, this can be seen when _____.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 76,
+      "imageRefs": [
+        "UGA-P4-english-topic-002:language-grammar:visual-1:planned",
+        "UGA-P4-english-topic-002:language-grammar:visual-2:planned"
+      ],
+      "strandIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "unitIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "parentUnitIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "outcomeIds": [
+        "7305c424-b064-4989-b9cd-b43994206531"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p097",
+      "title": "NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA: Writing Workshop 8",
+      "content": "Session 8: NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA writing workshop\n\nPlan before writing:\n1. Topic sentence: say what the paragraph is about.\n2. Detail one: give a fact, example, event, or reason.\n3. Detail two: add another useful detail.\n4. Closing sentence: answer the task directly.\n5. Correction: read your paragraph aloud and fix one weak sentence.\n\nWrite six to eight lines. Keep the language simple and exact. Do not add ideas that are not connected to national curriculum development centre (ncdc) uganda.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 83,
+      "imageRefs": [
+        "UGA-P4-english-topic-003:language-writing:visual-1:planned",
+        "UGA-P4-english-topic-003:language-writing:visual-2:planned"
+      ],
+      "strandIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "unitIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "parentUnitIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "outcomeIds": [
+        "fd2f1234-f345-4ead-9248-944e02911f1b"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p098",
+      "title": "Table of Content: Comprehension Check 8",
+      "content": "Session 8: Table of Content comprehension check\n\nUse the mini text or a teacher-selected passage.\n\n1. What is the main idea?\n2. Which two details prove your answer?\n3. What does one important word mean in this passage?\n4. What can a learner in Uganda do with this idea?\n5. Write one question you still have.\n\nA complete answer uses evidence from the passage and your own words.",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 68,
+      "imageRefs": [
+        "UGA-P4-english-topic-004:language-comprehension:visual-1:planned",
+        "UGA-P4-english-topic-004:language-comprehension:visual-2:planned"
+      ],
+      "strandIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "unitIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "parentUnitIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "outcomeIds": [
+        "51d95eec-22cd-4556-9e93-106072bcd233"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p099",
+      "title": "Background to English Syllabus: Editing And Correction 8",
+      "content": "Session 8: Background to English Syllabus editing and correction\n\nTake one answer you wrote earlier and improve it.\n\n1. Circle the sentence that is hardest to understand.\n2. Check spelling or accents where your language uses them.\n3. Add missing punctuation.\n4. Replace one vague word with a stronger topic word.\n5. Read the final answer aloud.\n\nCorrection note: write what you changed and why the new version is clearer.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 70,
+      "imageRefs": [
+        "UGA-P4-english-topic-005:language-editing:visual-1:planned",
+        "UGA-P4-english-topic-005:language-editing:visual-2:planned"
+      ],
+      "strandIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "unitIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "parentUnitIds": [
+        "9eb82f64-ca57-409a-a29d-492e4487f748"
+      ],
+      "outcomeIds": [
+        "f4d4209a-cee5-45fc-8c6e-3c1d3c53eec1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p100",
+      "title": "Background to English Syllabus: Fluency Practice 8",
+      "content": "Session 8: Background to English Syllabus fluency practice\n\nFluency means you can use the language without stopping at every word.\n\n1. Read the mini text twice.\n2. Practise the hardest sentence three times.\n3. Say a new sentence about background to english syllabus without looking.\n4. Record or perform the sentence for a partner.\n5. Ask the partner whether the meaning was clear.\n\nFinish by writing the sentence neatly and correcting one small error.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 74,
+      "imageRefs": [
+        "UGA-P4-english-topic-006:language-fluency:visual-1:planned",
+        "UGA-P4-english-topic-006:language-fluency:visual-2:planned"
+      ],
+      "strandIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "unitIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "parentUnitIds": [
+        "8567be89-2225-4134-843b-b998b2296cc2"
+      ],
+      "outcomeIds": [
+        "9568b6b8-4e7d-42b7-984b-6a5b5bfce59c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p101",
+      "title": "THE REPUBLIC OF UGANDA: Reading Practice 9",
+      "content": "Session 9: THE REPUBLIC OF UGANDA reading practice\n\nMini passage:\nOur class is learning the republic of uganda through a class discussion. First, we read the text silently. Then we say the main idea in our own words. We choose useful vocabulary, answer in complete sentences, and improve one sentence after feedback. A strong answer is clear, kind, accurate, and linked to the topic.\n\nLearner move: use short complete sentences, clear topic words, and one simple example.\n\nDo this:\n1. Read aloud, say the main idea, and answer with a complete sentence.\n2. Underline three words that carry the meaning of the text.\n3. Say the main idea in one sentence.\n4. Find one detail that supports the main idea.\n5. Explain how the text connects to a real learner in Uganda.\n\nCheck: your answer should use the topic, not a memorised sentence from another lesson.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 146,
+      "imageRefs": [
+        "UGA-P4-english-topic-001:language-reading:visual-1:planned",
+        "UGA-P4-english-topic-001:language-reading:visual-2:planned"
+      ],
+      "strandIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "unitIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "parentUnitIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "outcomeIds": [
+        "f17e8d71-afbf-4bf1-b3b9-dceb5b7ee60c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p102",
+      "title": "National Curriculum Development Centre,: Vocabulary Builder 9",
+      "content": "Session 9: National Curriculum Development Centre, vocabulary builder\n\nUseful words: National Curriculum Development Centre,, National, Curriculum, Development, Centre, read.\n\nBuild meaning:\n1. Choose four words from the list.\n2. Say each word in simple words.\n3. Use each word in a new sentence connected to national curriculum development centre,.\n4. Add one synonym, opposite, translation, picture clue, or real example where possible.\n5. Read the sentences aloud and check that each word is used correctly.\n\nMini challenge 9: create a small word bank for a younger learner and include one example from Uganda.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "UGA-P4-english-topic-002:language-vocabulary:visual-1:planned",
+        "UGA-P4-english-topic-002:language-vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "unitIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "parentUnitIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "outcomeIds": [
+        "7305c424-b064-4989-b9cd-b43994206531"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p103",
+      "title": "NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA: Speaking And Listening 9",
+      "content": "Session 9: NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA speaking and listening\n\nPair task:\n1. Partner A asks one clear question about national curriculum development centre (ncdc) uganda.\n2. Partner B answers in two complete sentences.\n3. Partner A repeats the main idea to show listening.\n4. Swap roles and improve one answer.\n5. Present the stronger answer to a small group.\n\nGood speaking is not shouting or guessing. Speak clearly, stay on topic, listen to the answer, and ask a follow-up question that helps the speaker explain more.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 88,
+      "imageRefs": [
+        "UGA-P4-english-topic-003:language-speaking:visual-1:planned",
+        "UGA-P4-english-topic-003:language-speaking:visual-2:planned"
+      ],
+      "strandIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "unitIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "parentUnitIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "outcomeIds": [
+        "fd2f1234-f345-4ead-9248-944e02911f1b"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p104",
+      "title": "Table of Content: Grammar Focus 9",
+      "content": "Session 9: Table of Content grammar focus\n\nUse this page to make accurate sentences.\n\n1. Write one short sentence about table of content.\n2. Add one describing word, place word, time word, connector, or reason.\n3. Check the subject and verb agree.\n4. Check punctuation and capital letters.\n5. Rewrite the sentence so it is clearer but still simple.\n\nModel frame:\nThe learner _____ because _____. In Uganda, this can be seen when _____.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 74,
+      "imageRefs": [
+        "UGA-P4-english-topic-004:language-grammar:visual-1:planned",
+        "UGA-P4-english-topic-004:language-grammar:visual-2:planned"
+      ],
+      "strandIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "unitIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "parentUnitIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "outcomeIds": [
+        "51d95eec-22cd-4556-9e93-106072bcd233"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p105",
+      "title": "THE REPUBLIC OF UGANDA: Review Clinic 1",
+      "content": "Use this review clinic to strengthen English without copying earlier answers.\n\n1. Choose one idea from THE REPUBLIC OF UGANDA that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Uganda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 77,
+      "imageRefs": [
+        "UGA-P4-english-topic-001:review:visual-1:planned",
+        "UGA-P4-english-topic-001:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "unitIds": [
+        "11c47b0c-8f58-4623-af9a-056f9d3da700"
+      ],
+      "outcomeIds": [
+        "f17e8d71-afbf-4bf1-b3b9-dceb5b7ee60c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p106",
+      "title": "National Curriculum Development Centre,: Review Clinic 2",
+      "content": "Use this review clinic to strengthen English without copying earlier answers.\n\n1. Choose one idea from National Curriculum Development Centre, that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Uganda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 77,
+      "imageRefs": [
+        "UGA-P4-english-topic-002:review:visual-1:planned",
+        "UGA-P4-english-topic-002:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "unitIds": [
+        "a39e2c90-7151-4696-83ec-3a8a20562dda"
+      ],
+      "outcomeIds": [
+        "7305c424-b064-4989-b9cd-b43994206531"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p107",
+      "title": "NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA: Review Clinic 3",
+      "content": "Use this review clinic to strengthen English without copying earlier answers.\n\n1. Choose one idea from NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Uganda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 79,
+      "imageRefs": [
+        "UGA-P4-english-topic-003:review:visual-1:planned",
+        "UGA-P4-english-topic-003:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "unitIds": [
+        "23590c96-b744-4f61-809f-14062654ccb1"
+      ],
+      "outcomeIds": [
+        "fd2f1234-f345-4ead-9248-944e02911f1b"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p108",
+      "title": "Table of Content: Review Clinic 4",
+      "content": "Use this review clinic to strengthen English without copying earlier answers.\n\n1. Choose one idea from Table of Content that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Uganda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 76,
+      "imageRefs": [
+        "UGA-P4-english-topic-004:review:visual-1:planned",
+        "UGA-P4-english-topic-004:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "unitIds": [
+        "00c6243c-7ca1-45b3-8b5e-98f7b4c35530"
+      ],
+      "outcomeIds": [
+        "51d95eec-22cd-4556-9e93-106072bcd233"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p109",
+      "title": "Glossary",
+      "content": "Use this glossary to revise important words in English.\n\n- THE REPUBLIC OF UGANDA: Explain this term using an example from the book, your school, or your community.\n- National Curriculum Development Centre,: Explain this term using an example from the book, your school, or your community.\n- NATIONAL CURRICULUM DEVELOPMENT CENTRE (NCDC) UGANDA: Explain this term using an example from the book, your school, or your community.\n- Table of Content: Explain this term using an example from the book, your school, or your community.\n- Background to English Syllabus: Explain this term using an example from the book, your school, or your community.\n- Background to English Syllabus: Explain this term using an example from the book, your school, or your community.\n\nAdd five more words from your lessons and write your own meanings.",
+      "pageType": "glossary",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 136,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p110",
+      "title": "Answer And Teacher Notes",
+      "content": "A strong English answer matches the task, uses topic vocabulary, keeps meaning clear, and checks spelling, punctuation, grammar, pronunciation, or expression after feedback. Improve one weak sentence by adding a precise detail from the topic.",
+      "pageType": "answer-notes",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 35,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-p4-english-p111",
+      "title": "Final Project",
+      "content": "Create a final project for English that shows what you can now do independently.\n\nYour project must include:\n1. A clear title.\n2. A real-life problem, question, text, performance, investigation, design, or worked task.\n3. Evidence from at least three lessons in this book.\n4. A drawing, table, map, chart, model, dialogue, paragraph, performance plan, practical product, or worked solution.\n5. A correction note showing one improvement after feedback.\n6. A short reflection explaining what you learned, what was difficult, and what you will practise next.\n\nPresentation check: keep the work neat, label important parts, use correct vocabulary, and be ready to explain your choices to a classmate or teacher.",
+      "pageType": "project",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 110,
+      "imageRefs": []
+    }
+  ]
+}

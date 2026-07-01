@@ -1,0 +1,1036 @@
+{
+  "schemaVersion": 1,
+  "sourceType": "normalized-curriculum",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "S6",
+  "subject": "Core Mathematics",
+  "generatedAt": "2026-07-01T04:14:23Z",
+  "sourceSnapshotHash": "8eed8da6a4abecbbca4e26bb94952cfc10440cb3a603a1a03fae14bab7315aed",
+  "writingStandard": {
+    "voice": "simple, conversational, purposeful, age-appropriate, and learner-first",
+    "antiFluff": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "coversDeferred": true
+  },
+  "strands": [
+    {
+      "strandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-1-strand",
+      "number": "",
+      "title": "Complex numbers",
+      "topicCount": 1
+    },
+    {
+      "strandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-2-strand",
+      "number": "",
+      "title": "Logarithmic and exponential functions",
+      "topicCount": 1
+    },
+    {
+      "strandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-3-strand",
+      "number": "",
+      "title": "Taylor and Maclaurin's expansions",
+      "topicCount": 1
+    },
+    {
+      "strandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-4-strand",
+      "number": "",
+      "title": "Integration",
+      "topicCount": 1
+    },
+    {
+      "strandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-5-strand",
+      "number": "",
+      "title": "Differential equations",
+      "topicCount": 1
+    },
+    {
+      "strandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-6-strand",
+      "number": "",
+      "title": "Intersection and sum of subspaces",
+      "topicCount": 1
+    },
+    {
+      "strandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-7-strand",
+      "number": "",
+      "title": "Transformation of matrices",
+      "topicCount": 1
+    },
+    {
+      "strandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-8-strand",
+      "number": "",
+      "title": "Conics",
+      "topicCount": 1
+    },
+    {
+      "strandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-9-strand",
+      "number": "",
+      "title": "Random variables",
+      "topicCount": 1
+    }
+  ],
+  "topics": [
+    {
+      "topicId": "RWA-S6-core-mathematics-topic-001",
+      "grade": "S6",
+      "strandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-1-strand",
+      "subStrandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-1-topic",
+      "parentSubStrandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-1-topic",
+      "strandTitle": "Complex numbers",
+      "unitTitle": "Complex numbers",
+      "sourceUnitTitle": "Complex numbers",
+      "learningOutcomes": [
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-1-outcome-1",
+          "text": "perform operations on complex numbers in different forms and use complex numbers to solve related problems in physics (voltage and current in alternating current), computer science (fractals), trigonometry (Euler's formula to transform trigonometric expression"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-1-outcome-2",
+          "text": "identify the real part and the imaginary part of a complex number"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-1-outcome-3",
+          "text": "convert a complex number from one form to another"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-1-outcome-4",
+          "text": "represent a complex number on Argand diagram"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-1-outcome-5",
+          "text": "state De Moivre's formula and Euler's formula"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-1-outcome-6",
+          "text": "apply the properties of complex numbers to perform operations on complex numbers in algebraic form, in polar form or in exponential form"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can complex numbers help you solve a real problem in Core Mathematics?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Complex numbers.",
+        "Review key vocabulary from the previous Core Mathematics lesson."
+      ],
+      "keyVocabulary": [
+        "Complex numbers",
+        "Complex",
+        "numbers",
+        "method",
+        "model",
+        "unit",
+        "answer",
+        "check"
+      ],
+      "misconceptions": [
+        "giving a general answer about Complex numbers without a clear example, method, or evidence"
+      ],
+      "localContext": "a Rwanda school, market, farming, building, transport, or data problem for Complex numbers",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Complex numbers",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for Complex numbers",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "ea6dbef9-2bec-4781-b5f6-844730df2996",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Core Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/core-mathematics/ea6dbef9-2bec-4781-b5f6-844730df2996.md",
+          "sourceSectionHash": "b869b1f0491c9c8b41a6e56f0899ac4133a6b71cd9741d33c029383bd8d6def9",
+          "sourceSnapshotHash": "8eed8da6a4abecbbca4e26bb94952cfc10440cb3a603a1a03fae14bab7315aed"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "ea6dbef9-2bec-4781-b5f6-844730df2996",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Core Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/core-mathematics/ea6dbef9-2bec-4781-b5f6-844730df2996.md",
+          "sourceSectionHash": "b869b1f0491c9c8b41a6e56f0899ac4133a6b71cd9741d33c029383bd8d6def9",
+          "sourceSnapshotHash": "8eed8da6a4abecbbca4e26bb94952cfc10440cb3a603a1a03fae14bab7315aed"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S6-core-mathematics-topic-002",
+      "grade": "S6",
+      "strandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-2-strand",
+      "subStrandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-2-topic",
+      "parentSubStrandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-2-topic",
+      "strandTitle": "Logarithmic and exponential functions",
+      "unitTitle": "Logarithmic and exponential functions",
+      "sourceUnitTitle": "Logarithmic and exponential functions",
+      "learningOutcomes": [
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-2-outcome-1",
+          "text": "extend the concepts of functions to investigate fully logarithmic and exponential functions, finding the domain of definition, the limits, asyrmptotes, variations, graphs, and model problems about interest rates, population growth or decay, magnitude of earthq"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-2-outcome-2",
+          "text": "state the restrictions on the base and the variable in a logarithmic function"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-2-outcome-3",
+          "text": "extend the concept of functions to investigate fully logarithmic and exponential functions"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-2-outcome-4",
+          "text": "perform operations on logarithmic"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-2-outcome-5",
+          "text": "transform a logarithm from a base to another"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-2-outcome-6",
+          "text": "find the domain and the range of a logarithmic or an exponential function"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can logarithmic and exponential functions help you solve a real problem in Core Mathematics?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Logarithmic and exponential functions.",
+        "Review key vocabulary from the previous Core Mathematics lesson."
+      ],
+      "keyVocabulary": [
+        "Logarithmic and exponential functions",
+        "Logarithmic",
+        "exponential",
+        "functions",
+        "method",
+        "model",
+        "unit",
+        "answer"
+      ],
+      "misconceptions": [
+        "giving a general answer about Logarithmic and exponential functions without a clear example, method, or evidence"
+      ],
+      "localContext": "a Rwanda school, market, farming, building, transport, or data problem for Logarithmic and exponential functions",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Logarithmic and exponential functions",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for Logarithmic and exponential functions",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "ea6dbef9-2bec-4781-b5f6-844730df2996",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Core Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/core-mathematics/ea6dbef9-2bec-4781-b5f6-844730df2996.md",
+          "sourceSectionHash": "6b3787f638da848eac0d112cf6bacdb23d110e253e54b290aa39fd10a9e8c295",
+          "sourceSnapshotHash": "8eed8da6a4abecbbca4e26bb94952cfc10440cb3a603a1a03fae14bab7315aed"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "ea6dbef9-2bec-4781-b5f6-844730df2996",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Core Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/core-mathematics/ea6dbef9-2bec-4781-b5f6-844730df2996.md",
+          "sourceSectionHash": "6b3787f638da848eac0d112cf6bacdb23d110e253e54b290aa39fd10a9e8c295",
+          "sourceSnapshotHash": "8eed8da6a4abecbbca4e26bb94952cfc10440cb3a603a1a03fae14bab7315aed"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S6-core-mathematics-topic-003",
+      "grade": "S6",
+      "strandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-3-strand",
+      "subStrandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-3-topic",
+      "parentSubStrandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-3-topic",
+      "strandTitle": "Taylor and Maclaurin's expansions",
+      "unitTitle": "Taylor and Maclaurin's expansions",
+      "sourceUnitTitle": "Taylor and Maclaurin's expansions",
+      "learningOutcomes": [
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-3-outcome-1",
+          "text": "use Taylor and Maclaurin's expansion to solve problems about approximations, limits and integration. Extend the Maclaurin's expansion to Taylor series"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-3-outcome-2",
+          "text": "state the Taylor's formula for a function and the conditions for the expansion to be valid"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-3-outcome-3",
+          "text": "state the Maclaurin's formula for a function and the conditions for the expansion to be valid"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-3-outcome-4",
+          "text": "list the first few terms of Maclaurin's expansion of (1+x)n, cosx, sinx, ex and .ln(1+x), in each case, state the conditions for the expansion to be valid"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-3-outcome-5",
+          "text": "derive the Maclaurin's series for (1+x)n, cosx, sinx, ex and .ln(1+x)"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-3-outcome-6",
+          "text": "use Maclaurin's series to approximate an irrational number or the roots of a transcendental equation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can taylor and maclaurin's expansions help you solve a real problem in Core Mathematics?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Taylor and Maclaurin's expansions.",
+        "Review key vocabulary from the previous Core Mathematics lesson."
+      ],
+      "keyVocabulary": [
+        "Taylor and Maclaurin's expansions",
+        "Taylor",
+        "Maclaurin's",
+        "expansions",
+        "method",
+        "model",
+        "unit",
+        "answer"
+      ],
+      "misconceptions": [
+        "giving a general answer about Taylor and Maclaurin's expansions without a clear example, method, or evidence"
+      ],
+      "localContext": "a Rwanda school, market, farming, building, transport, or data problem for Taylor and Maclaurin's expansions",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Taylor and Maclaurin's expansions",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for Taylor and Maclaurin's expansions",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "ea6dbef9-2bec-4781-b5f6-844730df2996",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Core Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/core-mathematics/ea6dbef9-2bec-4781-b5f6-844730df2996.md",
+          "sourceSectionHash": "7b701f69b4fa6359250fb6895c4797ffbfd619cea11b4ab840b7826f6a3ea3db",
+          "sourceSnapshotHash": "8eed8da6a4abecbbca4e26bb94952cfc10440cb3a603a1a03fae14bab7315aed"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "ea6dbef9-2bec-4781-b5f6-844730df2996",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Core Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/core-mathematics/ea6dbef9-2bec-4781-b5f6-844730df2996.md",
+          "sourceSectionHash": "7b701f69b4fa6359250fb6895c4797ffbfd619cea11b4ab840b7826f6a3ea3db",
+          "sourceSnapshotHash": "8eed8da6a4abecbbca4e26bb94952cfc10440cb3a603a1a03fae14bab7315aed"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S6-core-mathematics-topic-004",
+      "grade": "S6",
+      "strandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-4-strand",
+      "subStrandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-4-topic",
+      "parentSubStrandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-4-topic",
+      "strandTitle": "Integration",
+      "unitTitle": "Integration",
+      "sourceUnitTitle": "Integration",
+      "learningOutcomes": [
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-4-outcome-1",
+          "text": "use integration as the inverse of differentiation and as the limit of a sum then apply it to find the area of plane surfaces, volumes of solids of revolution, lengths of curved lines"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-4-outcome-2",
+          "text": "define the differential of a function"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-4-outcome-3",
+          "text": "interpret geometrically the differential of a function"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-4-outcome-4",
+          "text": "list the differentiation formulas"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-4-outcome-5",
+          "text": "clarify the relationship between derivative and antiderivative of a function"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-4-outcome-6",
+          "text": "illustrate the use of basic integration formulas"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can integration help you solve a real problem in Core Mathematics?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Integration.",
+        "Review key vocabulary from the previous Core Mathematics lesson."
+      ],
+      "keyVocabulary": [
+        "Integration",
+        "method",
+        "model",
+        "unit",
+        "answer",
+        "check"
+      ],
+      "misconceptions": [
+        "giving a general answer about Integration without a clear example, method, or evidence"
+      ],
+      "localContext": "a Rwanda school, market, farming, building, transport, or data problem for Integration",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Integration",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for Integration",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "ea6dbef9-2bec-4781-b5f6-844730df2996",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Core Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/core-mathematics/ea6dbef9-2bec-4781-b5f6-844730df2996.md",
+          "sourceSectionHash": "b5c25bb43c370988b3059868506308a5ecb7d38035d7431bd022dd33a1d0f4c7",
+          "sourceSnapshotHash": "8eed8da6a4abecbbca4e26bb94952cfc10440cb3a603a1a03fae14bab7315aed"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "ea6dbef9-2bec-4781-b5f6-844730df2996",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Core Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/core-mathematics/ea6dbef9-2bec-4781-b5f6-844730df2996.md",
+          "sourceSectionHash": "b5c25bb43c370988b3059868506308a5ecb7d38035d7431bd022dd33a1d0f4c7",
+          "sourceSnapshotHash": "8eed8da6a4abecbbca4e26bb94952cfc10440cb3a603a1a03fae14bab7315aed"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S6-core-mathematics-topic-005",
+      "grade": "S6",
+      "strandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-5-strand",
+      "subStrandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-5-topic",
+      "parentSubStrandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-5-topic",
+      "strandTitle": "Differential equations",
+      "unitTitle": "Differential equations",
+      "sourceUnitTitle": "Differential equations",
+      "learningOutcomes": [
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-5-outcome-1",
+          "text": "use ordinary differential equations of first and second order to model and solve related problems in physics, economics, chemistry and biology"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-5-outcome-2",
+          "text": "extend the concepts of differentiation and integration to ordinary differential equations"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-5-outcome-3",
+          "text": "state the order and the degree of an ordinary differential equation"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-5-outcome-4",
+          "text": "express the auxiliary quadratic equation of a homogeneous linear differential equation of second order with constant coefficients"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-5-outcome-5",
+          "text": "predict the form of the particular solution of an"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-5-outcome-6",
+          "text": "determine whether an ordinary differential equation of first order is with separable variables, homogeneous or linear"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can differential equations help you solve a real problem in Core Mathematics?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Differential equations.",
+        "Review key vocabulary from the previous Core Mathematics lesson."
+      ],
+      "keyVocabulary": [
+        "Differential equations",
+        "Differential",
+        "equations",
+        "method",
+        "model",
+        "unit",
+        "answer",
+        "check"
+      ],
+      "misconceptions": [
+        "giving a general answer about Differential equations without a clear example, method, or evidence"
+      ],
+      "localContext": "a Rwanda school, market, farming, building, transport, or data problem for Differential equations",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Differential equations",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for Differential equations",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "ea6dbef9-2bec-4781-b5f6-844730df2996",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Core Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/core-mathematics/ea6dbef9-2bec-4781-b5f6-844730df2996.md",
+          "sourceSectionHash": "b1520eba918e6e06fa3cba68f0a8b84262c028886df4b7547ebc56f2646c87eb",
+          "sourceSnapshotHash": "8eed8da6a4abecbbca4e26bb94952cfc10440cb3a603a1a03fae14bab7315aed"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "ea6dbef9-2bec-4781-b5f6-844730df2996",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Core Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/core-mathematics/ea6dbef9-2bec-4781-b5f6-844730df2996.md",
+          "sourceSectionHash": "b1520eba918e6e06fa3cba68f0a8b84262c028886df4b7547ebc56f2646c87eb",
+          "sourceSnapshotHash": "8eed8da6a4abecbbca4e26bb94952cfc10440cb3a603a1a03fae14bab7315aed"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S6-core-mathematics-topic-006",
+      "grade": "S6",
+      "strandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-6-strand",
+      "subStrandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-6-topic",
+      "parentSubStrandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-6-topic",
+      "strandTitle": "Intersection and sum of subspaces",
+      "unitTitle": "Intersection and sum of subspaces",
+      "sourceUnitTitle": "Intersection and sum of subspaces",
+      "learningOutcomes": [
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-6-outcome-1",
+          "text": "relate the sum and the intersection of subspaces of a vector space by the dimension formula"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-6-outcome-2",
+          "text": "define the intersection and the sum of subspaces of a vector space"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-6-outcome-3",
+          "text": "state the dimension formula"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-6-outcome-4",
+          "text": "list the conditions for a vector space to be qualified as direct sum of its subspaces"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-6-outcome-5",
+          "text": "perform the intersection and the addition of subspaces of a vector space"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-6-outcome-6",
+          "text": "determine a basis of the intersection and a basis of the sum of the subspaces of a vector space"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can intersection and sum of subspaces help you solve a real problem in Core Mathematics?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Intersection and sum of subspaces.",
+        "Review key vocabulary from the previous Core Mathematics lesson."
+      ],
+      "keyVocabulary": [
+        "Intersection and sum of subspaces",
+        "Intersection",
+        "subspaces",
+        "method",
+        "model",
+        "unit",
+        "answer",
+        "check"
+      ],
+      "misconceptions": [
+        "giving a general answer about Intersection and sum of subspaces without a clear example, method, or evidence"
+      ],
+      "localContext": "a Rwanda school, market, farming, building, transport, or data problem for Intersection and sum of subspaces",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Intersection and sum of subspaces",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for Intersection and sum of subspaces",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "ea6dbef9-2bec-4781-b5f6-844730df2996",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Core Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/core-mathematics/ea6dbef9-2bec-4781-b5f6-844730df2996.md",
+          "sourceSectionHash": "01097286e08cec897ed566ea936c10e94619ebea69ef408122cbf5254bc597ac",
+          "sourceSnapshotHash": "8eed8da6a4abecbbca4e26bb94952cfc10440cb3a603a1a03fae14bab7315aed"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "ea6dbef9-2bec-4781-b5f6-844730df2996",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Core Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/core-mathematics/ea6dbef9-2bec-4781-b5f6-844730df2996.md",
+          "sourceSectionHash": "01097286e08cec897ed566ea936c10e94619ebea69ef408122cbf5254bc597ac",
+          "sourceSnapshotHash": "8eed8da6a4abecbbca4e26bb94952cfc10440cb3a603a1a03fae14bab7315aed"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S6-core-mathematics-topic-007",
+      "grade": "S6",
+      "strandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-7-strand",
+      "subStrandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-7-topic",
+      "parentSubStrandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-7-topic",
+      "strandTitle": "Transformation of matrices",
+      "unitTitle": "Transformation of matrices",
+      "sourceUnitTitle": "Transformation of matrices",
+      "learningOutcomes": [
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-7-outcome-1",
+          "text": "transform matrices to an echelon form or to a diagonal matrix and use the results to solve simultaneous linear equations or to calculate the nth power of a matrix"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-7-outcome-2",
+          "text": "define the kernel, the image, the nullity and the rank of a linear transformation"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-7-outcome-3",
+          "text": "state the dimension formula for linear transformations"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-7-outcome-4",
+          "text": "carry out the elementary row operations on matrices"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-7-outcome-5",
+          "text": "define Eigen values and eigenvectors of a square matrix"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-7-outcome-6",
+          "text": "discuss the diagonalisation of a matrix of order 2"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can transformation of matrices help you solve a real problem in Core Mathematics?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Transformation of matrices.",
+        "Review key vocabulary from the previous Core Mathematics lesson."
+      ],
+      "keyVocabulary": [
+        "Transformation of matrices",
+        "Transformation",
+        "matrices",
+        "method",
+        "model",
+        "unit",
+        "answer",
+        "check"
+      ],
+      "misconceptions": [
+        "giving a general answer about Transformation of matrices without a clear example, method, or evidence"
+      ],
+      "localContext": "a Rwanda school, market, farming, building, transport, or data problem for Transformation of matrices",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Transformation of matrices",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for Transformation of matrices",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "ea6dbef9-2bec-4781-b5f6-844730df2996",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Core Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/core-mathematics/ea6dbef9-2bec-4781-b5f6-844730df2996.md",
+          "sourceSectionHash": "5d1d8b42382bec2dbfcaa3b21929b8db2f3cc8d02e86187dbe9bc5021f4a9d71",
+          "sourceSnapshotHash": "8eed8da6a4abecbbca4e26bb94952cfc10440cb3a603a1a03fae14bab7315aed"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "ea6dbef9-2bec-4781-b5f6-844730df2996",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Core Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/core-mathematics/ea6dbef9-2bec-4781-b5f6-844730df2996.md",
+          "sourceSectionHash": "5d1d8b42382bec2dbfcaa3b21929b8db2f3cc8d02e86187dbe9bc5021f4a9d71",
+          "sourceSnapshotHash": "8eed8da6a4abecbbca4e26bb94952cfc10440cb3a603a1a03fae14bab7315aed"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S6-core-mathematics-topic-008",
+      "grade": "S6",
+      "strandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-8-strand",
+      "subStrandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-8-topic",
+      "parentSubStrandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-8-topic",
+      "strandTitle": "Conics",
+      "unitTitle": "Conics",
+      "sourceUnitTitle": "Conics",
+      "learningOutcomes": [
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-8-outcome-1",
+          "text": "determine the characteristics and the graph of a conic given by its Cartesian, parametric or polar equation. Find the Cartesian, parametric and polar equations of a conic from its characteristics"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-8-outcome-2",
+          "text": "define geometrically a conic as the intersection of a plane and a cone and classify conics from the position of the intersecting plane"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-8-outcome-3",
+          "text": "express, in Cartesian form, the standard equation of a parabola, an ellipse and a hyperbola"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-8-outcome-4",
+          "text": "classify conics based on the value of the eccentricity"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-8-outcome-5",
+          "text": "find the characteristics of a conic given its equation (centre, axes, vertices, tangent, normal, shapes, asymptotes, foci, directrices, eccentricity, etc.)"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-8-outcome-6",
+          "text": "determine the Cartesian, parametric and polar equations of a conic from its characteristics"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can conics help you solve a real problem in Core Mathematics?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Conics.",
+        "Review key vocabulary from the previous Core Mathematics lesson."
+      ],
+      "keyVocabulary": [
+        "Conics",
+        "method",
+        "model",
+        "unit",
+        "answer",
+        "check"
+      ],
+      "misconceptions": [
+        "giving a general answer about Conics without a clear example, method, or evidence"
+      ],
+      "localContext": "a Rwanda school, market, farming, building, transport, or data problem for Conics",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Conics",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for Conics",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "ea6dbef9-2bec-4781-b5f6-844730df2996",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Core Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/core-mathematics/ea6dbef9-2bec-4781-b5f6-844730df2996.md",
+          "sourceSectionHash": "34558b8ad5a06ea13e4778da7113c7057411a48b662d80a3886c1eb3d81a2e7f",
+          "sourceSnapshotHash": "8eed8da6a4abecbbca4e26bb94952cfc10440cb3a603a1a03fae14bab7315aed"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "ea6dbef9-2bec-4781-b5f6-844730df2996",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Core Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/core-mathematics/ea6dbef9-2bec-4781-b5f6-844730df2996.md",
+          "sourceSectionHash": "34558b8ad5a06ea13e4778da7113c7057411a48b662d80a3886c1eb3d81a2e7f",
+          "sourceSnapshotHash": "8eed8da6a4abecbbca4e26bb94952cfc10440cb3a603a1a03fae14bab7315aed"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S6-core-mathematics-topic-009",
+      "grade": "S6",
+      "strandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-9-strand",
+      "subStrandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-9-topic",
+      "parentSubStrandId": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-9-topic",
+      "strandTitle": "Random variables",
+      "unitTitle": "Random variables",
+      "sourceUnitTitle": "Random variables",
+      "learningOutcomes": [
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-9-outcome-1",
+          "text": "calculate and interpret the parameters of a random variable (discrete or continuous) including binomial and the Poisson distributions"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-9-outcome-2",
+          "text": "define a random variable"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-9-outcome-3",
+          "text": "identify whether a given random variable is discrete or continuous"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-9-outcome-4",
+          "text": "define the parameters of a discrete random variable"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-9-outcome-5",
+          "text": "learn in which situation the Binomial distribution applies and state its parameters"
+        },
+        {
+          "id": "ea6dbef9-2bec-4781-b5f6-844730df2996-unit-9-outcome-6",
+          "text": "use the concepts of statistics to compare frequency distribution to probability distribution"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can random variables help you solve a real problem in Core Mathematics?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Random variables.",
+        "Review key vocabulary from the previous Core Mathematics lesson."
+      ],
+      "keyVocabulary": [
+        "Random variables",
+        "Random",
+        "variables",
+        "method",
+        "model",
+        "unit",
+        "answer",
+        "check"
+      ],
+      "misconceptions": [
+        "giving a general answer about Random variables without a clear example, method, or evidence"
+      ],
+      "localContext": "a Rwanda school, market, farming, building, transport, or data problem for Random variables",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Random variables",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for Random variables",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "ea6dbef9-2bec-4781-b5f6-844730df2996",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Core Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/core-mathematics/ea6dbef9-2bec-4781-b5f6-844730df2996.md",
+          "sourceSectionHash": "cbb72af8aeab924243dee7e4ea066055292b5644b2db057d09e1cb2ca8608d42",
+          "sourceSnapshotHash": "8eed8da6a4abecbbca4e26bb94952cfc10440cb3a603a1a03fae14bab7315aed"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "ea6dbef9-2bec-4781-b5f6-844730df2996",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Core Mathematics",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/core-mathematics/ea6dbef9-2bec-4781-b5f6-844730df2996.md",
+          "sourceSectionHash": "cbb72af8aeab924243dee7e4ea066055292b5644b2db057d09e1cb2ca8608d42",
+          "sourceSnapshotHash": "8eed8da6a4abecbbca4e26bb94952cfc10440cb3a603a1a03fae14bab7315aed"
+        }
+      ]
+    }
+  ]
+}

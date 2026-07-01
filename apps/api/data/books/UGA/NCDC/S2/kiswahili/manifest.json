@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-uga-ncdc-s2-kiswahili",
+  "title": "KITABU QUEST S2 Kiswahili",
+  "country": "UGA",
+  "curriculum": "NCDC",
+  "grade": "S2",
+  "subject": "Kiswahili",
+  "subjectSlug": "kiswahili",
+  "subjectColor": "#C2410C",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v12",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:15:36Z",
+  "sourceSnapshotHash": "e3ae19f0d2b43f72205e26ff0627d1e635c2c37281fc14770eebe2e1ddfc350e",
+  "bookPlanHash": "08665066a257fc3e11ce4303b6af33ba35d38dccf780ad4bb70745080d94e5f5",
+  "pageCount": 111,
+  "wordCount": 8944,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 8,
+    "outcomeCount": 8,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "UGA",
+    "subject": "Kiswahili",
+    "species": "hare",
+    "role": "East African language guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners in a Kiswahili storytelling circle with a friendly hare mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Uganda NCDC S2 Kiswahili. Scene: learners in a Kiswahili storytelling circle with a friendly hare mascot. Include a friendly hare mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 85835,
+    "sha256": "2629ea155c5f560e8623128900b7e67ac510f89a8e5c0fba6917d4eeed381a54"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 85835,
+      "sha256": "2629ea155c5f560e8623128900b7e67ac510f89a8e5c0fba6917d4eeed381a54",
+      "kind": "cover",
+      "altText": "KITABU QUEST S2 Kiswahili cover with hare",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-uga-ncdc-s2-kiswahili.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-uga-ncdc-s2-kiswahili.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "f99d4cb4-922c-4229-94f6-8c60ee3e383d",
+      "subject": "Kiswahili",
+      "officialTitle": "Uganda Curriculum S2 Kiswahili",
+      "countryCode": "UGA",
+      "curriculumCode": "NCDC",
+      "gradeCode": "S2",
+      "gradeLocalLevel": "S2",
+      "localLevel": "S2",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/KISWAHILI_Syllabus_compressed.pdf",
+      "objectKey": "data/curriculum/source-files/UGA/b63209dd3d5467e69343b5a14a44de0f8d3dbbc7fd3e64fbe6a429e3dc05662d.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "S2",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/KISWAHILI_Syllabus_compressed.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/UGA/NCDC/S2/kiswahili/f99d4cb4-922c-4229-94f6-8c60ee3e383d.md",
+        "sourcePageUrl": "https://ncdc.go.ug/wp-content/uploads/2024/03/Curriculum_Framework.pdf",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "ncdc.go.ug"
+        ],
+        "markdownChecksum": "a5ed081828ebb34f69a512fb56c0b04ca1a2a23f58781a693a1077d698bb0864",
+        "markdownPageCount": 52,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/UGA/NCDC/S2/kiswahili/f99d4cb4-922c-4229-94f6-8c60ee3e383d.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "a5ed081828ebb34f69a512fb56c0b04ca1a2a23f58781a693a1077d698bb0864",
+          "pageCount": 52,
+          "generatedAt": "2026-06-29T18:03:22.298Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "88bbc34e6082a39478275ea1f581d4f75f7c7bf578a6d6e4fc852ef2db5d943f"
+        },
+        "markdownGeneratedAt": "2026-06-29T18:03:22.298Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

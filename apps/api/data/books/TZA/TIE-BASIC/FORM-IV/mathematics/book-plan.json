@@ -1,0 +1,1279 @@
+{
+  "schemaVersion": 1,
+  "sourceType": "normalized-curriculum",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Form IV",
+  "subject": "Mathematics",
+  "generatedAt": "2026-07-01T05:49:14Z",
+  "sourceSnapshotHash": "0b35289a1c1a3bf380a39945df1ddf5a210beee525a4648d1bafcd30c7dbd89a",
+  "writingStandard": {
+    "voice": "simple, conversational, purposeful, age-appropriate, and learner-first",
+    "antiFluff": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "coversDeferred": true
+  },
+  "strands": [
+    {
+      "strandId": "fallback-form-iv-mathematics-1",
+      "number": "",
+      "title": "Functions Relations And Graphs",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-iv-mathematics-2",
+      "number": "",
+      "title": "Matrices And Transformations",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-iv-mathematics-3",
+      "number": "",
+      "title": "Linear Programming And Inequalities",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-iv-mathematics-4",
+      "number": "",
+      "title": "Trigonometry And Bearing Problems",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-iv-mathematics-5",
+      "number": "",
+      "title": "Mensuration And Similarity Review",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-iv-mathematics-6",
+      "number": "",
+      "title": "Statistics And Probability For Decisions",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-iv-mathematics-7",
+      "number": "",
+      "title": "Commercial Mathematics And Rates",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-iv-mathematics-8",
+      "number": "",
+      "title": "Form IV Examination Practice Project",
+      "topicCount": 1
+    }
+  ],
+  "topics": [
+    {
+      "topicId": "TZA-FORM-IV-mathematics-topic-001",
+      "grade": "Form IV",
+      "strandId": "fallback-form-iv-mathematics-1",
+      "subStrandId": "fallback-form-iv-mathematics-1",
+      "parentSubStrandId": "fallback-form-iv-mathematics-1",
+      "strandTitle": "Functions Relations And Graphs",
+      "unitTitle": "Functions Relations And Graphs",
+      "sourceUnitTitle": "Functions Relations And Graphs",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-iv-mathematics-1-outcome-1",
+          "text": "solve and explain problems about functions relations and graphs"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can functions relations and graphs help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Functions Relations And Graphs.",
+        "Review key vocabulary from the previous Mathematics lesson."
+      ],
+      "keyVocabulary": [
+        "Functions Relations And Graphs",
+        "Functions",
+        "Relations",
+        "Graphs",
+        "method",
+        "model",
+        "unit",
+        "answer"
+      ],
+      "misconceptions": [
+        "giving a general answer about Functions Relations And Graphs without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania school, market, farming, building, transport, or data problem for Functions Relations And Graphs",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Functions Relations And Graphs",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for Functions Relations And Graphs",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1eabaf30-5408-42fa-971e-faf7ff921cfe",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Mathematics",
+          "subject": "Mathematics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727256902-MATHEMATICS%20SYLLABUS%20-%20O%20level%20final.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/a04fefe1e03f967c1c4ed91493f836e9b272599909bf227b92ae86271941ec7d.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727256902-MATHEMATICS%20SYLLABUS%20-%20O%20level%20final.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/mathematics/1eabaf30-5408-42fa-971e-faf7ff921cfe.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "89b5be9288e2c5acdc63e789014c74bb668c3dafe42a5209cbe3f13a364a044a",
+            "markdownPageCount": 48,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/mathematics/1eabaf30-5408-42fa-971e-faf7ff921cfe.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "89b5be9288e2c5acdc63e789014c74bb668c3dafe42a5209cbe3f13a364a044a",
+              "pageCount": 48,
+              "generatedAt": "2026-06-29T16:47:04.834Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "a666f9276704c2d0c4f73870262165573e0c8d479021fcad6345444c2ff55e50"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:47:04.834Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "0b35289a1c1a3bf380a39945df1ddf5a210beee525a4648d1bafcd30c7dbd89a"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1eabaf30-5408-42fa-971e-faf7ff921cfe",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Mathematics",
+          "subject": "Mathematics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727256902-MATHEMATICS%20SYLLABUS%20-%20O%20level%20final.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/a04fefe1e03f967c1c4ed91493f836e9b272599909bf227b92ae86271941ec7d.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727256902-MATHEMATICS%20SYLLABUS%20-%20O%20level%20final.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/mathematics/1eabaf30-5408-42fa-971e-faf7ff921cfe.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "89b5be9288e2c5acdc63e789014c74bb668c3dafe42a5209cbe3f13a364a044a",
+            "markdownPageCount": 48,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/mathematics/1eabaf30-5408-42fa-971e-faf7ff921cfe.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "89b5be9288e2c5acdc63e789014c74bb668c3dafe42a5209cbe3f13a364a044a",
+              "pageCount": 48,
+              "generatedAt": "2026-06-29T16:47:04.834Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "a666f9276704c2d0c4f73870262165573e0c8d479021fcad6345444c2ff55e50"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:47:04.834Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "0b35289a1c1a3bf380a39945df1ddf5a210beee525a4648d1bafcd30c7dbd89a"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-IV-mathematics-topic-002",
+      "grade": "Form IV",
+      "strandId": "fallback-form-iv-mathematics-2",
+      "subStrandId": "fallback-form-iv-mathematics-2",
+      "parentSubStrandId": "fallback-form-iv-mathematics-2",
+      "strandTitle": "Matrices And Transformations",
+      "unitTitle": "Matrices And Transformations",
+      "sourceUnitTitle": "Matrices And Transformations",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-iv-mathematics-2-outcome-1",
+          "text": "solve and explain problems about matrices and transformations"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can matrices and transformations help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Matrices And Transformations.",
+        "Review key vocabulary from the previous Mathematics lesson."
+      ],
+      "keyVocabulary": [
+        "Matrices And Transformations",
+        "Matrices",
+        "Transformations",
+        "method",
+        "model",
+        "unit",
+        "answer",
+        "check"
+      ],
+      "misconceptions": [
+        "giving a general answer about Matrices And Transformations without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania school, market, farming, building, transport, or data problem for Matrices And Transformations",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Matrices And Transformations",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for Matrices And Transformations",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1eabaf30-5408-42fa-971e-faf7ff921cfe",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Mathematics",
+          "subject": "Mathematics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727256902-MATHEMATICS%20SYLLABUS%20-%20O%20level%20final.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/a04fefe1e03f967c1c4ed91493f836e9b272599909bf227b92ae86271941ec7d.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727256902-MATHEMATICS%20SYLLABUS%20-%20O%20level%20final.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/mathematics/1eabaf30-5408-42fa-971e-faf7ff921cfe.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "89b5be9288e2c5acdc63e789014c74bb668c3dafe42a5209cbe3f13a364a044a",
+            "markdownPageCount": 48,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/mathematics/1eabaf30-5408-42fa-971e-faf7ff921cfe.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "89b5be9288e2c5acdc63e789014c74bb668c3dafe42a5209cbe3f13a364a044a",
+              "pageCount": 48,
+              "generatedAt": "2026-06-29T16:47:04.834Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "a666f9276704c2d0c4f73870262165573e0c8d479021fcad6345444c2ff55e50"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:47:04.834Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "0b35289a1c1a3bf380a39945df1ddf5a210beee525a4648d1bafcd30c7dbd89a"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1eabaf30-5408-42fa-971e-faf7ff921cfe",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Mathematics",
+          "subject": "Mathematics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727256902-MATHEMATICS%20SYLLABUS%20-%20O%20level%20final.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/a04fefe1e03f967c1c4ed91493f836e9b272599909bf227b92ae86271941ec7d.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727256902-MATHEMATICS%20SYLLABUS%20-%20O%20level%20final.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/mathematics/1eabaf30-5408-42fa-971e-faf7ff921cfe.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "89b5be9288e2c5acdc63e789014c74bb668c3dafe42a5209cbe3f13a364a044a",
+            "markdownPageCount": 48,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/mathematics/1eabaf30-5408-42fa-971e-faf7ff921cfe.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "89b5be9288e2c5acdc63e789014c74bb668c3dafe42a5209cbe3f13a364a044a",
+              "pageCount": 48,
+              "generatedAt": "2026-06-29T16:47:04.834Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "a666f9276704c2d0c4f73870262165573e0c8d479021fcad6345444c2ff55e50"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:47:04.834Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "0b35289a1c1a3bf380a39945df1ddf5a210beee525a4648d1bafcd30c7dbd89a"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-IV-mathematics-topic-003",
+      "grade": "Form IV",
+      "strandId": "fallback-form-iv-mathematics-3",
+      "subStrandId": "fallback-form-iv-mathematics-3",
+      "parentSubStrandId": "fallback-form-iv-mathematics-3",
+      "strandTitle": "Linear Programming And Inequalities",
+      "unitTitle": "Linear Programming And Inequalities",
+      "sourceUnitTitle": "Linear Programming And Inequalities",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-iv-mathematics-3-outcome-1",
+          "text": "solve and explain problems about linear programming and inequalities"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can linear programming and inequalities help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Linear Programming And Inequalities.",
+        "Review key vocabulary from the previous Mathematics lesson."
+      ],
+      "keyVocabulary": [
+        "Linear Programming And Inequalities",
+        "Linear",
+        "Programming",
+        "Inequalities",
+        "method",
+        "model",
+        "unit",
+        "answer"
+      ],
+      "misconceptions": [
+        "giving a general answer about Linear Programming And Inequalities without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania school, market, farming, building, transport, or data problem for Linear Programming And Inequalities",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Linear Programming And Inequalities",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for Linear Programming And Inequalities",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1eabaf30-5408-42fa-971e-faf7ff921cfe",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Mathematics",
+          "subject": "Mathematics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727256902-MATHEMATICS%20SYLLABUS%20-%20O%20level%20final.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/a04fefe1e03f967c1c4ed91493f836e9b272599909bf227b92ae86271941ec7d.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727256902-MATHEMATICS%20SYLLABUS%20-%20O%20level%20final.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/mathematics/1eabaf30-5408-42fa-971e-faf7ff921cfe.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "89b5be9288e2c5acdc63e789014c74bb668c3dafe42a5209cbe3f13a364a044a",
+            "markdownPageCount": 48,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/mathematics/1eabaf30-5408-42fa-971e-faf7ff921cfe.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "89b5be9288e2c5acdc63e789014c74bb668c3dafe42a5209cbe3f13a364a044a",
+              "pageCount": 48,
+              "generatedAt": "2026-06-29T16:47:04.834Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "a666f9276704c2d0c4f73870262165573e0c8d479021fcad6345444c2ff55e50"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:47:04.834Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "0b35289a1c1a3bf380a39945df1ddf5a210beee525a4648d1bafcd30c7dbd89a"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1eabaf30-5408-42fa-971e-faf7ff921cfe",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Mathematics",
+          "subject": "Mathematics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727256902-MATHEMATICS%20SYLLABUS%20-%20O%20level%20final.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/a04fefe1e03f967c1c4ed91493f836e9b272599909bf227b92ae86271941ec7d.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727256902-MATHEMATICS%20SYLLABUS%20-%20O%20level%20final.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/mathematics/1eabaf30-5408-42fa-971e-faf7ff921cfe.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "89b5be9288e2c5acdc63e789014c74bb668c3dafe42a5209cbe3f13a364a044a",
+            "markdownPageCount": 48,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/mathematics/1eabaf30-5408-42fa-971e-faf7ff921cfe.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "89b5be9288e2c5acdc63e789014c74bb668c3dafe42a5209cbe3f13a364a044a",
+              "pageCount": 48,
+              "generatedAt": "2026-06-29T16:47:04.834Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "a666f9276704c2d0c4f73870262165573e0c8d479021fcad6345444c2ff55e50"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:47:04.834Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "0b35289a1c1a3bf380a39945df1ddf5a210beee525a4648d1bafcd30c7dbd89a"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-IV-mathematics-topic-004",
+      "grade": "Form IV",
+      "strandId": "fallback-form-iv-mathematics-4",
+      "subStrandId": "fallback-form-iv-mathematics-4",
+      "parentSubStrandId": "fallback-form-iv-mathematics-4",
+      "strandTitle": "Trigonometry And Bearing Problems",
+      "unitTitle": "Trigonometry And Bearing Problems",
+      "sourceUnitTitle": "Trigonometry And Bearing Problems",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-iv-mathematics-4-outcome-1",
+          "text": "solve and explain problems about trigonometry and bearing problems"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can trigonometry and bearing problems help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Trigonometry And Bearing Problems.",
+        "Review key vocabulary from the previous Mathematics lesson."
+      ],
+      "keyVocabulary": [
+        "Trigonometry And Bearing Problems",
+        "Trigonometry",
+        "Bearing",
+        "Problems",
+        "method",
+        "model",
+        "unit",
+        "answer"
+      ],
+      "misconceptions": [
+        "giving a general answer about Trigonometry And Bearing Problems without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania school, market, farming, building, transport, or data problem for Trigonometry And Bearing Problems",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Trigonometry And Bearing Problems",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for Trigonometry And Bearing Problems",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1eabaf30-5408-42fa-971e-faf7ff921cfe",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Mathematics",
+          "subject": "Mathematics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727256902-MATHEMATICS%20SYLLABUS%20-%20O%20level%20final.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/a04fefe1e03f967c1c4ed91493f836e9b272599909bf227b92ae86271941ec7d.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727256902-MATHEMATICS%20SYLLABUS%20-%20O%20level%20final.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/mathematics/1eabaf30-5408-42fa-971e-faf7ff921cfe.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "89b5be9288e2c5acdc63e789014c74bb668c3dafe42a5209cbe3f13a364a044a",
+            "markdownPageCount": 48,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/mathematics/1eabaf30-5408-42fa-971e-faf7ff921cfe.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "89b5be9288e2c5acdc63e789014c74bb668c3dafe42a5209cbe3f13a364a044a",
+              "pageCount": 48,
+              "generatedAt": "2026-06-29T16:47:04.834Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "a666f9276704c2d0c4f73870262165573e0c8d479021fcad6345444c2ff55e50"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:47:04.834Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "0b35289a1c1a3bf380a39945df1ddf5a210beee525a4648d1bafcd30c7dbd89a"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1eabaf30-5408-42fa-971e-faf7ff921cfe",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Mathematics",
+          "subject": "Mathematics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727256902-MATHEMATICS%20SYLLABUS%20-%20O%20level%20final.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/a04fefe1e03f967c1c4ed91493f836e9b272599909bf227b92ae86271941ec7d.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727256902-MATHEMATICS%20SYLLABUS%20-%20O%20level%20final.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/mathematics/1eabaf30-5408-42fa-971e-faf7ff921cfe.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "89b5be9288e2c5acdc63e789014c74bb668c3dafe42a5209cbe3f13a364a044a",
+            "markdownPageCount": 48,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/mathematics/1eabaf30-5408-42fa-971e-faf7ff921cfe.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "89b5be9288e2c5acdc63e789014c74bb668c3dafe42a5209cbe3f13a364a044a",
+              "pageCount": 48,
+              "generatedAt": "2026-06-29T16:47:04.834Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "a666f9276704c2d0c4f73870262165573e0c8d479021fcad6345444c2ff55e50"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:47:04.834Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "0b35289a1c1a3bf380a39945df1ddf5a210beee525a4648d1bafcd30c7dbd89a"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-IV-mathematics-topic-005",
+      "grade": "Form IV",
+      "strandId": "fallback-form-iv-mathematics-5",
+      "subStrandId": "fallback-form-iv-mathematics-5",
+      "parentSubStrandId": "fallback-form-iv-mathematics-5",
+      "strandTitle": "Mensuration And Similarity Review",
+      "unitTitle": "Mensuration And Similarity Review",
+      "sourceUnitTitle": "Mensuration And Similarity Review",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-iv-mathematics-5-outcome-1",
+          "text": "solve and explain problems about mensuration and similarity review"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can mensuration and similarity review help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Mensuration And Similarity Review.",
+        "Review key vocabulary from the previous Mathematics lesson."
+      ],
+      "keyVocabulary": [
+        "Mensuration And Similarity Review",
+        "Mensuration",
+        "Similarity",
+        "Review",
+        "method",
+        "model",
+        "unit",
+        "answer"
+      ],
+      "misconceptions": [
+        "giving a general answer about Mensuration And Similarity Review without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania school, market, farming, building, transport, or data problem for Mensuration And Similarity Review",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Mensuration And Similarity Review",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for Mensuration And Similarity Review",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1eabaf30-5408-42fa-971e-faf7ff921cfe",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Mathematics",
+          "subject": "Mathematics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727256902-MATHEMATICS%20SYLLABUS%20-%20O%20level%20final.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/a04fefe1e03f967c1c4ed91493f836e9b272599909bf227b92ae86271941ec7d.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727256902-MATHEMATICS%20SYLLABUS%20-%20O%20level%20final.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/mathematics/1eabaf30-5408-42fa-971e-faf7ff921cfe.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "89b5be9288e2c5acdc63e789014c74bb668c3dafe42a5209cbe3f13a364a044a",
+            "markdownPageCount": 48,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/mathematics/1eabaf30-5408-42fa-971e-faf7ff921cfe.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "89b5be9288e2c5acdc63e789014c74bb668c3dafe42a5209cbe3f13a364a044a",
+              "pageCount": 48,
+              "generatedAt": "2026-06-29T16:47:04.834Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "a666f9276704c2d0c4f73870262165573e0c8d479021fcad6345444c2ff55e50"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:47:04.834Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "0b35289a1c1a3bf380a39945df1ddf5a210beee525a4648d1bafcd30c7dbd89a"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1eabaf30-5408-42fa-971e-faf7ff921cfe",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Mathematics",
+          "subject": "Mathematics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727256902-MATHEMATICS%20SYLLABUS%20-%20O%20level%20final.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/a04fefe1e03f967c1c4ed91493f836e9b272599909bf227b92ae86271941ec7d.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727256902-MATHEMATICS%20SYLLABUS%20-%20O%20level%20final.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/mathematics/1eabaf30-5408-42fa-971e-faf7ff921cfe.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "89b5be9288e2c5acdc63e789014c74bb668c3dafe42a5209cbe3f13a364a044a",
+            "markdownPageCount": 48,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/mathematics/1eabaf30-5408-42fa-971e-faf7ff921cfe.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "89b5be9288e2c5acdc63e789014c74bb668c3dafe42a5209cbe3f13a364a044a",
+              "pageCount": 48,
+              "generatedAt": "2026-06-29T16:47:04.834Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "a666f9276704c2d0c4f73870262165573e0c8d479021fcad6345444c2ff55e50"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:47:04.834Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "0b35289a1c1a3bf380a39945df1ddf5a210beee525a4648d1bafcd30c7dbd89a"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-IV-mathematics-topic-006",
+      "grade": "Form IV",
+      "strandId": "fallback-form-iv-mathematics-6",
+      "subStrandId": "fallback-form-iv-mathematics-6",
+      "parentSubStrandId": "fallback-form-iv-mathematics-6",
+      "strandTitle": "Statistics And Probability For Decisions",
+      "unitTitle": "Statistics And Probability For Decisions",
+      "sourceUnitTitle": "Statistics And Probability For Decisions",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-iv-mathematics-6-outcome-1",
+          "text": "solve and explain problems about statistics and probability for decisions"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can statistics and probability for decisions help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Statistics And Probability For Decisions.",
+        "Review key vocabulary from the previous Mathematics lesson."
+      ],
+      "keyVocabulary": [
+        "Statistics And Probability For Decisions",
+        "Statistics",
+        "Probability",
+        "Decisions",
+        "method",
+        "model",
+        "unit",
+        "answer"
+      ],
+      "misconceptions": [
+        "giving a general answer about Statistics And Probability For Decisions without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania school, market, farming, building, transport, or data problem for Statistics And Probability For Decisions",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Statistics And Probability For Decisions",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for Statistics And Probability For Decisions",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1eabaf30-5408-42fa-971e-faf7ff921cfe",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Mathematics",
+          "subject": "Mathematics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727256902-MATHEMATICS%20SYLLABUS%20-%20O%20level%20final.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/a04fefe1e03f967c1c4ed91493f836e9b272599909bf227b92ae86271941ec7d.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727256902-MATHEMATICS%20SYLLABUS%20-%20O%20level%20final.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/mathematics/1eabaf30-5408-42fa-971e-faf7ff921cfe.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "89b5be9288e2c5acdc63e789014c74bb668c3dafe42a5209cbe3f13a364a044a",
+            "markdownPageCount": 48,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/mathematics/1eabaf30-5408-42fa-971e-faf7ff921cfe.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "89b5be9288e2c5acdc63e789014c74bb668c3dafe42a5209cbe3f13a364a044a",
+              "pageCount": 48,
+              "generatedAt": "2026-06-29T16:47:04.834Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "a666f9276704c2d0c4f73870262165573e0c8d479021fcad6345444c2ff55e50"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:47:04.834Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "0b35289a1c1a3bf380a39945df1ddf5a210beee525a4648d1bafcd30c7dbd89a"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1eabaf30-5408-42fa-971e-faf7ff921cfe",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Mathematics",
+          "subject": "Mathematics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727256902-MATHEMATICS%20SYLLABUS%20-%20O%20level%20final.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/a04fefe1e03f967c1c4ed91493f836e9b272599909bf227b92ae86271941ec7d.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727256902-MATHEMATICS%20SYLLABUS%20-%20O%20level%20final.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/mathematics/1eabaf30-5408-42fa-971e-faf7ff921cfe.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "89b5be9288e2c5acdc63e789014c74bb668c3dafe42a5209cbe3f13a364a044a",
+            "markdownPageCount": 48,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/mathematics/1eabaf30-5408-42fa-971e-faf7ff921cfe.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "89b5be9288e2c5acdc63e789014c74bb668c3dafe42a5209cbe3f13a364a044a",
+              "pageCount": 48,
+              "generatedAt": "2026-06-29T16:47:04.834Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "a666f9276704c2d0c4f73870262165573e0c8d479021fcad6345444c2ff55e50"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:47:04.834Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "0b35289a1c1a3bf380a39945df1ddf5a210beee525a4648d1bafcd30c7dbd89a"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-IV-mathematics-topic-007",
+      "grade": "Form IV",
+      "strandId": "fallback-form-iv-mathematics-7",
+      "subStrandId": "fallback-form-iv-mathematics-7",
+      "parentSubStrandId": "fallback-form-iv-mathematics-7",
+      "strandTitle": "Commercial Mathematics And Rates",
+      "unitTitle": "Commercial Mathematics And Rates",
+      "sourceUnitTitle": "Commercial Mathematics And Rates",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-iv-mathematics-7-outcome-1",
+          "text": "solve and explain problems about commercial mathematics and rates"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can commercial mathematics and rates help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Commercial Mathematics And Rates.",
+        "Review key vocabulary from the previous Mathematics lesson."
+      ],
+      "keyVocabulary": [
+        "Commercial Mathematics And Rates",
+        "Commercial",
+        "Mathematics",
+        "Rates",
+        "method",
+        "model",
+        "unit",
+        "answer"
+      ],
+      "misconceptions": [
+        "giving a general answer about Commercial Mathematics And Rates without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania school, market, farming, building, transport, or data problem for Commercial Mathematics And Rates",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Commercial Mathematics And Rates",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for Commercial Mathematics And Rates",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1eabaf30-5408-42fa-971e-faf7ff921cfe",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Mathematics",
+          "subject": "Mathematics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727256902-MATHEMATICS%20SYLLABUS%20-%20O%20level%20final.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/a04fefe1e03f967c1c4ed91493f836e9b272599909bf227b92ae86271941ec7d.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727256902-MATHEMATICS%20SYLLABUS%20-%20O%20level%20final.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/mathematics/1eabaf30-5408-42fa-971e-faf7ff921cfe.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "89b5be9288e2c5acdc63e789014c74bb668c3dafe42a5209cbe3f13a364a044a",
+            "markdownPageCount": 48,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/mathematics/1eabaf30-5408-42fa-971e-faf7ff921cfe.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "89b5be9288e2c5acdc63e789014c74bb668c3dafe42a5209cbe3f13a364a044a",
+              "pageCount": 48,
+              "generatedAt": "2026-06-29T16:47:04.834Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "a666f9276704c2d0c4f73870262165573e0c8d479021fcad6345444c2ff55e50"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:47:04.834Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "0b35289a1c1a3bf380a39945df1ddf5a210beee525a4648d1bafcd30c7dbd89a"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1eabaf30-5408-42fa-971e-faf7ff921cfe",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Mathematics",
+          "subject": "Mathematics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727256902-MATHEMATICS%20SYLLABUS%20-%20O%20level%20final.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/a04fefe1e03f967c1c4ed91493f836e9b272599909bf227b92ae86271941ec7d.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727256902-MATHEMATICS%20SYLLABUS%20-%20O%20level%20final.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/mathematics/1eabaf30-5408-42fa-971e-faf7ff921cfe.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "89b5be9288e2c5acdc63e789014c74bb668c3dafe42a5209cbe3f13a364a044a",
+            "markdownPageCount": 48,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/mathematics/1eabaf30-5408-42fa-971e-faf7ff921cfe.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "89b5be9288e2c5acdc63e789014c74bb668c3dafe42a5209cbe3f13a364a044a",
+              "pageCount": 48,
+              "generatedAt": "2026-06-29T16:47:04.834Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "a666f9276704c2d0c4f73870262165573e0c8d479021fcad6345444c2ff55e50"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:47:04.834Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "0b35289a1c1a3bf380a39945df1ddf5a210beee525a4648d1bafcd30c7dbd89a"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-IV-mathematics-topic-008",
+      "grade": "Form IV",
+      "strandId": "fallback-form-iv-mathematics-8",
+      "subStrandId": "fallback-form-iv-mathematics-8",
+      "parentSubStrandId": "fallback-form-iv-mathematics-8",
+      "strandTitle": "Form IV Examination Practice Project",
+      "unitTitle": "Form IV Examination Practice Project",
+      "sourceUnitTitle": "Form IV Examination Practice Project",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-iv-mathematics-8-outcome-1",
+          "text": "solve and explain problems about form iv examination practice project"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can form iv examination practice project help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Form IV Examination Practice Project.",
+        "Review key vocabulary from the previous Mathematics lesson."
+      ],
+      "keyVocabulary": [
+        "Form IV Examination Practice Project",
+        "Form",
+        "Examination",
+        "Practice",
+        "Project",
+        "method",
+        "model",
+        "unit"
+      ],
+      "misconceptions": [
+        "giving a general answer about Form IV Examination Practice Project without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania school, market, farming, building, transport, or data problem for Form IV Examination Practice Project",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Form IV Examination Practice Project",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for Form IV Examination Practice Project",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1eabaf30-5408-42fa-971e-faf7ff921cfe",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Mathematics",
+          "subject": "Mathematics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727256902-MATHEMATICS%20SYLLABUS%20-%20O%20level%20final.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/a04fefe1e03f967c1c4ed91493f836e9b272599909bf227b92ae86271941ec7d.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727256902-MATHEMATICS%20SYLLABUS%20-%20O%20level%20final.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/mathematics/1eabaf30-5408-42fa-971e-faf7ff921cfe.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "89b5be9288e2c5acdc63e789014c74bb668c3dafe42a5209cbe3f13a364a044a",
+            "markdownPageCount": 48,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/mathematics/1eabaf30-5408-42fa-971e-faf7ff921cfe.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "89b5be9288e2c5acdc63e789014c74bb668c3dafe42a5209cbe3f13a364a044a",
+              "pageCount": 48,
+              "generatedAt": "2026-06-29T16:47:04.834Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "a666f9276704c2d0c4f73870262165573e0c8d479021fcad6345444c2ff55e50"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:47:04.834Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "0b35289a1c1a3bf380a39945df1ddf5a210beee525a4648d1bafcd30c7dbd89a"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1eabaf30-5408-42fa-971e-faf7ff921cfe",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV Mathematics",
+          "subject": "Mathematics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727256902-MATHEMATICS%20SYLLABUS%20-%20O%20level%20final.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/a04fefe1e03f967c1c4ed91493f836e9b272599909bf227b92ae86271941ec7d.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727256902-MATHEMATICS%20SYLLABUS%20-%20O%20level%20final.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/mathematics/1eabaf30-5408-42fa-971e-faf7ff921cfe.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "89b5be9288e2c5acdc63e789014c74bb668c3dafe42a5209cbe3f13a364a044a",
+            "markdownPageCount": 48,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/mathematics/1eabaf30-5408-42fa-971e-faf7ff921cfe.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "89b5be9288e2c5acdc63e789014c74bb668c3dafe42a5209cbe3f13a364a044a",
+              "pageCount": 48,
+              "generatedAt": "2026-06-29T16:47:04.834Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "a666f9276704c2d0c4f73870262165573e0c8d479021fcad6345444c2ff55e50"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:47:04.834Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "0b35289a1c1a3bf380a39945df1ddf5a210beee525a4648d1bafcd30c7dbd89a"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-tza-tie-basic-form-iii-physics",
+  "title": "KITABU QUEST Form III Physics",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Form III",
+  "subject": "Physics",
+  "subjectSlug": "physics",
+  "subjectColor": "#0E7490",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v13",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:47:50Z",
+  "sourceSnapshotHash": "f236ed677ad8ff742684ee2c9f971ca5b6136ace640fbedfb3affc94baf38bc6",
+  "bookPlanHash": "e8f9d23a7c08ffb58c78dd3872f11f7525c8524a1cef162bd9abe00bf2b9f5ee",
+  "pageCount": 85,
+  "wordCount": 7872,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 8,
+    "outcomeCount": 8,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "TZA",
+    "subject": "Physics",
+    "species": "elephant",
+    "role": "measurement and systems guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "students exploring physics with apparatus and an elephant mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Tanzania TIE-BASIC Form III Physics. Scene: students exploring physics with apparatus and an elephant mascot. Include a friendly elephant mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 85541,
+    "sha256": "7df72b21ce912acf41387291754d5d99a3ee552271c95c83baf7f9e493c644dd"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 85541,
+      "sha256": "7df72b21ce912acf41387291754d5d99a3ee552271c95c83baf7f9e493c644dd",
+      "kind": "cover",
+      "altText": "KITABU QUEST Form III Physics cover with elephant",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-tza-tie-basic-form-iii-physics.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-tza-tie-basic-form-iii-physics.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "52ef134a-684a-414d-855d-9e98edfcf1f2",
+      "subject": "Physics",
+      "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form III Physics",
+      "countryCode": "TZA",
+      "curriculumCode": "TIE-BASIC",
+      "gradeCode": "FORM_III",
+      "gradeLocalLevel": "Form III",
+      "localLevel": "Form III",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+      "objectKey": "data/curriculum/source-files/TZA/0d7c0b23b510f3b4aa3794b3686673426584be94dd1f84f8204e273a9e24b0d6.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "FORM_III",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/physics/52ef134a-684a-414d-855d-9e98edfcf1f2.md",
+        "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "tie.go.tz"
+        ],
+        "markdownChecksum": "80e82e79575738fe769dfabcb4cd27889a8dea0cd12cacd7f97b94a86888be55",
+        "markdownPageCount": 61,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/physics/52ef134a-684a-414d-855d-9e98edfcf1f2.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "80e82e79575738fe769dfabcb4cd27889a8dea0cd12cacd7f97b94a86888be55",
+          "pageCount": 61,
+          "generatedAt": "2026-06-29T16:46:18.680Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "0e0f96e61e9ec349deb3f46933e4a6d045aa58c5a12c7c450c9247521f33669f"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:46:18.680Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

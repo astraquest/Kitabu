@@ -1,0 +1,2881 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo",
+  "title": "KITABU QUEST Standard V Sanaa na Michezo",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Standard V",
+  "subject": "Sanaa na Michezo",
+  "subjectSlug": "sanaa-na-michezo",
+  "subjectColor": "#DB2777",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v13",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:41:33Z",
+  "sourceSnapshotHash": "2ea2aafce45c9f3d1502da72c0319c85ed75714c2afb492cb48c08ed998691ff",
+  "bookPlanHash": "4c4ac17fff6897f7e1acb595c993e2e4114cfbf5899e7d45c149efccd77a9393",
+  "pageCount": 115,
+  "wordCount": 10892,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 8,
+    "outcomeCount": 8,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "TZA",
+    "subject": "Sanaa na Michezo",
+    "species": "zebra",
+    "role": "arts and movement guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners making art and playing games safely with a zebra mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Tanzania TIE-BASIC Standard V Sanaa na Michezo. Scene: learners making art and playing games safely with a zebra mascot. Include a friendly zebra mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 93431,
+    "sha256": "812506e352d1c6975dadde88b24569916e48cd403de0ed3be5e62f4b3aae4b20"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 93431,
+      "sha256": "812506e352d1c6975dadde88b24569916e48cd403de0ed3be5e62f4b3aae4b20",
+      "kind": "cover",
+      "altText": "KITABU QUEST Standard V Sanaa na Michezo cover with zebra",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "0e17f476-1c06-4c4f-8387-db93c9a500a9",
+      "subject": "Sanaa na Michezo",
+      "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard V Sanaa na Michezo",
+      "countryCode": "TZA",
+      "curriculumCode": "TIE-BASIC",
+      "gradeCode": "STANDARD_V",
+      "gradeLocalLevel": "Standard V",
+      "localLevel": "Standard V",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727176628-MUHTASARI%20WA%20SOMO%20LA%20SANAA%20NA%20MICHEZO%20ELIMU%20YA%20MSINGI.pdf",
+      "objectKey": "data/curriculum/source-files/TZA/e46ff35d0c699ffc8aa39a0355997019ccc1eb422b7aeba9e2045ba71bf5cd8b.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "STANDARD_V",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727176628-MUHTASARI%20WA%20SOMO%20LA%20SANAA%20NA%20MICHEZO%20ELIMU%20YA%20MSINGI.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/sanaa-na-michezo/0e17f476-1c06-4c4f-8387-db93c9a500a9.md",
+        "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "tie.go.tz"
+        ],
+        "markdownChecksum": "ccee254d5d4216ed83a6bb5aec48e9226b22528732c54f2ad978c8a0d1c3632f",
+        "markdownPageCount": 39,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/sanaa-na-michezo/0e17f476-1c06-4c4f-8387-db93c9a500a9.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "ccee254d5d4216ed83a6bb5aec48e9226b22528732c54f2ad978c8a0d1c3632f",
+          "pageCount": 39,
+          "generatedAt": "2026-06-29T16:48:30.999Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "720662a12c0171e733276c9ec4ef32190925754f9d25ab4b5dd821cb367cb2b4"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:48:30.999Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p001",
+      "title": "Title Page",
+      "content": "KITABU QUEST Standard V Sanaa na Michezo\n\nTanzania TIE-BASIC learner book\n\nMascot: zebra\n\nThis KITABU QUEST book turns the curriculum into short lessons, worked examples, guided activities, practice, review, and home links for Tanzania learners.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 3,
+      "wordCount": 35,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p002",
+      "title": "How To Use This Book",
+      "content": "This book helps Standard V learners study Sanaa na Michezo one teachable topic at a time.\n\n1. Start with the inquiry question and say what you already know.\n2. Read the Learn section slowly and mark new words.\n3. Try the worked example before reading the full solution.\n4. Complete the activity and practice tasks.\n5. Correct your answer using the success criteria.\n6. Ask for support when your answer is still unclear.\n\nSubject method: Learn through examples, activities, practice, and reflection.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 82,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p003",
+      "title": "Learning Skills In This Book",
+      "content": "Each topic builds knowledge, skill, values, communication, collaboration, critical thinking, creativity, digital awareness, and self-confidence.\n\nStudy actively: speak answers aloud, draw when useful, show your working, cite evidence, use local examples, and correct mistakes after feedback.\n\nA strong answer is specific. It names the idea, gives evidence or method, applies it to the task, and checks whether it answers the question.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p004",
+      "title": "Table Of Contents",
+      "content": "Use this table to move through the book one topic at a time. Each topic has a lesson opener, clear teaching, a model or example, guided work, practice, and checks for understanding.\n\n1. Design Elements And Composition\n2. Traditional Songs Dances And Instruments\n3. Drama Dialogue And Performance\n4. Craft Construction And Decoration\n5. Athletics Games And Body Control\n6. Team Rules Safety And Respect\n7. Review Practice And Improvement\n8. Creative Performance Project\n\nAs you finish each topic, return to the success criteria and correct one answer before moving on.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p005",
+      "title": "Design Elements And Composition: Lesson Opener",
+      "content": "Learning focus: Design Elements And Composition\n\nCountry link: a safe Tanzania creative, performance, movement, craft, artwork, or teamwork activity for Design Elements And Composition.\n\nProgression focus: add reasons, compare examples, and explain choices more independently.\n\nBy the end of this topic, you should be able to:\n- plan, practise, perform, or create work related to design elements and composition\n\nInquiry questions:\n- How can design elements and composition help you solve a real problem?\n\nSuccess criteria:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-001:opener:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-001:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p006",
+      "title": "Design Elements And Composition: Learn",
+      "content": "Design Elements And Composition becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Design Elements And Composition\n- Design\n- Elements\n- Composition\n- idea\n- skill\n- example\n- practice",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-001:learn:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-001:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p007",
+      "title": "Design Elements And Composition: Worked Example",
+      "content": "Evidence model for Design Elements And Composition: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Sanaa na Michezo.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 60,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-001:example:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-001:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p008",
+      "title": "Design Elements And Composition: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Design Elements And Composition. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Design Elements And Composition\n- Design\n- Elements\n- Composition\n- idea\n- skill\n- example\n- practice\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Design Elements And Composition without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-001:vocabulary:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-001:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p009",
+      "title": "Design Elements And Composition: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Tanzania creative, performance, movement, craft, artwork, or teamwork activity for Design Elements And Composition.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-001:activity:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-001:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p010",
+      "title": "Design Elements And Composition: Practice And Correction",
+      "content": "Practice for Design Elements And Composition:\n\n1. Plan, practise, or perform a safe creative or movement task that shows: plan, practise, perform, or create work related to design elements and composition. Explain the choices you made.\n\nCorrection check:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to design elements and composition and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-001:practice:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-001:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p011",
+      "title": "Design Elements And Composition: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Design Elements And Composition.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-001:remediation:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-001:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p012",
+      "title": "Design Elements And Composition: Outcome Check",
+      "content": "Show that you can plan, practise, perform, or create work related to design elements and composition.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 102,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-001:assessment:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-001:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p013",
+      "title": "Traditional Songs Dances And Instruments: Lesson Opener",
+      "content": "Learning focus: Traditional Songs Dances And Instruments\n\nCountry link: a safe Tanzania creative, performance, movement, craft, artwork, or teamwork activity for Traditional Songs Dances And Instruments.\n\nProgression focus: add reasons, compare examples, and explain choices more independently.\n\nBy the end of this topic, you should be able to:\n- plan, practise, perform, or create work related to traditional songs dances and instruments\n\nInquiry questions:\n- How can traditional songs dances and instruments help you solve a real problem?\n\nSuccess criteria:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-002:opener:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-002:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p014",
+      "title": "Traditional Songs Dances And Instruments: Learn",
+      "content": "Traditional Songs Dances And Instruments becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Traditional Songs Dances And Instruments\n- Traditional\n- Songs\n- Dances\n- Instruments\n- idea\n- skill\n- example",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-002:learn:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-002:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p015",
+      "title": "Traditional Songs Dances And Instruments: Worked Example",
+      "content": "Evidence model for Traditional Songs Dances And Instruments: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Sanaa na Michezo.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-002:example:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-002:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p016",
+      "title": "Traditional Songs Dances And Instruments: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Traditional Songs Dances And Instruments. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Traditional Songs Dances And Instruments\n- Traditional\n- Songs\n- Dances\n- Instruments\n- idea\n- skill\n- example\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Traditional Songs Dances And Instruments without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-002:vocabulary:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-002:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p017",
+      "title": "Traditional Songs Dances And Instruments: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Tanzania creative, performance, movement, craft, artwork, or teamwork activity for Traditional Songs Dances And Instruments.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-002:activity:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-002:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p018",
+      "title": "Traditional Songs Dances And Instruments: Practice And Correction",
+      "content": "Practice for Traditional Songs Dances And Instruments:\n\n1. Plan, practise, or perform a safe creative or movement task that shows: plan, practise, perform, or create work related to traditional songs dances and instruments. Explain the choices you made.\n\nCorrection check:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to traditional songs dances and instruments and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-002:practice:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-002:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p019",
+      "title": "Traditional Songs Dances And Instruments: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Traditional Songs Dances And Instruments.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-002:remediation:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-002:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p020",
+      "title": "Traditional Songs Dances And Instruments: Outcome Check",
+      "content": "Show that you can plan, practise, perform, or create work related to traditional songs dances and instruments.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-002:assessment:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-002:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p021",
+      "title": "Drama Dialogue And Performance: Lesson Opener",
+      "content": "Learning focus: Drama Dialogue And Performance\n\nCountry link: a safe Tanzania creative, performance, movement, craft, artwork, or teamwork activity for Drama Dialogue And Performance.\n\nProgression focus: add reasons, compare examples, and explain choices more independently.\n\nBy the end of this topic, you should be able to:\n- plan, practise, perform, or create work related to drama dialogue and performance\n\nInquiry questions:\n- How can drama dialogue and performance help you solve a real problem?\n\nSuccess criteria:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-003:opener:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-003:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p022",
+      "title": "Drama Dialogue And Performance: Learn",
+      "content": "Drama Dialogue And Performance becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Drama Dialogue And Performance\n- Drama\n- Dialogue\n- Performance\n- idea\n- skill\n- example\n- practice",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-003:learn:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-003:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p023",
+      "title": "Drama Dialogue And Performance: Worked Example",
+      "content": "Evidence model for Drama Dialogue And Performance: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Sanaa na Michezo.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 60,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-003:example:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-003:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p024",
+      "title": "Drama Dialogue And Performance: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Drama Dialogue And Performance. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Drama Dialogue And Performance\n- Drama\n- Dialogue\n- Performance\n- idea\n- skill\n- example\n- practice\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Drama Dialogue And Performance without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-003:vocabulary:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-003:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p025",
+      "title": "Drama Dialogue And Performance: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Tanzania creative, performance, movement, craft, artwork, or teamwork activity for Drama Dialogue And Performance.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-003:activity:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-003:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p026",
+      "title": "Drama Dialogue And Performance: Practice And Correction",
+      "content": "Practice for Drama Dialogue And Performance:\n\n1. Plan, practise, or perform a safe creative or movement task that shows: plan, practise, perform, or create work related to drama dialogue and performance. Explain the choices you made.\n\nCorrection check:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to drama dialogue and performance and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-003:practice:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-003:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p027",
+      "title": "Drama Dialogue And Performance: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Drama Dialogue And Performance.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-003:remediation:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-003:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p028",
+      "title": "Drama Dialogue And Performance: Outcome Check",
+      "content": "Show that you can plan, practise, perform, or create work related to drama dialogue and performance.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 102,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-003:assessment:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-003:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p029",
+      "title": "Craft Construction And Decoration: Lesson Opener",
+      "content": "Learning focus: Craft Construction And Decoration\n\nCountry link: a safe Tanzania creative, performance, movement, craft, artwork, or teamwork activity for Craft Construction And Decoration.\n\nProgression focus: add reasons, compare examples, and explain choices more independently.\n\nBy the end of this topic, you should be able to:\n- plan, practise, perform, or create work related to craft construction and decoration\n\nInquiry questions:\n- How can craft construction and decoration help you solve a real problem?\n\nSuccess criteria:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-004:opener:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-004:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p030",
+      "title": "Craft Construction And Decoration: Learn",
+      "content": "Craft Construction And Decoration becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Craft Construction And Decoration\n- Craft\n- Construction\n- Decoration\n- idea\n- skill\n- example\n- practice",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-004:learn:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-004:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p031",
+      "title": "Craft Construction And Decoration: Worked Example",
+      "content": "Evidence model for Craft Construction And Decoration: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Sanaa na Michezo.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 60,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-004:example:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-004:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p032",
+      "title": "Craft Construction And Decoration: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Craft Construction And Decoration. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Craft Construction And Decoration\n- Craft\n- Construction\n- Decoration\n- idea\n- skill\n- example\n- practice\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Craft Construction And Decoration without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-004:vocabulary:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-004:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p033",
+      "title": "Craft Construction And Decoration: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Tanzania creative, performance, movement, craft, artwork, or teamwork activity for Craft Construction And Decoration.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-004:activity:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-004:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p034",
+      "title": "Craft Construction And Decoration: Practice And Correction",
+      "content": "Practice for Craft Construction And Decoration:\n\n1. Plan, practise, or perform a safe creative or movement task that shows: plan, practise, perform, or create work related to craft construction and decoration. Explain the choices you made.\n\nCorrection check:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to craft construction and decoration and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-004:practice:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-004:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p035",
+      "title": "Craft Construction And Decoration: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Craft Construction And Decoration.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-004:remediation:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-004:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p036",
+      "title": "Craft Construction And Decoration: Outcome Check",
+      "content": "Show that you can plan, practise, perform, or create work related to craft construction and decoration.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 102,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-004:assessment:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-004:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p037",
+      "title": "Athletics Games And Body Control: Lesson Opener",
+      "content": "Learning focus: Athletics Games And Body Control\n\nCountry link: a safe Tanzania creative, performance, movement, craft, artwork, or teamwork activity for Athletics Games And Body Control.\n\nProgression focus: add reasons, compare examples, and explain choices more independently.\n\nBy the end of this topic, you should be able to:\n- plan, practise, perform, or create work related to athletics games and body control\n\nInquiry questions:\n- How can athletics games and body control help you solve a real problem?\n\nSuccess criteria:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-005:opener:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-005:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p038",
+      "title": "Athletics Games And Body Control: Learn",
+      "content": "Athletics Games And Body Control becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Athletics Games And Body Control\n- Athletics\n- Games\n- Body\n- Control\n- idea\n- skill\n- example",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-005:learn:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-005:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p039",
+      "title": "Athletics Games And Body Control: Worked Example",
+      "content": "Evidence model for Athletics Games And Body Control: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Sanaa na Michezo.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-005:example:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-005:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p040",
+      "title": "Athletics Games And Body Control: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Athletics Games And Body Control. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Athletics Games And Body Control\n- Athletics\n- Games\n- Body\n- Control\n- idea\n- skill\n- example\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Athletics Games And Body Control without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-005:vocabulary:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-005:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p041",
+      "title": "Athletics Games And Body Control: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Tanzania creative, performance, movement, craft, artwork, or teamwork activity for Athletics Games And Body Control.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-005:activity:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-005:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p042",
+      "title": "Athletics Games And Body Control: Practice And Correction",
+      "content": "Practice for Athletics Games And Body Control:\n\n1. Plan, practise, or perform a safe creative or movement task that shows: plan, practise, perform, or create work related to athletics games and body control. Explain the choices you made.\n\nCorrection check:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to athletics games and body control and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-005:practice:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-005:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p043",
+      "title": "Athletics Games And Body Control: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Athletics Games And Body Control.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-005:remediation:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-005:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p044",
+      "title": "Athletics Games And Body Control: Outcome Check",
+      "content": "Show that you can plan, practise, perform, or create work related to athletics games and body control.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-005:assessment:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-005:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p045",
+      "title": "Team Rules Safety And Respect: Lesson Opener",
+      "content": "Learning focus: Team Rules Safety And Respect\n\nCountry link: a safe Tanzania creative, performance, movement, craft, artwork, or teamwork activity for Team Rules Safety And Respect.\n\nProgression focus: add reasons, compare examples, and explain choices more independently.\n\nBy the end of this topic, you should be able to:\n- plan, practise, perform, or create work related to team rules safety and respect\n\nInquiry questions:\n- How can team rules safety and respect help you solve a real problem?\n\nSuccess criteria:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-006:opener:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-006:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p046",
+      "title": "Team Rules Safety And Respect: Learn",
+      "content": "Team Rules Safety And Respect becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Team Rules Safety And Respect\n- Team\n- Rules\n- Safety\n- Respect\n- idea\n- skill\n- example",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-006:learn:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-006:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p047",
+      "title": "Team Rules Safety And Respect: Worked Example",
+      "content": "Evidence model for Team Rules Safety And Respect: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Sanaa na Michezo.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-006:example:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-006:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p048",
+      "title": "Team Rules Safety And Respect: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Team Rules Safety And Respect. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Team Rules Safety And Respect\n- Team\n- Rules\n- Safety\n- Respect\n- idea\n- skill\n- example\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Team Rules Safety And Respect without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-006:vocabulary:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-006:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p049",
+      "title": "Team Rules Safety And Respect: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Tanzania creative, performance, movement, craft, artwork, or teamwork activity for Team Rules Safety And Respect.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-006:activity:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-006:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p050",
+      "title": "Team Rules Safety And Respect: Practice And Correction",
+      "content": "Practice for Team Rules Safety And Respect:\n\n1. Plan, practise, or perform a safe creative or movement task that shows: plan, practise, perform, or create work related to team rules safety and respect. Explain the choices you made.\n\nCorrection check:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to team rules safety and respect and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-006:practice:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-006:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p051",
+      "title": "Team Rules Safety And Respect: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Team Rules Safety And Respect.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-006:remediation:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-006:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p052",
+      "title": "Team Rules Safety And Respect: Outcome Check",
+      "content": "Show that you can plan, practise, perform, or create work related to team rules safety and respect.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-006:assessment:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-006:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p053",
+      "title": "Review Practice And Improvement: Lesson Opener",
+      "content": "Learning focus: Review Practice And Improvement\n\nCountry link: a safe Tanzania creative, performance, movement, craft, artwork, or teamwork activity for Review Practice And Improvement.\n\nProgression focus: add reasons, compare examples, and explain choices more independently.\n\nBy the end of this topic, you should be able to:\n- plan, practise, perform, or create work related to review practice and improvement\n\nInquiry questions:\n- How can review practice and improvement help you solve a real problem?\n\nSuccess criteria:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-007:opener:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-007:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p054",
+      "title": "Review Practice And Improvement: Learn",
+      "content": "Review Practice And Improvement becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Review Practice And Improvement\n- Review\n- Practice\n- Improvement\n- idea\n- skill\n- example\n- practice",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-007:learn:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-007:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p055",
+      "title": "Review Practice And Improvement: Worked Example",
+      "content": "Evidence model for Review Practice And Improvement: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Sanaa na Michezo.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 60,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-007:example:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-007:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p056",
+      "title": "Review Practice And Improvement: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Review Practice And Improvement. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Review Practice And Improvement\n- Review\n- Practice\n- Improvement\n- idea\n- skill\n- example\n- practice\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Review Practice And Improvement without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-007:vocabulary:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-007:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p057",
+      "title": "Review Practice And Improvement: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Tanzania creative, performance, movement, craft, artwork, or teamwork activity for Review Practice And Improvement.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-007:activity:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-007:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p058",
+      "title": "Review Practice And Improvement: Practice And Correction",
+      "content": "Practice for Review Practice And Improvement:\n\n1. Plan, practise, or perform a safe creative or movement task that shows: plan, practise, perform, or create work related to review practice and improvement. Explain the choices you made.\n\nCorrection check:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to review practice and improvement and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-007:practice:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-007:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p059",
+      "title": "Review Practice And Improvement: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Review Practice And Improvement.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-007:remediation:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-007:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p060",
+      "title": "Review Practice And Improvement: Outcome Check",
+      "content": "Show that you can plan, practise, perform, or create work related to review practice and improvement.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 102,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-007:assessment:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-007:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p061",
+      "title": "Creative Performance Project: Lesson Opener",
+      "content": "Learning focus: Creative Performance Project\n\nCountry link: a safe Tanzania creative, performance, movement, craft, artwork, or teamwork activity for Creative Performance Project.\n\nProgression focus: add reasons, compare examples, and explain choices more independently.\n\nBy the end of this topic, you should be able to:\n- plan, practise, perform, or create work related to creative performance project\n\nInquiry questions:\n- How can creative performance project help you solve a real problem?\n\nSuccess criteria:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 88,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-008:opener:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-008:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p062",
+      "title": "Creative Performance Project: Learn",
+      "content": "Creative Performance Project becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Creative Performance Project\n- Creative\n- Performance\n- Project\n- idea\n- skill\n- example\n- practice",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 88,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-008:learn:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-008:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p063",
+      "title": "Creative Performance Project: Worked Example",
+      "content": "Evidence model for Creative Performance Project: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Sanaa na Michezo.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 59,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-008:example:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-008:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p064",
+      "title": "Creative Performance Project: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Creative Performance Project. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Creative Performance Project\n- Creative\n- Performance\n- Project\n- idea\n- skill\n- example\n- practice\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Creative Performance Project without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-008:vocabulary:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-008:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p065",
+      "title": "Creative Performance Project: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Tanzania creative, performance, movement, craft, artwork, or teamwork activity for Creative Performance Project.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-008:activity:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-008:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p066",
+      "title": "Creative Performance Project: Practice And Correction",
+      "content": "Practice for Creative Performance Project:\n\n1. Plan, practise, or perform a safe creative or movement task that shows: plan, practise, perform, or create work related to creative performance project. Explain the choices you made.\n\nCorrection check:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to creative performance project and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-008:practice:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-008:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p067",
+      "title": "Creative Performance Project: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Creative Performance Project.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-008:remediation:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-008:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p068",
+      "title": "Creative Performance Project: Outcome Check",
+      "content": "Show that you can plan, practise, perform, or create work related to creative performance project.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- idea is planned\n- skill is practised safely\n- creative or movement choices are explained",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-008:assessment:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-008:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p069",
+      "title": "Design Elements And Composition: Plan",
+      "content": "Practical workshop for Design Elements And Composition: Plan.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-001:creative-plan:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-001:creative-plan:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p070",
+      "title": "Traditional Songs Dances And Instruments: Materials And Safety",
+      "content": "Practical workshop for Traditional Songs Dances And Instruments: Materials And Safety.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-002:creative-materials-and-safety:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-002:creative-materials-and-safety:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p071",
+      "title": "Drama Dialogue And Performance: Skill Practice",
+      "content": "Practical workshop for Drama Dialogue And Performance: Skill Practice.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-003:creative-skill-practice:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-003:creative-skill-practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p072",
+      "title": "Craft Construction And Decoration: Create Or Perform",
+      "content": "Practical workshop for Craft Construction And Decoration: Create Or Perform.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 97,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-004:creative-create-or-perform:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-004:creative-create-or-perform:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p073",
+      "title": "Athletics Games And Body Control: Peer Feedback",
+      "content": "Practical workshop for Athletics Games And Body Control: Peer Feedback.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 97,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-005:creative-peer-feedback:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-005:creative-peer-feedback:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p074",
+      "title": "Team Rules Safety And Respect: Improve And Reflect",
+      "content": "Practical workshop for Team Rules Safety And Respect: Improve And Reflect.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-006:creative-improve-and-reflect:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-006:creative-improve-and-reflect:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p075",
+      "title": "Review Practice And Improvement: Plan",
+      "content": "Practical workshop for Review Practice And Improvement: Plan.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-007:creative-plan:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-007:creative-plan:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p076",
+      "title": "Creative Performance Project: Materials And Safety",
+      "content": "Practical workshop for Creative Performance Project: Materials And Safety.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-008:creative-materials-and-safety:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-008:creative-materials-and-safety:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p077",
+      "title": "Design Elements And Composition: Skill Practice",
+      "content": "Practical workshop for Design Elements And Composition: Skill Practice.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-001:creative-skill-practice:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-001:creative-skill-practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p078",
+      "title": "Traditional Songs Dances And Instruments: Create Or Perform",
+      "content": "Practical workshop for Traditional Songs Dances And Instruments: Create Or Perform.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-002:creative-create-or-perform:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-002:creative-create-or-perform:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p079",
+      "title": "Drama Dialogue And Performance: Peer Feedback",
+      "content": "Practical workshop for Drama Dialogue And Performance: Peer Feedback.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-003:creative-peer-feedback:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-003:creative-peer-feedback:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p080",
+      "title": "Craft Construction And Decoration: Improve And Reflect",
+      "content": "Practical workshop for Craft Construction And Decoration: Improve And Reflect.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 97,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-004:creative-improve-and-reflect:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-004:creative-improve-and-reflect:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p081",
+      "title": "Athletics Games And Body Control: Plan",
+      "content": "Practical workshop for Athletics Games And Body Control: Plan.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-005:creative-plan:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-005:creative-plan:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p082",
+      "title": "Team Rules Safety And Respect: Materials And Safety",
+      "content": "Practical workshop for Team Rules Safety And Respect: Materials And Safety.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-006:creative-materials-and-safety:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-006:creative-materials-and-safety:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p083",
+      "title": "Review Practice And Improvement: Skill Practice",
+      "content": "Practical workshop for Review Practice And Improvement: Skill Practice.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-007:creative-skill-practice:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-007:creative-skill-practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p084",
+      "title": "Creative Performance Project: Create Or Perform",
+      "content": "Practical workshop for Creative Performance Project: Create Or Perform.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-008:creative-create-or-perform:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-008:creative-create-or-perform:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p085",
+      "title": "Design Elements And Composition: Peer Feedback",
+      "content": "Practical workshop for Design Elements And Composition: Peer Feedback.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-001:creative-peer-feedback:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-001:creative-peer-feedback:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p086",
+      "title": "Traditional Songs Dances And Instruments: Improve And Reflect",
+      "content": "Practical workshop for Traditional Songs Dances And Instruments: Improve And Reflect.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-002:creative-improve-and-reflect:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-002:creative-improve-and-reflect:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p087",
+      "title": "Drama Dialogue And Performance: Plan",
+      "content": "Practical workshop for Drama Dialogue And Performance: Plan.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-003:creative-plan:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-003:creative-plan:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p088",
+      "title": "Craft Construction And Decoration: Materials And Safety",
+      "content": "Practical workshop for Craft Construction And Decoration: Materials And Safety.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 97,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-004:creative-materials-and-safety:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-004:creative-materials-and-safety:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p089",
+      "title": "Athletics Games And Body Control: Skill Practice",
+      "content": "Practical workshop for Athletics Games And Body Control: Skill Practice.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 97,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-005:creative-skill-practice:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-005:creative-skill-practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p090",
+      "title": "Team Rules Safety And Respect: Create Or Perform",
+      "content": "Practical workshop for Team Rules Safety And Respect: Create Or Perform.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-006:creative-create-or-perform:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-006:creative-create-or-perform:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p091",
+      "title": "Review Practice And Improvement: Peer Feedback",
+      "content": "Practical workshop for Review Practice And Improvement: Peer Feedback.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-007:creative-peer-feedback:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-007:creative-peer-feedback:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p092",
+      "title": "Creative Performance Project: Improve And Reflect",
+      "content": "Practical workshop for Creative Performance Project: Improve And Reflect.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-008:creative-improve-and-reflect:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-008:creative-improve-and-reflect:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p093",
+      "title": "Design Elements And Composition: Plan",
+      "content": "Practical workshop for Design Elements And Composition: Plan.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-001:creative-plan:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-001:creative-plan:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p094",
+      "title": "Traditional Songs Dances And Instruments: Materials And Safety",
+      "content": "Practical workshop for Traditional Songs Dances And Instruments: Materials And Safety.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-002:creative-materials-and-safety:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-002:creative-materials-and-safety:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p095",
+      "title": "Drama Dialogue And Performance: Skill Practice",
+      "content": "Practical workshop for Drama Dialogue And Performance: Skill Practice.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-003:creative-skill-practice:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-003:creative-skill-practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p096",
+      "title": "Craft Construction And Decoration: Create Or Perform",
+      "content": "Practical workshop for Craft Construction And Decoration: Create Or Perform.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 97,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-004:creative-create-or-perform:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-004:creative-create-or-perform:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p097",
+      "title": "Athletics Games And Body Control: Peer Feedback",
+      "content": "Practical workshop for Athletics Games And Body Control: Peer Feedback.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 97,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-005:creative-peer-feedback:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-005:creative-peer-feedback:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p098",
+      "title": "Team Rules Safety And Respect: Improve And Reflect",
+      "content": "Practical workshop for Team Rules Safety And Respect: Improve And Reflect.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-006:creative-improve-and-reflect:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-006:creative-improve-and-reflect:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p099",
+      "title": "Review Practice And Improvement: Plan",
+      "content": "Practical workshop for Review Practice And Improvement: Plan.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-007:creative-plan:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-007:creative-plan:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p100",
+      "title": "Creative Performance Project: Materials And Safety",
+      "content": "Practical workshop for Creative Performance Project: Materials And Safety.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-008:creative-materials-and-safety:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-008:creative-materials-and-safety:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p101",
+      "title": "Design Elements And Composition: Skill Practice",
+      "content": "Practical workshop for Design Elements And Composition: Skill Practice.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-001:creative-skill-practice:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-001:creative-skill-practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p102",
+      "title": "Traditional Songs Dances And Instruments: Create Or Perform",
+      "content": "Practical workshop for Traditional Songs Dances And Instruments: Create Or Perform.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-002:creative-create-or-perform:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-002:creative-create-or-perform:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p103",
+      "title": "Drama Dialogue And Performance: Peer Feedback",
+      "content": "Practical workshop for Drama Dialogue And Performance: Peer Feedback.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-003:creative-peer-feedback:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-003:creative-peer-feedback:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p104",
+      "title": "Craft Construction And Decoration: Improve And Reflect",
+      "content": "Practical workshop for Craft Construction And Decoration: Improve And Reflect.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 97,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-004:creative-improve-and-reflect:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-004:creative-improve-and-reflect:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p105",
+      "title": "Athletics Games And Body Control: Plan",
+      "content": "Practical workshop for Athletics Games And Body Control: Plan.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-005:creative-plan:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-005:creative-plan:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-5"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p106",
+      "title": "Team Rules Safety And Respect: Materials And Safety",
+      "content": "Practical workshop for Team Rules Safety And Respect: Materials And Safety.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-006:creative-materials-and-safety:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-006:creative-materials-and-safety:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-6"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p107",
+      "title": "Review Practice And Improvement: Skill Practice",
+      "content": "Practical workshop for Review Practice And Improvement: Skill Practice.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-007:creative-skill-practice:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-007:creative-skill-practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-7"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p108",
+      "title": "Creative Performance Project: Create Or Perform",
+      "content": "Practical workshop for Creative Performance Project: Create Or Perform.\n\n1. Read the task and name the exact creative, craft, music, movement, design, display, or performance skill.\n2. List safe materials, tools, body movement, space, or instruments needed.\n3. Practise one small part slowly before doing the full work.\n4. Check quality: control, neatness, rhythm, balance, expression, teamwork, care of materials, and safety.\n5. Ask a partner for one kind observation and one improvement idea.\n6. Improve the work and write what changed.\n\nReflection: What skill improved? What evidence shows improvement? What will you practise next time?",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-008:creative-create-or-perform:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-008:creative-create-or-perform:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-sanaa-na-michezo-8"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p109",
+      "title": "Design Elements And Composition: Review Clinic 1",
+      "content": "Use this review clinic to strengthen Sanaa na Michezo without copying earlier answers.\n\n1. Choose one idea from Design Elements And Composition that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 79,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-001:review:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-001:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p110",
+      "title": "Traditional Songs Dances And Instruments: Review Clinic 2",
+      "content": "Use this review clinic to strengthen Sanaa na Michezo without copying earlier answers.\n\n1. Choose one idea from Traditional Songs Dances And Instruments that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 80,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-002:review:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-002:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p111",
+      "title": "Drama Dialogue And Performance: Review Clinic 3",
+      "content": "Use this review clinic to strengthen Sanaa na Michezo without copying earlier answers.\n\n1. Choose one idea from Drama Dialogue And Performance that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 79,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-003:review:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-003:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-3"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p112",
+      "title": "Craft Construction And Decoration: Review Clinic 4",
+      "content": "Use this review clinic to strengthen Sanaa na Michezo without copying earlier answers.\n\n1. Choose one idea from Craft Construction And Decoration that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 79,
+      "imageRefs": [
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-004:review:visual-1:planned",
+        "TZA-STANDARD-V-sanaa-na-michezo-topic-004:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "unitIds": [
+        "fallback-standard-v-sanaa-na-michezo-4"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-sanaa-na-michezo-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p113",
+      "title": "Glossary",
+      "content": "Use this glossary to revise important words in Sanaa na Michezo.\n\n- Design Elements And Composition: Explain this term using an example from the book, your school, or your community.\n- Traditional Songs Dances And Instruments: Explain this term using an example from the book, your school, or your community.\n- Drama Dialogue And Performance: Explain this term using an example from the book, your school, or your community.\n- Craft Construction And Decoration: Explain this term using an example from the book, your school, or your community.\n- Athletics Games And Body Control: Explain this term using an example from the book, your school, or your community.\n- Team Rules Safety And Respect: Explain this term using an example from the book, your school, or your community.\n- Review Practice And Improvement: Explain this term using an example from the book, your school, or your community.\n- Creative Performance Project: Explain this term using an example from the book, your school, or your community.\n\nAdd five more words from your lessons and write your own meanings.",
+      "pageType": "glossary",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 177,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p114",
+      "title": "Answer And Teacher Notes",
+      "content": "A strong Sanaa na Michezo answer responds to the exact task, uses correct vocabulary, gives a clear example or evidence, and shows correction after feedback. For practical work, name materials, safety, process, quality checks, peer feedback, and one improvement made after review.",
+      "pageType": "answer-notes",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 42,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-sanaa-na-michezo-p115",
+      "title": "Final Project",
+      "content": "Create a final project for Sanaa na Michezo that shows what you can now do independently.\n\nYour project must include:\n1. A clear title.\n2. A real-life problem, question, text, performance, investigation, design, or worked task.\n3. Evidence from at least three lessons in this book.\n4. A drawing, table, map, chart, model, dialogue, paragraph, performance plan, practical product, or worked solution.\n5. A correction note showing one improvement after feedback.\n6. A short reflection explaining what you learned, what was difficult, and what you will practise next.\n\nPresentation check: keep the work neat, label important parts, use correct vocabulary, and be ready to explain your choices to a classmate or teacher.",
+      "pageType": "project",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": []
+    }
+  ]
+}

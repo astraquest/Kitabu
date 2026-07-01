@@ -1,0 +1,2131 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-tza-tie-basic-standard-v-hisabati",
+  "title": "KITABU QUEST Standard V Hisabati",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Standard V",
+  "subject": "Hisabati",
+  "subjectSlug": "hisabati",
+  "subjectColor": "#047857",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v13",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:40:52Z",
+  "sourceSnapshotHash": "e4041e074ca9f5dad38861f221dc36f71cd5d2e0ee096ed224e0a6659869b39e",
+  "bookPlanHash": "31ddf5e673eedd08923dbd7daed01c68434fc23f304adecf50924d2d190bd5de",
+  "pageCount": 85,
+  "wordCount": 7741,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 8,
+    "outcomeCount": 8,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "TZA",
+    "subject": "Hisabati",
+    "species": "elephant",
+    "role": "problem-solving guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners using counters and measuring tools with an elephant mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Tanzania TIE-BASIC Standard V Hisabati. Scene: learners using counters and measuring tools with an elephant mascot. Include a friendly elephant mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 87740,
+    "sha256": "81abeac925654eb24f34a6d22adeea5e9eed2831413c37c01fab9b79ff63db0e"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 87740,
+      "sha256": "81abeac925654eb24f34a6d22adeea5e9eed2831413c37c01fab9b79ff63db0e",
+      "kind": "cover",
+      "altText": "KITABU QUEST Standard V Hisabati cover with elephant",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-tza-tie-basic-standard-v-hisabati.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-tza-tie-basic-standard-v-hisabati.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "99eadf04-3386-41eb-9ee0-2afbcb385fa3",
+      "subject": "Hisabati",
+      "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard V Hisabati",
+      "countryCode": "TZA",
+      "curriculumCode": "TIE-BASIC",
+      "gradeCode": "STANDARD_V",
+      "gradeLocalLevel": "Standard V",
+      "localLevel": "Standard V",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+      "objectKey": "data/curriculum/source-files/TZA/254ed101fe7246a14c809aa0296752b9faf9b156f180bc052a5cb440f0b7fd21.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "STANDARD_V",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/hisabati/99eadf04-3386-41eb-9ee0-2afbcb385fa3.md",
+        "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "tie.go.tz"
+        ],
+        "markdownChecksum": "21314fd7ca1f00d0acee03f031f97803ba130b8027d426664456eacfe288050d",
+        "markdownPageCount": 47,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/hisabati/99eadf04-3386-41eb-9ee0-2afbcb385fa3.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "21314fd7ca1f00d0acee03f031f97803ba130b8027d426664456eacfe288050d",
+          "pageCount": 47,
+          "generatedAt": "2026-06-29T16:48:15.777Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "010d846390a8359e8d97dc89edfab30f65a6c384e55961bf4b6b6decb22d5404"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:48:15.777Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p001",
+      "title": "Title Page",
+      "content": "KITABU QUEST Standard V Hisabati\n\nTanzania TIE-BASIC learner book\n\nMascot: elephant\n\nThis KITABU QUEST book turns the curriculum into short lessons, worked examples, guided activities, practice, review, and home links for Tanzania learners.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 3,
+      "wordCount": 33,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p002",
+      "title": "How To Use This Book",
+      "content": "This book helps Standard V learners study Hisabati one teachable topic at a time.\n\n1. Start with the inquiry question and say what you already know.\n2. Read the Learn section slowly and mark new words.\n3. Try the worked example before reading the full solution.\n4. Complete the activity and practice tasks.\n5. Correct your answer using the success criteria.\n6. Ask for support when your answer is still unclear.\n\nSubject method: Tumia vielelezo, michoro, sentensi za kihisabati, na mifano iliyofanyiwa kazi kabla ya mazoezi binafsi.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 87,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p003",
+      "title": "Learning Skills In This Book",
+      "content": "Each topic builds knowledge, skill, values, communication, collaboration, critical thinking, creativity, digital awareness, and self-confidence.\n\nStudy actively: speak answers aloud, draw when useful, show your working, cite evidence, use local examples, and correct mistakes after feedback.\n\nA strong answer is specific. It names the idea, gives evidence or method, applies it to the task, and checks whether it answers the question.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p004",
+      "title": "Table Of Contents",
+      "content": "Use this table to move through the book one topic at a time. Each topic has a lesson opener, clear teaching, a model or example, guided work, practice, and checks for understanding.\n\n1. Large Numbers And Estimation\n2. Operations With Multi-Step Problems\n3. Fractions And Decimals\n4. Percentages In Everyday Situations\n5. Angles Lines And Plane Shapes\n6. Area Perimeter And Volume Models\n7. Tables Graphs And Data\n8. Problem Solving Project\n\nAs you finish each topic, return to the success criteria and correct one answer before moving on.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 89,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p005",
+      "title": "Large Numbers And Estimation: Lesson Opener",
+      "content": "Learning focus: Large Numbers And Estimation\n\nCountry link: a Tanzania school, market, farming, building, transport, or data problem for Large Numbers And Estimation.\n\nProgression focus: add reasons, compare examples, and explain choices more independently; show methods, units, checks, and a final explanation.\n\nBy the end of this topic, you should be able to:\n- solve and explain problems about large numbers and estimation\n\nInquiry questions:\n- How can large numbers and estimation help you solve a real problem?\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 97,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-001:opener:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-001:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-1"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-1"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p006",
+      "title": "Large Numbers And Estimation: Learn",
+      "content": "Large Numbers And Estimation teaches a mathematical idea by using a clear model, a labelled representation, step-by-step working, and a final check.\n\nKey words:\n- Large Numbers And Estimation\n- Large\n- Numbers\n- Estimation\n- method\n- model\n- unit\n- answer",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 43,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-001:learn:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-001:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-1"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-1"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p007",
+      "title": "Large Numbers And Estimation: Worked Example",
+      "content": "Worked example for Large Numbers And Estimation: Read the task, choose a representation, solve one step at a time, and check the answer in context.\n\nModel:\n1. Name what is known.\n2. Choose a diagram, table, equation, or model.\n3. Complete the calculation or reasoning.\n4. Check the result with estimation or inverse reasoning.\n\nUse a Tanzania classroom, market, garden, transport, or home example.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 64,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-001:example:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-001:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-1"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-1"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p008",
+      "title": "Large Numbers And Estimation: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Large Numbers And Estimation. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Large Numbers And Estimation\n- Large\n- Numbers\n- Estimation\n- method\n- model\n- unit\n- answer\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Large Numbers And Estimation without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-001:vocabulary:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-001:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-1"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-1"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p009",
+      "title": "Large Numbers And Estimation: Guided Activity",
+      "content": "Guided activity for Large Numbers And Estimation:\n\n1. Work with a partner and read the worked example.\n2. Make a similar question using Tanzania classroom, home, market, garden, transport, or timetable details.\n3. Draw a model: table, number line, diagram, place-value chart, shape, or equation.\n4. Solve the question step by step.\n5. Swap work with another pair and check the method, units, labels, and final sentence.\n\nTeacher check: the model should match the topic, not just any calculation.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 79,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-001:activity:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-001:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-1"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-1"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p010",
+      "title": "Large Numbers And Estimation: Practice And Correction",
+      "content": "Practice for Large Numbers And Estimation:\n\nMain outcome: solve and explain problems about large numbers and estimation.\n\n1. Solve one large numbers and estimation question using labelled steps.\n2. Show your method with a drawing, table, number sentence, or diagram.\n3. Check your answer and write one sentence explaining it.\n\nAnswer check:\nYour answer should show a clear model, correct method, correct labels, and a final sentence.\n\nCorrection check:\n- Did you show the method?\n- Did you use the correct unit or label?\n- Did you check whether the answer is reasonable?\n\nHome link: Find one Tanzania home, school, shop, garden, road, game, or timetable example connected to large numbers and estimation and solve it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 116,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-001:practice:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-001:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-1"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-1"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p011",
+      "title": "Large Numbers And Estimation: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Large Numbers And Estimation.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-001:remediation:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-001:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-1"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-1"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p012",
+      "title": "Large Numbers And Estimation: Outcome Check",
+      "content": "Outcome check for Large Numbers And Estimation: Solve and explain problems about large numbers and estimation.\n\n1. Write one clear example from the topic.\n2. Solve it with labelled steps.\n3. Check the answer in context.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 55,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-001:assessment:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-001:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-1"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-1"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p013",
+      "title": "Operations With Multi-Step Problems: Lesson Opener",
+      "content": "Learning focus: Operations With Multi-Step Problems\n\nCountry link: a Tanzania school, market, farming, building, transport, or data problem for Operations With Multi-Step Problems.\n\nProgression focus: add reasons, compare examples, and explain choices more independently; show methods, units, checks, and a final explanation.\n\nBy the end of this topic, you should be able to:\n- solve and explain problems about operations with multi-step problems\n\nInquiry questions:\n- How can operations with multi-step problems help you solve a real problem?\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 97,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-002:opener:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-002:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-2"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-2"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p014",
+      "title": "Operations With Multi-Step Problems: Learn",
+      "content": "Operations With Multi-Step Problems teaches how two quantities change together at the same rate.\n\nCore idea:\n- In direct proportion, when one quantity is multiplied, the other quantity is multiplied by the same factor.\n- A table helps you compare matching values.\n- The unit rate tells the value for one item, one litre, one metre, one hour, or one learner.\n- Always check that the relationship is consistent before using proportion.\n\nKey words:\n- Operations With Multi-Step Problems\n- Operations\n- With\n- Multi-Step\n- Problems\n- method\n- model\n- unit",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-002:learn:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-002:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-2"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-2"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p015",
+      "title": "Operations With Multi-Step Problems: Worked Example",
+      "content": "Worked example for Operations With Multi-Step Problems: If 3 exercise books cost 900 francs, how much do 5 exercise books cost at the same price?\n\n1. Find the cost of 1 book: 900 / 3 = 300 francs.\n2. Multiply by 5 books: 300 x 5 = 1500 francs.\n3. Check: more books should cost more money.\n\nAnswer: 5 exercise books cost 1500 francs.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 64,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-002:example:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-002:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-2"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-2"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p016",
+      "title": "Operations With Multi-Step Problems: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Operations With Multi-Step Problems. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Operations With Multi-Step Problems\n- Operations\n- With\n- Multi-Step\n- Problems\n- method\n- model\n- unit\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Operations With Multi-Step Problems without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-002:vocabulary:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-002:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-2"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-2"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p017",
+      "title": "Operations With Multi-Step Problems: Guided Activity",
+      "content": "Guided activity for Operations With Multi-Step Problems:\n\n1. Work with a partner and read the worked example.\n2. Make a similar question using Tanzania classroom, home, market, garden, transport, or timetable details.\n3. Draw a model: table, number line, diagram, place-value chart, shape, or equation.\n4. Solve the question step by step.\n5. Swap work with another pair and check the method, units, labels, and final sentence.\n\nTeacher check: the model should match the topic, not just any calculation.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 79,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-002:activity:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-002:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-2"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-2"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p018",
+      "title": "Operations With Multi-Step Problems: Practice And Correction",
+      "content": "Practice for Operations With Multi-Step Problems:\n\nMain outcome: solve and explain problems about operations with multi-step problems.\n\n1. Complete the table: 1 pen = 200 francs, 2 pens = __, 5 pens = __.\n2. A cyclist travels 18 km in 2 hours at the same speed. How far in 5 hours?\n3. Write the unit rate used in each answer.\n\nAnswer check:\nAnswers: 2 pens = 400 francs; 5 pens = 1000 francs. The cyclist travels 45 km in 5 hours because 18 / 2 = 9 km per hour.\n\nCorrection check:\n- Did you show the method?\n- Did you use the correct unit or label?\n- Did you check whether the answer is reasonable?\n\nHome link: Find one Tanzania home, school, shop, garden, road, game, or timetable example connected to operations with multi-step problems and solve it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 140,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-002:practice:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-002:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-2"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-2"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p019",
+      "title": "Operations With Multi-Step Problems: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Operations With Multi-Step Problems.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-002:remediation:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-002:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-2"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-2"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p020",
+      "title": "Operations With Multi-Step Problems: Outcome Check",
+      "content": "Outcome check for Operations With Multi-Step Problems: Solve and explain problems about operations with multi-step problems.\n\n1. A recipe uses 2 cups of flour for 6 cakes. How many cups for 18 cakes?\n2. Write the unit rate or scale factor.\n3. Check that both quantities changed by the same factor.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 70,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-002:assessment:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-002:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-2"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-2"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p021",
+      "title": "Fractions And Decimals: Lesson Opener",
+      "content": "Learning focus: Fractions And Decimals\n\nCountry link: a Tanzania school, market, farming, building, transport, or data problem for Fractions And Decimals.\n\nProgression focus: add reasons, compare examples, and explain choices more independently; show methods, units, checks, and a final explanation.\n\nBy the end of this topic, you should be able to:\n- solve and explain problems about fractions and decimals\n\nInquiry questions:\n- How can fractions and decimals help you solve a real problem?\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-003:opener:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-003:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-3"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-3"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-3"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p022",
+      "title": "Fractions And Decimals: Learn",
+      "content": "Fractions And Decimals teaches another way to write parts of a whole using place value.\n\nCore idea:\n- The first digit after the decimal point shows tenths.\n- The second digit shows hundredths.\n- Decimal numbers are compared from left to right, just like whole numbers.\n- Money and measurements often use decimals.\n\nKey words:\n- Fractions And Decimals\n- Fractions\n- Decimals\n- method\n- model\n- unit\n- answer\n- check",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 73,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-003:learn:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-003:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-3"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-3"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-3"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p023",
+      "title": "Fractions And Decimals: Worked Example",
+      "content": "Worked example for Fractions And Decimals: Compare 4.35 and 4.5.\n\n1. Write 4.5 as 4.50 so both numbers show hundredths.\n2. Compare whole numbers: both are 4.\n3. Compare tenths: 3 tenths is less than 5 tenths.\n\nAnswer: 4.35 is less than 4.5.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 43,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-003:example:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-003:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-3"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-3"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-3"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p024",
+      "title": "Fractions And Decimals: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Fractions And Decimals. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Fractions And Decimals\n- Fractions\n- Decimals\n- method\n- model\n- unit\n- answer\n- check\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Fractions And Decimals without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-003:vocabulary:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-003:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-3"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-3"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-3"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p025",
+      "title": "Fractions And Decimals: Guided Activity",
+      "content": "Guided activity for Fractions And Decimals:\n\n1. Work with a partner and read the worked example.\n2. Make a similar question using Tanzania classroom, home, market, garden, transport, or timetable details.\n3. Draw a model: table, number line, diagram, place-value chart, shape, or equation.\n4. Solve the question step by step.\n5. Swap work with another pair and check the method, units, labels, and final sentence.\n\nTeacher check: the model should match the topic, not just any calculation.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 78,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-003:activity:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-003:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-3"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-3"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-3"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p026",
+      "title": "Fractions And Decimals: Practice And Correction",
+      "content": "Practice for Fractions And Decimals:\n\nMain outcome: solve and explain problems about fractions and decimals.\n\n1. Write 3 tenths as a decimal.\n2. Order 2.05, 2.5, and 2.15 from smallest to largest.\n3. Use a money or measurement example to compare two decimal numbers.\n\nAnswer check:\nAnswers: 3 tenths = 0.3. Order: 2.05, 2.15, 2.5.\n\nCorrection check:\n- Did you show the method?\n- Did you use the correct unit or label?\n- Did you check whether the answer is reasonable?\n\nHome link: Find one Tanzania home, school, shop, garden, road, game, or timetable example connected to fractions and decimals and solve it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-003:practice:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-003:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-3"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-3"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-3"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p027",
+      "title": "Fractions And Decimals: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Fractions And Decimals.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-003:remediation:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-003:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-3"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-3"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-3"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p028",
+      "title": "Fractions And Decimals: Outcome Check",
+      "content": "Outcome check for Fractions And Decimals: Solve and explain problems about fractions and decimals.\n\n1. Write 6 tenths as a decimal.\n2. Compare 3.08 and 3.8 using place value.\n3. Explain why your comparison is correct.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 55,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-003:assessment:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-003:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-3"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-3"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-3"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p029",
+      "title": "Percentages In Everyday Situations: Lesson Opener",
+      "content": "Learning focus: Percentages In Everyday Situations\n\nCountry link: a Tanzania school, market, farming, building, transport, or data problem for Percentages In Everyday Situations.\n\nProgression focus: add reasons, compare examples, and explain choices more independently; show methods, units, checks, and a final explanation.\n\nBy the end of this topic, you should be able to:\n- solve and explain problems about percentages in everyday situations\n\nInquiry questions:\n- How can percentages in everyday situations help you solve a real problem?\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 97,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-004:opener:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-004:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-4"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-4"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-4"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p030",
+      "title": "Percentages In Everyday Situations: Learn",
+      "content": "Percentages In Everyday Situations teaches a mathematical idea by using a clear model, a labelled representation, step-by-step working, and a final check.\n\nKey words:\n- Percentages In Everyday Situations\n- Percentages\n- Everyday\n- Situations\n- method\n- model\n- unit\n- answer",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 43,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-004:learn:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-004:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-4"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-4"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-4"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p031",
+      "title": "Percentages In Everyday Situations: Worked Example",
+      "content": "Worked example for Percentages In Everyday Situations: Read the task, choose a representation, solve one step at a time, and check the answer in context.\n\nModel:\n1. Name what is known.\n2. Choose a diagram, table, equation, or model.\n3. Complete the calculation or reasoning.\n4. Check the result with estimation or inverse reasoning.\n\nUse a Tanzania classroom, market, garden, transport, or home example.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 64,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-004:example:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-004:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-4"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-4"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-4"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p032",
+      "title": "Percentages In Everyday Situations: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Percentages In Everyday Situations. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Percentages In Everyday Situations\n- Percentages\n- Everyday\n- Situations\n- method\n- model\n- unit\n- answer\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Percentages In Everyday Situations without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-004:vocabulary:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-004:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-4"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-4"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-4"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p033",
+      "title": "Percentages In Everyday Situations: Guided Activity",
+      "content": "Guided activity for Percentages In Everyday Situations:\n\n1. Work with a partner and read the worked example.\n2. Make a similar question using Tanzania classroom, home, market, garden, transport, or timetable details.\n3. Draw a model: table, number line, diagram, place-value chart, shape, or equation.\n4. Solve the question step by step.\n5. Swap work with another pair and check the method, units, labels, and final sentence.\n\nTeacher check: the model should match the topic, not just any calculation.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 79,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-004:activity:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-004:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-4"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-4"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-4"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p034",
+      "title": "Percentages In Everyday Situations: Practice And Correction",
+      "content": "Practice for Percentages In Everyday Situations:\n\nMain outcome: solve and explain problems about percentages in everyday situations.\n\n1. Solve one percentages in everyday situations question using labelled steps.\n2. Show your method with a drawing, table, number sentence, or diagram.\n3. Check your answer and write one sentence explaining it.\n\nAnswer check:\nYour answer should show a clear model, correct method, correct labels, and a final sentence.\n\nCorrection check:\n- Did you show the method?\n- Did you use the correct unit or label?\n- Did you check whether the answer is reasonable?\n\nHome link: Find one Tanzania home, school, shop, garden, road, game, or timetable example connected to percentages in everyday situations and solve it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 116,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-004:practice:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-004:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-4"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-4"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-4"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p035",
+      "title": "Percentages In Everyday Situations: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Percentages In Everyday Situations.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-004:remediation:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-004:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-4"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-4"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-4"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p036",
+      "title": "Percentages In Everyday Situations: Outcome Check",
+      "content": "Outcome check for Percentages In Everyday Situations: Solve and explain problems about percentages in everyday situations.\n\n1. Write one clear example from the topic.\n2. Solve it with labelled steps.\n3. Check the answer in context.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 55,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-004:assessment:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-004:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-4"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-4"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-4"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p037",
+      "title": "Angles Lines And Plane Shapes: Lesson Opener",
+      "content": "Learning focus: Angles Lines And Plane Shapes\n\nCountry link: a Tanzania school, market, farming, building, transport, or data problem for Angles Lines And Plane Shapes.\n\nProgression focus: add reasons, compare examples, and explain choices more independently; show methods, units, checks, and a final explanation.\n\nBy the end of this topic, you should be able to:\n- solve and explain problems about angles lines and plane shapes\n\nInquiry questions:\n- How can angles lines and plane shapes help you solve a real problem?\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-005:opener:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-005:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-5"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-5"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-5"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p038",
+      "title": "Angles Lines And Plane Shapes: Learn",
+      "content": "Angles Lines And Plane Shapes teaches properties of two-dimensional shapes.\n\nCore idea:\n- Shapes can be classified by sides, corners, lines of symmetry, and angles.\n- A labelled sketch helps you compare shapes accurately.\n- Use correct names such as triangle, rectangle, square, and circle.\n\nKey words:\n- Angles Lines And Plane Shapes\n- Angles\n- Lines\n- Plane\n- Shapes\n- method\n- model\n- unit",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 67,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-005:learn:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-005:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-5"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-5"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-5"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p039",
+      "title": "Angles Lines And Plane Shapes: Worked Example",
+      "content": "Worked example for Angles Lines And Plane Shapes: Classify a shape with 4 equal sides and 4 right angles.\n\n1. Four sides means it is a quadrilateral.\n2. Equal sides and right angles match a square.\n3. Check the name and properties.\n\nAnswer: The shape is a square.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 48,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-005:example:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-005:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-5"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-5"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-5"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p040",
+      "title": "Angles Lines And Plane Shapes: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Angles Lines And Plane Shapes. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Angles Lines And Plane Shapes\n- Angles\n- Lines\n- Plane\n- Shapes\n- method\n- model\n- unit\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Angles Lines And Plane Shapes without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-005:vocabulary:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-005:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-5"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-5"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-5"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p041",
+      "title": "Angles Lines And Plane Shapes: Guided Activity",
+      "content": "Guided activity for Angles Lines And Plane Shapes:\n\n1. Work with a partner and read the worked example.\n2. Make a similar question using Tanzania classroom, home, market, garden, transport, or timetable details.\n3. Draw a model: table, number line, diagram, place-value chart, shape, or equation.\n4. Solve the question step by step.\n5. Swap work with another pair and check the method, units, labels, and final sentence.\n\nTeacher check: the model should match the topic, not just any calculation.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 80,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-005:activity:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-005:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-5"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-5"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-5"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p042",
+      "title": "Angles Lines And Plane Shapes: Practice And Correction",
+      "content": "Practice for Angles Lines And Plane Shapes:\n\nMain outcome: solve and explain problems about angles lines and plane shapes.\n\n1. Draw a triangle, rectangle, and square.\n2. Write two properties for each shape.\n3. Circle the shape that has four equal sides and four right angles.\n\nAnswer check:\nAnswer: the square has four equal sides and four right angles.\n\nCorrection check:\n- Did you show the method?\n- Did you use the correct unit or label?\n- Did you check whether the answer is reasonable?\n\nHome link: Find one Tanzania home, school, shop, garden, road, game, or timetable example connected to angles lines and plane shapes and solve it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-005:practice:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-005:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-5"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-5"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-5"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p043",
+      "title": "Angles Lines And Plane Shapes: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Angles Lines And Plane Shapes.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 110,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-005:remediation:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-005:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-5"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-5"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-5"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p044",
+      "title": "Angles Lines And Plane Shapes: Outcome Check",
+      "content": "Outcome check for Angles Lines And Plane Shapes: Solve and explain problems about angles lines and plane shapes.\n\n1. Draw a square and a rectangle.\n2. Write two properties they share.\n3. Write one property that is different.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 57,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-005:assessment:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-005:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-5"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-5"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-5"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p045",
+      "title": "Area Perimeter And Volume Models: Lesson Opener",
+      "content": "Learning focus: Area Perimeter And Volume Models\n\nCountry link: a Tanzania school, market, farming, building, transport, or data problem for Area Perimeter And Volume Models.\n\nProgression focus: add reasons, compare examples, and explain choices more independently; show methods, units, checks, and a final explanation.\n\nBy the end of this topic, you should be able to:\n- solve and explain problems about area perimeter and volume models\n\nInquiry questions:\n- How can area perimeter and volume models help you solve a real problem?\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-006:opener:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-006:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-6"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-6"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-6"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p046",
+      "title": "Area Perimeter And Volume Models: Learn",
+      "content": "Area Perimeter And Volume Models teaches how to measure distance or how long something is.\n\nCore idea:\n- Choose the unit that fits the object: millimetres, centimetres, metres, or kilometres.\n- Convert by knowing the relationship between units.\n- Estimate before measuring so you can notice unreasonable answers.\n\nKey words:\n- Area Perimeter And Volume Models\n- Area\n- Perimeter\n- Volume\n- Models\n- method\n- model\n- unit",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 70,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-006:learn:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-006:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-6"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-6"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-6"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p047",
+      "title": "Area Perimeter And Volume Models: Worked Example",
+      "content": "Worked example for Area Perimeter And Volume Models: A classroom is 8 m long and a corridor is 350 cm long. Which is longer?\n\n1. Convert 8 m to centimetres: 8 m = 800 cm.\n2. Compare 800 cm and 350 cm.\n3. 800 cm is greater than 350 cm.\n\nAnswer: The classroom is longer.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 55,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-006:example:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-006:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-6"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-6"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-6"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p048",
+      "title": "Area Perimeter And Volume Models: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Area Perimeter And Volume Models. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Area Perimeter And Volume Models\n- Area\n- Perimeter\n- Volume\n- Models\n- method\n- model\n- unit\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Area Perimeter And Volume Models without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-006:vocabulary:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-006:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-6"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-6"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-6"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p049",
+      "title": "Area Perimeter And Volume Models: Guided Activity",
+      "content": "Guided activity for Area Perimeter And Volume Models:\n\n1. Work with a partner and read the worked example.\n2. Make a similar question using Tanzania classroom, home, market, garden, transport, or timetable details.\n3. Draw a model: table, number line, diagram, place-value chart, shape, or equation.\n4. Solve the question step by step.\n5. Swap work with another pair and check the method, units, labels, and final sentence.\n\nTeacher check: the model should match the topic, not just any calculation.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 80,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-006:activity:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-006:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-6"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-6"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-6"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p050",
+      "title": "Area Perimeter And Volume Models: Practice And Correction",
+      "content": "Practice for Area Perimeter And Volume Models:\n\nMain outcome: solve and explain problems about area perimeter and volume models.\n\n1. Estimate the length of a desk, then choose a suitable unit.\n2. Convert 4 m to centimetres.\n3. Solve: a path is 120 m and another is 75 m. What is the total length?\n\nAnswer check:\nAnswer: 4 m = 400 cm. 120 m + 75 m = 195 m.\n\nCorrection check:\n- Did you show the method?\n- Did you use the correct unit or label?\n- Did you check whether the answer is reasonable?\n\nHome link: Find one Tanzania home, school, shop, garden, road, game, or timetable example connected to area perimeter and volume models and solve it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 120,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-006:practice:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-006:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-6"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-6"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-6"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p051",
+      "title": "Area Perimeter And Volume Models: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Area Perimeter And Volume Models.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 110,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-006:remediation:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-006:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-6"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-6"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-6"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p052",
+      "title": "Area Perimeter And Volume Models: Outcome Check",
+      "content": "Outcome check for Area Perimeter And Volume Models: Solve and explain problems about area perimeter and volume models.\n\n1. Convert 6 m to centimetres.\n2. Find the total length of 45 m and 38 m.\n3. State the unit clearly.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 59,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-006:assessment:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-006:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-6"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-6"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-6"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p053",
+      "title": "Tables Graphs And Data: Lesson Opener",
+      "content": "Learning focus: Tables Graphs And Data\n\nCountry link: a Tanzania school, market, farming, building, transport, or data problem for Tables Graphs And Data.\n\nProgression focus: add reasons, compare examples, and explain choices more independently; show methods, units, checks, and a final explanation.\n\nBy the end of this topic, you should be able to:\n- solve and explain problems about tables graphs and data\n\nInquiry questions:\n- How can tables graphs and data help you solve a real problem?\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 97,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-007:opener:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-007:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-7"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-7"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-7"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p054",
+      "title": "Tables Graphs And Data: Learn",
+      "content": "Tables Graphs And Data teaches how to collect, organize, read, and explain information.\n\nCore idea:\n- Data must answer a clear question.\n- Tables, tally charts, pictographs, and bar charts make data easier to read.\n- A good conclusion says what the data shows.\n\nKey words:\n- Tables Graphs And Data\n- Tables\n- Graphs\n- Data\n- method\n- model\n- unit\n- answer",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 65,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-007:learn:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-007:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-7"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-7"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-7"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p055",
+      "title": "Tables Graphs And Data: Worked Example",
+      "content": "Worked example for Tables Graphs And Data: A class records favourite fruits: mango 8, banana 12, pineapple 6. Which fruit is most popular?\n\n1. Read the table values.\n2. Compare 8, 12, and 6.\n3. 12 is the greatest number.\n\nAnswer: Banana is most popular.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 45,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-007:example:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-007:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-7"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-7"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-7"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p056",
+      "title": "Tables Graphs And Data: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Tables Graphs And Data. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Tables Graphs And Data\n- Tables\n- Graphs\n- Data\n- method\n- model\n- unit\n- answer\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Tables Graphs And Data without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-007:vocabulary:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-007:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-7"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-7"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-7"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p057",
+      "title": "Tables Graphs And Data: Guided Activity",
+      "content": "Guided activity for Tables Graphs And Data:\n\n1. Work with a partner and read the worked example.\n2. Make a similar question using Tanzania classroom, home, market, garden, transport, or timetable details.\n3. Draw a model: table, number line, diagram, place-value chart, shape, or equation.\n4. Solve the question step by step.\n5. Swap work with another pair and check the method, units, labels, and final sentence.\n\nTeacher check: the model should match the topic, not just any calculation.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 79,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-007:activity:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-007:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-7"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-7"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-7"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p058",
+      "title": "Tables Graphs And Data: Practice And Correction",
+      "content": "Practice for Tables Graphs And Data:\n\nMain outcome: solve and explain problems about tables graphs and data.\n\n1. Ask 10 learners a simple question and make a tally table.\n2. Draw a bar chart from the tally table.\n3. Write one conclusion from the data.\n\nAnswer check:\nAnswer check: totals in the tally table and bar chart should match.\n\nCorrection check:\n- Did you show the method?\n- Did you use the correct unit or label?\n- Did you check whether the answer is reasonable?\n\nHome link: Find one Tanzania home, school, shop, garden, road, game, or timetable example connected to tables graphs and data and solve it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-007:practice:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-007:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-7"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-7"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-7"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p059",
+      "title": "Tables Graphs And Data: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Tables Graphs And Data.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-007:remediation:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-007:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-7"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-7"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-7"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p060",
+      "title": "Tables Graphs And Data: Outcome Check",
+      "content": "Outcome check for Tables Graphs And Data: Solve and explain problems about tables graphs and data.\n\n1. Write one clear example from the topic.\n2. Solve it with labelled steps.\n3. Check the answer in context.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 55,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-007:assessment:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-007:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-7"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-7"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-7"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p061",
+      "title": "Problem Solving Project: Lesson Opener",
+      "content": "Learning focus: Problem Solving Project\n\nCountry link: a Tanzania school, market, farming, building, transport, or data problem for Problem Solving Project.\n\nProgression focus: add reasons, compare examples, and explain choices more independently; show methods, units, checks, and a final explanation.\n\nBy the end of this topic, you should be able to:\n- solve and explain problems about problem solving project\n\nInquiry questions:\n- How can problem solving project help you solve a real problem?\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-008:opener:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-008:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-8"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-8"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-8"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p062",
+      "title": "Problem Solving Project: Learn",
+      "content": "Problem Solving Project teaches a mathematical idea by using a clear model, a labelled representation, step-by-step working, and a final check.\n\nKey words:\n- Problem Solving Project\n- Problem\n- Solving\n- Project\n- method\n- model\n- unit\n- answer",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 41,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-008:learn:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-008:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-8"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-8"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-8"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p063",
+      "title": "Problem Solving Project: Worked Example",
+      "content": "Worked example for Problem Solving Project: Read the task, choose a representation, solve one step at a time, and check the answer in context.\n\nModel:\n1. Name what is known.\n2. Choose a diagram, table, equation, or model.\n3. Complete the calculation or reasoning.\n4. Check the result with estimation or inverse reasoning.\n\nUse a Tanzania classroom, market, garden, transport, or home example.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 63,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-008:example:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-008:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-8"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-8"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-8"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p064",
+      "title": "Problem Solving Project: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Problem Solving Project. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Problem Solving Project\n- Problem\n- Solving\n- Project\n- method\n- model\n- unit\n- answer\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Problem Solving Project without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-008:vocabulary:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-008:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-8"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-8"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-8"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p065",
+      "title": "Problem Solving Project: Guided Activity",
+      "content": "Guided activity for Problem Solving Project:\n\n1. Work with a partner and read the worked example.\n2. Make a similar question using Tanzania classroom, home, market, garden, transport, or timetable details.\n3. Draw a model: table, number line, diagram, place-value chart, shape, or equation.\n4. Solve the question step by step.\n5. Swap work with another pair and check the method, units, labels, and final sentence.\n\nTeacher check: the model should match the topic, not just any calculation.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 78,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-008:activity:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-008:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-8"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-8"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-8"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p066",
+      "title": "Problem Solving Project: Practice And Correction",
+      "content": "Practice for Problem Solving Project:\n\nMain outcome: solve and explain problems about problem solving project.\n\n1. Solve one problem solving project question using labelled steps.\n2. Show your method with a drawing, table, number sentence, or diagram.\n3. Check your answer and write one sentence explaining it.\n\nAnswer check:\nYour answer should show a clear model, correct method, correct labels, and a final sentence.\n\nCorrection check:\n- Did you show the method?\n- Did you use the correct unit or label?\n- Did you check whether the answer is reasonable?\n\nHome link: Find one Tanzania home, school, shop, garden, road, game, or timetable example connected to problem solving project and solve it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-008:practice:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-008:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-8"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-8"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-8"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p067",
+      "title": "Problem Solving Project: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Problem Solving Project.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-008:remediation:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-008:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-8"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-8"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-8"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p068",
+      "title": "Problem Solving Project: Outcome Check",
+      "content": "Outcome check for Problem Solving Project: Solve and explain problems about problem solving project.\n\n1. Write one clear example from the topic.\n2. Solve it with labelled steps.\n3. Check the answer in context.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 53,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-008:assessment:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-008:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-8"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-8"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-8"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p069",
+      "title": "Large Numbers And Estimation: Review Clinic 1",
+      "content": "Use this review clinic to strengthen Hisabati without copying earlier answers.\n\n1. Choose one idea from Large Numbers And Estimation that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 77,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-001:review:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-001:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-1"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p070",
+      "title": "Operations With Multi-Step Problems: Review Clinic 2",
+      "content": "Use this review clinic to strengthen Hisabati without copying earlier answers.\n\n1. Choose one idea from Operations With Multi-Step Problems that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 77,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-002:review:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-002:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-2"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p071",
+      "title": "Fractions And Decimals: Review Clinic 3",
+      "content": "Use this review clinic to strengthen Hisabati without copying earlier answers.\n\n1. Choose one idea from Fractions And Decimals that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 76,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-003:review:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-003:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-3"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-3"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p072",
+      "title": "Percentages In Everyday Situations: Review Clinic 4",
+      "content": "Use this review clinic to strengthen Hisabati without copying earlier answers.\n\n1. Choose one idea from Percentages In Everyday Situations that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 77,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-004:review:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-004:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-4"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-4"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p073",
+      "title": "Large Numbers And Estimation: Application Workshop 1",
+      "content": "Application workshop 1 for Large Numbers And Estimation.\n\nGrade move: add reasons, compare examples, and explain choices more independently; show methods, units, checks, and a final explanation.\n\nUse this page to turn the skill into a complete problem, not a single short answer.\n\n1. Create one problem from Tanzania school, home, shop, garden, transport, sport, or timetable life.\n2. Write the known information and what must be found.\n3. Choose a model: table, number line, diagram, equation, graph, shape, or place-value chart.\n4. Solve step by step and keep units or labels clear.\n5. Check the answer using estimation, inverse operation, substitution, or a second method.\n6. Write one sentence explaining why the answer makes sense.\n\nExtension: change one number in the problem and solve the new version.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 128,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-001:application-workshop:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-001:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-1"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-1"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p074",
+      "title": "Operations With Multi-Step Problems: Application Workshop 2",
+      "content": "Application workshop 2 for Operations With Multi-Step Problems.\n\nGrade move: add reasons, compare examples, and explain choices more independently; show methods, units, checks, and a final explanation.\n\nUse this page to turn the skill into a complete problem, not a single short answer.\n\n1. Create one problem from Tanzania school, home, shop, garden, transport, sport, or timetable life.\n2. Write the known information and what must be found.\n3. Choose a model: table, number line, diagram, equation, graph, shape, or place-value chart.\n4. Solve step by step and keep units or labels clear.\n5. Check the answer using estimation, inverse operation, substitution, or a second method.\n6. Write one sentence explaining why the answer makes sense.\n\nExtension: change one number in the problem and solve the new version.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 128,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-002:application-workshop:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-002:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-2"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-2"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p075",
+      "title": "Fractions And Decimals: Application Workshop 3",
+      "content": "Application workshop 3 for Fractions And Decimals.\n\nGrade move: add reasons, compare examples, and explain choices more independently; show methods, units, checks, and a final explanation.\n\nUse this page to turn the skill into a complete problem, not a single short answer.\n\n1. Create one problem from Tanzania school, home, shop, garden, transport, sport, or timetable life.\n2. Write the known information and what must be found.\n3. Choose a model: table, number line, diagram, equation, graph, shape, or place-value chart.\n4. Solve step by step and keep units or labels clear.\n5. Check the answer using estimation, inverse operation, substitution, or a second method.\n6. Write one sentence explaining why the answer makes sense.\n\nExtension: change one number in the problem and solve the new version.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 127,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-003:application-workshop:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-003:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-3"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-3"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-3"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p076",
+      "title": "Percentages In Everyday Situations: Application Workshop 4",
+      "content": "Application workshop 4 for Percentages In Everyday Situations.\n\nGrade move: add reasons, compare examples, and explain choices more independently; show methods, units, checks, and a final explanation.\n\nUse this page to turn the skill into a complete problem, not a single short answer.\n\n1. Create one problem from Tanzania school, home, shop, garden, transport, sport, or timetable life.\n2. Write the known information and what must be found.\n3. Choose a model: table, number line, diagram, equation, graph, shape, or place-value chart.\n4. Solve step by step and keep units or labels clear.\n5. Check the answer using estimation, inverse operation, substitution, or a second method.\n6. Write one sentence explaining why the answer makes sense.\n\nExtension: change one number in the problem and solve the new version.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 128,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-004:application-workshop:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-004:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-4"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-4"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-4"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p077",
+      "title": "Angles Lines And Plane Shapes: Application Workshop 5",
+      "content": "Application workshop 5 for Angles Lines And Plane Shapes.\n\nGrade move: add reasons, compare examples, and explain choices more independently; show methods, units, checks, and a final explanation.\n\nUse this page to turn the skill into a complete problem, not a single short answer.\n\n1. Create one problem from Tanzania school, home, shop, garden, transport, sport, or timetable life.\n2. Write the known information and what must be found.\n3. Choose a model: table, number line, diagram, equation, graph, shape, or place-value chart.\n4. Solve step by step and keep units or labels clear.\n5. Check the answer using estimation, inverse operation, substitution, or a second method.\n6. Write one sentence explaining why the answer makes sense.\n\nExtension: change one number in the problem and solve the new version.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 129,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-005:application-workshop:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-005:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-5"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-5"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-5"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p078",
+      "title": "Area Perimeter And Volume Models: Application Workshop 6",
+      "content": "Application workshop 6 for Area Perimeter And Volume Models.\n\nGrade move: add reasons, compare examples, and explain choices more independently; show methods, units, checks, and a final explanation.\n\nUse this page to turn the skill into a complete problem, not a single short answer.\n\n1. Create one problem from Tanzania school, home, shop, garden, transport, sport, or timetable life.\n2. Write the known information and what must be found.\n3. Choose a model: table, number line, diagram, equation, graph, shape, or place-value chart.\n4. Solve step by step and keep units or labels clear.\n5. Check the answer using estimation, inverse operation, substitution, or a second method.\n6. Write one sentence explaining why the answer makes sense.\n\nExtension: change one number in the problem and solve the new version.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 129,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-006:application-workshop:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-006:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-6"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-6"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-6"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p079",
+      "title": "Tables Graphs And Data: Application Workshop 7",
+      "content": "Application workshop 7 for Tables Graphs And Data.\n\nGrade move: add reasons, compare examples, and explain choices more independently; show methods, units, checks, and a final explanation.\n\nUse this page to turn the skill into a complete problem, not a single short answer.\n\n1. Create one problem from Tanzania school, home, shop, garden, transport, sport, or timetable life.\n2. Write the known information and what must be found.\n3. Choose a model: table, number line, diagram, equation, graph, shape, or place-value chart.\n4. Solve step by step and keep units or labels clear.\n5. Check the answer using estimation, inverse operation, substitution, or a second method.\n6. Write one sentence explaining why the answer makes sense.\n\nExtension: change one number in the problem and solve the new version.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 128,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-007:application-workshop:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-007:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-7"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-7"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-7"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p080",
+      "title": "Problem Solving Project: Application Workshop 8",
+      "content": "Application workshop 8 for Problem Solving Project.\n\nGrade move: add reasons, compare examples, and explain choices more independently; show methods, units, checks, and a final explanation.\n\nUse this page to turn the skill into a complete problem, not a single short answer.\n\n1. Create one problem from Tanzania school, home, shop, garden, transport, sport, or timetable life.\n2. Write the known information and what must be found.\n3. Choose a model: table, number line, diagram, equation, graph, shape, or place-value chart.\n4. Solve step by step and keep units or labels clear.\n5. Check the answer using estimation, inverse operation, substitution, or a second method.\n6. Write one sentence explaining why the answer makes sense.\n\nExtension: change one number in the problem and solve the new version.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 127,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-008:application-workshop:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-008:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-8"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-8"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-8"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p081",
+      "title": "Large Numbers And Estimation: Application Workshop 9",
+      "content": "Application workshop 9 for Large Numbers And Estimation.\n\nGrade move: add reasons, compare examples, and explain choices more independently; show methods, units, checks, and a final explanation.\n\nUse this page to turn the skill into a complete problem, not a single short answer.\n\n1. Create one problem from Tanzania school, home, shop, garden, transport, sport, or timetable life.\n2. Write the known information and what must be found.\n3. Choose a model: table, number line, diagram, equation, graph, shape, or place-value chart.\n4. Solve step by step and keep units or labels clear.\n5. Check the answer using estimation, inverse operation, substitution, or a second method.\n6. Write one sentence explaining why the answer makes sense.\n\nExtension: change one number in the problem and solve the new version.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 128,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-001:application-workshop:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-001:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-1"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-1"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p082",
+      "title": "Operations With Multi-Step Problems: Application Workshop 10",
+      "content": "Application workshop 10 for Operations With Multi-Step Problems.\n\nGrade move: add reasons, compare examples, and explain choices more independently; show methods, units, checks, and a final explanation.\n\nUse this page to turn the skill into a complete problem, not a single short answer.\n\n1. Create one problem from Tanzania school, home, shop, garden, transport, sport, or timetable life.\n2. Write the known information and what must be found.\n3. Choose a model: table, number line, diagram, equation, graph, shape, or place-value chart.\n4. Solve step by step and keep units or labels clear.\n5. Check the answer using estimation, inverse operation, substitution, or a second method.\n6. Write one sentence explaining why the answer makes sense.\n\nExtension: change one number in the problem and solve the new version.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 128,
+      "imageRefs": [
+        "TZA-STANDARD-V-hisabati-topic-002:application-workshop:visual-1:planned",
+        "TZA-STANDARD-V-hisabati-topic-002:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-v-hisabati-2"
+      ],
+      "unitIds": [
+        "fallback-standard-v-hisabati-2"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-v-hisabati-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-v-hisabati-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p083",
+      "title": "Glossary",
+      "content": "Use this glossary to revise important words in Hisabati.\n\n- Large Numbers And Estimation: Explain this term using an example from the book, your school, or your community.\n- Operations With Multi-Step Problems: Explain this term using an example from the book, your school, or your community.\n- Fractions And Decimals: Explain this term using an example from the book, your school, or your community.\n- Percentages In Everyday Situations: Explain this term using an example from the book, your school, or your community.\n- Angles Lines And Plane Shapes: Explain this term using an example from the book, your school, or your community.\n- Area Perimeter And Volume Models: Explain this term using an example from the book, your school, or your community.\n- Tables Graphs And Data: Explain this term using an example from the book, your school, or your community.\n- Problem Solving Project: Explain this term using an example from the book, your school, or your community.\n\nAdd five more words from your lessons and write your own meanings.",
+      "pageType": "glossary",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 173,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p084",
+      "title": "Answer And Teacher Notes",
+      "content": "A strong Hisabati answer shows the model, method, units or labels, final answer, and a check. Use the worked examples and answer checks in each practice page to correct your work. When an answer is wrong, find the first step that changed the meaning and correct that step before trying a new question.",
+      "pageType": "answer-notes",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 53,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-v-hisabati-p085",
+      "title": "Final Project",
+      "content": "Create a final project for Hisabati that shows what you can now do independently.\n\nYour project must include:\n1. A clear title.\n2. A real-life problem, question, text, performance, investigation, design, or worked task.\n3. Evidence from at least three lessons in this book.\n4. A drawing, table, map, chart, model, dialogue, paragraph, performance plan, practical product, or worked solution.\n5. A correction note showing one improvement after feedback.\n6. A short reflection explaining what you learned, what was difficult, and what you will practise next.\n\nPresentation check: keep the work neat, label important parts, use correct vocabulary, and be ready to explain your choices to a classmate or teacher.",
+      "pageType": "project",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 110,
+      "imageRefs": []
+    }
+  ]
+}

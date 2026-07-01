@@ -1,0 +1,858 @@
+{
+  "schemaVersion": 1,
+  "sourceType": "normalized-curriculum",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "S5",
+  "subject": "Computer Science",
+  "generatedAt": "2026-07-01T04:12:48Z",
+  "sourceSnapshotHash": "e83a1e9975be621e56ed1f8277eec8bea59b8884320feb5e73e7046e31c73ae5",
+  "writingStandard": {
+    "voice": "simple, conversational, purposeful, age-appropriate, and learner-first",
+    "antiFluff": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "coversDeferred": true
+  },
+  "strands": [
+    {
+      "strandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-strand",
+      "number": "",
+      "title": "Fundamental of laptop and portable devices",
+      "topicCount": 1
+    },
+    {
+      "strandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-strand",
+      "number": "",
+      "title": "Complex data structure in algorithm",
+      "topicCount": 1
+    },
+    {
+      "strandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-strand",
+      "number": "",
+      "title": "Database design",
+      "topicCount": 1
+    },
+    {
+      "strandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-strand",
+      "number": "",
+      "title": "Pointers and Structure in C++",
+      "topicCount": 1
+    },
+    {
+      "strandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-strand",
+      "number": "",
+      "title": "Object Oriented Programming in C++",
+      "topicCount": 1
+    },
+    {
+      "strandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-strand",
+      "number": "",
+      "title": "Variables, Operators, Expressions and Control structures",
+      "topicCount": 1
+    },
+    {
+      "strandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-strand",
+      "number": "",
+      "title": "OOP and Java",
+      "topicCount": 1
+    },
+    {
+      "strandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-strand",
+      "number": "",
+      "title": "IO and Java",
+      "topicCount": 1
+    },
+    {
+      "strandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-strand",
+      "number": "",
+      "title": "Process Management and scheduling algorithm",
+      "topicCount": 1
+    }
+  ],
+  "topics": [
+    {
+      "topicId": "RWA-S5-computer-science-topic-001",
+      "grade": "S5",
+      "strandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-strand",
+      "subStrandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-topic",
+      "parentSubStrandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-topic",
+      "strandTitle": "Fundamental of laptop and portable devices",
+      "unitTitle": "Fundamental of laptop and portable devices",
+      "sourceUnitTitle": "Fundamental of laptop and portable devices",
+      "learningOutcomes": [
+        {
+          "id": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-1-outcome-1",
+          "text": "identify, use and maintain safely laptops and other portable devices"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can fundamental of laptop and portable devices help you solve a real problem in Computer Science?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Fundamental of laptop and portable devices.",
+        "Review key vocabulary from the previous Computer Science lesson."
+      ],
+      "keyVocabulary": [
+        "Fundamental of laptop and portable devices",
+        "Fundamental",
+        "laptop",
+        "portable",
+        "devices",
+        "concept",
+        "observation",
+        "evidence"
+      ],
+      "misconceptions": [
+        "giving a general answer about Fundamental of laptop and portable devices without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwanda observation, model, data table, or investigation for Fundamental of laptop and portable devices",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Fundamental of laptop and portable devices",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Fundamental of laptop and portable devices",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "0b3c67d1-5609-434a-b9b3-3f0f43376256",
+          "officialTitle": "Rwanda Competence Based Curriculum S5 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S5/computer-science/0b3c67d1-5609-434a-b9b3-3f0f43376256.md",
+          "sourceSectionHash": "c100d78fcb540ab7d56e9741af425369f992cfd75c11d384967825158810eaec",
+          "sourceSnapshotHash": "e83a1e9975be621e56ed1f8277eec8bea59b8884320feb5e73e7046e31c73ae5"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "0b3c67d1-5609-434a-b9b3-3f0f43376256",
+          "officialTitle": "Rwanda Competence Based Curriculum S5 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S5/computer-science/0b3c67d1-5609-434a-b9b3-3f0f43376256.md",
+          "sourceSectionHash": "c100d78fcb540ab7d56e9741af425369f992cfd75c11d384967825158810eaec",
+          "sourceSnapshotHash": "e83a1e9975be621e56ed1f8277eec8bea59b8884320feb5e73e7046e31c73ae5"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S5-computer-science-topic-002",
+      "grade": "S5",
+      "strandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-strand",
+      "subStrandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-topic",
+      "parentSubStrandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-topic",
+      "strandTitle": "Complex data structure in algorithm",
+      "unitTitle": "Complex data structure in algorithm",
+      "sourceUnitTitle": "Complex data structure in algorithm",
+      "learningOutcomes": [
+        {
+          "id": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-2-outcome-1",
+          "text": "utilize complex data structure in algorithm"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can complex data structure in algorithm help you solve a real problem in Computer Science?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Complex data structure in algorithm.",
+        "Review key vocabulary from the previous Computer Science lesson."
+      ],
+      "keyVocabulary": [
+        "Complex data structure in algorithm",
+        "Complex",
+        "data",
+        "structure",
+        "algorithm",
+        "concept",
+        "observation",
+        "evidence"
+      ],
+      "misconceptions": [
+        "giving a general answer about Complex data structure in algorithm without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwanda observation, model, data table, or investigation for Complex data structure in algorithm",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Complex data structure in algorithm",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Complex data structure in algorithm",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "0b3c67d1-5609-434a-b9b3-3f0f43376256",
+          "officialTitle": "Rwanda Competence Based Curriculum S5 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S5/computer-science/0b3c67d1-5609-434a-b9b3-3f0f43376256.md",
+          "sourceSectionHash": "5636d9c8d24924a40779d61493b5a8ad422466f6f833f43f5931e72728707f89",
+          "sourceSnapshotHash": "e83a1e9975be621e56ed1f8277eec8bea59b8884320feb5e73e7046e31c73ae5"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "0b3c67d1-5609-434a-b9b3-3f0f43376256",
+          "officialTitle": "Rwanda Competence Based Curriculum S5 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S5/computer-science/0b3c67d1-5609-434a-b9b3-3f0f43376256.md",
+          "sourceSectionHash": "5636d9c8d24924a40779d61493b5a8ad422466f6f833f43f5931e72728707f89",
+          "sourceSnapshotHash": "e83a1e9975be621e56ed1f8277eec8bea59b8884320feb5e73e7046e31c73ae5"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S5-computer-science-topic-003",
+      "grade": "S5",
+      "strandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-strand",
+      "subStrandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-topic",
+      "parentSubStrandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-topic",
+      "strandTitle": "Database design",
+      "unitTitle": "Database design",
+      "sourceUnitTitle": "Database design",
+      "learningOutcomes": [
+        {
+          "id": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-21-outcome-1",
+          "text": "define conceptual, logical and physical levels of a database with database creation and manipulation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can database design help you solve a real problem in Computer Science?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Database design.",
+        "Review key vocabulary from the previous Computer Science lesson."
+      ],
+      "keyVocabulary": [
+        "Database design",
+        "Database",
+        "design",
+        "concept",
+        "observation",
+        "evidence",
+        "safety",
+        "conclusion"
+      ],
+      "misconceptions": [
+        "giving a general answer about Database design without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwanda observation, model, data table, or investigation for Database design",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Database design",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Database design",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "0b3c67d1-5609-434a-b9b3-3f0f43376256",
+          "officialTitle": "Rwanda Competence Based Curriculum S5 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S5/computer-science/0b3c67d1-5609-434a-b9b3-3f0f43376256.md",
+          "sourceSectionHash": "04ed5eaa15a9fae83e252e7d129d9c26d5ae6b1faee300e21d08d46bd76fb2c1",
+          "sourceSnapshotHash": "e83a1e9975be621e56ed1f8277eec8bea59b8884320feb5e73e7046e31c73ae5"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "0b3c67d1-5609-434a-b9b3-3f0f43376256",
+          "officialTitle": "Rwanda Competence Based Curriculum S5 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S5/computer-science/0b3c67d1-5609-434a-b9b3-3f0f43376256.md",
+          "sourceSectionHash": "04ed5eaa15a9fae83e252e7d129d9c26d5ae6b1faee300e21d08d46bd76fb2c1",
+          "sourceSnapshotHash": "e83a1e9975be621e56ed1f8277eec8bea59b8884320feb5e73e7046e31c73ae5"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S5-computer-science-topic-004",
+      "grade": "S5",
+      "strandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-strand",
+      "subStrandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-topic",
+      "parentSubStrandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-topic",
+      "strandTitle": "Pointers and Structure in C++",
+      "unitTitle": "Pointers and Structure in C++",
+      "sourceUnitTitle": "Pointers and Structure in C++",
+      "learningOutcomes": [
+        {
+          "id": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-27-outcome-1",
+          "text": "apply pointers for dynamic memory allocation and structure as user defined data type in C ++ program"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can pointers and structure in c++ help you solve a real problem in Computer Science?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Pointers and Structure in C++.",
+        "Review key vocabulary from the previous Computer Science lesson."
+      ],
+      "keyVocabulary": [
+        "Pointers and Structure in C++",
+        "Pointers",
+        "Structure",
+        "concept",
+        "observation",
+        "evidence",
+        "safety",
+        "conclusion"
+      ],
+      "misconceptions": [
+        "giving a general answer about Pointers and Structure in C++ without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwanda observation, model, data table, or investigation for Pointers and Structure in C++",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Pointers and Structure in C++",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Pointers and Structure in C++",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "0b3c67d1-5609-434a-b9b3-3f0f43376256",
+          "officialTitle": "Rwanda Competence Based Curriculum S5 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S5/computer-science/0b3c67d1-5609-434a-b9b3-3f0f43376256.md",
+          "sourceSectionHash": "c16529c1b95ccb39261c732c0507b445c5ab2ff1df37a2a9070e12ded598d379",
+          "sourceSnapshotHash": "e83a1e9975be621e56ed1f8277eec8bea59b8884320feb5e73e7046e31c73ae5"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "0b3c67d1-5609-434a-b9b3-3f0f43376256",
+          "officialTitle": "Rwanda Competence Based Curriculum S5 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S5/computer-science/0b3c67d1-5609-434a-b9b3-3f0f43376256.md",
+          "sourceSectionHash": "c16529c1b95ccb39261c732c0507b445c5ab2ff1df37a2a9070e12ded598d379",
+          "sourceSnapshotHash": "e83a1e9975be621e56ed1f8277eec8bea59b8884320feb5e73e7046e31c73ae5"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S5-computer-science-topic-005",
+      "grade": "S5",
+      "strandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-strand",
+      "subStrandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-topic",
+      "parentSubStrandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-topic",
+      "strandTitle": "Object Oriented Programming in C++",
+      "unitTitle": "Object Oriented Programming in C++",
+      "sourceUnitTitle": "Object Oriented Programming in C++",
+      "learningOutcomes": [
+        {
+          "id": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-28-outcome-1",
+          "text": "explain common concepts of Object Oriented Programming(OOP) and implement them in C++"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can object oriented programming in c++ help you solve a real problem in Computer Science?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Object Oriented Programming in C++.",
+        "Review key vocabulary from the previous Computer Science lesson."
+      ],
+      "keyVocabulary": [
+        "Object Oriented Programming in C++",
+        "Object",
+        "Oriented",
+        "Programming",
+        "concept",
+        "observation",
+        "evidence",
+        "safety"
+      ],
+      "misconceptions": [
+        "giving a general answer about Object Oriented Programming in C++ without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwanda observation, model, data table, or investigation for Object Oriented Programming in C++",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Object Oriented Programming in C++",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Object Oriented Programming in C++",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "0b3c67d1-5609-434a-b9b3-3f0f43376256",
+          "officialTitle": "Rwanda Competence Based Curriculum S5 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S5/computer-science/0b3c67d1-5609-434a-b9b3-3f0f43376256.md",
+          "sourceSectionHash": "1489df31eb1cd2c8c71645e1932625788e78ac98542965a9821c372151e92e9d",
+          "sourceSnapshotHash": "e83a1e9975be621e56ed1f8277eec8bea59b8884320feb5e73e7046e31c73ae5"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "0b3c67d1-5609-434a-b9b3-3f0f43376256",
+          "officialTitle": "Rwanda Competence Based Curriculum S5 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S5/computer-science/0b3c67d1-5609-434a-b9b3-3f0f43376256.md",
+          "sourceSectionHash": "1489df31eb1cd2c8c71645e1932625788e78ac98542965a9821c372151e92e9d",
+          "sourceSnapshotHash": "e83a1e9975be621e56ed1f8277eec8bea59b8884320feb5e73e7046e31c73ae5"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S5-computer-science-topic-006",
+      "grade": "S5",
+      "strandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-strand",
+      "subStrandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-topic",
+      "parentSubStrandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-topic",
+      "strandTitle": "Variables, Operators, Expressions and Control structures",
+      "unitTitle": "Variables, Operators, Expressions and Control structures",
+      "sourceUnitTitle": "Variables, Operators, Expressions and Control structures",
+      "learningOutcomes": [
+        {
+          "id": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-30-outcome-1",
+          "text": "use variables, operators, expressions and control structure in a Visual Basic program"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can variables, operators, expressions and control structures help you solve a real problem in Computer Science?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Variables, Operators, Expressions and Control structures.",
+        "Review key vocabulary from the previous Computer Science lesson."
+      ],
+      "keyVocabulary": [
+        "Variables, Operators, Expressions and Control structures",
+        "Variables",
+        "Operators",
+        "Expressions",
+        "Control",
+        "structures",
+        "concept",
+        "observation"
+      ],
+      "misconceptions": [
+        "giving a general answer about Variables, Operators, Expressions and Control structures without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwanda observation, model, data table, or investigation for Variables, Operators, Expressions and Control structures",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Variables, Operators, Expressions and Control structures",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Variables, Operators, Expressions and Control structures",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "0b3c67d1-5609-434a-b9b3-3f0f43376256",
+          "officialTitle": "Rwanda Competence Based Curriculum S5 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S5/computer-science/0b3c67d1-5609-434a-b9b3-3f0f43376256.md",
+          "sourceSectionHash": "e504d559f36ab769a9f19ca26c3067b17e1fe93723eec62bf679cff0031ccbeb",
+          "sourceSnapshotHash": "e83a1e9975be621e56ed1f8277eec8bea59b8884320feb5e73e7046e31c73ae5"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "0b3c67d1-5609-434a-b9b3-3f0f43376256",
+          "officialTitle": "Rwanda Competence Based Curriculum S5 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S5/computer-science/0b3c67d1-5609-434a-b9b3-3f0f43376256.md",
+          "sourceSectionHash": "e504d559f36ab769a9f19ca26c3067b17e1fe93723eec62bf679cff0031ccbeb",
+          "sourceSnapshotHash": "e83a1e9975be621e56ed1f8277eec8bea59b8884320feb5e73e7046e31c73ae5"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S5-computer-science-topic-007",
+      "grade": "S5",
+      "strandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-strand",
+      "subStrandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-topic",
+      "parentSubStrandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-topic",
+      "strandTitle": "OOP and Java",
+      "unitTitle": "OOP and Java",
+      "sourceUnitTitle": "OOP and Java",
+      "learningOutcomes": [
+        {
+          "id": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-32-outcome-1",
+          "text": "use objects to manipulate data in Java program"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can oop and java help you solve a real problem in Computer Science?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to OOP and Java.",
+        "Review key vocabulary from the previous Computer Science lesson."
+      ],
+      "keyVocabulary": [
+        "OOP and Java",
+        "Java",
+        "concept",
+        "observation",
+        "evidence",
+        "safety",
+        "conclusion"
+      ],
+      "misconceptions": [
+        "giving a general answer about OOP and Java without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwanda observation, model, data table, or investigation for OOP and Java",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for OOP and Java",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for OOP and Java",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "0b3c67d1-5609-434a-b9b3-3f0f43376256",
+          "officialTitle": "Rwanda Competence Based Curriculum S5 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S5/computer-science/0b3c67d1-5609-434a-b9b3-3f0f43376256.md",
+          "sourceSectionHash": "495644de6d76a312e7db24ba29af9c9047188915ead2d28d670c3e7fc534338c",
+          "sourceSnapshotHash": "e83a1e9975be621e56ed1f8277eec8bea59b8884320feb5e73e7046e31c73ae5"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "0b3c67d1-5609-434a-b9b3-3f0f43376256",
+          "officialTitle": "Rwanda Competence Based Curriculum S5 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S5/computer-science/0b3c67d1-5609-434a-b9b3-3f0f43376256.md",
+          "sourceSectionHash": "495644de6d76a312e7db24ba29af9c9047188915ead2d28d670c3e7fc534338c",
+          "sourceSnapshotHash": "e83a1e9975be621e56ed1f8277eec8bea59b8884320feb5e73e7046e31c73ae5"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S5-computer-science-topic-008",
+      "grade": "S5",
+      "strandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-strand",
+      "subStrandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-topic",
+      "parentSubStrandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-topic",
+      "strandTitle": "IO and Java",
+      "unitTitle": "IO and Java",
+      "sourceUnitTitle": "IO and Java",
+      "learningOutcomes": [
+        {
+          "id": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-33-outcome-1",
+          "text": "use streams, readers and writers in Java"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can io and java help you solve a real problem in Computer Science?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to IO and Java.",
+        "Review key vocabulary from the previous Computer Science lesson."
+      ],
+      "keyVocabulary": [
+        "IO and Java",
+        "Java",
+        "concept",
+        "observation",
+        "evidence",
+        "safety",
+        "conclusion"
+      ],
+      "misconceptions": [
+        "giving a general answer about IO and Java without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwanda observation, model, data table, or investigation for IO and Java",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for IO and Java",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for IO and Java",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "0b3c67d1-5609-434a-b9b3-3f0f43376256",
+          "officialTitle": "Rwanda Competence Based Curriculum S5 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S5/computer-science/0b3c67d1-5609-434a-b9b3-3f0f43376256.md",
+          "sourceSectionHash": "2f12cad9f96c588e5880d5737ccff60fb51268b1a20c7cfb49e5c559ad23bf82",
+          "sourceSnapshotHash": "e83a1e9975be621e56ed1f8277eec8bea59b8884320feb5e73e7046e31c73ae5"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "0b3c67d1-5609-434a-b9b3-3f0f43376256",
+          "officialTitle": "Rwanda Competence Based Curriculum S5 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S5/computer-science/0b3c67d1-5609-434a-b9b3-3f0f43376256.md",
+          "sourceSectionHash": "2f12cad9f96c588e5880d5737ccff60fb51268b1a20c7cfb49e5c559ad23bf82",
+          "sourceSnapshotHash": "e83a1e9975be621e56ed1f8277eec8bea59b8884320feb5e73e7046e31c73ae5"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S5-computer-science-topic-009",
+      "grade": "S5",
+      "strandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-strand",
+      "subStrandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-topic",
+      "parentSubStrandId": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-topic",
+      "strandTitle": "Process Management and scheduling algorithm",
+      "unitTitle": "Process Management and scheduling algorithm",
+      "sourceUnitTitle": "Process Management and scheduling algorithm",
+      "learningOutcomes": [
+        {
+          "id": "0b3c67d1-5609-434a-b9b3-3f0f43376256-unit-40-outcome-1",
+          "text": "explain how processes are managed by Operating System and to understand process scheduling algorithms"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can process management and scheduling algorithm help you solve a real problem in Computer Science?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Process Management and scheduling algorithm.",
+        "Review key vocabulary from the previous Computer Science lesson."
+      ],
+      "keyVocabulary": [
+        "Process Management and scheduling algorithm",
+        "Process",
+        "Management",
+        "scheduling",
+        "algorithm",
+        "concept",
+        "observation",
+        "evidence"
+      ],
+      "misconceptions": [
+        "giving a general answer about Process Management and scheduling algorithm without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwanda observation, model, data table, or investigation for Process Management and scheduling algorithm",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Process Management and scheduling algorithm",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Process Management and scheduling algorithm",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "0b3c67d1-5609-434a-b9b3-3f0f43376256",
+          "officialTitle": "Rwanda Competence Based Curriculum S5 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S5/computer-science/0b3c67d1-5609-434a-b9b3-3f0f43376256.md",
+          "sourceSectionHash": "a2034d49e28e80be5d28067efbcdd574795fbfef3ca2e94d370235c902cda520",
+          "sourceSnapshotHash": "e83a1e9975be621e56ed1f8277eec8bea59b8884320feb5e73e7046e31c73ae5"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "0b3c67d1-5609-434a-b9b3-3f0f43376256",
+          "officialTitle": "Rwanda Competence Based Curriculum S5 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S5/computer-science/0b3c67d1-5609-434a-b9b3-3f0f43376256.md",
+          "sourceSectionHash": "a2034d49e28e80be5d28067efbcdd574795fbfef3ca2e94d370235c902cda520",
+          "sourceSnapshotHash": "e83a1e9975be621e56ed1f8277eec8bea59b8884320feb5e73e7046e31c73ae5"
+        }
+      ]
+    }
+  ]
+}

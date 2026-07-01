@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-rwa-reb-cbc-s1-english",
+  "title": "KITABU QUEST S1 English",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "S1",
+  "subject": "English",
+  "subjectSlug": "english",
+  "subjectColor": "#2563EB",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v17",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T06:41:08Z",
+  "sourceSnapshotHash": "0f65fe65594483477c1804138dba72f75c876a9e8a7a03438f58cf0b408ac2c5",
+  "bookPlanHash": "31701e909a7470d1e1b8f6bdea9e2fbb1308027f94911ff860513da87ab75fa8",
+  "pageCount": 111,
+  "wordCount": 11579,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 9,
+    "outcomeCount": 54,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "RWA",
+    "subject": "English",
+    "species": "hare",
+    "role": "reading and communication guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners in a reading and debate club with a friendly hare mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Rwanda REB-CBC S1 English. Scene: learners in a reading and debate club with a friendly hare mascot. Include a friendly hare mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 83193,
+    "sha256": "8a6de37e91d1fbe1f064f6c2eb58a6db24aff2826cd4ee71d7043a6e51a72708"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 83193,
+      "sha256": "8a6de37e91d1fbe1f064f6c2eb58a6db24aff2826cd4ee71d7043a6e51a72708",
+      "kind": "cover",
+      "altText": "KITABU QUEST S1 English cover with hare",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-rwa-reb-cbc-s1-english.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-rwa-reb-cbc-s1-english.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "492d9462-96a0-4d78-8833-b44958757324",
+      "subject": "English",
+      "officialTitle": "Rwanda Competence Based Curriculum S1 English",
+      "countryCode": "RWA",
+      "curriculumCode": "REB-CBC",
+      "gradeCode": "S1",
+      "gradeLocalLevel": "S1",
+      "localLevel": "S1",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://elearning.reb.rw/pluginfile.php/57815/mod_resource/content/1/English_Curriculum_O_level.pdf",
+      "objectKey": "data/curriculum/source-files/RWA/90fc10b131cdbc4e9637a2ffc7bb69705829626f9d0ef18766de446372d798c4.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "S1",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://elearning.reb.rw/pluginfile.php/57815/mod_resource/content/1/English_Curriculum_O_level.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S1/english/492d9462-96a0-4d78-8833-b44958757324.md",
+        "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "reb.gov.rw",
+          "reb.rw",
+          "elearning.reb.rw"
+        ],
+        "markdownChecksum": "a3d7e818fa9dff1f6fd344a9ce3cda9065c7303ab2c413e8d22edb43edff28d1",
+        "markdownPageCount": 105,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/RWA/REB-CBC/S1/english/492d9462-96a0-4d78-8833-b44958757324.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "a3d7e818fa9dff1f6fd344a9ce3cda9065c7303ab2c413e8d22edb43edff28d1",
+          "pageCount": 105,
+          "generatedAt": "2026-07-01T01:15:35.099Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S1/english/492d9462-96a0-4d78-8833-b44958757324.json",
+          "sourceChecksum": "4aa541503f15b7ee168b8ebfd591256bb194bbb2f685235bbfec7ded060e6984"
+        },
+        "markdownGeneratedAt": "2026-07-01T01:15:35.099Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,3156 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-rwa-reb-cbc-s2-mathematics",
+  "title": "KITABU QUEST S2 Mathematics",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "S2",
+  "subject": "Mathematics",
+  "subjectSlug": "mathematics",
+  "subjectColor": "#047857",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v17",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T06:43:49Z",
+  "sourceSnapshotHash": "241feff3e9bdcff0ac1832fb13247204647f3406b33b46e4e889633ad1f76974",
+  "bookPlanHash": "f2fdd8cd402241c13716ecf1ca03f3601047a989bbd3f242cd1fa6feaf8da480",
+  "pageCount": 110,
+  "wordCount": 9882,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 11,
+    "outcomeCount": 65,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "RWA",
+    "subject": "Mathematics",
+    "species": "mountain gorilla",
+    "role": "problem-solving guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners solving mathematics with charts and measuring tools with a mountain gorilla mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Rwanda REB-CBC S2 Mathematics. Scene: learners solving mathematics with charts and measuring tools with a mountain gorilla mascot. Include a friendly mountain gorilla mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 90329,
+    "sha256": "797326aaf7ddec406d6039aa5e39beb8324f48747af4df07f23f2ea494320f25"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 90329,
+      "sha256": "797326aaf7ddec406d6039aa5e39beb8324f48747af4df07f23f2ea494320f25",
+      "kind": "cover",
+      "altText": "KITABU QUEST S2 Mathematics cover with mountain gorilla",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-rwa-reb-cbc-s2-mathematics.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-rwa-reb-cbc-s2-mathematics.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "5c411cfa-e189-4f4c-88b2-6ccf03e74591",
+      "subject": "Mathematics",
+      "officialTitle": "Rwanda Competence Based Curriculum S2 Mathematics",
+      "countryCode": "RWA",
+      "curriculumCode": "REB-CBC",
+      "gradeCode": "S2",
+      "gradeLocalLevel": "S2",
+      "localLevel": "S2",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://elearning.reb.rw/pluginfile.php/50428/mod_resource/content/1/Mathematics_Syllabus_Ordinary_Level.pdf",
+      "objectKey": "data/curriculum/source-files/RWA/d6a6bace83820ec6fdaa10b1c7d112cdf37d8301632c42ad8849130399db945b.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "S2",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://elearning.reb.rw/pluginfile.php/50428/mod_resource/content/1/Mathematics_Syllabus_Ordinary_Level.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S2/mathematics/5c411cfa-e189-4f4c-88b2-6ccf03e74591.md",
+        "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "reb.gov.rw",
+          "reb.rw",
+          "elearning.reb.rw"
+        ],
+        "markdownChecksum": "646d5ec182b6c5bcfc89e8f6334233355914a868765006a7b1adb04d9c2ec5f9",
+        "markdownPageCount": 67,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/RWA/REB-CBC/S2/mathematics/5c411cfa-e189-4f4c-88b2-6ccf03e74591.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "646d5ec182b6c5bcfc89e8f6334233355914a868765006a7b1adb04d9c2ec5f9",
+          "pageCount": 67,
+          "generatedAt": "2026-07-01T01:18:42.425Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S2/mathematics/5c411cfa-e189-4f4c-88b2-6ccf03e74591.json",
+          "sourceChecksum": "9d3d975b37a76b63a0868c461acbc75541f8605611ad74d47118bdd7ab3ec6e7"
+        },
+        "markdownGeneratedAt": "2026-07-01T01:18:42.425Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p001",
+      "title": "Title Page",
+      "content": "KITABU QUEST S2 Mathematics\n\nRwanda REB-CBC learner book\n\nMascot: mountain gorilla\n\nThis KITABU QUEST book turns the curriculum into short lessons, worked examples, guided activities, practice, review, and home links for Rwanda learners.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 3,
+      "wordCount": 33,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p002",
+      "title": "How To Use This Book",
+      "content": "This book helps S2 learners study Mathematics one teachable topic at a time.\n\n1. Start with the inquiry question and say what you already know.\n2. Read the Learn section slowly and mark new words.\n3. Try the worked example before reading the full solution.\n4. Complete the activity and practice tasks.\n5. Correct your answer using the success criteria.\n6. Ask for support when your answer is still unclear.\n\nSubject method: Use objects, drawings, number sentences, and worked examples before independent practice.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 83,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p003",
+      "title": "Learning Skills In This Book",
+      "content": "Each topic builds knowledge, skill, values, communication, collaboration, critical thinking, creativity, digital awareness, and self-confidence.\n\nStudy actively: speak answers aloud, draw when useful, show your working, cite evidence, use local examples, and correct mistakes after feedback.\n\nA strong answer is specific. It names the idea, gives evidence or method, applies it to the task, and checks whether it answers the question.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p004",
+      "title": "Table Of Contents",
+      "content": "Use this table to move through the book one topic at a time. Each topic has a lesson opener, clear teaching, a model or example, guided work, practice, and checks for understanding.\n\n1. Indices and surds\n2. Polynomials\n3. Simultaneous liner equations and inequalities\n4. Multiplier for proportional change\n5. Thales theorem\n6. Pythagoras's theorem\n7. Vectors\n8. Parallel and orthogonal projections\n9. Isometries\n10. Statistics (grouped data)\n11. Tree and Venn diagrams\n\nAs you finish each topic, return to the success criteria and correct one answer before moving on.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p005",
+      "title": "Indices and surds: Lesson Opener",
+      "content": "Learning focus: Indices and surds\n\nCountry link: a Rwandan school, market, farming, building, transport, or data problem for Indices and surds.\n\nProgression focus: connect ideas across topics and explain causes, methods, or consequences; show methods, units, checks, and a final explanation.\n\nBy the end of this topic, you should be able to:\n- to be able todetermine the probability of an event happening using equally likely events or experiments\n- recognize laws of indices\n- represent very small numbers or large numbers in standard form\n- define and give examples of surds\n- identify properties of surds\n- recognize the conjugates of surds\n\nInquiry questions:\n- How can indices and surds help you solve a real problem in Mathematics?\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 138,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-001:opener:visual-1:planned",
+        "RWA-S2-mathematics-topic-001:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p006",
+      "title": "Indices and surds: Learn",
+      "content": "Indices and surds teaches how likely an event is.\n\nCore idea:\n- Some events are certain, likely, unlikely, or impossible.\n- A simple experiment can help you compare chances.\n- Record results before making a conclusion.\n\nKey words:\n- Indices and surds\n- Indices\n- surds\n- method\n- model\n- unit\n- answer\n- check",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 56,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-001:learn:visual-1:planned",
+        "RWA-S2-mathematics-topic-001:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p007",
+      "title": "Indices and surds: Worked Example",
+      "content": "Worked example for Indices and surds: A bag has 4 red counters and 1 blue counter. Which colour is more likely to be picked?\n\n1. Compare the number of counters.\n2. Red has 4 chances; blue has 1 chance.\n3. More red counters means red is more likely.\n\nAnswer: Red is more likely.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 53,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-001:example:visual-1:planned",
+        "RWA-S2-mathematics-topic-001:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p008",
+      "title": "Indices and surds: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Indices and surds. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Indices and surds\n- Indices\n- surds\n- method\n- model\n- unit\n- answer\n- check\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Indices and surds without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-001:vocabulary:visual-1:planned",
+        "RWA-S2-mathematics-topic-001:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p009",
+      "title": "Indices and surds: Guided Activity",
+      "content": "Guided activity for Indices and surds:\n\n1. Work with a partner and read the worked example.\n2. Make a similar question using Rwanda classroom, home, market, garden, transport, or timetable details.\n3. Draw a model: table, number line, diagram, place-value chart, shape, or equation.\n4. Solve the question step by step.\n5. Swap work with another pair and check the method, units, labels, and final sentence.\n\nTeacher check: the model should match the topic, not just any calculation.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 78,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-001:activity:visual-1:planned",
+        "RWA-S2-mathematics-topic-001:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p010",
+      "title": "Indices and surds: Practice And Correction",
+      "content": "Practice for Indices and surds:\n\nMain outcome: to be able todetermine the probability of an event happening using equally likely events or experiments.\n\n1. Write one certain event, one likely event, and one impossible event.\n2. Toss a coin 10 times and record heads/tails.\n3. Use your results to say what happened more often.\n\nAnswer check:\nAnswer check: certain means must happen; impossible means cannot happen.\n\nCorrection check:\n- Did you show the method?\n- Did you use the correct unit or label?\n- Did you check whether the answer is reasonable?\n\nHome link: Find one Rwanda home, school, shop, garden, road, game, or timetable example connected to indices and surds and solve it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 114,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-001:practice:visual-1:planned",
+        "RWA-S2-mathematics-topic-001:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p011",
+      "title": "Indices and surds: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Indices and surds.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-001:remediation:visual-1:planned",
+        "RWA-S2-mathematics-topic-001:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p012",
+      "title": "Indices and surds: Outcome Check",
+      "content": "Outcome check for Indices and surds: To be able todetermine the probability of an event happening using equally likely events or experiments.\n\n1. Write one clear example from the topic.\n2. Solve it with labelled steps.\n3. Check the answer in context.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-001:assessment:visual-1:planned",
+        "RWA-S2-mathematics-topic-001:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p013",
+      "title": "Indices and surds: Outcome Check",
+      "content": "Outcome check for Indices and surds: Recognize laws of indices.\n\n1. Write one clear example from the topic.\n2. Solve it with labelled steps.\n3. Check the answer in context.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 49,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-001:assessment:visual-1:planned",
+        "RWA-S2-mathematics-topic-001:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-2"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p014",
+      "title": "Polynomials: Lesson Opener",
+      "content": "Learning focus: Polynomials\n\nCountry link: a Rwandan school, market, farming, building, transport, or data problem for Polynomials.\n\nProgression focus: connect ideas across topics and explain causes, methods, or consequences; show methods, units, checks, and a final explanation.\n\nBy the end of this topic, you should be able to:\n- to be able toperform operations, factorise polynomials, and solve related problems\n- classify polynomials by degree and number of terms\n- recognize operation properties on polynomials\n- give common factor of algebraic expressions\n- perform operation of polynomials\n\nInquiry questions:\n- How can polynomials help you solve a real problem in Mathematics?\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 120,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-002:opener:visual-1:planned",
+        "RWA-S2-mathematics-topic-002:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-5"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p015",
+      "title": "Polynomials: Learn",
+      "content": "Polynomials teaches how two quantities change together at the same rate.\n\nCore idea:\n- In direct proportion, when one quantity is multiplied, the other quantity is multiplied by the same factor.\n- A table helps you compare matching values.\n- The unit rate tells the value for one item, one litre, one metre, one hour, or one learner.\n- Always check that the relationship is consistent before using proportion.\n\nKey words:\n- Polynomials\n- method\n- model\n- unit\n- answer\n- check",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 83,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-002:learn:visual-1:planned",
+        "RWA-S2-mathematics-topic-002:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-5"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p016",
+      "title": "Polynomials: Worked Example",
+      "content": "Worked example for Polynomials: If 3 exercise books cost 900 francs, how much do 5 exercise books cost at the same price?\n\n1. Find the cost of 1 book: 900 / 3 = 300 francs.\n2. Multiply by 5 books: 300 x 5 = 1500 francs.\n3. Check: more books should cost more money.\n\nAnswer: 5 exercise books cost 1500 francs.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-002:example:visual-1:planned",
+        "RWA-S2-mathematics-topic-002:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-5"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p017",
+      "title": "Polynomials: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Polynomials. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Polynomials\n- method\n- model\n- unit\n- answer\n- check\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Polynomials without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-002:vocabulary:visual-1:planned",
+        "RWA-S2-mathematics-topic-002:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-5"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p018",
+      "title": "Polynomials: Guided Activity",
+      "content": "Guided activity for Polynomials:\n\n1. Work with a partner and read the worked example.\n2. Make a similar question using Rwanda classroom, home, market, garden, transport, or timetable details.\n3. Draw a model: table, number line, diagram, place-value chart, shape, or equation.\n4. Solve the question step by step.\n5. Swap work with another pair and check the method, units, labels, and final sentence.\n\nTeacher check: the model should match the topic, not just any calculation.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 76,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-002:activity:visual-1:planned",
+        "RWA-S2-mathematics-topic-002:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-5"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p019",
+      "title": "Polynomials: Practice And Correction",
+      "content": "Practice for Polynomials:\n\nMain outcome: to be able toperform operations, factorise polynomials, and solve related problems.\n\n1. Complete the table: 1 pen = 200 francs, 2 pens = __, 5 pens = __.\n2. A cyclist travels 18 km in 2 hours at the same speed. How far in 5 hours?\n3. Write the unit rate used in each answer.\n\nAnswer check:\nAnswers: 2 pens = 400 francs; 5 pens = 1000 francs. The cyclist travels 45 km in 5 hours because 18 / 2 = 9 km per hour.\n\nCorrection check:\n- Did you show the method?\n- Did you use the correct unit or label?\n- Did you check whether the answer is reasonable?\n\nHome link: Find one Rwanda home, school, shop, garden, road, game, or timetable example connected to polynomials and solve it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 136,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-002:practice:visual-1:planned",
+        "RWA-S2-mathematics-topic-002:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-5"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p020",
+      "title": "Polynomials: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Polynomials.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-002:remediation:visual-1:planned",
+        "RWA-S2-mathematics-topic-002:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-5"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p021",
+      "title": "Polynomials: Outcome Check",
+      "content": "Outcome check for Polynomials: To be able toperform operations, factorise polynomials, and solve related problems.\n\n1. A recipe uses 2 cups of flour for 6 cakes. How many cups for 18 cakes?\n2. Write the unit rate or scale factor.\n3. Check that both quantities changed by the same factor.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 69,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-002:assessment:visual-1:planned",
+        "RWA-S2-mathematics-topic-002:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p022",
+      "title": "Polynomials: Outcome Check",
+      "content": "Outcome check for Polynomials: Classify polynomials by degree and number of terms.\n\n1. A recipe uses 2 cups of flour for 6 cakes. How many cups for 18 cakes?\n2. Write the unit rate or scale factor.\n3. Check that both quantities changed by the same factor.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 66,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-002:assessment:visual-1:planned",
+        "RWA-S2-mathematics-topic-002:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-2"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p023",
+      "title": "Simultaneous liner equations and inequalities: Lesson Opener",
+      "content": "Learning focus: Simultaneous liner equations and inequalities\n\nCountry link: a Rwandan school, market, farming, building, transport, or data problem for Simultaneous liner equations and inequalities.\n\nProgression focus: connect ideas across topics and explain causes, methods, or consequences; show methods, units, checks, and a final explanation.\n\nBy the end of this topic, you should be able to:\n- to be able solve problems related to simultaneous linear equations and inequalities and represent thesolutions graphically\n- define simultaneous linear equations and give examples\n- show whether a given simultaneous linear equation is independent, dependent, or inconsistent\n- recognize the forms of compound inequalities with one unknown and give examples\n- solve simultaneous linear equations in two variables\n- model and solve mathematical word problems using simultaneous equations\n\nInquiry questions:\n- How can simultaneous liner equations and inequalities help you solve a real problem in Mathematics?\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 162,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-003:opener:visual-1:planned",
+        "RWA-S2-mathematics-topic-003:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p024",
+      "title": "Simultaneous liner equations and inequalities: Learn",
+      "content": "Simultaneous liner equations and inequalities teaches how lines and angles describe shapes and directions.\n\nCore idea:\n- A line can be straight, parallel, perpendicular, horizontal, vertical, or slanting.\n- An angle is a turn between two lines.\n- Draw and label diagrams carefully before measuring or classifying.\n\nKey words:\n- Simultaneous liner equations and inequalities\n- Simultaneous\n- liner\n- equations\n- inequalities\n- method\n- model\n- unit",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 69,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-003:learn:visual-1:planned",
+        "RWA-S2-mathematics-topic-003:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p025",
+      "title": "Simultaneous liner equations and inequalities: Worked Example",
+      "content": "Worked example for Simultaneous liner equations and inequalities: A shape has one right angle. How can you show it clearly?\n\n1. Draw the two meeting lines.\n2. Mark the square corner to show a right angle.\n3. Label it 90 degrees.\n4. Name a classroom example, such as a book corner.\n\nAnswer: A right angle is a quarter turn, 90 degrees.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-003:example:visual-1:planned",
+        "RWA-S2-mathematics-topic-003:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p026",
+      "title": "Simultaneous liner equations and inequalities: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Simultaneous liner equations and inequalities. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Simultaneous liner equations and inequalities\n- Simultaneous\n- liner\n- equations\n- inequalities\n- method\n- model\n- unit\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Simultaneous liner equations and inequalities without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-003:vocabulary:visual-1:planned",
+        "RWA-S2-mathematics-topic-003:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p027",
+      "title": "Simultaneous liner equations and inequalities: Guided Activity",
+      "content": "Guided activity for Simultaneous liner equations and inequalities:\n\n1. Work with a partner and read the worked example.\n2. Make a similar question using Rwanda classroom, home, market, garden, transport, or timetable details.\n3. Draw a model: table, number line, diagram, place-value chart, shape, or equation.\n4. Solve the question step by step.\n5. Swap work with another pair and check the method, units, labels, and final sentence.\n\nTeacher check: the model should match the topic, not just any calculation.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 80,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-003:activity:visual-1:planned",
+        "RWA-S2-mathematics-topic-003:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p028",
+      "title": "Simultaneous liner equations and inequalities: Practice And Correction",
+      "content": "Practice for Simultaneous liner equations and inequalities:\n\nMain outcome: to be able solve problems related to simultaneous linear equations and inequalities and represent thesolutions graphically.\n\n1. Draw one right angle and label it 90 degrees.\n2. Name one pair of parallel lines in the classroom.\n3. Use a ruler to draw a straight line segment and label its endpoints.\n\nAnswer check:\nAnswer check: the right angle should show a square corner; parallel lines stay the same distance apart.\n\nCorrection check:\n- Did you show the method?\n- Did you use the correct unit or label?\n- Did you check whether the answer is reasonable?\n\nHome link: Find one Rwanda home, school, shop, garden, road, game, or timetable example connected to simultaneous liner equations and inequalities and solve it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 128,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-003:practice:visual-1:planned",
+        "RWA-S2-mathematics-topic-003:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p029",
+      "title": "Simultaneous liner equations and inequalities: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Simultaneous liner equations and inequalities.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 110,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-003:remediation:visual-1:planned",
+        "RWA-S2-mathematics-topic-003:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p030",
+      "title": "Simultaneous liner equations and inequalities: Outcome Check",
+      "content": "Outcome check for Simultaneous liner equations and inequalities: To be able solve problems related to simultaneous linear equations and inequalities and represent thesolutions graphically.\n\n1. Draw and label one right angle.\n2. Name one pair of parallel lines.\n3. Explain how you know.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 62,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-003:assessment:visual-1:planned",
+        "RWA-S2-mathematics-topic-003:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p031",
+      "title": "Simultaneous liner equations and inequalities: Outcome Check",
+      "content": "Outcome check for Simultaneous liner equations and inequalities: Define simultaneous linear equations and give examples.\n\n1. Draw and label one right angle.\n2. Name one pair of parallel lines.\n3. Explain how you know.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 53,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-003:assessment:visual-1:planned",
+        "RWA-S2-mathematics-topic-003:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-2"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p032",
+      "title": "Multiplier for proportional change: Lesson Opener",
+      "content": "Learning focus: Multiplier for proportional change\n\nCountry link: a Rwandan school, market, farming, building, transport, or data problem for Multiplier for proportional change.\n\nProgression focus: connect ideas across topics and explain causes, methods, or consequences; show methods, units, checks, and a final explanation.\n\nBy the end of this topic, you should be able to:\n- to be able use a multiplier for proportional change\n- recognize the properties of proportions\n- express ratios in their simplest form\n- share quantities in a given proportion or ratio\n- solve problems in real life involving multiplier proportion change\n- apply multipliers for proportional change to solve given problem\n\nInquiry questions:\n- How can multiplier for proportional change help you solve a real problem in Mathematics?\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 142,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-004:opener:visual-1:planned",
+        "RWA-S2-mathematics-topic-004:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p033",
+      "title": "Multiplier for proportional change: Learn",
+      "content": "Multiplier for proportional change teaches how two quantities change together at the same rate.\n\nCore idea:\n- In direct proportion, when one quantity is multiplied, the other quantity is multiplied by the same factor.\n- A table helps you compare matching values.\n- The unit rate tells the value for one item, one litre, one metre, one hour, or one learner.\n- Always check that the relationship is consistent before using proportion.\n\nKey words:\n- Multiplier for proportional change\n- Multiplier\n- proportional\n- change\n- method\n- model\n- unit\n- answer",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-004:learn:visual-1:planned",
+        "RWA-S2-mathematics-topic-004:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p034",
+      "title": "Multiplier for proportional change: Worked Example",
+      "content": "Worked example for Multiplier for proportional change: If 3 exercise books cost 900 francs, how much do 5 exercise books cost at the same price?\n\n1. Find the cost of 1 book: 900 / 3 = 300 francs.\n2. Multiply by 5 books: 300 x 5 = 1500 francs.\n3. Check: more books should cost more money.\n\nAnswer: 5 exercise books cost 1500 francs.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 64,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-004:example:visual-1:planned",
+        "RWA-S2-mathematics-topic-004:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p035",
+      "title": "Multiplier for proportional change: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Multiplier for proportional change. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Multiplier for proportional change\n- Multiplier\n- proportional\n- change\n- method\n- model\n- unit\n- answer\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Multiplier for proportional change without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-004:vocabulary:visual-1:planned",
+        "RWA-S2-mathematics-topic-004:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p036",
+      "title": "Multiplier for proportional change: Guided Activity",
+      "content": "Guided activity for Multiplier for proportional change:\n\n1. Work with a partner and read the worked example.\n2. Make a similar question using Rwanda classroom, home, market, garden, transport, or timetable details.\n3. Draw a model: table, number line, diagram, place-value chart, shape, or equation.\n4. Solve the question step by step.\n5. Swap work with another pair and check the method, units, labels, and final sentence.\n\nTeacher check: the model should match the topic, not just any calculation.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 79,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-004:activity:visual-1:planned",
+        "RWA-S2-mathematics-topic-004:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p037",
+      "title": "Multiplier for proportional change: Practice And Correction",
+      "content": "Practice for Multiplier for proportional change:\n\nMain outcome: to be able use a multiplier for proportional change.\n\n1. Complete the table: 1 pen = 200 francs, 2 pens = __, 5 pens = __.\n2. A cyclist travels 18 km in 2 hours at the same speed. How far in 5 hours?\n3. Write the unit rate used in each answer.\n\nAnswer check:\nAnswers: 2 pens = 400 francs; 5 pens = 1000 francs. The cyclist travels 45 km in 5 hours because 18 / 2 = 9 km per hour.\n\nCorrection check:\n- Did you show the method?\n- Did you use the correct unit or label?\n- Did you check whether the answer is reasonable?\n\nHome link: Find one Rwanda home, school, shop, garden, road, game, or timetable example connected to multiplier for proportional change and solve it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 140,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-004:practice:visual-1:planned",
+        "RWA-S2-mathematics-topic-004:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p038",
+      "title": "Multiplier for proportional change: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Multiplier for proportional change.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-004:remediation:visual-1:planned",
+        "RWA-S2-mathematics-topic-004:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p039",
+      "title": "Multiplier for proportional change: Outcome Check",
+      "content": "Outcome check for Multiplier for proportional change: To be able use a multiplier for proportional change.\n\n1. A recipe uses 2 cups of flour for 6 cakes. How many cups for 18 cakes?\n2. Write the unit rate or scale factor.\n3. Check that both quantities changed by the same factor.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 70,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-004:assessment:visual-1:planned",
+        "RWA-S2-mathematics-topic-004:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p040",
+      "title": "Multiplier for proportional change: Outcome Check",
+      "content": "Outcome check for Multiplier for proportional change: Recognize the properties of proportions.\n\n1. A recipe uses 2 cups of flour for 6 cakes. How many cups for 18 cakes?\n2. Write the unit rate or scale factor.\n3. Check that both quantities changed by the same factor.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 66,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-004:assessment:visual-1:planned",
+        "RWA-S2-mathematics-topic-004:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-2"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p041",
+      "title": "Thales theorem: Lesson Opener",
+      "content": "Learning focus: Thales theorem\n\nCountry link: a Rwandan school, market, farming, building, transport, or data problem for Thales theorem.\n\nProgression focus: connect ideas across topics and explain causes, methods, or consequences; show methods, units, checks, and a final explanation.\n\nBy the end of this topic, you should be able to:\n- to be able useThales' theorem to solve problems related to similar shapes and determinetheir lengths and areas\n- identify and name triangles or trapeziums from parallel and transversals intersecting lines\n- state Thales' theorem and its corollaries\n- associate extended proportions in the triangles\n- apply Thales' theorem and its corollaries to solve problems on proportions of triangles, trapeziums\n- discuss the converse of Thales' theorem\n\nInquiry questions:\n- How can thales theorem help you solve a real problem in Mathematics?\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 151,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-005:opener:visual-1:planned",
+        "RWA-S2-mathematics-topic-005:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p042",
+      "title": "Thales theorem: Learn",
+      "content": "Thales theorem teaches how two quantities change together at the same rate.\n\nCore idea:\n- In direct proportion, when one quantity is multiplied, the other quantity is multiplied by the same factor.\n- A table helps you compare matching values.\n- The unit rate tells the value for one item, one litre, one metre, one hour, or one learner.\n- Always check that the relationship is consistent before using proportion.\n\nKey words:\n- Thales theorem\n- Thales\n- theorem\n- method\n- model\n- unit\n- answer\n- check",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 89,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-005:learn:visual-1:planned",
+        "RWA-S2-mathematics-topic-005:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p043",
+      "title": "Thales theorem: Worked Example",
+      "content": "Worked example for Thales theorem: If 3 exercise books cost 900 francs, how much do 5 exercise books cost at the same price?\n\n1. Find the cost of 1 book: 900 / 3 = 300 francs.\n2. Multiply by 5 books: 300 x 5 = 1500 francs.\n3. Check: more books should cost more money.\n\nAnswer: 5 exercise books cost 1500 francs.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 62,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-005:example:visual-1:planned",
+        "RWA-S2-mathematics-topic-005:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p044",
+      "title": "Thales theorem: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Thales theorem. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Thales theorem\n- Thales\n- theorem\n- method\n- model\n- unit\n- answer\n- check\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Thales theorem without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-005:vocabulary:visual-1:planned",
+        "RWA-S2-mathematics-topic-005:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p045",
+      "title": "Thales theorem: Guided Activity",
+      "content": "Guided activity for Thales theorem:\n\n1. Work with a partner and read the worked example.\n2. Make a similar question using Rwanda classroom, home, market, garden, transport, or timetable details.\n3. Draw a model: table, number line, diagram, place-value chart, shape, or equation.\n4. Solve the question step by step.\n5. Swap work with another pair and check the method, units, labels, and final sentence.\n\nTeacher check: the model should match the topic, not just any calculation.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 77,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-005:activity:visual-1:planned",
+        "RWA-S2-mathematics-topic-005:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p046",
+      "title": "Thales theorem: Practice And Correction",
+      "content": "Practice for Thales theorem:\n\nMain outcome: to be able useThales' theorem to solve problems related to similar shapes and determinetheir lengths and areas.\n\n1. Complete the table: 1 pen = 200 francs, 2 pens = __, 5 pens = __.\n2. A cyclist travels 18 km in 2 hours at the same speed. How far in 5 hours?\n3. Write the unit rate used in each answer.\n\nAnswer check:\nAnswers: 2 pens = 400 francs; 5 pens = 1000 francs. The cyclist travels 45 km in 5 hours because 18 / 2 = 9 km per hour.\n\nCorrection check:\n- Did you show the method?\n- Did you use the correct unit or label?\n- Did you check whether the answer is reasonable?\n\nHome link: Find one Rwanda home, school, shop, garden, road, game, or timetable example connected to thales theorem and solve it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 144,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-005:practice:visual-1:planned",
+        "RWA-S2-mathematics-topic-005:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p047",
+      "title": "Thales theorem: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Thales theorem.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-005:remediation:visual-1:planned",
+        "RWA-S2-mathematics-topic-005:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p048",
+      "title": "Thales theorem: Outcome Check",
+      "content": "Outcome check for Thales theorem: To be able useThales' theorem to solve problems related to similar shapes and determinetheir lengths and areas.\n\n1. A recipe uses 2 cups of flour for 6 cakes. How many cups for 18 cakes?\n2. Write the unit rate or scale factor.\n3. Check that both quantities changed by the same factor.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 76,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-005:assessment:visual-1:planned",
+        "RWA-S2-mathematics-topic-005:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p049",
+      "title": "Thales theorem: Outcome Check",
+      "content": "Outcome check for Thales theorem: Identify and name triangles or trapeziums from parallel and transversals intersecting lines.\n\n1. A recipe uses 2 cups of flour for 6 cakes. How many cups for 18 cakes?\n2. Write the unit rate or scale factor.\n3. Check that both quantities changed by the same factor.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 71,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-005:assessment:visual-1:planned",
+        "RWA-S2-mathematics-topic-005:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-5-outcome-2"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p050",
+      "title": "Pythagoras's theorem: Lesson Opener",
+      "content": "Learning focus: Pythagoras's theorem\n\nCountry link: a Rwandan school, market, farming, building, transport, or data problem for Pythagoras's theorem.\n\nProgression focus: connect ideas across topics and explain causes, methods, or consequences; show methods, units, checks, and a final explanation.\n\nBy the end of this topic, you should be able to:\n- find the length of each side of a right angle triangles using Pythagoras' theorem\n- state Pythagoras' theorem\n- identify the hypotenuse from the three sides of a right angle triangle\n- list properties of a right angled triangle\n- use Pythagoras' theorem to find the lengths of the sides of right angle triangles\n- apply Pythagoras' theorem to solve problems in a range of contexts\n\nInquiry questions:\n- How can pythagoras's theorem help you solve a real problem in Mathematics?\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 151,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-006:opener:visual-1:planned",
+        "RWA-S2-mathematics-topic-006:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p051",
+      "title": "Pythagoras's theorem: Learn",
+      "content": "Pythagoras's theorem teaches how to measure distance or how long something is.\n\nCore idea:\n- Choose the unit that fits the object: millimetres, centimetres, metres, or kilometres.\n- Convert by knowing the relationship between units.\n- Estimate before measuring so you can notice unreasonable answers.\n\nKey words:\n- Pythagoras's theorem\n- Pythagoras's\n- theorem\n- method\n- model\n- unit\n- answer\n- check",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 64,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-006:learn:visual-1:planned",
+        "RWA-S2-mathematics-topic-006:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p052",
+      "title": "Pythagoras's theorem: Worked Example",
+      "content": "Worked example for Pythagoras's theorem: A classroom is 8 m long and a corridor is 350 cm long. Which is longer?\n\n1. Convert 8 m to centimetres: 8 m = 800 cm.\n2. Compare 800 cm and 350 cm.\n3. 800 cm is greater than 350 cm.\n\nAnswer: The classroom is longer.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 52,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-006:example:visual-1:planned",
+        "RWA-S2-mathematics-topic-006:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p053",
+      "title": "Pythagoras's theorem: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Pythagoras's theorem. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Pythagoras's theorem\n- Pythagoras's\n- theorem\n- method\n- model\n- unit\n- answer\n- check\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Pythagoras's theorem without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-006:vocabulary:visual-1:planned",
+        "RWA-S2-mathematics-topic-006:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p054",
+      "title": "Pythagoras's theorem: Guided Activity",
+      "content": "Guided activity for Pythagoras's theorem:\n\n1. Work with a partner and read the worked example.\n2. Make a similar question using Rwanda classroom, home, market, garden, transport, or timetable details.\n3. Draw a model: table, number line, diagram, place-value chart, shape, or equation.\n4. Solve the question step by step.\n5. Swap work with another pair and check the method, units, labels, and final sentence.\n\nTeacher check: the model should match the topic, not just any calculation.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 77,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-006:activity:visual-1:planned",
+        "RWA-S2-mathematics-topic-006:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p055",
+      "title": "Pythagoras's theorem: Practice And Correction",
+      "content": "Practice for Pythagoras's theorem:\n\nMain outcome: find the length of each side of a right angle triangles using Pythagoras' theorem.\n\n1. Estimate the length of a desk, then choose a suitable unit.\n2. Convert 4 m to centimetres.\n3. Solve: a path is 120 m and another is 75 m. What is the total length?\n\nAnswer check:\nAnswer: 4 m = 400 cm. 120 m + 75 m = 195 m.\n\nCorrection check:\n- Did you show the method?\n- Did you use the correct unit or label?\n- Did you check whether the answer is reasonable?\n\nHome link: Find one Rwanda home, school, shop, garden, road, game, or timetable example connected to pythagoras's theorem and solve it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-006:practice:visual-1:planned",
+        "RWA-S2-mathematics-topic-006:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p056",
+      "title": "Pythagoras's theorem: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Pythagoras's theorem.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-006:remediation:visual-1:planned",
+        "RWA-S2-mathematics-topic-006:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p057",
+      "title": "Pythagoras's theorem: Outcome Check",
+      "content": "Outcome check for Pythagoras's theorem: Find the length of each side of a right angle triangles using Pythagoras' theorem.\n\n1. Convert 6 m to centimetres.\n2. Find the total length of 45 m and 38 m.\n3. State the unit clearly.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 60,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-006:assessment:visual-1:planned",
+        "RWA-S2-mathematics-topic-006:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p058",
+      "title": "Pythagoras's theorem: Outcome Check",
+      "content": "Outcome check for Pythagoras's theorem: State Pythagoras' theorem.\n\n1. Convert 6 m to centimetres.\n2. Find the total length of 45 m and 38 m.\n3. State the unit clearly.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 49,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-006:assessment:visual-1:planned",
+        "RWA-S2-mathematics-topic-006:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-6-outcome-2"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p059",
+      "title": "Vectors: Lesson Opener",
+      "content": "Learning focus: Vectors\n\nCountry link: a Rwandan school, market, farming, building, transport, or data problem for Vectors.\n\nProgression focus: connect ideas across topics and explain causes, methods, or consequences; show methods, units, checks, and a final explanation.\n\nBy the end of this topic, you should be able to:\n- solve problems doing operation on vectors\n- represent a vector ina Cartesian plane\n- differentiate between vector quantities and scalar quantities\n- show whether vectors are equal\n- use vector notations correctly and perform operations on vectors\n- solve and explain problems about vectors\n\nInquiry questions:\n- How can vectors help you solve a real problem in Mathematics?\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 126,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-007:opener:visual-1:planned",
+        "RWA-S2-mathematics-topic-007:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p060",
+      "title": "Vectors: Learn",
+      "content": "Vectors teaches how two quantities change together at the same rate.\n\nCore idea:\n- In direct proportion, when one quantity is multiplied, the other quantity is multiplied by the same factor.\n- A table helps you compare matching values.\n- The unit rate tells the value for one item, one litre, one metre, one hour, or one learner.\n- Always check that the relationship is consistent before using proportion.\n\nKey words:\n- Vectors\n- method\n- model\n- unit\n- answer\n- check",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 83,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-007:learn:visual-1:planned",
+        "RWA-S2-mathematics-topic-007:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p061",
+      "title": "Vectors: Worked Example",
+      "content": "Worked example for Vectors: If 3 exercise books cost 900 francs, how much do 5 exercise books cost at the same price?\n\n1. Find the cost of 1 book: 900 / 3 = 300 francs.\n2. Multiply by 5 books: 300 x 5 = 1500 francs.\n3. Check: more books should cost more money.\n\nAnswer: 5 exercise books cost 1500 francs.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-007:example:visual-1:planned",
+        "RWA-S2-mathematics-topic-007:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p062",
+      "title": "Vectors: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Vectors. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Vectors\n- method\n- model\n- unit\n- answer\n- check\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Vectors without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-007:vocabulary:visual-1:planned",
+        "RWA-S2-mathematics-topic-007:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p063",
+      "title": "Vectors: Guided Activity",
+      "content": "Guided activity for Vectors:\n\n1. Work with a partner and read the worked example.\n2. Make a similar question using Rwanda classroom, home, market, garden, transport, or timetable details.\n3. Draw a model: table, number line, diagram, place-value chart, shape, or equation.\n4. Solve the question step by step.\n5. Swap work with another pair and check the method, units, labels, and final sentence.\n\nTeacher check: the model should match the topic, not just any calculation.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 76,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-007:activity:visual-1:planned",
+        "RWA-S2-mathematics-topic-007:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p064",
+      "title": "Vectors: Practice And Correction",
+      "content": "Practice for Vectors:\n\nMain outcome: solve problems doing operation on vectors.\n\n1. Complete the table: 1 pen = 200 francs, 2 pens = __, 5 pens = __.\n2. A cyclist travels 18 km in 2 hours at the same speed. How far in 5 hours?\n3. Write the unit rate used in each answer.\n\nAnswer check:\nAnswers: 2 pens = 400 francs; 5 pens = 1000 francs. The cyclist travels 45 km in 5 hours because 18 / 2 = 9 km per hour.\n\nCorrection check:\n- Did you show the method?\n- Did you use the correct unit or label?\n- Did you check whether the answer is reasonable?\n\nHome link: Find one Rwanda home, school, shop, garden, road, game, or timetable example connected to vectors and solve it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 131,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-007:practice:visual-1:planned",
+        "RWA-S2-mathematics-topic-007:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p065",
+      "title": "Vectors: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Vectors.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-007:remediation:visual-1:planned",
+        "RWA-S2-mathematics-topic-007:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p066",
+      "title": "Vectors: Outcome Check",
+      "content": "Outcome check for Vectors: Solve problems doing operation on vectors.\n\n1. A recipe uses 2 cups of flour for 6 cakes. How many cups for 18 cakes?\n2. Write the unit rate or scale factor.\n3. Check that both quantities changed by the same factor.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 64,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-007:assessment:visual-1:planned",
+        "RWA-S2-mathematics-topic-007:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p067",
+      "title": "Vectors: Outcome Check",
+      "content": "Outcome check for Vectors: Represent a vector ina Cartesian plane.\n\n1. A recipe uses 2 cups of flour for 6 cakes. How many cups for 18 cakes?\n2. Write the unit rate or scale factor.\n3. Check that both quantities changed by the same factor.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 64,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-007:assessment:visual-1:planned",
+        "RWA-S2-mathematics-topic-007:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-7-outcome-2"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p068",
+      "title": "Parallel and orthogonal projections: Lesson Opener",
+      "content": "Learning focus: Parallel and orthogonal projections\n\nCountry link: a Rwandan school, market, farming, building, transport, or data problem for Parallel and orthogonal projections.\n\nProgression focus: connect ideas across topics and explain causes, methods, or consequences; show methods, units, checks, and a final explanation.\n\nBy the end of this topic, you should be able to:\n- transform shapes under parallel or orthogonal projections\n- identify an image of a figure under parallel projection\n- identify an image of a figure under orthogonal projection\n- construct an image of an object or geometric shape under parallel projection and orthogonal projection\n- show the importance of parallel and orthogonal projection in various situations\n- develop critical thinking and reasoning skills, while transforming shapes under parallel or orthogonal projection\n\nInquiry questions:\n- How can parallel and orthogonal projections help you solve a real problem in Mathematics?\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 161,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-008:opener:visual-1:planned",
+        "RWA-S2-mathematics-topic-008:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p069",
+      "title": "Parallel and orthogonal projections: Learn",
+      "content": "Parallel and orthogonal projections teaches properties of two-dimensional shapes.\n\nCore idea:\n- Shapes can be classified by sides, corners, lines of symmetry, and angles.\n- A labelled sketch helps you compare shapes accurately.\n- Use correct names such as triangle, rectangle, square, and circle.\n\nKey words:\n- Parallel and orthogonal projections\n- Parallel\n- orthogonal\n- projections\n- method\n- model\n- unit\n- answer",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 65,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-008:learn:visual-1:planned",
+        "RWA-S2-mathematics-topic-008:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p070",
+      "title": "Parallel and orthogonal projections: Worked Example",
+      "content": "Worked example for Parallel and orthogonal projections: Classify a shape with 4 equal sides and 4 right angles.\n\n1. Four sides means it is a quadrilateral.\n2. Equal sides and right angles match a square.\n3. Check the name and properties.\n\nAnswer: The shape is a square.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 47,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-008:example:visual-1:planned",
+        "RWA-S2-mathematics-topic-008:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p071",
+      "title": "Parallel and orthogonal projections: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Parallel and orthogonal projections. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Parallel and orthogonal projections\n- Parallel\n- orthogonal\n- projections\n- method\n- model\n- unit\n- answer\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Parallel and orthogonal projections without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-008:vocabulary:visual-1:planned",
+        "RWA-S2-mathematics-topic-008:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p072",
+      "title": "Parallel and orthogonal projections: Guided Activity",
+      "content": "Guided activity for Parallel and orthogonal projections:\n\n1. Work with a partner and read the worked example.\n2. Make a similar question using Rwanda classroom, home, market, garden, transport, or timetable details.\n3. Draw a model: table, number line, diagram, place-value chart, shape, or equation.\n4. Solve the question step by step.\n5. Swap work with another pair and check the method, units, labels, and final sentence.\n\nTeacher check: the model should match the topic, not just any calculation.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 79,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-008:activity:visual-1:planned",
+        "RWA-S2-mathematics-topic-008:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p073",
+      "title": "Parallel and orthogonal projections: Practice And Correction",
+      "content": "Practice for Parallel and orthogonal projections:\n\nMain outcome: transform shapes under parallel or orthogonal projections.\n\n1. Draw a triangle, rectangle, and square.\n2. Write two properties for each shape.\n3. Circle the shape that has four equal sides and four right angles.\n\nAnswer check:\nAnswer: the square has four equal sides and four right angles.\n\nCorrection check:\n- Did you show the method?\n- Did you use the correct unit or label?\n- Did you check whether the answer is reasonable?\n\nHome link: Find one Rwanda home, school, shop, garden, road, game, or timetable example connected to parallel and orthogonal projections and solve it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 104,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-008:practice:visual-1:planned",
+        "RWA-S2-mathematics-topic-008:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p074",
+      "title": "Parallel and orthogonal projections: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Parallel and orthogonal projections.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-008:remediation:visual-1:planned",
+        "RWA-S2-mathematics-topic-008:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p075",
+      "title": "Parallel and orthogonal projections: Outcome Check",
+      "content": "Outcome check for Parallel and orthogonal projections: Transform shapes under parallel or orthogonal projections.\n\n1. Draw a square and a rectangle.\n2. Write two properties they share.\n3. Write one property that is different.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 53,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-008:assessment:visual-1:planned",
+        "RWA-S2-mathematics-topic-008:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p076",
+      "title": "Parallel and orthogonal projections: Outcome Check",
+      "content": "Outcome check for Parallel and orthogonal projections: Identify an image of a figure under parallel projection.\n\n1. Draw a square and a rectangle.\n2. Write two properties they share.\n3. Write one property that is different.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 55,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-008:assessment:visual-1:planned",
+        "RWA-S2-mathematics-topic-008:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-8-outcome-2"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p077",
+      "title": "Isometries: Lesson Opener",
+      "content": "Learning focus: Isometries\n\nCountry link: a Rwandan school, market, farming, building, transport, or data problem for Isometries.\n\nProgression focus: connect ideas across topics and explain causes, methods, or consequences; show methods, units, checks, and a final explanation.\n\nBy the end of this topic, you should be able to:\n- transform shapes using congruence, central symmetry, reflection, translation, and rotation\n- identify an image of a figure under central symmetry, reflection, translation, rotation\n- construct the image of a point, a segment, a geometric shape, under central symmetry, reflection, translation, rotation\n- find the coordinates of an image of an object under central symmetry, reflection, translation, rotation\n- appreciate that translation, rotation and reflection play important roles in various situations\n- develop team spirit\n\nInquiry questions:\n- How can isometries help you solve a real problem in Mathematics?\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 156,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-009:opener:visual-1:planned",
+        "RWA-S2-mathematics-topic-009:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p078",
+      "title": "Isometries: Learn",
+      "content": "Isometries teaches properties of two-dimensional shapes.\n\nCore idea:\n- Shapes can be classified by sides, corners, lines of symmetry, and angles.\n- A labelled sketch helps you compare shapes accurately.\n- Use correct names such as triangle, rectangle, square, and circle.\n\nKey words:\n- Isometries\n- method\n- model\n- unit\n- answer\n- check",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 55,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-009:learn:visual-1:planned",
+        "RWA-S2-mathematics-topic-009:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p079",
+      "title": "Isometries: Worked Example",
+      "content": "Worked example for Isometries: Classify a shape with 4 equal sides and 4 right angles.\n\n1. Four sides means it is a quadrilateral.\n2. Equal sides and right angles match a square.\n3. Check the name and properties.\n\nAnswer: The shape is a square.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 44,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-009:example:visual-1:planned",
+        "RWA-S2-mathematics-topic-009:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p080",
+      "title": "Isometries: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Isometries. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Isometries\n- method\n- model\n- unit\n- answer\n- check\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Isometries without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-009:vocabulary:visual-1:planned",
+        "RWA-S2-mathematics-topic-009:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p081",
+      "title": "Isometries: Guided Activity",
+      "content": "Guided activity for Isometries:\n\n1. Work with a partner and read the worked example.\n2. Make a similar question using Rwanda classroom, home, market, garden, transport, or timetable details.\n3. Draw a model: table, number line, diagram, place-value chart, shape, or equation.\n4. Solve the question step by step.\n5. Swap work with another pair and check the method, units, labels, and final sentence.\n\nTeacher check: the model should match the topic, not just any calculation.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 76,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-009:activity:visual-1:planned",
+        "RWA-S2-mathematics-topic-009:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p082",
+      "title": "Isometries: Practice And Correction",
+      "content": "Practice for Isometries:\n\nMain outcome: transform shapes using congruence, central symmetry, reflection, translation, and rotation.\n\n1. Draw a triangle, rectangle, and square.\n2. Write two properties for each shape.\n3. Circle the shape that has four equal sides and four right angles.\n\nAnswer check:\nAnswer: the square has four equal sides and four right angles.\n\nCorrection check:\n- Did you show the method?\n- Did you use the correct unit or label?\n- Did you check whether the answer is reasonable?\n\nHome link: Find one Rwanda home, school, shop, garden, road, game, or timetable example connected to isometries and solve it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-009:practice:visual-1:planned",
+        "RWA-S2-mathematics-topic-009:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p083",
+      "title": "Isometries: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Isometries.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-009:remediation:visual-1:planned",
+        "RWA-S2-mathematics-topic-009:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p084",
+      "title": "Isometries: Outcome Check",
+      "content": "Outcome check for Isometries: Transform shapes using congruence, central symmetry, reflection, translation, and rotation.\n\n1. Draw a square and a rectangle.\n2. Write two properties they share.\n3. Write one property that is different.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 53,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-009:assessment:visual-1:planned",
+        "RWA-S2-mathematics-topic-009:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p085",
+      "title": "Isometries: Outcome Check",
+      "content": "Outcome check for Isometries: Identify an image of a figure under central symmetry, reflection, translation, rotation.\n\n1. Draw a square and a rectangle.\n2. Write two properties they share.\n3. Write one property that is different.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 55,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-009:assessment:visual-1:planned",
+        "RWA-S2-mathematics-topic-009:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-9-outcome-2"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p086",
+      "title": "Statistics (grouped data): Lesson Opener",
+      "content": "Learning focus: Statistics (grouped data)\n\nCountry link: a Rwandan school, market, farming, building, transport, or data problem for Statistics (grouped data).\n\nProgression focus: connect ideas across topics and explain causes, methods, or consequences; show methods, units, checks, and a final explanation.\n\nBy the end of this topic, you should be able to:\n- collect, represent, and interpret grouped data\n- define grouped data and represent grouped data on a frequency distribution\n- identify mode, middle class, modal class, and median of given grouped statistical data\n- read diagram of grouped statistical data\n- apply data collection to carry out research\n- represent grouped statistical information using histograms, polygons, frequency distribution tables,and pie charts\n\nInquiry questions:\n- How can statistics (grouped data) help you solve a real problem in Mathematics?\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 148,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-010:opener:visual-1:planned",
+        "RWA-S2-mathematics-topic-010:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p087",
+      "title": "Statistics (grouped data): Learn",
+      "content": "Statistics (grouped data) teaches how to collect, organize, read, and explain information.\n\nCore idea:\n- Data must answer a clear question.\n- Tables, tally charts, pictographs, and bar charts make data easier to read.\n- A good conclusion says what the data shows.\n\nKey words:\n- Statistics (grouped data)\n- Statistics\n- grouped\n- data\n- method\n- model\n- unit\n- answer",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 63,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-010:learn:visual-1:planned",
+        "RWA-S2-mathematics-topic-010:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p088",
+      "title": "Statistics (grouped data): Worked Example",
+      "content": "Worked example for Statistics (grouped data): A class records favourite fruits: mango 8, banana 12, pineapple 6. Which fruit is most popular?\n\n1. Read the table values.\n2. Compare 8, 12, and 6.\n3. 12 is the greatest number.\n\nAnswer: Banana is most popular.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 44,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-010:example:visual-1:planned",
+        "RWA-S2-mathematics-topic-010:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p089",
+      "title": "Statistics (grouped data): Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Statistics (grouped data). Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Statistics (grouped data)\n- Statistics\n- grouped\n- data\n- method\n- model\n- unit\n- answer\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Statistics (grouped data) without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-010:vocabulary:visual-1:planned",
+        "RWA-S2-mathematics-topic-010:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p090",
+      "title": "Statistics (grouped data): Guided Activity",
+      "content": "Guided activity for Statistics (grouped data):\n\n1. Work with a partner and read the worked example.\n2. Make a similar question using Rwanda classroom, home, market, garden, transport, or timetable details.\n3. Draw a model: table, number line, diagram, place-value chart, shape, or equation.\n4. Solve the question step by step.\n5. Swap work with another pair and check the method, units, labels, and final sentence.\n\nTeacher check: the model should match the topic, not just any calculation.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 78,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-010:activity:visual-1:planned",
+        "RWA-S2-mathematics-topic-010:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p091",
+      "title": "Statistics (grouped data): Practice And Correction",
+      "content": "Practice for Statistics (grouped data):\n\nMain outcome: collect, represent, and interpret grouped data.\n\n1. Ask 10 learners a simple question and make a tally table.\n2. Draw a bar chart from the tally table.\n3. Write one conclusion from the data.\n\nAnswer check:\nAnswer check: totals in the tally table and bar chart should match.\n\nCorrection check:\n- Did you show the method?\n- Did you use the correct unit or label?\n- Did you check whether the answer is reasonable?\n\nHome link: Find one Rwanda home, school, shop, garden, road, game, or timetable example connected to statistics (grouped data) and solve it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-010:practice:visual-1:planned",
+        "RWA-S2-mathematics-topic-010:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p092",
+      "title": "Statistics (grouped data): Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Statistics (grouped data).\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-010:remediation:visual-1:planned",
+        "RWA-S2-mathematics-topic-010:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p093",
+      "title": "Statistics (grouped data): Outcome Check",
+      "content": "Outcome check for Statistics (grouped data): Collect, represent, and interpret grouped data.\n\n1. Write one clear example from the topic.\n2. Solve it with labelled steps.\n3. Check the answer in context.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 51,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-010:assessment:visual-1:planned",
+        "RWA-S2-mathematics-topic-010:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p094",
+      "title": "Statistics (grouped data): Outcome Check",
+      "content": "Outcome check for Statistics (grouped data): Define grouped data and represent grouped data on a frequency distribution.\n\n1. Write one clear example from the topic.\n2. Solve it with labelled steps.\n3. Check the answer in context.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 56,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-010:assessment:visual-1:planned",
+        "RWA-S2-mathematics-topic-010:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-10-outcome-2"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p095",
+      "title": "Tree and Venn diagrams: Lesson Opener",
+      "content": "Learning focus: Tree and Venn diagrams\n\nCountry link: a Rwandan school, market, farming, building, transport, or data problem for Tree and Venn diagrams.\n\nProgression focus: connect ideas across topics and explain causes, methods, or consequences; show methods, units, checks, and a final explanation.\n\nBy the end of this topic, you should be able to:\n- determine probabilities and assess likelihood by using tree and venn diagrams\n- define mutually exclusive and independent events\n- count the number of branches and total number of outcomes on a tree diagram\n- construct and interpret a tree diagram correctly\n- use Tree and Venn diagrams to determine probability\n- appreciate the importance of probability to find the chance happening for an event to happen\n\nInquiry questions:\n- How can tree and venn diagrams help you solve a real problem in Mathematics?\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 157,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-011:opener:visual-1:planned",
+        "RWA-S2-mathematics-topic-011:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p096",
+      "title": "Tree and Venn diagrams: Learn",
+      "content": "Tree and Venn diagrams teaches how heavy objects are.\n\nCore idea:\n- Mass is measured with units such as grams and kilograms.\n- A balance or scale helps compare mass fairly.\n- Convert units before adding or comparing if the units are different.\n\nKey words:\n- Tree and Venn diagrams\n- Tree\n- Venn\n- diagrams\n- method\n- model\n- unit\n- answer",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 64,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-011:learn:visual-1:planned",
+        "RWA-S2-mathematics-topic-011:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p097",
+      "title": "Tree and Venn diagrams: Worked Example",
+      "content": "Worked example for Tree and Venn diagrams: A bag of beans has a mass of 3 kg. A small packet has a mass of 500 g. What is the total mass in grams?\n\n1. Convert 3 kg to grams: 3 kg = 3000 g.\n2. Add 3000 g + 500 g = 3500 g.\n\nAnswer: 3500 g.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 57,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-011:example:visual-1:planned",
+        "RWA-S2-mathematics-topic-011:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p098",
+      "title": "Tree and Venn diagrams: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Tree and Venn diagrams. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Tree and Venn diagrams\n- Tree\n- Venn\n- diagrams\n- method\n- model\n- unit\n- answer\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Tree and Venn diagrams without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-011:vocabulary:visual-1:planned",
+        "RWA-S2-mathematics-topic-011:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p099",
+      "title": "Tree and Venn diagrams: Guided Activity",
+      "content": "Guided activity for Tree and Venn diagrams:\n\n1. Work with a partner and read the worked example.\n2. Make a similar question using Rwanda classroom, home, market, garden, transport, or timetable details.\n3. Draw a model: table, number line, diagram, place-value chart, shape, or equation.\n4. Solve the question step by step.\n5. Swap work with another pair and check the method, units, labels, and final sentence.\n\nTeacher check: the model should match the topic, not just any calculation.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 79,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-011:activity:visual-1:planned",
+        "RWA-S2-mathematics-topic-011:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p100",
+      "title": "Tree and Venn diagrams: Practice And Correction",
+      "content": "Practice for Tree and Venn diagrams:\n\nMain outcome: determine probabilities and assess likelihood by using tree and venn diagrams.\n\n1. Name two objects measured in grams and two measured in kilograms.\n2. Convert 2 kg to grams.\n3. Compare 1500 g and 2 kg. Which is heavier?\n\nAnswer check:\nAnswer: 2 kg = 2000 g, so 2 kg is heavier than 1500 g.\n\nCorrection check:\n- Did you show the method?\n- Did you use the correct unit or label?\n- Did you check whether the answer is reasonable?\n\nHome link: Find one Rwanda home, school, shop, garden, road, game, or timetable example connected to tree and venn diagrams and solve it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-011:practice:visual-1:planned",
+        "RWA-S2-mathematics-topic-011:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p101",
+      "title": "Tree and Venn diagrams: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Tree and Venn diagrams.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-011:remediation:visual-1:planned",
+        "RWA-S2-mathematics-topic-011:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p102",
+      "title": "Tree and Venn diagrams: Outcome Check",
+      "content": "Outcome check for Tree and Venn diagrams: Determine probabilities and assess likelihood by using tree and venn diagrams.\n\n1. Convert 4 kg to grams.\n2. Compare 2500 g and 3 kg.\n3. Write the heavier mass with a reason.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 58,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-011:assessment:visual-1:planned",
+        "RWA-S2-mathematics-topic-011:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p103",
+      "title": "Tree and Venn diagrams: Outcome Check",
+      "content": "Outcome check for Tree and Venn diagrams: Define mutually exclusive and independent events.\n\n1. Convert 4 kg to grams.\n2. Compare 2500 g and 3 kg.\n3. Write the heavier mass with a reason.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 53,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-011:assessment:visual-1:planned",
+        "RWA-S2-mathematics-topic-011:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-topic"
+      ],
+      "parentUnitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-11-outcome-2"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p104",
+      "title": "Indices and surds: Review Clinic 1",
+      "content": "Use this review clinic to strengthen Mathematics without copying earlier answers.\n\n1. Choose one idea from Indices and surds that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Rwanda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 76,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-001:review:visual-1:planned",
+        "RWA-S2-mathematics-topic-001:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-1-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p105",
+      "title": "Polynomials: Review Clinic 2",
+      "content": "Use this review clinic to strengthen Mathematics without copying earlier answers.\n\n1. Choose one idea from Polynomials that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Rwanda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 74,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-002:review:visual-1:planned",
+        "RWA-S2-mathematics-topic-002:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-2-outcome-5"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p106",
+      "title": "Simultaneous liner equations and inequalities: Review Clinic 3",
+      "content": "Use this review clinic to strengthen Mathematics without copying earlier answers.\n\n1. Choose one idea from Simultaneous liner equations and inequalities that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Rwanda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 78,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-003:review:visual-1:planned",
+        "RWA-S2-mathematics-topic-003:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-3-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p107",
+      "title": "Multiplier for proportional change: Review Clinic 4",
+      "content": "Use this review clinic to strengthen Mathematics without copying earlier answers.\n\n1. Choose one idea from Multiplier for proportional change that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Rwanda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 77,
+      "imageRefs": [
+        "RWA-S2-mathematics-topic-004:review:visual-1:planned",
+        "RWA-S2-mathematics-topic-004:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-strand"
+      ],
+      "unitIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-1",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-2",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-3",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-4",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-5",
+        "5c411cfa-e189-4f4c-88b2-6ccf03e74591-unit-4-outcome-6"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p108",
+      "title": "Glossary",
+      "content": "Use this glossary to revise important words in Mathematics.\n\n- Indices and surds: Explain this term using an example from the book, your school, or your community.\n- Polynomials: Explain this term using an example from the book, your school, or your community.\n- Simultaneous liner equations and inequalities: Explain this term using an example from the book, your school, or your community.\n- Multiplier for proportional change: Explain this term using an example from the book, your school, or your community.\n- Thales theorem: Explain this term using an example from the book, your school, or your community.\n- Pythagoras's theorem: Explain this term using an example from the book, your school, or your community.\n- Vectors: Explain this term using an example from the book, your school, or your community.\n- Parallel and orthogonal projections: Explain this term using an example from the book, your school, or your community.\n- Isometries: Explain this term using an example from the book, your school, or your community.\n- Statistics (grouped data): Explain this term using an example from the book, your school, or your community.\n- Tree and Venn diagrams: Explain this term using an example from the book, your school, or your community.\n\nAdd five more words from your lessons and write your own meanings.",
+      "pageType": "glossary",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 216,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p109",
+      "title": "Answer And Teacher Notes",
+      "content": "A strong Mathematics answer shows the model, method, units or labels, final answer, and a check. Use the worked examples and answer checks in each practice page to correct your work. When an answer is wrong, find the first step that changed the meaning and correct that step before trying a new question.",
+      "pageType": "answer-notes",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 53,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s2-mathematics-p110",
+      "title": "Final Project",
+      "content": "Create a final project for Mathematics that shows what you can now do independently.\n\nYour project must include:\n1. A clear title.\n2. A real-life problem, question, text, performance, investigation, design, or worked task.\n3. Evidence from at least three lessons in this book.\n4. A drawing, table, map, chart, model, dialogue, paragraph, performance plan, practical product, or worked solution.\n5. A correction note showing one improvement after feedback.\n6. A short reflection explaining what you learned, what was difficult, and what you will practise next.\n\nPresentation check: keep the work neat, label important parts, use correct vocabulary, and be ready to explain your choices to a classmate or teacher.",
+      "pageType": "project",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 110,
+      "imageRefs": []
+    }
+  ]
+}

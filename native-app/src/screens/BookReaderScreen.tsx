@@ -280,37 +280,11 @@ function getPageData(book: Book, pageNum: number) {
     };
   }
 
-  if (pageNum === 1) {
-    return {
-      title: 'Table of Contents',
-      paragraphs: [
-        'Chapter 1: The Beginning',
-        'Chapter 2: The Middle',
-        'Chapter 3: The End',
-        'About the Author',
-      ],
-    };
-  }
-
-  const texts = [
-    'It was a bright cold day in April, and the clocks were striking thirteen.',
-    'Call me Ishmael. Some years ago-never mind how long precisely-having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.',
-    'It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.',
-    'Happy families are all alike; every unhappy family is unhappy in its own way.',
-    'In a hole in the ground there lived a hobbit. Not a nasty, dirty, wet hole, but a hobbit-hole, and that means comfort.',
-    'All children, except one, grow up. They soon know that they will grow up, and the way Wendy knew was this.',
-    'The man in black fled across the desert, and the gunslinger followed.',
-    'It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness.',
-  ];
-
-  const seed = pageNum % texts.length;
-  let mainText = texts[seed];
-
   return {
+    title: 'Book Content Unavailable',
     paragraphs: [
-      mainText,
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+      'This book does not have readable pages cached on this device.',
+      'Return to the library, connect to the internet, and download the book again. If the problem continues, the book package needs review before it can be read offline.',
     ],
   };
 }

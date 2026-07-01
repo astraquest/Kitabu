@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-tza-tie-basic-standard-iv-english",
+  "title": "KITABU QUEST Standard IV English",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Standard IV",
+  "subject": "English",
+  "subjectSlug": "english",
+  "subjectColor": "#2563EB",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v13",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:39:29Z",
+  "sourceSnapshotHash": "e867208e8cc3d72018ed70e69d533957b65729d4400a68606de5562c9eba05cd",
+  "bookPlanHash": "273ad9e98b0d601c20b74edec8ec88e8f490f734b11d079543e7a96b8d3264a0",
+  "pageCount": 111,
+  "wordCount": 9508,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 8,
+    "outcomeCount": 8,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "TZA",
+    "subject": "English",
+    "species": "hare",
+    "role": "reading and communication guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners reading English stories with a friendly hare mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Tanzania TIE-BASIC Standard IV English. Scene: learners reading English stories with a friendly hare mascot. Include a friendly hare mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 86457,
+    "sha256": "9fbca8b36c07ec979774d2cdc99902a82b836a429b545708c05e6f59a1819add"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 86457,
+      "sha256": "9fbca8b36c07ec979774d2cdc99902a82b836a429b545708c05e6f59a1819add",
+      "kind": "cover",
+      "altText": "KITABU QUEST Standard IV English cover with hare",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-tza-tie-basic-standard-iv-english.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-tza-tie-basic-standard-iv-english.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "fd03465d-23ad-4b25-b173-23987fa31789",
+      "subject": "English",
+      "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard IV English",
+      "countryCode": "TZA",
+      "curriculumCode": "TIE-BASIC",
+      "gradeCode": "STANDARD_IV",
+      "gradeLocalLevel": "Standard IV",
+      "localLevel": "Standard IV",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727168466-ENGLISH%20Syllabus%20III-VI%20FINAL.pdf",
+      "objectKey": "data/curriculum/source-files/TZA/2a49e81feb033d3c2dc20964377443d6b8d4cde1bbaead78ccc4f5fc44c2ee2f.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "STANDARD_IV",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727168466-ENGLISH%20Syllabus%20III-VI%20FINAL.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/english/fd03465d-23ad-4b25-b173-23987fa31789.md",
+        "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "tie.go.tz"
+        ],
+        "markdownChecksum": "4e9fa262454f350d141540d2a47f7f98dc0a58b73193a2e6efe64fa2598b3699",
+        "markdownPageCount": 64,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/english/fd03465d-23ad-4b25-b173-23987fa31789.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "4e9fa262454f350d141540d2a47f7f98dc0a58b73193a2e6efe64fa2598b3699",
+          "pageCount": 64,
+          "generatedAt": "2026-06-29T17:40:18.679Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "ae6b2f5d28b60bb77bd3bb2d7816535bacb671934cca4660705cfa937f9aacd2"
+        },
+        "markdownGeneratedAt": "2026-06-29T17:40:18.679Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

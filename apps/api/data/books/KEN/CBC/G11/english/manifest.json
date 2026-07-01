@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-grade-11-english",
+  "title": "KITABU QUEST Grade 11 English",
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 11",
+  "subject": "English",
+  "subjectSlug": "english",
+  "subjectColor": "#2563EB",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "learner-first-language-depth-renderers-2026-07-01-v10",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-reviewed-draft",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T13:15:20Z",
+  "sourceSnapshotHash": "ddaeb2bf674a5d1a9087a9a0e5ff5054d34617c078fce1151d09e662445d888d",
+  "bookPlanHash": "93a60fddfbee3520b79380fa5f600bcf554982290b1a076ddd6e4dac2d9846a9",
+  "pageCount": 331,
+  "wordCount": 63305,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "ageBand": "senior-secondary",
+    "coversDeferred": true,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "topicCount": 81,
+    "outcomeCount": 187,
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "KEN",
+    "subject": "English",
+    "species": "fox rabbit",
+    "role": "reading and storytelling guide",
+    "sourceRationale": "User-approved English mascot for clever reading and storytelling."
+  },
+  "cover": {
+    "scene": "learners in a reading club with storybooks, a word wall, and a friendly fox rabbit mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Kenya CBC Grade 11 English. Scene: learners in a reading club with storybooks, a word wall, and a friendly fox rabbit mascot. Include a friendly fox rabbit mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "assets": [],
+  "downloads": {
+    "markdown": "kitabu-quest-grade-11-english.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-grade-11-english.pdf"
+  },
+  "sourceDocuments": [
+    {
+      "id": "869d79b4-d381-4c28-8e22-bff4142d3775",
+      "subject": "English",
+      "officialTitle": "Competency Based Curriculum Grade 11 English",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_11",
+      "gradeLocalLevel": "Grade 11",
+      "localLevel": "Grade 11",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/1ulacCjI0LBvJpJg86pAYeZnItS5HL-lV/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_11",
+        "documentUrl": "https://drive.google.com/file/d/1ulacCjI0LBvJpJg86pAYeZnItS5HL-lV/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_11/english/869d79b4-d381-4c28-8e22-bff4142d3775.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-eleven/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "0008a31560095aaefe80e316e0fd31d7ba16a62213f71c0a787b73185f8c3dc0",
+        "markdownPageCount": 124,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_11/english/869d79b4-d381-4c28-8e22-bff4142d3775.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "0008a31560095aaefe80e316e0fd31d7ba16a62213f71c0a787b73185f8c3dc0",
+          "pageCount": 124,
+          "generatedAt": "2026-06-29T16:35:06.735Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "db9d852e6285c0e1cdf48a5341a9b4b9678e48ad10c658b9a2d3ae94aa16cebd"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:06.735Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    }
+  ]
+}

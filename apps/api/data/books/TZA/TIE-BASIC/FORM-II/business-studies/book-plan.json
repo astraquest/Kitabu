@@ -1,0 +1,1279 @@
+{
+  "schemaVersion": 1,
+  "sourceType": "normalized-curriculum",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Form II",
+  "subject": "Business Studies",
+  "generatedAt": "2026-07-01T05:46:46Z",
+  "sourceSnapshotHash": "f33a68f13085776e32ed6e56534ae31eafa68b6f7e29d5631ae1e9d523002dfc",
+  "writingStandard": {
+    "voice": "simple, conversational, purposeful, age-appropriate, and learner-first",
+    "antiFluff": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "coversDeferred": true
+  },
+  "strands": [
+    {
+      "strandId": "fallback-form-ii-business-studies-1",
+      "number": "",
+      "title": "Entrepreneurship And Business Ideas",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-ii-business-studies-2",
+      "number": "",
+      "title": "Banking Saving Credit And Insurance",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-ii-business-studies-3",
+      "number": "",
+      "title": "Transport Communication And Distribution",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-ii-business-studies-4",
+      "number": "",
+      "title": "Retail Wholesale And Customer Care",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-ii-business-studies-5",
+      "number": "",
+      "title": "Cost Price Profit And Loss Basics",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-ii-business-studies-6",
+      "number": "",
+      "title": "Business Risk And Problem Solving",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-ii-business-studies-7",
+      "number": "",
+      "title": "Record Keeping And Stock Control",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-ii-business-studies-8",
+      "number": "",
+      "title": "Form II Enterprise Project",
+      "topicCount": 1
+    }
+  ],
+  "topics": [
+    {
+      "topicId": "TZA-FORM-II-business-studies-topic-001",
+      "grade": "Form II",
+      "strandId": "fallback-form-ii-business-studies-1",
+      "subStrandId": "fallback-form-ii-business-studies-1",
+      "parentSubStrandId": "fallback-form-ii-business-studies-1",
+      "strandTitle": "Entrepreneurship And Business Ideas",
+      "unitTitle": "Entrepreneurship And Business Ideas",
+      "sourceUnitTitle": "Entrepreneurship And Business Ideas",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-ii-business-studies-1-outcome-1",
+          "text": "explain and apply entrepreneurship and business ideas in a real learning situation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can entrepreneurship and business ideas help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Entrepreneurship And Business Ideas.",
+        "Review key vocabulary from the previous Business Studies lesson."
+      ],
+      "keyVocabulary": [
+        "Entrepreneurship And Business Ideas",
+        "Entrepreneurship",
+        "Business",
+        "Ideas",
+        "idea",
+        "skill",
+        "example",
+        "practice"
+      ],
+      "misconceptions": [
+        "giving a general answer about Entrepreneurship And Business Ideas without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania school, home, or community example for Entrepreneurship And Business Ideas",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a real example",
+        "reasoning is clear",
+        "work is checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "process panel",
+          "description": "process panel for Entrepreneurship And Business Ideas",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "reflection checklist",
+          "description": "reflection checklist for Entrepreneurship And Business Ideas",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Business Studies",
+          "subject": "Business Studies",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/023e195e19d2af88e2bdad9ea08f9d9ee258bb8ff92f289d85763f582d54615f.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/business-studies/b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "020d40adfc8d7917d79095ade2c3102aec1627a21f7d38861937c61795eda5fa",
+            "markdownPageCount": 51,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/business-studies/b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "020d40adfc8d7917d79095ade2c3102aec1627a21f7d38861937c61795eda5fa",
+              "pageCount": 51,
+              "generatedAt": "2026-06-29T16:44:56.465Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "302a9bb91147e4ce4294a839e3c3d7906b7868cc841ad2487b5fc7fb59129edf"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:56.465Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "f33a68f13085776e32ed6e56534ae31eafa68b6f7e29d5631ae1e9d523002dfc"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Business Studies",
+          "subject": "Business Studies",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/023e195e19d2af88e2bdad9ea08f9d9ee258bb8ff92f289d85763f582d54615f.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/business-studies/b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "020d40adfc8d7917d79095ade2c3102aec1627a21f7d38861937c61795eda5fa",
+            "markdownPageCount": 51,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/business-studies/b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "020d40adfc8d7917d79095ade2c3102aec1627a21f7d38861937c61795eda5fa",
+              "pageCount": 51,
+              "generatedAt": "2026-06-29T16:44:56.465Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "302a9bb91147e4ce4294a839e3c3d7906b7868cc841ad2487b5fc7fb59129edf"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:56.465Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "f33a68f13085776e32ed6e56534ae31eafa68b6f7e29d5631ae1e9d523002dfc"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-II-business-studies-topic-002",
+      "grade": "Form II",
+      "strandId": "fallback-form-ii-business-studies-2",
+      "subStrandId": "fallback-form-ii-business-studies-2",
+      "parentSubStrandId": "fallback-form-ii-business-studies-2",
+      "strandTitle": "Banking Saving Credit And Insurance",
+      "unitTitle": "Banking Saving Credit And Insurance",
+      "sourceUnitTitle": "Banking Saving Credit And Insurance",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-ii-business-studies-2-outcome-1",
+          "text": "explain and apply banking saving credit and insurance in a real learning situation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can banking saving credit and insurance help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Banking Saving Credit And Insurance.",
+        "Review key vocabulary from the previous Business Studies lesson."
+      ],
+      "keyVocabulary": [
+        "Banking Saving Credit And Insurance",
+        "Banking",
+        "Saving",
+        "Credit",
+        "Insurance",
+        "idea",
+        "skill",
+        "example"
+      ],
+      "misconceptions": [
+        "giving a general answer about Banking Saving Credit And Insurance without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania school, home, or community example for Banking Saving Credit And Insurance",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a real example",
+        "reasoning is clear",
+        "work is checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "process panel",
+          "description": "process panel for Banking Saving Credit And Insurance",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "reflection checklist",
+          "description": "reflection checklist for Banking Saving Credit And Insurance",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Business Studies",
+          "subject": "Business Studies",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/023e195e19d2af88e2bdad9ea08f9d9ee258bb8ff92f289d85763f582d54615f.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/business-studies/b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "020d40adfc8d7917d79095ade2c3102aec1627a21f7d38861937c61795eda5fa",
+            "markdownPageCount": 51,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/business-studies/b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "020d40adfc8d7917d79095ade2c3102aec1627a21f7d38861937c61795eda5fa",
+              "pageCount": 51,
+              "generatedAt": "2026-06-29T16:44:56.465Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "302a9bb91147e4ce4294a839e3c3d7906b7868cc841ad2487b5fc7fb59129edf"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:56.465Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "f33a68f13085776e32ed6e56534ae31eafa68b6f7e29d5631ae1e9d523002dfc"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Business Studies",
+          "subject": "Business Studies",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/023e195e19d2af88e2bdad9ea08f9d9ee258bb8ff92f289d85763f582d54615f.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/business-studies/b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "020d40adfc8d7917d79095ade2c3102aec1627a21f7d38861937c61795eda5fa",
+            "markdownPageCount": 51,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/business-studies/b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "020d40adfc8d7917d79095ade2c3102aec1627a21f7d38861937c61795eda5fa",
+              "pageCount": 51,
+              "generatedAt": "2026-06-29T16:44:56.465Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "302a9bb91147e4ce4294a839e3c3d7906b7868cc841ad2487b5fc7fb59129edf"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:56.465Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "f33a68f13085776e32ed6e56534ae31eafa68b6f7e29d5631ae1e9d523002dfc"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-II-business-studies-topic-003",
+      "grade": "Form II",
+      "strandId": "fallback-form-ii-business-studies-3",
+      "subStrandId": "fallback-form-ii-business-studies-3",
+      "parentSubStrandId": "fallback-form-ii-business-studies-3",
+      "strandTitle": "Transport Communication And Distribution",
+      "unitTitle": "Transport Communication And Distribution",
+      "sourceUnitTitle": "Transport Communication And Distribution",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-ii-business-studies-3-outcome-1",
+          "text": "explain and apply transport communication and distribution in a real learning situation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can transport communication and distribution help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Transport Communication And Distribution.",
+        "Review key vocabulary from the previous Business Studies lesson."
+      ],
+      "keyVocabulary": [
+        "Transport Communication And Distribution",
+        "Transport",
+        "Communication",
+        "Distribution",
+        "idea",
+        "skill",
+        "example",
+        "practice"
+      ],
+      "misconceptions": [
+        "giving a general answer about Transport Communication And Distribution without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania school, home, or community example for Transport Communication And Distribution",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a real example",
+        "reasoning is clear",
+        "work is checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "process panel",
+          "description": "process panel for Transport Communication And Distribution",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "reflection checklist",
+          "description": "reflection checklist for Transport Communication And Distribution",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Business Studies",
+          "subject": "Business Studies",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/023e195e19d2af88e2bdad9ea08f9d9ee258bb8ff92f289d85763f582d54615f.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/business-studies/b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "020d40adfc8d7917d79095ade2c3102aec1627a21f7d38861937c61795eda5fa",
+            "markdownPageCount": 51,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/business-studies/b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "020d40adfc8d7917d79095ade2c3102aec1627a21f7d38861937c61795eda5fa",
+              "pageCount": 51,
+              "generatedAt": "2026-06-29T16:44:56.465Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "302a9bb91147e4ce4294a839e3c3d7906b7868cc841ad2487b5fc7fb59129edf"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:56.465Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "f33a68f13085776e32ed6e56534ae31eafa68b6f7e29d5631ae1e9d523002dfc"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Business Studies",
+          "subject": "Business Studies",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/023e195e19d2af88e2bdad9ea08f9d9ee258bb8ff92f289d85763f582d54615f.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/business-studies/b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "020d40adfc8d7917d79095ade2c3102aec1627a21f7d38861937c61795eda5fa",
+            "markdownPageCount": 51,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/business-studies/b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "020d40adfc8d7917d79095ade2c3102aec1627a21f7d38861937c61795eda5fa",
+              "pageCount": 51,
+              "generatedAt": "2026-06-29T16:44:56.465Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "302a9bb91147e4ce4294a839e3c3d7906b7868cc841ad2487b5fc7fb59129edf"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:56.465Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "f33a68f13085776e32ed6e56534ae31eafa68b6f7e29d5631ae1e9d523002dfc"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-II-business-studies-topic-004",
+      "grade": "Form II",
+      "strandId": "fallback-form-ii-business-studies-4",
+      "subStrandId": "fallback-form-ii-business-studies-4",
+      "parentSubStrandId": "fallback-form-ii-business-studies-4",
+      "strandTitle": "Retail Wholesale And Customer Care",
+      "unitTitle": "Retail Wholesale And Customer Care",
+      "sourceUnitTitle": "Retail Wholesale And Customer Care",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-ii-business-studies-4-outcome-1",
+          "text": "explain and apply retail wholesale and customer care in a real learning situation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can retail wholesale and customer care help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Retail Wholesale And Customer Care.",
+        "Review key vocabulary from the previous Business Studies lesson."
+      ],
+      "keyVocabulary": [
+        "Retail Wholesale And Customer Care",
+        "Retail",
+        "Wholesale",
+        "Customer",
+        "Care",
+        "idea",
+        "skill",
+        "example"
+      ],
+      "misconceptions": [
+        "giving a general answer about Retail Wholesale And Customer Care without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania school, home, or community example for Retail Wholesale And Customer Care",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a real example",
+        "reasoning is clear",
+        "work is checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "process panel",
+          "description": "process panel for Retail Wholesale And Customer Care",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "reflection checklist",
+          "description": "reflection checklist for Retail Wholesale And Customer Care",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Business Studies",
+          "subject": "Business Studies",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/023e195e19d2af88e2bdad9ea08f9d9ee258bb8ff92f289d85763f582d54615f.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/business-studies/b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "020d40adfc8d7917d79095ade2c3102aec1627a21f7d38861937c61795eda5fa",
+            "markdownPageCount": 51,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/business-studies/b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "020d40adfc8d7917d79095ade2c3102aec1627a21f7d38861937c61795eda5fa",
+              "pageCount": 51,
+              "generatedAt": "2026-06-29T16:44:56.465Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "302a9bb91147e4ce4294a839e3c3d7906b7868cc841ad2487b5fc7fb59129edf"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:56.465Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "f33a68f13085776e32ed6e56534ae31eafa68b6f7e29d5631ae1e9d523002dfc"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Business Studies",
+          "subject": "Business Studies",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/023e195e19d2af88e2bdad9ea08f9d9ee258bb8ff92f289d85763f582d54615f.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/business-studies/b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "020d40adfc8d7917d79095ade2c3102aec1627a21f7d38861937c61795eda5fa",
+            "markdownPageCount": 51,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/business-studies/b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "020d40adfc8d7917d79095ade2c3102aec1627a21f7d38861937c61795eda5fa",
+              "pageCount": 51,
+              "generatedAt": "2026-06-29T16:44:56.465Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "302a9bb91147e4ce4294a839e3c3d7906b7868cc841ad2487b5fc7fb59129edf"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:56.465Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "f33a68f13085776e32ed6e56534ae31eafa68b6f7e29d5631ae1e9d523002dfc"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-II-business-studies-topic-005",
+      "grade": "Form II",
+      "strandId": "fallback-form-ii-business-studies-5",
+      "subStrandId": "fallback-form-ii-business-studies-5",
+      "parentSubStrandId": "fallback-form-ii-business-studies-5",
+      "strandTitle": "Cost Price Profit And Loss Basics",
+      "unitTitle": "Cost Price Profit And Loss Basics",
+      "sourceUnitTitle": "Cost Price Profit And Loss Basics",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-ii-business-studies-5-outcome-1",
+          "text": "explain and apply cost price profit and loss basics in a real learning situation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can cost price profit and loss basics help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Cost Price Profit And Loss Basics.",
+        "Review key vocabulary from the previous Business Studies lesson."
+      ],
+      "keyVocabulary": [
+        "Cost Price Profit And Loss Basics",
+        "Cost",
+        "Price",
+        "Profit",
+        "Loss",
+        "Basics",
+        "idea",
+        "skill"
+      ],
+      "misconceptions": [
+        "giving a general answer about Cost Price Profit And Loss Basics without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania school, home, or community example for Cost Price Profit And Loss Basics",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a real example",
+        "reasoning is clear",
+        "work is checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "process panel",
+          "description": "process panel for Cost Price Profit And Loss Basics",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "reflection checklist",
+          "description": "reflection checklist for Cost Price Profit And Loss Basics",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Business Studies",
+          "subject": "Business Studies",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/023e195e19d2af88e2bdad9ea08f9d9ee258bb8ff92f289d85763f582d54615f.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/business-studies/b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "020d40adfc8d7917d79095ade2c3102aec1627a21f7d38861937c61795eda5fa",
+            "markdownPageCount": 51,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/business-studies/b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "020d40adfc8d7917d79095ade2c3102aec1627a21f7d38861937c61795eda5fa",
+              "pageCount": 51,
+              "generatedAt": "2026-06-29T16:44:56.465Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "302a9bb91147e4ce4294a839e3c3d7906b7868cc841ad2487b5fc7fb59129edf"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:56.465Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "f33a68f13085776e32ed6e56534ae31eafa68b6f7e29d5631ae1e9d523002dfc"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Business Studies",
+          "subject": "Business Studies",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/023e195e19d2af88e2bdad9ea08f9d9ee258bb8ff92f289d85763f582d54615f.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/business-studies/b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "020d40adfc8d7917d79095ade2c3102aec1627a21f7d38861937c61795eda5fa",
+            "markdownPageCount": 51,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/business-studies/b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "020d40adfc8d7917d79095ade2c3102aec1627a21f7d38861937c61795eda5fa",
+              "pageCount": 51,
+              "generatedAt": "2026-06-29T16:44:56.465Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "302a9bb91147e4ce4294a839e3c3d7906b7868cc841ad2487b5fc7fb59129edf"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:56.465Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "f33a68f13085776e32ed6e56534ae31eafa68b6f7e29d5631ae1e9d523002dfc"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-II-business-studies-topic-006",
+      "grade": "Form II",
+      "strandId": "fallback-form-ii-business-studies-6",
+      "subStrandId": "fallback-form-ii-business-studies-6",
+      "parentSubStrandId": "fallback-form-ii-business-studies-6",
+      "strandTitle": "Business Risk And Problem Solving",
+      "unitTitle": "Business Risk And Problem Solving",
+      "sourceUnitTitle": "Business Risk And Problem Solving",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-ii-business-studies-6-outcome-1",
+          "text": "explain and apply business risk and problem solving in a real learning situation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can business risk and problem solving help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Business Risk And Problem Solving.",
+        "Review key vocabulary from the previous Business Studies lesson."
+      ],
+      "keyVocabulary": [
+        "Business Risk And Problem Solving",
+        "Business",
+        "Risk",
+        "Problem",
+        "Solving",
+        "idea",
+        "skill",
+        "example"
+      ],
+      "misconceptions": [
+        "giving a general answer about Business Risk And Problem Solving without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania school, home, or community example for Business Risk And Problem Solving",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a real example",
+        "reasoning is clear",
+        "work is checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "process panel",
+          "description": "process panel for Business Risk And Problem Solving",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "reflection checklist",
+          "description": "reflection checklist for Business Risk And Problem Solving",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Business Studies",
+          "subject": "Business Studies",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/023e195e19d2af88e2bdad9ea08f9d9ee258bb8ff92f289d85763f582d54615f.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/business-studies/b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "020d40adfc8d7917d79095ade2c3102aec1627a21f7d38861937c61795eda5fa",
+            "markdownPageCount": 51,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/business-studies/b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "020d40adfc8d7917d79095ade2c3102aec1627a21f7d38861937c61795eda5fa",
+              "pageCount": 51,
+              "generatedAt": "2026-06-29T16:44:56.465Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "302a9bb91147e4ce4294a839e3c3d7906b7868cc841ad2487b5fc7fb59129edf"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:56.465Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "f33a68f13085776e32ed6e56534ae31eafa68b6f7e29d5631ae1e9d523002dfc"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Business Studies",
+          "subject": "Business Studies",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/023e195e19d2af88e2bdad9ea08f9d9ee258bb8ff92f289d85763f582d54615f.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/business-studies/b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "020d40adfc8d7917d79095ade2c3102aec1627a21f7d38861937c61795eda5fa",
+            "markdownPageCount": 51,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/business-studies/b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "020d40adfc8d7917d79095ade2c3102aec1627a21f7d38861937c61795eda5fa",
+              "pageCount": 51,
+              "generatedAt": "2026-06-29T16:44:56.465Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "302a9bb91147e4ce4294a839e3c3d7906b7868cc841ad2487b5fc7fb59129edf"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:56.465Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "f33a68f13085776e32ed6e56534ae31eafa68b6f7e29d5631ae1e9d523002dfc"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-II-business-studies-topic-007",
+      "grade": "Form II",
+      "strandId": "fallback-form-ii-business-studies-7",
+      "subStrandId": "fallback-form-ii-business-studies-7",
+      "parentSubStrandId": "fallback-form-ii-business-studies-7",
+      "strandTitle": "Record Keeping And Stock Control",
+      "unitTitle": "Record Keeping And Stock Control",
+      "sourceUnitTitle": "Record Keeping And Stock Control",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-ii-business-studies-7-outcome-1",
+          "text": "explain and apply record keeping and stock control in a real learning situation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can record keeping and stock control help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Record Keeping And Stock Control.",
+        "Review key vocabulary from the previous Business Studies lesson."
+      ],
+      "keyVocabulary": [
+        "Record Keeping And Stock Control",
+        "Record",
+        "Keeping",
+        "Stock",
+        "Control",
+        "idea",
+        "skill",
+        "example"
+      ],
+      "misconceptions": [
+        "giving a general answer about Record Keeping And Stock Control without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania school, home, or community example for Record Keeping And Stock Control",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a real example",
+        "reasoning is clear",
+        "work is checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "process panel",
+          "description": "process panel for Record Keeping And Stock Control",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "reflection checklist",
+          "description": "reflection checklist for Record Keeping And Stock Control",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Business Studies",
+          "subject": "Business Studies",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/023e195e19d2af88e2bdad9ea08f9d9ee258bb8ff92f289d85763f582d54615f.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/business-studies/b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "020d40adfc8d7917d79095ade2c3102aec1627a21f7d38861937c61795eda5fa",
+            "markdownPageCount": 51,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/business-studies/b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "020d40adfc8d7917d79095ade2c3102aec1627a21f7d38861937c61795eda5fa",
+              "pageCount": 51,
+              "generatedAt": "2026-06-29T16:44:56.465Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "302a9bb91147e4ce4294a839e3c3d7906b7868cc841ad2487b5fc7fb59129edf"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:56.465Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "f33a68f13085776e32ed6e56534ae31eafa68b6f7e29d5631ae1e9d523002dfc"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Business Studies",
+          "subject": "Business Studies",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/023e195e19d2af88e2bdad9ea08f9d9ee258bb8ff92f289d85763f582d54615f.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/business-studies/b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "020d40adfc8d7917d79095ade2c3102aec1627a21f7d38861937c61795eda5fa",
+            "markdownPageCount": 51,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/business-studies/b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "020d40adfc8d7917d79095ade2c3102aec1627a21f7d38861937c61795eda5fa",
+              "pageCount": 51,
+              "generatedAt": "2026-06-29T16:44:56.465Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "302a9bb91147e4ce4294a839e3c3d7906b7868cc841ad2487b5fc7fb59129edf"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:56.465Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "f33a68f13085776e32ed6e56534ae31eafa68b6f7e29d5631ae1e9d523002dfc"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-II-business-studies-topic-008",
+      "grade": "Form II",
+      "strandId": "fallback-form-ii-business-studies-8",
+      "subStrandId": "fallback-form-ii-business-studies-8",
+      "parentSubStrandId": "fallback-form-ii-business-studies-8",
+      "strandTitle": "Form II Enterprise Project",
+      "unitTitle": "Form II Enterprise Project",
+      "sourceUnitTitle": "Form II Enterprise Project",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-ii-business-studies-8-outcome-1",
+          "text": "explain and apply form ii enterprise project in a real learning situation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can form ii enterprise project help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Form II Enterprise Project.",
+        "Review key vocabulary from the previous Business Studies lesson."
+      ],
+      "keyVocabulary": [
+        "Form II Enterprise Project",
+        "Form",
+        "Enterprise",
+        "Project",
+        "idea",
+        "skill",
+        "example",
+        "practice"
+      ],
+      "misconceptions": [
+        "giving a general answer about Form II Enterprise Project without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania school, home, or community example for Form II Enterprise Project",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a real example",
+        "reasoning is clear",
+        "work is checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "process panel",
+          "description": "process panel for Form II Enterprise Project",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "reflection checklist",
+          "description": "reflection checklist for Form II Enterprise Project",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Business Studies",
+          "subject": "Business Studies",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/023e195e19d2af88e2bdad9ea08f9d9ee258bb8ff92f289d85763f582d54615f.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/business-studies/b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "020d40adfc8d7917d79095ade2c3102aec1627a21f7d38861937c61795eda5fa",
+            "markdownPageCount": 51,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/business-studies/b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "020d40adfc8d7917d79095ade2c3102aec1627a21f7d38861937c61795eda5fa",
+              "pageCount": 51,
+              "generatedAt": "2026-06-29T16:44:56.465Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "302a9bb91147e4ce4294a839e3c3d7906b7868cc841ad2487b5fc7fb59129edf"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:56.465Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "f33a68f13085776e32ed6e56534ae31eafa68b6f7e29d5631ae1e9d523002dfc"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Business Studies",
+          "subject": "Business Studies",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/023e195e19d2af88e2bdad9ea08f9d9ee258bb8ff92f289d85763f582d54615f.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/business-studies/b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "020d40adfc8d7917d79095ade2c3102aec1627a21f7d38861937c61795eda5fa",
+            "markdownPageCount": 51,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/business-studies/b6f6b2ac-37b4-403d-b5bc-7fa6dbef688c.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "020d40adfc8d7917d79095ade2c3102aec1627a21f7d38861937c61795eda5fa",
+              "pageCount": 51,
+              "generatedAt": "2026-06-29T16:44:56.465Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "302a9bb91147e4ce4294a839e3c3d7906b7868cc841ad2487b5fc7fb59129edf"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:56.465Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "f33a68f13085776e32ed6e56534ae31eafa68b6f7e29d5631ae1e9d523002dfc"
+        }
+      ]
+    }
+  ]
+}

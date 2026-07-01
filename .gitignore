@@ -21,8 +21,12 @@ supabase/.temp/
 *.bundle
 *.hbc
 *.png
+!apps/api/data/books/assets/
+!apps/api/data/books/assets/*.png
 !native-app/src/assets/logo.png
 !native-app/src/assets/splashscreen.png
+!native-app/src/assets/good-news/
+!native-app/src/assets/good-news/*.png
 !native-app/ios/KitabuNativeApp/Images.xcassets/**/*.png
 *.xml
 *.db

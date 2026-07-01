@@ -1,0 +1,805 @@
+{
+  "schemaVersion": 1,
+  "sourceType": "normalized-curriculum",
+  "country": "UGA",
+  "curriculum": "NCDC",
+  "grade": "S4",
+  "subject": "Mathematics",
+  "generatedAt": "2026-07-01T05:18:07Z",
+  "sourceSnapshotHash": "3b532929b5951eee77e737b10a842b91a52583a44aeb5ee8b9f084da28c44ccb",
+  "writingStandard": {
+    "voice": "simple, conversational, purposeful, age-appropriate, and learner-first",
+    "antiFluff": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "coversDeferred": true
+  },
+  "strands": [
+    {
+      "strandId": "26b27c77-ec98-43f4-9c75-3e98acd3ffe7",
+      "number": "",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a modern",
+      "topicCount": 1
+    },
+    {
+      "strandId": "350798c6-719f-4b11-a7ce-c6e92d547db2",
+      "number": "",
+      "title": "KEY CHANGES IN THE CURRICULUM",
+      "topicCount": 1
+    },
+    {
+      "strandId": "ea5e0735-d065-43bf-84de-f273f3375a3e",
+      "number": "",
+      "title": "THE",
+      "topicCount": 1
+    },
+    {
+      "strandId": "b3ee291a-ec08-4901-b3fa-3a90f61e5dcb",
+      "number": "",
+      "title": "THE CURRICULUM",
+      "topicCount": 1
+    },
+    {
+      "strandId": "866222bb-8863-4426-8b5d-eaec6846288e",
+      "number": "",
+      "title": "Generic Skills",
+      "topicCount": 1
+    }
+  ],
+  "topics": [
+    {
+      "topicId": "UGA-S4-mathematics-topic-001",
+      "grade": "S4",
+      "strandId": "26b27c77-ec98-43f4-9c75-3e98acd3ffe7",
+      "subStrandId": "26b27c77-ec98-43f4-9c75-3e98acd3ffe7",
+      "parentSubStrandId": "26b27c77-ec98-43f4-9c75-3e98acd3ffe7",
+      "strandTitle": "The Uganda Vision 2040 aims to transform Uganda into a modern",
+      "unitTitle": "The Uganda Vision 2040 aims to transform Uganda into a modern",
+      "sourceUnitTitle": "The Uganda Vision 2040 aims to transform Uganda into a modern",
+      "learningOutcomes": [
+        {
+          "id": "92c71659-a5aa-4a6f-ba6e-241a5c7a438a",
+          "text": "solve and explain problems about the uganda vision 2040 aims to transform uganda into a modern"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can the uganda vision 2040 aims to transform uganda into a modern help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to The Uganda Vision 2040 aims to transform Uganda into a modern.",
+        "Review key vocabulary from the previous Mathematics lesson."
+      ],
+      "keyVocabulary": [
+        "The Uganda Vision 2040 aims to transform Uganda into a modern",
+        "Uganda",
+        "Vision",
+        "2040",
+        "aims",
+        "transform",
+        "into",
+        "modern"
+      ],
+      "misconceptions": [
+        "giving a general answer about The Uganda Vision 2040 aims to transform Uganda into a modern without a clear example, method, or evidence"
+      ],
+      "localContext": "a Uganda school, market, farming, building, transport, or data problem for The Uganda Vision 2040 aims to transform Uganda into a modern",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for The Uganda Vision 2040 aims to transform Uganda into a modern",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for The Uganda Vision 2040 aims to transform Uganda into a modern",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e14d85ea-0147-4c40-aca8-81e2674ebdd2",
+          "officialTitle": "Uganda Curriculum S4 Mathematics",
+          "subject": "Mathematics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/Mathematics_Syllabus_compressed.pdf",
+          "objectKey": "data/curriculum/source-files/UGA/9013653a17434b51b73fdc88b13a4a17eefcc17e79237f7e77ef8f5e350f2a81.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "S4",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/Mathematics_Syllabus_compressed.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/UGA/NCDC/S4/mathematics/e14d85ea-0147-4c40-aca8-81e2674ebdd2.md",
+            "sourcePageUrl": "https://ncdc.go.ug/wp-content/uploads/2024/03/Curriculum_Framework.pdf",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "ncdc.go.ug"
+            ],
+            "markdownChecksum": "1d5e293ae0d63f18878ef2690c704c8f4ba1eb3d63661db729c91c9d9a323609",
+            "markdownPageCount": 70,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/UGA/NCDC/S4/mathematics/e14d85ea-0147-4c40-aca8-81e2674ebdd2.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "1d5e293ae0d63f18878ef2690c704c8f4ba1eb3d63661db729c91c9d9a323609",
+              "pageCount": 70,
+              "generatedAt": "2026-06-29T18:52:26.302Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "83e3739a34ebe5cb52b25b500971265e3e90d48179e7aefa5cf75b4c0c41911e"
+            },
+            "markdownGeneratedAt": "2026-06-29T18:52:26.302Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "3b532929b5951eee77e737b10a842b91a52583a44aeb5ee8b9f084da28c44ccb"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e14d85ea-0147-4c40-aca8-81e2674ebdd2",
+          "officialTitle": "Uganda Curriculum S4 Mathematics",
+          "subject": "Mathematics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/Mathematics_Syllabus_compressed.pdf",
+          "objectKey": "data/curriculum/source-files/UGA/9013653a17434b51b73fdc88b13a4a17eefcc17e79237f7e77ef8f5e350f2a81.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "S4",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/Mathematics_Syllabus_compressed.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/UGA/NCDC/S4/mathematics/e14d85ea-0147-4c40-aca8-81e2674ebdd2.md",
+            "sourcePageUrl": "https://ncdc.go.ug/wp-content/uploads/2024/03/Curriculum_Framework.pdf",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "ncdc.go.ug"
+            ],
+            "markdownChecksum": "1d5e293ae0d63f18878ef2690c704c8f4ba1eb3d63661db729c91c9d9a323609",
+            "markdownPageCount": 70,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/UGA/NCDC/S4/mathematics/e14d85ea-0147-4c40-aca8-81e2674ebdd2.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "1d5e293ae0d63f18878ef2690c704c8f4ba1eb3d63661db729c91c9d9a323609",
+              "pageCount": 70,
+              "generatedAt": "2026-06-29T18:52:26.302Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "83e3739a34ebe5cb52b25b500971265e3e90d48179e7aefa5cf75b4c0c41911e"
+            },
+            "markdownGeneratedAt": "2026-06-29T18:52:26.302Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "3b532929b5951eee77e737b10a842b91a52583a44aeb5ee8b9f084da28c44ccb"
+        }
+      ]
+    },
+    {
+      "topicId": "UGA-S4-mathematics-topic-002",
+      "grade": "S4",
+      "strandId": "350798c6-719f-4b11-a7ce-c6e92d547db2",
+      "subStrandId": "350798c6-719f-4b11-a7ce-c6e92d547db2",
+      "parentSubStrandId": "350798c6-719f-4b11-a7ce-c6e92d547db2",
+      "strandTitle": "KEY CHANGES IN THE CURRICULUM",
+      "unitTitle": "KEY CHANGES IN THE CURRICULUM",
+      "sourceUnitTitle": "KEY CHANGES IN THE CURRICULUM",
+      "learningOutcomes": [
+        {
+          "id": "f52ac56f-b7dd-44e3-8fbf-5a0d3c690d37",
+          "text": "solve and explain problems about key changes in the curriculum"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can key changes in the curriculum help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to KEY CHANGES IN THE CURRICULUM.",
+        "Review key vocabulary from the previous Mathematics lesson."
+      ],
+      "keyVocabulary": [
+        "KEY CHANGES IN THE CURRICULUM",
+        "CHANGES",
+        "CURRICULUM",
+        "method",
+        "model",
+        "unit",
+        "answer",
+        "check"
+      ],
+      "misconceptions": [
+        "giving a general answer about KEY CHANGES IN THE CURRICULUM without a clear example, method, or evidence"
+      ],
+      "localContext": "a Uganda school, market, farming, building, transport, or data problem for KEY CHANGES IN THE CURRICULUM",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for KEY CHANGES IN THE CURRICULUM",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for KEY CHANGES IN THE CURRICULUM",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e14d85ea-0147-4c40-aca8-81e2674ebdd2",
+          "officialTitle": "Uganda Curriculum S4 Mathematics",
+          "subject": "Mathematics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/Mathematics_Syllabus_compressed.pdf",
+          "objectKey": "data/curriculum/source-files/UGA/9013653a17434b51b73fdc88b13a4a17eefcc17e79237f7e77ef8f5e350f2a81.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "S4",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/Mathematics_Syllabus_compressed.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/UGA/NCDC/S4/mathematics/e14d85ea-0147-4c40-aca8-81e2674ebdd2.md",
+            "sourcePageUrl": "https://ncdc.go.ug/wp-content/uploads/2024/03/Curriculum_Framework.pdf",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "ncdc.go.ug"
+            ],
+            "markdownChecksum": "1d5e293ae0d63f18878ef2690c704c8f4ba1eb3d63661db729c91c9d9a323609",
+            "markdownPageCount": 70,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/UGA/NCDC/S4/mathematics/e14d85ea-0147-4c40-aca8-81e2674ebdd2.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "1d5e293ae0d63f18878ef2690c704c8f4ba1eb3d63661db729c91c9d9a323609",
+              "pageCount": 70,
+              "generatedAt": "2026-06-29T18:52:26.302Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "83e3739a34ebe5cb52b25b500971265e3e90d48179e7aefa5cf75b4c0c41911e"
+            },
+            "markdownGeneratedAt": "2026-06-29T18:52:26.302Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "3b532929b5951eee77e737b10a842b91a52583a44aeb5ee8b9f084da28c44ccb"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e14d85ea-0147-4c40-aca8-81e2674ebdd2",
+          "officialTitle": "Uganda Curriculum S4 Mathematics",
+          "subject": "Mathematics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/Mathematics_Syllabus_compressed.pdf",
+          "objectKey": "data/curriculum/source-files/UGA/9013653a17434b51b73fdc88b13a4a17eefcc17e79237f7e77ef8f5e350f2a81.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "S4",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/Mathematics_Syllabus_compressed.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/UGA/NCDC/S4/mathematics/e14d85ea-0147-4c40-aca8-81e2674ebdd2.md",
+            "sourcePageUrl": "https://ncdc.go.ug/wp-content/uploads/2024/03/Curriculum_Framework.pdf",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "ncdc.go.ug"
+            ],
+            "markdownChecksum": "1d5e293ae0d63f18878ef2690c704c8f4ba1eb3d63661db729c91c9d9a323609",
+            "markdownPageCount": 70,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/UGA/NCDC/S4/mathematics/e14d85ea-0147-4c40-aca8-81e2674ebdd2.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "1d5e293ae0d63f18878ef2690c704c8f4ba1eb3d63661db729c91c9d9a323609",
+              "pageCount": 70,
+              "generatedAt": "2026-06-29T18:52:26.302Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "83e3739a34ebe5cb52b25b500971265e3e90d48179e7aefa5cf75b4c0c41911e"
+            },
+            "markdownGeneratedAt": "2026-06-29T18:52:26.302Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "3b532929b5951eee77e737b10a842b91a52583a44aeb5ee8b9f084da28c44ccb"
+        }
+      ]
+    },
+    {
+      "topicId": "UGA-S4-mathematics-topic-003",
+      "grade": "S4",
+      "strandId": "ea5e0735-d065-43bf-84de-f273f3375a3e",
+      "subStrandId": "ea5e0735-d065-43bf-84de-f273f3375a3e",
+      "parentSubStrandId": "ea5e0735-d065-43bf-84de-f273f3375a3e",
+      "strandTitle": "THE",
+      "unitTitle": "THE",
+      "sourceUnitTitle": "THE",
+      "learningOutcomes": [
+        {
+          "id": "e3d0ecef-f2fe-4b0c-9031-c78c9afad931",
+          "text": "solve and explain problems about the"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can the help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to THE.",
+        "Review key vocabulary from the previous Mathematics lesson."
+      ],
+      "keyVocabulary": [
+        "THE",
+        "method",
+        "model",
+        "unit",
+        "answer",
+        "check"
+      ],
+      "misconceptions": [
+        "giving a general answer about THE without a clear example, method, or evidence"
+      ],
+      "localContext": "a Uganda school, market, farming, building, transport, or data problem for THE",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for THE",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for THE",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e14d85ea-0147-4c40-aca8-81e2674ebdd2",
+          "officialTitle": "Uganda Curriculum S4 Mathematics",
+          "subject": "Mathematics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/Mathematics_Syllabus_compressed.pdf",
+          "objectKey": "data/curriculum/source-files/UGA/9013653a17434b51b73fdc88b13a4a17eefcc17e79237f7e77ef8f5e350f2a81.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "S4",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/Mathematics_Syllabus_compressed.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/UGA/NCDC/S4/mathematics/e14d85ea-0147-4c40-aca8-81e2674ebdd2.md",
+            "sourcePageUrl": "https://ncdc.go.ug/wp-content/uploads/2024/03/Curriculum_Framework.pdf",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "ncdc.go.ug"
+            ],
+            "markdownChecksum": "1d5e293ae0d63f18878ef2690c704c8f4ba1eb3d63661db729c91c9d9a323609",
+            "markdownPageCount": 70,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/UGA/NCDC/S4/mathematics/e14d85ea-0147-4c40-aca8-81e2674ebdd2.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "1d5e293ae0d63f18878ef2690c704c8f4ba1eb3d63661db729c91c9d9a323609",
+              "pageCount": 70,
+              "generatedAt": "2026-06-29T18:52:26.302Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "83e3739a34ebe5cb52b25b500971265e3e90d48179e7aefa5cf75b4c0c41911e"
+            },
+            "markdownGeneratedAt": "2026-06-29T18:52:26.302Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "3b532929b5951eee77e737b10a842b91a52583a44aeb5ee8b9f084da28c44ccb"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e14d85ea-0147-4c40-aca8-81e2674ebdd2",
+          "officialTitle": "Uganda Curriculum S4 Mathematics",
+          "subject": "Mathematics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/Mathematics_Syllabus_compressed.pdf",
+          "objectKey": "data/curriculum/source-files/UGA/9013653a17434b51b73fdc88b13a4a17eefcc17e79237f7e77ef8f5e350f2a81.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "S4",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/Mathematics_Syllabus_compressed.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/UGA/NCDC/S4/mathematics/e14d85ea-0147-4c40-aca8-81e2674ebdd2.md",
+            "sourcePageUrl": "https://ncdc.go.ug/wp-content/uploads/2024/03/Curriculum_Framework.pdf",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "ncdc.go.ug"
+            ],
+            "markdownChecksum": "1d5e293ae0d63f18878ef2690c704c8f4ba1eb3d63661db729c91c9d9a323609",
+            "markdownPageCount": 70,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/UGA/NCDC/S4/mathematics/e14d85ea-0147-4c40-aca8-81e2674ebdd2.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "1d5e293ae0d63f18878ef2690c704c8f4ba1eb3d63661db729c91c9d9a323609",
+              "pageCount": 70,
+              "generatedAt": "2026-06-29T18:52:26.302Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "83e3739a34ebe5cb52b25b500971265e3e90d48179e7aefa5cf75b4c0c41911e"
+            },
+            "markdownGeneratedAt": "2026-06-29T18:52:26.302Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "3b532929b5951eee77e737b10a842b91a52583a44aeb5ee8b9f084da28c44ccb"
+        }
+      ]
+    },
+    {
+      "topicId": "UGA-S4-mathematics-topic-004",
+      "grade": "S4",
+      "strandId": "b3ee291a-ec08-4901-b3fa-3a90f61e5dcb",
+      "subStrandId": "b3ee291a-ec08-4901-b3fa-3a90f61e5dcb",
+      "parentSubStrandId": "b3ee291a-ec08-4901-b3fa-3a90f61e5dcb",
+      "strandTitle": "THE CURRICULUM",
+      "unitTitle": "THE CURRICULUM",
+      "sourceUnitTitle": "THE CURRICULUM",
+      "learningOutcomes": [
+        {
+          "id": "1c04f79c-b35d-4d05-accb-7e5134079c7e",
+          "text": "solve and explain problems about the curriculum"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can the curriculum help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to THE CURRICULUM.",
+        "Review key vocabulary from the previous Mathematics lesson."
+      ],
+      "keyVocabulary": [
+        "THE CURRICULUM",
+        "CURRICULUM",
+        "method",
+        "model",
+        "unit",
+        "answer",
+        "check"
+      ],
+      "misconceptions": [
+        "giving a general answer about THE CURRICULUM without a clear example, method, or evidence"
+      ],
+      "localContext": "a Uganda school, market, farming, building, transport, or data problem for THE CURRICULUM",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for THE CURRICULUM",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for THE CURRICULUM",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e14d85ea-0147-4c40-aca8-81e2674ebdd2",
+          "officialTitle": "Uganda Curriculum S4 Mathematics",
+          "subject": "Mathematics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/Mathematics_Syllabus_compressed.pdf",
+          "objectKey": "data/curriculum/source-files/UGA/9013653a17434b51b73fdc88b13a4a17eefcc17e79237f7e77ef8f5e350f2a81.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "S4",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/Mathematics_Syllabus_compressed.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/UGA/NCDC/S4/mathematics/e14d85ea-0147-4c40-aca8-81e2674ebdd2.md",
+            "sourcePageUrl": "https://ncdc.go.ug/wp-content/uploads/2024/03/Curriculum_Framework.pdf",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "ncdc.go.ug"
+            ],
+            "markdownChecksum": "1d5e293ae0d63f18878ef2690c704c8f4ba1eb3d63661db729c91c9d9a323609",
+            "markdownPageCount": 70,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/UGA/NCDC/S4/mathematics/e14d85ea-0147-4c40-aca8-81e2674ebdd2.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "1d5e293ae0d63f18878ef2690c704c8f4ba1eb3d63661db729c91c9d9a323609",
+              "pageCount": 70,
+              "generatedAt": "2026-06-29T18:52:26.302Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "83e3739a34ebe5cb52b25b500971265e3e90d48179e7aefa5cf75b4c0c41911e"
+            },
+            "markdownGeneratedAt": "2026-06-29T18:52:26.302Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "3b532929b5951eee77e737b10a842b91a52583a44aeb5ee8b9f084da28c44ccb"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e14d85ea-0147-4c40-aca8-81e2674ebdd2",
+          "officialTitle": "Uganda Curriculum S4 Mathematics",
+          "subject": "Mathematics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/Mathematics_Syllabus_compressed.pdf",
+          "objectKey": "data/curriculum/source-files/UGA/9013653a17434b51b73fdc88b13a4a17eefcc17e79237f7e77ef8f5e350f2a81.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "S4",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/Mathematics_Syllabus_compressed.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/UGA/NCDC/S4/mathematics/e14d85ea-0147-4c40-aca8-81e2674ebdd2.md",
+            "sourcePageUrl": "https://ncdc.go.ug/wp-content/uploads/2024/03/Curriculum_Framework.pdf",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "ncdc.go.ug"
+            ],
+            "markdownChecksum": "1d5e293ae0d63f18878ef2690c704c8f4ba1eb3d63661db729c91c9d9a323609",
+            "markdownPageCount": 70,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/UGA/NCDC/S4/mathematics/e14d85ea-0147-4c40-aca8-81e2674ebdd2.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "1d5e293ae0d63f18878ef2690c704c8f4ba1eb3d63661db729c91c9d9a323609",
+              "pageCount": 70,
+              "generatedAt": "2026-06-29T18:52:26.302Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "83e3739a34ebe5cb52b25b500971265e3e90d48179e7aefa5cf75b4c0c41911e"
+            },
+            "markdownGeneratedAt": "2026-06-29T18:52:26.302Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "3b532929b5951eee77e737b10a842b91a52583a44aeb5ee8b9f084da28c44ccb"
+        }
+      ]
+    },
+    {
+      "topicId": "UGA-S4-mathematics-topic-005",
+      "grade": "S4",
+      "strandId": "866222bb-8863-4426-8b5d-eaec6846288e",
+      "subStrandId": "866222bb-8863-4426-8b5d-eaec6846288e",
+      "parentSubStrandId": "866222bb-8863-4426-8b5d-eaec6846288e",
+      "strandTitle": "Generic Skills",
+      "unitTitle": "Generic Skills",
+      "sourceUnitTitle": "Generic Skills",
+      "learningOutcomes": [
+        {
+          "id": "883b6bf4-6a36-4291-8d84-a37f054d5c3c",
+          "text": "solve and explain problems about generic skills"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can generic skills help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Generic Skills.",
+        "Review key vocabulary from the previous Mathematics lesson."
+      ],
+      "keyVocabulary": [
+        "Generic Skills",
+        "Generic",
+        "Skills",
+        "method",
+        "model",
+        "unit",
+        "answer",
+        "check"
+      ],
+      "misconceptions": [
+        "giving a general answer about Generic Skills without a clear example, method, or evidence"
+      ],
+      "localContext": "a Uganda school, market, farming, building, transport, or data problem for Generic Skills",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Generic Skills",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "table/chart/diagram",
+          "description": "table/chart/diagram for Generic Skills",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e14d85ea-0147-4c40-aca8-81e2674ebdd2",
+          "officialTitle": "Uganda Curriculum S4 Mathematics",
+          "subject": "Mathematics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/Mathematics_Syllabus_compressed.pdf",
+          "objectKey": "data/curriculum/source-files/UGA/9013653a17434b51b73fdc88b13a4a17eefcc17e79237f7e77ef8f5e350f2a81.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "S4",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/Mathematics_Syllabus_compressed.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/UGA/NCDC/S4/mathematics/e14d85ea-0147-4c40-aca8-81e2674ebdd2.md",
+            "sourcePageUrl": "https://ncdc.go.ug/wp-content/uploads/2024/03/Curriculum_Framework.pdf",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "ncdc.go.ug"
+            ],
+            "markdownChecksum": "1d5e293ae0d63f18878ef2690c704c8f4ba1eb3d63661db729c91c9d9a323609",
+            "markdownPageCount": 70,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/UGA/NCDC/S4/mathematics/e14d85ea-0147-4c40-aca8-81e2674ebdd2.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "1d5e293ae0d63f18878ef2690c704c8f4ba1eb3d63661db729c91c9d9a323609",
+              "pageCount": 70,
+              "generatedAt": "2026-06-29T18:52:26.302Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "83e3739a34ebe5cb52b25b500971265e3e90d48179e7aefa5cf75b4c0c41911e"
+            },
+            "markdownGeneratedAt": "2026-06-29T18:52:26.302Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "3b532929b5951eee77e737b10a842b91a52583a44aeb5ee8b9f084da28c44ccb"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "e14d85ea-0147-4c40-aca8-81e2674ebdd2",
+          "officialTitle": "Uganda Curriculum S4 Mathematics",
+          "subject": "Mathematics",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/Mathematics_Syllabus_compressed.pdf",
+          "objectKey": "data/curriculum/source-files/UGA/9013653a17434b51b73fdc88b13a4a17eefcc17e79237f7e77ef8f5e350f2a81.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "S4",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/Mathematics_Syllabus_compressed.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/UGA/NCDC/S4/mathematics/e14d85ea-0147-4c40-aca8-81e2674ebdd2.md",
+            "sourcePageUrl": "https://ncdc.go.ug/wp-content/uploads/2024/03/Curriculum_Framework.pdf",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "ncdc.go.ug"
+            ],
+            "markdownChecksum": "1d5e293ae0d63f18878ef2690c704c8f4ba1eb3d63661db729c91c9d9a323609",
+            "markdownPageCount": 70,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/UGA/NCDC/S4/mathematics/e14d85ea-0147-4c40-aca8-81e2674ebdd2.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "1d5e293ae0d63f18878ef2690c704c8f4ba1eb3d63661db729c91c9d9a323609",
+              "pageCount": 70,
+              "generatedAt": "2026-06-29T18:52:26.302Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "83e3739a34ebe5cb52b25b500971265e3e90d48179e7aefa5cf75b4c0c41911e"
+            },
+            "markdownGeneratedAt": "2026-06-29T18:52:26.302Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "3b532929b5951eee77e737b10a842b91a52583a44aeb5ee8b9f084da28c44ccb"
+        }
+      ]
+    }
+  ]
+}

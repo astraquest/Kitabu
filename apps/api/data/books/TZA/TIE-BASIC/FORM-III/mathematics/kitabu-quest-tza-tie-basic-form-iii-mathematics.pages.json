@@ -1,0 +1,2131 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-tza-tie-basic-form-iii-mathematics",
+  "title": "KITABU QUEST Form III Mathematics",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Form III",
+  "subject": "Mathematics",
+  "subjectSlug": "mathematics",
+  "subjectColor": "#047857",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v13",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:47:20Z",
+  "sourceSnapshotHash": "8b123786633c7331a81114ce4e087bb820fa79a95e22cce26cbef10f9d34d5b3",
+  "bookPlanHash": "ac70896318a710b8188f49c6307d4c4c66b13c7181482e3b9d3ac42832b9a691",
+  "pageCount": 85,
+  "wordCount": 7771,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 8,
+    "outcomeCount": 8,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "TZA",
+    "subject": "Mathematics",
+    "species": "elephant",
+    "role": "problem-solving guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "students solving mathematics with charts and models with an elephant mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Tanzania TIE-BASIC Form III Mathematics. Scene: students solving mathematics with charts and models with an elephant mascot. Include a friendly elephant mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 85978,
+    "sha256": "9ff4452b3946d08a046caf2ada445a9712e242540402c2f74c69e1153df3c832"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 85978,
+      "sha256": "9ff4452b3946d08a046caf2ada445a9712e242540402c2f74c69e1153df3c832",
+      "kind": "cover",
+      "altText": "KITABU QUEST Form III Mathematics cover with elephant",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-tza-tie-basic-form-iii-mathematics.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-tza-tie-basic-form-iii-mathematics.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "59e9927d-f39d-445c-8de8-ddb92c1f7207",
+      "subject": "Mathematics",
+      "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form III Mathematics",
+      "countryCode": "TZA",
+      "curriculumCode": "TIE-BASIC",
+      "gradeCode": "FORM_III",
+      "gradeLocalLevel": "Form III",
+      "localLevel": "Form III",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727256902-MATHEMATICS%20SYLLABUS%20-%20O%20level%20final.pdf",
+      "objectKey": "data/curriculum/source-files/TZA/a04fefe1e03f967c1c4ed91493f836e9b272599909bf227b92ae86271941ec7d.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "FORM_III",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727256902-MATHEMATICS%20SYLLABUS%20-%20O%20level%20final.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/mathematics/59e9927d-f39d-445c-8de8-ddb92c1f7207.md",
+        "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "tie.go.tz"
+        ],
+        "markdownChecksum": "af2d9e3c9ad4a05f0c46b65b5498d88652f486b377d5195cf94766246f13e976",
+        "markdownPageCount": 48,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/mathematics/59e9927d-f39d-445c-8de8-ddb92c1f7207.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "af2d9e3c9ad4a05f0c46b65b5498d88652f486b377d5195cf94766246f13e976",
+          "pageCount": 48,
+          "generatedAt": "2026-06-29T16:46:16.143Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "a666f9276704c2d0c4f73870262165573e0c8d479021fcad6345444c2ff55e50"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:46:16.143Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p001",
+      "title": "Title Page",
+      "content": "KITABU QUEST Form III Mathematics\n\nTanzania TIE-BASIC learner book\n\nMascot: elephant\n\nThis KITABU QUEST book turns the curriculum into short lessons, worked examples, guided activities, practice, review, and home links for Tanzania learners.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 3,
+      "wordCount": 33,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p002",
+      "title": "How To Use This Book",
+      "content": "This book helps Form III learners study Mathematics one teachable topic at a time.\n\n1. Start with the inquiry question and say what you already know.\n2. Read the Learn section slowly and mark new words.\n3. Try the worked example before reading the full solution.\n4. Complete the activity and practice tasks.\n5. Correct your answer using the success criteria.\n6. Ask for support when your answer is still unclear.\n\nSubject method: Use objects, drawings, number sentences, and worked examples before independent practice.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 84,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p003",
+      "title": "Learning Skills In This Book",
+      "content": "Each topic builds knowledge, skill, values, communication, collaboration, critical thinking, creativity, digital awareness, and self-confidence.\n\nStudy actively: speak answers aloud, draw when useful, show your working, cite evidence, use local examples, and correct mistakes after feedback.\n\nA strong answer is specific. It names the idea, gives evidence or method, applies it to the task, and checks whether it answers the question.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p004",
+      "title": "Table Of Contents",
+      "content": "Use this table to move through the book one topic at a time. Each topic has a lesson opener, clear teaching, a model or example, guided work, practice, and checks for understanding.\n\n1. Quadratic Expressions And Equations\n2. Simultaneous Equations And Word Problems\n3. Circle Geometry And Constructions\n4. Vectors And Transformations\n5. Advanced Trigonometry Applications\n6. Mensuration Of Solids\n7. Data Analysis And Probability\n8. Form III Extended Problem Solving\n\nAs you finish each topic, return to the success criteria and correct one answer before moving on.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 88,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p005",
+      "title": "Quadratic Expressions And Equations: Lesson Opener",
+      "content": "Learning focus: Quadratic Expressions And Equations\n\nCountry link: a Tanzania school, market, farming, building, transport, or data problem for Quadratic Expressions And Equations.\n\nProgression focus: apply ideas to unfamiliar situations and justify decisions with evidence; show methods, units, checks, and a final explanation.\n\nBy the end of this topic, you should be able to:\n- solve and explain problems about quadratic expressions and equations\n\nInquiry questions:\n- How can quadratic expressions and equations help you solve a real problem?\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-001:opener:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-001:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-1"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p006",
+      "title": "Quadratic Expressions And Equations: Learn",
+      "content": "Quadratic Expressions And Equations teaches a mathematical idea by using a clear model, a labelled representation, step-by-step working, and a final check.\n\nKey words:\n- Quadratic Expressions And Equations\n- Quadratic\n- Expressions\n- Equations\n- method\n- model\n- unit\n- answer",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 43,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-001:learn:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-001:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-1"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p007",
+      "title": "Quadratic Expressions And Equations: Worked Example",
+      "content": "Worked example for Quadratic Expressions And Equations: Read the task, choose a representation, solve one step at a time, and check the answer in context.\n\nModel:\n1. Name what is known.\n2. Choose a diagram, table, equation, or model.\n3. Complete the calculation or reasoning.\n4. Check the result with estimation or inverse reasoning.\n\nUse a Tanzania classroom, market, garden, transport, or home example.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 64,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-001:example:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-001:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-1"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p008",
+      "title": "Quadratic Expressions And Equations: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Quadratic Expressions And Equations. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Quadratic Expressions And Equations\n- Quadratic\n- Expressions\n- Equations\n- method\n- model\n- unit\n- answer\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Quadratic Expressions And Equations without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-001:vocabulary:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-001:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-1"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p009",
+      "title": "Quadratic Expressions And Equations: Guided Activity",
+      "content": "Guided activity for Quadratic Expressions And Equations:\n\n1. Work with a partner and read the worked example.\n2. Make a similar question using Tanzania classroom, home, market, garden, transport, or timetable details.\n3. Draw a model: table, number line, diagram, place-value chart, shape, or equation.\n4. Solve the question step by step.\n5. Swap work with another pair and check the method, units, labels, and final sentence.\n\nTeacher check: the model should match the topic, not just any calculation.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 79,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-001:activity:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-001:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-1"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p010",
+      "title": "Quadratic Expressions And Equations: Practice And Correction",
+      "content": "Practice for Quadratic Expressions And Equations:\n\nMain outcome: solve and explain problems about quadratic expressions and equations.\n\n1. Solve one quadratic expressions and equations question using labelled steps.\n2. Show your method with a drawing, table, number sentence, or diagram.\n3. Check your answer and write one sentence explaining it.\n\nAnswer check:\nYour answer should show a clear model, correct method, correct labels, and a final sentence.\n\nCorrection check:\n- Did you show the method?\n- Did you use the correct unit or label?\n- Did you check whether the answer is reasonable?\n\nHome link: Find one Tanzania home, school, shop, garden, road, game, or timetable example connected to quadratic expressions and equations and solve it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 116,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-001:practice:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-001:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-1"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p011",
+      "title": "Quadratic Expressions And Equations: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Quadratic Expressions And Equations.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-001:remediation:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-001:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-1"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p012",
+      "title": "Quadratic Expressions And Equations: Outcome Check",
+      "content": "Outcome check for Quadratic Expressions And Equations: Solve and explain problems about quadratic expressions and equations.\n\n1. Write one clear example from the topic.\n2. Solve it with labelled steps.\n3. Check the answer in context.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 55,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-001:assessment:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-001:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-1"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p013",
+      "title": "Simultaneous Equations And Word Problems: Lesson Opener",
+      "content": "Learning focus: Simultaneous Equations And Word Problems\n\nCountry link: a Tanzania school, market, farming, building, transport, or data problem for Simultaneous Equations And Word Problems.\n\nProgression focus: apply ideas to unfamiliar situations and justify decisions with evidence; show methods, units, checks, and a final explanation.\n\nBy the end of this topic, you should be able to:\n- solve and explain problems about simultaneous equations and word problems\n\nInquiry questions:\n- How can simultaneous equations and word problems help you solve a real problem?\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 102,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-002:opener:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-002:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-2"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p014",
+      "title": "Simultaneous Equations And Word Problems: Learn",
+      "content": "Simultaneous Equations And Word Problems teaches a mathematical idea by using a clear model, a labelled representation, step-by-step working, and a final check.\n\nKey words:\n- Simultaneous Equations And Word Problems\n- Simultaneous\n- Equations\n- Word\n- Problems\n- method\n- model\n- unit",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 45,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-002:learn:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-002:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-2"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p015",
+      "title": "Simultaneous Equations And Word Problems: Worked Example",
+      "content": "Worked example for Simultaneous Equations And Word Problems: Read the task, choose a representation, solve one step at a time, and check the answer in context.\n\nModel:\n1. Name what is known.\n2. Choose a diagram, table, equation, or model.\n3. Complete the calculation or reasoning.\n4. Check the result with estimation or inverse reasoning.\n\nUse a Tanzania classroom, market, garden, transport, or home example.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 65,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-002:example:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-002:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-2"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p016",
+      "title": "Simultaneous Equations And Word Problems: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Simultaneous Equations And Word Problems. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Simultaneous Equations And Word Problems\n- Simultaneous\n- Equations\n- Word\n- Problems\n- method\n- model\n- unit\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Simultaneous Equations And Word Problems without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-002:vocabulary:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-002:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-2"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p017",
+      "title": "Simultaneous Equations And Word Problems: Guided Activity",
+      "content": "Guided activity for Simultaneous Equations And Word Problems:\n\n1. Work with a partner and read the worked example.\n2. Make a similar question using Tanzania classroom, home, market, garden, transport, or timetable details.\n3. Draw a model: table, number line, diagram, place-value chart, shape, or equation.\n4. Solve the question step by step.\n5. Swap work with another pair and check the method, units, labels, and final sentence.\n\nTeacher check: the model should match the topic, not just any calculation.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 80,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-002:activity:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-002:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-2"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p018",
+      "title": "Simultaneous Equations And Word Problems: Practice And Correction",
+      "content": "Practice for Simultaneous Equations And Word Problems:\n\nMain outcome: solve and explain problems about simultaneous equations and word problems.\n\n1. Solve one simultaneous equations and word problems question using labelled steps.\n2. Show your method with a drawing, table, number sentence, or diagram.\n3. Check your answer and write one sentence explaining it.\n\nAnswer check:\nYour answer should show a clear model, correct method, correct labels, and a final sentence.\n\nCorrection check:\n- Did you show the method?\n- Did you use the correct unit or label?\n- Did you check whether the answer is reasonable?\n\nHome link: Find one Tanzania home, school, shop, garden, road, game, or timetable example connected to simultaneous equations and word problems and solve it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 120,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-002:practice:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-002:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-2"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p019",
+      "title": "Simultaneous Equations And Word Problems: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Simultaneous Equations And Word Problems.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 110,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-002:remediation:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-002:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-2"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p020",
+      "title": "Simultaneous Equations And Word Problems: Outcome Check",
+      "content": "Outcome check for Simultaneous Equations And Word Problems: Solve and explain problems about simultaneous equations and word problems.\n\n1. Write one clear example from the topic.\n2. Solve it with labelled steps.\n3. Check the answer in context.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 57,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-002:assessment:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-002:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-2"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p021",
+      "title": "Circle Geometry And Constructions: Lesson Opener",
+      "content": "Learning focus: Circle Geometry And Constructions\n\nCountry link: a Tanzania school, market, farming, building, transport, or data problem for Circle Geometry And Constructions.\n\nProgression focus: apply ideas to unfamiliar situations and justify decisions with evidence; show methods, units, checks, and a final explanation.\n\nBy the end of this topic, you should be able to:\n- solve and explain problems about circle geometry and constructions\n\nInquiry questions:\n- How can circle geometry and constructions help you solve a real problem?\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-003:opener:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-003:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-3"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p022",
+      "title": "Circle Geometry And Constructions: Learn",
+      "content": "Circle Geometry And Constructions teaches the parts and measurements of circles.\n\nCore idea:\n- The centre is the fixed middle point of a circle.\n- A radius goes from the centre to the circle.\n- A diameter passes through the centre and is twice the radius.\n- Circumference is the distance around the circle.\n- A labelled diagram prevents mixing up radius and diameter.\n\nKey words:\n- Circle Geometry And Constructions\n- Circle\n- Geometry\n- Constructions\n- method\n- model\n- unit\n- answer",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 85,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-003:learn:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-003:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-3"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p023",
+      "title": "Circle Geometry And Constructions: Worked Example",
+      "content": "Worked example for Circle Geometry And Constructions: A circle has radius 7 cm. Find its diameter.\n\n1. Diameter = 2 x radius.\n2. Radius = 7 cm.\n3. 2 x 7 cm = 14 cm.\n4. Check the diagram: the diameter must pass through the centre.\n\nAnswer: The diameter is 14 cm.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 52,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-003:example:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-003:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-3"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p024",
+      "title": "Circle Geometry And Constructions: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Circle Geometry And Constructions. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Circle Geometry And Constructions\n- Circle\n- Geometry\n- Constructions\n- method\n- model\n- unit\n- answer\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Circle Geometry And Constructions without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-003:vocabulary:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-003:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-3"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p025",
+      "title": "Circle Geometry And Constructions: Guided Activity",
+      "content": "Guided activity for Circle Geometry And Constructions:\n\n1. Work with a partner and read the worked example.\n2. Make a similar question using Tanzania classroom, home, market, garden, transport, or timetable details.\n3. Draw a model: table, number line, diagram, place-value chart, shape, or equation.\n4. Solve the question step by step.\n5. Swap work with another pair and check the method, units, labels, and final sentence.\n\nTeacher check: the model should match the topic, not just any calculation.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 79,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-003:activity:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-003:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-3"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p026",
+      "title": "Circle Geometry And Constructions: Practice And Correction",
+      "content": "Practice for Circle Geometry And Constructions:\n\nMain outcome: solve and explain problems about circle geometry and constructions.\n\n1. Draw a circle and label the centre, radius, and diameter.\n2. If the radius is 6 cm, find the diameter.\n3. Name one circular object at school or home and describe its radius or diameter.\n\nAnswer check:\nAnswer: if radius = 6 cm, diameter = 12 cm. A correct diagram shows the radius from centre to circle and diameter through the centre.\n\nCorrection check:\n- Did you show the method?\n- Did you use the correct unit or label?\n- Did you check whether the answer is reasonable?\n\nHome link: Find one Tanzania home, school, shop, garden, road, game, or timetable example connected to circle geometry and constructions and solve it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 129,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-003:practice:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-003:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-3"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p027",
+      "title": "Circle Geometry And Constructions: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Circle Geometry And Constructions.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-003:remediation:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-003:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-3"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p028",
+      "title": "Circle Geometry And Constructions: Outcome Check",
+      "content": "Outcome check for Circle Geometry And Constructions: Solve and explain problems about circle geometry and constructions.\n\n1. Draw and label a circle centre, radius, and diameter.\n2. If radius is 4 cm, find diameter.\n3. Explain why diameter is twice the radius.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-003:assessment:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-003:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-3"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p029",
+      "title": "Vectors And Transformations: Lesson Opener",
+      "content": "Learning focus: Vectors And Transformations\n\nCountry link: a Tanzania school, market, farming, building, transport, or data problem for Vectors And Transformations.\n\nProgression focus: apply ideas to unfamiliar situations and justify decisions with evidence; show methods, units, checks, and a final explanation.\n\nBy the end of this topic, you should be able to:\n- solve and explain problems about vectors and transformations\n\nInquiry questions:\n- How can vectors and transformations help you solve a real problem?\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-004:opener:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-004:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-4"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p030",
+      "title": "Vectors And Transformations: Learn",
+      "content": "Vectors And Transformations teaches a mathematical idea by using a clear model, a labelled representation, step-by-step working, and a final check.\n\nKey words:\n- Vectors And Transformations\n- Vectors\n- Transformations\n- method\n- model\n- unit\n- answer\n- check",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 41,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-004:learn:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-004:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-4"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p031",
+      "title": "Vectors And Transformations: Worked Example",
+      "content": "Worked example for Vectors And Transformations: Read the task, choose a representation, solve one step at a time, and check the answer in context.\n\nModel:\n1. Name what is known.\n2. Choose a diagram, table, equation, or model.\n3. Complete the calculation or reasoning.\n4. Check the result with estimation or inverse reasoning.\n\nUse a Tanzania classroom, market, garden, transport, or home example.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 63,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-004:example:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-004:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-4"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p032",
+      "title": "Vectors And Transformations: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Vectors And Transformations. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Vectors And Transformations\n- Vectors\n- Transformations\n- method\n- model\n- unit\n- answer\n- check\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Vectors And Transformations without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-004:vocabulary:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-004:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-4"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p033",
+      "title": "Vectors And Transformations: Guided Activity",
+      "content": "Guided activity for Vectors And Transformations:\n\n1. Work with a partner and read the worked example.\n2. Make a similar question using Tanzania classroom, home, market, garden, transport, or timetable details.\n3. Draw a model: table, number line, diagram, place-value chart, shape, or equation.\n4. Solve the question step by step.\n5. Swap work with another pair and check the method, units, labels, and final sentence.\n\nTeacher check: the model should match the topic, not just any calculation.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 78,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-004:activity:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-004:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-4"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p034",
+      "title": "Vectors And Transformations: Practice And Correction",
+      "content": "Practice for Vectors And Transformations:\n\nMain outcome: solve and explain problems about vectors and transformations.\n\n1. Solve one vectors and transformations question using labelled steps.\n2. Show your method with a drawing, table, number sentence, or diagram.\n3. Check your answer and write one sentence explaining it.\n\nAnswer check:\nYour answer should show a clear model, correct method, correct labels, and a final sentence.\n\nCorrection check:\n- Did you show the method?\n- Did you use the correct unit or label?\n- Did you check whether the answer is reasonable?\n\nHome link: Find one Tanzania home, school, shop, garden, road, game, or timetable example connected to vectors and transformations and solve it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-004:practice:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-004:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-4"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p035",
+      "title": "Vectors And Transformations: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Vectors And Transformations.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-004:remediation:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-004:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-4"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p036",
+      "title": "Vectors And Transformations: Outcome Check",
+      "content": "Outcome check for Vectors And Transformations: Solve and explain problems about vectors and transformations.\n\n1. Write one clear example from the topic.\n2. Solve it with labelled steps.\n3. Check the answer in context.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 53,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-004:assessment:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-004:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-4"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p037",
+      "title": "Advanced Trigonometry Applications: Lesson Opener",
+      "content": "Learning focus: Advanced Trigonometry Applications\n\nCountry link: a Tanzania school, market, farming, building, transport, or data problem for Advanced Trigonometry Applications.\n\nProgression focus: apply ideas to unfamiliar situations and justify decisions with evidence; show methods, units, checks, and a final explanation.\n\nBy the end of this topic, you should be able to:\n- solve and explain problems about advanced trigonometry applications\n\nInquiry questions:\n- How can advanced trigonometry applications help you solve a real problem?\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-005:opener:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-005:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-5"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p038",
+      "title": "Advanced Trigonometry Applications: Learn",
+      "content": "Advanced Trigonometry Applications teaches a mathematical idea by using a clear model, a labelled representation, step-by-step working, and a final check.\n\nKey words:\n- Advanced Trigonometry Applications\n- Advanced\n- Trigonometry\n- Applications\n- method\n- model\n- unit\n- answer",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 41,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-005:learn:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-005:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-5"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p039",
+      "title": "Advanced Trigonometry Applications: Worked Example",
+      "content": "Worked example for Advanced Trigonometry Applications: Read the task, choose a representation, solve one step at a time, and check the answer in context.\n\nModel:\n1. Name what is known.\n2. Choose a diagram, table, equation, or model.\n3. Complete the calculation or reasoning.\n4. Check the result with estimation or inverse reasoning.\n\nUse a Tanzania classroom, market, garden, transport, or home example.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 63,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-005:example:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-005:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-5"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p040",
+      "title": "Advanced Trigonometry Applications: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Advanced Trigonometry Applications. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Advanced Trigonometry Applications\n- Advanced\n- Trigonometry\n- Applications\n- method\n- model\n- unit\n- answer\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Advanced Trigonometry Applications without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-005:vocabulary:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-005:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-5"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p041",
+      "title": "Advanced Trigonometry Applications: Guided Activity",
+      "content": "Guided activity for Advanced Trigonometry Applications:\n\n1. Work with a partner and read the worked example.\n2. Make a similar question using Tanzania classroom, home, market, garden, transport, or timetable details.\n3. Draw a model: table, number line, diagram, place-value chart, shape, or equation.\n4. Solve the question step by step.\n5. Swap work with another pair and check the method, units, labels, and final sentence.\n\nTeacher check: the model should match the topic, not just any calculation.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 78,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-005:activity:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-005:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-5"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p042",
+      "title": "Advanced Trigonometry Applications: Practice And Correction",
+      "content": "Practice for Advanced Trigonometry Applications:\n\nMain outcome: solve and explain problems about advanced trigonometry applications.\n\n1. Solve one advanced trigonometry applications question using labelled steps.\n2. Show your method with a drawing, table, number sentence, or diagram.\n3. Check your answer and write one sentence explaining it.\n\nAnswer check:\nYour answer should show a clear model, correct method, correct labels, and a final sentence.\n\nCorrection check:\n- Did you show the method?\n- Did you use the correct unit or label?\n- Did you check whether the answer is reasonable?\n\nHome link: Find one Tanzania home, school, shop, garden, road, game, or timetable example connected to advanced trigonometry applications and solve it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-005:practice:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-005:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-5"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p043",
+      "title": "Advanced Trigonometry Applications: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Advanced Trigonometry Applications.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-005:remediation:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-005:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-5"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p044",
+      "title": "Advanced Trigonometry Applications: Outcome Check",
+      "content": "Outcome check for Advanced Trigonometry Applications: Solve and explain problems about advanced trigonometry applications.\n\n1. Write one clear example from the topic.\n2. Solve it with labelled steps.\n3. Check the answer in context.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 53,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-005:assessment:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-005:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-5"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p045",
+      "title": "Mensuration Of Solids: Lesson Opener",
+      "content": "Learning focus: Mensuration Of Solids\n\nCountry link: a Tanzania school, market, farming, building, transport, or data problem for Mensuration Of Solids.\n\nProgression focus: apply ideas to unfamiliar situations and justify decisions with evidence; show methods, units, checks, and a final explanation.\n\nBy the end of this topic, you should be able to:\n- solve and explain problems about mensuration of solids\n\nInquiry questions:\n- How can mensuration of solids help you solve a real problem?\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-006:opener:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-006:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-6"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p046",
+      "title": "Mensuration Of Solids: Learn",
+      "content": "Mensuration Of Solids teaches how two quantities change together at the same rate.\n\nCore idea:\n- In direct proportion, when one quantity is multiplied, the other quantity is multiplied by the same factor.\n- A table helps you compare matching values.\n- The unit rate tells the value for one item, one litre, one metre, one hour, or one learner.\n- Always check that the relationship is consistent before using proportion.\n\nKey words:\n- Mensuration Of Solids\n- Mensuration\n- Solids\n- method\n- model\n- unit\n- answer\n- check",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-006:learn:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-006:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-6"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p047",
+      "title": "Mensuration Of Solids: Worked Example",
+      "content": "Worked example for Mensuration Of Solids: If 3 exercise books cost 900 francs, how much do 5 exercise books cost at the same price?\n\n1. Find the cost of 1 book: 900 / 3 = 300 francs.\n2. Multiply by 5 books: 300 x 5 = 1500 francs.\n3. Check: more books should cost more money.\n\nAnswer: 5 exercise books cost 1500 francs.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 63,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-006:example:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-006:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-6"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p048",
+      "title": "Mensuration Of Solids: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Mensuration Of Solids. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Mensuration Of Solids\n- Mensuration\n- Solids\n- method\n- model\n- unit\n- answer\n- check\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Mensuration Of Solids without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-006:vocabulary:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-006:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-6"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p049",
+      "title": "Mensuration Of Solids: Guided Activity",
+      "content": "Guided activity for Mensuration Of Solids:\n\n1. Work with a partner and read the worked example.\n2. Make a similar question using Tanzania classroom, home, market, garden, transport, or timetable details.\n3. Draw a model: table, number line, diagram, place-value chart, shape, or equation.\n4. Solve the question step by step.\n5. Swap work with another pair and check the method, units, labels, and final sentence.\n\nTeacher check: the model should match the topic, not just any calculation.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 78,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-006:activity:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-006:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-6"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p050",
+      "title": "Mensuration Of Solids: Practice And Correction",
+      "content": "Practice for Mensuration Of Solids:\n\nMain outcome: solve and explain problems about mensuration of solids.\n\n1. Complete the table: 1 pen = 200 francs, 2 pens = __, 5 pens = __.\n2. A cyclist travels 18 km in 2 hours at the same speed. How far in 5 hours?\n3. Write the unit rate used in each answer.\n\nAnswer check:\nAnswers: 2 pens = 400 francs; 5 pens = 1000 francs. The cyclist travels 45 km in 5 hours because 18 / 2 = 9 km per hour.\n\nCorrection check:\n- Did you show the method?\n- Did you use the correct unit or label?\n- Did you check whether the answer is reasonable?\n\nHome link: Find one Tanzania home, school, shop, garden, road, game, or timetable example connected to mensuration of solids and solve it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 137,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-006:practice:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-006:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-6"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p051",
+      "title": "Mensuration Of Solids: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Mensuration Of Solids.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-006:remediation:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-006:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-6"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p052",
+      "title": "Mensuration Of Solids: Outcome Check",
+      "content": "Outcome check for Mensuration Of Solids: Solve and explain problems about mensuration of solids.\n\n1. A recipe uses 2 cups of flour for 6 cakes. How many cups for 18 cakes?\n2. Write the unit rate or scale factor.\n3. Check that both quantities changed by the same factor.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 68,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-006:assessment:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-006:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-6"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p053",
+      "title": "Data Analysis And Probability: Lesson Opener",
+      "content": "Learning focus: Data Analysis And Probability\n\nCountry link: a Tanzania school, market, farming, building, transport, or data problem for Data Analysis And Probability.\n\nProgression focus: apply ideas to unfamiliar situations and justify decisions with evidence; show methods, units, checks, and a final explanation.\n\nBy the end of this topic, you should be able to:\n- solve and explain problems about data analysis and probability\n\nInquiry questions:\n- How can data analysis and probability help you solve a real problem?\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-007:opener:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-007:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-7"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p054",
+      "title": "Data Analysis And Probability: Learn",
+      "content": "Data Analysis And Probability teaches how to collect, organize, read, and explain information.\n\nCore idea:\n- Data must answer a clear question.\n- Tables, tally charts, pictographs, and bar charts make data easier to read.\n- A good conclusion says what the data shows.\n\nKey words:\n- Data Analysis And Probability\n- Data\n- Analysis\n- Probability\n- method\n- model\n- unit\n- answer",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 65,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-007:learn:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-007:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-7"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p055",
+      "title": "Data Analysis And Probability: Worked Example",
+      "content": "Worked example for Data Analysis And Probability: A class records favourite fruits: mango 8, banana 12, pineapple 6. Which fruit is most popular?\n\n1. Read the table values.\n2. Compare 8, 12, and 6.\n3. 12 is the greatest number.\n\nAnswer: Banana is most popular.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 45,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-007:example:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-007:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-7"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p056",
+      "title": "Data Analysis And Probability: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Data Analysis And Probability. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Data Analysis And Probability\n- Data\n- Analysis\n- Probability\n- method\n- model\n- unit\n- answer\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Data Analysis And Probability without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-007:vocabulary:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-007:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-7"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p057",
+      "title": "Data Analysis And Probability: Guided Activity",
+      "content": "Guided activity for Data Analysis And Probability:\n\n1. Work with a partner and read the worked example.\n2. Make a similar question using Tanzania classroom, home, market, garden, transport, or timetable details.\n3. Draw a model: table, number line, diagram, place-value chart, shape, or equation.\n4. Solve the question step by step.\n5. Swap work with another pair and check the method, units, labels, and final sentence.\n\nTeacher check: the model should match the topic, not just any calculation.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 79,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-007:activity:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-007:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-7"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p058",
+      "title": "Data Analysis And Probability: Practice And Correction",
+      "content": "Practice for Data Analysis And Probability:\n\nMain outcome: solve and explain problems about data analysis and probability.\n\n1. Ask 10 learners a simple question and make a tally table.\n2. Draw a bar chart from the tally table.\n3. Write one conclusion from the data.\n\nAnswer check:\nAnswer check: totals in the tally table and bar chart should match.\n\nCorrection check:\n- Did you show the method?\n- Did you use the correct unit or label?\n- Did you check whether the answer is reasonable?\n\nHome link: Find one Tanzania home, school, shop, garden, road, game, or timetable example connected to data analysis and probability and solve it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-007:practice:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-007:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-7"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p059",
+      "title": "Data Analysis And Probability: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Data Analysis And Probability.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-007:remediation:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-007:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-7"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p060",
+      "title": "Data Analysis And Probability: Outcome Check",
+      "content": "Outcome check for Data Analysis And Probability: Solve and explain problems about data analysis and probability.\n\n1. Write one clear example from the topic.\n2. Solve it with labelled steps.\n3. Check the answer in context.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 55,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-007:assessment:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-007:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-7"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p061",
+      "title": "Form III Extended Problem Solving: Lesson Opener",
+      "content": "Learning focus: Form III Extended Problem Solving\n\nCountry link: a Tanzania school, market, farming, building, transport, or data problem for Form III Extended Problem Solving.\n\nProgression focus: apply ideas to unfamiliar situations and justify decisions with evidence; show methods, units, checks, and a final explanation.\n\nBy the end of this topic, you should be able to:\n- solve and explain problems about form iii extended problem solving\n\nInquiry questions:\n- How can form iii extended problem solving help you solve a real problem?\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 102,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-008:opener:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-008:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-8"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p062",
+      "title": "Form III Extended Problem Solving: Learn",
+      "content": "Form III Extended Problem Solving teaches a mathematical idea by using a clear model, a labelled representation, step-by-step working, and a final check.\n\nKey words:\n- Form III Extended Problem Solving\n- Form\n- Extended\n- Problem\n- Solving\n- method\n- model\n- unit",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 45,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-008:learn:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-008:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-8"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p063",
+      "title": "Form III Extended Problem Solving: Worked Example",
+      "content": "Worked example for Form III Extended Problem Solving: Read the task, choose a representation, solve one step at a time, and check the answer in context.\n\nModel:\n1. Name what is known.\n2. Choose a diagram, table, equation, or model.\n3. Complete the calculation or reasoning.\n4. Check the result with estimation or inverse reasoning.\n\nUse a Tanzania classroom, market, garden, transport, or home example.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 65,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-008:example:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-008:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-8"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p064",
+      "title": "Form III Extended Problem Solving: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Form III Extended Problem Solving. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Form III Extended Problem Solving\n- Form\n- Extended\n- Problem\n- Solving\n- method\n- model\n- unit\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Form III Extended Problem Solving without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-008:vocabulary:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-008:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-8"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p065",
+      "title": "Form III Extended Problem Solving: Guided Activity",
+      "content": "Guided activity for Form III Extended Problem Solving:\n\n1. Work with a partner and read the worked example.\n2. Make a similar question using Tanzania classroom, home, market, garden, transport, or timetable details.\n3. Draw a model: table, number line, diagram, place-value chart, shape, or equation.\n4. Solve the question step by step.\n5. Swap work with another pair and check the method, units, labels, and final sentence.\n\nTeacher check: the model should match the topic, not just any calculation.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 80,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-008:activity:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-008:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-8"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p066",
+      "title": "Form III Extended Problem Solving: Practice And Correction",
+      "content": "Practice for Form III Extended Problem Solving:\n\nMain outcome: solve and explain problems about form iii extended problem solving.\n\n1. Solve one form iii extended problem solving question using labelled steps.\n2. Show your method with a drawing, table, number sentence, or diagram.\n3. Check your answer and write one sentence explaining it.\n\nAnswer check:\nYour answer should show a clear model, correct method, correct labels, and a final sentence.\n\nCorrection check:\n- Did you show the method?\n- Did you use the correct unit or label?\n- Did you check whether the answer is reasonable?\n\nHome link: Find one Tanzania home, school, shop, garden, road, game, or timetable example connected to form iii extended problem solving and solve it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 120,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-008:practice:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-008:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-8"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p067",
+      "title": "Form III Extended Problem Solving: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Form III Extended Problem Solving.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 110,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-008:remediation:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-008:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-8"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p068",
+      "title": "Form III Extended Problem Solving: Outcome Check",
+      "content": "Outcome check for Form III Extended Problem Solving: Solve and explain problems about form iii extended problem solving.\n\n1. Write one clear example from the topic.\n2. Solve it with labelled steps.\n3. Check the answer in context.\n\nSuccess criteria:\n- method is clear\n- working is shown step by step\n- answer is checked in context",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 57,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-008:assessment:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-008:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-8"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p069",
+      "title": "Quadratic Expressions And Equations: Review Clinic 1",
+      "content": "Use this review clinic to strengthen Mathematics without copying earlier answers.\n\n1. Choose one idea from Quadratic Expressions And Equations that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 77,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-001:review:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-001:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-1"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p070",
+      "title": "Simultaneous Equations And Word Problems: Review Clinic 2",
+      "content": "Use this review clinic to strengthen Mathematics without copying earlier answers.\n\n1. Choose one idea from Simultaneous Equations And Word Problems that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 78,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-002:review:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-002:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-2"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p071",
+      "title": "Circle Geometry And Constructions: Review Clinic 3",
+      "content": "Use this review clinic to strengthen Mathematics without copying earlier answers.\n\n1. Choose one idea from Circle Geometry And Constructions that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 77,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-003:review:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-003:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-3"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p072",
+      "title": "Vectors And Transformations: Review Clinic 4",
+      "content": "Use this review clinic to strengthen Mathematics without copying earlier answers.\n\n1. Choose one idea from Vectors And Transformations that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 76,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-004:review:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-004:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-4"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p073",
+      "title": "Quadratic Expressions And Equations: Application Workshop 1",
+      "content": "Application workshop 1 for Quadratic Expressions And Equations.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; show methods, units, checks, and a final explanation.\n\nUse this page to turn the skill into a complete problem, not a single short answer.\n\n1. Create one problem from Tanzania school, home, shop, garden, transport, sport, or timetable life.\n2. Write the known information and what must be found.\n3. Choose a model: table, number line, diagram, equation, graph, shape, or place-value chart.\n4. Solve step by step and keep units or labels clear.\n5. Check the answer using estimation, inverse operation, substitution, or a second method.\n6. Write one sentence explaining why the answer makes sense.\n\nExtension: change one number in the problem and solve the new version.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 129,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-001:application-workshop:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-001:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-1"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p074",
+      "title": "Simultaneous Equations And Word Problems: Application Workshop 2",
+      "content": "Application workshop 2 for Simultaneous Equations And Word Problems.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; show methods, units, checks, and a final explanation.\n\nUse this page to turn the skill into a complete problem, not a single short answer.\n\n1. Create one problem from Tanzania school, home, shop, garden, transport, sport, or timetable life.\n2. Write the known information and what must be found.\n3. Choose a model: table, number line, diagram, equation, graph, shape, or place-value chart.\n4. Solve step by step and keep units or labels clear.\n5. Check the answer using estimation, inverse operation, substitution, or a second method.\n6. Write one sentence explaining why the answer makes sense.\n\nExtension: change one number in the problem and solve the new version.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 130,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-002:application-workshop:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-002:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-2"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p075",
+      "title": "Circle Geometry And Constructions: Application Workshop 3",
+      "content": "Application workshop 3 for Circle Geometry And Constructions.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; show methods, units, checks, and a final explanation.\n\nUse this page to turn the skill into a complete problem, not a single short answer.\n\n1. Create one problem from Tanzania school, home, shop, garden, transport, sport, or timetable life.\n2. Write the known information and what must be found.\n3. Choose a model: table, number line, diagram, equation, graph, shape, or place-value chart.\n4. Solve step by step and keep units or labels clear.\n5. Check the answer using estimation, inverse operation, substitution, or a second method.\n6. Write one sentence explaining why the answer makes sense.\n\nExtension: change one number in the problem and solve the new version.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 129,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-003:application-workshop:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-003:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-3"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p076",
+      "title": "Vectors And Transformations: Application Workshop 4",
+      "content": "Application workshop 4 for Vectors And Transformations.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; show methods, units, checks, and a final explanation.\n\nUse this page to turn the skill into a complete problem, not a single short answer.\n\n1. Create one problem from Tanzania school, home, shop, garden, transport, sport, or timetable life.\n2. Write the known information and what must be found.\n3. Choose a model: table, number line, diagram, equation, graph, shape, or place-value chart.\n4. Solve step by step and keep units or labels clear.\n5. Check the answer using estimation, inverse operation, substitution, or a second method.\n6. Write one sentence explaining why the answer makes sense.\n\nExtension: change one number in the problem and solve the new version.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 128,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-004:application-workshop:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-004:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-4"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p077",
+      "title": "Advanced Trigonometry Applications: Application Workshop 5",
+      "content": "Application workshop 5 for Advanced Trigonometry Applications.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; show methods, units, checks, and a final explanation.\n\nUse this page to turn the skill into a complete problem, not a single short answer.\n\n1. Create one problem from Tanzania school, home, shop, garden, transport, sport, or timetable life.\n2. Write the known information and what must be found.\n3. Choose a model: table, number line, diagram, equation, graph, shape, or place-value chart.\n4. Solve step by step and keep units or labels clear.\n5. Check the answer using estimation, inverse operation, substitution, or a second method.\n6. Write one sentence explaining why the answer makes sense.\n\nExtension: change one number in the problem and solve the new version.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 128,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-005:application-workshop:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-005:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-5"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p078",
+      "title": "Mensuration Of Solids: Application Workshop 6",
+      "content": "Application workshop 6 for Mensuration Of Solids.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; show methods, units, checks, and a final explanation.\n\nUse this page to turn the skill into a complete problem, not a single short answer.\n\n1. Create one problem from Tanzania school, home, shop, garden, transport, sport, or timetable life.\n2. Write the known information and what must be found.\n3. Choose a model: table, number line, diagram, equation, graph, shape, or place-value chart.\n4. Solve step by step and keep units or labels clear.\n5. Check the answer using estimation, inverse operation, substitution, or a second method.\n6. Write one sentence explaining why the answer makes sense.\n\nExtension: change one number in the problem and solve the new version.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 128,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-006:application-workshop:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-006:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-6"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p079",
+      "title": "Data Analysis And Probability: Application Workshop 7",
+      "content": "Application workshop 7 for Data Analysis And Probability.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; show methods, units, checks, and a final explanation.\n\nUse this page to turn the skill into a complete problem, not a single short answer.\n\n1. Create one problem from Tanzania school, home, shop, garden, transport, sport, or timetable life.\n2. Write the known information and what must be found.\n3. Choose a model: table, number line, diagram, equation, graph, shape, or place-value chart.\n4. Solve step by step and keep units or labels clear.\n5. Check the answer using estimation, inverse operation, substitution, or a second method.\n6. Write one sentence explaining why the answer makes sense.\n\nExtension: change one number in the problem and solve the new version.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 129,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-007:application-workshop:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-007:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-7"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p080",
+      "title": "Form III Extended Problem Solving: Application Workshop 8",
+      "content": "Application workshop 8 for Form III Extended Problem Solving.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; show methods, units, checks, and a final explanation.\n\nUse this page to turn the skill into a complete problem, not a single short answer.\n\n1. Create one problem from Tanzania school, home, shop, garden, transport, sport, or timetable life.\n2. Write the known information and what must be found.\n3. Choose a model: table, number line, diagram, equation, graph, shape, or place-value chart.\n4. Solve step by step and keep units or labels clear.\n5. Check the answer using estimation, inverse operation, substitution, or a second method.\n6. Write one sentence explaining why the answer makes sense.\n\nExtension: change one number in the problem and solve the new version.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 130,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-008:application-workshop:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-008:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-8"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p081",
+      "title": "Quadratic Expressions And Equations: Application Workshop 9",
+      "content": "Application workshop 9 for Quadratic Expressions And Equations.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; show methods, units, checks, and a final explanation.\n\nUse this page to turn the skill into a complete problem, not a single short answer.\n\n1. Create one problem from Tanzania school, home, shop, garden, transport, sport, or timetable life.\n2. Write the known information and what must be found.\n3. Choose a model: table, number line, diagram, equation, graph, shape, or place-value chart.\n4. Solve step by step and keep units or labels clear.\n5. Check the answer using estimation, inverse operation, substitution, or a second method.\n6. Write one sentence explaining why the answer makes sense.\n\nExtension: change one number in the problem and solve the new version.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 129,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-001:application-workshop:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-001:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-1"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p082",
+      "title": "Simultaneous Equations And Word Problems: Application Workshop 10",
+      "content": "Application workshop 10 for Simultaneous Equations And Word Problems.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; show methods, units, checks, and a final explanation.\n\nUse this page to turn the skill into a complete problem, not a single short answer.\n\n1. Create one problem from Tanzania school, home, shop, garden, transport, sport, or timetable life.\n2. Write the known information and what must be found.\n3. Choose a model: table, number line, diagram, equation, graph, shape, or place-value chart.\n4. Solve step by step and keep units or labels clear.\n5. Check the answer using estimation, inverse operation, substitution, or a second method.\n6. Write one sentence explaining why the answer makes sense.\n\nExtension: change one number in the problem and solve the new version.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 130,
+      "imageRefs": [
+        "TZA-FORM-III-mathematics-topic-002:application-workshop:visual-1:planned",
+        "TZA-FORM-III-mathematics-topic-002:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-mathematics-2"
+      ],
+      "unitIds": [
+        "fallback-form-iii-mathematics-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-mathematics-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-mathematics-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p083",
+      "title": "Glossary",
+      "content": "Use this glossary to revise important words in Mathematics.\n\n- Quadratic Expressions And Equations: Explain this term using an example from the book, your school, or your community.\n- Simultaneous Equations And Word Problems: Explain this term using an example from the book, your school, or your community.\n- Circle Geometry And Constructions: Explain this term using an example from the book, your school, or your community.\n- Vectors And Transformations: Explain this term using an example from the book, your school, or your community.\n- Advanced Trigonometry Applications: Explain this term using an example from the book, your school, or your community.\n- Mensuration Of Solids: Explain this term using an example from the book, your school, or your community.\n- Data Analysis And Probability: Explain this term using an example from the book, your school, or your community.\n- Form III Extended Problem Solving: Explain this term using an example from the book, your school, or your community.\n\nAdd five more words from your lessons and write your own meanings.",
+      "pageType": "glossary",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 172,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p084",
+      "title": "Answer And Teacher Notes",
+      "content": "A strong Mathematics answer shows the model, method, units or labels, final answer, and a check. Use the worked examples and answer checks in each practice page to correct your work. When an answer is wrong, find the first step that changed the meaning and correct that step before trying a new question.",
+      "pageType": "answer-notes",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 53,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-mathematics-p085",
+      "title": "Final Project",
+      "content": "Create a final project for Mathematics that shows what you can now do independently.\n\nYour project must include:\n1. A clear title.\n2. A real-life problem, question, text, performance, investigation, design, or worked task.\n3. Evidence from at least three lessons in this book.\n4. A drawing, table, map, chart, model, dialogue, paragraph, performance plan, practical product, or worked solution.\n5. A correction note showing one improvement after feedback.\n6. A short reflection explaining what you learned, what was difficult, and what you will practise next.\n\nPresentation check: keep the work neat, label important parts, use correct vocabulary, and be ready to explain your choices to a classmate or teacher.",
+      "pageType": "project",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 110,
+      "imageRefs": []
+    }
+  ]
+}

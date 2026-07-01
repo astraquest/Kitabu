@@ -1,0 +1,1327 @@
+{
+  "schemaVersion": 1,
+  "sourceType": "normalized-curriculum",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "S2",
+  "subject": "French",
+  "generatedAt": "2026-07-01T06:43:38Z",
+  "sourceSnapshotHash": "53f797709a5d1cbb8c9dc90ee19847bb6e35431d3c8f3256757cb0eec43c6fad",
+  "writingStandard": {
+    "voice": "simple, conversational, purposeful, age-appropriate, and learner-first",
+    "antiFluff": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "coversDeferred": true
+  },
+  "strands": [
+    {
+      "strandId": "fallback-s2-french-1",
+      "number": "",
+      "title": "Lecture Et Comprehension",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-s2-french-2",
+      "number": "",
+      "title": "Vocabulaire En Contexte",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-s2-french-3",
+      "number": "",
+      "title": "Expression Orale Et écoute",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-s2-french-4",
+      "number": "",
+      "title": "Grammaire De La Phrase",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-s2-french-5",
+      "number": "",
+      "title": "Ecriture Guidee",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-s2-french-6",
+      "number": "",
+      "title": "Dialogue Et Prononciation",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-s2-french-7",
+      "number": "",
+      "title": "Culture Et Communication",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-s2-french-8",
+      "number": "",
+      "title": "Projet De Langue Et Revision",
+      "topicCount": 1
+    }
+  ],
+  "topics": [
+    {
+      "topicId": "RWA-S2-french-topic-001",
+      "grade": "S2",
+      "strandId": "fallback-s2-french-1",
+      "subStrandId": "fallback-s2-french-1",
+      "parentSubStrandId": "fallback-s2-french-1",
+      "strandTitle": "Lecture Et Comprehension",
+      "unitTitle": "Lecture Et Comprehension",
+      "sourceUnitTitle": "Lecture Et Comprehension",
+      "learningOutcomes": [
+        {
+          "id": "fallback-s2-french-1-outcome-1",
+          "text": "lire, comprendre, parler et écrire sur lecture et comprehension"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can lecture et comprehension help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Lecture Et Comprehension.",
+        "Review key vocabulary from the previous French lesson."
+      ],
+      "keyVocabulary": [
+        "Lecture Et Comprehension",
+        "Lecture",
+        "Comprehension",
+        "lire",
+        "écouter",
+        "parler",
+        "écrire",
+        "phrase"
+      ],
+      "misconceptions": [
+        "giving a general answer about Lecture Et Comprehension without a clear example, method, or evidence"
+      ],
+      "localContext": "une activité de lecture, d'écoute, de parole ou d'écriture en Rwanda pour Lecture Et Comprehension",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "le sens est clair",
+        "les mots du thème sont bien utilisés",
+        "l’orthographe, les accents, la grammaire et la ponctuation sont vérifiés"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Lecture Et Comprehension",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "writing or dialogue checklist",
+          "description": "writing or dialogue checklist for Lecture Et Comprehension",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ef04caa8-c273-47e7-842c-9cea72e2b274",
+          "officialTitle": "Rwanda Competence Based Curriculum S2 French",
+          "subject": "French",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/Programme%20de%20Fran%C3%A7ais%20aux%20TC%202022.pdf?forcedownload=1",
+          "objectKey": "data/curriculum/source-files/RWA/b7ed08819606380f48414c74aa89e43d1c6cac18c3caf56460df8db01095dd76.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "S2",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/Programme%20de%20Fran%C3%A7ais%20aux%20TC%202022.pdf?forcedownload=1",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.md",
+            "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "reb.gov.rw",
+              "reb.rw",
+              "elearning.reb.rw"
+            ],
+            "markdownChecksum": "7d40fb180aed4de0803b2e123211d4c61950be4691194492e8569f8cacbd4b4a",
+            "markdownPageCount": 46,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "7d40fb180aed4de0803b2e123211d4c61950be4691194492e8569f8cacbd4b4a",
+              "pageCount": 46,
+              "generatedAt": "2026-07-01T01:17:36.103Z",
+              "sourceFormat": "pdf-text-cache",
+              "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.json",
+              "sourceChecksum": "86a09db6917fcd55934e27fa6062d0ed2e88cec7510af2a4e879de273d25129c"
+            },
+            "markdownGeneratedAt": "2026-07-01T01:17:36.103Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "53f797709a5d1cbb8c9dc90ee19847bb6e35431d3c8f3256757cb0eec43c6fad"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ef04caa8-c273-47e7-842c-9cea72e2b274",
+          "officialTitle": "Rwanda Competence Based Curriculum S2 French",
+          "subject": "French",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/Programme%20de%20Fran%C3%A7ais%20aux%20TC%202022.pdf?forcedownload=1",
+          "objectKey": "data/curriculum/source-files/RWA/b7ed08819606380f48414c74aa89e43d1c6cac18c3caf56460df8db01095dd76.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "S2",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/Programme%20de%20Fran%C3%A7ais%20aux%20TC%202022.pdf?forcedownload=1",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.md",
+            "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "reb.gov.rw",
+              "reb.rw",
+              "elearning.reb.rw"
+            ],
+            "markdownChecksum": "7d40fb180aed4de0803b2e123211d4c61950be4691194492e8569f8cacbd4b4a",
+            "markdownPageCount": 46,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "7d40fb180aed4de0803b2e123211d4c61950be4691194492e8569f8cacbd4b4a",
+              "pageCount": 46,
+              "generatedAt": "2026-07-01T01:17:36.103Z",
+              "sourceFormat": "pdf-text-cache",
+              "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.json",
+              "sourceChecksum": "86a09db6917fcd55934e27fa6062d0ed2e88cec7510af2a4e879de273d25129c"
+            },
+            "markdownGeneratedAt": "2026-07-01T01:17:36.103Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "53f797709a5d1cbb8c9dc90ee19847bb6e35431d3c8f3256757cb0eec43c6fad"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S2-french-topic-002",
+      "grade": "S2",
+      "strandId": "fallback-s2-french-2",
+      "subStrandId": "fallback-s2-french-2",
+      "parentSubStrandId": "fallback-s2-french-2",
+      "strandTitle": "Vocabulaire En Contexte",
+      "unitTitle": "Vocabulaire En Contexte",
+      "sourceUnitTitle": "Vocabulaire En Contexte",
+      "learningOutcomes": [
+        {
+          "id": "fallback-s2-french-2-outcome-1",
+          "text": "lire, comprendre, parler et écrire sur vocabulaire en contexte"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can vocabulaire en contexte help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Vocabulaire En Contexte.",
+        "Review key vocabulary from the previous French lesson."
+      ],
+      "keyVocabulary": [
+        "Vocabulaire En Contexte",
+        "Vocabulaire",
+        "Contexte",
+        "lire",
+        "écouter",
+        "parler",
+        "écrire",
+        "phrase"
+      ],
+      "misconceptions": [
+        "giving a general answer about Vocabulaire En Contexte without a clear example, method, or evidence"
+      ],
+      "localContext": "une activité de lecture, d'écoute, de parole ou d'écriture en Rwanda pour Vocabulaire En Contexte",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "le sens est clair",
+        "les mots du thème sont bien utilisés",
+        "l’orthographe, les accents, la grammaire et la ponctuation sont vérifiés"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Vocabulaire En Contexte",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "writing or dialogue checklist",
+          "description": "writing or dialogue checklist for Vocabulaire En Contexte",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ef04caa8-c273-47e7-842c-9cea72e2b274",
+          "officialTitle": "Rwanda Competence Based Curriculum S2 French",
+          "subject": "French",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/Programme%20de%20Fran%C3%A7ais%20aux%20TC%202022.pdf?forcedownload=1",
+          "objectKey": "data/curriculum/source-files/RWA/b7ed08819606380f48414c74aa89e43d1c6cac18c3caf56460df8db01095dd76.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "S2",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/Programme%20de%20Fran%C3%A7ais%20aux%20TC%202022.pdf?forcedownload=1",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.md",
+            "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "reb.gov.rw",
+              "reb.rw",
+              "elearning.reb.rw"
+            ],
+            "markdownChecksum": "7d40fb180aed4de0803b2e123211d4c61950be4691194492e8569f8cacbd4b4a",
+            "markdownPageCount": 46,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "7d40fb180aed4de0803b2e123211d4c61950be4691194492e8569f8cacbd4b4a",
+              "pageCount": 46,
+              "generatedAt": "2026-07-01T01:17:36.103Z",
+              "sourceFormat": "pdf-text-cache",
+              "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.json",
+              "sourceChecksum": "86a09db6917fcd55934e27fa6062d0ed2e88cec7510af2a4e879de273d25129c"
+            },
+            "markdownGeneratedAt": "2026-07-01T01:17:36.103Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "53f797709a5d1cbb8c9dc90ee19847bb6e35431d3c8f3256757cb0eec43c6fad"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ef04caa8-c273-47e7-842c-9cea72e2b274",
+          "officialTitle": "Rwanda Competence Based Curriculum S2 French",
+          "subject": "French",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/Programme%20de%20Fran%C3%A7ais%20aux%20TC%202022.pdf?forcedownload=1",
+          "objectKey": "data/curriculum/source-files/RWA/b7ed08819606380f48414c74aa89e43d1c6cac18c3caf56460df8db01095dd76.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "S2",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/Programme%20de%20Fran%C3%A7ais%20aux%20TC%202022.pdf?forcedownload=1",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.md",
+            "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "reb.gov.rw",
+              "reb.rw",
+              "elearning.reb.rw"
+            ],
+            "markdownChecksum": "7d40fb180aed4de0803b2e123211d4c61950be4691194492e8569f8cacbd4b4a",
+            "markdownPageCount": 46,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "7d40fb180aed4de0803b2e123211d4c61950be4691194492e8569f8cacbd4b4a",
+              "pageCount": 46,
+              "generatedAt": "2026-07-01T01:17:36.103Z",
+              "sourceFormat": "pdf-text-cache",
+              "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.json",
+              "sourceChecksum": "86a09db6917fcd55934e27fa6062d0ed2e88cec7510af2a4e879de273d25129c"
+            },
+            "markdownGeneratedAt": "2026-07-01T01:17:36.103Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "53f797709a5d1cbb8c9dc90ee19847bb6e35431d3c8f3256757cb0eec43c6fad"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S2-french-topic-003",
+      "grade": "S2",
+      "strandId": "fallback-s2-french-3",
+      "subStrandId": "fallback-s2-french-3",
+      "parentSubStrandId": "fallback-s2-french-3",
+      "strandTitle": "Expression Orale Et écoute",
+      "unitTitle": "Expression Orale Et écoute",
+      "sourceUnitTitle": "Expression Orale Et Ecoute",
+      "learningOutcomes": [
+        {
+          "id": "fallback-s2-french-3-outcome-1",
+          "text": "lire, comprendre, parler et écrire sur expression orale et écoute"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can expression orale et ecoute help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Expression Orale Et écoute.",
+        "Review key vocabulary from the previous French lesson."
+      ],
+      "keyVocabulary": [
+        "Expression Orale Et écoute",
+        "Expression",
+        "Orale",
+        "écoute",
+        "lire",
+        "écouter",
+        "parler",
+        "écrire"
+      ],
+      "misconceptions": [
+        "giving a general answer about Expression Orale Et écoute without a clear example, method, or evidence"
+      ],
+      "localContext": "une activité de lecture, d'écoute, de parole ou d'écriture en Rwanda pour Expression Orale Et écoute",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "le sens est clair",
+        "les mots du thème sont bien utilisés",
+        "l’orthographe, les accents, la grammaire et la ponctuation sont vérifiés"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Expression Orale Et écoute",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "writing or dialogue checklist",
+          "description": "writing or dialogue checklist for Expression Orale Et écoute",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ef04caa8-c273-47e7-842c-9cea72e2b274",
+          "officialTitle": "Rwanda Competence Based Curriculum S2 French",
+          "subject": "French",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/Programme%20de%20Fran%C3%A7ais%20aux%20TC%202022.pdf?forcedownload=1",
+          "objectKey": "data/curriculum/source-files/RWA/b7ed08819606380f48414c74aa89e43d1c6cac18c3caf56460df8db01095dd76.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "S2",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/Programme%20de%20Fran%C3%A7ais%20aux%20TC%202022.pdf?forcedownload=1",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.md",
+            "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "reb.gov.rw",
+              "reb.rw",
+              "elearning.reb.rw"
+            ],
+            "markdownChecksum": "7d40fb180aed4de0803b2e123211d4c61950be4691194492e8569f8cacbd4b4a",
+            "markdownPageCount": 46,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "7d40fb180aed4de0803b2e123211d4c61950be4691194492e8569f8cacbd4b4a",
+              "pageCount": 46,
+              "generatedAt": "2026-07-01T01:17:36.103Z",
+              "sourceFormat": "pdf-text-cache",
+              "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.json",
+              "sourceChecksum": "86a09db6917fcd55934e27fa6062d0ed2e88cec7510af2a4e879de273d25129c"
+            },
+            "markdownGeneratedAt": "2026-07-01T01:17:36.103Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "53f797709a5d1cbb8c9dc90ee19847bb6e35431d3c8f3256757cb0eec43c6fad"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ef04caa8-c273-47e7-842c-9cea72e2b274",
+          "officialTitle": "Rwanda Competence Based Curriculum S2 French",
+          "subject": "French",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/Programme%20de%20Fran%C3%A7ais%20aux%20TC%202022.pdf?forcedownload=1",
+          "objectKey": "data/curriculum/source-files/RWA/b7ed08819606380f48414c74aa89e43d1c6cac18c3caf56460df8db01095dd76.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "S2",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/Programme%20de%20Fran%C3%A7ais%20aux%20TC%202022.pdf?forcedownload=1",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.md",
+            "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "reb.gov.rw",
+              "reb.rw",
+              "elearning.reb.rw"
+            ],
+            "markdownChecksum": "7d40fb180aed4de0803b2e123211d4c61950be4691194492e8569f8cacbd4b4a",
+            "markdownPageCount": 46,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "7d40fb180aed4de0803b2e123211d4c61950be4691194492e8569f8cacbd4b4a",
+              "pageCount": 46,
+              "generatedAt": "2026-07-01T01:17:36.103Z",
+              "sourceFormat": "pdf-text-cache",
+              "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.json",
+              "sourceChecksum": "86a09db6917fcd55934e27fa6062d0ed2e88cec7510af2a4e879de273d25129c"
+            },
+            "markdownGeneratedAt": "2026-07-01T01:17:36.103Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "53f797709a5d1cbb8c9dc90ee19847bb6e35431d3c8f3256757cb0eec43c6fad"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S2-french-topic-004",
+      "grade": "S2",
+      "strandId": "fallback-s2-french-4",
+      "subStrandId": "fallback-s2-french-4",
+      "parentSubStrandId": "fallback-s2-french-4",
+      "strandTitle": "Grammaire De La Phrase",
+      "unitTitle": "Grammaire De La Phrase",
+      "sourceUnitTitle": "Grammaire De La Phrase",
+      "learningOutcomes": [
+        {
+          "id": "fallback-s2-french-4-outcome-1",
+          "text": "lire, comprendre, parler et écrire sur grammaire de la phrase"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can grammaire de la phrase help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Grammaire De La Phrase.",
+        "Review key vocabulary from the previous French lesson."
+      ],
+      "keyVocabulary": [
+        "Grammaire De La Phrase",
+        "Grammaire",
+        "Phrase",
+        "lire",
+        "écouter",
+        "parler",
+        "écrire",
+        "phrase"
+      ],
+      "misconceptions": [
+        "giving a general answer about Grammaire De La Phrase without a clear example, method, or evidence"
+      ],
+      "localContext": "une activité de lecture, d'écoute, de parole ou d'écriture en Rwanda pour Grammaire De La Phrase",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "le sens est clair",
+        "les mots du thème sont bien utilisés",
+        "l’orthographe, les accents, la grammaire et la ponctuation sont vérifiés"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Grammaire De La Phrase",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "writing or dialogue checklist",
+          "description": "writing or dialogue checklist for Grammaire De La Phrase",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ef04caa8-c273-47e7-842c-9cea72e2b274",
+          "officialTitle": "Rwanda Competence Based Curriculum S2 French",
+          "subject": "French",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/Programme%20de%20Fran%C3%A7ais%20aux%20TC%202022.pdf?forcedownload=1",
+          "objectKey": "data/curriculum/source-files/RWA/b7ed08819606380f48414c74aa89e43d1c6cac18c3caf56460df8db01095dd76.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "S2",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/Programme%20de%20Fran%C3%A7ais%20aux%20TC%202022.pdf?forcedownload=1",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.md",
+            "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "reb.gov.rw",
+              "reb.rw",
+              "elearning.reb.rw"
+            ],
+            "markdownChecksum": "7d40fb180aed4de0803b2e123211d4c61950be4691194492e8569f8cacbd4b4a",
+            "markdownPageCount": 46,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "7d40fb180aed4de0803b2e123211d4c61950be4691194492e8569f8cacbd4b4a",
+              "pageCount": 46,
+              "generatedAt": "2026-07-01T01:17:36.103Z",
+              "sourceFormat": "pdf-text-cache",
+              "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.json",
+              "sourceChecksum": "86a09db6917fcd55934e27fa6062d0ed2e88cec7510af2a4e879de273d25129c"
+            },
+            "markdownGeneratedAt": "2026-07-01T01:17:36.103Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "53f797709a5d1cbb8c9dc90ee19847bb6e35431d3c8f3256757cb0eec43c6fad"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ef04caa8-c273-47e7-842c-9cea72e2b274",
+          "officialTitle": "Rwanda Competence Based Curriculum S2 French",
+          "subject": "French",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/Programme%20de%20Fran%C3%A7ais%20aux%20TC%202022.pdf?forcedownload=1",
+          "objectKey": "data/curriculum/source-files/RWA/b7ed08819606380f48414c74aa89e43d1c6cac18c3caf56460df8db01095dd76.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "S2",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/Programme%20de%20Fran%C3%A7ais%20aux%20TC%202022.pdf?forcedownload=1",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.md",
+            "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "reb.gov.rw",
+              "reb.rw",
+              "elearning.reb.rw"
+            ],
+            "markdownChecksum": "7d40fb180aed4de0803b2e123211d4c61950be4691194492e8569f8cacbd4b4a",
+            "markdownPageCount": 46,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "7d40fb180aed4de0803b2e123211d4c61950be4691194492e8569f8cacbd4b4a",
+              "pageCount": 46,
+              "generatedAt": "2026-07-01T01:17:36.103Z",
+              "sourceFormat": "pdf-text-cache",
+              "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.json",
+              "sourceChecksum": "86a09db6917fcd55934e27fa6062d0ed2e88cec7510af2a4e879de273d25129c"
+            },
+            "markdownGeneratedAt": "2026-07-01T01:17:36.103Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "53f797709a5d1cbb8c9dc90ee19847bb6e35431d3c8f3256757cb0eec43c6fad"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S2-french-topic-005",
+      "grade": "S2",
+      "strandId": "fallback-s2-french-5",
+      "subStrandId": "fallback-s2-french-5",
+      "parentSubStrandId": "fallback-s2-french-5",
+      "strandTitle": "Ecriture Guidee",
+      "unitTitle": "Ecriture Guidee",
+      "sourceUnitTitle": "Ecriture Guidee",
+      "learningOutcomes": [
+        {
+          "id": "fallback-s2-french-5-outcome-1",
+          "text": "lire, comprendre, parler et écrire sur ecriture guidee"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can ecriture guidee help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Ecriture Guidee.",
+        "Review key vocabulary from the previous French lesson."
+      ],
+      "keyVocabulary": [
+        "Ecriture Guidee",
+        "Ecriture",
+        "Guidee",
+        "lire",
+        "écouter",
+        "parler",
+        "écrire",
+        "phrase"
+      ],
+      "misconceptions": [
+        "giving a general answer about Ecriture Guidee without a clear example, method, or evidence"
+      ],
+      "localContext": "une activité de lecture, d'écoute, de parole ou d'écriture en Rwanda pour Ecriture Guidee",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "le sens est clair",
+        "les mots du thème sont bien utilisés",
+        "l’orthographe, les accents, la grammaire et la ponctuation sont vérifiés"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Ecriture Guidee",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "writing or dialogue checklist",
+          "description": "writing or dialogue checklist for Ecriture Guidee",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ef04caa8-c273-47e7-842c-9cea72e2b274",
+          "officialTitle": "Rwanda Competence Based Curriculum S2 French",
+          "subject": "French",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/Programme%20de%20Fran%C3%A7ais%20aux%20TC%202022.pdf?forcedownload=1",
+          "objectKey": "data/curriculum/source-files/RWA/b7ed08819606380f48414c74aa89e43d1c6cac18c3caf56460df8db01095dd76.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "S2",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/Programme%20de%20Fran%C3%A7ais%20aux%20TC%202022.pdf?forcedownload=1",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.md",
+            "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "reb.gov.rw",
+              "reb.rw",
+              "elearning.reb.rw"
+            ],
+            "markdownChecksum": "7d40fb180aed4de0803b2e123211d4c61950be4691194492e8569f8cacbd4b4a",
+            "markdownPageCount": 46,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "7d40fb180aed4de0803b2e123211d4c61950be4691194492e8569f8cacbd4b4a",
+              "pageCount": 46,
+              "generatedAt": "2026-07-01T01:17:36.103Z",
+              "sourceFormat": "pdf-text-cache",
+              "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.json",
+              "sourceChecksum": "86a09db6917fcd55934e27fa6062d0ed2e88cec7510af2a4e879de273d25129c"
+            },
+            "markdownGeneratedAt": "2026-07-01T01:17:36.103Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "53f797709a5d1cbb8c9dc90ee19847bb6e35431d3c8f3256757cb0eec43c6fad"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ef04caa8-c273-47e7-842c-9cea72e2b274",
+          "officialTitle": "Rwanda Competence Based Curriculum S2 French",
+          "subject": "French",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/Programme%20de%20Fran%C3%A7ais%20aux%20TC%202022.pdf?forcedownload=1",
+          "objectKey": "data/curriculum/source-files/RWA/b7ed08819606380f48414c74aa89e43d1c6cac18c3caf56460df8db01095dd76.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "S2",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/Programme%20de%20Fran%C3%A7ais%20aux%20TC%202022.pdf?forcedownload=1",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.md",
+            "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "reb.gov.rw",
+              "reb.rw",
+              "elearning.reb.rw"
+            ],
+            "markdownChecksum": "7d40fb180aed4de0803b2e123211d4c61950be4691194492e8569f8cacbd4b4a",
+            "markdownPageCount": 46,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "7d40fb180aed4de0803b2e123211d4c61950be4691194492e8569f8cacbd4b4a",
+              "pageCount": 46,
+              "generatedAt": "2026-07-01T01:17:36.103Z",
+              "sourceFormat": "pdf-text-cache",
+              "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.json",
+              "sourceChecksum": "86a09db6917fcd55934e27fa6062d0ed2e88cec7510af2a4e879de273d25129c"
+            },
+            "markdownGeneratedAt": "2026-07-01T01:17:36.103Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "53f797709a5d1cbb8c9dc90ee19847bb6e35431d3c8f3256757cb0eec43c6fad"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S2-french-topic-006",
+      "grade": "S2",
+      "strandId": "fallback-s2-french-6",
+      "subStrandId": "fallback-s2-french-6",
+      "parentSubStrandId": "fallback-s2-french-6",
+      "strandTitle": "Dialogue Et Prononciation",
+      "unitTitle": "Dialogue Et Prononciation",
+      "sourceUnitTitle": "Dialogue Et Prononciation",
+      "learningOutcomes": [
+        {
+          "id": "fallback-s2-french-6-outcome-1",
+          "text": "lire, comprendre, parler et écrire sur dialogue et prononciation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can dialogue et prononciation help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Dialogue Et Prononciation.",
+        "Review key vocabulary from the previous French lesson."
+      ],
+      "keyVocabulary": [
+        "Dialogue Et Prononciation",
+        "Dialogue",
+        "Prononciation",
+        "lire",
+        "écouter",
+        "parler",
+        "écrire",
+        "phrase"
+      ],
+      "misconceptions": [
+        "giving a general answer about Dialogue Et Prononciation without a clear example, method, or evidence"
+      ],
+      "localContext": "une activité de lecture, d'écoute, de parole ou d'écriture en Rwanda pour Dialogue Et Prononciation",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "le sens est clair",
+        "les mots du thème sont bien utilisés",
+        "l’orthographe, les accents, la grammaire et la ponctuation sont vérifiés"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Dialogue Et Prononciation",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "writing or dialogue checklist",
+          "description": "writing or dialogue checklist for Dialogue Et Prononciation",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ef04caa8-c273-47e7-842c-9cea72e2b274",
+          "officialTitle": "Rwanda Competence Based Curriculum S2 French",
+          "subject": "French",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/Programme%20de%20Fran%C3%A7ais%20aux%20TC%202022.pdf?forcedownload=1",
+          "objectKey": "data/curriculum/source-files/RWA/b7ed08819606380f48414c74aa89e43d1c6cac18c3caf56460df8db01095dd76.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "S2",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/Programme%20de%20Fran%C3%A7ais%20aux%20TC%202022.pdf?forcedownload=1",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.md",
+            "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "reb.gov.rw",
+              "reb.rw",
+              "elearning.reb.rw"
+            ],
+            "markdownChecksum": "7d40fb180aed4de0803b2e123211d4c61950be4691194492e8569f8cacbd4b4a",
+            "markdownPageCount": 46,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "7d40fb180aed4de0803b2e123211d4c61950be4691194492e8569f8cacbd4b4a",
+              "pageCount": 46,
+              "generatedAt": "2026-07-01T01:17:36.103Z",
+              "sourceFormat": "pdf-text-cache",
+              "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.json",
+              "sourceChecksum": "86a09db6917fcd55934e27fa6062d0ed2e88cec7510af2a4e879de273d25129c"
+            },
+            "markdownGeneratedAt": "2026-07-01T01:17:36.103Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "53f797709a5d1cbb8c9dc90ee19847bb6e35431d3c8f3256757cb0eec43c6fad"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ef04caa8-c273-47e7-842c-9cea72e2b274",
+          "officialTitle": "Rwanda Competence Based Curriculum S2 French",
+          "subject": "French",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/Programme%20de%20Fran%C3%A7ais%20aux%20TC%202022.pdf?forcedownload=1",
+          "objectKey": "data/curriculum/source-files/RWA/b7ed08819606380f48414c74aa89e43d1c6cac18c3caf56460df8db01095dd76.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "S2",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/Programme%20de%20Fran%C3%A7ais%20aux%20TC%202022.pdf?forcedownload=1",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.md",
+            "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "reb.gov.rw",
+              "reb.rw",
+              "elearning.reb.rw"
+            ],
+            "markdownChecksum": "7d40fb180aed4de0803b2e123211d4c61950be4691194492e8569f8cacbd4b4a",
+            "markdownPageCount": 46,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "7d40fb180aed4de0803b2e123211d4c61950be4691194492e8569f8cacbd4b4a",
+              "pageCount": 46,
+              "generatedAt": "2026-07-01T01:17:36.103Z",
+              "sourceFormat": "pdf-text-cache",
+              "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.json",
+              "sourceChecksum": "86a09db6917fcd55934e27fa6062d0ed2e88cec7510af2a4e879de273d25129c"
+            },
+            "markdownGeneratedAt": "2026-07-01T01:17:36.103Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "53f797709a5d1cbb8c9dc90ee19847bb6e35431d3c8f3256757cb0eec43c6fad"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S2-french-topic-007",
+      "grade": "S2",
+      "strandId": "fallback-s2-french-7",
+      "subStrandId": "fallback-s2-french-7",
+      "parentSubStrandId": "fallback-s2-french-7",
+      "strandTitle": "Culture Et Communication",
+      "unitTitle": "Culture Et Communication",
+      "sourceUnitTitle": "Culture Et Communication",
+      "learningOutcomes": [
+        {
+          "id": "fallback-s2-french-7-outcome-1",
+          "text": "lire, comprendre, parler et écrire sur culture et communication"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can culture et communication help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Culture Et Communication.",
+        "Review key vocabulary from the previous French lesson."
+      ],
+      "keyVocabulary": [
+        "Culture Et Communication",
+        "Culture",
+        "Communication",
+        "lire",
+        "écouter",
+        "parler",
+        "écrire",
+        "phrase"
+      ],
+      "misconceptions": [
+        "giving a general answer about Culture Et Communication without a clear example, method, or evidence"
+      ],
+      "localContext": "une activité de lecture, d'écoute, de parole ou d'écriture en Rwanda pour Culture Et Communication",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "le sens est clair",
+        "les mots du thème sont bien utilisés",
+        "l’orthographe, les accents, la grammaire et la ponctuation sont vérifiés"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Culture Et Communication",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "writing or dialogue checklist",
+          "description": "writing or dialogue checklist for Culture Et Communication",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ef04caa8-c273-47e7-842c-9cea72e2b274",
+          "officialTitle": "Rwanda Competence Based Curriculum S2 French",
+          "subject": "French",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/Programme%20de%20Fran%C3%A7ais%20aux%20TC%202022.pdf?forcedownload=1",
+          "objectKey": "data/curriculum/source-files/RWA/b7ed08819606380f48414c74aa89e43d1c6cac18c3caf56460df8db01095dd76.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "S2",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/Programme%20de%20Fran%C3%A7ais%20aux%20TC%202022.pdf?forcedownload=1",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.md",
+            "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "reb.gov.rw",
+              "reb.rw",
+              "elearning.reb.rw"
+            ],
+            "markdownChecksum": "7d40fb180aed4de0803b2e123211d4c61950be4691194492e8569f8cacbd4b4a",
+            "markdownPageCount": 46,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "7d40fb180aed4de0803b2e123211d4c61950be4691194492e8569f8cacbd4b4a",
+              "pageCount": 46,
+              "generatedAt": "2026-07-01T01:17:36.103Z",
+              "sourceFormat": "pdf-text-cache",
+              "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.json",
+              "sourceChecksum": "86a09db6917fcd55934e27fa6062d0ed2e88cec7510af2a4e879de273d25129c"
+            },
+            "markdownGeneratedAt": "2026-07-01T01:17:36.103Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "53f797709a5d1cbb8c9dc90ee19847bb6e35431d3c8f3256757cb0eec43c6fad"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ef04caa8-c273-47e7-842c-9cea72e2b274",
+          "officialTitle": "Rwanda Competence Based Curriculum S2 French",
+          "subject": "French",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/Programme%20de%20Fran%C3%A7ais%20aux%20TC%202022.pdf?forcedownload=1",
+          "objectKey": "data/curriculum/source-files/RWA/b7ed08819606380f48414c74aa89e43d1c6cac18c3caf56460df8db01095dd76.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "S2",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/Programme%20de%20Fran%C3%A7ais%20aux%20TC%202022.pdf?forcedownload=1",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.md",
+            "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "reb.gov.rw",
+              "reb.rw",
+              "elearning.reb.rw"
+            ],
+            "markdownChecksum": "7d40fb180aed4de0803b2e123211d4c61950be4691194492e8569f8cacbd4b4a",
+            "markdownPageCount": 46,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "7d40fb180aed4de0803b2e123211d4c61950be4691194492e8569f8cacbd4b4a",
+              "pageCount": 46,
+              "generatedAt": "2026-07-01T01:17:36.103Z",
+              "sourceFormat": "pdf-text-cache",
+              "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.json",
+              "sourceChecksum": "86a09db6917fcd55934e27fa6062d0ed2e88cec7510af2a4e879de273d25129c"
+            },
+            "markdownGeneratedAt": "2026-07-01T01:17:36.103Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "53f797709a5d1cbb8c9dc90ee19847bb6e35431d3c8f3256757cb0eec43c6fad"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S2-french-topic-008",
+      "grade": "S2",
+      "strandId": "fallback-s2-french-8",
+      "subStrandId": "fallback-s2-french-8",
+      "parentSubStrandId": "fallback-s2-french-8",
+      "strandTitle": "Projet De Langue Et Revision",
+      "unitTitle": "Projet De Langue Et Revision",
+      "sourceUnitTitle": "Projet De Langue Et Revision",
+      "learningOutcomes": [
+        {
+          "id": "fallback-s2-french-8-outcome-1",
+          "text": "lire, comprendre, parler et écrire sur projet de langue et revision"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can projet de langue et revision help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Projet De Langue Et Revision.",
+        "Review key vocabulary from the previous French lesson."
+      ],
+      "keyVocabulary": [
+        "Projet De Langue Et Revision",
+        "Projet",
+        "Langue",
+        "Revision",
+        "lire",
+        "écouter",
+        "parler",
+        "écrire"
+      ],
+      "misconceptions": [
+        "giving a general answer about Projet De Langue Et Revision without a clear example, method, or evidence"
+      ],
+      "localContext": "une activité de lecture, d'écoute, de parole ou d'écriture en Rwanda pour Projet De Langue Et Revision",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "le sens est clair",
+        "les mots du thème sont bien utilisés",
+        "l’orthographe, les accents, la grammaire et la ponctuation sont vérifiés"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Projet De Langue Et Revision",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "writing or dialogue checklist",
+          "description": "writing or dialogue checklist for Projet De Langue Et Revision",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ef04caa8-c273-47e7-842c-9cea72e2b274",
+          "officialTitle": "Rwanda Competence Based Curriculum S2 French",
+          "subject": "French",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/Programme%20de%20Fran%C3%A7ais%20aux%20TC%202022.pdf?forcedownload=1",
+          "objectKey": "data/curriculum/source-files/RWA/b7ed08819606380f48414c74aa89e43d1c6cac18c3caf56460df8db01095dd76.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "S2",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/Programme%20de%20Fran%C3%A7ais%20aux%20TC%202022.pdf?forcedownload=1",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.md",
+            "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "reb.gov.rw",
+              "reb.rw",
+              "elearning.reb.rw"
+            ],
+            "markdownChecksum": "7d40fb180aed4de0803b2e123211d4c61950be4691194492e8569f8cacbd4b4a",
+            "markdownPageCount": 46,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "7d40fb180aed4de0803b2e123211d4c61950be4691194492e8569f8cacbd4b4a",
+              "pageCount": 46,
+              "generatedAt": "2026-07-01T01:17:36.103Z",
+              "sourceFormat": "pdf-text-cache",
+              "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.json",
+              "sourceChecksum": "86a09db6917fcd55934e27fa6062d0ed2e88cec7510af2a4e879de273d25129c"
+            },
+            "markdownGeneratedAt": "2026-07-01T01:17:36.103Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "53f797709a5d1cbb8c9dc90ee19847bb6e35431d3c8f3256757cb0eec43c6fad"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "ef04caa8-c273-47e7-842c-9cea72e2b274",
+          "officialTitle": "Rwanda Competence Based Curriculum S2 French",
+          "subject": "French",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/Programme%20de%20Fran%C3%A7ais%20aux%20TC%202022.pdf?forcedownload=1",
+          "objectKey": "data/curriculum/source-files/RWA/b7ed08819606380f48414c74aa89e43d1c6cac18c3caf56460df8db01095dd76.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "S2",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/Programme%20de%20Fran%C3%A7ais%20aux%20TC%202022.pdf?forcedownload=1",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.md",
+            "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "reb.gov.rw",
+              "reb.rw",
+              "elearning.reb.rw"
+            ],
+            "markdownChecksum": "7d40fb180aed4de0803b2e123211d4c61950be4691194492e8569f8cacbd4b4a",
+            "markdownPageCount": 46,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "7d40fb180aed4de0803b2e123211d4c61950be4691194492e8569f8cacbd4b4a",
+              "pageCount": 46,
+              "generatedAt": "2026-07-01T01:17:36.103Z",
+              "sourceFormat": "pdf-text-cache",
+              "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S2/french/ef04caa8-c273-47e7-842c-9cea72e2b274.json",
+              "sourceChecksum": "86a09db6917fcd55934e27fa6062d0ed2e88cec7510af2a4e879de273d25129c"
+            },
+            "markdownGeneratedAt": "2026-07-01T01:17:36.103Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "53f797709a5d1cbb8c9dc90ee19847bb6e35431d3c8f3256757cb0eec43c6fad"
+        }
+      ]
+    }
+  ]
+}

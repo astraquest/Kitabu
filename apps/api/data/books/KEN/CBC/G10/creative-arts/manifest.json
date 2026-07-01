@@ -1,0 +1,224 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-grade-10-creative-arts",
+  "title": "KITABU QUEST Grade 10 Creative Arts",
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 10",
+  "subject": "Creative Arts",
+  "subjectSlug": "creative-arts",
+  "subjectColor": "#DB2777",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "learner-first-language-depth-renderers-2026-07-01-v10",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-reviewed-draft",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T13:01:12Z",
+  "sourceSnapshotHash": "6bf29cfa6033d79c893b05a818d30a9ad61a8be6eb6329789920ebe462afbbba",
+  "bookPlanHash": "cb054100c304e1285678d42aecab0b1351b769b553d0258fbf25bb3d6d4e8575",
+  "pageCount": 153,
+  "wordCount": 20717,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "ageBand": "senior-secondary",
+    "coversDeferred": true,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "topicCount": 19,
+    "outcomeCount": 53,
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "KEN",
+    "subject": "Creative Arts",
+    "species": "lilac-breasted roller",
+    "role": "creative colour guide",
+    "sourceRationale": "Colorful bird associated with Kenya and strong visual-arts fit."
+  },
+  "cover": {
+    "scene": "learners painting a mural and playing percussion instruments with a colorful bird mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Kenya CBC Grade 10 Creative Arts. Scene: learners painting a mural and playing percussion instruments with a colorful bird mascot. Include a friendly lilac-breasted roller mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "assets": [],
+  "downloads": {
+    "markdown": "kitabu-quest-grade-10-creative-arts.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-grade-10-creative-arts.pdf"
+  },
+  "sourceDocuments": [
+    {
+      "id": "9837f08e-5d36-45e6-9ba5-35eed7efde41",
+      "subject": "Fine Arts",
+      "officialTitle": "Competency Based Curriculum Grade 10 Fine Arts",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_10",
+      "gradeLocalLevel": "Grade 10",
+      "localLevel": "Grade 10",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/1gGJTA2HJGH8yrJiT5RFEMTc83SOHBQ0i/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_10",
+        "documentUrl": "https://drive.google.com/file/d/1gGJTA2HJGH8yrJiT5RFEMTc83SOHBQ0i/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_10/fine-arts/9837f08e-5d36-45e6-9ba5-35eed7efde41.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-ten/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "85d72bcb9fe5e5d3f49dd911a012d365d163c4bc450a6b52bfc8256754134349",
+        "markdownPageCount": 51,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_10/fine-arts/9837f08e-5d36-45e6-9ba5-35eed7efde41.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "85d72bcb9fe5e5d3f49dd911a012d365d163c4bc450a6b52bfc8256754134349",
+          "pageCount": 51,
+          "generatedAt": "2026-06-29T16:35:06.079Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "cc3269e713bd53380317e637f5887b6a7075daa93201c0cbd288ee461eb10000"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:06.079Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    },
+    {
+      "id": "c70860d1-6f8f-4255-b4eb-d310a94fc991",
+      "subject": "Music and Dance",
+      "officialTitle": "Competency Based Curriculum Grade 10 Music and Dance",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_10",
+      "gradeLocalLevel": "Grade 10",
+      "localLevel": "Grade 10",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/1OHOaw5D4XHReOfFu2MyAxMx4PlIRxAb8/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_10",
+        "documentUrl": "https://drive.google.com/file/d/1OHOaw5D4XHReOfFu2MyAxMx4PlIRxAb8/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_10/music-and-dance/c70860d1-6f8f-4255-b4eb-d310a94fc991.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-ten/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "44ad9f5b3495e294bb99814e66097da86c12ef7e74632f13b957f70b830369d0",
+        "markdownPageCount": 59,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_10/music-and-dance/c70860d1-6f8f-4255-b4eb-d310a94fc991.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "44ad9f5b3495e294bb99814e66097da86c12ef7e74632f13b957f70b830369d0",
+          "pageCount": 59,
+          "generatedAt": "2026-06-29T16:35:06.389Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "8cbacfdc74816ad91ae02fc0f68e096ed4d0c4dcce3a70bf84d189824e119026"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:06.389Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    },
+    {
+      "id": "1b93f0fc-1e86-49cc-b1a4-812e229bab1b",
+      "subject": "Theatre and Film",
+      "officialTitle": "Competency Based Curriculum Grade 10 Theatre and Film",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_10",
+      "gradeLocalLevel": "Grade 10",
+      "localLevel": "Grade 10",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/1enGiaMZNlf81lSwVmf7F-kOPySRc81pK/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_10",
+        "documentUrl": "https://drive.google.com/file/d/1enGiaMZNlf81lSwVmf7F-kOPySRc81pK/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_10/theatre-and-film/1b93f0fc-1e86-49cc-b1a4-812e229bab1b.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-ten/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "094d614dc80e62f336ad06eafc485835632387c98ad620f34a4f979c0ade3fac",
+        "markdownPageCount": 47,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_10/theatre-and-film/1b93f0fc-1e86-49cc-b1a4-812e229bab1b.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "094d614dc80e62f336ad06eafc485835632387c98ad620f34a4f979c0ade3fac",
+          "pageCount": 47,
+          "generatedAt": "2026-06-29T16:35:06.475Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "3b3aa26e9d526a3490a10cbea90029f21cf72d490f14a69e6164d73d467fd1a4"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:06.475Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    }
+  ]
+}

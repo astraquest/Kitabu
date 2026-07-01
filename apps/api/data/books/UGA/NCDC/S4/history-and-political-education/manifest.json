@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-uga-ncdc-s4-history-and-political-education",
+  "title": "KITABU QUEST S4 History and Political Education",
+  "country": "UGA",
+  "curriculum": "NCDC",
+  "grade": "S4",
+  "subject": "History and Political Education",
+  "subjectSlug": "history-and-political-education",
+  "subjectColor": "#BE123C",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v12",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:18:45Z",
+  "sourceSnapshotHash": "1e837e42db7bb1d8456027ccd541415e335727f0570f3bb117aa7de27270d638",
+  "bookPlanHash": "579fbafbba841ad23ad03ccb5477a2723d1f9c9873d9b2cc50337c853d41b6c1",
+  "pageCount": 85,
+  "wordCount": 8512,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 7,
+    "outcomeCount": 7,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "UGA",
+    "subject": "History and Political Education",
+    "species": "Uganda kob",
+    "role": "citizenship and heritage guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners visiting a heritage site with maps and a Uganda kob mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Uganda NCDC S4 History and Political Education. Scene: learners visiting a heritage site with maps and a Uganda kob mascot. Include a friendly Uganda kob mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 96347,
+    "sha256": "928f35f0521d17462034a810f4dedae5e6bce0630ff8ff8974ce9266468df236"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 96347,
+      "sha256": "928f35f0521d17462034a810f4dedae5e6bce0630ff8ff8974ce9266468df236",
+      "kind": "cover",
+      "altText": "KITABU QUEST S4 History and Political Education cover with Uganda kob",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-uga-ncdc-s4-history-and-political-education.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-uga-ncdc-s4-history-and-political-education.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "9a3faa08-f3f2-4db0-9285-ee02e8f88e6e",
+      "subject": "History and Political Education",
+      "officialTitle": "Uganda Curriculum S4 History and Political Education",
+      "countryCode": "UGA",
+      "curriculumCode": "NCDC",
+      "gradeCode": "S4",
+      "gradeLocalLevel": "S4",
+      "localLevel": "S4",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/Olevel-History-syllabus-June-2023.pdf",
+      "objectKey": "data/curriculum/source-files/UGA/53a3f2d1c3ae9fda950938b34c2ace26b2c8cd5141b0c2d4600c61358beff83e.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "S4",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/Olevel-History-syllabus-June-2023.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/UGA/NCDC/S4/history-and-political-education/9a3faa08-f3f2-4db0-9285-ee02e8f88e6e.md",
+        "sourcePageUrl": "https://ncdc.go.ug/wp-content/uploads/2024/03/Curriculum_Framework.pdf",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "ncdc.go.ug"
+        ],
+        "markdownChecksum": "44db8ebed011107c158101d5f4de7a1d7437bd905e0af5b566088b23107374c1",
+        "markdownPageCount": 64,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/UGA/NCDC/S4/history-and-political-education/9a3faa08-f3f2-4db0-9285-ee02e8f88e6e.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "44db8ebed011107c158101d5f4de7a1d7437bd905e0af5b566088b23107374c1",
+          "pageCount": 64,
+          "generatedAt": "2026-06-29T18:47:25.733Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "98819bba28e138d0a3e05313935c9b46953ed8126f7aa3fe7f31285e9b7efa13"
+        },
+        "markdownGeneratedAt": "2026-06-29T18:47:25.733Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

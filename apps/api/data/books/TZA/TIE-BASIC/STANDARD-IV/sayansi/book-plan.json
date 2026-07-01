@@ -1,0 +1,1279 @@
+{
+  "schemaVersion": 1,
+  "sourceType": "normalized-curriculum",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Standard IV",
+  "subject": "Sayansi",
+  "generatedAt": "2026-07-01T05:39:47Z",
+  "sourceSnapshotHash": "b23d0f4296da3d81db636e5b56991710792becf601c5691b2c99c679e6f1c053",
+  "writingStandard": {
+    "voice": "simple, conversational, purposeful, age-appropriate, and learner-first",
+    "antiFluff": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "coversDeferred": true
+  },
+  "strands": [
+    {
+      "strandId": "fallback-standard-iv-sayansi-1",
+      "number": "",
+      "title": "Living Things Plants And Animals",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-standard-iv-sayansi-2",
+      "number": "",
+      "title": "Water Air And Weather",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-standard-iv-sayansi-3",
+      "number": "",
+      "title": "Food Health And Hygiene",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-standard-iv-sayansi-4",
+      "number": "",
+      "title": "Materials And Their Uses",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-standard-iv-sayansi-5",
+      "number": "",
+      "title": "Forces Movement And Simple Tools",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-standard-iv-sayansi-6",
+      "number": "",
+      "title": "Light Sound And Heat Around Us",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-standard-iv-sayansi-7",
+      "number": "",
+      "title": "Environment Care And Safety",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-standard-iv-sayansi-8",
+      "number": "",
+      "title": "Primary Science Project",
+      "topicCount": 1
+    }
+  ],
+  "topics": [
+    {
+      "topicId": "TZA-STANDARD-IV-sayansi-topic-001",
+      "grade": "Standard IV",
+      "strandId": "fallback-standard-iv-sayansi-1",
+      "subStrandId": "fallback-standard-iv-sayansi-1",
+      "parentSubStrandId": "fallback-standard-iv-sayansi-1",
+      "strandTitle": "Living Things Plants And Animals",
+      "unitTitle": "Living Things Plants And Animals",
+      "sourceUnitTitle": "Living Things Plants And Animals",
+      "learningOutcomes": [
+        {
+          "id": "fallback-standard-iv-sayansi-1-outcome-1",
+          "text": "investigate and explain living things plants and animals using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can living things plants and animals help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Living Things Plants And Animals.",
+        "Review key vocabulary from the previous Sayansi lesson."
+      ],
+      "keyVocabulary": [
+        "Living Things Plants And Animals",
+        "Living",
+        "Things",
+        "Plants",
+        "Animals",
+        "concept",
+        "observation",
+        "evidence"
+      ],
+      "misconceptions": [
+        "giving a general answer about Living Things Plants And Animals without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Living Things Plants And Animals",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Living Things Plants And Animals",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Living Things Plants And Animals",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "3058e352-c99c-400a-8afa-c9a80f9ceea4",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard IV Sayansi",
+          "subject": "Sayansi",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727175605-Muhtasari%20wa%20Somo%20la%20Sayansi%20Shule%20ya%20Msingi%20Darasa%20la%20III%20-%20VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/dd6e7c5b8dd262c89a5f7b2e2d00f285eceae767cb0741f852eb6004a4574772.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727175605-Muhtasari%20wa%20Somo%20la%20Sayansi%20Shule%20ya%20Msingi%20Darasa%20la%20III%20-%20VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/sayansi/3058e352-c99c-400a-8afa-c9a80f9ceea4.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "42c36f57996f89cbd630077b17a8d6d60863a23b0d049a08dec4f6ffff390caf",
+            "markdownPageCount": 61,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/sayansi/3058e352-c99c-400a-8afa-c9a80f9ceea4.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "42c36f57996f89cbd630077b17a8d6d60863a23b0d049a08dec4f6ffff390caf",
+              "pageCount": 61,
+              "generatedAt": "2026-06-29T16:48:10.860Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "6be17e54b886b1dc8acf6371919e353b3015c2afc9c0ea49624b2e34559911d8"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:10.860Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "b23d0f4296da3d81db636e5b56991710792becf601c5691b2c99c679e6f1c053"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "3058e352-c99c-400a-8afa-c9a80f9ceea4",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard IV Sayansi",
+          "subject": "Sayansi",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727175605-Muhtasari%20wa%20Somo%20la%20Sayansi%20Shule%20ya%20Msingi%20Darasa%20la%20III%20-%20VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/dd6e7c5b8dd262c89a5f7b2e2d00f285eceae767cb0741f852eb6004a4574772.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727175605-Muhtasari%20wa%20Somo%20la%20Sayansi%20Shule%20ya%20Msingi%20Darasa%20la%20III%20-%20VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/sayansi/3058e352-c99c-400a-8afa-c9a80f9ceea4.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "42c36f57996f89cbd630077b17a8d6d60863a23b0d049a08dec4f6ffff390caf",
+            "markdownPageCount": 61,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/sayansi/3058e352-c99c-400a-8afa-c9a80f9ceea4.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "42c36f57996f89cbd630077b17a8d6d60863a23b0d049a08dec4f6ffff390caf",
+              "pageCount": 61,
+              "generatedAt": "2026-06-29T16:48:10.860Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "6be17e54b886b1dc8acf6371919e353b3015c2afc9c0ea49624b2e34559911d8"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:10.860Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "b23d0f4296da3d81db636e5b56991710792becf601c5691b2c99c679e6f1c053"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-STANDARD-IV-sayansi-topic-002",
+      "grade": "Standard IV",
+      "strandId": "fallback-standard-iv-sayansi-2",
+      "subStrandId": "fallback-standard-iv-sayansi-2",
+      "parentSubStrandId": "fallback-standard-iv-sayansi-2",
+      "strandTitle": "Water Air And Weather",
+      "unitTitle": "Water Air And Weather",
+      "sourceUnitTitle": "Water Air And Weather",
+      "learningOutcomes": [
+        {
+          "id": "fallback-standard-iv-sayansi-2-outcome-1",
+          "text": "investigate and explain water air and weather using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can water air and weather help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Water Air And Weather.",
+        "Review key vocabulary from the previous Sayansi lesson."
+      ],
+      "keyVocabulary": [
+        "Water Air And Weather",
+        "Water",
+        "Weather",
+        "concept",
+        "observation",
+        "evidence",
+        "safety",
+        "conclusion"
+      ],
+      "misconceptions": [
+        "giving a general answer about Water Air And Weather without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Water Air And Weather",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Water Air And Weather",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Water Air And Weather",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "3058e352-c99c-400a-8afa-c9a80f9ceea4",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard IV Sayansi",
+          "subject": "Sayansi",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727175605-Muhtasari%20wa%20Somo%20la%20Sayansi%20Shule%20ya%20Msingi%20Darasa%20la%20III%20-%20VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/dd6e7c5b8dd262c89a5f7b2e2d00f285eceae767cb0741f852eb6004a4574772.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727175605-Muhtasari%20wa%20Somo%20la%20Sayansi%20Shule%20ya%20Msingi%20Darasa%20la%20III%20-%20VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/sayansi/3058e352-c99c-400a-8afa-c9a80f9ceea4.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "42c36f57996f89cbd630077b17a8d6d60863a23b0d049a08dec4f6ffff390caf",
+            "markdownPageCount": 61,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/sayansi/3058e352-c99c-400a-8afa-c9a80f9ceea4.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "42c36f57996f89cbd630077b17a8d6d60863a23b0d049a08dec4f6ffff390caf",
+              "pageCount": 61,
+              "generatedAt": "2026-06-29T16:48:10.860Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "6be17e54b886b1dc8acf6371919e353b3015c2afc9c0ea49624b2e34559911d8"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:10.860Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "b23d0f4296da3d81db636e5b56991710792becf601c5691b2c99c679e6f1c053"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "3058e352-c99c-400a-8afa-c9a80f9ceea4",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard IV Sayansi",
+          "subject": "Sayansi",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727175605-Muhtasari%20wa%20Somo%20la%20Sayansi%20Shule%20ya%20Msingi%20Darasa%20la%20III%20-%20VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/dd6e7c5b8dd262c89a5f7b2e2d00f285eceae767cb0741f852eb6004a4574772.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727175605-Muhtasari%20wa%20Somo%20la%20Sayansi%20Shule%20ya%20Msingi%20Darasa%20la%20III%20-%20VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/sayansi/3058e352-c99c-400a-8afa-c9a80f9ceea4.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "42c36f57996f89cbd630077b17a8d6d60863a23b0d049a08dec4f6ffff390caf",
+            "markdownPageCount": 61,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/sayansi/3058e352-c99c-400a-8afa-c9a80f9ceea4.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "42c36f57996f89cbd630077b17a8d6d60863a23b0d049a08dec4f6ffff390caf",
+              "pageCount": 61,
+              "generatedAt": "2026-06-29T16:48:10.860Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "6be17e54b886b1dc8acf6371919e353b3015c2afc9c0ea49624b2e34559911d8"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:10.860Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "b23d0f4296da3d81db636e5b56991710792becf601c5691b2c99c679e6f1c053"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-STANDARD-IV-sayansi-topic-003",
+      "grade": "Standard IV",
+      "strandId": "fallback-standard-iv-sayansi-3",
+      "subStrandId": "fallback-standard-iv-sayansi-3",
+      "parentSubStrandId": "fallback-standard-iv-sayansi-3",
+      "strandTitle": "Food Health And Hygiene",
+      "unitTitle": "Food Health And Hygiene",
+      "sourceUnitTitle": "Food Health And Hygiene",
+      "learningOutcomes": [
+        {
+          "id": "fallback-standard-iv-sayansi-3-outcome-1",
+          "text": "investigate and explain food health and hygiene using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can food health and hygiene help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Food Health And Hygiene.",
+        "Review key vocabulary from the previous Sayansi lesson."
+      ],
+      "keyVocabulary": [
+        "Food Health And Hygiene",
+        "Food",
+        "Health",
+        "Hygiene",
+        "concept",
+        "observation",
+        "evidence",
+        "safety"
+      ],
+      "misconceptions": [
+        "giving a general answer about Food Health And Hygiene without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Food Health And Hygiene",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Food Health And Hygiene",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Food Health And Hygiene",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "3058e352-c99c-400a-8afa-c9a80f9ceea4",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard IV Sayansi",
+          "subject": "Sayansi",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727175605-Muhtasari%20wa%20Somo%20la%20Sayansi%20Shule%20ya%20Msingi%20Darasa%20la%20III%20-%20VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/dd6e7c5b8dd262c89a5f7b2e2d00f285eceae767cb0741f852eb6004a4574772.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727175605-Muhtasari%20wa%20Somo%20la%20Sayansi%20Shule%20ya%20Msingi%20Darasa%20la%20III%20-%20VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/sayansi/3058e352-c99c-400a-8afa-c9a80f9ceea4.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "42c36f57996f89cbd630077b17a8d6d60863a23b0d049a08dec4f6ffff390caf",
+            "markdownPageCount": 61,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/sayansi/3058e352-c99c-400a-8afa-c9a80f9ceea4.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "42c36f57996f89cbd630077b17a8d6d60863a23b0d049a08dec4f6ffff390caf",
+              "pageCount": 61,
+              "generatedAt": "2026-06-29T16:48:10.860Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "6be17e54b886b1dc8acf6371919e353b3015c2afc9c0ea49624b2e34559911d8"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:10.860Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "b23d0f4296da3d81db636e5b56991710792becf601c5691b2c99c679e6f1c053"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "3058e352-c99c-400a-8afa-c9a80f9ceea4",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard IV Sayansi",
+          "subject": "Sayansi",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727175605-Muhtasari%20wa%20Somo%20la%20Sayansi%20Shule%20ya%20Msingi%20Darasa%20la%20III%20-%20VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/dd6e7c5b8dd262c89a5f7b2e2d00f285eceae767cb0741f852eb6004a4574772.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727175605-Muhtasari%20wa%20Somo%20la%20Sayansi%20Shule%20ya%20Msingi%20Darasa%20la%20III%20-%20VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/sayansi/3058e352-c99c-400a-8afa-c9a80f9ceea4.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "42c36f57996f89cbd630077b17a8d6d60863a23b0d049a08dec4f6ffff390caf",
+            "markdownPageCount": 61,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/sayansi/3058e352-c99c-400a-8afa-c9a80f9ceea4.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "42c36f57996f89cbd630077b17a8d6d60863a23b0d049a08dec4f6ffff390caf",
+              "pageCount": 61,
+              "generatedAt": "2026-06-29T16:48:10.860Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "6be17e54b886b1dc8acf6371919e353b3015c2afc9c0ea49624b2e34559911d8"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:10.860Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "b23d0f4296da3d81db636e5b56991710792becf601c5691b2c99c679e6f1c053"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-STANDARD-IV-sayansi-topic-004",
+      "grade": "Standard IV",
+      "strandId": "fallback-standard-iv-sayansi-4",
+      "subStrandId": "fallback-standard-iv-sayansi-4",
+      "parentSubStrandId": "fallback-standard-iv-sayansi-4",
+      "strandTitle": "Materials And Their Uses",
+      "unitTitle": "Materials And Their Uses",
+      "sourceUnitTitle": "Materials And Their Uses",
+      "learningOutcomes": [
+        {
+          "id": "fallback-standard-iv-sayansi-4-outcome-1",
+          "text": "investigate and explain materials and their uses using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can materials and their uses help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Materials And Their Uses.",
+        "Review key vocabulary from the previous Sayansi lesson."
+      ],
+      "keyVocabulary": [
+        "Materials And Their Uses",
+        "Materials",
+        "Their",
+        "Uses",
+        "concept",
+        "observation",
+        "evidence",
+        "safety"
+      ],
+      "misconceptions": [
+        "giving a general answer about Materials And Their Uses without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Materials And Their Uses",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Materials And Their Uses",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Materials And Their Uses",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "3058e352-c99c-400a-8afa-c9a80f9ceea4",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard IV Sayansi",
+          "subject": "Sayansi",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727175605-Muhtasari%20wa%20Somo%20la%20Sayansi%20Shule%20ya%20Msingi%20Darasa%20la%20III%20-%20VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/dd6e7c5b8dd262c89a5f7b2e2d00f285eceae767cb0741f852eb6004a4574772.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727175605-Muhtasari%20wa%20Somo%20la%20Sayansi%20Shule%20ya%20Msingi%20Darasa%20la%20III%20-%20VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/sayansi/3058e352-c99c-400a-8afa-c9a80f9ceea4.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "42c36f57996f89cbd630077b17a8d6d60863a23b0d049a08dec4f6ffff390caf",
+            "markdownPageCount": 61,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/sayansi/3058e352-c99c-400a-8afa-c9a80f9ceea4.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "42c36f57996f89cbd630077b17a8d6d60863a23b0d049a08dec4f6ffff390caf",
+              "pageCount": 61,
+              "generatedAt": "2026-06-29T16:48:10.860Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "6be17e54b886b1dc8acf6371919e353b3015c2afc9c0ea49624b2e34559911d8"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:10.860Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "b23d0f4296da3d81db636e5b56991710792becf601c5691b2c99c679e6f1c053"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "3058e352-c99c-400a-8afa-c9a80f9ceea4",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard IV Sayansi",
+          "subject": "Sayansi",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727175605-Muhtasari%20wa%20Somo%20la%20Sayansi%20Shule%20ya%20Msingi%20Darasa%20la%20III%20-%20VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/dd6e7c5b8dd262c89a5f7b2e2d00f285eceae767cb0741f852eb6004a4574772.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727175605-Muhtasari%20wa%20Somo%20la%20Sayansi%20Shule%20ya%20Msingi%20Darasa%20la%20III%20-%20VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/sayansi/3058e352-c99c-400a-8afa-c9a80f9ceea4.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "42c36f57996f89cbd630077b17a8d6d60863a23b0d049a08dec4f6ffff390caf",
+            "markdownPageCount": 61,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/sayansi/3058e352-c99c-400a-8afa-c9a80f9ceea4.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "42c36f57996f89cbd630077b17a8d6d60863a23b0d049a08dec4f6ffff390caf",
+              "pageCount": 61,
+              "generatedAt": "2026-06-29T16:48:10.860Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "6be17e54b886b1dc8acf6371919e353b3015c2afc9c0ea49624b2e34559911d8"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:10.860Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "b23d0f4296da3d81db636e5b56991710792becf601c5691b2c99c679e6f1c053"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-STANDARD-IV-sayansi-topic-005",
+      "grade": "Standard IV",
+      "strandId": "fallback-standard-iv-sayansi-5",
+      "subStrandId": "fallback-standard-iv-sayansi-5",
+      "parentSubStrandId": "fallback-standard-iv-sayansi-5",
+      "strandTitle": "Forces Movement And Simple Tools",
+      "unitTitle": "Forces Movement And Simple Tools",
+      "sourceUnitTitle": "Forces Movement And Simple Tools",
+      "learningOutcomes": [
+        {
+          "id": "fallback-standard-iv-sayansi-5-outcome-1",
+          "text": "investigate and explain forces movement and simple tools using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can forces movement and simple tools help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Forces Movement And Simple Tools.",
+        "Review key vocabulary from the previous Sayansi lesson."
+      ],
+      "keyVocabulary": [
+        "Forces Movement And Simple Tools",
+        "Forces",
+        "Movement",
+        "Simple",
+        "Tools",
+        "concept",
+        "observation",
+        "evidence"
+      ],
+      "misconceptions": [
+        "giving a general answer about Forces Movement And Simple Tools without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Forces Movement And Simple Tools",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Forces Movement And Simple Tools",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Forces Movement And Simple Tools",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "3058e352-c99c-400a-8afa-c9a80f9ceea4",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard IV Sayansi",
+          "subject": "Sayansi",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727175605-Muhtasari%20wa%20Somo%20la%20Sayansi%20Shule%20ya%20Msingi%20Darasa%20la%20III%20-%20VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/dd6e7c5b8dd262c89a5f7b2e2d00f285eceae767cb0741f852eb6004a4574772.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727175605-Muhtasari%20wa%20Somo%20la%20Sayansi%20Shule%20ya%20Msingi%20Darasa%20la%20III%20-%20VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/sayansi/3058e352-c99c-400a-8afa-c9a80f9ceea4.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "42c36f57996f89cbd630077b17a8d6d60863a23b0d049a08dec4f6ffff390caf",
+            "markdownPageCount": 61,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/sayansi/3058e352-c99c-400a-8afa-c9a80f9ceea4.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "42c36f57996f89cbd630077b17a8d6d60863a23b0d049a08dec4f6ffff390caf",
+              "pageCount": 61,
+              "generatedAt": "2026-06-29T16:48:10.860Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "6be17e54b886b1dc8acf6371919e353b3015c2afc9c0ea49624b2e34559911d8"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:10.860Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "b23d0f4296da3d81db636e5b56991710792becf601c5691b2c99c679e6f1c053"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "3058e352-c99c-400a-8afa-c9a80f9ceea4",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard IV Sayansi",
+          "subject": "Sayansi",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727175605-Muhtasari%20wa%20Somo%20la%20Sayansi%20Shule%20ya%20Msingi%20Darasa%20la%20III%20-%20VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/dd6e7c5b8dd262c89a5f7b2e2d00f285eceae767cb0741f852eb6004a4574772.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727175605-Muhtasari%20wa%20Somo%20la%20Sayansi%20Shule%20ya%20Msingi%20Darasa%20la%20III%20-%20VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/sayansi/3058e352-c99c-400a-8afa-c9a80f9ceea4.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "42c36f57996f89cbd630077b17a8d6d60863a23b0d049a08dec4f6ffff390caf",
+            "markdownPageCount": 61,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/sayansi/3058e352-c99c-400a-8afa-c9a80f9ceea4.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "42c36f57996f89cbd630077b17a8d6d60863a23b0d049a08dec4f6ffff390caf",
+              "pageCount": 61,
+              "generatedAt": "2026-06-29T16:48:10.860Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "6be17e54b886b1dc8acf6371919e353b3015c2afc9c0ea49624b2e34559911d8"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:10.860Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "b23d0f4296da3d81db636e5b56991710792becf601c5691b2c99c679e6f1c053"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-STANDARD-IV-sayansi-topic-006",
+      "grade": "Standard IV",
+      "strandId": "fallback-standard-iv-sayansi-6",
+      "subStrandId": "fallback-standard-iv-sayansi-6",
+      "parentSubStrandId": "fallback-standard-iv-sayansi-6",
+      "strandTitle": "Light Sound And Heat Around Us",
+      "unitTitle": "Light Sound And Heat Around Us",
+      "sourceUnitTitle": "Light Sound And Heat Around Us",
+      "learningOutcomes": [
+        {
+          "id": "fallback-standard-iv-sayansi-6-outcome-1",
+          "text": "investigate and explain light sound and heat around us using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can light sound and heat around us help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Light Sound And Heat Around Us.",
+        "Review key vocabulary from the previous Sayansi lesson."
+      ],
+      "keyVocabulary": [
+        "Light Sound And Heat Around Us",
+        "Light",
+        "Sound",
+        "Heat",
+        "Around",
+        "concept",
+        "observation",
+        "evidence"
+      ],
+      "misconceptions": [
+        "giving a general answer about Light Sound And Heat Around Us without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Light Sound And Heat Around Us",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Light Sound And Heat Around Us",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Light Sound And Heat Around Us",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "3058e352-c99c-400a-8afa-c9a80f9ceea4",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard IV Sayansi",
+          "subject": "Sayansi",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727175605-Muhtasari%20wa%20Somo%20la%20Sayansi%20Shule%20ya%20Msingi%20Darasa%20la%20III%20-%20VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/dd6e7c5b8dd262c89a5f7b2e2d00f285eceae767cb0741f852eb6004a4574772.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727175605-Muhtasari%20wa%20Somo%20la%20Sayansi%20Shule%20ya%20Msingi%20Darasa%20la%20III%20-%20VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/sayansi/3058e352-c99c-400a-8afa-c9a80f9ceea4.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "42c36f57996f89cbd630077b17a8d6d60863a23b0d049a08dec4f6ffff390caf",
+            "markdownPageCount": 61,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/sayansi/3058e352-c99c-400a-8afa-c9a80f9ceea4.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "42c36f57996f89cbd630077b17a8d6d60863a23b0d049a08dec4f6ffff390caf",
+              "pageCount": 61,
+              "generatedAt": "2026-06-29T16:48:10.860Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "6be17e54b886b1dc8acf6371919e353b3015c2afc9c0ea49624b2e34559911d8"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:10.860Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "b23d0f4296da3d81db636e5b56991710792becf601c5691b2c99c679e6f1c053"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "3058e352-c99c-400a-8afa-c9a80f9ceea4",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard IV Sayansi",
+          "subject": "Sayansi",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727175605-Muhtasari%20wa%20Somo%20la%20Sayansi%20Shule%20ya%20Msingi%20Darasa%20la%20III%20-%20VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/dd6e7c5b8dd262c89a5f7b2e2d00f285eceae767cb0741f852eb6004a4574772.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727175605-Muhtasari%20wa%20Somo%20la%20Sayansi%20Shule%20ya%20Msingi%20Darasa%20la%20III%20-%20VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/sayansi/3058e352-c99c-400a-8afa-c9a80f9ceea4.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "42c36f57996f89cbd630077b17a8d6d60863a23b0d049a08dec4f6ffff390caf",
+            "markdownPageCount": 61,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/sayansi/3058e352-c99c-400a-8afa-c9a80f9ceea4.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "42c36f57996f89cbd630077b17a8d6d60863a23b0d049a08dec4f6ffff390caf",
+              "pageCount": 61,
+              "generatedAt": "2026-06-29T16:48:10.860Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "6be17e54b886b1dc8acf6371919e353b3015c2afc9c0ea49624b2e34559911d8"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:10.860Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "b23d0f4296da3d81db636e5b56991710792becf601c5691b2c99c679e6f1c053"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-STANDARD-IV-sayansi-topic-007",
+      "grade": "Standard IV",
+      "strandId": "fallback-standard-iv-sayansi-7",
+      "subStrandId": "fallback-standard-iv-sayansi-7",
+      "parentSubStrandId": "fallback-standard-iv-sayansi-7",
+      "strandTitle": "Environment Care And Safety",
+      "unitTitle": "Environment Care And Safety",
+      "sourceUnitTitle": "Environment Care And Safety",
+      "learningOutcomes": [
+        {
+          "id": "fallback-standard-iv-sayansi-7-outcome-1",
+          "text": "investigate and explain environment care and safety using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can environment care and safety help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Environment Care And Safety.",
+        "Review key vocabulary from the previous Sayansi lesson."
+      ],
+      "keyVocabulary": [
+        "Environment Care And Safety",
+        "Environment",
+        "Care",
+        "Safety",
+        "concept",
+        "observation",
+        "evidence",
+        "safety"
+      ],
+      "misconceptions": [
+        "giving a general answer about Environment Care And Safety without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Environment Care And Safety",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Environment Care And Safety",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Environment Care And Safety",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "3058e352-c99c-400a-8afa-c9a80f9ceea4",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard IV Sayansi",
+          "subject": "Sayansi",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727175605-Muhtasari%20wa%20Somo%20la%20Sayansi%20Shule%20ya%20Msingi%20Darasa%20la%20III%20-%20VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/dd6e7c5b8dd262c89a5f7b2e2d00f285eceae767cb0741f852eb6004a4574772.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727175605-Muhtasari%20wa%20Somo%20la%20Sayansi%20Shule%20ya%20Msingi%20Darasa%20la%20III%20-%20VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/sayansi/3058e352-c99c-400a-8afa-c9a80f9ceea4.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "42c36f57996f89cbd630077b17a8d6d60863a23b0d049a08dec4f6ffff390caf",
+            "markdownPageCount": 61,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/sayansi/3058e352-c99c-400a-8afa-c9a80f9ceea4.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "42c36f57996f89cbd630077b17a8d6d60863a23b0d049a08dec4f6ffff390caf",
+              "pageCount": 61,
+              "generatedAt": "2026-06-29T16:48:10.860Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "6be17e54b886b1dc8acf6371919e353b3015c2afc9c0ea49624b2e34559911d8"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:10.860Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "b23d0f4296da3d81db636e5b56991710792becf601c5691b2c99c679e6f1c053"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "3058e352-c99c-400a-8afa-c9a80f9ceea4",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard IV Sayansi",
+          "subject": "Sayansi",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727175605-Muhtasari%20wa%20Somo%20la%20Sayansi%20Shule%20ya%20Msingi%20Darasa%20la%20III%20-%20VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/dd6e7c5b8dd262c89a5f7b2e2d00f285eceae767cb0741f852eb6004a4574772.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727175605-Muhtasari%20wa%20Somo%20la%20Sayansi%20Shule%20ya%20Msingi%20Darasa%20la%20III%20-%20VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/sayansi/3058e352-c99c-400a-8afa-c9a80f9ceea4.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "42c36f57996f89cbd630077b17a8d6d60863a23b0d049a08dec4f6ffff390caf",
+            "markdownPageCount": 61,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/sayansi/3058e352-c99c-400a-8afa-c9a80f9ceea4.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "42c36f57996f89cbd630077b17a8d6d60863a23b0d049a08dec4f6ffff390caf",
+              "pageCount": 61,
+              "generatedAt": "2026-06-29T16:48:10.860Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "6be17e54b886b1dc8acf6371919e353b3015c2afc9c0ea49624b2e34559911d8"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:10.860Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "b23d0f4296da3d81db636e5b56991710792becf601c5691b2c99c679e6f1c053"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-STANDARD-IV-sayansi-topic-008",
+      "grade": "Standard IV",
+      "strandId": "fallback-standard-iv-sayansi-8",
+      "subStrandId": "fallback-standard-iv-sayansi-8",
+      "parentSubStrandId": "fallback-standard-iv-sayansi-8",
+      "strandTitle": "Primary Science Project",
+      "unitTitle": "Primary Science Project",
+      "sourceUnitTitle": "Primary Science Project",
+      "learningOutcomes": [
+        {
+          "id": "fallback-standard-iv-sayansi-8-outcome-1",
+          "text": "investigate and explain primary science project using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can primary science project help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Primary Science Project.",
+        "Review key vocabulary from the previous Sayansi lesson."
+      ],
+      "keyVocabulary": [
+        "Primary Science Project",
+        "Primary",
+        "Science",
+        "Project",
+        "concept",
+        "observation",
+        "evidence",
+        "safety"
+      ],
+      "misconceptions": [
+        "giving a general answer about Primary Science Project without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Primary Science Project",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Primary Science Project",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Primary Science Project",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "3058e352-c99c-400a-8afa-c9a80f9ceea4",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard IV Sayansi",
+          "subject": "Sayansi",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727175605-Muhtasari%20wa%20Somo%20la%20Sayansi%20Shule%20ya%20Msingi%20Darasa%20la%20III%20-%20VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/dd6e7c5b8dd262c89a5f7b2e2d00f285eceae767cb0741f852eb6004a4574772.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727175605-Muhtasari%20wa%20Somo%20la%20Sayansi%20Shule%20ya%20Msingi%20Darasa%20la%20III%20-%20VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/sayansi/3058e352-c99c-400a-8afa-c9a80f9ceea4.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "42c36f57996f89cbd630077b17a8d6d60863a23b0d049a08dec4f6ffff390caf",
+            "markdownPageCount": 61,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/sayansi/3058e352-c99c-400a-8afa-c9a80f9ceea4.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "42c36f57996f89cbd630077b17a8d6d60863a23b0d049a08dec4f6ffff390caf",
+              "pageCount": 61,
+              "generatedAt": "2026-06-29T16:48:10.860Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "6be17e54b886b1dc8acf6371919e353b3015c2afc9c0ea49624b2e34559911d8"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:10.860Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "b23d0f4296da3d81db636e5b56991710792becf601c5691b2c99c679e6f1c053"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "3058e352-c99c-400a-8afa-c9a80f9ceea4",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard IV Sayansi",
+          "subject": "Sayansi",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727175605-Muhtasari%20wa%20Somo%20la%20Sayansi%20Shule%20ya%20Msingi%20Darasa%20la%20III%20-%20VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/dd6e7c5b8dd262c89a5f7b2e2d00f285eceae767cb0741f852eb6004a4574772.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_IV",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727175605-Muhtasari%20wa%20Somo%20la%20Sayansi%20Shule%20ya%20Msingi%20Darasa%20la%20III%20-%20VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/sayansi/3058e352-c99c-400a-8afa-c9a80f9ceea4.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "42c36f57996f89cbd630077b17a8d6d60863a23b0d049a08dec4f6ffff390caf",
+            "markdownPageCount": 61,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/sayansi/3058e352-c99c-400a-8afa-c9a80f9ceea4.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "42c36f57996f89cbd630077b17a8d6d60863a23b0d049a08dec4f6ffff390caf",
+              "pageCount": 61,
+              "generatedAt": "2026-06-29T16:48:10.860Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "6be17e54b886b1dc8acf6371919e353b3015c2afc9c0ea49624b2e34559911d8"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:10.860Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "b23d0f4296da3d81db636e5b56991710792becf601c5691b2c99c679e6f1c053"
+        }
+      ]
+    }
+  ]
+}

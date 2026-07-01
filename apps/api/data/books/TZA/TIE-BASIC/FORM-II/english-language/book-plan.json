@@ -1,0 +1,1279 @@
+{
+  "schemaVersion": 1,
+  "sourceType": "normalized-curriculum",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Form II",
+  "subject": "English Language",
+  "generatedAt": "2026-07-01T05:45:11Z",
+  "sourceSnapshotHash": "6609b5713e7ae36fb58decfeea17d91bb8f751530117d8b122330081382324e6",
+  "writingStandard": {
+    "voice": "simple, conversational, purposeful, age-appropriate, and learner-first",
+    "antiFluff": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "coversDeferred": true
+  },
+  "strands": [
+    {
+      "strandId": "fallback-form-ii-english-language-1",
+      "number": "",
+      "title": "Reading For Inference And Purpose",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-ii-english-language-2",
+      "number": "",
+      "title": "Vocabulary Word Formation And Meaning",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-ii-english-language-3",
+      "number": "",
+      "title": "Oral Presentation And Active Listening",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-ii-english-language-4",
+      "number": "",
+      "title": "Grammar Clauses And Connectors",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-ii-english-language-5",
+      "number": "",
+      "title": "Descriptive And Narrative Writing",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-ii-english-language-6",
+      "number": "",
+      "title": "Poetry Prose And Drama Response",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-ii-english-language-7",
+      "number": "",
+      "title": "Summary Writing And Editing",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-ii-english-language-8",
+      "number": "",
+      "title": "Form II Language Project",
+      "topicCount": 1
+    }
+  ],
+  "topics": [
+    {
+      "topicId": "TZA-FORM-II-english-language-topic-001",
+      "grade": "Form II",
+      "strandId": "fallback-form-ii-english-language-1",
+      "subStrandId": "fallback-form-ii-english-language-1",
+      "parentSubStrandId": "fallback-form-ii-english-language-1",
+      "strandTitle": "Reading For Inference And Purpose",
+      "unitTitle": "Reading For Inference And Purpose",
+      "sourceUnitTitle": "Reading For Inference And Purpose",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-ii-english-language-1-outcome-1",
+          "text": "read, speak, listen, write, and edit clearly about reading for inference and purpose"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can reading for inference and purpose help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Reading For Inference And Purpose.",
+        "Review key vocabulary from the previous English Language lesson."
+      ],
+      "keyVocabulary": [
+        "Reading For Inference And Purpose",
+        "Reading",
+        "Inference",
+        "Purpose",
+        "read",
+        "listen",
+        "speak",
+        "write"
+      ],
+      "misconceptions": [
+        "giving a general answer about Reading For Inference And Purpose without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania reading, speaking, listening, writing, or discussion task for Reading For Inference And Purpose",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, grammar, and structure are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Reading For Inference And Purpose",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "writing or dialogue checklist",
+          "description": "writing or dialogue checklist for Reading For Inference And Purpose",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "41989724-a788-4ee5-a3b0-5cae8994bd8a",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II English Language",
+          "subject": "English Language",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1756459411-ENGLISH%20lANGUAGE%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/72f4682e7a414619f9f3fb492bb190e9b34c3b547a7d157c985e87bcc8ea3a2f.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1756459411-ENGLISH%20lANGUAGE%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/english-language/41989724-a788-4ee5-a3b0-5cae8994bd8a.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "6b9ea4b4d0a435767d4e470a26967f6248a2196e6dcd68aa0e3317b9409dd145",
+            "markdownPageCount": 88,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/english-language/41989724-a788-4ee5-a3b0-5cae8994bd8a.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "6b9ea4b4d0a435767d4e470a26967f6248a2196e6dcd68aa0e3317b9409dd145",
+              "pageCount": 88,
+              "generatedAt": "2026-06-29T16:45:13.872Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "6daa1f44f86bd186c4e78e24c716038e04f8da82555013e33cac0a5af8e0f3e9"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:45:13.872Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "6609b5713e7ae36fb58decfeea17d91bb8f751530117d8b122330081382324e6"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "41989724-a788-4ee5-a3b0-5cae8994bd8a",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II English Language",
+          "subject": "English Language",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1756459411-ENGLISH%20lANGUAGE%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/72f4682e7a414619f9f3fb492bb190e9b34c3b547a7d157c985e87bcc8ea3a2f.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1756459411-ENGLISH%20lANGUAGE%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/english-language/41989724-a788-4ee5-a3b0-5cae8994bd8a.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "6b9ea4b4d0a435767d4e470a26967f6248a2196e6dcd68aa0e3317b9409dd145",
+            "markdownPageCount": 88,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/english-language/41989724-a788-4ee5-a3b0-5cae8994bd8a.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "6b9ea4b4d0a435767d4e470a26967f6248a2196e6dcd68aa0e3317b9409dd145",
+              "pageCount": 88,
+              "generatedAt": "2026-06-29T16:45:13.872Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "6daa1f44f86bd186c4e78e24c716038e04f8da82555013e33cac0a5af8e0f3e9"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:45:13.872Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "6609b5713e7ae36fb58decfeea17d91bb8f751530117d8b122330081382324e6"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-II-english-language-topic-002",
+      "grade": "Form II",
+      "strandId": "fallback-form-ii-english-language-2",
+      "subStrandId": "fallback-form-ii-english-language-2",
+      "parentSubStrandId": "fallback-form-ii-english-language-2",
+      "strandTitle": "Vocabulary Word Formation And Meaning",
+      "unitTitle": "Vocabulary Word Formation And Meaning",
+      "sourceUnitTitle": "Vocabulary Word Formation And Meaning",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-ii-english-language-2-outcome-1",
+          "text": "read, speak, listen, write, and edit clearly about vocabulary word formation and meaning"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can vocabulary word formation and meaning help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Vocabulary Word Formation And Meaning.",
+        "Review key vocabulary from the previous English Language lesson."
+      ],
+      "keyVocabulary": [
+        "Vocabulary Word Formation And Meaning",
+        "Vocabulary",
+        "Word",
+        "Formation",
+        "Meaning",
+        "read",
+        "listen",
+        "speak"
+      ],
+      "misconceptions": [
+        "giving a general answer about Vocabulary Word Formation And Meaning without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania reading, speaking, listening, writing, or discussion task for Vocabulary Word Formation And Meaning",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, grammar, and structure are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Vocabulary Word Formation And Meaning",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "writing or dialogue checklist",
+          "description": "writing or dialogue checklist for Vocabulary Word Formation And Meaning",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "41989724-a788-4ee5-a3b0-5cae8994bd8a",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II English Language",
+          "subject": "English Language",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1756459411-ENGLISH%20lANGUAGE%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/72f4682e7a414619f9f3fb492bb190e9b34c3b547a7d157c985e87bcc8ea3a2f.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1756459411-ENGLISH%20lANGUAGE%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/english-language/41989724-a788-4ee5-a3b0-5cae8994bd8a.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "6b9ea4b4d0a435767d4e470a26967f6248a2196e6dcd68aa0e3317b9409dd145",
+            "markdownPageCount": 88,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/english-language/41989724-a788-4ee5-a3b0-5cae8994bd8a.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "6b9ea4b4d0a435767d4e470a26967f6248a2196e6dcd68aa0e3317b9409dd145",
+              "pageCount": 88,
+              "generatedAt": "2026-06-29T16:45:13.872Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "6daa1f44f86bd186c4e78e24c716038e04f8da82555013e33cac0a5af8e0f3e9"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:45:13.872Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "6609b5713e7ae36fb58decfeea17d91bb8f751530117d8b122330081382324e6"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "41989724-a788-4ee5-a3b0-5cae8994bd8a",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II English Language",
+          "subject": "English Language",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1756459411-ENGLISH%20lANGUAGE%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/72f4682e7a414619f9f3fb492bb190e9b34c3b547a7d157c985e87bcc8ea3a2f.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1756459411-ENGLISH%20lANGUAGE%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/english-language/41989724-a788-4ee5-a3b0-5cae8994bd8a.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "6b9ea4b4d0a435767d4e470a26967f6248a2196e6dcd68aa0e3317b9409dd145",
+            "markdownPageCount": 88,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/english-language/41989724-a788-4ee5-a3b0-5cae8994bd8a.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "6b9ea4b4d0a435767d4e470a26967f6248a2196e6dcd68aa0e3317b9409dd145",
+              "pageCount": 88,
+              "generatedAt": "2026-06-29T16:45:13.872Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "6daa1f44f86bd186c4e78e24c716038e04f8da82555013e33cac0a5af8e0f3e9"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:45:13.872Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "6609b5713e7ae36fb58decfeea17d91bb8f751530117d8b122330081382324e6"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-II-english-language-topic-003",
+      "grade": "Form II",
+      "strandId": "fallback-form-ii-english-language-3",
+      "subStrandId": "fallback-form-ii-english-language-3",
+      "parentSubStrandId": "fallback-form-ii-english-language-3",
+      "strandTitle": "Oral Presentation And Active Listening",
+      "unitTitle": "Oral Presentation And Active Listening",
+      "sourceUnitTitle": "Oral Presentation And Active Listening",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-ii-english-language-3-outcome-1",
+          "text": "read, speak, listen, write, and edit clearly about oral presentation and active listening"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can oral presentation and active listening help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Oral Presentation And Active Listening.",
+        "Review key vocabulary from the previous English Language lesson."
+      ],
+      "keyVocabulary": [
+        "Oral Presentation And Active Listening",
+        "Oral",
+        "Presentation",
+        "Active",
+        "Listening",
+        "read",
+        "listen",
+        "speak"
+      ],
+      "misconceptions": [
+        "giving a general answer about Oral Presentation And Active Listening without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania reading, speaking, listening, writing, or discussion task for Oral Presentation And Active Listening",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, grammar, and structure are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Oral Presentation And Active Listening",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "writing or dialogue checklist",
+          "description": "writing or dialogue checklist for Oral Presentation And Active Listening",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "41989724-a788-4ee5-a3b0-5cae8994bd8a",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II English Language",
+          "subject": "English Language",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1756459411-ENGLISH%20lANGUAGE%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/72f4682e7a414619f9f3fb492bb190e9b34c3b547a7d157c985e87bcc8ea3a2f.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1756459411-ENGLISH%20lANGUAGE%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/english-language/41989724-a788-4ee5-a3b0-5cae8994bd8a.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "6b9ea4b4d0a435767d4e470a26967f6248a2196e6dcd68aa0e3317b9409dd145",
+            "markdownPageCount": 88,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/english-language/41989724-a788-4ee5-a3b0-5cae8994bd8a.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "6b9ea4b4d0a435767d4e470a26967f6248a2196e6dcd68aa0e3317b9409dd145",
+              "pageCount": 88,
+              "generatedAt": "2026-06-29T16:45:13.872Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "6daa1f44f86bd186c4e78e24c716038e04f8da82555013e33cac0a5af8e0f3e9"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:45:13.872Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "6609b5713e7ae36fb58decfeea17d91bb8f751530117d8b122330081382324e6"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "41989724-a788-4ee5-a3b0-5cae8994bd8a",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II English Language",
+          "subject": "English Language",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1756459411-ENGLISH%20lANGUAGE%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/72f4682e7a414619f9f3fb492bb190e9b34c3b547a7d157c985e87bcc8ea3a2f.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1756459411-ENGLISH%20lANGUAGE%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/english-language/41989724-a788-4ee5-a3b0-5cae8994bd8a.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "6b9ea4b4d0a435767d4e470a26967f6248a2196e6dcd68aa0e3317b9409dd145",
+            "markdownPageCount": 88,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/english-language/41989724-a788-4ee5-a3b0-5cae8994bd8a.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "6b9ea4b4d0a435767d4e470a26967f6248a2196e6dcd68aa0e3317b9409dd145",
+              "pageCount": 88,
+              "generatedAt": "2026-06-29T16:45:13.872Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "6daa1f44f86bd186c4e78e24c716038e04f8da82555013e33cac0a5af8e0f3e9"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:45:13.872Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "6609b5713e7ae36fb58decfeea17d91bb8f751530117d8b122330081382324e6"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-II-english-language-topic-004",
+      "grade": "Form II",
+      "strandId": "fallback-form-ii-english-language-4",
+      "subStrandId": "fallback-form-ii-english-language-4",
+      "parentSubStrandId": "fallback-form-ii-english-language-4",
+      "strandTitle": "Grammar Clauses And Connectors",
+      "unitTitle": "Grammar Clauses And Connectors",
+      "sourceUnitTitle": "Grammar Clauses And Connectors",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-ii-english-language-4-outcome-1",
+          "text": "read, speak, listen, write, and edit clearly about grammar clauses and connectors"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can grammar clauses and connectors help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Grammar Clauses And Connectors.",
+        "Review key vocabulary from the previous English Language lesson."
+      ],
+      "keyVocabulary": [
+        "Grammar Clauses And Connectors",
+        "Grammar",
+        "Clauses",
+        "Connectors",
+        "read",
+        "listen",
+        "speak",
+        "write"
+      ],
+      "misconceptions": [
+        "giving a general answer about Grammar Clauses And Connectors without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania reading, speaking, listening, writing, or discussion task for Grammar Clauses And Connectors",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, grammar, and structure are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Grammar Clauses And Connectors",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "writing or dialogue checklist",
+          "description": "writing or dialogue checklist for Grammar Clauses And Connectors",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "41989724-a788-4ee5-a3b0-5cae8994bd8a",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II English Language",
+          "subject": "English Language",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1756459411-ENGLISH%20lANGUAGE%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/72f4682e7a414619f9f3fb492bb190e9b34c3b547a7d157c985e87bcc8ea3a2f.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1756459411-ENGLISH%20lANGUAGE%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/english-language/41989724-a788-4ee5-a3b0-5cae8994bd8a.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "6b9ea4b4d0a435767d4e470a26967f6248a2196e6dcd68aa0e3317b9409dd145",
+            "markdownPageCount": 88,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/english-language/41989724-a788-4ee5-a3b0-5cae8994bd8a.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "6b9ea4b4d0a435767d4e470a26967f6248a2196e6dcd68aa0e3317b9409dd145",
+              "pageCount": 88,
+              "generatedAt": "2026-06-29T16:45:13.872Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "6daa1f44f86bd186c4e78e24c716038e04f8da82555013e33cac0a5af8e0f3e9"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:45:13.872Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "6609b5713e7ae36fb58decfeea17d91bb8f751530117d8b122330081382324e6"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "41989724-a788-4ee5-a3b0-5cae8994bd8a",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II English Language",
+          "subject": "English Language",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1756459411-ENGLISH%20lANGUAGE%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/72f4682e7a414619f9f3fb492bb190e9b34c3b547a7d157c985e87bcc8ea3a2f.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1756459411-ENGLISH%20lANGUAGE%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/english-language/41989724-a788-4ee5-a3b0-5cae8994bd8a.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "6b9ea4b4d0a435767d4e470a26967f6248a2196e6dcd68aa0e3317b9409dd145",
+            "markdownPageCount": 88,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/english-language/41989724-a788-4ee5-a3b0-5cae8994bd8a.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "6b9ea4b4d0a435767d4e470a26967f6248a2196e6dcd68aa0e3317b9409dd145",
+              "pageCount": 88,
+              "generatedAt": "2026-06-29T16:45:13.872Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "6daa1f44f86bd186c4e78e24c716038e04f8da82555013e33cac0a5af8e0f3e9"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:45:13.872Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "6609b5713e7ae36fb58decfeea17d91bb8f751530117d8b122330081382324e6"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-II-english-language-topic-005",
+      "grade": "Form II",
+      "strandId": "fallback-form-ii-english-language-5",
+      "subStrandId": "fallback-form-ii-english-language-5",
+      "parentSubStrandId": "fallback-form-ii-english-language-5",
+      "strandTitle": "Descriptive And Narrative Writing",
+      "unitTitle": "Descriptive And Narrative Writing",
+      "sourceUnitTitle": "Descriptive And Narrative Writing",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-ii-english-language-5-outcome-1",
+          "text": "read, speak, listen, write, and edit clearly about descriptive and narrative writing"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can descriptive and narrative writing help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Descriptive And Narrative Writing.",
+        "Review key vocabulary from the previous English Language lesson."
+      ],
+      "keyVocabulary": [
+        "Descriptive And Narrative Writing",
+        "Descriptive",
+        "Narrative",
+        "Writing",
+        "read",
+        "listen",
+        "speak",
+        "write"
+      ],
+      "misconceptions": [
+        "giving a general answer about Descriptive And Narrative Writing without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania reading, speaking, listening, writing, or discussion task for Descriptive And Narrative Writing",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, grammar, and structure are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Descriptive And Narrative Writing",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "writing or dialogue checklist",
+          "description": "writing or dialogue checklist for Descriptive And Narrative Writing",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "41989724-a788-4ee5-a3b0-5cae8994bd8a",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II English Language",
+          "subject": "English Language",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1756459411-ENGLISH%20lANGUAGE%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/72f4682e7a414619f9f3fb492bb190e9b34c3b547a7d157c985e87bcc8ea3a2f.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1756459411-ENGLISH%20lANGUAGE%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/english-language/41989724-a788-4ee5-a3b0-5cae8994bd8a.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "6b9ea4b4d0a435767d4e470a26967f6248a2196e6dcd68aa0e3317b9409dd145",
+            "markdownPageCount": 88,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/english-language/41989724-a788-4ee5-a3b0-5cae8994bd8a.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "6b9ea4b4d0a435767d4e470a26967f6248a2196e6dcd68aa0e3317b9409dd145",
+              "pageCount": 88,
+              "generatedAt": "2026-06-29T16:45:13.872Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "6daa1f44f86bd186c4e78e24c716038e04f8da82555013e33cac0a5af8e0f3e9"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:45:13.872Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "6609b5713e7ae36fb58decfeea17d91bb8f751530117d8b122330081382324e6"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "41989724-a788-4ee5-a3b0-5cae8994bd8a",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II English Language",
+          "subject": "English Language",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1756459411-ENGLISH%20lANGUAGE%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/72f4682e7a414619f9f3fb492bb190e9b34c3b547a7d157c985e87bcc8ea3a2f.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1756459411-ENGLISH%20lANGUAGE%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/english-language/41989724-a788-4ee5-a3b0-5cae8994bd8a.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "6b9ea4b4d0a435767d4e470a26967f6248a2196e6dcd68aa0e3317b9409dd145",
+            "markdownPageCount": 88,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/english-language/41989724-a788-4ee5-a3b0-5cae8994bd8a.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "6b9ea4b4d0a435767d4e470a26967f6248a2196e6dcd68aa0e3317b9409dd145",
+              "pageCount": 88,
+              "generatedAt": "2026-06-29T16:45:13.872Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "6daa1f44f86bd186c4e78e24c716038e04f8da82555013e33cac0a5af8e0f3e9"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:45:13.872Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "6609b5713e7ae36fb58decfeea17d91bb8f751530117d8b122330081382324e6"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-II-english-language-topic-006",
+      "grade": "Form II",
+      "strandId": "fallback-form-ii-english-language-6",
+      "subStrandId": "fallback-form-ii-english-language-6",
+      "parentSubStrandId": "fallback-form-ii-english-language-6",
+      "strandTitle": "Poetry Prose And Drama Response",
+      "unitTitle": "Poetry Prose And Drama Response",
+      "sourceUnitTitle": "Poetry Prose And Drama Response",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-ii-english-language-6-outcome-1",
+          "text": "read, speak, listen, write, and edit clearly about poetry prose and drama response"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can poetry prose and drama response help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Poetry Prose And Drama Response.",
+        "Review key vocabulary from the previous English Language lesson."
+      ],
+      "keyVocabulary": [
+        "Poetry Prose And Drama Response",
+        "Poetry",
+        "Prose",
+        "Drama",
+        "Response",
+        "read",
+        "listen",
+        "speak"
+      ],
+      "misconceptions": [
+        "giving a general answer about Poetry Prose And Drama Response without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania reading, speaking, listening, writing, or discussion task for Poetry Prose And Drama Response",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, grammar, and structure are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Poetry Prose And Drama Response",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "writing or dialogue checklist",
+          "description": "writing or dialogue checklist for Poetry Prose And Drama Response",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "41989724-a788-4ee5-a3b0-5cae8994bd8a",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II English Language",
+          "subject": "English Language",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1756459411-ENGLISH%20lANGUAGE%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/72f4682e7a414619f9f3fb492bb190e9b34c3b547a7d157c985e87bcc8ea3a2f.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1756459411-ENGLISH%20lANGUAGE%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/english-language/41989724-a788-4ee5-a3b0-5cae8994bd8a.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "6b9ea4b4d0a435767d4e470a26967f6248a2196e6dcd68aa0e3317b9409dd145",
+            "markdownPageCount": 88,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/english-language/41989724-a788-4ee5-a3b0-5cae8994bd8a.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "6b9ea4b4d0a435767d4e470a26967f6248a2196e6dcd68aa0e3317b9409dd145",
+              "pageCount": 88,
+              "generatedAt": "2026-06-29T16:45:13.872Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "6daa1f44f86bd186c4e78e24c716038e04f8da82555013e33cac0a5af8e0f3e9"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:45:13.872Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "6609b5713e7ae36fb58decfeea17d91bb8f751530117d8b122330081382324e6"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "41989724-a788-4ee5-a3b0-5cae8994bd8a",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II English Language",
+          "subject": "English Language",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1756459411-ENGLISH%20lANGUAGE%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/72f4682e7a414619f9f3fb492bb190e9b34c3b547a7d157c985e87bcc8ea3a2f.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1756459411-ENGLISH%20lANGUAGE%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/english-language/41989724-a788-4ee5-a3b0-5cae8994bd8a.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "6b9ea4b4d0a435767d4e470a26967f6248a2196e6dcd68aa0e3317b9409dd145",
+            "markdownPageCount": 88,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/english-language/41989724-a788-4ee5-a3b0-5cae8994bd8a.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "6b9ea4b4d0a435767d4e470a26967f6248a2196e6dcd68aa0e3317b9409dd145",
+              "pageCount": 88,
+              "generatedAt": "2026-06-29T16:45:13.872Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "6daa1f44f86bd186c4e78e24c716038e04f8da82555013e33cac0a5af8e0f3e9"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:45:13.872Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "6609b5713e7ae36fb58decfeea17d91bb8f751530117d8b122330081382324e6"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-II-english-language-topic-007",
+      "grade": "Form II",
+      "strandId": "fallback-form-ii-english-language-7",
+      "subStrandId": "fallback-form-ii-english-language-7",
+      "parentSubStrandId": "fallback-form-ii-english-language-7",
+      "strandTitle": "Summary Writing And Editing",
+      "unitTitle": "Summary Writing And Editing",
+      "sourceUnitTitle": "Summary Writing And Editing",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-ii-english-language-7-outcome-1",
+          "text": "read, speak, listen, write, and edit clearly about summary writing and editing"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can summary writing and editing help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Summary Writing And Editing.",
+        "Review key vocabulary from the previous English Language lesson."
+      ],
+      "keyVocabulary": [
+        "Summary Writing And Editing",
+        "Summary",
+        "Writing",
+        "Editing",
+        "read",
+        "listen",
+        "speak",
+        "write"
+      ],
+      "misconceptions": [
+        "giving a general answer about Summary Writing And Editing without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania reading, speaking, listening, writing, or discussion task for Summary Writing And Editing",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, grammar, and structure are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Summary Writing And Editing",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "writing or dialogue checklist",
+          "description": "writing or dialogue checklist for Summary Writing And Editing",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "41989724-a788-4ee5-a3b0-5cae8994bd8a",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II English Language",
+          "subject": "English Language",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1756459411-ENGLISH%20lANGUAGE%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/72f4682e7a414619f9f3fb492bb190e9b34c3b547a7d157c985e87bcc8ea3a2f.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1756459411-ENGLISH%20lANGUAGE%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/english-language/41989724-a788-4ee5-a3b0-5cae8994bd8a.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "6b9ea4b4d0a435767d4e470a26967f6248a2196e6dcd68aa0e3317b9409dd145",
+            "markdownPageCount": 88,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/english-language/41989724-a788-4ee5-a3b0-5cae8994bd8a.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "6b9ea4b4d0a435767d4e470a26967f6248a2196e6dcd68aa0e3317b9409dd145",
+              "pageCount": 88,
+              "generatedAt": "2026-06-29T16:45:13.872Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "6daa1f44f86bd186c4e78e24c716038e04f8da82555013e33cac0a5af8e0f3e9"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:45:13.872Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "6609b5713e7ae36fb58decfeea17d91bb8f751530117d8b122330081382324e6"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "41989724-a788-4ee5-a3b0-5cae8994bd8a",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II English Language",
+          "subject": "English Language",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1756459411-ENGLISH%20lANGUAGE%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/72f4682e7a414619f9f3fb492bb190e9b34c3b547a7d157c985e87bcc8ea3a2f.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1756459411-ENGLISH%20lANGUAGE%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/english-language/41989724-a788-4ee5-a3b0-5cae8994bd8a.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "6b9ea4b4d0a435767d4e470a26967f6248a2196e6dcd68aa0e3317b9409dd145",
+            "markdownPageCount": 88,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/english-language/41989724-a788-4ee5-a3b0-5cae8994bd8a.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "6b9ea4b4d0a435767d4e470a26967f6248a2196e6dcd68aa0e3317b9409dd145",
+              "pageCount": 88,
+              "generatedAt": "2026-06-29T16:45:13.872Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "6daa1f44f86bd186c4e78e24c716038e04f8da82555013e33cac0a5af8e0f3e9"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:45:13.872Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "6609b5713e7ae36fb58decfeea17d91bb8f751530117d8b122330081382324e6"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-II-english-language-topic-008",
+      "grade": "Form II",
+      "strandId": "fallback-form-ii-english-language-8",
+      "subStrandId": "fallback-form-ii-english-language-8",
+      "parentSubStrandId": "fallback-form-ii-english-language-8",
+      "strandTitle": "Form II Language Project",
+      "unitTitle": "Form II Language Project",
+      "sourceUnitTitle": "Form II Language Project",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-ii-english-language-8-outcome-1",
+          "text": "read, speak, listen, write, and edit clearly about form ii language project"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can form ii language project help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Form II Language Project.",
+        "Review key vocabulary from the previous English Language lesson."
+      ],
+      "keyVocabulary": [
+        "Form II Language Project",
+        "Form",
+        "Language",
+        "Project",
+        "read",
+        "listen",
+        "speak",
+        "write"
+      ],
+      "misconceptions": [
+        "giving a general answer about Form II Language Project without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania reading, speaking, listening, writing, or discussion task for Form II Language Project",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, grammar, and structure are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Form II Language Project",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "writing or dialogue checklist",
+          "description": "writing or dialogue checklist for Form II Language Project",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "41989724-a788-4ee5-a3b0-5cae8994bd8a",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II English Language",
+          "subject": "English Language",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1756459411-ENGLISH%20lANGUAGE%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/72f4682e7a414619f9f3fb492bb190e9b34c3b547a7d157c985e87bcc8ea3a2f.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1756459411-ENGLISH%20lANGUAGE%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/english-language/41989724-a788-4ee5-a3b0-5cae8994bd8a.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "6b9ea4b4d0a435767d4e470a26967f6248a2196e6dcd68aa0e3317b9409dd145",
+            "markdownPageCount": 88,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/english-language/41989724-a788-4ee5-a3b0-5cae8994bd8a.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "6b9ea4b4d0a435767d4e470a26967f6248a2196e6dcd68aa0e3317b9409dd145",
+              "pageCount": 88,
+              "generatedAt": "2026-06-29T16:45:13.872Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "6daa1f44f86bd186c4e78e24c716038e04f8da82555013e33cac0a5af8e0f3e9"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:45:13.872Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "6609b5713e7ae36fb58decfeea17d91bb8f751530117d8b122330081382324e6"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "41989724-a788-4ee5-a3b0-5cae8994bd8a",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II English Language",
+          "subject": "English Language",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1756459411-ENGLISH%20lANGUAGE%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/72f4682e7a414619f9f3fb492bb190e9b34c3b547a7d157c985e87bcc8ea3a2f.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1756459411-ENGLISH%20lANGUAGE%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/english-language/41989724-a788-4ee5-a3b0-5cae8994bd8a.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "6b9ea4b4d0a435767d4e470a26967f6248a2196e6dcd68aa0e3317b9409dd145",
+            "markdownPageCount": 88,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/english-language/41989724-a788-4ee5-a3b0-5cae8994bd8a.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "6b9ea4b4d0a435767d4e470a26967f6248a2196e6dcd68aa0e3317b9409dd145",
+              "pageCount": 88,
+              "generatedAt": "2026-06-29T16:45:13.872Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "6daa1f44f86bd186c4e78e24c716038e04f8da82555013e33cac0a5af8e0f3e9"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:45:13.872Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "6609b5713e7ae36fb58decfeea17d91bb8f751530117d8b122330081382324e6"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,864 @@
+{
+  "schemaVersion": 1,
+  "sourceType": "normalized-curriculum",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "S2",
+  "subject": "Chemistry",
+  "generatedAt": "2026-07-01T06:44:00Z",
+  "sourceSnapshotHash": "d6c849ee164bba1376b4f93e2d07c1b9b8e5143cfe9565fb21b46f9f91df83bb",
+  "writingStandard": {
+    "voice": "simple, conversational, purposeful, age-appropriate, and learner-first",
+    "antiFluff": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "coversDeferred": true
+  },
+  "strands": [
+    {
+      "strandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-1-strand",
+      "number": "",
+      "title": "Chemical bonding",
+      "topicCount": 1
+    },
+    {
+      "strandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-2-strand",
+      "number": "",
+      "title": "Trends in properties of elements in the",
+      "topicCount": 1
+    },
+    {
+      "strandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-3-strand",
+      "number": "",
+      "title": "Water pollution",
+      "topicCount": 1
+    },
+    {
+      "strandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-4-strand",
+      "number": "",
+      "title": "Effective ways of waste management",
+      "topicCount": 1
+    },
+    {
+      "strandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-5-strand",
+      "number": "",
+      "title": "Categories of chemical reactions",
+      "topicCount": 1
+    },
+    {
+      "strandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-6-strand",
+      "number": "",
+      "title": "Preparation of salts and identification of ions",
+      "topicCount": 1
+    },
+    {
+      "strandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-8-strand",
+      "number": "",
+      "title": "Preparation and classification of oxides",
+      "topicCount": 1
+    },
+    {
+      "strandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-9-strand",
+      "number": "",
+      "title": "Electrolytes and non- electrolytes",
+      "topicCount": 1
+    },
+    {
+      "strandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-10-strand",
+      "number": "",
+      "title": "Properties of organic compounds and uses of alkanes",
+      "topicCount": 1
+    }
+  ],
+  "topics": [
+    {
+      "topicId": "RWA-S2-chemistry-topic-001",
+      "grade": "S2",
+      "strandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-1-strand",
+      "subStrandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-1-topic",
+      "parentSubStrandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-1-topic",
+      "strandTitle": "Chemical bonding",
+      "unitTitle": "Chemical bonding",
+      "sourceUnitTitle": "Chemical bonding",
+      "learningOutcomes": [
+        {
+          "id": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-1-outcome-1",
+          "text": "relate the nature of bonding to properties of substances"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can chemical bonding help you solve a real problem in Chemistry?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Chemical bonding.",
+        "Review key vocabulary from the previous Chemistry lesson."
+      ],
+      "keyVocabulary": [
+        "Chemical bonding",
+        "Chemical",
+        "bonding",
+        "concept",
+        "observation",
+        "evidence",
+        "safety",
+        "conclusion"
+      ],
+      "misconceptions": [
+        "giving a general answer about Chemical bonding without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwandan observation, model, data table, or investigation for Chemical bonding",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Chemical bonding",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Chemical bonding",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1",
+          "officialTitle": "Rwanda Competence Based Curriculum S2 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S2/chemistry/3bca3899-cfd5-4fce-9f30-2e0dd02af7c1.md",
+          "sourceSectionHash": "5ffe1bb86f8e5f120e4b340a7be21c9874ccc78b31dc5f8ef3cd22c6afa97130",
+          "sourceSnapshotHash": "d6c849ee164bba1376b4f93e2d07c1b9b8e5143cfe9565fb21b46f9f91df83bb"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1",
+          "officialTitle": "Rwanda Competence Based Curriculum S2 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S2/chemistry/3bca3899-cfd5-4fce-9f30-2e0dd02af7c1.md",
+          "sourceSectionHash": "5ffe1bb86f8e5f120e4b340a7be21c9874ccc78b31dc5f8ef3cd22c6afa97130",
+          "sourceSnapshotHash": "d6c849ee164bba1376b4f93e2d07c1b9b8e5143cfe9565fb21b46f9f91df83bb"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S2-chemistry-topic-002",
+      "grade": "S2",
+      "strandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-2-strand",
+      "subStrandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-2-topic",
+      "parentSubStrandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-2-topic",
+      "strandTitle": "Trends in properties of elements in the",
+      "unitTitle": "Trends in properties of elements in the",
+      "sourceUnitTitle": "Trends in properties of elements in the",
+      "learningOutcomes": [
+        {
+          "id": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-2-outcome-1",
+          "text": "describe the trends and patterns in properties of elements in groups and periods"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can trends in properties of elements in the help you solve a real problem in Chemistry?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Trends in properties of elements in the.",
+        "Review key vocabulary from the previous Chemistry lesson."
+      ],
+      "keyVocabulary": [
+        "Trends in properties of elements in the",
+        "Trends",
+        "properties",
+        "elements",
+        "concept",
+        "observation",
+        "evidence",
+        "safety"
+      ],
+      "misconceptions": [
+        "giving a general answer about Trends in properties of elements in the without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwandan observation, model, data table, or investigation for Trends in properties of elements in the",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Trends in properties of elements in the",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Trends in properties of elements in the",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1",
+          "officialTitle": "Rwanda Competence Based Curriculum S2 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S2/chemistry/3bca3899-cfd5-4fce-9f30-2e0dd02af7c1.md",
+          "sourceSectionHash": "5465a1a0f89910d234014a95863a51bc5c1b9f41dfc0ceacef64f697542d27a7",
+          "sourceSnapshotHash": "d6c849ee164bba1376b4f93e2d07c1b9b8e5143cfe9565fb21b46f9f91df83bb"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1",
+          "officialTitle": "Rwanda Competence Based Curriculum S2 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S2/chemistry/3bca3899-cfd5-4fce-9f30-2e0dd02af7c1.md",
+          "sourceSectionHash": "5465a1a0f89910d234014a95863a51bc5c1b9f41dfc0ceacef64f697542d27a7",
+          "sourceSnapshotHash": "d6c849ee164bba1376b4f93e2d07c1b9b8e5143cfe9565fb21b46f9f91df83bb"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S2-chemistry-topic-003",
+      "grade": "S2",
+      "strandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-3-strand",
+      "subStrandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-3-topic",
+      "parentSubStrandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-3-topic",
+      "strandTitle": "Water pollution",
+      "unitTitle": "Water pollution",
+      "sourceUnitTitle": "Water pollution",
+      "learningOutcomes": [
+        {
+          "id": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-3-outcome-1",
+          "text": "assess the causes and effects of water pollution and suggest ways of control"
+        },
+        {
+          "id": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-3-outcome-2",
+          "text": "develop awareness of the dangers of polluted water"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can water pollution help you solve a real problem in Chemistry?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Water pollution.",
+        "Review key vocabulary from the previous Chemistry lesson."
+      ],
+      "keyVocabulary": [
+        "Water pollution",
+        "Water",
+        "pollution",
+        "concept",
+        "observation",
+        "evidence",
+        "safety",
+        "conclusion"
+      ],
+      "misconceptions": [
+        "giving a general answer about Water pollution without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwandan observation, model, data table, or investigation for Water pollution",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Water pollution",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Water pollution",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1",
+          "officialTitle": "Rwanda Competence Based Curriculum S2 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S2/chemistry/3bca3899-cfd5-4fce-9f30-2e0dd02af7c1.md",
+          "sourceSectionHash": "3e9dad1502a1e173a42d0f55ba98db9e8553c413f295274b36431eeaacdde84d",
+          "sourceSnapshotHash": "d6c849ee164bba1376b4f93e2d07c1b9b8e5143cfe9565fb21b46f9f91df83bb"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1",
+          "officialTitle": "Rwanda Competence Based Curriculum S2 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S2/chemistry/3bca3899-cfd5-4fce-9f30-2e0dd02af7c1.md",
+          "sourceSectionHash": "3e9dad1502a1e173a42d0f55ba98db9e8553c413f295274b36431eeaacdde84d",
+          "sourceSnapshotHash": "d6c849ee164bba1376b4f93e2d07c1b9b8e5143cfe9565fb21b46f9f91df83bb"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S2-chemistry-topic-004",
+      "grade": "S2",
+      "strandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-4-strand",
+      "subStrandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-4-topic",
+      "parentSubStrandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-4-topic",
+      "strandTitle": "Effective ways of waste management",
+      "unitTitle": "Effective ways of waste management",
+      "sourceUnitTitle": "Effective ways of waste management",
+      "learningOutcomes": [
+        {
+          "id": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-4-outcome-1",
+          "text": "transform waste materials into different useful materials e.g. fuel (briquettes) and fertilisers (composted manure)"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can effective ways of waste management help you solve a real problem in Chemistry?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Effective ways of waste management.",
+        "Review key vocabulary from the previous Chemistry lesson."
+      ],
+      "keyVocabulary": [
+        "Effective ways of waste management",
+        "Effective",
+        "ways",
+        "waste",
+        "management",
+        "concept",
+        "observation",
+        "evidence"
+      ],
+      "misconceptions": [
+        "giving a general answer about Effective ways of waste management without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwandan observation, model, data table, or investigation for Effective ways of waste management",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Effective ways of waste management",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Effective ways of waste management",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1",
+          "officialTitle": "Rwanda Competence Based Curriculum S2 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S2/chemistry/3bca3899-cfd5-4fce-9f30-2e0dd02af7c1.md",
+          "sourceSectionHash": "1d99ef65afc5d79732792a2a13a553cb669953eeb03aeb0ca1d88e38de5ac362",
+          "sourceSnapshotHash": "d6c849ee164bba1376b4f93e2d07c1b9b8e5143cfe9565fb21b46f9f91df83bb"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1",
+          "officialTitle": "Rwanda Competence Based Curriculum S2 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S2/chemistry/3bca3899-cfd5-4fce-9f30-2e0dd02af7c1.md",
+          "sourceSectionHash": "1d99ef65afc5d79732792a2a13a553cb669953eeb03aeb0ca1d88e38de5ac362",
+          "sourceSnapshotHash": "d6c849ee164bba1376b4f93e2d07c1b9b8e5143cfe9565fb21b46f9f91df83bb"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S2-chemistry-topic-005",
+      "grade": "S2",
+      "strandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-5-strand",
+      "subStrandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-5-topic",
+      "parentSubStrandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-5-topic",
+      "strandTitle": "Categories of chemical reactions",
+      "unitTitle": "Categories of chemical reactions",
+      "sourceUnitTitle": "Categories of chemical reactions",
+      "learningOutcomes": [
+        {
+          "id": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-5-outcome-1",
+          "text": "differentiate between the types of chemical reactions"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can categories of chemical reactions help you solve a real problem in Chemistry?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Categories of chemical reactions.",
+        "Review key vocabulary from the previous Chemistry lesson."
+      ],
+      "keyVocabulary": [
+        "Categories of chemical reactions",
+        "Categories",
+        "chemical",
+        "reactions",
+        "concept",
+        "observation",
+        "evidence",
+        "safety"
+      ],
+      "misconceptions": [
+        "giving a general answer about Categories of chemical reactions without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwandan observation, model, data table, or investigation for Categories of chemical reactions",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Categories of chemical reactions",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Categories of chemical reactions",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1",
+          "officialTitle": "Rwanda Competence Based Curriculum S2 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S2/chemistry/3bca3899-cfd5-4fce-9f30-2e0dd02af7c1.md",
+          "sourceSectionHash": "8d7380308cb432d5b411cb0f2e428c2001b9e4f941e3ad03db6333fdd0d52e06",
+          "sourceSnapshotHash": "d6c849ee164bba1376b4f93e2d07c1b9b8e5143cfe9565fb21b46f9f91df83bb"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1",
+          "officialTitle": "Rwanda Competence Based Curriculum S2 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S2/chemistry/3bca3899-cfd5-4fce-9f30-2e0dd02af7c1.md",
+          "sourceSectionHash": "8d7380308cb432d5b411cb0f2e428c2001b9e4f941e3ad03db6333fdd0d52e06",
+          "sourceSnapshotHash": "d6c849ee164bba1376b4f93e2d07c1b9b8e5143cfe9565fb21b46f9f91df83bb"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S2-chemistry-topic-006",
+      "grade": "S2",
+      "strandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-6-strand",
+      "subStrandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-6-topic",
+      "parentSubStrandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-6-topic",
+      "strandTitle": "Preparation of salts and identification of ions",
+      "unitTitle": "Preparation of salts and identification of ions",
+      "sourceUnitTitle": "Preparation of salts and identification of ions",
+      "learningOutcomes": [
+        {
+          "id": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-6-outcome-1",
+          "text": "prepare a salt from suitable starting materials and identify cations and anions in a solution"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can preparation of salts and identification of ions help you solve a real problem in Chemistry?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Preparation of salts and identification of ions.",
+        "Review key vocabulary from the previous Chemistry lesson."
+      ],
+      "keyVocabulary": [
+        "Preparation of salts and identification of ions",
+        "Preparation",
+        "salts",
+        "identification",
+        "ions",
+        "concept",
+        "observation",
+        "evidence"
+      ],
+      "misconceptions": [
+        "giving a general answer about Preparation of salts and identification of ions without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwandan observation, model, data table, or investigation for Preparation of salts and identification of ions",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Preparation of salts and identification of ions",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Preparation of salts and identification of ions",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1",
+          "officialTitle": "Rwanda Competence Based Curriculum S2 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S2/chemistry/3bca3899-cfd5-4fce-9f30-2e0dd02af7c1.md",
+          "sourceSectionHash": "326bff655979282faa672b71fb8f7cf674ccfbdb1c956b101b2b544d6c5f82e7",
+          "sourceSnapshotHash": "d6c849ee164bba1376b4f93e2d07c1b9b8e5143cfe9565fb21b46f9f91df83bb"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1",
+          "officialTitle": "Rwanda Competence Based Curriculum S2 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S2/chemistry/3bca3899-cfd5-4fce-9f30-2e0dd02af7c1.md",
+          "sourceSectionHash": "326bff655979282faa672b71fb8f7cf674ccfbdb1c956b101b2b544d6c5f82e7",
+          "sourceSnapshotHash": "d6c849ee164bba1376b4f93e2d07c1b9b8e5143cfe9565fb21b46f9f91df83bb"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S2-chemistry-topic-007",
+      "grade": "S2",
+      "strandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-8-strand",
+      "subStrandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-8-topic",
+      "parentSubStrandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-8-topic",
+      "strandTitle": "Preparation and classification of oxides",
+      "unitTitle": "Preparation and classification of oxides",
+      "sourceUnitTitle": "Preparation and classification of oxides",
+      "learningOutcomes": [
+        {
+          "id": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-8-outcome-1",
+          "text": "prepare oxides and classify them based on their properties"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can preparation and classification of oxides help you solve a real problem in Chemistry?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Preparation and classification of oxides.",
+        "Review key vocabulary from the previous Chemistry lesson."
+      ],
+      "keyVocabulary": [
+        "Preparation and classification of oxides",
+        "Preparation",
+        "classification",
+        "oxides",
+        "concept",
+        "observation",
+        "evidence",
+        "safety"
+      ],
+      "misconceptions": [
+        "giving a general answer about Preparation and classification of oxides without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwandan observation, model, data table, or investigation for Preparation and classification of oxides",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Preparation and classification of oxides",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Preparation and classification of oxides",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1",
+          "officialTitle": "Rwanda Competence Based Curriculum S2 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S2/chemistry/3bca3899-cfd5-4fce-9f30-2e0dd02af7c1.md",
+          "sourceSectionHash": "70912016a213911b03bcb562d51fe736fe1c0e0a5896c99d348e612fa8e3cbc5",
+          "sourceSnapshotHash": "d6c849ee164bba1376b4f93e2d07c1b9b8e5143cfe9565fb21b46f9f91df83bb"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1",
+          "officialTitle": "Rwanda Competence Based Curriculum S2 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S2/chemistry/3bca3899-cfd5-4fce-9f30-2e0dd02af7c1.md",
+          "sourceSectionHash": "70912016a213911b03bcb562d51fe736fe1c0e0a5896c99d348e612fa8e3cbc5",
+          "sourceSnapshotHash": "d6c849ee164bba1376b4f93e2d07c1b9b8e5143cfe9565fb21b46f9f91df83bb"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S2-chemistry-topic-008",
+      "grade": "S2",
+      "strandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-9-strand",
+      "subStrandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-9-topic",
+      "parentSubStrandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-9-topic",
+      "strandTitle": "Electrolytes and non- electrolytes",
+      "unitTitle": "Electrolytes and non- electrolytes",
+      "sourceUnitTitle": "Electrolytes and non- electrolytes",
+      "learningOutcomes": [
+        {
+          "id": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-9-outcome-1",
+          "text": "distinguish between non-electrolytes, weak electrolytes and strong electrolytes"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can electrolytes and non- electrolytes help you solve a real problem in Chemistry?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Electrolytes and non- electrolytes.",
+        "Review key vocabulary from the previous Chemistry lesson."
+      ],
+      "keyVocabulary": [
+        "Electrolytes and non- electrolytes",
+        "Electrolytes",
+        "electrolytes",
+        "concept",
+        "observation",
+        "evidence",
+        "safety",
+        "conclusion"
+      ],
+      "misconceptions": [
+        "giving a general answer about Electrolytes and non- electrolytes without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwandan observation, model, data table, or investigation for Electrolytes and non- electrolytes",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Electrolytes and non- electrolytes",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Electrolytes and non- electrolytes",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1",
+          "officialTitle": "Rwanda Competence Based Curriculum S2 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S2/chemistry/3bca3899-cfd5-4fce-9f30-2e0dd02af7c1.md",
+          "sourceSectionHash": "59a672390da55a2f05acf2e57d4375f774041f80fd0c903cbe307ee407b77346",
+          "sourceSnapshotHash": "d6c849ee164bba1376b4f93e2d07c1b9b8e5143cfe9565fb21b46f9f91df83bb"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1",
+          "officialTitle": "Rwanda Competence Based Curriculum S2 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S2/chemistry/3bca3899-cfd5-4fce-9f30-2e0dd02af7c1.md",
+          "sourceSectionHash": "59a672390da55a2f05acf2e57d4375f774041f80fd0c903cbe307ee407b77346",
+          "sourceSnapshotHash": "d6c849ee164bba1376b4f93e2d07c1b9b8e5143cfe9565fb21b46f9f91df83bb"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S2-chemistry-topic-009",
+      "grade": "S2",
+      "strandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-10-strand",
+      "subStrandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-10-topic",
+      "parentSubStrandId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-10-topic",
+      "strandTitle": "Properties of organic compounds and uses of alkanes",
+      "unitTitle": "Properties of organic compounds and uses of alkanes",
+      "sourceUnitTitle": "Properties of organic compounds and uses of alkanes",
+      "learningOutcomes": [
+        {
+          "id": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1-unit-10-outcome-1",
+          "text": "compare the properties of organic and inorganic compounds and explain the uses of alkanes in daily life"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can properties of organic compounds and uses of alkanes help you solve a real problem in Chemistry?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Properties of organic compounds and uses of alkanes.",
+        "Review key vocabulary from the previous Chemistry lesson."
+      ],
+      "keyVocabulary": [
+        "Properties of organic compounds and uses of alkanes",
+        "Properties",
+        "organic",
+        "compounds",
+        "uses",
+        "alkanes",
+        "concept",
+        "observation"
+      ],
+      "misconceptions": [
+        "giving a general answer about Properties of organic compounds and uses of alkanes without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwandan observation, model, data table, or investigation for Properties of organic compounds and uses of alkanes",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Properties of organic compounds and uses of alkanes",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Properties of organic compounds and uses of alkanes",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1",
+          "officialTitle": "Rwanda Competence Based Curriculum S2 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S2/chemistry/3bca3899-cfd5-4fce-9f30-2e0dd02af7c1.md",
+          "sourceSectionHash": "140c02cc2adbb2d785edfe7752ee616143251802ae147c6944053d5dc0aab26e",
+          "sourceSnapshotHash": "d6c849ee164bba1376b4f93e2d07c1b9b8e5143cfe9565fb21b46f9f91df83bb"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1",
+          "officialTitle": "Rwanda Competence Based Curriculum S2 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S2/chemistry/3bca3899-cfd5-4fce-9f30-2e0dd02af7c1.md",
+          "sourceSectionHash": "140c02cc2adbb2d785edfe7752ee616143251802ae147c6944053d5dc0aab26e",
+          "sourceSnapshotHash": "d6c849ee164bba1376b4f93e2d07c1b9b8e5143cfe9565fb21b46f9f91df83bb"
+        }
+      ]
+    }
+  ]
+}

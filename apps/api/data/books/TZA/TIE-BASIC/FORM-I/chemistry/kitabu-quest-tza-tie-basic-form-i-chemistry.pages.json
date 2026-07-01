@@ -1,0 +1,2131 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-tza-tie-basic-form-i-chemistry",
+  "title": "KITABU QUEST Form I Chemistry",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Form I",
+  "subject": "Chemistry",
+  "subjectSlug": "chemistry",
+  "subjectColor": "#7C3AED",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v13",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:43:48Z",
+  "sourceSnapshotHash": "14511a218e3d08d4e0307428b70695a87c76314a3b61481314240c4a2ee80918",
+  "bookPlanHash": "ee86366980bd46539e635061e992eee0c69745aaeb783cb18184c25132b78081",
+  "pageCount": 85,
+  "wordCount": 8325,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 8,
+    "outcomeCount": 8,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "TZA",
+    "subject": "Chemistry",
+    "species": "chameleon",
+    "role": "science observation guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "students doing safe chemistry work with a chameleon mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Tanzania TIE-BASIC Form I Chemistry. Scene: students doing safe chemistry work with a chameleon mascot. Include a friendly chameleon mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 85522,
+    "sha256": "d1e6f8fc8b21c02f846eb2278f43457e5c4758424d757f23190d34615e63d1d7"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 85522,
+      "sha256": "d1e6f8fc8b21c02f846eb2278f43457e5c4758424d757f23190d34615e63d1d7",
+      "kind": "cover",
+      "altText": "KITABU QUEST Form I Chemistry cover with chameleon",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-tza-tie-basic-form-i-chemistry.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-tza-tie-basic-form-i-chemistry.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "4fcbdb93-1a1a-416a-99ed-87938835a728",
+      "subject": "Chemistry",
+      "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Chemistry",
+      "countryCode": "TZA",
+      "curriculumCode": "TIE-BASIC",
+      "gradeCode": "FORM_I",
+      "gradeLocalLevel": "Form I",
+      "localLevel": "Form I",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+      "objectKey": "data/curriculum/source-files/TZA/b9ca1dd0c8d837c016d65a5ac7385e82af51dfaf3ead82dd85e516f61fffb906.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "FORM_I",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/chemistry/4fcbdb93-1a1a-416a-99ed-87938835a728.md",
+        "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "tie.go.tz"
+        ],
+        "markdownChecksum": "fcb092b86d869949b40c413df5239103ef84782beb14d4be6cc8699a0cb72558",
+        "markdownPageCount": 59,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/chemistry/4fcbdb93-1a1a-416a-99ed-87938835a728.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "fcb092b86d869949b40c413df5239103ef84782beb14d4be6cc8699a0cb72558",
+          "pageCount": 59,
+          "generatedAt": "2026-06-29T16:44:06.590Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "f6b93b5819e5c582ca3d190a81725a322f07890cb35b77d0b1375ca999877fea"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:44:06.590Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p001",
+      "title": "Title Page",
+      "content": "KITABU QUEST Form I Chemistry\n\nTanzania TIE-BASIC learner book\n\nMascot: chameleon\n\nThis KITABU QUEST book turns the curriculum into short lessons, worked examples, guided activities, practice, review, and home links for Tanzania learners.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 3,
+      "wordCount": 33,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p002",
+      "title": "How To Use This Book",
+      "content": "This book helps Form I learners study Chemistry one teachable topic at a time.\n\n1. Start with the inquiry question and say what you already know.\n2. Read the Learn section slowly and mark new words.\n3. Try the worked example before reading the full solution.\n4. Complete the activity and practice tasks.\n5. Correct your answer using the success criteria.\n6. Ask for support when your answer is still unclear.\n\nSubject method: Use safe observations, simple models, data tables, and evidence-based explanations.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 83,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p003",
+      "title": "Learning Skills In This Book",
+      "content": "Each topic builds knowledge, skill, values, communication, collaboration, critical thinking, creativity, digital awareness, and self-confidence.\n\nStudy actively: speak answers aloud, draw when useful, show your working, cite evidence, use local examples, and correct mistakes after feedback.\n\nA strong answer is specific. It names the idea, gives evidence or method, applies it to the task, and checks whether it answers the question.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p004",
+      "title": "Table Of Contents",
+      "content": "Use this table to move through the book one topic at a time. Each topic has a lesson opener, clear teaching, a model or example, guided work, practice, and checks for understanding.\n\n1. Chemistry Laboratory Safety And Apparatus\n2. Matter Elements Compounds And Mixtures\n3. Air Oxygen And Combustion\n4. Water Solutions And Separation Methods\n5. Acids Bases And Indicators\n6. Metals Non-Metals And Simple Reactions\n7. Chemical Symbols Formulae And Equations\n8. Form I Chemistry Investigation\n\nAs you finish each topic, return to the success criteria and correct one answer before moving on.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p005",
+      "title": "Chemistry Laboratory Safety And Apparatus: Lesson Opener",
+      "content": "Learning focus: Chemistry Laboratory Safety And Apparatus\n\nCountry link: a safe Tanzania observation, model, data table, or investigation for Chemistry Laboratory Safety And Apparatus.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- investigate and explain chemistry laboratory safety and apparatus using evidence\n\nInquiry questions:\n- How can chemistry laboratory safety and apparatus help you solve a real problem?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-001:opener:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-001:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-1"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p006",
+      "title": "Chemistry Laboratory Safety And Apparatus: Learn",
+      "content": "Chemistry Laboratory Safety And Apparatus begins with safe behaviour and accurate measurement.\n\nCore idea:\n- Physics uses measurements such as length, mass, time, temperature, and volume.\n- A measurement is useful only when the number and unit are both written.\n- Safety rules protect learners, equipment, and results.\n- Read scales at eye level and record values immediately.\n\nLocal link: in Tanzania, careful measurement helps in health, building, farming, weather records, transport, and school laboratory work.\n\nKey words:\n- Chemistry Laboratory Safety And Apparatus\n- Chemistry\n- Laboratory\n- Safety\n- Apparatus\n- concept\n- observation\n- evidence",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-001:learn:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-001:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-1"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p007",
+      "title": "Chemistry Laboratory Safety And Apparatus: Worked Example",
+      "content": "Investigation model for Chemistry Laboratory Safety And Apparatus: Measure the length of a desk safely.\n\n1. Choose a metre rule or tape measure.\n2. Place zero at one end of the desk.\n3. Read the scale at eye level.\n4. Record the value with the unit, for example 120 cm.\n5. Repeat once and compare readings.\n\nConclusion: a useful measurement includes a number, a unit, and a careful method.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 69,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-001:example:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-001:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-1"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p008",
+      "title": "Chemistry Laboratory Safety And Apparatus: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Chemistry Laboratory Safety And Apparatus. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Chemistry Laboratory Safety And Apparatus\n- Chemistry\n- Laboratory\n- Safety\n- Apparatus\n- concept\n- observation\n- evidence\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Chemistry Laboratory Safety And Apparatus without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-001:vocabulary:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-001:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-1"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p009",
+      "title": "Chemistry Laboratory Safety And Apparatus: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Tanzania observation, model, data table, or investigation for Chemistry Laboratory Safety And Apparatus.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-001:activity:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-001:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-1"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p010",
+      "title": "Chemistry Laboratory Safety And Apparatus: Practice And Correction",
+      "content": "Practice for Chemistry Laboratory Safety And Apparatus:\n\nMain outcome: investigate and explain chemistry laboratory safety and apparatus using evidence.\n\n1. Name three laboratory safety rules.\n2. Measure one classroom object and record the value with a unit.\n3. Explain one error that can make a measurement unreliable.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-001:practice:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-001:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-1"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p011",
+      "title": "Chemistry Laboratory Safety And Apparatus: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Chemistry Laboratory Safety And Apparatus.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-001:remediation:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-001:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-1"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p012",
+      "title": "Chemistry Laboratory Safety And Apparatus: Outcome Check",
+      "content": "Outcome check for Chemistry Laboratory Safety And Apparatus: Investigate and explain chemistry laboratory safety and apparatus using evidence.\n\n1. State a safe investigation question.\n2. Name the evidence needed.\n3. Write a conclusion from the evidence.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 51,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-001:assessment:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-001:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-1"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p013",
+      "title": "Matter Elements Compounds And Mixtures: Lesson Opener",
+      "content": "Learning focus: Matter Elements Compounds And Mixtures\n\nCountry link: a safe Tanzania observation, model, data table, or investigation for Matter Elements Compounds And Mixtures.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- investigate and explain matter elements compounds and mixtures using evidence\n\nInquiry questions:\n- How can matter elements compounds and mixtures help you solve a real problem?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-002:opener:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-002:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-2"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p014",
+      "title": "Matter Elements Compounds And Mixtures: Learn",
+      "content": "Matter Elements Compounds And Mixtures is learned by turning the topic into a clear, safe, evidence-based science task.\n\nCore idea:\n- Name the science idea before starting: structure, process, material, force, energy, organism, environment, or system.\n- Use a diagram, data table, labelled model, safe observation, or teacher-approved investigation.\n- Record what is seen or measured, not what is guessed.\n- Explain the result using the vocabulary from this topic.\n- Finish with one conclusion and one question for further study.\n\nKey words:\n- Matter Elements Compounds And Mixtures\n- Matter\n- Elements\n- Compounds\n- Mixtures\n- concept\n- observation\n- evidence",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-002:learn:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-002:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-2"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p015",
+      "title": "Matter Elements Compounds And Mixtures: Worked Example",
+      "content": "Investigation model for Matter Elements Compounds And Mixtures: Turn the topic into a safe, clear classroom investigation or model.\n\n1. Question: write one question that can be answered by observing, comparing, classifying, measuring, modelling, or reading data.\n2. Materials: list safe classroom materials, diagrams, samples, cards, tables, or teacher-approved apparatus.\n3. Method: do one step at a time and keep one condition fair where comparison is needed.\n4. Safety: name any heat, glass, sharp tool, chemical, hygiene, electrical, or body-safety rule before starting.\n5. Record: use a labelled table, diagram, or sentence notes.\n6. Conclusion: state what the evidence shows and one limit of the investigation.\n\nAnswer check: a strong response names the concept, uses correct vocabulary, records evidence, and does not claim more than the evidence supports.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 128,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-002:example:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-002:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-2"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p016",
+      "title": "Matter Elements Compounds And Mixtures: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Matter Elements Compounds And Mixtures. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Matter Elements Compounds And Mixtures\n- Matter\n- Elements\n- Compounds\n- Mixtures\n- concept\n- observation\n- evidence\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Matter Elements Compounds And Mixtures without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-002:vocabulary:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-002:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-2"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p017",
+      "title": "Matter Elements Compounds And Mixtures: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Tanzania observation, model, data table, or investigation for Matter Elements Compounds And Mixtures.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-002:activity:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-002:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-2"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p018",
+      "title": "Matter Elements Compounds And Mixtures: Practice And Correction",
+      "content": "Practice for Matter Elements Compounds And Mixtures:\n\nMain outcome: investigate and explain matter elements compounds and mixtures using evidence.\n\n1. Write one safe investigation question.\n2. Name materials and observations needed.\n3. Use the evidence to write a conclusion.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 85,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-002:practice:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-002:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-2"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p019",
+      "title": "Matter Elements Compounds And Mixtures: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Matter Elements Compounds And Mixtures.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-002:remediation:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-002:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-2"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p020",
+      "title": "Matter Elements Compounds And Mixtures: Outcome Check",
+      "content": "Outcome check for Matter Elements Compounds And Mixtures: Investigate and explain matter elements compounds and mixtures using evidence.\n\n1. State a safe investigation question.\n2. Name the evidence needed.\n3. Write a conclusion from the evidence.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 51,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-002:assessment:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-002:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-2"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p021",
+      "title": "Air Oxygen And Combustion: Lesson Opener",
+      "content": "Learning focus: Air Oxygen And Combustion\n\nCountry link: a safe Tanzania observation, model, data table, or investigation for Air Oxygen And Combustion.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- investigate and explain air oxygen and combustion using evidence\n\nInquiry questions:\n- How can air oxygen and combustion help you solve a real problem?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-003:opener:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-003:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-3"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p022",
+      "title": "Air Oxygen And Combustion: Learn",
+      "content": "Air Oxygen And Combustion is learned by asking a clear question, observing carefully, recording evidence, and explaining what the evidence means.\n\nCore idea:\n- Start with the object, organism, material, body part, force, energy change, or environmental feature being studied.\n- Use safe observations, labelled diagrams, simple measurements, or comparison tables.\n- Keep evidence separate from guesses: evidence is what you saw, measured, read from a table, or labelled correctly.\n- A conclusion should answer the question and mention one limit or next observation.\n- Local examples from home, school, farms, water sources, weather, health, and the environment make the science useful.\n\nKey words:\n- Air Oxygen And Combustion\n- Oxygen\n- Combustion\n- concept\n- observation\n- evidence\n- safety\n- conclusion",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 123,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-003:learn:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-003:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-3"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p023",
+      "title": "Air Oxygen And Combustion: Worked Example",
+      "content": "Investigation model for Air Oxygen And Combustion: Turn the topic into a safe, clear classroom investigation or model.\n\n1. Question: write one question that can be answered by observing, comparing, classifying, measuring, modelling, or reading data.\n2. Materials: list safe classroom materials, diagrams, samples, cards, tables, or teacher-approved apparatus.\n3. Method: do one step at a time and keep one condition fair where comparison is needed.\n4. Safety: name any heat, glass, sharp tool, chemical, hygiene, electrical, or body-safety rule before starting.\n5. Record: use a labelled table, diagram, or sentence notes.\n6. Conclusion: state what the evidence shows and one limit of the investigation.\n\nAnswer check: a strong response names the concept, uses correct vocabulary, records evidence, and does not claim more than the evidence supports.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 127,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-003:example:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-003:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-3"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p024",
+      "title": "Air Oxygen And Combustion: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Air Oxygen And Combustion. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Air Oxygen And Combustion\n- Oxygen\n- Combustion\n- concept\n- observation\n- evidence\n- safety\n- conclusion\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Air Oxygen And Combustion without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-003:vocabulary:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-003:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-3"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p025",
+      "title": "Air Oxygen And Combustion: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Tanzania observation, model, data table, or investigation for Air Oxygen And Combustion.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-003:activity:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-003:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-3"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p026",
+      "title": "Air Oxygen And Combustion: Practice And Correction",
+      "content": "Practice for Air Oxygen And Combustion:\n\nMain outcome: investigate and explain air oxygen and combustion using evidence.\n\n1. Write one clear science question for the topic.\n2. Use a labelled diagram, observation table, or model to record evidence.\n3. Write a conclusion that answers the question and uses topic vocabulary.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-003:practice:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-003:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-3"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p027",
+      "title": "Air Oxygen And Combustion: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Air Oxygen And Combustion.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-003:remediation:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-003:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-3"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p028",
+      "title": "Air Oxygen And Combustion: Outcome Check",
+      "content": "Outcome check for Air Oxygen And Combustion: Investigate and explain air oxygen and combustion using evidence.\n\n1. State the science question.\n2. Show the evidence with a labelled diagram, table, model, or observation.\n3. Write a conclusion that follows from the evidence.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 57,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-003:assessment:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-003:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-3"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p029",
+      "title": "Water Solutions And Separation Methods: Lesson Opener",
+      "content": "Learning focus: Water Solutions And Separation Methods\n\nCountry link: a safe Tanzania observation, model, data table, or investigation for Water Solutions And Separation Methods.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- investigate and explain water solutions and separation methods using evidence\n\nInquiry questions:\n- How can water solutions and separation methods help you solve a real problem?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-004:opener:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-004:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-4"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p030",
+      "title": "Water Solutions And Separation Methods: Learn",
+      "content": "Water Solutions And Separation Methods is learned by asking a clear question, observing carefully, recording evidence, and explaining what the evidence means.\n\nCore idea:\n- Start with the object, organism, material, body part, force, energy change, or environmental feature being studied.\n- Use safe observations, labelled diagrams, simple measurements, or comparison tables.\n- Keep evidence separate from guesses: evidence is what you saw, measured, read from a table, or labelled correctly.\n- A conclusion should answer the question and mention one limit or next observation.\n- Local examples from home, school, farms, water sources, weather, health, and the environment make the science useful.\n\nKey words:\n- Water Solutions And Separation Methods\n- Water\n- Solutions\n- Separation\n- Methods\n- concept\n- observation\n- evidence",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 125,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-004:learn:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-004:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-4"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p031",
+      "title": "Water Solutions And Separation Methods: Worked Example",
+      "content": "Investigation model for Water Solutions And Separation Methods: Turn the topic into a safe, clear classroom investigation or model.\n\n1. Question: write one question that can be answered by observing, comparing, classifying, measuring, modelling, or reading data.\n2. Materials: list safe classroom materials, diagrams, samples, cards, tables, or teacher-approved apparatus.\n3. Method: do one step at a time and keep one condition fair where comparison is needed.\n4. Safety: name any heat, glass, sharp tool, chemical, hygiene, electrical, or body-safety rule before starting.\n5. Record: use a labelled table, diagram, or sentence notes.\n6. Conclusion: state what the evidence shows and one limit of the investigation.\n\nAnswer check: a strong response names the concept, uses correct vocabulary, records evidence, and does not claim more than the evidence supports.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 128,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-004:example:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-004:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-4"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p032",
+      "title": "Water Solutions And Separation Methods: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Water Solutions And Separation Methods. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Water Solutions And Separation Methods\n- Water\n- Solutions\n- Separation\n- Methods\n- concept\n- observation\n- evidence\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Water Solutions And Separation Methods without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-004:vocabulary:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-004:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-4"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p033",
+      "title": "Water Solutions And Separation Methods: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Tanzania observation, model, data table, or investigation for Water Solutions And Separation Methods.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-004:activity:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-004:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-4"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p034",
+      "title": "Water Solutions And Separation Methods: Practice And Correction",
+      "content": "Practice for Water Solutions And Separation Methods:\n\nMain outcome: investigate and explain water solutions and separation methods using evidence.\n\n1. Write one clear science question for the topic.\n2. Use a labelled diagram, observation table, or model to record evidence.\n3. Write a conclusion that answers the question and uses topic vocabulary.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-004:practice:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-004:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-4"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p035",
+      "title": "Water Solutions And Separation Methods: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Water Solutions And Separation Methods.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-004:remediation:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-004:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-4"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p036",
+      "title": "Water Solutions And Separation Methods: Outcome Check",
+      "content": "Outcome check for Water Solutions And Separation Methods: Investigate and explain water solutions and separation methods using evidence.\n\n1. State the science question.\n2. Show the evidence with a labelled diagram, table, model, or observation.\n3. Write a conclusion that follows from the evidence.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 59,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-004:assessment:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-004:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-4"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p037",
+      "title": "Acids Bases And Indicators: Lesson Opener",
+      "content": "Learning focus: Acids Bases And Indicators\n\nCountry link: a safe Tanzania observation, model, data table, or investigation for Acids Bases And Indicators.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- investigate and explain acids bases and indicators using evidence\n\nInquiry questions:\n- How can acids bases and indicators help you solve a real problem?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-005:opener:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-005:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-5"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p038",
+      "title": "Acids Bases And Indicators: Learn",
+      "content": "Acids Bases And Indicators is learned by turning the topic into a clear, safe, evidence-based science task.\n\nCore idea:\n- Name the science idea before starting: structure, process, material, force, energy, organism, environment, or system.\n- Use a diagram, data table, labelled model, safe observation, or teacher-approved investigation.\n- Record what is seen or measured, not what is guessed.\n- Explain the result using the vocabulary from this topic.\n- Finish with one conclusion and one question for further study.\n\nKey words:\n- Acids Bases And Indicators\n- Acids\n- Bases\n- Indicators\n- concept\n- observation\n- evidence\n- safety",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-005:learn:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-005:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-5"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p039",
+      "title": "Acids Bases And Indicators: Worked Example",
+      "content": "Investigation model for Acids Bases And Indicators: Turn the topic into a safe, clear classroom investigation or model.\n\n1. Question: write one question that can be answered by observing, comparing, classifying, measuring, modelling, or reading data.\n2. Materials: list safe classroom materials, diagrams, samples, cards, tables, or teacher-approved apparatus.\n3. Method: do one step at a time and keep one condition fair where comparison is needed.\n4. Safety: name any heat, glass, sharp tool, chemical, hygiene, electrical, or body-safety rule before starting.\n5. Record: use a labelled table, diagram, or sentence notes.\n6. Conclusion: state what the evidence shows and one limit of the investigation.\n\nAnswer check: a strong response names the concept, uses correct vocabulary, records evidence, and does not claim more than the evidence supports.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 127,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-005:example:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-005:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-5"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p040",
+      "title": "Acids Bases And Indicators: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Acids Bases And Indicators. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Acids Bases And Indicators\n- Acids\n- Bases\n- Indicators\n- concept\n- observation\n- evidence\n- safety\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Acids Bases And Indicators without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-005:vocabulary:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-005:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-5"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p041",
+      "title": "Acids Bases And Indicators: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Tanzania observation, model, data table, or investigation for Acids Bases And Indicators.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-005:activity:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-005:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-5"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p042",
+      "title": "Acids Bases And Indicators: Practice And Correction",
+      "content": "Practice for Acids Bases And Indicators:\n\nMain outcome: investigate and explain acids bases and indicators using evidence.\n\n1. Write one safe investigation question.\n2. Name materials and observations needed.\n3. Use the evidence to write a conclusion.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 83,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-005:practice:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-005:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-5"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p043",
+      "title": "Acids Bases And Indicators: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Acids Bases And Indicators.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-005:remediation:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-005:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-5"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p044",
+      "title": "Acids Bases And Indicators: Outcome Check",
+      "content": "Outcome check for Acids Bases And Indicators: Investigate and explain acids bases and indicators using evidence.\n\n1. State a safe investigation question.\n2. Name the evidence needed.\n3. Write a conclusion from the evidence.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 49,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-005:assessment:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-005:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-5"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p045",
+      "title": "Metals Non-Metals And Simple Reactions: Lesson Opener",
+      "content": "Learning focus: Metals Non-Metals And Simple Reactions\n\nCountry link: a safe Tanzania observation, model, data table, or investigation for Metals Non-Metals And Simple Reactions.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- investigate and explain metals non-metals and simple reactions using evidence\n\nInquiry questions:\n- How can metals non-metals and simple reactions help you solve a real problem?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-006:opener:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-006:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-6"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p046",
+      "title": "Metals Non-Metals And Simple Reactions: Learn",
+      "content": "Metals Non-Metals And Simple Reactions is learned by turning the topic into a clear, safe, evidence-based science task.\n\nCore idea:\n- Name the science idea before starting: structure, process, material, force, energy, organism, environment, or system.\n- Use a diagram, data table, labelled model, safe observation, or teacher-approved investigation.\n- Record what is seen or measured, not what is guessed.\n- Explain the result using the vocabulary from this topic.\n- Finish with one conclusion and one question for further study.\n\nKey words:\n- Metals Non-Metals And Simple Reactions\n- Metals\n- Non-Metals\n- Simple\n- Reactions\n- concept\n- observation\n- evidence",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-006:learn:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-006:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-6"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p047",
+      "title": "Metals Non-Metals And Simple Reactions: Worked Example",
+      "content": "Investigation model for Metals Non-Metals And Simple Reactions: Turn the topic into a safe, clear classroom investigation or model.\n\n1. Question: write one question that can be answered by observing, comparing, classifying, measuring, modelling, or reading data.\n2. Materials: list safe classroom materials, diagrams, samples, cards, tables, or teacher-approved apparatus.\n3. Method: do one step at a time and keep one condition fair where comparison is needed.\n4. Safety: name any heat, glass, sharp tool, chemical, hygiene, electrical, or body-safety rule before starting.\n5. Record: use a labelled table, diagram, or sentence notes.\n6. Conclusion: state what the evidence shows and one limit of the investigation.\n\nAnswer check: a strong response names the concept, uses correct vocabulary, records evidence, and does not claim more than the evidence supports.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 128,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-006:example:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-006:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-6"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p048",
+      "title": "Metals Non-Metals And Simple Reactions: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Metals Non-Metals And Simple Reactions. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Metals Non-Metals And Simple Reactions\n- Metals\n- Non-Metals\n- Simple\n- Reactions\n- concept\n- observation\n- evidence\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Metals Non-Metals And Simple Reactions without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-006:vocabulary:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-006:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-6"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p049",
+      "title": "Metals Non-Metals And Simple Reactions: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Tanzania observation, model, data table, or investigation for Metals Non-Metals And Simple Reactions.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-006:activity:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-006:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-6"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p050",
+      "title": "Metals Non-Metals And Simple Reactions: Practice And Correction",
+      "content": "Practice for Metals Non-Metals And Simple Reactions:\n\nMain outcome: investigate and explain metals non-metals and simple reactions using evidence.\n\n1. Write one safe investigation question.\n2. Name materials and observations needed.\n3. Use the evidence to write a conclusion.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 85,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-006:practice:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-006:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-6"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p051",
+      "title": "Metals Non-Metals And Simple Reactions: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Metals Non-Metals And Simple Reactions.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-006:remediation:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-006:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-6"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p052",
+      "title": "Metals Non-Metals And Simple Reactions: Outcome Check",
+      "content": "Outcome check for Metals Non-Metals And Simple Reactions: Investigate and explain metals non-metals and simple reactions using evidence.\n\n1. State a safe investigation question.\n2. Name the evidence needed.\n3. Write a conclusion from the evidence.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 51,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-006:assessment:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-006:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-6"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p053",
+      "title": "Chemical Symbols Formulae And Equations: Lesson Opener",
+      "content": "Learning focus: Chemical Symbols Formulae And Equations\n\nCountry link: a safe Tanzania observation, model, data table, or investigation for Chemical Symbols Formulae And Equations.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- investigate and explain chemical symbols formulae and equations using evidence\n\nInquiry questions:\n- How can chemical symbols formulae and equations help you solve a real problem?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-007:opener:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-007:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-7"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p054",
+      "title": "Chemical Symbols Formulae And Equations: Learn",
+      "content": "Chemical Symbols Formulae And Equations teaches useful computer work through exact steps, not guessing.\n\nCore idea:\n- Word processing is used to create, edit, format, save, and print text documents.\n- A spreadsheet organizes data in rows, columns, and cells.\n- A cell can hold text, a number, or a formula.\n- Formatting should make work clearer, not just more decorative.\n- Good digital work is saved with a clear file name and checked before sharing.\n\nLearner task link: create a class list, simple budget, marks table, timetable, or short report using safe school devices.\n\nKey words:\n- Chemical Symbols Formulae And Equations\n- Chemical\n- Symbols\n- Formulae\n- Equations\n- concept\n- observation\n- evidence",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 117,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-007:learn:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-007:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-7"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p055",
+      "title": "Chemical Symbols Formulae And Equations: Worked Example",
+      "content": "Worked example for Chemical Symbols Formulae And Equations: Make a simple spreadsheet for class garden harvest.\n\n1. Open a blank worksheet.\n2. In row 1, type headings: Crop, Week 1, Week 2, Total.\n3. Enter beans, maize, and tomatoes in the Crop column.\n4. Type harvest numbers for Week 1 and Week 2.\n5. In the Total column, use a formula such as =B2+C2.\n6. Save the file with a clear name, for example garden-harvest-p6.\n\nQuality check: headings are clear, numbers are in the correct cells, formulas give sensible totals, and the file is saved.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-007:example:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-007:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-7"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p056",
+      "title": "Chemical Symbols Formulae And Equations: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Chemical Symbols Formulae And Equations. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Chemical Symbols Formulae And Equations\n- Chemical\n- Symbols\n- Formulae\n- Equations\n- concept\n- observation\n- evidence\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Chemical Symbols Formulae And Equations without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-007:vocabulary:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-007:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-7"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p057",
+      "title": "Chemical Symbols Formulae And Equations: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Tanzania observation, model, data table, or investigation for Chemical Symbols Formulae And Equations.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-007:activity:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-007:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-7"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p058",
+      "title": "Chemical Symbols Formulae And Equations: Practice And Correction",
+      "content": "Practice for Chemical Symbols Formulae And Equations:\n\nMain outcome: investigate and explain chemical symbols formulae and equations using evidence.\n\n1. Create a document or worksheet with a clear title and headings.\n2. Enter five rows of useful class, garden, timetable, budget, or marks data.\n3. Format the work neatly, save it with a clear file name, and explain one formula or formatting choice.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-007:practice:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-007:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-7"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p059",
+      "title": "Chemical Symbols Formulae And Equations: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Chemical Symbols Formulae And Equations.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-007:remediation:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-007:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-7"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p060",
+      "title": "Chemical Symbols Formulae And Equations: Outcome Check",
+      "content": "Outcome check for Chemical Symbols Formulae And Equations: Investigate and explain chemical symbols formulae and equations using evidence.\n\n1. Create a two-column table or worksheet for a real class task.\n2. Use one correct heading, formula, save step, or formatting step.\n3. Explain how the digital file can be checked for errors.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 67,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-007:assessment:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-007:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-7"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p061",
+      "title": "Form I Chemistry Investigation: Lesson Opener",
+      "content": "Learning focus: Form I Chemistry Investigation\n\nCountry link: a safe Tanzania observation, model, data table, or investigation for Form I Chemistry Investigation.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- investigate and explain form i chemistry investigation using evidence\n\nInquiry questions:\n- How can form i chemistry investigation help you solve a real problem?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-008:opener:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-008:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-8"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p062",
+      "title": "Form I Chemistry Investigation: Learn",
+      "content": "Form I Chemistry Investigation is learned by turning the topic into a clear, safe, evidence-based science task.\n\nCore idea:\n- Name the science idea before starting: structure, process, material, force, energy, organism, environment, or system.\n- Use a diagram, data table, labelled model, safe observation, or teacher-approved investigation.\n- Record what is seen or measured, not what is guessed.\n- Explain the result using the vocabulary from this topic.\n- Finish with one conclusion and one question for further study.\n\nKey words:\n- Form I Chemistry Investigation\n- Form\n- Chemistry\n- Investigation\n- concept\n- observation\n- evidence\n- safety",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-008:learn:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-008:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-8"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p063",
+      "title": "Form I Chemistry Investigation: Worked Example",
+      "content": "Investigation model for Form I Chemistry Investigation: Turn the topic into a safe, clear classroom investigation or model.\n\n1. Question: write one question that can be answered by observing, comparing, classifying, measuring, modelling, or reading data.\n2. Materials: list safe classroom materials, diagrams, samples, cards, tables, or teacher-approved apparatus.\n3. Method: do one step at a time and keep one condition fair where comparison is needed.\n4. Safety: name any heat, glass, sharp tool, chemical, hygiene, electrical, or body-safety rule before starting.\n5. Record: use a labelled table, diagram, or sentence notes.\n6. Conclusion: state what the evidence shows and one limit of the investigation.\n\nAnswer check: a strong response names the concept, uses correct vocabulary, records evidence, and does not claim more than the evidence supports.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 127,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-008:example:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-008:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-8"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p064",
+      "title": "Form I Chemistry Investigation: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Form I Chemistry Investigation. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Form I Chemistry Investigation\n- Form\n- Chemistry\n- Investigation\n- concept\n- observation\n- evidence\n- safety\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Form I Chemistry Investigation without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-008:vocabulary:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-008:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-8"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p065",
+      "title": "Form I Chemistry Investigation: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Tanzania observation, model, data table, or investigation for Form I Chemistry Investigation.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-008:activity:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-008:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-8"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p066",
+      "title": "Form I Chemistry Investigation: Practice And Correction",
+      "content": "Practice for Form I Chemistry Investigation:\n\nMain outcome: investigate and explain form i chemistry investigation using evidence.\n\n1. Write one safe investigation question.\n2. Name materials and observations needed.\n3. Use the evidence to write a conclusion.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 83,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-008:practice:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-008:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-8"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p067",
+      "title": "Form I Chemistry Investigation: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Form I Chemistry Investigation.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-008:remediation:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-008:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-8"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p068",
+      "title": "Form I Chemistry Investigation: Outcome Check",
+      "content": "Outcome check for Form I Chemistry Investigation: Investigate and explain form i chemistry investigation using evidence.\n\n1. State a safe investigation question.\n2. Name the evidence needed.\n3. Write a conclusion from the evidence.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 49,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-008:assessment:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-008:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-8"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p069",
+      "title": "Chemistry Laboratory Safety And Apparatus: Review Clinic 1",
+      "content": "Use this review clinic to strengthen Chemistry without copying earlier answers.\n\n1. Choose one idea from Chemistry Laboratory Safety And Apparatus that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 78,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-001:review:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-001:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-1"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p070",
+      "title": "Matter Elements Compounds And Mixtures: Review Clinic 2",
+      "content": "Use this review clinic to strengthen Chemistry without copying earlier answers.\n\n1. Choose one idea from Matter Elements Compounds And Mixtures that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 78,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-002:review:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-002:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-2"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p071",
+      "title": "Air Oxygen And Combustion: Review Clinic 3",
+      "content": "Use this review clinic to strengthen Chemistry without copying earlier answers.\n\n1. Choose one idea from Air Oxygen And Combustion that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 77,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-003:review:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-003:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-3"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p072",
+      "title": "Water Solutions And Separation Methods: Review Clinic 4",
+      "content": "Use this review clinic to strengthen Chemistry without copying earlier answers.\n\n1. Choose one idea from Water Solutions And Separation Methods that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 78,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-004:review:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-004:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-4"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p073",
+      "title": "Chemistry Laboratory Safety And Apparatus: Application Workshop 1",
+      "content": "Application workshop 1 for Chemistry Laboratory Safety And Apparatus.\n\nGrade move: build lower-secondary foundations with clear vocabulary and guided application; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-001:application-workshop:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-001:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-1"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p074",
+      "title": "Matter Elements Compounds And Mixtures: Application Workshop 2",
+      "content": "Application workshop 2 for Matter Elements Compounds And Mixtures.\n\nGrade move: build lower-secondary foundations with clear vocabulary and guided application; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-002:application-workshop:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-002:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-2"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p075",
+      "title": "Air Oxygen And Combustion: Application Workshop 3",
+      "content": "Application workshop 3 for Air Oxygen And Combustion.\n\nGrade move: build lower-secondary foundations with clear vocabulary and guided application; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 114,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-003:application-workshop:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-003:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-3"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p076",
+      "title": "Water Solutions And Separation Methods: Application Workshop 4",
+      "content": "Application workshop 4 for Water Solutions And Separation Methods.\n\nGrade move: build lower-secondary foundations with clear vocabulary and guided application; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-004:application-workshop:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-004:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-4"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p077",
+      "title": "Acids Bases And Indicators: Application Workshop 5",
+      "content": "Application workshop 5 for Acids Bases And Indicators.\n\nGrade move: build lower-secondary foundations with clear vocabulary and guided application; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 114,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-005:application-workshop:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-005:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-5"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p078",
+      "title": "Metals Non-Metals And Simple Reactions: Application Workshop 6",
+      "content": "Application workshop 6 for Metals Non-Metals And Simple Reactions.\n\nGrade move: build lower-secondary foundations with clear vocabulary and guided application; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-006:application-workshop:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-006:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-6"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p079",
+      "title": "Chemical Symbols Formulae And Equations: Application Workshop 7",
+      "content": "Application workshop 7 for Chemical Symbols Formulae And Equations.\n\nGrade move: build lower-secondary foundations with clear vocabulary and guided application; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-007:application-workshop:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-007:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-7"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p080",
+      "title": "Form I Chemistry Investigation: Application Workshop 8",
+      "content": "Application workshop 8 for Form I Chemistry Investigation.\n\nGrade move: build lower-secondary foundations with clear vocabulary and guided application; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 114,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-008:application-workshop:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-008:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-8"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p081",
+      "title": "Chemistry Laboratory Safety And Apparatus: Application Workshop 9",
+      "content": "Application workshop 9 for Chemistry Laboratory Safety And Apparatus.\n\nGrade move: build lower-secondary foundations with clear vocabulary and guided application; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-001:application-workshop:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-001:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-1"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p082",
+      "title": "Matter Elements Compounds And Mixtures: Application Workshop 10",
+      "content": "Application workshop 10 for Matter Elements Compounds And Mixtures.\n\nGrade move: build lower-secondary foundations with clear vocabulary and guided application; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "TZA-FORM-I-chemistry-topic-002:application-workshop:visual-1:planned",
+        "TZA-FORM-I-chemistry-topic-002:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-chemistry-2"
+      ],
+      "unitIds": [
+        "fallback-form-i-chemistry-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-chemistry-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-chemistry-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p083",
+      "title": "Glossary",
+      "content": "Use this glossary to revise important words in Chemistry.\n\n- Chemistry Laboratory Safety And Apparatus: Explain this term using an example from the book, your school, or your community.\n- Matter Elements Compounds And Mixtures: Explain this term using an example from the book, your school, or your community.\n- Air Oxygen And Combustion: Explain this term using an example from the book, your school, or your community.\n- Water Solutions And Separation Methods: Explain this term using an example from the book, your school, or your community.\n- Acids Bases And Indicators: Explain this term using an example from the book, your school, or your community.\n- Metals Non-Metals And Simple Reactions: Explain this term using an example from the book, your school, or your community.\n- Chemical Symbols Formulae And Equations: Explain this term using an example from the book, your school, or your community.\n- Form I Chemistry Investigation: Explain this term using an example from the book, your school, or your community.\n\nAdd five more words from your lessons and write your own meanings.",
+      "pageType": "glossary",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 178,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p084",
+      "title": "Answer And Teacher Notes",
+      "content": "A strong Chemistry answer states the idea, uses correct scientific vocabulary, records observations or data, includes units or labels where needed, and writes a conclusion that follows from evidence. Safety rules always come first. If evidence is missing, repeat the observation safely or explain what evidence would be needed.",
+      "pageType": "answer-notes",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 49,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-chemistry-p085",
+      "title": "Final Project",
+      "content": "Create a final project for Chemistry that shows what you can now do independently.\n\nYour project must include:\n1. A clear title.\n2. A real-life problem, question, text, performance, investigation, design, or worked task.\n3. Evidence from at least three lessons in this book.\n4. A drawing, table, map, chart, model, dialogue, paragraph, performance plan, practical product, or worked solution.\n5. A correction note showing one improvement after feedback.\n6. A short reflection explaining what you learned, what was difficult, and what you will practise next.\n\nPresentation check: keep the work neat, label important parts, use correct vocabulary, and be ready to explain your choices to a classmate or teacher.",
+      "pageType": "project",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 110,
+      "imageRefs": []
+    }
+  ]
+}

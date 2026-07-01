@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-uga-ncdc-s2-geography",
+  "title": "KITABU QUEST S2 Geography",
+  "country": "UGA",
+  "curriculum": "NCDC",
+  "grade": "S2",
+  "subject": "Geography",
+  "subjectSlug": "geography",
+  "subjectColor": "#0E7490",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v12",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:14:49Z",
+  "sourceSnapshotHash": "211103aa6442ba0c919aff02af8d4e44610d31b133d9af2bf6edd51d3a3c9900",
+  "bookPlanHash": "873f2a0e714d1ec7ea10e29d5832563df15ebd7e1c8446afd97d1b1875b59096",
+  "pageCount": 85,
+  "wordCount": 7932,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 8,
+    "outcomeCount": 8,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "UGA",
+    "subject": "Geography",
+    "species": "Uganda kob",
+    "role": "maps and landscape guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners studying maps near a Ugandan landscape with a Uganda kob mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Uganda NCDC S2 Geography. Scene: learners studying maps near a Ugandan landscape with a Uganda kob mascot. Include a friendly Uganda kob mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 91576,
+    "sha256": "41c6c16733edfda4e983c9c793106efb8dcf25869cbb37157dc58d9c91b5fdcb"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 91576,
+      "sha256": "41c6c16733edfda4e983c9c793106efb8dcf25869cbb37157dc58d9c91b5fdcb",
+      "kind": "cover",
+      "altText": "KITABU QUEST S2 Geography cover with Uganda kob",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-uga-ncdc-s2-geography.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-uga-ncdc-s2-geography.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "1eadedb8-db82-4ff8-906f-262adb764653",
+      "subject": "Geography",
+      "officialTitle": "Uganda Curriculum S2 Geography",
+      "countryCode": "UGA",
+      "curriculumCode": "NCDC",
+      "gradeCode": "S2",
+      "gradeLocalLevel": "S2",
+      "localLevel": "S2",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/Georgraphy-Syllabus.pdf",
+      "objectKey": "data/curriculum/source-files/UGA/5199f5fdf10e87d3c868e4b5932075d5dac5ee621ce33ece77ba86eb02919f33.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "S2",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/Georgraphy-Syllabus.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/UGA/NCDC/S2/geography/1eadedb8-db82-4ff8-906f-262adb764653.md",
+        "sourcePageUrl": "https://ncdc.go.ug/wp-content/uploads/2024/03/Curriculum_Framework.pdf",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "ncdc.go.ug"
+        ],
+        "markdownChecksum": "adcf07dfe2e1d0ce3f26d33d50ae2321e560e71475488f999c4159490eb2a91f",
+        "markdownPageCount": 124,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/UGA/NCDC/S2/geography/1eadedb8-db82-4ff8-906f-262adb764653.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "adcf07dfe2e1d0ce3f26d33d50ae2321e560e71475488f999c4159490eb2a91f",
+          "pageCount": 124,
+          "generatedAt": "2026-06-29T18:01:54.875Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "441330e7fbe9e223c35e60b73bde9d2bb879b124c0b7b7ca81a996ef052dddf0"
+        },
+        "markdownGeneratedAt": "2026-06-29T18:01:54.875Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

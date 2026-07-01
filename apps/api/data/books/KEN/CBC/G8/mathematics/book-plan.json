@@ -1,0 +1,1998 @@
+{
+  "schemaVersion": 1,
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 8",
+  "subject": "Mathematics",
+  "generatedAt": "2026-07-01T12:10:02Z",
+  "sourceSnapshotHash": "cbdf70d0b339b516652a979b2ab3910a1ab31cb7fa0df2f8baec299180f2fd69",
+  "ageBand": {
+    "band": "junior-secondary",
+    "language": "clear academic words introduced through examples",
+    "taskDepth": "multi-step reasoning, comparison, and application"
+  },
+  "writingStandard": {
+    "voice": "simple, conversational, purposeful, and learner-first",
+    "antiFluff": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "coversDeferred": true
+  },
+  "strands": [
+    {
+      "strandId": "59ba0f5c-ae12-4d2f-b053-df435e717ae3",
+      "number": "1.0",
+      "title": "Numbers 1.1 Integers",
+      "topicCount": 7
+    },
+    {
+      "strandId": "a8089c5a-db2a-47db-aff6-bf6788a3a6a7",
+      "number": "2.0",
+      "title": "Algebra 2.1 Algebraic",
+      "topicCount": 2
+    },
+    {
+      "strandId": "9141ca50-dfc6-4709-b17b-4b69394c018e",
+      "number": "3.0",
+      "title": "Measurements 3.1 Circles",
+      "topicCount": 4
+    },
+    {
+      "strandId": "b738e2de-2a5e-4e9a-854a-f3d2670b7566",
+      "number": "4.0",
+      "title": "Geometry 4.1 Geometrical",
+      "topicCount": 6
+    },
+    {
+      "strandId": "d3c0b74e-c579-4f30-99a7-fd7774c2fb80",
+      "number": "5.0",
+      "title": "Data Handling and Probability",
+      "topicCount": 4
+    }
+  ],
+  "topics": [
+    {
+      "topicId": "G8-mathematics-topic-001",
+      "strandId": "59ba0f5c-ae12-4d2f-b053-df435e717ae3",
+      "parentSubStrandId": "01561917-496f-4aae-bfd3-cea3fccd89ed",
+      "subStrandId": "01561917-496f-4aae-bfd3-cea3fccd89ed:topic-1",
+      "strandTitle": "Numbers 1.1 Integers",
+      "unitTitle": "Numbers 1.1 Integers:",
+      "sourceUnitTitle": "Numbers 1.1 Integers",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-math-1-0-outcome-1",
+          "text": "identify integers in different situations"
+        },
+        {
+          "id": "grade-8-math-1-0-outcome-2",
+          "text": "represent integers on a number line in different situations"
+        },
+        {
+          "id": "grade-8-math-1-0-outcome-3",
+          "text": "carry out operations of addition and subtraction integers on the number line in real life situations"
+        },
+        {
+          "id": "grade-8-math-1-0-outcome-4",
+          "text": "use IT or print resources for learning more on integers and for skills development"
+        }
+      ],
+      "inquiryQuestions": [
+        "Where do we use integers in real life situations?",
+        "How do we carry out operations of integers?",
+        "(s) How do we use fractions in real-life situations?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Numbers 1.1 Integers.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Numbers 1.1 Integers",
+        "Numbers",
+        "Integers"
+      ],
+      "misconceptions": [
+        "mixing up the method for Numbers 1.1 Integers: with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Numbers 1.1 Integers:",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Numbers 1.1 Integers:",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Numbers 1.1 Integers:",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1e1d74a1-50bb-41ef-bab4-df068555f975",
+          "officialTitle": "Competency Based Curriculum Grade 8 Mathematics",
+          "sourceSnapshotHash": "cbdf70d0b339b516652a979b2ab3910a1ab31cb7fa0df2f8baec299180f2fd69"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-mathematics-topic-002",
+      "strandId": "59ba0f5c-ae12-4d2f-b053-df435e717ae3",
+      "parentSubStrandId": "01561917-496f-4aae-bfd3-cea3fccd89ed",
+      "subStrandId": "01561917-496f-4aae-bfd3-cea3fccd89ed:topic-2",
+      "strandTitle": "Numbers 1.1 Integers",
+      "unitTitle": "Numbers 1.1 Integers: reflect on use of integers",
+      "sourceUnitTitle": "Numbers 1.1 Integers",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-math-1-0-outcome-5",
+          "text": "reflect on use of integers in real-life situations."
+        },
+        {
+          "id": "grade-8-math-1-0-outcome-6",
+          "text": "work out reciprocal of fractions in different situations"
+        },
+        {
+          "id": "grade-8-math-1-0-outcome-7",
+          "text": "carry out combined operations on fractions in different situations"
+        },
+        {
+          "id": "grade-8-math-1-0-outcome-8",
+          "text": "promote use of fractions in real-life situations."
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we carry out operations of integers?",
+        "(s) How do we use fractions in real-life situations?",
+        "What are squares and square roots of numbers?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Numbers 1.1 Integers.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Numbers 1.1 Integers: reflect on use of integers",
+        "Numbers 1.1 Integers",
+        "Numbers",
+        "Integers",
+        "reflect"
+      ],
+      "misconceptions": [
+        "mixing up the method for Numbers 1.1 Integers: reflect on use of integers with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Numbers 1.1 Integers: reflect on use of integers",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Numbers 1.1 Integers: reflect on use of integers",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Numbers 1.1 Integers: reflect on use of integers",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1e1d74a1-50bb-41ef-bab4-df068555f975",
+          "officialTitle": "Competency Based Curriculum Grade 8 Mathematics",
+          "sourceSnapshotHash": "cbdf70d0b339b516652a979b2ab3910a1ab31cb7fa0df2f8baec299180f2fd69"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-mathematics-topic-003",
+      "strandId": "59ba0f5c-ae12-4d2f-b053-df435e717ae3",
+      "parentSubStrandId": "01561917-496f-4aae-bfd3-cea3fccd89ed",
+      "subStrandId": "01561917-496f-4aae-bfd3-cea3fccd89ed:topic-3",
+      "strandTitle": "Numbers 1.1 Integers",
+      "unitTitle": "Numbers 1.1 Integers: squares of numbers from tables",
+      "sourceUnitTitle": "Numbers 1.1 Integers",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-math-1-0-outcome-9",
+          "text": "work out the squares of numbers from tables in different situations"
+        },
+        {
+          "id": "grade-8-math-1-0-outcome-10",
+          "text": "work out the square roots of numbers from tables in different situations"
+        },
+        {
+          "id": "grade-8-math-1-0-outcome-11",
+          "text": "work out squares and square roots of numbers using a calculator in different situations"
+        },
+        {
+          "id": "grade-8-math-1-0-outcome-12",
+          "text": "enjoy using squares and square roots in real life situations."
+        }
+      ],
+      "inquiryQuestions": [
+        "(s) How do we use fractions in real-life situations?",
+        "What are squares and square roots of numbers?",
+        "Where do we apply squares and square roots in real-life situations?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Numbers 1.1 Integers.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Numbers 1.1 Integers: squares of numbers from tables",
+        "Numbers 1.1 Integers",
+        "Numbers",
+        "Integers",
+        "squares",
+        "tables"
+      ],
+      "misconceptions": [
+        "mixing up the method for Numbers 1.1 Integers: squares of numbers from tables with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Numbers 1.1 Integers: squares of numbers from tables",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Numbers 1.1 Integers: squares of numbers from tables",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Numbers 1.1 Integers: squares of numbers from tables",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1e1d74a1-50bb-41ef-bab4-df068555f975",
+          "officialTitle": "Competency Based Curriculum Grade 8 Mathematics",
+          "sourceSnapshotHash": "cbdf70d0b339b516652a979b2ab3910a1ab31cb7fa0df2f8baec299180f2fd69"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-mathematics-topic-004",
+      "strandId": "59ba0f5c-ae12-4d2f-b053-df435e717ae3",
+      "parentSubStrandId": "01561917-496f-4aae-bfd3-cea3fccd89ed",
+      "subStrandId": "01561917-496f-4aae-bfd3-cea3fccd89ed:topic-4",
+      "strandTitle": "Numbers 1.1 Integers",
+      "unitTitle": "Numbers 1.1 Integers: rates",
+      "sourceUnitTitle": "Numbers 1.1 Integers",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-math-1-0-outcome-13",
+          "text": "identify rates in different situations"
+        },
+        {
+          "id": "grade-8-math-1-0-outcome-14",
+          "text": "work out rates in real-life situations."
+        },
+        {
+          "id": "grade-8-math-1-0-outcome-15",
+          "text": "express fractions as ratios in real-life situations"
+        },
+        {
+          "id": "grade-8-math-1-0-outcome-16",
+          "text": "compare two or more ratios in different situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "What are squares and square roots of numbers?",
+        "Where do we apply squares and square roots in real-life situations?",
+        "How do we use rates in real-life situations?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Numbers 1.1 Integers.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Numbers 1.1 Integers: rates",
+        "Numbers 1.1 Integers",
+        "Numbers",
+        "Integers",
+        "rates"
+      ],
+      "misconceptions": [
+        "mixing up the method for Numbers 1.1 Integers: rates with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Numbers 1.1 Integers: rates",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Numbers 1.1 Integers: rates",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Numbers 1.1 Integers: rates",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1e1d74a1-50bb-41ef-bab4-df068555f975",
+          "officialTitle": "Competency Based Curriculum Grade 8 Mathematics",
+          "sourceSnapshotHash": "cbdf70d0b339b516652a979b2ab3910a1ab31cb7fa0df2f8baec299180f2fd69"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-mathematics-topic-005",
+      "strandId": "59ba0f5c-ae12-4d2f-b053-df435e717ae3",
+      "parentSubStrandId": "01561917-496f-4aae-bfd3-cea3fccd89ed",
+      "subStrandId": "01561917-496f-4aae-bfd3-cea3fccd89ed:topic-5",
+      "strandTitle": "Numbers 1.1 Integers",
+      "unitTitle": "Numbers 1.1 Integers: quantities in given ratios",
+      "sourceUnitTitle": "Numbers 1.1 Integers",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-math-1-0-outcome-17",
+          "text": "divide quantities in given ratios in real-life situations"
+        },
+        {
+          "id": "grade-8-math-1-0-outcome-18",
+          "text": "work out ratios in different situations"
+        },
+        {
+          "id": "grade-8-math-1-0-outcome-19",
+          "text": "work out increase and decrease of quantities using ratios in real-life situations"
+        },
+        {
+          "id": "grade-8-math-1-0-outcome-20",
+          "text": "work out percentage change of given"
+        }
+      ],
+      "inquiryQuestions": [
+        "Where do we apply squares and square roots in real-life situations?",
+        "How do we use rates in real-life situations?",
+        "How do we use ratios in daily activities?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Numbers 1.1 Integers.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Numbers 1.1 Integers: quantities in given ratios",
+        "Numbers 1.1 Integers",
+        "Numbers",
+        "Integers",
+        "quantities",
+        "given",
+        "ratios"
+      ],
+      "misconceptions": [
+        "mixing up the method for Numbers 1.1 Integers: quantities in given ratios with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Numbers 1.1 Integers: quantities in given ratios",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Numbers 1.1 Integers: quantities in given ratios",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Numbers 1.1 Integers: quantities in given ratios",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1e1d74a1-50bb-41ef-bab4-df068555f975",
+          "officialTitle": "Competency Based Curriculum Grade 8 Mathematics",
+          "sourceSnapshotHash": "cbdf70d0b339b516652a979b2ab3910a1ab31cb7fa0df2f8baec299180f2fd69"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-mathematics-topic-006",
+      "strandId": "59ba0f5c-ae12-4d2f-b053-df435e717ae3",
+      "parentSubStrandId": "12b40239-e092-49c5-91e3-cbfe75de59cf",
+      "subStrandId": "12b40239-e092-49c5-91e3-cbfe75de59cf:topic-1",
+      "strandTitle": "Numbers 1.1 Integers",
+      "unitTitle": "Decimals: convert fractions to decimals",
+      "sourceUnitTitle": "Decimals",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-math-1-3-outcome-1",
+          "text": "convert fractions to decimals in different situations"
+        },
+        {
+          "id": "grade-8-math-1-3-outcome-2",
+          "text": "identify recurring decimals in different situations"
+        },
+        {
+          "id": "grade-8-math-1-3-outcome-3",
+          "text": "convert recurring decimals into fractions in different situations"
+        },
+        {
+          "id": "grade-8-math-1-3-outcome-4",
+          "text": "round off a decimal number to a required number of decimal places in different situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we work out operations on decimals?",
+        "How do we use decimals in real life situations?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Decimals.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Decimals: convert fractions to decimals",
+        "Decimals",
+        "convert",
+        "fractions"
+      ],
+      "misconceptions": [
+        "mixing up the method for Decimals: convert fractions to decimals with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Decimals: convert fractions to decimals",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Decimals: convert fractions to decimals",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Decimals: convert fractions to decimals",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1e1d74a1-50bb-41ef-bab4-df068555f975",
+          "officialTitle": "Competency Based Curriculum Grade 8 Mathematics",
+          "sourceSnapshotHash": "cbdf70d0b339b516652a979b2ab3910a1ab31cb7fa0df2f8baec299180f2fd69"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-mathematics-topic-007",
+      "strandId": "59ba0f5c-ae12-4d2f-b053-df435e717ae3",
+      "parentSubStrandId": "12b40239-e092-49c5-91e3-cbfe75de59cf",
+      "subStrandId": "12b40239-e092-49c5-91e3-cbfe75de59cf:topic-2",
+      "strandTitle": "Numbers 1.1 Integers",
+      "unitTitle": "Decimals: numbers to a required significant figures",
+      "sourceUnitTitle": "Decimals",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-math-1-3-outcome-5",
+          "text": "express numbers to a required significant figures in real life situations"
+        },
+        {
+          "id": "grade-8-math-1-3-outcome-6",
+          "text": "express numbers in standard form in different situations"
+        },
+        {
+          "id": "grade-8-math-1-3-outcome-7",
+          "text": "carry out combined operations on decimals in different situations"
+        },
+        {
+          "id": "grade-8-math-1-3-outcome-8",
+          "text": "apply decimals to real-life situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we use decimals in real life situations?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Decimals.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Decimals: numbers to a required significant figures",
+        "Decimals",
+        "numbers",
+        "required",
+        "significant",
+        "figures"
+      ],
+      "misconceptions": [
+        "mixing up the method for Decimals: numbers to a required significant figures with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Decimals: numbers to a required significant figures",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Decimals: numbers to a required significant figures",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Decimals: numbers to a required significant figures",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1e1d74a1-50bb-41ef-bab4-df068555f975",
+          "officialTitle": "Competency Based Curriculum Grade 8 Mathematics",
+          "sourceSnapshotHash": "cbdf70d0b339b516652a979b2ab3910a1ab31cb7fa0df2f8baec299180f2fd69"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-mathematics-topic-008",
+      "strandId": "a8089c5a-db2a-47db-aff6-bf6788a3a6a7",
+      "parentSubStrandId": "51bb0fc0-d1da-44ad-9ca2-621a875b12f8",
+      "subStrandId": "51bb0fc0-d1da-44ad-9ca2-621a875b12f8:topic-1",
+      "strandTitle": "Algebra 2.1 Algebraic",
+      "unitTitle": "Algebra 2.1 Algebraic: factorise algebraic expressions",
+      "sourceUnitTitle": "Algebra 2.1 Algebraic",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-math-2-0-outcome-1",
+          "text": "factorise algebraic expressions in different situations"
+        },
+        {
+          "id": "grade-8-math-2-0-outcome-2",
+          "text": "simplify algebraic fractions in different"
+        },
+        {
+          "id": "grade-8-math-2-0-outcome-3",
+          "text": "form linear equations in two unknowns in real-life situations"
+        },
+        {
+          "id": "grade-8-math-2-0-outcome-4",
+          "text": "solve linear equations in two unknowns by substitution method in real-life situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we factorise algebraic expressions?",
+        "How do we solve linear equations in two unknowns?",
+        "Where do we use linear equations in two unknowns in real-life situations?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Algebra 2.1 Algebraic.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Algebra 2.1 Algebraic: factorise algebraic expressions",
+        "Algebra 2.1 Algebraic",
+        "Algebra",
+        "Algebraic",
+        "factorise",
+        "expressions"
+      ],
+      "misconceptions": [
+        "mixing up the method for Algebra 2.1 Algebraic: factorise algebraic expressions with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Algebra 2.1 Algebraic: factorise algebraic expressions",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Algebra 2.1 Algebraic: factorise algebraic expressions",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Algebra 2.1 Algebraic: factorise algebraic expressions",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1e1d74a1-50bb-41ef-bab4-df068555f975",
+          "officialTitle": "Competency Based Curriculum Grade 8 Mathematics",
+          "sourceSnapshotHash": "cbdf70d0b339b516652a979b2ab3910a1ab31cb7fa0df2f8baec299180f2fd69"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-mathematics-topic-009",
+      "strandId": "a8089c5a-db2a-47db-aff6-bf6788a3a6a7",
+      "parentSubStrandId": "51bb0fc0-d1da-44ad-9ca2-621a875b12f8",
+      "subStrandId": "51bb0fc0-d1da-44ad-9ca2-621a875b12f8:topic-2",
+      "strandTitle": "Algebra 2.1 Algebraic",
+      "unitTitle": "Algebra 2.1 Algebraic: solve linear equations in two unknowns by elimination",
+      "sourceUnitTitle": "Algebra 2.1 Algebraic",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-math-2-0-outcome-5",
+          "text": "solve linear equations in two unknowns by elimination method in real-life situations"
+        },
+        {
+          "id": "grade-8-math-2-0-outcome-6",
+          "text": "apply linear equations in two unknowns in real-life situations"
+        },
+        {
+          "id": "grade-8-math-2-0-outcome-7",
+          "text": "recognise use of linear equations in real life."
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we solve linear equations in two unknowns?",
+        "Where do we use linear equations in two unknowns in real-life situations?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Algebra 2.1 Algebraic.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Algebra 2.1 Algebraic: solve linear equations in two unknowns by elimination",
+        "Algebra 2.1 Algebraic",
+        "Algebra",
+        "Algebraic",
+        "solve",
+        "linear",
+        "equations",
+        "unknowns"
+      ],
+      "misconceptions": [
+        "mixing up the method for Algebra 2.1 Algebraic: solve linear equations in two unknowns by elimination with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Algebra 2.1 Algebraic: solve linear equations in two unknowns by elimination",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Algebra 2.1 Algebraic: solve linear equations in two unknowns by elimination",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Algebra 2.1 Algebraic: solve linear equations in two unknowns by elimination",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1e1d74a1-50bb-41ef-bab4-df068555f975",
+          "officialTitle": "Competency Based Curriculum Grade 8 Mathematics",
+          "sourceSnapshotHash": "cbdf70d0b339b516652a979b2ab3910a1ab31cb7fa0df2f8baec299180f2fd69"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-mathematics-topic-010",
+      "strandId": "9141ca50-dfc6-4709-b17b-4b69394c018e",
+      "parentSubStrandId": "661fc08c-ecfd-4a25-b190-72724be09ba1",
+      "subStrandId": "661fc08c-ecfd-4a25-b190-72724be09ba1:topic-1",
+      "strandTitle": "Measurements 3.1 Circles",
+      "unitTitle": "Measurements 3.1 Circles: circumference of a circle",
+      "sourceUnitTitle": "Measurements 3.1 Circles",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-math-3-0-outcome-1",
+          "text": "work out the circumference of a circle in real-life situations"
+        },
+        {
+          "id": "grade-8-math-3-0-outcome-2",
+          "text": "work out the length of an Arc of a circle in different situations"
+        },
+        {
+          "id": "grade-8-math-3-0-outcome-3",
+          "text": "calculate the perimeter of a sector of a circle in different situations"
+        },
+        {
+          "id": "grade-8-math-3-0-outcome-4",
+          "text": "promote use of circles in real-life situations."
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we determine the circumference of a circle?",
+        "How do we use sectors of a circle in real-life situations?",
+        "(s) How do we use area in real-life situations?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Measurements 3.1 Circles.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Measurements 3.1 Circles: circumference of a circle",
+        "Measurements 3.1 Circles",
+        "Measurements",
+        "Circles",
+        "circumference",
+        "circle"
+      ],
+      "misconceptions": [
+        "mixing up the method for Measurements 3.1 Circles: circumference of a circle with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Measurements 3.1 Circles: circumference of a circle",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Measurements 3.1 Circles: circumference of a circle",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Measurements 3.1 Circles: circumference of a circle",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1e1d74a1-50bb-41ef-bab4-df068555f975",
+          "officialTitle": "Competency Based Curriculum Grade 8 Mathematics",
+          "sourceSnapshotHash": "cbdf70d0b339b516652a979b2ab3910a1ab31cb7fa0df2f8baec299180f2fd69"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-mathematics-topic-011",
+      "strandId": "9141ca50-dfc6-4709-b17b-4b69394c018e",
+      "parentSubStrandId": "661fc08c-ecfd-4a25-b190-72724be09ba1",
+      "subStrandId": "661fc08c-ecfd-4a25-b190-72724be09ba1:topic-2",
+      "strandTitle": "Measurements 3.1 Circles",
+      "unitTitle": "Measurements 3.1 Circles: calculate the area of circles",
+      "sourceUnitTitle": "Measurements 3.1 Circles",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-math-3-0-outcome-5",
+          "text": "calculate the area of circles in different situations"
+        },
+        {
+          "id": "grade-8-math-3-0-outcome-6",
+          "text": "work out the area of a sector of a circle in different situations"
+        },
+        {
+          "id": "grade-8-math-3-0-outcome-7",
+          "text": "work out the surface area of cubes and cuboids in real-life situations"
+        },
+        {
+          "id": "grade-8-math-3-0-outcome-8",
+          "text": "work out the surface area of a cylinders in real-life situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we use sectors of a circle in real-life situations?",
+        "(s) How do we use area in real-life situations?",
+        "What is interest in money?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Measurements 3.1 Circles.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Measurements 3.1 Circles: calculate the area of circles",
+        "Measurements 3.1 Circles",
+        "Measurements",
+        "Circles",
+        "calculate"
+      ],
+      "misconceptions": [
+        "mixing up the method for Measurements 3.1 Circles: calculate the area of circles with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Measurements 3.1 Circles: calculate the area of circles",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Measurements 3.1 Circles: calculate the area of circles",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Measurements 3.1 Circles: calculate the area of circles",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1e1d74a1-50bb-41ef-bab4-df068555f975",
+          "officialTitle": "Competency Based Curriculum Grade 8 Mathematics",
+          "sourceSnapshotHash": "cbdf70d0b339b516652a979b2ab3910a1ab31cb7fa0df2f8baec299180f2fd69"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-mathematics-topic-012",
+      "strandId": "9141ca50-dfc6-4709-b17b-4b69394c018e",
+      "parentSubStrandId": "661fc08c-ecfd-4a25-b190-72724be09ba1",
+      "subStrandId": "661fc08c-ecfd-4a25-b190-72724be09ba1:topic-3",
+      "strandTitle": "Measurements 3.1 Circles",
+      "unitTitle": "Measurements 3.1 Circles: surface area of a triangular prism",
+      "sourceUnitTitle": "Measurements 3.1 Circles",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-math-3-0-outcome-9",
+          "text": "determine the surface area of a triangular prism in different situations"
+        },
+        {
+          "id": "grade-8-math-3-0-outcome-10",
+          "text": "work out the area of irregular shapes using"
+        },
+        {
+          "id": "grade-8-math-3-0-outcome-11",
+          "text": "identify interest and principal in real-life situations"
+        },
+        {
+          "id": "grade-8-math-3-0-outcome-12",
+          "text": "calculate simple interest in real-life situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "(s) How do we use area in real-life situations?",
+        "What is interest in money?",
+        "How do we pay for goods on hire purchase?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Measurements 3.1 Circles.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Measurements 3.1 Circles: surface area of a triangular prism",
+        "Measurements 3.1 Circles",
+        "Measurements",
+        "Circles",
+        "surface",
+        "triangular",
+        "prism"
+      ],
+      "misconceptions": [
+        "mixing up the method for Measurements 3.1 Circles: surface area of a triangular prism with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Measurements 3.1 Circles: surface area of a triangular prism",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Measurements 3.1 Circles: surface area of a triangular prism",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Measurements 3.1 Circles: surface area of a triangular prism",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1e1d74a1-50bb-41ef-bab4-df068555f975",
+          "officialTitle": "Competency Based Curriculum Grade 8 Mathematics",
+          "sourceSnapshotHash": "cbdf70d0b339b516652a979b2ab3910a1ab31cb7fa0df2f8baec299180f2fd69"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-mathematics-topic-013",
+      "strandId": "9141ca50-dfc6-4709-b17b-4b69394c018e",
+      "parentSubStrandId": "661fc08c-ecfd-4a25-b190-72724be09ba1",
+      "subStrandId": "661fc08c-ecfd-4a25-b190-72724be09ba1:topic-4",
+      "strandTitle": "Measurements 3.1 Circles",
+      "unitTitle": "Measurements 3.1 Circles: calculate compound interest per annum step by step",
+      "sourceUnitTitle": "Measurements 3.1 Circles",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-math-3-0-outcome-13",
+          "text": "calculate compound interest per annum step by step up to three years in real-life situations"
+        },
+        {
+          "id": "grade-8-math-3-0-outcome-14",
+          "text": "work out appreciation and depreciation per annum step by step up to three years in different situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "What is interest in money?",
+        "How do we pay for goods on hire purchase?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Measurements 3.1 Circles.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Measurements 3.1 Circles: calculate compound interest per annum step by step",
+        "Measurements 3.1 Circles",
+        "Measurements",
+        "Circles",
+        "calculate",
+        "compound",
+        "interest",
+        "annum"
+      ],
+      "misconceptions": [
+        "mixing up the method for Measurements 3.1 Circles: calculate compound interest per annum step by step with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Measurements 3.1 Circles: calculate compound interest per annum step by step",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Measurements 3.1 Circles: calculate compound interest per annum step by step",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Measurements 3.1 Circles: calculate compound interest per annum step by step",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1e1d74a1-50bb-41ef-bab4-df068555f975",
+          "officialTitle": "Competency Based Curriculum Grade 8 Mathematics",
+          "sourceSnapshotHash": "cbdf70d0b339b516652a979b2ab3910a1ab31cb7fa0df2f8baec299180f2fd69"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-mathematics-topic-014",
+      "strandId": "b738e2de-2a5e-4e9a-854a-f3d2670b7566",
+      "parentSubStrandId": "9b9bf9d3-280a-43a3-b3ed-8418993161fb",
+      "subStrandId": "9b9bf9d3-280a-43a3-b3ed-8418993161fb:topic-1",
+      "strandTitle": "Geometry 4.1 Geometrical",
+      "unitTitle": "Geometry 4.1 Geometrical: construct parallel and perpendicular lines",
+      "sourceUnitTitle": "Geometry 4.1 Geometrical",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-math-4-0-outcome-1",
+          "text": "construct parallel and perpendicular lines in different situations"
+        },
+        {
+          "id": "grade-8-math-4-0-outcome-2",
+          "text": "divide a line proportionally in different situations"
+        },
+        {
+          "id": "grade-8-math-4-0-outcome-3",
+          "text": "identify angle properties of polygons in different situations"
+        },
+        {
+          "id": "grade-8-math-4-0-outcome-4",
+          "text": "construct regular polygons up to a hexagon in different situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we construct polygons?",
+        "Where do we use polygons in real-life situations?",
+        "How do we plot coordinates on a cartesian plane?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Geometry 4.1 Geometrical.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Geometry 4.1 Geometrical: construct parallel and perpendicular lines",
+        "Geometry 4.1 Geometrical",
+        "Geometry",
+        "Geometrical",
+        "construct",
+        "parallel",
+        "perpendicular",
+        "lines"
+      ],
+      "misconceptions": [
+        "mixing up the method for Geometry 4.1 Geometrical: construct parallel and perpendicular lines with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Geometry 4.1 Geometrical: construct parallel and perpendicular lines",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Geometry 4.1 Geometrical: construct parallel and perpendicular lines",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Geometry 4.1 Geometrical: construct parallel and perpendicular lines",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1e1d74a1-50bb-41ef-bab4-df068555f975",
+          "officialTitle": "Competency Based Curriculum Grade 8 Mathematics",
+          "sourceSnapshotHash": "cbdf70d0b339b516652a979b2ab3910a1ab31cb7fa0df2f8baec299180f2fd69"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-mathematics-topic-015",
+      "strandId": "b738e2de-2a5e-4e9a-854a-f3d2670b7566",
+      "parentSubStrandId": "9b9bf9d3-280a-43a3-b3ed-8418993161fb",
+      "subStrandId": "9b9bf9d3-280a-43a3-b3ed-8418993161fb:topic-2",
+      "strandTitle": "Geometry 4.1 Geometrical",
+      "unitTitle": "Geometry 4.1 Geometrical: construct irregular polygons up to a hexagon",
+      "sourceUnitTitle": "Geometry 4.1 Geometrical",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-math-4-0-outcome-5",
+          "text": "construct irregular polygons up to a hexagon in different situations"
+        },
+        {
+          "id": "grade-8-math-4-0-outcome-6",
+          "text": "construct circles passing through the vertices"
+        },
+        {
+          "id": "grade-8-math-4-0-outcome-7",
+          "text": "draw a labelled cartesian plane on different learning materials"
+        },
+        {
+          "id": "grade-8-math-4-0-outcome-8",
+          "text": "identify points on the cartesian plane in different situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "Where do we use polygons in real-life situations?",
+        "How do we plot coordinates on a cartesian plane?",
+        "Where do we use linear graphs in real life?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Geometry 4.1 Geometrical.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Geometry 4.1 Geometrical: construct irregular polygons up to a hexagon",
+        "Geometry 4.1 Geometrical",
+        "Geometry",
+        "Geometrical",
+        "construct",
+        "irregular",
+        "polygons",
+        "hexagon"
+      ],
+      "misconceptions": [
+        "mixing up the method for Geometry 4.1 Geometrical: construct irregular polygons up to a hexagon with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Geometry 4.1 Geometrical: construct irregular polygons up to a hexagon",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Geometry 4.1 Geometrical: construct irregular polygons up to a hexagon",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Geometry 4.1 Geometrical: construct irregular polygons up to a hexagon",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1e1d74a1-50bb-41ef-bab4-df068555f975",
+          "officialTitle": "Competency Based Curriculum Grade 8 Mathematics",
+          "sourceSnapshotHash": "cbdf70d0b339b516652a979b2ab3910a1ab31cb7fa0df2f8baec299180f2fd69"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-mathematics-topic-016",
+      "strandId": "b738e2de-2a5e-4e9a-854a-f3d2670b7566",
+      "parentSubStrandId": "9b9bf9d3-280a-43a3-b3ed-8418993161fb",
+      "subStrandId": "9b9bf9d3-280a-43a3-b3ed-8418993161fb:topic-3",
+      "strandTitle": "Geometry 4.1 Geometrical",
+      "unitTitle": "Geometry 4.1 Geometrical: represent length to a given scale",
+      "sourceUnitTitle": "Geometry 4.1 Geometrical",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-math-4-0-outcome-9",
+          "text": "represent length to a given scale in different situations"
+        },
+        {
+          "id": "grade-8-math-4-0-outcome-10",
+          "text": "convert actual length to scale length in real-life situations"
+        },
+        {
+          "id": "grade-8-math-4-0-outcome-11",
+          "text": "convert scale length to actual length in real-life situations"
+        },
+        {
+          "id": "grade-8-math-4-0-outcome-12",
+          "text": "interpret linear scales in statement form in different situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we plot coordinates on a cartesian plane?",
+        "Where do we use linear graphs in real life?",
+        "How do we determine scales in real life?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Geometry 4.1 Geometrical.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Geometry 4.1 Geometrical: represent length to a given scale",
+        "Geometry 4.1 Geometrical",
+        "Geometry",
+        "Geometrical",
+        "represent",
+        "length",
+        "given",
+        "scale"
+      ],
+      "misconceptions": [
+        "mixing up the method for Geometry 4.1 Geometrical: represent length to a given scale with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Geometry 4.1 Geometrical: represent length to a given scale",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Geometry 4.1 Geometrical: represent length to a given scale",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Geometry 4.1 Geometrical: represent length to a given scale",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1e1d74a1-50bb-41ef-bab4-df068555f975",
+          "officialTitle": "Competency Based Curriculum Grade 8 Mathematics",
+          "sourceSnapshotHash": "cbdf70d0b339b516652a979b2ab3910a1ab31cb7fa0df2f8baec299180f2fd69"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-mathematics-topic-017",
+      "strandId": "b738e2de-2a5e-4e9a-854a-f3d2670b7566",
+      "parentSubStrandId": "9b9bf9d3-280a-43a3-b3ed-8418993161fb",
+      "subStrandId": "9b9bf9d3-280a-43a3-b3ed-8418993161fb:topic-4",
+      "strandTitle": "Geometry 4.1 Geometrical",
+      "unitTitle": "Geometry 4.1 Geometrical: linear scales in statement form",
+      "sourceUnitTitle": "Geometry 4.1 Geometrical",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-math-4-0-outcome-13",
+          "text": "write linear scales in statement form in different situations"
+        },
+        {
+          "id": "grade-8-math-4-0-outcome-14",
+          "text": "interpret linear scales in ratio form in different situations"
+        },
+        {
+          "id": "grade-8-math-4-0-outcome-15",
+          "text": "write linear scales in ratio form in different situations"
+        },
+        {
+          "id": "grade-8-math-4-0-outcome-16",
+          "text": "convert linear scale from statement form to ratio"
+        }
+      ],
+      "inquiryQuestions": [
+        "Where do we use linear graphs in real life?",
+        "How do we determine scales in real life?",
+        "Where do we use scale drawing in real-life situations?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Geometry 4.1 Geometrical.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Geometry 4.1 Geometrical: linear scales in statement form",
+        "Geometry 4.1 Geometrical",
+        "Geometry",
+        "Geometrical",
+        "linear",
+        "scales",
+        "statement"
+      ],
+      "misconceptions": [
+        "mixing up the method for Geometry 4.1 Geometrical: linear scales in statement form with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Geometry 4.1 Geometrical: linear scales in statement form",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Geometry 4.1 Geometrical: linear scales in statement form",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Geometry 4.1 Geometrical: linear scales in statement form",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1e1d74a1-50bb-41ef-bab4-df068555f975",
+          "officialTitle": "Competency Based Curriculum Grade 8 Mathematics",
+          "sourceSnapshotHash": "cbdf70d0b339b516652a979b2ab3910a1ab31cb7fa0df2f8baec299180f2fd69"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-mathematics-topic-018",
+      "strandId": "b738e2de-2a5e-4e9a-854a-f3d2670b7566",
+      "parentSubStrandId": "9b9bf9d3-280a-43a3-b3ed-8418993161fb",
+      "subStrandId": "9b9bf9d3-280a-43a3-b3ed-8418993161fb:topic-5",
+      "strandTitle": "Geometry 4.1 Geometrical",
+      "unitTitle": "Geometry 4.1 Geometrical: common solids from the environment",
+      "sourceUnitTitle": "Geometry 4.1 Geometrical",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-math-4-0-outcome-17",
+          "text": "identify common solids from the environment"
+        },
+        {
+          "id": "grade-8-math-4-0-outcome-18",
+          "text": "sketch nets of cubes, cuboids, cylinders, pyramids and cones in different situations"
+        },
+        {
+          "id": "grade-8-math-4-0-outcome-19",
+          "text": "work out surface area of the solids from nets of solids in different situations"
+        },
+        {
+          "id": "grade-8-math-4-0-outcome-20",
+          "text": "determine the distance between two points on the surface of a solid in different situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we determine scales in real life?",
+        "Where do we use scale drawing in real-life situations?",
+        "What are common solids?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Geometry 4.1 Geometrical.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Geometry 4.1 Geometrical: common solids from the environment",
+        "Geometry 4.1 Geometrical",
+        "Geometry",
+        "Geometrical",
+        "common",
+        "solids",
+        "environment"
+      ],
+      "misconceptions": [
+        "mixing up the method for Geometry 4.1 Geometrical: common solids from the environment with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Geometry 4.1 Geometrical: common solids from the environment",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Geometry 4.1 Geometrical: common solids from the environment",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Geometry 4.1 Geometrical: common solids from the environment",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1e1d74a1-50bb-41ef-bab4-df068555f975",
+          "officialTitle": "Competency Based Curriculum Grade 8 Mathematics",
+          "sourceSnapshotHash": "cbdf70d0b339b516652a979b2ab3910a1ab31cb7fa0df2f8baec299180f2fd69"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-mathematics-topic-019",
+      "strandId": "b738e2de-2a5e-4e9a-854a-f3d2670b7566",
+      "parentSubStrandId": "9b9bf9d3-280a-43a3-b3ed-8418993161fb",
+      "subStrandId": "9b9bf9d3-280a-43a3-b3ed-8418993161fb:topic-6",
+      "strandTitle": "Geometry 4.1 Geometrical",
+      "unitTitle": "Geometry 4.1 Geometrical: models of hollow and compact solids for skills",
+      "sourceUnitTitle": "Geometry 4.1 Geometrical",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-math-4-0-outcome-21",
+          "text": "make models of hollow and compact solids for skills development"
+        },
+        {
+          "id": "grade-8-math-4-0-outcome-22",
+          "text": "use drawing materials to draw models"
+        }
+      ],
+      "inquiryQuestions": [
+        "Where do we use scale drawing in real-life situations?",
+        "What are common solids?",
+        "How do we use common solids in real life?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Geometry 4.1 Geometrical.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Geometry 4.1 Geometrical: models of hollow and compact solids for skills",
+        "Geometry 4.1 Geometrical",
+        "Geometry",
+        "Geometrical",
+        "models",
+        "hollow",
+        "compact",
+        "solids"
+      ],
+      "misconceptions": [
+        "mixing up the method for Geometry 4.1 Geometrical: models of hollow and compact solids for skills with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Geometry 4.1 Geometrical: models of hollow and compact solids for skills",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Geometry 4.1 Geometrical: models of hollow and compact solids for skills",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Geometry 4.1 Geometrical: models of hollow and compact solids for skills",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1e1d74a1-50bb-41ef-bab4-df068555f975",
+          "officialTitle": "Competency Based Curriculum Grade 8 Mathematics",
+          "sourceSnapshotHash": "cbdf70d0b339b516652a979b2ab3910a1ab31cb7fa0df2f8baec299180f2fd69"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-mathematics-topic-020",
+      "strandId": "d3c0b74e-c579-4f30-99a7-fd7774c2fb80",
+      "parentSubStrandId": "774633eb-19b3-4b51-93f6-927a5235fdea",
+      "subStrandId": "774633eb-19b3-4b51-93f6-927a5235fdea:topic-1",
+      "strandTitle": "Data Handling and Probability",
+      "unitTitle": "Data Representation and Interpretation: bar graphs of data from real-life situations",
+      "sourceUnitTitle": "Data Representation and Interpretation",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-math-5-1-outcome-1",
+          "text": "draw bar graphs of data from real-life situations"
+        },
+        {
+          "id": "grade-8-math-5-1-outcome-2",
+          "text": "interpret bar graphs of data from real-life situations"
+        },
+        {
+          "id": "grade-8-math-5-1-outcome-3",
+          "text": "draw line graphs of given data from real-life situations"
+        },
+        {
+          "id": "grade-8-math-5-1-outcome-4",
+          "text": "interpret line graphs of data from real-life situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "What are the different ways of representing data?",
+        "How do we determine the mean of data?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Data Representation and Interpretation.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Data Representation and Interpretation: bar graphs of data from real-life situations",
+        "Data Representation and Interpretation",
+        "Representation",
+        "Interpretation",
+        "graphs",
+        "real-life",
+        "situations"
+      ],
+      "misconceptions": [
+        "mixing up the method for Data Representation and Interpretation: bar graphs of data from real-life situations with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Data Representation and Interpretation: bar graphs of data from real-life situations",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Data Representation and Interpretation: bar graphs of data from real-life situations",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Data Representation and Interpretation: bar graphs of data from real-life situations",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1e1d74a1-50bb-41ef-bab4-df068555f975",
+          "officialTitle": "Competency Based Curriculum Grade 8 Mathematics",
+          "sourceSnapshotHash": "cbdf70d0b339b516652a979b2ab3910a1ab31cb7fa0df2f8baec299180f2fd69"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-mathematics-topic-021",
+      "strandId": "d3c0b74e-c579-4f30-99a7-fd7774c2fb80",
+      "parentSubStrandId": "774633eb-19b3-4b51-93f6-927a5235fdea",
+      "subStrandId": "774633eb-19b3-4b51-93f6-927a5235fdea:topic-2",
+      "strandTitle": "Data Handling and Probability",
+      "unitTitle": "Data Representation and Interpretation: mode of a set of discrete data",
+      "sourceUnitTitle": "Data Representation and Interpretation",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-math-5-1-outcome-5",
+          "text": "identify the mode of a set of discrete data from real-life situations"
+        },
+        {
+          "id": "grade-8-math-5-1-outcome-6",
+          "text": "calculate the mean of a set of discrete data from real-life situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we determine the mean of data?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Data Representation and Interpretation.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Data Representation and Interpretation: mode of a set of discrete data",
+        "Data Representation and Interpretation",
+        "Representation",
+        "Interpretation",
+        "discrete"
+      ],
+      "misconceptions": [
+        "mixing up the method for Data Representation and Interpretation: mode of a set of discrete data with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Data Representation and Interpretation: mode of a set of discrete data",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Data Representation and Interpretation: mode of a set of discrete data",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Data Representation and Interpretation: mode of a set of discrete data",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1e1d74a1-50bb-41ef-bab4-df068555f975",
+          "officialTitle": "Competency Based Curriculum Grade 8 Mathematics",
+          "sourceSnapshotHash": "cbdf70d0b339b516652a979b2ab3910a1ab31cb7fa0df2f8baec299180f2fd69"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-mathematics-topic-022",
+      "strandId": "d3c0b74e-c579-4f30-99a7-fd7774c2fb80",
+      "parentSubStrandId": "24a09afc-e6de-44a9-9038-68cdbeff4051",
+      "subStrandId": "24a09afc-e6de-44a9-9038-68cdbeff4051:topic-1",
+      "strandTitle": "Data Handling and Probability",
+      "unitTitle": "Probability: events involving chance",
+      "sourceUnitTitle": "Probability",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-math-5-2-outcome-1",
+          "text": "identify events involving chance in real-life situations"
+        },
+        {
+          "id": "grade-8-math-5-2-outcome-2",
+          "text": "perform chance experiments in different situations"
+        },
+        {
+          "id": "grade-8-math-5-2-outcome-3",
+          "text": "write the experimental probability outcomes in different situations"
+        },
+        {
+          "id": "grade-8-math-5-2-outcome-4",
+          "text": "express the probability outcomes in fractions in different situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "When do we consider chances that an event is likely to happen?",
+        "Why is probability important in real life-situations?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Probability.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Probability: events involving chance",
+        "Probability",
+        "events",
+        "involving",
+        "chance"
+      ],
+      "misconceptions": [
+        "mixing up the method for Probability: events involving chance with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Probability: events involving chance",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Probability: events involving chance",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Probability: events involving chance",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1e1d74a1-50bb-41ef-bab4-df068555f975",
+          "officialTitle": "Competency Based Curriculum Grade 8 Mathematics",
+          "sourceSnapshotHash": "cbdf70d0b339b516652a979b2ab3910a1ab31cb7fa0df2f8baec299180f2fd69"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-mathematics-topic-023",
+      "strandId": "d3c0b74e-c579-4f30-99a7-fd7774c2fb80",
+      "parentSubStrandId": "24a09afc-e6de-44a9-9038-68cdbeff4051",
+      "subStrandId": "24a09afc-e6de-44a9-9038-68cdbeff4051:topic-2",
+      "strandTitle": "Data Handling and Probability",
+      "unitTitle": "Probability: outcomes in decimals or percentages",
+      "sourceUnitTitle": "Probability",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-math-5-2-outcome-5",
+          "text": "express the probability outcomes in decimals or percentages in different situations"
+        },
+        {
+          "id": "grade-8-math-5-2-outcome-6",
+          "text": "use IT and other materials to play games involving probability"
+        },
+        {
+          "id": "grade-8-math-5-2-outcome-7",
+          "text": "recognise that there are events that happen by chance in real life situations."
+        }
+      ],
+      "inquiryQuestions": [
+        "Why is probability important in real life-situations?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Probability.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Probability: outcomes in decimals or percentages",
+        "Probability",
+        "outcomes",
+        "decimals",
+        "percentages"
+      ],
+      "misconceptions": [
+        "mixing up the method for Probability: outcomes in decimals or percentages with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Probability: outcomes in decimals or percentages",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Probability: outcomes in decimals or percentages",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Probability: outcomes in decimals or percentages",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1e1d74a1-50bb-41ef-bab4-df068555f975",
+          "officialTitle": "Competency Based Curriculum Grade 8 Mathematics",
+          "sourceSnapshotHash": "cbdf70d0b339b516652a979b2ab3910a1ab31cb7fa0df2f8baec299180f2fd69"
+        }
+      ]
+    }
+  ]
+}

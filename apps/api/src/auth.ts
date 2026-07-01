@@ -20,6 +20,8 @@ export interface AuthTokenPayload {
   roles: AppRole[];
   gender?: 'male' | 'female' | 'not_specified';
   grade?: string | null;
+  countryCode?: string | null;
+  curriculumCode?: string | null;
   onboardingCompleted?: boolean;
   stepUp: boolean;
   mustRotatePassword?: boolean;
@@ -85,6 +87,8 @@ export async function verifyAccessToken(token: string): Promise<AuthenticatedUse
     roles: payload.roles,
     gender: payload.gender,
     grade: payload.grade ?? null,
+    countryCode: payload.countryCode ?? 'KEN',
+    curriculumCode: payload.curriculumCode ?? 'CBC',
     onboardingCompleted: Boolean(payload.onboardingCompleted),
     stepUp: payload.stepUp,
     mustRotatePassword: payload.mustRotatePassword,

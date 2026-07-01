@@ -1,0 +1,4988 @@
+{
+  "schemaVersion": 1,
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 5",
+  "subject": "Kiswahili",
+  "generatedAt": "2026-07-01T11:30:54Z",
+  "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534",
+  "ageBand": {
+    "band": "upper-primary",
+    "language": "short sentences, concrete examples, and step-by-step guidance",
+    "taskDepth": "one clear idea at a time, then guided practice"
+  },
+  "writingStandard": {
+    "voice": "simple, conversational, purposeful, and learner-first",
+    "antiFluff": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "coversDeferred": true
+  },
+  "strands": [
+    {
+      "strandId": "99957da6-7d35-409d-9a34-c97c948930d6",
+      "number": "1.1",
+      "title": "Kusikiliza na Kuzungumza",
+      "topicCount": 2
+    },
+    {
+      "strandId": "e3b71a53-e77a-490b-93bf-4e72c7da92d3",
+      "number": "1.2",
+      "title": "Kusoma 1.2.1",
+      "topicCount": 2
+    },
+    {
+      "strandId": "1d810cb6-ef78-4997-b965-84987a42a1f0",
+      "number": "1.3",
+      "title": "Kuandika 1.3.1",
+      "topicCount": 1
+    },
+    {
+      "strandId": "88fbb725-defc-4c27-b4fe-94db5cd5466b",
+      "number": "1.4",
+      "title": "Sarufi 1.4.1",
+      "topicCount": 1
+    },
+    {
+      "strandId": "5f639ff3-354e-416d-8a70-2976a9a9b29d",
+      "number": "2.1",
+      "title": "Kusikiliza na Kuzungumza",
+      "topicCount": 2
+    },
+    {
+      "strandId": "0e3718ae-04f1-4568-8111-a32dadc5379c",
+      "number": "2.2",
+      "title": "Kusoma 2.2.1",
+      "topicCount": 1
+    },
+    {
+      "strandId": "f489c3a6-b89f-4580-8bfa-cb28260e479b",
+      "number": "2.3",
+      "title": "Kuandika 2.3.1",
+      "topicCount": 1
+    },
+    {
+      "strandId": "059713ee-4d6e-42fe-be2a-dc0180da6dc4",
+      "number": "2.4",
+      "title": "Sarufi 2.4.1",
+      "topicCount": 2
+    },
+    {
+      "strandId": "9eb8c7d9-7832-4a37-a18f-3a577d682b1b",
+      "number": "3.1",
+      "title": "Kusikiliza na Kuzungumza",
+      "topicCount": 1
+    },
+    {
+      "strandId": "3f4f5495-ed2a-4306-9f05-8ed6e40bcbe4",
+      "number": "3.2",
+      "title": "Kusoma: 3.2.1",
+      "topicCount": 2
+    },
+    {
+      "strandId": "0222922b-a706-489c-a288-e8400aec1128",
+      "number": "3.3",
+      "title": "Kuandika 3.3.1",
+      "topicCount": 1
+    },
+    {
+      "strandId": "1eaccdc0-25a8-4483-8549-74bed4e04058",
+      "number": "3.4",
+      "title": "Sarufi 3.4.1",
+      "topicCount": 5
+    },
+    {
+      "strandId": "780b2567-6d9b-486a-a1ab-e3d4b21ad6c6",
+      "number": "4.1",
+      "title": "Kusikiliza na Kuzungumza",
+      "topicCount": 1
+    },
+    {
+      "strandId": "bd9dc5f2-c536-489a-9aec-173fcf1fbf2d",
+      "number": "4.3",
+      "title": "Kuandika 4.3.1",
+      "topicCount": 1
+    },
+    {
+      "strandId": "c2c0a2e8-1765-43fd-a29f-c8b10b679ce0",
+      "number": "4.4",
+      "title": "Sarufi 4.4.1",
+      "topicCount": 2
+    },
+    {
+      "strandId": "5c31fa29-a966-4b8e-a80b-7f5b66a8714f",
+      "number": "5.1",
+      "title": "Kusikiliza na Kuzungumza",
+      "topicCount": 2
+    },
+    {
+      "strandId": "0974aa87-e8a8-42ba-886d-e9572737c84d",
+      "number": "5.3",
+      "title": "Kuandika 5.3.1",
+      "topicCount": 1
+    },
+    {
+      "strandId": "edf45487-364a-4b6c-94c0-387a113e7078",
+      "number": "5.4",
+      "title": "Sarufi 5.4.1",
+      "topicCount": 2
+    },
+    {
+      "strandId": "95f8cd5f-1451-48cd-8339-a3669d242480",
+      "number": "6.1",
+      "title": "Kusikiliza na Kuzungumza",
+      "topicCount": 1
+    },
+    {
+      "strandId": "a82b9eb3-94f4-4264-bcb7-335177dbbcf9",
+      "number": "6.2",
+      "title": "Kusoma 6.2.1",
+      "topicCount": 1
+    },
+    {
+      "strandId": "6b9ff8aa-6f0a-4f70-93e7-bedcda02d09c",
+      "number": "6.3",
+      "title": "Kuandika 6.3.1",
+      "topicCount": 1
+    },
+    {
+      "strandId": "3660984c-5c0b-4c09-9794-ce5e61fdf14a",
+      "number": "6.4",
+      "title": "Sarufi 6.4.1",
+      "topicCount": 1
+    },
+    {
+      "strandId": "75b9518b-7d7f-4b3e-b908-15ad6579c1f1",
+      "number": "7.1",
+      "title": "Kusikiliza na Kuzungumza",
+      "topicCount": 2
+    },
+    {
+      "strandId": "762dcdae-d7d4-4797-bdba-66c99abffd1c",
+      "number": "7.2",
+      "title": "Kusoma 7.2.1",
+      "topicCount": 1
+    },
+    {
+      "strandId": "7c5ec711-449e-4f70-9f4d-61943554dc4f",
+      "number": "7.3",
+      "title": "Kuandika 7.3.1",
+      "topicCount": 1
+    },
+    {
+      "strandId": "099a8810-c50f-49eb-8ae8-20bdb3c27231",
+      "number": "7.4",
+      "title": "Sarufi 7.4.1",
+      "topicCount": 2
+    },
+    {
+      "strandId": "e630b1bd-6366-4f5c-9c39-76f85edda1bf",
+      "number": "8.2",
+      "title": "Kusoma 8.2.1",
+      "topicCount": 2
+    },
+    {
+      "strandId": "5ee1b384-ac43-44ec-9797-30b084bce601",
+      "number": "8.3",
+      "title": "Kuandika 8.3.1",
+      "topicCount": 1
+    },
+    {
+      "strandId": "f930ccd3-f3f5-4490-a1da-235a422d1bb0",
+      "number": "8.4",
+      "title": "Sarufi 8.4.1 Mnyambuliko wa Vitenzi Hali ya Hali ya",
+      "topicCount": 1
+    },
+    {
+      "strandId": "d01ed0d6-2f94-4c50-bbf6-e4560a69a42b",
+      "number": "9.1",
+      "title": "Kusikiliza na Kuzungumza",
+      "topicCount": 1
+    },
+    {
+      "strandId": "b0cb64ee-18c0-4285-be8c-67816bcc7519",
+      "number": "9.2",
+      "title": "Kusoma 9.2.1",
+      "topicCount": 1
+    },
+    {
+      "strandId": "9ab798cc-fe64-432a-8cef-3e24b1ed6a29",
+      "number": "9.3",
+      "title": "Kuandika 9.3.1",
+      "topicCount": 1
+    },
+    {
+      "strandId": "9cee9da6-0824-48e1-8775-5928e7d0707f",
+      "number": "9.4",
+      "title": "Sarufi 9.4.1",
+      "topicCount": 1
+    },
+    {
+      "strandId": "cfa767dd-5df3-40cf-9db1-d16b6849d7e6",
+      "number": "10.1",
+      "title": "Kusikiliza na Kuzungumza",
+      "topicCount": 1
+    },
+    {
+      "strandId": "f6014380-23e0-445d-9306-a181c2c60a33",
+      "number": "10.2",
+      "title": "Kusoma 10.2.1",
+      "topicCount": 1
+    },
+    {
+      "strandId": "0bc979b1-f729-4c70-87b9-b4b8801f0e03",
+      "number": "10.3",
+      "title": "Kuandika 10.3.1",
+      "topicCount": 1
+    },
+    {
+      "strandId": "bf26ad7d-67bd-42ac-a47c-529183efcc5c",
+      "number": "10.4",
+      "title": "Sarufi 10.4.1",
+      "topicCount": 2
+    },
+    {
+      "strandId": "57bab885-3db4-4145-8fd0-19e02117412a",
+      "number": "11.1",
+      "title": "Kusikiliza na Kuzungumza",
+      "topicCount": 2
+    },
+    {
+      "strandId": "a8ae7498-8638-48cf-a3d5-55540e3a2a74",
+      "number": "11.2.1",
+      "title": "Topic 11.2.1",
+      "topicCount": 2
+    },
+    {
+      "strandId": "adb62893-8c1e-4c06-b8e9-c2e57efca5f8",
+      "number": "11.4",
+      "title": "Sarufi 11.4.1",
+      "topicCount": 3
+    }
+  ],
+  "topics": [
+    {
+      "topicId": "G5-kiswahili-topic-001",
+      "strandId": "99957da6-7d35-409d-9a34-c97c948930d6",
+      "parentSubStrandId": "4c1a1b6c-cfde-4421-b85c-563fccec2c7c",
+      "subStrandId": "4c1a1b6c-cfde-4421-b85c-563fccec2c7c:topic-1",
+      "strandTitle": "Kusikiliza na Kuzungumza",
+      "unitTitle": "Matamshi Bora Sauti f/v, s/z, l/r/ na th/dh: kutambua silabi zinazotokana na sauti zinazokaribiana katika maneno",
+      "sourceUnitTitle": "Matamshi Bora Sauti f/v, s/z, l/r/ na th/dh",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-1-1-1-outcome-1",
+          "text": "kutambua silabi zinazotokana na sauti zinazokaribiana katika maneno: f/v, s/z, l/r na th/dh"
+        },
+        {
+          "id": "grade-5-kiswahili-1-1-1-outcome-2",
+          "text": "kutamka silabi zinazotokana na sauti zinazokaribiana kimatamshi: f/v, s/z, l/r na th/dh ili kutofautisha matamshi yake"
+        },
+        {
+          "id": "grade-5-kiswahili-1-1-1-outcome-3",
+          "text": "kutamka vitanzandimi vinavyoundwa kwa silabi za sauti zinazokaribiana kimatamshi: f/v, s/z, l/r na th/dh ili kuimarisha"
+        }
+      ],
+      "inquiryQuestions": [
+        "Je, unajua maneno gani yenye silabi zinazokangany a kimatamshi?",
+        "Je, unajua vitanzandimi gani vyenye silabi zinazokangany a kimatamshi?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Matamshi Bora Sauti f/v, s/z, l/r/ na th/dh.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Matamshi Bora Sauti f/v, s/z, l/r/ na th/dh: kutambua silabi zinazotokana na sauti zinazokaribiana katika maneno",
+        "Matamshi Bora Sauti f/v, s/z, l/r/ na th/dh",
+        "Matamshi",
+        "Sauti",
+        "th/dh",
+        "kutambua",
+        "silabi",
+        "zinazotokana"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Matamshi Bora Sauti f/v, s/z, l/r/ na th/dh: kutambua silabi zinazotokana na sauti zinazokaribiana katika maneno",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Matamshi Bora Sauti f/v, s/z, l/r/ na th/dh: kutambua silabi zinazotokana na sauti zinazokaribiana katika maneno",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Matamshi Bora Sauti f/v, s/z, l/r/ na th/dh: kutambua silabi zinazotokana na sauti zinazokaribiana katika maneno",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-002",
+      "strandId": "99957da6-7d35-409d-9a34-c97c948930d6",
+      "parentSubStrandId": "4c1a1b6c-cfde-4421-b85c-563fccec2c7c",
+      "subStrandId": "4c1a1b6c-cfde-4421-b85c-563fccec2c7c:topic-2",
+      "strandTitle": "Kusikiliza na Kuzungumza",
+      "unitTitle": "Matamshi Bora Sauti f/v, s/z, l/r/ na th/dh: kutunga vitanzandimi",
+      "sourceUnitTitle": "Matamshi Bora Sauti f/v, s/z, l/r/ na th/dh",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-1-1-1-outcome-4",
+          "text": "kutunga vitanzandimi"
+        }
+      ],
+      "inquiryQuestions": [
+        "Je, unajua vitanzandimi gani vyenye silabi zinazokangany a kimatamshi?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Matamshi Bora Sauti f/v, s/z, l/r/ na th/dh.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Matamshi Bora Sauti f/v, s/z, l/r/ na th/dh: kutunga vitanzandimi",
+        "Matamshi Bora Sauti f/v, s/z, l/r/ na th/dh",
+        "Matamshi",
+        "Sauti",
+        "th/dh",
+        "kutunga",
+        "vitanzandimi"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Matamshi Bora Sauti f/v, s/z, l/r/ na th/dh: kutunga vitanzandimi",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Matamshi Bora Sauti f/v, s/z, l/r/ na th/dh: kutunga vitanzandimi",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Matamshi Bora Sauti f/v, s/z, l/r/ na th/dh: kutunga vitanzandimi",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-003",
+      "strandId": "e3b71a53-e77a-490b-93bf-4e72c7da92d3",
+      "parentSubStrandId": "28b05807-ce83-4c67-bd9a-0d540a1f08fc",
+      "subStrandId": "28b05807-ce83-4c67-bd9a-0d540a1f08fc:topic-1",
+      "strandTitle": "Kusoma 1.2.1",
+      "unitTitle": "Kusoma 1.2.1: kutambua msamiati wa suala lengwa uliotumika katika kifungu",
+      "sourceUnitTitle": "Kusoma 1.2.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-1-2-outcome-1",
+          "text": "kutambua msamiati wa suala lengwa uliotumika katika kifungu ili kuimarisha ufahamu, kushiriki katika vikundi kujadili na"
+        },
+        {
+          "id": "grade-5-kiswahili-1-2-outcome-2",
+          "text": "kutumia msamiati lengwa kwa usahihi katika sentensi, kusoma kifungu kuhusu suala"
+        },
+        {
+          "id": "grade-5-kiswahili-1-2-outcome-3",
+          "text": "kusoma kifungu cha hadithi kwa kuzingatia ujumbe, matukio na kutoa muhtasari kuhusu wahusika"
+        }
+      ],
+      "inquiryQuestions": [
+        "Kusoma kuhusu mapishi kuna umuhimu gani?",
+        "Ni hadithi gani umewahi kuisoma kuhusu mapishi?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Kusoma 1.2.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Kusoma 1.2.1: kutambua msamiati wa suala lengwa uliotumika katika kifungu",
+        "Kusoma 1.2.1",
+        "Kusoma",
+        "1.2.1",
+        "kutambua",
+        "msamiati",
+        "suala",
+        "lengwa"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Kusoma 1.2.1: kutambua msamiati wa suala lengwa uliotumika katika kifungu",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Kusoma 1.2.1: kutambua msamiati wa suala lengwa uliotumika katika kifungu",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Kusoma 1.2.1: kutambua msamiati wa suala lengwa uliotumika katika kifungu",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-004",
+      "strandId": "e3b71a53-e77a-490b-93bf-4e72c7da92d3",
+      "parentSubStrandId": "28b05807-ce83-4c67-bd9a-0d540a1f08fc",
+      "subStrandId": "28b05807-ce83-4c67-bd9a-0d540a1f08fc:topic-2",
+      "strandTitle": "Kusoma 1.2.1",
+      "unitTitle": "Kusoma 1.2.1: kuonyesha uelewa wa kujibu maswali kutokana na kifungu",
+      "sourceUnitTitle": "Kusoma 1.2.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-1-2-outcome-4",
+          "text": "kuonyesha uelewa wa kujibu maswali kutokana na kifungu kwa kutoa muhtasari na kujibu kusoma vifungu mtandaoni"
+        }
+      ],
+      "inquiryQuestions": [
+        "Ni hadithi gani umewahi kuisoma kuhusu mapishi?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Kusoma 1.2.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Kusoma 1.2.1: kuonyesha uelewa wa kujibu maswali kutokana na kifungu",
+        "Kusoma 1.2.1",
+        "Kusoma",
+        "1.2.1",
+        "kuonyesha",
+        "uelewa",
+        "kujibu",
+        "maswali"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Kusoma 1.2.1: kuonyesha uelewa wa kujibu maswali kutokana na kifungu",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Kusoma 1.2.1: kuonyesha uelewa wa kujibu maswali kutokana na kifungu",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Kusoma 1.2.1: kuonyesha uelewa wa kujibu maswali kutokana na kifungu",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-005",
+      "strandId": "1d810cb6-ef78-4997-b965-84987a42a1f0",
+      "parentSubStrandId": "fd24e4a7-6e8a-474c-8391-bb0ad741a727",
+      "subStrandId": "fd24e4a7-6e8a-474c-8391-bb0ad741a727",
+      "strandTitle": "Kuandika 1.3.1",
+      "unitTitle": "Kuandika 1.3.1",
+      "sourceUnitTitle": "Kuandika 1.3.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-1-3-outcome-1",
+          "text": "kutambua insha ya wasifu kwa kuzingatia mtindo na muundo wake"
+        },
+        {
+          "id": "grade-5-kiswahili-1-3-outcome-2",
+          "text": "kuandika insha ya wasifu kwa ubunifu ili kujenga maelezo yenye kutoa picha dhahiri"
+        },
+        {
+          "id": "grade-5-kiswahili-1-3-outcome-3",
+          "text": "kufurahia kutunga insha bora ili kuimarisha mazoea ya kuandika."
+        }
+      ],
+      "inquiryQuestions": [
+        "Insha ya wasifu inahusu nini?",
+        "Unazingatia nini unapoandika insha ya wasifu?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Kuandika 1.3.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Kuandika 1.3.1",
+        "Kuandika",
+        "1.3.1"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Kuandika 1.3.1",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Kuandika 1.3.1",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Kuandika 1.3.1",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-006",
+      "strandId": "88fbb725-defc-4c27-b4fe-94db5cd5466b",
+      "parentSubStrandId": "9b182fc4-f319-4f2f-aa55-678d4267abf0",
+      "subStrandId": "9b182fc4-f319-4f2f-aa55-678d4267abf0",
+      "strandTitle": "Sarufi 1.4.1",
+      "unitTitle": "Sarufi 1.4.1",
+      "sourceUnitTitle": "Sarufi 1.4.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-1-4-outcome-1",
+          "text": "kutambua nomino za pekee kwenye sentensi au vifungu vya maneno"
+        },
+        {
+          "id": "grade-5-kiswahili-1-4-outcome-2",
+          "text": "kutunga sentensi kwa kutumia nomino za pekee ili kukuza matumizi ya lugha sahihi"
+        },
+        {
+          "id": "grade-5-kiswahili-1-4-outcome-3",
+          "text": "kuchangamkia matumizi ya nomino za pekee katika mawasiliano."
+        }
+      ],
+      "inquiryQuestions": [
+        "Nomino za pekee zinahusu nini?",
+        "Ni nomino zipi za pekee unazozijua?",
+        "Je, ni vitu gani vipatikanavyo katika mazingira yako?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Sarufi 1.4.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Sarufi 1.4.1",
+        "Sarufi",
+        "1.4.1"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Sarufi 1.4.1",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Sarufi 1.4.1",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Sarufi 1.4.1",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-007",
+      "strandId": "5f639ff3-354e-416d-8a70-2976a9a9b29d",
+      "parentSubStrandId": "e2654c61-ea35-46c7-8cec-c25d181bd3db",
+      "subStrandId": "e2654c61-ea35-46c7-8cec-c25d181bd3db:topic-1",
+      "strandTitle": "Kusikiliza na Kuzungumza",
+      "unitTitle": "Maamkuzi na Maagano: kutambua aina mbalimbali za maamkuzi na maagano katika",
+      "sourceUnitTitle": "Maamkuzi na Maagano",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-2-1-1-outcome-1",
+          "text": "kutambua aina mbalimbali za maamkuzi na maagano katika mawasiliano, kushiriki kujadiliana na mwenzake"
+        },
+        {
+          "id": "grade-5-kiswahili-2-1-1-outcome-2",
+          "text": "kueleza maamkuzi na maagano yanayotumika katika kutambua maagano"
+        },
+        {
+          "id": "grade-5-kiswahili-2-1-1-outcome-3",
+          "text": "kutumia aina mbalimbali za maamkuzi na kushirikiana na wenzake kuigiza maagano katika mawasiliano, kutazama watu wakiamkuana"
+        }
+      ],
+      "inquiryQuestions": [
+        "Je, watu husalimiana vipi katika jamii?",
+        "Je, watu huagana vipi katika jamii?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Maamkuzi na Maagano.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Maamkuzi na Maagano: kutambua aina mbalimbali za maamkuzi na maagano katika",
+        "Maamkuzi na Maagano",
+        "Maamkuzi",
+        "Maagano",
+        "kutambua",
+        "mbalimbali",
+        "katika"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Maamkuzi na Maagano: kutambua aina mbalimbali za maamkuzi na maagano katika",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Maamkuzi na Maagano: kutambua aina mbalimbali za maamkuzi na maagano katika",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Maamkuzi na Maagano: kutambua aina mbalimbali za maamkuzi na maagano katika",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-008",
+      "strandId": "5f639ff3-354e-416d-8a70-2976a9a9b29d",
+      "parentSubStrandId": "e2654c61-ea35-46c7-8cec-c25d181bd3db",
+      "subStrandId": "e2654c61-ea35-46c7-8cec-c25d181bd3db:topic-2",
+      "strandTitle": "Kusikiliza na Kuzungumza",
+      "unitTitle": "Maamkuzi na Maagano: kuchangamkia maamkuzi na maagano katika mahusiano.",
+      "sourceUnitTitle": "Maamkuzi na Maagano",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-2-1-1-outcome-4",
+          "text": "kuchangamkia maamkuzi na maagano katika mahusiano."
+        }
+      ],
+      "inquiryQuestions": [
+        "Je, watu huagana vipi katika jamii?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Maamkuzi na Maagano.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Maamkuzi na Maagano: kuchangamkia maamkuzi na maagano katika mahusiano.",
+        "Maamkuzi na Maagano",
+        "Maamkuzi",
+        "Maagano",
+        "kuchangamkia",
+        "katika",
+        "mahusiano."
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Maamkuzi na Maagano: kuchangamkia maamkuzi na maagano katika mahusiano.",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Maamkuzi na Maagano: kuchangamkia maamkuzi na maagano katika mahusiano.",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Maamkuzi na Maagano: kuchangamkia maamkuzi na maagano katika mahusiano.",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-009",
+      "strandId": "0e3718ae-04f1-4568-8111-a32dadc5379c",
+      "parentSubStrandId": "b8ec1140-4085-4f93-96dc-7120093935f6",
+      "subStrandId": "b8ec1140-4085-4f93-96dc-7120093935f6",
+      "strandTitle": "Kusoma 2.2.1",
+      "unitTitle": "Kusoma 2.2.1",
+      "sourceUnitTitle": "Kusoma 2.2.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-2-2-outcome-1",
+          "text": "kutambua mpangilio wa maneno katika kuchagua neno kutoka kapu kamusi ili kupata maneno lengwa kwa urahisi"
+        },
+        {
+          "id": "grade-5-kiswahili-2-2-outcome-2",
+          "text": "kutumia kamusi ipasavyo kutafuta maana za maneno asiyoyajua yaliyo katika matini teule ili kukuza msamiati kutumia"
+        },
+        {
+          "id": "grade-5-kiswahili-2-2-outcome-3",
+          "text": "kuchangamkia kutumia kamusi katika kukuza msamiati wake."
+        }
+      ],
+      "inquiryQuestions": [
+        "Maana ya maneno ya Kiswahili hupatikana wapi?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Kusoma 2.2.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Kusoma 2.2.1",
+        "Kusoma",
+        "2.2.1"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Kusoma 2.2.1",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Kusoma 2.2.1",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Kusoma 2.2.1",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-010",
+      "strandId": "f489c3a6-b89f-4580-8bfa-cb28260e479b",
+      "parentSubStrandId": "c4fc9ce4-23a6-4bb8-9027-88a6f05690b6",
+      "subStrandId": "c4fc9ce4-23a6-4bb8-9027-88a6f05690b6",
+      "strandTitle": "Kuandika 2.3.1",
+      "unitTitle": "Kuandika 2.3.1",
+      "sourceUnitTitle": "Kuandika 2.3.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-2-3-outcome-1",
+          "text": "kutambua insha ya masimulizi kwa kuzingatia kushiriki na wenzake kujadili mada ujumbe, mtindo na muundo, kuandika"
+        },
+        {
+          "id": "grade-5-kiswahili-2-3-outcome-2",
+          "text": "kuandika insha ya masimulizi kwa kufuata kanuni zifaazo"
+        },
+        {
+          "id": "grade-5-kiswahili-2-3-outcome-3",
+          "text": "kuchangamkia utunzi mzuri wa insha ya masimulizi ili kuandika insha ya masimulizi kukuza ubunifu wake"
+        }
+      ],
+      "inquiryQuestions": [
+        "Je, unazingatia nini ili kuandika insha nzuri ya masimulizi?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Kuandika 2.3.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Kuandika 2.3.1",
+        "Kuandika",
+        "2.3.1"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Kuandika 2.3.1",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Kuandika 2.3.1",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Kuandika 2.3.1",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-011",
+      "strandId": "059713ee-4d6e-42fe-be2a-dc0180da6dc4",
+      "parentSubStrandId": "f40e480a-fe68-49f0-998c-aa7e3b706950",
+      "subStrandId": "f40e480a-fe68-49f0-998c-aa7e3b706950:topic-1",
+      "strandTitle": "Sarufi 2.4.1",
+      "unitTitle": "Sarufi 2.4.1: kutambua nomino za wingi katika matini ili kuzibainisha",
+      "sourceUnitTitle": "Sarufi 2.4.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-2-4-outcome-1",
+          "text": "kutambua nomino za wingi katika matini ili kuzibainisha"
+        },
+        {
+          "id": "grade-5-kiswahili-2-4-outcome-2",
+          "text": "kutumia nomino za kutambua nomino za wingi kwa wingi katika sentensi ili kuimarisha kutumia nomino za wingi mawasiliano"
+        },
+        {
+          "id": "grade-5-kiswahili-2-4-outcome-3",
+          "text": "kufurahia kutumia nomino za wingi katika nomino za wingi katika mawasiliano."
+        }
+      ],
+      "inquiryQuestions": [
+        "Unajua majina gani yanayohusu vitu vinavyopatikana katika wingi tu?",
+        "Ni mambo gani wewe hufanya ukiwa nyumbani?",
+        "Unapenda kufanya mambo gani darasani?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Sarufi 2.4.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Sarufi 2.4.1: kutambua nomino za wingi katika matini ili kuzibainisha",
+        "Sarufi 2.4.1",
+        "Sarufi",
+        "2.4.1",
+        "kutambua",
+        "nomino",
+        "wingi",
+        "katika"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Sarufi 2.4.1: kutambua nomino za wingi katika matini ili kuzibainisha",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Sarufi 2.4.1: kutambua nomino za wingi katika matini ili kuzibainisha",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Sarufi 2.4.1: kutambua nomino za wingi katika matini ili kuzibainisha",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-012",
+      "strandId": "059713ee-4d6e-42fe-be2a-dc0180da6dc4",
+      "parentSubStrandId": "f40e480a-fe68-49f0-998c-aa7e3b706950",
+      "subStrandId": "f40e480a-fe68-49f0-998c-aa7e3b706950:topic-2",
+      "strandTitle": "Sarufi 2.4.1",
+      "unitTitle": "Sarufi 2.4.1: kutambua nomino za vitenzi-jina kwenye kifungu kutambua vitenzi-jina",
+      "sourceUnitTitle": "Sarufi 2.4.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-2-4-outcome-4",
+          "text": "kutambua nomino za vitenzi-jina kwenye kifungu kutambua vitenzi-jina akiwa na cha maneno au kwenye sentensi"
+        },
+        {
+          "id": "grade-5-kiswahili-2-4-outcome-5",
+          "text": "kutunga sentensi au vifungu vya kutumia nomino za vitenzi- maneno akitumia nomino za vitenzi- jina ili"
+        },
+        {
+          "id": "grade-5-kiswahili-2-4-outcome-6",
+          "text": "kufurahia kutumia nomino za vitenzi- jina katika utungaji wa sentensi na kujaza nafasi."
+        }
+      ],
+      "inquiryQuestions": [
+        "Ni mambo gani wewe hufanya ukiwa nyumbani?",
+        "Unapenda kufanya mambo gani darasani?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Sarufi 2.4.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Sarufi 2.4.1: kutambua nomino za vitenzi-jina kwenye kifungu kutambua vitenzi-jina",
+        "Sarufi 2.4.1",
+        "Sarufi",
+        "2.4.1",
+        "kutambua",
+        "nomino",
+        "vitenzi-jina",
+        "kwenye"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Sarufi 2.4.1: kutambua nomino za vitenzi-jina kwenye kifungu kutambua vitenzi-jina",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Sarufi 2.4.1: kutambua nomino za vitenzi-jina kwenye kifungu kutambua vitenzi-jina",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Sarufi 2.4.1: kutambua nomino za vitenzi-jina kwenye kifungu kutambua vitenzi-jina",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-013",
+      "strandId": "9eb8c7d9-7832-4a37-a18f-3a577d682b1b",
+      "parentSubStrandId": "1123f3a1-9225-485e-b3b8-8893685ef1d3",
+      "subStrandId": "1123f3a1-9225-485e-b3b8-8893685ef1d3",
+      "strandTitle": "Kusikiliza na Kuzungumza",
+      "unitTitle": "Vitendawili",
+      "sourceUnitTitle": "Vitendawili",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-3-1-1-outcome-1",
+          "text": "kutambua vitendawili vya suala lengwa"
+        },
+        {
+          "id": "grade-5-kiswahili-3-1-1-outcome-2",
+          "text": "kutega na kutegua vitendawili ili kujenga matamshi bora"
+        },
+        {
+          "id": "grade-5-kiswahili-3-1-1-outcome-3",
+          "text": "kuchangamkia matumizi ya vitendawili kama njia ya kujenga utamkaji bora wa maneno."
+        }
+      ],
+      "inquiryQuestions": [
+        "Je, ni vitendawili gani unavyovijua?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Vitendawili.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Vitendawili"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Vitendawili",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Vitendawili",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Vitendawili",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-014",
+      "strandId": "3f4f5495-ed2a-4306-9f05-8ed6e40bcbe4",
+      "parentSubStrandId": "62170cf5-8bac-441b-b489-90e45d9e4bee",
+      "subStrandId": "62170cf5-8bac-441b-b489-90e45d9e4bee:topic-1",
+      "strandTitle": "Kusoma: 3.2.1",
+      "unitTitle": "Kusoma: 3.2.1: kutambua vipengele vya kuzingatia katika kutazama vielelezo vya",
+      "sourceUnitTitle": "Kusoma: 3.2.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-3-2-outcome-1",
+          "text": "kutambua vipengele vya kuzingatia katika kutazama vielelezo vya video kusoma kwa ufasaha"
+        },
+        {
+          "id": "grade-5-kiswahili-3-2-outcome-2",
+          "text": "kusoma kifungu kwa kuzingatia matamshi bora, kusoma kifungu cha habari kwa"
+        },
+        {
+          "id": "grade-5-kiswahili-3-2-outcome-3",
+          "text": "kusoma kifungu kwa kasi ifaayo, kusoma kifungu cha hadithi kuhusu"
+        }
+      ],
+      "inquiryQuestions": [
+        "Kwa nini ni muhimu kusoma kifungu ifaavyo?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Kusoma: 3.2.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Kusoma: 3.2.1: kutambua vipengele vya kuzingatia katika kutazama vielelezo vya",
+        "Kusoma: 3.2.1",
+        "Kusoma",
+        "3.2.1",
+        "kutambua",
+        "vipengele",
+        "kuzingatia",
+        "katika"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Kusoma: 3.2.1: kutambua vipengele vya kuzingatia katika kutazama vielelezo vya",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Kusoma: 3.2.1: kutambua vipengele vya kuzingatia katika kutazama vielelezo vya",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Kusoma: 3.2.1: kutambua vipengele vya kuzingatia katika kutazama vielelezo vya",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-015",
+      "strandId": "3f4f5495-ed2a-4306-9f05-8ed6e40bcbe4",
+      "parentSubStrandId": "62170cf5-8bac-441b-b489-90e45d9e4bee",
+      "subStrandId": "62170cf5-8bac-441b-b489-90e45d9e4bee:topic-2",
+      "strandTitle": "Kusoma: 3.2.1",
+      "unitTitle": "Kusoma: 3.2.1: kusoma kifungu kwa kutumia sauti ipasavyo",
+      "sourceUnitTitle": "Kusoma: 3.2.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-3-2-outcome-4",
+          "text": "kusoma kifungu kwa kutumia sauti ipasavyo"
+        },
+        {
+          "id": "grade-5-kiswahili-3-2-outcome-5",
+          "text": "kusoma kifungu kwa kuambatanisha ishara kusoma kifungu akizingatia sauti zifaazo"
+        },
+        {
+          "id": "grade-5-kiswahili-3-2-outcome-6",
+          "text": "kuchangamkia kusoma kifungu kwa kusoma kifungu kwa kuambatanisha kuzingatia vipengele vya usomaji"
+        }
+      ],
+      "inquiryQuestions": [
+        "Kwa nini ni muhimu kusoma kifungu ifaavyo?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Kusoma: 3.2.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Kusoma: 3.2.1: kusoma kifungu kwa kutumia sauti ipasavyo",
+        "Kusoma: 3.2.1",
+        "Kusoma",
+        "3.2.1",
+        "kifungu",
+        "kutumia",
+        "sauti",
+        "ipasavyo"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Kusoma: 3.2.1: kusoma kifungu kwa kutumia sauti ipasavyo",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Kusoma: 3.2.1: kusoma kifungu kwa kutumia sauti ipasavyo",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Kusoma: 3.2.1: kusoma kifungu kwa kutumia sauti ipasavyo",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-016",
+      "strandId": "0222922b-a706-489c-a288-e8400aec1128",
+      "parentSubStrandId": "3e89a93f-2f0e-4e24-a3bf-58900a110ccb",
+      "subStrandId": "3e89a93f-2f0e-4e24-a3bf-58900a110ccb",
+      "strandTitle": "Kuandika 3.3.1",
+      "unitTitle": "Kuandika 3.3.1",
+      "sourceUnitTitle": "Kuandika 3.3.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-3-3-outcome-1",
+          "text": "kutambua sehemu mbalimbali za tarakilishi kutumia tarakilishi kuandika zinazotumika kupigia chapa"
+        },
+        {
+          "id": "grade-5-kiswahili-3-3-outcome-2",
+          "text": "kutumia tarakilishi ili kujenga maarifa ya kidijitali"
+        },
+        {
+          "id": "grade-5-kiswahili-3-3-outcome-3",
+          "text": "kuhariri kazi yake kwenye"
+        }
+      ],
+      "inquiryQuestions": [
+        "Tarakilishi hutuwezesha kufanya kazi gani?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Kuandika 3.3.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Kuandika 3.3.1",
+        "Kuandika",
+        "3.3.1"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Kuandika 3.3.1",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Kuandika 3.3.1",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Kuandika 3.3.1",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-017",
+      "strandId": "1eaccdc0-25a8-4483-8549-74bed4e04058",
+      "parentSubStrandId": "7ebd8ca1-a858-467c-97ef-540ec313514d",
+      "subStrandId": "7ebd8ca1-a858-467c-97ef-540ec313514d:topic-1",
+      "strandTitle": "Sarufi 3.4.1",
+      "unitTitle": "Sarufi 3.4.1: kutambua nomino za makundi kutumia nomino za makundi",
+      "sourceUnitTitle": "Sarufi 3.4.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-3-4-outcome-1",
+          "text": "kutambua nomino za makundi kutumia nomino za makundi katika matini ili kuzibainisha, kutumia nomino za makundi"
+        },
+        {
+          "id": "grade-5-kiswahili-3-4-outcome-2",
+          "text": "kutumia nomino za makundi katika sentensi ili kuimarisha mawasiliano"
+        },
+        {
+          "id": "grade-5-kiswahili-3-4-outcome-3",
+          "text": "kufurahia kutumia nomino za makundi katika mawasiliano."
+        }
+      ],
+      "inquiryQuestions": [
+        "Je, unajua maneno gani yanayotaja makundi ya watu na vitu?",
+        "Je, nomino za makundi hutumiwa vipi?",
+        "Je, unajua maneno yapi yanayounganishwa kuunda neno moja?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Sarufi 3.4.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Sarufi 3.4.1: kutambua nomino za makundi kutumia nomino za makundi",
+        "Sarufi 3.4.1",
+        "Sarufi",
+        "3.4.1",
+        "kutambua",
+        "nomino",
+        "makundi",
+        "kutumia"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Sarufi 3.4.1: kutambua nomino za makundi kutumia nomino za makundi",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Sarufi 3.4.1: kutambua nomino za makundi kutumia nomino za makundi",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Sarufi 3.4.1: kutambua nomino za makundi kutumia nomino za makundi",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-018",
+      "strandId": "1eaccdc0-25a8-4483-8549-74bed4e04058",
+      "parentSubStrandId": "7ebd8ca1-a858-467c-97ef-540ec313514d",
+      "subStrandId": "7ebd8ca1-a858-467c-97ef-540ec313514d:topic-2",
+      "strandTitle": "Sarufi 3.4.1",
+      "unitTitle": "Sarufi 3.4.1: kutambua nomino ambata katika matini ili kuzitofautisha na",
+      "sourceUnitTitle": "Sarufi 3.4.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-3-4-outcome-4",
+          "text": "kutambua nomino ambata katika matini ili kuzitofautisha na aina nyingine za kujadili katika kikundi maana ya nomino"
+        },
+        {
+          "id": "grade-5-kiswahili-3-4-outcome-5",
+          "text": "kutumia nomino kutumia nomino ambata katika ambata kwa usahihi katika sentensi kutumia nomino ambata kutunga ili"
+        },
+        {
+          "id": "grade-5-kiswahili-3-4-outcome-6",
+          "text": "kuonea fahari kusakura mtandaoni ili kupata matumizi ya nomino ambata katika mawasiliano."
+        }
+      ],
+      "inquiryQuestions": [
+        "Je, nomino za makundi hutumiwa vipi?",
+        "Je, unajua maneno yapi yanayounganishwa kuunda neno moja?",
+        "Je, unajua maneno yapi yanayotaja vitu ambavyo haviwezi kushikwa au kuonekana kwa macho?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Sarufi 3.4.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Sarufi 3.4.1: kutambua nomino ambata katika matini ili kuzitofautisha na",
+        "Sarufi 3.4.1",
+        "Sarufi",
+        "3.4.1",
+        "kutambua",
+        "nomino",
+        "ambata",
+        "katika"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Sarufi 3.4.1: kutambua nomino ambata katika matini ili kuzitofautisha na",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Sarufi 3.4.1: kutambua nomino ambata katika matini ili kuzitofautisha na",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Sarufi 3.4.1: kutambua nomino ambata katika matini ili kuzitofautisha na",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-019",
+      "strandId": "1eaccdc0-25a8-4483-8549-74bed4e04058",
+      "parentSubStrandId": "7ebd8ca1-a858-467c-97ef-540ec313514d",
+      "subStrandId": "7ebd8ca1-a858-467c-97ef-540ec313514d:topic-3",
+      "strandTitle": "Sarufi 3.4.1",
+      "unitTitle": "Sarufi 3.4.1: kutambua nomino za dhahania katika matini mbalimbali",
+      "sourceUnitTitle": "Sarufi 3.4.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-3-4-outcome-7",
+          "text": "kutambua nomino za dhahania katika matini mbalimbali"
+        },
+        {
+          "id": "grade-5-kiswahili-3-4-outcome-8",
+          "text": "kuelezea nomino za kujadili katika kikundi maana ya dhahania kwa kutoa mifano mwafaka"
+        },
+        {
+          "id": "grade-5-kiswahili-3-4-outcome-9",
+          "text": "kutumia nomino kutumia nomino za dhahania za dhahania kwa usahihi katika sentensi, kutumia nomino za dhahania"
+        }
+      ],
+      "inquiryQuestions": [
+        "Je, unajua maneno yapi yanayounganishwa kuunda neno moja?",
+        "Je, unajua maneno yapi yanayotaja vitu ambavyo haviwezi kushikwa au kuonekana kwa macho?",
+        "Kwa nini alama za kuakifisha hutumiwa katika maandishi?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Sarufi 3.4.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Sarufi 3.4.1: kutambua nomino za dhahania katika matini mbalimbali",
+        "Sarufi 3.4.1",
+        "Sarufi",
+        "3.4.1",
+        "kutambua",
+        "nomino",
+        "dhahania",
+        "katika"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Sarufi 3.4.1: kutambua nomino za dhahania katika matini mbalimbali",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Sarufi 3.4.1: kutambua nomino za dhahania katika matini mbalimbali",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Sarufi 3.4.1: kutambua nomino za dhahania katika matini mbalimbali",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-020",
+      "strandId": "1eaccdc0-25a8-4483-8549-74bed4e04058",
+      "parentSubStrandId": "7ebd8ca1-a858-467c-97ef-540ec313514d",
+      "subStrandId": "7ebd8ca1-a858-467c-97ef-540ec313514d:topic-4",
+      "strandTitle": "Sarufi 3.4.1",
+      "unitTitle": "Sarufi 3.4.1: kuonea fahari matumizi ya nomino za dhahania katika",
+      "sourceUnitTitle": "Sarufi 3.4.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-3-4-outcome-10",
+          "text": "kuonea fahari matumizi ya nomino za dhahania katika mawasiliano."
+        },
+        {
+          "id": "grade-5-kiswahili-3-4-outcome-11",
+          "text": "kutambua herufi kubwa, alama ya koma, kikomo na kiulizi katika maandishi"
+        },
+        {
+          "id": "grade-5-kiswahili-3-4-outcome-12",
+          "text": "kutumia herufi kubwa, koma, kikomo na kiulizi ifaavyo katika maaandishi"
+        }
+      ],
+      "inquiryQuestions": [
+        "Je, unajua maneno yapi yanayotaja vitu ambavyo haviwezi kushikwa au kuonekana kwa macho?",
+        "Kwa nini alama za kuakifisha hutumiwa katika maandishi?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Sarufi 3.4.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Sarufi 3.4.1: kuonea fahari matumizi ya nomino za dhahania katika",
+        "Sarufi 3.4.1",
+        "Sarufi",
+        "3.4.1",
+        "kuonea",
+        "fahari",
+        "matumizi",
+        "nomino"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Sarufi 3.4.1: kuonea fahari matumizi ya nomino za dhahania katika",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Sarufi 3.4.1: kuonea fahari matumizi ya nomino za dhahania katika",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Sarufi 3.4.1: kuonea fahari matumizi ya nomino za dhahania katika",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-021",
+      "strandId": "1eaccdc0-25a8-4483-8549-74bed4e04058",
+      "parentSubStrandId": "7ebd8ca1-a858-467c-97ef-540ec313514d",
+      "subStrandId": "7ebd8ca1-a858-467c-97ef-540ec313514d:topic-5",
+      "strandTitle": "Sarufi 3.4.1",
+      "unitTitle": "Sarufi 3.4.1: kufurahia matumizi ya herufi kubwa, koma, kikomo na",
+      "sourceUnitTitle": "Sarufi 3.4.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-3-4-outcome-13",
+          "text": "kufurahia matumizi ya herufi kubwa, koma, kikomo na kiulizi katika maandishi."
+        }
+      ],
+      "inquiryQuestions": [
+        "Kwa nini alama za kuakifisha hutumiwa katika maandishi?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Sarufi 3.4.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Sarufi 3.4.1: kufurahia matumizi ya herufi kubwa, koma, kikomo na",
+        "Sarufi 3.4.1",
+        "Sarufi",
+        "3.4.1",
+        "kufurahia",
+        "matumizi",
+        "herufi",
+        "kubwa"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Sarufi 3.4.1: kufurahia matumizi ya herufi kubwa, koma, kikomo na",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Sarufi 3.4.1: kufurahia matumizi ya herufi kubwa, koma, kikomo na",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Sarufi 3.4.1: kufurahia matumizi ya herufi kubwa, koma, kikomo na",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-022",
+      "strandId": "780b2567-6d9b-486a-a1ab-e3d4b21ad6c6",
+      "parentSubStrandId": "1f356b2a-a229-4f92-80b8-a5f1f52d65b3",
+      "subStrandId": "1f356b2a-a229-4f92-80b8-a5f1f52d65b3",
+      "strandTitle": "Kusikiliza na Kuzungumza",
+      "unitTitle": "Maneno ya Heshima na Adabu Maneno yanayohusiana na udugu",
+      "sourceUnitTitle": "Maneno ya Heshima na Adabu Maneno yanayohusiana na udugu",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-4-1-1-outcome-1",
+          "text": "kutambua maneno ya heshima yanayohusiana na udugu kueleza maana ya maneno yanayotumiwa katika mawasiliano"
+        },
+        {
+          "id": "grade-5-kiswahili-4-1-1-outcome-2",
+          "text": "kutumia maneno ya heshima kutunga sentensi kwa kutumia yanayohusiana na udugu kwa usahihi kutazama maigizo ya"
+        },
+        {
+          "id": "grade-5-kiswahili-4-1-1-outcome-3",
+          "text": "kuthamini matumizi ya kujadili matumizi ya maneno ya maneno ya heshima katika mawasiliano ya kuigiza mazungumzo"
+        }
+      ],
+      "inquiryQuestions": [
+        "Kutumia maneno ya heshima kuna umuhimu gani katika mawasiliano?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Maneno ya Heshima na Adabu Maneno yanayohusiana na udugu.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Maneno ya Heshima na Adabu Maneno yanayohusiana na udugu",
+        "Maneno",
+        "Heshima",
+        "Adabu",
+        "yanayohusiana",
+        "udugu"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Maneno ya Heshima na Adabu Maneno yanayohusiana na udugu",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Maneno ya Heshima na Adabu Maneno yanayohusiana na udugu",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Maneno ya Heshima na Adabu Maneno yanayohusiana na udugu",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-023",
+      "strandId": "bd9dc5f2-c536-489a-9aec-173fcf1fbf2d",
+      "parentSubStrandId": "e68375e0-d003-42ca-ace5-fdce19774151",
+      "subStrandId": "e68375e0-d003-42ca-ace5-fdce19774151",
+      "strandTitle": "Kuandika 4.3.1",
+      "unitTitle": "Kuandika 4.3.1",
+      "sourceUnitTitle": "Kuandika 4.3.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-4-3-outcome-1",
+          "text": "kutambua baruapepe kwa kuzingatia muundo kujadili sehemu mbalimbali za wake"
+        },
+        {
+          "id": "grade-5-kiswahili-4-3-outcome-2",
+          "text": "kuandika baruapepe kwa kuzingatia ujumbe, muundo na mtindo"
+        },
+        {
+          "id": "grade-5-kiswahili-4-3-outcome-3",
+          "text": "kuchangamkia uandishi wa kuandika baruapepe kwa rafiki, baruapepe katika mawasiliano."
+        }
+      ],
+      "inquiryQuestions": [
+        "Unazingatia mambo gani unapoandika baruapepe?",
+        "Ni mambo gani unayoweza kumweleza rafiki yako katika baruapepe?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Kuandika 4.3.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Kuandika 4.3.1",
+        "Kuandika",
+        "4.3.1"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Kuandika 4.3.1",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Kuandika 4.3.1",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Kuandika 4.3.1",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-024",
+      "strandId": "c2c0a2e8-1765-43fd-a29f-c8b10b679ce0",
+      "parentSubStrandId": "8c02f0c9-f781-43c1-91cc-7b9d1cbbc8cf",
+      "subStrandId": "8c02f0c9-f781-43c1-91cc-7b9d1cbbc8cf:topic-1",
+      "strandTitle": "Sarufi 4.4.1",
+      "unitTitle": "Sarufi 4.4.1: kutambua viambishi vipatanishi vya ngeli ya I-ZI katika",
+      "sourceUnitTitle": "Sarufi 4.4.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-4-4-outcome-1",
+          "text": "kutambua viambishi vipatanishi vya ngeli ya I-ZI katika kutambua nomino katika ngeli ya sentensi"
+        },
+        {
+          "id": "grade-5-kiswahili-4-4-outcome-2",
+          "text": "kutambua nomino katika ngeli ya I-ZI ili kuzitofautisha na nomino katika ngeli kutumia nomino za ngeli ya I-ZI nyingine"
+        },
+        {
+          "id": "grade-5-kiswahili-4-4-outcome-3",
+          "text": "kutumia nomino za ngeli ya I-ZI katika kusikiliza usomaji wa sentensi umoja na wingi akizingatia upatanisho wa kisarufi"
+        }
+      ],
+      "inquiryQuestions": [
+        "Je, utajuaje viambishi vipatanishi vya ngeli ya I-ZI kwenye sentensi?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Sarufi 4.4.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Sarufi 4.4.1: kutambua viambishi vipatanishi vya ngeli ya I-ZI katika",
+        "Sarufi 4.4.1",
+        "Sarufi",
+        "4.4.1",
+        "kutambua",
+        "viambishi",
+        "vipatanishi",
+        "ngeli"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Sarufi 4.4.1: kutambua viambishi vipatanishi vya ngeli ya I-ZI katika",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Sarufi 4.4.1: kutambua viambishi vipatanishi vya ngeli ya I-ZI katika",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Sarufi 4.4.1: kutambua viambishi vipatanishi vya ngeli ya I-ZI katika",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-025",
+      "strandId": "c2c0a2e8-1765-43fd-a29f-c8b10b679ce0",
+      "parentSubStrandId": "8c02f0c9-f781-43c1-91cc-7b9d1cbbc8cf",
+      "subStrandId": "8c02f0c9-f781-43c1-91cc-7b9d1cbbc8cf:topic-2",
+      "strandTitle": "Sarufi 4.4.1",
+      "unitTitle": "Sarufi 4.4.1: kuonea fahari kutunga sentensi kwa kutumia matumizi ya",
+      "sourceUnitTitle": "Sarufi 4.4.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-4-4-outcome-4",
+          "text": "kuonea fahari kutunga sentensi kwa kutumia matumizi ya nomino katika ngeli ya I-ZI katika mawasiliano."
+        }
+      ],
+      "inquiryQuestions": [
+        "Je, utajuaje viambishi vipatanishi vya ngeli ya I-ZI kwenye sentensi?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Sarufi 4.4.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Sarufi 4.4.1: kuonea fahari kutunga sentensi kwa kutumia matumizi ya",
+        "Sarufi 4.4.1",
+        "Sarufi",
+        "4.4.1",
+        "kuonea",
+        "fahari",
+        "kutunga",
+        "sentensi"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Sarufi 4.4.1: kuonea fahari kutunga sentensi kwa kutumia matumizi ya",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Sarufi 4.4.1: kuonea fahari kutunga sentensi kwa kutumia matumizi ya",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Sarufi 4.4.1: kuonea fahari kutunga sentensi kwa kutumia matumizi ya",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-026",
+      "strandId": "5c31fa29-a966-4b8e-a80b-7f5b66a8714f",
+      "parentSubStrandId": "f690a464-01e9-4875-8f77-c5b2c0b9550e",
+      "subStrandId": "f690a464-01e9-4875-8f77-c5b2c0b9550e:topic-1",
+      "strandTitle": "Kusikiliza na Kuzungumza",
+      "unitTitle": "Methali: zinazohusu bidii: kutambua methali zinazohusu bidii ili kuzitofautisha na aina",
+      "sourceUnitTitle": "Methali: zinazohusu bidii",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-5-1-1-outcome-1",
+          "text": "kutambua methali zinazohusu bidii ili kuzitofautisha na aina zingine za methali"
+        },
+        {
+          "id": "grade-5-kiswahili-5-1-1-outcome-2",
+          "text": "kueleza maana na matumizi ya methali kujadiliana kuhusu maana na mbalimbali zinazohusu bidii katika jamii, kutoa"
+        },
+        {
+          "id": "grade-5-kiswahili-5-1-1-outcome-3",
+          "text": "kutumia methali zinazohusu bidii kusikiliza methali zinazohusu bidii katika mawasiliano"
+        }
+      ],
+      "inquiryQuestions": [
+        "Je, ni nini umuhimu wa methali katika jamii?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Methali: zinazohusu bidii.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Methali: zinazohusu bidii: kutambua methali zinazohusu bidii ili kuzitofautisha na aina",
+        "Methali: zinazohusu bidii",
+        "Methali",
+        "zinazohusu",
+        "bidii",
+        "kutambua",
+        "kuzitofautisha"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Methali: zinazohusu bidii: kutambua methali zinazohusu bidii ili kuzitofautisha na aina",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Methali: zinazohusu bidii: kutambua methali zinazohusu bidii ili kuzitofautisha na aina",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Methali: zinazohusu bidii: kutambua methali zinazohusu bidii ili kuzitofautisha na aina",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-027",
+      "strandId": "5c31fa29-a966-4b8e-a80b-7f5b66a8714f",
+      "parentSubStrandId": "f690a464-01e9-4875-8f77-c5b2c0b9550e",
+      "subStrandId": "f690a464-01e9-4875-8f77-c5b2c0b9550e:topic-2",
+      "strandTitle": "Kusikiliza na Kuzungumza",
+      "unitTitle": "Methali: zinazohusu bidii: kuchangamkia matumizi ya methali kushirikiana na wenzake katika",
+      "sourceUnitTitle": "Methali: zinazohusu bidii",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-5-1-1-outcome-4",
+          "text": "kuchangamkia matumizi ya methali kushirikiana na wenzake katika kuhimiza bidii."
+        }
+      ],
+      "inquiryQuestions": [
+        "Je, ni nini umuhimu wa methali katika jamii?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Methali: zinazohusu bidii.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Methali: zinazohusu bidii: kuchangamkia matumizi ya methali kushirikiana na wenzake katika",
+        "Methali: zinazohusu bidii",
+        "Methali",
+        "zinazohusu",
+        "bidii",
+        "kuchangamkia",
+        "matumizi",
+        "kushirikiana"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Methali: zinazohusu bidii: kuchangamkia matumizi ya methali kushirikiana na wenzake katika",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Methali: zinazohusu bidii: kuchangamkia matumizi ya methali kushirikiana na wenzake katika",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Methali: zinazohusu bidii: kuchangamkia matumizi ya methali kushirikiana na wenzake katika",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-028",
+      "strandId": "0974aa87-e8a8-42ba-886d-e9572737c84d",
+      "parentSubStrandId": "2af8e28e-f15c-4fc7-8278-babd152cb20a",
+      "subStrandId": "2af8e28e-f15c-4fc7-8278-babd152cb20a",
+      "strandTitle": "Kuandika 5.3.1",
+      "unitTitle": "Kuandika 5.3.1",
+      "sourceUnitTitle": "Kuandika 5.3.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-5-3-outcome-1",
+          "text": "kutambua insha za maelezo katika matini mbalimbali"
+        },
+        {
+          "id": "grade-5-kiswahili-5-3-outcome-2",
+          "text": "kuandika insha ya maelezo kwa kufuata kanuni zifaazo"
+        },
+        {
+          "id": "grade-5-kiswahili-5-3-outcome-3",
+          "text": "kuchangamkia utunzi mzuri wa insha ili kuimarisha uandishi."
+        }
+      ],
+      "inquiryQuestions": [
+        "Unazingatia nini unapoandika insha ya maelezo?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Kuandika 5.3.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Kuandika 5.3.1",
+        "Kuandika",
+        "5.3.1"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Kuandika 5.3.1",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Kuandika 5.3.1",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Kuandika 5.3.1",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-029",
+      "strandId": "edf45487-364a-4b6c-94c0-387a113e7078",
+      "parentSubStrandId": "ca567453-c197-4bff-a174-95a3ae57abbb",
+      "subStrandId": "ca567453-c197-4bff-a174-95a3ae57abbb:topic-1",
+      "strandTitle": "Sarufi 5.4.1",
+      "unitTitle": "Sarufi 5.4.1: kutambua viambishi vipatanishi vya ngeli ya U-ZI katika",
+      "sourceUnitTitle": "Sarufi 5.4.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-5-4-outcome-1",
+          "text": "kutambua viambishi vipatanishi vya ngeli ya U-ZI katika kutambua nomino katika ngeli ya sentensi"
+        },
+        {
+          "id": "grade-5-kiswahili-5-4-outcome-2",
+          "text": "kutambua nomino katika ngeli ya U-ZI kusikiliza usomaji wa sentensi ili kuzibainisha"
+        },
+        {
+          "id": "grade-5-kiswahili-5-4-outcome-3",
+          "text": "kutumia nomino za ngeli ya U-ZI katika umoja na kutunga sentensi kwa kutumia wingi akizingatia upatanisho wa kisarufi"
+        }
+      ],
+      "inquiryQuestions": [
+        "Je, nomino za ngeli ya U-ZI huchukua viambishi vipatanishi gani?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Sarufi 5.4.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Sarufi 5.4.1: kutambua viambishi vipatanishi vya ngeli ya U-ZI katika",
+        "Sarufi 5.4.1",
+        "Sarufi",
+        "5.4.1",
+        "kutambua",
+        "viambishi",
+        "vipatanishi",
+        "ngeli"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Sarufi 5.4.1: kutambua viambishi vipatanishi vya ngeli ya U-ZI katika",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Sarufi 5.4.1: kutambua viambishi vipatanishi vya ngeli ya U-ZI katika",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Sarufi 5.4.1: kutambua viambishi vipatanishi vya ngeli ya U-ZI katika",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-030",
+      "strandId": "edf45487-364a-4b6c-94c0-387a113e7078",
+      "parentSubStrandId": "ca567453-c197-4bff-a174-95a3ae57abbb",
+      "subStrandId": "ca567453-c197-4bff-a174-95a3ae57abbb:topic-2",
+      "strandTitle": "Sarufi 5.4.1",
+      "unitTitle": "Sarufi 5.4.1: kufurahia matumizi kujaza nafasi kwa kutumia ya nomino",
+      "sourceUnitTitle": "Sarufi 5.4.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-5-4-outcome-4",
+          "text": "kufurahia matumizi kujaza nafasi kwa kutumia ya nomino za ngeli ya U-ZI katika mawasiliano."
+        }
+      ],
+      "inquiryQuestions": [
+        "Je, nomino za ngeli ya U-ZI huchukua viambishi vipatanishi gani?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Sarufi 5.4.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Sarufi 5.4.1: kufurahia matumizi kujaza nafasi kwa kutumia ya nomino",
+        "Sarufi 5.4.1",
+        "Sarufi",
+        "5.4.1",
+        "kufurahia",
+        "matumizi",
+        "kujaza",
+        "nafasi"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Sarufi 5.4.1: kufurahia matumizi kujaza nafasi kwa kutumia ya nomino",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Sarufi 5.4.1: kufurahia matumizi kujaza nafasi kwa kutumia ya nomino",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Sarufi 5.4.1: kufurahia matumizi kujaza nafasi kwa kutumia ya nomino",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-031",
+      "strandId": "95f8cd5f-1451-48cd-8339-a3669d242480",
+      "parentSubStrandId": "2bf2d8a0-d3c5-423a-a55b-5af960e54497",
+      "subStrandId": "2bf2d8a0-d3c5-423a-a55b-5af960e54497",
+      "strandTitle": "Kusikiliza na Kuzungumza",
+      "unitTitle": "Ushairi",
+      "sourceUnitTitle": "Ushairi",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-6-1-1-outcome-1",
+          "text": "kukariri shairi kwa kuzingatia kusikiliza shairi lengwa matamshi na mahadhi mbalimbali"
+        },
+        {
+          "id": "grade-5-kiswahili-6-1-1-outcome-2",
+          "text": "kueleza maana ya msamiati kushirikiana na wenzake kukariri uliotumiwa katika shairi"
+        },
+        {
+          "id": "grade-5-kiswahili-6-1-1-outcome-3",
+          "text": "kutumia msamiati kutambua msamiati uliotumika uliotumiwa katika"
+        }
+      ],
+      "inquiryQuestions": [
+        "Ushairi unaweza kuboresha mazungumzo yako vipi?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Ushairi.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Ushairi"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Ushairi",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Ushairi",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Ushairi",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-032",
+      "strandId": "a82b9eb3-94f4-4264-bcb7-335177dbbcf9",
+      "parentSubStrandId": "97fad406-511d-4aae-9859-182ab7dd174a",
+      "subStrandId": "97fad406-511d-4aae-9859-182ab7dd174a",
+      "strandTitle": "Kusoma 6.2.1",
+      "unitTitle": "Kusoma 6.2.1",
+      "sourceUnitTitle": "Kusoma 6.2.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-6-2-outcome-1",
+          "text": "kutambua makala ya kusoma katika maktaba ili kuimarisha uchaguzi bora wa makala"
+        },
+        {
+          "id": "grade-5-kiswahili-6-2-outcome-2",
+          "text": "kusoma makala mbalimbali ili kujenga ufasaha wa lugha"
+        },
+        {
+          "id": "grade-5-kiswahili-6-2-outcome-3",
+          "text": "kufurahia kusoma makala mbalimbali ili kujenga ufasaha wa lugha."
+        }
+      ],
+      "inquiryQuestions": [
+        "Unapenda kusoma makala ya aina gani?",
+        "Ni ujumbe upi ulioupata kwenye makala uliyowahi kusoma?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Kusoma 6.2.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Kusoma 6.2.1",
+        "Kusoma",
+        "6.2.1"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Kusoma 6.2.1",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Kusoma 6.2.1",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Kusoma 6.2.1",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-033",
+      "strandId": "6b9ff8aa-6f0a-4f70-93e7-bedcda02d09c",
+      "parentSubStrandId": "a00896db-92a7-4922-b7e5-fbc48f8184d8",
+      "subStrandId": "a00896db-92a7-4922-b7e5-fbc48f8184d8",
+      "strandTitle": "Kuandika 6.3.1",
+      "unitTitle": "Kuandika 6.3.1",
+      "sourceUnitTitle": "Kuandika 6.3.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-6-3-outcome-1",
+          "text": "kutambua vipengele vya kimuundo vya insha za wasifu, kujadili na wenzake kuhusu mada"
+        },
+        {
+          "id": "grade-5-kiswahili-6-3-outcome-2",
+          "text": "kuandika insha ya wasifu kwa kuzingatia muundo na mtindo ufaao"
+        },
+        {
+          "id": "grade-5-kiswahili-6-3-outcome-3",
+          "text": "kufurahia uandishi wa insha za wasifu kuandika insha ya wasifu ili kukuza stadi ya kuandika. kuwasomea wenzake insha"
+        }
+      ],
+      "inquiryQuestions": [
+        "Unazingatia nini unapoandika insha ya wasifu?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Kuandika 6.3.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Kuandika 6.3.1",
+        "Kuandika",
+        "6.3.1"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Kuandika 6.3.1",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Kuandika 6.3.1",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Kuandika 6.3.1",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-034",
+      "strandId": "3660984c-5c0b-4c09-9794-ce5e61fdf14a",
+      "parentSubStrandId": "e37c6407-518d-48b3-b8b0-140763a63212",
+      "subStrandId": "e37c6407-518d-48b3-b8b0-140763a63212",
+      "strandTitle": "Sarufi 6.4.1",
+      "unitTitle": "Sarufi 6.4.1",
+      "sourceUnitTitle": "Sarufi 6.4.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-6-4-outcome-1",
+          "text": "kutambua viambishi vipatanishi vya ngeli ya U-YA kwenye kutambua nomino katika ngeli ya sentensi"
+        },
+        {
+          "id": "grade-5-kiswahili-6-4-outcome-2",
+          "text": "kutambua nomino katika ngeli ya U- YA ili kutumia nomino za ngeli ya U-YA kuzitofautisha na"
+        },
+        {
+          "id": "grade-5-kiswahili-6-4-outcome-3",
+          "text": "kutumia nomino za ngeli ya U-YA katika umoja na wingi kuunda sentensi kwa kutumia akizingatia upatanisho wa kisarufi"
+        }
+      ],
+      "inquiryQuestions": [
+        "Je, nomino za ngeli ya U-YA huchukua viambishi gani katika sentensi?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Sarufi 6.4.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Sarufi 6.4.1",
+        "Sarufi",
+        "6.4.1"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Sarufi 6.4.1",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Sarufi 6.4.1",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Sarufi 6.4.1",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-035",
+      "strandId": "75b9518b-7d7f-4b3e-b908-15ad6579c1f1",
+      "parentSubStrandId": "02963c32-2cbc-421d-a1a6-d473d15b7740",
+      "subStrandId": "02963c32-2cbc-421d-a1a6-d473d15b7740:topic-1",
+      "strandTitle": "Kusikiliza na Kuzungumza",
+      "unitTitle": "Nahau za usafi na mazingira: kutambua nahau za usafi na mazingira katika matini",
+      "sourceUnitTitle": "Nahau za usafi na mazingira",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-7-1-1-outcome-1",
+          "text": "kutambua nahau za usafi na mazingira katika matini mbalimbali"
+        },
+        {
+          "id": "grade-5-kiswahili-7-1-1-outcome-2",
+          "text": "kufafanua maana za nahau mbalimbali za usafi na mazingira kwa kutoa mifano"
+        },
+        {
+          "id": "grade-5-kiswahili-7-1-1-outcome-3",
+          "text": "kutumia nahau za usafi na mazingira katika mawasiliano"
+        }
+      ],
+      "inquiryQuestions": [
+        "Je, ni nahau zipi zinahusu usafi?",
+        "Je, ni nahau zipi zinahusu mazingira?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Nahau za usafi na mazingira.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Nahau za usafi na mazingira: kutambua nahau za usafi na mazingira katika matini",
+        "Nahau za usafi na mazingira",
+        "Nahau",
+        "usafi",
+        "mazingira",
+        "kutambua",
+        "katika",
+        "matini"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Nahau za usafi na mazingira: kutambua nahau za usafi na mazingira katika matini",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Nahau za usafi na mazingira: kutambua nahau za usafi na mazingira katika matini",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Nahau za usafi na mazingira: kutambua nahau za usafi na mazingira katika matini",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-036",
+      "strandId": "75b9518b-7d7f-4b3e-b908-15ad6579c1f1",
+      "parentSubStrandId": "02963c32-2cbc-421d-a1a6-d473d15b7740",
+      "subStrandId": "02963c32-2cbc-421d-a1a6-d473d15b7740:topic-2",
+      "strandTitle": "Kusikiliza na Kuzungumza",
+      "unitTitle": "Nahau za usafi na mazingira: kuthamini matumizi ya nahau za usafi na mazingira",
+      "sourceUnitTitle": "Nahau za usafi na mazingira",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-7-1-1-outcome-4",
+          "text": "kuthamini matumizi ya nahau za usafi na mazingira katika mawasiliano."
+        }
+      ],
+      "inquiryQuestions": [
+        "Je, ni nahau zipi zinahusu mazingira?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Nahau za usafi na mazingira.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Nahau za usafi na mazingira: kuthamini matumizi ya nahau za usafi na mazingira",
+        "Nahau za usafi na mazingira",
+        "Nahau",
+        "usafi",
+        "mazingira",
+        "kuthamini",
+        "matumizi"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Nahau za usafi na mazingira: kuthamini matumizi ya nahau za usafi na mazingira",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Nahau za usafi na mazingira: kuthamini matumizi ya nahau za usafi na mazingira",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Nahau za usafi na mazingira: kuthamini matumizi ya nahau za usafi na mazingira",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-037",
+      "strandId": "762dcdae-d7d4-4797-bdba-66c99abffd1c",
+      "parentSubStrandId": "7b059a58-83fd-49ca-bb6d-6f088e10feef",
+      "subStrandId": "7b059a58-83fd-49ca-bb6d-6f088e10feef",
+      "strandTitle": "Kusoma 7.2.1",
+      "unitTitle": "Kusoma 7.2.1",
+      "sourceUnitTitle": "Kusoma 7.2.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-7-2-outcome-1",
+          "text": "kutambua matini anazotaka kusoma kwenye kuchagua matini atakayosoma, kusoma matini kimyakimya ili maktaba"
+        },
+        {
+          "id": "grade-5-kiswahili-7-2-outcome-2",
+          "text": "kusoma matini ili kufaidika na ujumbe kusimulia ujumbe kutokana na lugha inayotumiwa, kujadiliana na wenzake matini"
+        },
+        {
+          "id": "grade-5-kiswahili-7-2-outcome-3",
+          "text": "kufurahia usomaji wa matini za aina mbalimbali ili kujenga utamaduni wa kusoma."
+        }
+      ],
+      "inquiryQuestions": [
+        "Unapenda kusoma matini ya aina gani?",
+        "Ni vipi unavyoweza kupata matini ya kusoma?",
+        "Kusoma aina mbalimbali za matini kuna umuhimu gani?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Kusoma 7.2.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Kusoma 7.2.1",
+        "Kusoma",
+        "7.2.1"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Kusoma 7.2.1",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Kusoma 7.2.1",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Kusoma 7.2.1",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-038",
+      "strandId": "7c5ec711-449e-4f70-9f4d-61943554dc4f",
+      "parentSubStrandId": "62fafb8a-fa74-4858-a375-582e4bb4510f",
+      "subStrandId": "62fafb8a-fa74-4858-a375-582e4bb4510f",
+      "strandTitle": "Kuandika 7.3.1",
+      "unitTitle": "Kuandika 7.3.1",
+      "sourceUnitTitle": "Kuandika 7.3.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-7-3-outcome-1",
+          "text": "kutambua insha za maelezo katika matini mbalimbali"
+        },
+        {
+          "id": "grade-5-kiswahili-7-3-outcome-2",
+          "text": "kuandika insha ya kushiriki na wenzake kujadili mada maelezo kwa kuzingatia muundo na mtindo ufaao, kuandika"
+        },
+        {
+          "id": "grade-5-kiswahili-7-3-outcome-3",
+          "text": "kuchangamkia utungaji wa insha za maelezo ili kuimarisha uandishi bora."
+        }
+      ],
+      "inquiryQuestions": [
+        "Je, ni shughuli gani zinazoweza kuandikiwa insha za maelezo?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Kuandika 7.3.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Kuandika 7.3.1",
+        "Kuandika",
+        "7.3.1"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Kuandika 7.3.1",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Kuandika 7.3.1",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Kuandika 7.3.1",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-039",
+      "strandId": "099a8810-c50f-49eb-8ae8-20bdb3c27231",
+      "parentSubStrandId": "23002d47-e077-4a39-b3c2-2c6bc6a4189d",
+      "subStrandId": "23002d47-e077-4a39-b3c2-2c6bc6a4189d:topic-1",
+      "strandTitle": "Sarufi 7.4.1",
+      "unitTitle": "Sarufi 7.4.1: kutambua viambishi vipatanishi vya ngeli ya KU-KU kwenye",
+      "sourceUnitTitle": "Sarufi 7.4.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-7-4-outcome-1",
+          "text": "kutambua viambishi vipatanishi vya ngeli ya KU-KU kwenye kutambua nomino katika ngeli ya sentensi"
+        },
+        {
+          "id": "grade-5-kiswahili-7-4-outcome-2",
+          "text": "kutambua nomino katika ngeli ya KU-"
+        },
+        {
+          "id": "grade-5-kiswahili-7-4-outcome-3",
+          "text": "kutumia nomino kutumia nomino za ngeli ya za ngeli ya KU-KU katika umoja na wingi akizingatia"
+        }
+      ],
+      "inquiryQuestions": [
+        "Je, nomino za ngeli ya KU-KU huchukua viambishi gani katika sentensi?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Sarufi 7.4.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Sarufi 7.4.1: kutambua viambishi vipatanishi vya ngeli ya KU-KU kwenye",
+        "Sarufi 7.4.1",
+        "Sarufi",
+        "7.4.1",
+        "kutambua",
+        "viambishi",
+        "vipatanishi",
+        "ngeli"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Sarufi 7.4.1: kutambua viambishi vipatanishi vya ngeli ya KU-KU kwenye",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Sarufi 7.4.1: kutambua viambishi vipatanishi vya ngeli ya KU-KU kwenye",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Sarufi 7.4.1: kutambua viambishi vipatanishi vya ngeli ya KU-KU kwenye",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-040",
+      "strandId": "099a8810-c50f-49eb-8ae8-20bdb3c27231",
+      "parentSubStrandId": "23002d47-e077-4a39-b3c2-2c6bc6a4189d",
+      "subStrandId": "23002d47-e077-4a39-b3c2-2c6bc6a4189d:topic-2",
+      "strandTitle": "Sarufi 7.4.1",
+      "unitTitle": "Sarufi 7.4.1: kufurahia matumizi ya ngeli ya KU-KU katika kutunga",
+      "sourceUnitTitle": "Sarufi 7.4.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-7-4-outcome-4",
+          "text": "kufurahia matumizi ya ngeli ya KU-KU katika kutunga sentensi kwa kutumia mawasiliano"
+        }
+      ],
+      "inquiryQuestions": [
+        "Je, nomino za ngeli ya KU-KU huchukua viambishi gani katika sentensi?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Sarufi 7.4.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Sarufi 7.4.1: kufurahia matumizi ya ngeli ya KU-KU katika kutunga",
+        "Sarufi 7.4.1",
+        "Sarufi",
+        "7.4.1",
+        "kufurahia",
+        "matumizi",
+        "ngeli",
+        "KU-KU"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Sarufi 7.4.1: kufurahia matumizi ya ngeli ya KU-KU katika kutunga",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Sarufi 7.4.1: kufurahia matumizi ya ngeli ya KU-KU katika kutunga",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Sarufi 7.4.1: kufurahia matumizi ya ngeli ya KU-KU katika kutunga",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-041",
+      "strandId": "e630b1bd-6366-4f5c-9c39-76f85edda1bf",
+      "parentSubStrandId": "f38c96a0-bfe5-41c5-bc1f-6ae31081b0d3",
+      "subStrandId": "f38c96a0-bfe5-41c5-bc1f-6ae31081b0d3:topic-1",
+      "strandTitle": "Kusoma 8.2.1",
+      "unitTitle": "Kusoma 8.2.1: kutambua mchezo kutambua mchezo wa kuigiza, wa kuigiza",
+      "sourceUnitTitle": "Kusoma 8.2.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-8-2-outcome-1",
+          "text": "kutambua mchezo kutambua mchezo wa kuigiza, wa kuigiza katika matini"
+        },
+        {
+          "id": "grade-5-kiswahili-8-2-outcome-2",
+          "text": "kusoma mchezo mfupi wa kuigiza kwa ufasaha, kusoma mchezo wa kuigiza"
+        },
+        {
+          "id": "grade-5-kiswahili-8-2-outcome-3",
+          "text": "kueleza maana ya msamiati uliotumiwa katika kushiriki katika majadiliano mchezo wa kuigiza"
+        }
+      ],
+      "inquiryQuestions": [
+        "Umewahi kusoma michezo ipi ya kuigiza?",
+        "Unakumbuka nini katika mchezo uliowahi kuusoma?",
+        "Kusoma michezo ya kuigiza kuna umuhimu gani?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Kusoma 8.2.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Kusoma 8.2.1: kutambua mchezo kutambua mchezo wa kuigiza, wa kuigiza",
+        "Kusoma 8.2.1",
+        "Kusoma",
+        "8.2.1",
+        "kutambua",
+        "mchezo",
+        "kuigiza"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Kusoma 8.2.1: kutambua mchezo kutambua mchezo wa kuigiza, wa kuigiza",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Kusoma 8.2.1: kutambua mchezo kutambua mchezo wa kuigiza, wa kuigiza",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Kusoma 8.2.1: kutambua mchezo kutambua mchezo wa kuigiza, wa kuigiza",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-042",
+      "strandId": "e630b1bd-6366-4f5c-9c39-76f85edda1bf",
+      "parentSubStrandId": "f38c96a0-bfe5-41c5-bc1f-6ae31081b0d3",
+      "subStrandId": "f38c96a0-bfe5-41c5-bc1f-6ae31081b0d3:topic-2",
+      "strandTitle": "Kusoma 8.2.1",
+      "unitTitle": "Kusoma 8.2.1: kuonyesha ufahamu wa mchezo wa kuigiza kwa kujibu",
+      "sourceUnitTitle": "Kusoma 8.2.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-8-2-outcome-4",
+          "text": "kuonyesha ufahamu wa mchezo wa kuigiza kwa kujibu maswali"
+        },
+        {
+          "id": "grade-5-kiswahili-8-2-outcome-5",
+          "text": "kuigiza mchezo mfupi ili kukuza kutazama mchezo mfupi wa uwezo wa kujieleza"
+        }
+      ],
+      "inquiryQuestions": [
+        "Unakumbuka nini katika mchezo uliowahi kuusoma?",
+        "Kusoma michezo ya kuigiza kuna umuhimu gani?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Kusoma 8.2.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Kusoma 8.2.1: kuonyesha ufahamu wa mchezo wa kuigiza kwa kujibu",
+        "Kusoma 8.2.1",
+        "Kusoma",
+        "8.2.1",
+        "kuonyesha",
+        "ufahamu",
+        "mchezo",
+        "kuigiza"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Kusoma 8.2.1: kuonyesha ufahamu wa mchezo wa kuigiza kwa kujibu",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Kusoma 8.2.1: kuonyesha ufahamu wa mchezo wa kuigiza kwa kujibu",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Kusoma 8.2.1: kuonyesha ufahamu wa mchezo wa kuigiza kwa kujibu",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-043",
+      "strandId": "5ee1b384-ac43-44ec-9797-30b084bce601",
+      "parentSubStrandId": "7694db4e-d4f6-4e6f-89d8-e8c9cd7845a0",
+      "subStrandId": "7694db4e-d4f6-4e6f-89d8-e8c9cd7845a0",
+      "strandTitle": "Kuandika 8.3.1",
+      "unitTitle": "Kuandika 8.3.1",
+      "sourceUnitTitle": "Kuandika 8.3.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-8-3-outcome-1",
+          "text": "kueleza sifa za insha ya kushiriki na wenzake kujadili mada masimuizi ili kuibainisha"
+        },
+        {
+          "id": "grade-5-kiswahili-8-3-outcome-2",
+          "text": "kuandika insha ya kuandika insha isiyopungua masimulizi kwa kufuata kanuni zifaazo"
+        },
+        {
+          "id": "grade-5-kiswahili-8-3-outcome-3",
+          "text": "kuchangamkia utunzi mzuri. kuandika insha ya masimulizi"
+        }
+      ],
+      "inquiryQuestions": [
+        "Ni mambo gani unayozingatia ili kuandika insha ya masimulizi ya kuvutia?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Kuandika 8.3.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Kuandika 8.3.1",
+        "Kuandika",
+        "8.3.1"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Kuandika 8.3.1",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Kuandika 8.3.1",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Kuandika 8.3.1",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-044",
+      "strandId": "f930ccd3-f3f5-4490-a1da-235a422d1bb0",
+      "parentSubStrandId": "bd8debd3-d926-4c55-9da4-f273a55ef44d",
+      "subStrandId": "bd8debd3-d926-4c55-9da4-f273a55ef44d",
+      "strandTitle": "Sarufi 8.4.1 Mnyambuliko wa Vitenzi Hali ya Hali ya",
+      "unitTitle": "Sarufi 8.4.1 Mnyambuliko wa Vitenzi Hali ya Hali ya",
+      "sourceUnitTitle": "Sarufi 8.4.1 Mnyambuliko wa Vitenzi Hali ya Hali ya",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-8-4-outcome-1",
+          "text": "katika hali ya kutendewa, kutendeka na kutendana katika matini ili kunyambua vitenzi katika hali kuvitofautisha, kutumia"
+        }
+      ],
+      "inquiryQuestions": [
+        "Je, vitenzi vinaweza kubadilika vipi mwishoni ili kuleta maana mbalimbali?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Sarufi 8.4.1 Mnyambuliko wa Vitenzi Hali ya Hali ya.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Sarufi 8.4.1 Mnyambuliko wa Vitenzi Hali ya Hali ya",
+        "Sarufi",
+        "8.4.1",
+        "Mnyambuliko",
+        "Vitenzi"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Sarufi 8.4.1 Mnyambuliko wa Vitenzi Hali ya Hali ya",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Sarufi 8.4.1 Mnyambuliko wa Vitenzi Hali ya Hali ya",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Sarufi 8.4.1 Mnyambuliko wa Vitenzi Hali ya Hali ya",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-045",
+      "strandId": "d01ed0d6-2f94-4c50-bbf6-e4560a69a42b",
+      "parentSubStrandId": "25b534a1-4c3f-4edf-9a71-52b48b38d431",
+      "subStrandId": "25b534a1-4c3f-4edf-9a71-52b48b38d431",
+      "strandTitle": "Kusikiliza na Kuzungumza",
+      "unitTitle": "Mazungumzo ya Kimuktadha Matumizi ya lugha rasmi",
+      "sourceUnitTitle": "Mazungumzo ya Kimuktadha Matumizi ya lugha rasmi",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-9-1-1-outcome-1",
+          "text": "kutambua miktadha kusikiliza mazungumzo rasmi mbalimbali kunakotumiwa lugha rasmi ili kukuza mawasiliano, kushiriki katika maigizo ya"
+        },
+        {
+          "id": "grade-5-kiswahili-9-1-1-outcome-2",
+          "text": "kutumia lugha katika miktadha rasmi ili kushiriki katika mazungumzo kufanikisha mawasiliano"
+        },
+        {
+          "id": "grade-5-kiswahili-9-1-1-outcome-3",
+          "text": "kuchangamkia matumizi ya lugha kutambua nidhamu ya lugha katika miktadha rasmi."
+        }
+      ],
+      "inquiryQuestions": [
+        "Ni wapi katika shughuli zetu za kila siku tunatumia lugha rasmi?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Mazungumzo ya Kimuktadha Matumizi ya lugha rasmi.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Mazungumzo ya Kimuktadha Matumizi ya lugha rasmi",
+        "Mazungumzo",
+        "Kimuktadha",
+        "Matumizi",
+        "lugha",
+        "rasmi"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Mazungumzo ya Kimuktadha Matumizi ya lugha rasmi",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Mazungumzo ya Kimuktadha Matumizi ya lugha rasmi",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Mazungumzo ya Kimuktadha Matumizi ya lugha rasmi",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-046",
+      "strandId": "b0cb64ee-18c0-4285-be8c-67816bcc7519",
+      "parentSubStrandId": "287d8d62-9b15-48e1-9e58-7a63a3a95006",
+      "subStrandId": "287d8d62-9b15-48e1-9e58-7a63a3a95006",
+      "strandTitle": "Kusoma 9.2.1",
+      "unitTitle": "Kusoma 9.2.1",
+      "sourceUnitTitle": "Kusoma 9.2.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-9-2-outcome-1",
+          "text": "kutambua matini za aina mbalimbali za kusoma na kuchagua kusoma matini alizochagua ili zinazomvutia"
+        },
+        {
+          "id": "grade-5-kiswahili-9-2-outcome-2",
+          "text": "kusoma matini kuwatolea wenzake muhtasari wa alizochagua ili kufaidika na ujumbe na lugha iliyotumiwa"
+        },
+        {
+          "id": "grade-5-kiswahili-9-2-outcome-3",
+          "text": "kufurahia usomaji kujadiliana na wenzake matini wa aina mbalimbali za matini ili kupanua mawazo yake."
+        }
+      ],
+      "inquiryQuestions": [
+        "Ni habari zipi unazopenda kusoma kwenye matini?",
+        "Unachagua matini hayo kwa nini?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Kusoma 9.2.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Kusoma 9.2.1",
+        "Kusoma",
+        "9.2.1"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Kusoma 9.2.1",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Kusoma 9.2.1",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Kusoma 9.2.1",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-047",
+      "strandId": "9ab798cc-fe64-432a-8cef-3e24b1ed6a29",
+      "parentSubStrandId": "c0bbed44-9ff6-49b2-b29d-6937ae6d2471",
+      "subStrandId": "c0bbed44-9ff6-49b2-b29d-6937ae6d2471",
+      "strandTitle": "Kuandika 9.3.1",
+      "unitTitle": "Kuandika 9.3.1",
+      "sourceUnitTitle": "Kuandika 9.3.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-9-3-outcome-1",
+          "text": "kutambua vifungu vya maelezo kushiriki na wenzake kujadili mada ya vilivyoandikwa kwenye matini kuandika insha ya"
+        },
+        {
+          "id": "grade-5-kiswahili-9-3-outcome-2",
+          "text": "kuandika insha ya maelezo kwa kufuata mtindo na muundo ufaao"
+        },
+        {
+          "id": "grade-5-kiswahili-9-3-outcome-3",
+          "text": "kuchangamkia utunzi mzuri wenye kuandika insha ya maelezo mtandaoni ujumbe mahususi. kuwasomea wenzake insha"
+        }
+      ],
+      "inquiryQuestions": [
+        "Je, unaweza kuandika insha ya maelezo juu ya mada gani?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Kuandika 9.3.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Kuandika 9.3.1",
+        "Kuandika",
+        "9.3.1"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Kuandika 9.3.1",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Kuandika 9.3.1",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Kuandika 9.3.1",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-048",
+      "strandId": "9cee9da6-0824-48e1-8775-5928e7d0707f",
+      "parentSubStrandId": "17835ad0-175c-4e4e-97ff-473f0af795c9",
+      "subStrandId": "17835ad0-175c-4e4e-97ff-473f0af795c9",
+      "strandTitle": "Sarufi 9.4.1",
+      "unitTitle": "Sarufi 9.4.1",
+      "sourceUnitTitle": "Sarufi 9.4.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-9-4-outcome-1",
+          "text": "kutambua vinyume vya vitenzi katika matini"
+        },
+        {
+          "id": "grade-5-kiswahili-9-4-outcome-2",
+          "text": "kutumia vinyume vya vitenzi katika kushirikiana na wenzake kutafuta matini"
+        },
+        {
+          "id": "grade-5-kiswahili-9-4-outcome-3",
+          "text": "kuandika upya sentensi kwa"
+        }
+      ],
+      "inquiryQuestions": [
+        "Je, ni vitenzi gani unavyoweza kutambua vinyume vyake?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Sarufi 9.4.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Sarufi 9.4.1",
+        "Sarufi",
+        "9.4.1"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Sarufi 9.4.1",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Sarufi 9.4.1",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Sarufi 9.4.1",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-049",
+      "strandId": "cfa767dd-5df3-40cf-9db1-d16b6849d7e6",
+      "parentSubStrandId": "9949f310-3f80-4e6b-8f9c-0e60e988e1bd",
+      "subStrandId": "9949f310-3f80-4e6b-8f9c-0e60e988e1bd",
+      "strandTitle": "Kusikiliza na Kuzungumza",
+      "unitTitle": "Tashbihi",
+      "sourceUnitTitle": "Tashbihi",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-10-1-1-outcome-1",
+          "text": "kutambua tashbihi za kueleza maana ya tashbihi tabia katika matini ili kuzibainisha, kukamilisha tashbihi mbalimbali za"
+        },
+        {
+          "id": "grade-5-kiswahili-10-1-1-outcome-2",
+          "text": "kutumia tashbihi za tabia kwa usahihi katika kujaza nafasi katika sentensi kwa sentensi, kutumia tashbihi mbalimbali za"
+        },
+        {
+          "id": "grade-5-kiswahili-10-1-1-outcome-3",
+          "text": "kufurahia matumizi ya kutumia tashbihi za tabia katika tashbihi za tabia katika mawasiliano ya kila siku."
+        }
+      ],
+      "inquiryQuestions": [
+        "Ni tashbihi zipi hutumiwa kuelezea tabia?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Tashbihi.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Tashbihi"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Tashbihi",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Tashbihi",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Tashbihi",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-050",
+      "strandId": "f6014380-23e0-445d-9306-a181c2c60a33",
+      "parentSubStrandId": "9565cd57-007b-4c3c-ab09-22d6d3633988",
+      "subStrandId": "9565cd57-007b-4c3c-ab09-22d6d3633988",
+      "strandTitle": "Kusoma 10.2.1",
+      "unitTitle": "Kusoma 10.2.1",
+      "sourceUnitTitle": "Kusoma 10.2.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-10-2-outcome-1",
+          "text": "kutambua na kuzingatia hatua za kiusalama katika matumizi ya vifaa vya kidijitali"
+        },
+        {
+          "id": "grade-5-kiswahili-10-2-outcome-2",
+          "text": "kutambua na kufungua faili iliyo na kifungu cha kusoma ili"
+        }
+      ],
+      "inquiryQuestions": [
+        "Unapenda kusoma habari kuhusu nini mtandaoni?",
+        "Ni hatua gani za kiusalama unazozingatia unapotafuta habari mtandaoni?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Kusoma 10.2.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Kusoma 10.2.1",
+        "Kusoma",
+        "10.2.1"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Kusoma 10.2.1",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Kusoma 10.2.1",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Kusoma 10.2.1",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-051",
+      "strandId": "0bc979b1-f729-4c70-87b9-b4b8801f0e03",
+      "parentSubStrandId": "4f93874c-6e0b-4000-a2c8-757cd635f0a9",
+      "subStrandId": "4f93874c-6e0b-4000-a2c8-757cd635f0a9",
+      "strandTitle": "Kuandika 10.3.1",
+      "unitTitle": "Kuandika 10.3.1",
+      "sourceUnitTitle": "Kuandika 10.3.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-10-3-outcome-1",
+          "text": "kutambua insha ya masimulizi kwa kuzingatia muundo"
+        },
+        {
+          "id": "grade-5-kiswahili-10-3-outcome-2",
+          "text": "kuandika insha ya masimulizi kwa kufuata kanuni zifaazo"
+        },
+        {
+          "id": "grade-5-kiswahili-10-3-outcome-3",
+          "text": "kuchangamkia utunzi mzuri wa insha."
+        }
+      ],
+      "inquiryQuestions": [
+        "Unawezaje kupata kwa haraka hoja za kusimulia katika insha?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Kuandika 10.3.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Kuandika 10.3.1",
+        "Kuandika",
+        "10.3.1"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Kuandika 10.3.1",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Kuandika 10.3.1",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Kuandika 10.3.1",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-052",
+      "strandId": "bf26ad7d-67bd-42ac-a47c-529183efcc5c",
+      "parentSubStrandId": "f46ad815-efc5-4540-9ed5-de47daa0aa49",
+      "subStrandId": "f46ad815-efc5-4540-9ed5-de47daa0aa49:topic-1",
+      "strandTitle": "Sarufi 10.4.1",
+      "unitTitle": "Sarufi 10.4.1: kutambua viambishi vya hali ya mazoea na hali",
+      "sourceUnitTitle": "Sarufi 10.4.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-10-4-outcome-1",
+          "text": "kutambua viambishi vya hali ya mazoea na hali timilifu katika kutambua vitenzi katika hali ya kitenzi"
+        },
+        {
+          "id": "grade-5-kiswahili-10-4-outcome-2",
+          "text": "kutambua vitenzi katika hali ya mazoea na hali timilifu katika matini, kushiriki na wenzake katika"
+        },
+        {
+          "id": "grade-5-kiswahili-10-4-outcome-3",
+          "text": "kutumia vitenzi vya hali ya mazoea na timilifu katika sentensi ili kuimarisha mawasiliano"
+        }
+      ],
+      "inquiryQuestions": [
+        "Je, wewe hufanya shughuli gani kila siku?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Sarufi 10.4.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Sarufi 10.4.1: kutambua viambishi vya hali ya mazoea na hali",
+        "Sarufi 10.4.1",
+        "Sarufi",
+        "10.4.1",
+        "kutambua",
+        "viambishi",
+        "mazoea"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Sarufi 10.4.1: kutambua viambishi vya hali ya mazoea na hali",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Sarufi 10.4.1: kutambua viambishi vya hali ya mazoea na hali",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Sarufi 10.4.1: kutambua viambishi vya hali ya mazoea na hali",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-053",
+      "strandId": "bf26ad7d-67bd-42ac-a47c-529183efcc5c",
+      "parentSubStrandId": "f46ad815-efc5-4540-9ed5-de47daa0aa49",
+      "subStrandId": "f46ad815-efc5-4540-9ed5-de47daa0aa49:topic-2",
+      "strandTitle": "Sarufi 10.4.1",
+      "unitTitle": "Sarufi 10.4.1: kufurahia matumizi ya kushirikiana na wenzake hali ya",
+      "sourceUnitTitle": "Sarufi 10.4.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-10-4-outcome-4",
+          "text": "kufurahia matumizi ya kushirikiana na wenzake hali ya mazoea na timilifu katika mawasiliano."
+        }
+      ],
+      "inquiryQuestions": [
+        "Je, wewe hufanya shughuli gani kila siku?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Sarufi 10.4.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Sarufi 10.4.1: kufurahia matumizi ya kushirikiana na wenzake hali ya",
+        "Sarufi 10.4.1",
+        "Sarufi",
+        "10.4.1",
+        "kufurahia",
+        "matumizi",
+        "kushirikiana",
+        "wenzake"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Sarufi 10.4.1: kufurahia matumizi ya kushirikiana na wenzake hali ya",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Sarufi 10.4.1: kufurahia matumizi ya kushirikiana na wenzake hali ya",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Sarufi 10.4.1: kufurahia matumizi ya kushirikiana na wenzake hali ya",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-054",
+      "strandId": "57bab885-3db4-4145-8fd0-19e02117412a",
+      "parentSubStrandId": "181182e0-92c1-4882-bd86-49f49a52846b",
+      "subStrandId": "181182e0-92c1-4882-bd86-49f49a52846b:topic-1",
+      "strandTitle": "Kusikiliza na Kuzungumza",
+      "unitTitle": "Masimulizi: kusikiliza masimulizi kwa kuzingatia kubuni masimulizi yanayohusiana ujumbe",
+      "sourceUnitTitle": "Masimulizi",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-11-1-1-outcome-1",
+          "text": "kusikiliza masimulizi kwa kuzingatia kubuni masimulizi yanayohusiana ujumbe"
+        },
+        {
+          "id": "grade-5-kiswahili-11-1-1-outcome-2",
+          "text": "kusimulia tungo mbele ya wenzake kwa kuzingatia kutoa masimulizi kuhusu mada"
+        },
+        {
+          "id": "grade-5-kiswahili-11-1-1-outcome-3",
+          "text": "kutumia ishara kutumia ishara za mwili zifaazo k.v. zifaazo kuimarisha masimulizi yake"
+        }
+      ],
+      "inquiryQuestions": [
+        "Je, ni nini unachozingatia katika kutoa masimulizi?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Masimulizi.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Masimulizi: kusikiliza masimulizi kwa kuzingatia kubuni masimulizi yanayohusiana ujumbe",
+        "Masimulizi",
+        "kusikiliza",
+        "kuzingatia",
+        "kubuni",
+        "yanayohusiana",
+        "ujumbe"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Masimulizi: kusikiliza masimulizi kwa kuzingatia kubuni masimulizi yanayohusiana ujumbe",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Masimulizi: kusikiliza masimulizi kwa kuzingatia kubuni masimulizi yanayohusiana ujumbe",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Masimulizi: kusikiliza masimulizi kwa kuzingatia kubuni masimulizi yanayohusiana ujumbe",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-055",
+      "strandId": "57bab885-3db4-4145-8fd0-19e02117412a",
+      "parentSubStrandId": "181182e0-92c1-4882-bd86-49f49a52846b",
+      "subStrandId": "181182e0-92c1-4882-bd86-49f49a52846b:topic-2",
+      "strandTitle": "Kusikiliza na Kuzungumza",
+      "unitTitle": "Masimulizi: kuchangamkia kujadiliana na wenzake kuhusu masimulizi katika mazingira",
+      "sourceUnitTitle": "Masimulizi",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-11-1-1-outcome-4",
+          "text": "kuchangamkia kujadiliana na wenzake kuhusu masimulizi katika mazingira mbalimbali."
+        }
+      ],
+      "inquiryQuestions": [
+        "Je, ni nini unachozingatia katika kutoa masimulizi?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Masimulizi.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Masimulizi: kuchangamkia kujadiliana na wenzake kuhusu masimulizi katika mazingira",
+        "Masimulizi",
+        "kuchangamkia",
+        "kujadiliana",
+        "wenzake",
+        "kuhusu",
+        "katika",
+        "mazingira"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Masimulizi: kuchangamkia kujadiliana na wenzake kuhusu masimulizi katika mazingira",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Masimulizi: kuchangamkia kujadiliana na wenzake kuhusu masimulizi katika mazingira",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Masimulizi: kuchangamkia kujadiliana na wenzake kuhusu masimulizi katika mazingira",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-056",
+      "strandId": "a8ae7498-8638-48cf-a3d5-55540e3a2a74",
+      "parentSubStrandId": "2c5c44dd-4a56-404d-ad0b-dcba6ef781be",
+      "subStrandId": "2c5c44dd-4a56-404d-ad0b-dcba6ef781be:topic-1",
+      "strandTitle": "Kusoma kwa Ufahamu na Ushahidi",
+      "unitTitle": "Kusoma kwa Ufahamu na Ushahidi: kutambua vipengele vya kuzingatia katika kusoma kutazama vielelezo",
+      "sourceUnitTitle": "Kusoma kwa Ufahamu na Ushahidi",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-11-2-1-outcome-1",
+          "text": "kutambua vipengele vya kuzingatia katika kusoma kutazama vielelezo vya video kwa ufasaha"
+        },
+        {
+          "id": "grade-5-kiswahili-11-2-1-outcome-2",
+          "text": "kusoma kifungu kwa kuzingatia matamshi bora"
+        },
+        {
+          "id": "grade-5-kiswahili-11-2-1-outcome-3",
+          "text": "kusoma kifungu kwa kasi kusoma kifungu akizingatia matamshi ifaayo"
+        }
+      ],
+      "inquiryQuestions": [
+        "Unaposoma kifungu ni mambo yapi unayozingatia ili kusoma ifaavyo?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Kusoma kwa Ufahamu na Ushahidi.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Kusoma kwa Ufahamu na Ushahidi: kutambua vipengele vya kuzingatia katika kusoma kutazama vielelezo",
+        "Kusoma kwa Ufahamu na Ushahidi",
+        "Kusoma",
+        "Ufahamu",
+        "Ushahidi",
+        "kutambua",
+        "vipengele",
+        "kuzingatia"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Kusoma kwa Ufahamu na Ushahidi: kutambua vipengele vya kuzingatia katika kusoma kutazama vielelezo",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Kusoma kwa Ufahamu na Ushahidi: kutambua vipengele vya kuzingatia katika kusoma kutazama vielelezo",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Kusoma kwa Ufahamu na Ushahidi: kutambua vipengele vya kuzingatia katika kusoma kutazama vielelezo",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-057",
+      "strandId": "a8ae7498-8638-48cf-a3d5-55540e3a2a74",
+      "parentSubStrandId": "2c5c44dd-4a56-404d-ad0b-dcba6ef781be",
+      "subStrandId": "2c5c44dd-4a56-404d-ad0b-dcba6ef781be:topic-2",
+      "strandTitle": "Kusoma kwa Ufahamu na Ushahidi",
+      "unitTitle": "Kusoma kwa Ufahamu na Ushahidi: kusoma kifungu kwa kusoma kifungu cha hadithi kuhusu",
+      "sourceUnitTitle": "Kusoma kwa Ufahamu na Ushahidi",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-11-2-1-outcome-4",
+          "text": "kusoma kifungu kwa kusoma kifungu cha hadithi kuhusu kutumia sauti ipasavyo"
+        },
+        {
+          "id": "grade-5-kiswahili-11-2-1-outcome-5",
+          "text": "kusoma kifungu kwa kuambatanisha ishara zifaazo"
+        },
+        {
+          "id": "grade-5-kiswahili-11-2-1-outcome-6",
+          "text": "kuchangamkia kusoma kifungu akizingatia sauti ifaayo kifungu kwa kuzingatia vipengele vya usomaji kusoma kifungu kwa kuambatanisha"
+        }
+      ],
+      "inquiryQuestions": [
+        "Unaposoma kifungu ni mambo yapi unayozingatia ili kusoma ifaavyo?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Kusoma kwa Ufahamu na Ushahidi.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Kusoma kwa Ufahamu na Ushahidi: kusoma kifungu kwa kusoma kifungu cha hadithi kuhusu",
+        "Kusoma kwa Ufahamu na Ushahidi",
+        "Kusoma",
+        "Ufahamu",
+        "Ushahidi",
+        "kifungu",
+        "hadithi",
+        "kuhusu"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Kusoma kwa Ufahamu na Ushahidi: kusoma kifungu kwa kusoma kifungu cha hadithi kuhusu",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Kusoma kwa Ufahamu na Ushahidi: kusoma kifungu kwa kusoma kifungu cha hadithi kuhusu",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Kusoma kwa Ufahamu na Ushahidi: kusoma kifungu kwa kusoma kifungu cha hadithi kuhusu",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-058",
+      "strandId": "adb62893-8c1e-4c06-b8e9-c2e57efca5f8",
+      "parentSubStrandId": "084ae28a-5ffc-4fe3-b9c0-36d2e12a460b",
+      "subStrandId": "084ae28a-5ffc-4fe3-b9c0-36d2e12a460b:topic-1",
+      "strandTitle": "Sarufi 11.4.1",
+      "unitTitle": "Sarufi 11.4.1: kutambua nomino zinazoanza kwa herufi m- na zenye",
+      "sourceUnitTitle": "Sarufi 11.4.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-11-4-outcome-1",
+          "text": "kutambua nomino zinazoanza kwa herufi m- na zenye mzizi wa silabi mbili"
+        },
+        {
+          "id": "grade-5-kiswahili-11-4-outcome-2",
+          "text": "kutambua nomino zinazoanza kwa kutambua nomino zinazoanza kwa herufi m- katika hali ya ukubwa na udogo"
+        },
+        {
+          "id": "grade-5-kiswahili-11-4-outcome-3",
+          "text": "kubadilisha nomino katika hali ya wastani kuwa katika hali ya kushiriki katika vikundi ukubwa na udogo"
+        }
+      ],
+      "inquiryQuestions": [
+        "Viambishi vya nafsi katika vitenzi ni vipi?",
+        "Unatumia viambishi gani wakati wa kukanusha vitenzi?",
+        "Ni nomino gani unazoweza kutaja ukubwa wake?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Sarufi 11.4.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Sarufi 11.4.1: kutambua nomino zinazoanza kwa herufi m- na zenye",
+        "Sarufi 11.4.1",
+        "Sarufi",
+        "11.4.1",
+        "kutambua",
+        "nomino",
+        "zinazoanza",
+        "herufi"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Sarufi 11.4.1: kutambua nomino zinazoanza kwa herufi m- na zenye",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Sarufi 11.4.1: kutambua nomino zinazoanza kwa herufi m- na zenye",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Sarufi 11.4.1: kutambua nomino zinazoanza kwa herufi m- na zenye",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-059",
+      "strandId": "adb62893-8c1e-4c06-b8e9-c2e57efca5f8",
+      "parentSubStrandId": "084ae28a-5ffc-4fe3-b9c0-36d2e12a460b",
+      "subStrandId": "084ae28a-5ffc-4fe3-b9c0-36d2e12a460b:topic-2",
+      "strandTitle": "Sarufi 11.4.1",
+      "unitTitle": "Sarufi 11.4.1: kutumia nomino zinazoanza kwa herufi m- katika hali",
+      "sourceUnitTitle": "Sarufi 11.4.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-11-4-outcome-4",
+          "text": "kutumia nomino zinazoanza kwa herufi m- katika hali kushiriki katika mchezo wa ya ukubwa na udogo kwenye sentensi"
+        },
+        {
+          "id": "grade-5-kiswahili-11-4-outcome-5",
+          "text": "kutambua nomino zinazoanza kwa herufi n- ili kuzitofautisha na nomino nyingine"
+        },
+        {
+          "id": "grade-5-kiswahili-11-4-outcome-6",
+          "text": "kutambua nomino zinazoanza kwa herufi n- katika hali ya ukubwa na udogo"
+        }
+      ],
+      "inquiryQuestions": [
+        "Unatumia viambishi gani wakati wa kukanusha vitenzi?",
+        "Ni nomino gani unazoweza kutaja ukubwa wake?",
+        "Ni nomino gani unazoweza kutaja udogo wake?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Sarufi 11.4.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Sarufi 11.4.1: kutumia nomino zinazoanza kwa herufi m- katika hali",
+        "Sarufi 11.4.1",
+        "Sarufi",
+        "11.4.1",
+        "kutumia",
+        "nomino",
+        "zinazoanza",
+        "herufi"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Sarufi 11.4.1: kutumia nomino zinazoanza kwa herufi m- katika hali",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Sarufi 11.4.1: kutumia nomino zinazoanza kwa herufi m- katika hali",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Sarufi 11.4.1: kutumia nomino zinazoanza kwa herufi m- katika hali",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-kiswahili-topic-060",
+      "strandId": "adb62893-8c1e-4c06-b8e9-c2e57efca5f8",
+      "parentSubStrandId": "084ae28a-5ffc-4fe3-b9c0-36d2e12a460b",
+      "subStrandId": "084ae28a-5ffc-4fe3-b9c0-36d2e12a460b:topic-3",
+      "strandTitle": "Sarufi 11.4.1",
+      "unitTitle": "Sarufi 11.4.1: kubadilisha nomino katika hali wastani kuwa katika hali",
+      "sourceUnitTitle": "Sarufi 11.4.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-kiswahili-11-4-outcome-7",
+          "text": "kubadilisha nomino katika hali wastani kuwa katika hali ya ukubwa na udogo"
+        },
+        {
+          "id": "grade-5-kiswahili-11-4-outcome-8",
+          "text": "kutumia nomino katika hali ya ukubwa na udogo kwenye sentensi ili kuimarisha mawasiliano"
+        },
+        {
+          "id": "grade-5-kiswahili-11-4-outcome-9",
+          "text": "kufurahia kutumia nomino katika hali ya ukubwa na udogo kwa usahihi ili kuimarisha mawasiliano."
+        }
+      ],
+      "inquiryQuestions": [
+        "Ni nomino gani unazoweza kutaja ukubwa wake?",
+        "Ni nomino gani unazoweza kutaja udogo wake?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Sarufi 11.4.1.",
+        "Review vocabulary from the previous Kiswahili lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Sarufi 11.4.1: kubadilisha nomino katika hali wastani kuwa katika hali",
+        "Sarufi 11.4.1",
+        "Sarufi",
+        "11.4.1",
+        "kubadilisha",
+        "nomino",
+        "katika",
+        "wastani"
+      ],
+      "misconceptions": [
+        "kukumbuka kanuni bila kuitumia katika sentensi, mazungumzo, au kifungu cha maana"
+      ],
+      "localContext": "mazungumzo, hadithi, insha, hotuba, au shughuli ya jamii inayohusiana na Sarufi 11.4.1: kubadilisha nomino katika hali wastani kuwa katika hali",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "maana iko wazi",
+        "msamiati na sarufi vinafaa",
+        "matamshi au uandishi umehakikiwa"
+      ],
+      "visualNeeds": [
+        {
+          "type": "msamiati card",
+          "description": "msamiati card for Sarufi 11.4.1: kubadilisha nomino katika hali wastani kuwa katika hali",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "mazungumzo or reading passage panel",
+          "description": "mazungumzo or reading passage panel for Sarufi 11.4.1: kubadilisha nomino katika hali wastani kuwa katika hali",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "0dd4aa16-4089-40b6-94fb-5a1e22cedff4",
+          "officialTitle": "Competency Based Curriculum Grade 5 Kiswahili",
+          "sourceSnapshotHash": "c08fb1f8fd1eebc2be58c194da160c6f3f47f5ce27606440b515c03d87bf8534"
+        }
+      ]
+    }
+  ]
+}

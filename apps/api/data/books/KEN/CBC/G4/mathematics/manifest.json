@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-grade-4-mathematics",
+  "title": "KITABU QUEST Grade 4 Mathematics",
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 4",
+  "subject": "Mathematics",
+  "subjectSlug": "mathematics",
+  "subjectColor": "#047857",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "learner-first-language-depth-renderers-2026-07-01-v10",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-reviewed-draft",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T12:23:54Z",
+  "sourceSnapshotHash": "73dacb576b70a42b349534715ac6a8553ae8895596c1fae86daa42426aac448d",
+  "bookPlanHash": "6a6f4d73e773d0fbe3164e670bd11114b628f507c12ffba90ca1b2bd53004894",
+  "pageCount": 237,
+  "wordCount": 45335,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "ageBand": "upper-primary",
+    "coversDeferred": true,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "topicCount": 30,
+    "outcomeCount": 90,
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "KEN",
+    "subject": "Mathematics",
+    "species": "lion",
+    "role": "problem-solving guide",
+    "sourceRationale": "User-approved Mathematics mascot; confidence, strength, and Kenya wildlife association."
+  },
+  "cover": {
+    "scene": "learners solving real-life problems with blocks, measuring tools, maps, and a friendly lion mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Kenya CBC Grade 4 Mathematics. Scene: learners solving real-life problems with blocks, measuring tools, maps, and a friendly lion mascot. Include a friendly lion mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "assets": [],
+  "downloads": {
+    "markdown": "kitabu-quest-grade-4-mathematics.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-grade-4-mathematics.pdf"
+  },
+  "sourceDocuments": [
+    {
+      "id": "bc9f30d0-3b00-4cdd-8d9a-b5b8e233f7eb",
+      "subject": "Mathematics",
+      "officialTitle": "Competency Based Curriculum Grade 4 Mathematics",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_4",
+      "gradeLocalLevel": "Grade 4",
+      "localLevel": "Grade 4",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/1o5tDq16yC0Jj1h6zb9mo3dsxtjqXUk4G/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "Google Drive file embedded on official KICD Grade Four Designs page.",
+        "gradeCode": "GRADE_4",
+        "documentUrl": "https://drive.google.com/file/d/1o5tDq16yC0Jj1h6zb9mo3dsxtjqXUk4G/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_4/mathematics/bc9f30d0-3b00-4cdd-8d9a-b5b8e233f7eb.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-four-designs/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "cd646b07420a784f61124e2ac0831215baef9ca462afb721ce1c9db5129b5c8f",
+        "markdownPageCount": 70,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_4/mathematics/bc9f30d0-3b00-4cdd-8d9a-b5b8e233f7eb.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "cd646b07420a784f61124e2ac0831215baef9ca462afb721ce1c9db5129b5c8f",
+          "pageCount": 70,
+          "generatedAt": "2026-06-29T16:35:08.333Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "d4eded6cb045666199730fc9b0219118bd95e8638f5f512f97cc74a5d3474d55"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:08.333Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    }
+  ]
+}

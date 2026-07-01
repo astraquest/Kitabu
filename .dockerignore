@@ -31,6 +31,10 @@ rn-assets
 *.zip
 *.docx
 
+!apps/api/data/
+!apps/api/data/books/
+!apps/api/data/books/**
+
 .env
 .env.*
 **/.env

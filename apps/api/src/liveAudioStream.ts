@@ -1,8 +1,20 @@
 import type { FastifyInstance, FastifyRequest } from 'fastify';
 import websocket from '@fastify/websocket';
 import WebSocket from 'ws';
+import { createHash } from 'node:crypto';
 import { appConfig } from './config.js';
 import { verifyAccessToken } from './auth.js';
+import {
+  buildFeatureSystemInstruction,
+  getFeatureSchemaVersion,
+  resolveAiPromptVersion
+} from './aiFeatures.js';
+import {
+  createAiGenerationRun,
+  createAiUsageEvent,
+  recordAiGenerationAttempt,
+  withTransaction
+} from './repositories.js';
 
 type ClientEvent =
   | { type: 'session.start'; context?: string; history?: Array<{ role: 'user' | 'model'; text: string }> }
@@ -25,6 +37,56 @@ function parseClientEvent(message: WebSocket.RawData): ClientEvent | null {
   }
 }
 
+function sha256Text(value: string) {
+  return createHash('sha256').update(value).digest('hex');
+}
+
+function stableJsonStringify(value: unknown): string {
+  if (value === undefined) {
+    return '"__undefined__"';
+  }
+
+  if (value === null) {
+    return 'null';
+  }
+
+  if (Array.isArray(value)) {
+    return `[${value.map(item => stableJsonStringify(item)).join(',')}]`;
+  }
+
+  if (typeof value === 'object') {
+    return `{${Object.entries(value as Record<string, unknown>)
+      .sort(([left], [right]) => left.localeCompare(right))
+      .map(([key, item]) => `${JSON.stringify(key)}:${stableJsonStringify(item)}`)
+      .join(',')}}`;
+  }
+
+  return JSON.stringify(value);
+}
+
+function hashStableJson(value: unknown) {
+  return sha256Text(stableJsonStringify(value));
+}
+
+function readNumber(value: unknown) {
+  return typeof value === 'number' && Number.isFinite(value) ? value : 0;
+}
+
+function readRealtimeUsage(event: Record<string, unknown>) {
+  const response = event.response && typeof event.response === 'object'
+    ? (event.response as Record<string, unknown>)
+    : {};
+  const usage = response.usage && typeof response.usage === 'object'
+    ? (response.usage as Record<string, unknown>)
+    : {};
+
+  return {
+    promptTokens: readNumber(usage.input_tokens),
+    completionTokens: readNumber(usage.output_tokens),
+    totalTokens: readNumber(usage.total_tokens)
+  };
+}
+
 async function authenticateRealtimeRequest(request: FastifyRequest) {
   const header = request.headers.authorization;
   const token = header?.startsWith('Bearer ') ? header.slice('Bearer '.length) : undefined;
@@ -39,20 +101,25 @@ async function authenticateRealtimeRequest(request: FastifyRequest) {
   }
 }
 
-function buildVoiceInstructions(context?: string) {
+function buildVoiceInstructions(context?: string, grade?: string | null) {
+  const registryInstruction =
+    buildFeatureSystemInstruction('live_voice_tutor', { grade: grade ?? undefined }) ??
+    [
+      'You are KITABU AI in live voice mode.',
+      'Reply like a spoken tutor: concise, direct, and easy to read aloud.',
+      'Ask at most one short follow-up question when useful.',
+      'Avoid markdown, headings, lists, and meta commentary.'
+    ].join('\n');
+
   return [
-    'You are KITABU AI in live voice mode.',
-    'Reply like a spoken tutor: concise, direct, and easy to read aloud.',
-    'Ask at most one short follow-up question when useful.',
-    'Avoid markdown, headings, lists, and meta commentary.',
-    context?.trim() ? `Student context:\n${context.trim()}` : null
+    registryInstruction,
+    context?.trim() ? `Additional live session context:\n${context.trim()}` : null
   ]
     .filter(Boolean)
     .join('\n\n');
 }
 
-function createOpenAiRealtimeSocket(userId: string) {
-  const model = process.env.KITABU_OPENAI_REALTIME_MODEL?.trim() || 'gpt-realtime-2';
+function createOpenAiRealtimeSocket(userId: string, model: string) {
   return new WebSocket(`wss://api.openai.com/v1/realtime?model=${encodeURIComponent(model)}`, {
     headers: {
       Authorization: `Bearer ${appConfig.KITABU_OPENAI_API_KEY}`,
@@ -80,7 +147,105 @@ export function registerLiveAudioStreamRoutes(app: FastifyInstance) {
 
     let openAiSocket: WebSocket | null = null;
     let openAiReady = false;
+    const feature = 'live_voice_tutor';
+    const promptVersion = resolveAiPromptVersion(feature);
+    const schemaVersion = getFeatureSchemaVersion(feature);
+    const model = process.env.KITABU_OPENAI_REALTIME_MODEL?.trim() || 'gpt-realtime-2';
+    let liveContext = '';
+    let responseCounter = 0;
+    let responseStartedAt: number | null = null;
     const pendingOpenAiEvents: Record<string, unknown>[] = [];
+
+    const recordRealtimeGeneration = async (
+      status: 'completed' | 'failed',
+      event: Record<string, unknown>,
+      errorSummary?: string
+    ) => {
+      const usage = status === 'completed' ? readRealtimeUsage(event) : {
+        promptTokens: 0,
+        completionTokens: 0,
+        totalTokens: 0
+      };
+      const latencyMs = responseStartedAt ? Date.now() - responseStartedAt : 0;
+      const promptHash = hashStableJson({
+        feature,
+        promptVersion,
+        schemaVersion,
+        instructions: buildVoiceInstructions(liveContext, user.grade)
+      });
+      const inputHash = hashStableJson({
+        userId: user.id,
+        responseCounter,
+        contextHash: sha256Text(liveContext),
+        model
+      });
+      const outputHash =
+        status === 'completed'
+          ? hashStableJson({
+              responseId:
+                event.response &&
+                typeof event.response === 'object' &&
+                'id' in event.response
+                  ? (event.response as { id?: unknown }).id
+                  : responseCounter,
+              usage
+            })
+          : undefined;
+
+      await withTransaction(async client => {
+        const generationRun = await createAiGenerationRun(client, {
+          userId: user.id,
+          schoolId: user.schoolId,
+          subscriptionId: null,
+          feature,
+          promptVersion,
+          provider: 'openai',
+          model,
+          status,
+          latencyMs,
+          promptTokens: usage.promptTokens,
+          completionTokens: usage.completionTokens,
+          totalTokens: usage.totalTokens,
+          estimatedCostUsdMicros: 0,
+          estimatedCostKshCents: 0,
+          cacheStatus: 'bypassed',
+          cacheKey: null,
+          promptHash,
+          inputHash,
+          outputHash
+        });
+        await recordAiGenerationAttempt(client, {
+          runId: generationRun.id,
+          attemptNumber: 1,
+          provider: 'openai',
+          model,
+          status,
+          latencyMs,
+          promptTokens: usage.promptTokens,
+          completionTokens: usage.completionTokens,
+          totalTokens: usage.totalTokens,
+          estimatedCostUsdMicros: 0,
+          estimatedCostKshCents: 0,
+          errorSummary: errorSummary?.slice(0, 500) ?? null
+        });
+        await createAiUsageEvent(client, {
+          userId: user.id,
+          schoolId: user.schoolId,
+          subscriptionId: null,
+          feature,
+          provider: 'openai',
+          model,
+          promptTokens: usage.promptTokens,
+          completionTokens: usage.completionTokens,
+          totalTokens: usage.totalTokens,
+          estimatedCostUsdMicros: 0,
+          fxRateKshPerUsd: appConfig.KITABU_KSH_PER_USD,
+          estimatedCostKshCents: 0,
+          promptVersion,
+          status
+        });
+      });
+    };
 
     const sendOpenAi = (event: Record<string, unknown>) => {
       if (openAiSocket?.readyState === WebSocket.OPEN && openAiReady) {
@@ -105,7 +270,7 @@ export function registerLiveAudioStreamRoutes(app: FastifyInstance) {
       }
     };
 
-    openAiSocket = createOpenAiRealtimeSocket(user.id);
+    openAiSocket = createOpenAiRealtimeSocket(user.id, model);
 
     openAiSocket.on('open', () => {
       openAiReady = true;
@@ -114,7 +279,7 @@ export function registerLiveAudioStreamRoutes(app: FastifyInstance) {
         session: {
           type: 'realtime',
           output_modalities: ['text'],
-          instructions: buildVoiceInstructions(),
+          instructions: buildVoiceInstructions('', user.grade),
           audio: {
             input: {
               format: {
@@ -160,9 +325,17 @@ export function registerLiveAudioStreamRoutes(app: FastifyInstance) {
         case 'response.output_text.done':
         case 'response.done':
           sendClient(socket, { type: 'response.done' });
+          if (event.type === 'response.done') {
+            void recordRealtimeGeneration('completed', event).catch(error => {
+              request.log.warn({ err: error }, 'Failed to record realtime AI generation');
+            });
+          }
           break;
         case 'error':
           sendClient(socket, { type: 'error', message: event.error ?? 'Realtime voice failed.' });
+          void recordRealtimeGeneration('failed', event, String(event.error ?? 'Realtime voice failed.')).catch(error => {
+            request.log.warn({ err: error }, 'Failed to record realtime AI failure');
+          });
           break;
       }
     });
@@ -186,10 +359,11 @@ export function registerLiveAudioStreamRoutes(app: FastifyInstance) {
       }
 
       if (event.type === 'session.start') {
+        liveContext = event.context?.trim() ?? '';
         sendOpenAi({
           type: 'session.update',
           session: {
-            instructions: buildVoiceInstructions(event.context)
+            instructions: buildVoiceInstructions(event.context, user.grade)
           }
         });
         return;
@@ -203,6 +377,8 @@ export function registerLiveAudioStreamRoutes(app: FastifyInstance) {
       }
 
       if (event.type === 'audio.commit') {
+        responseCounter += 1;
+        responseStartedAt = Date.now();
         sendOpenAi({ type: 'input_audio_buffer.commit' });
         sendOpenAi({
           type: 'response.create',

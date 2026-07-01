@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-grade-8-creative-arts",
+  "title": "KITABU QUEST Grade 8 Creative Arts",
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 8",
+  "subject": "Creative Arts",
+  "subjectSlug": "creative-arts",
+  "subjectColor": "#DB2777",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "learner-first-language-depth-renderers-2026-07-01-v10",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-reviewed-draft",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T11:41:23Z",
+  "sourceSnapshotHash": "9d3e13f7792dbf4e3ed2ea662ed66218109bf63efaf20263859e2fbc18a3ea0d",
+  "bookPlanHash": "e8f3a680b4adcf77ea4edc439ae9a2b70247c5060949fc804a2ff94f95dcfce0",
+  "pageCount": 175,
+  "wordCount": 22696,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "ageBand": "junior-secondary",
+    "coversDeferred": true,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "topicCount": 22,
+    "outcomeCount": 63,
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "KEN",
+    "subject": "Creative Arts",
+    "species": "lilac-breasted roller",
+    "role": "creative colour guide",
+    "sourceRationale": "Colorful bird associated with Kenya and strong visual-arts fit."
+  },
+  "cover": {
+    "scene": "learners painting a mural and playing percussion instruments with a colorful bird mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Kenya CBC Grade 8 Creative Arts. Scene: learners painting a mural and playing percussion instruments with a colorful bird mascot. Include a friendly lilac-breasted roller mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "assets": [],
+  "downloads": {
+    "markdown": "kitabu-quest-grade-8-creative-arts.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-grade-8-creative-arts.pdf"
+  },
+  "sourceDocuments": [
+    {
+      "id": "bab06380-f3c4-4369-809c-88dd198d4dba",
+      "subject": "Creative Arts",
+      "officialTitle": "Competency Based Curriculum Grade 8 Creative Arts",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_8",
+      "gradeLocalLevel": "Grade 8",
+      "localLevel": "Grade 8",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/1ji89ZIdF9ZA5d6rkchqJJYa2G5ZQO5zP/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_8",
+        "documentUrl": "https://drive.google.com/file/d/1ji89ZIdF9ZA5d6rkchqJJYa2G5ZQO5zP/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_8/creative-arts/bab06380-f3c4-4369-809c-88dd198d4dba.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-eight-designs/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "d7cbb63e2b4f1237cf1463c53e38e67e8f8416e2345fdea98c8f166674eaeff6",
+        "markdownPageCount": 65,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_8/creative-arts/bab06380-f3c4-4369-809c-88dd198d4dba.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "d7cbb63e2b4f1237cf1463c53e38e67e8f8416e2345fdea98c8f166674eaeff6",
+          "pageCount": 65,
+          "generatedAt": "2026-06-29T16:35:09.460Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "9b2820e2ba16dc2539e8017c55a729e0ae33b54abc8366e3063449a20a51c1e0"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:09.460Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    }
+  ]
+}

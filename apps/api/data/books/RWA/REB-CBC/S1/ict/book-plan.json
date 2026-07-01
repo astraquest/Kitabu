@@ -1,0 +1,858 @@
+{
+  "schemaVersion": 1,
+  "sourceType": "normalized-curriculum",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "S1",
+  "subject": "ICT",
+  "generatedAt": "2026-07-01T06:42:47Z",
+  "sourceSnapshotHash": "5635e999b4635fb7831a728ded9b591c33b5944af1baa3312f7d1fa4b0a7fa34",
+  "writingStandard": {
+    "voice": "simple, conversational, purposeful, age-appropriate, and learner-first",
+    "antiFluff": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "coversDeferred": true
+  },
+  "strands": [
+    {
+      "strandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-1-strand",
+      "number": "",
+      "title": "ICT foundation",
+      "topicCount": 1
+    },
+    {
+      "strandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-2-strand",
+      "number": "",
+      "title": "Computer systems",
+      "topicCount": 1
+    },
+    {
+      "strandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-3-strand",
+      "number": "",
+      "title": "Computer navigation",
+      "topicCount": 1
+    },
+    {
+      "strandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-4-strand",
+      "number": "",
+      "title": "Safe, secure and ethical use of computers",
+      "topicCount": 1
+    },
+    {
+      "strandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-5-strand",
+      "number": "",
+      "title": "Word processing basics I",
+      "topicCount": 1
+    },
+    {
+      "strandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-6-strand",
+      "number": "",
+      "title": "Word processing basics II",
+      "topicCount": 1
+    },
+    {
+      "strandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-7-strand",
+      "number": "",
+      "title": "GIS and maps",
+      "topicCount": 1
+    },
+    {
+      "strandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-8-strand",
+      "number": "",
+      "title": "Network and internet fundamentals",
+      "topicCount": 1
+    },
+    {
+      "strandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-9-strand",
+      "number": "",
+      "title": "Music Sprite programming",
+      "topicCount": 1
+    }
+  ],
+  "topics": [
+    {
+      "topicId": "RWA-S1-ict-topic-001",
+      "grade": "S1",
+      "strandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-1-strand",
+      "subStrandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-1-topic",
+      "parentSubStrandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-1-topic",
+      "strandTitle": "ICT foundation",
+      "unitTitle": "ICT foundation",
+      "sourceUnitTitle": "ICT foundation",
+      "learningOutcomes": [
+        {
+          "id": "78cd8260-d04a-4685-9531-652db20efea9-unit-1-outcome-1",
+          "text": "explain the foundation of Information and Communication Technology (ICT)"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can ict foundation help you solve a real problem in ICT?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to ICT foundation.",
+        "Review key vocabulary from the previous ICT lesson."
+      ],
+      "keyVocabulary": [
+        "ICT foundation",
+        "foundation",
+        "idea",
+        "skill",
+        "example",
+        "practice",
+        "correction"
+      ],
+      "misconceptions": [
+        "giving a general answer about ICT foundation without a clear example, method, or evidence"
+      ],
+      "localContext": "a Rwandan school computer, phone, file, document, spreadsheet, network, or online-safety task for ICT foundation",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are exact",
+        "digital safety is included",
+        "output is saved, checked, or corrected"
+      ],
+      "visualNeeds": [
+        {
+          "type": "step-by-step screen or file-flow panel",
+          "description": "step-by-step screen or file-flow panel for ICT foundation",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "digital safety checklist",
+          "description": "digital safety checklist for ICT foundation",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "78cd8260-d04a-4685-9531-652db20efea9",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 ICT",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/ict/78cd8260-d04a-4685-9531-652db20efea9.md",
+          "sourceSectionHash": "3ec7db74eb9dcf8c68d78543cb79a866319c8490340fab86f1d5c67b60aa6805",
+          "sourceSnapshotHash": "5635e999b4635fb7831a728ded9b591c33b5944af1baa3312f7d1fa4b0a7fa34"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "78cd8260-d04a-4685-9531-652db20efea9",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 ICT",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/ict/78cd8260-d04a-4685-9531-652db20efea9.md",
+          "sourceSectionHash": "3ec7db74eb9dcf8c68d78543cb79a866319c8490340fab86f1d5c67b60aa6805",
+          "sourceSnapshotHash": "5635e999b4635fb7831a728ded9b591c33b5944af1baa3312f7d1fa4b0a7fa34"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S1-ict-topic-002",
+      "grade": "S1",
+      "strandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-2-strand",
+      "subStrandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-2-topic",
+      "parentSubStrandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-2-topic",
+      "strandTitle": "Computer systems",
+      "unitTitle": "Computer systems",
+      "sourceUnitTitle": "Computer systems",
+      "learningOutcomes": [
+        {
+          "id": "78cd8260-d04a-4685-9531-652db20efea9-unit-2-outcome-1",
+          "text": "explain the evolution, categories, parts and role of computers"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can computer systems help you solve a real problem in ICT?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Computer systems.",
+        "Review key vocabulary from the previous ICT lesson."
+      ],
+      "keyVocabulary": [
+        "Computer systems",
+        "Computer",
+        "systems",
+        "idea",
+        "skill",
+        "example",
+        "practice",
+        "correction"
+      ],
+      "misconceptions": [
+        "giving a general answer about Computer systems without a clear example, method, or evidence"
+      ],
+      "localContext": "a Rwandan school computer, phone, file, document, spreadsheet, network, or online-safety task for Computer systems",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are exact",
+        "digital safety is included",
+        "output is saved, checked, or corrected"
+      ],
+      "visualNeeds": [
+        {
+          "type": "step-by-step screen or file-flow panel",
+          "description": "step-by-step screen or file-flow panel for Computer systems",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "digital safety checklist",
+          "description": "digital safety checklist for Computer systems",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "78cd8260-d04a-4685-9531-652db20efea9",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 ICT",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/ict/78cd8260-d04a-4685-9531-652db20efea9.md",
+          "sourceSectionHash": "ec2c3fc237966758155e18277ee11bd7b0203a2f7f4b118d81825cfe112f7333",
+          "sourceSnapshotHash": "5635e999b4635fb7831a728ded9b591c33b5944af1baa3312f7d1fa4b0a7fa34"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "78cd8260-d04a-4685-9531-652db20efea9",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 ICT",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/ict/78cd8260-d04a-4685-9531-652db20efea9.md",
+          "sourceSectionHash": "ec2c3fc237966758155e18277ee11bd7b0203a2f7f4b118d81825cfe112f7333",
+          "sourceSnapshotHash": "5635e999b4635fb7831a728ded9b591c33b5944af1baa3312f7d1fa4b0a7fa34"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S1-ict-topic-003",
+      "grade": "S1",
+      "strandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-3-strand",
+      "subStrandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-3-topic",
+      "parentSubStrandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-3-topic",
+      "strandTitle": "Computer navigation",
+      "unitTitle": "Computer navigation",
+      "sourceUnitTitle": "Computer navigation",
+      "learningOutcomes": [
+        {
+          "id": "78cd8260-d04a-4685-9531-652db20efea9-unit-3-outcome-1",
+          "text": "navigate the Windows environment and work with Windows explorer to introduce the techniques of folder and file management"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can computer navigation help you solve a real problem in ICT?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Computer navigation.",
+        "Review key vocabulary from the previous ICT lesson."
+      ],
+      "keyVocabulary": [
+        "Computer navigation",
+        "Computer",
+        "navigation",
+        "idea",
+        "skill",
+        "example",
+        "practice",
+        "correction"
+      ],
+      "misconceptions": [
+        "giving a general answer about Computer navigation without a clear example, method, or evidence"
+      ],
+      "localContext": "a Rwandan school computer, phone, file, document, spreadsheet, network, or online-safety task for Computer navigation",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are exact",
+        "digital safety is included",
+        "output is saved, checked, or corrected"
+      ],
+      "visualNeeds": [
+        {
+          "type": "step-by-step screen or file-flow panel",
+          "description": "step-by-step screen or file-flow panel for Computer navigation",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "digital safety checklist",
+          "description": "digital safety checklist for Computer navigation",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "78cd8260-d04a-4685-9531-652db20efea9",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 ICT",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/ict/78cd8260-d04a-4685-9531-652db20efea9.md",
+          "sourceSectionHash": "8145769841177d5aeb2e374985167bfa05fc137024a088e27446930f500d09bd",
+          "sourceSnapshotHash": "5635e999b4635fb7831a728ded9b591c33b5944af1baa3312f7d1fa4b0a7fa34"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "78cd8260-d04a-4685-9531-652db20efea9",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 ICT",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/ict/78cd8260-d04a-4685-9531-652db20efea9.md",
+          "sourceSectionHash": "8145769841177d5aeb2e374985167bfa05fc137024a088e27446930f500d09bd",
+          "sourceSnapshotHash": "5635e999b4635fb7831a728ded9b591c33b5944af1baa3312f7d1fa4b0a7fa34"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S1-ict-topic-004",
+      "grade": "S1",
+      "strandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-4-strand",
+      "subStrandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-4-topic",
+      "parentSubStrandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-4-topic",
+      "strandTitle": "Safe, secure and ethical use of computers",
+      "unitTitle": "Safe, secure and ethical use of computers",
+      "sourceUnitTitle": "Safe, secure and ethical use of computers",
+      "learningOutcomes": [
+        {
+          "id": "78cd8260-d04a-4685-9531-652db20efea9-unit-4-outcome-1",
+          "text": "maintain a computer in good working condition and use it safely, securely and ethically"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can safe, secure and ethical use of computers help you solve a real problem in ICT?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Safe, secure and ethical use of computers.",
+        "Review key vocabulary from the previous ICT lesson."
+      ],
+      "keyVocabulary": [
+        "Safe, secure and ethical use of computers",
+        "Safe",
+        "secure",
+        "ethical",
+        "computers",
+        "idea",
+        "skill",
+        "example"
+      ],
+      "misconceptions": [
+        "giving a general answer about Safe, secure and ethical use of computers without a clear example, method, or evidence"
+      ],
+      "localContext": "a Rwandan school computer, phone, file, document, spreadsheet, network, or online-safety task for Safe, secure and ethical use of computers",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are exact",
+        "digital safety is included",
+        "output is saved, checked, or corrected"
+      ],
+      "visualNeeds": [
+        {
+          "type": "step-by-step screen or file-flow panel",
+          "description": "step-by-step screen or file-flow panel for Safe, secure and ethical use of computers",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "digital safety checklist",
+          "description": "digital safety checklist for Safe, secure and ethical use of computers",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "78cd8260-d04a-4685-9531-652db20efea9",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 ICT",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/ict/78cd8260-d04a-4685-9531-652db20efea9.md",
+          "sourceSectionHash": "fddb0169dfbe9bc9b88a0c8f6377e3efe0a091df60b0f081e1507ae0869bb5a3",
+          "sourceSnapshotHash": "5635e999b4635fb7831a728ded9b591c33b5944af1baa3312f7d1fa4b0a7fa34"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "78cd8260-d04a-4685-9531-652db20efea9",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 ICT",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/ict/78cd8260-d04a-4685-9531-652db20efea9.md",
+          "sourceSectionHash": "fddb0169dfbe9bc9b88a0c8f6377e3efe0a091df60b0f081e1507ae0869bb5a3",
+          "sourceSnapshotHash": "5635e999b4635fb7831a728ded9b591c33b5944af1baa3312f7d1fa4b0a7fa34"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S1-ict-topic-005",
+      "grade": "S1",
+      "strandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-5-strand",
+      "subStrandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-5-topic",
+      "parentSubStrandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-5-topic",
+      "strandTitle": "Word processing basics I",
+      "unitTitle": "Word processing basics I",
+      "sourceUnitTitle": "Word processing basics I",
+      "learningOutcomes": [
+        {
+          "id": "78cd8260-d04a-4685-9531-652db20efea9-unit-5-outcome-1",
+          "text": "create and manipulate a document using basic word processing features"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can word processing basics i help you solve a real problem in ICT?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Word processing basics I.",
+        "Review key vocabulary from the previous ICT lesson."
+      ],
+      "keyVocabulary": [
+        "Word processing basics I",
+        "Word",
+        "processing",
+        "basics",
+        "idea",
+        "skill",
+        "example",
+        "practice"
+      ],
+      "misconceptions": [
+        "giving a general answer about Word processing basics I without a clear example, method, or evidence"
+      ],
+      "localContext": "a Rwandan school computer, phone, file, document, spreadsheet, network, or online-safety task for Word processing basics I",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are exact",
+        "digital safety is included",
+        "output is saved, checked, or corrected"
+      ],
+      "visualNeeds": [
+        {
+          "type": "step-by-step screen or file-flow panel",
+          "description": "step-by-step screen or file-flow panel for Word processing basics I",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "digital safety checklist",
+          "description": "digital safety checklist for Word processing basics I",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "78cd8260-d04a-4685-9531-652db20efea9",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 ICT",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/ict/78cd8260-d04a-4685-9531-652db20efea9.md",
+          "sourceSectionHash": "486f2ccea7a8b65357481efeb6284b81e812873f2a7257731504668dc8e6dfee",
+          "sourceSnapshotHash": "5635e999b4635fb7831a728ded9b591c33b5944af1baa3312f7d1fa4b0a7fa34"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "78cd8260-d04a-4685-9531-652db20efea9",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 ICT",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/ict/78cd8260-d04a-4685-9531-652db20efea9.md",
+          "sourceSectionHash": "486f2ccea7a8b65357481efeb6284b81e812873f2a7257731504668dc8e6dfee",
+          "sourceSnapshotHash": "5635e999b4635fb7831a728ded9b591c33b5944af1baa3312f7d1fa4b0a7fa34"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S1-ict-topic-006",
+      "grade": "S1",
+      "strandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-6-strand",
+      "subStrandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-6-topic",
+      "parentSubStrandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-6-topic",
+      "strandTitle": "Word processing basics II",
+      "unitTitle": "Word processing basics II",
+      "sourceUnitTitle": "Word processing basics II",
+      "learningOutcomes": [
+        {
+          "id": "78cd8260-d04a-4685-9531-652db20efea9-unit-6-outcome-1",
+          "text": "manipulate text and use advanced formatting methods and add simple objects in a document"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can word processing basics ii help you solve a real problem in ICT?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Word processing basics II.",
+        "Review key vocabulary from the previous ICT lesson."
+      ],
+      "keyVocabulary": [
+        "Word processing basics II",
+        "Word",
+        "processing",
+        "basics",
+        "idea",
+        "skill",
+        "example",
+        "practice"
+      ],
+      "misconceptions": [
+        "giving a general answer about Word processing basics II without a clear example, method, or evidence"
+      ],
+      "localContext": "a Rwandan school computer, phone, file, document, spreadsheet, network, or online-safety task for Word processing basics II",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are exact",
+        "digital safety is included",
+        "output is saved, checked, or corrected"
+      ],
+      "visualNeeds": [
+        {
+          "type": "step-by-step screen or file-flow panel",
+          "description": "step-by-step screen or file-flow panel for Word processing basics II",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "digital safety checklist",
+          "description": "digital safety checklist for Word processing basics II",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "78cd8260-d04a-4685-9531-652db20efea9",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 ICT",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/ict/78cd8260-d04a-4685-9531-652db20efea9.md",
+          "sourceSectionHash": "1f4ec0703db01e518a56ad8c3946cf5fd0a8f23abbcfd8e38e8a2da91feba5ec",
+          "sourceSnapshotHash": "5635e999b4635fb7831a728ded9b591c33b5944af1baa3312f7d1fa4b0a7fa34"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "78cd8260-d04a-4685-9531-652db20efea9",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 ICT",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/ict/78cd8260-d04a-4685-9531-652db20efea9.md",
+          "sourceSectionHash": "1f4ec0703db01e518a56ad8c3946cf5fd0a8f23abbcfd8e38e8a2da91feba5ec",
+          "sourceSnapshotHash": "5635e999b4635fb7831a728ded9b591c33b5944af1baa3312f7d1fa4b0a7fa34"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S1-ict-topic-007",
+      "grade": "S1",
+      "strandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-7-strand",
+      "subStrandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-7-topic",
+      "parentSubStrandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-7-topic",
+      "strandTitle": "GIS and maps",
+      "unitTitle": "GIS and maps",
+      "sourceUnitTitle": "GIS and maps",
+      "learningOutcomes": [
+        {
+          "id": "78cd8260-d04a-4685-9531-652db20efea9-unit-7-outcome-1",
+          "text": "explain and apply gis and maps in a real learning situation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can gis and maps help you solve a real problem in ICT?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to GIS and maps.",
+        "Review key vocabulary from the previous ICT lesson."
+      ],
+      "keyVocabulary": [
+        "GIS and maps",
+        "maps",
+        "idea",
+        "skill",
+        "example",
+        "practice",
+        "correction"
+      ],
+      "misconceptions": [
+        "giving a general answer about GIS and maps without a clear example, method, or evidence"
+      ],
+      "localContext": "a Rwandan school computer, phone, file, document, spreadsheet, network, or online-safety task for GIS and maps",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are exact",
+        "digital safety is included",
+        "output is saved, checked, or corrected"
+      ],
+      "visualNeeds": [
+        {
+          "type": "step-by-step screen or file-flow panel",
+          "description": "step-by-step screen or file-flow panel for GIS and maps",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "digital safety checklist",
+          "description": "digital safety checklist for GIS and maps",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "78cd8260-d04a-4685-9531-652db20efea9",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 ICT",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/ict/78cd8260-d04a-4685-9531-652db20efea9.md",
+          "sourceSectionHash": "d5a00915ef7463ffb79755b279597acc2c521bcabbfc61973d224a4151d81be4",
+          "sourceSnapshotHash": "5635e999b4635fb7831a728ded9b591c33b5944af1baa3312f7d1fa4b0a7fa34"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "78cd8260-d04a-4685-9531-652db20efea9",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 ICT",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/ict/78cd8260-d04a-4685-9531-652db20efea9.md",
+          "sourceSectionHash": "d5a00915ef7463ffb79755b279597acc2c521bcabbfc61973d224a4151d81be4",
+          "sourceSnapshotHash": "5635e999b4635fb7831a728ded9b591c33b5944af1baa3312f7d1fa4b0a7fa34"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S1-ict-topic-008",
+      "grade": "S1",
+      "strandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-8-strand",
+      "subStrandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-8-topic",
+      "parentSubStrandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-8-topic",
+      "strandTitle": "Network and internet fundamentals",
+      "unitTitle": "Network and internet fundamentals",
+      "sourceUnitTitle": "Network and internet fundamentals",
+      "learningOutcomes": [
+        {
+          "id": "78cd8260-d04a-4685-9531-652db20efea9-unit-8-outcome-1",
+          "text": "understand the rationale of a computer network and use the internet efficiently and effectively"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can network and internet fundamentals help you solve a real problem in ICT?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Network and internet fundamentals.",
+        "Review key vocabulary from the previous ICT lesson."
+      ],
+      "keyVocabulary": [
+        "Network and internet fundamentals",
+        "Network",
+        "internet",
+        "fundamentals",
+        "idea",
+        "skill",
+        "example",
+        "practice"
+      ],
+      "misconceptions": [
+        "giving a general answer about Network and internet fundamentals without a clear example, method, or evidence"
+      ],
+      "localContext": "a Rwandan school computer, phone, file, document, spreadsheet, network, or online-safety task for Network and internet fundamentals",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are exact",
+        "digital safety is included",
+        "output is saved, checked, or corrected"
+      ],
+      "visualNeeds": [
+        {
+          "type": "step-by-step screen or file-flow panel",
+          "description": "step-by-step screen or file-flow panel for Network and internet fundamentals",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "digital safety checklist",
+          "description": "digital safety checklist for Network and internet fundamentals",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "78cd8260-d04a-4685-9531-652db20efea9",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 ICT",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/ict/78cd8260-d04a-4685-9531-652db20efea9.md",
+          "sourceSectionHash": "ed928d7692426fbbab1d080ed81d3531c0a336ae854333c672a1fe77e2105fba",
+          "sourceSnapshotHash": "5635e999b4635fb7831a728ded9b591c33b5944af1baa3312f7d1fa4b0a7fa34"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "78cd8260-d04a-4685-9531-652db20efea9",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 ICT",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/ict/78cd8260-d04a-4685-9531-652db20efea9.md",
+          "sourceSectionHash": "ed928d7692426fbbab1d080ed81d3531c0a336ae854333c672a1fe77e2105fba",
+          "sourceSnapshotHash": "5635e999b4635fb7831a728ded9b591c33b5944af1baa3312f7d1fa4b0a7fa34"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S1-ict-topic-009",
+      "grade": "S1",
+      "strandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-9-strand",
+      "subStrandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-9-topic",
+      "parentSubStrandId": "78cd8260-d04a-4685-9531-652db20efea9-unit-9-topic",
+      "strandTitle": "Music Sprite programming",
+      "unitTitle": "Music Sprite programming",
+      "sourceUnitTitle": "Music Sprite programming",
+      "learningOutcomes": [
+        {
+          "id": "78cd8260-d04a-4685-9531-652db20efea9-unit-9-outcome-1",
+          "text": "create a music sprite and add music with scratch and audacity"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can music sprite programming help you solve a real problem in ICT?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Music Sprite programming.",
+        "Review key vocabulary from the previous ICT lesson."
+      ],
+      "keyVocabulary": [
+        "Music Sprite programming",
+        "Music",
+        "Sprite",
+        "programming",
+        "idea",
+        "skill",
+        "example",
+        "practice"
+      ],
+      "misconceptions": [
+        "giving a general answer about Music Sprite programming without a clear example, method, or evidence"
+      ],
+      "localContext": "a Rwandan school computer, phone, file, document, spreadsheet, network, or online-safety task for Music Sprite programming",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are exact",
+        "digital safety is included",
+        "output is saved, checked, or corrected"
+      ],
+      "visualNeeds": [
+        {
+          "type": "step-by-step screen or file-flow panel",
+          "description": "step-by-step screen or file-flow panel for Music Sprite programming",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "digital safety checklist",
+          "description": "digital safety checklist for Music Sprite programming",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "78cd8260-d04a-4685-9531-652db20efea9",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 ICT",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/ict/78cd8260-d04a-4685-9531-652db20efea9.md",
+          "sourceSectionHash": "f449a3cb39be12d3ac25d6192c1177b1ad678f56c85e9a6454907ce2f93cd97a",
+          "sourceSnapshotHash": "5635e999b4635fb7831a728ded9b591c33b5944af1baa3312f7d1fa4b0a7fa34"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "78cd8260-d04a-4685-9531-652db20efea9",
+          "officialTitle": "Rwanda Competence Based Curriculum S1 ICT",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S1/ict/78cd8260-d04a-4685-9531-652db20efea9.md",
+          "sourceSectionHash": "f449a3cb39be12d3ac25d6192c1177b1ad678f56c85e9a6454907ce2f93cd97a",
+          "sourceSnapshotHash": "5635e999b4635fb7831a728ded9b591c33b5944af1baa3312f7d1fa4b0a7fa34"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1279 @@
+{
+  "schemaVersion": 1,
+  "sourceType": "normalized-curriculum",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Form III",
+  "subject": "History",
+  "generatedAt": "2026-07-01T05:48:10Z",
+  "sourceSnapshotHash": "e31d6997c7b30487fc9278dff37fcc2c526789eea16afd1fd562e03af7a10573",
+  "writingStandard": {
+    "voice": "simple, conversational, purposeful, age-appropriate, and learner-first",
+    "antiFluff": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "coversDeferred": true
+  },
+  "strands": [
+    {
+      "strandId": "fallback-form-iii-history-1",
+      "number": "",
+      "title": "Nationalism And Liberation Movements",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-iii-history-2",
+      "number": "",
+      "title": "Independence And Nation Building",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-iii-history-3",
+      "number": "",
+      "title": "Post-Colonial Social And Economic Change",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-iii-history-4",
+      "number": "",
+      "title": "Democracy Governance And Human Rights",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-iii-history-5",
+      "number": "",
+      "title": "Regional Cooperation In East Africa",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-iii-history-6",
+      "number": "",
+      "title": "World Wars And Global Change",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-iii-history-7",
+      "number": "",
+      "title": "Interpreting Historical Arguments",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-iii-history-8",
+      "number": "",
+      "title": "Form III History Project",
+      "topicCount": 1
+    }
+  ],
+  "topics": [
+    {
+      "topicId": "TZA-FORM-III-history-topic-001",
+      "grade": "Form III",
+      "strandId": "fallback-form-iii-history-1",
+      "subStrandId": "fallback-form-iii-history-1",
+      "parentSubStrandId": "fallback-form-iii-history-1",
+      "strandTitle": "Nationalism And Liberation Movements",
+      "unitTitle": "Nationalism And Liberation Movements",
+      "sourceUnitTitle": "Nationalism And Liberation Movements",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-iii-history-1-outcome-1",
+          "text": "explain and apply nationalism and liberation movements in a real learning situation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can nationalism and liberation movements help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Nationalism And Liberation Movements.",
+        "Review key vocabulary from the previous History lesson."
+      ],
+      "keyVocabulary": [
+        "Nationalism And Liberation Movements",
+        "Nationalism",
+        "Liberation",
+        "Movements",
+        "idea",
+        "skill",
+        "example",
+        "practice"
+      ],
+      "misconceptions": [
+        "giving a general answer about Nationalism And Liberation Movements without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania map, community, citizenship, culture, environment, or heritage example for Nationalism And Liberation Movements",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a real example",
+        "reasoning is clear",
+        "work is checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community evidence card",
+          "description": "map/timeline/community evidence card for Nationalism And Liberation Movements",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "fieldwork table",
+          "description": "fieldwork table for Nationalism And Liberation Movements",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "712175e9-bc28-4a4f-8ce7-d65b50e8a1a1",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form III History",
+          "subject": "History",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/8809c90995f462e7e30624c84105fd8d3f2b5dc47a71aeb86384cf64d2be4999.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_III",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/history/712175e9-bc28-4a4f-8ce7-d65b50e8a1a1.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0dd0655199b3d38c87f2eb1982dca92acf094453e2bef9de84945344e7adb59d",
+            "markdownPageCount": 32,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/history/712175e9-bc28-4a4f-8ce7-d65b50e8a1a1.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0dd0655199b3d38c87f2eb1982dca92acf094453e2bef9de84945344e7adb59d",
+              "pageCount": 32,
+              "generatedAt": "2026-06-29T16:45:59.476Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "464511ca30241164b2f8885e994453ccfc4735c0a81579ebcd28062d664130a0"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:45:59.476Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "e31d6997c7b30487fc9278dff37fcc2c526789eea16afd1fd562e03af7a10573"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "712175e9-bc28-4a4f-8ce7-d65b50e8a1a1",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form III History",
+          "subject": "History",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/8809c90995f462e7e30624c84105fd8d3f2b5dc47a71aeb86384cf64d2be4999.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_III",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/history/712175e9-bc28-4a4f-8ce7-d65b50e8a1a1.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0dd0655199b3d38c87f2eb1982dca92acf094453e2bef9de84945344e7adb59d",
+            "markdownPageCount": 32,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/history/712175e9-bc28-4a4f-8ce7-d65b50e8a1a1.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0dd0655199b3d38c87f2eb1982dca92acf094453e2bef9de84945344e7adb59d",
+              "pageCount": 32,
+              "generatedAt": "2026-06-29T16:45:59.476Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "464511ca30241164b2f8885e994453ccfc4735c0a81579ebcd28062d664130a0"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:45:59.476Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "e31d6997c7b30487fc9278dff37fcc2c526789eea16afd1fd562e03af7a10573"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-III-history-topic-002",
+      "grade": "Form III",
+      "strandId": "fallback-form-iii-history-2",
+      "subStrandId": "fallback-form-iii-history-2",
+      "parentSubStrandId": "fallback-form-iii-history-2",
+      "strandTitle": "Independence And Nation Building",
+      "unitTitle": "Independence And Nation Building",
+      "sourceUnitTitle": "Independence And Nation Building",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-iii-history-2-outcome-1",
+          "text": "explain and apply independence and nation building in a real learning situation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can independence and nation building help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Independence And Nation Building.",
+        "Review key vocabulary from the previous History lesson."
+      ],
+      "keyVocabulary": [
+        "Independence And Nation Building",
+        "Independence",
+        "Nation",
+        "Building",
+        "idea",
+        "skill",
+        "example",
+        "practice"
+      ],
+      "misconceptions": [
+        "giving a general answer about Independence And Nation Building without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania map, community, citizenship, culture, environment, or heritage example for Independence And Nation Building",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a real example",
+        "reasoning is clear",
+        "work is checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community evidence card",
+          "description": "map/timeline/community evidence card for Independence And Nation Building",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "fieldwork table",
+          "description": "fieldwork table for Independence And Nation Building",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "712175e9-bc28-4a4f-8ce7-d65b50e8a1a1",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form III History",
+          "subject": "History",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/8809c90995f462e7e30624c84105fd8d3f2b5dc47a71aeb86384cf64d2be4999.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_III",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/history/712175e9-bc28-4a4f-8ce7-d65b50e8a1a1.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0dd0655199b3d38c87f2eb1982dca92acf094453e2bef9de84945344e7adb59d",
+            "markdownPageCount": 32,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/history/712175e9-bc28-4a4f-8ce7-d65b50e8a1a1.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0dd0655199b3d38c87f2eb1982dca92acf094453e2bef9de84945344e7adb59d",
+              "pageCount": 32,
+              "generatedAt": "2026-06-29T16:45:59.476Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "464511ca30241164b2f8885e994453ccfc4735c0a81579ebcd28062d664130a0"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:45:59.476Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "e31d6997c7b30487fc9278dff37fcc2c526789eea16afd1fd562e03af7a10573"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "712175e9-bc28-4a4f-8ce7-d65b50e8a1a1",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form III History",
+          "subject": "History",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/8809c90995f462e7e30624c84105fd8d3f2b5dc47a71aeb86384cf64d2be4999.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_III",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/history/712175e9-bc28-4a4f-8ce7-d65b50e8a1a1.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0dd0655199b3d38c87f2eb1982dca92acf094453e2bef9de84945344e7adb59d",
+            "markdownPageCount": 32,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/history/712175e9-bc28-4a4f-8ce7-d65b50e8a1a1.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0dd0655199b3d38c87f2eb1982dca92acf094453e2bef9de84945344e7adb59d",
+              "pageCount": 32,
+              "generatedAt": "2026-06-29T16:45:59.476Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "464511ca30241164b2f8885e994453ccfc4735c0a81579ebcd28062d664130a0"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:45:59.476Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "e31d6997c7b30487fc9278dff37fcc2c526789eea16afd1fd562e03af7a10573"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-III-history-topic-003",
+      "grade": "Form III",
+      "strandId": "fallback-form-iii-history-3",
+      "subStrandId": "fallback-form-iii-history-3",
+      "parentSubStrandId": "fallback-form-iii-history-3",
+      "strandTitle": "Post-Colonial Social And Economic Change",
+      "unitTitle": "Post-Colonial Social And Economic Change",
+      "sourceUnitTitle": "Post-Colonial Social And Economic Change",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-iii-history-3-outcome-1",
+          "text": "explain and apply post-colonial social and economic change in a real learning situation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can post-colonial social and economic change help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Post-Colonial Social And Economic Change.",
+        "Review key vocabulary from the previous History lesson."
+      ],
+      "keyVocabulary": [
+        "Post-Colonial Social And Economic Change",
+        "Post-Colonial",
+        "Social",
+        "Economic",
+        "Change",
+        "idea",
+        "skill",
+        "example"
+      ],
+      "misconceptions": [
+        "giving a general answer about Post-Colonial Social And Economic Change without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania map, community, citizenship, culture, environment, or heritage example for Post-Colonial Social And Economic Change",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a real example",
+        "reasoning is clear",
+        "work is checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community evidence card",
+          "description": "map/timeline/community evidence card for Post-Colonial Social And Economic Change",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "fieldwork table",
+          "description": "fieldwork table for Post-Colonial Social And Economic Change",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "712175e9-bc28-4a4f-8ce7-d65b50e8a1a1",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form III History",
+          "subject": "History",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/8809c90995f462e7e30624c84105fd8d3f2b5dc47a71aeb86384cf64d2be4999.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_III",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/history/712175e9-bc28-4a4f-8ce7-d65b50e8a1a1.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0dd0655199b3d38c87f2eb1982dca92acf094453e2bef9de84945344e7adb59d",
+            "markdownPageCount": 32,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/history/712175e9-bc28-4a4f-8ce7-d65b50e8a1a1.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0dd0655199b3d38c87f2eb1982dca92acf094453e2bef9de84945344e7adb59d",
+              "pageCount": 32,
+              "generatedAt": "2026-06-29T16:45:59.476Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "464511ca30241164b2f8885e994453ccfc4735c0a81579ebcd28062d664130a0"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:45:59.476Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "e31d6997c7b30487fc9278dff37fcc2c526789eea16afd1fd562e03af7a10573"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "712175e9-bc28-4a4f-8ce7-d65b50e8a1a1",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form III History",
+          "subject": "History",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/8809c90995f462e7e30624c84105fd8d3f2b5dc47a71aeb86384cf64d2be4999.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_III",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/history/712175e9-bc28-4a4f-8ce7-d65b50e8a1a1.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0dd0655199b3d38c87f2eb1982dca92acf094453e2bef9de84945344e7adb59d",
+            "markdownPageCount": 32,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/history/712175e9-bc28-4a4f-8ce7-d65b50e8a1a1.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0dd0655199b3d38c87f2eb1982dca92acf094453e2bef9de84945344e7adb59d",
+              "pageCount": 32,
+              "generatedAt": "2026-06-29T16:45:59.476Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "464511ca30241164b2f8885e994453ccfc4735c0a81579ebcd28062d664130a0"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:45:59.476Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "e31d6997c7b30487fc9278dff37fcc2c526789eea16afd1fd562e03af7a10573"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-III-history-topic-004",
+      "grade": "Form III",
+      "strandId": "fallback-form-iii-history-4",
+      "subStrandId": "fallback-form-iii-history-4",
+      "parentSubStrandId": "fallback-form-iii-history-4",
+      "strandTitle": "Democracy Governance And Human Rights",
+      "unitTitle": "Democracy Governance And Human Rights",
+      "sourceUnitTitle": "Democracy Governance And Human Rights",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-iii-history-4-outcome-1",
+          "text": "explain and apply democracy governance and human rights in a real learning situation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can democracy governance and human rights help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Democracy Governance And Human Rights.",
+        "Review key vocabulary from the previous History lesson."
+      ],
+      "keyVocabulary": [
+        "Democracy Governance And Human Rights",
+        "Democracy",
+        "Governance",
+        "Human",
+        "Rights",
+        "idea",
+        "skill",
+        "example"
+      ],
+      "misconceptions": [
+        "giving a general answer about Democracy Governance And Human Rights without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania map, community, citizenship, culture, environment, or heritage example for Democracy Governance And Human Rights",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a real example",
+        "reasoning is clear",
+        "work is checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community evidence card",
+          "description": "map/timeline/community evidence card for Democracy Governance And Human Rights",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "fieldwork table",
+          "description": "fieldwork table for Democracy Governance And Human Rights",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "712175e9-bc28-4a4f-8ce7-d65b50e8a1a1",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form III History",
+          "subject": "History",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/8809c90995f462e7e30624c84105fd8d3f2b5dc47a71aeb86384cf64d2be4999.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_III",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/history/712175e9-bc28-4a4f-8ce7-d65b50e8a1a1.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0dd0655199b3d38c87f2eb1982dca92acf094453e2bef9de84945344e7adb59d",
+            "markdownPageCount": 32,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/history/712175e9-bc28-4a4f-8ce7-d65b50e8a1a1.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0dd0655199b3d38c87f2eb1982dca92acf094453e2bef9de84945344e7adb59d",
+              "pageCount": 32,
+              "generatedAt": "2026-06-29T16:45:59.476Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "464511ca30241164b2f8885e994453ccfc4735c0a81579ebcd28062d664130a0"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:45:59.476Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "e31d6997c7b30487fc9278dff37fcc2c526789eea16afd1fd562e03af7a10573"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "712175e9-bc28-4a4f-8ce7-d65b50e8a1a1",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form III History",
+          "subject": "History",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/8809c90995f462e7e30624c84105fd8d3f2b5dc47a71aeb86384cf64d2be4999.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_III",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/history/712175e9-bc28-4a4f-8ce7-d65b50e8a1a1.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0dd0655199b3d38c87f2eb1982dca92acf094453e2bef9de84945344e7adb59d",
+            "markdownPageCount": 32,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/history/712175e9-bc28-4a4f-8ce7-d65b50e8a1a1.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0dd0655199b3d38c87f2eb1982dca92acf094453e2bef9de84945344e7adb59d",
+              "pageCount": 32,
+              "generatedAt": "2026-06-29T16:45:59.476Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "464511ca30241164b2f8885e994453ccfc4735c0a81579ebcd28062d664130a0"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:45:59.476Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "e31d6997c7b30487fc9278dff37fcc2c526789eea16afd1fd562e03af7a10573"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-III-history-topic-005",
+      "grade": "Form III",
+      "strandId": "fallback-form-iii-history-5",
+      "subStrandId": "fallback-form-iii-history-5",
+      "parentSubStrandId": "fallback-form-iii-history-5",
+      "strandTitle": "Regional Cooperation In East Africa",
+      "unitTitle": "Regional Cooperation In East Africa",
+      "sourceUnitTitle": "Regional Cooperation In East Africa",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-iii-history-5-outcome-1",
+          "text": "explain and apply regional cooperation in east africa in a real learning situation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can regional cooperation in east africa help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Regional Cooperation In East Africa.",
+        "Review key vocabulary from the previous History lesson."
+      ],
+      "keyVocabulary": [
+        "Regional Cooperation In East Africa",
+        "Regional",
+        "Cooperation",
+        "East",
+        "Africa",
+        "idea",
+        "skill",
+        "example"
+      ],
+      "misconceptions": [
+        "giving a general answer about Regional Cooperation In East Africa without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania map, community, citizenship, culture, environment, or heritage example for Regional Cooperation In East Africa",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a real example",
+        "reasoning is clear",
+        "work is checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community evidence card",
+          "description": "map/timeline/community evidence card for Regional Cooperation In East Africa",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "fieldwork table",
+          "description": "fieldwork table for Regional Cooperation In East Africa",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "712175e9-bc28-4a4f-8ce7-d65b50e8a1a1",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form III History",
+          "subject": "History",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/8809c90995f462e7e30624c84105fd8d3f2b5dc47a71aeb86384cf64d2be4999.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_III",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/history/712175e9-bc28-4a4f-8ce7-d65b50e8a1a1.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0dd0655199b3d38c87f2eb1982dca92acf094453e2bef9de84945344e7adb59d",
+            "markdownPageCount": 32,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/history/712175e9-bc28-4a4f-8ce7-d65b50e8a1a1.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0dd0655199b3d38c87f2eb1982dca92acf094453e2bef9de84945344e7adb59d",
+              "pageCount": 32,
+              "generatedAt": "2026-06-29T16:45:59.476Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "464511ca30241164b2f8885e994453ccfc4735c0a81579ebcd28062d664130a0"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:45:59.476Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "e31d6997c7b30487fc9278dff37fcc2c526789eea16afd1fd562e03af7a10573"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "712175e9-bc28-4a4f-8ce7-d65b50e8a1a1",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form III History",
+          "subject": "History",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/8809c90995f462e7e30624c84105fd8d3f2b5dc47a71aeb86384cf64d2be4999.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_III",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/history/712175e9-bc28-4a4f-8ce7-d65b50e8a1a1.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0dd0655199b3d38c87f2eb1982dca92acf094453e2bef9de84945344e7adb59d",
+            "markdownPageCount": 32,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/history/712175e9-bc28-4a4f-8ce7-d65b50e8a1a1.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0dd0655199b3d38c87f2eb1982dca92acf094453e2bef9de84945344e7adb59d",
+              "pageCount": 32,
+              "generatedAt": "2026-06-29T16:45:59.476Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "464511ca30241164b2f8885e994453ccfc4735c0a81579ebcd28062d664130a0"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:45:59.476Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "e31d6997c7b30487fc9278dff37fcc2c526789eea16afd1fd562e03af7a10573"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-III-history-topic-006",
+      "grade": "Form III",
+      "strandId": "fallback-form-iii-history-6",
+      "subStrandId": "fallback-form-iii-history-6",
+      "parentSubStrandId": "fallback-form-iii-history-6",
+      "strandTitle": "World Wars And Global Change",
+      "unitTitle": "World Wars And Global Change",
+      "sourceUnitTitle": "World Wars And Global Change",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-iii-history-6-outcome-1",
+          "text": "explain and apply world wars and global change in a real learning situation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can world wars and global change help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to World Wars And Global Change.",
+        "Review key vocabulary from the previous History lesson."
+      ],
+      "keyVocabulary": [
+        "World Wars And Global Change",
+        "World",
+        "Wars",
+        "Global",
+        "Change",
+        "idea",
+        "skill",
+        "example"
+      ],
+      "misconceptions": [
+        "giving a general answer about World Wars And Global Change without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania map, community, citizenship, culture, environment, or heritage example for World Wars And Global Change",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a real example",
+        "reasoning is clear",
+        "work is checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community evidence card",
+          "description": "map/timeline/community evidence card for World Wars And Global Change",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "fieldwork table",
+          "description": "fieldwork table for World Wars And Global Change",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "712175e9-bc28-4a4f-8ce7-d65b50e8a1a1",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form III History",
+          "subject": "History",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/8809c90995f462e7e30624c84105fd8d3f2b5dc47a71aeb86384cf64d2be4999.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_III",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/history/712175e9-bc28-4a4f-8ce7-d65b50e8a1a1.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0dd0655199b3d38c87f2eb1982dca92acf094453e2bef9de84945344e7adb59d",
+            "markdownPageCount": 32,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/history/712175e9-bc28-4a4f-8ce7-d65b50e8a1a1.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0dd0655199b3d38c87f2eb1982dca92acf094453e2bef9de84945344e7adb59d",
+              "pageCount": 32,
+              "generatedAt": "2026-06-29T16:45:59.476Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "464511ca30241164b2f8885e994453ccfc4735c0a81579ebcd28062d664130a0"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:45:59.476Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "e31d6997c7b30487fc9278dff37fcc2c526789eea16afd1fd562e03af7a10573"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "712175e9-bc28-4a4f-8ce7-d65b50e8a1a1",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form III History",
+          "subject": "History",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/8809c90995f462e7e30624c84105fd8d3f2b5dc47a71aeb86384cf64d2be4999.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_III",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/history/712175e9-bc28-4a4f-8ce7-d65b50e8a1a1.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0dd0655199b3d38c87f2eb1982dca92acf094453e2bef9de84945344e7adb59d",
+            "markdownPageCount": 32,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/history/712175e9-bc28-4a4f-8ce7-d65b50e8a1a1.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0dd0655199b3d38c87f2eb1982dca92acf094453e2bef9de84945344e7adb59d",
+              "pageCount": 32,
+              "generatedAt": "2026-06-29T16:45:59.476Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "464511ca30241164b2f8885e994453ccfc4735c0a81579ebcd28062d664130a0"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:45:59.476Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "e31d6997c7b30487fc9278dff37fcc2c526789eea16afd1fd562e03af7a10573"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-III-history-topic-007",
+      "grade": "Form III",
+      "strandId": "fallback-form-iii-history-7",
+      "subStrandId": "fallback-form-iii-history-7",
+      "parentSubStrandId": "fallback-form-iii-history-7",
+      "strandTitle": "Interpreting Historical Arguments",
+      "unitTitle": "Interpreting Historical Arguments",
+      "sourceUnitTitle": "Interpreting Historical Arguments",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-iii-history-7-outcome-1",
+          "text": "explain and apply interpreting historical arguments in a real learning situation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can interpreting historical arguments help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Interpreting Historical Arguments.",
+        "Review key vocabulary from the previous History lesson."
+      ],
+      "keyVocabulary": [
+        "Interpreting Historical Arguments",
+        "Interpreting",
+        "Historical",
+        "Arguments",
+        "idea",
+        "skill",
+        "example",
+        "practice"
+      ],
+      "misconceptions": [
+        "giving a general answer about Interpreting Historical Arguments without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania map, community, citizenship, culture, environment, or heritage example for Interpreting Historical Arguments",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a real example",
+        "reasoning is clear",
+        "work is checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community evidence card",
+          "description": "map/timeline/community evidence card for Interpreting Historical Arguments",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "fieldwork table",
+          "description": "fieldwork table for Interpreting Historical Arguments",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "712175e9-bc28-4a4f-8ce7-d65b50e8a1a1",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form III History",
+          "subject": "History",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/8809c90995f462e7e30624c84105fd8d3f2b5dc47a71aeb86384cf64d2be4999.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_III",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/history/712175e9-bc28-4a4f-8ce7-d65b50e8a1a1.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0dd0655199b3d38c87f2eb1982dca92acf094453e2bef9de84945344e7adb59d",
+            "markdownPageCount": 32,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/history/712175e9-bc28-4a4f-8ce7-d65b50e8a1a1.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0dd0655199b3d38c87f2eb1982dca92acf094453e2bef9de84945344e7adb59d",
+              "pageCount": 32,
+              "generatedAt": "2026-06-29T16:45:59.476Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "464511ca30241164b2f8885e994453ccfc4735c0a81579ebcd28062d664130a0"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:45:59.476Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "e31d6997c7b30487fc9278dff37fcc2c526789eea16afd1fd562e03af7a10573"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "712175e9-bc28-4a4f-8ce7-d65b50e8a1a1",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form III History",
+          "subject": "History",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/8809c90995f462e7e30624c84105fd8d3f2b5dc47a71aeb86384cf64d2be4999.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_III",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/history/712175e9-bc28-4a4f-8ce7-d65b50e8a1a1.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0dd0655199b3d38c87f2eb1982dca92acf094453e2bef9de84945344e7adb59d",
+            "markdownPageCount": 32,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/history/712175e9-bc28-4a4f-8ce7-d65b50e8a1a1.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0dd0655199b3d38c87f2eb1982dca92acf094453e2bef9de84945344e7adb59d",
+              "pageCount": 32,
+              "generatedAt": "2026-06-29T16:45:59.476Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "464511ca30241164b2f8885e994453ccfc4735c0a81579ebcd28062d664130a0"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:45:59.476Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "e31d6997c7b30487fc9278dff37fcc2c526789eea16afd1fd562e03af7a10573"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-III-history-topic-008",
+      "grade": "Form III",
+      "strandId": "fallback-form-iii-history-8",
+      "subStrandId": "fallback-form-iii-history-8",
+      "parentSubStrandId": "fallback-form-iii-history-8",
+      "strandTitle": "Form III History Project",
+      "unitTitle": "Form III History Project",
+      "sourceUnitTitle": "Form III History Project",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-iii-history-8-outcome-1",
+          "text": "explain and apply form iii history project in a real learning situation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can form iii history project help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Form III History Project.",
+        "Review key vocabulary from the previous History lesson."
+      ],
+      "keyVocabulary": [
+        "Form III History Project",
+        "Form",
+        "History",
+        "Project",
+        "idea",
+        "skill",
+        "example",
+        "practice"
+      ],
+      "misconceptions": [
+        "giving a general answer about Form III History Project without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania map, community, citizenship, culture, environment, or heritage example for Form III History Project",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a real example",
+        "reasoning is clear",
+        "work is checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community evidence card",
+          "description": "map/timeline/community evidence card for Form III History Project",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "fieldwork table",
+          "description": "fieldwork table for Form III History Project",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "712175e9-bc28-4a4f-8ce7-d65b50e8a1a1",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form III History",
+          "subject": "History",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/8809c90995f462e7e30624c84105fd8d3f2b5dc47a71aeb86384cf64d2be4999.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_III",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/history/712175e9-bc28-4a4f-8ce7-d65b50e8a1a1.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0dd0655199b3d38c87f2eb1982dca92acf094453e2bef9de84945344e7adb59d",
+            "markdownPageCount": 32,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/history/712175e9-bc28-4a4f-8ce7-d65b50e8a1a1.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0dd0655199b3d38c87f2eb1982dca92acf094453e2bef9de84945344e7adb59d",
+              "pageCount": 32,
+              "generatedAt": "2026-06-29T16:45:59.476Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "464511ca30241164b2f8885e994453ccfc4735c0a81579ebcd28062d664130a0"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:45:59.476Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "e31d6997c7b30487fc9278dff37fcc2c526789eea16afd1fd562e03af7a10573"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "712175e9-bc28-4a4f-8ce7-d65b50e8a1a1",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form III History",
+          "subject": "History",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/8809c90995f462e7e30624c84105fd8d3f2b5dc47a71aeb86384cf64d2be4999.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_III",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/history/712175e9-bc28-4a4f-8ce7-d65b50e8a1a1.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "0dd0655199b3d38c87f2eb1982dca92acf094453e2bef9de84945344e7adb59d",
+            "markdownPageCount": 32,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/history/712175e9-bc28-4a4f-8ce7-d65b50e8a1a1.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "0dd0655199b3d38c87f2eb1982dca92acf094453e2bef9de84945344e7adb59d",
+              "pageCount": 32,
+              "generatedAt": "2026-06-29T16:45:59.476Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "464511ca30241164b2f8885e994453ccfc4735c0a81579ebcd28062d664130a0"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:45:59.476Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "e31d6997c7b30487fc9278dff37fcc2c526789eea16afd1fd562e03af7a10573"
+        }
+      ]
+    }
+  ]
+}

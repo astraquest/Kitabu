@@ -1,0 +1,2130 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-uga-ncdc-s2-general-science",
+  "title": "KITABU QUEST S2 General Science",
+  "country": "UGA",
+  "curriculum": "NCDC",
+  "grade": "S2",
+  "subject": "General Science",
+  "subjectSlug": "general-science",
+  "subjectColor": "#7C3AED",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v12",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:14:37Z",
+  "sourceSnapshotHash": "c9be1a3d8bd757ca74cd7264cc8f1dba997ef5d3fe8071af47d69bbe825771fa",
+  "bookPlanHash": "88c3cc724591df1ab868a217567c3797e05e772a4a96f0a583375dfc23f43bf0",
+  "pageCount": 85,
+  "wordCount": 8464,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 7,
+    "outcomeCount": 7,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "UGA",
+    "subject": "General Science",
+    "species": "chameleon",
+    "role": "curiosity and observation guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners doing a safe science investigation outdoors with a chameleon mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Uganda NCDC S2 General Science. Scene: learners doing a safe science investigation outdoors with a chameleon mascot. Include a friendly chameleon mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 90090,
+    "sha256": "b832d06873fce4c6d328d5e275e08a3ad96ef5d5538aff981b6d0e2225d41915"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 90090,
+      "sha256": "b832d06873fce4c6d328d5e275e08a3ad96ef5d5538aff981b6d0e2225d41915",
+      "kind": "cover",
+      "altText": "KITABU QUEST S2 General Science cover with chameleon",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-uga-ncdc-s2-general-science.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-uga-ncdc-s2-general-science.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "a90b19ca-82ae-46bd-bbad-bae1dd3499ea",
+      "subject": "General Science",
+      "officialTitle": "Uganda Curriculum S2 General Science",
+      "countryCode": "UGA",
+      "curriculumCode": "NCDC",
+      "gradeCode": "S2",
+      "gradeLocalLevel": "S2",
+      "localLevel": "S2",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/GENERAL-SCIENCE-syllabus.pdf",
+      "objectKey": "data/curriculum/source-files/UGA/3648c8d2050d30f9e49bf85e3f57151f363ecd4c68bcdd3fa922b0d2c1810e8b.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "S2",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/GENERAL-SCIENCE-syllabus.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/UGA/NCDC/S2/general-science/a90b19ca-82ae-46bd-bbad-bae1dd3499ea.md",
+        "sourcePageUrl": "https://ncdc.go.ug/wp-content/uploads/2024/03/Curriculum_Framework.pdf",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "ncdc.go.ug"
+        ],
+        "markdownChecksum": "e723c0e690cb46657906a9cdbfc785eda09e56f911df9c5be3c74f4188299085",
+        "markdownPageCount": 60,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/UGA/NCDC/S2/general-science/a90b19ca-82ae-46bd-bbad-bae1dd3499ea.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "e723c0e690cb46657906a9cdbfc785eda09e56f911df9c5be3c74f4188299085",
+          "pageCount": 60,
+          "generatedAt": "2026-06-29T18:01:01.268Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "b88a1f5cbb016e53ce0e338a05af33d105032fc75ab8211b75b50a3953eaf4c3"
+        },
+        "markdownGeneratedAt": "2026-06-29T18:01:01.268Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p001",
+      "title": "Title Page",
+      "content": "KITABU QUEST S2 General Science\n\nUganda NCDC learner book\n\nMascot: chameleon\n\nThis KITABU QUEST book turns the curriculum into short lessons, worked examples, guided activities, practice, review, and home links for Uganda learners.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 3,
+      "wordCount": 33,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p002",
+      "title": "How To Use This Book",
+      "content": "This book helps S2 learners study General Science one teachable topic at a time.\n\n1. Start with the inquiry question and say what you already know.\n2. Read the Learn section slowly and mark new words.\n3. Try the worked example before reading the full solution.\n4. Complete the activity and practice tasks.\n5. Correct your answer using the success criteria.\n6. Ask for support when your answer is still unclear.\n\nSubject method: Observe, ask questions, test safely, record evidence, and explain findings.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 83,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p003",
+      "title": "Learning Skills In This Book",
+      "content": "Each topic builds knowledge, skill, values, communication, collaboration, critical thinking, creativity, digital awareness, and self-confidence.\n\nStudy actively: speak answers aloud, draw when useful, show your working, cite evidence, use local examples, and correct mistakes after feedback.\n\nA strong answer is specific. It names the idea, gives evidence or method, applies it to the task, and checks whether it answers the question.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p004",
+      "title": "Table Of Contents",
+      "content": "Use this table to move through the book one topic at a time. Each topic has a lesson opener, clear teaching, a model or example, guided work, practice, and checks for understanding.\n\n1. GENERAL SCIENCE SYLLABUS\n2. The Uganda Vision 2040 aims to transform Uganda into a modern\n3. The ESSP further outlines what the review implies: \"This\n4. General Science Topic\n5. GENERAL SCIENCE SYLLABUS\n6. THE CURRICULUM\n7. GENERAL SCIENCE SYLLABUS\n\nAs you finish each topic, return to the success criteria and correct one answer before moving on.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p005",
+      "title": "GENERAL SCIENCE SYLLABUS: Lesson Opener",
+      "content": "Learning focus: GENERAL SCIENCE SYLLABUS\n\nCountry link: a safe Uganda observation, model, data table, or investigation for GENERAL SCIENCE SYLLABUS.\n\nProgression focus: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- investigate and explain general science syllabus using evidence\n\nInquiry questions:\n- How can general science syllabus help you solve a real problem?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 87,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-001:opener:visual-1:planned",
+        "UGA-S2-general-science-topic-001:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "13d03dbd-15cc-42c1-8a7a-2ab48bc7d523"
+      ],
+      "unitIds": [
+        "13d03dbd-15cc-42c1-8a7a-2ab48bc7d523"
+      ],
+      "parentUnitIds": [
+        "13d03dbd-15cc-42c1-8a7a-2ab48bc7d523"
+      ],
+      "outcomeIds": [
+        "cc219412-7bfb-4c55-8280-d5bb854efc46"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p006",
+      "title": "GENERAL SCIENCE SYLLABUS: Learn",
+      "content": "GENERAL SCIENCE SYLLABUS is learned by turning the topic into a clear, safe, evidence-based science task.\n\nCore idea:\n- Name the science idea before starting: structure, process, material, force, energy, organism, environment, or system.\n- Use a diagram, data table, labelled model, safe observation, or teacher-approved investigation.\n- Record what is seen or measured, not what is guessed.\n- Explain the result using the vocabulary from this topic.\n- Finish with one conclusion and one question for further study.\n\nKey words:\n- GENERAL SCIENCE SYLLABUS\n- GENERAL\n- SCIENCE\n- SYLLABUS\n- concept\n- observation\n- evidence\n- safety",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 99,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-001:learn:visual-1:planned",
+        "UGA-S2-general-science-topic-001:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "13d03dbd-15cc-42c1-8a7a-2ab48bc7d523"
+      ],
+      "unitIds": [
+        "13d03dbd-15cc-42c1-8a7a-2ab48bc7d523"
+      ],
+      "parentUnitIds": [
+        "13d03dbd-15cc-42c1-8a7a-2ab48bc7d523"
+      ],
+      "outcomeIds": [
+        "cc219412-7bfb-4c55-8280-d5bb854efc46"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p007",
+      "title": "GENERAL SCIENCE SYLLABUS: Worked Example",
+      "content": "Investigation model for GENERAL SCIENCE SYLLABUS: Turn the topic into a safe, clear classroom investigation or model.\n\n1. Question: write one question that can be answered by observing, comparing, classifying, measuring, modelling, or reading data.\n2. Materials: list safe classroom materials, diagrams, samples, cards, tables, or teacher-approved apparatus.\n3. Method: do one step at a time and keep one condition fair where comparison is needed.\n4. Safety: name any heat, glass, sharp tool, chemical, hygiene, electrical, or body-safety rule before starting.\n5. Record: use a labelled table, diagram, or sentence notes.\n6. Conclusion: state what the evidence shows and one limit of the investigation.\n\nAnswer check: a strong response names the concept, uses correct vocabulary, records evidence, and does not claim more than the evidence supports.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 126,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-001:example:visual-1:planned",
+        "UGA-S2-general-science-topic-001:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "13d03dbd-15cc-42c1-8a7a-2ab48bc7d523"
+      ],
+      "unitIds": [
+        "13d03dbd-15cc-42c1-8a7a-2ab48bc7d523"
+      ],
+      "parentUnitIds": [
+        "13d03dbd-15cc-42c1-8a7a-2ab48bc7d523"
+      ],
+      "outcomeIds": [
+        "cc219412-7bfb-4c55-8280-d5bb854efc46"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p008",
+      "title": "GENERAL SCIENCE SYLLABUS: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise GENERAL SCIENCE SYLLABUS. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- GENERAL SCIENCE SYLLABUS\n- GENERAL\n- SCIENCE\n- SYLLABUS\n- concept\n- observation\n- evidence\n- safety\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Uganda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about GENERAL SCIENCE SYLLABUS without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-001:vocabulary:visual-1:planned",
+        "UGA-S2-general-science-topic-001:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "13d03dbd-15cc-42c1-8a7a-2ab48bc7d523"
+      ],
+      "unitIds": [
+        "13d03dbd-15cc-42c1-8a7a-2ab48bc7d523"
+      ],
+      "parentUnitIds": [
+        "13d03dbd-15cc-42c1-8a7a-2ab48bc7d523"
+      ],
+      "outcomeIds": [
+        "cc219412-7bfb-4c55-8280-d5bb854efc46"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p009",
+      "title": "GENERAL SCIENCE SYLLABUS: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Uganda observation, model, data table, or investigation for GENERAL SCIENCE SYLLABUS.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-001:activity:visual-1:planned",
+        "UGA-S2-general-science-topic-001:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "13d03dbd-15cc-42c1-8a7a-2ab48bc7d523"
+      ],
+      "unitIds": [
+        "13d03dbd-15cc-42c1-8a7a-2ab48bc7d523"
+      ],
+      "parentUnitIds": [
+        "13d03dbd-15cc-42c1-8a7a-2ab48bc7d523"
+      ],
+      "outcomeIds": [
+        "cc219412-7bfb-4c55-8280-d5bb854efc46"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p010",
+      "title": "GENERAL SCIENCE SYLLABUS: Practice And Correction",
+      "content": "Practice for GENERAL SCIENCE SYLLABUS:\n\nMain outcome: investigate and explain general science syllabus using evidence.\n\n1. Write one safe investigation question.\n2. Name materials and observations needed.\n3. Use the evidence to write a conclusion.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 81,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-001:practice:visual-1:planned",
+        "UGA-S2-general-science-topic-001:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "13d03dbd-15cc-42c1-8a7a-2ab48bc7d523"
+      ],
+      "unitIds": [
+        "13d03dbd-15cc-42c1-8a7a-2ab48bc7d523"
+      ],
+      "parentUnitIds": [
+        "13d03dbd-15cc-42c1-8a7a-2ab48bc7d523"
+      ],
+      "outcomeIds": [
+        "cc219412-7bfb-4c55-8280-d5bb854efc46"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p011",
+      "title": "GENERAL SCIENCE SYLLABUS: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from GENERAL SCIENCE SYLLABUS.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 104,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-001:remediation:visual-1:planned",
+        "UGA-S2-general-science-topic-001:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "13d03dbd-15cc-42c1-8a7a-2ab48bc7d523"
+      ],
+      "unitIds": [
+        "13d03dbd-15cc-42c1-8a7a-2ab48bc7d523"
+      ],
+      "parentUnitIds": [
+        "13d03dbd-15cc-42c1-8a7a-2ab48bc7d523"
+      ],
+      "outcomeIds": [
+        "cc219412-7bfb-4c55-8280-d5bb854efc46"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p012",
+      "title": "GENERAL SCIENCE SYLLABUS: Outcome Check",
+      "content": "Outcome check for GENERAL SCIENCE SYLLABUS: Investigate and explain general science syllabus using evidence.\n\n1. State a safe investigation question.\n2. Name the evidence needed.\n3. Write a conclusion from the evidence.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 47,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-001:assessment:visual-1:planned",
+        "UGA-S2-general-science-topic-001:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "13d03dbd-15cc-42c1-8a7a-2ab48bc7d523"
+      ],
+      "unitIds": [
+        "13d03dbd-15cc-42c1-8a7a-2ab48bc7d523"
+      ],
+      "parentUnitIds": [
+        "13d03dbd-15cc-42c1-8a7a-2ab48bc7d523"
+      ],
+      "outcomeIds": [
+        "cc219412-7bfb-4c55-8280-d5bb854efc46"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p013",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a modern: Lesson Opener",
+      "content": "Learning focus: The Uganda Vision 2040 aims to transform Uganda into a modern\n\nCountry link: a safe Uganda observation, model, data table, or investigation for The Uganda Vision 2040 aims to transform Uganda into a modern.\n\nProgression focus: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- investigate and explain the uganda vision 2040 aims to transform uganda into a modern using evidence\n\nInquiry questions:\n- How can the uganda vision 2040 aims to transform uganda into a modern help you solve a real problem?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 119,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-002:opener:visual-1:planned",
+        "UGA-S2-general-science-topic-002:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "b73b2c43-7ed6-4957-9aaa-3a0969247371"
+      ],
+      "unitIds": [
+        "b73b2c43-7ed6-4957-9aaa-3a0969247371"
+      ],
+      "parentUnitIds": [
+        "b73b2c43-7ed6-4957-9aaa-3a0969247371"
+      ],
+      "outcomeIds": [
+        "b662fa0a-fe01-4835-8942-f49298cce6be"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p014",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a modern: Learn",
+      "content": "The Uganda Vision 2040 aims to transform Uganda into a modern is learned by turning the topic into a clear, safe, evidence-based science task.\n\nCore idea:\n- Name the science idea before starting: structure, process, material, force, energy, organism, environment, or system.\n- Use a diagram, data table, labelled model, safe observation, or teacher-approved investigation.\n- Record what is seen or measured, not what is guessed.\n- Explain the result using the vocabulary from this topic.\n- Finish with one conclusion and one question for further study.\n\nKey words:\n- The Uganda Vision 2040 aims to transform Uganda into a modern\n- Uganda\n- Vision\n- 2040\n- aims\n- transform\n- into\n- modern",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-002:learn:visual-1:planned",
+        "UGA-S2-general-science-topic-002:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "b73b2c43-7ed6-4957-9aaa-3a0969247371"
+      ],
+      "unitIds": [
+        "b73b2c43-7ed6-4957-9aaa-3a0969247371"
+      ],
+      "parentUnitIds": [
+        "b73b2c43-7ed6-4957-9aaa-3a0969247371"
+      ],
+      "outcomeIds": [
+        "b662fa0a-fe01-4835-8942-f49298cce6be"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p015",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a modern: Worked Example",
+      "content": "Investigation model for The Uganda Vision 2040 aims to transform Uganda into a modern: Turn the topic into a safe, clear classroom investigation or model.\n\n1. Question: write one question that can be answered by observing, comparing, classifying, measuring, modelling, or reading data.\n2. Materials: list safe classroom materials, diagrams, samples, cards, tables, or teacher-approved apparatus.\n3. Method: do one step at a time and keep one condition fair where comparison is needed.\n4. Safety: name any heat, glass, sharp tool, chemical, hygiene, electrical, or body-safety rule before starting.\n5. Record: use a labelled table, diagram, or sentence notes.\n6. Conclusion: state what the evidence shows and one limit of the investigation.\n\nAnswer check: a strong response names the concept, uses correct vocabulary, records evidence, and does not claim more than the evidence supports.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 134,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-002:example:visual-1:planned",
+        "UGA-S2-general-science-topic-002:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "b73b2c43-7ed6-4957-9aaa-3a0969247371"
+      ],
+      "unitIds": [
+        "b73b2c43-7ed6-4957-9aaa-3a0969247371"
+      ],
+      "parentUnitIds": [
+        "b73b2c43-7ed6-4957-9aaa-3a0969247371"
+      ],
+      "outcomeIds": [
+        "b662fa0a-fe01-4835-8942-f49298cce6be"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p016",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a modern: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise The Uganda Vision 2040 aims to transform Uganda into a modern. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- The Uganda Vision 2040 aims to transform Uganda into a modern\n- Uganda\n- Vision\n- 2040\n- aims\n- transform\n- into\n- modern\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Uganda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about The Uganda Vision 2040 aims to transform Uganda into a modern without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 139,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-002:vocabulary:visual-1:planned",
+        "UGA-S2-general-science-topic-002:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "b73b2c43-7ed6-4957-9aaa-3a0969247371"
+      ],
+      "unitIds": [
+        "b73b2c43-7ed6-4957-9aaa-3a0969247371"
+      ],
+      "parentUnitIds": [
+        "b73b2c43-7ed6-4957-9aaa-3a0969247371"
+      ],
+      "outcomeIds": [
+        "b662fa0a-fe01-4835-8942-f49298cce6be"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p017",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a modern: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Uganda observation, model, data table, or investigation for The Uganda Vision 2040 aims to transform Uganda into a modern.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 100,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-002:activity:visual-1:planned",
+        "UGA-S2-general-science-topic-002:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "b73b2c43-7ed6-4957-9aaa-3a0969247371"
+      ],
+      "unitIds": [
+        "b73b2c43-7ed6-4957-9aaa-3a0969247371"
+      ],
+      "parentUnitIds": [
+        "b73b2c43-7ed6-4957-9aaa-3a0969247371"
+      ],
+      "outcomeIds": [
+        "b662fa0a-fe01-4835-8942-f49298cce6be"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p018",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a modern: Practice And Correction",
+      "content": "Practice for The Uganda Vision 2040 aims to transform Uganda into a modern:\n\nMain outcome: investigate and explain the uganda vision 2040 aims to transform uganda into a modern using evidence.\n\n1. Write one safe investigation question.\n2. Name materials and observations needed.\n3. Use the evidence to write a conclusion.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 97,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-002:practice:visual-1:planned",
+        "UGA-S2-general-science-topic-002:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "b73b2c43-7ed6-4957-9aaa-3a0969247371"
+      ],
+      "unitIds": [
+        "b73b2c43-7ed6-4957-9aaa-3a0969247371"
+      ],
+      "parentUnitIds": [
+        "b73b2c43-7ed6-4957-9aaa-3a0969247371"
+      ],
+      "outcomeIds": [
+        "b662fa0a-fe01-4835-8942-f49298cce6be"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p019",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a modern: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from The Uganda Vision 2040 aims to transform Uganda into a modern.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-002:remediation:visual-1:planned",
+        "UGA-S2-general-science-topic-002:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "b73b2c43-7ed6-4957-9aaa-3a0969247371"
+      ],
+      "unitIds": [
+        "b73b2c43-7ed6-4957-9aaa-3a0969247371"
+      ],
+      "parentUnitIds": [
+        "b73b2c43-7ed6-4957-9aaa-3a0969247371"
+      ],
+      "outcomeIds": [
+        "b662fa0a-fe01-4835-8942-f49298cce6be"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p020",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a modern: Outcome Check",
+      "content": "Outcome check for The Uganda Vision 2040 aims to transform Uganda into a modern: Investigate and explain the uganda vision 2040 aims to transform uganda into a modern using evidence.\n\n1. State a safe investigation question.\n2. Name the evidence needed.\n3. Write a conclusion from the evidence.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 63,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-002:assessment:visual-1:planned",
+        "UGA-S2-general-science-topic-002:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "b73b2c43-7ed6-4957-9aaa-3a0969247371"
+      ],
+      "unitIds": [
+        "b73b2c43-7ed6-4957-9aaa-3a0969247371"
+      ],
+      "parentUnitIds": [
+        "b73b2c43-7ed6-4957-9aaa-3a0969247371"
+      ],
+      "outcomeIds": [
+        "b662fa0a-fe01-4835-8942-f49298cce6be"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p021",
+      "title": "The ESSP further outlines what the review implies: \"This: Lesson Opener",
+      "content": "Learning focus: The ESSP further outlines what the review implies: \"This\n\nCountry link: a safe Uganda observation, model, data table, or investigation for The ESSP further outlines what the review implies: \"This.\n\nProgression focus: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- investigate and explain the essp further outlines what the review implies: \"this using evidence\n\nInquiry questions:\n- How can the essp further outlines what the review implies: \"this help you solve a real problem?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 111,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-003:opener:visual-1:planned",
+        "UGA-S2-general-science-topic-003:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "9455293c-5adf-45fc-8f42-8d9bf9b0bdfb"
+      ],
+      "unitIds": [
+        "9455293c-5adf-45fc-8f42-8d9bf9b0bdfb"
+      ],
+      "parentUnitIds": [
+        "9455293c-5adf-45fc-8f42-8d9bf9b0bdfb"
+      ],
+      "outcomeIds": [
+        "7ab83743-b971-4304-afef-35296f93c548"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p022",
+      "title": "The ESSP further outlines what the review implies: \"This: Learn",
+      "content": "The ESSP further outlines what the review implies: \"This is learned by turning the topic into a clear, safe, evidence-based science task.\n\nCore idea:\n- Name the science idea before starting: structure, process, material, force, energy, organism, environment, or system.\n- Use a diagram, data table, labelled model, safe observation, or teacher-approved investigation.\n- Record what is seen or measured, not what is guessed.\n- Explain the result using the vocabulary from this topic.\n- Finish with one conclusion and one question for further study.\n\nKey words:\n- The ESSP further outlines what the review implies: \"This\n- ESSP\n- further\n- outlines\n- what\n- review\n- implies\n- This",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 111,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-003:learn:visual-1:planned",
+        "UGA-S2-general-science-topic-003:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "9455293c-5adf-45fc-8f42-8d9bf9b0bdfb"
+      ],
+      "unitIds": [
+        "9455293c-5adf-45fc-8f42-8d9bf9b0bdfb"
+      ],
+      "parentUnitIds": [
+        "9455293c-5adf-45fc-8f42-8d9bf9b0bdfb"
+      ],
+      "outcomeIds": [
+        "7ab83743-b971-4304-afef-35296f93c548"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p023",
+      "title": "The ESSP further outlines what the review implies: \"This: Worked Example",
+      "content": "Investigation model for The ESSP further outlines what the review implies: \"This: Turn the topic into a safe, clear classroom investigation or model.\n\n1. Question: write one question that can be answered by observing, comparing, classifying, measuring, modelling, or reading data.\n2. Materials: list safe classroom materials, diagrams, samples, cards, tables, or teacher-approved apparatus.\n3. Method: do one step at a time and keep one condition fair where comparison is needed.\n4. Safety: name any heat, glass, sharp tool, chemical, hygiene, electrical, or body-safety rule before starting.\n5. Record: use a labelled table, diagram, or sentence notes.\n6. Conclusion: state what the evidence shows and one limit of the investigation.\n\nAnswer check: a strong response names the concept, uses correct vocabulary, records evidence, and does not claim more than the evidence supports.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 132,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-003:example:visual-1:planned",
+        "UGA-S2-general-science-topic-003:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "9455293c-5adf-45fc-8f42-8d9bf9b0bdfb"
+      ],
+      "unitIds": [
+        "9455293c-5adf-45fc-8f42-8d9bf9b0bdfb"
+      ],
+      "parentUnitIds": [
+        "9455293c-5adf-45fc-8f42-8d9bf9b0bdfb"
+      ],
+      "outcomeIds": [
+        "7ab83743-b971-4304-afef-35296f93c548"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p024",
+      "title": "The ESSP further outlines what the review implies: \"This: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise The ESSP further outlines what the review implies: \"This. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- The ESSP further outlines what the review implies: \"This\n- ESSP\n- further\n- outlines\n- what\n- review\n- implies\n- This\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Uganda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about The ESSP further outlines what the review implies: \"This without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 133,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-003:vocabulary:visual-1:planned",
+        "UGA-S2-general-science-topic-003:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "9455293c-5adf-45fc-8f42-8d9bf9b0bdfb"
+      ],
+      "unitIds": [
+        "9455293c-5adf-45fc-8f42-8d9bf9b0bdfb"
+      ],
+      "parentUnitIds": [
+        "9455293c-5adf-45fc-8f42-8d9bf9b0bdfb"
+      ],
+      "outcomeIds": [
+        "7ab83743-b971-4304-afef-35296f93c548"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p025",
+      "title": "The ESSP further outlines what the review implies: \"This: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Uganda observation, model, data table, or investigation for The ESSP further outlines what the review implies: \"This.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-003:activity:visual-1:planned",
+        "UGA-S2-general-science-topic-003:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "9455293c-5adf-45fc-8f42-8d9bf9b0bdfb"
+      ],
+      "unitIds": [
+        "9455293c-5adf-45fc-8f42-8d9bf9b0bdfb"
+      ],
+      "parentUnitIds": [
+        "9455293c-5adf-45fc-8f42-8d9bf9b0bdfb"
+      ],
+      "outcomeIds": [
+        "7ab83743-b971-4304-afef-35296f93c548"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p026",
+      "title": "The ESSP further outlines what the review implies: \"This: Practice And Correction",
+      "content": "Practice for The ESSP further outlines what the review implies: \"This:\n\nMain outcome: investigate and explain the essp further outlines what the review implies: \"this using evidence.\n\n1. Write one safe investigation question.\n2. Name materials and observations needed.\n3. Use the evidence to write a conclusion.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-003:practice:visual-1:planned",
+        "UGA-S2-general-science-topic-003:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "9455293c-5adf-45fc-8f42-8d9bf9b0bdfb"
+      ],
+      "unitIds": [
+        "9455293c-5adf-45fc-8f42-8d9bf9b0bdfb"
+      ],
+      "parentUnitIds": [
+        "9455293c-5adf-45fc-8f42-8d9bf9b0bdfb"
+      ],
+      "outcomeIds": [
+        "7ab83743-b971-4304-afef-35296f93c548"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p027",
+      "title": "The ESSP further outlines what the review implies: \"This: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from The ESSP further outlines what the review implies: \"This.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 110,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-003:remediation:visual-1:planned",
+        "UGA-S2-general-science-topic-003:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "9455293c-5adf-45fc-8f42-8d9bf9b0bdfb"
+      ],
+      "unitIds": [
+        "9455293c-5adf-45fc-8f42-8d9bf9b0bdfb"
+      ],
+      "parentUnitIds": [
+        "9455293c-5adf-45fc-8f42-8d9bf9b0bdfb"
+      ],
+      "outcomeIds": [
+        "7ab83743-b971-4304-afef-35296f93c548"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p028",
+      "title": "The ESSP further outlines what the review implies: \"This: Outcome Check",
+      "content": "Outcome check for The ESSP further outlines what the review implies: \"This: Investigate and explain the essp further outlines what the review implies: \"this using evidence.\n\n1. State a safe investigation question.\n2. Name the evidence needed.\n3. Write a conclusion from the evidence.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 59,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-003:assessment:visual-1:planned",
+        "UGA-S2-general-science-topic-003:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "9455293c-5adf-45fc-8f42-8d9bf9b0bdfb"
+      ],
+      "unitIds": [
+        "9455293c-5adf-45fc-8f42-8d9bf9b0bdfb"
+      ],
+      "parentUnitIds": [
+        "9455293c-5adf-45fc-8f42-8d9bf9b0bdfb"
+      ],
+      "outcomeIds": [
+        "7ab83743-b971-4304-afef-35296f93c548"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p029",
+      "title": "General Science Topic: Lesson Opener",
+      "content": "Learning focus: General Science Topic\n\nCountry link: a safe Uganda observation, model, data table, or investigation for General Science Topic.\n\nProgression focus: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- investigate and explain general science topic using evidence\n\nInquiry questions:\n- How can general science topic help you solve a real problem?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 87,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-004:opener:visual-1:planned",
+        "UGA-S2-general-science-topic-004:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "bfecb4eb-97cb-40f8-a820-87f5445a8a5b"
+      ],
+      "unitIds": [
+        "bfecb4eb-97cb-40f8-a820-87f5445a8a5b"
+      ],
+      "parentUnitIds": [
+        "bfecb4eb-97cb-40f8-a820-87f5445a8a5b"
+      ],
+      "outcomeIds": [
+        "ab568db6-6da1-4c52-ade1-cdc9beef5063"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p030",
+      "title": "General Science Topic: Learn",
+      "content": "General Science Topic is learned by turning the topic into a clear, safe, evidence-based science task.\n\nCore idea:\n- Name the science idea before starting: structure, process, material, force, energy, organism, environment, or system.\n- Use a diagram, data table, labelled model, safe observation, or teacher-approved investigation.\n- Record what is seen or measured, not what is guessed.\n- Explain the result using the vocabulary from this topic.\n- Finish with one conclusion and one question for further study.\n\nKey words:\n- General Science Topic\n- General\n- Science\n- Topic\n- concept\n- observation\n- evidence\n- safety",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 99,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-004:learn:visual-1:planned",
+        "UGA-S2-general-science-topic-004:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "bfecb4eb-97cb-40f8-a820-87f5445a8a5b"
+      ],
+      "unitIds": [
+        "bfecb4eb-97cb-40f8-a820-87f5445a8a5b"
+      ],
+      "parentUnitIds": [
+        "bfecb4eb-97cb-40f8-a820-87f5445a8a5b"
+      ],
+      "outcomeIds": [
+        "ab568db6-6da1-4c52-ade1-cdc9beef5063"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p031",
+      "title": "General Science Topic: Worked Example",
+      "content": "Investigation model for General Science Topic: Turn the topic into a safe, clear classroom investigation or model.\n\n1. Question: write one question that can be answered by observing, comparing, classifying, measuring, modelling, or reading data.\n2. Materials: list safe classroom materials, diagrams, samples, cards, tables, or teacher-approved apparatus.\n3. Method: do one step at a time and keep one condition fair where comparison is needed.\n4. Safety: name any heat, glass, sharp tool, chemical, hygiene, electrical, or body-safety rule before starting.\n5. Record: use a labelled table, diagram, or sentence notes.\n6. Conclusion: state what the evidence shows and one limit of the investigation.\n\nAnswer check: a strong response names the concept, uses correct vocabulary, records evidence, and does not claim more than the evidence supports.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 126,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-004:example:visual-1:planned",
+        "UGA-S2-general-science-topic-004:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "bfecb4eb-97cb-40f8-a820-87f5445a8a5b"
+      ],
+      "unitIds": [
+        "bfecb4eb-97cb-40f8-a820-87f5445a8a5b"
+      ],
+      "parentUnitIds": [
+        "bfecb4eb-97cb-40f8-a820-87f5445a8a5b"
+      ],
+      "outcomeIds": [
+        "ab568db6-6da1-4c52-ade1-cdc9beef5063"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p032",
+      "title": "General Science Topic: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise General Science Topic. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- General Science Topic\n- General\n- Science\n- Topic\n- concept\n- observation\n- evidence\n- safety\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Uganda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about General Science Topic without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-004:vocabulary:visual-1:planned",
+        "UGA-S2-general-science-topic-004:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "bfecb4eb-97cb-40f8-a820-87f5445a8a5b"
+      ],
+      "unitIds": [
+        "bfecb4eb-97cb-40f8-a820-87f5445a8a5b"
+      ],
+      "parentUnitIds": [
+        "bfecb4eb-97cb-40f8-a820-87f5445a8a5b"
+      ],
+      "outcomeIds": [
+        "ab568db6-6da1-4c52-ade1-cdc9beef5063"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p033",
+      "title": "General Science Topic: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Uganda observation, model, data table, or investigation for General Science Topic.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-004:activity:visual-1:planned",
+        "UGA-S2-general-science-topic-004:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "bfecb4eb-97cb-40f8-a820-87f5445a8a5b"
+      ],
+      "unitIds": [
+        "bfecb4eb-97cb-40f8-a820-87f5445a8a5b"
+      ],
+      "parentUnitIds": [
+        "bfecb4eb-97cb-40f8-a820-87f5445a8a5b"
+      ],
+      "outcomeIds": [
+        "ab568db6-6da1-4c52-ade1-cdc9beef5063"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p034",
+      "title": "General Science Topic: Practice And Correction",
+      "content": "Practice for General Science Topic:\n\nMain outcome: investigate and explain general science topic using evidence.\n\n1. Write one safe investigation question.\n2. Name materials and observations needed.\n3. Use the evidence to write a conclusion.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 81,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-004:practice:visual-1:planned",
+        "UGA-S2-general-science-topic-004:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "bfecb4eb-97cb-40f8-a820-87f5445a8a5b"
+      ],
+      "unitIds": [
+        "bfecb4eb-97cb-40f8-a820-87f5445a8a5b"
+      ],
+      "parentUnitIds": [
+        "bfecb4eb-97cb-40f8-a820-87f5445a8a5b"
+      ],
+      "outcomeIds": [
+        "ab568db6-6da1-4c52-ade1-cdc9beef5063"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p035",
+      "title": "General Science Topic: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from General Science Topic.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 104,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-004:remediation:visual-1:planned",
+        "UGA-S2-general-science-topic-004:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "bfecb4eb-97cb-40f8-a820-87f5445a8a5b"
+      ],
+      "unitIds": [
+        "bfecb4eb-97cb-40f8-a820-87f5445a8a5b"
+      ],
+      "parentUnitIds": [
+        "bfecb4eb-97cb-40f8-a820-87f5445a8a5b"
+      ],
+      "outcomeIds": [
+        "ab568db6-6da1-4c52-ade1-cdc9beef5063"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p036",
+      "title": "General Science Topic: Outcome Check",
+      "content": "Outcome check for General Science Topic: Investigate and explain general science topic using evidence.\n\n1. State a safe investigation question.\n2. Name the evidence needed.\n3. Write a conclusion from the evidence.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 47,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-004:assessment:visual-1:planned",
+        "UGA-S2-general-science-topic-004:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "bfecb4eb-97cb-40f8-a820-87f5445a8a5b"
+      ],
+      "unitIds": [
+        "bfecb4eb-97cb-40f8-a820-87f5445a8a5b"
+      ],
+      "parentUnitIds": [
+        "bfecb4eb-97cb-40f8-a820-87f5445a8a5b"
+      ],
+      "outcomeIds": [
+        "ab568db6-6da1-4c52-ade1-cdc9beef5063"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p037",
+      "title": "GENERAL SCIENCE SYLLABUS: Lesson Opener",
+      "content": "Learning focus: GENERAL SCIENCE SYLLABUS\n\nCountry link: a safe Uganda observation, model, data table, or investigation for GENERAL SCIENCE SYLLABUS.\n\nProgression focus: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- investigate and explain general science syllabus using evidence\n\nInquiry questions:\n- How can general science syllabus help you solve a real problem?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 87,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-005:opener:visual-1:planned",
+        "UGA-S2-general-science-topic-005:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "a4f2bba7-e211-4d80-afc1-fa02f337b8b9"
+      ],
+      "unitIds": [
+        "a4f2bba7-e211-4d80-afc1-fa02f337b8b9"
+      ],
+      "parentUnitIds": [
+        "a4f2bba7-e211-4d80-afc1-fa02f337b8b9"
+      ],
+      "outcomeIds": [
+        "7cf4de2b-791a-45e9-8c82-7d7bb2dc3220"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p038",
+      "title": "GENERAL SCIENCE SYLLABUS: Learn",
+      "content": "GENERAL SCIENCE SYLLABUS is learned by turning the topic into a clear, safe, evidence-based science task.\n\nCore idea:\n- Name the science idea before starting: structure, process, material, force, energy, organism, environment, or system.\n- Use a diagram, data table, labelled model, safe observation, or teacher-approved investigation.\n- Record what is seen or measured, not what is guessed.\n- Explain the result using the vocabulary from this topic.\n- Finish with one conclusion and one question for further study.\n\nKey words:\n- GENERAL SCIENCE SYLLABUS\n- GENERAL\n- SCIENCE\n- SYLLABUS\n- concept\n- observation\n- evidence\n- safety",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 99,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-005:learn:visual-1:planned",
+        "UGA-S2-general-science-topic-005:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "a4f2bba7-e211-4d80-afc1-fa02f337b8b9"
+      ],
+      "unitIds": [
+        "a4f2bba7-e211-4d80-afc1-fa02f337b8b9"
+      ],
+      "parentUnitIds": [
+        "a4f2bba7-e211-4d80-afc1-fa02f337b8b9"
+      ],
+      "outcomeIds": [
+        "7cf4de2b-791a-45e9-8c82-7d7bb2dc3220"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p039",
+      "title": "GENERAL SCIENCE SYLLABUS: Worked Example",
+      "content": "Investigation model for GENERAL SCIENCE SYLLABUS: Turn the topic into a safe, clear classroom investigation or model.\n\n1. Question: write one question that can be answered by observing, comparing, classifying, measuring, modelling, or reading data.\n2. Materials: list safe classroom materials, diagrams, samples, cards, tables, or teacher-approved apparatus.\n3. Method: do one step at a time and keep one condition fair where comparison is needed.\n4. Safety: name any heat, glass, sharp tool, chemical, hygiene, electrical, or body-safety rule before starting.\n5. Record: use a labelled table, diagram, or sentence notes.\n6. Conclusion: state what the evidence shows and one limit of the investigation.\n\nAnswer check: a strong response names the concept, uses correct vocabulary, records evidence, and does not claim more than the evidence supports.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 126,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-005:example:visual-1:planned",
+        "UGA-S2-general-science-topic-005:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "a4f2bba7-e211-4d80-afc1-fa02f337b8b9"
+      ],
+      "unitIds": [
+        "a4f2bba7-e211-4d80-afc1-fa02f337b8b9"
+      ],
+      "parentUnitIds": [
+        "a4f2bba7-e211-4d80-afc1-fa02f337b8b9"
+      ],
+      "outcomeIds": [
+        "7cf4de2b-791a-45e9-8c82-7d7bb2dc3220"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p040",
+      "title": "GENERAL SCIENCE SYLLABUS: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise GENERAL SCIENCE SYLLABUS. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- GENERAL SCIENCE SYLLABUS\n- GENERAL\n- SCIENCE\n- SYLLABUS\n- concept\n- observation\n- evidence\n- safety\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Uganda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about GENERAL SCIENCE SYLLABUS without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-005:vocabulary:visual-1:planned",
+        "UGA-S2-general-science-topic-005:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "a4f2bba7-e211-4d80-afc1-fa02f337b8b9"
+      ],
+      "unitIds": [
+        "a4f2bba7-e211-4d80-afc1-fa02f337b8b9"
+      ],
+      "parentUnitIds": [
+        "a4f2bba7-e211-4d80-afc1-fa02f337b8b9"
+      ],
+      "outcomeIds": [
+        "7cf4de2b-791a-45e9-8c82-7d7bb2dc3220"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p041",
+      "title": "GENERAL SCIENCE SYLLABUS: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Uganda observation, model, data table, or investigation for GENERAL SCIENCE SYLLABUS.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-005:activity:visual-1:planned",
+        "UGA-S2-general-science-topic-005:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "a4f2bba7-e211-4d80-afc1-fa02f337b8b9"
+      ],
+      "unitIds": [
+        "a4f2bba7-e211-4d80-afc1-fa02f337b8b9"
+      ],
+      "parentUnitIds": [
+        "a4f2bba7-e211-4d80-afc1-fa02f337b8b9"
+      ],
+      "outcomeIds": [
+        "7cf4de2b-791a-45e9-8c82-7d7bb2dc3220"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p042",
+      "title": "GENERAL SCIENCE SYLLABUS: Practice And Correction",
+      "content": "Practice for GENERAL SCIENCE SYLLABUS:\n\nMain outcome: investigate and explain general science syllabus using evidence.\n\n1. Write one safe investigation question.\n2. Name materials and observations needed.\n3. Use the evidence to write a conclusion.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 81,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-005:practice:visual-1:planned",
+        "UGA-S2-general-science-topic-005:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "a4f2bba7-e211-4d80-afc1-fa02f337b8b9"
+      ],
+      "unitIds": [
+        "a4f2bba7-e211-4d80-afc1-fa02f337b8b9"
+      ],
+      "parentUnitIds": [
+        "a4f2bba7-e211-4d80-afc1-fa02f337b8b9"
+      ],
+      "outcomeIds": [
+        "7cf4de2b-791a-45e9-8c82-7d7bb2dc3220"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p043",
+      "title": "GENERAL SCIENCE SYLLABUS: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from GENERAL SCIENCE SYLLABUS.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 104,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-005:remediation:visual-1:planned",
+        "UGA-S2-general-science-topic-005:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "a4f2bba7-e211-4d80-afc1-fa02f337b8b9"
+      ],
+      "unitIds": [
+        "a4f2bba7-e211-4d80-afc1-fa02f337b8b9"
+      ],
+      "parentUnitIds": [
+        "a4f2bba7-e211-4d80-afc1-fa02f337b8b9"
+      ],
+      "outcomeIds": [
+        "7cf4de2b-791a-45e9-8c82-7d7bb2dc3220"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p044",
+      "title": "GENERAL SCIENCE SYLLABUS: Outcome Check",
+      "content": "Outcome check for GENERAL SCIENCE SYLLABUS: Investigate and explain general science syllabus using evidence.\n\n1. State a safe investigation question.\n2. Name the evidence needed.\n3. Write a conclusion from the evidence.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 47,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-005:assessment:visual-1:planned",
+        "UGA-S2-general-science-topic-005:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "a4f2bba7-e211-4d80-afc1-fa02f337b8b9"
+      ],
+      "unitIds": [
+        "a4f2bba7-e211-4d80-afc1-fa02f337b8b9"
+      ],
+      "parentUnitIds": [
+        "a4f2bba7-e211-4d80-afc1-fa02f337b8b9"
+      ],
+      "outcomeIds": [
+        "7cf4de2b-791a-45e9-8c82-7d7bb2dc3220"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p045",
+      "title": "THE CURRICULUM: Lesson Opener",
+      "content": "Learning focus: THE CURRICULUM\n\nCountry link: a safe Uganda observation, model, data table, or investigation for THE CURRICULUM.\n\nProgression focus: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- investigate and explain the curriculum using evidence\n\nInquiry questions:\n- How can the curriculum help you solve a real problem?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 83,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-006:opener:visual-1:planned",
+        "UGA-S2-general-science-topic-006:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "64d9398f-4319-4bb7-a457-8a8f3988599c"
+      ],
+      "unitIds": [
+        "64d9398f-4319-4bb7-a457-8a8f3988599c"
+      ],
+      "parentUnitIds": [
+        "64d9398f-4319-4bb7-a457-8a8f3988599c"
+      ],
+      "outcomeIds": [
+        "b97518b7-0f4c-418e-a84a-ed1eede68ffc"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p046",
+      "title": "THE CURRICULUM: Learn",
+      "content": "THE CURRICULUM is learned by turning the topic into a clear, safe, evidence-based science task.\n\nCore idea:\n- Name the science idea before starting: structure, process, material, force, energy, organism, environment, or system.\n- Use a diagram, data table, labelled model, safe observation, or teacher-approved investigation.\n- Record what is seen or measured, not what is guessed.\n- Explain the result using the vocabulary from this topic.\n- Finish with one conclusion and one question for further study.\n\nKey words:\n- THE CURRICULUM\n- CURRICULUM\n- concept\n- observation\n- evidence\n- safety\n- conclusion",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-006:learn:visual-1:planned",
+        "UGA-S2-general-science-topic-006:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "64d9398f-4319-4bb7-a457-8a8f3988599c"
+      ],
+      "unitIds": [
+        "64d9398f-4319-4bb7-a457-8a8f3988599c"
+      ],
+      "parentUnitIds": [
+        "64d9398f-4319-4bb7-a457-8a8f3988599c"
+      ],
+      "outcomeIds": [
+        "b97518b7-0f4c-418e-a84a-ed1eede68ffc"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p047",
+      "title": "THE CURRICULUM: Worked Example",
+      "content": "Investigation model for THE CURRICULUM: Turn the topic into a safe, clear classroom investigation or model.\n\n1. Question: write one question that can be answered by observing, comparing, classifying, measuring, modelling, or reading data.\n2. Materials: list safe classroom materials, diagrams, samples, cards, tables, or teacher-approved apparatus.\n3. Method: do one step at a time and keep one condition fair where comparison is needed.\n4. Safety: name any heat, glass, sharp tool, chemical, hygiene, electrical, or body-safety rule before starting.\n5. Record: use a labelled table, diagram, or sentence notes.\n6. Conclusion: state what the evidence shows and one limit of the investigation.\n\nAnswer check: a strong response names the concept, uses correct vocabulary, records evidence, and does not claim more than the evidence supports.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 125,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-006:example:visual-1:planned",
+        "UGA-S2-general-science-topic-006:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "64d9398f-4319-4bb7-a457-8a8f3988599c"
+      ],
+      "unitIds": [
+        "64d9398f-4319-4bb7-a457-8a8f3988599c"
+      ],
+      "parentUnitIds": [
+        "64d9398f-4319-4bb7-a457-8a8f3988599c"
+      ],
+      "outcomeIds": [
+        "b97518b7-0f4c-418e-a84a-ed1eede68ffc"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p048",
+      "title": "THE CURRICULUM: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise THE CURRICULUM. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- THE CURRICULUM\n- CURRICULUM\n- concept\n- observation\n- evidence\n- safety\n- conclusion\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Uganda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about THE CURRICULUM without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 110,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-006:vocabulary:visual-1:planned",
+        "UGA-S2-general-science-topic-006:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "64d9398f-4319-4bb7-a457-8a8f3988599c"
+      ],
+      "unitIds": [
+        "64d9398f-4319-4bb7-a457-8a8f3988599c"
+      ],
+      "parentUnitIds": [
+        "64d9398f-4319-4bb7-a457-8a8f3988599c"
+      ],
+      "outcomeIds": [
+        "b97518b7-0f4c-418e-a84a-ed1eede68ffc"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p049",
+      "title": "THE CURRICULUM: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Uganda observation, model, data table, or investigation for THE CURRICULUM.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-006:activity:visual-1:planned",
+        "UGA-S2-general-science-topic-006:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "64d9398f-4319-4bb7-a457-8a8f3988599c"
+      ],
+      "unitIds": [
+        "64d9398f-4319-4bb7-a457-8a8f3988599c"
+      ],
+      "parentUnitIds": [
+        "64d9398f-4319-4bb7-a457-8a8f3988599c"
+      ],
+      "outcomeIds": [
+        "b97518b7-0f4c-418e-a84a-ed1eede68ffc"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p050",
+      "title": "THE CURRICULUM: Practice And Correction",
+      "content": "Practice for THE CURRICULUM:\n\nMain outcome: investigate and explain the curriculum using evidence.\n\n1. Write one safe investigation question.\n2. Name materials and observations needed.\n3. Use the evidence to write a conclusion.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 79,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-006:practice:visual-1:planned",
+        "UGA-S2-general-science-topic-006:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "64d9398f-4319-4bb7-a457-8a8f3988599c"
+      ],
+      "unitIds": [
+        "64d9398f-4319-4bb7-a457-8a8f3988599c"
+      ],
+      "parentUnitIds": [
+        "64d9398f-4319-4bb7-a457-8a8f3988599c"
+      ],
+      "outcomeIds": [
+        "b97518b7-0f4c-418e-a84a-ed1eede68ffc"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p051",
+      "title": "THE CURRICULUM: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from THE CURRICULUM.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-006:remediation:visual-1:planned",
+        "UGA-S2-general-science-topic-006:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "64d9398f-4319-4bb7-a457-8a8f3988599c"
+      ],
+      "unitIds": [
+        "64d9398f-4319-4bb7-a457-8a8f3988599c"
+      ],
+      "parentUnitIds": [
+        "64d9398f-4319-4bb7-a457-8a8f3988599c"
+      ],
+      "outcomeIds": [
+        "b97518b7-0f4c-418e-a84a-ed1eede68ffc"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p052",
+      "title": "THE CURRICULUM: Outcome Check",
+      "content": "Outcome check for THE CURRICULUM: Investigate and explain the curriculum using evidence.\n\n1. State a safe investigation question.\n2. Name the evidence needed.\n3. Write a conclusion from the evidence.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 45,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-006:assessment:visual-1:planned",
+        "UGA-S2-general-science-topic-006:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "64d9398f-4319-4bb7-a457-8a8f3988599c"
+      ],
+      "unitIds": [
+        "64d9398f-4319-4bb7-a457-8a8f3988599c"
+      ],
+      "parentUnitIds": [
+        "64d9398f-4319-4bb7-a457-8a8f3988599c"
+      ],
+      "outcomeIds": [
+        "b97518b7-0f4c-418e-a84a-ed1eede68ffc"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p053",
+      "title": "GENERAL SCIENCE SYLLABUS: Lesson Opener",
+      "content": "Learning focus: GENERAL SCIENCE SYLLABUS\n\nCountry link: a safe Uganda observation, model, data table, or investigation for GENERAL SCIENCE SYLLABUS.\n\nProgression focus: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- investigate and explain general science syllabus using evidence\n\nInquiry questions:\n- How can general science syllabus help you solve a real problem?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 87,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-007:opener:visual-1:planned",
+        "UGA-S2-general-science-topic-007:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "0c92324f-8972-468a-91e1-f934d8aceb20"
+      ],
+      "unitIds": [
+        "0c92324f-8972-468a-91e1-f934d8aceb20"
+      ],
+      "parentUnitIds": [
+        "0c92324f-8972-468a-91e1-f934d8aceb20"
+      ],
+      "outcomeIds": [
+        "047df0b9-c0ee-452c-80d1-b015f8a7d681"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p054",
+      "title": "GENERAL SCIENCE SYLLABUS: Learn",
+      "content": "GENERAL SCIENCE SYLLABUS is learned by turning the topic into a clear, safe, evidence-based science task.\n\nCore idea:\n- Name the science idea before starting: structure, process, material, force, energy, organism, environment, or system.\n- Use a diagram, data table, labelled model, safe observation, or teacher-approved investigation.\n- Record what is seen or measured, not what is guessed.\n- Explain the result using the vocabulary from this topic.\n- Finish with one conclusion and one question for further study.\n\nKey words:\n- GENERAL SCIENCE SYLLABUS\n- GENERAL\n- SCIENCE\n- SYLLABUS\n- concept\n- observation\n- evidence\n- safety",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 99,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-007:learn:visual-1:planned",
+        "UGA-S2-general-science-topic-007:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "0c92324f-8972-468a-91e1-f934d8aceb20"
+      ],
+      "unitIds": [
+        "0c92324f-8972-468a-91e1-f934d8aceb20"
+      ],
+      "parentUnitIds": [
+        "0c92324f-8972-468a-91e1-f934d8aceb20"
+      ],
+      "outcomeIds": [
+        "047df0b9-c0ee-452c-80d1-b015f8a7d681"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p055",
+      "title": "GENERAL SCIENCE SYLLABUS: Worked Example",
+      "content": "Investigation model for GENERAL SCIENCE SYLLABUS: Turn the topic into a safe, clear classroom investigation or model.\n\n1. Question: write one question that can be answered by observing, comparing, classifying, measuring, modelling, or reading data.\n2. Materials: list safe classroom materials, diagrams, samples, cards, tables, or teacher-approved apparatus.\n3. Method: do one step at a time and keep one condition fair where comparison is needed.\n4. Safety: name any heat, glass, sharp tool, chemical, hygiene, electrical, or body-safety rule before starting.\n5. Record: use a labelled table, diagram, or sentence notes.\n6. Conclusion: state what the evidence shows and one limit of the investigation.\n\nAnswer check: a strong response names the concept, uses correct vocabulary, records evidence, and does not claim more than the evidence supports.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 126,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-007:example:visual-1:planned",
+        "UGA-S2-general-science-topic-007:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "0c92324f-8972-468a-91e1-f934d8aceb20"
+      ],
+      "unitIds": [
+        "0c92324f-8972-468a-91e1-f934d8aceb20"
+      ],
+      "parentUnitIds": [
+        "0c92324f-8972-468a-91e1-f934d8aceb20"
+      ],
+      "outcomeIds": [
+        "047df0b9-c0ee-452c-80d1-b015f8a7d681"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p056",
+      "title": "GENERAL SCIENCE SYLLABUS: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise GENERAL SCIENCE SYLLABUS. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- GENERAL SCIENCE SYLLABUS\n- GENERAL\n- SCIENCE\n- SYLLABUS\n- concept\n- observation\n- evidence\n- safety\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Uganda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about GENERAL SCIENCE SYLLABUS without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-007:vocabulary:visual-1:planned",
+        "UGA-S2-general-science-topic-007:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "0c92324f-8972-468a-91e1-f934d8aceb20"
+      ],
+      "unitIds": [
+        "0c92324f-8972-468a-91e1-f934d8aceb20"
+      ],
+      "parentUnitIds": [
+        "0c92324f-8972-468a-91e1-f934d8aceb20"
+      ],
+      "outcomeIds": [
+        "047df0b9-c0ee-452c-80d1-b015f8a7d681"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p057",
+      "title": "GENERAL SCIENCE SYLLABUS: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Uganda observation, model, data table, or investigation for GENERAL SCIENCE SYLLABUS.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-007:activity:visual-1:planned",
+        "UGA-S2-general-science-topic-007:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "0c92324f-8972-468a-91e1-f934d8aceb20"
+      ],
+      "unitIds": [
+        "0c92324f-8972-468a-91e1-f934d8aceb20"
+      ],
+      "parentUnitIds": [
+        "0c92324f-8972-468a-91e1-f934d8aceb20"
+      ],
+      "outcomeIds": [
+        "047df0b9-c0ee-452c-80d1-b015f8a7d681"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p058",
+      "title": "GENERAL SCIENCE SYLLABUS: Practice And Correction",
+      "content": "Practice for GENERAL SCIENCE SYLLABUS:\n\nMain outcome: investigate and explain general science syllabus using evidence.\n\n1. Write one safe investigation question.\n2. Name materials and observations needed.\n3. Use the evidence to write a conclusion.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 81,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-007:practice:visual-1:planned",
+        "UGA-S2-general-science-topic-007:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "0c92324f-8972-468a-91e1-f934d8aceb20"
+      ],
+      "unitIds": [
+        "0c92324f-8972-468a-91e1-f934d8aceb20"
+      ],
+      "parentUnitIds": [
+        "0c92324f-8972-468a-91e1-f934d8aceb20"
+      ],
+      "outcomeIds": [
+        "047df0b9-c0ee-452c-80d1-b015f8a7d681"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p059",
+      "title": "GENERAL SCIENCE SYLLABUS: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from GENERAL SCIENCE SYLLABUS.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 104,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-007:remediation:visual-1:planned",
+        "UGA-S2-general-science-topic-007:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "0c92324f-8972-468a-91e1-f934d8aceb20"
+      ],
+      "unitIds": [
+        "0c92324f-8972-468a-91e1-f934d8aceb20"
+      ],
+      "parentUnitIds": [
+        "0c92324f-8972-468a-91e1-f934d8aceb20"
+      ],
+      "outcomeIds": [
+        "047df0b9-c0ee-452c-80d1-b015f8a7d681"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p060",
+      "title": "GENERAL SCIENCE SYLLABUS: Outcome Check",
+      "content": "Outcome check for GENERAL SCIENCE SYLLABUS: Investigate and explain general science syllabus using evidence.\n\n1. State a safe investigation question.\n2. Name the evidence needed.\n3. Write a conclusion from the evidence.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 47,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-007:assessment:visual-1:planned",
+        "UGA-S2-general-science-topic-007:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "0c92324f-8972-468a-91e1-f934d8aceb20"
+      ],
+      "unitIds": [
+        "0c92324f-8972-468a-91e1-f934d8aceb20"
+      ],
+      "parentUnitIds": [
+        "0c92324f-8972-468a-91e1-f934d8aceb20"
+      ],
+      "outcomeIds": [
+        "047df0b9-c0ee-452c-80d1-b015f8a7d681"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p061",
+      "title": "GENERAL SCIENCE SYLLABUS: Review Clinic 1",
+      "content": "Use this review clinic to strengthen General Science without copying earlier answers.\n\n1. Choose one idea from GENERAL SCIENCE SYLLABUS that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Uganda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 77,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-001:review:visual-1:planned",
+        "UGA-S2-general-science-topic-001:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "13d03dbd-15cc-42c1-8a7a-2ab48bc7d523"
+      ],
+      "unitIds": [
+        "13d03dbd-15cc-42c1-8a7a-2ab48bc7d523"
+      ],
+      "outcomeIds": [
+        "cc219412-7bfb-4c55-8280-d5bb854efc46"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p062",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a modern: Review Clinic 2",
+      "content": "Use this review clinic to strengthen General Science without copying earlier answers.\n\n1. Choose one idea from The Uganda Vision 2040 aims to transform Uganda into a modern that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Uganda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 85,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-002:review:visual-1:planned",
+        "UGA-S2-general-science-topic-002:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "b73b2c43-7ed6-4957-9aaa-3a0969247371"
+      ],
+      "unitIds": [
+        "b73b2c43-7ed6-4957-9aaa-3a0969247371"
+      ],
+      "outcomeIds": [
+        "b662fa0a-fe01-4835-8942-f49298cce6be"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p063",
+      "title": "The ESSP further outlines what the review implies: \"This: Review Clinic 3",
+      "content": "Use this review clinic to strengthen General Science without copying earlier answers.\n\n1. Choose one idea from The ESSP further outlines what the review implies: \"This that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Uganda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 83,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-003:review:visual-1:planned",
+        "UGA-S2-general-science-topic-003:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "9455293c-5adf-45fc-8f42-8d9bf9b0bdfb"
+      ],
+      "unitIds": [
+        "9455293c-5adf-45fc-8f42-8d9bf9b0bdfb"
+      ],
+      "outcomeIds": [
+        "7ab83743-b971-4304-afef-35296f93c548"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p064",
+      "title": "General Science Topic: Review Clinic 4",
+      "content": "Use this review clinic to strengthen General Science without copying earlier answers.\n\n1. Choose one idea from General Science Topic that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Uganda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 77,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-004:review:visual-1:planned",
+        "UGA-S2-general-science-topic-004:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "bfecb4eb-97cb-40f8-a820-87f5445a8a5b"
+      ],
+      "unitIds": [
+        "bfecb4eb-97cb-40f8-a820-87f5445a8a5b"
+      ],
+      "outcomeIds": [
+        "ab568db6-6da1-4c52-ade1-cdc9beef5063"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p065",
+      "title": "GENERAL SCIENCE SYLLABUS: Application Workshop 1",
+      "content": "Application workshop 1 for GENERAL SCIENCE SYLLABUS.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 114,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-001:application-workshop:visual-1:planned",
+        "UGA-S2-general-science-topic-001:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "13d03dbd-15cc-42c1-8a7a-2ab48bc7d523"
+      ],
+      "unitIds": [
+        "13d03dbd-15cc-42c1-8a7a-2ab48bc7d523"
+      ],
+      "parentUnitIds": [
+        "13d03dbd-15cc-42c1-8a7a-2ab48bc7d523"
+      ],
+      "outcomeIds": [
+        "cc219412-7bfb-4c55-8280-d5bb854efc46"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p066",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a modern: Application Workshop 2",
+      "content": "Application workshop 2 for The Uganda Vision 2040 aims to transform Uganda into a modern.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 122,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-002:application-workshop:visual-1:planned",
+        "UGA-S2-general-science-topic-002:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "b73b2c43-7ed6-4957-9aaa-3a0969247371"
+      ],
+      "unitIds": [
+        "b73b2c43-7ed6-4957-9aaa-3a0969247371"
+      ],
+      "parentUnitIds": [
+        "b73b2c43-7ed6-4957-9aaa-3a0969247371"
+      ],
+      "outcomeIds": [
+        "b662fa0a-fe01-4835-8942-f49298cce6be"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p067",
+      "title": "The ESSP further outlines what the review implies: \"This: Application Workshop 3",
+      "content": "Application workshop 3 for The ESSP further outlines what the review implies: \"This.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 120,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-003:application-workshop:visual-1:planned",
+        "UGA-S2-general-science-topic-003:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "9455293c-5adf-45fc-8f42-8d9bf9b0bdfb"
+      ],
+      "unitIds": [
+        "9455293c-5adf-45fc-8f42-8d9bf9b0bdfb"
+      ],
+      "parentUnitIds": [
+        "9455293c-5adf-45fc-8f42-8d9bf9b0bdfb"
+      ],
+      "outcomeIds": [
+        "7ab83743-b971-4304-afef-35296f93c548"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p068",
+      "title": "General Science Topic: Application Workshop 4",
+      "content": "Application workshop 4 for General Science Topic.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 114,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-004:application-workshop:visual-1:planned",
+        "UGA-S2-general-science-topic-004:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "bfecb4eb-97cb-40f8-a820-87f5445a8a5b"
+      ],
+      "unitIds": [
+        "bfecb4eb-97cb-40f8-a820-87f5445a8a5b"
+      ],
+      "parentUnitIds": [
+        "bfecb4eb-97cb-40f8-a820-87f5445a8a5b"
+      ],
+      "outcomeIds": [
+        "ab568db6-6da1-4c52-ade1-cdc9beef5063"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p069",
+      "title": "GENERAL SCIENCE SYLLABUS: Application Workshop 5",
+      "content": "Application workshop 5 for GENERAL SCIENCE SYLLABUS.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 114,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-005:application-workshop:visual-1:planned",
+        "UGA-S2-general-science-topic-005:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "a4f2bba7-e211-4d80-afc1-fa02f337b8b9"
+      ],
+      "unitIds": [
+        "a4f2bba7-e211-4d80-afc1-fa02f337b8b9"
+      ],
+      "parentUnitIds": [
+        "a4f2bba7-e211-4d80-afc1-fa02f337b8b9"
+      ],
+      "outcomeIds": [
+        "7cf4de2b-791a-45e9-8c82-7d7bb2dc3220"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p070",
+      "title": "THE CURRICULUM: Application Workshop 6",
+      "content": "Application workshop 6 for THE CURRICULUM.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 113,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-006:application-workshop:visual-1:planned",
+        "UGA-S2-general-science-topic-006:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "64d9398f-4319-4bb7-a457-8a8f3988599c"
+      ],
+      "unitIds": [
+        "64d9398f-4319-4bb7-a457-8a8f3988599c"
+      ],
+      "parentUnitIds": [
+        "64d9398f-4319-4bb7-a457-8a8f3988599c"
+      ],
+      "outcomeIds": [
+        "b97518b7-0f4c-418e-a84a-ed1eede68ffc"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p071",
+      "title": "GENERAL SCIENCE SYLLABUS: Application Workshop 7",
+      "content": "Application workshop 7 for GENERAL SCIENCE SYLLABUS.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 114,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-007:application-workshop:visual-1:planned",
+        "UGA-S2-general-science-topic-007:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "0c92324f-8972-468a-91e1-f934d8aceb20"
+      ],
+      "unitIds": [
+        "0c92324f-8972-468a-91e1-f934d8aceb20"
+      ],
+      "parentUnitIds": [
+        "0c92324f-8972-468a-91e1-f934d8aceb20"
+      ],
+      "outcomeIds": [
+        "047df0b9-c0ee-452c-80d1-b015f8a7d681"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p072",
+      "title": "GENERAL SCIENCE SYLLABUS: Application Workshop 8",
+      "content": "Application workshop 8 for GENERAL SCIENCE SYLLABUS.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 114,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-001:application-workshop:visual-1:planned",
+        "UGA-S2-general-science-topic-001:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "13d03dbd-15cc-42c1-8a7a-2ab48bc7d523"
+      ],
+      "unitIds": [
+        "13d03dbd-15cc-42c1-8a7a-2ab48bc7d523"
+      ],
+      "parentUnitIds": [
+        "13d03dbd-15cc-42c1-8a7a-2ab48bc7d523"
+      ],
+      "outcomeIds": [
+        "cc219412-7bfb-4c55-8280-d5bb854efc46"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p073",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a modern: Application Workshop 9",
+      "content": "Application workshop 9 for The Uganda Vision 2040 aims to transform Uganda into a modern.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 122,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-002:application-workshop:visual-1:planned",
+        "UGA-S2-general-science-topic-002:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "b73b2c43-7ed6-4957-9aaa-3a0969247371"
+      ],
+      "unitIds": [
+        "b73b2c43-7ed6-4957-9aaa-3a0969247371"
+      ],
+      "parentUnitIds": [
+        "b73b2c43-7ed6-4957-9aaa-3a0969247371"
+      ],
+      "outcomeIds": [
+        "b662fa0a-fe01-4835-8942-f49298cce6be"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p074",
+      "title": "The ESSP further outlines what the review implies: \"This: Application Workshop 10",
+      "content": "Application workshop 10 for The ESSP further outlines what the review implies: \"This.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 120,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-003:application-workshop:visual-1:planned",
+        "UGA-S2-general-science-topic-003:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "9455293c-5adf-45fc-8f42-8d9bf9b0bdfb"
+      ],
+      "unitIds": [
+        "9455293c-5adf-45fc-8f42-8d9bf9b0bdfb"
+      ],
+      "parentUnitIds": [
+        "9455293c-5adf-45fc-8f42-8d9bf9b0bdfb"
+      ],
+      "outcomeIds": [
+        "7ab83743-b971-4304-afef-35296f93c548"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p075",
+      "title": "General Science Topic: Application Workshop 11",
+      "content": "Application workshop 11 for General Science Topic.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 114,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-004:application-workshop:visual-1:planned",
+        "UGA-S2-general-science-topic-004:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "bfecb4eb-97cb-40f8-a820-87f5445a8a5b"
+      ],
+      "unitIds": [
+        "bfecb4eb-97cb-40f8-a820-87f5445a8a5b"
+      ],
+      "parentUnitIds": [
+        "bfecb4eb-97cb-40f8-a820-87f5445a8a5b"
+      ],
+      "outcomeIds": [
+        "ab568db6-6da1-4c52-ade1-cdc9beef5063"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p076",
+      "title": "GENERAL SCIENCE SYLLABUS: Application Workshop 12",
+      "content": "Application workshop 12 for GENERAL SCIENCE SYLLABUS.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 114,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-005:application-workshop:visual-1:planned",
+        "UGA-S2-general-science-topic-005:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "a4f2bba7-e211-4d80-afc1-fa02f337b8b9"
+      ],
+      "unitIds": [
+        "a4f2bba7-e211-4d80-afc1-fa02f337b8b9"
+      ],
+      "parentUnitIds": [
+        "a4f2bba7-e211-4d80-afc1-fa02f337b8b9"
+      ],
+      "outcomeIds": [
+        "7cf4de2b-791a-45e9-8c82-7d7bb2dc3220"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p077",
+      "title": "THE CURRICULUM: Application Workshop 13",
+      "content": "Application workshop 13 for THE CURRICULUM.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 113,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-006:application-workshop:visual-1:planned",
+        "UGA-S2-general-science-topic-006:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "64d9398f-4319-4bb7-a457-8a8f3988599c"
+      ],
+      "unitIds": [
+        "64d9398f-4319-4bb7-a457-8a8f3988599c"
+      ],
+      "parentUnitIds": [
+        "64d9398f-4319-4bb7-a457-8a8f3988599c"
+      ],
+      "outcomeIds": [
+        "b97518b7-0f4c-418e-a84a-ed1eede68ffc"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p078",
+      "title": "GENERAL SCIENCE SYLLABUS: Application Workshop 14",
+      "content": "Application workshop 14 for GENERAL SCIENCE SYLLABUS.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 114,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-007:application-workshop:visual-1:planned",
+        "UGA-S2-general-science-topic-007:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "0c92324f-8972-468a-91e1-f934d8aceb20"
+      ],
+      "unitIds": [
+        "0c92324f-8972-468a-91e1-f934d8aceb20"
+      ],
+      "parentUnitIds": [
+        "0c92324f-8972-468a-91e1-f934d8aceb20"
+      ],
+      "outcomeIds": [
+        "047df0b9-c0ee-452c-80d1-b015f8a7d681"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p079",
+      "title": "GENERAL SCIENCE SYLLABUS: Application Workshop 15",
+      "content": "Application workshop 15 for GENERAL SCIENCE SYLLABUS.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 114,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-001:application-workshop:visual-1:planned",
+        "UGA-S2-general-science-topic-001:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "13d03dbd-15cc-42c1-8a7a-2ab48bc7d523"
+      ],
+      "unitIds": [
+        "13d03dbd-15cc-42c1-8a7a-2ab48bc7d523"
+      ],
+      "parentUnitIds": [
+        "13d03dbd-15cc-42c1-8a7a-2ab48bc7d523"
+      ],
+      "outcomeIds": [
+        "cc219412-7bfb-4c55-8280-d5bb854efc46"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p080",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a modern: Application Workshop 16",
+      "content": "Application workshop 16 for The Uganda Vision 2040 aims to transform Uganda into a modern.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 122,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-002:application-workshop:visual-1:planned",
+        "UGA-S2-general-science-topic-002:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "b73b2c43-7ed6-4957-9aaa-3a0969247371"
+      ],
+      "unitIds": [
+        "b73b2c43-7ed6-4957-9aaa-3a0969247371"
+      ],
+      "parentUnitIds": [
+        "b73b2c43-7ed6-4957-9aaa-3a0969247371"
+      ],
+      "outcomeIds": [
+        "b662fa0a-fe01-4835-8942-f49298cce6be"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p081",
+      "title": "The ESSP further outlines what the review implies: \"This: Application Workshop 17",
+      "content": "Application workshop 17 for The ESSP further outlines what the review implies: \"This.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 120,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-003:application-workshop:visual-1:planned",
+        "UGA-S2-general-science-topic-003:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "9455293c-5adf-45fc-8f42-8d9bf9b0bdfb"
+      ],
+      "unitIds": [
+        "9455293c-5adf-45fc-8f42-8d9bf9b0bdfb"
+      ],
+      "parentUnitIds": [
+        "9455293c-5adf-45fc-8f42-8d9bf9b0bdfb"
+      ],
+      "outcomeIds": [
+        "7ab83743-b971-4304-afef-35296f93c548"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p082",
+      "title": "General Science Topic: Application Workshop 18",
+      "content": "Application workshop 18 for General Science Topic.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 114,
+      "imageRefs": [
+        "UGA-S2-general-science-topic-004:application-workshop:visual-1:planned",
+        "UGA-S2-general-science-topic-004:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "bfecb4eb-97cb-40f8-a820-87f5445a8a5b"
+      ],
+      "unitIds": [
+        "bfecb4eb-97cb-40f8-a820-87f5445a8a5b"
+      ],
+      "parentUnitIds": [
+        "bfecb4eb-97cb-40f8-a820-87f5445a8a5b"
+      ],
+      "outcomeIds": [
+        "ab568db6-6da1-4c52-ade1-cdc9beef5063"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p083",
+      "title": "Glossary",
+      "content": "Use this glossary to revise important words in General Science.\n\n- GENERAL SCIENCE SYLLABUS: Explain this term using an example from the book, your school, or your community.\n- The Uganda Vision 2040 aims to transform Uganda into a modern: Explain this term using an example from the book, your school, or your community.\n- The ESSP further outlines what the review implies: \"This: Explain this term using an example from the book, your school, or your community.\n- General Science Topic: Explain this term using an example from the book, your school, or your community.\n- GENERAL SCIENCE SYLLABUS: Explain this term using an example from the book, your school, or your community.\n- THE CURRICULUM: Explain this term using an example from the book, your school, or your community.\n- GENERAL SCIENCE SYLLABUS: Explain this term using an example from the book, your school, or your community.\n\nAdd five more words from your lessons and write your own meanings.",
+      "pageType": "glossary",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 161,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p084",
+      "title": "Answer And Teacher Notes",
+      "content": "A strong General Science answer states the idea, uses correct scientific vocabulary, records observations or data, includes units or labels where needed, and writes a conclusion that follows from evidence. Safety rules always come first. If evidence is missing, repeat the observation safely or explain what evidence would be needed.",
+      "pageType": "answer-notes",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 50,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-general-science-p085",
+      "title": "Final Project",
+      "content": "Create a final project for General Science that shows what you can now do independently.\n\nYour project must include:\n1. A clear title.\n2. A real-life problem, question, text, performance, investigation, design, or worked task.\n3. Evidence from at least three lessons in this book.\n4. A drawing, table, map, chart, model, dialogue, paragraph, performance plan, practical product, or worked solution.\n5. A correction note showing one improvement after feedback.\n6. A short reflection explaining what you learned, what was difficult, and what you will practise next.\n\nPresentation check: keep the work neat, label important parts, use correct vocabulary, and be ready to explain your choices to a classmate or teacher.",
+      "pageType": "project",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 111,
+      "imageRefs": []
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 import { DEFAULT_GRADE } from '../constants/grades';
-import { Attachment, ChatMessage, Question } from '../types/app';
+import { Attachment, ChatMessage, LearningStrand, Question } from '../types/app';
 import { fetchKitabuApi } from './runtimeConfig';
 import { buildKitabuRequestHeaders, readJsonResponse } from './requestHelpers';
 
@@ -25,6 +25,7 @@ interface AiProxyRequest {
   history?: ChatMessage[];
   responseMimeType?: 'application/json';
   feature: string;
+  context?: Record<string, unknown>;
 }
 
 interface AudioTranscriptionRequest {
@@ -40,6 +41,18 @@ interface SpeechSynthesisRequest {
   voice?: string;
 }
 
+interface ChatLearningContext {
+  grade: string;
+  subjectName?: string | null;
+  strandTitle?: string | null;
+  subStrandTitle?: string | null;
+  curriculumStrands?: LearningStrand[];
+}
+
+const CHAT_AI_TIMEOUT_MS = 20_000;
+const QUIZ_AI_TIMEOUT_MS = 80_000;
+const DEFAULT_AI_TIMEOUT_MS = 25_000;
+
 export interface SpeechSynthesisPayload {
   base64Audio: string;
   mimeType: string;
@@ -48,11 +61,93 @@ export interface SpeechSynthesisPayload {
 }
 
 function sanitizeJsonPayload(text: string) {
-  return text
+  const trimmed = text.trim();
+  const fencedJson = trimmed.match(/```(?:json)?\s*([\s\S]*?)```/i);
+  if (fencedJson?.[1]) {
+    return fencedJson[1].trim();
+  }
+
+  const firstObjectChar = trimmed.indexOf('{');
+  const lastObjectChar = trimmed.lastIndexOf('}');
+  if (firstObjectChar >= 0 && lastObjectChar > firstObjectChar) {
+    return trimmed.slice(firstObjectChar, lastObjectChar + 1);
+  }
+
+  return trimmed
     .replace(/^```json\s*/i, '')
     .replace(/^```\s*/i, '')
     .replace(/\s*```$/i, '')
     .trim();
+}
+
+function buildChatLearningContext(context?: ChatLearningContext) {
+  if (!context) {
+    return `Student level: ${DEFAULT_GRADE}.`;
+  }
+
+  const lines = [`Student level: ${context.grade || DEFAULT_GRADE}.`];
+
+  if (context.subjectName) {
+    lines.push(`Active subject: ${context.subjectName}.`);
+  }
+
+  if (context.strandTitle) {
+    lines.push(`Active strand: ${context.strandTitle}.`);
+  }
+
+  if (context.subStrandTitle) {
+    lines.push(`Active sub-strand: ${context.subStrandTitle}.`);
+  }
+
+  const curriculumLines = (context.curriculumStrands ?? [])
+    .slice(0, 5)
+    .map(strand => {
+      const subStrands = strand.subStrands
+        .slice(0, 4)
+        .map(subStrand => subStrand.title)
+        .join(', ');
+      return subStrands ? `${strand.title}: ${subStrands}` : strand.title;
+    });
+
+  if (curriculumLines.length > 0) {
+    lines.push(`Curriculum scope: ${curriculumLines.join(' | ')}.`);
+  }
+
+  return lines.join('\n');
+}
+
+function cleanTutorResponse(text: string) {
+  const metadataLine = /^(question acknowledged|subject|grade level adaptation|grade level|student level|active subject|active strand|active sub-strand|curriculum scope)\b/i;
+
+  return text
+    .replace(/\r\n/g, '\n')
+    .replace(/\*\*(.*?)\*\*/g, '$1')
+    .replace(/__(.*?)__/g, '$1')
+    .replace(/^\s{0,3}#{1,6}\s*/gm, '')
+    .replace(/`([^`]+)`/g, '$1')
+    .split('\n')
+    .map(line => line.trim())
+    .filter(line => line.length > 0 && !metadataLine.test(line))
+    .join('\n')
+    .trim();
+}
+
+async function fetchAiWithTimeout(path: string, init: RequestInit, timeoutMs: number) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+
+  try {
+    return await fetchKitabuApi(path, {
+      ...init,
+      signal: controller.signal,
+    });
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+function isAbortError(error: unknown) {
+  return error instanceof Error && error.name === 'AbortError';
 }
 
 async function generateText({
@@ -62,6 +157,8 @@ async function generateText({
   history = [],
   responseMimeType,
   feature,
+  context,
+  timeoutMs = DEFAULT_AI_TIMEOUT_MS,
 }: {
   prompt: string;
   systemInstruction?: string;
@@ -69,8 +166,10 @@ async function generateText({
   history?: ChatMessage[];
   responseMimeType?: 'application/json';
   feature: string;
+  context?: Record<string, unknown>;
+  timeoutMs?: number;
 }) {
-  const response = await fetchKitabuApi('/generate-text', {
+  const response = await fetchAiWithTimeout('/generate-text', {
     method: 'POST',
     headers: await buildKitabuRequestHeaders(),
     body: JSON.stringify({
@@ -80,8 +179,9 @@ async function generateText({
       history,
       responseMimeType,
       feature,
+      context,
     } satisfies AiProxyRequest),
-  });
+  }, timeoutMs);
 
   if (!response.ok) {
     let message = 'AI assistance is currently unavailable. Please try again later.';
@@ -110,17 +210,24 @@ export async function askHomeworkHelper(
   history: ChatMessage[] = [],
   mode: 'chat' | 'explanation' = 'chat',
   attachment?: Attachment,
+  learningContext?: ChatLearningContext,
 ): Promise<string> {
+  const contextBlock = buildChatLearningContext(learningContext);
   const systemInstruction =
     mode === 'chat'
-      ? `You are KITABU AI, a concise and direct tutor.
+      ? `You are Kitabu, a warm and concise AI tutor inside a student chat.
 
-Protocol:
-1. Remove disclaimers, long introductions, or excessive praise.
-2. When a student asks a new question, briefly acknowledge it and ask a probing question to gauge knowledge.
-3. Ask at most two probing questions total. After the second question, give the full answer.
-4. Keep the final answer clear and direct.
-5. End the final answer with: "Is there anything else you'd like to know about this topic?"
+Learning context:
+${contextBlock}
+
+Conversation style:
+1. Start with the answer, not labels or metadata.
+2. Never write headings such as "Question Acknowledged", "Subject", or "Grade Level".
+3. Do not use markdown headings, markdown bolding, tables, or code fences.
+4. Keep the response conversational: 2-4 short paragraphs, or up to 3 short bullets only when listing items.
+5. Ground answers in the student's grade, active subject, and curriculum scope when available.
+6. Use age-appropriate wording and a simple example for the student's grade level.
+7. Ask one short follow-up question only when it helps the student continue.
 
 If an attachment is provided:
 - Treat photos, images, PDFs, and documents as the student's homework context.
@@ -145,11 +252,18 @@ Methodology:
       attachment,
       history,
       feature: mode === 'chat' ? 'homework_helper_chat' : 'homework_helper_explanation',
+      context: learningContext ? { ...learningContext } : { grade: DEFAULT_GRADE },
+      timeoutMs: mode === 'chat' ? CHAT_AI_TIMEOUT_MS : DEFAULT_AI_TIMEOUT_MS,
     });
 
-    return response || 'AI assistance is currently unavailable. Please try again later.';
+    return response
+      ? cleanTutorResponse(response) || 'AI assistance is currently unavailable. Please try again later.'
+      : 'AI assistance is currently unavailable. Please try again later.';
   } catch (error) {
     console.error('Error calling AI proxy:', error);
+    if (isAbortError(error)) {
+      return 'The tutor is taking too long to respond. Please try again, or ask a shorter question.';
+    }
     if (error instanceof Error) {
       return error.message;
     }
@@ -177,12 +291,17 @@ Rules:
       prompt,
       systemInstruction,
       history,
-      feature: 'homework_helper_chat',
+      feature: 'voice_tutor_text',
+      context: { grade: DEFAULT_GRADE },
+      timeoutMs: CHAT_AI_TIMEOUT_MS,
     });
 
     return response || 'I could not answer that just now. Please try again.';
   } catch (error) {
     console.error('Error calling voice tutor:', error);
+    if (isAbortError(error)) {
+      return 'I am taking too long to answer. Please try again.';
+    }
     if (error instanceof Error) {
       return error.message;
     }
@@ -246,7 +365,7 @@ export async function generateQuizData(
   count: number,
   type: 'flashcards' | 'quiz',
   grade = DEFAULT_GRADE,
-): Promise<GeneratedQuizPayload | null> {
+): Promise<GeneratedQuizPayload> {
   const prompt =
     type === 'flashcards'
       ? `Generate ${count} flashcards for a ${grade} student about Subject: ${subject}, Topic: ${topic}, Sub-topic: ${subTopic}.
@@ -279,16 +398,25 @@ Return JSON with this shape:
       prompt,
       responseMimeType: 'application/json',
       feature: type === 'flashcards' ? 'flashcard_generation' : 'quiz_generation',
+      context: {
+        grade,
+        subjectName: subject,
+        topic,
+        subTopic,
+        count,
+        generationType: type,
+      },
+      timeoutMs: QUIZ_AI_TIMEOUT_MS,
     });
 
     if (!response) {
-      return null;
+      throw new Error('AI service returned an empty response.');
     }
 
     return JSON.parse(sanitizeJsonPayload(response)) as GeneratedQuizPayload;
   } catch (error) {
     console.error('Error generating quiz data:', error);
-    return null;
+    throw error;
   }
 }
 
@@ -332,6 +460,13 @@ Return pure JSON data matching this shape:
       prompt,
       responseMimeType: 'application/json',
       feature: 'assignment_generation',
+      context: {
+        grade,
+        subjectName: subject,
+        strandTitle: strand || 'General',
+        subStrandTitle: subStrand || 'General',
+        topic: topic || 'Comprehensive Review',
+      },
     });
 
     if (!response) {

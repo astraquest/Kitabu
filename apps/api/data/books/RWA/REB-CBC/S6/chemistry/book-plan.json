@@ -1,0 +1,1710 @@
+{
+  "schemaVersion": 1,
+  "sourceType": "normalized-curriculum",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "S6",
+  "subject": "Chemistry",
+  "generatedAt": "2026-07-01T04:14:46Z",
+  "sourceSnapshotHash": "19ffc2ae9d9c1b296c88e00ab18da407de185a8ee4331532e765dd2b47e55d11",
+  "writingStandard": {
+    "voice": "simple, conversational, purposeful, age-appropriate, and learner-first",
+    "antiFluff": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "coversDeferred": true
+  },
+  "strands": [
+    {
+      "strandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-1-strand",
+      "number": "",
+      "title": "Properties and uses of transition metals",
+      "topicCount": 1
+    },
+    {
+      "strandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-2-strand",
+      "number": "",
+      "title": "Extraction of metals",
+      "topicCount": 1
+    },
+    {
+      "strandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-3-strand",
+      "number": "",
+      "title": "NPK as components of fertilizers",
+      "topicCount": 1
+    },
+    {
+      "strandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-4-strand",
+      "number": "",
+      "title": "Benzene",
+      "topicCount": 1
+    },
+    {
+      "strandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-5-strand",
+      "number": "",
+      "title": "Derivatives of benzene",
+      "topicCount": 1
+    },
+    {
+      "strandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-6-strand",
+      "number": "",
+      "title": "Polymers and polymerisation",
+      "topicCount": 1
+    },
+    {
+      "strandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-7-strand",
+      "number": "",
+      "title": "Solvent extraction and colligative properties",
+      "topicCount": 1
+    },
+    {
+      "strandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-8-strand",
+      "number": "",
+      "title": "Quantitative chemical equilibrium",
+      "topicCount": 1
+    },
+    {
+      "strandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-9-strand",
+      "number": "",
+      "title": "pH of acidic and alkaline solutions",
+      "topicCount": 1
+    },
+    {
+      "strandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-10-strand",
+      "number": "",
+      "title": "Indicators and titration curves",
+      "topicCount": 1
+    },
+    {
+      "strandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-11-strand",
+      "number": "",
+      "title": "Solubility and solubility product for sparingly soluble salts",
+      "topicCount": 1
+    },
+    {
+      "strandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-12-strand",
+      "number": "",
+      "title": "Electrochemical cell and applications",
+      "topicCount": 1
+    },
+    {
+      "strandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-13-strand",
+      "number": "",
+      "title": "Factors that affect the rate of reactions",
+      "topicCount": 1
+    },
+    {
+      "strandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-14-strand",
+      "number": "",
+      "title": "Rate laws and measurements",
+      "topicCount": 1
+    },
+    {
+      "strandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-15-strand",
+      "number": "",
+      "title": "Radioactivity",
+      "topicCount": 1
+    }
+  ],
+  "topics": [
+    {
+      "topicId": "RWA-S6-chemistry-topic-001",
+      "grade": "S6",
+      "strandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-1-strand",
+      "subStrandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-1-topic",
+      "parentSubStrandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-1-topic",
+      "strandTitle": "Properties and uses of transition metals",
+      "unitTitle": "Properties and uses of transition metals",
+      "sourceUnitTitle": "Properties and uses of transition metals",
+      "learningOutcomes": [
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-1-outcome-1",
+          "text": "the explain the properties and uses of transition metals"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-1-outcome-2",
+          "text": "discuss qualitatively the properties of transition elements when compared to those of calcium as a typical s-block metal"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-1-outcome-3",
+          "text": "explain the principle of ligand exchange"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-1-outcome-4",
+          "text": "state the rules of naming complex ions and stereo isomerism"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-1-outcome-5",
+          "text": "describe reactions of transition metals"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-1-outcome-6",
+          "text": "state the uses of transition metals"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can properties and uses of transition metals help you solve a real problem in Chemistry?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Properties and uses of transition metals.",
+        "Review key vocabulary from the previous Chemistry lesson."
+      ],
+      "keyVocabulary": [
+        "Properties and uses of transition metals",
+        "Properties",
+        "uses",
+        "transition",
+        "metals",
+        "concept",
+        "observation",
+        "evidence"
+      ],
+      "misconceptions": [
+        "giving a general answer about Properties and uses of transition metals without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwanda observation, model, data table, or investigation for Properties and uses of transition metals",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Properties and uses of transition metals",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Properties and uses of transition metals",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "1313530a-3c91-4bae-919c-57a7afd741a6",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/chemistry/1313530a-3c91-4bae-919c-57a7afd741a6.md",
+          "sourceSectionHash": "5f761f7bf15406bbdc2ac9454ffe8ba9522a37c2f208088e7b05e2c2606e79f8",
+          "sourceSnapshotHash": "19ffc2ae9d9c1b296c88e00ab18da407de185a8ee4331532e765dd2b47e55d11"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "1313530a-3c91-4bae-919c-57a7afd741a6",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/chemistry/1313530a-3c91-4bae-919c-57a7afd741a6.md",
+          "sourceSectionHash": "5f761f7bf15406bbdc2ac9454ffe8ba9522a37c2f208088e7b05e2c2606e79f8",
+          "sourceSnapshotHash": "19ffc2ae9d9c1b296c88e00ab18da407de185a8ee4331532e765dd2b47e55d11"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S6-chemistry-topic-002",
+      "grade": "S6",
+      "strandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-2-strand",
+      "subStrandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-2-topic",
+      "parentSubStrandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-2-topic",
+      "strandTitle": "Extraction of metals",
+      "unitTitle": "Extraction of metals",
+      "sourceUnitTitle": "Extraction of metals",
+      "learningOutcomes": [
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-2-outcome-1",
+          "text": "the relate the properties of metals to their methods of extraction and uses, and suggest preventive measures to the dangers associated with their extraction"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-2-outcome-2",
+          "text": "describe the extraction of copper, iron, sodium, tantalum, zinc, wolfram, aluminium and tantalum"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-2-outcome-3",
+          "text": "outline and explain the uses copper, iron, tantalum, zinc, wolfram, tin ore (cassiterite)"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-2-outcome-4",
+          "text": "explain the issues associated with the extraction of metals and preventive measures"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-2-outcome-5",
+          "text": "relate the properties of metals to their methods of extraction"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-2-outcome-6",
+          "text": "appreciate the use of transitional metals"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can extraction of metals help you solve a real problem in Chemistry?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Extraction of metals.",
+        "Review key vocabulary from the previous Chemistry lesson."
+      ],
+      "keyVocabulary": [
+        "Extraction of metals",
+        "Extraction",
+        "metals",
+        "concept",
+        "observation",
+        "evidence",
+        "safety",
+        "conclusion"
+      ],
+      "misconceptions": [
+        "giving a general answer about Extraction of metals without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwanda observation, model, data table, or investigation for Extraction of metals",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Extraction of metals",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Extraction of metals",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "1313530a-3c91-4bae-919c-57a7afd741a6",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/chemistry/1313530a-3c91-4bae-919c-57a7afd741a6.md",
+          "sourceSectionHash": "b4950a7da41bdb5a1d4fec63f705ddf9c456981802225ce7f9d1f23c95055d1d",
+          "sourceSnapshotHash": "19ffc2ae9d9c1b296c88e00ab18da407de185a8ee4331532e765dd2b47e55d11"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "1313530a-3c91-4bae-919c-57a7afd741a6",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/chemistry/1313530a-3c91-4bae-919c-57a7afd741a6.md",
+          "sourceSectionHash": "b4950a7da41bdb5a1d4fec63f705ddf9c456981802225ce7f9d1f23c95055d1d",
+          "sourceSnapshotHash": "19ffc2ae9d9c1b296c88e00ab18da407de185a8ee4331532e765dd2b47e55d11"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S6-chemistry-topic-003",
+      "grade": "S6",
+      "strandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-3-strand",
+      "subStrandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-3-topic",
+      "parentSubStrandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-3-topic",
+      "strandTitle": "NPK as components of fertilizers",
+      "unitTitle": "NPK as components of fertilizers",
+      "sourceUnitTitle": "NPK as components of fertilizers",
+      "learningOutcomes": [
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-3-outcome-1",
+          "text": "the analyse the components of quality fertilizers and their benefits, effects of misuse and dangers associated with the substandard fertilizers"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-3-outcome-2",
+          "text": "state the major constituents of the fertilizers"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-3-outcome-3",
+          "text": "identify the characteristics of a good fertilizer"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-3-outcome-4",
+          "text": "state the chemical reactions involved in the manufacture of the fertilizers"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-3-outcome-5",
+          "text": "briefly describe the manufacture of the fertilizers"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-3-outcome-6",
+          "text": "state the advantages or disadvantages of using the fertilizers"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can npk as components of fertilizers help you solve a real problem in Chemistry?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to NPK as components of fertilizers.",
+        "Review key vocabulary from the previous Chemistry lesson."
+      ],
+      "keyVocabulary": [
+        "NPK as components of fertilizers",
+        "components",
+        "fertilizers",
+        "concept",
+        "observation",
+        "evidence",
+        "safety",
+        "conclusion"
+      ],
+      "misconceptions": [
+        "giving a general answer about NPK as components of fertilizers without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwanda observation, model, data table, or investigation for NPK as components of fertilizers",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for NPK as components of fertilizers",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for NPK as components of fertilizers",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "1313530a-3c91-4bae-919c-57a7afd741a6",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/chemistry/1313530a-3c91-4bae-919c-57a7afd741a6.md",
+          "sourceSectionHash": "2e8cf5aff18446a2ce96ee130ba37320a8a288e900f9a4c84bdb93e84a5ec2f4",
+          "sourceSnapshotHash": "19ffc2ae9d9c1b296c88e00ab18da407de185a8ee4331532e765dd2b47e55d11"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "1313530a-3c91-4bae-919c-57a7afd741a6",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/chemistry/1313530a-3c91-4bae-919c-57a7afd741a6.md",
+          "sourceSectionHash": "2e8cf5aff18446a2ce96ee130ba37320a8a288e900f9a4c84bdb93e84a5ec2f4",
+          "sourceSnapshotHash": "19ffc2ae9d9c1b296c88e00ab18da407de185a8ee4331532e765dd2b47e55d11"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S6-chemistry-topic-004",
+      "grade": "S6",
+      "strandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-4-strand",
+      "subStrandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-4-topic",
+      "parentSubStrandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-4-topic",
+      "strandTitle": "Benzene",
+      "unitTitle": "Benzene",
+      "sourceUnitTitle": "Benzene",
+      "learningOutcomes": [
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-4-outcome-1",
+          "text": "the relate the chemistry and uses of benzene to its nature and structure"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-4-outcome-2",
+          "text": "state the physical properties of benzene"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-4-outcome-3",
+          "text": "describe the uses of benzene"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-4-outcome-4",
+          "text": "outline the preparations of benzene"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-4-outcome-5",
+          "text": "relate the conditions for reactions of benzene to its chemical stability"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can benzene help you solve a real problem in Chemistry?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Benzene.",
+        "Review key vocabulary from the previous Chemistry lesson."
+      ],
+      "keyVocabulary": [
+        "Benzene",
+        "concept",
+        "observation",
+        "evidence",
+        "safety",
+        "conclusion"
+      ],
+      "misconceptions": [
+        "giving a general answer about Benzene without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwanda observation, model, data table, or investigation for Benzene",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Benzene",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Benzene",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "1313530a-3c91-4bae-919c-57a7afd741a6",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/chemistry/1313530a-3c91-4bae-919c-57a7afd741a6.md",
+          "sourceSectionHash": "8ea4b965f21f416528b704d1297ecdb099b7d135dac40d4503b31dde45ff5f6d",
+          "sourceSnapshotHash": "19ffc2ae9d9c1b296c88e00ab18da407de185a8ee4331532e765dd2b47e55d11"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "1313530a-3c91-4bae-919c-57a7afd741a6",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/chemistry/1313530a-3c91-4bae-919c-57a7afd741a6.md",
+          "sourceSectionHash": "8ea4b965f21f416528b704d1297ecdb099b7d135dac40d4503b31dde45ff5f6d",
+          "sourceSnapshotHash": "19ffc2ae9d9c1b296c88e00ab18da407de185a8ee4331532e765dd2b47e55d11"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S6-chemistry-topic-005",
+      "grade": "S6",
+      "strandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-5-strand",
+      "subStrandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-5-topic",
+      "parentSubStrandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-5-topic",
+      "strandTitle": "Derivatives of benzene",
+      "unitTitle": "Derivatives of benzene",
+      "sourceUnitTitle": "Derivatives of benzene",
+      "learningOutcomes": [
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-5-outcome-1",
+          "text": "the relate aromatic ketones, aldehydes, carboxylic acids and amines to their chemical activity"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-5-outcome-2",
+          "text": "explain the effects of substituent groups on the benzene ring"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-5-outcome-3",
+          "text": "give systematic names of aromatic compounds"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-5-outcome-4",
+          "text": "describe the preparation and reactions of phenol, benzoic acid, benzaldehyde, phenyl ethanone and phenylamine"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-5-outcome-5",
+          "text": "state the uses of phenols"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-5-outcome-6",
+          "text": "describe the reaction of phenol, aromatic carbonyl compounds and carboxylic acids"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can derivatives of benzene help you solve a real problem in Chemistry?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Derivatives of benzene.",
+        "Review key vocabulary from the previous Chemistry lesson."
+      ],
+      "keyVocabulary": [
+        "Derivatives of benzene",
+        "Derivatives",
+        "benzene",
+        "concept",
+        "observation",
+        "evidence",
+        "safety",
+        "conclusion"
+      ],
+      "misconceptions": [
+        "giving a general answer about Derivatives of benzene without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwanda observation, model, data table, or investigation for Derivatives of benzene",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Derivatives of benzene",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Derivatives of benzene",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "1313530a-3c91-4bae-919c-57a7afd741a6",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/chemistry/1313530a-3c91-4bae-919c-57a7afd741a6.md",
+          "sourceSectionHash": "29fa5fccbfb7c6e4a39070ff88574773bf3c5ecbbfeda9964308905a1e9ad1da",
+          "sourceSnapshotHash": "19ffc2ae9d9c1b296c88e00ab18da407de185a8ee4331532e765dd2b47e55d11"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "1313530a-3c91-4bae-919c-57a7afd741a6",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/chemistry/1313530a-3c91-4bae-919c-57a7afd741a6.md",
+          "sourceSectionHash": "29fa5fccbfb7c6e4a39070ff88574773bf3c5ecbbfeda9964308905a1e9ad1da",
+          "sourceSnapshotHash": "19ffc2ae9d9c1b296c88e00ab18da407de185a8ee4331532e765dd2b47e55d11"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S6-chemistry-topic-006",
+      "grade": "S6",
+      "strandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-6-strand",
+      "subStrandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-6-topic",
+      "parentSubStrandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-6-topic",
+      "strandTitle": "Polymers and polymerisation",
+      "unitTitle": "Polymers and polymerisation",
+      "sourceUnitTitle": "Polymers and polymerisation",
+      "learningOutcomes": [
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-6-outcome-1",
+          "text": "the relate the types of polymers to their structural properties and uses"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-6-outcome-2",
+          "text": "define the terms monomer, polymer and polymerisation"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-6-outcome-3",
+          "text": "describe the formation of polymers"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-6-outcome-4",
+          "text": "describe addition and condensation of polymerisation"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-6-outcome-5",
+          "text": "explain the terms thermosetting and thermo-softening of the plastics"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-6-outcome-6",
+          "text": "discuss the advantages and disadvantages of both natural and synthetic polymers"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can polymers and polymerisation help you solve a real problem in Chemistry?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Polymers and polymerisation.",
+        "Review key vocabulary from the previous Chemistry lesson."
+      ],
+      "keyVocabulary": [
+        "Polymers and polymerisation",
+        "Polymers",
+        "polymerisation",
+        "concept",
+        "observation",
+        "evidence",
+        "safety",
+        "conclusion"
+      ],
+      "misconceptions": [
+        "giving a general answer about Polymers and polymerisation without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwanda observation, model, data table, or investigation for Polymers and polymerisation",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Polymers and polymerisation",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Polymers and polymerisation",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "1313530a-3c91-4bae-919c-57a7afd741a6",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/chemistry/1313530a-3c91-4bae-919c-57a7afd741a6.md",
+          "sourceSectionHash": "ec7e1c76aab8f7b62834555b70b55bd7301de4735259231995bb1c622665412a",
+          "sourceSnapshotHash": "19ffc2ae9d9c1b296c88e00ab18da407de185a8ee4331532e765dd2b47e55d11"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "1313530a-3c91-4bae-919c-57a7afd741a6",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/chemistry/1313530a-3c91-4bae-919c-57a7afd741a6.md",
+          "sourceSectionHash": "ec7e1c76aab8f7b62834555b70b55bd7301de4735259231995bb1c622665412a",
+          "sourceSnapshotHash": "19ffc2ae9d9c1b296c88e00ab18da407de185a8ee4331532e765dd2b47e55d11"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S6-chemistry-topic-007",
+      "grade": "S6",
+      "strandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-7-strand",
+      "subStrandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-7-topic",
+      "parentSubStrandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-7-topic",
+      "strandTitle": "Solvent extraction and colligative properties",
+      "unitTitle": "Solvent extraction and colligative properties",
+      "sourceUnitTitle": "Solvent extraction and colligative properties",
+      "learningOutcomes": [
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-7-outcome-1",
+          "text": "the learner should be able toapply partition and Raoult's law to separate mixtures and determine the molecular and formula masses of compounds using colligative properties"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-7-outcome-2",
+          "text": "define partition coefficient (distribution law) and solvent extraction"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-7-outcome-3",
+          "text": "state the Raoult's law"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-7-outcome-4",
+          "text": "state and explain the advantages of carrying out distillation processes under reduced pressures"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-7-outcome-5",
+          "text": "discuss the chemical principles upon which simple distillation, fractional distillation and steam distillation are"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-7-outcome-6",
+          "text": "carry out simple separation experiments based on the solute partitioning between two immiscible solvents"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can solvent extraction and colligative properties help you solve a real problem in Chemistry?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Solvent extraction and colligative properties.",
+        "Review key vocabulary from the previous Chemistry lesson."
+      ],
+      "keyVocabulary": [
+        "Solvent extraction and colligative properties",
+        "Solvent",
+        "extraction",
+        "colligative",
+        "properties",
+        "concept",
+        "observation",
+        "evidence"
+      ],
+      "misconceptions": [
+        "giving a general answer about Solvent extraction and colligative properties without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwanda observation, model, data table, or investigation for Solvent extraction and colligative properties",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Solvent extraction and colligative properties",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Solvent extraction and colligative properties",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "1313530a-3c91-4bae-919c-57a7afd741a6",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/chemistry/1313530a-3c91-4bae-919c-57a7afd741a6.md",
+          "sourceSectionHash": "46292a8e98947962aea8eaac6a75dabc7202d73fb3adcfbda446a4edf47a7e1d",
+          "sourceSnapshotHash": "19ffc2ae9d9c1b296c88e00ab18da407de185a8ee4331532e765dd2b47e55d11"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "1313530a-3c91-4bae-919c-57a7afd741a6",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/chemistry/1313530a-3c91-4bae-919c-57a7afd741a6.md",
+          "sourceSectionHash": "46292a8e98947962aea8eaac6a75dabc7202d73fb3adcfbda446a4edf47a7e1d",
+          "sourceSnapshotHash": "19ffc2ae9d9c1b296c88e00ab18da407de185a8ee4331532e765dd2b47e55d11"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S6-chemistry-topic-008",
+      "grade": "S6",
+      "strandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-8-strand",
+      "subStrandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-8-topic",
+      "parentSubStrandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-8-topic",
+      "strandTitle": "Quantitative chemical equilibrium",
+      "unitTitle": "Quantitative chemical equilibrium",
+      "sourceUnitTitle": "Quantitative chemical equilibrium",
+      "learningOutcomes": [
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-8-outcome-1",
+          "text": "the write expressions and calculate the values of equilibrium constant, interpret the"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-8-outcome-2",
+          "text": "explain how the temperature affects the magnitude of equilibrium constant Kc"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-8-outcome-3",
+          "text": "derive the relationship between Kc and Kp"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-8-outcome-4",
+          "text": "derive equilibrium constant Kc"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-8-outcome-5",
+          "text": "interpret the Kc the yield of the reversible reactions"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-8-outcome-6",
+          "text": "investigate and explain quantitative chemical equilibrium using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can quantitative chemical equilibrium help you solve a real problem in Chemistry?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Quantitative chemical equilibrium.",
+        "Review key vocabulary from the previous Chemistry lesson."
+      ],
+      "keyVocabulary": [
+        "Quantitative chemical equilibrium",
+        "Quantitative",
+        "chemical",
+        "equilibrium",
+        "concept",
+        "observation",
+        "evidence",
+        "safety"
+      ],
+      "misconceptions": [
+        "giving a general answer about Quantitative chemical equilibrium without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwanda observation, model, data table, or investigation for Quantitative chemical equilibrium",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Quantitative chemical equilibrium",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Quantitative chemical equilibrium",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "1313530a-3c91-4bae-919c-57a7afd741a6",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/chemistry/1313530a-3c91-4bae-919c-57a7afd741a6.md",
+          "sourceSectionHash": "c52de81232f5e651c4498697502a60bdc1c11decb438667895d4a2583a15c188",
+          "sourceSnapshotHash": "19ffc2ae9d9c1b296c88e00ab18da407de185a8ee4331532e765dd2b47e55d11"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "1313530a-3c91-4bae-919c-57a7afd741a6",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/chemistry/1313530a-3c91-4bae-919c-57a7afd741a6.md",
+          "sourceSectionHash": "c52de81232f5e651c4498697502a60bdc1c11decb438667895d4a2583a15c188",
+          "sourceSnapshotHash": "19ffc2ae9d9c1b296c88e00ab18da407de185a8ee4331532e765dd2b47e55d11"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S6-chemistry-topic-009",
+      "grade": "S6",
+      "strandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-9-strand",
+      "subStrandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-9-topic",
+      "parentSubStrandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-9-topic",
+      "strandTitle": "pH of acidic and alkaline solutions",
+      "unitTitle": "pH of acidic and alkaline solutions",
+      "sourceUnitTitle": "pH of acidic and alkaline solutions",
+      "learningOutcomes": [
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-9-outcome-1",
+          "text": "the prepare solutions, measure their pH and calculate the pH of acidic and alkaline solutions. Explain the concept of buffer solution, hydrolysis of salts and discuss its applications in manufacturing industry and biological processes"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-9-outcome-2",
+          "text": "define the degree of ionization (α)"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-9-outcome-3",
+          "text": "define the terms Ka, pH, pKa, Kb, pKb and Kw"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-9-outcome-4",
+          "text": "write equations for salt hydrolysis reactions and the expression for the hydrolysis constant"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-9-outcome-5",
+          "text": "define the term buffer solution"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-9-outcome-6",
+          "text": "explain how buffer solutions control pH"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can ph of acidic and alkaline solutions help you solve a real problem in Chemistry?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to pH of acidic and alkaline solutions.",
+        "Review key vocabulary from the previous Chemistry lesson."
+      ],
+      "keyVocabulary": [
+        "pH of acidic and alkaline solutions",
+        "acidic",
+        "alkaline",
+        "solutions",
+        "concept",
+        "observation",
+        "evidence",
+        "safety"
+      ],
+      "misconceptions": [
+        "giving a general answer about pH of acidic and alkaline solutions without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwanda observation, model, data table, or investigation for pH of acidic and alkaline solutions",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for pH of acidic and alkaline solutions",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for pH of acidic and alkaline solutions",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "1313530a-3c91-4bae-919c-57a7afd741a6",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/chemistry/1313530a-3c91-4bae-919c-57a7afd741a6.md",
+          "sourceSectionHash": "305220a1d725e6b8ba6eb4e579b32f1d5215564acfef0999a5ad0ceef0197389",
+          "sourceSnapshotHash": "19ffc2ae9d9c1b296c88e00ab18da407de185a8ee4331532e765dd2b47e55d11"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "1313530a-3c91-4bae-919c-57a7afd741a6",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/chemistry/1313530a-3c91-4bae-919c-57a7afd741a6.md",
+          "sourceSectionHash": "305220a1d725e6b8ba6eb4e579b32f1d5215564acfef0999a5ad0ceef0197389",
+          "sourceSnapshotHash": "19ffc2ae9d9c1b296c88e00ab18da407de185a8ee4331532e765dd2b47e55d11"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S6-chemistry-topic-010",
+      "grade": "S6",
+      "strandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-10-strand",
+      "subStrandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-10-topic",
+      "parentSubStrandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-10-topic",
+      "strandTitle": "Indicators and titration curves",
+      "unitTitle": "Indicators and titration curves",
+      "sourceUnitTitle": "Indicators and titration curves",
+      "learningOutcomes": [
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-10-outcome-1",
+          "text": "the relate titration curves to the type of acid and base titrated, properly choose and use indicators in acid-base titrations"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-10-outcome-2",
+          "text": "define the term indicator"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-10-outcome-3",
+          "text": "explain how the indicators work"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-10-outcome-4",
+          "text": "explain what is meant by the pH range of indicator"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-10-outcome-5",
+          "text": "state the criteria for the selection of acid-base indicator for the use in titrations"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-10-outcome-6",
+          "text": "describe the changes in pH during acid/base titrations"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can indicators and titration curves help you solve a real problem in Chemistry?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Indicators and titration curves.",
+        "Review key vocabulary from the previous Chemistry lesson."
+      ],
+      "keyVocabulary": [
+        "Indicators and titration curves",
+        "Indicators",
+        "titration",
+        "curves",
+        "concept",
+        "observation",
+        "evidence",
+        "safety"
+      ],
+      "misconceptions": [
+        "giving a general answer about Indicators and titration curves without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwanda observation, model, data table, or investigation for Indicators and titration curves",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Indicators and titration curves",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Indicators and titration curves",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "1313530a-3c91-4bae-919c-57a7afd741a6",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/chemistry/1313530a-3c91-4bae-919c-57a7afd741a6.md",
+          "sourceSectionHash": "68be6e88a2ba116b6f58b625efca4319755435ea97c94e362e2efe2852766b7c",
+          "sourceSnapshotHash": "19ffc2ae9d9c1b296c88e00ab18da407de185a8ee4331532e765dd2b47e55d11"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "1313530a-3c91-4bae-919c-57a7afd741a6",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/chemistry/1313530a-3c91-4bae-919c-57a7afd741a6.md",
+          "sourceSectionHash": "68be6e88a2ba116b6f58b625efca4319755435ea97c94e362e2efe2852766b7c",
+          "sourceSnapshotHash": "19ffc2ae9d9c1b296c88e00ab18da407de185a8ee4331532e765dd2b47e55d11"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S6-chemistry-topic-011",
+      "grade": "S6",
+      "strandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-11-strand",
+      "subStrandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-11-topic",
+      "parentSubStrandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-11-topic",
+      "strandTitle": "Solubility and solubility product for sparingly soluble salts",
+      "unitTitle": "Solubility and solubility product for sparingly soluble salts",
+      "sourceUnitTitle": "Solubility and solubility product for sparingly soluble salts",
+      "learningOutcomes": [
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-11-outcome-1",
+          "text": "the calculate the solubility product, constant of sparingly soluble salts, and deduce the applications of common ion effect in the industry"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-11-outcome-2",
+          "text": "define the term solubility product Ksp"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-11-outcome-3",
+          "text": "state and explain the factors that affect solubility of sparingly soluble salts"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-11-outcome-4",
+          "text": "state and explain the applications of solubility product"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-11-outcome-5",
+          "text": "perform a simple experiment to determine the solubility product of a sparingly soluble salt"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-11-outcome-6",
+          "text": "write the equations of dissociation and Ksp expression for sparingly soluble salts"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can solubility and solubility product for sparingly soluble salts help you solve a real problem in Chemistry?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Solubility and solubility product for sparingly soluble salts.",
+        "Review key vocabulary from the previous Chemistry lesson."
+      ],
+      "keyVocabulary": [
+        "Solubility and solubility product for sparingly soluble salts",
+        "Solubility",
+        "solubility",
+        "product",
+        "sparingly",
+        "soluble",
+        "salts",
+        "concept"
+      ],
+      "misconceptions": [
+        "giving a general answer about Solubility and solubility product for sparingly soluble salts without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwanda observation, model, data table, or investigation for Solubility and solubility product for sparingly soluble salts",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Solubility and solubility product for sparingly soluble salts",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Solubility and solubility product for sparingly soluble salts",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "1313530a-3c91-4bae-919c-57a7afd741a6",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/chemistry/1313530a-3c91-4bae-919c-57a7afd741a6.md",
+          "sourceSectionHash": "9a1dd20f1d65041fc851cd9554674e5af73c6006e3f285ab411906fe81f14b9a",
+          "sourceSnapshotHash": "19ffc2ae9d9c1b296c88e00ab18da407de185a8ee4331532e765dd2b47e55d11"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "1313530a-3c91-4bae-919c-57a7afd741a6",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/chemistry/1313530a-3c91-4bae-919c-57a7afd741a6.md",
+          "sourceSectionHash": "9a1dd20f1d65041fc851cd9554674e5af73c6006e3f285ab411906fe81f14b9a",
+          "sourceSnapshotHash": "19ffc2ae9d9c1b296c88e00ab18da407de185a8ee4331532e765dd2b47e55d11"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S6-chemistry-topic-012",
+      "grade": "S6",
+      "strandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-12-strand",
+      "subStrandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-12-topic",
+      "parentSubStrandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-12-topic",
+      "strandTitle": "Electrochemical cell and applications",
+      "unitTitle": "Electrochemical cell and applications",
+      "sourceUnitTitle": "Electrochemical cell and applications",
+      "learningOutcomes": [
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-12-outcome-1",
+          "text": "the explain the working and industrial applications of electrochemical and electrolytic cells"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-12-outcome-2",
+          "text": "define the term electrochemical"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-12-outcome-3",
+          "text": "describe the standard hydrogen electrode"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-12-outcome-4",
+          "text": "explain the working of galvanic cells using the fully labelled diagram"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-12-outcome-5",
+          "text": "describe industrial applications of electrochemical cells"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-12-outcome-6",
+          "text": "construct a simple galvanic cell"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can electrochemical cell and applications help you solve a real problem in Chemistry?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Electrochemical cell and applications.",
+        "Review key vocabulary from the previous Chemistry lesson."
+      ],
+      "keyVocabulary": [
+        "Electrochemical cell and applications",
+        "Electrochemical",
+        "cell",
+        "applications",
+        "concept",
+        "observation",
+        "evidence",
+        "safety"
+      ],
+      "misconceptions": [
+        "giving a general answer about Electrochemical cell and applications without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwanda observation, model, data table, or investigation for Electrochemical cell and applications",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Electrochemical cell and applications",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Electrochemical cell and applications",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "1313530a-3c91-4bae-919c-57a7afd741a6",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/chemistry/1313530a-3c91-4bae-919c-57a7afd741a6.md",
+          "sourceSectionHash": "e650b8e3c2642545703b11fadc9bc95f35910447b71c12ae3f95d2bb13f80b54",
+          "sourceSnapshotHash": "19ffc2ae9d9c1b296c88e00ab18da407de185a8ee4331532e765dd2b47e55d11"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "1313530a-3c91-4bae-919c-57a7afd741a6",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/chemistry/1313530a-3c91-4bae-919c-57a7afd741a6.md",
+          "sourceSectionHash": "e650b8e3c2642545703b11fadc9bc95f35910447b71c12ae3f95d2bb13f80b54",
+          "sourceSnapshotHash": "19ffc2ae9d9c1b296c88e00ab18da407de185a8ee4331532e765dd2b47e55d11"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S6-chemistry-topic-013",
+      "grade": "S6",
+      "strandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-13-strand",
+      "subStrandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-13-topic",
+      "parentSubStrandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-13-topic",
+      "strandTitle": "Factors that affect the rate of reactions",
+      "unitTitle": "Factors that affect the rate of reactions",
+      "sourceUnitTitle": "Factors that affect the rate of reactions",
+      "learningOutcomes": [
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-13-outcome-1",
+          "text": "the explain the factors that affect the rate of chemical reaction and use Arrhenius equation to calculate the ratio of rate constant and activation energy with change in the temperature"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-13-outcome-2",
+          "text": "explain the concept of reaction kinetics"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-13-outcome-3",
+          "text": "explain the effect of different conditions on the rate of reaction"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-13-outcome-4",
+          "text": "carry out experiments to show how different factors affect the rate of chemical reactions. Predict the effect of changing conditions on the rate of reactions"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-13-outcome-5",
+          "text": "appreciate the importance of reaction kinetics"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-13-outcome-6",
+          "text": "appreciate the importance of different conditions on the reaction rates"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can factors that affect the rate of reactions help you solve a real problem in Chemistry?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Factors that affect the rate of reactions.",
+        "Review key vocabulary from the previous Chemistry lesson."
+      ],
+      "keyVocabulary": [
+        "Factors that affect the rate of reactions",
+        "Factors",
+        "that",
+        "affect",
+        "rate",
+        "reactions",
+        "concept",
+        "observation"
+      ],
+      "misconceptions": [
+        "giving a general answer about Factors that affect the rate of reactions without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwanda observation, model, data table, or investigation for Factors that affect the rate of reactions",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Factors that affect the rate of reactions",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Factors that affect the rate of reactions",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "1313530a-3c91-4bae-919c-57a7afd741a6",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/chemistry/1313530a-3c91-4bae-919c-57a7afd741a6.md",
+          "sourceSectionHash": "bc1965f3906c4dc5dbad16f3d164563c725230822e2b8cc62276513021c0e274",
+          "sourceSnapshotHash": "19ffc2ae9d9c1b296c88e00ab18da407de185a8ee4331532e765dd2b47e55d11"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "1313530a-3c91-4bae-919c-57a7afd741a6",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/chemistry/1313530a-3c91-4bae-919c-57a7afd741a6.md",
+          "sourceSectionHash": "bc1965f3906c4dc5dbad16f3d164563c725230822e2b8cc62276513021c0e274",
+          "sourceSnapshotHash": "19ffc2ae9d9c1b296c88e00ab18da407de185a8ee4331532e765dd2b47e55d11"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S6-chemistry-topic-014",
+      "grade": "S6",
+      "strandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-14-strand",
+      "subStrandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-14-topic",
+      "parentSubStrandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-14-topic",
+      "strandTitle": "Rate laws and measurements",
+      "unitTitle": "Rate laws and measurements",
+      "sourceUnitTitle": "Rate laws and measurements",
+      "learningOutcomes": [
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-14-outcome-1",
+          "text": "the measure the rates of reaction and formulate simple rate equations using the experimental results"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-14-outcome-2",
+          "text": "state and explain kinetic conditions for a chemical reaction to take place"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-14-outcome-3",
+          "text": "explain the effect of the temperature and catalysts on the rate of the reaction using Boltzmann distribution of energies (and of collision frequency)"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-14-outcome-4",
+          "text": "differentiate between SN1 and SN2 mechanisms"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-14-outcome-5",
+          "text": "state and explain the rate determining the steps for multi-step reactions"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-14-outcome-6",
+          "text": "deduce the order of reaction from appropriate experimental data"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can rate laws and measurements help you solve a real problem in Chemistry?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Rate laws and measurements.",
+        "Review key vocabulary from the previous Chemistry lesson."
+      ],
+      "keyVocabulary": [
+        "Rate laws and measurements",
+        "Rate",
+        "laws",
+        "measurements",
+        "concept",
+        "observation",
+        "evidence",
+        "safety"
+      ],
+      "misconceptions": [
+        "giving a general answer about Rate laws and measurements without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwanda observation, model, data table, or investigation for Rate laws and measurements",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Rate laws and measurements",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Rate laws and measurements",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "1313530a-3c91-4bae-919c-57a7afd741a6",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/chemistry/1313530a-3c91-4bae-919c-57a7afd741a6.md",
+          "sourceSectionHash": "24e558fb9535c7ece05342d4e2795f9342be13e947c02a09953b99b0a7634559",
+          "sourceSnapshotHash": "19ffc2ae9d9c1b296c88e00ab18da407de185a8ee4331532e765dd2b47e55d11"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "1313530a-3c91-4bae-919c-57a7afd741a6",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/chemistry/1313530a-3c91-4bae-919c-57a7afd741a6.md",
+          "sourceSectionHash": "24e558fb9535c7ece05342d4e2795f9342be13e947c02a09953b99b0a7634559",
+          "sourceSnapshotHash": "19ffc2ae9d9c1b296c88e00ab18da407de185a8ee4331532e765dd2b47e55d11"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S6-chemistry-topic-015",
+      "grade": "S6",
+      "strandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-15-strand",
+      "subStrandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-15-topic",
+      "parentSubStrandId": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-15-topic",
+      "strandTitle": "Radioactivity",
+      "unitTitle": "Radioactivity",
+      "sourceUnitTitle": "Radioactivity",
+      "learningOutcomes": [
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-15-outcome-1",
+          "text": "the explain the importance and dangers of radioisotopes in everyday life"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-15-outcome-2",
+          "text": "explain the process of radioactivity"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-15-outcome-3",
+          "text": "explain the properties of alpha, beta and gamma rays"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-15-outcome-4",
+          "text": "explain half-lives of radioactive radioisotopes"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-15-outcome-5",
+          "text": "explain the applications of radioisotopes in medicine, agriculture and industries"
+        },
+        {
+          "id": "1313530a-3c91-4bae-919c-57a7afd741a6-unit-15-outcome-6",
+          "text": "compare and contrast chemical and nuclear reactions"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can radioactivity help you solve a real problem in Chemistry?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Radioactivity.",
+        "Review key vocabulary from the previous Chemistry lesson."
+      ],
+      "keyVocabulary": [
+        "Radioactivity",
+        "concept",
+        "observation",
+        "evidence",
+        "safety",
+        "conclusion"
+      ],
+      "misconceptions": [
+        "giving a general answer about Radioactivity without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwanda observation, model, data table, or investigation for Radioactivity",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Radioactivity",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Radioactivity",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "1313530a-3c91-4bae-919c-57a7afd741a6",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/chemistry/1313530a-3c91-4bae-919c-57a7afd741a6.md",
+          "sourceSectionHash": "27f9c32edb89660ce6427c2cc36408e7d1ab7e0aa50552428a4f67468adcfe78",
+          "sourceSnapshotHash": "19ffc2ae9d9c1b296c88e00ab18da407de185a8ee4331532e765dd2b47e55d11"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "1313530a-3c91-4bae-919c-57a7afd741a6",
+          "officialTitle": "Rwanda Competence Based Curriculum S6 Chemistry",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S6/chemistry/1313530a-3c91-4bae-919c-57a7afd741a6.md",
+          "sourceSectionHash": "27f9c32edb89660ce6427c2cc36408e7d1ab7e0aa50552428a4f67468adcfe78",
+          "sourceSnapshotHash": "19ffc2ae9d9c1b296c88e00ab18da407de185a8ee4331532e765dd2b47e55d11"
+        }
+      ]
+    }
+  ]
+}

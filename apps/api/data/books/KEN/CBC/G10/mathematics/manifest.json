@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-grade-10-mathematics",
+  "title": "KITABU QUEST Grade 10 Mathematics",
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 10",
+  "subject": "Mathematics",
+  "subjectSlug": "mathematics",
+  "subjectColor": "#047857",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "learner-first-language-depth-renderers-2026-07-01-v10",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-reviewed-draft",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T12:27:57Z",
+  "sourceSnapshotHash": "7c04a25db180600e42410d7196e7d1733ac01c5380dc0aa5b808bf8d34c1714c",
+  "bookPlanHash": "863aea0b34017e167aef5873b68c92186b3ebc476dbcc1fbf04fd48bda33a940",
+  "pageCount": 193,
+  "wordCount": 36593,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "ageBand": "senior-secondary",
+    "coversDeferred": true,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "topicCount": 24,
+    "outcomeCount": 73,
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "KEN",
+    "subject": "Mathematics",
+    "species": "lion",
+    "role": "problem-solving guide",
+    "sourceRationale": "User-approved Mathematics mascot; confidence, strength, and Kenya wildlife association."
+  },
+  "cover": {
+    "scene": "learners solving real-life problems with blocks, measuring tools, maps, and a friendly lion mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Kenya CBC Grade 10 Mathematics. Scene: learners solving real-life problems with blocks, measuring tools, maps, and a friendly lion mascot. Include a friendly lion mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "assets": [],
+  "downloads": {
+    "markdown": "kitabu-quest-grade-10-mathematics.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-grade-10-mathematics.pdf"
+  },
+  "sourceDocuments": [
+    {
+      "id": "3566e746-3b93-41ca-ae77-a15abb1a2c10",
+      "subject": "Core Mathematics",
+      "officialTitle": "Competency Based Curriculum Grade 10 Core Mathematics",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_10",
+      "gradeLocalLevel": "Grade 10",
+      "localLevel": "Grade 10",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/1XwcFQpw5J29rryJUjwJwpd1Py5PWDpqu/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_10",
+        "documentUrl": "https://drive.google.com/file/d/1XwcFQpw5J29rryJUjwJwpd1Py5PWDpqu/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_10/core-mathematics/3566e746-3b93-41ca-ae77-a15abb1a2c10.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-ten/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "50b7c6a85d1e8e866468a39a3efd154c53087b51483e9d6d6e26c58948d8681b",
+        "markdownPageCount": 69,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_10/core-mathematics/3566e746-3b93-41ca-ae77-a15abb1a2c10.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "50b7c6a85d1e8e866468a39a3efd154c53087b51483e9d6d6e26c58948d8681b",
+          "pageCount": 69,
+          "generatedAt": "2026-06-29T16:35:05.980Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "10094d26daec532262f9e81dac92131d4797a6847e0483667f87a8fac7c67abd"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:05.980Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    },
+    {
+      "id": "de0d37ac-beba-46b5-863e-00245cf4567d",
+      "subject": "Essential Mathematics",
+      "officialTitle": "Competency Based Curriculum Grade 10 Essential Mathematics",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_10",
+      "gradeLocalLevel": "Grade 10",
+      "localLevel": "Grade 10",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/1_pRZqZQQ_XiSbJc5BFUNgKPjlo5XSu7X/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_10",
+        "documentUrl": "https://drive.google.com/file/d/1_pRZqZQQ_XiSbJc5BFUNgKPjlo5XSu7X/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_10/essential-mathematics/de0d37ac-beba-46b5-863e-00245cf4567d.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-ten/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "6e8d5809e81437896a21d2d02df8c642a89a13dec649688cbb75437f32bbc38e",
+        "markdownPageCount": 53,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_10/essential-mathematics/de0d37ac-beba-46b5-863e-00245cf4567d.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "6e8d5809e81437896a21d2d02df8c642a89a13dec649688cbb75437f32bbc38e",
+          "pageCount": 53,
+          "generatedAt": "2026-06-29T16:35:06.036Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "c1ac97a986798d7be7956b5ce6ace46a2f379c051da56cd1be7363648e5c2f77"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:06.036Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    }
+  ]
+}

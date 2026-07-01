@@ -1,0 +1,2483 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-rwa-reb-cbc-s6-computer-science",
+  "title": "KITABU QUEST S6 Computer Science",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "S6",
+  "subject": "Computer Science",
+  "subjectSlug": "computer-science",
+  "subjectColor": "#4338CA",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v5",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T04:15:32Z",
+  "sourceSnapshotHash": "6d588a79393f7cab2a493e761f145387c6b7123515c033be59d3188a792a4e8b",
+  "bookPlanHash": "078fb4facbff6be3774ed4d7c3a4638ed253d391d52abc64c0095c7cdd4a0142",
+  "pageCount": 99,
+  "wordCount": 9268,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 11,
+    "outcomeCount": 11,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "RWA",
+    "subject": "Computer Science",
+    "species": "mountain gorilla",
+    "role": "computing guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "students using computers and code safely with a mountain gorilla mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Rwanda REB-CBC S6 Computer Science. Scene: students using computers and code safely with a mountain gorilla mascot. Include a friendly mountain gorilla mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 94956,
+    "sha256": "ed00e64d1f4d65d8bf3f8de33ac65ad0a49dece63594a704d937449cf6ef6865"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 94956,
+      "sha256": "ed00e64d1f4d65d8bf3f8de33ac65ad0a49dece63594a704d937449cf6ef6865",
+      "kind": "cover",
+      "altText": "KITABU QUEST S6 Computer Science cover with mountain gorilla",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-rwa-reb-cbc-s6-computer-science.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-rwa-reb-cbc-s6-computer-science.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "9b24f0d6-9601-4d47-a49a-586e50f13f13",
+      "subject": "Computer Science",
+      "officialTitle": "Rwanda Competence Based Curriculum S6 Computer Science",
+      "countryCode": "RWA",
+      "curriculumCode": "REB-CBC",
+      "gradeCode": "S6",
+      "gradeLocalLevel": "S6",
+      "localLevel": "S6",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://elearning.reb.rw/pluginfile.php/15471/mod_resource/content/1/Computer%20Science%20Competence%20Based%20Syllabus.pdf",
+      "objectKey": "data/curriculum/source-files/RWA/d431700bbf589d86b89fbdfa73da3fb48d5d2268337bf347d6f2ddfbd1a844ae.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "S6",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://elearning.reb.rw/pluginfile.php/15471/mod_resource/content/1/Computer%20Science%20Competence%20Based%20Syllabus.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S6/computer-science/9b24f0d6-9601-4d47-a49a-586e50f13f13.md",
+        "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "reb.gov.rw",
+          "reb.rw",
+          "elearning.reb.rw"
+        ],
+        "markdownChecksum": "e553f7ded5a118f3ef4151fee1ca868d4c95057305f4a05696a28ea76b5436f3",
+        "markdownPageCount": 130,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/RWA/REB-CBC/S6/computer-science/9b24f0d6-9601-4d47-a49a-586e50f13f13.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "e553f7ded5a118f3ef4151fee1ca868d4c95057305f4a05696a28ea76b5436f3",
+          "pageCount": 130,
+          "generatedAt": "2026-07-01T01:25:51.168Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S6/computer-science/9b24f0d6-9601-4d47-a49a-586e50f13f13.json",
+          "sourceChecksum": "deb7e9f73d42ecb5090e6f80c9ae0bed1f3df353e27c67d842be9807f68ef00d"
+        },
+        "markdownGeneratedAt": "2026-07-01T01:25:51.168Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p001",
+      "title": "Title Page",
+      "content": "KITABU QUEST S6 Computer Science\n\nRwanda REB-CBC learner book\n\nMascot: mountain gorilla\n\nThis KITABU QUEST book turns the curriculum into short lessons, worked examples, guided activities, practice, review, and home links for Rwanda learners.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 3,
+      "wordCount": 34,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p002",
+      "title": "How To Use This Book",
+      "content": "This book helps S6 learners study Computer Science one teachable topic at a time.\n\n1. Start with the inquiry question and say what you already know.\n2. Read the Learn section slowly and mark new words.\n3. Try the worked example before reading the full solution.\n4. Complete the activity and practice tasks.\n5. Correct your answer using the success criteria.\n6. Ask for support when your answer is still unclear.\n\nSubject method: Practise safe computing, algorithms, data, systems thinking, and clear step-by-step explanations.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 84,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p003",
+      "title": "Learning Skills In This Book",
+      "content": "Each topic builds knowledge, skill, values, communication, collaboration, critical thinking, creativity, digital awareness, and self-confidence.\n\nStudy actively: speak answers aloud, draw when useful, show your working, cite evidence, use local examples, and correct mistakes after feedback.\n\nA strong answer is specific. It names the idea, gives evidence or method, applies it to the task, and checks whether it answers the question.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p004",
+      "title": "Table Of Contents",
+      "content": "Use this table to move through the book one topic at a time. Each topic has a lesson opener, clear teaching, a model or example, guided work, practice, and checks for understanding.\n\n1. Computer Security\n2. Networking Project\n3. SQL and Database Project\n4. Arrays, functions and procedures\n5. Visual Basic project\n6. File Management\n7. Memory Management\n8. Collections in Java\n9. Java Enterprise web applications\n10. Multimedia\n11. File handling in C++\n\nAs you finish each topic, return to the success criteria and correct one answer before moving on.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p005",
+      "title": "Computer Security: Lesson Opener",
+      "content": "Learning focus: Computer Security\n\nCountry link: a safe Rwanda observation, model, data table, or investigation for Computer Security.\n\nBy the end of this topic, you should be able to:\n- enumerate various security threats and ensure security of computers\n\nInquiry questions:\n- How can computer security help you solve a real problem in Computer Science?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 70,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-001:opener:visual-1:planned",
+        "RWA-S6-computer-science-topic-001:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-34-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-34-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-34-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-34-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p006",
+      "title": "Computer Security: Learn",
+      "content": "Computer Security is learned by connecting a computing concept to a clear problem, exact steps, and a checked output.\n\nCore idea:\n- Name the computing object first: data, algorithm, program, web page, database, network, device, or security control.\n- Break the task into steps before using a computer.\n- Use correct technical vocabulary such as input, process, output, variable, file, table, tag, command, or protocol where it fits.\n- Test the result with a small example and correct one error.\n- Save or present the work in a way another learner can inspect.\n\nKey words:\n- Computer Security\n- Computer\n- Security\n- concept\n- observation\n- evidence\n- safety\n- conclusion",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-001:learn:visual-1:planned",
+        "RWA-S6-computer-science-topic-001:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-34-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-34-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-34-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-34-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p007",
+      "title": "Computer Security: Worked Example",
+      "content": "Worked example for Computer Security: Build a small checked computing output.\n\n1. Define the task in one sentence.\n2. List the inputs needed, such as text, numbers, records, tags, commands, or devices.\n3. Write the steps before using the computer.\n4. Create a small version of the output: a web page, algorithm trace, table, query, program fragment, network diagram, or security checklist.\n5. Test with one example and correct one error.\n\nAnswer check: the output should match the task, use correct vocabulary, and be easy for another learner to inspect.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-001:example:visual-1:planned",
+        "RWA-S6-computer-science-topic-001:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-34-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-34-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-34-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-34-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p008",
+      "title": "Computer Security: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Computer Security. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Computer Security\n- Computer\n- Security\n- concept\n- observation\n- evidence\n- safety\n- conclusion\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Computer Security without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-001:vocabulary:visual-1:planned",
+        "RWA-S6-computer-science-topic-001:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-34-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-34-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-34-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-34-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p009",
+      "title": "Computer Security: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwanda observation, model, data table, or investigation for Computer Security.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-001:activity:visual-1:planned",
+        "RWA-S6-computer-science-topic-001:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-34-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-34-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-34-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-34-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p010",
+      "title": "Computer Security: Practice And Correction",
+      "content": "Practice for Computer Security:\n\nMain outcome: enumerate various security threats and ensure security of computers.\n\n1. Write the purpose of the computing task in one sentence.\n2. Create a small algorithm, code fragment, table, diagram, web page structure, database record, or network/security checklist.\n3. Test it with one example and write one correction.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 99,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-001:practice:visual-1:planned",
+        "RWA-S6-computer-science-topic-001:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-34-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-34-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-34-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-34-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p011",
+      "title": "Computer Security: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Computer Security.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-001:remediation:visual-1:planned",
+        "RWA-S6-computer-science-topic-001:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-34-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-34-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-34-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-34-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p012",
+      "title": "Computer Security: Outcome Check",
+      "content": "Outcome check for Computer Security: Enumerate various security threats and ensure security of computers.\n\n1. State the computing task or problem.\n2. Show the algorithm, code fragment, table, web page structure, database object, diagram, or security control.\n3. Test with one example and write one correction.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-001:assessment:visual-1:planned",
+        "RWA-S6-computer-science-topic-001:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-34-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-34-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-34-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-34-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p013",
+      "title": "Networking Project: Lesson Opener",
+      "content": "Learning focus: Networking Project\n\nCountry link: a safe Rwanda observation, model, data table, or investigation for Networking Project.\n\nBy the end of this topic, you should be able to:\n- build a computer wired and wireless network\n\nInquiry questions:\n- How can networking project help you solve a real problem in Computer Science?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 68,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-002:opener:visual-1:planned",
+        "RWA-S6-computer-science-topic-002:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-36-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-36-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-36-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-36-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p014",
+      "title": "Networking Project: Learn",
+      "content": "Networking Project is learned by connecting a computing concept to a clear problem, exact steps, and a checked output.\n\nCore idea:\n- Name the computing object first: data, algorithm, program, web page, database, network, device, or security control.\n- Break the task into steps before using a computer.\n- Use correct technical vocabulary such as input, process, output, variable, file, table, tag, command, or protocol where it fits.\n- Test the result with a small example and correct one error.\n- Save or present the work in a way another learner can inspect.\n\nKey words:\n- Networking Project\n- Networking\n- Project\n- concept\n- observation\n- evidence\n- safety\n- conclusion",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-002:learn:visual-1:planned",
+        "RWA-S6-computer-science-topic-002:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-36-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-36-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-36-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-36-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p015",
+      "title": "Networking Project: Worked Example",
+      "content": "Worked example for Networking Project: Build a small checked computing output.\n\n1. Define the task in one sentence.\n2. List the inputs needed, such as text, numbers, records, tags, commands, or devices.\n3. Write the steps before using the computer.\n4. Create a small version of the output: a web page, algorithm trace, table, query, program fragment, network diagram, or security checklist.\n5. Test with one example and correct one error.\n\nAnswer check: the output should match the task, use correct vocabulary, and be easy for another learner to inspect.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-002:example:visual-1:planned",
+        "RWA-S6-computer-science-topic-002:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-36-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-36-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-36-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-36-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p016",
+      "title": "Networking Project: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Networking Project. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Networking Project\n- Networking\n- Project\n- concept\n- observation\n- evidence\n- safety\n- conclusion\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Networking Project without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-002:vocabulary:visual-1:planned",
+        "RWA-S6-computer-science-topic-002:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-36-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-36-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-36-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-36-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p017",
+      "title": "Networking Project: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwanda observation, model, data table, or investigation for Networking Project.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-002:activity:visual-1:planned",
+        "RWA-S6-computer-science-topic-002:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-36-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-36-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-36-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-36-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p018",
+      "title": "Networking Project: Practice And Correction",
+      "content": "Practice for Networking Project:\n\nMain outcome: build a computer wired and wireless network.\n\n1. Write the purpose of the computing task in one sentence.\n2. Create a small algorithm, code fragment, table, diagram, web page structure, database record, or network/security checklist.\n3. Test it with one example and write one correction.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 97,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-002:practice:visual-1:planned",
+        "RWA-S6-computer-science-topic-002:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-36-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-36-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-36-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-36-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p019",
+      "title": "Networking Project: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Networking Project.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-002:remediation:visual-1:planned",
+        "RWA-S6-computer-science-topic-002:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-36-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-36-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-36-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-36-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p020",
+      "title": "Networking Project: Outcome Check",
+      "content": "Outcome check for Networking Project: Build a computer wired and wireless network.\n\n1. State the computing task or problem.\n2. Show the algorithm, code fragment, table, web page structure, database object, diagram, or security control.\n3. Test with one example and write one correction.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 59,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-002:assessment:visual-1:planned",
+        "RWA-S6-computer-science-topic-002:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-36-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-36-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-36-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-36-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p021",
+      "title": "SQL and Database Project: Lesson Opener",
+      "content": "Learning focus: SQL and Database Project\n\nCountry link: a safe Rwanda observation, model, data table, or investigation for SQL and Database Project.\n\nBy the end of this topic, you should be able to:\n- apply Structured Query Language in RDBMS and create a short database project\n\nInquiry questions:\n- How can sql and database project help you solve a real problem in Computer Science?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 79,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-003:opener:visual-1:planned",
+        "RWA-S6-computer-science-topic-003:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-37-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-37-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-37-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-37-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p022",
+      "title": "SQL and Database Project: Learn",
+      "content": "SQL and Database Project is learned by connecting a computing concept to a clear problem, exact steps, and a checked output.\n\nCore idea:\n- Name the computing object first: data, algorithm, program, web page, database, network, device, or security control.\n- Break the task into steps before using a computer.\n- Use correct technical vocabulary such as input, process, output, variable, file, table, tag, command, or protocol where it fits.\n- Test the result with a small example and correct one error.\n- Save or present the work in a way another learner can inspect.\n\nKey words:\n- SQL and Database Project\n- Database\n- Project\n- concept\n- observation\n- evidence\n- safety\n- conclusion",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 116,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-003:learn:visual-1:planned",
+        "RWA-S6-computer-science-topic-003:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-37-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-37-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-37-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-37-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p023",
+      "title": "SQL and Database Project: Worked Example",
+      "content": "Worked example for SQL and Database Project: Build a small checked computing output.\n\n1. Define the task in one sentence.\n2. List the inputs needed, such as text, numbers, records, tags, commands, or devices.\n3. Write the steps before using the computer.\n4. Create a small version of the output: a web page, algorithm trace, table, query, program fragment, network diagram, or security checklist.\n5. Test with one example and correct one error.\n\nAnswer check: the output should match the task, use correct vocabulary, and be easy for another learner to inspect.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-003:example:visual-1:planned",
+        "RWA-S6-computer-science-topic-003:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-37-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-37-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-37-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-37-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p024",
+      "title": "SQL and Database Project: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise SQL and Database Project. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- SQL and Database Project\n- Database\n- Project\n- concept\n- observation\n- evidence\n- safety\n- conclusion\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about SQL and Database Project without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-003:vocabulary:visual-1:planned",
+        "RWA-S6-computer-science-topic-003:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-37-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-37-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-37-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-37-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p025",
+      "title": "SQL and Database Project: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwanda observation, model, data table, or investigation for SQL and Database Project.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-003:activity:visual-1:planned",
+        "RWA-S6-computer-science-topic-003:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-37-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-37-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-37-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-37-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p026",
+      "title": "SQL and Database Project: Practice And Correction",
+      "content": "Practice for SQL and Database Project:\n\nMain outcome: apply Structured Query Language in RDBMS and create a short database project.\n\n1. Write the purpose of the computing task in one sentence.\n2. Create a small algorithm, code fragment, table, diagram, web page structure, database record, or network/security checklist.\n3. Test it with one example and write one correction.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 104,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-003:practice:visual-1:planned",
+        "RWA-S6-computer-science-topic-003:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-37-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-37-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-37-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-37-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p027",
+      "title": "SQL and Database Project: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from SQL and Database Project.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-003:remediation:visual-1:planned",
+        "RWA-S6-computer-science-topic-003:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-37-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-37-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-37-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-37-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p028",
+      "title": "SQL and Database Project: Outcome Check",
+      "content": "Outcome check for SQL and Database Project: Apply Structured Query Language in RDBMS and create a short database project.\n\n1. State the computing task or problem.\n2. Show the algorithm, code fragment, table, web page structure, database object, diagram, or security control.\n3. Test with one example and write one correction.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 66,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-003:assessment:visual-1:planned",
+        "RWA-S6-computer-science-topic-003:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-37-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-37-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-37-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-37-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p029",
+      "title": "Arrays, functions and procedures: Lesson Opener",
+      "content": "Learning focus: Arrays, functions and procedures\n\nCountry link: a safe Rwanda observation, model, data table, or investigation for Arrays, functions and procedures.\n\nBy the end of this topic, you should be able to:\n- use array, functions and procedures in Visual Basic program\n\nInquiry questions:\n- How can arrays, functions and procedures help you solve a real problem in Computer Science?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 76,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-004:opener:visual-1:planned",
+        "RWA-S6-computer-science-topic-004:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-38-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-38-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-38-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-38-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p030",
+      "title": "Arrays, functions and procedures: Learn",
+      "content": "Arrays, functions and procedures is learned by connecting a computing concept to a clear problem, exact steps, and a checked output.\n\nCore idea:\n- Name the computing object first: data, algorithm, program, web page, database, network, device, or security control.\n- Break the task into steps before using a computer.\n- Use correct technical vocabulary such as input, process, output, variable, file, table, tag, command, or protocol where it fits.\n- Test the result with a small example and correct one error.\n- Save or present the work in a way another learner can inspect.\n\nKey words:\n- Arrays, functions and procedures\n- Arrays\n- functions\n- procedures\n- concept\n- observation\n- evidence\n- safety",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 116,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-004:learn:visual-1:planned",
+        "RWA-S6-computer-science-topic-004:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-38-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-38-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-38-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-38-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p031",
+      "title": "Arrays, functions and procedures: Worked Example",
+      "content": "Worked example for Arrays, functions and procedures: Build a small checked computing output.\n\n1. Define the task in one sentence.\n2. List the inputs needed, such as text, numbers, records, tags, commands, or devices.\n3. Write the steps before using the computer.\n4. Create a small version of the output: a web page, algorithm trace, table, query, program fragment, network diagram, or security checklist.\n5. Test with one example and correct one error.\n\nAnswer check: the output should match the task, use correct vocabulary, and be easy for another learner to inspect.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-004:example:visual-1:planned",
+        "RWA-S6-computer-science-topic-004:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-38-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-38-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-38-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-38-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p032",
+      "title": "Arrays, functions and procedures: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Arrays, functions and procedures. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Arrays, functions and procedures\n- Arrays\n- functions\n- procedures\n- concept\n- observation\n- evidence\n- safety\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Arrays, functions and procedures without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-004:vocabulary:visual-1:planned",
+        "RWA-S6-computer-science-topic-004:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-38-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-38-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-38-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-38-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p033",
+      "title": "Arrays, functions and procedures: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwanda observation, model, data table, or investigation for Arrays, functions and procedures.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-004:activity:visual-1:planned",
+        "RWA-S6-computer-science-topic-004:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-38-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-38-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-38-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-38-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p034",
+      "title": "Arrays, functions and procedures: Practice And Correction",
+      "content": "Practice for Arrays, functions and procedures:\n\nMain outcome: use array, functions and procedures in Visual Basic program.\n\n1. Write the purpose of the computing task in one sentence.\n2. Create a small algorithm, code fragment, table, diagram, web page structure, database record, or network/security checklist.\n3. Test it with one example and write one correction.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-004:practice:visual-1:planned",
+        "RWA-S6-computer-science-topic-004:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-38-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-38-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-38-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-38-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p035",
+      "title": "Arrays, functions and procedures: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Arrays, functions and procedures.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-004:remediation:visual-1:planned",
+        "RWA-S6-computer-science-topic-004:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-38-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-38-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-38-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-38-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p036",
+      "title": "Arrays, functions and procedures: Outcome Check",
+      "content": "Outcome check for Arrays, functions and procedures: Use array, functions and procedures in Visual Basic program.\n\n1. State the computing task or problem.\n2. Show the algorithm, code fragment, table, web page structure, database object, diagram, or security control.\n3. Test with one example and write one correction.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 63,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-004:assessment:visual-1:planned",
+        "RWA-S6-computer-science-topic-004:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-38-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-38-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-38-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-38-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p037",
+      "title": "Visual Basic project: Lesson Opener",
+      "content": "Learning focus: Visual Basic project\n\nCountry link: a safe Rwanda observation, model, data table, or investigation for Visual Basic project.\n\nBy the end of this topic, you should be able to:\n- connect Visual Basic interface to database and create a simple Visual Basic standard desktop applications for a real life situation\n\nInquiry questions:\n- How can visual basic project help you solve a real problem in Computer Science?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 84,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-005:opener:visual-1:planned",
+        "RWA-S6-computer-science-topic-005:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-39-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-39-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-39-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-39-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p038",
+      "title": "Visual Basic project: Learn",
+      "content": "Visual Basic project is learned by connecting a computing concept to a clear problem, exact steps, and a checked output.\n\nCore idea:\n- Name the computing object first: data, algorithm, program, web page, database, network, device, or security control.\n- Break the task into steps before using a computer.\n- Use correct technical vocabulary such as input, process, output, variable, file, table, tag, command, or protocol where it fits.\n- Test the result with a small example and correct one error.\n- Save or present the work in a way another learner can inspect.\n\nKey words:\n- Visual Basic project\n- Visual\n- Basic\n- project\n- concept\n- observation\n- evidence\n- safety",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 114,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-005:learn:visual-1:planned",
+        "RWA-S6-computer-science-topic-005:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-39-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-39-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-39-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-39-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p039",
+      "title": "Visual Basic project: Worked Example",
+      "content": "Worked example for Visual Basic project: Build a small checked computing output.\n\n1. Define the task in one sentence.\n2. List the inputs needed, such as text, numbers, records, tags, commands, or devices.\n3. Write the steps before using the computer.\n4. Create a small version of the output: a web page, algorithm trace, table, query, program fragment, network diagram, or security checklist.\n5. Test with one example and correct one error.\n\nAnswer check: the output should match the task, use correct vocabulary, and be easy for another learner to inspect.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-005:example:visual-1:planned",
+        "RWA-S6-computer-science-topic-005:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-39-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-39-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-39-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-39-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p040",
+      "title": "Visual Basic project: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Visual Basic project. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Visual Basic project\n- Visual\n- Basic\n- project\n- concept\n- observation\n- evidence\n- safety\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Visual Basic project without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-005:vocabulary:visual-1:planned",
+        "RWA-S6-computer-science-topic-005:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-39-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-39-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-39-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-39-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p041",
+      "title": "Visual Basic project: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwanda observation, model, data table, or investigation for Visual Basic project.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-005:activity:visual-1:planned",
+        "RWA-S6-computer-science-topic-005:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-39-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-39-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-39-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-39-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p042",
+      "title": "Visual Basic project: Practice And Correction",
+      "content": "Practice for Visual Basic project:\n\nMain outcome: connect Visual Basic interface to database and create a simple Visual Basic standard desktop applications for a real life situation.\n\n1. Write the purpose of the computing task in one sentence.\n2. Create a small algorithm, code fragment, table, diagram, web page structure, database record, or network/security checklist.\n3. Test it with one example and write one correction.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 111,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-005:practice:visual-1:planned",
+        "RWA-S6-computer-science-topic-005:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-39-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-39-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-39-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-39-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p043",
+      "title": "Visual Basic project: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Visual Basic project.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 104,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-005:remediation:visual-1:planned",
+        "RWA-S6-computer-science-topic-005:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-39-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-39-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-39-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-39-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p044",
+      "title": "Visual Basic project: Outcome Check",
+      "content": "Outcome check for Visual Basic project: Connect Visual Basic interface to database and create a simple Visual Basic standard desktop applications for a real life situation.\n\n1. State the computing task or problem.\n2. Show the algorithm, code fragment, table, web page structure, database object, diagram, or security control.\n3. Test with one example and write one correction.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 73,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-005:assessment:visual-1:planned",
+        "RWA-S6-computer-science-topic-005:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-39-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-39-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-39-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-39-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p045",
+      "title": "File Management: Lesson Opener",
+      "content": "Learning focus: File Management\n\nCountry link: a safe Rwanda observation, model, data table, or investigation for File Management.\n\nBy the end of this topic, you should be able to:\n- describe role of operating system in file management and explain file management\n\nInquiry questions:\n- How can file management help you solve a real problem in Computer Science?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 73,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-006:opener:visual-1:planned",
+        "RWA-S6-computer-science-topic-006:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-41-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-41-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-41-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-41-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p046",
+      "title": "File Management: Learn",
+      "content": "File Management is learned by connecting a computing concept to a clear problem, exact steps, and a checked output.\n\nCore idea:\n- Name the computing object first: data, algorithm, program, web page, database, network, device, or security control.\n- Break the task into steps before using a computer.\n- Use correct technical vocabulary such as input, process, output, variable, file, table, tag, command, or protocol where it fits.\n- Test the result with a small example and correct one error.\n- Save or present the work in a way another learner can inspect.\n\nKey words:\n- File Management\n- File\n- Management\n- concept\n- observation\n- evidence\n- safety\n- conclusion",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-006:learn:visual-1:planned",
+        "RWA-S6-computer-science-topic-006:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-41-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-41-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-41-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-41-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p047",
+      "title": "File Management: Worked Example",
+      "content": "Worked example for File Management: Build a small checked computing output.\n\n1. Define the task in one sentence.\n2. List the inputs needed, such as text, numbers, records, tags, commands, or devices.\n3. Write the steps before using the computer.\n4. Create a small version of the output: a web page, algorithm trace, table, query, program fragment, network diagram, or security checklist.\n5. Test with one example and correct one error.\n\nAnswer check: the output should match the task, use correct vocabulary, and be easy for another learner to inspect.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-006:example:visual-1:planned",
+        "RWA-S6-computer-science-topic-006:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-41-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-41-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-41-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-41-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p048",
+      "title": "File Management: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise File Management. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- File Management\n- File\n- Management\n- concept\n- observation\n- evidence\n- safety\n- conclusion\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about File Management without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-006:vocabulary:visual-1:planned",
+        "RWA-S6-computer-science-topic-006:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-41-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-41-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-41-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-41-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p049",
+      "title": "File Management: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwanda observation, model, data table, or investigation for File Management.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-006:activity:visual-1:planned",
+        "RWA-S6-computer-science-topic-006:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-41-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-41-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-41-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-41-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p050",
+      "title": "File Management: Practice And Correction",
+      "content": "Practice for File Management:\n\nMain outcome: describe role of operating system in file management and explain file management.\n\n1. Write the purpose of the computing task in one sentence.\n2. Create a small algorithm, code fragment, table, diagram, web page structure, database record, or network/security checklist.\n3. Test it with one example and write one correction.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 102,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-006:practice:visual-1:planned",
+        "RWA-S6-computer-science-topic-006:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-41-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-41-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-41-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-41-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p051",
+      "title": "File Management: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from File Management.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-006:remediation:visual-1:planned",
+        "RWA-S6-computer-science-topic-006:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-41-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-41-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-41-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-41-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p052",
+      "title": "File Management: Outcome Check",
+      "content": "Outcome check for File Management: Describe role of operating system in file management and explain file management.\n\n1. State the computing task or problem.\n2. Show the algorithm, code fragment, table, web page structure, database object, diagram, or security control.\n3. Test with one example and write one correction.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 64,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-006:assessment:visual-1:planned",
+        "RWA-S6-computer-science-topic-006:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-41-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-41-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-41-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-41-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p053",
+      "title": "Memory Management: Lesson Opener",
+      "content": "Learning focus: Memory Management\n\nCountry link: a safe Rwanda observation, model, data table, or investigation for Memory Management.\n\nBy the end of this topic, you should be able to:\n- explain the role of operating system in Memory Management\n\nInquiry questions:\n- How can memory management help you solve a real problem in Computer Science?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 70,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-007:opener:visual-1:planned",
+        "RWA-S6-computer-science-topic-007:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-42-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-42-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-42-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-42-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p054",
+      "title": "Memory Management: Learn",
+      "content": "Memory Management is learned by connecting a computing concept to a clear problem, exact steps, and a checked output.\n\nCore idea:\n- Name the computing object first: data, algorithm, program, web page, database, network, device, or security control.\n- Break the task into steps before using a computer.\n- Use correct technical vocabulary such as input, process, output, variable, file, table, tag, command, or protocol where it fits.\n- Test the result with a small example and correct one error.\n- Save or present the work in a way another learner can inspect.\n\nKey words:\n- Memory Management\n- Memory\n- Management\n- concept\n- observation\n- evidence\n- safety\n- conclusion",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-007:learn:visual-1:planned",
+        "RWA-S6-computer-science-topic-007:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-42-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-42-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-42-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-42-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p055",
+      "title": "Memory Management: Worked Example",
+      "content": "Worked example for Memory Management: Build a small checked computing output.\n\n1. Define the task in one sentence.\n2. List the inputs needed, such as text, numbers, records, tags, commands, or devices.\n3. Write the steps before using the computer.\n4. Create a small version of the output: a web page, algorithm trace, table, query, program fragment, network diagram, or security checklist.\n5. Test with one example and correct one error.\n\nAnswer check: the output should match the task, use correct vocabulary, and be easy for another learner to inspect.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-007:example:visual-1:planned",
+        "RWA-S6-computer-science-topic-007:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-42-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-42-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-42-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-42-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p056",
+      "title": "Memory Management: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Memory Management. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Memory Management\n- Memory\n- Management\n- concept\n- observation\n- evidence\n- safety\n- conclusion\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Memory Management without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-007:vocabulary:visual-1:planned",
+        "RWA-S6-computer-science-topic-007:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-42-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-42-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-42-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-42-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p057",
+      "title": "Memory Management: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwanda observation, model, data table, or investigation for Memory Management.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-007:activity:visual-1:planned",
+        "RWA-S6-computer-science-topic-007:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-42-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-42-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-42-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-42-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p058",
+      "title": "Memory Management: Practice And Correction",
+      "content": "Practice for Memory Management:\n\nMain outcome: explain the role of operating system in Memory Management.\n\n1. Write the purpose of the computing task in one sentence.\n2. Create a small algorithm, code fragment, table, diagram, web page structure, database record, or network/security checklist.\n3. Test it with one example and write one correction.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 99,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-007:practice:visual-1:planned",
+        "RWA-S6-computer-science-topic-007:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-42-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-42-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-42-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-42-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p059",
+      "title": "Memory Management: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Memory Management.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-007:remediation:visual-1:planned",
+        "RWA-S6-computer-science-topic-007:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-42-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-42-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-42-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-42-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p060",
+      "title": "Memory Management: Outcome Check",
+      "content": "Outcome check for Memory Management: Explain the role of operating system in Memory Management.\n\n1. State the computing task or problem.\n2. Show the algorithm, code fragment, table, web page structure, database object, diagram, or security control.\n3. Test with one example and write one correction.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-007:assessment:visual-1:planned",
+        "RWA-S6-computer-science-topic-007:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-42-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-42-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-42-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-42-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p061",
+      "title": "Collections in Java: Lesson Opener",
+      "content": "Learning focus: Collections in Java\n\nCountry link: a safe Rwanda observation, model, data table, or investigation for Collections in Java.\n\nBy the end of this topic, you should be able to:\n- use collections to store data in Java\n\nInquiry questions:\n- How can collections in java help you solve a real problem in Computer Science?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 71,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-008:opener:visual-1:planned",
+        "RWA-S6-computer-science-topic-008:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-43-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-43-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-43-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-43-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p062",
+      "title": "Collections in Java: Learn",
+      "content": "Collections in Java is learned by connecting a computing concept to a clear problem, exact steps, and a checked output.\n\nCore idea:\n- Name the computing object first: data, algorithm, program, web page, database, network, device, or security control.\n- Break the task into steps before using a computer.\n- Use correct technical vocabulary such as input, process, output, variable, file, table, tag, command, or protocol where it fits.\n- Test the result with a small example and correct one error.\n- Save or present the work in a way another learner can inspect.\n\nKey words:\n- Collections in Java\n- Collections\n- Java\n- concept\n- observation\n- evidence\n- safety\n- conclusion",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 114,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-008:learn:visual-1:planned",
+        "RWA-S6-computer-science-topic-008:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-43-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-43-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-43-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-43-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p063",
+      "title": "Collections in Java: Worked Example",
+      "content": "Worked example for Collections in Java: Build a small checked computing output.\n\n1. Define the task in one sentence.\n2. List the inputs needed, such as text, numbers, records, tags, commands, or devices.\n3. Write the steps before using the computer.\n4. Create a small version of the output: a web page, algorithm trace, table, query, program fragment, network diagram, or security checklist.\n5. Test with one example and correct one error.\n\nAnswer check: the output should match the task, use correct vocabulary, and be easy for another learner to inspect.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-008:example:visual-1:planned",
+        "RWA-S6-computer-science-topic-008:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-43-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-43-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-43-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-43-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p064",
+      "title": "Collections in Java: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Collections in Java. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Collections in Java\n- Collections\n- Java\n- concept\n- observation\n- evidence\n- safety\n- conclusion\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Collections in Java without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-008:vocabulary:visual-1:planned",
+        "RWA-S6-computer-science-topic-008:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-43-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-43-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-43-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-43-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p065",
+      "title": "Collections in Java: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwanda observation, model, data table, or investigation for Collections in Java.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-008:activity:visual-1:planned",
+        "RWA-S6-computer-science-topic-008:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-43-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-43-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-43-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-43-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p066",
+      "title": "Collections in Java: Practice And Correction",
+      "content": "Practice for Collections in Java:\n\nMain outcome: use collections to store data in Java.\n\n1. Write the purpose of the computing task in one sentence.\n2. Create a small algorithm, code fragment, table, diagram, web page structure, database record, or network/security checklist.\n3. Test it with one example and write one correction.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-008:practice:visual-1:planned",
+        "RWA-S6-computer-science-topic-008:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-43-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-43-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-43-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-43-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p067",
+      "title": "Collections in Java: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Collections in Java.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 104,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-008:remediation:visual-1:planned",
+        "RWA-S6-computer-science-topic-008:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-43-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-43-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-43-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-43-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p068",
+      "title": "Collections in Java: Outcome Check",
+      "content": "Outcome check for Collections in Java: Use collections to store data in Java.\n\n1. State the computing task or problem.\n2. Show the algorithm, code fragment, table, web page structure, database object, diagram, or security control.\n3. Test with one example and write one correction.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 60,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-008:assessment:visual-1:planned",
+        "RWA-S6-computer-science-topic-008:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-43-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-43-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-43-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-43-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p069",
+      "title": "Java Enterprise web applications: Lesson Opener",
+      "content": "Learning focus: Java Enterprise web applications\n\nCountry link: a safe Rwanda observation, model, data table, or investigation for Java Enterprise web applications.\n\nBy the end of this topic, you should be able to:\n- design and run a Java enterprise web application\n\nInquiry questions:\n- How can java enterprise web applications help you solve a real problem in Computer Science?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 75,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-009:opener:visual-1:planned",
+        "RWA-S6-computer-science-topic-009:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-44-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-44-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-44-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-44-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p070",
+      "title": "Java Enterprise web applications: Learn",
+      "content": "Java Enterprise web applications is learned by connecting a computing concept to a clear problem, exact steps, and a checked output.\n\nCore idea:\n- Name the computing object first: data, algorithm, program, web page, database, network, device, or security control.\n- Break the task into steps before using a computer.\n- Use correct technical vocabulary such as input, process, output, variable, file, table, tag, command, or protocol where it fits.\n- Test the result with a small example and correct one error.\n- Save or present the work in a way another learner can inspect.\n\nKey words:\n- Java Enterprise web applications\n- Java\n- Enterprise\n- applications\n- concept\n- observation\n- evidence\n- safety",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 116,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-009:learn:visual-1:planned",
+        "RWA-S6-computer-science-topic-009:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-44-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-44-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-44-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-44-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p071",
+      "title": "Java Enterprise web applications: Worked Example",
+      "content": "Worked example for Java Enterprise web applications: Build a small checked computing output.\n\n1. Define the task in one sentence.\n2. List the inputs needed, such as text, numbers, records, tags, commands, or devices.\n3. Write the steps before using the computer.\n4. Create a small version of the output: a web page, algorithm trace, table, query, program fragment, network diagram, or security checklist.\n5. Test with one example and correct one error.\n\nAnswer check: the output should match the task, use correct vocabulary, and be easy for another learner to inspect.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-009:example:visual-1:planned",
+        "RWA-S6-computer-science-topic-009:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-44-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-44-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-44-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-44-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p072",
+      "title": "Java Enterprise web applications: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Java Enterprise web applications. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Java Enterprise web applications\n- Java\n- Enterprise\n- applications\n- concept\n- observation\n- evidence\n- safety\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Java Enterprise web applications without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-009:vocabulary:visual-1:planned",
+        "RWA-S6-computer-science-topic-009:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-44-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-44-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-44-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-44-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p073",
+      "title": "Java Enterprise web applications: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwanda observation, model, data table, or investigation for Java Enterprise web applications.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-009:activity:visual-1:planned",
+        "RWA-S6-computer-science-topic-009:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-44-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-44-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-44-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-44-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p074",
+      "title": "Java Enterprise web applications: Practice And Correction",
+      "content": "Practice for Java Enterprise web applications:\n\nMain outcome: design and run a Java enterprise web application.\n\n1. Write the purpose of the computing task in one sentence.\n2. Create a small algorithm, code fragment, table, diagram, web page structure, database record, or network/security checklist.\n3. Test it with one example and write one correction.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 100,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-009:practice:visual-1:planned",
+        "RWA-S6-computer-science-topic-009:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-44-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-44-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-44-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-44-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p075",
+      "title": "Java Enterprise web applications: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Java Enterprise web applications.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-009:remediation:visual-1:planned",
+        "RWA-S6-computer-science-topic-009:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-44-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-44-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-44-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-44-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p076",
+      "title": "Java Enterprise web applications: Outcome Check",
+      "content": "Outcome check for Java Enterprise web applications: Design and run a Java enterprise web application.\n\n1. State the computing task or problem.\n2. Show the algorithm, code fragment, table, web page structure, database object, diagram, or security control.\n3. Test with one example and write one correction.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 62,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-009:assessment:visual-1:planned",
+        "RWA-S6-computer-science-topic-009:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-44-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-44-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-44-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-44-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p077",
+      "title": "Multimedia: Lesson Opener",
+      "content": "Learning focus: Multimedia\n\nCountry link: a safe Rwanda observation, model, data table, or investigation for Multimedia.\n\nBy the end of this topic, you should be able to:\n- explain the different use of multimedia and interactive multimedia applications and to use multimedia software to create video\n\nInquiry questions:\n- How can multimedia help you solve a real problem in Computer Science?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 76,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-010:opener:visual-1:planned",
+        "RWA-S6-computer-science-topic-010:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-46-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-46-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-46-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-46-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p078",
+      "title": "Multimedia: Learn",
+      "content": "Multimedia is learned by connecting a computing concept to a clear problem, exact steps, and a checked output.\n\nCore idea:\n- Name the computing object first: data, algorithm, program, web page, database, network, device, or security control.\n- Break the task into steps before using a computer.\n- Use correct technical vocabulary such as input, process, output, variable, file, table, tag, command, or protocol where it fits.\n- Test the result with a small example and correct one error.\n- Save or present the work in a way another learner can inspect.\n\nKey words:\n- Multimedia\n- concept\n- observation\n- evidence\n- safety\n- conclusion",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-010:learn:visual-1:planned",
+        "RWA-S6-computer-science-topic-010:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-46-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-46-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-46-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-46-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p079",
+      "title": "Multimedia: Worked Example",
+      "content": "Worked example for Multimedia: Build a small checked computing output.\n\n1. Define the task in one sentence.\n2. List the inputs needed, such as text, numbers, records, tags, commands, or devices.\n3. Write the steps before using the computer.\n4. Create a small version of the output: a web page, algorithm trace, table, query, program fragment, network diagram, or security checklist.\n5. Test with one example and correct one error.\n\nAnswer check: the output should match the task, use correct vocabulary, and be easy for another learner to inspect.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 89,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-010:example:visual-1:planned",
+        "RWA-S6-computer-science-topic-010:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-46-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-46-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-46-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-46-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p080",
+      "title": "Multimedia: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Multimedia. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Multimedia\n- concept\n- observation\n- evidence\n- safety\n- conclusion\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Multimedia without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-010:vocabulary:visual-1:planned",
+        "RWA-S6-computer-science-topic-010:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-46-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-46-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-46-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-46-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p081",
+      "title": "Multimedia: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwanda observation, model, data table, or investigation for Multimedia.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-010:activity:visual-1:planned",
+        "RWA-S6-computer-science-topic-010:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-46-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-46-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-46-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-46-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p082",
+      "title": "Multimedia: Practice And Correction",
+      "content": "Practice for Multimedia:\n\nMain outcome: explain the different use of multimedia and interactive multimedia applications and to use multimedia software to create video.\n\n1. Write the purpose of the computing task in one sentence.\n2. Create a small algorithm, code fragment, table, diagram, web page structure, database record, or network/security checklist.\n3. Test it with one example and write one correction.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-010:practice:visual-1:planned",
+        "RWA-S6-computer-science-topic-010:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-46-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-46-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-46-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-46-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p083",
+      "title": "Multimedia: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Multimedia.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 102,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-010:remediation:visual-1:planned",
+        "RWA-S6-computer-science-topic-010:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-46-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-46-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-46-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-46-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p084",
+      "title": "Multimedia: Outcome Check",
+      "content": "Outcome check for Multimedia: Explain the different use of multimedia and interactive multimedia applications and to use multimedia software to create video.\n\n1. State the computing task or problem.\n2. Show the algorithm, code fragment, table, web page structure, database object, diagram, or security control.\n3. Test with one example and write one correction.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 69,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-010:assessment:visual-1:planned",
+        "RWA-S6-computer-science-topic-010:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-46-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-46-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-46-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-46-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p085",
+      "title": "File handling in C++: Lesson Opener",
+      "content": "Learning focus: File handling in C++\n\nCountry link: a safe Rwanda observation, model, data table, or investigation for File handling in C++.\n\nBy the end of this topic, you should be able to:\n- open, close, create a data file in C++ and read, write and append data to Files\n\nInquiry questions:\n- How can file handling in c++ help you solve a real problem in Computer Science?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 83,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-011:opener:visual-1:planned",
+        "RWA-S6-computer-science-topic-011:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-47-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-47-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-47-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-47-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p086",
+      "title": "File handling in C++: Learn",
+      "content": "File handling in C++ is learned by connecting a computing concept to a clear problem, exact steps, and a checked output.\n\nCore idea:\n- Name the computing object first: data, algorithm, program, web page, database, network, device, or security control.\n- Break the task into steps before using a computer.\n- Use correct technical vocabulary such as input, process, output, variable, file, table, tag, command, or protocol where it fits.\n- Test the result with a small example and correct one error.\n- Save or present the work in a way another learner can inspect.\n\nKey words:\n- File handling in C++\n- File\n- handling\n- concept\n- observation\n- evidence\n- safety\n- conclusion",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 116,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-011:learn:visual-1:planned",
+        "RWA-S6-computer-science-topic-011:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-47-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-47-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-47-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-47-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p087",
+      "title": "File handling in C++: Worked Example",
+      "content": "Worked example for File handling in C++: Build a small checked computing output.\n\n1. Define the task in one sentence.\n2. List the inputs needed, such as text, numbers, records, tags, commands, or devices.\n3. Write the steps before using the computer.\n4. Create a small version of the output: a web page, algorithm trace, table, query, program fragment, network diagram, or security checklist.\n5. Test with one example and correct one error.\n\nAnswer check: the output should match the task, use correct vocabulary, and be easy for another learner to inspect.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-011:example:visual-1:planned",
+        "RWA-S6-computer-science-topic-011:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-47-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-47-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-47-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-47-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p088",
+      "title": "File handling in C++: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise File handling in C++. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- File handling in C++\n- File\n- handling\n- concept\n- observation\n- evidence\n- safety\n- conclusion\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about File handling in C++ without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-011:vocabulary:visual-1:planned",
+        "RWA-S6-computer-science-topic-011:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-47-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-47-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-47-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-47-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p089",
+      "title": "File handling in C++: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwanda observation, model, data table, or investigation for File handling in C++.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-011:activity:visual-1:planned",
+        "RWA-S6-computer-science-topic-011:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-47-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-47-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-47-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-47-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p090",
+      "title": "File handling in C++: Practice And Correction",
+      "content": "Practice for File handling in C++:\n\nMain outcome: open, close, create a data file in C++ and read, write and append data to Files.\n\n1. Write the purpose of the computing task in one sentence.\n2. Create a small algorithm, code fragment, table, diagram, web page structure, database record, or network/security checklist.\n3. Test it with one example and write one correction.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-011:practice:visual-1:planned",
+        "RWA-S6-computer-science-topic-011:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-47-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-47-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-47-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-47-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p091",
+      "title": "File handling in C++: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from File handling in C++.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-011:remediation:visual-1:planned",
+        "RWA-S6-computer-science-topic-011:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-47-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-47-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-47-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-47-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p092",
+      "title": "File handling in C++: Outcome Check",
+      "content": "Outcome check for File handling in C++: Open, close, create a data file in C++ and read, write and append data to Files.\n\n1. State the computing task or problem.\n2. Show the algorithm, code fragment, table, web page structure, database object, diagram, or security control.\n3. Test with one example and write one correction.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 70,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-011:assessment:visual-1:planned",
+        "RWA-S6-computer-science-topic-011:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-47-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-47-topic"
+      ],
+      "parentUnitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-47-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-47-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p093",
+      "title": "Computer Security: Review Clinic 1",
+      "content": "Use this review clinic to strengthen Computer Science without copying earlier answers.\n\n1. Choose one idea from Computer Security that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Rwanda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 76,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-001:review:visual-1:planned",
+        "RWA-S6-computer-science-topic-001:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-34-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-34-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-34-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p094",
+      "title": "Networking Project: Review Clinic 2",
+      "content": "Use this review clinic to strengthen Computer Science without copying earlier answers.\n\n1. Choose one idea from Networking Project that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Rwanda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 76,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-002:review:visual-1:planned",
+        "RWA-S6-computer-science-topic-002:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-36-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-36-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-36-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p095",
+      "title": "SQL and Database Project: Review Clinic 3",
+      "content": "Use this review clinic to strengthen Computer Science without copying earlier answers.\n\n1. Choose one idea from SQL and Database Project that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Rwanda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 78,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-003:review:visual-1:planned",
+        "RWA-S6-computer-science-topic-003:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-37-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-37-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-37-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p096",
+      "title": "Arrays, functions and procedures: Review Clinic 4",
+      "content": "Use this review clinic to strengthen Computer Science without copying earlier answers.\n\n1. Choose one idea from Arrays, functions and procedures that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Rwanda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 78,
+      "imageRefs": [
+        "RWA-S6-computer-science-topic-004:review:visual-1:planned",
+        "RWA-S6-computer-science-topic-004:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-38-strand"
+      ],
+      "unitIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-38-topic"
+      ],
+      "outcomeIds": [
+        "9b24f0d6-9601-4d47-a49a-586e50f13f13-unit-38-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p097",
+      "title": "Glossary",
+      "content": "Use this glossary to revise important words in Computer Science.\n\n- Computer Security: Explain this term using an example from the book, your school, or your community.\n- Networking Project: Explain this term using an example from the book, your school, or your community.\n- SQL and Database Project: Explain this term using an example from the book, your school, or your community.\n- Arrays, functions and procedures: Explain this term using an example from the book, your school, or your community.\n- Visual Basic project: Explain this term using an example from the book, your school, or your community.\n- File Management: Explain this term using an example from the book, your school, or your community.\n- Memory Management: Explain this term using an example from the book, your school, or your community.\n- Collections in Java: Explain this term using an example from the book, your school, or your community.\n- Java Enterprise web applications: Explain this term using an example from the book, your school, or your community.\n- Multimedia: Explain this term using an example from the book, your school, or your community.\n- File handling in C++: Explain this term using an example from the book, your school, or your community.\n\nAdd five more words from your lessons and write your own meanings.",
+      "pageType": "glossary",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 218,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p098",
+      "title": "Answer And Teacher Notes",
+      "content": "A strong Computer Science answer states the idea, uses correct scientific vocabulary, records observations or data, includes units or labels where needed, and writes a conclusion that follows from evidence. Safety rules always come first. If evidence is missing, repeat the observation safely or explain what evidence would be needed.",
+      "pageType": "answer-notes",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 50,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s6-computer-science-p099",
+      "title": "Final Project",
+      "content": "Create a final project for Computer Science that shows what you can now do independently.\n\nYour project must include:\n1. A clear title.\n2. A real-life problem, question, text, performance, investigation, design, or worked task.\n3. Evidence from at least three lessons in this book.\n4. A drawing, table, map, chart, model, dialogue, paragraph, performance plan, practical product, or worked solution.\n5. A correction note showing one improvement after feedback.\n6. A short reflection explaining what you learned, what was difficult, and what you will practise next.\n\nPresentation check: keep the work neat, label important parts, use correct vocabulary, and be ready to explain your choices to a classmate or teacher.",
+      "pageType": "project",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 111,
+      "imageRefs": []
+    }
+  ]
+}

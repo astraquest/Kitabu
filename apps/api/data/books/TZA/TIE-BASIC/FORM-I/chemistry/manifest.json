@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-tza-tie-basic-form-i-chemistry",
+  "title": "KITABU QUEST Form I Chemistry",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Form I",
+  "subject": "Chemistry",
+  "subjectSlug": "chemistry",
+  "subjectColor": "#7C3AED",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v13",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:43:48Z",
+  "sourceSnapshotHash": "14511a218e3d08d4e0307428b70695a87c76314a3b61481314240c4a2ee80918",
+  "bookPlanHash": "ee86366980bd46539e635061e992eee0c69745aaeb783cb18184c25132b78081",
+  "pageCount": 85,
+  "wordCount": 8325,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 8,
+    "outcomeCount": 8,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "TZA",
+    "subject": "Chemistry",
+    "species": "chameleon",
+    "role": "science observation guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "students doing safe chemistry work with a chameleon mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Tanzania TIE-BASIC Form I Chemistry. Scene: students doing safe chemistry work with a chameleon mascot. Include a friendly chameleon mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 85522,
+    "sha256": "d1e6f8fc8b21c02f846eb2278f43457e5c4758424d757f23190d34615e63d1d7"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 85522,
+      "sha256": "d1e6f8fc8b21c02f846eb2278f43457e5c4758424d757f23190d34615e63d1d7",
+      "kind": "cover",
+      "altText": "KITABU QUEST Form I Chemistry cover with chameleon",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-tza-tie-basic-form-i-chemistry.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-tza-tie-basic-form-i-chemistry.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "4fcbdb93-1a1a-416a-99ed-87938835a728",
+      "subject": "Chemistry",
+      "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Chemistry",
+      "countryCode": "TZA",
+      "curriculumCode": "TIE-BASIC",
+      "gradeCode": "FORM_I",
+      "gradeLocalLevel": "Form I",
+      "localLevel": "Form I",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+      "objectKey": "data/curriculum/source-files/TZA/b9ca1dd0c8d837c016d65a5ac7385e82af51dfaf3ead82dd85e516f61fffb906.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "FORM_I",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/chemistry/4fcbdb93-1a1a-416a-99ed-87938835a728.md",
+        "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "tie.go.tz"
+        ],
+        "markdownChecksum": "fcb092b86d869949b40c413df5239103ef84782beb14d4be6cc8699a0cb72558",
+        "markdownPageCount": 59,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/chemistry/4fcbdb93-1a1a-416a-99ed-87938835a728.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "fcb092b86d869949b40c413df5239103ef84782beb14d4be6cc8699a0cb72558",
+          "pageCount": 59,
+          "generatedAt": "2026-06-29T16:44:06.590Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "f6b93b5819e5c582ca3d190a81725a322f07890cb35b77d0b1375ca999877fea"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:44:06.590Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

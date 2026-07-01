@@ -1,0 +1,2131 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-tza-tie-basic-form-iii-business-studies",
+  "title": "KITABU QUEST Form III Business Studies",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Form III",
+  "subject": "Business Studies",
+  "subjectSlug": "business-studies",
+  "subjectColor": "#B45309",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v13",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:48:42Z",
+  "sourceSnapshotHash": "78ce5a6e8ae653c073e73f66dbc4c2007733f70a0a8cabeab03031d8f28f1e82",
+  "bookPlanHash": "3b340c6902c838221ef3d67617c29301ba5760b9b2fccd7f422c750f4dafb64a",
+  "pageCount": 85,
+  "wordCount": 8126,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 8,
+    "outcomeCount": 8,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "TZA",
+    "subject": "Business Studies",
+    "species": "zebra",
+    "role": "enterprise guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "students running a school business project with a zebra mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Tanzania TIE-BASIC Form III Business Studies. Scene: students running a school business project with a zebra mascot. Include a friendly zebra mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 83889,
+    "sha256": "d30f5e97407f25d587f2cc6b1f57f8e48b4effa9d2ee047a3c0b9a8b9f1721ce"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 83889,
+      "sha256": "d30f5e97407f25d587f2cc6b1f57f8e48b4effa9d2ee047a3c0b9a8b9f1721ce",
+      "kind": "cover",
+      "altText": "KITABU QUEST Form III Business Studies cover with zebra",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-tza-tie-basic-form-iii-business-studies.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-tza-tie-basic-form-iii-business-studies.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "5026c4b7-a5a9-43dd-aa67-e030d03efea3",
+      "subject": "Business Studies",
+      "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form III Business Studies",
+      "countryCode": "TZA",
+      "curriculumCode": "TIE-BASIC",
+      "gradeCode": "FORM_III",
+      "gradeLocalLevel": "Form III",
+      "localLevel": "Form III",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+      "objectKey": "data/curriculum/source-files/TZA/023e195e19d2af88e2bdad9ea08f9d9ee258bb8ff92f289d85763f582d54615f.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "FORM_III",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/business-studies/5026c4b7-a5a9-43dd-aa67-e030d03efea3.md",
+        "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "tie.go.tz"
+        ],
+        "markdownChecksum": "da6c4c78dbb57f85c831f171349bea67bb021e8239626c4ef6e8b398ee2864e0",
+        "markdownPageCount": 51,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/business-studies/5026c4b7-a5a9-43dd-aa67-e030d03efea3.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "da6c4c78dbb57f85c831f171349bea67bb021e8239626c4ef6e8b398ee2864e0",
+          "pageCount": 51,
+          "generatedAt": "2026-06-29T16:45:40.527Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "302a9bb91147e4ce4294a839e3c3d7906b7868cc841ad2487b5fc7fb59129edf"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:45:40.527Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p001",
+      "title": "Title Page",
+      "content": "KITABU QUEST Form III Business Studies\n\nTanzania TIE-BASIC learner book\n\nMascot: zebra\n\nThis KITABU QUEST book turns the curriculum into short lessons, worked examples, guided activities, practice, review, and home links for Tanzania learners.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 3,
+      "wordCount": 34,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p002",
+      "title": "How To Use This Book",
+      "content": "This book helps Form III learners study Business Studies one teachable topic at a time.\n\n1. Start with the inquiry question and say what you already know.\n2. Read the Learn section slowly and mark new words.\n3. Try the worked example before reading the full solution.\n4. Complete the activity and practice tasks.\n5. Correct your answer using the success criteria.\n6. Ask for support when your answer is still unclear.\n\nSubject method: Learn through examples, activities, practice, and reflection.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 81,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p003",
+      "title": "Learning Skills In This Book",
+      "content": "Each topic builds knowledge, skill, values, communication, collaboration, critical thinking, creativity, digital awareness, and self-confidence.\n\nStudy actively: speak answers aloud, draw when useful, show your working, cite evidence, use local examples, and correct mistakes after feedback.\n\nA strong answer is specific. It names the idea, gives evidence or method, applies it to the task, and checks whether it answers the question.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p004",
+      "title": "Table Of Contents",
+      "content": "Use this table to move through the book one topic at a time. Each topic has a lesson opener, clear teaching, a model or example, guided work, practice, and checks for understanding.\n\n1. Bookkeeping Source Documents And Ledgers\n2. Marketing Product Price Place And Promotion\n3. Business Finance Budgeting And Cash Flow\n4. Business Ownership And Legal Responsibilities\n5. Insurance Risk And Consumer Protection\n6. Human Resources And Teamwork\n7. Business Plan Writing\n8. Form III Business Project\n\nAs you finish each topic, return to the success criteria and correct one answer before moving on.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p005",
+      "title": "Bookkeeping Source Documents And Ledgers: Lesson Opener",
+      "content": "Learning focus: Bookkeeping Source Documents And Ledgers\n\nCountry link: a Tanzania school, home, or community example for Bookkeeping Source Documents And Ledgers.\n\nProgression focus: apply ideas to unfamiliar situations and justify decisions with evidence.\n\nBy the end of this topic, you should be able to:\n- explain and apply bookkeeping source documents and ledgers in a real learning situation\n\nInquiry questions:\n- How can bookkeeping source documents and ledgers help you solve a real problem?\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-001:opener:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-001:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-1"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p006",
+      "title": "Bookkeeping Source Documents And Ledgers: Learn",
+      "content": "Bookkeeping Source Documents And Ledgers becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Bookkeeping Source Documents And Ledgers\n- Bookkeeping\n- Source\n- Documents\n- Ledgers\n- idea\n- skill\n- example",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-001:learn:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-001:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-1"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p007",
+      "title": "Bookkeeping Source Documents And Ledgers: Worked Example",
+      "content": "Evidence model for Bookkeeping Source Documents And Ledgers: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Business Studies.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 60,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-001:example:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-001:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-1"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p008",
+      "title": "Bookkeeping Source Documents And Ledgers: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Bookkeeping Source Documents And Ledgers. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Bookkeeping Source Documents And Ledgers\n- Bookkeeping\n- Source\n- Documents\n- Ledgers\n- idea\n- skill\n- example\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Bookkeeping Source Documents And Ledgers without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-001:vocabulary:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-001:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-1"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p009",
+      "title": "Bookkeeping Source Documents And Ledgers: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a Tanzania school, home, or community example for Bookkeeping Source Documents And Ledgers.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-001:activity:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-001:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-1"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p010",
+      "title": "Bookkeeping Source Documents And Ledgers: Practice And Correction",
+      "content": "Practice for Bookkeeping Source Documents And Ledgers:\n\n1. Apply Bookkeeping Source Documents And Ledgers in a focused task: explain and apply bookkeeping source documents and ledgers in a real learning situation. Use a real example, clear vocabulary, evidence, correction, and one next step.\n\nCorrection check:\n- answer uses a real example\n- reasoning is clear\n- work is checked\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to bookkeeping source documents and ledgers and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-001:practice:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-001:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-1"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p011",
+      "title": "Bookkeeping Source Documents And Ledgers: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Bookkeeping Source Documents And Ledgers.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-001:remediation:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-001:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-1"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p012",
+      "title": "Bookkeeping Source Documents And Ledgers: Outcome Check",
+      "content": "Show that you can explain and apply bookkeeping source documents and ledgers in a real learning situation.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-001:assessment:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-001:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-1"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p013",
+      "title": "Marketing Product Price Place And Promotion: Lesson Opener",
+      "content": "Learning focus: Marketing Product Price Place And Promotion\n\nCountry link: a Tanzania school, home, or community example for Marketing Product Price Place And Promotion.\n\nProgression focus: apply ideas to unfamiliar situations and justify decisions with evidence.\n\nBy the end of this topic, you should be able to:\n- explain and apply marketing product price place and promotion in a real learning situation\n\nInquiry questions:\n- How can marketing product price place and promotion help you solve a real problem?\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-002:opener:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-002:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-2"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p014",
+      "title": "Marketing Product Price Place And Promotion: Learn",
+      "content": "Marketing Product Price Place And Promotion becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Marketing Product Price Place And Promotion\n- Marketing\n- Product\n- Price\n- Place\n- Promotion\n- idea\n- skill",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-002:learn:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-002:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-2"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p015",
+      "title": "Marketing Product Price Place And Promotion: Worked Example",
+      "content": "Evidence model for Marketing Product Price Place And Promotion: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Business Studies.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-002:example:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-002:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-2"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p016",
+      "title": "Marketing Product Price Place And Promotion: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Marketing Product Price Place And Promotion. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Marketing Product Price Place And Promotion\n- Marketing\n- Product\n- Price\n- Place\n- Promotion\n- idea\n- skill\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Marketing Product Price Place And Promotion without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 124,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-002:vocabulary:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-002:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-2"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p017",
+      "title": "Marketing Product Price Place And Promotion: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a Tanzania school, home, or community example for Marketing Product Price Place And Promotion.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-002:activity:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-002:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-2"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p018",
+      "title": "Marketing Product Price Place And Promotion: Practice And Correction",
+      "content": "Practice for Marketing Product Price Place And Promotion:\n\n1. Apply Marketing Product Price Place And Promotion in a focused task: explain and apply marketing product price place and promotion in a real learning situation. Use a real example, clear vocabulary, evidence, correction, and one next step.\n\nCorrection check:\n- answer uses a real example\n- reasoning is clear\n- work is checked\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to marketing product price place and promotion and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-002:practice:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-002:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-2"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p019",
+      "title": "Marketing Product Price Place And Promotion: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Marketing Product Price Place And Promotion.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-002:remediation:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-002:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-2"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p020",
+      "title": "Marketing Product Price Place And Promotion: Outcome Check",
+      "content": "Show that you can explain and apply marketing product price place and promotion in a real learning situation.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 102,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-002:assessment:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-002:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-2"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p021",
+      "title": "Business Finance Budgeting And Cash Flow: Lesson Opener",
+      "content": "Learning focus: Business Finance Budgeting And Cash Flow\n\nCountry link: a Tanzania school, home, or community example for Business Finance Budgeting And Cash Flow.\n\nProgression focus: apply ideas to unfamiliar situations and justify decisions with evidence.\n\nBy the end of this topic, you should be able to:\n- explain and apply business finance budgeting and cash flow in a real learning situation\n\nInquiry questions:\n- How can business finance budgeting and cash flow help you solve a real problem?\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-003:opener:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-003:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-3"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p022",
+      "title": "Business Finance Budgeting And Cash Flow: Learn",
+      "content": "Business Finance Budgeting And Cash Flow becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Business Finance Budgeting And Cash Flow\n- Business\n- Finance\n- Budgeting\n- Cash\n- Flow\n- idea\n- skill",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-003:learn:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-003:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-3"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p023",
+      "title": "Business Finance Budgeting And Cash Flow: Worked Example",
+      "content": "Evidence model for Business Finance Budgeting And Cash Flow: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Business Studies.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-003:example:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-003:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-3"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p024",
+      "title": "Business Finance Budgeting And Cash Flow: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Business Finance Budgeting And Cash Flow. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Business Finance Budgeting And Cash Flow\n- Business\n- Finance\n- Budgeting\n- Cash\n- Flow\n- idea\n- skill\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Business Finance Budgeting And Cash Flow without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 124,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-003:vocabulary:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-003:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-3"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p025",
+      "title": "Business Finance Budgeting And Cash Flow: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a Tanzania school, home, or community example for Business Finance Budgeting And Cash Flow.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-003:activity:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-003:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-3"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p026",
+      "title": "Business Finance Budgeting And Cash Flow: Practice And Correction",
+      "content": "Practice for Business Finance Budgeting And Cash Flow:\n\n1. Apply Business Finance Budgeting And Cash Flow in a focused task: explain and apply business finance budgeting and cash flow in a real learning situation. Use a real example, clear vocabulary, evidence, correction, and one next step.\n\nCorrection check:\n- answer uses a real example\n- reasoning is clear\n- work is checked\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to business finance budgeting and cash flow and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-003:practice:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-003:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-3"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p027",
+      "title": "Business Finance Budgeting And Cash Flow: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Business Finance Budgeting And Cash Flow.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-003:remediation:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-003:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-3"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p028",
+      "title": "Business Finance Budgeting And Cash Flow: Outcome Check",
+      "content": "Show that you can explain and apply business finance budgeting and cash flow in a real learning situation.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 102,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-003:assessment:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-003:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-3"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p029",
+      "title": "Business Ownership And Legal Responsibilities: Lesson Opener",
+      "content": "Learning focus: Business Ownership And Legal Responsibilities\n\nCountry link: a Tanzania school, home, or community example for Business Ownership And Legal Responsibilities.\n\nProgression focus: apply ideas to unfamiliar situations and justify decisions with evidence.\n\nBy the end of this topic, you should be able to:\n- explain and apply business ownership and legal responsibilities in a real learning situation\n\nInquiry questions:\n- How can business ownership and legal responsibilities help you solve a real problem?\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-004:opener:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-004:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-4"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p030",
+      "title": "Business Ownership And Legal Responsibilities: Learn",
+      "content": "Business Ownership And Legal Responsibilities becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Business Ownership And Legal Responsibilities\n- Business\n- Ownership\n- Legal\n- Responsibilities\n- idea\n- skill\n- example",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-004:learn:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-004:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-4"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p031",
+      "title": "Business Ownership And Legal Responsibilities: Worked Example",
+      "content": "Evidence model for Business Ownership And Legal Responsibilities: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Business Studies.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 60,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-004:example:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-004:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-4"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p032",
+      "title": "Business Ownership And Legal Responsibilities: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Business Ownership And Legal Responsibilities. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Business Ownership And Legal Responsibilities\n- Business\n- Ownership\n- Legal\n- Responsibilities\n- idea\n- skill\n- example\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Business Ownership And Legal Responsibilities without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-004:vocabulary:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-004:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-4"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p033",
+      "title": "Business Ownership And Legal Responsibilities: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a Tanzania school, home, or community example for Business Ownership And Legal Responsibilities.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-004:activity:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-004:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-4"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p034",
+      "title": "Business Ownership And Legal Responsibilities: Practice And Correction",
+      "content": "Practice for Business Ownership And Legal Responsibilities:\n\n1. Apply Business Ownership And Legal Responsibilities in a focused task: explain and apply business ownership and legal responsibilities in a real learning situation. Use a real example, clear vocabulary, evidence, correction, and one next step.\n\nCorrection check:\n- answer uses a real example\n- reasoning is clear\n- work is checked\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to business ownership and legal responsibilities and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-004:practice:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-004:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-4"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p035",
+      "title": "Business Ownership And Legal Responsibilities: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Business Ownership And Legal Responsibilities.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-004:remediation:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-004:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-4"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p036",
+      "title": "Business Ownership And Legal Responsibilities: Outcome Check",
+      "content": "Show that you can explain and apply business ownership and legal responsibilities in a real learning situation.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-004:assessment:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-004:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-4"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p037",
+      "title": "Insurance Risk And Consumer Protection: Lesson Opener",
+      "content": "Learning focus: Insurance Risk And Consumer Protection\n\nCountry link: a Tanzania school, home, or community example for Insurance Risk And Consumer Protection.\n\nProgression focus: apply ideas to unfamiliar situations and justify decisions with evidence.\n\nBy the end of this topic, you should be able to:\n- explain and apply insurance risk and consumer protection in a real learning situation\n\nInquiry questions:\n- How can insurance risk and consumer protection help you solve a real problem?\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-005:opener:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-005:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-5"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p038",
+      "title": "Insurance Risk And Consumer Protection: Learn",
+      "content": "Insurance Risk And Consumer Protection becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Insurance Risk And Consumer Protection\n- Insurance\n- Risk\n- Consumer\n- Protection\n- idea\n- skill\n- example",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-005:learn:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-005:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-5"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p039",
+      "title": "Insurance Risk And Consumer Protection: Worked Example",
+      "content": "Evidence model for Insurance Risk And Consumer Protection: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Business Studies.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 60,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-005:example:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-005:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-5"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p040",
+      "title": "Insurance Risk And Consumer Protection: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Insurance Risk And Consumer Protection. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Insurance Risk And Consumer Protection\n- Insurance\n- Risk\n- Consumer\n- Protection\n- idea\n- skill\n- example\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Insurance Risk And Consumer Protection without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-005:vocabulary:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-005:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-5"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p041",
+      "title": "Insurance Risk And Consumer Protection: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a Tanzania school, home, or community example for Insurance Risk And Consumer Protection.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-005:activity:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-005:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-5"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p042",
+      "title": "Insurance Risk And Consumer Protection: Practice And Correction",
+      "content": "Practice for Insurance Risk And Consumer Protection:\n\n1. Apply Insurance Risk And Consumer Protection in a focused task: explain and apply insurance risk and consumer protection in a real learning situation. Use a real example, clear vocabulary, evidence, correction, and one next step.\n\nCorrection check:\n- answer uses a real example\n- reasoning is clear\n- work is checked\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to insurance risk and consumer protection and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-005:practice:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-005:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-5"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p043",
+      "title": "Insurance Risk And Consumer Protection: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Insurance Risk And Consumer Protection.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-005:remediation:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-005:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-5"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p044",
+      "title": "Insurance Risk And Consumer Protection: Outcome Check",
+      "content": "Show that you can explain and apply insurance risk and consumer protection in a real learning situation.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-005:assessment:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-005:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-5"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p045",
+      "title": "Human Resources And Teamwork: Lesson Opener",
+      "content": "Learning focus: Human Resources And Teamwork\n\nCountry link: a Tanzania school, home, or community example for Human Resources And Teamwork.\n\nProgression focus: apply ideas to unfamiliar situations and justify decisions with evidence.\n\nBy the end of this topic, you should be able to:\n- explain and apply human resources and teamwork in a real learning situation\n\nInquiry questions:\n- How can human resources and teamwork help you solve a real problem?\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 87,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-006:opener:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-006:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-6"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p046",
+      "title": "Human Resources And Teamwork: Learn",
+      "content": "Human Resources And Teamwork becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Human Resources And Teamwork\n- Human\n- Resources\n- Teamwork\n- idea\n- skill\n- example\n- practice",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-006:learn:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-006:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-6"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p047",
+      "title": "Human Resources And Teamwork: Worked Example",
+      "content": "Evidence model for Human Resources And Teamwork: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Business Studies.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 59,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-006:example:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-006:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-6"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p048",
+      "title": "Human Resources And Teamwork: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Human Resources And Teamwork. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Human Resources And Teamwork\n- Human\n- Resources\n- Teamwork\n- idea\n- skill\n- example\n- practice\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Human Resources And Teamwork without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-006:vocabulary:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-006:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-6"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p049",
+      "title": "Human Resources And Teamwork: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a Tanzania school, home, or community example for Human Resources And Teamwork.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-006:activity:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-006:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-6"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p050",
+      "title": "Human Resources And Teamwork: Practice And Correction",
+      "content": "Practice for Human Resources And Teamwork:\n\n1. Apply Human Resources And Teamwork in a focused task: explain and apply human resources and teamwork in a real learning situation. Use a real example, clear vocabulary, evidence, correction, and one next step.\n\nCorrection check:\n- answer uses a real example\n- reasoning is clear\n- work is checked\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to human resources and teamwork and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 97,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-006:practice:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-006:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-6"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p051",
+      "title": "Human Resources And Teamwork: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Human Resources And Teamwork.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-006:remediation:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-006:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-6"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p052",
+      "title": "Human Resources And Teamwork: Outcome Check",
+      "content": "Show that you can explain and apply human resources and teamwork in a real learning situation.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 100,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-006:assessment:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-006:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-6"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p053",
+      "title": "Business Plan Writing: Lesson Opener",
+      "content": "Learning focus: Business Plan Writing\n\nCountry link: a Tanzania school, home, or community example for Business Plan Writing.\n\nProgression focus: apply ideas to unfamiliar situations and justify decisions with evidence.\n\nBy the end of this topic, you should be able to:\n- explain and apply business plan writing in a real learning situation\n\nInquiry questions:\n- How can business plan writing help you solve a real problem?\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 83,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-007:opener:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-007:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-7"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p054",
+      "title": "Business Plan Writing: Learn",
+      "content": "Business Plan Writing becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Business Plan Writing\n- Business\n- Plan\n- Writing\n- idea\n- skill\n- example\n- practice",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 88,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-007:learn:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-007:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-7"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p055",
+      "title": "Business Plan Writing: Worked Example",
+      "content": "Evidence model for Business Plan Writing: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Business Studies.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 58,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-007:example:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-007:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-7"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p056",
+      "title": "Business Plan Writing: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Business Plan Writing. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Business Plan Writing\n- Business\n- Plan\n- Writing\n- idea\n- skill\n- example\n- practice\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Business Plan Writing without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-007:vocabulary:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-007:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-7"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p057",
+      "title": "Business Plan Writing: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a Tanzania school, home, or community example for Business Plan Writing.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-007:activity:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-007:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-7"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p058",
+      "title": "Business Plan Writing: Practice And Correction",
+      "content": "Practice for Business Plan Writing:\n\n1. Apply Business Plan Writing in a focused task: explain and apply business plan writing in a real learning situation. Use a real example, clear vocabulary, evidence, correction, and one next step.\n\nCorrection check:\n- answer uses a real example\n- reasoning is clear\n- work is checked\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to business plan writing and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-007:practice:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-007:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-7"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p059",
+      "title": "Business Plan Writing: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Business Plan Writing.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-007:remediation:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-007:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-7"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p060",
+      "title": "Business Plan Writing: Outcome Check",
+      "content": "Show that you can explain and apply business plan writing in a real learning situation.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 99,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-007:assessment:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-007:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-7"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p061",
+      "title": "Form III Business Project: Lesson Opener",
+      "content": "Learning focus: Form III Business Project\n\nCountry link: a Tanzania school, home, or community example for Form III Business Project.\n\nProgression focus: apply ideas to unfamiliar situations and justify decisions with evidence.\n\nBy the end of this topic, you should be able to:\n- explain and apply form iii business project in a real learning situation\n\nInquiry questions:\n- How can form iii business project help you solve a real problem?\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 87,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-008:opener:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-008:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-8"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p062",
+      "title": "Form III Business Project: Learn",
+      "content": "Form III Business Project becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Form III Business Project\n- Form\n- Business\n- Project\n- idea\n- skill\n- example\n- practice",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-008:learn:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-008:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-8"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p063",
+      "title": "Form III Business Project: Worked Example",
+      "content": "Evidence model for Form III Business Project: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Business Studies.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 59,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-008:example:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-008:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-8"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p064",
+      "title": "Form III Business Project: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Form III Business Project. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Form III Business Project\n- Form\n- Business\n- Project\n- idea\n- skill\n- example\n- practice\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Form III Business Project without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-008:vocabulary:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-008:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-8"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p065",
+      "title": "Form III Business Project: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a Tanzania school, home, or community example for Form III Business Project.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-008:activity:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-008:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-8"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p066",
+      "title": "Form III Business Project: Practice And Correction",
+      "content": "Practice for Form III Business Project:\n\n1. Apply Form III Business Project in a focused task: explain and apply form iii business project in a real learning situation. Use a real example, clear vocabulary, evidence, correction, and one next step.\n\nCorrection check:\n- answer uses a real example\n- reasoning is clear\n- work is checked\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to form iii business project and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 97,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-008:practice:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-008:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-8"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p067",
+      "title": "Form III Business Project: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Form III Business Project.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-008:remediation:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-008:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-8"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p068",
+      "title": "Form III Business Project: Outcome Check",
+      "content": "Show that you can explain and apply form iii business project in a real learning situation.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 100,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-008:assessment:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-008:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-8"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p069",
+      "title": "Bookkeeping Source Documents And Ledgers: Review Clinic 1",
+      "content": "Use this review clinic to strengthen Business Studies without copying earlier answers.\n\n1. Choose one idea from Bookkeeping Source Documents And Ledgers that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 79,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-001:review:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-001:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-1"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p070",
+      "title": "Marketing Product Price Place And Promotion: Review Clinic 2",
+      "content": "Use this review clinic to strengthen Business Studies without copying earlier answers.\n\n1. Choose one idea from Marketing Product Price Place And Promotion that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 80,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-002:review:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-002:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-2"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p071",
+      "title": "Business Finance Budgeting And Cash Flow: Review Clinic 3",
+      "content": "Use this review clinic to strengthen Business Studies without copying earlier answers.\n\n1. Choose one idea from Business Finance Budgeting And Cash Flow that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 80,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-003:review:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-003:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-3"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p072",
+      "title": "Business Ownership And Legal Responsibilities: Review Clinic 4",
+      "content": "Use this review clinic to strengthen Business Studies without copying earlier answers.\n\n1. Choose one idea from Business Ownership And Legal Responsibilities that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 79,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-004:review:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-004:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-4"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p073",
+      "title": "Bookkeeping Source Documents And Ledgers: Application Workshop 1",
+      "content": "Application workshop 1 for Bookkeeping Source Documents And Ledgers.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-001:application-workshop:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-001:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-1"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p074",
+      "title": "Marketing Product Price Place And Promotion: Application Workshop 2",
+      "content": "Application workshop 2 for Marketing Product Price Place And Promotion.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 113,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-002:application-workshop:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-002:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-2"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p075",
+      "title": "Business Finance Budgeting And Cash Flow: Application Workshop 3",
+      "content": "Application workshop 3 for Business Finance Budgeting And Cash Flow.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 113,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-003:application-workshop:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-003:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-3"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p076",
+      "title": "Business Ownership And Legal Responsibilities: Application Workshop 4",
+      "content": "Application workshop 4 for Business Ownership And Legal Responsibilities.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-004:application-workshop:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-004:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-4"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p077",
+      "title": "Insurance Risk And Consumer Protection: Application Workshop 5",
+      "content": "Application workshop 5 for Insurance Risk And Consumer Protection.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-005:application-workshop:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-005:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-5"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p078",
+      "title": "Human Resources And Teamwork: Application Workshop 6",
+      "content": "Application workshop 6 for Human Resources And Teamwork.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 111,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-006:application-workshop:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-006:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-6"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p079",
+      "title": "Business Plan Writing: Application Workshop 7",
+      "content": "Application workshop 7 for Business Plan Writing.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 110,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-007:application-workshop:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-007:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-7"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p080",
+      "title": "Form III Business Project: Application Workshop 8",
+      "content": "Application workshop 8 for Form III Business Project.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 111,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-008:application-workshop:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-008:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-8"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p081",
+      "title": "Bookkeeping Source Documents And Ledgers: Application Workshop 9",
+      "content": "Application workshop 9 for Bookkeeping Source Documents And Ledgers.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-001:application-workshop:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-001:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-1"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p082",
+      "title": "Marketing Product Price Place And Promotion: Application Workshop 10",
+      "content": "Application workshop 10 for Marketing Product Price Place And Promotion.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 113,
+      "imageRefs": [
+        "TZA-FORM-III-business-studies-topic-002:application-workshop:visual-1:planned",
+        "TZA-FORM-III-business-studies-topic-002:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-business-studies-2"
+      ],
+      "unitIds": [
+        "fallback-form-iii-business-studies-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-business-studies-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-business-studies-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p083",
+      "title": "Glossary",
+      "content": "Use this glossary to revise important words in Business Studies.\n\n- Bookkeeping Source Documents And Ledgers: Explain this term using an example from the book, your school, or your community.\n- Marketing Product Price Place And Promotion: Explain this term using an example from the book, your school, or your community.\n- Business Finance Budgeting And Cash Flow: Explain this term using an example from the book, your school, or your community.\n- Business Ownership And Legal Responsibilities: Explain this term using an example from the book, your school, or your community.\n- Insurance Risk And Consumer Protection: Explain this term using an example from the book, your school, or your community.\n- Human Resources And Teamwork: Explain this term using an example from the book, your school, or your community.\n- Business Plan Writing: Explain this term using an example from the book, your school, or your community.\n- Form III Business Project: Explain this term using an example from the book, your school, or your community.\n\nAdd five more words from your lessons and write your own meanings.",
+      "pageType": "glossary",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 180,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p084",
+      "title": "Answer And Teacher Notes",
+      "content": "A strong Business Studies answer responds to the exact task, uses correct vocabulary, gives a clear example or evidence, and shows correction after feedback. For practical work, name materials, safety, process, quality checks, peer feedback, and one improvement made after review.",
+      "pageType": "answer-notes",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 41,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-business-studies-p085",
+      "title": "Final Project",
+      "content": "Create a final project for Business Studies that shows what you can now do independently.\n\nYour project must include:\n1. A clear title.\n2. A real-life problem, question, text, performance, investigation, design, or worked task.\n3. Evidence from at least three lessons in this book.\n4. A drawing, table, map, chart, model, dialogue, paragraph, performance plan, practical product, or worked solution.\n5. A correction note showing one improvement after feedback.\n6. A short reflection explaining what you learned, what was difficult, and what you will practise next.\n\nPresentation check: keep the work neat, label important parts, use correct vocabulary, and be ready to explain your choices to a classmate or teacher.",
+      "pageType": "project",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 111,
+      "imageRefs": []
+    }
+  ]
+}

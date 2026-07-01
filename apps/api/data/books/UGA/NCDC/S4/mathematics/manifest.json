@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-uga-ncdc-s4-mathematics",
+  "title": "KITABU QUEST S4 Mathematics",
+  "country": "UGA",
+  "curriculum": "NCDC",
+  "grade": "S4",
+  "subject": "Mathematics",
+  "subjectSlug": "mathematics",
+  "subjectColor": "#047857",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v12",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:18:07Z",
+  "sourceSnapshotHash": "3b532929b5951eee77e737b10a842b91a52583a44aeb5ee8b9f084da28c44ccb",
+  "bookPlanHash": "8d55dab8d4a521d67c8d271a7625bef467089118563cb5208ec31af0465c33e6",
+  "pageCount": 85,
+  "wordCount": 8694,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 5,
+    "outcomeCount": 5,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "UGA",
+    "subject": "Mathematics",
+    "species": "grey crowned crane",
+    "role": "problem-solving and pattern guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners solving real-life mathematics with measuring tools and a grey crowned crane mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Uganda NCDC S4 Mathematics. Scene: learners solving real-life mathematics with measuring tools and a grey crowned crane mascot. Include a friendly grey crowned crane mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 91309,
+    "sha256": "5cd3db89b67ec301a361e0a92d9ed7cbaaccf43994f025f84af6326355f82fd1"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 91309,
+      "sha256": "5cd3db89b67ec301a361e0a92d9ed7cbaaccf43994f025f84af6326355f82fd1",
+      "kind": "cover",
+      "altText": "KITABU QUEST S4 Mathematics cover with grey crowned crane",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-uga-ncdc-s4-mathematics.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-uga-ncdc-s4-mathematics.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "e14d85ea-0147-4c40-aca8-81e2674ebdd2",
+      "subject": "Mathematics",
+      "officialTitle": "Uganda Curriculum S4 Mathematics",
+      "countryCode": "UGA",
+      "curriculumCode": "NCDC",
+      "gradeCode": "S4",
+      "gradeLocalLevel": "S4",
+      "localLevel": "S4",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/Mathematics_Syllabus_compressed.pdf",
+      "objectKey": "data/curriculum/source-files/UGA/9013653a17434b51b73fdc88b13a4a17eefcc17e79237f7e77ef8f5e350f2a81.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "S4",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/Mathematics_Syllabus_compressed.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/UGA/NCDC/S4/mathematics/e14d85ea-0147-4c40-aca8-81e2674ebdd2.md",
+        "sourcePageUrl": "https://ncdc.go.ug/wp-content/uploads/2024/03/Curriculum_Framework.pdf",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "ncdc.go.ug"
+        ],
+        "markdownChecksum": "1d5e293ae0d63f18878ef2690c704c8f4ba1eb3d63661db729c91c9d9a323609",
+        "markdownPageCount": 70,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/UGA/NCDC/S4/mathematics/e14d85ea-0147-4c40-aca8-81e2674ebdd2.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "1d5e293ae0d63f18878ef2690c704c8f4ba1eb3d63661db729c91c9d9a323609",
+          "pageCount": 70,
+          "generatedAt": "2026-06-29T18:52:26.302Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "83e3739a34ebe5cb52b25b500971265e3e90d48179e7aefa5cf75b4c0c41911e"
+        },
+        "markdownGeneratedAt": "2026-06-29T18:52:26.302Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,2131 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili",
+  "title": "KITABU QUEST Standard VI Historia ya Tanzania na Maadili",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Standard VI",
+  "subject": "Historia ya Tanzania na Maadili",
+  "subjectSlug": "historia-ya-tanzania-na-maadili",
+  "subjectColor": "#BE123C",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v13",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:42:40Z",
+  "sourceSnapshotHash": "b40411de97b882e6ad9d4ffff05afde1afd419e829da1ddb6121ad75762bacfa",
+  "bookPlanHash": "64659e05003569f1ebfaf9f99b5bdc6bbaba667ed3ac7d1a26707358d2f9f19e",
+  "pageCount": 85,
+  "wordCount": 8174,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 8,
+    "outcomeCount": 8,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "TZA",
+    "subject": "Historia ya Tanzania na Maadili",
+    "species": "lion",
+    "role": "heritage and values guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners visiting a Tanzanian historical site with a lion mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Tanzania TIE-BASIC Standard VI Historia ya Tanzania na Maadili. Scene: learners visiting a Tanzanian historical site with a lion mascot. Include a friendly lion mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 92297,
+    "sha256": "e675c334594ada3a1f6d0f87a9a774f2864c823821031c533dc3190539da697c"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 92297,
+      "sha256": "e675c334594ada3a1f6d0f87a9a774f2864c823821031c533dc3190539da697c",
+      "kind": "cover",
+      "altText": "KITABU QUEST Standard VI Historia ya Tanzania na Maadili cover with lion",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "6cfbac64-2c31-467f-98ec-685f47c23513",
+      "subject": "Historia ya Tanzania na Maadili",
+      "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard VI Historia ya Tanzania na Maadili",
+      "countryCode": "TZA",
+      "curriculumCode": "TIE-BASIC",
+      "gradeCode": "STANDARD_VI",
+      "gradeLocalLevel": "Standard VI",
+      "localLevel": "Standard VI",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727167960-Muhtasari%20historia%20ya%20Tanzania%20na%20Maadili%20Drs%20III%20-%20%20IV.pdf",
+      "objectKey": "data/curriculum/source-files/TZA/72817e19874b80319a958bc34cd8535806c77e8ee9d47fbd790e03c51fa13e82.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "STANDARD_VI",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727167960-Muhtasari%20historia%20ya%20Tanzania%20na%20Maadili%20Drs%20III%20-%20%20IV.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/historia-ya-tanzania-na-maadili/6cfbac64-2c31-467f-98ec-685f47c23513.md",
+        "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "tie.go.tz"
+        ],
+        "markdownChecksum": "e17692e907975246489a1eb52d487ebdb1c1e05b6d60f7c9b3fe71d9500d05aa",
+        "markdownPageCount": 49,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/historia-ya-tanzania-na-maadili/6cfbac64-2c31-467f-98ec-685f47c23513.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "e17692e907975246489a1eb52d487ebdb1c1e05b6d60f7c9b3fe71d9500d05aa",
+          "pageCount": 49,
+          "generatedAt": "2026-06-29T16:48:41.901Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "c0ba90becc2263afe14d153d4c02a3c147c4609ec98814a4dfdf395e2bd71e33"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:48:41.901Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p001",
+      "title": "Title Page",
+      "content": "KITABU QUEST Standard VI Historia ya Tanzania na Maadili\n\nTanzania TIE-BASIC learner book\n\nMascot: lion\n\nThis KITABU QUEST book turns the curriculum into short lessons, worked examples, guided activities, practice, review, and home links for Tanzania learners.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 3,
+      "wordCount": 37,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p002",
+      "title": "How To Use This Book",
+      "content": "This book helps Standard VI learners study Historia ya Tanzania na Maadili one teachable topic at a time.\n\n1. Start with the inquiry question and say what you already know.\n2. Read the Learn section slowly and mark new words.\n3. Try the worked example before reading the full solution.\n4. Complete the activity and practice tasks.\n5. Correct your answer using the success criteria.\n6. Ask for support when your answer is still unclear.\n\nSubject method: Learn through examples, activities, practice, and reflection.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 84,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p003",
+      "title": "Learning Skills In This Book",
+      "content": "Each topic builds knowledge, skill, values, communication, collaboration, critical thinking, creativity, digital awareness, and self-confidence.\n\nStudy actively: speak answers aloud, draw when useful, show your working, cite evidence, use local examples, and correct mistakes after feedback.\n\nA strong answer is specific. It names the idea, gives evidence or method, applies it to the task, and checks whether it answers the question.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p004",
+      "title": "Table Of Contents",
+      "content": "Use this table to move through the book one topic at a time. Each topic has a lesson opener, clear teaching, a model or example, guided work, practice, and checks for understanding.\n\n1. Tanzania And East African History\n2. Heritage Sites And Historical Evidence\n3. Citizenship Constitution And Public Service\n4. Colonial Rule And Resistance Basics\n5. Independence National Unity And Development\n6. Peace Human Rights And Responsibilities\n7. Historical Inquiry And Reporting\n8. Upper Primary History Project\n\nAs you finish each topic, return to the success criteria and correct one answer before moving on.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p005",
+      "title": "Tanzania And East African History: Lesson Opener",
+      "content": "Learning focus: Tanzania And East African History\n\nCountry link: a Tanzania school, home, or community example for Tanzania And East African History.\n\nProgression focus: prepare for upper-primary transition by using evidence, accuracy, and reflection.\n\nBy the end of this topic, you should be able to:\n- explain and apply tanzania and east african history in a real learning situation\n\nInquiry questions:\n- How can tanzania and east african history help you solve a real problem?\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-001:opener:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-001:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p006",
+      "title": "Tanzania And East African History: Learn",
+      "content": "Tanzania And East African History becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Tanzania And East African History\n- Tanzania\n- East\n- African\n- History\n- idea\n- skill\n- example",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-001:learn:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-001:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p007",
+      "title": "Tanzania And East African History: Worked Example",
+      "content": "Evidence model for Tanzania And East African History: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Historia ya Tanzania na Maadili.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 63,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-001:example:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-001:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p008",
+      "title": "Tanzania And East African History: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Tanzania And East African History. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Tanzania And East African History\n- Tanzania\n- East\n- African\n- History\n- idea\n- skill\n- example\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Tanzania And East African History without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-001:vocabulary:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-001:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p009",
+      "title": "Tanzania And East African History: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a Tanzania school, home, or community example for Tanzania And East African History.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-001:activity:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-001:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p010",
+      "title": "Tanzania And East African History: Practice And Correction",
+      "content": "Practice for Tanzania And East African History:\n\n1. Apply Tanzania And East African History in a focused task: explain and apply tanzania and east african history in a real learning situation. Use a real example, clear vocabulary, evidence, correction, and one next step.\n\nCorrection check:\n- answer uses a real example\n- reasoning is clear\n- work is checked\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to tanzania and east african history and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-001:practice:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-001:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p011",
+      "title": "Tanzania And East African History: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Tanzania And East African History.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-001:remediation:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-001:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p012",
+      "title": "Tanzania And East African History: Outcome Check",
+      "content": "Show that you can explain and apply tanzania and east african history in a real learning situation.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-001:assessment:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-001:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p013",
+      "title": "Heritage Sites And Historical Evidence: Lesson Opener",
+      "content": "Learning focus: Heritage Sites And Historical Evidence\n\nCountry link: a Tanzania school, home, or community example for Heritage Sites And Historical Evidence.\n\nProgression focus: prepare for upper-primary transition by using evidence, accuracy, and reflection.\n\nBy the end of this topic, you should be able to:\n- explain and apply heritage sites and historical evidence in a real learning situation\n\nInquiry questions:\n- How can heritage sites and historical evidence help you solve a real problem?\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-002:opener:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-002:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p014",
+      "title": "Heritage Sites And Historical Evidence: Learn",
+      "content": "Heritage Sites And Historical Evidence becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Heritage Sites And Historical Evidence\n- Heritage\n- Sites\n- Historical\n- Evidence\n- idea\n- skill\n- example",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-002:learn:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-002:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p015",
+      "title": "Heritage Sites And Historical Evidence: Worked Example",
+      "content": "Evidence model for Heritage Sites And Historical Evidence: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Historia ya Tanzania na Maadili.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 63,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-002:example:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-002:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p016",
+      "title": "Heritage Sites And Historical Evidence: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Heritage Sites And Historical Evidence. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Heritage Sites And Historical Evidence\n- Heritage\n- Sites\n- Historical\n- Evidence\n- idea\n- skill\n- example\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Heritage Sites And Historical Evidence without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-002:vocabulary:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-002:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p017",
+      "title": "Heritage Sites And Historical Evidence: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a Tanzania school, home, or community example for Heritage Sites And Historical Evidence.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-002:activity:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-002:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p018",
+      "title": "Heritage Sites And Historical Evidence: Practice And Correction",
+      "content": "Practice for Heritage Sites And Historical Evidence:\n\n1. Apply Heritage Sites And Historical Evidence in a focused task: explain and apply heritage sites and historical evidence in a real learning situation. Use a real example, clear vocabulary, evidence, correction, and one next step.\n\nCorrection check:\n- answer uses a real example\n- reasoning is clear\n- work is checked\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to heritage sites and historical evidence and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-002:practice:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-002:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p019",
+      "title": "Heritage Sites And Historical Evidence: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Heritage Sites And Historical Evidence.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-002:remediation:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-002:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p020",
+      "title": "Heritage Sites And Historical Evidence: Outcome Check",
+      "content": "Show that you can explain and apply heritage sites and historical evidence in a real learning situation.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-002:assessment:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-002:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p021",
+      "title": "Citizenship Constitution And Public Service: Lesson Opener",
+      "content": "Learning focus: Citizenship Constitution And Public Service\n\nCountry link: a Tanzania school, home, or community example for Citizenship Constitution And Public Service.\n\nProgression focus: prepare for upper-primary transition by using evidence, accuracy, and reflection.\n\nBy the end of this topic, you should be able to:\n- explain and apply citizenship constitution and public service in a real learning situation\n\nInquiry questions:\n- How can citizenship constitution and public service help you solve a real problem?\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-003:opener:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-003:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p022",
+      "title": "Citizenship Constitution And Public Service: Learn",
+      "content": "Citizenship Constitution And Public Service becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Citizenship Constitution And Public Service\n- Citizenship\n- Constitution\n- Public\n- Service\n- idea\n- skill\n- example",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-003:learn:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-003:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p023",
+      "title": "Citizenship Constitution And Public Service: Worked Example",
+      "content": "Evidence model for Citizenship Constitution And Public Service: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Historia ya Tanzania na Maadili.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 63,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-003:example:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-003:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p024",
+      "title": "Citizenship Constitution And Public Service: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Citizenship Constitution And Public Service. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Citizenship Constitution And Public Service\n- Citizenship\n- Constitution\n- Public\n- Service\n- idea\n- skill\n- example\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Citizenship Constitution And Public Service without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-003:vocabulary:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-003:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p025",
+      "title": "Citizenship Constitution And Public Service: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a Tanzania school, home, or community example for Citizenship Constitution And Public Service.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-003:activity:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-003:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p026",
+      "title": "Citizenship Constitution And Public Service: Practice And Correction",
+      "content": "Practice for Citizenship Constitution And Public Service:\n\n1. Apply Citizenship Constitution And Public Service in a focused task: explain and apply citizenship constitution and public service in a real learning situation. Use a real example, clear vocabulary, evidence, correction, and one next step.\n\nCorrection check:\n- answer uses a real example\n- reasoning is clear\n- work is checked\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to citizenship constitution and public service and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-003:practice:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-003:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p027",
+      "title": "Citizenship Constitution And Public Service: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Citizenship Constitution And Public Service.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-003:remediation:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-003:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p028",
+      "title": "Citizenship Constitution And Public Service: Outcome Check",
+      "content": "Show that you can explain and apply citizenship constitution and public service in a real learning situation.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-003:assessment:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-003:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p029",
+      "title": "Colonial Rule And Resistance Basics: Lesson Opener",
+      "content": "Learning focus: Colonial Rule And Resistance Basics\n\nCountry link: a Tanzania school, home, or community example for Colonial Rule And Resistance Basics.\n\nProgression focus: prepare for upper-primary transition by using evidence, accuracy, and reflection.\n\nBy the end of this topic, you should be able to:\n- explain and apply colonial rule and resistance basics in a real learning situation\n\nInquiry questions:\n- How can colonial rule and resistance basics help you solve a real problem?\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-004:opener:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-004:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p030",
+      "title": "Colonial Rule And Resistance Basics: Learn",
+      "content": "Colonial Rule And Resistance Basics becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Colonial Rule And Resistance Basics\n- Colonial\n- Rule\n- Resistance\n- Basics\n- idea\n- skill\n- example",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-004:learn:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-004:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p031",
+      "title": "Colonial Rule And Resistance Basics: Worked Example",
+      "content": "Evidence model for Colonial Rule And Resistance Basics: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Historia ya Tanzania na Maadili.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 63,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-004:example:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-004:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p032",
+      "title": "Colonial Rule And Resistance Basics: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Colonial Rule And Resistance Basics. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Colonial Rule And Resistance Basics\n- Colonial\n- Rule\n- Resistance\n- Basics\n- idea\n- skill\n- example\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Colonial Rule And Resistance Basics without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-004:vocabulary:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-004:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p033",
+      "title": "Colonial Rule And Resistance Basics: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a Tanzania school, home, or community example for Colonial Rule And Resistance Basics.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-004:activity:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-004:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p034",
+      "title": "Colonial Rule And Resistance Basics: Practice And Correction",
+      "content": "Practice for Colonial Rule And Resistance Basics:\n\n1. Apply Colonial Rule And Resistance Basics in a focused task: explain and apply colonial rule and resistance basics in a real learning situation. Use a real example, clear vocabulary, evidence, correction, and one next step.\n\nCorrection check:\n- answer uses a real example\n- reasoning is clear\n- work is checked\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to colonial rule and resistance basics and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-004:practice:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-004:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p035",
+      "title": "Colonial Rule And Resistance Basics: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Colonial Rule And Resistance Basics.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-004:remediation:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-004:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p036",
+      "title": "Colonial Rule And Resistance Basics: Outcome Check",
+      "content": "Show that you can explain and apply colonial rule and resistance basics in a real learning situation.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-004:assessment:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-004:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p037",
+      "title": "Independence National Unity And Development: Lesson Opener",
+      "content": "Learning focus: Independence National Unity And Development\n\nCountry link: a Tanzania school, home, or community example for Independence National Unity And Development.\n\nProgression focus: prepare for upper-primary transition by using evidence, accuracy, and reflection.\n\nBy the end of this topic, you should be able to:\n- explain and apply independence national unity and development in a real learning situation\n\nInquiry questions:\n- How can independence national unity and development help you solve a real problem?\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-005:opener:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-005:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p038",
+      "title": "Independence National Unity And Development: Learn",
+      "content": "Independence National Unity And Development becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Independence National Unity And Development\n- Independence\n- National\n- Unity\n- Development\n- idea\n- skill\n- example",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-005:learn:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-005:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p039",
+      "title": "Independence National Unity And Development: Worked Example",
+      "content": "Evidence model for Independence National Unity And Development: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Historia ya Tanzania na Maadili.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 63,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-005:example:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-005:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p040",
+      "title": "Independence National Unity And Development: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Independence National Unity And Development. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Independence National Unity And Development\n- Independence\n- National\n- Unity\n- Development\n- idea\n- skill\n- example\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Independence National Unity And Development without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-005:vocabulary:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-005:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p041",
+      "title": "Independence National Unity And Development: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a Tanzania school, home, or community example for Independence National Unity And Development.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-005:activity:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-005:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p042",
+      "title": "Independence National Unity And Development: Practice And Correction",
+      "content": "Practice for Independence National Unity And Development:\n\n1. Apply Independence National Unity And Development in a focused task: explain and apply independence national unity and development in a real learning situation. Use a real example, clear vocabulary, evidence, correction, and one next step.\n\nCorrection check:\n- answer uses a real example\n- reasoning is clear\n- work is checked\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to independence national unity and development and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-005:practice:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-005:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p043",
+      "title": "Independence National Unity And Development: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Independence National Unity And Development.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-005:remediation:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-005:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p044",
+      "title": "Independence National Unity And Development: Outcome Check",
+      "content": "Show that you can explain and apply independence national unity and development in a real learning situation.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-005:assessment:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-005:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p045",
+      "title": "Peace Human Rights And Responsibilities: Lesson Opener",
+      "content": "Learning focus: Peace Human Rights And Responsibilities\n\nCountry link: a Tanzania school, home, or community example for Peace Human Rights And Responsibilities.\n\nProgression focus: prepare for upper-primary transition by using evidence, accuracy, and reflection.\n\nBy the end of this topic, you should be able to:\n- explain and apply peace human rights and responsibilities in a real learning situation\n\nInquiry questions:\n- How can peace human rights and responsibilities help you solve a real problem?\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-006:opener:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-006:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p046",
+      "title": "Peace Human Rights And Responsibilities: Learn",
+      "content": "Peace Human Rights And Responsibilities becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Peace Human Rights And Responsibilities\n- Peace\n- Human\n- Rights\n- Responsibilities\n- idea\n- skill\n- example",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-006:learn:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-006:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p047",
+      "title": "Peace Human Rights And Responsibilities: Worked Example",
+      "content": "Evidence model for Peace Human Rights And Responsibilities: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Historia ya Tanzania na Maadili.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 63,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-006:example:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-006:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p048",
+      "title": "Peace Human Rights And Responsibilities: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Peace Human Rights And Responsibilities. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Peace Human Rights And Responsibilities\n- Peace\n- Human\n- Rights\n- Responsibilities\n- idea\n- skill\n- example\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Peace Human Rights And Responsibilities without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-006:vocabulary:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-006:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p049",
+      "title": "Peace Human Rights And Responsibilities: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a Tanzania school, home, or community example for Peace Human Rights And Responsibilities.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-006:activity:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-006:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p050",
+      "title": "Peace Human Rights And Responsibilities: Practice And Correction",
+      "content": "Practice for Peace Human Rights And Responsibilities:\n\n1. Apply Peace Human Rights And Responsibilities in a focused task: explain and apply peace human rights and responsibilities in a real learning situation. Use a real example, clear vocabulary, evidence, correction, and one next step.\n\nCorrection check:\n- answer uses a real example\n- reasoning is clear\n- work is checked\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to peace human rights and responsibilities and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-006:practice:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-006:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p051",
+      "title": "Peace Human Rights And Responsibilities: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Peace Human Rights And Responsibilities.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-006:remediation:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-006:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p052",
+      "title": "Peace Human Rights And Responsibilities: Outcome Check",
+      "content": "Show that you can explain and apply peace human rights and responsibilities in a real learning situation.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-006:assessment:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-006:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p053",
+      "title": "Historical Inquiry And Reporting: Lesson Opener",
+      "content": "Learning focus: Historical Inquiry And Reporting\n\nCountry link: a Tanzania school, home, or community example for Historical Inquiry And Reporting.\n\nProgression focus: prepare for upper-primary transition by using evidence, accuracy, and reflection.\n\nBy the end of this topic, you should be able to:\n- explain and apply historical inquiry and reporting in a real learning situation\n\nInquiry questions:\n- How can historical inquiry and reporting help you solve a real problem?\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 87,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-007:opener:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-007:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p054",
+      "title": "Historical Inquiry And Reporting: Learn",
+      "content": "Historical Inquiry And Reporting becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Historical Inquiry And Reporting\n- Historical\n- Inquiry\n- Reporting\n- idea\n- skill\n- example\n- practice",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-007:learn:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-007:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p055",
+      "title": "Historical Inquiry And Reporting: Worked Example",
+      "content": "Evidence model for Historical Inquiry And Reporting: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Historia ya Tanzania na Maadili.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 62,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-007:example:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-007:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p056",
+      "title": "Historical Inquiry And Reporting: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Historical Inquiry And Reporting. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Historical Inquiry And Reporting\n- Historical\n- Inquiry\n- Reporting\n- idea\n- skill\n- example\n- practice\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Historical Inquiry And Reporting without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-007:vocabulary:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-007:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p057",
+      "title": "Historical Inquiry And Reporting: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a Tanzania school, home, or community example for Historical Inquiry And Reporting.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-007:activity:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-007:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p058",
+      "title": "Historical Inquiry And Reporting: Practice And Correction",
+      "content": "Practice for Historical Inquiry And Reporting:\n\n1. Apply Historical Inquiry And Reporting in a focused task: explain and apply historical inquiry and reporting in a real learning situation. Use a real example, clear vocabulary, evidence, correction, and one next step.\n\nCorrection check:\n- answer uses a real example\n- reasoning is clear\n- work is checked\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to historical inquiry and reporting and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 97,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-007:practice:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-007:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p059",
+      "title": "Historical Inquiry And Reporting: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Historical Inquiry And Reporting.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-007:remediation:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-007:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p060",
+      "title": "Historical Inquiry And Reporting: Outcome Check",
+      "content": "Show that you can explain and apply historical inquiry and reporting in a real learning situation.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 100,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-007:assessment:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-007:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p061",
+      "title": "Upper Primary History Project: Lesson Opener",
+      "content": "Learning focus: Upper Primary History Project\n\nCountry link: a Tanzania school, home, or community example for Upper Primary History Project.\n\nProgression focus: prepare for upper-primary transition by using evidence, accuracy, and reflection.\n\nBy the end of this topic, you should be able to:\n- explain and apply upper primary history project in a real learning situation\n\nInquiry questions:\n- How can upper primary history project help you solve a real problem?\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 87,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-008:opener:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-008:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p062",
+      "title": "Upper Primary History Project: Learn",
+      "content": "Upper Primary History Project becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Upper Primary History Project\n- Upper\n- Primary\n- History\n- Project\n- idea\n- skill\n- example",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-008:learn:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-008:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p063",
+      "title": "Upper Primary History Project: Worked Example",
+      "content": "Evidence model for Upper Primary History Project: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Historia ya Tanzania na Maadili.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 62,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-008:example:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-008:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p064",
+      "title": "Upper Primary History Project: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Upper Primary History Project. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Upper Primary History Project\n- Upper\n- Primary\n- History\n- Project\n- idea\n- skill\n- example\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Upper Primary History Project without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-008:vocabulary:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-008:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p065",
+      "title": "Upper Primary History Project: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a Tanzania school, home, or community example for Upper Primary History Project.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-008:activity:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-008:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p066",
+      "title": "Upper Primary History Project: Practice And Correction",
+      "content": "Practice for Upper Primary History Project:\n\n1. Apply Upper Primary History Project in a focused task: explain and apply upper primary history project in a real learning situation. Use a real example, clear vocabulary, evidence, correction, and one next step.\n\nCorrection check:\n- answer uses a real example\n- reasoning is clear\n- work is checked\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to upper primary history project and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 97,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-008:practice:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-008:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p067",
+      "title": "Upper Primary History Project: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Upper Primary History Project.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-008:remediation:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-008:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p068",
+      "title": "Upper Primary History Project: Outcome Check",
+      "content": "Show that you can explain and apply upper primary history project in a real learning situation.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 100,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-008:assessment:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-008:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p069",
+      "title": "Tanzania And East African History: Review Clinic 1",
+      "content": "Use this review clinic to strengthen Historia ya Tanzania na Maadili without copying earlier answers.\n\n1. Choose one idea from Tanzania And East African History that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 82,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-001:review:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-001:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p070",
+      "title": "Heritage Sites And Historical Evidence: Review Clinic 2",
+      "content": "Use this review clinic to strengthen Historia ya Tanzania na Maadili without copying earlier answers.\n\n1. Choose one idea from Heritage Sites And Historical Evidence that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 82,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-002:review:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-002:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p071",
+      "title": "Citizenship Constitution And Public Service: Review Clinic 3",
+      "content": "Use this review clinic to strengthen Historia ya Tanzania na Maadili without copying earlier answers.\n\n1. Choose one idea from Citizenship Constitution And Public Service that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 82,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-003:review:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-003:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p072",
+      "title": "Colonial Rule And Resistance Basics: Review Clinic 4",
+      "content": "Use this review clinic to strengthen Historia ya Tanzania na Maadili without copying earlier answers.\n\n1. Choose one idea from Colonial Rule And Resistance Basics that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 82,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-004:review:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-004:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p073",
+      "title": "Tanzania And East African History: Application Workshop 1",
+      "content": "Application workshop 1 for Tanzania And East African History.\n\nGrade move: prepare for upper-primary transition by using evidence, accuracy, and reflection.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-001:application-workshop:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-001:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p074",
+      "title": "Heritage Sites And Historical Evidence: Application Workshop 2",
+      "content": "Application workshop 2 for Heritage Sites And Historical Evidence.\n\nGrade move: prepare for upper-primary transition by using evidence, accuracy, and reflection.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-002:application-workshop:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-002:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p075",
+      "title": "Citizenship Constitution And Public Service: Application Workshop 3",
+      "content": "Application workshop 3 for Citizenship Constitution And Public Service.\n\nGrade move: prepare for upper-primary transition by using evidence, accuracy, and reflection.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-003:application-workshop:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-003:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p076",
+      "title": "Colonial Rule And Resistance Basics: Application Workshop 4",
+      "content": "Application workshop 4 for Colonial Rule And Resistance Basics.\n\nGrade move: prepare for upper-primary transition by using evidence, accuracy, and reflection.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-004:application-workshop:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-004:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p077",
+      "title": "Independence National Unity And Development: Application Workshop 5",
+      "content": "Application workshop 5 for Independence National Unity And Development.\n\nGrade move: prepare for upper-primary transition by using evidence, accuracy, and reflection.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-005:application-workshop:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-005:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p078",
+      "title": "Peace Human Rights And Responsibilities: Application Workshop 6",
+      "content": "Application workshop 6 for Peace Human Rights And Responsibilities.\n\nGrade move: prepare for upper-primary transition by using evidence, accuracy, and reflection.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-006:application-workshop:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-006:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p079",
+      "title": "Historical Inquiry And Reporting: Application Workshop 7",
+      "content": "Application workshop 7 for Historical Inquiry And Reporting.\n\nGrade move: prepare for upper-primary transition by using evidence, accuracy, and reflection.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 111,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-007:application-workshop:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-007:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p080",
+      "title": "Upper Primary History Project: Application Workshop 8",
+      "content": "Application workshop 8 for Upper Primary History Project.\n\nGrade move: prepare for upper-primary transition by using evidence, accuracy, and reflection.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 111,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-008:application-workshop:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-008:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p081",
+      "title": "Tanzania And East African History: Application Workshop 9",
+      "content": "Application workshop 9 for Tanzania And East African History.\n\nGrade move: prepare for upper-primary transition by using evidence, accuracy, and reflection.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-001:application-workshop:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-001:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p082",
+      "title": "Heritage Sites And Historical Evidence: Application Workshop 10",
+      "content": "Application workshop 10 for Heritage Sites And Historical Evidence.\n\nGrade move: prepare for upper-primary transition by using evidence, accuracy, and reflection.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-002:application-workshop:visual-1:planned",
+        "TZA-STANDARD-VI-historia-ya-tanzania-na-maadili-topic-002:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2"
+      ],
+      "unitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2"
+      ],
+      "parentUnitIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2"
+      ],
+      "outcomeIds": [
+        "fallback-standard-vi-historia-ya-tanzania-na-maadili-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p083",
+      "title": "Glossary",
+      "content": "Use this glossary to revise important words in Historia ya Tanzania na Maadili.\n\n- Tanzania And East African History: Explain this term using an example from the book, your school, or your community.\n- Heritage Sites And Historical Evidence: Explain this term using an example from the book, your school, or your community.\n- Citizenship Constitution And Public Service: Explain this term using an example from the book, your school, or your community.\n- Colonial Rule And Resistance Basics: Explain this term using an example from the book, your school, or your community.\n- Independence National Unity And Development: Explain this term using an example from the book, your school, or your community.\n- Peace Human Rights And Responsibilities: Explain this term using an example from the book, your school, or your community.\n- Historical Inquiry And Reporting: Explain this term using an example from the book, your school, or your community.\n- Upper Primary History Project: Explain this term using an example from the book, your school, or your community.\n\nAdd five more words from your lessons and write your own meanings.",
+      "pageType": "glossary",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 183,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p084",
+      "title": "Answer And Teacher Notes",
+      "content": "A strong Historia ya Tanzania na Maadili answer responds to the exact task, uses correct vocabulary, gives a clear example or evidence, and shows correction after feedback. For practical work, name materials, safety, process, quality checks, peer feedback, and one improvement made after review.",
+      "pageType": "answer-notes",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 44,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili-p085",
+      "title": "Final Project",
+      "content": "Create a final project for Historia ya Tanzania na Maadili that shows what you can now do independently.\n\nYour project must include:\n1. A clear title.\n2. A real-life problem, question, text, performance, investigation, design, or worked task.\n3. Evidence from at least three lessons in this book.\n4. A drawing, table, map, chart, model, dialogue, paragraph, performance plan, practical product, or worked solution.\n5. A correction note showing one improvement after feedback.\n6. A short reflection explaining what you learned, what was difficult, and what you will practise next.\n\nPresentation check: keep the work neat, label important parts, use correct vocabulary, and be ready to explain your choices to a classmate or teacher.",
+      "pageType": "project",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 114,
+      "imageRefs": []
+    }
+  ]
+}

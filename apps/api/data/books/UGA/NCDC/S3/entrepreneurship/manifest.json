@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-uga-ncdc-s3-entrepreneurship",
+  "title": "KITABU QUEST S3 Entrepreneurship",
+  "country": "UGA",
+  "curriculum": "NCDC",
+  "grade": "S3",
+  "subject": "Entrepreneurship",
+  "subjectSlug": "entrepreneurship",
+  "subjectColor": "#B45309",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v12",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:17:42Z",
+  "sourceSnapshotHash": "7eb606d0cf43195b6057f89715232f73b49f8f717aa254dd21e86b95d086622b",
+  "bookPlanHash": "1d388915b5e9f375b2ed00a32c45d85da4d3dd3b302c5126988e19b78e264abe",
+  "pageCount": 85,
+  "wordCount": 8961,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 5,
+    "outcomeCount": 5,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "UGA",
+    "subject": "Entrepreneurship",
+    "species": "Ankole longhorn cow",
+    "role": "enterprise and livelihood guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners running a small school market project with an Ankole longhorn cow mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Uganda NCDC S3 Entrepreneurship. Scene: learners running a small school market project with an Ankole longhorn cow mascot. Include a friendly Ankole longhorn cow mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 92411,
+    "sha256": "66246941c5b067c3297123681dbfb32b6f36aa4e99fc5448763b4d46645d1f2e"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 92411,
+      "sha256": "66246941c5b067c3297123681dbfb32b6f36aa4e99fc5448763b4d46645d1f2e",
+      "kind": "cover",
+      "altText": "KITABU QUEST S3 Entrepreneurship cover with Ankole longhorn cow",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-uga-ncdc-s3-entrepreneurship.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-uga-ncdc-s3-entrepreneurship.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "d5fb1874-ce22-4564-9d00-a348c1ccb2e9",
+      "subject": "Entrepreneurship",
+      "officialTitle": "Uganda Curriculum S3 Entrepreneurship",
+      "countryCode": "UGA",
+      "curriculumCode": "NCDC",
+      "gradeCode": "S3",
+      "gradeLocalLevel": "S3",
+      "localLevel": "S3",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/ENTREPRENEURSHIP_SYLLABUS_compressed.pdf",
+      "objectKey": "data/curriculum/source-files/UGA/0b8dfaa3695912dfd3d83040a270f691550d88b2c2240a899a0cb3cb3a5a5b95.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "S3",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/ENTREPRENEURSHIP_SYLLABUS_compressed.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/UGA/NCDC/S3/entrepreneurship/d5fb1874-ce22-4564-9d00-a348c1ccb2e9.md",
+        "sourcePageUrl": "https://ncdc.go.ug/wp-content/uploads/2024/03/Curriculum_Framework.pdf",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "ncdc.go.ug"
+        ],
+        "markdownChecksum": "b0b5df0e630ff7cb66189952ba6bcb6af50b3e44eb1b71afe60b6a46bc7c2634",
+        "markdownPageCount": 64,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/UGA/NCDC/S3/entrepreneurship/d5fb1874-ce22-4564-9d00-a348c1ccb2e9.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "b0b5df0e630ff7cb66189952ba6bcb6af50b3e44eb1b71afe60b6a46bc7c2634",
+          "pageCount": 64,
+          "generatedAt": "2026-06-29T18:19:30.291Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "8ba8aff80e6c674a12615c2dc3b11d7cab1fa66aa10ac72f0baceb3afd8ecec6"
+        },
+        "markdownGeneratedAt": "2026-06-29T18:19:30.291Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

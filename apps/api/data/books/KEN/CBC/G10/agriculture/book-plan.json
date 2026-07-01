@@ -1,0 +1,1988 @@
+{
+  "schemaVersion": 1,
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 10",
+  "subject": "Agriculture",
+  "generatedAt": "2026-07-01T11:48:53Z",
+  "sourceSnapshotHash": "a5826dd344fd920fe6bc02c67be07cf87fd1dce914386cdecf7f4f92956b8adf",
+  "ageBand": {
+    "band": "senior-secondary",
+    "language": "exam-ready precision with terms explained before use",
+    "taskDepth": "worked solutions, synthesis tasks, and evidence-based explanations"
+  },
+  "writingStandard": {
+    "voice": "simple, conversational, purposeful, and learner-first",
+    "antiFluff": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "coversDeferred": true
+  },
+  "strands": [
+    {
+      "strandId": "fe11b998-7d80-4952-8dcb-ad1294f1bb5c",
+      "number": "1.0",
+      "title": "Crop Production",
+      "topicCount": 9
+    },
+    {
+      "strandId": "0a2a47e3-f4be-49fc-9354-662594bab3c6",
+      "number": "2.0",
+      "title": "Animal Production",
+      "topicCount": 7
+    },
+    {
+      "strandId": "c9a6da48-affb-4ebb-b3d8-9e65e9d53572",
+      "number": "3.0",
+      "title": "Agricultural Technologies and Entrepreneurship",
+      "topicCount": 8
+    }
+  ],
+  "topics": [
+    {
+      "topicId": "G10-agriculture-topic-001",
+      "strandId": "fe11b998-7d80-4952-8dcb-ad1294f1bb5c",
+      "parentSubStrandId": "b5605720-b269-42d7-910d-16d5a8a83cc1",
+      "subStrandId": "b5605720-b269-42d7-910d-16d5a8a83cc1",
+      "strandTitle": "Crop Production",
+      "unitTitle": "Agricultural Land",
+      "sourceUnitTitle": "Agricultural Land",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-agriculture-1-1-outcome-1",
+          "text": "describe ways of accessing land for agricultural use"
+        },
+        {
+          "id": "grade-10-agriculture-1-1-outcome-2",
+          "text": "evaluate the utility of land for agricultural production purposes"
+        },
+        {
+          "id": "grade-10-agriculture-1-1-outcome-3",
+          "text": "analyse natural factors that determine the productivity of land in agriculture"
+        },
+        {
+          "id": "grade-10-agriculture-1-1-outcome-4",
+          "text": "appreciate the importance of land ownership security in agricultural production."
+        }
+      ],
+      "inquiryQuestions": [
+        "How is land productivity determined for agriculture?",
+        "Why is land put to different agricultural uses?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Agricultural Land.",
+        "Review vocabulary from the previous Agriculture lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Agricultural Land",
+        "Agricultural"
+      ],
+      "misconceptions": [
+        "describing farm work without naming tools, steps, safety, observations, or care practices"
+      ],
+      "localContext": "a school garden, home garden, farm tool, soil, water, crop, animal-care, or food-security example linked to Agricultural Land",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are practical",
+        "tools/materials are named",
+        "safety and care are included"
+      ],
+      "visualNeeds": [
+        {
+          "type": "tool or farm-step diagram",
+          "description": "tool or farm-step diagram for Agricultural Land",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "observation log table",
+          "description": "observation log table for Agricultural Land",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1dd6d656-de51-488b-b3eb-e0646308c87d",
+          "officialTitle": "Competency Based Curriculum Grade 10 Agriculture",
+          "sourceSnapshotHash": "a5826dd344fd920fe6bc02c67be07cf87fd1dce914386cdecf7f4f92956b8adf"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-agriculture-topic-002",
+      "strandId": "fe11b998-7d80-4952-8dcb-ad1294f1bb5c",
+      "parentSubStrandId": "6f708c74-e0c6-410d-a179-7262cb34b373",
+      "subStrandId": "6f708c74-e0c6-410d-a179-7262cb34b373:topic-1",
+      "strandTitle": "Crop Production",
+      "unitTitle": "Properties of soil: investigate components of soil that influence crop production",
+      "sourceUnitTitle": "Properties of soil",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-agriculture-1-2-outcome-1",
+          "text": "investigate components of soil that influence crop production"
+        },
+        {
+          "id": "grade-10-agriculture-1-2-outcome-2",
+          "text": "examine properties of a soil for crop production"
+        },
+        {
+          "id": "grade-10-agriculture-1-2-outcome-3",
+          "text": "describe properties of soil that influence crop production"
+        },
+        {
+          "id": "grade-10-agriculture-1-2-outcome-4",
+          "text": "investigate selected properties of soil that influence crop production"
+        }
+      ],
+      "inquiryQuestions": [
+        "How do soil properties influence crop production?",
+        "How can we investigate various properties of soil?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Properties of soil.",
+        "Review vocabulary from the previous Agriculture lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Properties of soil: investigate components of soil that influence crop production",
+        "Properties of soil",
+        "Properties",
+        "soil",
+        "investigate",
+        "components",
+        "influence",
+        "production"
+      ],
+      "misconceptions": [
+        "describing farm work without naming tools, steps, safety, observations, or care practices"
+      ],
+      "localContext": "a school garden, home garden, farm tool, soil, water, crop, animal-care, or food-security example linked to Properties of soil: investigate components of soil that influence crop production",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are practical",
+        "tools/materials are named",
+        "safety and care are included"
+      ],
+      "visualNeeds": [
+        {
+          "type": "tool or farm-step diagram",
+          "description": "tool or farm-step diagram for Properties of soil: investigate components of soil that influence crop production",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "observation log table",
+          "description": "observation log table for Properties of soil: investigate components of soil that influence crop production",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1dd6d656-de51-488b-b3eb-e0646308c87d",
+          "officialTitle": "Competency Based Curriculum Grade 10 Agriculture",
+          "sourceSnapshotHash": "a5826dd344fd920fe6bc02c67be07cf87fd1dce914386cdecf7f4f92956b8adf"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-agriculture-topic-003",
+      "strandId": "fe11b998-7d80-4952-8dcb-ad1294f1bb5c",
+      "parentSubStrandId": "6f708c74-e0c6-410d-a179-7262cb34b373",
+      "subStrandId": "6f708c74-e0c6-410d-a179-7262cb34b373:topic-2",
+      "strandTitle": "Crop Production",
+      "unitTitle": "Properties of soil: relate the importance of soil profile to crop",
+      "sourceUnitTitle": "Properties of soil",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-agriculture-1-2-outcome-5",
+          "text": "relate the importance of soil profile to crop production"
+        },
+        {
+          "id": "grade-10-agriculture-1-2-outcome-6",
+          "text": "acknowledge the importance of soil properties in crop production."
+        }
+      ],
+      "inquiryQuestions": [
+        "How can we investigate various properties of soil?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Properties of soil.",
+        "Review vocabulary from the previous Agriculture lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Properties of soil: relate the importance of soil profile to crop",
+        "Properties of soil",
+        "Properties",
+        "soil",
+        "relate",
+        "profile"
+      ],
+      "misconceptions": [
+        "describing farm work without naming tools, steps, safety, observations, or care practices"
+      ],
+      "localContext": "a school garden, home garden, farm tool, soil, water, crop, animal-care, or food-security example linked to Properties of soil: relate the importance of soil profile to crop",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are practical",
+        "tools/materials are named",
+        "safety and care are included"
+      ],
+      "visualNeeds": [
+        {
+          "type": "tool or farm-step diagram",
+          "description": "tool or farm-step diagram for Properties of soil: relate the importance of soil profile to crop",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "observation log table",
+          "description": "observation log table for Properties of soil: relate the importance of soil profile to crop",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1dd6d656-de51-488b-b3eb-e0646308c87d",
+          "officialTitle": "Competency Based Curriculum Grade 10 Agriculture",
+          "sourceSnapshotHash": "a5826dd344fd920fe6bc02c67be07cf87fd1dce914386cdecf7f4f92956b8adf"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-agriculture-topic-004",
+      "strandId": "fe11b998-7d80-4952-8dcb-ad1294f1bb5c",
+      "parentSubStrandId": "6e964470-72c3-4353-aef7-205cac7d347a",
+      "subStrandId": "6e964470-72c3-4353-aef7-205cac7d347a",
+      "strandTitle": "Crop Production",
+      "unitTitle": "Land Preparation Land clearing Primary cultivation Secondary cultivation Tertiary operations. Conservation tillage",
+      "sourceUnitTitle": "Land Preparation Land clearing Primary cultivation Secondary cultivation Tertiary operations. Conservation tillage",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-agriculture-1-3-outcome-1",
+          "text": "describe activities of fallow land preparation to appropriate seedbed"
+        },
+        {
+          "id": "grade-10-agriculture-1-3-outcome-2",
+          "text": "justify use of conservation tillage practices in crop production"
+        },
+        {
+          "id": "grade-10-agriculture-1-3-outcome-3",
+          "text": "carry out land preparation operations for a selected crop"
+        },
+        {
+          "id": "grade-10-agriculture-1-3-outcome-4",
+          "text": "appreciate the importance of land preparation in crop production."
+        }
+      ],
+      "inquiryQuestions": [
+        "How does proper land preparation contribute to crop production?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Land Preparation Land clearing Primary cultivation Secondary cultivation Tertiary operations. Conservation tillage.",
+        "Review vocabulary from the previous Agriculture lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Land Preparation Land clearing Primary cultivation Secondary cultivation Tertiary operations. Conservation tillage",
+        "Preparation",
+        "clearing",
+        "Primary",
+        "cultivation",
+        "Secondary",
+        "Tertiary",
+        "operations."
+      ],
+      "misconceptions": [
+        "describing farm work without naming tools, steps, safety, observations, or care practices"
+      ],
+      "localContext": "a school garden, home garden, farm tool, soil, water, crop, animal-care, or food-security example linked to Land Preparation Land clearing Primary cultivation Secondary cultivation Tertiary operations. Conservation tillage",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are practical",
+        "tools/materials are named",
+        "safety and care are included"
+      ],
+      "visualNeeds": [
+        {
+          "type": "tool or farm-step diagram",
+          "description": "tool or farm-step diagram for Land Preparation Land clearing Primary cultivation Secondary cultivation Tertiary operations. Conservation tillage",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "observation log table",
+          "description": "observation log table for Land Preparation Land clearing Primary cultivation Secondary cultivation Tertiary operations. Conservation tillage",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1dd6d656-de51-488b-b3eb-e0646308c87d",
+          "officialTitle": "Competency Based Curriculum Grade 10 Agriculture",
+          "sourceSnapshotHash": "a5826dd344fd920fe6bc02c67be07cf87fd1dce914386cdecf7f4f92956b8adf"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-agriculture-topic-005",
+      "strandId": "fe11b998-7d80-4952-8dcb-ad1294f1bb5c",
+      "parentSubStrandId": "7cf432ad-f876-452b-8e81-0868162b6c3d",
+      "subStrandId": "7cf432ad-f876-452b-8e81-0868162b6c3d",
+      "strandTitle": "Crop Production",
+      "unitTitle": "Field Management Practices Vegetable pruning perennial crop Top dressing",
+      "sourceUnitTitle": "Field Management Practices Vegetable pruning perennial crop Top dressing",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-agriculture-1-4-outcome-1",
+          "text": "describe management practices of selected vegetable and perennial crops"
+        },
+        {
+          "id": "grade-10-agriculture-1-4-outcome-2",
+          "text": "carry out selected management practices in crop production"
+        },
+        {
+          "id": "grade-10-agriculture-1-4-outcome-3",
+          "text": "explain factors considered in top-dressing a crop field"
+        },
+        {
+          "id": "grade-10-agriculture-1-4-outcome-4",
+          "text": "appreciate the importance of selected management practices in crop production."
+        }
+      ],
+      "inquiryQuestions": [
+        "How do field management practices influence crop production?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Field Management Practices Vegetable pruning perennial crop Top dressing.",
+        "Review vocabulary from the previous Agriculture lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Field Management Practices Vegetable pruning perennial crop Top dressing",
+        "Field",
+        "Management",
+        "Practices",
+        "Vegetable",
+        "pruning",
+        "perennial",
+        "dressing"
+      ],
+      "misconceptions": [
+        "describing farm work without naming tools, steps, safety, observations, or care practices"
+      ],
+      "localContext": "a school garden, home garden, farm tool, soil, water, crop, animal-care, or food-security example linked to Field Management Practices Vegetable pruning perennial crop Top dressing",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are practical",
+        "tools/materials are named",
+        "safety and care are included"
+      ],
+      "visualNeeds": [
+        {
+          "type": "tool or farm-step diagram",
+          "description": "tool or farm-step diagram for Field Management Practices Vegetable pruning perennial crop Top dressing",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "observation log table",
+          "description": "observation log table for Field Management Practices Vegetable pruning perennial crop Top dressing",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1dd6d656-de51-488b-b3eb-e0646308c87d",
+          "officialTitle": "Competency Based Curriculum Grade 10 Agriculture",
+          "sourceSnapshotHash": "a5826dd344fd920fe6bc02c67be07cf87fd1dce914386cdecf7f4f92956b8adf"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-agriculture-topic-006",
+      "strandId": "fe11b998-7d80-4952-8dcb-ad1294f1bb5c",
+      "parentSubStrandId": "0f68ff1f-e8ee-4e9b-ad7c-c7b2938205ea",
+      "subStrandId": "0f68ff1f-e8ee-4e9b-ad7c-c7b2938205ea",
+      "strandTitle": "Crop Production",
+      "unitTitle": "Growing Selected Crop Nursery bed establishment Nursery bed management Crop establishment Field",
+      "sourceUnitTitle": "Growing Selected Crop Nursery bed establishment Nursery bed management Crop establishment Field management practices.",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-agriculture-1-5-outcome-1",
+          "text": "determine crops that are established through a nursery"
+        },
+        {
+          "id": "grade-10-agriculture-1-5-outcome-2",
+          "text": "grow a selected crop by raising it from a nursery bed"
+        },
+        {
+          "id": "grade-10-agriculture-1-5-outcome-3",
+          "text": "justify management practices for a selected crop."
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we establish a crop from a nursery?",
+        "How do management practices influence crop productivity?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Growing Selected Crop Nursery bed establishment Nursery bed management Crop establishment Field management practices..",
+        "Review vocabulary from the previous Agriculture lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Growing Selected Crop Nursery bed establishment Nursery bed management Crop establishment Field",
+        "Growing Selected Crop Nursery bed establishment Nursery bed management Crop establishment Field management practices.",
+        "Growing",
+        "Nursery",
+        "establishment",
+        "management",
+        "Field"
+      ],
+      "misconceptions": [
+        "describing farm work without naming tools, steps, safety, observations, or care practices"
+      ],
+      "localContext": "a school garden, home garden, farm tool, soil, water, crop, animal-care, or food-security example linked to Growing Selected Crop Nursery bed establishment Nursery bed management Crop establishment Field",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are practical",
+        "tools/materials are named",
+        "safety and care are included"
+      ],
+      "visualNeeds": [
+        {
+          "type": "tool or farm-step diagram",
+          "description": "tool or farm-step diagram for Growing Selected Crop Nursery bed establishment Nursery bed management Crop establishment Field",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "observation log table",
+          "description": "observation log table for Growing Selected Crop Nursery bed establishment Nursery bed management Crop establishment Field",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1dd6d656-de51-488b-b3eb-e0646308c87d",
+          "officialTitle": "Competency Based Curriculum Grade 10 Agriculture",
+          "sourceSnapshotHash": "a5826dd344fd920fe6bc02c67be07cf87fd1dce914386cdecf7f4f92956b8adf"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-agriculture-topic-007",
+      "strandId": "fe11b998-7d80-4952-8dcb-ad1294f1bb5c",
+      "parentSubStrandId": "aa89d999-9e27-4d09-9feb-cd88697bf985",
+      "subStrandId": "aa89d999-9e27-4d09-9feb-cd88697bf985:topic-1",
+      "strandTitle": "Crop Production",
+      "unitTitle": "Crop Protection: Weed control: weeds in a crop field",
+      "sourceUnitTitle": "Crop Protection: Weed control",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-agriculture-1-6-outcome-1",
+          "text": "identify weeds in a crop field"
+        },
+        {
+          "id": "grade-10-agriculture-1-6-outcome-2",
+          "text": "classify weeds based on the provided criteria"
+        },
+        {
+          "id": "grade-10-agriculture-1-6-outcome-3",
+          "text": "examine various methods of weed control"
+        },
+        {
+          "id": "grade-10-agriculture-1-6-outcome-4",
+          "text": "carry out weed control using appropriate methods"
+        }
+      ],
+      "inquiryQuestions": [
+        "How do weeds affect crop production?",
+        "Why is weed control done in crop production?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Crop Protection: Weed control.",
+        "Review vocabulary from the previous Agriculture lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Crop Protection: Weed control: weeds in a crop field",
+        "Crop Protection: Weed control",
+        "Protection",
+        "control",
+        "weeds",
+        "field"
+      ],
+      "misconceptions": [
+        "describing farm work without naming tools, steps, safety, observations, or care practices"
+      ],
+      "localContext": "a school garden, home garden, farm tool, soil, water, crop, animal-care, or food-security example linked to Crop Protection: Weed control: weeds in a crop field",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are practical",
+        "tools/materials are named",
+        "safety and care are included"
+      ],
+      "visualNeeds": [
+        {
+          "type": "tool or farm-step diagram",
+          "description": "tool or farm-step diagram for Crop Protection: Weed control: weeds in a crop field",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "observation log table",
+          "description": "observation log table for Crop Protection: Weed control: weeds in a crop field",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1dd6d656-de51-488b-b3eb-e0646308c87d",
+          "officialTitle": "Competency Based Curriculum Grade 10 Agriculture",
+          "sourceSnapshotHash": "a5826dd344fd920fe6bc02c67be07cf87fd1dce914386cdecf7f4f92956b8adf"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-agriculture-topic-008",
+      "strandId": "fe11b998-7d80-4952-8dcb-ad1294f1bb5c",
+      "parentSubStrandId": "aa89d999-9e27-4d09-9feb-cd88697bf985",
+      "subStrandId": "aa89d999-9e27-4d09-9feb-cd88697bf985:topic-2",
+      "strandTitle": "Crop Production",
+      "unitTitle": "Crop Protection: Weed control: economic importance of weeds to a farming household.",
+      "sourceUnitTitle": "Crop Protection: Weed control",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-agriculture-1-6-outcome-5",
+          "text": "appreciate the economic importance of weeds to a farming household."
+        }
+      ],
+      "inquiryQuestions": [
+        "Why is weed control done in crop production?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Crop Protection: Weed control.",
+        "Review vocabulary from the previous Agriculture lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Crop Protection: Weed control: economic importance of weeds to a farming household.",
+        "Crop Protection: Weed control",
+        "Protection",
+        "control",
+        "economic",
+        "weeds",
+        "farming",
+        "household."
+      ],
+      "misconceptions": [
+        "describing farm work without naming tools, steps, safety, observations, or care practices"
+      ],
+      "localContext": "a school garden, home garden, farm tool, soil, water, crop, animal-care, or food-security example linked to Crop Protection: Weed control: economic importance of weeds to a farming household.",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are practical",
+        "tools/materials are named",
+        "safety and care are included"
+      ],
+      "visualNeeds": [
+        {
+          "type": "tool or farm-step diagram",
+          "description": "tool or farm-step diagram for Crop Protection: Weed control: economic importance of weeds to a farming household.",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "observation log table",
+          "description": "observation log table for Crop Protection: Weed control: economic importance of weeds to a farming household.",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1dd6d656-de51-488b-b3eb-e0646308c87d",
+          "officialTitle": "Competency Based Curriculum Grade 10 Agriculture",
+          "sourceSnapshotHash": "a5826dd344fd920fe6bc02c67be07cf87fd1dce914386cdecf7f4f92956b8adf"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-agriculture-topic-009",
+      "strandId": "fe11b998-7d80-4952-8dcb-ad1294f1bb5c",
+      "parentSubStrandId": "15d64428-2017-4366-836f-c71b081dc095",
+      "subStrandId": "15d64428-2017-4366-836f-c71b081dc095",
+      "strandTitle": "Crop Production",
+      "unitTitle": "General Crop Harvesting Factors determining harvesting Pre-harvesting practices Harvesting methods Post-harvest practices",
+      "sourceUnitTitle": "General Crop Harvesting Factors determining harvesting Pre-harvesting practices Harvesting methods Post-harvest practices",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-agriculture-1-7-outcome-1",
+          "text": "explain factors that determine the harvesting of a crop produce"
+        },
+        {
+          "id": "grade-10-agriculture-1-7-outcome-2",
+          "text": "carry out the harvesting processes for selected crop produce"
+        },
+        {
+          "id": "grade-10-agriculture-1-7-outcome-3",
+          "text": "acknowledge the importance of harvesting processes in crop production."
+        }
+      ],
+      "inquiryQuestions": [
+        "How does the harvesting process affect crop production?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to General Crop Harvesting Factors determining harvesting Pre-harvesting practices Harvesting methods Post-harvest practices.",
+        "Review vocabulary from the previous Agriculture lesson before starting."
+      ],
+      "keyVocabulary": [
+        "General Crop Harvesting Factors determining harvesting Pre-harvesting practices Harvesting methods Post-harvest practices",
+        "Harvesting",
+        "Factors",
+        "determining",
+        "Pre-harvesting",
+        "practices",
+        "methods",
+        "Post-harvest"
+      ],
+      "misconceptions": [
+        "describing farm work without naming tools, steps, safety, observations, or care practices"
+      ],
+      "localContext": "a school garden, home garden, farm tool, soil, water, crop, animal-care, or food-security example linked to General Crop Harvesting Factors determining harvesting Pre-harvesting practices Harvesting methods Post-harvest practices",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are practical",
+        "tools/materials are named",
+        "safety and care are included"
+      ],
+      "visualNeeds": [
+        {
+          "type": "tool or farm-step diagram",
+          "description": "tool or farm-step diagram for General Crop Harvesting Factors determining harvesting Pre-harvesting practices Harvesting methods Post-harvest practices",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "observation log table",
+          "description": "observation log table for General Crop Harvesting Factors determining harvesting Pre-harvesting practices Harvesting methods Post-harvest practices",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1dd6d656-de51-488b-b3eb-e0646308c87d",
+          "officialTitle": "Competency Based Curriculum Grade 10 Agriculture",
+          "sourceSnapshotHash": "a5826dd344fd920fe6bc02c67be07cf87fd1dce914386cdecf7f4f92956b8adf"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-agriculture-topic-010",
+      "strandId": "0a2a47e3-f4be-49fc-9354-662594bab3c6",
+      "parentSubStrandId": "7b708c8d-38f4-4080-8167-377e0aed27fe",
+      "subStrandId": "7b708c8d-38f4-4080-8167-377e0aed27fe",
+      "strandTitle": "Animal Production",
+      "unitTitle": "Breeds of Livestock Cattle Pigs Rabbits Sheep Goats",
+      "sourceUnitTitle": "Breeds of Livestock Cattle Pigs Rabbits Sheep Goats",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-agriculture-2-1-outcome-1",
+          "text": "distinguish common breeds of livestock based on their characteristics"
+        },
+        {
+          "id": "grade-10-agriculture-2-1-outcome-2",
+          "text": "analyse the contribution of animal production to the economy"
+        },
+        {
+          "id": "grade-10-agriculture-2-1-outcome-3",
+          "text": "appreciate the diversity of productivity from different livestock breeds."
+        }
+      ],
+      "inquiryQuestions": [
+        "How do livestock breeds affect the productivity of animals?",
+        "How does animal production sector contribute to the country's economy?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Breeds of Livestock Cattle Pigs Rabbits Sheep Goats.",
+        "Review vocabulary from the previous Agriculture lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Breeds of Livestock Cattle Pigs Rabbits Sheep Goats",
+        "Breeds",
+        "Livestock",
+        "Cattle",
+        "Rabbits",
+        "Sheep",
+        "Goats"
+      ],
+      "misconceptions": [
+        "describing farm work without naming tools, steps, safety, observations, or care practices"
+      ],
+      "localContext": "a school garden, home garden, farm tool, soil, water, crop, animal-care, or food-security example linked to Breeds of Livestock Cattle Pigs Rabbits Sheep Goats",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are practical",
+        "tools/materials are named",
+        "safety and care are included"
+      ],
+      "visualNeeds": [
+        {
+          "type": "tool or farm-step diagram",
+          "description": "tool or farm-step diagram for Breeds of Livestock Cattle Pigs Rabbits Sheep Goats",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "observation log table",
+          "description": "observation log table for Breeds of Livestock Cattle Pigs Rabbits Sheep Goats",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1dd6d656-de51-488b-b3eb-e0646308c87d",
+          "officialTitle": "Competency Based Curriculum Grade 10 Agriculture",
+          "sourceSnapshotHash": "a5826dd344fd920fe6bc02c67be07cf87fd1dce914386cdecf7f4f92956b8adf"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-agriculture-topic-011",
+      "strandId": "0a2a47e3-f4be-49fc-9354-662594bab3c6",
+      "parentSubStrandId": "7e354efb-5942-45f8-a601-0b66da4220c5",
+      "subStrandId": "7e354efb-5942-45f8-a601-0b66da4220c5",
+      "strandTitle": "Animal Production",
+      "unitTitle": "Safe Handling of Animals",
+      "sourceUnitTitle": "Safe Handling of Animals",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-agriculture-2-2-outcome-1",
+          "text": "examine forms of animal handling in the community"
+        },
+        {
+          "id": "grade-10-agriculture-2-2-outcome-2",
+          "text": "describe the structures used to ensure safety in handling domestic animals"
+        },
+        {
+          "id": "grade-10-agriculture-2-2-outcome-3",
+          "text": "exhibit ways of ensuring safety of persons handling domestic animals"
+        },
+        {
+          "id": "grade-10-agriculture-2-2-outcome-4",
+          "text": "promote the safe handling of domestic animals in the community."
+        }
+      ],
+      "inquiryQuestions": [
+        "How does handling of animals affect their production and productivity?",
+        "How can we ensure safety when handling animals?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Safe Handling of Animals.",
+        "Review vocabulary from the previous Agriculture lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Safe Handling of Animals",
+        "Handling",
+        "Animals"
+      ],
+      "misconceptions": [
+        "describing farm work without naming tools, steps, safety, observations, or care practices"
+      ],
+      "localContext": "a school garden, home garden, farm tool, soil, water, crop, animal-care, or food-security example linked to Safe Handling of Animals",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are practical",
+        "tools/materials are named",
+        "safety and care are included"
+      ],
+      "visualNeeds": [
+        {
+          "type": "tool or farm-step diagram",
+          "description": "tool or farm-step diagram for Safe Handling of Animals",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "observation log table",
+          "description": "observation log table for Safe Handling of Animals",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1dd6d656-de51-488b-b3eb-e0646308c87d",
+          "officialTitle": "Competency Based Curriculum Grade 10 Agriculture",
+          "sourceSnapshotHash": "a5826dd344fd920fe6bc02c67be07cf87fd1dce914386cdecf7f4f92956b8adf"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-agriculture-topic-012",
+      "strandId": "0a2a47e3-f4be-49fc-9354-662594bab3c6",
+      "parentSubStrandId": "dbc231cf-a859-404f-a65a-693291de5e65",
+      "subStrandId": "dbc231cf-a859-404f-a65a-693291de5e65",
+      "strandTitle": "Animal Production",
+      "unitTitle": "General Animal Health",
+      "sourceUnitTitle": "General Animal Health",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-agriculture-2-3-outcome-1",
+          "text": "explain the benefits of keeping animals healthy in livestock production"
+        },
+        {
+          "id": "grade-10-agriculture-2-3-outcome-2",
+          "text": "compare signs of ill health and normal health in livestock production"
+        },
+        {
+          "id": "grade-10-agriculture-2-3-outcome-3",
+          "text": "propose general control measures against ill health in livestock production"
+        },
+        {
+          "id": "grade-10-agriculture-2-3-outcome-4",
+          "text": "adopt practices that maintain animal health in livestock production."
+        }
+      ],
+      "inquiryQuestions": [
+        "How is animal health important in animal production?",
+        "What measures can be used to prevent animal diseases?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to General Animal Health.",
+        "Review vocabulary from the previous Agriculture lesson before starting."
+      ],
+      "keyVocabulary": [
+        "General Animal Health",
+        "Animal",
+        "Health"
+      ],
+      "misconceptions": [
+        "describing farm work without naming tools, steps, safety, observations, or care practices"
+      ],
+      "localContext": "a school garden, home garden, farm tool, soil, water, crop, animal-care, or food-security example linked to General Animal Health",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are practical",
+        "tools/materials are named",
+        "safety and care are included"
+      ],
+      "visualNeeds": [
+        {
+          "type": "tool or farm-step diagram",
+          "description": "tool or farm-step diagram for General Animal Health",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "observation log table",
+          "description": "observation log table for General Animal Health",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1dd6d656-de51-488b-b3eb-e0646308c87d",
+          "officialTitle": "Competency Based Curriculum Grade 10 Agriculture",
+          "sourceSnapshotHash": "a5826dd344fd920fe6bc02c67be07cf87fd1dce914386cdecf7f4f92956b8adf"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-agriculture-topic-013",
+      "strandId": "0a2a47e3-f4be-49fc-9354-662594bab3c6",
+      "parentSubStrandId": "1c5d14bc-bbc7-4fe9-9d74-ddf5956a3d8f",
+      "subStrandId": "1c5d14bc-bbc7-4fe9-9d74-ddf5956a3d8f:topic-1",
+      "strandTitle": "Animal Production",
+      "unitTitle": "Beekeeping: explain the factors to consider in siting",
+      "sourceUnitTitle": "Beekeeping",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-agriculture-2-4-outcome-1",
+          "text": "explain the factors to consider in siting an apiary"
+        },
+        {
+          "id": "grade-10-agriculture-2-4-outcome-2",
+          "text": "describe types of hives used in beekeeping"
+        },
+        {
+          "id": "grade-10-agriculture-2-4-outcome-3",
+          "text": "describe the process of stocking a hive"
+        },
+        {
+          "id": "grade-10-agriculture-2-4-outcome-4",
+          "text": "carry out safe apiary management practices"
+        }
+      ],
+      "inquiryQuestions": [
+        "How are bees reared?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Beekeeping.",
+        "Review vocabulary from the previous Agriculture lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Beekeeping: explain the factors to consider in siting",
+        "Beekeeping",
+        "explain",
+        "factors",
+        "consider",
+        "siting"
+      ],
+      "misconceptions": [
+        "describing farm work without naming tools, steps, safety, observations, or care practices"
+      ],
+      "localContext": "a school garden, home garden, farm tool, soil, water, crop, animal-care, or food-security example linked to Beekeeping: explain the factors to consider in siting",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are practical",
+        "tools/materials are named",
+        "safety and care are included"
+      ],
+      "visualNeeds": [
+        {
+          "type": "tool or farm-step diagram",
+          "description": "tool or farm-step diagram for Beekeeping: explain the factors to consider in siting",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "observation log table",
+          "description": "observation log table for Beekeeping: explain the factors to consider in siting",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1dd6d656-de51-488b-b3eb-e0646308c87d",
+          "officialTitle": "Competency Based Curriculum Grade 10 Agriculture",
+          "sourceSnapshotHash": "a5826dd344fd920fe6bc02c67be07cf87fd1dce914386cdecf7f4f92956b8adf"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-agriculture-topic-014",
+      "strandId": "0a2a47e3-f4be-49fc-9354-662594bab3c6",
+      "parentSubStrandId": "1c5d14bc-bbc7-4fe9-9d74-ddf5956a3d8f",
+      "subStrandId": "1c5d14bc-bbc7-4fe9-9d74-ddf5956a3d8f:topic-2",
+      "strandTitle": "Animal Production",
+      "unitTitle": "Beekeeping: examine causes of unexpected behaviours of bees",
+      "sourceUnitTitle": "Beekeeping",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-agriculture-2-4-outcome-5",
+          "text": "examine causes of unexpected behaviours of bees in a colony"
+        },
+        {
+          "id": "grade-10-agriculture-2-4-outcome-6",
+          "text": "simulate honey harvesting process from a bee hive"
+        },
+        {
+          "id": "grade-10-agriculture-2-4-outcome-7",
+          "text": "appreciate the importance of beekeeping in the economy."
+        }
+      ],
+      "inquiryQuestions": [
+        "How are bees reared?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Beekeeping.",
+        "Review vocabulary from the previous Agriculture lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Beekeeping: examine causes of unexpected behaviours of bees",
+        "Beekeeping",
+        "examine",
+        "causes",
+        "unexpected",
+        "behaviours"
+      ],
+      "misconceptions": [
+        "describing farm work without naming tools, steps, safety, observations, or care practices"
+      ],
+      "localContext": "a school garden, home garden, farm tool, soil, water, crop, animal-care, or food-security example linked to Beekeeping: examine causes of unexpected behaviours of bees",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are practical",
+        "tools/materials are named",
+        "safety and care are included"
+      ],
+      "visualNeeds": [
+        {
+          "type": "tool or farm-step diagram",
+          "description": "tool or farm-step diagram for Beekeeping: examine causes of unexpected behaviours of bees",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "observation log table",
+          "description": "observation log table for Beekeeping: examine causes of unexpected behaviours of bees",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1dd6d656-de51-488b-b3eb-e0646308c87d",
+          "officialTitle": "Competency Based Curriculum Grade 10 Agriculture",
+          "sourceSnapshotHash": "a5826dd344fd920fe6bc02c67be07cf87fd1dce914386cdecf7f4f92956b8adf"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-agriculture-topic-015",
+      "strandId": "0a2a47e3-f4be-49fc-9354-662594bab3c6",
+      "parentSubStrandId": "da0a7cd3-b9e9-42b5-9cc1-69a0069fea54",
+      "subStrandId": "da0a7cd3-b9e9-42b5-9cc1-69a0069fea54:topic-1",
+      "strandTitle": "Animal Production",
+      "unitTitle": "Animal Rearing Project: develop a project plan for rearing a selected",
+      "sourceUnitTitle": "Animal Rearing Project",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-agriculture-2-5-outcome-1",
+          "text": "develop a project plan for rearing a selected animal"
+        },
+        {
+          "id": "grade-10-agriculture-2-5-outcome-2",
+          "text": "prepare a budget for the animal-rearing project"
+        },
+        {
+          "id": "grade-10-agriculture-2-5-outcome-3",
+          "text": "implement the plan for the animal-rearing project"
+        },
+        {
+          "id": "grade-10-agriculture-2-5-outcome-4",
+          "text": "carry out routine management practices in an animal-rearing project"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can animal rearing project be carried be out?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Animal Rearing Project.",
+        "Review vocabulary from the previous Agriculture lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Animal Rearing Project: develop a project plan for rearing a selected",
+        "Animal Rearing Project",
+        "Animal",
+        "Rearing",
+        "Project",
+        "develop"
+      ],
+      "misconceptions": [
+        "describing farm work without naming tools, steps, safety, observations, or care practices"
+      ],
+      "localContext": "a school garden, home garden, farm tool, soil, water, crop, animal-care, or food-security example linked to Animal Rearing Project: develop a project plan for rearing a selected",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are practical",
+        "tools/materials are named",
+        "safety and care are included"
+      ],
+      "visualNeeds": [
+        {
+          "type": "tool or farm-step diagram",
+          "description": "tool or farm-step diagram for Animal Rearing Project: develop a project plan for rearing a selected",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "observation log table",
+          "description": "observation log table for Animal Rearing Project: develop a project plan for rearing a selected",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1dd6d656-de51-488b-b3eb-e0646308c87d",
+          "officialTitle": "Competency Based Curriculum Grade 10 Agriculture",
+          "sourceSnapshotHash": "a5826dd344fd920fe6bc02c67be07cf87fd1dce914386cdecf7f4f92956b8adf"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-agriculture-topic-016",
+      "strandId": "0a2a47e3-f4be-49fc-9354-662594bab3c6",
+      "parentSubStrandId": "da0a7cd3-b9e9-42b5-9cc1-69a0069fea54",
+      "subStrandId": "da0a7cd3-b9e9-42b5-9cc1-69a0069fea54:topic-2",
+      "strandTitle": "Animal Production",
+      "unitTitle": "Animal Rearing Project: evaluate the animal rearing practices carried out",
+      "sourceUnitTitle": "Animal Rearing Project",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-agriculture-2-5-outcome-5",
+          "text": "evaluate the animal rearing practices carried out in the project."
+        }
+      ],
+      "inquiryQuestions": [
+        "How can animal rearing project be carried be out?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Animal Rearing Project.",
+        "Review vocabulary from the previous Agriculture lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Animal Rearing Project: evaluate the animal rearing practices carried out",
+        "Animal Rearing Project",
+        "Animal",
+        "Rearing",
+        "Project",
+        "evaluate",
+        "practices",
+        "carried"
+      ],
+      "misconceptions": [
+        "describing farm work without naming tools, steps, safety, observations, or care practices"
+      ],
+      "localContext": "a school garden, home garden, farm tool, soil, water, crop, animal-care, or food-security example linked to Animal Rearing Project: evaluate the animal rearing practices carried out",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are practical",
+        "tools/materials are named",
+        "safety and care are included"
+      ],
+      "visualNeeds": [
+        {
+          "type": "tool or farm-step diagram",
+          "description": "tool or farm-step diagram for Animal Rearing Project: evaluate the animal rearing practices carried out",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "observation log table",
+          "description": "observation log table for Animal Rearing Project: evaluate the animal rearing practices carried out",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1dd6d656-de51-488b-b3eb-e0646308c87d",
+          "officialTitle": "Competency Based Curriculum Grade 10 Agriculture",
+          "sourceSnapshotHash": "a5826dd344fd920fe6bc02c67be07cf87fd1dce914386cdecf7f4f92956b8adf"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-agriculture-topic-017",
+      "strandId": "c9a6da48-affb-4ebb-b3d8-9e65e9d53572",
+      "parentSubStrandId": "3f81d860-4fd4-46bb-b63d-bf7cbb9ae035",
+      "subStrandId": "3f81d860-4fd4-46bb-b63d-bf7cbb9ae035:topic-1",
+      "strandTitle": "Agricultural Technologies and Entrepreneurship",
+      "unitTitle": "Tools and Equipment: tools and equipment used for various agricultural tasks",
+      "sourceUnitTitle": "Tools and Equipment",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-agriculture-3-1-outcome-1",
+          "text": "identify tools and equipment used for various agricultural tasks"
+        },
+        {
+          "id": "grade-10-agriculture-3-1-outcome-2",
+          "text": "carry out various agricultural tasks using appropriate tools and equipment"
+        },
+        {
+          "id": "grade-10-agriculture-3-1-outcome-3",
+          "text": "carry out appropriate maintenance practices on selected tools and equipment"
+        },
+        {
+          "id": "grade-10-agriculture-3-1-outcome-4",
+          "text": "apply safety measures in the use of tools and equipment"
+        }
+      ],
+      "inquiryQuestions": [
+        "How do tools and equipment contribute to the efficiency of farm operations?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Tools and Equipment.",
+        "Review vocabulary from the previous Agriculture lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Tools and Equipment: tools and equipment used for various agricultural tasks",
+        "Tools and Equipment",
+        "Tools",
+        "Equipment",
+        "various",
+        "agricultural",
+        "tasks"
+      ],
+      "misconceptions": [
+        "describing farm work without naming tools, steps, safety, observations, or care practices"
+      ],
+      "localContext": "a school garden, home garden, farm tool, soil, water, crop, animal-care, or food-security example linked to Tools and Equipment: tools and equipment used for various agricultural tasks",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are practical",
+        "tools/materials are named",
+        "safety and care are included"
+      ],
+      "visualNeeds": [
+        {
+          "type": "tool or farm-step diagram",
+          "description": "tool or farm-step diagram for Tools and Equipment: tools and equipment used for various agricultural tasks",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "observation log table",
+          "description": "observation log table for Tools and Equipment: tools and equipment used for various agricultural tasks",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1dd6d656-de51-488b-b3eb-e0646308c87d",
+          "officialTitle": "Competency Based Curriculum Grade 10 Agriculture",
+          "sourceSnapshotHash": "a5826dd344fd920fe6bc02c67be07cf87fd1dce914386cdecf7f4f92956b8adf"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-agriculture-topic-018",
+      "strandId": "c9a6da48-affb-4ebb-b3d8-9e65e9d53572",
+      "parentSubStrandId": "3f81d860-4fd4-46bb-b63d-bf7cbb9ae035",
+      "subStrandId": "3f81d860-4fd4-46bb-b63d-bf7cbb9ae035:topic-2",
+      "strandTitle": "Agricultural Technologies and Entrepreneurship",
+      "unitTitle": "Tools and Equipment: acknowledge the importance of maintaining tools",
+      "sourceUnitTitle": "Tools and Equipment",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-agriculture-3-1-outcome-5",
+          "text": "acknowledge the importance of maintaining tools"
+        }
+      ],
+      "inquiryQuestions": [
+        "How do tools and equipment contribute to the efficiency of farm operations?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Tools and Equipment.",
+        "Review vocabulary from the previous Agriculture lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Tools and Equipment: acknowledge the importance of maintaining tools",
+        "Tools and Equipment",
+        "Tools",
+        "Equipment",
+        "acknowledge",
+        "maintaining"
+      ],
+      "misconceptions": [
+        "describing farm work without naming tools, steps, safety, observations, or care practices"
+      ],
+      "localContext": "a school garden, home garden, farm tool, soil, water, crop, animal-care, or food-security example linked to Tools and Equipment: acknowledge the importance of maintaining tools",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are practical",
+        "tools/materials are named",
+        "safety and care are included"
+      ],
+      "visualNeeds": [
+        {
+          "type": "tool or farm-step diagram",
+          "description": "tool or farm-step diagram for Tools and Equipment: acknowledge the importance of maintaining tools",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "observation log table",
+          "description": "observation log table for Tools and Equipment: acknowledge the importance of maintaining tools",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1dd6d656-de51-488b-b3eb-e0646308c87d",
+          "officialTitle": "Competency Based Curriculum Grade 10 Agriculture",
+          "sourceSnapshotHash": "a5826dd344fd920fe6bc02c67be07cf87fd1dce914386cdecf7f4f92956b8adf"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-agriculture-topic-019",
+      "strandId": "c9a6da48-affb-4ebb-b3d8-9e65e9d53572",
+      "parentSubStrandId": "43e16910-34e8-4843-ae01-92b7aed5199f",
+      "subStrandId": "43e16910-34e8-4843-ae01-92b7aed5199f",
+      "strandTitle": "Agricultural Technologies and Entrepreneurship",
+      "unitTitle": "Product Processing and Value Addition",
+      "sourceUnitTitle": "Product Processing and Value Addition",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-agriculture-3-2-outcome-1",
+          "text": "suggest methods of value addition for selected crop produce"
+        },
+        {
+          "id": "grade-10-agriculture-3-2-outcome-2",
+          "text": "carry out processing of selected crop produce"
+        },
+        {
+          "id": "grade-10-agriculture-3-2-outcome-3",
+          "text": "carry out home-based packaging and branding of processed crop products"
+        },
+        {
+          "id": "grade-10-agriculture-3-2-outcome-4",
+          "text": "appraise ethical issues in the processing and value-addition processes."
+        }
+      ],
+      "inquiryQuestions": [
+        "How does value addition enhance nutrition and food security?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Product Processing and Value Addition.",
+        "Review vocabulary from the previous Agriculture lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Product Processing and Value Addition",
+        "Product",
+        "Processing",
+        "Value",
+        "Addition"
+      ],
+      "misconceptions": [
+        "describing farm work without naming tools, steps, safety, observations, or care practices"
+      ],
+      "localContext": "a school garden, home garden, farm tool, soil, water, crop, animal-care, or food-security example linked to Product Processing and Value Addition",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are practical",
+        "tools/materials are named",
+        "safety and care are included"
+      ],
+      "visualNeeds": [
+        {
+          "type": "tool or farm-step diagram",
+          "description": "tool or farm-step diagram for Product Processing and Value Addition",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "observation log table",
+          "description": "observation log table for Product Processing and Value Addition",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1dd6d656-de51-488b-b3eb-e0646308c87d",
+          "officialTitle": "Competency Based Curriculum Grade 10 Agriculture",
+          "sourceSnapshotHash": "a5826dd344fd920fe6bc02c67be07cf87fd1dce914386cdecf7f4f92956b8adf"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-agriculture-topic-020",
+      "strandId": "c9a6da48-affb-4ebb-b3d8-9e65e9d53572",
+      "parentSubStrandId": "f3b22648-c9b2-4741-9c8a-db04fb4b5383",
+      "subStrandId": "f3b22648-c9b2-4741-9c8a-db04fb4b5383",
+      "strandTitle": "Agricultural Technologies and Entrepreneurship",
+      "unitTitle": "Establishing Agricultural Enterprise",
+      "sourceUnitTitle": "Establishing Agricultural Enterprise",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-agriculture-3-3-outcome-1",
+          "text": "explain the factors of production in an agricultural enterprise"
+        },
+        {
+          "id": "grade-10-agriculture-3-3-outcome-2",
+          "text": "describe ways of acquiring capital to establish an agricultural enterprise"
+        },
+        {
+          "id": "grade-10-agriculture-3-3-outcome-3",
+          "text": "examine factors to consider in selecting an agricultural enterprise"
+        },
+        {
+          "id": "grade-10-agriculture-3-3-outcome-4",
+          "text": "appreciate the role of various factors of production in establishing an agricultural enterprise."
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we establish an agricultural enterprise?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Establishing Agricultural Enterprise.",
+        "Review vocabulary from the previous Agriculture lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Establishing Agricultural Enterprise",
+        "Establishing",
+        "Agricultural",
+        "Enterprise"
+      ],
+      "misconceptions": [
+        "describing farm work without naming tools, steps, safety, observations, or care practices"
+      ],
+      "localContext": "a school garden, home garden, farm tool, soil, water, crop, animal-care, or food-security example linked to Establishing Agricultural Enterprise",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are practical",
+        "tools/materials are named",
+        "safety and care are included"
+      ],
+      "visualNeeds": [
+        {
+          "type": "tool or farm-step diagram",
+          "description": "tool or farm-step diagram for Establishing Agricultural Enterprise",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "observation log table",
+          "description": "observation log table for Establishing Agricultural Enterprise",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1dd6d656-de51-488b-b3eb-e0646308c87d",
+          "officialTitle": "Competency Based Curriculum Grade 10 Agriculture",
+          "sourceSnapshotHash": "a5826dd344fd920fe6bc02c67be07cf87fd1dce914386cdecf7f4f92956b8adf"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-agriculture-topic-021",
+      "strandId": "c9a6da48-affb-4ebb-b3d8-9e65e9d53572",
+      "parentSubStrandId": "41053731-b9d5-4935-ad68-a160a506d390",
+      "subStrandId": "41053731-b9d5-4935-ad68-a160a506d390:topic-1",
+      "strandTitle": "Agricultural Technologies and Entrepreneurship",
+      "unitTitle": "Marketing agricultural produce: ways of preparing agricultural produce for marketing",
+      "sourceUnitTitle": "Marketing agricultural produce",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-agriculture-3-4-outcome-1",
+          "text": "describe ways of preparing agricultural produce for marketing"
+        },
+        {
+          "id": "grade-10-agriculture-3-4-outcome-2",
+          "text": "prepare agricultural produce for marketing"
+        },
+        {
+          "id": "grade-10-agriculture-3-4-outcome-3",
+          "text": "discuss market outlets for agricultural produce"
+        },
+        {
+          "id": "grade-10-agriculture-3-4-outcome-4",
+          "text": "evaluate expenses incurred in marketing agricultural produce"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can we prepare agricultural produce for the market?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Marketing agricultural produce.",
+        "Review vocabulary from the previous Agriculture lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Marketing agricultural produce: ways of preparing agricultural produce for marketing",
+        "Marketing agricultural produce",
+        "Marketing",
+        "agricultural",
+        "produce",
+        "preparing"
+      ],
+      "misconceptions": [
+        "describing farm work without naming tools, steps, safety, observations, or care practices"
+      ],
+      "localContext": "a school garden, home garden, farm tool, soil, water, crop, animal-care, or food-security example linked to Marketing agricultural produce: ways of preparing agricultural produce for marketing",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are practical",
+        "tools/materials are named",
+        "safety and care are included"
+      ],
+      "visualNeeds": [
+        {
+          "type": "tool or farm-step diagram",
+          "description": "tool or farm-step diagram for Marketing agricultural produce: ways of preparing agricultural produce for marketing",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "observation log table",
+          "description": "observation log table for Marketing agricultural produce: ways of preparing agricultural produce for marketing",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1dd6d656-de51-488b-b3eb-e0646308c87d",
+          "officialTitle": "Competency Based Curriculum Grade 10 Agriculture",
+          "sourceSnapshotHash": "a5826dd344fd920fe6bc02c67be07cf87fd1dce914386cdecf7f4f92956b8adf"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-agriculture-topic-022",
+      "strandId": "c9a6da48-affb-4ebb-b3d8-9e65e9d53572",
+      "parentSubStrandId": "41053731-b9d5-4935-ad68-a160a506d390",
+      "subStrandId": "41053731-b9d5-4935-ad68-a160a506d390:topic-2",
+      "strandTitle": "Agricultural Technologies and Entrepreneurship",
+      "unitTitle": "Marketing agricultural produce: importance of preparing agricultural produce for marketing.",
+      "sourceUnitTitle": "Marketing agricultural produce",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-agriculture-3-4-outcome-5",
+          "text": "appreciate the importance of preparing agricultural produce for marketing."
+        }
+      ],
+      "inquiryQuestions": [
+        "How can we prepare agricultural produce for the market?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Marketing agricultural produce.",
+        "Review vocabulary from the previous Agriculture lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Marketing agricultural produce: importance of preparing agricultural produce for marketing.",
+        "Marketing agricultural produce",
+        "Marketing",
+        "agricultural",
+        "produce",
+        "preparing",
+        "marketing."
+      ],
+      "misconceptions": [
+        "describing farm work without naming tools, steps, safety, observations, or care practices"
+      ],
+      "localContext": "a school garden, home garden, farm tool, soil, water, crop, animal-care, or food-security example linked to Marketing agricultural produce: importance of preparing agricultural produce for marketing.",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are practical",
+        "tools/materials are named",
+        "safety and care are included"
+      ],
+      "visualNeeds": [
+        {
+          "type": "tool or farm-step diagram",
+          "description": "tool or farm-step diagram for Marketing agricultural produce: importance of preparing agricultural produce for marketing.",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "observation log table",
+          "description": "observation log table for Marketing agricultural produce: importance of preparing agricultural produce for marketing.",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1dd6d656-de51-488b-b3eb-e0646308c87d",
+          "officialTitle": "Competency Based Curriculum Grade 10 Agriculture",
+          "sourceSnapshotHash": "a5826dd344fd920fe6bc02c67be07cf87fd1dce914386cdecf7f4f92956b8adf"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-agriculture-topic-023",
+      "strandId": "c9a6da48-affb-4ebb-b3d8-9e65e9d53572",
+      "parentSubStrandId": "fb9ee9bf-531b-44d0-9a84-32fdabc59423",
+      "subStrandId": "fb9ee9bf-531b-44d0-9a84-32fdabc59423:topic-1",
+      "strandTitle": "Agricultural Technologies and Entrepreneurship",
+      "unitTitle": "Composting Techniques: composting methods in the production of organic manure",
+      "sourceUnitTitle": "Composting Techniques",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-agriculture-3-5-outcome-1",
+          "text": "describe composting methods in the production of organic manure"
+        },
+        {
+          "id": "grade-10-agriculture-3-5-outcome-2",
+          "text": "examine factors that influence the quality of compost manure"
+        },
+        {
+          "id": "grade-10-agriculture-3-5-outcome-3",
+          "text": "carry out conventional composting methods for the production of organic manure"
+        },
+        {
+          "id": "grade-10-agriculture-3-5-outcome-4",
+          "text": "carry out innovative composting methods for the production of organic manure"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why is composting relevant to soil improvement?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Composting Techniques.",
+        "Review vocabulary from the previous Agriculture lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Composting Techniques: composting methods in the production of organic manure",
+        "Composting Techniques",
+        "Composting",
+        "Techniques",
+        "methods",
+        "production",
+        "organic",
+        "manure"
+      ],
+      "misconceptions": [
+        "describing farm work without naming tools, steps, safety, observations, or care practices"
+      ],
+      "localContext": "a school garden, home garden, farm tool, soil, water, crop, animal-care, or food-security example linked to Composting Techniques: composting methods in the production of organic manure",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are practical",
+        "tools/materials are named",
+        "safety and care are included"
+      ],
+      "visualNeeds": [
+        {
+          "type": "tool or farm-step diagram",
+          "description": "tool or farm-step diagram for Composting Techniques: composting methods in the production of organic manure",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "observation log table",
+          "description": "observation log table for Composting Techniques: composting methods in the production of organic manure",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1dd6d656-de51-488b-b3eb-e0646308c87d",
+          "officialTitle": "Competency Based Curriculum Grade 10 Agriculture",
+          "sourceSnapshotHash": "a5826dd344fd920fe6bc02c67be07cf87fd1dce914386cdecf7f4f92956b8adf"
+        }
+      ]
+    },
+    {
+      "topicId": "G10-agriculture-topic-024",
+      "strandId": "c9a6da48-affb-4ebb-b3d8-9e65e9d53572",
+      "parentSubStrandId": "fb9ee9bf-531b-44d0-9a84-32fdabc59423",
+      "subStrandId": "fb9ee9bf-531b-44d0-9a84-32fdabc59423:topic-2",
+      "strandTitle": "Agricultural Technologies and Entrepreneurship",
+      "unitTitle": "Composting Techniques: role of composting in soil improvement.",
+      "sourceUnitTitle": "Composting Techniques",
+      "learningOutcomes": [
+        {
+          "id": "grade-10-agriculture-3-5-outcome-5",
+          "text": "appreciate the role of composting in soil improvement."
+        }
+      ],
+      "inquiryQuestions": [
+        "Why is composting relevant to soil improvement?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Composting Techniques.",
+        "Review vocabulary from the previous Agriculture lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Composting Techniques: role of composting in soil improvement.",
+        "Composting Techniques",
+        "Composting",
+        "Techniques",
+        "improvement."
+      ],
+      "misconceptions": [
+        "describing farm work without naming tools, steps, safety, observations, or care practices"
+      ],
+      "localContext": "a school garden, home garden, farm tool, soil, water, crop, animal-care, or food-security example linked to Composting Techniques: role of composting in soil improvement.",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "steps are practical",
+        "tools/materials are named",
+        "safety and care are included"
+      ],
+      "visualNeeds": [
+        {
+          "type": "tool or farm-step diagram",
+          "description": "tool or farm-step diagram for Composting Techniques: role of composting in soil improvement.",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "observation log table",
+          "description": "observation log table for Composting Techniques: role of composting in soil improvement.",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "1dd6d656-de51-488b-b3eb-e0646308c87d",
+          "officialTitle": "Competency Based Curriculum Grade 10 Agriculture",
+          "sourceSnapshotHash": "a5826dd344fd920fe6bc02c67be07cf87fd1dce914386cdecf7f4f92956b8adf"
+        }
+      ]
+    }
+  ]
+}

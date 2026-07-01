@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-uga-ncdc-s1-agriculture",
+  "title": "KITABU QUEST S1 Agriculture",
+  "country": "UGA",
+  "curriculum": "NCDC",
+  "grade": "S1",
+  "subject": "Agriculture",
+  "subjectSlug": "agriculture",
+  "subjectColor": "#15803D",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v12",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:13:24Z",
+  "sourceSnapshotHash": "ff4fd298cd9d564cde1fcd59abe1b86b63b3609a5b8abaa77d6cf81cd3363440",
+  "bookPlanHash": "5812d26f953b7335d34385eb51575542861c7a02acc8dfe11661d859f2902f1b",
+  "pageCount": 85,
+  "wordCount": 8420,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 8,
+    "outcomeCount": 8,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "UGA",
+    "subject": "Agriculture",
+    "species": "Ankole longhorn cow",
+    "role": "farm practice guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners working in a school garden and livestock setting with an Ankole longhorn cow mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Uganda NCDC S1 Agriculture. Scene: learners working in a school garden and livestock setting with an Ankole longhorn cow mascot. Include a friendly Ankole longhorn cow mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 90912,
+    "sha256": "c18d01a742596f3368970dfe228584ea4d9b67ddf4e19e9aab056252be06b4b9"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 90912,
+      "sha256": "c18d01a742596f3368970dfe228584ea4d9b67ddf4e19e9aab056252be06b4b9",
+      "kind": "cover",
+      "altText": "KITABU QUEST S1 Agriculture cover with Ankole longhorn cow",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-uga-ncdc-s1-agriculture.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-uga-ncdc-s1-agriculture.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "32069935-9393-4136-8c2f-44dde9662918",
+      "subject": "Agriculture",
+      "officialTitle": "Uganda Curriculum S1 Agriculture",
+      "countryCode": "UGA",
+      "curriculumCode": "NCDC",
+      "gradeCode": "S1",
+      "gradeLocalLevel": "S1",
+      "localLevel": "S1",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/AGRIC_SYLLABUS_compressed.pdf",
+      "objectKey": "data/curriculum/source-files/UGA/42d40adcc2e9490966ed7d38a7afd268f00d1bb3443ded118a5ec98db47ccf6d.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "S1",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/AGRIC_SYLLABUS_compressed.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/UGA/NCDC/S1/agriculture/32069935-9393-4136-8c2f-44dde9662918.md",
+        "sourcePageUrl": "https://ncdc.go.ug/lower-secondary-curriculum-embraced/",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "ncdc.go.ug"
+        ],
+        "markdownChecksum": "e8d73ae59afee642d3b740c7e5cfcd2a9ee0fea0a1b1b56f84711dca628057ec",
+        "markdownPageCount": 55,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/UGA/NCDC/S1/agriculture/32069935-9393-4136-8c2f-44dde9662918.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "e8d73ae59afee642d3b740c7e5cfcd2a9ee0fea0a1b1b56f84711dca628057ec",
+          "pageCount": 55,
+          "generatedAt": "2026-06-29T16:49:49.001Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "d4b766fb175c3b1d865a39695e201f394e03466b7953cf4234132e9768b7d944"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:49:49.001Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

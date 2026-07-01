@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-rwa-reb-cbc-s4-core-mathematics",
+  "title": "KITABU QUEST S4 Core Mathematics",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "S4",
+  "subject": "Core Mathematics",
+  "subjectSlug": "core-mathematics",
+  "subjectColor": "#047857",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v17",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T06:47:44Z",
+  "sourceSnapshotHash": "9042c80bde603c24b83418c191c757d8a44976100d604bf3a15812fef767b2ee",
+  "bookPlanHash": "53fc070ea40baef85e1ee6d84631c85ef13ec97e8680add7e04353211b528707",
+  "pageCount": 155,
+  "wordCount": 15577,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 16,
+    "outcomeCount": 96,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "RWA",
+    "subject": "Core Mathematics",
+    "species": "mountain gorilla",
+    "role": "problem-solving guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "students solving mathematics with graphs and models with a mountain gorilla mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Rwanda REB-CBC S4 Core Mathematics. Scene: students solving mathematics with graphs and models with a mountain gorilla mascot. Include a friendly mountain gorilla mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 91906,
+    "sha256": "2d3e88b4d6612debc4b60491888951d99f7d4d5ed1c203fcb363dc8b6b52ad1d"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 91906,
+      "sha256": "2d3e88b4d6612debc4b60491888951d99f7d4d5ed1c203fcb363dc8b6b52ad1d",
+      "kind": "cover",
+      "altText": "KITABU QUEST S4 Core Mathematics cover with mountain gorilla",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-rwa-reb-cbc-s4-core-mathematics.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-rwa-reb-cbc-s4-core-mathematics.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "254a2b99-5ced-4b4a-bc40-4e9642db1d1d",
+      "subject": "Core Mathematics",
+      "officialTitle": "Rwanda Competence Based Curriculum S4 Core Mathematics",
+      "countryCode": "RWA",
+      "curriculumCode": "REB-CBC",
+      "gradeCode": "S4",
+      "gradeLocalLevel": "S4",
+      "localLevel": "S4",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://elearning.reb.rw/pluginfile.php/15470/mod_resource/content/1/Syllabus%20of%20core%20Mathematics%20for%20ALevel.pdf",
+      "objectKey": "data/curriculum/source-files/RWA/11cc98882edee3b212c60ae0d9878a9e9fd072fe1f08e4cc5544b0c1a0ac19a7.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "S4",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://elearning.reb.rw/pluginfile.php/15470/mod_resource/content/1/Syllabus%20of%20core%20Mathematics%20for%20ALevel.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S4/core-mathematics/254a2b99-5ced-4b4a-bc40-4e9642db1d1d.md",
+        "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "reb.gov.rw",
+          "reb.rw",
+          "elearning.reb.rw"
+        ],
+        "markdownChecksum": "695ca4fce80559026beabf7d7931f61051bb1c77c9bacfa72f8e1c148f972e89",
+        "markdownPageCount": 80,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/RWA/REB-CBC/S4/core-mathematics/254a2b99-5ced-4b4a-bc40-4e9642db1d1d.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "695ca4fce80559026beabf7d7931f61051bb1c77c9bacfa72f8e1c148f972e89",
+          "pageCount": 80,
+          "generatedAt": "2026-07-01T01:21:32.910Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S4/core-mathematics/254a2b99-5ced-4b4a-bc40-4e9642db1d1d.json",
+          "sourceChecksum": "2d31f59d62631d9dcebdad5f4327e26cc9371b103865e73528bd8c485227ac39"
+        },
+        "markdownGeneratedAt": "2026-07-01T01:21:32.910Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

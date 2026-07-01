@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-tza-tie-basic-form-ii-biology",
+  "title": "KITABU QUEST Form II Biology",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Form II",
+  "subject": "Biology",
+  "subjectSlug": "biology",
+  "subjectColor": "#15803D",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v13",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:45:33Z",
+  "sourceSnapshotHash": "e50cc3027ba85960a52a75d79ddc7b7f454d091cc6a7b208ff16424e73f5e7d3",
+  "bookPlanHash": "c18e37e73eef5d4f2a825a9d651c179450c18455866b335b008ec32e517dbe95",
+  "pageCount": 85,
+  "wordCount": 8054,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 8,
+    "outcomeCount": 8,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "TZA",
+    "subject": "Biology",
+    "species": "chameleon",
+    "role": "life science guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "students observing living things safely with a chameleon mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Tanzania TIE-BASIC Form II Biology. Scene: students observing living things safely with a chameleon mascot. Include a friendly chameleon mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 84941,
+    "sha256": "b992bc3706d340faa6318e733ea0f82e11ca1bc0576ad45664594a42b05c0e34"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 84941,
+      "sha256": "b992bc3706d340faa6318e733ea0f82e11ca1bc0576ad45664594a42b05c0e34",
+      "kind": "cover",
+      "altText": "KITABU QUEST Form II Biology cover with chameleon",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-tza-tie-basic-form-ii-biology.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-tza-tie-basic-form-ii-biology.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "99d52023-2251-47c7-889e-a1f5acdf4b37",
+      "subject": "Biology",
+      "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Biology",
+      "countryCode": "TZA",
+      "curriculumCode": "TIE-BASIC",
+      "gradeCode": "FORM_II",
+      "gradeLocalLevel": "Form II",
+      "localLevel": "Form II",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192422-BIOLOGY%20SYLLABUS%20ORDINARY%20SECONDARY%20FINAL%20.pdf",
+      "objectKey": "data/curriculum/source-files/TZA/cdc52f12c698da022b672772a3834430122137e2935d7b7082b8f851a44db015.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "FORM_II",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192422-BIOLOGY%20SYLLABUS%20ORDINARY%20SECONDARY%20FINAL%20.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/biology/99d52023-2251-47c7-889e-a1f5acdf4b37.md",
+        "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "tie.go.tz"
+        ],
+        "markdownChecksum": "ffd93387dd3d9b0c2ec5010ec5176670f6c2007aea888d9207789affe8b52f11",
+        "markdownPageCount": 44,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/biology/99d52023-2251-47c7-889e-a1f5acdf4b37.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "ffd93387dd3d9b0c2ec5010ec5176670f6c2007aea888d9207789affe8b52f11",
+          "pageCount": 44,
+          "generatedAt": "2026-06-29T16:44:53.999Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "06537e79ec6d005a804e9d911748bc2c45c0b45b139b70a0b331058affb563c6"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:44:53.999Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

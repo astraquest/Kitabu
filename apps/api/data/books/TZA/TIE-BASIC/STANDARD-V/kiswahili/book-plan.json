@@ -1,0 +1,1279 @@
+{
+  "schemaVersion": 1,
+  "sourceType": "normalized-curriculum",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Standard V",
+  "subject": "Kiswahili",
+  "generatedAt": "2026-07-01T05:40:30Z",
+  "sourceSnapshotHash": "d4a62403b3801225fa191d8fc131b1eb514f481a7d312c2c4f638a70524762c5",
+  "writingStandard": {
+    "voice": "simple, conversational, purposeful, age-appropriate, and learner-first",
+    "antiFluff": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "coversDeferred": true
+  },
+  "strands": [
+    {
+      "strandId": "fallback-standard-v-kiswahili-1",
+      "number": "",
+      "title": "Kusoma Matini Ndefu",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-standard-v-kiswahili-2",
+      "number": "",
+      "title": "Msamiati Na Methali Rahisi",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-standard-v-kiswahili-3",
+      "number": "",
+      "title": "Kuwasilisha Maoni Kwa Sababu",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-standard-v-kiswahili-4",
+      "number": "",
+      "title": "Sarufi Nyakati Na Viunganishi",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-standard-v-kiswahili-5",
+      "number": "",
+      "title": "Kuandika Insha Fupi",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-standard-v-kiswahili-6",
+      "number": "",
+      "title": "Ufahamu Na Ushahidi Wa Matini",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-standard-v-kiswahili-7",
+      "number": "",
+      "title": "Kuhariri Kwa Usahihi",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-standard-v-kiswahili-8",
+      "number": "",
+      "title": "Mradi Wa Uwasilishaji",
+      "topicCount": 1
+    }
+  ],
+  "topics": [
+    {
+      "topicId": "TZA-STANDARD-V-kiswahili-topic-001",
+      "grade": "Standard V",
+      "strandId": "fallback-standard-v-kiswahili-1",
+      "subStrandId": "fallback-standard-v-kiswahili-1",
+      "parentSubStrandId": "fallback-standard-v-kiswahili-1",
+      "strandTitle": "Kusoma Matini Ndefu",
+      "unitTitle": "Kusoma Matini Ndefu",
+      "sourceUnitTitle": "Kusoma Matini Ndefu",
+      "learningOutcomes": [
+        {
+          "id": "fallback-standard-v-kiswahili-1-outcome-1",
+          "text": "kusoma, kuelewa, kuzungumza na kuandika kuhusu kusoma matini ndefu"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can kusoma matini ndefu help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Kusoma Matini Ndefu.",
+        "Review key vocabulary from the previous Kiswahili lesson."
+      ],
+      "keyVocabulary": [
+        "Kusoma Matini Ndefu",
+        "Kusoma",
+        "Matini",
+        "Ndefu",
+        "kusoma",
+        "kusikiliza",
+        "kuzungumza",
+        "kuandika"
+      ],
+      "misconceptions": [
+        "giving a general answer about Kusoma Matini Ndefu without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania reading, speaking, listening, writing, or discussion task for Kusoma Matini Ndefu",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, grammar, and structure are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Kusoma Matini Ndefu",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "writing or dialogue checklist",
+          "description": "writing or dialogue checklist for Kusoma Matini Ndefu",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "682a7f22-b92b-4496-b6da-54452ad69148",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard V Kiswahili",
+          "subject": "Kiswahili",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727177907-MUHTASARI%20SOMO%20KISWAHILI%20DRS%20III%20-%20VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/dad5c7afbb51605c88835e27e8b4593b48d91843cc7def69f72ba3dd23d59a4b.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_V",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727177907-MUHTASARI%20SOMO%20KISWAHILI%20DRS%20III%20-%20VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/kiswahili/682a7f22-b92b-4496-b6da-54452ad69148.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3395a06144c7be53f514306dac7d8e7b57d7726289ded3d505301c8d7c38672b",
+            "markdownPageCount": 76,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/kiswahili/682a7f22-b92b-4496-b6da-54452ad69148.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3395a06144c7be53f514306dac7d8e7b57d7726289ded3d505301c8d7c38672b",
+              "pageCount": 76,
+              "generatedAt": "2026-06-29T16:48:28.327Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "037b48e2017eebe1d2fcec8cf796a631ea180b646ecf4d4a46bf2649dc4afc7b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:28.327Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "d4a62403b3801225fa191d8fc131b1eb514f481a7d312c2c4f638a70524762c5"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "682a7f22-b92b-4496-b6da-54452ad69148",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard V Kiswahili",
+          "subject": "Kiswahili",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727177907-MUHTASARI%20SOMO%20KISWAHILI%20DRS%20III%20-%20VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/dad5c7afbb51605c88835e27e8b4593b48d91843cc7def69f72ba3dd23d59a4b.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_V",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727177907-MUHTASARI%20SOMO%20KISWAHILI%20DRS%20III%20-%20VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/kiswahili/682a7f22-b92b-4496-b6da-54452ad69148.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3395a06144c7be53f514306dac7d8e7b57d7726289ded3d505301c8d7c38672b",
+            "markdownPageCount": 76,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/kiswahili/682a7f22-b92b-4496-b6da-54452ad69148.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3395a06144c7be53f514306dac7d8e7b57d7726289ded3d505301c8d7c38672b",
+              "pageCount": 76,
+              "generatedAt": "2026-06-29T16:48:28.327Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "037b48e2017eebe1d2fcec8cf796a631ea180b646ecf4d4a46bf2649dc4afc7b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:28.327Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "d4a62403b3801225fa191d8fc131b1eb514f481a7d312c2c4f638a70524762c5"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-STANDARD-V-kiswahili-topic-002",
+      "grade": "Standard V",
+      "strandId": "fallback-standard-v-kiswahili-2",
+      "subStrandId": "fallback-standard-v-kiswahili-2",
+      "parentSubStrandId": "fallback-standard-v-kiswahili-2",
+      "strandTitle": "Msamiati Na Methali Rahisi",
+      "unitTitle": "Msamiati Na Methali Rahisi",
+      "sourceUnitTitle": "Msamiati Na Methali Rahisi",
+      "learningOutcomes": [
+        {
+          "id": "fallback-standard-v-kiswahili-2-outcome-1",
+          "text": "kusoma, kuelewa, kuzungumza na kuandika kuhusu msamiati na methali rahisi"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can msamiati na methali rahisi help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Msamiati Na Methali Rahisi.",
+        "Review key vocabulary from the previous Kiswahili lesson."
+      ],
+      "keyVocabulary": [
+        "Msamiati Na Methali Rahisi",
+        "Msamiati",
+        "Methali",
+        "Rahisi",
+        "kusoma",
+        "kusikiliza",
+        "kuzungumza",
+        "kuandika"
+      ],
+      "misconceptions": [
+        "giving a general answer about Msamiati Na Methali Rahisi without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania reading, speaking, listening, writing, or discussion task for Msamiati Na Methali Rahisi",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, grammar, and structure are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Msamiati Na Methali Rahisi",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "writing or dialogue checklist",
+          "description": "writing or dialogue checklist for Msamiati Na Methali Rahisi",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "682a7f22-b92b-4496-b6da-54452ad69148",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard V Kiswahili",
+          "subject": "Kiswahili",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727177907-MUHTASARI%20SOMO%20KISWAHILI%20DRS%20III%20-%20VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/dad5c7afbb51605c88835e27e8b4593b48d91843cc7def69f72ba3dd23d59a4b.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_V",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727177907-MUHTASARI%20SOMO%20KISWAHILI%20DRS%20III%20-%20VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/kiswahili/682a7f22-b92b-4496-b6da-54452ad69148.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3395a06144c7be53f514306dac7d8e7b57d7726289ded3d505301c8d7c38672b",
+            "markdownPageCount": 76,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/kiswahili/682a7f22-b92b-4496-b6da-54452ad69148.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3395a06144c7be53f514306dac7d8e7b57d7726289ded3d505301c8d7c38672b",
+              "pageCount": 76,
+              "generatedAt": "2026-06-29T16:48:28.327Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "037b48e2017eebe1d2fcec8cf796a631ea180b646ecf4d4a46bf2649dc4afc7b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:28.327Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "d4a62403b3801225fa191d8fc131b1eb514f481a7d312c2c4f638a70524762c5"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "682a7f22-b92b-4496-b6da-54452ad69148",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard V Kiswahili",
+          "subject": "Kiswahili",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727177907-MUHTASARI%20SOMO%20KISWAHILI%20DRS%20III%20-%20VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/dad5c7afbb51605c88835e27e8b4593b48d91843cc7def69f72ba3dd23d59a4b.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_V",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727177907-MUHTASARI%20SOMO%20KISWAHILI%20DRS%20III%20-%20VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/kiswahili/682a7f22-b92b-4496-b6da-54452ad69148.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3395a06144c7be53f514306dac7d8e7b57d7726289ded3d505301c8d7c38672b",
+            "markdownPageCount": 76,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/kiswahili/682a7f22-b92b-4496-b6da-54452ad69148.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3395a06144c7be53f514306dac7d8e7b57d7726289ded3d505301c8d7c38672b",
+              "pageCount": 76,
+              "generatedAt": "2026-06-29T16:48:28.327Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "037b48e2017eebe1d2fcec8cf796a631ea180b646ecf4d4a46bf2649dc4afc7b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:28.327Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "d4a62403b3801225fa191d8fc131b1eb514f481a7d312c2c4f638a70524762c5"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-STANDARD-V-kiswahili-topic-003",
+      "grade": "Standard V",
+      "strandId": "fallback-standard-v-kiswahili-3",
+      "subStrandId": "fallback-standard-v-kiswahili-3",
+      "parentSubStrandId": "fallback-standard-v-kiswahili-3",
+      "strandTitle": "Kuwasilisha Maoni Kwa Sababu",
+      "unitTitle": "Kuwasilisha Maoni Kwa Sababu",
+      "sourceUnitTitle": "Kuwasilisha Maoni Kwa Sababu",
+      "learningOutcomes": [
+        {
+          "id": "fallback-standard-v-kiswahili-3-outcome-1",
+          "text": "kusoma, kuelewa, kuzungumza na kuandika kuhusu kuwasilisha maoni kwa sababu"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can kuwasilisha maoni kwa sababu help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Kuwasilisha Maoni Kwa Sababu.",
+        "Review key vocabulary from the previous Kiswahili lesson."
+      ],
+      "keyVocabulary": [
+        "Kuwasilisha Maoni Kwa Sababu",
+        "Kuwasilisha",
+        "Maoni",
+        "Sababu",
+        "kusoma",
+        "kusikiliza",
+        "kuzungumza",
+        "kuandika"
+      ],
+      "misconceptions": [
+        "giving a general answer about Kuwasilisha Maoni Kwa Sababu without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania reading, speaking, listening, writing, or discussion task for Kuwasilisha Maoni Kwa Sababu",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, grammar, and structure are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Kuwasilisha Maoni Kwa Sababu",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "writing or dialogue checklist",
+          "description": "writing or dialogue checklist for Kuwasilisha Maoni Kwa Sababu",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "682a7f22-b92b-4496-b6da-54452ad69148",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard V Kiswahili",
+          "subject": "Kiswahili",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727177907-MUHTASARI%20SOMO%20KISWAHILI%20DRS%20III%20-%20VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/dad5c7afbb51605c88835e27e8b4593b48d91843cc7def69f72ba3dd23d59a4b.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_V",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727177907-MUHTASARI%20SOMO%20KISWAHILI%20DRS%20III%20-%20VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/kiswahili/682a7f22-b92b-4496-b6da-54452ad69148.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3395a06144c7be53f514306dac7d8e7b57d7726289ded3d505301c8d7c38672b",
+            "markdownPageCount": 76,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/kiswahili/682a7f22-b92b-4496-b6da-54452ad69148.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3395a06144c7be53f514306dac7d8e7b57d7726289ded3d505301c8d7c38672b",
+              "pageCount": 76,
+              "generatedAt": "2026-06-29T16:48:28.327Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "037b48e2017eebe1d2fcec8cf796a631ea180b646ecf4d4a46bf2649dc4afc7b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:28.327Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "d4a62403b3801225fa191d8fc131b1eb514f481a7d312c2c4f638a70524762c5"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "682a7f22-b92b-4496-b6da-54452ad69148",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard V Kiswahili",
+          "subject": "Kiswahili",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727177907-MUHTASARI%20SOMO%20KISWAHILI%20DRS%20III%20-%20VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/dad5c7afbb51605c88835e27e8b4593b48d91843cc7def69f72ba3dd23d59a4b.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_V",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727177907-MUHTASARI%20SOMO%20KISWAHILI%20DRS%20III%20-%20VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/kiswahili/682a7f22-b92b-4496-b6da-54452ad69148.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3395a06144c7be53f514306dac7d8e7b57d7726289ded3d505301c8d7c38672b",
+            "markdownPageCount": 76,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/kiswahili/682a7f22-b92b-4496-b6da-54452ad69148.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3395a06144c7be53f514306dac7d8e7b57d7726289ded3d505301c8d7c38672b",
+              "pageCount": 76,
+              "generatedAt": "2026-06-29T16:48:28.327Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "037b48e2017eebe1d2fcec8cf796a631ea180b646ecf4d4a46bf2649dc4afc7b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:28.327Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "d4a62403b3801225fa191d8fc131b1eb514f481a7d312c2c4f638a70524762c5"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-STANDARD-V-kiswahili-topic-004",
+      "grade": "Standard V",
+      "strandId": "fallback-standard-v-kiswahili-4",
+      "subStrandId": "fallback-standard-v-kiswahili-4",
+      "parentSubStrandId": "fallback-standard-v-kiswahili-4",
+      "strandTitle": "Sarufi Nyakati Na Viunganishi",
+      "unitTitle": "Sarufi Nyakati Na Viunganishi",
+      "sourceUnitTitle": "Sarufi Nyakati Na Viunganishi",
+      "learningOutcomes": [
+        {
+          "id": "fallback-standard-v-kiswahili-4-outcome-1",
+          "text": "kusoma, kuelewa, kuzungumza na kuandika kuhusu sarufi nyakati na viunganishi"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can sarufi nyakati na viunganishi help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Sarufi Nyakati Na Viunganishi.",
+        "Review key vocabulary from the previous Kiswahili lesson."
+      ],
+      "keyVocabulary": [
+        "Sarufi Nyakati Na Viunganishi",
+        "Sarufi",
+        "Nyakati",
+        "Viunganishi",
+        "kusoma",
+        "kusikiliza",
+        "kuzungumza",
+        "kuandika"
+      ],
+      "misconceptions": [
+        "giving a general answer about Sarufi Nyakati Na Viunganishi without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania reading, speaking, listening, writing, or discussion task for Sarufi Nyakati Na Viunganishi",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, grammar, and structure are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Sarufi Nyakati Na Viunganishi",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "writing or dialogue checklist",
+          "description": "writing or dialogue checklist for Sarufi Nyakati Na Viunganishi",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "682a7f22-b92b-4496-b6da-54452ad69148",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard V Kiswahili",
+          "subject": "Kiswahili",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727177907-MUHTASARI%20SOMO%20KISWAHILI%20DRS%20III%20-%20VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/dad5c7afbb51605c88835e27e8b4593b48d91843cc7def69f72ba3dd23d59a4b.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_V",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727177907-MUHTASARI%20SOMO%20KISWAHILI%20DRS%20III%20-%20VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/kiswahili/682a7f22-b92b-4496-b6da-54452ad69148.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3395a06144c7be53f514306dac7d8e7b57d7726289ded3d505301c8d7c38672b",
+            "markdownPageCount": 76,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/kiswahili/682a7f22-b92b-4496-b6da-54452ad69148.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3395a06144c7be53f514306dac7d8e7b57d7726289ded3d505301c8d7c38672b",
+              "pageCount": 76,
+              "generatedAt": "2026-06-29T16:48:28.327Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "037b48e2017eebe1d2fcec8cf796a631ea180b646ecf4d4a46bf2649dc4afc7b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:28.327Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "d4a62403b3801225fa191d8fc131b1eb514f481a7d312c2c4f638a70524762c5"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "682a7f22-b92b-4496-b6da-54452ad69148",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard V Kiswahili",
+          "subject": "Kiswahili",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727177907-MUHTASARI%20SOMO%20KISWAHILI%20DRS%20III%20-%20VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/dad5c7afbb51605c88835e27e8b4593b48d91843cc7def69f72ba3dd23d59a4b.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_V",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727177907-MUHTASARI%20SOMO%20KISWAHILI%20DRS%20III%20-%20VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/kiswahili/682a7f22-b92b-4496-b6da-54452ad69148.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3395a06144c7be53f514306dac7d8e7b57d7726289ded3d505301c8d7c38672b",
+            "markdownPageCount": 76,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/kiswahili/682a7f22-b92b-4496-b6da-54452ad69148.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3395a06144c7be53f514306dac7d8e7b57d7726289ded3d505301c8d7c38672b",
+              "pageCount": 76,
+              "generatedAt": "2026-06-29T16:48:28.327Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "037b48e2017eebe1d2fcec8cf796a631ea180b646ecf4d4a46bf2649dc4afc7b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:28.327Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "d4a62403b3801225fa191d8fc131b1eb514f481a7d312c2c4f638a70524762c5"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-STANDARD-V-kiswahili-topic-005",
+      "grade": "Standard V",
+      "strandId": "fallback-standard-v-kiswahili-5",
+      "subStrandId": "fallback-standard-v-kiswahili-5",
+      "parentSubStrandId": "fallback-standard-v-kiswahili-5",
+      "strandTitle": "Kuandika Insha Fupi",
+      "unitTitle": "Kuandika Insha Fupi",
+      "sourceUnitTitle": "Kuandika Insha Fupi",
+      "learningOutcomes": [
+        {
+          "id": "fallback-standard-v-kiswahili-5-outcome-1",
+          "text": "kusoma, kuelewa, kuzungumza na kuandika kuhusu kuandika insha fupi"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can kuandika insha fupi help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Kuandika Insha Fupi.",
+        "Review key vocabulary from the previous Kiswahili lesson."
+      ],
+      "keyVocabulary": [
+        "Kuandika Insha Fupi",
+        "Kuandika",
+        "Insha",
+        "Fupi",
+        "kusoma",
+        "kusikiliza",
+        "kuzungumza",
+        "kuandika"
+      ],
+      "misconceptions": [
+        "giving a general answer about Kuandika Insha Fupi without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania reading, speaking, listening, writing, or discussion task for Kuandika Insha Fupi",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, grammar, and structure are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Kuandika Insha Fupi",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "writing or dialogue checklist",
+          "description": "writing or dialogue checklist for Kuandika Insha Fupi",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "682a7f22-b92b-4496-b6da-54452ad69148",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard V Kiswahili",
+          "subject": "Kiswahili",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727177907-MUHTASARI%20SOMO%20KISWAHILI%20DRS%20III%20-%20VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/dad5c7afbb51605c88835e27e8b4593b48d91843cc7def69f72ba3dd23d59a4b.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_V",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727177907-MUHTASARI%20SOMO%20KISWAHILI%20DRS%20III%20-%20VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/kiswahili/682a7f22-b92b-4496-b6da-54452ad69148.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3395a06144c7be53f514306dac7d8e7b57d7726289ded3d505301c8d7c38672b",
+            "markdownPageCount": 76,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/kiswahili/682a7f22-b92b-4496-b6da-54452ad69148.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3395a06144c7be53f514306dac7d8e7b57d7726289ded3d505301c8d7c38672b",
+              "pageCount": 76,
+              "generatedAt": "2026-06-29T16:48:28.327Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "037b48e2017eebe1d2fcec8cf796a631ea180b646ecf4d4a46bf2649dc4afc7b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:28.327Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "d4a62403b3801225fa191d8fc131b1eb514f481a7d312c2c4f638a70524762c5"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "682a7f22-b92b-4496-b6da-54452ad69148",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard V Kiswahili",
+          "subject": "Kiswahili",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727177907-MUHTASARI%20SOMO%20KISWAHILI%20DRS%20III%20-%20VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/dad5c7afbb51605c88835e27e8b4593b48d91843cc7def69f72ba3dd23d59a4b.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_V",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727177907-MUHTASARI%20SOMO%20KISWAHILI%20DRS%20III%20-%20VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/kiswahili/682a7f22-b92b-4496-b6da-54452ad69148.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3395a06144c7be53f514306dac7d8e7b57d7726289ded3d505301c8d7c38672b",
+            "markdownPageCount": 76,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/kiswahili/682a7f22-b92b-4496-b6da-54452ad69148.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3395a06144c7be53f514306dac7d8e7b57d7726289ded3d505301c8d7c38672b",
+              "pageCount": 76,
+              "generatedAt": "2026-06-29T16:48:28.327Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "037b48e2017eebe1d2fcec8cf796a631ea180b646ecf4d4a46bf2649dc4afc7b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:28.327Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "d4a62403b3801225fa191d8fc131b1eb514f481a7d312c2c4f638a70524762c5"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-STANDARD-V-kiswahili-topic-006",
+      "grade": "Standard V",
+      "strandId": "fallback-standard-v-kiswahili-6",
+      "subStrandId": "fallback-standard-v-kiswahili-6",
+      "parentSubStrandId": "fallback-standard-v-kiswahili-6",
+      "strandTitle": "Ufahamu Na Ushahidi Wa Matini",
+      "unitTitle": "Ufahamu Na Ushahidi Wa Matini",
+      "sourceUnitTitle": "Ufahamu Na Ushahidi Wa Matini",
+      "learningOutcomes": [
+        {
+          "id": "fallback-standard-v-kiswahili-6-outcome-1",
+          "text": "kusoma, kuelewa, kuzungumza na kuandika kuhusu ufahamu na ushahidi wa matini"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can ufahamu na ushahidi wa matini help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Ufahamu Na Ushahidi Wa Matini.",
+        "Review key vocabulary from the previous Kiswahili lesson."
+      ],
+      "keyVocabulary": [
+        "Ufahamu Na Ushahidi Wa Matini",
+        "Ufahamu",
+        "Ushahidi",
+        "Matini",
+        "kusoma",
+        "kusikiliza",
+        "kuzungumza",
+        "kuandika"
+      ],
+      "misconceptions": [
+        "giving a general answer about Ufahamu Na Ushahidi Wa Matini without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania reading, speaking, listening, writing, or discussion task for Ufahamu Na Ushahidi Wa Matini",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, grammar, and structure are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Ufahamu Na Ushahidi Wa Matini",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "writing or dialogue checklist",
+          "description": "writing or dialogue checklist for Ufahamu Na Ushahidi Wa Matini",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "682a7f22-b92b-4496-b6da-54452ad69148",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard V Kiswahili",
+          "subject": "Kiswahili",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727177907-MUHTASARI%20SOMO%20KISWAHILI%20DRS%20III%20-%20VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/dad5c7afbb51605c88835e27e8b4593b48d91843cc7def69f72ba3dd23d59a4b.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_V",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727177907-MUHTASARI%20SOMO%20KISWAHILI%20DRS%20III%20-%20VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/kiswahili/682a7f22-b92b-4496-b6da-54452ad69148.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3395a06144c7be53f514306dac7d8e7b57d7726289ded3d505301c8d7c38672b",
+            "markdownPageCount": 76,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/kiswahili/682a7f22-b92b-4496-b6da-54452ad69148.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3395a06144c7be53f514306dac7d8e7b57d7726289ded3d505301c8d7c38672b",
+              "pageCount": 76,
+              "generatedAt": "2026-06-29T16:48:28.327Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "037b48e2017eebe1d2fcec8cf796a631ea180b646ecf4d4a46bf2649dc4afc7b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:28.327Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "d4a62403b3801225fa191d8fc131b1eb514f481a7d312c2c4f638a70524762c5"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "682a7f22-b92b-4496-b6da-54452ad69148",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard V Kiswahili",
+          "subject": "Kiswahili",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727177907-MUHTASARI%20SOMO%20KISWAHILI%20DRS%20III%20-%20VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/dad5c7afbb51605c88835e27e8b4593b48d91843cc7def69f72ba3dd23d59a4b.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_V",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727177907-MUHTASARI%20SOMO%20KISWAHILI%20DRS%20III%20-%20VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/kiswahili/682a7f22-b92b-4496-b6da-54452ad69148.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3395a06144c7be53f514306dac7d8e7b57d7726289ded3d505301c8d7c38672b",
+            "markdownPageCount": 76,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/kiswahili/682a7f22-b92b-4496-b6da-54452ad69148.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3395a06144c7be53f514306dac7d8e7b57d7726289ded3d505301c8d7c38672b",
+              "pageCount": 76,
+              "generatedAt": "2026-06-29T16:48:28.327Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "037b48e2017eebe1d2fcec8cf796a631ea180b646ecf4d4a46bf2649dc4afc7b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:28.327Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "d4a62403b3801225fa191d8fc131b1eb514f481a7d312c2c4f638a70524762c5"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-STANDARD-V-kiswahili-topic-007",
+      "grade": "Standard V",
+      "strandId": "fallback-standard-v-kiswahili-7",
+      "subStrandId": "fallback-standard-v-kiswahili-7",
+      "parentSubStrandId": "fallback-standard-v-kiswahili-7",
+      "strandTitle": "Kuhariri Kwa Usahihi",
+      "unitTitle": "Kuhariri Kwa Usahihi",
+      "sourceUnitTitle": "Kuhariri Kwa Usahihi",
+      "learningOutcomes": [
+        {
+          "id": "fallback-standard-v-kiswahili-7-outcome-1",
+          "text": "kusoma, kuelewa, kuzungumza na kuandika kuhusu kuhariri kwa usahihi"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can kuhariri kwa usahihi help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Kuhariri Kwa Usahihi.",
+        "Review key vocabulary from the previous Kiswahili lesson."
+      ],
+      "keyVocabulary": [
+        "Kuhariri Kwa Usahihi",
+        "Kuhariri",
+        "Usahihi",
+        "kusoma",
+        "kusikiliza",
+        "kuzungumza",
+        "kuandika",
+        "sentensi"
+      ],
+      "misconceptions": [
+        "giving a general answer about Kuhariri Kwa Usahihi without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania reading, speaking, listening, writing, or discussion task for Kuhariri Kwa Usahihi",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, grammar, and structure are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Kuhariri Kwa Usahihi",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "writing or dialogue checklist",
+          "description": "writing or dialogue checklist for Kuhariri Kwa Usahihi",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "682a7f22-b92b-4496-b6da-54452ad69148",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard V Kiswahili",
+          "subject": "Kiswahili",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727177907-MUHTASARI%20SOMO%20KISWAHILI%20DRS%20III%20-%20VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/dad5c7afbb51605c88835e27e8b4593b48d91843cc7def69f72ba3dd23d59a4b.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_V",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727177907-MUHTASARI%20SOMO%20KISWAHILI%20DRS%20III%20-%20VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/kiswahili/682a7f22-b92b-4496-b6da-54452ad69148.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3395a06144c7be53f514306dac7d8e7b57d7726289ded3d505301c8d7c38672b",
+            "markdownPageCount": 76,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/kiswahili/682a7f22-b92b-4496-b6da-54452ad69148.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3395a06144c7be53f514306dac7d8e7b57d7726289ded3d505301c8d7c38672b",
+              "pageCount": 76,
+              "generatedAt": "2026-06-29T16:48:28.327Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "037b48e2017eebe1d2fcec8cf796a631ea180b646ecf4d4a46bf2649dc4afc7b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:28.327Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "d4a62403b3801225fa191d8fc131b1eb514f481a7d312c2c4f638a70524762c5"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "682a7f22-b92b-4496-b6da-54452ad69148",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard V Kiswahili",
+          "subject": "Kiswahili",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727177907-MUHTASARI%20SOMO%20KISWAHILI%20DRS%20III%20-%20VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/dad5c7afbb51605c88835e27e8b4593b48d91843cc7def69f72ba3dd23d59a4b.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_V",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727177907-MUHTASARI%20SOMO%20KISWAHILI%20DRS%20III%20-%20VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/kiswahili/682a7f22-b92b-4496-b6da-54452ad69148.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3395a06144c7be53f514306dac7d8e7b57d7726289ded3d505301c8d7c38672b",
+            "markdownPageCount": 76,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/kiswahili/682a7f22-b92b-4496-b6da-54452ad69148.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3395a06144c7be53f514306dac7d8e7b57d7726289ded3d505301c8d7c38672b",
+              "pageCount": 76,
+              "generatedAt": "2026-06-29T16:48:28.327Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "037b48e2017eebe1d2fcec8cf796a631ea180b646ecf4d4a46bf2649dc4afc7b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:28.327Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "d4a62403b3801225fa191d8fc131b1eb514f481a7d312c2c4f638a70524762c5"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-STANDARD-V-kiswahili-topic-008",
+      "grade": "Standard V",
+      "strandId": "fallback-standard-v-kiswahili-8",
+      "subStrandId": "fallback-standard-v-kiswahili-8",
+      "parentSubStrandId": "fallback-standard-v-kiswahili-8",
+      "strandTitle": "Mradi Wa Uwasilishaji",
+      "unitTitle": "Mradi Wa Uwasilishaji",
+      "sourceUnitTitle": "Mradi Wa Uwasilishaji",
+      "learningOutcomes": [
+        {
+          "id": "fallback-standard-v-kiswahili-8-outcome-1",
+          "text": "kusoma, kuelewa, kuzungumza na kuandika kuhusu mradi wa uwasilishaji"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can mradi wa uwasilishaji help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Mradi Wa Uwasilishaji.",
+        "Review key vocabulary from the previous Kiswahili lesson."
+      ],
+      "keyVocabulary": [
+        "Mradi Wa Uwasilishaji",
+        "Mradi",
+        "Uwasilishaji",
+        "kusoma",
+        "kusikiliza",
+        "kuzungumza",
+        "kuandika",
+        "sentensi"
+      ],
+      "misconceptions": [
+        "giving a general answer about Mradi Wa Uwasilishaji without a clear example, method, or evidence"
+      ],
+      "localContext": "a Tanzania reading, speaking, listening, writing, or discussion task for Mradi Wa Uwasilishaji",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, grammar, and structure are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Mradi Wa Uwasilishaji",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "writing or dialogue checklist",
+          "description": "writing or dialogue checklist for Mradi Wa Uwasilishaji",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "682a7f22-b92b-4496-b6da-54452ad69148",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard V Kiswahili",
+          "subject": "Kiswahili",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727177907-MUHTASARI%20SOMO%20KISWAHILI%20DRS%20III%20-%20VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/dad5c7afbb51605c88835e27e8b4593b48d91843cc7def69f72ba3dd23d59a4b.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_V",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727177907-MUHTASARI%20SOMO%20KISWAHILI%20DRS%20III%20-%20VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/kiswahili/682a7f22-b92b-4496-b6da-54452ad69148.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3395a06144c7be53f514306dac7d8e7b57d7726289ded3d505301c8d7c38672b",
+            "markdownPageCount": 76,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/kiswahili/682a7f22-b92b-4496-b6da-54452ad69148.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3395a06144c7be53f514306dac7d8e7b57d7726289ded3d505301c8d7c38672b",
+              "pageCount": 76,
+              "generatedAt": "2026-06-29T16:48:28.327Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "037b48e2017eebe1d2fcec8cf796a631ea180b646ecf4d4a46bf2649dc4afc7b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:28.327Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "d4a62403b3801225fa191d8fc131b1eb514f481a7d312c2c4f638a70524762c5"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "682a7f22-b92b-4496-b6da-54452ad69148",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard V Kiswahili",
+          "subject": "Kiswahili",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727177907-MUHTASARI%20SOMO%20KISWAHILI%20DRS%20III%20-%20VI.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/dad5c7afbb51605c88835e27e8b4593b48d91843cc7def69f72ba3dd23d59a4b.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "STANDARD_V",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727177907-MUHTASARI%20SOMO%20KISWAHILI%20DRS%20III%20-%20VI.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/kiswahili/682a7f22-b92b-4496-b6da-54452ad69148.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "3395a06144c7be53f514306dac7d8e7b57d7726289ded3d505301c8d7c38672b",
+            "markdownPageCount": 76,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/kiswahili/682a7f22-b92b-4496-b6da-54452ad69148.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "3395a06144c7be53f514306dac7d8e7b57d7726289ded3d505301c8d7c38672b",
+              "pageCount": 76,
+              "generatedAt": "2026-06-29T16:48:28.327Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "037b48e2017eebe1d2fcec8cf796a631ea180b646ecf4d4a46bf2649dc4afc7b"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:48:28.327Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "d4a62403b3801225fa191d8fc131b1eb514f481a7d312c2c4f638a70524762c5"
+        }
+      ]
+    }
+  ]
+}

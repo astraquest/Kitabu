@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-rwa-reb-cbc-p4-kinyarwanda",
+  "title": "KITABU QUEST P4 Kinyarwanda",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "P4",
+  "subject": "Kinyarwanda",
+  "subjectSlug": "kinyarwanda",
+  "subjectColor": "#C2410C",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v17",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T06:35:35Z",
+  "sourceSnapshotHash": "342b50c01496c26c5dec8bc2fa5f7c72f71a80fa58d26214bdf4b309dc2f3f5f",
+  "bookPlanHash": "db48522f0e815bcbc18f2c553f4831887d4f818b4f6424391ea721d79cfda69f",
+  "pageCount": 111,
+  "wordCount": 8362,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 6,
+    "outcomeCount": 6,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "RWA",
+    "subject": "Kinyarwanda",
+    "species": "grey crowned crane",
+    "role": "language and culture guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners in a storytelling circle with a grey crowned crane mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Rwanda REB-CBC P4 Kinyarwanda. Scene: learners in a storytelling circle with a grey crowned crane mascot. Include a friendly grey crowned crane mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 89208,
+    "sha256": "b83e8098e3781caa9fa402301988fa988d9b12b2649608a16a5d37de336993b2"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 89208,
+      "sha256": "b83e8098e3781caa9fa402301988fa988d9b12b2649608a16a5d37de336993b2",
+      "kind": "cover",
+      "altText": "KITABU QUEST P4 Kinyarwanda cover with grey crowned crane",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-rwa-reb-cbc-p4-kinyarwanda.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-rwa-reb-cbc-p4-kinyarwanda.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "98c9ad4e-f344-47da-9bd3-9175f29f2805",
+      "subject": "Kinyarwanda",
+      "officialTitle": "Rwanda Competence Based Curriculum P4 Kinyarwanda",
+      "countryCode": "RWA",
+      "curriculumCode": "REB-CBC",
+      "gradeCode": "P4",
+      "gradeLocalLevel": "P4",
+      "localLevel": "P4",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://elearning.reb.rw/pluginfile.php/177314/mod_folder/content/0/Kinyarwanda-Syllabus-P4-P6%20..pdf?forcedownload=1",
+      "objectKey": "data/curriculum/source-files/RWA/56dd0d87ffc666195d59d29f9c6ac101f2cc29e3a3e42337caade278d2d197d8.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "P4",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://elearning.reb.rw/pluginfile.php/177314/mod_folder/content/0/Kinyarwanda-Syllabus-P4-P6%20..pdf?forcedownload=1",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/P4/kinyarwanda/98c9ad4e-f344-47da-9bd3-9175f29f2805.md",
+        "sourcePageUrl": "https://elearning.reb.rw/mod/folder/view.php?id=14427",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "reb.gov.rw",
+          "reb.rw",
+          "elearning.reb.rw"
+        ],
+        "markdownChecksum": "92cf6931b222652875b9e7ae36dbfb90a57dabe88143231eb0789e046d94a8af",
+        "markdownPageCount": 105,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/RWA/REB-CBC/P4/kinyarwanda/98c9ad4e-f344-47da-9bd3-9175f29f2805.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "92cf6931b222652875b9e7ae36dbfb90a57dabe88143231eb0789e046d94a8af",
+          "pageCount": 105,
+          "generatedAt": "2026-07-01T01:12:21.484Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/P4/kinyarwanda/98c9ad4e-f344-47da-9bd3-9175f29f2805.json",
+          "sourceChecksum": "93c4e846ec1721cc20afa1d50cb162aa7652451eae482e63a2f65397ab1f107f"
+        },
+        "markdownGeneratedAt": "2026-07-01T01:12:21.484Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

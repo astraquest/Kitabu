@@ -1,0 +1,1279 @@
+{
+  "schemaVersion": 1,
+  "sourceType": "normalized-curriculum",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Form II",
+  "subject": "Computer Science",
+  "generatedAt": "2026-07-01T05:46:36Z",
+  "sourceSnapshotHash": "41b62f38addd4a3659aef0604c0d72473b2365727f864318ab31211c20290d16",
+  "writingStandard": {
+    "voice": "simple, conversational, purposeful, age-appropriate, and learner-first",
+    "antiFluff": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "coversDeferred": true
+  },
+  "strands": [
+    {
+      "strandId": "fallback-form-ii-computer-science-1",
+      "number": "",
+      "title": "Spreadsheets Formulae And Data Tables",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-ii-computer-science-2",
+      "number": "",
+      "title": "Presentation Design And Communication",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-ii-computer-science-3",
+      "number": "",
+      "title": "Databases Records And Queries Introduction",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-ii-computer-science-4",
+      "number": "",
+      "title": "Networks Internet And Communication",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-ii-computer-science-5",
+      "number": "",
+      "title": "Web Pages With HTML Basics",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-ii-computer-science-6",
+      "number": "",
+      "title": "Problem Solving And Flowcharts",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-ii-computer-science-7",
+      "number": "",
+      "title": "Digital Security And Privacy",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-ii-computer-science-8",
+      "number": "",
+      "title": "Form II Computing Project",
+      "topicCount": 1
+    }
+  ],
+  "topics": [
+    {
+      "topicId": "TZA-FORM-II-computer-science-topic-001",
+      "grade": "Form II",
+      "strandId": "fallback-form-ii-computer-science-1",
+      "subStrandId": "fallback-form-ii-computer-science-1",
+      "parentSubStrandId": "fallback-form-ii-computer-science-1",
+      "strandTitle": "Spreadsheets Formulae And Data Tables",
+      "unitTitle": "Spreadsheets Formulae And Data Tables",
+      "sourceUnitTitle": "Spreadsheets Formulae And Data Tables",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-ii-computer-science-1-outcome-1",
+          "text": "investigate and explain spreadsheets formulae and data tables using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can spreadsheets formulae and data tables help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Spreadsheets Formulae And Data Tables.",
+        "Review key vocabulary from the previous Computer Science lesson."
+      ],
+      "keyVocabulary": [
+        "Spreadsheets Formulae And Data Tables",
+        "Spreadsheets",
+        "Formulae",
+        "Data",
+        "Tables",
+        "concept",
+        "observation",
+        "evidence"
+      ],
+      "misconceptions": [
+        "giving a general answer about Spreadsheets Formulae And Data Tables without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Spreadsheets Formulae And Data Tables",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Spreadsheets Formulae And Data Tables",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Spreadsheets Formulae And Data Tables",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "baebb2d3-3731-4317-b586-43719fbe61f7",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Computer Science",
+          "subject": "Computer Science",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/3704692c1cf5dcc8c4e32a77e6b0669e1ef23414eee79c8297ba6c685f954cee.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/computer-science/baebb2d3-3731-4317-b586-43719fbe61f7.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "cad1d3213b7c13d923f5e8f5279a1242a7bf3983103496abd6b07b5d1b1c31a7",
+            "markdownPageCount": 40,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/computer-science/baebb2d3-3731-4317-b586-43719fbe61f7.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "cad1d3213b7c13d923f5e8f5279a1242a7bf3983103496abd6b07b5d1b1c31a7",
+              "pageCount": 40,
+              "generatedAt": "2026-06-29T17:39:48.703Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "a6169f241747b4661b053759507e6dd9572e38235c36f9764226d5cf8f2ea6ef"
+            },
+            "markdownGeneratedAt": "2026-06-29T17:39:48.703Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "41b62f38addd4a3659aef0604c0d72473b2365727f864318ab31211c20290d16"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "baebb2d3-3731-4317-b586-43719fbe61f7",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Computer Science",
+          "subject": "Computer Science",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/3704692c1cf5dcc8c4e32a77e6b0669e1ef23414eee79c8297ba6c685f954cee.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/computer-science/baebb2d3-3731-4317-b586-43719fbe61f7.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "cad1d3213b7c13d923f5e8f5279a1242a7bf3983103496abd6b07b5d1b1c31a7",
+            "markdownPageCount": 40,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/computer-science/baebb2d3-3731-4317-b586-43719fbe61f7.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "cad1d3213b7c13d923f5e8f5279a1242a7bf3983103496abd6b07b5d1b1c31a7",
+              "pageCount": 40,
+              "generatedAt": "2026-06-29T17:39:48.703Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "a6169f241747b4661b053759507e6dd9572e38235c36f9764226d5cf8f2ea6ef"
+            },
+            "markdownGeneratedAt": "2026-06-29T17:39:48.703Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "41b62f38addd4a3659aef0604c0d72473b2365727f864318ab31211c20290d16"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-II-computer-science-topic-002",
+      "grade": "Form II",
+      "strandId": "fallback-form-ii-computer-science-2",
+      "subStrandId": "fallback-form-ii-computer-science-2",
+      "parentSubStrandId": "fallback-form-ii-computer-science-2",
+      "strandTitle": "Presentation Design And Communication",
+      "unitTitle": "Presentation Design And Communication",
+      "sourceUnitTitle": "Presentation Design And Communication",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-ii-computer-science-2-outcome-1",
+          "text": "investigate and explain presentation design and communication using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can presentation design and communication help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Presentation Design And Communication.",
+        "Review key vocabulary from the previous Computer Science lesson."
+      ],
+      "keyVocabulary": [
+        "Presentation Design And Communication",
+        "Presentation",
+        "Design",
+        "Communication",
+        "concept",
+        "observation",
+        "evidence",
+        "safety"
+      ],
+      "misconceptions": [
+        "giving a general answer about Presentation Design And Communication without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Presentation Design And Communication",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Presentation Design And Communication",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Presentation Design And Communication",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "baebb2d3-3731-4317-b586-43719fbe61f7",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Computer Science",
+          "subject": "Computer Science",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/3704692c1cf5dcc8c4e32a77e6b0669e1ef23414eee79c8297ba6c685f954cee.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/computer-science/baebb2d3-3731-4317-b586-43719fbe61f7.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "cad1d3213b7c13d923f5e8f5279a1242a7bf3983103496abd6b07b5d1b1c31a7",
+            "markdownPageCount": 40,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/computer-science/baebb2d3-3731-4317-b586-43719fbe61f7.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "cad1d3213b7c13d923f5e8f5279a1242a7bf3983103496abd6b07b5d1b1c31a7",
+              "pageCount": 40,
+              "generatedAt": "2026-06-29T17:39:48.703Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "a6169f241747b4661b053759507e6dd9572e38235c36f9764226d5cf8f2ea6ef"
+            },
+            "markdownGeneratedAt": "2026-06-29T17:39:48.703Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "41b62f38addd4a3659aef0604c0d72473b2365727f864318ab31211c20290d16"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "baebb2d3-3731-4317-b586-43719fbe61f7",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Computer Science",
+          "subject": "Computer Science",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/3704692c1cf5dcc8c4e32a77e6b0669e1ef23414eee79c8297ba6c685f954cee.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/computer-science/baebb2d3-3731-4317-b586-43719fbe61f7.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "cad1d3213b7c13d923f5e8f5279a1242a7bf3983103496abd6b07b5d1b1c31a7",
+            "markdownPageCount": 40,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/computer-science/baebb2d3-3731-4317-b586-43719fbe61f7.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "cad1d3213b7c13d923f5e8f5279a1242a7bf3983103496abd6b07b5d1b1c31a7",
+              "pageCount": 40,
+              "generatedAt": "2026-06-29T17:39:48.703Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "a6169f241747b4661b053759507e6dd9572e38235c36f9764226d5cf8f2ea6ef"
+            },
+            "markdownGeneratedAt": "2026-06-29T17:39:48.703Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "41b62f38addd4a3659aef0604c0d72473b2365727f864318ab31211c20290d16"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-II-computer-science-topic-003",
+      "grade": "Form II",
+      "strandId": "fallback-form-ii-computer-science-3",
+      "subStrandId": "fallback-form-ii-computer-science-3",
+      "parentSubStrandId": "fallback-form-ii-computer-science-3",
+      "strandTitle": "Databases Records And Queries Introduction",
+      "unitTitle": "Databases Records And Queries Introduction",
+      "sourceUnitTitle": "Databases Records And Queries Introduction",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-ii-computer-science-3-outcome-1",
+          "text": "investigate and explain databases records and queries introduction using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can databases records and queries introduction help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Databases Records And Queries Introduction.",
+        "Review key vocabulary from the previous Computer Science lesson."
+      ],
+      "keyVocabulary": [
+        "Databases Records And Queries Introduction",
+        "Databases",
+        "Records",
+        "Queries",
+        "Introduction",
+        "concept",
+        "observation",
+        "evidence"
+      ],
+      "misconceptions": [
+        "giving a general answer about Databases Records And Queries Introduction without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Databases Records And Queries Introduction",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Databases Records And Queries Introduction",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Databases Records And Queries Introduction",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "baebb2d3-3731-4317-b586-43719fbe61f7",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Computer Science",
+          "subject": "Computer Science",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/3704692c1cf5dcc8c4e32a77e6b0669e1ef23414eee79c8297ba6c685f954cee.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/computer-science/baebb2d3-3731-4317-b586-43719fbe61f7.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "cad1d3213b7c13d923f5e8f5279a1242a7bf3983103496abd6b07b5d1b1c31a7",
+            "markdownPageCount": 40,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/computer-science/baebb2d3-3731-4317-b586-43719fbe61f7.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "cad1d3213b7c13d923f5e8f5279a1242a7bf3983103496abd6b07b5d1b1c31a7",
+              "pageCount": 40,
+              "generatedAt": "2026-06-29T17:39:48.703Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "a6169f241747b4661b053759507e6dd9572e38235c36f9764226d5cf8f2ea6ef"
+            },
+            "markdownGeneratedAt": "2026-06-29T17:39:48.703Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "41b62f38addd4a3659aef0604c0d72473b2365727f864318ab31211c20290d16"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "baebb2d3-3731-4317-b586-43719fbe61f7",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Computer Science",
+          "subject": "Computer Science",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/3704692c1cf5dcc8c4e32a77e6b0669e1ef23414eee79c8297ba6c685f954cee.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/computer-science/baebb2d3-3731-4317-b586-43719fbe61f7.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "cad1d3213b7c13d923f5e8f5279a1242a7bf3983103496abd6b07b5d1b1c31a7",
+            "markdownPageCount": 40,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/computer-science/baebb2d3-3731-4317-b586-43719fbe61f7.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "cad1d3213b7c13d923f5e8f5279a1242a7bf3983103496abd6b07b5d1b1c31a7",
+              "pageCount": 40,
+              "generatedAt": "2026-06-29T17:39:48.703Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "a6169f241747b4661b053759507e6dd9572e38235c36f9764226d5cf8f2ea6ef"
+            },
+            "markdownGeneratedAt": "2026-06-29T17:39:48.703Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "41b62f38addd4a3659aef0604c0d72473b2365727f864318ab31211c20290d16"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-II-computer-science-topic-004",
+      "grade": "Form II",
+      "strandId": "fallback-form-ii-computer-science-4",
+      "subStrandId": "fallback-form-ii-computer-science-4",
+      "parentSubStrandId": "fallback-form-ii-computer-science-4",
+      "strandTitle": "Networks Internet And Communication",
+      "unitTitle": "Networks Internet And Communication",
+      "sourceUnitTitle": "Networks Internet And Communication",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-ii-computer-science-4-outcome-1",
+          "text": "investigate and explain networks internet and communication using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can networks internet and communication help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Networks Internet And Communication.",
+        "Review key vocabulary from the previous Computer Science lesson."
+      ],
+      "keyVocabulary": [
+        "Networks Internet And Communication",
+        "Networks",
+        "Internet",
+        "Communication",
+        "concept",
+        "observation",
+        "evidence",
+        "safety"
+      ],
+      "misconceptions": [
+        "giving a general answer about Networks Internet And Communication without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Networks Internet And Communication",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Networks Internet And Communication",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Networks Internet And Communication",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "baebb2d3-3731-4317-b586-43719fbe61f7",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Computer Science",
+          "subject": "Computer Science",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/3704692c1cf5dcc8c4e32a77e6b0669e1ef23414eee79c8297ba6c685f954cee.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/computer-science/baebb2d3-3731-4317-b586-43719fbe61f7.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "cad1d3213b7c13d923f5e8f5279a1242a7bf3983103496abd6b07b5d1b1c31a7",
+            "markdownPageCount": 40,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/computer-science/baebb2d3-3731-4317-b586-43719fbe61f7.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "cad1d3213b7c13d923f5e8f5279a1242a7bf3983103496abd6b07b5d1b1c31a7",
+              "pageCount": 40,
+              "generatedAt": "2026-06-29T17:39:48.703Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "a6169f241747b4661b053759507e6dd9572e38235c36f9764226d5cf8f2ea6ef"
+            },
+            "markdownGeneratedAt": "2026-06-29T17:39:48.703Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "41b62f38addd4a3659aef0604c0d72473b2365727f864318ab31211c20290d16"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "baebb2d3-3731-4317-b586-43719fbe61f7",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Computer Science",
+          "subject": "Computer Science",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/3704692c1cf5dcc8c4e32a77e6b0669e1ef23414eee79c8297ba6c685f954cee.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/computer-science/baebb2d3-3731-4317-b586-43719fbe61f7.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "cad1d3213b7c13d923f5e8f5279a1242a7bf3983103496abd6b07b5d1b1c31a7",
+            "markdownPageCount": 40,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/computer-science/baebb2d3-3731-4317-b586-43719fbe61f7.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "cad1d3213b7c13d923f5e8f5279a1242a7bf3983103496abd6b07b5d1b1c31a7",
+              "pageCount": 40,
+              "generatedAt": "2026-06-29T17:39:48.703Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "a6169f241747b4661b053759507e6dd9572e38235c36f9764226d5cf8f2ea6ef"
+            },
+            "markdownGeneratedAt": "2026-06-29T17:39:48.703Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "41b62f38addd4a3659aef0604c0d72473b2365727f864318ab31211c20290d16"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-II-computer-science-topic-005",
+      "grade": "Form II",
+      "strandId": "fallback-form-ii-computer-science-5",
+      "subStrandId": "fallback-form-ii-computer-science-5",
+      "parentSubStrandId": "fallback-form-ii-computer-science-5",
+      "strandTitle": "Web Pages With HTML Basics",
+      "unitTitle": "Web Pages With HTML Basics",
+      "sourceUnitTitle": "Web Pages With HTML Basics",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-ii-computer-science-5-outcome-1",
+          "text": "investigate and explain web pages with html basics using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can web pages with html basics help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Web Pages With HTML Basics.",
+        "Review key vocabulary from the previous Computer Science lesson."
+      ],
+      "keyVocabulary": [
+        "Web Pages With HTML Basics",
+        "Pages",
+        "With",
+        "HTML",
+        "Basics",
+        "concept",
+        "observation",
+        "evidence"
+      ],
+      "misconceptions": [
+        "giving a general answer about Web Pages With HTML Basics without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Web Pages With HTML Basics",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Web Pages With HTML Basics",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Web Pages With HTML Basics",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "baebb2d3-3731-4317-b586-43719fbe61f7",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Computer Science",
+          "subject": "Computer Science",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/3704692c1cf5dcc8c4e32a77e6b0669e1ef23414eee79c8297ba6c685f954cee.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/computer-science/baebb2d3-3731-4317-b586-43719fbe61f7.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "cad1d3213b7c13d923f5e8f5279a1242a7bf3983103496abd6b07b5d1b1c31a7",
+            "markdownPageCount": 40,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/computer-science/baebb2d3-3731-4317-b586-43719fbe61f7.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "cad1d3213b7c13d923f5e8f5279a1242a7bf3983103496abd6b07b5d1b1c31a7",
+              "pageCount": 40,
+              "generatedAt": "2026-06-29T17:39:48.703Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "a6169f241747b4661b053759507e6dd9572e38235c36f9764226d5cf8f2ea6ef"
+            },
+            "markdownGeneratedAt": "2026-06-29T17:39:48.703Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "41b62f38addd4a3659aef0604c0d72473b2365727f864318ab31211c20290d16"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "baebb2d3-3731-4317-b586-43719fbe61f7",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Computer Science",
+          "subject": "Computer Science",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/3704692c1cf5dcc8c4e32a77e6b0669e1ef23414eee79c8297ba6c685f954cee.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/computer-science/baebb2d3-3731-4317-b586-43719fbe61f7.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "cad1d3213b7c13d923f5e8f5279a1242a7bf3983103496abd6b07b5d1b1c31a7",
+            "markdownPageCount": 40,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/computer-science/baebb2d3-3731-4317-b586-43719fbe61f7.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "cad1d3213b7c13d923f5e8f5279a1242a7bf3983103496abd6b07b5d1b1c31a7",
+              "pageCount": 40,
+              "generatedAt": "2026-06-29T17:39:48.703Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "a6169f241747b4661b053759507e6dd9572e38235c36f9764226d5cf8f2ea6ef"
+            },
+            "markdownGeneratedAt": "2026-06-29T17:39:48.703Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "41b62f38addd4a3659aef0604c0d72473b2365727f864318ab31211c20290d16"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-II-computer-science-topic-006",
+      "grade": "Form II",
+      "strandId": "fallback-form-ii-computer-science-6",
+      "subStrandId": "fallback-form-ii-computer-science-6",
+      "parentSubStrandId": "fallback-form-ii-computer-science-6",
+      "strandTitle": "Problem Solving And Flowcharts",
+      "unitTitle": "Problem Solving And Flowcharts",
+      "sourceUnitTitle": "Problem Solving And Flowcharts",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-ii-computer-science-6-outcome-1",
+          "text": "investigate and explain problem solving and flowcharts using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can problem solving and flowcharts help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Problem Solving And Flowcharts.",
+        "Review key vocabulary from the previous Computer Science lesson."
+      ],
+      "keyVocabulary": [
+        "Problem Solving And Flowcharts",
+        "Problem",
+        "Solving",
+        "Flowcharts",
+        "concept",
+        "observation",
+        "evidence",
+        "safety"
+      ],
+      "misconceptions": [
+        "giving a general answer about Problem Solving And Flowcharts without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Problem Solving And Flowcharts",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Problem Solving And Flowcharts",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Problem Solving And Flowcharts",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "baebb2d3-3731-4317-b586-43719fbe61f7",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Computer Science",
+          "subject": "Computer Science",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/3704692c1cf5dcc8c4e32a77e6b0669e1ef23414eee79c8297ba6c685f954cee.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/computer-science/baebb2d3-3731-4317-b586-43719fbe61f7.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "cad1d3213b7c13d923f5e8f5279a1242a7bf3983103496abd6b07b5d1b1c31a7",
+            "markdownPageCount": 40,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/computer-science/baebb2d3-3731-4317-b586-43719fbe61f7.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "cad1d3213b7c13d923f5e8f5279a1242a7bf3983103496abd6b07b5d1b1c31a7",
+              "pageCount": 40,
+              "generatedAt": "2026-06-29T17:39:48.703Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "a6169f241747b4661b053759507e6dd9572e38235c36f9764226d5cf8f2ea6ef"
+            },
+            "markdownGeneratedAt": "2026-06-29T17:39:48.703Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "41b62f38addd4a3659aef0604c0d72473b2365727f864318ab31211c20290d16"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "baebb2d3-3731-4317-b586-43719fbe61f7",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Computer Science",
+          "subject": "Computer Science",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/3704692c1cf5dcc8c4e32a77e6b0669e1ef23414eee79c8297ba6c685f954cee.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/computer-science/baebb2d3-3731-4317-b586-43719fbe61f7.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "cad1d3213b7c13d923f5e8f5279a1242a7bf3983103496abd6b07b5d1b1c31a7",
+            "markdownPageCount": 40,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/computer-science/baebb2d3-3731-4317-b586-43719fbe61f7.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "cad1d3213b7c13d923f5e8f5279a1242a7bf3983103496abd6b07b5d1b1c31a7",
+              "pageCount": 40,
+              "generatedAt": "2026-06-29T17:39:48.703Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "a6169f241747b4661b053759507e6dd9572e38235c36f9764226d5cf8f2ea6ef"
+            },
+            "markdownGeneratedAt": "2026-06-29T17:39:48.703Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "41b62f38addd4a3659aef0604c0d72473b2365727f864318ab31211c20290d16"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-II-computer-science-topic-007",
+      "grade": "Form II",
+      "strandId": "fallback-form-ii-computer-science-7",
+      "subStrandId": "fallback-form-ii-computer-science-7",
+      "parentSubStrandId": "fallback-form-ii-computer-science-7",
+      "strandTitle": "Digital Security And Privacy",
+      "unitTitle": "Digital Security And Privacy",
+      "sourceUnitTitle": "Digital Security And Privacy",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-ii-computer-science-7-outcome-1",
+          "text": "investigate and explain digital security and privacy using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can digital security and privacy help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Digital Security And Privacy.",
+        "Review key vocabulary from the previous Computer Science lesson."
+      ],
+      "keyVocabulary": [
+        "Digital Security And Privacy",
+        "Digital",
+        "Security",
+        "Privacy",
+        "concept",
+        "observation",
+        "evidence",
+        "safety"
+      ],
+      "misconceptions": [
+        "giving a general answer about Digital Security And Privacy without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Digital Security And Privacy",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Digital Security And Privacy",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Digital Security And Privacy",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "baebb2d3-3731-4317-b586-43719fbe61f7",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Computer Science",
+          "subject": "Computer Science",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/3704692c1cf5dcc8c4e32a77e6b0669e1ef23414eee79c8297ba6c685f954cee.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/computer-science/baebb2d3-3731-4317-b586-43719fbe61f7.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "cad1d3213b7c13d923f5e8f5279a1242a7bf3983103496abd6b07b5d1b1c31a7",
+            "markdownPageCount": 40,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/computer-science/baebb2d3-3731-4317-b586-43719fbe61f7.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "cad1d3213b7c13d923f5e8f5279a1242a7bf3983103496abd6b07b5d1b1c31a7",
+              "pageCount": 40,
+              "generatedAt": "2026-06-29T17:39:48.703Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "a6169f241747b4661b053759507e6dd9572e38235c36f9764226d5cf8f2ea6ef"
+            },
+            "markdownGeneratedAt": "2026-06-29T17:39:48.703Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "41b62f38addd4a3659aef0604c0d72473b2365727f864318ab31211c20290d16"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "baebb2d3-3731-4317-b586-43719fbe61f7",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Computer Science",
+          "subject": "Computer Science",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/3704692c1cf5dcc8c4e32a77e6b0669e1ef23414eee79c8297ba6c685f954cee.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/computer-science/baebb2d3-3731-4317-b586-43719fbe61f7.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "cad1d3213b7c13d923f5e8f5279a1242a7bf3983103496abd6b07b5d1b1c31a7",
+            "markdownPageCount": 40,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/computer-science/baebb2d3-3731-4317-b586-43719fbe61f7.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "cad1d3213b7c13d923f5e8f5279a1242a7bf3983103496abd6b07b5d1b1c31a7",
+              "pageCount": 40,
+              "generatedAt": "2026-06-29T17:39:48.703Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "a6169f241747b4661b053759507e6dd9572e38235c36f9764226d5cf8f2ea6ef"
+            },
+            "markdownGeneratedAt": "2026-06-29T17:39:48.703Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "41b62f38addd4a3659aef0604c0d72473b2365727f864318ab31211c20290d16"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-II-computer-science-topic-008",
+      "grade": "Form II",
+      "strandId": "fallback-form-ii-computer-science-8",
+      "subStrandId": "fallback-form-ii-computer-science-8",
+      "parentSubStrandId": "fallback-form-ii-computer-science-8",
+      "strandTitle": "Form II Computing Project",
+      "unitTitle": "Form II Computing Project",
+      "sourceUnitTitle": "Form II Computing Project",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-ii-computer-science-8-outcome-1",
+          "text": "investigate and explain form ii computing project using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can form ii computing project help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Form II Computing Project.",
+        "Review key vocabulary from the previous Computer Science lesson."
+      ],
+      "keyVocabulary": [
+        "Form II Computing Project",
+        "Form",
+        "Computing",
+        "Project",
+        "concept",
+        "observation",
+        "evidence",
+        "safety"
+      ],
+      "misconceptions": [
+        "giving a general answer about Form II Computing Project without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Form II Computing Project",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Form II Computing Project",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Form II Computing Project",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "baebb2d3-3731-4317-b586-43719fbe61f7",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Computer Science",
+          "subject": "Computer Science",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/3704692c1cf5dcc8c4e32a77e6b0669e1ef23414eee79c8297ba6c685f954cee.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/computer-science/baebb2d3-3731-4317-b586-43719fbe61f7.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "cad1d3213b7c13d923f5e8f5279a1242a7bf3983103496abd6b07b5d1b1c31a7",
+            "markdownPageCount": 40,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/computer-science/baebb2d3-3731-4317-b586-43719fbe61f7.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "cad1d3213b7c13d923f5e8f5279a1242a7bf3983103496abd6b07b5d1b1c31a7",
+              "pageCount": 40,
+              "generatedAt": "2026-06-29T17:39:48.703Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "a6169f241747b4661b053759507e6dd9572e38235c36f9764226d5cf8f2ea6ef"
+            },
+            "markdownGeneratedAt": "2026-06-29T17:39:48.703Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "41b62f38addd4a3659aef0604c0d72473b2365727f864318ab31211c20290d16"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "baebb2d3-3731-4317-b586-43719fbe61f7",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Computer Science",
+          "subject": "Computer Science",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/3704692c1cf5dcc8c4e32a77e6b0669e1ef23414eee79c8297ba6c685f954cee.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/computer-science/baebb2d3-3731-4317-b586-43719fbe61f7.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "cad1d3213b7c13d923f5e8f5279a1242a7bf3983103496abd6b07b5d1b1c31a7",
+            "markdownPageCount": 40,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/computer-science/baebb2d3-3731-4317-b586-43719fbe61f7.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "cad1d3213b7c13d923f5e8f5279a1242a7bf3983103496abd6b07b5d1b1c31a7",
+              "pageCount": 40,
+              "generatedAt": "2026-06-29T17:39:48.703Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "a6169f241747b4661b053759507e6dd9572e38235c36f9764226d5cf8f2ea6ef"
+            },
+            "markdownGeneratedAt": "2026-06-29T17:39:48.703Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "41b62f38addd4a3659aef0604c0d72473b2365727f864318ab31211c20290d16"
+        }
+      ]
+    }
+  ]
+}

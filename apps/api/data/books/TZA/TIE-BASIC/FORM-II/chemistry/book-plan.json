@@ -1,0 +1,1279 @@
+{
+  "schemaVersion": 1,
+  "sourceType": "normalized-curriculum",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Form II",
+  "subject": "Chemistry",
+  "generatedAt": "2026-07-01T05:45:43Z",
+  "sourceSnapshotHash": "368c103e56e3b7fad15e70e265ae6cf2bdfe3de7a5e9b91fa6b550dbac1b6d59",
+  "writingStandard": {
+    "voice": "simple, conversational, purposeful, age-appropriate, and learner-first",
+    "antiFluff": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "coversDeferred": true
+  },
+  "strands": [
+    {
+      "strandId": "fallback-form-ii-chemistry-1",
+      "number": "",
+      "title": "Atomic Structure And",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-ii-chemistry-2",
+      "number": "",
+      "title": "Chemical Bonding And Properties",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-ii-chemistry-3",
+      "number": "",
+      "title": "Mole Concept And Simple Calculations",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-ii-chemistry-4",
+      "number": "",
+      "title": "Acids Bases Salts And Neutralisation",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-ii-chemistry-5",
+      "number": "",
+      "title": "Oxidation Reduction And Reactivity Series",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-ii-chemistry-6",
+      "number": "",
+      "title": "Electrolysis And Applications",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-ii-chemistry-7",
+      "number": "",
+      "title": "Organic Chemistry Introduction",
+      "topicCount": 1
+    },
+    {
+      "strandId": "fallback-form-ii-chemistry-8",
+      "number": "",
+      "title": "Form II Chemistry Project",
+      "topicCount": 1
+    }
+  ],
+  "topics": [
+    {
+      "topicId": "TZA-FORM-II-chemistry-topic-001",
+      "grade": "Form II",
+      "strandId": "fallback-form-ii-chemistry-1",
+      "subStrandId": "fallback-form-ii-chemistry-1",
+      "parentSubStrandId": "fallback-form-ii-chemistry-1",
+      "strandTitle": "Atomic Structure And",
+      "unitTitle": "Atomic Structure And",
+      "sourceUnitTitle": "Atomic Structure And Periodic Patterns",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-ii-chemistry-1-outcome-1",
+          "text": "investigate and explain atomic structure and using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can atomic structure and periodic patterns help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Atomic Structure And.",
+        "Review key vocabulary from the previous Chemistry lesson."
+      ],
+      "keyVocabulary": [
+        "Atomic Structure And",
+        "Atomic",
+        "Structure",
+        "concept",
+        "observation",
+        "evidence",
+        "safety",
+        "conclusion"
+      ],
+      "misconceptions": [
+        "giving a general answer about Atomic Structure And without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Atomic Structure And",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Atomic Structure And",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Atomic Structure And",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b5ebe701-8568-4378-86f3-253bb88048c6",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Chemistry",
+          "subject": "Chemistry",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/b9ca1dd0c8d837c016d65a5ac7385e82af51dfaf3ead82dd85e516f61fffb906.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/chemistry/b5ebe701-8568-4378-86f3-253bb88048c6.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "6602ffcad2681d96689a053f9152257ffab547a90ac84420c1e8343aa08d1bc5",
+            "markdownPageCount": 59,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/chemistry/b5ebe701-8568-4378-86f3-253bb88048c6.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "6602ffcad2681d96689a053f9152257ffab547a90ac84420c1e8343aa08d1bc5",
+              "pageCount": 59,
+              "generatedAt": "2026-06-29T16:44:57.529Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "f6b93b5819e5c582ca3d190a81725a322f07890cb35b77d0b1375ca999877fea"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:57.529Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "368c103e56e3b7fad15e70e265ae6cf2bdfe3de7a5e9b91fa6b550dbac1b6d59"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b5ebe701-8568-4378-86f3-253bb88048c6",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Chemistry",
+          "subject": "Chemistry",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/b9ca1dd0c8d837c016d65a5ac7385e82af51dfaf3ead82dd85e516f61fffb906.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/chemistry/b5ebe701-8568-4378-86f3-253bb88048c6.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "6602ffcad2681d96689a053f9152257ffab547a90ac84420c1e8343aa08d1bc5",
+            "markdownPageCount": 59,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/chemistry/b5ebe701-8568-4378-86f3-253bb88048c6.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "6602ffcad2681d96689a053f9152257ffab547a90ac84420c1e8343aa08d1bc5",
+              "pageCount": 59,
+              "generatedAt": "2026-06-29T16:44:57.529Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "f6b93b5819e5c582ca3d190a81725a322f07890cb35b77d0b1375ca999877fea"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:57.529Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "368c103e56e3b7fad15e70e265ae6cf2bdfe3de7a5e9b91fa6b550dbac1b6d59"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-II-chemistry-topic-002",
+      "grade": "Form II",
+      "strandId": "fallback-form-ii-chemistry-2",
+      "subStrandId": "fallback-form-ii-chemistry-2",
+      "parentSubStrandId": "fallback-form-ii-chemistry-2",
+      "strandTitle": "Chemical Bonding And Properties",
+      "unitTitle": "Chemical Bonding And Properties",
+      "sourceUnitTitle": "Chemical Bonding And Properties",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-ii-chemistry-2-outcome-1",
+          "text": "investigate and explain chemical bonding and properties using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can chemical bonding and properties help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Chemical Bonding And Properties.",
+        "Review key vocabulary from the previous Chemistry lesson."
+      ],
+      "keyVocabulary": [
+        "Chemical Bonding And Properties",
+        "Chemical",
+        "Bonding",
+        "Properties",
+        "concept",
+        "observation",
+        "evidence",
+        "safety"
+      ],
+      "misconceptions": [
+        "giving a general answer about Chemical Bonding And Properties without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Chemical Bonding And Properties",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Chemical Bonding And Properties",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Chemical Bonding And Properties",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b5ebe701-8568-4378-86f3-253bb88048c6",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Chemistry",
+          "subject": "Chemistry",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/b9ca1dd0c8d837c016d65a5ac7385e82af51dfaf3ead82dd85e516f61fffb906.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/chemistry/b5ebe701-8568-4378-86f3-253bb88048c6.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "6602ffcad2681d96689a053f9152257ffab547a90ac84420c1e8343aa08d1bc5",
+            "markdownPageCount": 59,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/chemistry/b5ebe701-8568-4378-86f3-253bb88048c6.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "6602ffcad2681d96689a053f9152257ffab547a90ac84420c1e8343aa08d1bc5",
+              "pageCount": 59,
+              "generatedAt": "2026-06-29T16:44:57.529Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "f6b93b5819e5c582ca3d190a81725a322f07890cb35b77d0b1375ca999877fea"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:57.529Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "368c103e56e3b7fad15e70e265ae6cf2bdfe3de7a5e9b91fa6b550dbac1b6d59"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b5ebe701-8568-4378-86f3-253bb88048c6",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Chemistry",
+          "subject": "Chemistry",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/b9ca1dd0c8d837c016d65a5ac7385e82af51dfaf3ead82dd85e516f61fffb906.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/chemistry/b5ebe701-8568-4378-86f3-253bb88048c6.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "6602ffcad2681d96689a053f9152257ffab547a90ac84420c1e8343aa08d1bc5",
+            "markdownPageCount": 59,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/chemistry/b5ebe701-8568-4378-86f3-253bb88048c6.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "6602ffcad2681d96689a053f9152257ffab547a90ac84420c1e8343aa08d1bc5",
+              "pageCount": 59,
+              "generatedAt": "2026-06-29T16:44:57.529Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "f6b93b5819e5c582ca3d190a81725a322f07890cb35b77d0b1375ca999877fea"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:57.529Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "368c103e56e3b7fad15e70e265ae6cf2bdfe3de7a5e9b91fa6b550dbac1b6d59"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-II-chemistry-topic-003",
+      "grade": "Form II",
+      "strandId": "fallback-form-ii-chemistry-3",
+      "subStrandId": "fallback-form-ii-chemistry-3",
+      "parentSubStrandId": "fallback-form-ii-chemistry-3",
+      "strandTitle": "Mole Concept And Simple Calculations",
+      "unitTitle": "Mole Concept And Simple Calculations",
+      "sourceUnitTitle": "Mole Concept And Simple Calculations",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-ii-chemistry-3-outcome-1",
+          "text": "investigate and explain mole concept and simple calculations using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can mole concept and simple calculations help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Mole Concept And Simple Calculations.",
+        "Review key vocabulary from the previous Chemistry lesson."
+      ],
+      "keyVocabulary": [
+        "Mole Concept And Simple Calculations",
+        "Mole",
+        "Concept",
+        "Simple",
+        "Calculations",
+        "concept",
+        "observation",
+        "evidence"
+      ],
+      "misconceptions": [
+        "giving a general answer about Mole Concept And Simple Calculations without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Mole Concept And Simple Calculations",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Mole Concept And Simple Calculations",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Mole Concept And Simple Calculations",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b5ebe701-8568-4378-86f3-253bb88048c6",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Chemistry",
+          "subject": "Chemistry",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/b9ca1dd0c8d837c016d65a5ac7385e82af51dfaf3ead82dd85e516f61fffb906.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/chemistry/b5ebe701-8568-4378-86f3-253bb88048c6.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "6602ffcad2681d96689a053f9152257ffab547a90ac84420c1e8343aa08d1bc5",
+            "markdownPageCount": 59,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/chemistry/b5ebe701-8568-4378-86f3-253bb88048c6.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "6602ffcad2681d96689a053f9152257ffab547a90ac84420c1e8343aa08d1bc5",
+              "pageCount": 59,
+              "generatedAt": "2026-06-29T16:44:57.529Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "f6b93b5819e5c582ca3d190a81725a322f07890cb35b77d0b1375ca999877fea"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:57.529Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "368c103e56e3b7fad15e70e265ae6cf2bdfe3de7a5e9b91fa6b550dbac1b6d59"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b5ebe701-8568-4378-86f3-253bb88048c6",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Chemistry",
+          "subject": "Chemistry",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/b9ca1dd0c8d837c016d65a5ac7385e82af51dfaf3ead82dd85e516f61fffb906.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/chemistry/b5ebe701-8568-4378-86f3-253bb88048c6.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "6602ffcad2681d96689a053f9152257ffab547a90ac84420c1e8343aa08d1bc5",
+            "markdownPageCount": 59,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/chemistry/b5ebe701-8568-4378-86f3-253bb88048c6.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "6602ffcad2681d96689a053f9152257ffab547a90ac84420c1e8343aa08d1bc5",
+              "pageCount": 59,
+              "generatedAt": "2026-06-29T16:44:57.529Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "f6b93b5819e5c582ca3d190a81725a322f07890cb35b77d0b1375ca999877fea"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:57.529Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "368c103e56e3b7fad15e70e265ae6cf2bdfe3de7a5e9b91fa6b550dbac1b6d59"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-II-chemistry-topic-004",
+      "grade": "Form II",
+      "strandId": "fallback-form-ii-chemistry-4",
+      "subStrandId": "fallback-form-ii-chemistry-4",
+      "parentSubStrandId": "fallback-form-ii-chemistry-4",
+      "strandTitle": "Acids Bases Salts And Neutralisation",
+      "unitTitle": "Acids Bases Salts And Neutralisation",
+      "sourceUnitTitle": "Acids Bases Salts And Neutralisation",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-ii-chemistry-4-outcome-1",
+          "text": "investigate and explain acids bases salts and neutralisation using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can acids bases salts and neutralisation help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Acids Bases Salts And Neutralisation.",
+        "Review key vocabulary from the previous Chemistry lesson."
+      ],
+      "keyVocabulary": [
+        "Acids Bases Salts And Neutralisation",
+        "Acids",
+        "Bases",
+        "Salts",
+        "Neutralisation",
+        "concept",
+        "observation",
+        "evidence"
+      ],
+      "misconceptions": [
+        "giving a general answer about Acids Bases Salts And Neutralisation without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Acids Bases Salts And Neutralisation",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Acids Bases Salts And Neutralisation",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Acids Bases Salts And Neutralisation",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b5ebe701-8568-4378-86f3-253bb88048c6",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Chemistry",
+          "subject": "Chemistry",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/b9ca1dd0c8d837c016d65a5ac7385e82af51dfaf3ead82dd85e516f61fffb906.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/chemistry/b5ebe701-8568-4378-86f3-253bb88048c6.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "6602ffcad2681d96689a053f9152257ffab547a90ac84420c1e8343aa08d1bc5",
+            "markdownPageCount": 59,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/chemistry/b5ebe701-8568-4378-86f3-253bb88048c6.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "6602ffcad2681d96689a053f9152257ffab547a90ac84420c1e8343aa08d1bc5",
+              "pageCount": 59,
+              "generatedAt": "2026-06-29T16:44:57.529Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "f6b93b5819e5c582ca3d190a81725a322f07890cb35b77d0b1375ca999877fea"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:57.529Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "368c103e56e3b7fad15e70e265ae6cf2bdfe3de7a5e9b91fa6b550dbac1b6d59"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b5ebe701-8568-4378-86f3-253bb88048c6",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Chemistry",
+          "subject": "Chemistry",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/b9ca1dd0c8d837c016d65a5ac7385e82af51dfaf3ead82dd85e516f61fffb906.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/chemistry/b5ebe701-8568-4378-86f3-253bb88048c6.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "6602ffcad2681d96689a053f9152257ffab547a90ac84420c1e8343aa08d1bc5",
+            "markdownPageCount": 59,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/chemistry/b5ebe701-8568-4378-86f3-253bb88048c6.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "6602ffcad2681d96689a053f9152257ffab547a90ac84420c1e8343aa08d1bc5",
+              "pageCount": 59,
+              "generatedAt": "2026-06-29T16:44:57.529Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "f6b93b5819e5c582ca3d190a81725a322f07890cb35b77d0b1375ca999877fea"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:57.529Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "368c103e56e3b7fad15e70e265ae6cf2bdfe3de7a5e9b91fa6b550dbac1b6d59"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-II-chemistry-topic-005",
+      "grade": "Form II",
+      "strandId": "fallback-form-ii-chemistry-5",
+      "subStrandId": "fallback-form-ii-chemistry-5",
+      "parentSubStrandId": "fallback-form-ii-chemistry-5",
+      "strandTitle": "Oxidation Reduction And Reactivity Series",
+      "unitTitle": "Oxidation Reduction And Reactivity Series",
+      "sourceUnitTitle": "Oxidation Reduction And Reactivity Series",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-ii-chemistry-5-outcome-1",
+          "text": "investigate and explain oxidation reduction and reactivity series using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can oxidation reduction and reactivity series help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Oxidation Reduction And Reactivity Series.",
+        "Review key vocabulary from the previous Chemistry lesson."
+      ],
+      "keyVocabulary": [
+        "Oxidation Reduction And Reactivity Series",
+        "Oxidation",
+        "Reduction",
+        "Reactivity",
+        "Series",
+        "concept",
+        "observation",
+        "evidence"
+      ],
+      "misconceptions": [
+        "giving a general answer about Oxidation Reduction And Reactivity Series without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Oxidation Reduction And Reactivity Series",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Oxidation Reduction And Reactivity Series",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Oxidation Reduction And Reactivity Series",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b5ebe701-8568-4378-86f3-253bb88048c6",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Chemistry",
+          "subject": "Chemistry",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/b9ca1dd0c8d837c016d65a5ac7385e82af51dfaf3ead82dd85e516f61fffb906.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/chemistry/b5ebe701-8568-4378-86f3-253bb88048c6.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "6602ffcad2681d96689a053f9152257ffab547a90ac84420c1e8343aa08d1bc5",
+            "markdownPageCount": 59,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/chemistry/b5ebe701-8568-4378-86f3-253bb88048c6.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "6602ffcad2681d96689a053f9152257ffab547a90ac84420c1e8343aa08d1bc5",
+              "pageCount": 59,
+              "generatedAt": "2026-06-29T16:44:57.529Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "f6b93b5819e5c582ca3d190a81725a322f07890cb35b77d0b1375ca999877fea"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:57.529Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "368c103e56e3b7fad15e70e265ae6cf2bdfe3de7a5e9b91fa6b550dbac1b6d59"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b5ebe701-8568-4378-86f3-253bb88048c6",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Chemistry",
+          "subject": "Chemistry",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/b9ca1dd0c8d837c016d65a5ac7385e82af51dfaf3ead82dd85e516f61fffb906.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/chemistry/b5ebe701-8568-4378-86f3-253bb88048c6.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "6602ffcad2681d96689a053f9152257ffab547a90ac84420c1e8343aa08d1bc5",
+            "markdownPageCount": 59,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/chemistry/b5ebe701-8568-4378-86f3-253bb88048c6.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "6602ffcad2681d96689a053f9152257ffab547a90ac84420c1e8343aa08d1bc5",
+              "pageCount": 59,
+              "generatedAt": "2026-06-29T16:44:57.529Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "f6b93b5819e5c582ca3d190a81725a322f07890cb35b77d0b1375ca999877fea"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:57.529Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "368c103e56e3b7fad15e70e265ae6cf2bdfe3de7a5e9b91fa6b550dbac1b6d59"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-II-chemistry-topic-006",
+      "grade": "Form II",
+      "strandId": "fallback-form-ii-chemistry-6",
+      "subStrandId": "fallback-form-ii-chemistry-6",
+      "parentSubStrandId": "fallback-form-ii-chemistry-6",
+      "strandTitle": "Electrolysis And Applications",
+      "unitTitle": "Electrolysis And Applications",
+      "sourceUnitTitle": "Electrolysis And Applications",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-ii-chemistry-6-outcome-1",
+          "text": "investigate and explain electrolysis and applications using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can electrolysis and applications help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Electrolysis And Applications.",
+        "Review key vocabulary from the previous Chemistry lesson."
+      ],
+      "keyVocabulary": [
+        "Electrolysis And Applications",
+        "Electrolysis",
+        "Applications",
+        "concept",
+        "observation",
+        "evidence",
+        "safety",
+        "conclusion"
+      ],
+      "misconceptions": [
+        "giving a general answer about Electrolysis And Applications without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Electrolysis And Applications",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Electrolysis And Applications",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Electrolysis And Applications",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b5ebe701-8568-4378-86f3-253bb88048c6",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Chemistry",
+          "subject": "Chemistry",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/b9ca1dd0c8d837c016d65a5ac7385e82af51dfaf3ead82dd85e516f61fffb906.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/chemistry/b5ebe701-8568-4378-86f3-253bb88048c6.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "6602ffcad2681d96689a053f9152257ffab547a90ac84420c1e8343aa08d1bc5",
+            "markdownPageCount": 59,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/chemistry/b5ebe701-8568-4378-86f3-253bb88048c6.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "6602ffcad2681d96689a053f9152257ffab547a90ac84420c1e8343aa08d1bc5",
+              "pageCount": 59,
+              "generatedAt": "2026-06-29T16:44:57.529Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "f6b93b5819e5c582ca3d190a81725a322f07890cb35b77d0b1375ca999877fea"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:57.529Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "368c103e56e3b7fad15e70e265ae6cf2bdfe3de7a5e9b91fa6b550dbac1b6d59"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b5ebe701-8568-4378-86f3-253bb88048c6",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Chemistry",
+          "subject": "Chemistry",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/b9ca1dd0c8d837c016d65a5ac7385e82af51dfaf3ead82dd85e516f61fffb906.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/chemistry/b5ebe701-8568-4378-86f3-253bb88048c6.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "6602ffcad2681d96689a053f9152257ffab547a90ac84420c1e8343aa08d1bc5",
+            "markdownPageCount": 59,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/chemistry/b5ebe701-8568-4378-86f3-253bb88048c6.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "6602ffcad2681d96689a053f9152257ffab547a90ac84420c1e8343aa08d1bc5",
+              "pageCount": 59,
+              "generatedAt": "2026-06-29T16:44:57.529Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "f6b93b5819e5c582ca3d190a81725a322f07890cb35b77d0b1375ca999877fea"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:57.529Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "368c103e56e3b7fad15e70e265ae6cf2bdfe3de7a5e9b91fa6b550dbac1b6d59"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-II-chemistry-topic-007",
+      "grade": "Form II",
+      "strandId": "fallback-form-ii-chemistry-7",
+      "subStrandId": "fallback-form-ii-chemistry-7",
+      "parentSubStrandId": "fallback-form-ii-chemistry-7",
+      "strandTitle": "Organic Chemistry Introduction",
+      "unitTitle": "Organic Chemistry Introduction",
+      "sourceUnitTitle": "Organic Chemistry Introduction",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-ii-chemistry-7-outcome-1",
+          "text": "investigate and explain organic chemistry introduction using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can organic chemistry introduction help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Organic Chemistry Introduction.",
+        "Review key vocabulary from the previous Chemistry lesson."
+      ],
+      "keyVocabulary": [
+        "Organic Chemistry Introduction",
+        "Organic",
+        "Chemistry",
+        "Introduction",
+        "concept",
+        "observation",
+        "evidence",
+        "safety"
+      ],
+      "misconceptions": [
+        "giving a general answer about Organic Chemistry Introduction without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Organic Chemistry Introduction",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Organic Chemistry Introduction",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Organic Chemistry Introduction",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b5ebe701-8568-4378-86f3-253bb88048c6",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Chemistry",
+          "subject": "Chemistry",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/b9ca1dd0c8d837c016d65a5ac7385e82af51dfaf3ead82dd85e516f61fffb906.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/chemistry/b5ebe701-8568-4378-86f3-253bb88048c6.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "6602ffcad2681d96689a053f9152257ffab547a90ac84420c1e8343aa08d1bc5",
+            "markdownPageCount": 59,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/chemistry/b5ebe701-8568-4378-86f3-253bb88048c6.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "6602ffcad2681d96689a053f9152257ffab547a90ac84420c1e8343aa08d1bc5",
+              "pageCount": 59,
+              "generatedAt": "2026-06-29T16:44:57.529Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "f6b93b5819e5c582ca3d190a81725a322f07890cb35b77d0b1375ca999877fea"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:57.529Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "368c103e56e3b7fad15e70e265ae6cf2bdfe3de7a5e9b91fa6b550dbac1b6d59"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b5ebe701-8568-4378-86f3-253bb88048c6",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Chemistry",
+          "subject": "Chemistry",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/b9ca1dd0c8d837c016d65a5ac7385e82af51dfaf3ead82dd85e516f61fffb906.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/chemistry/b5ebe701-8568-4378-86f3-253bb88048c6.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "6602ffcad2681d96689a053f9152257ffab547a90ac84420c1e8343aa08d1bc5",
+            "markdownPageCount": 59,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/chemistry/b5ebe701-8568-4378-86f3-253bb88048c6.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "6602ffcad2681d96689a053f9152257ffab547a90ac84420c1e8343aa08d1bc5",
+              "pageCount": 59,
+              "generatedAt": "2026-06-29T16:44:57.529Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "f6b93b5819e5c582ca3d190a81725a322f07890cb35b77d0b1375ca999877fea"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:57.529Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "368c103e56e3b7fad15e70e265ae6cf2bdfe3de7a5e9b91fa6b550dbac1b6d59"
+        }
+      ]
+    },
+    {
+      "topicId": "TZA-FORM-II-chemistry-topic-008",
+      "grade": "Form II",
+      "strandId": "fallback-form-ii-chemistry-8",
+      "subStrandId": "fallback-form-ii-chemistry-8",
+      "parentSubStrandId": "fallback-form-ii-chemistry-8",
+      "strandTitle": "Form II Chemistry Project",
+      "unitTitle": "Form II Chemistry Project",
+      "sourceUnitTitle": "Form II Chemistry Project",
+      "learningOutcomes": [
+        {
+          "id": "fallback-form-ii-chemistry-8-outcome-1",
+          "text": "investigate and explain form ii chemistry project using evidence"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can form ii chemistry project help you solve a real problem?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Form II Chemistry Project.",
+        "Review key vocabulary from the previous Chemistry lesson."
+      ],
+      "keyVocabulary": [
+        "Form II Chemistry Project",
+        "Form",
+        "Chemistry",
+        "Project",
+        "concept",
+        "observation",
+        "evidence",
+        "safety"
+      ],
+      "misconceptions": [
+        "giving a general answer about Form II Chemistry Project without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Tanzania observation, model, data table, or investigation for Form II Chemistry Project",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Form II Chemistry Project",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Form II Chemistry Project",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b5ebe701-8568-4378-86f3-253bb88048c6",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Chemistry",
+          "subject": "Chemistry",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/b9ca1dd0c8d837c016d65a5ac7385e82af51dfaf3ead82dd85e516f61fffb906.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/chemistry/b5ebe701-8568-4378-86f3-253bb88048c6.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "6602ffcad2681d96689a053f9152257ffab547a90ac84420c1e8343aa08d1bc5",
+            "markdownPageCount": 59,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/chemistry/b5ebe701-8568-4378-86f3-253bb88048c6.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "6602ffcad2681d96689a053f9152257ffab547a90ac84420c1e8343aa08d1bc5",
+              "pageCount": 59,
+              "generatedAt": "2026-06-29T16:44:57.529Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "f6b93b5819e5c582ca3d190a81725a322f07890cb35b77d0b1375ca999877fea"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:57.529Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "368c103e56e3b7fad15e70e265ae6cf2bdfe3de7a5e9b91fa6b550dbac1b6d59"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "b5ebe701-8568-4378-86f3-253bb88048c6",
+          "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Chemistry",
+          "subject": "Chemistry",
+          "extractionStatus": "seeded",
+          "reviewStatus": "review_needed",
+          "sourceUrlStatus": "official",
+          "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+          "objectKey": "data/curriculum/source-files/TZA/b9ca1dd0c8d837c016d65a5ac7385e82af51dfaf3ead82dd85e516f61fffb906.pdf",
+          "metadata": {
+            "type": "official_subject_document",
+            "notes": "",
+            "gradeCode": "FORM_II",
+            "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+            "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192894-CHEMISTRY%20O%27LEVEL%20EDUCATION%20FINAL.pdf",
+            "importBatch": "review-source-extract-v1",
+            "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/chemistry/b5ebe701-8568-4378-86f3-253bb88048c6.md",
+            "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+            "markdownParser": "source-pdf-markdown-extractor@1",
+            "reviewRequired": true,
+            "officialDomains": [
+              "tie.go.tz"
+            ],
+            "markdownChecksum": "6602ffcad2681d96689a053f9152257ffab547a90ac84420c1e8343aa08d1bc5",
+            "markdownPageCount": 59,
+            "fullSourceMarkdown": {
+              "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/chemistry/b5ebe701-8568-4378-86f3-253bb88048c6.md",
+              "parser": "source-pdf-markdown-extractor@1",
+              "checksum": "6602ffcad2681d96689a053f9152257ffab547a90ac84420c1e8343aa08d1bc5",
+              "pageCount": 59,
+              "generatedAt": "2026-06-29T16:44:57.529Z",
+              "sourceFormat": "pdf",
+              "sourceChecksum": "f6b93b5819e5c582ca3d190a81725a322f07890cb35b77d0b1375ca999877fea"
+            },
+            "markdownGeneratedAt": "2026-06-29T16:44:57.529Z",
+            "embeddedOnOfficialPage": false
+          },
+          "sourceSnapshotHash": "368c103e56e3b7fad15e70e265ae6cf2bdfe3de7a5e9b91fa6b550dbac1b6d59"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-rwa-reb-cbc-s5-geography",
+  "title": "KITABU QUEST S5 Geography",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "S5",
+  "subject": "Geography",
+  "subjectSlug": "geography",
+  "subjectColor": "#0E7490",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v5",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T04:12:19Z",
+  "sourceSnapshotHash": "9215b815809970c2599608f6c1223df7ded59383c7f850143d987dc923d799c0",
+  "bookPlanHash": "58da696dac926202ccadc440f57cf266ab922c08196283f299bcb2d7fef82807",
+  "pageCount": 164,
+  "wordCount": 17421,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 17,
+    "outcomeCount": 102,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "RWA",
+    "subject": "Geography",
+    "species": "mountain gorilla",
+    "role": "maps and environment guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "students studying maps and landscapes with a mountain gorilla mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Rwanda REB-CBC S5 Geography. Scene: students studying maps and landscapes with a mountain gorilla mascot. Include a friendly mountain gorilla mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 90904,
+    "sha256": "8ec30717738e6233a887e1a31cf69862178072ac9f2c1ba0a405363c6ede28b8"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 90904,
+      "sha256": "8ec30717738e6233a887e1a31cf69862178072ac9f2c1ba0a405363c6ede28b8",
+      "kind": "cover",
+      "altText": "KITABU QUEST S5 Geography cover with mountain gorilla",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-rwa-reb-cbc-s5-geography.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-rwa-reb-cbc-s5-geography.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "30157ac8-9f50-487a-b79b-f842df10e224",
+      "subject": "Geography",
+      "officialTitle": "Rwanda Competence Based Curriculum S5 Geography",
+      "countryCode": "RWA",
+      "curriculumCode": "REB-CBC",
+      "gradeCode": "S5",
+      "gradeLocalLevel": "S5",
+      "localLevel": "S5",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://elearning.reb.rw/pluginfile.php/47384/mod_resource/content/1/GEOGRAPHY%20SYLLABUS%20FOR%20ADVANCED%20LEVEL%20S4-S6%20%281%29%20%281%29%20%282%29.pdf",
+      "objectKey": "data/curriculum/source-files/RWA/cf16659eb2991d26d5dd618e8e7962f20403a082966e15497e029c6b90f48b52.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "S5",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://elearning.reb.rw/pluginfile.php/47384/mod_resource/content/1/GEOGRAPHY%20SYLLABUS%20FOR%20ADVANCED%20LEVEL%20S4-S6%20%281%29%20%281%29%20%282%29.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S5/geography/30157ac8-9f50-487a-b79b-f842df10e224.md",
+        "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "reb.gov.rw",
+          "reb.rw",
+          "elearning.reb.rw"
+        ],
+        "markdownChecksum": "5675cdc58c981995955c850a87f57338dfd6124ae3218d3d89d3f8e747b96d49",
+        "markdownPageCount": 155,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/RWA/REB-CBC/S5/geography/30157ac8-9f50-487a-b79b-f842df10e224.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "5675cdc58c981995955c850a87f57338dfd6124ae3218d3d89d3f8e747b96d49",
+          "pageCount": 155,
+          "generatedAt": "2026-07-01T01:24:35.175Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S5/geography/30157ac8-9f50-487a-b79b-f842df10e224.json",
+          "sourceChecksum": "e92d8ee841458633e9c588f934109c43d6c267b689d086eedc16451b61d32536"
+        },
+        "markdownGeneratedAt": "2026-07-01T01:24:35.175Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

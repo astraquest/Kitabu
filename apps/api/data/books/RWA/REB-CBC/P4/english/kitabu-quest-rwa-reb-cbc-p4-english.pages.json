@@ -1,0 +1,2284 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-rwa-reb-cbc-p4-english",
+  "title": "KITABU QUEST P4 English",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "P4",
+  "subject": "English",
+  "subjectSlug": "english",
+  "subjectColor": "#2563EB",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v17",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T06:35:24Z",
+  "sourceSnapshotHash": "f04278538d5ed3e3f385b2589f8065633d2072a7c960389afa5c87f5899999e3",
+  "bookPlanHash": "5537ec7e8d4760e2be74c906533b31d76002bbcfbd5b71deb1080cba19133424",
+  "pageCount": 91,
+  "wordCount": 9210,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 10,
+    "outcomeCount": 10,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "RWA",
+    "subject": "English",
+    "species": "hare",
+    "role": "reading and communication guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners reading and speaking in a Rwandan school library with a friendly hare mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Rwanda REB-CBC P4 English. Scene: learners reading and speaking in a Rwandan school library with a friendly hare mascot. Include a friendly hare mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 86082,
+    "sha256": "cc6382ccd8ceeac4f95fdcc9557d94df3794ccc4540fd6b8f4c15e6439ba8c45"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 86082,
+      "sha256": "cc6382ccd8ceeac4f95fdcc9557d94df3794ccc4540fd6b8f4c15e6439ba8c45",
+      "kind": "cover",
+      "altText": "KITABU QUEST P4 English cover with hare",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-rwa-reb-cbc-p4-english.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-rwa-reb-cbc-p4-english.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5",
+      "subject": "English",
+      "officialTitle": "Rwanda Competence Based Curriculum P4 English",
+      "countryCode": "RWA",
+      "curriculumCode": "REB-CBC",
+      "gradeCode": "P4",
+      "gradeLocalLevel": "P4",
+      "localLevel": "P4",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://elearning.reb.rw/pluginfile.php/177314/mod_folder/content/0/English-Syllabus-%20P4-P6-Final.pdf?forcedownload=1",
+      "objectKey": "data/curriculum/source-files/RWA/f39521efd7f8433051c8d1823bd88a3044e95949336b97a2306754661a491f7e.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "P4",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://elearning.reb.rw/pluginfile.php/177314/mod_folder/content/0/English-Syllabus-%20P4-P6-Final.pdf?forcedownload=1",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/P4/english/65b25647-5c46-48ea-a7cf-f8fc4df4d1c5.md",
+        "sourcePageUrl": "https://elearning.reb.rw/mod/folder/view.php?id=14427",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "reb.gov.rw",
+          "reb.rw",
+          "elearning.reb.rw"
+        ],
+        "markdownChecksum": "1f7281372d6f1f0757b9d15add7e60feb328ab4b63cf34bea095d832fa953573",
+        "markdownPageCount": 152,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/RWA/REB-CBC/P4/english/65b25647-5c46-48ea-a7cf-f8fc4df4d1c5.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "1f7281372d6f1f0757b9d15add7e60feb328ab4b63cf34bea095d832fa953573",
+          "pageCount": 152,
+          "generatedAt": "2026-07-01T01:12:07.647Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/P4/english/65b25647-5c46-48ea-a7cf-f8fc4df4d1c5.json",
+          "sourceChecksum": "c7b14e6572be80e629d80a96b25071a561c202879dd1387f52c6a99e1ab69a50"
+        },
+        "markdownGeneratedAt": "2026-07-01T01:12:07.647Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p001",
+      "title": "Title Page",
+      "content": "KITABU QUEST P4 English\n\nRwanda REB-CBC learner book\n\nMascot: hare\n\nThis KITABU QUEST book turns the curriculum into short lessons, worked examples, guided activities, practice, review, and home links for Rwanda learners.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 3,
+      "wordCount": 32,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p002",
+      "title": "How To Use This Book",
+      "content": "This book helps P4 learners study English one teachable topic at a time.\n\n1. Start with the inquiry question and say what you already know.\n2. Read the Learn section slowly and mark new words.\n3. Try the worked example before reading the full solution.\n4. Complete the activity and practice tasks.\n5. Correct your answer using the success criteria.\n6. Ask for support when your answer is still unclear.\n\nSubject method: Read, speak, listen, write, and edit in connected language tasks.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 82,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p003",
+      "title": "Learning Skills In This Book",
+      "content": "Each topic builds knowledge, skill, values, communication, collaboration, critical thinking, creativity, digital awareness, and self-confidence.\n\nStudy actively: speak answers aloud, draw when useful, show your working, cite evidence, use local examples, and correct mistakes after feedback.\n\nA strong answer is specific. It names the idea, gives evidence or method, applies it to the task, and checks whether it answers the question.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p004",
+      "title": "Table Of Contents",
+      "content": "Use this table to move through the book one topic at a time. Each topic has a lesson opener, clear teaching, a model or example, guided work, practice, and checks for understanding.\n\n1. OUR SCHOOL\n2. MY FRIENDS AND I\n3. OUR DISTRICT\n4. WEATHER\n5. JOBS AND ROLES IN HOME AND COMMUNITY\n6. WILD ANIMALS\n7. RIGHTS, RESPONSIBILITIES AND NEEDS\n8. TALKING ABOUT THE PAST\n9. COUNTRIES, RIVERS AND FAMOUS ARCHITECTURAL STRUCTURES OF THE WORLD\n10. CLIMATE CHANGE\n\nAs you finish each topic, return to the success criteria and correct one answer before moving on.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p005",
+      "title": "OUR SCHOOL: Lesson Opener",
+      "content": "Learning focus: OUR SCHOOL\n\nCountry link: a Rwandan reading, speaking, listening, writing, or discussion task for OUR SCHOOL.\n\nProgression focus: build concrete foundations using simple examples and teacher-guided correction.\n\nBy the end of this topic, you should be able to:\n- talk and write about school life using age-appropriate language focusing on the present simple tense, time expressions and determiners of quantity\n\nInquiry questions:\n- How can our school help you solve a real problem in English?\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "RWA-P4-english-topic-001:opener:visual-1:planned",
+        "RWA-P4-english-topic-001:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-1-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p006",
+      "title": "OUR SCHOOL: Learn",
+      "content": "OUR SCHOOL is a language skill, so learn it by doing the actual reading, speaking, listening, writing, or editing task.\n\nMini passage:\nClear grammar helps the reader follow the idea. In the sentence The class reads quietly before the debate begins, the subject is The class, the verb is reads, and the time phrase is before the debate begins. If the verb tense changes without reason, the meaning becomes weak. A strong sentence keeps subject, verb, tense, punctuation, and meaning together.\n\nLearner move: use short complete sentences, clear topic words, and one simple example.\n\nWhat to notice:\n- Start with the exact task, not a general answer.\n- Use a detail from the text, talk, example, or situation.\n- Choose words that match the audience and purpose.\n- Write or speak in complete, connected sentences.\n- Revise one weak sentence after feedback.\n\nKey words:\n- OUR SCHOOL\n- SCHOOL\n- read\n- listen\n- speak\n- write\n- sentence\n- meaning",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 161,
+      "imageRefs": [
+        "RWA-P4-english-topic-001:learn:visual-1:planned",
+        "RWA-P4-english-topic-001:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-1-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p007",
+      "title": "OUR SCHOOL: Worked Example",
+      "content": "Worked example for OUR SCHOOL: Improve a weak sentence.\n\nWeak sentence: The learners reads the passage and answered question.\n\nImproved sentence: The learners read the passage and answered the questions.\n\nWhy it works:\n- The subject and verb agree.\n- The tense is consistent.\n- The noun questions is complete and clear.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 52,
+      "imageRefs": [
+        "RWA-P4-english-topic-001:example:visual-1:planned",
+        "RWA-P4-english-topic-001:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-1-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p008",
+      "title": "OUR SCHOOL: Vocabulary And Study Skill",
+      "content": "Use these words before you practise OUR SCHOOL. In English, vocabulary is useful only when you can understand it in context and use it in your own sentence.\n\nKey words:\n- OUR SCHOOL\n- SCHOOL\n- read\n- listen\n- speak\n- write\n- sentence\n- meaning\n\nStudy routine:\n1. Choose three key words.\n2. Find or create a sentence where each word makes sense.\n3. Explain each word in learner-friendly language.\n4. Add one synonym, opposite, word family member, or example where possible.\n5. Use one word in a spoken answer and one word in a written answer.\n\nCommon mistake to avoid: giving a general answer about OUR SCHOOL without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 117,
+      "imageRefs": [
+        "RWA-P4-english-topic-001:vocabulary:visual-1:planned",
+        "RWA-P4-english-topic-001:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-1-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p009",
+      "title": "OUR SCHOOL: Guided Activity",
+      "content": "Guided activity for OUR SCHOOL:\n\n1. Read the mini passage or dialogue aloud.\n2. Underline three useful words or expressions.\n3. Answer one oral question about the text.\n4. Write three to five sentences linked to OUR SCHOOL.\n5. Read your answer to a partner and improve one sentence.\n\nTeacher check: the answer should use the topic vocabulary and complete sentences.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": [
+        "RWA-P4-english-topic-001:activity:visual-1:planned",
+        "RWA-P4-english-topic-001:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-1-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p010",
+      "title": "OUR SCHOOL: Practice And Correction",
+      "content": "Practice for OUR SCHOOL:\n\nMain outcome: talk and write about school life using age-appropriate language focusing on the present simple tense, time expressions and determiners of quantity.\n\n1. Write three sentences linked to the topic.\n2. Underline the subject and verb in each sentence.\n3. Check tense, punctuation, and word order.\n4. Rewrite one weak sentence more clearly.\n\nCorrection check:\n- Is the meaning clear?\n- Does the answer use topic vocabulary?\n- Is there evidence, a reason, or a useful example?\n- Have spelling, punctuation, grammar, and sentence order been checked?\n\nHome link: Ask someone at home one question connected to our school and turn their answer into two clear sentences.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "RWA-P4-english-topic-001:practice:visual-1:planned",
+        "RWA-P4-english-topic-001:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-1-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p011",
+      "title": "OUR SCHOOL: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from OUR SCHOOL.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "RWA-P4-english-topic-001:remediation:visual-1:planned",
+        "RWA-P4-english-topic-001:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-1-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p012",
+      "title": "OUR SCHOOL: Outcome Check",
+      "content": "Outcome check for OUR SCHOOL: Talk and write about school life using age-appropriate language focusing on the present simple tense, time expressions and determiners of quantity.\n\n1. Read, listen, speak, or write a short response linked to this topic.\n2. Use at least three topic words correctly.\n3. Use complete sentences.\n4. Check spelling, punctuation, grammar, and meaning.\n5. Improve one sentence after feedback.\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 83,
+      "imageRefs": [
+        "RWA-P4-english-topic-001:assessment:visual-1:planned",
+        "RWA-P4-english-topic-001:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-1-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p013",
+      "title": "MY FRIENDS AND I: Lesson Opener",
+      "content": "Learning focus: MY FRIENDS AND I\n\nCountry link: a Rwandan reading, speaking, listening, writing, or discussion task for MY FRIENDS AND I.\n\nProgression focus: build concrete foundations using simple examples and teacher-guided correction.\n\nBy the end of this topic, you should be able to:\n- talk and write about themselves and their friends using the past simple tense, future with \"going to\", comparatives, question tags, short answers, and both regular and irregular nouns\n\nInquiry questions:\n- How can my friends and i help you solve a real problem in English?\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "RWA-P4-english-topic-002:opener:visual-1:planned",
+        "RWA-P4-english-topic-002:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-2-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p014",
+      "title": "MY FRIENDS AND I: Learn",
+      "content": "MY FRIENDS AND I is a language skill, so learn it by doing the actual reading, speaking, listening, writing, or editing task.\n\nMini passage:\nClear grammar helps the reader follow the idea. In the sentence The class reads quietly before the debate begins, the subject is The class, the verb is reads, and the time phrase is before the debate begins. If the verb tense changes without reason, the meaning becomes weak. A strong sentence keeps subject, verb, tense, punctuation, and meaning together.\n\nLearner move: use short complete sentences, clear topic words, and one simple example.\n\nWhat to notice:\n- Start with the exact task, not a general answer.\n- Use a detail from the text, talk, example, or situation.\n- Choose words that match the audience and purpose.\n- Write or speak in complete, connected sentences.\n- Revise one weak sentence after feedback.\n\nKey words:\n- MY FRIENDS AND I\n- FRIENDS\n- read\n- listen\n- speak\n- write\n- sentence\n- meaning",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 165,
+      "imageRefs": [
+        "RWA-P4-english-topic-002:learn:visual-1:planned",
+        "RWA-P4-english-topic-002:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-2-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p015",
+      "title": "MY FRIENDS AND I: Worked Example",
+      "content": "Worked example for MY FRIENDS AND I: Improve a weak sentence.\n\nWeak sentence: The learners reads the passage and answered question.\n\nImproved sentence: The learners read the passage and answered the questions.\n\nWhy it works:\n- The subject and verb agree.\n- The tense is consistent.\n- The noun questions is complete and clear.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 54,
+      "imageRefs": [
+        "RWA-P4-english-topic-002:example:visual-1:planned",
+        "RWA-P4-english-topic-002:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-2-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p016",
+      "title": "MY FRIENDS AND I: Vocabulary And Study Skill",
+      "content": "Use these words before you practise MY FRIENDS AND I. In English, vocabulary is useful only when you can understand it in context and use it in your own sentence.\n\nKey words:\n- MY FRIENDS AND I\n- FRIENDS\n- read\n- listen\n- speak\n- write\n- sentence\n- meaning\n\nStudy routine:\n1. Choose three key words.\n2. Find or create a sentence where each word makes sense.\n3. Explain each word in learner-friendly language.\n4. Add one synonym, opposite, word family member, or example where possible.\n5. Use one word in a spoken answer and one word in a written answer.\n\nCommon mistake to avoid: giving a general answer about MY FRIENDS AND I without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 123,
+      "imageRefs": [
+        "RWA-P4-english-topic-002:vocabulary:visual-1:planned",
+        "RWA-P4-english-topic-002:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-2-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p017",
+      "title": "MY FRIENDS AND I: Guided Activity",
+      "content": "Guided activity for MY FRIENDS AND I:\n\n1. Read the mini passage or dialogue aloud.\n2. Underline three useful words or expressions.\n3. Answer one oral question about the text.\n4. Write three to five sentences linked to MY FRIENDS AND I.\n5. Read your answer to a partner and improve one sentence.\n\nTeacher check: the answer should use the topic vocabulary and complete sentences.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 65,
+      "imageRefs": [
+        "RWA-P4-english-topic-002:activity:visual-1:planned",
+        "RWA-P4-english-topic-002:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-2-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p018",
+      "title": "MY FRIENDS AND I: Practice And Correction",
+      "content": "Practice for MY FRIENDS AND I:\n\nMain outcome: talk and write about themselves and their friends using the past simple tense, future with \"going to\", comparatives, question tags, short answers, and both regular and irregular nouns.\n\n1. Write three sentences linked to the topic.\n2. Underline the subject and verb in each sentence.\n3. Check tense, punctuation, and word order.\n4. Rewrite one weak sentence more clearly.\n\nCorrection check:\n- Is the meaning clear?\n- Does the answer use topic vocabulary?\n- Is there evidence, a reason, or a useful example?\n- Have spelling, punctuation, grammar, and sentence order been checked?\n\nHome link: Ask someone at home one question connected to my friends and i and turn their answer into two clear sentences.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 123,
+      "imageRefs": [
+        "RWA-P4-english-topic-002:practice:visual-1:planned",
+        "RWA-P4-english-topic-002:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-2-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p019",
+      "title": "MY FRIENDS AND I: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from MY FRIENDS AND I.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "RWA-P4-english-topic-002:remediation:visual-1:planned",
+        "RWA-P4-english-topic-002:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-2-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p020",
+      "title": "MY FRIENDS AND I: Outcome Check",
+      "content": "Outcome check for MY FRIENDS AND I: Talk and write about themselves and their friends using the past simple tense, future with \"going to\", comparatives, question tags, short answers, and both regular and irregular nouns.\n\n1. Read, listen, speak, or write a short response linked to this topic.\n2. Use at least three topic words correctly.\n3. Use complete sentences.\n4. Check spelling, punctuation, grammar, and meaning.\n5. Improve one sentence after feedback.\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "RWA-P4-english-topic-002:assessment:visual-1:planned",
+        "RWA-P4-english-topic-002:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-2-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p021",
+      "title": "OUR DISTRICT: Lesson Opener",
+      "content": "Learning focus: OUR DISTRICT\n\nCountry link: a Rwandan reading, speaking, listening, writing, or discussion task for OUR DISTRICT.\n\nProgression focus: build concrete foundations using simple examples and teacher-guided correction.\n\nBy the end of this topic, you should be able to:\n- talk and write about their district using appropriate language focusing on prepositions of place\n\nInquiry questions:\n- How can our district help you solve a real problem in English?\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 89,
+      "imageRefs": [
+        "RWA-P4-english-topic-003:opener:visual-1:planned",
+        "RWA-P4-english-topic-003:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-3-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p022",
+      "title": "OUR DISTRICT: Learn",
+      "content": "OUR DISTRICT is a language skill, so learn it by doing the actual reading, speaking, listening, writing, or editing task.\n\nMini situation:\nA learner prepares a short answer for class. First, she names the topic. Next, she gives one exact detail from the text or discussion. Then she explains why the detail matters. Finally, she reads her answer aloud and fixes one unclear sentence. This routine works for reading, speaking, listening, and writing tasks.\n\nLearner move: use short complete sentences, clear topic words, and one simple example.\n\nWhat to notice:\n- Start with the exact task, not a general answer.\n- Use a detail from the text, talk, example, or situation.\n- Choose words that match the audience and purpose.\n- Write or speak in complete, connected sentences.\n- Revise one weak sentence after feedback.\n\nKey words:\n- OUR DISTRICT\n- DISTRICT\n- read\n- listen\n- speak\n- write\n- sentence\n- meaning",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 154,
+      "imageRefs": [
+        "RWA-P4-english-topic-003:learn:visual-1:planned",
+        "RWA-P4-english-topic-003:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-3-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p023",
+      "title": "OUR DISTRICT: Worked Example",
+      "content": "Worked example for OUR DISTRICT: Make a clear response.\n\nTask: Explain one idea from the topic.\n\nModel answer:\nOUR DISTRICT helps me communicate more clearly because I can choose the right words, give one useful detail, and check whether my sentence makes sense to the reader or listener.\n\nWhy it works:\n- It names the skill.\n- It gives a reason.\n- It explains how the skill is used in real communication.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 72,
+      "imageRefs": [
+        "RWA-P4-english-topic-003:example:visual-1:planned",
+        "RWA-P4-english-topic-003:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-3-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p024",
+      "title": "OUR DISTRICT: Vocabulary And Study Skill",
+      "content": "Use these words before you practise OUR DISTRICT. In English, vocabulary is useful only when you can understand it in context and use it in your own sentence.\n\nKey words:\n- OUR DISTRICT\n- DISTRICT\n- read\n- listen\n- speak\n- write\n- sentence\n- meaning\n\nStudy routine:\n1. Choose three key words.\n2. Find or create a sentence where each word makes sense.\n3. Explain each word in learner-friendly language.\n4. Add one synonym, opposite, word family member, or example where possible.\n5. Use one word in a spoken answer and one word in a written answer.\n\nCommon mistake to avoid: giving a general answer about OUR DISTRICT without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 117,
+      "imageRefs": [
+        "RWA-P4-english-topic-003:vocabulary:visual-1:planned",
+        "RWA-P4-english-topic-003:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-3-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p025",
+      "title": "OUR DISTRICT: Guided Activity",
+      "content": "Guided activity for OUR DISTRICT:\n\n1. Read the mini passage or dialogue aloud.\n2. Underline three useful words or expressions.\n3. Answer one oral question about the text.\n4. Write three to five sentences linked to OUR DISTRICT.\n5. Read your answer to a partner and improve one sentence.\n\nTeacher check: the answer should use the topic vocabulary and complete sentences.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": [
+        "RWA-P4-english-topic-003:activity:visual-1:planned",
+        "RWA-P4-english-topic-003:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-3-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p026",
+      "title": "OUR DISTRICT: Practice And Correction",
+      "content": "Practice for OUR DISTRICT:\n\nMain outcome: talk and write about their district using appropriate language focusing on prepositions of place.\n\n1. State the exact task.\n2. Give one detail from a text, talk, example, or local situation.\n3. Write or say a complete answer.\n4. Check whether the answer matches the success criteria.\n\nCorrection check:\n- Is the meaning clear?\n- Does the answer use topic vocabulary?\n- Is there evidence, a reason, or a useful example?\n- Have spelling, punctuation, grammar, and sentence order been checked?\n\nHome link: Ask someone at home one question connected to our district and turn their answer into two clear sentences.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "RWA-P4-english-topic-003:practice:visual-1:planned",
+        "RWA-P4-english-topic-003:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-3-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p027",
+      "title": "OUR DISTRICT: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from OUR DISTRICT.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "RWA-P4-english-topic-003:remediation:visual-1:planned",
+        "RWA-P4-english-topic-003:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-3-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p028",
+      "title": "OUR DISTRICT: Outcome Check",
+      "content": "Outcome check for OUR DISTRICT: Talk and write about their district using appropriate language focusing on prepositions of place.\n\n1. Read, listen, speak, or write a short response linked to this topic.\n2. Use at least three topic words correctly.\n3. Use complete sentences.\n4. Check spelling, punctuation, grammar, and meaning.\n5. Improve one sentence after feedback.\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 76,
+      "imageRefs": [
+        "RWA-P4-english-topic-003:assessment:visual-1:planned",
+        "RWA-P4-english-topic-003:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-3-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p029",
+      "title": "WEATHER: Lesson Opener",
+      "content": "Learning focus: WEATHER\n\nCountry link: a Rwandan reading, speaking, listening, writing, or discussion task for WEATHER.\n\nProgression focus: build concrete foundations using simple examples and teacher-guided correction.\n\nBy the end of this topic, you should be able to:\n- talk and write about the weather using appropriate language focusing on the present continuous tense, past simple tense, \"when\" clauses, quantifiers, adverbs of time, and personal and possessive pronouns\n\nInquiry questions:\n- How can weather help you solve a real problem in English?\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "RWA-P4-english-topic-004:opener:visual-1:planned",
+        "RWA-P4-english-topic-004:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-4-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p030",
+      "title": "WEATHER: Learn",
+      "content": "WEATHER is a language skill, so learn it by doing the actual reading, speaking, listening, writing, or editing task.\n\nMini passage:\nClear grammar helps the reader follow the idea. In the sentence The class reads quietly before the debate begins, the subject is The class, the verb is reads, and the time phrase is before the debate begins. If the verb tense changes without reason, the meaning becomes weak. A strong sentence keeps subject, verb, tense, punctuation, and meaning together.\n\nLearner move: use short complete sentences, clear topic words, and one simple example.\n\nWhat to notice:\n- Start with the exact task, not a general answer.\n- Use a detail from the text, talk, example, or situation.\n- Choose words that match the audience and purpose.\n- Write or speak in complete, connected sentences.\n- Revise one weak sentence after feedback.\n\nKey words:\n- WEATHER\n- read\n- listen\n- speak\n- write\n- sentence\n- meaning",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 157,
+      "imageRefs": [
+        "RWA-P4-english-topic-004:learn:visual-1:planned",
+        "RWA-P4-english-topic-004:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-4-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p031",
+      "title": "WEATHER: Worked Example",
+      "content": "Worked example for WEATHER: Improve a weak sentence.\n\nWeak sentence: The learners reads the passage and answered question.\n\nImproved sentence: The learners read the passage and answered the questions.\n\nWhy it works:\n- The subject and verb agree.\n- The tense is consistent.\n- The noun questions is complete and clear.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 51,
+      "imageRefs": [
+        "RWA-P4-english-topic-004:example:visual-1:planned",
+        "RWA-P4-english-topic-004:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-4-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p032",
+      "title": "WEATHER: Vocabulary And Study Skill",
+      "content": "Use these words before you practise WEATHER. In English, vocabulary is useful only when you can understand it in context and use it in your own sentence.\n\nKey words:\n- WEATHER\n- read\n- listen\n- speak\n- write\n- sentence\n- meaning\n\nStudy routine:\n1. Choose three key words.\n2. Find or create a sentence where each word makes sense.\n3. Explain each word in learner-friendly language.\n4. Add one synonym, opposite, word family member, or example where possible.\n5. Use one word in a spoken answer and one word in a written answer.\n\nCommon mistake to avoid: giving a general answer about WEATHER without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "RWA-P4-english-topic-004:vocabulary:visual-1:planned",
+        "RWA-P4-english-topic-004:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-4-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p033",
+      "title": "WEATHER: Guided Activity",
+      "content": "Guided activity for WEATHER:\n\n1. Read the mini passage or dialogue aloud.\n2. Underline three useful words or expressions.\n3. Answer one oral question about the text.\n4. Write three to five sentences linked to WEATHER.\n5. Read your answer to a partner and improve one sentence.\n\nTeacher check: the answer should use the topic vocabulary and complete sentences.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 59,
+      "imageRefs": [
+        "RWA-P4-english-topic-004:activity:visual-1:planned",
+        "RWA-P4-english-topic-004:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-4-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p034",
+      "title": "WEATHER: Practice And Correction",
+      "content": "Practice for WEATHER:\n\nMain outcome: talk and write about the weather using appropriate language focusing on the present continuous tense, past simple tense, \"when\" clauses, quantifiers, adverbs of time, and personal and possessive pronouns.\n\n1. Write three sentences linked to the topic.\n2. Underline the subject and verb in each sentence.\n3. Check tense, punctuation, and word order.\n4. Rewrite one weak sentence more clearly.\n\nCorrection check:\n- Is the meaning clear?\n- Does the answer use topic vocabulary?\n- Is there evidence, a reason, or a useful example?\n- Have spelling, punctuation, grammar, and sentence order been checked?\n\nHome link: Ask someone at home one question connected to weather and turn their answer into two clear sentences.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "RWA-P4-english-topic-004:practice:visual-1:planned",
+        "RWA-P4-english-topic-004:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-4-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p035",
+      "title": "WEATHER: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from WEATHER.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "RWA-P4-english-topic-004:remediation:visual-1:planned",
+        "RWA-P4-english-topic-004:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-4-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p036",
+      "title": "WEATHER: Outcome Check",
+      "content": "Outcome check for WEATHER: Talk and write about the weather using appropriate language focusing on the present continuous tense, past simple tense, \"when\" clauses, quantifiers, adverbs of time, and personal and possessive pronouns.\n\n1. Read, listen, speak, or write a short response linked to this topic.\n2. Use at least three topic words correctly.\n3. Use complete sentences.\n4. Check spelling, punctuation, grammar, and meaning.\n5. Improve one sentence after feedback.\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "RWA-P4-english-topic-004:assessment:visual-1:planned",
+        "RWA-P4-english-topic-004:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-4-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p037",
+      "title": "JOBS AND ROLES IN HOME AND COMMUNITY: Lesson Opener",
+      "content": "Learning focus: JOBS AND ROLES IN HOME AND COMMUNITY\n\nCountry link: a Rwandan reading, speaking, listening, writing, or discussion task for JOBS AND ROLES IN HOME AND COMMUNITY.\n\nProgression focus: build concrete foundations using simple examples and teacher-guided correction.\n\nBy the end of this topic, you should be able to:\n- talk and write about jobs and roles at home and in the community using appropriate language focusing on adverbs of frequency, the past simple tense, the future tense with \"will\", and regular and irregular adjectives\n\nInquiry questions:\n- How can jobs and roles in home and community help you solve a real problem in English?\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 125,
+      "imageRefs": [
+        "RWA-P4-english-topic-005:opener:visual-1:planned",
+        "RWA-P4-english-topic-005:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-5-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p038",
+      "title": "JOBS AND ROLES IN HOME AND COMMUNITY: Learn",
+      "content": "JOBS AND ROLES IN HOME AND COMMUNITY is a language skill, so learn it by doing the actual reading, speaking, listening, writing, or editing task.\n\nMini passage:\nClear grammar helps the reader follow the idea. In the sentence The class reads quietly before the debate begins, the subject is The class, the verb is reads, and the time phrase is before the debate begins. If the verb tense changes without reason, the meaning becomes weak. A strong sentence keeps subject, verb, tense, punctuation, and meaning together.\n\nLearner move: use short complete sentences, clear topic words, and one simple example.\n\nWhat to notice:\n- Start with the exact task, not a general answer.\n- Use a detail from the text, talk, example, or situation.\n- Choose words that match the audience and purpose.\n- Write or speak in complete, connected sentences.\n- Revise one weak sentence after feedback.\n\nKey words:\n- JOBS AND ROLES IN HOME AND COMMUNITY\n- JOBS\n- ROLES\n- HOME\n- COMMUNITY\n- read\n- listen\n- speak",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 171,
+      "imageRefs": [
+        "RWA-P4-english-topic-005:learn:visual-1:planned",
+        "RWA-P4-english-topic-005:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-5-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p039",
+      "title": "JOBS AND ROLES IN HOME AND COMMUNITY: Worked Example",
+      "content": "Worked example for JOBS AND ROLES IN HOME AND COMMUNITY: Improve a weak sentence.\n\nWeak sentence: The learners reads the passage and answered question.\n\nImproved sentence: The learners read the passage and answered the questions.\n\nWhy it works:\n- The subject and verb agree.\n- The tense is consistent.\n- The noun questions is complete and clear.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 57,
+      "imageRefs": [
+        "RWA-P4-english-topic-005:example:visual-1:planned",
+        "RWA-P4-english-topic-005:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-5-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p040",
+      "title": "JOBS AND ROLES IN HOME AND COMMUNITY: Vocabulary And Study Skill",
+      "content": "Use these words before you practise JOBS AND ROLES IN HOME AND COMMUNITY. In English, vocabulary is useful only when you can understand it in context and use it in your own sentence.\n\nKey words:\n- JOBS AND ROLES IN HOME AND COMMUNITY\n- JOBS\n- ROLES\n- HOME\n- COMMUNITY\n- read\n- listen\n- speak\n\nStudy routine:\n1. Choose three key words.\n2. Find or create a sentence where each word makes sense.\n3. Explain each word in learner-friendly language.\n4. Add one synonym, opposite, word family member, or example where possible.\n5. Use one word in a spoken answer and one word in a written answer.\n\nCommon mistake to avoid: giving a general answer about JOBS AND ROLES IN HOME AND COMMUNITY without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 132,
+      "imageRefs": [
+        "RWA-P4-english-topic-005:vocabulary:visual-1:planned",
+        "RWA-P4-english-topic-005:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-5-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p041",
+      "title": "JOBS AND ROLES IN HOME AND COMMUNITY: Guided Activity",
+      "content": "Guided activity for JOBS AND ROLES IN HOME AND COMMUNITY:\n\n1. Read the mini passage or dialogue aloud.\n2. Underline three useful words or expressions.\n3. Answer one oral question about the text.\n4. Write three to five sentences linked to JOBS AND ROLES IN HOME AND COMMUNITY.\n5. Read your answer to a partner and improve one sentence.\n\nTeacher check: the answer should use the topic vocabulary and complete sentences.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 71,
+      "imageRefs": [
+        "RWA-P4-english-topic-005:activity:visual-1:planned",
+        "RWA-P4-english-topic-005:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-5-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p042",
+      "title": "JOBS AND ROLES IN HOME AND COMMUNITY: Practice And Correction",
+      "content": "Practice for JOBS AND ROLES IN HOME AND COMMUNITY:\n\nMain outcome: talk and write about jobs and roles at home and in the community using appropriate language focusing on adverbs of frequency, the past simple tense, the future tense with \"will\", and regular and irregular adjectives.\n\n1. Write three sentences linked to the topic.\n2. Underline the subject and verb in each sentence.\n3. Check tense, punctuation, and word order.\n4. Rewrite one weak sentence more clearly.\n\nCorrection check:\n- Is the meaning clear?\n- Does the answer use topic vocabulary?\n- Is there evidence, a reason, or a useful example?\n- Have spelling, punctuation, grammar, and sentence order been checked?\n\nHome link: Ask someone at home one question connected to jobs and roles in home and community and turn their answer into two clear sentences.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 136,
+      "imageRefs": [
+        "RWA-P4-english-topic-005:practice:visual-1:planned",
+        "RWA-P4-english-topic-005:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-5-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p043",
+      "title": "JOBS AND ROLES IN HOME AND COMMUNITY: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from JOBS AND ROLES IN HOME AND COMMUNITY.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "RWA-P4-english-topic-005:remediation:visual-1:planned",
+        "RWA-P4-english-topic-005:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-5-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p044",
+      "title": "JOBS AND ROLES IN HOME AND COMMUNITY: Outcome Check",
+      "content": "Outcome check for JOBS AND ROLES IN HOME AND COMMUNITY: Talk and write about jobs and roles at home and in the community using appropriate language focusing on adverbs of frequency, the past simple tense, the future tense with \"will\", and regular and irregular adjectives.\n\n1. Read, listen, speak, or write a short response linked to this topic.\n2. Use at least three topic words correctly.\n3. Use complete sentences.\n4. Check spelling, punctuation, grammar, and meaning.\n5. Improve one sentence after feedback.\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 102,
+      "imageRefs": [
+        "RWA-P4-english-topic-005:assessment:visual-1:planned",
+        "RWA-P4-english-topic-005:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-5-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p045",
+      "title": "WILD ANIMALS: Lesson Opener",
+      "content": "Learning focus: WILD ANIMALS\n\nCountry link: a Rwandan reading, speaking, listening, writing, or discussion task for WILD ANIMALS.\n\nProgression focus: build concrete foundations using simple examples and teacher-guided correction.\n\nBy the end of this topic, you should be able to:\n- talk and write about wild animals using appropriate language focusing on the present perfect tense, comparatives and superlatives and determiners of quantity\n\nInquiry questions:\n- How can wild animals help you solve a real problem in English?\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 97,
+      "imageRefs": [
+        "RWA-P4-english-topic-006:opener:visual-1:planned",
+        "RWA-P4-english-topic-006:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-6-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p046",
+      "title": "WILD ANIMALS: Learn",
+      "content": "WILD ANIMALS is a language skill, so learn it by doing the actual reading, speaking, listening, writing, or editing task.\n\nMini passage:\nClear grammar helps the reader follow the idea. In the sentence The class reads quietly before the debate begins, the subject is The class, the verb is reads, and the time phrase is before the debate begins. If the verb tense changes without reason, the meaning becomes weak. A strong sentence keeps subject, verb, tense, punctuation, and meaning together.\n\nLearner move: use short complete sentences, clear topic words, and one simple example.\n\nWhat to notice:\n- Start with the exact task, not a general answer.\n- Use a detail from the text, talk, example, or situation.\n- Choose words that match the audience and purpose.\n- Write or speak in complete, connected sentences.\n- Revise one weak sentence after feedback.\n\nKey words:\n- WILD ANIMALS\n- WILD\n- ANIMALS\n- read\n- listen\n- speak\n- write\n- sentence",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 161,
+      "imageRefs": [
+        "RWA-P4-english-topic-006:learn:visual-1:planned",
+        "RWA-P4-english-topic-006:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-6-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p047",
+      "title": "WILD ANIMALS: Worked Example",
+      "content": "Worked example for WILD ANIMALS: Improve a weak sentence.\n\nWeak sentence: The learners reads the passage and answered question.\n\nImproved sentence: The learners read the passage and answered the questions.\n\nWhy it works:\n- The subject and verb agree.\n- The tense is consistent.\n- The noun questions is complete and clear.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 52,
+      "imageRefs": [
+        "RWA-P4-english-topic-006:example:visual-1:planned",
+        "RWA-P4-english-topic-006:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-6-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p048",
+      "title": "WILD ANIMALS: Vocabulary And Study Skill",
+      "content": "Use these words before you practise WILD ANIMALS. In English, vocabulary is useful only when you can understand it in context and use it in your own sentence.\n\nKey words:\n- WILD ANIMALS\n- WILD\n- ANIMALS\n- read\n- listen\n- speak\n- write\n- sentence\n\nStudy routine:\n1. Choose three key words.\n2. Find or create a sentence where each word makes sense.\n3. Explain each word in learner-friendly language.\n4. Add one synonym, opposite, word family member, or example where possible.\n5. Use one word in a spoken answer and one word in a written answer.\n\nCommon mistake to avoid: giving a general answer about WILD ANIMALS without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 117,
+      "imageRefs": [
+        "RWA-P4-english-topic-006:vocabulary:visual-1:planned",
+        "RWA-P4-english-topic-006:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-6-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p049",
+      "title": "WILD ANIMALS: Guided Activity",
+      "content": "Guided activity for WILD ANIMALS:\n\n1. Read the mini passage or dialogue aloud.\n2. Underline three useful words or expressions.\n3. Answer one oral question about the text.\n4. Write three to five sentences linked to WILD ANIMALS.\n5. Read your answer to a partner and improve one sentence.\n\nTeacher check: the answer should use the topic vocabulary and complete sentences.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": [
+        "RWA-P4-english-topic-006:activity:visual-1:planned",
+        "RWA-P4-english-topic-006:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-6-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p050",
+      "title": "WILD ANIMALS: Practice And Correction",
+      "content": "Practice for WILD ANIMALS:\n\nMain outcome: talk and write about wild animals using appropriate language focusing on the present perfect tense, comparatives and superlatives and determiners of quantity.\n\n1. Write three sentences linked to the topic.\n2. Underline the subject and verb in each sentence.\n3. Check tense, punctuation, and word order.\n4. Rewrite one weak sentence more clearly.\n\nCorrection check:\n- Is the meaning clear?\n- Does the answer use topic vocabulary?\n- Is there evidence, a reason, or a useful example?\n- Have spelling, punctuation, grammar, and sentence order been checked?\n\nHome link: Ask someone at home one question connected to wild animals and turn their answer into two clear sentences.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 113,
+      "imageRefs": [
+        "RWA-P4-english-topic-006:practice:visual-1:planned",
+        "RWA-P4-english-topic-006:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-6-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p051",
+      "title": "WILD ANIMALS: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from WILD ANIMALS.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "RWA-P4-english-topic-006:remediation:visual-1:planned",
+        "RWA-P4-english-topic-006:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-6-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p052",
+      "title": "WILD ANIMALS: Outcome Check",
+      "content": "Outcome check for WILD ANIMALS: Talk and write about wild animals using appropriate language focusing on the present perfect tense, comparatives and superlatives and determiners of quantity.\n\n1. Read, listen, speak, or write a short response linked to this topic.\n2. Use at least three topic words correctly.\n3. Use complete sentences.\n4. Check spelling, punctuation, grammar, and meaning.\n5. Improve one sentence after feedback.\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 84,
+      "imageRefs": [
+        "RWA-P4-english-topic-006:assessment:visual-1:planned",
+        "RWA-P4-english-topic-006:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-6-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p053",
+      "title": "RIGHTS, RESPONSIBILITIES AND NEEDS: Lesson Opener",
+      "content": "Learning focus: RIGHTS, RESPONSIBILITIES AND NEEDS\n\nCountry link: a Rwandan reading, speaking, listening, writing, or discussion task for RIGHTS, RESPONSIBILITIES AND NEEDS.\n\nProgression focus: build concrete foundations using simple examples and teacher-guided correction.\n\nBy the end of this topic, you should be able to:\n- talk and write about their rights, responsibilities, and basic needs using appropriate language focusing on modal verbs, the first conditional, and the present and past progressive tenses\n\nInquiry questions:\n- How can rights, responsibilities and needs help you solve a real problem in English?\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "RWA-P4-english-topic-007:opener:visual-1:planned",
+        "RWA-P4-english-topic-007:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-7-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p054",
+      "title": "RIGHTS, RESPONSIBILITIES AND NEEDS: Learn",
+      "content": "RIGHTS, RESPONSIBILITIES AND NEEDS is a language skill, so learn it by doing the actual reading, speaking, listening, writing, or editing task.\n\nMini passage:\nClear grammar helps the reader follow the idea. In the sentence The class reads quietly before the debate begins, the subject is The class, the verb is reads, and the time phrase is before the debate begins. If the verb tense changes without reason, the meaning becomes weak. A strong sentence keeps subject, verb, tense, punctuation, and meaning together.\n\nLearner move: use short complete sentences, clear topic words, and one simple example.\n\nWhat to notice:\n- Start with the exact task, not a general answer.\n- Use a detail from the text, talk, example, or situation.\n- Choose words that match the audience and purpose.\n- Write or speak in complete, connected sentences.\n- Revise one weak sentence after feedback.\n\nKey words:\n- RIGHTS, RESPONSIBILITIES AND NEEDS\n- RIGHTS\n- RESPONSIBILITIES\n- NEEDS\n- read\n- listen\n- speak\n- write",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 165,
+      "imageRefs": [
+        "RWA-P4-english-topic-007:learn:visual-1:planned",
+        "RWA-P4-english-topic-007:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-7-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p055",
+      "title": "RIGHTS, RESPONSIBILITIES AND NEEDS: Worked Example",
+      "content": "Worked example for RIGHTS, RESPONSIBILITIES AND NEEDS: Improve a weak sentence.\n\nWeak sentence: The learners reads the passage and answered question.\n\nImproved sentence: The learners read the passage and answered the questions.\n\nWhy it works:\n- The subject and verb agree.\n- The tense is consistent.\n- The noun questions is complete and clear.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 54,
+      "imageRefs": [
+        "RWA-P4-english-topic-007:example:visual-1:planned",
+        "RWA-P4-english-topic-007:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-7-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p056",
+      "title": "RIGHTS, RESPONSIBILITIES AND NEEDS: Vocabulary And Study Skill",
+      "content": "Use these words before you practise RIGHTS, RESPONSIBILITIES AND NEEDS. In English, vocabulary is useful only when you can understand it in context and use it in your own sentence.\n\nKey words:\n- RIGHTS, RESPONSIBILITIES AND NEEDS\n- RIGHTS\n- RESPONSIBILITIES\n- NEEDS\n- read\n- listen\n- speak\n- write\n\nStudy routine:\n1. Choose three key words.\n2. Find or create a sentence where each word makes sense.\n3. Explain each word in learner-friendly language.\n4. Add one synonym, opposite, word family member, or example where possible.\n5. Use one word in a spoken answer and one word in a written answer.\n\nCommon mistake to avoid: giving a general answer about RIGHTS, RESPONSIBILITIES AND NEEDS without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 123,
+      "imageRefs": [
+        "RWA-P4-english-topic-007:vocabulary:visual-1:planned",
+        "RWA-P4-english-topic-007:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-7-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p057",
+      "title": "RIGHTS, RESPONSIBILITIES AND NEEDS: Guided Activity",
+      "content": "Guided activity for RIGHTS, RESPONSIBILITIES AND NEEDS:\n\n1. Read the mini passage or dialogue aloud.\n2. Underline three useful words or expressions.\n3. Answer one oral question about the text.\n4. Write three to five sentences linked to RIGHTS, RESPONSIBILITIES AND NEEDS.\n5. Read your answer to a partner and improve one sentence.\n\nTeacher check: the answer should use the topic vocabulary and complete sentences.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 65,
+      "imageRefs": [
+        "RWA-P4-english-topic-007:activity:visual-1:planned",
+        "RWA-P4-english-topic-007:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-7-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p058",
+      "title": "RIGHTS, RESPONSIBILITIES AND NEEDS: Practice And Correction",
+      "content": "Practice for RIGHTS, RESPONSIBILITIES AND NEEDS:\n\nMain outcome: talk and write about their rights, responsibilities, and basic needs using appropriate language focusing on modal verbs, the first conditional, and the present and past progressive tenses.\n\n1. Write three sentences linked to the topic.\n2. Underline the subject and verb in each sentence.\n3. Check tense, punctuation, and word order.\n4. Rewrite one weak sentence more clearly.\n\nCorrection check:\n- Is the meaning clear?\n- Does the answer use topic vocabulary?\n- Is there evidence, a reason, or a useful example?\n- Have spelling, punctuation, grammar, and sentence order been checked?\n\nHome link: Ask someone at home one question connected to rights, responsibilities and needs and turn their answer into two clear sentences.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 122,
+      "imageRefs": [
+        "RWA-P4-english-topic-007:practice:visual-1:planned",
+        "RWA-P4-english-topic-007:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-7-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p059",
+      "title": "RIGHTS, RESPONSIBILITIES AND NEEDS: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from RIGHTS, RESPONSIBILITIES AND NEEDS.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "RWA-P4-english-topic-007:remediation:visual-1:planned",
+        "RWA-P4-english-topic-007:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-7-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p060",
+      "title": "RIGHTS, RESPONSIBILITIES AND NEEDS: Outcome Check",
+      "content": "Outcome check for RIGHTS, RESPONSIBILITIES AND NEEDS: Talk and write about their rights, responsibilities, and basic needs using appropriate language focusing on modal verbs, the first conditional, and the present and past progressive tenses.\n\n1. Read, listen, speak, or write a short response linked to this topic.\n2. Use at least three topic words correctly.\n3. Use complete sentences.\n4. Check spelling, punctuation, grammar, and meaning.\n5. Improve one sentence after feedback.\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "RWA-P4-english-topic-007:assessment:visual-1:planned",
+        "RWA-P4-english-topic-007:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-7-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p061",
+      "title": "TALKING ABOUT THE PAST: Lesson Opener",
+      "content": "Learning focus: TALKING ABOUT THE PAST\n\nCountry link: a Rwandan reading, speaking, listening, writing, or discussion task for TALKING ABOUT THE PAST.\n\nProgression focus: build concrete foundations using simple examples and teacher-guided correction.\n\nBy the end of this topic, you should be able to:\n- talk and write about the past using appropriate language focusing on the past simple tense, contracted verb forms in positive and negative statements, and determiners of quantity\n\nInquiry questions:\n- How can talking about the past help you solve a real problem in English?\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "RWA-P4-english-topic-008:opener:visual-1:planned",
+        "RWA-P4-english-topic-008:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-8-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p062",
+      "title": "TALKING ABOUT THE PAST: Learn",
+      "content": "TALKING ABOUT THE PAST is a language skill, so learn it by doing the actual reading, speaking, listening, writing, or editing task.\n\nMini passage:\nClear grammar helps the reader follow the idea. In the sentence The class reads quietly before the debate begins, the subject is The class, the verb is reads, and the time phrase is before the debate begins. If the verb tense changes without reason, the meaning becomes weak. A strong sentence keeps subject, verb, tense, punctuation, and meaning together.\n\nLearner move: use short complete sentences, clear topic words, and one simple example.\n\nWhat to notice:\n- Start with the exact task, not a general answer.\n- Use a detail from the text, talk, example, or situation.\n- Choose words that match the audience and purpose.\n- Write or speak in complete, connected sentences.\n- Revise one weak sentence after feedback.\n\nKey words:\n- TALKING ABOUT THE PAST\n- TALKING\n- ABOUT\n- PAST\n- read\n- listen\n- speak\n- write",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 165,
+      "imageRefs": [
+        "RWA-P4-english-topic-008:learn:visual-1:planned",
+        "RWA-P4-english-topic-008:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-8-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p063",
+      "title": "TALKING ABOUT THE PAST: Worked Example",
+      "content": "Worked example for TALKING ABOUT THE PAST: Improve a weak sentence.\n\nWeak sentence: The learners reads the passage and answered question.\n\nImproved sentence: The learners read the passage and answered the questions.\n\nWhy it works:\n- The subject and verb agree.\n- The tense is consistent.\n- The noun questions is complete and clear.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 54,
+      "imageRefs": [
+        "RWA-P4-english-topic-008:example:visual-1:planned",
+        "RWA-P4-english-topic-008:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-8-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p064",
+      "title": "TALKING ABOUT THE PAST: Vocabulary And Study Skill",
+      "content": "Use these words before you practise TALKING ABOUT THE PAST. In English, vocabulary is useful only when you can understand it in context and use it in your own sentence.\n\nKey words:\n- TALKING ABOUT THE PAST\n- TALKING\n- ABOUT\n- PAST\n- read\n- listen\n- speak\n- write\n\nStudy routine:\n1. Choose three key words.\n2. Find or create a sentence where each word makes sense.\n3. Explain each word in learner-friendly language.\n4. Add one synonym, opposite, word family member, or example where possible.\n5. Use one word in a spoken answer and one word in a written answer.\n\nCommon mistake to avoid: giving a general answer about TALKING ABOUT THE PAST without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 123,
+      "imageRefs": [
+        "RWA-P4-english-topic-008:vocabulary:visual-1:planned",
+        "RWA-P4-english-topic-008:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-8-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p065",
+      "title": "TALKING ABOUT THE PAST: Guided Activity",
+      "content": "Guided activity for TALKING ABOUT THE PAST:\n\n1. Read the mini passage or dialogue aloud.\n2. Underline three useful words or expressions.\n3. Answer one oral question about the text.\n4. Write three to five sentences linked to TALKING ABOUT THE PAST.\n5. Read your answer to a partner and improve one sentence.\n\nTeacher check: the answer should use the topic vocabulary and complete sentences.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 65,
+      "imageRefs": [
+        "RWA-P4-english-topic-008:activity:visual-1:planned",
+        "RWA-P4-english-topic-008:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-8-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p066",
+      "title": "TALKING ABOUT THE PAST: Practice And Correction",
+      "content": "Practice for TALKING ABOUT THE PAST:\n\nMain outcome: talk and write about the past using appropriate language focusing on the past simple tense, contracted verb forms in positive and negative statements, and determiners of quantity.\n\n1. Write three sentences linked to the topic.\n2. Underline the subject and verb in each sentence.\n3. Check tense, punctuation, and word order.\n4. Rewrite one weak sentence more clearly.\n\nCorrection check:\n- Is the meaning clear?\n- Does the answer use topic vocabulary?\n- Is there evidence, a reason, or a useful example?\n- Have spelling, punctuation, grammar, and sentence order been checked?\n\nHome link: Ask someone at home one question connected to talking about the past and turn their answer into two clear sentences.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 122,
+      "imageRefs": [
+        "RWA-P4-english-topic-008:practice:visual-1:planned",
+        "RWA-P4-english-topic-008:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-8-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p067",
+      "title": "TALKING ABOUT THE PAST: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from TALKING ABOUT THE PAST.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "RWA-P4-english-topic-008:remediation:visual-1:planned",
+        "RWA-P4-english-topic-008:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-8-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p068",
+      "title": "TALKING ABOUT THE PAST: Outcome Check",
+      "content": "Outcome check for TALKING ABOUT THE PAST: Talk and write about the past using appropriate language focusing on the past simple tense, contracted verb forms in positive and negative statements, and determiners of quantity.\n\n1. Read, listen, speak, or write a short response linked to this topic.\n2. Use at least three topic words correctly.\n3. Use complete sentences.\n4. Check spelling, punctuation, grammar, and meaning.\n5. Improve one sentence after feedback.\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "RWA-P4-english-topic-008:assessment:visual-1:planned",
+        "RWA-P4-english-topic-008:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-8-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p069",
+      "title": "COUNTRIES, RIVERS AND FAMOUS ARCHITECTURAL STRUCTURES OF THE WORLD: Lesson Opener",
+      "content": "Learning focus: COUNTRIES, RIVERS AND FAMOUS ARCHITECTURAL STRUCTURES OF THE WORLD\n\nCountry link: a Rwandan reading, speaking, listening, writing, or discussion task for COUNTRIES, RIVERS AND FAMOUS ARCHITECTURAL STRUCTURES OF THE WORLD.\n\nProgression focus: build concrete foundations using simple examples and teacher-guided correction.\n\nBy the end of this topic, you should be able to:\n- talk and write about countries, nationalities, and famous places using appropriate language structures such as comparatives and superlatives, the present perfect tense, and adverbs of time, place, and manner\n\nInquiry questions:\n- How can countries, rivers and famous architectural structures of the world help you solve a real problem in English?\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 125,
+      "imageRefs": [
+        "RWA-P4-english-topic-009:opener:visual-1:planned",
+        "RWA-P4-english-topic-009:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-9-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p070",
+      "title": "COUNTRIES, RIVERS AND FAMOUS ARCHITECTURAL STRUCTURES OF THE WORLD: Learn",
+      "content": "COUNTRIES, RIVERS AND FAMOUS ARCHITECTURAL STRUCTURES OF THE WORLD is a language skill, so learn it by doing the actual reading, speaking, listening, writing, or editing task.\n\nMini passage:\nClear grammar helps the reader follow the idea. In the sentence The class reads quietly before the debate begins, the subject is The class, the verb is reads, and the time phrase is before the debate begins. If the verb tense changes without reason, the meaning becomes weak. A strong sentence keeps subject, verb, tense, punctuation, and meaning together.\n\nLearner move: use short complete sentences, clear topic words, and one simple example.\n\nWhat to notice:\n- Start with the exact task, not a general answer.\n- Use a detail from the text, talk, example, or situation.\n- Choose words that match the audience and purpose.\n- Write or speak in complete, connected sentences.\n- Revise one weak sentence after feedback.\n\nKey words:\n- COUNTRIES, RIVERS AND FAMOUS ARCHITECTURAL STRUCTURES OF THE WORLD\n- COUNTRIES\n- RIVERS\n- FAMOUS\n- ARCHITECTURAL\n- STRUCTURES\n- WORLD\n- read",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 175,
+      "imageRefs": [
+        "RWA-P4-english-topic-009:learn:visual-1:planned",
+        "RWA-P4-english-topic-009:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-9-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p071",
+      "title": "COUNTRIES, RIVERS AND FAMOUS ARCHITECTURAL STRUCTURES OF THE WORLD: Worked Example",
+      "content": "Worked example for COUNTRIES, RIVERS AND FAMOUS ARCHITECTURAL STRUCTURES OF THE WORLD: Improve a weak sentence.\n\nWeak sentence: The learners reads the passage and answered question.\n\nImproved sentence: The learners read the passage and answered the questions.\n\nWhy it works:\n- The subject and verb agree.\n- The tense is consistent.\n- The noun questions is complete and clear.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 59,
+      "imageRefs": [
+        "RWA-P4-english-topic-009:example:visual-1:planned",
+        "RWA-P4-english-topic-009:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-9-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p072",
+      "title": "COUNTRIES, RIVERS AND FAMOUS ARCHITECTURAL STRUCTURES OF THE WORLD: Vocabulary And Study Skill",
+      "content": "Use these words before you practise COUNTRIES, RIVERS AND FAMOUS ARCHITECTURAL STRUCTURES OF THE WORLD. In English, vocabulary is useful only when you can understand it in context and use it in your own sentence.\n\nKey words:\n- COUNTRIES, RIVERS AND FAMOUS ARCHITECTURAL STRUCTURES OF THE WORLD\n- COUNTRIES\n- RIVERS\n- FAMOUS\n- ARCHITECTURAL\n- STRUCTURES\n- WORLD\n- read\n\nStudy routine:\n1. Choose three key words.\n2. Find or create a sentence where each word makes sense.\n3. Explain each word in learner-friendly language.\n4. Add one synonym, opposite, word family member, or example where possible.\n5. Use one word in a spoken answer and one word in a written answer.\n\nCommon mistake to avoid: giving a general answer about COUNTRIES, RIVERS AND FAMOUS ARCHITECTURAL STRUCTURES OF THE WORLD without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 138,
+      "imageRefs": [
+        "RWA-P4-english-topic-009:vocabulary:visual-1:planned",
+        "RWA-P4-english-topic-009:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-9-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p073",
+      "title": "COUNTRIES, RIVERS AND FAMOUS ARCHITECTURAL STRUCTURES OF THE WORLD: Guided Activity",
+      "content": "Guided activity for COUNTRIES, RIVERS AND FAMOUS ARCHITECTURAL STRUCTURES OF THE WORLD:\n\n1. Read the mini passage or dialogue aloud.\n2. Underline three useful words or expressions.\n3. Answer one oral question about the text.\n4. Write three to five sentences linked to COUNTRIES, RIVERS AND FAMOUS ARCHITECTURAL STRUCTURES OF THE WORLD.\n5. Read your answer to a partner and improve one sentence.\n\nTeacher check: the answer should use the topic vocabulary and complete sentences.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 75,
+      "imageRefs": [
+        "RWA-P4-english-topic-009:activity:visual-1:planned",
+        "RWA-P4-english-topic-009:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-9-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p074",
+      "title": "COUNTRIES, RIVERS AND FAMOUS ARCHITECTURAL STRUCTURES OF THE WORLD: Practice And Correction",
+      "content": "Practice for COUNTRIES, RIVERS AND FAMOUS ARCHITECTURAL STRUCTURES OF THE WORLD:\n\nMain outcome: talk and write about countries, nationalities, and famous places using appropriate language structures such as comparatives and superlatives, the present perfect tense, and adverbs of time, place, and manner.\n\n1. Write three sentences linked to the topic.\n2. Underline the subject and verb in each sentence.\n3. Check tense, punctuation, and word order.\n4. Rewrite one weak sentence more clearly.\n\nCorrection check:\n- Is the meaning clear?\n- Does the answer use topic vocabulary?\n- Is there evidence, a reason, or a useful example?\n- Have spelling, punctuation, grammar, and sentence order been checked?\n\nHome link: Ask someone at home one question connected to countries, rivers and famous architectural structures of the world and turn their answer into two clear sentences.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 134,
+      "imageRefs": [
+        "RWA-P4-english-topic-009:practice:visual-1:planned",
+        "RWA-P4-english-topic-009:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-9-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p075",
+      "title": "COUNTRIES, RIVERS AND FAMOUS ARCHITECTURAL STRUCTURES OF THE WORLD: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from COUNTRIES, RIVERS AND FAMOUS ARCHITECTURAL STRUCTURES OF THE WORLD.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 114,
+      "imageRefs": [
+        "RWA-P4-english-topic-009:remediation:visual-1:planned",
+        "RWA-P4-english-topic-009:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-9-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p076",
+      "title": "COUNTRIES, RIVERS AND FAMOUS ARCHITECTURAL STRUCTURES OF THE WORLD: Outcome Check",
+      "content": "Outcome check for COUNTRIES, RIVERS AND FAMOUS ARCHITECTURAL STRUCTURES OF THE WORLD: Talk and write about countries, nationalities, and famous places using appropriate language structures such as comparatives and superlatives, the present perfect tense, and adverbs of time, place, and manner.\n\n1. Read, listen, speak, or write a short response linked to this topic.\n2. Use at least three topic words correctly.\n3. Use complete sentences.\n4. Check spelling, punctuation, grammar, and meaning.\n5. Improve one sentence after feedback.\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "RWA-P4-english-topic-009:assessment:visual-1:planned",
+        "RWA-P4-english-topic-009:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-9-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p077",
+      "title": "CLIMATE CHANGE: Lesson Opener",
+      "content": "Learning focus: CLIMATE CHANGE\n\nCountry link: a Rwandan reading, speaking, listening, writing, or discussion task for CLIMATE CHANGE.\n\nProgression focus: build concrete foundations using simple examples and teacher-guided correction.\n\nBy the end of this topic, you should be able to:\n- talk and write about climate change using appropriate language structures such as the present continuous tense, modal verbs and coordinating conjunctions\n\nInquiry questions:\n- How can climate change help you solve a real problem in English?\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "RWA-P4-english-topic-010:opener:visual-1:planned",
+        "RWA-P4-english-topic-010:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-10-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-10-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-10-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-10-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p078",
+      "title": "CLIMATE CHANGE: Learn",
+      "content": "CLIMATE CHANGE is a language skill, so learn it by doing the actual reading, speaking, listening, writing, or editing task.\n\nMini passage:\nClear grammar helps the reader follow the idea. In the sentence The class reads quietly before the debate begins, the subject is The class, the verb is reads, and the time phrase is before the debate begins. If the verb tense changes without reason, the meaning becomes weak. A strong sentence keeps subject, verb, tense, punctuation, and meaning together.\n\nLearner move: use short complete sentences, clear topic words, and one simple example.\n\nWhat to notice:\n- Start with the exact task, not a general answer.\n- Use a detail from the text, talk, example, or situation.\n- Choose words that match the audience and purpose.\n- Write or speak in complete, connected sentences.\n- Revise one weak sentence after feedback.\n\nKey words:\n- CLIMATE CHANGE\n- CLIMATE\n- CHANGE\n- read\n- listen\n- speak\n- write\n- sentence",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 161,
+      "imageRefs": [
+        "RWA-P4-english-topic-010:learn:visual-1:planned",
+        "RWA-P4-english-topic-010:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-10-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-10-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-10-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-10-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p079",
+      "title": "CLIMATE CHANGE: Worked Example",
+      "content": "Worked example for CLIMATE CHANGE: Improve a weak sentence.\n\nWeak sentence: The learners reads the passage and answered question.\n\nImproved sentence: The learners read the passage and answered the questions.\n\nWhy it works:\n- The subject and verb agree.\n- The tense is consistent.\n- The noun questions is complete and clear.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 52,
+      "imageRefs": [
+        "RWA-P4-english-topic-010:example:visual-1:planned",
+        "RWA-P4-english-topic-010:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-10-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-10-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-10-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-10-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p080",
+      "title": "CLIMATE CHANGE: Vocabulary And Study Skill",
+      "content": "Use these words before you practise CLIMATE CHANGE. In English, vocabulary is useful only when you can understand it in context and use it in your own sentence.\n\nKey words:\n- CLIMATE CHANGE\n- CLIMATE\n- CHANGE\n- read\n- listen\n- speak\n- write\n- sentence\n\nStudy routine:\n1. Choose three key words.\n2. Find or create a sentence where each word makes sense.\n3. Explain each word in learner-friendly language.\n4. Add one synonym, opposite, word family member, or example where possible.\n5. Use one word in a spoken answer and one word in a written answer.\n\nCommon mistake to avoid: giving a general answer about CLIMATE CHANGE without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 117,
+      "imageRefs": [
+        "RWA-P4-english-topic-010:vocabulary:visual-1:planned",
+        "RWA-P4-english-topic-010:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-10-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-10-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-10-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-10-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p081",
+      "title": "CLIMATE CHANGE: Guided Activity",
+      "content": "Guided activity for CLIMATE CHANGE:\n\n1. Read the mini passage or dialogue aloud.\n2. Underline three useful words or expressions.\n3. Answer one oral question about the text.\n4. Write three to five sentences linked to CLIMATE CHANGE.\n5. Read your answer to a partner and improve one sentence.\n\nTeacher check: the answer should use the topic vocabulary and complete sentences.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": [
+        "RWA-P4-english-topic-010:activity:visual-1:planned",
+        "RWA-P4-english-topic-010:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-10-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-10-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-10-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-10-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p082",
+      "title": "CLIMATE CHANGE: Practice And Correction",
+      "content": "Practice for CLIMATE CHANGE:\n\nMain outcome: talk and write about climate change using appropriate language structures such as the present continuous tense, modal verbs and coordinating conjunctions.\n\n1. Write three sentences linked to the topic.\n2. Underline the subject and verb in each sentence.\n3. Check tense, punctuation, and word order.\n4. Rewrite one weak sentence more clearly.\n\nCorrection check:\n- Is the meaning clear?\n- Does the answer use topic vocabulary?\n- Is there evidence, a reason, or a useful example?\n- Have spelling, punctuation, grammar, and sentence order been checked?\n\nHome link: Ask someone at home one question connected to climate change and turn their answer into two clear sentences.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "RWA-P4-english-topic-010:practice:visual-1:planned",
+        "RWA-P4-english-topic-010:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-10-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-10-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-10-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-10-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p083",
+      "title": "CLIMATE CHANGE: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from CLIMATE CHANGE.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "RWA-P4-english-topic-010:remediation:visual-1:planned",
+        "RWA-P4-english-topic-010:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-10-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-10-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-10-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-10-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p084",
+      "title": "CLIMATE CHANGE: Outcome Check",
+      "content": "Outcome check for CLIMATE CHANGE: Talk and write about climate change using appropriate language structures such as the present continuous tense, modal verbs and coordinating conjunctions.\n\n1. Read, listen, speak, or write a short response linked to this topic.\n2. Use at least three topic words correctly.\n3. Use complete sentences.\n4. Check spelling, punctuation, grammar, and meaning.\n5. Improve one sentence after feedback.\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 83,
+      "imageRefs": [
+        "RWA-P4-english-topic-010:assessment:visual-1:planned",
+        "RWA-P4-english-topic-010:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-10-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-10-topic"
+      ],
+      "parentUnitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-10-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-10-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p085",
+      "title": "OUR SCHOOL: Review Clinic 1",
+      "content": "Use this review clinic to strengthen English without copying earlier answers.\n\n1. Choose one idea from OUR SCHOOL that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Rwanda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 75,
+      "imageRefs": [
+        "RWA-P4-english-topic-001:review:visual-1:planned",
+        "RWA-P4-english-topic-001:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-1-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p086",
+      "title": "MY FRIENDS AND I: Review Clinic 2",
+      "content": "Use this review clinic to strengthen English without copying earlier answers.\n\n1. Choose one idea from MY FRIENDS AND I that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Rwanda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 77,
+      "imageRefs": [
+        "RWA-P4-english-topic-002:review:visual-1:planned",
+        "RWA-P4-english-topic-002:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-2-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p087",
+      "title": "OUR DISTRICT: Review Clinic 3",
+      "content": "Use this review clinic to strengthen English without copying earlier answers.\n\n1. Choose one idea from OUR DISTRICT that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Rwanda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 75,
+      "imageRefs": [
+        "RWA-P4-english-topic-003:review:visual-1:planned",
+        "RWA-P4-english-topic-003:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-3-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p088",
+      "title": "WEATHER: Review Clinic 4",
+      "content": "Use this review clinic to strengthen English without copying earlier answers.\n\n1. Choose one idea from WEATHER that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Rwanda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 74,
+      "imageRefs": [
+        "RWA-P4-english-topic-004:review:visual-1:planned",
+        "RWA-P4-english-topic-004:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-4-strand"
+      ],
+      "unitIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "65b25647-5c46-48ea-a7cf-f8fc4df4d1c5-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p089",
+      "title": "Glossary",
+      "content": "Use this glossary to revise important words in English.\n\n- OUR SCHOOL: Explain this term using an example from the book, your school, or your community.\n- MY FRIENDS AND I: Explain this term using an example from the book, your school, or your community.\n- OUR DISTRICT: Explain this term using an example from the book, your school, or your community.\n- WEATHER: Explain this term using an example from the book, your school, or your community.\n- JOBS AND ROLES IN HOME AND COMMUNITY: Explain this term using an example from the book, your school, or your community.\n- WILD ANIMALS: Explain this term using an example from the book, your school, or your community.\n- RIGHTS, RESPONSIBILITIES AND NEEDS: Explain this term using an example from the book, your school, or your community.\n- TALKING ABOUT THE PAST: Explain this term using an example from the book, your school, or your community.\n- COUNTRIES, RIVERS AND FAMOUS ARCHITECTURAL STRUCTURES OF THE WORLD: Explain this term using an example from the book, your school, or your community.\n- CLIMATE CHANGE: Explain this term using an example from the book, your school, or your community.\n\nAdd five more words from your lessons and write your own meanings.",
+      "pageType": "glossary",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 208,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p090",
+      "title": "Answer And Teacher Notes",
+      "content": "A strong English answer matches the task, uses topic vocabulary, keeps meaning clear, and checks spelling, punctuation, grammar, pronunciation, or expression after feedback. Improve one weak sentence by adding a precise detail from the topic.",
+      "pageType": "answer-notes",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 35,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-p4-english-p091",
+      "title": "Final Project",
+      "content": "Create a final project for English that shows what you can now do independently.\n\nYour project must include:\n1. A clear title.\n2. A real-life problem, question, text, performance, investigation, design, or worked task.\n3. Evidence from at least three lessons in this book.\n4. A drawing, table, map, chart, model, dialogue, paragraph, performance plan, practical product, or worked solution.\n5. A correction note showing one improvement after feedback.\n6. A short reflection explaining what you learned, what was difficult, and what you will practise next.\n\nPresentation check: keep the work neat, label important parts, use correct vocabulary, and be ready to explain your choices to a classmate or teacher.",
+      "pageType": "project",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 110,
+      "imageRefs": []
+    }
+  ]
+}

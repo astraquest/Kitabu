@@ -1,0 +1,2144 @@
+{
+  "schemaVersion": 1,
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 8",
+  "subject": "Social Studies",
+  "generatedAt": "2026-07-01T13:19:21Z",
+  "sourceSnapshotHash": "bf05ebf1178147309366d670199361db05bff626032973ba95a6c0ca3b89819d",
+  "ageBand": {
+    "band": "junior-secondary",
+    "language": "clear academic words introduced through examples",
+    "taskDepth": "multi-step reasoning, comparison, and application"
+  },
+  "writingStandard": {
+    "voice": "simple, conversational, purposeful, and learner-first",
+    "antiFluff": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "coversDeferred": true
+  },
+  "strands": [
+    {
+      "strandId": "0877a6de-d6b7-4b6c-b630-16bfe356e09d",
+      "number": "1.0",
+      "title": "Social Studies and Personal Management",
+      "topicCount": 1
+    },
+    {
+      "strandId": "50ba1ad4-623a-4772-bbd5-7a66b54bfb38",
+      "number": "2.0",
+      "title": "Community Service Learning",
+      "topicCount": 2
+    },
+    {
+      "strandId": "4fce0435-08b0-41ca-932a-01de0c9f2fcc",
+      "number": "3.0",
+      "title": "People and Relationships",
+      "topicCount": 11
+    },
+    {
+      "strandId": "e468ee3e-d4ff-4c63-a169-adc71313054c",
+      "number": "4.0",
+      "title": "Natural and Historic Built Environments",
+      "topicCount": 9
+    },
+    {
+      "strandId": "db7f8ace-5e1d-4b8c-90a8-7726acc4dba6",
+      "number": "5.0",
+      "title": "Political Developments and Governance",
+      "topicCount": 3
+    }
+  ],
+  "topics": [
+    {
+      "topicId": "G8-social-studies-topic-001",
+      "strandId": "0877a6de-d6b7-4b6c-b630-16bfe356e09d",
+      "parentSubStrandId": "45a6b5de-e17b-4b43-8e42-e0fe2f49950e",
+      "subStrandId": "45a6b5de-e17b-4b43-8e42-e0fe2f49950e",
+      "strandTitle": "Social Studies and Personal Management",
+      "unitTitle": "self-Improvement",
+      "sourceUnitTitle": "self-Improvement",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-social-1-1-outcome-1",
+          "text": "describe personality traits for self-understanding"
+        },
+        {
+          "id": "grade-8-social-1-1-outcome-2",
+          "text": "share goals for self-improvement in social life"
+        },
+        {
+          "id": "grade-8-social-1-1-outcome-3",
+          "text": "explain and apply self-improvement using clear examples and practice"
+        }
+      ],
+      "inquiryQuestions": [
+        "Which animal best reflects your personal characteristics?",
+        "What career choices in Social Studies relate to you?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to self-Improvement.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "self-Improvement"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to self-Improvement",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for self-Improvement",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for self-Improvement",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f840d82c-dfa1-4444-9540-fdaf3f7f0d8c",
+          "officialTitle": "Competency Based Curriculum Grade 8 Social Studies",
+          "sourceSnapshotHash": "bf05ebf1178147309366d670199361db05bff626032973ba95a6c0ca3b89819d"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-social-studies-topic-002",
+      "strandId": "50ba1ad4-623a-4772-bbd5-7a66b54bfb38",
+      "parentSubStrandId": "2b137a4d-88e0-4976-b4b8-8eb4fd4fb531",
+      "subStrandId": "2b137a4d-88e0-4976-b4b8-8eb4fd4fb531:topic-1",
+      "strandTitle": "Community Service Learning",
+      "unitTitle": "Community Service Learning Project: problem/gap in the community",
+      "sourceUnitTitle": "Community Service Learning Project",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-social-2-1-outcome-1",
+          "text": "identify a problem/gap in the community"
+        },
+        {
+          "id": "grade-8-social-2-1-outcome-2",
+          "text": "design solution(s) to the identified problem"
+        },
+        {
+          "id": "grade-8-social-2-1-outcome-3",
+          "text": "plan to implement the solution to the identified problem"
+        },
+        {
+          "id": "grade-8-social-2-1-outcome-4",
+          "text": "implement plan for solving the identified problem"
+        }
+      ],
+      "inquiryQuestions": [
+        "How does one determine some gaps/ needs in the community?",
+        "Why is it necessary to make adequate preparations before embarking on a project?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Community Service Learning Project.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Community Service Learning Project: problem/gap in the community",
+        "Community Service Learning Project",
+        "Community",
+        "Service",
+        "Learning",
+        "Project",
+        "problem/gap"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Community Service Learning Project: problem/gap in the community",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Community Service Learning Project: problem/gap in the community",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Community Service Learning Project: problem/gap in the community",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f840d82c-dfa1-4444-9540-fdaf3f7f0d8c",
+          "officialTitle": "Competency Based Curriculum Grade 8 Social Studies",
+          "sourceSnapshotHash": "bf05ebf1178147309366d670199361db05bff626032973ba95a6c0ca3b89819d"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-social-studies-topic-003",
+      "strandId": "50ba1ad4-623a-4772-bbd5-7a66b54bfb38",
+      "parentSubStrandId": "2b137a4d-88e0-4976-b4b8-8eb4fd4fb531",
+      "subStrandId": "2b137a4d-88e0-4976-b4b8-8eb4fd4fb531:topic-2",
+      "strandTitle": "Community Service Learning",
+      "unitTitle": "Community Service Learning Project: report/account on the concluded project",
+      "sourceUnitTitle": "Community Service Learning Project",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-social-2-1-outcome-5",
+          "text": "report/account on the concluded project"
+        },
+        {
+          "id": "grade-8-social-2-1-outcome-6",
+          "text": "appreciate the need to offer solutions to the gaps/challenges in the community."
+        }
+      ],
+      "inquiryQuestions": [
+        "Why is it necessary to make adequate preparations before embarking on a project?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Community Service Learning Project.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Community Service Learning Project: report/account on the concluded project",
+        "Community Service Learning Project",
+        "Community",
+        "Service",
+        "Learning",
+        "Project",
+        "report/account",
+        "concluded"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Community Service Learning Project: report/account on the concluded project",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Community Service Learning Project: report/account on the concluded project",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Community Service Learning Project: report/account on the concluded project",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f840d82c-dfa1-4444-9540-fdaf3f7f0d8c",
+          "officialTitle": "Competency Based Curriculum Grade 8 Social Studies",
+          "sourceSnapshotHash": "bf05ebf1178147309366d670199361db05bff626032973ba95a6c0ca3b89819d"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-social-studies-topic-004",
+      "strandId": "4fce0435-08b0-41ca-932a-01de0c9f2fcc",
+      "parentSubStrandId": "0fd21dd2-4e92-4d0b-b351-ee2cd0811d24",
+      "subStrandId": "0fd21dd2-4e92-4d0b-b351-ee2cd0811d24:topic-1",
+      "strandTitle": "People and Relationships",
+      "unitTitle": "Scientific Theory about Human Origin: explore scientific theory about human origin",
+      "sourceUnitTitle": "Scientific Theory about Human Origin",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-social-3-1-outcome-1",
+          "text": "explore scientific theory about human origin"
+        },
+        {
+          "id": "grade-8-social-3-1-outcome-2",
+          "text": "illustrate changes that took place in humans as a result of evolution"
+        },
+        {
+          "id": "grade-8-social-3-1-outcome-3",
+          "text": "draw conclusions on origin of humanity based on the scientific theory"
+        },
+        {
+          "id": "grade-8-social-3-1-outcome-4",
+          "text": "illustrate strategies of preservation of remains of early humans"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why is Africa considered as the cradle of humanity?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Scientific Theory about Human Origin.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Scientific Theory about Human Origin: explore scientific theory about human origin",
+        "Scientific Theory about Human Origin",
+        "Scientific",
+        "Theory",
+        "about",
+        "Human",
+        "Origin",
+        "explore"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Scientific Theory about Human Origin: explore scientific theory about human origin",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Scientific Theory about Human Origin: explore scientific theory about human origin",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Scientific Theory about Human Origin: explore scientific theory about human origin",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f840d82c-dfa1-4444-9540-fdaf3f7f0d8c",
+          "officialTitle": "Competency Based Curriculum Grade 8 Social Studies",
+          "sourceSnapshotHash": "bf05ebf1178147309366d670199361db05bff626032973ba95a6c0ca3b89819d"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-social-studies-topic-005",
+      "strandId": "4fce0435-08b0-41ca-932a-01de0c9f2fcc",
+      "parentSubStrandId": "0fd21dd2-4e92-4d0b-b351-ee2cd0811d24",
+      "subStrandId": "0fd21dd2-4e92-4d0b-b351-ee2cd0811d24:topic-2",
+      "strandTitle": "People and Relationships",
+      "unitTitle": "Scientific Theory about Human Origin: develop reasons why Africa is considered",
+      "sourceUnitTitle": "Scientific Theory about Human Origin",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-social-3-1-outcome-5",
+          "text": "develop reasons why Africa is considered as the cradle for humanity"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why is Africa considered as the cradle of humanity?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Scientific Theory about Human Origin.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Scientific Theory about Human Origin: develop reasons why Africa is considered",
+        "Scientific Theory about Human Origin",
+        "Scientific",
+        "Theory",
+        "about",
+        "Human",
+        "Origin",
+        "develop"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Scientific Theory about Human Origin: develop reasons why Africa is considered",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Scientific Theory about Human Origin: develop reasons why Africa is considered",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Scientific Theory about Human Origin: develop reasons why Africa is considered",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f840d82c-dfa1-4444-9540-fdaf3f7f0d8c",
+          "officialTitle": "Competency Based Curriculum Grade 8 Social Studies",
+          "sourceSnapshotHash": "bf05ebf1178147309366d670199361db05bff626032973ba95a6c0ca3b89819d"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-social-studies-topic-006",
+      "strandId": "4fce0435-08b0-41ca-932a-01de0c9f2fcc",
+      "parentSubStrandId": "b3614416-a9a0-46ff-982b-d4154ce07af4",
+      "subStrandId": "b3614416-a9a0-46ff-982b-d4154ce07af4",
+      "strandTitle": "People and Relationships",
+      "unitTitle": "Early Civilisation Asia, Europe",
+      "sourceUnitTitle": "Early Civilisation Asia, Europe",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-social-3-2-outcome-1",
+          "text": "describe Swahili civilisation along the East African coast"
+        },
+        {
+          "id": "grade-8-social-3-2-outcome-2",
+          "text": "show how best practices from early civilisations have contributed to the modern world"
+        },
+        {
+          "id": "grade-8-social-3-2-outcome-3",
+          "text": "appreciate best practices of early civilisation to the development of the modern world."
+        }
+      ],
+      "inquiryQuestions": [
+        "Why is cultural heritage important to society?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Early Civilisation Asia, Europe.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Early Civilisation Asia, Europe",
+        "Early",
+        "Civilisation",
+        "Asia",
+        "Europe"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Early Civilisation Asia, Europe",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Early Civilisation Asia, Europe",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Early Civilisation Asia, Europe",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f840d82c-dfa1-4444-9540-fdaf3f7f0d8c",
+          "officialTitle": "Competency Based Curriculum Grade 8 Social Studies",
+          "sourceSnapshotHash": "bf05ebf1178147309366d670199361db05bff626032973ba95a6c0ca3b89819d"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-social-studies-topic-007",
+      "strandId": "4fce0435-08b0-41ca-932a-01de0c9f2fcc",
+      "parentSubStrandId": "d92aa80e-346c-4bf1-8af4-be90324f5f88",
+      "subStrandId": "d92aa80e-346c-4bf1-8af4-be90324f5f88:topic-1",
+      "strandTitle": "People and Relationships",
+      "unitTitle": "Trans Saharan Slave Trade: factors that led to development of Trans- Saharan",
+      "sourceUnitTitle": "Trans Saharan Slave Trade",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-social-3-3-outcome-1",
+          "text": "identify factors that led to development of Trans- Saharan slave Trade in Africa"
+        },
+        {
+          "id": "grade-8-social-3-3-outcome-2",
+          "text": "describe organisation of Trans-Saharan slave trade in Africa"
+        },
+        {
+          "id": "grade-8-social-3-3-outcome-3",
+          "text": "outline effects of Trans- Saharan slave trade in Africa"
+        },
+        {
+          "id": "grade-8-social-3-3-outcome-4",
+          "text": "demonstrate assertiveness in promotion of social justice"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why do people subject others to slave trade?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Trans Saharan Slave Trade.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Trans Saharan Slave Trade: factors that led to development of Trans- Saharan",
+        "Trans Saharan Slave Trade",
+        "Trans",
+        "Saharan",
+        "Slave",
+        "Trade",
+        "factors",
+        "development"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Trans Saharan Slave Trade: factors that led to development of Trans- Saharan",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Trans Saharan Slave Trade: factors that led to development of Trans- Saharan",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Trans Saharan Slave Trade: factors that led to development of Trans- Saharan",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f840d82c-dfa1-4444-9540-fdaf3f7f0d8c",
+          "officialTitle": "Competency Based Curriculum Grade 8 Social Studies",
+          "sourceSnapshotHash": "bf05ebf1178147309366d670199361db05bff626032973ba95a6c0ca3b89819d"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-social-studies-topic-008",
+      "strandId": "4fce0435-08b0-41ca-932a-01de0c9f2fcc",
+      "parentSubStrandId": "d92aa80e-346c-4bf1-8af4-be90324f5f88",
+      "subStrandId": "d92aa80e-346c-4bf1-8af4-be90324f5f88:topic-2",
+      "strandTitle": "People and Relationships",
+      "unitTitle": "Trans Saharan Slave Trade: desire to promote social justice in a society.",
+      "sourceUnitTitle": "Trans Saharan Slave Trade",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-social-3-3-outcome-5",
+          "text": "desire to promote social justice in a society."
+        }
+      ],
+      "inquiryQuestions": [
+        "Why do people subject others to slave trade?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Trans Saharan Slave Trade.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Trans Saharan Slave Trade: desire to promote social justice in a society.",
+        "Trans Saharan Slave Trade",
+        "Trans",
+        "Saharan",
+        "Slave",
+        "Trade",
+        "desire",
+        "promote"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Trans Saharan Slave Trade: desire to promote social justice in a society.",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Trans Saharan Slave Trade: desire to promote social justice in a society.",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Trans Saharan Slave Trade: desire to promote social justice in a society.",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f840d82c-dfa1-4444-9540-fdaf3f7f0d8c",
+          "officialTitle": "Competency Based Curriculum Grade 8 Social Studies",
+          "sourceSnapshotHash": "bf05ebf1178147309366d670199361db05bff626032973ba95a6c0ca3b89819d"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-social-studies-topic-009",
+      "strandId": "4fce0435-08b0-41ca-932a-01de0c9f2fcc",
+      "parentSubStrandId": "92bc1a33-1b61-447f-beab-183b6e610403",
+      "subStrandId": "92bc1a33-1b61-447f-beab-183b6e610403:topic-1",
+      "strandTitle": "People and Relationships",
+      "unitTitle": "Population Growth in Africa: explore causes and effects of population growth",
+      "sourceUnitTitle": "Population Growth in Africa",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-social-3-4-outcome-1",
+          "text": "explore causes and effects of population growth in Africa"
+        },
+        {
+          "id": "grade-8-social-3-4-outcome-2",
+          "text": "examine types and effects of migration in Africa"
+        },
+        {
+          "id": "grade-8-social-3-4-outcome-3",
+          "text": "illustrate demographic trends in Kenya"
+        },
+        {
+          "id": "grade-8-social-3-4-outcome-4",
+          "text": "create awareness on the effects of population growth in the community"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why is it important to study demographic changes?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Population Growth in Africa.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Population Growth in Africa: explore causes and effects of population growth",
+        "Population Growth in Africa",
+        "Population",
+        "Growth",
+        "Africa",
+        "explore",
+        "causes",
+        "effects"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Population Growth in Africa: explore causes and effects of population growth",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Population Growth in Africa: explore causes and effects of population growth",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Population Growth in Africa: explore causes and effects of population growth",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f840d82c-dfa1-4444-9540-fdaf3f7f0d8c",
+          "officialTitle": "Competency Based Curriculum Grade 8 Social Studies",
+          "sourceSnapshotHash": "bf05ebf1178147309366d670199361db05bff626032973ba95a6c0ca3b89819d"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-social-studies-topic-010",
+      "strandId": "4fce0435-08b0-41ca-932a-01de0c9f2fcc",
+      "parentSubStrandId": "92bc1a33-1b61-447f-beab-183b6e610403",
+      "subStrandId": "92bc1a33-1b61-447f-beab-183b6e610403:topic-2",
+      "strandTitle": "People and Relationships",
+      "unitTitle": "Population Growth in Africa: impact of migration on population growth in Africa.",
+      "sourceUnitTitle": "Population Growth in Africa",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-social-3-4-outcome-5",
+          "text": "appreciate the impact of migration on population growth in Africa."
+        }
+      ],
+      "inquiryQuestions": [
+        "Why is it important to study demographic changes?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Population Growth in Africa.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Population Growth in Africa: impact of migration on population growth in Africa.",
+        "Population Growth in Africa",
+        "Population",
+        "Growth",
+        "Africa",
+        "impact",
+        "migration",
+        "Africa."
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Population Growth in Africa: impact of migration on population growth in Africa.",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Population Growth in Africa: impact of migration on population growth in Africa.",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Population Growth in Africa: impact of migration on population growth in Africa.",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f840d82c-dfa1-4444-9540-fdaf3f7f0d8c",
+          "officialTitle": "Competency Based Curriculum Grade 8 Social Studies",
+          "sourceSnapshotHash": "bf05ebf1178147309366d670199361db05bff626032973ba95a6c0ca3b89819d"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-social-studies-topic-011",
+      "strandId": "4fce0435-08b0-41ca-932a-01de0c9f2fcc",
+      "parentSubStrandId": "a3ea3b4e-63ed-4215-8b0f-5ea5ef65136d",
+      "subStrandId": "a3ea3b4e-63ed-4215-8b0f-5ea5ef65136d:topic-1",
+      "strandTitle": "People and Relationships",
+      "unitTitle": "Diversity and interpersonal skills: explore social cultural diversities in Kenya",
+      "sourceUnitTitle": "Diversity and interpersonal skills",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-social-3-5-outcome-1",
+          "text": "explore social cultural diversities in Kenya"
+        },
+        {
+          "id": "grade-8-social-3-5-outcome-2",
+          "text": "explain ways of building a healthy self-esteem in diverse social cultural society"
+        },
+        {
+          "id": "grade-8-social-3-5-outcome-3",
+          "text": "describe the impact of emotions on self and others"
+        },
+        {
+          "id": "grade-8-social-3-5-outcome-4",
+          "text": "manage peer pressure in a culturally diverse environment"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can we demonstrate respect and appreciation of social cultural diversity and inclusion?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Diversity and interpersonal skills.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Diversity and interpersonal skills: explore social cultural diversities in Kenya",
+        "Diversity and interpersonal skills",
+        "Diversity",
+        "interpersonal",
+        "skills",
+        "explore",
+        "social",
+        "cultural"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Diversity and interpersonal skills: explore social cultural diversities in Kenya",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Diversity and interpersonal skills: explore social cultural diversities in Kenya",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Diversity and interpersonal skills: explore social cultural diversities in Kenya",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f840d82c-dfa1-4444-9540-fdaf3f7f0d8c",
+          "officialTitle": "Competency Based Curriculum Grade 8 Social Studies",
+          "sourceSnapshotHash": "bf05ebf1178147309366d670199361db05bff626032973ba95a6c0ca3b89819d"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-social-studies-topic-012",
+      "strandId": "4fce0435-08b0-41ca-932a-01de0c9f2fcc",
+      "parentSubStrandId": "a3ea3b4e-63ed-4215-8b0f-5ea5ef65136d",
+      "subStrandId": "a3ea3b4e-63ed-4215-8b0f-5ea5ef65136d:topic-2",
+      "strandTitle": "People and Relationships",
+      "unitTitle": "Diversity and interpersonal skills: social cultural diversities in Kenya.",
+      "sourceUnitTitle": "Diversity and interpersonal skills",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-social-3-5-outcome-5",
+          "text": "appreciate social cultural diversities in Kenya."
+        }
+      ],
+      "inquiryQuestions": [
+        "How can we demonstrate respect and appreciation of social cultural diversity and inclusion?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Diversity and interpersonal skills.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Diversity and interpersonal skills: social cultural diversities in Kenya.",
+        "Diversity and interpersonal skills",
+        "Diversity",
+        "interpersonal",
+        "skills",
+        "social",
+        "cultural",
+        "diversities"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Diversity and interpersonal skills: social cultural diversities in Kenya.",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Diversity and interpersonal skills: social cultural diversities in Kenya.",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Diversity and interpersonal skills: social cultural diversities in Kenya.",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f840d82c-dfa1-4444-9540-fdaf3f7f0d8c",
+          "officialTitle": "Competency Based Curriculum Grade 8 Social Studies",
+          "sourceSnapshotHash": "bf05ebf1178147309366d670199361db05bff626032973ba95a6c0ca3b89819d"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-social-studies-topic-013",
+      "strandId": "4fce0435-08b0-41ca-932a-01de0c9f2fcc",
+      "parentSubStrandId": "a8b54cae-e54e-49db-bf48-95857c9f022e",
+      "subStrandId": "a8b54cae-e54e-49db-bf48-95857c9f022e:topic-1",
+      "strandTitle": "People and Relationships",
+      "unitTitle": "Peaceful Conflict Resolution Negotiation Mediation Arbitration: situations that lead to conflicts in the family",
+      "sourceUnitTitle": "Peaceful Conflict Resolution Negotiation Mediation Arbitration",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-social-3-6-outcome-1",
+          "text": "identify situations that lead to conflicts in the family"
+        },
+        {
+          "id": "grade-8-social-3-6-outcome-2",
+          "text": "apply peaceful ways of resolving conflicts in the family"
+        },
+        {
+          "id": "grade-8-social-3-6-outcome-3",
+          "text": "design strategies for effective communication in resolving conflicts"
+        },
+        {
+          "id": "grade-8-social-3-6-outcome-4",
+          "text": "build healthy relationships to promote peace in the family"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can resolving conflicts help us live peacefully in the community?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Peaceful Conflict Resolution Negotiation Mediation Arbitration.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Peaceful Conflict Resolution Negotiation Mediation Arbitration: situations that lead to conflicts in the family",
+        "Peaceful Conflict Resolution Negotiation Mediation Arbitration",
+        "Peaceful",
+        "Conflict",
+        "Resolution",
+        "Negotiation",
+        "Mediation",
+        "Arbitration"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Peaceful Conflict Resolution Negotiation Mediation Arbitration: situations that lead to conflicts in the family",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Peaceful Conflict Resolution Negotiation Mediation Arbitration: situations that lead to conflicts in the family",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Peaceful Conflict Resolution Negotiation Mediation Arbitration: situations that lead to conflicts in the family",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f840d82c-dfa1-4444-9540-fdaf3f7f0d8c",
+          "officialTitle": "Competency Based Curriculum Grade 8 Social Studies",
+          "sourceSnapshotHash": "bf05ebf1178147309366d670199361db05bff626032973ba95a6c0ca3b89819d"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-social-studies-topic-014",
+      "strandId": "4fce0435-08b0-41ca-932a-01de0c9f2fcc",
+      "parentSubStrandId": "a8b54cae-e54e-49db-bf48-95857c9f022e",
+      "subStrandId": "a8b54cae-e54e-49db-bf48-95857c9f022e:topic-2",
+      "strandTitle": "People and Relationships",
+      "unitTitle": "Peaceful Conflict Resolution Negotiation Mediation Arbitration: show empathy with survivors of conflicts",
+      "sourceUnitTitle": "Peaceful Conflict Resolution Negotiation Mediation Arbitration",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-social-3-6-outcome-5",
+          "text": "show empathy with survivors of conflicts in the family"
+        },
+        {
+          "id": "grade-8-social-3-6-outcome-6",
+          "text": "appreciate the culture of peace in a society."
+        }
+      ],
+      "inquiryQuestions": [
+        "How can resolving conflicts help us live peacefully in the community?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Peaceful Conflict Resolution Negotiation Mediation Arbitration.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Peaceful Conflict Resolution Negotiation Mediation Arbitration: show empathy with survivors of conflicts",
+        "Peaceful Conflict Resolution Negotiation Mediation Arbitration",
+        "Peaceful",
+        "Conflict",
+        "Resolution",
+        "Negotiation",
+        "Mediation",
+        "Arbitration"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Peaceful Conflict Resolution Negotiation Mediation Arbitration: show empathy with survivors of conflicts",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Peaceful Conflict Resolution Negotiation Mediation Arbitration: show empathy with survivors of conflicts",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Peaceful Conflict Resolution Negotiation Mediation Arbitration: show empathy with survivors of conflicts",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f840d82c-dfa1-4444-9540-fdaf3f7f0d8c",
+          "officialTitle": "Competency Based Curriculum Grade 8 Social Studies",
+          "sourceSnapshotHash": "bf05ebf1178147309366d670199361db05bff626032973ba95a6c0ca3b89819d"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-social-studies-topic-015",
+      "strandId": "e468ee3e-d4ff-4c63-a169-adc71313054c",
+      "parentSubStrandId": "b8d96183-f91c-4ef7-aceb-77cd5a2a8e83",
+      "subStrandId": "b8d96183-f91c-4ef7-aceb-77cd5a2a8e83:topic-1",
+      "strandTitle": "Natural and Historic Built Environments",
+      "unitTitle": "Map Reading and Interpretation: interpret maps using marginal information",
+      "sourceUnitTitle": "Map Reading and Interpretation",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-social-4-1-outcome-1",
+          "text": "interpret maps using marginal information"
+        },
+        {
+          "id": "grade-8-social-4-1-outcome-2",
+          "text": "calculate areas of places on a topographical map"
+        },
+        {
+          "id": "grade-8-social-4-1-outcome-3",
+          "text": "describe the different methods of representing physical features on topographical maps"
+        },
+        {
+          "id": "grade-8-social-4-1-outcome-4",
+          "text": "apply critical thinking skills in map interpretation"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can critical thinking be used in map interpretation?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Map Reading and Interpretation.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Map Reading and Interpretation: interpret maps using marginal information",
+        "Map Reading and Interpretation",
+        "Reading",
+        "Interpretation",
+        "interpret",
+        "using",
+        "marginal",
+        "information"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Map Reading and Interpretation: interpret maps using marginal information",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Map Reading and Interpretation: interpret maps using marginal information",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Map Reading and Interpretation: interpret maps using marginal information",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f840d82c-dfa1-4444-9540-fdaf3f7f0d8c",
+          "officialTitle": "Competency Based Curriculum Grade 8 Social Studies",
+          "sourceSnapshotHash": "bf05ebf1178147309366d670199361db05bff626032973ba95a6c0ca3b89819d"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-social-studies-topic-016",
+      "strandId": "e468ee3e-d4ff-4c63-a169-adc71313054c",
+      "parentSubStrandId": "b8d96183-f91c-4ef7-aceb-77cd5a2a8e83",
+      "subStrandId": "b8d96183-f91c-4ef7-aceb-77cd5a2a8e83:topic-2",
+      "strandTitle": "Natural and Historic Built Environments",
+      "unitTitle": "Map Reading and Interpretation: map reading and interpretation in day-to-day life.",
+      "sourceUnitTitle": "Map Reading and Interpretation",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-social-4-1-outcome-5",
+          "text": "value map reading and interpretation in day-to-day life."
+        }
+      ],
+      "inquiryQuestions": [
+        "How can critical thinking be used in map interpretation?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Map Reading and Interpretation.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Map Reading and Interpretation: map reading and interpretation in day-to-day life.",
+        "Map Reading and Interpretation",
+        "Reading",
+        "Interpretation",
+        "day-to-day",
+        "life."
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Map Reading and Interpretation: map reading and interpretation in day-to-day life.",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Map Reading and Interpretation: map reading and interpretation in day-to-day life.",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Map Reading and Interpretation: map reading and interpretation in day-to-day life.",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f840d82c-dfa1-4444-9540-fdaf3f7f0d8c",
+          "officialTitle": "Competency Based Curriculum Grade 8 Social Studies",
+          "sourceSnapshotHash": "bf05ebf1178147309366d670199361db05bff626032973ba95a6c0ca3b89819d"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-social-studies-topic-017",
+      "strandId": "e468ee3e-d4ff-4c63-a169-adc71313054c",
+      "parentSubStrandId": "96d9d8b5-ed9f-4480-8d72-0416a9f3f9ea",
+      "subStrandId": "96d9d8b5-ed9f-4480-8d72-0416a9f3f9ea:topic-1",
+      "strandTitle": "Natural and Historic Built Environments",
+      "unitTitle": "Weather and Climate Desert Semi-desert Tropical Mediterranean Mountain: examine factors influencing climate in Africa",
+      "sourceUnitTitle": "Weather and Climate Desert Semi-desert Tropical Mediterranean Mountain",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-social-4-2-outcome-1",
+          "text": "examine factors influencing climate in Africa"
+        },
+        {
+          "id": "grade-8-social-4-2-outcome-2",
+          "text": "illustrate distribution and characteristics of major climatic regions of Africa"
+        },
+        {
+          "id": "grade-8-social-4-2-outcome-3",
+          "text": "explore positive ways of managing disaster-related stress"
+        },
+        {
+          "id": "grade-8-social-4-2-outcome-4",
+          "text": "apply problem-solving skills in addressing effects of climate change on the environment"
+        }
+      ],
+      "inquiryQuestions": [
+        "How does climate change affect human activities?",
+        "How can one manage stress during disasters?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Weather and Climate Desert Semi-desert Tropical Mediterranean Mountain.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Weather and Climate Desert Semi-desert Tropical Mediterranean Mountain: examine factors influencing climate in Africa",
+        "Weather and Climate Desert Semi-desert Tropical Mediterranean Mountain",
+        "Weather",
+        "Climate",
+        "Desert",
+        "Semi-desert",
+        "Tropical",
+        "Mediterranean"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Weather and Climate Desert Semi-desert Tropical Mediterranean Mountain: examine factors influencing climate in Africa",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Weather and Climate Desert Semi-desert Tropical Mediterranean Mountain: examine factors influencing climate in Africa",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Weather and Climate Desert Semi-desert Tropical Mediterranean Mountain: examine factors influencing climate in Africa",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f840d82c-dfa1-4444-9540-fdaf3f7f0d8c",
+          "officialTitle": "Competency Based Curriculum Grade 8 Social Studies",
+          "sourceSnapshotHash": "bf05ebf1178147309366d670199361db05bff626032973ba95a6c0ca3b89819d"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-social-studies-topic-018",
+      "strandId": "e468ee3e-d4ff-4c63-a169-adc71313054c",
+      "parentSubStrandId": "96d9d8b5-ed9f-4480-8d72-0416a9f3f9ea",
+      "subStrandId": "96d9d8b5-ed9f-4480-8d72-0416a9f3f9ea:topic-2",
+      "strandTitle": "Natural and Historic Built Environments",
+      "unitTitle": "Weather and Climate Desert Semi-desert Tropical Mediterranean Mountain: effects of climate on human activities.",
+      "sourceUnitTitle": "Weather and Climate Desert Semi-desert Tropical Mediterranean Mountain",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-social-4-2-outcome-5",
+          "text": "recognise the effects of climate on human activities."
+        }
+      ],
+      "inquiryQuestions": [
+        "How can one manage stress during disasters?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Weather and Climate Desert Semi-desert Tropical Mediterranean Mountain.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Weather and Climate Desert Semi-desert Tropical Mediterranean Mountain: effects of climate on human activities.",
+        "Weather and Climate Desert Semi-desert Tropical Mediterranean Mountain",
+        "Weather",
+        "Climate",
+        "Desert",
+        "Semi-desert",
+        "Tropical",
+        "Mediterranean"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Weather and Climate Desert Semi-desert Tropical Mediterranean Mountain: effects of climate on human activities.",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Weather and Climate Desert Semi-desert Tropical Mediterranean Mountain: effects of climate on human activities.",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Weather and Climate Desert Semi-desert Tropical Mediterranean Mountain: effects of climate on human activities.",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f840d82c-dfa1-4444-9540-fdaf3f7f0d8c",
+          "officialTitle": "Competency Based Curriculum Grade 8 Social Studies",
+          "sourceSnapshotHash": "bf05ebf1178147309366d670199361db05bff626032973ba95a6c0ca3b89819d"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-social-studies-topic-019",
+      "strandId": "e468ee3e-d4ff-4c63-a169-adc71313054c",
+      "parentSubStrandId": "56529618-eae9-418c-8228-b161851acb4a",
+      "subStrandId": "56529618-eae9-418c-8228-b161851acb4a:topic-1",
+      "strandTitle": "Natural and Historic Built Environments",
+      "unitTitle": "Vegetation in Africa: explain factors influencing vegetation distribution in Africa",
+      "sourceUnitTitle": "Vegetation in Africa",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-social-4-3-outcome-1",
+          "text": "explain factors influencing vegetation distribution in Africa"
+        },
+        {
+          "id": "grade-8-social-4-3-outcome-2",
+          "text": "describe the characteristics of major vegetation regions of Africa on the map"
+        },
+        {
+          "id": "grade-8-social-4-3-outcome-3",
+          "text": "locate the major vegetation regions of Africa"
+        },
+        {
+          "id": "grade-8-social-4-3-outcome-4",
+          "text": "apply methods of conserving vegetation in the community"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why should we care for vegetation in our environment?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Vegetation in Africa.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Vegetation in Africa: explain factors influencing vegetation distribution in Africa",
+        "Vegetation in Africa",
+        "Vegetation",
+        "Africa",
+        "explain",
+        "factors",
+        "influencing",
+        "distribution"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Vegetation in Africa: explain factors influencing vegetation distribution in Africa",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Vegetation in Africa: explain factors influencing vegetation distribution in Africa",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Vegetation in Africa: explain factors influencing vegetation distribution in Africa",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f840d82c-dfa1-4444-9540-fdaf3f7f0d8c",
+          "officialTitle": "Competency Based Curriculum Grade 8 Social Studies",
+          "sourceSnapshotHash": "bf05ebf1178147309366d670199361db05bff626032973ba95a6c0ca3b89819d"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-social-studies-topic-020",
+      "strandId": "e468ee3e-d4ff-4c63-a169-adc71313054c",
+      "parentSubStrandId": "56529618-eae9-418c-8228-b161851acb4a",
+      "subStrandId": "56529618-eae9-418c-8228-b161851acb4a:topic-2",
+      "strandTitle": "Natural and Historic Built Environments",
+      "unitTitle": "Vegetation in Africa: explore personal interests in conservation of vegetation",
+      "sourceUnitTitle": "Vegetation in Africa",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-social-4-3-outcome-5",
+          "text": "explore personal interests in conservation of vegetation for career exploration"
+        },
+        {
+          "id": "grade-8-social-4-3-outcome-6",
+          "text": "appreciate vegetation conservation for environmental sustainability."
+        }
+      ],
+      "inquiryQuestions": [
+        "Why should we care for vegetation in our environment?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Vegetation in Africa.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Vegetation in Africa: explore personal interests in conservation of vegetation",
+        "Vegetation in Africa",
+        "Vegetation",
+        "Africa",
+        "explore",
+        "personal",
+        "interests",
+        "conservation"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Vegetation in Africa: explore personal interests in conservation of vegetation",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Vegetation in Africa: explore personal interests in conservation of vegetation",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Vegetation in Africa: explore personal interests in conservation of vegetation",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f840d82c-dfa1-4444-9540-fdaf3f7f0d8c",
+          "officialTitle": "Competency Based Curriculum Grade 8 Social Studies",
+          "sourceSnapshotHash": "bf05ebf1178147309366d670199361db05bff626032973ba95a6c0ca3b89819d"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-social-studies-topic-021",
+      "strandId": "e468ee3e-d4ff-4c63-a169-adc71313054c",
+      "parentSubStrandId": "cfc90d3d-4976-4e4e-908e-9425cf99df45",
+      "subStrandId": "cfc90d3d-4976-4e4e-908e-9425cf99df45:topic-1",
+      "strandTitle": "Natural and Historic Built Environments",
+      "unitTitle": "Historical Sites and Monuments in Africa Fort Jesus Kilwa Great Zimbabwe Giza: locate selected historical sites",
+      "sourceUnitTitle": "Historical Sites and Monuments in Africa Fort Jesus Kilwa Great Zimbabwe Giza pyramids Meroe Timbuktu Robben Island",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-social-4-4-outcome-1",
+          "text": "locate selected historical sites and monuments in Africa"
+        },
+        {
+          "id": "grade-8-social-4-4-outcome-2",
+          "text": "examine the importance of historical sites and monuments for the preservation of cultural heritage"
+        },
+        {
+          "id": "grade-8-social-4-4-outcome-3",
+          "text": "explore ways of conserving historical sites and monuments in Africa"
+        },
+        {
+          "id": "grade-8-social-4-4-outcome-4",
+          "text": "apply ways of conserving cultural heritage in community"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why should we conserve historical sites and monuments?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Historical Sites and Monuments in Africa Fort Jesus Kilwa Great Zimbabwe Giza pyramids Meroe Timbuktu Robben Island.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Historical Sites and Monuments in Africa Fort Jesus Kilwa Great Zimbabwe Giza: locate selected historical sites",
+        "Historical Sites and Monuments in Africa Fort Jesus Kilwa Great Zimbabwe Giza pyramids Meroe Timbuktu Robben Island",
+        "Historical",
+        "Sites",
+        "Monuments",
+        "Africa",
+        "Jesus",
+        "Kilwa"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Historical Sites and Monuments in Africa Fort Jesus Kilwa Great Zimbabwe Giza: locate selected historical sites",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Historical Sites and Monuments in Africa Fort Jesus Kilwa Great Zimbabwe Giza: locate selected historical sites",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Historical Sites and Monuments in Africa Fort Jesus Kilwa Great Zimbabwe Giza: locate selected historical sites",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f840d82c-dfa1-4444-9540-fdaf3f7f0d8c",
+          "officialTitle": "Competency Based Curriculum Grade 8 Social Studies",
+          "sourceSnapshotHash": "bf05ebf1178147309366d670199361db05bff626032973ba95a6c0ca3b89819d"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-social-studies-topic-022",
+      "strandId": "e468ee3e-d4ff-4c63-a169-adc71313054c",
+      "parentSubStrandId": "cfc90d3d-4976-4e4e-908e-9425cf99df45",
+      "subStrandId": "cfc90d3d-4976-4e4e-908e-9425cf99df45:topic-2",
+      "strandTitle": "Natural and Historic Built Environments",
+      "unitTitle": "Historical Sites and Monuments in Africa Fort Jesus Kilwa Great Zimbabwe Giza: desire to conserve historical",
+      "sourceUnitTitle": "Historical Sites and Monuments in Africa Fort Jesus Kilwa Great Zimbabwe Giza pyramids Meroe Timbuktu Robben Island",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-social-4-4-outcome-5",
+          "text": "desire to conserve historical sites and monuments"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why should we conserve historical sites and monuments?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Historical Sites and Monuments in Africa Fort Jesus Kilwa Great Zimbabwe Giza pyramids Meroe Timbuktu Robben Island.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Historical Sites and Monuments in Africa Fort Jesus Kilwa Great Zimbabwe Giza: desire to conserve historical",
+        "Historical Sites and Monuments in Africa Fort Jesus Kilwa Great Zimbabwe Giza pyramids Meroe Timbuktu Robben Island",
+        "Historical",
+        "Sites",
+        "Monuments",
+        "Africa",
+        "Jesus",
+        "Kilwa"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Historical Sites and Monuments in Africa Fort Jesus Kilwa Great Zimbabwe Giza: desire to conserve historical",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Historical Sites and Monuments in Africa Fort Jesus Kilwa Great Zimbabwe Giza: desire to conserve historical",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Historical Sites and Monuments in Africa Fort Jesus Kilwa Great Zimbabwe Giza: desire to conserve historical",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f840d82c-dfa1-4444-9540-fdaf3f7f0d8c",
+          "officialTitle": "Competency Based Curriculum Grade 8 Social Studies",
+          "sourceSnapshotHash": "bf05ebf1178147309366d670199361db05bff626032973ba95a6c0ca3b89819d"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-social-studies-topic-023",
+      "strandId": "e468ee3e-d4ff-4c63-a169-adc71313054c",
+      "parentSubStrandId": "fead2256-bec7-4c00-ae0e-ed2fef8a7886",
+      "subStrandId": "fead2256-bec7-4c00-ae0e-ed2fef8a7886",
+      "strandTitle": "Natural and Historic Built Environments",
+      "unitTitle": "Citizenship",
+      "sourceUnitTitle": "Citizenship",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-social-5-3-outcome-1",
+          "text": "describe qualities of a global citizen in an interconnected society"
+        },
+        {
+          "id": "grade-8-social-5-3-outcome-2",
+          "text": "explore ways in which Nobel Prize nominees responded to injustice situations in the society"
+        },
+        {
+          "id": "grade-8-social-5-3-outcome-3",
+          "text": "explain factors for harmonious coexistence among citizens in East Africa and Africa"
+        },
+        {
+          "id": "grade-8-social-5-3-outcome-4",
+          "text": "exhibit social entrepreneurship and active participation in the community for personal and social"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can we promote global citizenship?",
+        "How can we show empathy as global citizens?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Citizenship.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Citizenship"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Citizenship",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Citizenship",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Citizenship",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f840d82c-dfa1-4444-9540-fdaf3f7f0d8c",
+          "officialTitle": "Competency Based Curriculum Grade 8 Social Studies",
+          "sourceSnapshotHash": "bf05ebf1178147309366d670199361db05bff626032973ba95a6c0ca3b89819d"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-social-studies-topic-024",
+      "strandId": "db7f8ace-5e1d-4b8c-90a8-7726acc4dba6",
+      "parentSubStrandId": "71075e62-5500-4f93-a999-40a484c85571",
+      "subStrandId": "71075e62-5500-4f93-a999-40a484c85571",
+      "strandTitle": "Political Developments and Governance",
+      "unitTitle": "The Constitution of Kenya",
+      "sourceUnitTitle": "The Constitution of Kenya",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-social-5-1-outcome-1",
+          "text": "explore components of the Constitution of Kenya"
+        },
+        {
+          "id": "grade-8-social-5-1-outcome-2",
+          "text": "illustrate roles of the three arms of government of Kenya in reference to the relevant chapters in the Constitution"
+        },
+        {
+          "id": "grade-8-social-5-1-outcome-3",
+          "text": "examine guiding principles of leadership and integrity in the Constitution of Kenya"
+        },
+        {
+          "id": "grade-8-social-5-1-outcome-4",
+          "text": "apply assertiveness in upholding principles of leadership and integrity in daily interactions"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why do we need a constitution?",
+        "Why is assertiveness important in adhering to the Constitution of Kenya?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to The Constitution of Kenya.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "The Constitution of Kenya",
+        "Constitution",
+        "Kenya"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to The Constitution of Kenya",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for The Constitution of Kenya",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for The Constitution of Kenya",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f840d82c-dfa1-4444-9540-fdaf3f7f0d8c",
+          "officialTitle": "Competency Based Curriculum Grade 8 Social Studies",
+          "sourceSnapshotHash": "bf05ebf1178147309366d670199361db05bff626032973ba95a6c0ca3b89819d"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-social-studies-topic-025",
+      "strandId": "db7f8ace-5e1d-4b8c-90a8-7726acc4dba6",
+      "parentSubStrandId": "759aaca4-9292-48e7-84bb-fe5a26020d2a",
+      "subStrandId": "759aaca4-9292-48e7-84bb-fe5a26020d2a:topic-1",
+      "strandTitle": "Political Developments and Governance",
+      "unitTitle": "Human Rights: explore how human rights can be respected",
+      "sourceUnitTitle": "Human Rights",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-social-5-2-outcome-1",
+          "text": "explore how human rights can be respected and protected in the community"
+        },
+        {
+          "id": "grade-8-social-5-2-outcome-2",
+          "text": "describe the process of effective communication on human rights issues"
+        },
+        {
+          "id": "grade-8-social-5-2-outcome-3",
+          "text": "outline Children's Rights in Kenya"
+        },
+        {
+          "id": "grade-8-social-5-2-outcome-4",
+          "text": "demonstrate ways in which children are protected against violation of their Rights in Kenya"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can we promote respect for Children' Rights in the community?",
+        "How can effective Communication foster respect for Human Rights?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Human Rights.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Human Rights: explore how human rights can be respected",
+        "Human Rights",
+        "Human",
+        "Rights",
+        "explore",
+        "respected"
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Human Rights: explore how human rights can be respected",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Human Rights: explore how human rights can be respected",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Human Rights: explore how human rights can be respected",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f840d82c-dfa1-4444-9540-fdaf3f7f0d8c",
+          "officialTitle": "Competency Based Curriculum Grade 8 Social Studies",
+          "sourceSnapshotHash": "bf05ebf1178147309366d670199361db05bff626032973ba95a6c0ca3b89819d"
+        }
+      ]
+    },
+    {
+      "topicId": "G8-social-studies-topic-026",
+      "strandId": "db7f8ace-5e1d-4b8c-90a8-7726acc4dba6",
+      "parentSubStrandId": "759aaca4-9292-48e7-84bb-fe5a26020d2a",
+      "subStrandId": "759aaca4-9292-48e7-84bb-fe5a26020d2a:topic-2",
+      "strandTitle": "Political Developments and Governance",
+      "unitTitle": "Human Rights: responsibility of the society in protecting human rights.",
+      "sourceUnitTitle": "Human Rights",
+      "learningOutcomes": [
+        {
+          "id": "grade-8-social-5-2-outcome-5",
+          "text": "recognise responsibility of the society in protecting human rights."
+        }
+      ],
+      "inquiryQuestions": [
+        "How can effective Communication foster respect for Human Rights?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Human Rights.",
+        "Review vocabulary from the previous Social Studies lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Human Rights: responsibility of the society in protecting human rights.",
+        "Human Rights",
+        "Human",
+        "Rights",
+        "responsibility",
+        "society",
+        "protecting",
+        "rights."
+      ],
+      "misconceptions": [
+        "giving general answers without naming places, people, evidence, or community examples"
+      ],
+      "localContext": "a county, community, map, citizenship, culture, environment, or heritage example linked to Human Rights: responsibility of the society in protecting human rights.",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "answer uses a local example",
+        "reasoning is clear",
+        "citizenship or environment link is explained"
+      ],
+      "visualNeeds": [
+        {
+          "type": "map/timeline/community scene",
+          "description": "map/timeline/community scene for Human Rights: responsibility of the society in protecting human rights.",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "fieldwork observation table",
+          "description": "fieldwork observation table for Human Rights: responsibility of the society in protecting human rights.",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "f840d82c-dfa1-4444-9540-fdaf3f7f0d8c",
+          "officialTitle": "Competency Based Curriculum Grade 8 Social Studies",
+          "sourceSnapshotHash": "bf05ebf1178147309366d670199361db05bff626032973ba95a6c0ca3b89819d"
+        }
+      ]
+    }
+  ]
+}

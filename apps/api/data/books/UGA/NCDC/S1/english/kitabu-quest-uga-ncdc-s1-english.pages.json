@@ -1,0 +1,2780 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-uga-ncdc-s1-english",
+  "title": "KITABU QUEST S1 English",
+  "country": "UGA",
+  "curriculum": "NCDC",
+  "grade": "S1",
+  "subject": "English",
+  "subjectSlug": "english",
+  "subjectColor": "#2563EB",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v12",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:12:30Z",
+  "sourceSnapshotHash": "215fc3d88b2cb5e0c25b52010d5760b90a7818f0e08b4bb39a2d4640c4151641",
+  "bookPlanHash": "847b03ae0dded81d3e1179fa5f5f56666177df69caace4906f59c8e436f8a510",
+  "pageCount": 111,
+  "wordCount": 9593,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 5,
+    "outcomeCount": 5,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "UGA",
+    "subject": "English",
+    "species": "hare",
+    "role": "storytelling and reading guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "secondary learners in a reading and debate club with a friendly hare mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Uganda NCDC S1 English. Scene: secondary learners in a reading and debate club with a friendly hare mascot. Include a friendly hare mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 84923,
+    "sha256": "c7e3b47003255e273e0f49e2ee57b72767584e10156271157b47cffdbf200c4d"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 84923,
+      "sha256": "c7e3b47003255e273e0f49e2ee57b72767584e10156271157b47cffdbf200c4d",
+      "kind": "cover",
+      "altText": "KITABU QUEST S1 English cover with hare",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-uga-ncdc-s1-english.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-uga-ncdc-s1-english.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "eae8d658-3106-4323-b6e9-dda27622d23e",
+      "subject": "English",
+      "officialTitle": "Uganda Curriculum S1 English",
+      "countryCode": "UGA",
+      "curriculumCode": "NCDC",
+      "gradeCode": "S1",
+      "gradeLocalLevel": "S1",
+      "localLevel": "S1",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/ENGLISH_SYLLABUS_compressed.pdf",
+      "objectKey": "data/curriculum/source-files/UGA/65302ab1f4eb482c38c38410d96d1dbe8ab9758f16c41ae0e9c3dacd97c58df3.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "S1",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/ENGLISH_SYLLABUS_compressed.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/UGA/NCDC/S1/english/eae8d658-3106-4323-b6e9-dda27622d23e.md",
+        "sourcePageUrl": "https://ncdc.go.ug/lower-secondary-curriculum-embraced/",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "ncdc.go.ug"
+        ],
+        "markdownChecksum": "42319a3de9f9b920dc9f34fa42c22c00605b2d84c70b0edc4e6f3b3c71b6b79d",
+        "markdownPageCount": 92,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/UGA/NCDC/S1/english/eae8d658-3106-4323-b6e9-dda27622d23e.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "42319a3de9f9b920dc9f34fa42c22c00605b2d84c70b0edc4e6f3b3c71b6b79d",
+          "pageCount": 92,
+          "generatedAt": "2026-06-29T17:40:22.954Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "83b277257c4ba9df93b1a167ca903156886e1c52bf1ae0a726296fed3f80c5b7"
+        },
+        "markdownGeneratedAt": "2026-06-29T17:40:22.954Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p001",
+      "title": "Title Page",
+      "content": "KITABU QUEST S1 English\n\nUganda NCDC learner book\n\nMascot: hare\n\nThis KITABU QUEST book turns the curriculum into short lessons, worked examples, guided activities, practice, review, and home links for Uganda learners.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 3,
+      "wordCount": 32,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p002",
+      "title": "How To Use This Book",
+      "content": "This book helps S1 learners study English one teachable topic at a time.\n\n1. Start with the inquiry question and say what you already know.\n2. Read the Learn section slowly and mark new words.\n3. Try the worked example before reading the full solution.\n4. Complete the activity and practice tasks.\n5. Correct your answer using the success criteria.\n6. Ask for support when your answer is still unclear.\n\nSubject method: Read, speak, listen, write, and edit in connected language tasks.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 82,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p003",
+      "title": "Learning Skills In This Book",
+      "content": "Each topic builds knowledge, skill, values, communication, collaboration, critical thinking, creativity, digital awareness, and self-confidence.\n\nStudy actively: speak answers aloud, draw when useful, show your working, cite evidence, use local examples, and correct mistakes after feedback.\n\nA strong answer is specific. It names the idea, gives evidence or method, applies it to the task, and checks whether it answers the question.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p004",
+      "title": "Table Of Contents",
+      "content": "Use this table to move through the book one topic at a time. Each topic has a lesson opener, clear teaching, a model or example, guided work, practice, and checks for understanding.\n\n1. The Uganda Vision 2040 aims to transform Uganda into a\n2. The ESSP further outlines what the reforms imply\n3. English Topic\n4. ENGLISH SYLLABUS\n5. ENGLISH SYLLABUS\n\nAs you finish each topic, return to the success criteria and correct one answer before moving on.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 78,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p005",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a: Lesson Opener",
+      "content": "Learning focus: The Uganda Vision 2040 aims to transform Uganda into a\n\nCountry link: a Uganda reading, speaking, listening, writing, or discussion task for The Uganda Vision 2040 aims to transform Uganda into a.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application.\n\nBy the end of this topic, you should be able to:\n- read, speak, listen, write, and edit clearly about the uganda vision 2040 aims to transform uganda into a\n\nInquiry questions:\n- How can the uganda vision 2040 aims to transform uganda into a help you solve a real problem?\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "UGA-S1-english-topic-001:opener:visual-1:planned",
+        "UGA-S1-english-topic-001:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "unitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "parentUnitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "outcomeIds": [
+        "258c8cbe-dd61-4e00-bc20-b1dbc8ac662c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p006",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a: Learn",
+      "content": "The Uganda Vision 2040 aims to transform Uganda into a teaches learners to understand a message and respond clearly.\n\nMini task:\nRead or listen to a short text. Say the main idea. Name two details. Use the details to write or speak a clear answer.\n\nLanguage focus:\n- Use complete sentences.\n- Choose words that fit the situation.\n- Check spelling, punctuation, grammar, and meaning.\n\nLocal link: use examples from Uganda school, home, community, culture, environment, and daily responsibilities.\n\nKey words:\n- The Uganda Vision 2040 aims to transform Uganda into a\n- Uganda\n- Vision\n- 2040\n- aims\n- transform\n- into\n- read",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "UGA-S1-english-topic-001:learn:visual-1:planned",
+        "UGA-S1-english-topic-001:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "unitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "parentUnitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "outcomeIds": [
+        "258c8cbe-dd61-4e00-bc20-b1dbc8ac662c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p007",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a: Worked Example",
+      "content": "Worked example for The Uganda Vision 2040 aims to transform Uganda into a: Read a short text, find the main idea, and answer clearly.\n\nModel answer frame:\nThe text is about _____. One important detail is _____. Another detail is _____. I think _____ because _____.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 46,
+      "imageRefs": [
+        "UGA-S1-english-topic-001:example:visual-1:planned",
+        "UGA-S1-english-topic-001:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "unitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "parentUnitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "outcomeIds": [
+        "258c8cbe-dd61-4e00-bc20-b1dbc8ac662c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p008",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise The Uganda Vision 2040 aims to transform Uganda into a. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- The Uganda Vision 2040 aims to transform Uganda into a\n- Uganda\n- Vision\n- 2040\n- aims\n- transform\n- into\n- read\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Uganda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about The Uganda Vision 2040 aims to transform Uganda into a without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 136,
+      "imageRefs": [
+        "UGA-S1-english-topic-001:vocabulary:visual-1:planned",
+        "UGA-S1-english-topic-001:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "unitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "parentUnitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "outcomeIds": [
+        "258c8cbe-dd61-4e00-bc20-b1dbc8ac662c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p009",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a: Guided Activity",
+      "content": "Guided activity for The Uganda Vision 2040 aims to transform Uganda into a:\n\n1. Read the mini passage or dialogue aloud.\n2. Underline three useful words or expressions.\n3. Answer one oral question about the text.\n4. Write three to five sentences linked to The Uganda Vision 2040 aims to transform Uganda into a.\n5. Read your answer to a partner and improve one sentence.\n\nTeacher check: the answer should use the topic vocabulary and complete sentences.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 77,
+      "imageRefs": [
+        "UGA-S1-english-topic-001:activity:visual-1:planned",
+        "UGA-S1-english-topic-001:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "unitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "parentUnitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "outcomeIds": [
+        "258c8cbe-dd61-4e00-bc20-b1dbc8ac662c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p010",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a: Practice And Correction",
+      "content": "Practice for The Uganda Vision 2040 aims to transform Uganda into a:\n\nMain outcome: read, speak, listen, write, and edit clearly about the uganda vision 2040 aims to transform uganda into a.\n\n1. Read or listen to a short text.\n2. Say the main idea.\n3. Write three clear sentences with correct punctuation.\n\nCorrection check:\n- Are the sentences complete?\n- Are spelling and punctuation checked?\n- Does the answer match the topic?\n\nHome link: Ask someone at home one question about the uganda vision 2040 aims to transform uganda into a and write their answer in two clear sentences.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 100,
+      "imageRefs": [
+        "UGA-S1-english-topic-001:practice:visual-1:planned",
+        "UGA-S1-english-topic-001:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "unitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "parentUnitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "outcomeIds": [
+        "258c8cbe-dd61-4e00-bc20-b1dbc8ac662c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p011",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from The Uganda Vision 2040 aims to transform Uganda into a.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "UGA-S1-english-topic-001:remediation:visual-1:planned",
+        "UGA-S1-english-topic-001:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "unitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "parentUnitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "outcomeIds": [
+        "258c8cbe-dd61-4e00-bc20-b1dbc8ac662c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p012",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a: Outcome Check",
+      "content": "Outcome check for The Uganda Vision 2040 aims to transform Uganda into a: Read, speak, listen, write, and edit clearly about the uganda vision 2040 aims to transform uganda into a.\n\n1. Read, listen, speak, or write a short response linked to this topic.\n2. Use at least three topic words correctly.\n3. Use complete sentences.\n4. Check spelling, punctuation, grammar, and meaning.\n5. Improve one sentence after feedback.\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 88,
+      "imageRefs": [
+        "UGA-S1-english-topic-001:assessment:visual-1:planned",
+        "UGA-S1-english-topic-001:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "unitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "parentUnitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "outcomeIds": [
+        "258c8cbe-dd61-4e00-bc20-b1dbc8ac662c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p013",
+      "title": "The ESSP further outlines what the reforms imply: Lesson Opener",
+      "content": "Learning focus: The ESSP further outlines what the reforms imply\n\nCountry link: a Uganda reading, speaking, listening, writing, or discussion task for The ESSP further outlines what the reforms imply.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application.\n\nBy the end of this topic, you should be able to:\n- read, speak, listen, write, and edit clearly about the essp further outlines what the reforms imply\n\nInquiry questions:\n- How can the essp further outlines what the reforms imply help you solve a real problem?\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "UGA-S1-english-topic-002:opener:visual-1:planned",
+        "UGA-S1-english-topic-002:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "unitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "parentUnitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "outcomeIds": [
+        "277e6d66-81c2-44f2-960a-f606980b1043"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p014",
+      "title": "The ESSP further outlines what the reforms imply: Learn",
+      "content": "The ESSP further outlines what the reforms imply teaches learners to understand a message and respond clearly.\n\nMini task:\nRead or listen to a short text. Say the main idea. Name two details. Use the details to write or speak a clear answer.\n\nLanguage focus:\n- Use complete sentences.\n- Choose words that fit the situation.\n- Check spelling, punctuation, grammar, and meaning.\n\nLocal link: use examples from Uganda school, home, community, culture, environment, and daily responsibilities.\n\nKey words:\n- The ESSP further outlines what the reforms imply\n- ESSP\n- further\n- outlines\n- what\n- reforms\n- imply\n- read",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 102,
+      "imageRefs": [
+        "UGA-S1-english-topic-002:learn:visual-1:planned",
+        "UGA-S1-english-topic-002:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "unitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "parentUnitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "outcomeIds": [
+        "277e6d66-81c2-44f2-960a-f606980b1043"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p015",
+      "title": "The ESSP further outlines what the reforms imply: Worked Example",
+      "content": "Worked example for The ESSP further outlines what the reforms imply: Read a short text, find the main idea, and answer clearly.\n\nModel answer frame:\nThe text is about _____. One important detail is _____. Another detail is _____. I think _____ because _____.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 44,
+      "imageRefs": [
+        "UGA-S1-english-topic-002:example:visual-1:planned",
+        "UGA-S1-english-topic-002:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "unitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "parentUnitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "outcomeIds": [
+        "277e6d66-81c2-44f2-960a-f606980b1043"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p016",
+      "title": "The ESSP further outlines what the reforms imply: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise The ESSP further outlines what the reforms imply. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- The ESSP further outlines what the reforms imply\n- ESSP\n- further\n- outlines\n- what\n- reforms\n- imply\n- read\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Uganda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about The ESSP further outlines what the reforms imply without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 130,
+      "imageRefs": [
+        "UGA-S1-english-topic-002:vocabulary:visual-1:planned",
+        "UGA-S1-english-topic-002:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "unitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "parentUnitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "outcomeIds": [
+        "277e6d66-81c2-44f2-960a-f606980b1043"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p017",
+      "title": "The ESSP further outlines what the reforms imply: Guided Activity",
+      "content": "Guided activity for The ESSP further outlines what the reforms imply:\n\n1. Read the mini passage or dialogue aloud.\n2. Underline three useful words or expressions.\n3. Answer one oral question about the text.\n4. Write three to five sentences linked to The ESSP further outlines what the reforms imply.\n5. Read your answer to a partner and improve one sentence.\n\nTeacher check: the answer should use the topic vocabulary and complete sentences.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 73,
+      "imageRefs": [
+        "UGA-S1-english-topic-002:activity:visual-1:planned",
+        "UGA-S1-english-topic-002:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "unitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "parentUnitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "outcomeIds": [
+        "277e6d66-81c2-44f2-960a-f606980b1043"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p018",
+      "title": "The ESSP further outlines what the reforms imply: Practice And Correction",
+      "content": "Practice for The ESSP further outlines what the reforms imply:\n\nMain outcome: read, speak, listen, write, and edit clearly about the essp further outlines what the reforms imply.\n\n1. Read or listen to a short text.\n2. Say the main idea.\n3. Write three clear sentences with correct punctuation.\n\nCorrection check:\n- Are the sentences complete?\n- Are spelling and punctuation checked?\n- Does the answer match the topic?\n\nHome link: Ask someone at home one question about the essp further outlines what the reforms imply and write their answer in two clear sentences.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "UGA-S1-english-topic-002:practice:visual-1:planned",
+        "UGA-S1-english-topic-002:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "unitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "parentUnitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "outcomeIds": [
+        "277e6d66-81c2-44f2-960a-f606980b1043"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p019",
+      "title": "The ESSP further outlines what the reforms imply: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from The ESSP further outlines what the reforms imply.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 113,
+      "imageRefs": [
+        "UGA-S1-english-topic-002:remediation:visual-1:planned",
+        "UGA-S1-english-topic-002:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "unitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "parentUnitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "outcomeIds": [
+        "277e6d66-81c2-44f2-960a-f606980b1043"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p020",
+      "title": "The ESSP further outlines what the reforms imply: Outcome Check",
+      "content": "Outcome check for The ESSP further outlines what the reforms imply: Read, speak, listen, write, and edit clearly about the essp further outlines what the reforms imply.\n\n1. Read, listen, speak, or write a short response linked to this topic.\n2. Use at least three topic words correctly.\n3. Use complete sentences.\n4. Check spelling, punctuation, grammar, and meaning.\n5. Improve one sentence after feedback.\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 84,
+      "imageRefs": [
+        "UGA-S1-english-topic-002:assessment:visual-1:planned",
+        "UGA-S1-english-topic-002:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "unitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "parentUnitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "outcomeIds": [
+        "277e6d66-81c2-44f2-960a-f606980b1043"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p021",
+      "title": "English Topic: Lesson Opener",
+      "content": "Learning focus: English Topic\n\nCountry link: a Uganda reading, speaking, listening, writing, or discussion task for English Topic.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application.\n\nBy the end of this topic, you should be able to:\n- read, speak, listen, write, and edit clearly about english topic\n\nInquiry questions:\n- How can english topic help you solve a real problem?\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 83,
+      "imageRefs": [
+        "UGA-S1-english-topic-003:opener:visual-1:planned",
+        "UGA-S1-english-topic-003:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "unitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "parentUnitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "outcomeIds": [
+        "1c1abf95-65c8-4a92-8b9d-24b0460e76dd"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p022",
+      "title": "English Topic: Learn",
+      "content": "English Topic teaches learners to understand a message and respond clearly.\n\nMini task:\nRead or listen to a short text. Say the main idea. Name two details. Use the details to write or speak a clear answer.\n\nLanguage focus:\n- Use complete sentences.\n- Choose words that fit the situation.\n- Check spelling, punctuation, grammar, and meaning.\n\nLocal link: use examples from Uganda school, home, community, culture, environment, and daily responsibilities.\n\nKey words:\n- English Topic\n- English\n- Topic\n- read\n- listen\n- speak\n- write\n- sentence",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "UGA-S1-english-topic-003:learn:visual-1:planned",
+        "UGA-S1-english-topic-003:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "unitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "parentUnitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "outcomeIds": [
+        "1c1abf95-65c8-4a92-8b9d-24b0460e76dd"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p023",
+      "title": "English Topic: Worked Example",
+      "content": "Worked example for English Topic: Read a short text, find the main idea, and answer clearly.\n\nModel answer frame:\nThe text is about _____. One important detail is _____. Another detail is _____. I think _____ because _____.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 38,
+      "imageRefs": [
+        "UGA-S1-english-topic-003:example:visual-1:planned",
+        "UGA-S1-english-topic-003:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "unitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "parentUnitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "outcomeIds": [
+        "1c1abf95-65c8-4a92-8b9d-24b0460e76dd"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p024",
+      "title": "English Topic: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise English Topic. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- English Topic\n- English\n- Topic\n- read\n- listen\n- speak\n- write\n- sentence\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Uganda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about English Topic without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "UGA-S1-english-topic-003:vocabulary:visual-1:planned",
+        "UGA-S1-english-topic-003:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "unitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "parentUnitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "outcomeIds": [
+        "1c1abf95-65c8-4a92-8b9d-24b0460e76dd"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p025",
+      "title": "English Topic: Guided Activity",
+      "content": "Guided activity for English Topic:\n\n1. Read the mini passage or dialogue aloud.\n2. Underline three useful words or expressions.\n3. Answer one oral question about the text.\n4. Write three to five sentences linked to English Topic.\n5. Read your answer to a partner and improve one sentence.\n\nTeacher check: the answer should use the topic vocabulary and complete sentences.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": [
+        "UGA-S1-english-topic-003:activity:visual-1:planned",
+        "UGA-S1-english-topic-003:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "unitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "parentUnitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "outcomeIds": [
+        "1c1abf95-65c8-4a92-8b9d-24b0460e76dd"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p026",
+      "title": "English Topic: Practice And Correction",
+      "content": "Practice for English Topic:\n\nMain outcome: read, speak, listen, write, and edit clearly about english topic.\n\n1. Read or listen to a short text.\n2. Say the main idea.\n3. Write three clear sentences with correct punctuation.\n\nCorrection check:\n- Are the sentences complete?\n- Are spelling and punctuation checked?\n- Does the answer match the topic?\n\nHome link: Ask someone at home one question about english topic and write their answer in two clear sentences.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 76,
+      "imageRefs": [
+        "UGA-S1-english-topic-003:practice:visual-1:planned",
+        "UGA-S1-english-topic-003:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "unitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "parentUnitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "outcomeIds": [
+        "1c1abf95-65c8-4a92-8b9d-24b0460e76dd"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p027",
+      "title": "English Topic: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from English Topic.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "UGA-S1-english-topic-003:remediation:visual-1:planned",
+        "UGA-S1-english-topic-003:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "unitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "parentUnitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "outcomeIds": [
+        "1c1abf95-65c8-4a92-8b9d-24b0460e76dd"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p028",
+      "title": "English Topic: Outcome Check",
+      "content": "Outcome check for English Topic: Read, speak, listen, write, and edit clearly about english topic.\n\n1. Read, listen, speak, or write a short response linked to this topic.\n2. Use at least three topic words correctly.\n3. Use complete sentences.\n4. Check spelling, punctuation, grammar, and meaning.\n5. Improve one sentence after feedback.\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 72,
+      "imageRefs": [
+        "UGA-S1-english-topic-003:assessment:visual-1:planned",
+        "UGA-S1-english-topic-003:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "unitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "parentUnitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "outcomeIds": [
+        "1c1abf95-65c8-4a92-8b9d-24b0460e76dd"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p029",
+      "title": "ENGLISH SYLLABUS: Lesson Opener",
+      "content": "Learning focus: ENGLISH SYLLABUS\n\nCountry link: a Uganda reading, speaking, listening, writing, or discussion task for ENGLISH SYLLABUS.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application.\n\nBy the end of this topic, you should be able to:\n- read, speak, listen, write, and edit clearly about english syllabus\n\nInquiry questions:\n- How can english syllabus help you solve a real problem?\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 83,
+      "imageRefs": [
+        "UGA-S1-english-topic-004:opener:visual-1:planned",
+        "UGA-S1-english-topic-004:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "unitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "parentUnitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "outcomeIds": [
+        "705c38be-4485-4d32-832b-dd6de36b1886"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p030",
+      "title": "ENGLISH SYLLABUS: Learn",
+      "content": "ENGLISH SYLLABUS teaches learners to understand a message and respond clearly.\n\nMini task:\nRead or listen to a short text. Say the main idea. Name two details. Use the details to write or speak a clear answer.\n\nLanguage focus:\n- Use complete sentences.\n- Choose words that fit the situation.\n- Check spelling, punctuation, grammar, and meaning.\n\nLocal link: use examples from Uganda school, home, community, culture, environment, and daily responsibilities.\n\nKey words:\n- ENGLISH SYLLABUS\n- ENGLISH\n- SYLLABUS\n- read\n- listen\n- speak\n- write\n- sentence",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "UGA-S1-english-topic-004:learn:visual-1:planned",
+        "UGA-S1-english-topic-004:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "unitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "parentUnitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "outcomeIds": [
+        "705c38be-4485-4d32-832b-dd6de36b1886"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p031",
+      "title": "ENGLISH SYLLABUS: Worked Example",
+      "content": "Worked example for ENGLISH SYLLABUS: Read a short text, find the main idea, and answer clearly.\n\nModel answer frame:\nThe text is about _____. One important detail is _____. Another detail is _____. I think _____ because _____.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 38,
+      "imageRefs": [
+        "UGA-S1-english-topic-004:example:visual-1:planned",
+        "UGA-S1-english-topic-004:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "unitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "parentUnitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "outcomeIds": [
+        "705c38be-4485-4d32-832b-dd6de36b1886"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p032",
+      "title": "ENGLISH SYLLABUS: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise ENGLISH SYLLABUS. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- ENGLISH SYLLABUS\n- ENGLISH\n- SYLLABUS\n- read\n- listen\n- speak\n- write\n- sentence\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Uganda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about ENGLISH SYLLABUS without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "UGA-S1-english-topic-004:vocabulary:visual-1:planned",
+        "UGA-S1-english-topic-004:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "unitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "parentUnitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "outcomeIds": [
+        "705c38be-4485-4d32-832b-dd6de36b1886"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p033",
+      "title": "ENGLISH SYLLABUS: Guided Activity",
+      "content": "Guided activity for ENGLISH SYLLABUS:\n\n1. Read the mini passage or dialogue aloud.\n2. Underline three useful words or expressions.\n3. Answer one oral question about the text.\n4. Write three to five sentences linked to ENGLISH SYLLABUS.\n5. Read your answer to a partner and improve one sentence.\n\nTeacher check: the answer should use the topic vocabulary and complete sentences.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": [
+        "UGA-S1-english-topic-004:activity:visual-1:planned",
+        "UGA-S1-english-topic-004:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "unitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "parentUnitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "outcomeIds": [
+        "705c38be-4485-4d32-832b-dd6de36b1886"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p034",
+      "title": "ENGLISH SYLLABUS: Practice And Correction",
+      "content": "Practice for ENGLISH SYLLABUS:\n\nMain outcome: read, speak, listen, write, and edit clearly about english syllabus.\n\n1. Read or listen to a short text.\n2. Say the main idea.\n3. Write three clear sentences with correct punctuation.\n\nCorrection check:\n- Are the sentences complete?\n- Are spelling and punctuation checked?\n- Does the answer match the topic?\n\nHome link: Ask someone at home one question about english syllabus and write their answer in two clear sentences.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 76,
+      "imageRefs": [
+        "UGA-S1-english-topic-004:practice:visual-1:planned",
+        "UGA-S1-english-topic-004:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "unitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "parentUnitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "outcomeIds": [
+        "705c38be-4485-4d32-832b-dd6de36b1886"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p035",
+      "title": "ENGLISH SYLLABUS: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from ENGLISH SYLLABUS.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "UGA-S1-english-topic-004:remediation:visual-1:planned",
+        "UGA-S1-english-topic-004:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "unitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "parentUnitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "outcomeIds": [
+        "705c38be-4485-4d32-832b-dd6de36b1886"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p036",
+      "title": "ENGLISH SYLLABUS: Outcome Check",
+      "content": "Outcome check for ENGLISH SYLLABUS: Read, speak, listen, write, and edit clearly about english syllabus.\n\n1. Read, listen, speak, or write a short response linked to this topic.\n2. Use at least three topic words correctly.\n3. Use complete sentences.\n4. Check spelling, punctuation, grammar, and meaning.\n5. Improve one sentence after feedback.\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 72,
+      "imageRefs": [
+        "UGA-S1-english-topic-004:assessment:visual-1:planned",
+        "UGA-S1-english-topic-004:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "unitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "parentUnitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "outcomeIds": [
+        "705c38be-4485-4d32-832b-dd6de36b1886"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p037",
+      "title": "ENGLISH SYLLABUS: Lesson Opener",
+      "content": "Learning focus: ENGLISH SYLLABUS\n\nCountry link: a Uganda reading, speaking, listening, writing, or discussion task for ENGLISH SYLLABUS.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application.\n\nBy the end of this topic, you should be able to:\n- read, speak, listen, write, and edit clearly about english syllabus\n\nInquiry questions:\n- How can english syllabus help you solve a real problem?\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 83,
+      "imageRefs": [
+        "UGA-S1-english-topic-005:opener:visual-1:planned",
+        "UGA-S1-english-topic-005:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "unitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "parentUnitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "outcomeIds": [
+        "ee8f03c8-38a9-4552-83be-663798dcc4ed"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p038",
+      "title": "ENGLISH SYLLABUS: Learn",
+      "content": "ENGLISH SYLLABUS teaches learners to understand a message and respond clearly.\n\nMini task:\nRead or listen to a short text. Say the main idea. Name two details. Use the details to write or speak a clear answer.\n\nLanguage focus:\n- Use complete sentences.\n- Choose words that fit the situation.\n- Check spelling, punctuation, grammar, and meaning.\n\nLocal link: use examples from Uganda school, home, community, culture, environment, and daily responsibilities.\n\nKey words:\n- ENGLISH SYLLABUS\n- ENGLISH\n- SYLLABUS\n- read\n- listen\n- speak\n- write\n- sentence",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "UGA-S1-english-topic-005:learn:visual-1:planned",
+        "UGA-S1-english-topic-005:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "unitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "parentUnitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "outcomeIds": [
+        "ee8f03c8-38a9-4552-83be-663798dcc4ed"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p039",
+      "title": "ENGLISH SYLLABUS: Worked Example",
+      "content": "Worked example for ENGLISH SYLLABUS: Read a short text, find the main idea, and answer clearly.\n\nModel answer frame:\nThe text is about _____. One important detail is _____. Another detail is _____. I think _____ because _____.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 38,
+      "imageRefs": [
+        "UGA-S1-english-topic-005:example:visual-1:planned",
+        "UGA-S1-english-topic-005:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "unitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "parentUnitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "outcomeIds": [
+        "ee8f03c8-38a9-4552-83be-663798dcc4ed"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p040",
+      "title": "ENGLISH SYLLABUS: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise ENGLISH SYLLABUS. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- ENGLISH SYLLABUS\n- ENGLISH\n- SYLLABUS\n- read\n- listen\n- speak\n- write\n- sentence\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Uganda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about ENGLISH SYLLABUS without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "UGA-S1-english-topic-005:vocabulary:visual-1:planned",
+        "UGA-S1-english-topic-005:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "unitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "parentUnitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "outcomeIds": [
+        "ee8f03c8-38a9-4552-83be-663798dcc4ed"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p041",
+      "title": "ENGLISH SYLLABUS: Guided Activity",
+      "content": "Guided activity for ENGLISH SYLLABUS:\n\n1. Read the mini passage or dialogue aloud.\n2. Underline three useful words or expressions.\n3. Answer one oral question about the text.\n4. Write three to five sentences linked to ENGLISH SYLLABUS.\n5. Read your answer to a partner and improve one sentence.\n\nTeacher check: the answer should use the topic vocabulary and complete sentences.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": [
+        "UGA-S1-english-topic-005:activity:visual-1:planned",
+        "UGA-S1-english-topic-005:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "unitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "parentUnitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "outcomeIds": [
+        "ee8f03c8-38a9-4552-83be-663798dcc4ed"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p042",
+      "title": "ENGLISH SYLLABUS: Practice And Correction",
+      "content": "Practice for ENGLISH SYLLABUS:\n\nMain outcome: read, speak, listen, write, and edit clearly about english syllabus.\n\n1. Read or listen to a short text.\n2. Say the main idea.\n3. Write three clear sentences with correct punctuation.\n\nCorrection check:\n- Are the sentences complete?\n- Are spelling and punctuation checked?\n- Does the answer match the topic?\n\nHome link: Ask someone at home one question about english syllabus and write their answer in two clear sentences.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 76,
+      "imageRefs": [
+        "UGA-S1-english-topic-005:practice:visual-1:planned",
+        "UGA-S1-english-topic-005:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "unitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "parentUnitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "outcomeIds": [
+        "ee8f03c8-38a9-4552-83be-663798dcc4ed"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p043",
+      "title": "ENGLISH SYLLABUS: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from ENGLISH SYLLABUS.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "UGA-S1-english-topic-005:remediation:visual-1:planned",
+        "UGA-S1-english-topic-005:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "unitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "parentUnitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "outcomeIds": [
+        "ee8f03c8-38a9-4552-83be-663798dcc4ed"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p044",
+      "title": "ENGLISH SYLLABUS: Outcome Check",
+      "content": "Outcome check for ENGLISH SYLLABUS: Read, speak, listen, write, and edit clearly about english syllabus.\n\n1. Read, listen, speak, or write a short response linked to this topic.\n2. Use at least three topic words correctly.\n3. Use complete sentences.\n4. Check spelling, punctuation, grammar, and meaning.\n5. Improve one sentence after feedback.\n\nSuccess criteria:\n- meaning is clear\n- language choice fits the task\n- spelling, grammar, and structure are checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 72,
+      "imageRefs": [
+        "UGA-S1-english-topic-005:assessment:visual-1:planned",
+        "UGA-S1-english-topic-005:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "unitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "parentUnitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "outcomeIds": [
+        "ee8f03c8-38a9-4552-83be-663798dcc4ed"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p045",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a: Reading Practice 1",
+      "content": "Session 1: The Uganda Vision 2040 aims to transform Uganda into a reading practice\n\nMini passage:\nOur class is learning the uganda vision 2040 aims to transform uganda into a through a class discussion. First, we read the text silently. Then we say the main idea in our own words. We choose useful vocabulary, answer in complete sentences, and improve one sentence after feedback. A strong answer is clear, kind, accurate, and linked to the topic.\n\nLearner move: move from simple answers to short paragraphs with clear evidence.\n\nDo this:\n1. Read aloud, say the main idea, and answer with a complete sentence.\n2. Underline three words that carry the meaning of the text.\n3. Say the main idea in one sentence.\n4. Find one detail that supports the main idea.\n5. Explain how the text connects to a real learner in Uganda.\n\nCheck: your answer should use the topic, not a memorised sentence from another lesson.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 157,
+      "imageRefs": [
+        "UGA-S1-english-topic-001:language-reading:visual-1:planned",
+        "UGA-S1-english-topic-001:language-reading:visual-2:planned"
+      ],
+      "strandIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "unitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "parentUnitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "outcomeIds": [
+        "258c8cbe-dd61-4e00-bc20-b1dbc8ac662c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p046",
+      "title": "The ESSP further outlines what the reforms imply: Vocabulary Builder 1",
+      "content": "Session 1: The ESSP further outlines what the reforms imply vocabulary builder\n\nUseful words: The ESSP further outlines what the reforms imply, ESSP, further, outlines, what, reforms.\n\nBuild meaning:\n1. Choose four words from the list.\n2. Say each word in simple words.\n3. Use each word in a new sentence connected to the essp further outlines what the reforms imply.\n4. Add one synonym, opposite, translation, picture clue, or real example where possible.\n5. Read the sentences aloud and check that each word is used correctly.\n\nMini challenge 1: create a small word bank for a younger learner and include one example from Uganda.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "UGA-S1-english-topic-002:language-vocabulary:visual-1:planned",
+        "UGA-S1-english-topic-002:language-vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "unitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "parentUnitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "outcomeIds": [
+        "277e6d66-81c2-44f2-960a-f606980b1043"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p047",
+      "title": "English Topic: Speaking And Listening 1",
+      "content": "Session 1: English Topic speaking and listening\n\nPair task:\n1. Partner A asks one clear question about english topic.\n2. Partner B answers in two complete sentences.\n3. Partner A repeats the main idea to show listening.\n4. Swap roles and improve one answer.\n5. Present the stronger answer to a small group.\n\nGood speaking is not shouting or guessing. Speak clearly, stay on topic, listen to the answer, and ask a follow-up question that helps the speaker explain more.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 80,
+      "imageRefs": [
+        "UGA-S1-english-topic-003:language-speaking:visual-1:planned",
+        "UGA-S1-english-topic-003:language-speaking:visual-2:planned"
+      ],
+      "strandIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "unitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "parentUnitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "outcomeIds": [
+        "1c1abf95-65c8-4a92-8b9d-24b0460e76dd"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p048",
+      "title": "ENGLISH SYLLABUS: Grammar Focus 1",
+      "content": "Session 1: ENGLISH SYLLABUS grammar focus\n\nUse this page to make accurate sentences.\n\n1. Write one short sentence about english syllabus.\n2. Add one describing word, place word, time word, connector, or reason.\n3. Check the subject and verb agree.\n4. Check punctuation and capital letters.\n5. Rewrite the sentence so it is clearer but still simple.\n\nModel frame:\nThe learner _____ because _____. In Uganda, this can be seen when _____.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 72,
+      "imageRefs": [
+        "UGA-S1-english-topic-004:language-grammar:visual-1:planned",
+        "UGA-S1-english-topic-004:language-grammar:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "unitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "parentUnitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "outcomeIds": [
+        "705c38be-4485-4d32-832b-dd6de36b1886"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p049",
+      "title": "ENGLISH SYLLABUS: Writing Workshop 1",
+      "content": "Session 1: ENGLISH SYLLABUS writing workshop\n\nPlan before writing:\n1. Topic sentence: say what the paragraph is about.\n2. Detail one: give a fact, example, event, or reason.\n3. Detail two: add another useful detail.\n4. Closing sentence: answer the task directly.\n5. Correction: read your paragraph aloud and fix one weak sentence.\n\nWrite six to eight lines. Keep the language simple and exact. Do not add ideas that are not connected to english syllabus.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 75,
+      "imageRefs": [
+        "UGA-S1-english-topic-005:language-writing:visual-1:planned",
+        "UGA-S1-english-topic-005:language-writing:visual-2:planned"
+      ],
+      "strandIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "unitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "parentUnitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "outcomeIds": [
+        "ee8f03c8-38a9-4552-83be-663798dcc4ed"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p050",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a: Comprehension Check 2",
+      "content": "Session 2: The Uganda Vision 2040 aims to transform Uganda into a comprehension check\n\nUse the mini text or a teacher-selected passage.\n\n1. What is the main idea?\n2. Which two details prove your answer?\n3. What does one important word mean in this passage?\n4. What can a learner in Uganda do with this idea?\n5. Write one question you still have.\n\nA complete answer uses evidence from the passage and your own words.",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 75,
+      "imageRefs": [
+        "UGA-S1-english-topic-001:language-comprehension:visual-1:planned",
+        "UGA-S1-english-topic-001:language-comprehension:visual-2:planned"
+      ],
+      "strandIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "unitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "parentUnitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "outcomeIds": [
+        "258c8cbe-dd61-4e00-bc20-b1dbc8ac662c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p051",
+      "title": "The ESSP further outlines what the reforms imply: Editing And Correction 2",
+      "content": "Session 2: The ESSP further outlines what the reforms imply editing and correction\n\nTake one answer you wrote earlier and improve it.\n\n1. Circle the sentence that is hardest to understand.\n2. Check spelling or accents where your language uses them.\n3. Add missing punctuation.\n4. Replace one vague word with a stronger topic word.\n5. Read the final answer aloud.\n\nCorrection note: write what you changed and why the new version is clearer.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 74,
+      "imageRefs": [
+        "UGA-S1-english-topic-002:language-editing:visual-1:planned",
+        "UGA-S1-english-topic-002:language-editing:visual-2:planned"
+      ],
+      "strandIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "unitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "parentUnitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "outcomeIds": [
+        "277e6d66-81c2-44f2-960a-f606980b1043"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p052",
+      "title": "English Topic: Fluency Practice 2",
+      "content": "Session 2: English Topic fluency practice\n\nFluency means you can use the language without stopping at every word.\n\n1. Read the mini text twice.\n2. Practise the hardest sentence three times.\n3. Say a new sentence about english topic without looking.\n4. Record or perform the sentence for a partner.\n5. Ask the partner whether the meaning was clear.\n\nFinish by writing the sentence neatly and correcting one small error.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 70,
+      "imageRefs": [
+        "UGA-S1-english-topic-003:language-fluency:visual-1:planned",
+        "UGA-S1-english-topic-003:language-fluency:visual-2:planned"
+      ],
+      "strandIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "unitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "parentUnitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "outcomeIds": [
+        "1c1abf95-65c8-4a92-8b9d-24b0460e76dd"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p053",
+      "title": "ENGLISH SYLLABUS: Reading Practice 2",
+      "content": "Session 2: ENGLISH SYLLABUS reading practice\n\nMini passage:\nOur class is learning english syllabus through a class discussion. First, we read the text silently. Then we say the main idea in our own words. We choose useful vocabulary, answer in complete sentences, and improve one sentence after feedback. A strong answer is clear, kind, accurate, and linked to the topic.\n\nLearner move: move from simple answers to short paragraphs with clear evidence.\n\nDo this:\n1. Read aloud, say the main idea, and answer with a complete sentence.\n2. Underline three words that carry the meaning of the text.\n3. Say the main idea in one sentence.\n4. Find one detail that supports the main idea.\n5. Explain how the text connects to a real learner in Uganda.\n\nCheck: your answer should use the topic, not a memorised sentence from another lesson.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 141,
+      "imageRefs": [
+        "UGA-S1-english-topic-004:language-reading:visual-1:planned",
+        "UGA-S1-english-topic-004:language-reading:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "unitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "parentUnitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "outcomeIds": [
+        "705c38be-4485-4d32-832b-dd6de36b1886"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p054",
+      "title": "ENGLISH SYLLABUS: Vocabulary Builder 2",
+      "content": "Session 2: ENGLISH SYLLABUS vocabulary builder\n\nUseful words: ENGLISH SYLLABUS, ENGLISH, SYLLABUS, read, listen, speak.\n\nBuild meaning:\n1. Choose four words from the list.\n2. Say each word in simple words.\n3. Use each word in a new sentence connected to english syllabus.\n4. Add one synonym, opposite, translation, picture clue, or real example where possible.\n5. Read the sentences aloud and check that each word is used correctly.\n\nMini challenge 2: create a small word bank for a younger learner and include one example from Uganda.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 87,
+      "imageRefs": [
+        "UGA-S1-english-topic-005:language-vocabulary:visual-1:planned",
+        "UGA-S1-english-topic-005:language-vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "unitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "parentUnitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "outcomeIds": [
+        "ee8f03c8-38a9-4552-83be-663798dcc4ed"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p055",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a: Speaking And Listening 3",
+      "content": "Session 3: The Uganda Vision 2040 aims to transform Uganda into a speaking and listening\n\nPair task:\n1. Partner A asks one clear question about the uganda vision 2040 aims to transform uganda into a.\n2. Partner B answers in two complete sentences.\n3. Partner A repeats the main idea to show listening.\n4. Swap roles and improve one answer.\n5. Present the stronger answer to a small group.\n\nGood speaking is not shouting or guessing. Speak clearly, stay on topic, listen to the answer, and ask a follow-up question that helps the speaker explain more.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "UGA-S1-english-topic-001:language-speaking:visual-1:planned",
+        "UGA-S1-english-topic-001:language-speaking:visual-2:planned"
+      ],
+      "strandIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "unitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "parentUnitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "outcomeIds": [
+        "258c8cbe-dd61-4e00-bc20-b1dbc8ac662c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p056",
+      "title": "The ESSP further outlines what the reforms imply: Grammar Focus 3",
+      "content": "Session 3: The ESSP further outlines what the reforms imply grammar focus\n\nUse this page to make accurate sentences.\n\n1. Write one short sentence about the essp further outlines what the reforms imply.\n2. Add one describing word, place word, time word, connector, or reason.\n3. Check the subject and verb agree.\n4. Check punctuation and capital letters.\n5. Rewrite the sentence so it is clearer but still simple.\n\nModel frame:\nThe learner _____ because _____. In Uganda, this can be seen when _____.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 84,
+      "imageRefs": [
+        "UGA-S1-english-topic-002:language-grammar:visual-1:planned",
+        "UGA-S1-english-topic-002:language-grammar:visual-2:planned"
+      ],
+      "strandIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "unitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "parentUnitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "outcomeIds": [
+        "277e6d66-81c2-44f2-960a-f606980b1043"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p057",
+      "title": "English Topic: Writing Workshop 3",
+      "content": "Session 3: English Topic writing workshop\n\nPlan before writing:\n1. Topic sentence: say what the paragraph is about.\n2. Detail one: give a fact, example, event, or reason.\n3. Detail two: add another useful detail.\n4. Closing sentence: answer the task directly.\n5. Correction: read your paragraph aloud and fix one weak sentence.\n\nWrite six to eight lines. Keep the language simple and exact. Do not add ideas that are not connected to english topic.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 75,
+      "imageRefs": [
+        "UGA-S1-english-topic-003:language-writing:visual-1:planned",
+        "UGA-S1-english-topic-003:language-writing:visual-2:planned"
+      ],
+      "strandIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "unitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "parentUnitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "outcomeIds": [
+        "1c1abf95-65c8-4a92-8b9d-24b0460e76dd"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p058",
+      "title": "ENGLISH SYLLABUS: Comprehension Check 3",
+      "content": "Session 3: ENGLISH SYLLABUS comprehension check\n\nUse the mini text or a teacher-selected passage.\n\n1. What is the main idea?\n2. Which two details prove your answer?\n3. What does one important word mean in this passage?\n4. What can a learner in Uganda do with this idea?\n5. Write one question you still have.\n\nA complete answer uses evidence from the passage and your own words.",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 67,
+      "imageRefs": [
+        "UGA-S1-english-topic-004:language-comprehension:visual-1:planned",
+        "UGA-S1-english-topic-004:language-comprehension:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "unitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "parentUnitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "outcomeIds": [
+        "705c38be-4485-4d32-832b-dd6de36b1886"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p059",
+      "title": "ENGLISH SYLLABUS: Editing And Correction 3",
+      "content": "Session 3: ENGLISH SYLLABUS editing and correction\n\nTake one answer you wrote earlier and improve it.\n\n1. Circle the sentence that is hardest to understand.\n2. Check spelling or accents where your language uses them.\n3. Add missing punctuation.\n4. Replace one vague word with a stronger topic word.\n5. Read the final answer aloud.\n\nCorrection note: write what you changed and why the new version is clearer.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 68,
+      "imageRefs": [
+        "UGA-S1-english-topic-005:language-editing:visual-1:planned",
+        "UGA-S1-english-topic-005:language-editing:visual-2:planned"
+      ],
+      "strandIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "unitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "parentUnitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "outcomeIds": [
+        "ee8f03c8-38a9-4552-83be-663798dcc4ed"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p060",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a: Fluency Practice 4",
+      "content": "Session 4: The Uganda Vision 2040 aims to transform Uganda into a fluency practice\n\nFluency means you can use the language without stopping at every word.\n\n1. Read the mini text twice.\n2. Practise the hardest sentence three times.\n3. Say a new sentence about the uganda vision 2040 aims to transform uganda into a without looking.\n4. Record or perform the sentence for a partner.\n5. Ask the partner whether the meaning was clear.\n\nFinish by writing the sentence neatly and correcting one small error.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 86,
+      "imageRefs": [
+        "UGA-S1-english-topic-001:language-fluency:visual-1:planned",
+        "UGA-S1-english-topic-001:language-fluency:visual-2:planned"
+      ],
+      "strandIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "unitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "parentUnitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "outcomeIds": [
+        "258c8cbe-dd61-4e00-bc20-b1dbc8ac662c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p061",
+      "title": "The ESSP further outlines what the reforms imply: Reading Practice 4",
+      "content": "Session 4: The ESSP further outlines what the reforms imply reading practice\n\nMini passage:\nOur class is learning the essp further outlines what the reforms imply through a class discussion. First, we read the text silently. Then we say the main idea in our own words. We choose useful vocabulary, answer in complete sentences, and improve one sentence after feedback. A strong answer is clear, kind, accurate, and linked to the topic.\n\nLearner move: move from simple answers to short paragraphs with clear evidence.\n\nDo this:\n1. Read aloud, say the main idea, and answer with a complete sentence.\n2. Underline three words that carry the meaning of the text.\n3. Say the main idea in one sentence.\n4. Find one detail that supports the main idea.\n5. Explain how the text connects to a real learner in Uganda.\n\nCheck: your answer should use the topic, not a memorised sentence from another lesson.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 153,
+      "imageRefs": [
+        "UGA-S1-english-topic-002:language-reading:visual-1:planned",
+        "UGA-S1-english-topic-002:language-reading:visual-2:planned"
+      ],
+      "strandIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "unitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "parentUnitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "outcomeIds": [
+        "277e6d66-81c2-44f2-960a-f606980b1043"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p062",
+      "title": "English Topic: Vocabulary Builder 4",
+      "content": "Session 4: English Topic vocabulary builder\n\nUseful words: English Topic, English, Topic, read, listen, speak.\n\nBuild meaning:\n1. Choose four words from the list.\n2. Say each word in simple words.\n3. Use each word in a new sentence connected to english topic.\n4. Add one synonym, opposite, translation, picture clue, or real example where possible.\n5. Read the sentences aloud and check that each word is used correctly.\n\nMini challenge 4: create a small word bank for a younger learner and include one example from Uganda.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 87,
+      "imageRefs": [
+        "UGA-S1-english-topic-003:language-vocabulary:visual-1:planned",
+        "UGA-S1-english-topic-003:language-vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "unitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "parentUnitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "outcomeIds": [
+        "1c1abf95-65c8-4a92-8b9d-24b0460e76dd"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p063",
+      "title": "ENGLISH SYLLABUS: Speaking And Listening 4",
+      "content": "Session 4: ENGLISH SYLLABUS speaking and listening\n\nPair task:\n1. Partner A asks one clear question about english syllabus.\n2. Partner B answers in two complete sentences.\n3. Partner A repeats the main idea to show listening.\n4. Swap roles and improve one answer.\n5. Present the stronger answer to a small group.\n\nGood speaking is not shouting or guessing. Speak clearly, stay on topic, listen to the answer, and ask a follow-up question that helps the speaker explain more.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 80,
+      "imageRefs": [
+        "UGA-S1-english-topic-004:language-speaking:visual-1:planned",
+        "UGA-S1-english-topic-004:language-speaking:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "unitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "parentUnitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "outcomeIds": [
+        "705c38be-4485-4d32-832b-dd6de36b1886"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p064",
+      "title": "ENGLISH SYLLABUS: Grammar Focus 4",
+      "content": "Session 4: ENGLISH SYLLABUS grammar focus\n\nUse this page to make accurate sentences.\n\n1. Write one short sentence about english syllabus.\n2. Add one describing word, place word, time word, connector, or reason.\n3. Check the subject and verb agree.\n4. Check punctuation and capital letters.\n5. Rewrite the sentence so it is clearer but still simple.\n\nModel frame:\nThe learner _____ because _____. In Uganda, this can be seen when _____.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 72,
+      "imageRefs": [
+        "UGA-S1-english-topic-005:language-grammar:visual-1:planned",
+        "UGA-S1-english-topic-005:language-grammar:visual-2:planned"
+      ],
+      "strandIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "unitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "parentUnitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "outcomeIds": [
+        "ee8f03c8-38a9-4552-83be-663798dcc4ed"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p065",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a: Writing Workshop 5",
+      "content": "Session 5: The Uganda Vision 2040 aims to transform Uganda into a writing workshop\n\nPlan before writing:\n1. Topic sentence: say what the paragraph is about.\n2. Detail one: give a fact, example, event, or reason.\n3. Detail two: add another useful detail.\n4. Closing sentence: answer the task directly.\n5. Correction: read your paragraph aloud and fix one weak sentence.\n\nWrite six to eight lines. Keep the language simple and exact. Do not add ideas that are not connected to the uganda vision 2040 aims to transform uganda into a.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "UGA-S1-english-topic-001:language-writing:visual-1:planned",
+        "UGA-S1-english-topic-001:language-writing:visual-2:planned"
+      ],
+      "strandIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "unitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "parentUnitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "outcomeIds": [
+        "258c8cbe-dd61-4e00-bc20-b1dbc8ac662c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p066",
+      "title": "The ESSP further outlines what the reforms imply: Comprehension Check 5",
+      "content": "Session 5: The ESSP further outlines what the reforms imply comprehension check\n\nUse the mini text or a teacher-selected passage.\n\n1. What is the main idea?\n2. Which two details prove your answer?\n3. What does one important word mean in this passage?\n4. What can a learner in Uganda do with this idea?\n5. Write one question you still have.\n\nA complete answer uses evidence from the passage and your own words.",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 73,
+      "imageRefs": [
+        "UGA-S1-english-topic-002:language-comprehension:visual-1:planned",
+        "UGA-S1-english-topic-002:language-comprehension:visual-2:planned"
+      ],
+      "strandIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "unitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "parentUnitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "outcomeIds": [
+        "277e6d66-81c2-44f2-960a-f606980b1043"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p067",
+      "title": "English Topic: Editing And Correction 5",
+      "content": "Session 5: English Topic editing and correction\n\nTake one answer you wrote earlier and improve it.\n\n1. Circle the sentence that is hardest to understand.\n2. Check spelling or accents where your language uses them.\n3. Add missing punctuation.\n4. Replace one vague word with a stronger topic word.\n5. Read the final answer aloud.\n\nCorrection note: write what you changed and why the new version is clearer.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 68,
+      "imageRefs": [
+        "UGA-S1-english-topic-003:language-editing:visual-1:planned",
+        "UGA-S1-english-topic-003:language-editing:visual-2:planned"
+      ],
+      "strandIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "unitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "parentUnitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "outcomeIds": [
+        "1c1abf95-65c8-4a92-8b9d-24b0460e76dd"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p068",
+      "title": "ENGLISH SYLLABUS: Fluency Practice 5",
+      "content": "Session 5: ENGLISH SYLLABUS fluency practice\n\nFluency means you can use the language without stopping at every word.\n\n1. Read the mini text twice.\n2. Practise the hardest sentence three times.\n3. Say a new sentence about english syllabus without looking.\n4. Record or perform the sentence for a partner.\n5. Ask the partner whether the meaning was clear.\n\nFinish by writing the sentence neatly and correcting one small error.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 70,
+      "imageRefs": [
+        "UGA-S1-english-topic-004:language-fluency:visual-1:planned",
+        "UGA-S1-english-topic-004:language-fluency:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "unitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "parentUnitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "outcomeIds": [
+        "705c38be-4485-4d32-832b-dd6de36b1886"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p069",
+      "title": "ENGLISH SYLLABUS: Reading Practice 5",
+      "content": "Session 5: ENGLISH SYLLABUS reading practice\n\nMini passage:\nOur class is learning english syllabus through a class discussion. First, we read the text silently. Then we say the main idea in our own words. We choose useful vocabulary, answer in complete sentences, and improve one sentence after feedback. A strong answer is clear, kind, accurate, and linked to the topic.\n\nLearner move: move from simple answers to short paragraphs with clear evidence.\n\nDo this:\n1. Read aloud, say the main idea, and answer with a complete sentence.\n2. Underline three words that carry the meaning of the text.\n3. Say the main idea in one sentence.\n4. Find one detail that supports the main idea.\n5. Explain how the text connects to a real learner in Uganda.\n\nCheck: your answer should use the topic, not a memorised sentence from another lesson.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 141,
+      "imageRefs": [
+        "UGA-S1-english-topic-005:language-reading:visual-1:planned",
+        "UGA-S1-english-topic-005:language-reading:visual-2:planned"
+      ],
+      "strandIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "unitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "parentUnitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "outcomeIds": [
+        "ee8f03c8-38a9-4552-83be-663798dcc4ed"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p070",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a: Vocabulary Builder 6",
+      "content": "Session 6: The Uganda Vision 2040 aims to transform Uganda into a vocabulary builder\n\nUseful words: The Uganda Vision 2040 aims to transform Uganda into a, Uganda, Vision, 2040, aims, transform.\n\nBuild meaning:\n1. Choose four words from the list.\n2. Say each word in simple words.\n3. Use each word in a new sentence connected to the uganda vision 2040 aims to transform uganda into a.\n4. Add one synonym, opposite, translation, picture clue, or real example where possible.\n5. Read the sentences aloud and check that each word is used correctly.\n\nMini challenge 6: create a small word bank for a younger learner and include one example from Uganda.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 111,
+      "imageRefs": [
+        "UGA-S1-english-topic-001:language-vocabulary:visual-1:planned",
+        "UGA-S1-english-topic-001:language-vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "unitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "parentUnitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "outcomeIds": [
+        "258c8cbe-dd61-4e00-bc20-b1dbc8ac662c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p071",
+      "title": "The ESSP further outlines what the reforms imply: Speaking And Listening 6",
+      "content": "Session 6: The ESSP further outlines what the reforms imply speaking and listening\n\nPair task:\n1. Partner A asks one clear question about the essp further outlines what the reforms imply.\n2. Partner B answers in two complete sentences.\n3. Partner A repeats the main idea to show listening.\n4. Swap roles and improve one answer.\n5. Present the stronger answer to a small group.\n\nGood speaking is not shouting or guessing. Speak clearly, stay on topic, listen to the answer, and ask a follow-up question that helps the speaker explain more.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "UGA-S1-english-topic-002:language-speaking:visual-1:planned",
+        "UGA-S1-english-topic-002:language-speaking:visual-2:planned"
+      ],
+      "strandIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "unitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "parentUnitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "outcomeIds": [
+        "277e6d66-81c2-44f2-960a-f606980b1043"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p072",
+      "title": "English Topic: Grammar Focus 6",
+      "content": "Session 6: English Topic grammar focus\n\nUse this page to make accurate sentences.\n\n1. Write one short sentence about english topic.\n2. Add one describing word, place word, time word, connector, or reason.\n3. Check the subject and verb agree.\n4. Check punctuation and capital letters.\n5. Rewrite the sentence so it is clearer but still simple.\n\nModel frame:\nThe learner _____ because _____. In Uganda, this can be seen when _____.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 72,
+      "imageRefs": [
+        "UGA-S1-english-topic-003:language-grammar:visual-1:planned",
+        "UGA-S1-english-topic-003:language-grammar:visual-2:planned"
+      ],
+      "strandIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "unitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "parentUnitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "outcomeIds": [
+        "1c1abf95-65c8-4a92-8b9d-24b0460e76dd"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p073",
+      "title": "ENGLISH SYLLABUS: Writing Workshop 6",
+      "content": "Session 6: ENGLISH SYLLABUS writing workshop\n\nPlan before writing:\n1. Topic sentence: say what the paragraph is about.\n2. Detail one: give a fact, example, event, or reason.\n3. Detail two: add another useful detail.\n4. Closing sentence: answer the task directly.\n5. Correction: read your paragraph aloud and fix one weak sentence.\n\nWrite six to eight lines. Keep the language simple and exact. Do not add ideas that are not connected to english syllabus.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 75,
+      "imageRefs": [
+        "UGA-S1-english-topic-004:language-writing:visual-1:planned",
+        "UGA-S1-english-topic-004:language-writing:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "unitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "parentUnitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "outcomeIds": [
+        "705c38be-4485-4d32-832b-dd6de36b1886"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p074",
+      "title": "ENGLISH SYLLABUS: Comprehension Check 6",
+      "content": "Session 6: ENGLISH SYLLABUS comprehension check\n\nUse the mini text or a teacher-selected passage.\n\n1. What is the main idea?\n2. Which two details prove your answer?\n3. What does one important word mean in this passage?\n4. What can a learner in Uganda do with this idea?\n5. Write one question you still have.\n\nA complete answer uses evidence from the passage and your own words.",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 67,
+      "imageRefs": [
+        "UGA-S1-english-topic-005:language-comprehension:visual-1:planned",
+        "UGA-S1-english-topic-005:language-comprehension:visual-2:planned"
+      ],
+      "strandIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "unitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "parentUnitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "outcomeIds": [
+        "ee8f03c8-38a9-4552-83be-663798dcc4ed"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p075",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a: Editing And Correction 7",
+      "content": "Session 7: The Uganda Vision 2040 aims to transform Uganda into a editing and correction\n\nTake one answer you wrote earlier and improve it.\n\n1. Circle the sentence that is hardest to understand.\n2. Check spelling or accents where your language uses them.\n3. Add missing punctuation.\n4. Replace one vague word with a stronger topic word.\n5. Read the final answer aloud.\n\nCorrection note: write what you changed and why the new version is clearer.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 76,
+      "imageRefs": [
+        "UGA-S1-english-topic-001:language-editing:visual-1:planned",
+        "UGA-S1-english-topic-001:language-editing:visual-2:planned"
+      ],
+      "strandIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "unitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "parentUnitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "outcomeIds": [
+        "258c8cbe-dd61-4e00-bc20-b1dbc8ac662c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p076",
+      "title": "The ESSP further outlines what the reforms imply: Fluency Practice 7",
+      "content": "Session 7: The ESSP further outlines what the reforms imply fluency practice\n\nFluency means you can use the language without stopping at every word.\n\n1. Read the mini text twice.\n2. Practise the hardest sentence three times.\n3. Say a new sentence about the essp further outlines what the reforms imply without looking.\n4. Record or perform the sentence for a partner.\n5. Ask the partner whether the meaning was clear.\n\nFinish by writing the sentence neatly and correcting one small error.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 82,
+      "imageRefs": [
+        "UGA-S1-english-topic-002:language-fluency:visual-1:planned",
+        "UGA-S1-english-topic-002:language-fluency:visual-2:planned"
+      ],
+      "strandIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "unitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "parentUnitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "outcomeIds": [
+        "277e6d66-81c2-44f2-960a-f606980b1043"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p077",
+      "title": "English Topic: Reading Practice 7",
+      "content": "Session 7: English Topic reading practice\n\nMini passage:\nOur class is learning english topic through a class discussion. First, we read the text silently. Then we say the main idea in our own words. We choose useful vocabulary, answer in complete sentences, and improve one sentence after feedback. A strong answer is clear, kind, accurate, and linked to the topic.\n\nLearner move: move from simple answers to short paragraphs with clear evidence.\n\nDo this:\n1. Read aloud, say the main idea, and answer with a complete sentence.\n2. Underline three words that carry the meaning of the text.\n3. Say the main idea in one sentence.\n4. Find one detail that supports the main idea.\n5. Explain how the text connects to a real learner in Uganda.\n\nCheck: your answer should use the topic, not a memorised sentence from another lesson.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 141,
+      "imageRefs": [
+        "UGA-S1-english-topic-003:language-reading:visual-1:planned",
+        "UGA-S1-english-topic-003:language-reading:visual-2:planned"
+      ],
+      "strandIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "unitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "parentUnitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "outcomeIds": [
+        "1c1abf95-65c8-4a92-8b9d-24b0460e76dd"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p078",
+      "title": "ENGLISH SYLLABUS: Vocabulary Builder 7",
+      "content": "Session 7: ENGLISH SYLLABUS vocabulary builder\n\nUseful words: ENGLISH SYLLABUS, ENGLISH, SYLLABUS, read, listen, speak.\n\nBuild meaning:\n1. Choose four words from the list.\n2. Say each word in simple words.\n3. Use each word in a new sentence connected to english syllabus.\n4. Add one synonym, opposite, translation, picture clue, or real example where possible.\n5. Read the sentences aloud and check that each word is used correctly.\n\nMini challenge 7: create a small word bank for a younger learner and include one example from Uganda.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 87,
+      "imageRefs": [
+        "UGA-S1-english-topic-004:language-vocabulary:visual-1:planned",
+        "UGA-S1-english-topic-004:language-vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "unitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "parentUnitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "outcomeIds": [
+        "705c38be-4485-4d32-832b-dd6de36b1886"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p079",
+      "title": "ENGLISH SYLLABUS: Speaking And Listening 7",
+      "content": "Session 7: ENGLISH SYLLABUS speaking and listening\n\nPair task:\n1. Partner A asks one clear question about english syllabus.\n2. Partner B answers in two complete sentences.\n3. Partner A repeats the main idea to show listening.\n4. Swap roles and improve one answer.\n5. Present the stronger answer to a small group.\n\nGood speaking is not shouting or guessing. Speak clearly, stay on topic, listen to the answer, and ask a follow-up question that helps the speaker explain more.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 80,
+      "imageRefs": [
+        "UGA-S1-english-topic-005:language-speaking:visual-1:planned",
+        "UGA-S1-english-topic-005:language-speaking:visual-2:planned"
+      ],
+      "strandIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "unitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "parentUnitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "outcomeIds": [
+        "ee8f03c8-38a9-4552-83be-663798dcc4ed"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p080",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a: Grammar Focus 8",
+      "content": "Session 8: The Uganda Vision 2040 aims to transform Uganda into a grammar focus\n\nUse this page to make accurate sentences.\n\n1. Write one short sentence about the uganda vision 2040 aims to transform uganda into a.\n2. Add one describing word, place word, time word, connector, or reason.\n3. Check the subject and verb agree.\n4. Check punctuation and capital letters.\n5. Rewrite the sentence so it is clearer but still simple.\n\nModel frame:\nThe learner _____ because _____. In Uganda, this can be seen when _____.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 88,
+      "imageRefs": [
+        "UGA-S1-english-topic-001:language-grammar:visual-1:planned",
+        "UGA-S1-english-topic-001:language-grammar:visual-2:planned"
+      ],
+      "strandIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "unitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "parentUnitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "outcomeIds": [
+        "258c8cbe-dd61-4e00-bc20-b1dbc8ac662c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p081",
+      "title": "The ESSP further outlines what the reforms imply: Writing Workshop 8",
+      "content": "Session 8: The ESSP further outlines what the reforms imply writing workshop\n\nPlan before writing:\n1. Topic sentence: say what the paragraph is about.\n2. Detail one: give a fact, example, event, or reason.\n3. Detail two: add another useful detail.\n4. Closing sentence: answer the task directly.\n5. Correction: read your paragraph aloud and fix one weak sentence.\n\nWrite six to eight lines. Keep the language simple and exact. Do not add ideas that are not connected to the essp further outlines what the reforms imply.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 87,
+      "imageRefs": [
+        "UGA-S1-english-topic-002:language-writing:visual-1:planned",
+        "UGA-S1-english-topic-002:language-writing:visual-2:planned"
+      ],
+      "strandIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "unitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "parentUnitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "outcomeIds": [
+        "277e6d66-81c2-44f2-960a-f606980b1043"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p082",
+      "title": "English Topic: Comprehension Check 8",
+      "content": "Session 8: English Topic comprehension check\n\nUse the mini text or a teacher-selected passage.\n\n1. What is the main idea?\n2. Which two details prove your answer?\n3. What does one important word mean in this passage?\n4. What can a learner in Uganda do with this idea?\n5. Write one question you still have.\n\nA complete answer uses evidence from the passage and your own words.",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 67,
+      "imageRefs": [
+        "UGA-S1-english-topic-003:language-comprehension:visual-1:planned",
+        "UGA-S1-english-topic-003:language-comprehension:visual-2:planned"
+      ],
+      "strandIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "unitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "parentUnitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "outcomeIds": [
+        "1c1abf95-65c8-4a92-8b9d-24b0460e76dd"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p083",
+      "title": "ENGLISH SYLLABUS: Editing And Correction 8",
+      "content": "Session 8: ENGLISH SYLLABUS editing and correction\n\nTake one answer you wrote earlier and improve it.\n\n1. Circle the sentence that is hardest to understand.\n2. Check spelling or accents where your language uses them.\n3. Add missing punctuation.\n4. Replace one vague word with a stronger topic word.\n5. Read the final answer aloud.\n\nCorrection note: write what you changed and why the new version is clearer.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 68,
+      "imageRefs": [
+        "UGA-S1-english-topic-004:language-editing:visual-1:planned",
+        "UGA-S1-english-topic-004:language-editing:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "unitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "parentUnitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "outcomeIds": [
+        "705c38be-4485-4d32-832b-dd6de36b1886"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p084",
+      "title": "ENGLISH SYLLABUS: Fluency Practice 8",
+      "content": "Session 8: ENGLISH SYLLABUS fluency practice\n\nFluency means you can use the language without stopping at every word.\n\n1. Read the mini text twice.\n2. Practise the hardest sentence three times.\n3. Say a new sentence about english syllabus without looking.\n4. Record or perform the sentence for a partner.\n5. Ask the partner whether the meaning was clear.\n\nFinish by writing the sentence neatly and correcting one small error.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 70,
+      "imageRefs": [
+        "UGA-S1-english-topic-005:language-fluency:visual-1:planned",
+        "UGA-S1-english-topic-005:language-fluency:visual-2:planned"
+      ],
+      "strandIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "unitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "parentUnitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "outcomeIds": [
+        "ee8f03c8-38a9-4552-83be-663798dcc4ed"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p085",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a: Reading Practice 9",
+      "content": "Session 9: The Uganda Vision 2040 aims to transform Uganda into a reading practice\n\nMini passage:\nOur class is learning the uganda vision 2040 aims to transform uganda into a through a class discussion. First, we read the text silently. Then we say the main idea in our own words. We choose useful vocabulary, answer in complete sentences, and improve one sentence after feedback. A strong answer is clear, kind, accurate, and linked to the topic.\n\nLearner move: move from simple answers to short paragraphs with clear evidence.\n\nDo this:\n1. Read aloud, say the main idea, and answer with a complete sentence.\n2. Underline three words that carry the meaning of the text.\n3. Say the main idea in one sentence.\n4. Find one detail that supports the main idea.\n5. Explain how the text connects to a real learner in Uganda.\n\nCheck: your answer should use the topic, not a memorised sentence from another lesson.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 157,
+      "imageRefs": [
+        "UGA-S1-english-topic-001:language-reading:visual-1:planned",
+        "UGA-S1-english-topic-001:language-reading:visual-2:planned"
+      ],
+      "strandIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "unitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "parentUnitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "outcomeIds": [
+        "258c8cbe-dd61-4e00-bc20-b1dbc8ac662c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p086",
+      "title": "The ESSP further outlines what the reforms imply: Vocabulary Builder 9",
+      "content": "Session 9: The ESSP further outlines what the reforms imply vocabulary builder\n\nUseful words: The ESSP further outlines what the reforms imply, ESSP, further, outlines, what, reforms.\n\nBuild meaning:\n1. Choose four words from the list.\n2. Say each word in simple words.\n3. Use each word in a new sentence connected to the essp further outlines what the reforms imply.\n4. Add one synonym, opposite, translation, picture clue, or real example where possible.\n5. Read the sentences aloud and check that each word is used correctly.\n\nMini challenge 9: create a small word bank for a younger learner and include one example from Uganda.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "UGA-S1-english-topic-002:language-vocabulary:visual-1:planned",
+        "UGA-S1-english-topic-002:language-vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "unitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "parentUnitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "outcomeIds": [
+        "277e6d66-81c2-44f2-960a-f606980b1043"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p087",
+      "title": "English Topic: Speaking And Listening 9",
+      "content": "Session 9: English Topic speaking and listening\n\nPair task:\n1. Partner A asks one clear question about english topic.\n2. Partner B answers in two complete sentences.\n3. Partner A repeats the main idea to show listening.\n4. Swap roles and improve one answer.\n5. Present the stronger answer to a small group.\n\nGood speaking is not shouting or guessing. Speak clearly, stay on topic, listen to the answer, and ask a follow-up question that helps the speaker explain more.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 80,
+      "imageRefs": [
+        "UGA-S1-english-topic-003:language-speaking:visual-1:planned",
+        "UGA-S1-english-topic-003:language-speaking:visual-2:planned"
+      ],
+      "strandIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "unitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "parentUnitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "outcomeIds": [
+        "1c1abf95-65c8-4a92-8b9d-24b0460e76dd"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p088",
+      "title": "ENGLISH SYLLABUS: Grammar Focus 9",
+      "content": "Session 9: ENGLISH SYLLABUS grammar focus\n\nUse this page to make accurate sentences.\n\n1. Write one short sentence about english syllabus.\n2. Add one describing word, place word, time word, connector, or reason.\n3. Check the subject and verb agree.\n4. Check punctuation and capital letters.\n5. Rewrite the sentence so it is clearer but still simple.\n\nModel frame:\nThe learner _____ because _____. In Uganda, this can be seen when _____.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 72,
+      "imageRefs": [
+        "UGA-S1-english-topic-004:language-grammar:visual-1:planned",
+        "UGA-S1-english-topic-004:language-grammar:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "unitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "parentUnitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "outcomeIds": [
+        "705c38be-4485-4d32-832b-dd6de36b1886"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p089",
+      "title": "ENGLISH SYLLABUS: Writing Workshop 9",
+      "content": "Session 9: ENGLISH SYLLABUS writing workshop\n\nPlan before writing:\n1. Topic sentence: say what the paragraph is about.\n2. Detail one: give a fact, example, event, or reason.\n3. Detail two: add another useful detail.\n4. Closing sentence: answer the task directly.\n5. Correction: read your paragraph aloud and fix one weak sentence.\n\nWrite six to eight lines. Keep the language simple and exact. Do not add ideas that are not connected to english syllabus.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 75,
+      "imageRefs": [
+        "UGA-S1-english-topic-005:language-writing:visual-1:planned",
+        "UGA-S1-english-topic-005:language-writing:visual-2:planned"
+      ],
+      "strandIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "unitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "parentUnitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "outcomeIds": [
+        "ee8f03c8-38a9-4552-83be-663798dcc4ed"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p090",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a: Comprehension Check 10",
+      "content": "Session 10: The Uganda Vision 2040 aims to transform Uganda into a comprehension check\n\nUse the mini text or a teacher-selected passage.\n\n1. What is the main idea?\n2. Which two details prove your answer?\n3. What does one important word mean in this passage?\n4. What can a learner in Uganda do with this idea?\n5. Write one question you still have.\n\nA complete answer uses evidence from the passage and your own words.",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 75,
+      "imageRefs": [
+        "UGA-S1-english-topic-001:language-comprehension:visual-1:planned",
+        "UGA-S1-english-topic-001:language-comprehension:visual-2:planned"
+      ],
+      "strandIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "unitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "parentUnitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "outcomeIds": [
+        "258c8cbe-dd61-4e00-bc20-b1dbc8ac662c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p091",
+      "title": "The ESSP further outlines what the reforms imply: Editing And Correction 10",
+      "content": "Session 10: The ESSP further outlines what the reforms imply editing and correction\n\nTake one answer you wrote earlier and improve it.\n\n1. Circle the sentence that is hardest to understand.\n2. Check spelling or accents where your language uses them.\n3. Add missing punctuation.\n4. Replace one vague word with a stronger topic word.\n5. Read the final answer aloud.\n\nCorrection note: write what you changed and why the new version is clearer.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 74,
+      "imageRefs": [
+        "UGA-S1-english-topic-002:language-editing:visual-1:planned",
+        "UGA-S1-english-topic-002:language-editing:visual-2:planned"
+      ],
+      "strandIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "unitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "parentUnitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "outcomeIds": [
+        "277e6d66-81c2-44f2-960a-f606980b1043"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p092",
+      "title": "English Topic: Fluency Practice 10",
+      "content": "Session 10: English Topic fluency practice\n\nFluency means you can use the language without stopping at every word.\n\n1. Read the mini text twice.\n2. Practise the hardest sentence three times.\n3. Say a new sentence about english topic without looking.\n4. Record or perform the sentence for a partner.\n5. Ask the partner whether the meaning was clear.\n\nFinish by writing the sentence neatly and correcting one small error.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 70,
+      "imageRefs": [
+        "UGA-S1-english-topic-003:language-fluency:visual-1:planned",
+        "UGA-S1-english-topic-003:language-fluency:visual-2:planned"
+      ],
+      "strandIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "unitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "parentUnitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "outcomeIds": [
+        "1c1abf95-65c8-4a92-8b9d-24b0460e76dd"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p093",
+      "title": "ENGLISH SYLLABUS: Reading Practice 10",
+      "content": "Session 10: ENGLISH SYLLABUS reading practice\n\nMini passage:\nOur class is learning english syllabus through a class discussion. First, we read the text silently. Then we say the main idea in our own words. We choose useful vocabulary, answer in complete sentences, and improve one sentence after feedback. A strong answer is clear, kind, accurate, and linked to the topic.\n\nLearner move: move from simple answers to short paragraphs with clear evidence.\n\nDo this:\n1. Read aloud, say the main idea, and answer with a complete sentence.\n2. Underline three words that carry the meaning of the text.\n3. Say the main idea in one sentence.\n4. Find one detail that supports the main idea.\n5. Explain how the text connects to a real learner in Uganda.\n\nCheck: your answer should use the topic, not a memorised sentence from another lesson.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 141,
+      "imageRefs": [
+        "UGA-S1-english-topic-004:language-reading:visual-1:planned",
+        "UGA-S1-english-topic-004:language-reading:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "unitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "parentUnitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "outcomeIds": [
+        "705c38be-4485-4d32-832b-dd6de36b1886"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p094",
+      "title": "ENGLISH SYLLABUS: Vocabulary Builder 10",
+      "content": "Session 10: ENGLISH SYLLABUS vocabulary builder\n\nUseful words: ENGLISH SYLLABUS, ENGLISH, SYLLABUS, read, listen, speak.\n\nBuild meaning:\n1. Choose four words from the list.\n2. Say each word in simple words.\n3. Use each word in a new sentence connected to english syllabus.\n4. Add one synonym, opposite, translation, picture clue, or real example where possible.\n5. Read the sentences aloud and check that each word is used correctly.\n\nMini challenge 10: create a small word bank for a younger learner and include one example from Uganda.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 87,
+      "imageRefs": [
+        "UGA-S1-english-topic-005:language-vocabulary:visual-1:planned",
+        "UGA-S1-english-topic-005:language-vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "unitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "parentUnitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "outcomeIds": [
+        "ee8f03c8-38a9-4552-83be-663798dcc4ed"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p095",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a: Speaking And Listening 11",
+      "content": "Session 11: The Uganda Vision 2040 aims to transform Uganda into a speaking and listening\n\nPair task:\n1. Partner A asks one clear question about the uganda vision 2040 aims to transform uganda into a.\n2. Partner B answers in two complete sentences.\n3. Partner A repeats the main idea to show listening.\n4. Swap roles and improve one answer.\n5. Present the stronger answer to a small group.\n\nGood speaking is not shouting or guessing. Speak clearly, stay on topic, listen to the answer, and ask a follow-up question that helps the speaker explain more.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "UGA-S1-english-topic-001:language-speaking:visual-1:planned",
+        "UGA-S1-english-topic-001:language-speaking:visual-2:planned"
+      ],
+      "strandIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "unitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "parentUnitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "outcomeIds": [
+        "258c8cbe-dd61-4e00-bc20-b1dbc8ac662c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p096",
+      "title": "The ESSP further outlines what the reforms imply: Grammar Focus 11",
+      "content": "Session 11: The ESSP further outlines what the reforms imply grammar focus\n\nUse this page to make accurate sentences.\n\n1. Write one short sentence about the essp further outlines what the reforms imply.\n2. Add one describing word, place word, time word, connector, or reason.\n3. Check the subject and verb agree.\n4. Check punctuation and capital letters.\n5. Rewrite the sentence so it is clearer but still simple.\n\nModel frame:\nThe learner _____ because _____. In Uganda, this can be seen when _____.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 84,
+      "imageRefs": [
+        "UGA-S1-english-topic-002:language-grammar:visual-1:planned",
+        "UGA-S1-english-topic-002:language-grammar:visual-2:planned"
+      ],
+      "strandIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "unitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "parentUnitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "outcomeIds": [
+        "277e6d66-81c2-44f2-960a-f606980b1043"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p097",
+      "title": "English Topic: Writing Workshop 11",
+      "content": "Session 11: English Topic writing workshop\n\nPlan before writing:\n1. Topic sentence: say what the paragraph is about.\n2. Detail one: give a fact, example, event, or reason.\n3. Detail two: add another useful detail.\n4. Closing sentence: answer the task directly.\n5. Correction: read your paragraph aloud and fix one weak sentence.\n\nWrite six to eight lines. Keep the language simple and exact. Do not add ideas that are not connected to english topic.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 75,
+      "imageRefs": [
+        "UGA-S1-english-topic-003:language-writing:visual-1:planned",
+        "UGA-S1-english-topic-003:language-writing:visual-2:planned"
+      ],
+      "strandIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "unitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "parentUnitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "outcomeIds": [
+        "1c1abf95-65c8-4a92-8b9d-24b0460e76dd"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p098",
+      "title": "ENGLISH SYLLABUS: Comprehension Check 11",
+      "content": "Session 11: ENGLISH SYLLABUS comprehension check\n\nUse the mini text or a teacher-selected passage.\n\n1. What is the main idea?\n2. Which two details prove your answer?\n3. What does one important word mean in this passage?\n4. What can a learner in Uganda do with this idea?\n5. Write one question you still have.\n\nA complete answer uses evidence from the passage and your own words.",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 67,
+      "imageRefs": [
+        "UGA-S1-english-topic-004:language-comprehension:visual-1:planned",
+        "UGA-S1-english-topic-004:language-comprehension:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "unitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "parentUnitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "outcomeIds": [
+        "705c38be-4485-4d32-832b-dd6de36b1886"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p099",
+      "title": "ENGLISH SYLLABUS: Editing And Correction 11",
+      "content": "Session 11: ENGLISH SYLLABUS editing and correction\n\nTake one answer you wrote earlier and improve it.\n\n1. Circle the sentence that is hardest to understand.\n2. Check spelling or accents where your language uses them.\n3. Add missing punctuation.\n4. Replace one vague word with a stronger topic word.\n5. Read the final answer aloud.\n\nCorrection note: write what you changed and why the new version is clearer.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 68,
+      "imageRefs": [
+        "UGA-S1-english-topic-005:language-editing:visual-1:planned",
+        "UGA-S1-english-topic-005:language-editing:visual-2:planned"
+      ],
+      "strandIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "unitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "parentUnitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "outcomeIds": [
+        "ee8f03c8-38a9-4552-83be-663798dcc4ed"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p100",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a: Fluency Practice 12",
+      "content": "Session 12: The Uganda Vision 2040 aims to transform Uganda into a fluency practice\n\nFluency means you can use the language without stopping at every word.\n\n1. Read the mini text twice.\n2. Practise the hardest sentence three times.\n3. Say a new sentence about the uganda vision 2040 aims to transform uganda into a without looking.\n4. Record or perform the sentence for a partner.\n5. Ask the partner whether the meaning was clear.\n\nFinish by writing the sentence neatly and correcting one small error.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 86,
+      "imageRefs": [
+        "UGA-S1-english-topic-001:language-fluency:visual-1:planned",
+        "UGA-S1-english-topic-001:language-fluency:visual-2:planned"
+      ],
+      "strandIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "unitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "parentUnitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "outcomeIds": [
+        "258c8cbe-dd61-4e00-bc20-b1dbc8ac662c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p101",
+      "title": "The ESSP further outlines what the reforms imply: Reading Practice 12",
+      "content": "Session 12: The ESSP further outlines what the reforms imply reading practice\n\nMini passage:\nOur class is learning the essp further outlines what the reforms imply through a class discussion. First, we read the text silently. Then we say the main idea in our own words. We choose useful vocabulary, answer in complete sentences, and improve one sentence after feedback. A strong answer is clear, kind, accurate, and linked to the topic.\n\nLearner move: move from simple answers to short paragraphs with clear evidence.\n\nDo this:\n1. Read aloud, say the main idea, and answer with a complete sentence.\n2. Underline three words that carry the meaning of the text.\n3. Say the main idea in one sentence.\n4. Find one detail that supports the main idea.\n5. Explain how the text connects to a real learner in Uganda.\n\nCheck: your answer should use the topic, not a memorised sentence from another lesson.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 153,
+      "imageRefs": [
+        "UGA-S1-english-topic-002:language-reading:visual-1:planned",
+        "UGA-S1-english-topic-002:language-reading:visual-2:planned"
+      ],
+      "strandIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "unitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "parentUnitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "outcomeIds": [
+        "277e6d66-81c2-44f2-960a-f606980b1043"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p102",
+      "title": "English Topic: Vocabulary Builder 12",
+      "content": "Session 12: English Topic vocabulary builder\n\nUseful words: English Topic, English, Topic, read, listen, speak.\n\nBuild meaning:\n1. Choose four words from the list.\n2. Say each word in simple words.\n3. Use each word in a new sentence connected to english topic.\n4. Add one synonym, opposite, translation, picture clue, or real example where possible.\n5. Read the sentences aloud and check that each word is used correctly.\n\nMini challenge 12: create a small word bank for a younger learner and include one example from Uganda.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 87,
+      "imageRefs": [
+        "UGA-S1-english-topic-003:language-vocabulary:visual-1:planned",
+        "UGA-S1-english-topic-003:language-vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "unitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "parentUnitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "outcomeIds": [
+        "1c1abf95-65c8-4a92-8b9d-24b0460e76dd"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p103",
+      "title": "ENGLISH SYLLABUS: Speaking And Listening 12",
+      "content": "Session 12: ENGLISH SYLLABUS speaking and listening\n\nPair task:\n1. Partner A asks one clear question about english syllabus.\n2. Partner B answers in two complete sentences.\n3. Partner A repeats the main idea to show listening.\n4. Swap roles and improve one answer.\n5. Present the stronger answer to a small group.\n\nGood speaking is not shouting or guessing. Speak clearly, stay on topic, listen to the answer, and ask a follow-up question that helps the speaker explain more.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 80,
+      "imageRefs": [
+        "UGA-S1-english-topic-004:language-speaking:visual-1:planned",
+        "UGA-S1-english-topic-004:language-speaking:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "unitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "parentUnitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "outcomeIds": [
+        "705c38be-4485-4d32-832b-dd6de36b1886"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p104",
+      "title": "ENGLISH SYLLABUS: Grammar Focus 12",
+      "content": "Session 12: ENGLISH SYLLABUS grammar focus\n\nUse this page to make accurate sentences.\n\n1. Write one short sentence about english syllabus.\n2. Add one describing word, place word, time word, connector, or reason.\n3. Check the subject and verb agree.\n4. Check punctuation and capital letters.\n5. Rewrite the sentence so it is clearer but still simple.\n\nModel frame:\nThe learner _____ because _____. In Uganda, this can be seen when _____.",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 72,
+      "imageRefs": [
+        "UGA-S1-english-topic-005:language-grammar:visual-1:planned",
+        "UGA-S1-english-topic-005:language-grammar:visual-2:planned"
+      ],
+      "strandIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "unitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "parentUnitIds": [
+        "d417b81b-6976-488b-9809-fac58f49b609"
+      ],
+      "outcomeIds": [
+        "ee8f03c8-38a9-4552-83be-663798dcc4ed"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p105",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a: Review Clinic 1",
+      "content": "Use this review clinic to strengthen English without copying earlier answers.\n\n1. Choose one idea from The Uganda Vision 2040 aims to transform Uganda into a that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Uganda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 83,
+      "imageRefs": [
+        "UGA-S1-english-topic-001:review:visual-1:planned",
+        "UGA-S1-english-topic-001:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "unitIds": [
+        "753fb0b1-770b-44f4-9e4c-7ea36ec80126"
+      ],
+      "outcomeIds": [
+        "258c8cbe-dd61-4e00-bc20-b1dbc8ac662c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p106",
+      "title": "The ESSP further outlines what the reforms imply: Review Clinic 2",
+      "content": "Use this review clinic to strengthen English without copying earlier answers.\n\n1. Choose one idea from The ESSP further outlines what the reforms imply that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Uganda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 81,
+      "imageRefs": [
+        "UGA-S1-english-topic-002:review:visual-1:planned",
+        "UGA-S1-english-topic-002:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "unitIds": [
+        "86859a72-f5ec-49a5-9817-59beeb870878"
+      ],
+      "outcomeIds": [
+        "277e6d66-81c2-44f2-960a-f606980b1043"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p107",
+      "title": "English Topic: Review Clinic 3",
+      "content": "Use this review clinic to strengthen English without copying earlier answers.\n\n1. Choose one idea from English Topic that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Uganda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 75,
+      "imageRefs": [
+        "UGA-S1-english-topic-003:review:visual-1:planned",
+        "UGA-S1-english-topic-003:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "unitIds": [
+        "8b55837d-d56e-44f2-8480-7c3584744636"
+      ],
+      "outcomeIds": [
+        "1c1abf95-65c8-4a92-8b9d-24b0460e76dd"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p108",
+      "title": "ENGLISH SYLLABUS: Review Clinic 4",
+      "content": "Use this review clinic to strengthen English without copying earlier answers.\n\n1. Choose one idea from ENGLISH SYLLABUS that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Uganda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 75,
+      "imageRefs": [
+        "UGA-S1-english-topic-004:review:visual-1:planned",
+        "UGA-S1-english-topic-004:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "unitIds": [
+        "ac2c7f84-2986-49bb-a2df-68d0a153925a"
+      ],
+      "outcomeIds": [
+        "705c38be-4485-4d32-832b-dd6de36b1886"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p109",
+      "title": "Glossary",
+      "content": "Use this glossary to revise important words in English.\n\n- The Uganda Vision 2040 aims to transform Uganda into a: Explain this term using an example from the book, your school, or your community.\n- The ESSP further outlines what the reforms imply: Explain this term using an example from the book, your school, or your community.\n- English Topic: Explain this term using an example from the book, your school, or your community.\n- ENGLISH SYLLABUS: Explain this term using an example from the book, your school, or your community.\n- ENGLISH SYLLABUS: Explain this term using an example from the book, your school, or your community.\n\nAdd five more words from your lessons and write your own meanings.",
+      "pageType": "glossary",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 120,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p110",
+      "title": "Answer And Teacher Notes",
+      "content": "A strong English answer matches the task, uses topic vocabulary, keeps meaning clear, and checks spelling, punctuation, grammar, pronunciation, or expression after feedback. Improve one weak sentence by adding a precise detail from the topic.",
+      "pageType": "answer-notes",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 35,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s1-english-p111",
+      "title": "Final Project",
+      "content": "Create a final project for English that shows what you can now do independently.\n\nYour project must include:\n1. A clear title.\n2. A real-life problem, question, text, performance, investigation, design, or worked task.\n3. Evidence from at least three lessons in this book.\n4. A drawing, table, map, chart, model, dialogue, paragraph, performance plan, practical product, or worked solution.\n5. A correction note showing one improvement after feedback.\n6. A short reflection explaining what you learned, what was difficult, and what you will practise next.\n\nPresentation check: keep the work neat, label important parts, use correct vocabulary, and be ready to explain your choices to a classmate or teacher.",
+      "pageType": "project",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 110,
+      "imageRefs": []
+    }
+  ]
+}

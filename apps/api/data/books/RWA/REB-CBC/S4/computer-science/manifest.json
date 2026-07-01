@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-rwa-reb-cbc-s4-computer-science",
+  "title": "KITABU QUEST S4 Computer Science",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "S4",
+  "subject": "Computer Science",
+  "subjectSlug": "computer-science",
+  "subjectColor": "#4338CA",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v5",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T04:10:08Z",
+  "sourceSnapshotHash": "27812cfe370da8dd29bb2b87774c05558a5f95d18071c1c5f1afb56418c1e28d",
+  "bookPlanHash": "6ad29567024d96b1b89d3ed510ee4ba4f6316bd5c61c0db17e4ece8e3013239b",
+  "pageCount": 99,
+  "wordCount": 9453,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 11,
+    "outcomeCount": 11,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "RWA",
+    "subject": "Computer Science",
+    "species": "mountain gorilla",
+    "role": "computing guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "students using computers and code safely with a mountain gorilla mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Rwanda REB-CBC S4 Computer Science. Scene: students using computers and code safely with a mountain gorilla mascot. Include a friendly mountain gorilla mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 92305,
+    "sha256": "242dd643030ebaac3a57209aa5047d3f5389b147118b3765e8fc443739d3077c"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 92305,
+      "sha256": "242dd643030ebaac3a57209aa5047d3f5389b147118b3765e8fc443739d3077c",
+      "kind": "cover",
+      "altText": "KITABU QUEST S4 Computer Science cover with mountain gorilla",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-rwa-reb-cbc-s4-computer-science.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-rwa-reb-cbc-s4-computer-science.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7",
+      "subject": "Computer Science",
+      "officialTitle": "Rwanda Competence Based Curriculum S4 Computer Science",
+      "countryCode": "RWA",
+      "curriculumCode": "REB-CBC",
+      "gradeCode": "S4",
+      "gradeLocalLevel": "S4",
+      "localLevel": "S4",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://elearning.reb.rw/pluginfile.php/15471/mod_resource/content/1/Computer%20Science%20Competence%20Based%20Syllabus.pdf",
+      "objectKey": "data/curriculum/source-files/RWA/d431700bbf589d86b89fbdfa73da3fb48d5d2268337bf347d6f2ddfbd1a844ae.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "S4",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://elearning.reb.rw/pluginfile.php/15471/mod_resource/content/1/Computer%20Science%20Competence%20Based%20Syllabus.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S4/computer-science/dd87f0df-0d1a-449b-b5cf-d5f44cab97f7.md",
+        "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "reb.gov.rw",
+          "reb.rw",
+          "elearning.reb.rw"
+        ],
+        "markdownChecksum": "a28159178535f4c1ed1d186e22f9125edf59fb6c7355090dc0bbfa031ca16c03",
+        "markdownPageCount": 130,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/RWA/REB-CBC/S4/computer-science/dd87f0df-0d1a-449b-b5cf-d5f44cab97f7.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "a28159178535f4c1ed1d186e22f9125edf59fb6c7355090dc0bbfa031ca16c03",
+          "pageCount": 130,
+          "generatedAt": "2026-07-01T01:21:24.056Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S4/computer-science/dd87f0df-0d1a-449b-b5cf-d5f44cab97f7.json",
+          "sourceChecksum": "deb7e9f73d42ecb5090e6f80c9ae0bed1f3df353e27c67d842be9807f68ef00d"
+        },
+        "markdownGeneratedAt": "2026-07-01T01:21:24.056Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

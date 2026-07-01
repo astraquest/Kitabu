@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-tza-tie-basic-standard-v-hisabati",
+  "title": "KITABU QUEST Standard V Hisabati",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Standard V",
+  "subject": "Hisabati",
+  "subjectSlug": "hisabati",
+  "subjectColor": "#047857",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v13",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:40:52Z",
+  "sourceSnapshotHash": "e4041e074ca9f5dad38861f221dc36f71cd5d2e0ee096ed224e0a6659869b39e",
+  "bookPlanHash": "31ddf5e673eedd08923dbd7daed01c68434fc23f304adecf50924d2d190bd5de",
+  "pageCount": 85,
+  "wordCount": 7741,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 8,
+    "outcomeCount": 8,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "TZA",
+    "subject": "Hisabati",
+    "species": "elephant",
+    "role": "problem-solving guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners using counters and measuring tools with an elephant mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Tanzania TIE-BASIC Standard V Hisabati. Scene: learners using counters and measuring tools with an elephant mascot. Include a friendly elephant mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 87740,
+    "sha256": "81abeac925654eb24f34a6d22adeea5e9eed2831413c37c01fab9b79ff63db0e"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 87740,
+      "sha256": "81abeac925654eb24f34a6d22adeea5e9eed2831413c37c01fab9b79ff63db0e",
+      "kind": "cover",
+      "altText": "KITABU QUEST Standard V Hisabati cover with elephant",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-tza-tie-basic-standard-v-hisabati.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-tza-tie-basic-standard-v-hisabati.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "99eadf04-3386-41eb-9ee0-2afbcb385fa3",
+      "subject": "Hisabati",
+      "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard V Hisabati",
+      "countryCode": "TZA",
+      "curriculumCode": "TIE-BASIC",
+      "gradeCode": "STANDARD_V",
+      "gradeLocalLevel": "Standard V",
+      "localLevel": "Standard V",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+      "objectKey": "data/curriculum/source-files/TZA/254ed101fe7246a14c809aa0296752b9faf9b156f180bc052a5cb440f0b7fd21.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "STANDARD_V",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727169918-MUHTASARI%20%20WA%20SOMO%20LA%20HISABATI%20DRS%20III-VI.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/hisabati/99eadf04-3386-41eb-9ee0-2afbcb385fa3.md",
+        "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "tie.go.tz"
+        ],
+        "markdownChecksum": "21314fd7ca1f00d0acee03f031f97803ba130b8027d426664456eacfe288050d",
+        "markdownPageCount": 47,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_V/hisabati/99eadf04-3386-41eb-9ee0-2afbcb385fa3.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "21314fd7ca1f00d0acee03f031f97803ba130b8027d426664456eacfe288050d",
+          "pageCount": 47,
+          "generatedAt": "2026-06-29T16:48:15.777Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "010d846390a8359e8d97dc89edfab30f65a6c384e55961bf4b6b6decb22d5404"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:48:15.777Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

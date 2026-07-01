@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-grade-4-creative-arts",
+  "title": "KITABU QUEST Grade 4 Creative Arts",
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 4",
+  "subject": "Creative Arts",
+  "subjectSlug": "creative-arts",
+  "subjectColor": "#DB2777",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "learner-first-language-depth-renderers-2026-07-01-v10",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-reviewed-draft",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T12:51:51Z",
+  "sourceSnapshotHash": "794ba96b3eeb38e0689a583e74a0540a208cdd0e656200379153d4f782ba3319",
+  "bookPlanHash": "8e43aaf0362a39c6bc088838378ed387a94582ad5a808cab1b50ea5e3f0d3a91",
+  "pageCount": 130,
+  "wordCount": 16672,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "ageBand": "upper-primary",
+    "coversDeferred": true,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "topicCount": 16,
+    "outcomeCount": 46,
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "KEN",
+    "subject": "Creative Arts",
+    "species": "lilac-breasted roller",
+    "role": "creative colour guide",
+    "sourceRationale": "Colorful bird associated with Kenya and strong visual-arts fit."
+  },
+  "cover": {
+    "scene": "learners painting a mural and playing percussion instruments with a colorful bird mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Kenya CBC Grade 4 Creative Arts. Scene: learners painting a mural and playing percussion instruments with a colorful bird mascot. Include a friendly lilac-breasted roller mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "assets": [],
+  "downloads": {
+    "markdown": "kitabu-quest-grade-4-creative-arts.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-grade-4-creative-arts.pdf"
+  },
+  "sourceDocuments": [
+    {
+      "id": "a1b8b83c-44b1-4772-b963-bcf90f6e43b7",
+      "subject": "Creative Arts",
+      "officialTitle": "Competency Based Curriculum Grade 4 Creative Arts",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_4",
+      "gradeLocalLevel": "Grade 4",
+      "localLevel": "Grade 4",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/1NhyGe8EsZLgubbxwEvva-sNUPxDHR8r1/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "Google Drive file embedded on official KICD Grade Four Designs page.",
+        "gradeCode": "GRADE_4",
+        "documentUrl": "https://drive.google.com/file/d/1NhyGe8EsZLgubbxwEvva-sNUPxDHR8r1/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_4/creative-arts/a1b8b83c-44b1-4772-b963-bcf90f6e43b7.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-four-designs/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "96a2eac3efdb93c8b59436533e51ce100f52892f2f4f8f8c5910c907fa9695e1",
+        "markdownPageCount": 54,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_4/creative-arts/a1b8b83c-44b1-4772-b963-bcf90f6e43b7.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "96a2eac3efdb93c8b59436533e51ce100f52892f2f4f8f8c5910c907fa9695e1",
+          "pageCount": 54,
+          "generatedAt": "2026-06-29T16:35:08.140Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "fe453348f55260cdb988fd2bea44a42935352386f36c96e2b3bf168bc7af8f7d"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:08.140Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    }
+  ]
+}

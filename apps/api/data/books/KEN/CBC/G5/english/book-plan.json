@@ -1,0 +1,3931 @@
+{
+  "schemaVersion": 1,
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 5",
+  "subject": "English",
+  "generatedAt": "2026-07-01T13:07:53Z",
+  "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b",
+  "ageBand": {
+    "band": "upper-primary",
+    "language": "short sentences, concrete examples, and step-by-step guidance",
+    "taskDepth": "one clear idea at a time, then guided practice"
+  },
+  "writingStandard": {
+    "voice": "simple, conversational, purposeful, and learner-first",
+    "antiFluff": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "coversDeferred": true
+  },
+  "strands": [
+    {
+      "strandId": "0d66ebd6-1716-4a79-ab2f-de4debef12e1",
+      "number": "1.1",
+      "title": "Listening and Speaking",
+      "topicCount": 1
+    },
+    {
+      "strandId": "4ffaf59a-55ae-4948-aa72-6acc36cecd56",
+      "number": "1.3",
+      "title": "Grammar in Use",
+      "topicCount": 1
+    },
+    {
+      "strandId": "ae2bd39e-aa07-43f2-a48f-bdfcca5df76d",
+      "number": "2.0",
+      "title": "Listening and Speaking",
+      "topicCount": 1
+    },
+    {
+      "strandId": "cacfc772-bc6e-45da-b36f-23966c6b1d6e",
+      "number": "2.2",
+      "title": "Reading",
+      "topicCount": 2
+    },
+    {
+      "strandId": "7079c76b-4405-4880-921c-7152d3c1ff48",
+      "number": "2.3",
+      "title": "Grammar in Use",
+      "topicCount": 1
+    },
+    {
+      "strandId": "64ad00f4-538c-4352-a7a0-363187039fa3",
+      "number": "2.4",
+      "title": "Writing",
+      "topicCount": 1
+    },
+    {
+      "strandId": "6ed71c4a-b1ff-40f9-8e04-ef882dcd3caa",
+      "number": "3.1",
+      "title": "Listening and Speaking",
+      "topicCount": 1
+    },
+    {
+      "strandId": "9dd58ce3-5078-4bbf-8d0d-e946cdaa9e29",
+      "number": "3.2",
+      "title": "Reading",
+      "topicCount": 1
+    },
+    {
+      "strandId": "32e186f0-bcdf-48bb-bdb4-0d7637c3c11e",
+      "number": "3.4",
+      "title": "Writing 3.4.1",
+      "topicCount": 1
+    },
+    {
+      "strandId": "0fc9b9d3-fab5-41e3-b175-3cb132ecf67a",
+      "number": "4.1",
+      "title": "Listening and Speaking",
+      "topicCount": 1
+    },
+    {
+      "strandId": "46d06da2-83d2-4f22-ba87-703fd4395288",
+      "number": "4.2",
+      "title": "Reading",
+      "topicCount": 1
+    },
+    {
+      "strandId": "a34f60d0-6ec7-4285-b7ce-e2ec2a299e05",
+      "number": "4.4",
+      "title": "Writing 4.4.1",
+      "topicCount": 1
+    },
+    {
+      "strandId": "1d06af8c-16f8-4b64-9445-df5649f0f43f",
+      "number": "5.1",
+      "title": "Listening and Speaking",
+      "topicCount": 1
+    },
+    {
+      "strandId": "2ebf9d97-20cc-491d-9901-adc83263d018",
+      "number": "5.3",
+      "title": "Grammar in Use",
+      "topicCount": 2
+    },
+    {
+      "strandId": "e92c148a-85ff-473e-bbea-b9ac3165f556",
+      "number": "6.1",
+      "title": "Listening and Speaking",
+      "topicCount": 1
+    },
+    {
+      "strandId": "bd0de160-709a-40e2-be0b-5526632808ca",
+      "number": "6.2",
+      "title": "Reading",
+      "topicCount": 1
+    },
+    {
+      "strandId": "a38071c6-3839-492c-a85a-fd6a34d32f56",
+      "number": "6.3",
+      "title": "Grammar in Use",
+      "topicCount": 1
+    },
+    {
+      "strandId": "015578f6-cae7-46ed-8330-053d6cac6daf",
+      "number": "7.1",
+      "title": "Listening and Speaking",
+      "topicCount": 1
+    },
+    {
+      "strandId": "6218c1f4-6d66-4f9e-930d-6497aa33b5b2",
+      "number": "7.2",
+      "title": "Reading",
+      "topicCount": 1
+    },
+    {
+      "strandId": "3c3d52a5-0386-43f0-98b8-2a22cfd38106",
+      "number": "7.4",
+      "title": "Writing",
+      "topicCount": 1
+    },
+    {
+      "strandId": "95117c4c-6912-49eb-bf50-8d1b0c61902f",
+      "number": "8.1",
+      "title": "Listening and Speaking",
+      "topicCount": 1
+    },
+    {
+      "strandId": "5d6e5487-a631-45f8-a0c4-c386b6ab1991",
+      "number": "8.3",
+      "title": "Grammar in Use",
+      "topicCount": 1
+    },
+    {
+      "strandId": "b47dd280-2b63-4a7e-8732-a006768821fa",
+      "number": "8.4",
+      "title": "Writing",
+      "topicCount": 2
+    },
+    {
+      "strandId": "3785ac04-2963-432a-83cd-a97ec20f4c0b",
+      "number": "9.1",
+      "title": "Listening and Speaking",
+      "topicCount": 1
+    },
+    {
+      "strandId": "e94a58dc-3da9-48eb-aed9-7031bdedbf0c",
+      "number": "9.2",
+      "title": "Reading",
+      "topicCount": 1
+    },
+    {
+      "strandId": "5d18a6ac-6484-4910-918d-35f359a4c02c",
+      "number": "9.3",
+      "title": "Grammar in Use",
+      "topicCount": 2
+    },
+    {
+      "strandId": "176f2d0e-a039-41e9-a399-2c7f57a6f6d6",
+      "number": "9.4",
+      "title": "Writing",
+      "topicCount": 1
+    },
+    {
+      "strandId": "1b16ffde-46f2-4962-b342-a251a3bf994c",
+      "number": "10.1",
+      "title": "Listening and Speaking",
+      "topicCount": 2
+    },
+    {
+      "strandId": "87eb8cbc-7a90-4917-a648-e0cfa836abde",
+      "number": "10.2",
+      "title": "Reading 10.2.1",
+      "topicCount": 2
+    },
+    {
+      "strandId": "98180ce2-9c47-4f11-be4b-61c05ae795ef",
+      "number": "10.3",
+      "title": "Grammar in Use",
+      "topicCount": 1
+    },
+    {
+      "strandId": "a3b83b72-8b45-47c7-ad25-b05532f4e20d",
+      "number": "10.4",
+      "title": "Writing",
+      "topicCount": 1
+    },
+    {
+      "strandId": "f1847678-544d-4637-86c1-564de02d8a90",
+      "number": "11.1",
+      "title": "Listening and Speaking",
+      "topicCount": 1
+    },
+    {
+      "strandId": "642e545b-d65f-4362-b9d3-d0d80c3f3abf",
+      "number": "11.2",
+      "title": "Reading",
+      "topicCount": 1
+    },
+    {
+      "strandId": "41631b49-7a56-4294-a2bd-5a954bae4d04",
+      "number": "11.3",
+      "title": "Grammar in Use",
+      "topicCount": 1
+    },
+    {
+      "strandId": "68ea76b4-8c34-4fba-ab12-eeaae1327518",
+      "number": "11.4",
+      "title": "Writing",
+      "topicCount": 1
+    },
+    {
+      "strandId": "9bbd9847-97cd-4260-876f-9a86bd7446ef",
+      "number": "12.1",
+      "title": "Listening and Speaking",
+      "topicCount": 1
+    },
+    {
+      "strandId": "2c747343-795e-4770-a609-f3003846170f",
+      "number": "12.2",
+      "title": "Reading",
+      "topicCount": 1
+    },
+    {
+      "strandId": "53a86aa4-f51e-4ac9-8878-95c371b76ec8",
+      "number": "12.4",
+      "title": "Writing",
+      "topicCount": 1
+    },
+    {
+      "strandId": "65ad9752-d045-4e80-ad94-b1ae9124abd0",
+      "number": "13.1",
+      "title": "Listening and Speaking",
+      "topicCount": 1
+    },
+    {
+      "strandId": "1efe7e9d-56ef-4c38-8960-757ee32003ea",
+      "number": "13.2",
+      "title": "Reading",
+      "topicCount": 1
+    },
+    {
+      "strandId": "8dce828f-4967-49f7-bdfa-bc863c1924fe",
+      "number": "13.3",
+      "title": "Grammar in Use",
+      "topicCount": 1
+    },
+    {
+      "strandId": "45069cd2-2816-46bb-a57b-95bbc591e3c9",
+      "number": "13.4",
+      "title": "Writing",
+      "topicCount": 2
+    }
+  ],
+  "topics": [
+    {
+      "topicId": "G5-english-topic-001",
+      "strandId": "0d66ebd6-1716-4a79-ab2f-de4debef12e1",
+      "parentSubStrandId": "787f61fe-e872-410a-bf04-f42d076bbdff",
+      "subStrandId": "787f61fe-e872-410a-bf04-f42d076bbdff",
+      "strandTitle": "Listening and Speaking",
+      "unitTitle": "Listening and Speaking",
+      "sourceUnitTitle": "Listening and Speaking",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-1-1-outcome-1",
+          "text": "recognise sounds /ʌ/ words, and phrases correctly"
+        },
+        {
+          "id": "grade-5-english-1-1-outcome-2",
+          "text": "use words and phrases related to the theme in sentences correctly"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why should we say the sounds in words, phrases, and sentences correctly?",
+        "How can we improve our pronunciation?",
+        "Why should we listen attentively?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Listening and Speaking.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Listening and Speaking",
+        "Listening",
+        "Speaking"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Listening and Speaking",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Listening and Speaking",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Listening and Speaking",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-002",
+      "strandId": "4ffaf59a-55ae-4948-aa72-6acc36cecd56",
+      "parentSubStrandId": "f66913e3-a0f7-4876-9dfc-9805fca00275",
+      "subStrandId": "f66913e3-a0f7-4876-9dfc-9805fca00275",
+      "strandTitle": "Grammar in Use",
+      "unitTitle": "you identify objects that are near or far",
+      "sourceUnitTitle": "you identify objects that are near or far",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-1-3-1-outcome-1",
+          "text": "identify demonstrative determiners: this, these, that, those, in a variety of texts"
+        },
+        {
+          "id": "grade-5-english-1-3-1-outcome-2",
+          "text": "use demonstrative determiners: this, these, that, those correctly"
+        },
+        {
+          "id": "grade-5-english-1-3-1-outcome-3",
+          "text": "promote the use of the correct demonstrative determiner to use during communication."
+        }
+      ],
+      "inquiryQuestions": [
+        "How do you identify objects that are near or far?",
+        "How do we show that objects being referred to are singular or more?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to you identify objects that are near or far.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "you identify objects that are near or far",
+        "identify",
+        "objects"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to you identify objects that are near or far",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for you identify objects that are near or far",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for you identify objects that are near or far",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-003",
+      "strandId": "ae2bd39e-aa07-43f2-a48f-bdfcca5df76d",
+      "parentSubStrandId": "68c237c8-09d2-4837-8c7b-02f5340cbb45",
+      "subStrandId": "68c237c8-09d2-4837-8c7b-02f5340cbb45",
+      "strandTitle": "Listening and Speaking",
+      "unitTitle": "Pronunciation and Vocabulary",
+      "sourceUnitTitle": "Pronunciation and Vocabulary",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-2-1-1-outcome-1",
+          "text": "use pronunciation and vocabulary in clear listening, speaking, reading, writing, or grammar tasks"
+        },
+        {
+          "id": "grade-5-english-2-1-1-outcome-2",
+          "text": "construct sentences orally using words related to the theme"
+        },
+        {
+          "id": "grade-5-english-2-1-1-outcome-3",
+          "text": "listen for the main idea"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why should we listen carefully?",
+        "Why do we take turns when talking?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Pronunciation and Vocabulary.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Pronunciation and Vocabulary",
+        "Pronunciation",
+        "Vocabulary"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Pronunciation and Vocabulary",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Pronunciation and Vocabulary",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Pronunciation and Vocabulary",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-004",
+      "strandId": "cacfc772-bc6e-45da-b36f-23966c6b1d6e",
+      "parentSubStrandId": "4d4833ee-1374-438f-9ceb-dade8c98b3cd",
+      "subStrandId": "4d4833ee-1374-438f-9ceb-dade8c98b3cd:topic-1",
+      "strandTitle": "Reading",
+      "unitTitle": "Intensive Reading: characters, places, and events in a story",
+      "sourceUnitTitle": "Intensive Reading",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-2-2-1-outcome-1",
+          "text": "identify characters, places, and events in a story for comprehension"
+        },
+        {
+          "id": "grade-5-english-2-2-1-outcome-2",
+          "text": "predict events in a text for comprehension"
+        },
+        {
+          "id": "grade-5-english-2-2-1-outcome-3",
+          "text": "respond correctly to factual and inferential questions for comprehension"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why is the title of a poem or a story important?",
+        "How do we predict events in a story or poem?",
+        "How do we tell the meaning of unknown words in a story?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Intensive Reading.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Intensive Reading: characters, places, and events in a story",
+        "Intensive Reading",
+        "Intensive",
+        "Reading",
+        "characters",
+        "places",
+        "events",
+        "story"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Intensive Reading: characters, places, and events in a story",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Intensive Reading: characters, places, and events in a story",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Intensive Reading: characters, places, and events in a story",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-005",
+      "strandId": "cacfc772-bc6e-45da-b36f-23966c6b1d6e",
+      "parentSubStrandId": "4d4833ee-1374-438f-9ceb-dade8c98b3cd",
+      "subStrandId": "4d4833ee-1374-438f-9ceb-dade8c98b3cd:topic-2",
+      "strandTitle": "Reading",
+      "unitTitle": "Intensive Reading: contextual clues to infer the meaning of words",
+      "sourceUnitTitle": "Intensive Reading",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-2-2-1-outcome-4",
+          "text": "use contextual clues to infer the meaning of words for comprehension"
+        },
+        {
+          "id": "grade-5-english-2-2-1-outcome-5",
+          "text": "recommend appropriate reading techniques to peers."
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we predict events in a story or poem?",
+        "How do we tell the meaning of unknown words in a story?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Intensive Reading.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Intensive Reading: contextual clues to infer the meaning of words",
+        "Intensive Reading",
+        "Intensive",
+        "Reading",
+        "contextual",
+        "clues",
+        "infer",
+        "meaning"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Intensive Reading: contextual clues to infer the meaning of words",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Intensive Reading: contextual clues to infer the meaning of words",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Intensive Reading: contextual clues to infer the meaning of words",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-006",
+      "strandId": "7079c76b-4405-4880-921c-7152d3c1ff48",
+      "parentSubStrandId": "61108ee0-78ce-4b83-9426-69bc37fbdbcb",
+      "subStrandId": "61108ee0-78ce-4b83-9426-69bc37fbdbcb",
+      "strandTitle": "Grammar in Use",
+      "unitTitle": "Word Class: Collective Nouns/ Reflexive Pronouns",
+      "sourceUnitTitle": "Word Class: Collective Nouns/ Reflexive Pronouns",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-2-3-1-outcome-1",
+          "text": "identify collective nouns and reflexive pronouns in texts"
+        },
+        {
+          "id": "grade-5-english-2-3-1-outcome-2",
+          "text": "use collective nouns and reflexive pronouns in sentences correctly"
+        },
+        {
+          "id": "grade-5-english-2-3-1-outcome-3",
+          "text": "adopt the use of collective and reflexive pronouns during communication."
+        }
+      ],
+      "inquiryQuestions": [
+        "How do you emphasise that you did something on your own?",
+        "Which words do you use to refer to a group of things or animals?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Word Class: Collective Nouns/ Reflexive Pronouns.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Word Class: Collective Nouns/ Reflexive Pronouns",
+        "Class",
+        "Collective",
+        "Nouns/",
+        "Reflexive",
+        "Pronouns"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Word Class: Collective Nouns/ Reflexive Pronouns",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Word Class: Collective Nouns/ Reflexive Pronouns",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Word Class: Collective Nouns/ Reflexive Pronouns",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-007",
+      "strandId": "64ad00f4-538c-4352-a7a0-363187039fa3",
+      "parentSubStrandId": "2439fe39-77b2-470f-8c24-9262692ed9d5",
+      "subStrandId": "2439fe39-77b2-470f-8c24-9262692ed9d5",
+      "strandTitle": "Writing",
+      "unitTitle": "Creative Writing: Open ended Compositions",
+      "sourceUnitTitle": "Creative Writing: Open ended Compositions",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-2-4-1-outcome-1",
+          "text": "select relevant points when planning a composition"
+        },
+        {
+          "id": "grade-5-english-2-4-1-outcome-2",
+          "text": "write an open-ended composition for comprehension"
+        },
+        {
+          "id": "grade-5-english-2-4-1-outcome-3",
+          "text": "advocate for the use of creativity in writing."
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we express ideas on different topics?",
+        "Why do we share ideas?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Creative Writing: Open ended Compositions.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Creative Writing: Open ended Compositions",
+        "Creative",
+        "Writing",
+        "ended",
+        "Compositions"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Creative Writing: Open ended Compositions",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Creative Writing: Open ended Compositions",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Creative Writing: Open ended Compositions",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-008",
+      "strandId": "6ed71c4a-b1ff-40f9-8e04-ef882dcd3caa",
+      "parentSubStrandId": "ab91250a-b9da-4fc4-9881-56c31d096e78",
+      "subStrandId": "ab91250a-b9da-4fc4-9881-56c31d096e78",
+      "strandTitle": "Listening and Speaking",
+      "unitTitle": "Pronunciation and Vocabulary",
+      "sourceUnitTitle": "Pronunciation and Vocabulary",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-3-1-1-outcome-1",
+          "text": "identify polite words, phrases, and expressions in oral contexts"
+        },
+        {
+          "id": "grade-5-english-3-1-1-outcome-2",
+          "text": "construct sentences orally using words"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why should you use polite expressions when talking to others?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Pronunciation and Vocabulary.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Pronunciation and Vocabulary",
+        "Pronunciation",
+        "Vocabulary"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Pronunciation and Vocabulary",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Pronunciation and Vocabulary",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Pronunciation and Vocabulary",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-009",
+      "strandId": "9dd58ce3-5078-4bbf-8d0d-e946cdaa9e29",
+      "parentSubStrandId": "cc2b9ba8-791d-4713-8cc1-cff2b274087d",
+      "subStrandId": "cc2b9ba8-791d-4713-8cc1-cff2b274087d",
+      "strandTitle": "Reading",
+      "unitTitle": "Intensive",
+      "sourceUnitTitle": "Intensive",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-3-2-1-outcome-1",
+          "text": "use intensive in clear listening, speaking, reading, writing, or grammar tasks"
+        }
+      ],
+      "inquiryQuestions": [
+        "How do you get information from a text?",
+        "Which things do you predict or visualize in a story?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Intensive.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Intensive"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Intensive",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Intensive",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Intensive",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-010",
+      "strandId": "32e186f0-bcdf-48bb-bdb4-0d7637c3c11e",
+      "parentSubStrandId": "f9e62b9d-fc8f-435f-999f-620888fea1d9",
+      "subStrandId": "f9e62b9d-fc8f-435f-999f-620888fea1d9",
+      "strandTitle": "Writing 3.4.1",
+      "unitTitle": "Writing 3.4.1",
+      "sourceUnitTitle": "Writing 3.4.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-3-4-outcome-1",
+          "text": "identify text written in joined letters or cursive script"
+        },
+        {
+          "id": "grade-5-english-3-4-outcome-2",
+          "text": "write legibly using joined letters/cursive script"
+        },
+        {
+          "id": "grade-5-english-3-4-outcome-3",
+          "text": "recommend ways of improving legibility and neatness in written communication."
+        }
+      ],
+      "inquiryQuestions": [
+        "Why should we write legibly and neatly?",
+        "How can you improve your handwriting?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Writing 3.4.1.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Writing 3.4.1",
+        "Writing"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Writing 3.4.1",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Writing 3.4.1",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Writing 3.4.1",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-011",
+      "strandId": "0fc9b9d3-fab5-41e3-b175-3cb132ecf67a",
+      "parentSubStrandId": "09a0a0d2-f5ec-4cde-bc9e-053a25016f31",
+      "subStrandId": "09a0a0d2-f5ec-4cde-bc9e-053a25016f31",
+      "strandTitle": "Listening and Speaking",
+      "unitTitle": "Pronunciation",
+      "sourceUnitTitle": "Pronunciation",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-4-1-1-outcome-1",
+          "text": "meaning differs according to pronunciation"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why should we pronounce words correctly?",
+        "Why do words have different meanings at times?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Pronunciation.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Pronunciation"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Pronunciation",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Pronunciation",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Pronunciation",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-012",
+      "strandId": "46d06da2-83d2-4f22-ba87-703fd4395288",
+      "parentSubStrandId": "8911bed7-824a-4db4-b89a-5c73941032e6",
+      "subStrandId": "8911bed7-824a-4db4-b89a-5c73941032e6",
+      "strandTitle": "Reading",
+      "unitTitle": "Intensive Reading: Using Illustrations for Comprehension",
+      "sourceUnitTitle": "Intensive Reading: Using Illustrations for Comprehension",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-4-2-1-outcome-1",
+          "text": "posters, videos, pictures maps mnemonics in the classroom, based on visuals for comprehension, from text they"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why are pictures important?",
+        "How can you use pictures to communicate?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Intensive Reading: Using Illustrations for Comprehension.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Intensive Reading: Using Illustrations for Comprehension",
+        "Intensive",
+        "Reading",
+        "Using",
+        "Illustrations",
+        "Comprehension"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Intensive Reading: Using Illustrations for Comprehension",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Intensive Reading: Using Illustrations for Comprehension",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Intensive Reading: Using Illustrations for Comprehension",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-013",
+      "strandId": "a34f60d0-6ec7-4285-b7ce-e2ec2a299e05",
+      "parentSubStrandId": "c8ec0028-14ce-4eb3-a02f-bd44eec8667b",
+      "subStrandId": "c8ec0028-14ce-4eb3-a02f-bd44eec8667b",
+      "strandTitle": "Writing 4.4.1",
+      "unitTitle": "Writing 4.4.1",
+      "sourceUnitTitle": "Writing 4.4.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-4-4-outcome-1",
+          "text": "identify the components of a friendly letter from a sample letter"
+        },
+        {
+          "id": "grade-5-english-4-4-outcome-2",
+          "text": "write a friendly letter using the correct format for effective communication"
+        },
+        {
+          "id": "grade-5-english-4-4-outcome-3",
+          "text": "judge the appropriateness of words, phrases and sentences used in friendly letters."
+        }
+      ],
+      "inquiryQuestions": [
+        "How do you communicat e with people who are far away?",
+        "Why do we write letters?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Writing 4.4.1.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Writing 4.4.1",
+        "Writing"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Writing 4.4.1",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Writing 4.4.1",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Writing 4.4.1",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-014",
+      "strandId": "1d06af8c-16f8-4b64-9445-df5649f0f43f",
+      "parentSubStrandId": "ac0fdc99-c31d-4649-b7a5-68d1c6f75abc",
+      "subStrandId": "ac0fdc99-c31d-4649-b7a5-68d1c6f75abc",
+      "strandTitle": "Listening and Speaking",
+      "unitTitle": "we pronounce sounds correctly",
+      "sourceUnitTitle": "we pronounce sounds correctly",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-5-1-1-outcome-1",
+          "text": "use we pronounce sounds correctly in clear listening, speaking, reading, writing, or grammar tasks"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why should we pronounce sounds correctly?",
+        "Which words do we use to describe things, people or events?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to we pronounce sounds correctly.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "we pronounce sounds correctly",
+        "pronounce",
+        "sounds",
+        "correctly"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to we pronounce sounds correctly",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for we pronounce sounds correctly",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for we pronounce sounds correctly",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-015",
+      "strandId": "2ebf9d97-20cc-491d-9901-adc83263d018",
+      "parentSubStrandId": "a83f0266-6c5a-4d7f-a33f-e4df8e1ee3a4",
+      "subStrandId": "a83f0266-6c5a-4d7f-a33f-e4df8e1ee3a4:topic-1",
+      "strandTitle": "Grammar in Use",
+      "unitTitle": "Word Class: Adjectives: comparative and superlative forms of adjectives",
+      "sourceUnitTitle": "Word Class: Adjectives",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-5-3-1-outcome-1",
+          "text": "identify comparative and superlative forms of adjectives in a text"
+        },
+        {
+          "id": "grade-5-english-5-3-1-outcome-2",
+          "text": "order adjectives in terms of size, shape and age appropriately"
+        },
+        {
+          "id": "grade-5-english-5-3-1-outcome-3",
+          "text": "use the comparative and superlative forms of adjectives accurately"
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we compare things, people or events?",
+        "Which words are used to describe things or people?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Word Class: Adjectives.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Word Class: Adjectives: comparative and superlative forms of adjectives",
+        "Word Class: Adjectives",
+        "Class",
+        "Adjectives",
+        "comparative",
+        "superlative",
+        "forms"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Word Class: Adjectives: comparative and superlative forms of adjectives",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Word Class: Adjectives: comparative and superlative forms of adjectives",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Word Class: Adjectives: comparative and superlative forms of adjectives",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-016",
+      "strandId": "2ebf9d97-20cc-491d-9901-adc83263d018",
+      "parentSubStrandId": "a83f0266-6c5a-4d7f-a33f-e4df8e1ee3a4",
+      "subStrandId": "a83f0266-6c5a-4d7f-a33f-e4df8e1ee3a4:topic-2",
+      "strandTitle": "Grammar in Use",
+      "unitTitle": "Word Class: Adjectives: advocate the importance of using adjectives correctly",
+      "sourceUnitTitle": "Word Class: Adjectives",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-5-3-1-outcome-4",
+          "text": "advocate the importance of using adjectives correctly in communication."
+        }
+      ],
+      "inquiryQuestions": [
+        "Which words are used to describe things or people?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Word Class: Adjectives.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Word Class: Adjectives: advocate the importance of using adjectives correctly",
+        "Word Class: Adjectives",
+        "Class",
+        "Adjectives",
+        "advocate",
+        "using",
+        "correctly"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Word Class: Adjectives: advocate the importance of using adjectives correctly",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Word Class: Adjectives: advocate the importance of using adjectives correctly",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Word Class: Adjectives: advocate the importance of using adjectives correctly",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-017",
+      "strandId": "e92c148a-85ff-473e-bbea-b9ac3165f556",
+      "parentSubStrandId": "20842150-47c1-4f9a-b4e9-b3ecb9af46fc",
+      "subStrandId": "20842150-47c1-4f9a-b4e9-b3ecb9af46fc",
+      "strandTitle": "Listening and Speaking",
+      "unitTitle": "Pronunciation and Vocabulary",
+      "sourceUnitTitle": "Pronunciation and Vocabulary",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-6-1-1-outcome-1",
+          "text": "sort statements and questions based on rising and falling intonation"
+        },
+        {
+          "id": "grade-5-english-6-1-1-outcome-2",
+          "text": "use pronunciation and vocabulary in clear listening, speaking, reading, writing, or grammar tasks"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why should we pronounce sounds and words correctly?",
+        "Why do we raise or lower our voices when speaking?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Pronunciation and Vocabulary.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Pronunciation and Vocabulary",
+        "Pronunciation",
+        "Vocabulary"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Pronunciation and Vocabulary",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Pronunciation and Vocabulary",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Pronunciation and Vocabulary",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-018",
+      "strandId": "bd0de160-709a-40e2-be0b-5526632808ca",
+      "parentSubStrandId": "e8301040-fc84-473a-bd90-7b5101f5e540",
+      "subStrandId": "e8301040-fc84-473a-bd90-7b5101f5e540",
+      "strandTitle": "Reading",
+      "unitTitle": "Reading for Meaning and Evidence",
+      "sourceUnitTitle": "Reading for Meaning and Evidence",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-6-2-1-outcome-1",
+          "text": "use reading for meaning and evidence in clear listening, speaking, reading, writing, or grammar tasks"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can we guess the meaning of words?",
+        "What makes you a good reader?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Reading for Meaning and Evidence.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Reading for Meaning and Evidence",
+        "Reading",
+        "Meaning",
+        "Evidence"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Reading for Meaning and Evidence",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Reading for Meaning and Evidence",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Reading for Meaning and Evidence",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-019",
+      "strandId": "a38071c6-3839-492c-a85a-fd6a34d32f56",
+      "parentSubStrandId": "9949c0b7-9420-4bdb-b0b6-4ab5da9d45f7",
+      "subStrandId": "9949c0b7-9420-4bdb-b0b6-4ab5da9d45f7",
+      "strandTitle": "Grammar in Use",
+      "unitTitle": "Word Class",
+      "sourceUnitTitle": "Word Class",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-6-3-1-outcome-1",
+          "text": "determiners: few/ a few, little/ a little, a lot of/ lots of, each, all, enough, most"
+        }
+      ],
+      "inquiryQuestions": [
+        "Which words do we use to show amount or quantity?",
+        "Why is it important to tell the quantity of something?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Word Class.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Word Class",
+        "Class"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Word Class",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Word Class",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Word Class",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-020",
+      "strandId": "015578f6-cae7-46ed-8330-053d6cac6daf",
+      "parentSubStrandId": "2c4da285-d61a-4845-b52c-6ff544ed2c5b",
+      "subStrandId": "2c4da285-d61a-4845-b52c-6ff544ed2c5b",
+      "strandTitle": "Listening and Speaking",
+      "unitTitle": "we pronounce sounds and words correctly",
+      "sourceUnitTitle": "we pronounce sounds and words correctly",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-7-1-1-outcome-1",
+          "text": "use we pronounce sounds and words correctly in clear listening, speaking, reading, writing, or grammar tasks"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why should we pronounce sounds and words correctly?",
+        "Why should you give others a chance to speak?",
+        "How do you tell if someone is happy or sad?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to we pronounce sounds and words correctly.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "we pronounce sounds and words correctly",
+        "pronounce",
+        "sounds",
+        "words",
+        "correctly"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to we pronounce sounds and words correctly",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for we pronounce sounds and words correctly",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for we pronounce sounds and words correctly",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-021",
+      "strandId": "6218c1f4-6d66-4f9e-930d-6497aa33b5b2",
+      "parentSubStrandId": "d4425841-3f30-4fe7-b565-533caa4e914d",
+      "subStrandId": "d4425841-3f30-4fe7-b565-533caa4e914d",
+      "strandTitle": "Reading",
+      "unitTitle": "Reading for Meaning and Evidence",
+      "sourceUnitTitle": "Reading for Meaning and Evidence",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-7-2-1-outcome-1",
+          "text": "materials from a collection of books, materials for information and pleasure, appropriateness of reading materials on"
+        }
+      ],
+      "inquiryQuestions": [
+        "What kind of information do you find in books?",
+        "Why is it necessary to read many books?",
+        "What do you consider when choosing a material to read?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Reading for Meaning and Evidence.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Reading for Meaning and Evidence",
+        "Reading",
+        "Meaning",
+        "Evidence"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Reading for Meaning and Evidence",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Reading for Meaning and Evidence",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Reading for Meaning and Evidence",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-022",
+      "strandId": "3c3d52a5-0386-43f0-98b8-2a22cfd38106",
+      "parentSubStrandId": "93266882-9840-4f97-bef1-3204dbdbbe30",
+      "subStrandId": "93266882-9840-4f97-bef1-3204dbdbbe30",
+      "strandTitle": "Writing",
+      "unitTitle": "punctuation marks do you know",
+      "sourceUnitTitle": "punctuation marks do you know",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-7-4-1-outcome-1",
+          "text": "double quotation marks in written texts, double quotation marks correctly in sentences, correct punctuation in written"
+        }
+      ],
+      "inquiryQuestions": [
+        "Which punctuation marks do you know?",
+        "Why do we punctuate sentences?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to punctuation marks do you know.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "punctuation marks do you know",
+        "punctuation",
+        "marks"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to punctuation marks do you know",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for punctuation marks do you know",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for punctuation marks do you know",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-023",
+      "strandId": "95117c4c-6912-49eb-bf50-8d1b0c61902f",
+      "parentSubStrandId": "a2b2a040-2750-41c4-9e36-6a9ab46aeee8",
+      "subStrandId": "a2b2a040-2750-41c4-9e36-6a9ab46aeee8",
+      "strandTitle": "Listening and Speaking",
+      "unitTitle": "Pronunciation and Vocabulary",
+      "sourceUnitTitle": "Pronunciation and Vocabulary",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-8-1-1-outcome-1",
+          "text": "list proverbs and sayings in a narrative"
+        },
+        {
+          "id": "grade-5-english-8-1-1-outcome-2",
+          "text": "construct sentences orally using words related to the theme"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why should we pronounce words correctly?",
+        "Which proverbs and sayings do you know?",
+        "Why are proverbs and sayings important in speech?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Pronunciation and Vocabulary.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Pronunciation and Vocabulary",
+        "Pronunciation",
+        "Vocabulary"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Pronunciation and Vocabulary",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Pronunciation and Vocabulary",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Pronunciation and Vocabulary",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-024",
+      "strandId": "5d6e5487-a631-45f8-a0c4-c386b6ab1991",
+      "parentSubStrandId": "70e40e64-496d-431d-ae8f-fb9031bd21a9",
+      "subStrandId": "70e40e64-496d-431d-ae8f-fb9031bd21a9",
+      "strandTitle": "Grammar in Use",
+      "unitTitle": "Sentences",
+      "sourceUnitTitle": "Sentences",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-8-3-1-outcome-1",
+          "text": "identify questions tags and double imperatives from a text"
+        },
+        {
+          "id": "grade-5-english-8-3-1-outcome-2",
+          "text": "use question tags and double imperatives correctly in sentences"
+        },
+        {
+          "id": "grade-5-english-8-3-1-outcome-3",
+          "text": "advocate the correct use of double imperatives and question tags in communication."
+        }
+      ],
+      "inquiryQuestions": [
+        "What are some of your school rules?",
+        "How do you give instructions?",
+        "Why do we ask questions?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Sentences.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Sentences"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Sentences",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Sentences",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Sentences",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-025",
+      "strandId": "b47dd280-2b63-4a7e-8732-a006768821fa",
+      "parentSubStrandId": "6c4d67cb-e32f-435e-a048-970323c516f8",
+      "subStrandId": "6c4d67cb-e32f-435e-a048-970323c516f8:topic-1",
+      "strandTitle": "Writing",
+      "unitTitle": "Creative Writing: similes and proverbs in a variety of texts",
+      "sourceUnitTitle": "Creative Writing",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-8-4-1-outcome-1",
+          "text": "identify similes and proverbs in a variety of texts"
+        },
+        {
+          "id": "grade-5-english-8-4-1-outcome-2",
+          "text": "use similes and proverbs correctly in oral and written texts"
+        },
+        {
+          "id": "grade-5-english-8-4-1-outcome-3",
+          "text": "create a narrative composition featuring similes and proverbs"
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we make our compositions interesting?",
+        "Which similes and proverbs do you know?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Creative Writing.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Creative Writing: similes and proverbs in a variety of texts",
+        "Creative Writing",
+        "Creative",
+        "Writing",
+        "similes",
+        "proverbs",
+        "variety",
+        "texts"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Creative Writing: similes and proverbs in a variety of texts",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Creative Writing: similes and proverbs in a variety of texts",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Creative Writing: similes and proverbs in a variety of texts",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-026",
+      "strandId": "b47dd280-2b63-4a7e-8732-a006768821fa",
+      "parentSubStrandId": "6c4d67cb-e32f-435e-a048-970323c516f8",
+      "subStrandId": "6c4d67cb-e32f-435e-a048-970323c516f8:topic-2",
+      "strandTitle": "Writing",
+      "unitTitle": "Creative Writing: advocate the use of similes and proverbs",
+      "sourceUnitTitle": "Creative Writing",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-8-4-1-outcome-4",
+          "text": "advocate the use of similes and proverbs to enhance creativity in writing."
+        }
+      ],
+      "inquiryQuestions": [
+        "Which similes and proverbs do you know?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Creative Writing.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Creative Writing: advocate the use of similes and proverbs",
+        "Creative Writing",
+        "Creative",
+        "Writing",
+        "advocate",
+        "similes",
+        "proverbs"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Creative Writing: advocate the use of similes and proverbs",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Creative Writing: advocate the use of similes and proverbs",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Creative Writing: advocate the use of similes and proverbs",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-027",
+      "strandId": "3785ac04-2963-432a-83cd-a97ec20f4c0b",
+      "parentSubStrandId": "17b3305d-6352-49d9-9688-6895312541e6",
+      "subStrandId": "17b3305d-6352-49d9-9688-6895312541e6",
+      "strandTitle": "Listening and Speaking",
+      "unitTitle": "Speaking Fluency: pronunciation",
+      "sourceUnitTitle": "Speaking Fluency: pronunciation",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-1-1-1-outcome-1",
+          "text": "list words with sound /h/ from an oral text"
+        },
+        {
+          "id": "grade-5-english-1-1-1-outcome-2",
+          "text": "construct sentences orally using words related to the theme"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why is it important to speak accurately and express the right feelings?",
+        "How can you listen more attentively?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Speaking Fluency: pronunciation.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Speaking Fluency: pronunciation",
+        "Speaking",
+        "Fluency",
+        "pronunciation"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Speaking Fluency: pronunciation",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Speaking Fluency: pronunciation",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Speaking Fluency: pronunciation",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-028",
+      "strandId": "e94a58dc-3da9-48eb-aed9-7031bdedbf0c",
+      "parentSubStrandId": "2caa976a-6c4a-409f-b5ca-36b11c9fcd49",
+      "subStrandId": "2caa976a-6c4a-409f-b5ca-36b11c9fcd49",
+      "strandTitle": "Reading",
+      "unitTitle": "you describe things",
+      "sourceUnitTitle": "you describe things",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-9-2-1-outcome-1",
+          "text": "use you describe things in clear listening, speaking, reading, writing, or grammar tasks"
+        }
+      ],
+      "inquiryQuestions": [
+        "How do you describe things?",
+        "How can you tell what will happen in a story?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to you describe things.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "you describe things",
+        "describe",
+        "things"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to you describe things",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for you describe things",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for you describe things",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-029",
+      "strandId": "5d18a6ac-6484-4910-918d-35f359a4c02c",
+      "parentSubStrandId": "966c7e72-6114-420a-bacb-20d98a5a49ed",
+      "subStrandId": "966c7e72-6114-420a-bacb-20d98a5a49ed:topic-1",
+      "strandTitle": "Grammar in Use",
+      "unitTitle": "Word Class: Adverbs: of manner, time, place and frequency",
+      "sourceUnitTitle": "Word Class: Adverbs",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-9-3-1-outcome-1",
+          "text": "identify adverbs of manner, time, place and frequency in a text"
+        },
+        {
+          "id": "grade-5-english-9-3-1-outcome-2",
+          "text": "use adverbs correctly in oral and written contexts"
+        },
+        {
+          "id": "grade-5-english-9-3-1-outcome-3",
+          "text": "use the modals could and would and the phrase how manycould/would in sentences correctly"
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we describe when, how, where and how many times an action takes place?",
+        "Which word or words do we use to ask questions?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Word Class: Adverbs.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Word Class: Adverbs: of manner, time, place and frequency",
+        "Word Class: Adverbs",
+        "Class",
+        "Adverbs",
+        "manner",
+        "time",
+        "place",
+        "frequency"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Word Class: Adverbs: of manner, time, place and frequency",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Word Class: Adverbs: of manner, time, place and frequency",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Word Class: Adverbs: of manner, time, place and frequency",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-030",
+      "strandId": "5d18a6ac-6484-4910-918d-35f359a4c02c",
+      "parentSubStrandId": "966c7e72-6114-420a-bacb-20d98a5a49ed",
+      "subStrandId": "966c7e72-6114-420a-bacb-20d98a5a49ed:topic-2",
+      "strandTitle": "Grammar in Use",
+      "unitTitle": "Word Class: Adverbs: judge the appropriateness of adverbs used in oral",
+      "sourceUnitTitle": "Word Class: Adverbs",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-9-3-1-outcome-4",
+          "text": "judge the appropriateness of adverbs used in oral and written texts."
+        }
+      ],
+      "inquiryQuestions": [
+        "Which word or words do we use to ask questions?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Word Class: Adverbs.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Word Class: Adverbs: judge the appropriateness of adverbs used in oral",
+        "Word Class: Adverbs",
+        "Class",
+        "Adverbs",
+        "judge",
+        "appropriateness"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Word Class: Adverbs: judge the appropriateness of adverbs used in oral",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Word Class: Adverbs: judge the appropriateness of adverbs used in oral",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Word Class: Adverbs: judge the appropriateness of adverbs used in oral",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-031",
+      "strandId": "176f2d0e-a039-41e9-a399-2c7f57a6f6d6",
+      "parentSubStrandId": "3a8ddf08-685c-4b5a-a3b2-9402317e02d0",
+      "subStrandId": "3a8ddf08-685c-4b5a-a3b2-9402317e02d0",
+      "strandTitle": "Writing",
+      "unitTitle": "punctuation marks do you know",
+      "sourceUnitTitle": "punctuation marks do you know",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-9-4-1-outcome-1",
+          "text": "apostrophe and exclamation mark in sentences, correctly using the apostrophe and the exclamation mark, others"
+        }
+      ],
+      "inquiryQuestions": [
+        "Which punctuation marks do you know?",
+        "Why do we punctuate sentences?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to punctuation marks do you know.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "punctuation marks do you know",
+        "punctuation",
+        "marks"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to punctuation marks do you know",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for punctuation marks do you know",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for punctuation marks do you know",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-032",
+      "strandId": "1b16ffde-46f2-4962-b342-a251a3bf994c",
+      "parentSubStrandId": "3ec7b67c-959a-45fb-a947-ee791a687e1c",
+      "subStrandId": "3ec7b67c-959a-45fb-a947-ee791a687e1c:topic-1",
+      "strandTitle": "Listening and Speaking",
+      "unitTitle": "Pronunciation and Vocabulary: Interactive Listening: different moods in a narrative or a choral",
+      "sourceUnitTitle": "Pronunciation and Vocabulary: Interactive Listening",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-10-1-1-outcome-1",
+          "text": "identify different moods in a narrative or a choral verse"
+        },
+        {
+          "id": "grade-5-english-10-1-1-outcome-2",
+          "text": "use pronunciation and vocabulary: interactive listening in clear listening, speaking, reading, writing, or grammar tasks"
+        },
+        {
+          "id": "grade-5-english-10-1-1-outcome-3",
+          "text": "interrupt politely during a conversation"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why should you interrupt others politely?",
+        "How do you show different moods and feelings when listening to someone?",
+        "Which words do you use to join an on-going conversation?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Pronunciation and Vocabulary: Interactive Listening.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Pronunciation and Vocabulary: Interactive Listening: different moods in a narrative or a choral",
+        "Pronunciation and Vocabulary: Interactive Listening",
+        "Pronunciation",
+        "Vocabulary",
+        "Interactive",
+        "Listening",
+        "different",
+        "moods"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Pronunciation and Vocabulary: Interactive Listening: different moods in a narrative or a choral",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Pronunciation and Vocabulary: Interactive Listening: different moods in a narrative or a choral",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Pronunciation and Vocabulary: Interactive Listening: different moods in a narrative or a choral",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-033",
+      "strandId": "1b16ffde-46f2-4962-b342-a251a3bf994c",
+      "parentSubStrandId": "3ec7b67c-959a-45fb-a947-ee791a687e1c",
+      "subStrandId": "3ec7b67c-959a-45fb-a947-ee791a687e1c:topic-2",
+      "strandTitle": "Listening and Speaking",
+      "unitTitle": "Pronunciation and Vocabulary: Interactive Listening: challenge others to listen interactively during conversations.",
+      "sourceUnitTitle": "Pronunciation and Vocabulary: Interactive Listening",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-10-1-1-outcome-4",
+          "text": "challenge others to listen interactively during conversations."
+        }
+      ],
+      "inquiryQuestions": [
+        "How do you show different moods and feelings when listening to someone?",
+        "Which words do you use to join an on-going conversation?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Pronunciation and Vocabulary: Interactive Listening.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Pronunciation and Vocabulary: Interactive Listening: challenge others to listen interactively during conversations.",
+        "Pronunciation and Vocabulary: Interactive Listening",
+        "Pronunciation",
+        "Vocabulary",
+        "Interactive",
+        "Listening",
+        "challenge",
+        "others"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Pronunciation and Vocabulary: Interactive Listening: challenge others to listen interactively during conversations.",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Pronunciation and Vocabulary: Interactive Listening: challenge others to listen interactively during conversations.",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Pronunciation and Vocabulary: Interactive Listening: challenge others to listen interactively during conversations.",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-034",
+      "strandId": "87eb8cbc-7a90-4917-a648-e0cfa836abde",
+      "parentSubStrandId": "14067e14-3dd2-4cee-ba42-a3c9a4c907ed",
+      "subStrandId": "14067e14-3dd2-4cee-ba42-a3c9a4c907ed:topic-1",
+      "strandTitle": "Reading 10.2.1",
+      "unitTitle": "Reading 10.2.1: relate the ideas in a text to their",
+      "sourceUnitTitle": "Reading 10.2.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-10-2-outcome-1",
+          "text": "relate the ideas in a text to their experiences for comprehension"
+        },
+        {
+          "id": "grade-5-english-10-2-outcome-2",
+          "text": "respond to direct and inferential questions from a text correctly"
+        },
+        {
+          "id": "grade-5-english-10-2-outcome-3",
+          "text": "summarise the main ideas in a text for comprehension"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why do we read books?",
+        "Why should we make notes when reading?",
+        "What makes you a good reader?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Reading 10.2.1.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Reading 10.2.1: relate the ideas in a text to their",
+        "Reading 10.2.1",
+        "Reading",
+        "relate",
+        "ideas",
+        "their"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Reading 10.2.1: relate the ideas in a text to their",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Reading 10.2.1: relate the ideas in a text to their",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Reading 10.2.1: relate the ideas in a text to their",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-035",
+      "strandId": "87eb8cbc-7a90-4917-a648-e0cfa836abde",
+      "parentSubStrandId": "14067e14-3dd2-4cee-ba42-a3c9a4c907ed",
+      "subStrandId": "14067e14-3dd2-4cee-ba42-a3c9a4c907ed:topic-2",
+      "strandTitle": "Reading 10.2.1",
+      "unitTitle": "Reading 10.2.1: encourage others to pay attention to detail when",
+      "sourceUnitTitle": "Reading 10.2.1",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-10-2-outcome-4",
+          "text": "encourage others to pay attention to detail when reading."
+        }
+      ],
+      "inquiryQuestions": [
+        "Why should we make notes when reading?",
+        "What makes you a good reader?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Reading 10.2.1.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Reading 10.2.1: encourage others to pay attention to detail when",
+        "Reading 10.2.1",
+        "Reading",
+        "encourage",
+        "others",
+        "attention",
+        "detail"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Reading 10.2.1: encourage others to pay attention to detail when",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Reading 10.2.1: encourage others to pay attention to detail when",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Reading 10.2.1: encourage others to pay attention to detail when",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-036",
+      "strandId": "98180ce2-9c47-4f11-be4b-61c05ae795ef",
+      "parentSubStrandId": "c882122a-3fe2-4925-93e8-2a3ffdaa5009",
+      "subStrandId": "c882122a-3fe2-4925-93e8-2a3ffdaa5009",
+      "strandTitle": "Grammar in Use",
+      "unitTitle": "strand",
+      "sourceUnitTitle": "strand",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-10-3-1-outcome-1",
+          "text": "but, or, yet, because, since and also, in texts for effective communication, or, yet, because, since"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why do you join words and sentences?",
+        "How do you join words or sentences?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to strand.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "strand"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to strand",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for strand",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for strand",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-037",
+      "strandId": "a3b83b72-8b45-47c7-ad25-b05532f4e20d",
+      "parentSubStrandId": "14b5aaed-5399-48f4-8ba8-47a4ff232616",
+      "subStrandId": "14b5aaed-5399-48f4-8ba8-47a4ff232616",
+      "strandTitle": "Writing",
+      "unitTitle": "we describe things or events",
+      "sourceUnitTitle": "we describe things or events",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-10-4-1-outcome-1",
+          "text": "things mentioned in a text, composition related to the theme for effective communication, on the choice"
+        }
+      ],
+      "inquiryQuestions": [
+        "How do we describe things or events?",
+        "Why is it important to describe things or events clearly?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to we describe things or events.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "we describe things or events",
+        "describe",
+        "things",
+        "events"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to we describe things or events",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for we describe things or events",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for we describe things or events",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-038",
+      "strandId": "f1847678-544d-4637-86c1-564de02d8a90",
+      "parentSubStrandId": "930532b3-3a9b-451c-8ccc-073f55fa3aac",
+      "subStrandId": "930532b3-3a9b-451c-8ccc-073f55fa3aac",
+      "strandTitle": "Listening and Speaking",
+      "unitTitle": "Listening for Meaning and Key Details",
+      "sourceUnitTitle": "Listening for Meaning and Key Details",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-11-1-1-outcome-1",
+          "text": "target sound /aɪ/, in sentences, using words related to the theme, sound /aɪ/ from an audio"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why is it important to listen carefully?",
+        "How can we become better listeners?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Listening for Meaning and Key Details.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Listening for Meaning and Key Details",
+        "Listening",
+        "Meaning",
+        "Details"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Listening for Meaning and Key Details",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Listening for Meaning and Key Details",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Listening for Meaning and Key Details",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-039",
+      "strandId": "642e545b-d65f-4362-b9d3-d0d80c3f3abf",
+      "parentSubStrandId": "51ba03d7-2ee4-4faf-9550-3c71e38f5cf1",
+      "subStrandId": "51ba03d7-2ee4-4faf-9550-3c71e38f5cf1",
+      "strandTitle": "Reading",
+      "unitTitle": "Life Lessons in Plays",
+      "sourceUnitTitle": "Life Lessons in Plays",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-11-2-1-outcome-1",
+          "text": "use life lessons in plays in clear listening, speaking, reading, writing, or grammar tasks"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why is it important to relate what you read to real life experiences?",
+        "What digital resources can you use in your reading?",
+        "Why are digital materials more interesting to read than print ones?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Life Lessons in Plays.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Life Lessons in Plays",
+        "Lessons",
+        "Plays"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Life Lessons in Plays",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Life Lessons in Plays",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Life Lessons in Plays",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-040",
+      "strandId": "41631b49-7a56-4294-a2bd-5a954bae4d04",
+      "parentSubStrandId": "b06b6b3e-01ec-4712-a9cf-c564cf6042bb",
+      "subStrandId": "b06b6b3e-01ec-4712-a9cf-c564cf6042bb",
+      "strandTitle": "Grammar in Use",
+      "unitTitle": "Use of Interrogatives",
+      "sourceUnitTitle": "Use of Interrogatives",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-11-3-1-outcome-1",
+          "text": "interrogatives: how, what, when, why, who in sentences correctly, how much more, when/who/why/what else accurately"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why do we ask questions?",
+        "How do we ask questions?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Use of Interrogatives.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Use of Interrogatives",
+        "Interrogatives"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Use of Interrogatives",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Use of Interrogatives",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Use of Interrogatives",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-041",
+      "strandId": "68ea76b4-8c34-4fba-ab12-eeaae1327518",
+      "parentSubStrandId": "cfad969a-8f7a-4fce-b18d-9d9d01729983",
+      "subStrandId": "cfad969a-8f7a-4fce-b18d-9d9d01729983",
+      "strandTitle": "Writing",
+      "unitTitle": "Spelling",
+      "sourceUnitTitle": "Spelling",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-11-4-1-outcome-1",
+          "text": "spell selected words correctly for effective communication"
+        },
+        {
+          "id": "grade-5-english-11-4-1-outcome-2",
+          "text": "use homophones and homonyms in sentences correctly"
+        },
+        {
+          "id": "grade-5-english-11-4-1-outcome-3",
+          "text": "advocate for the use of correct spelling of words in written communication."
+        }
+      ],
+      "inquiryQuestions": [
+        "Which words do you find difficult to write?",
+        "How do we learn to spell words correctly?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Spelling.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Spelling"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Spelling",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Spelling",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Spelling",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-042",
+      "strandId": "9bbd9847-97cd-4260-876f-9a86bd7446ef",
+      "parentSubStrandId": "2c84db04-b886-4858-a6d9-7bbd8e66217a",
+      "subStrandId": "2c84db04-b886-4858-a6d9-7bbd8e66217a",
+      "strandTitle": "Listening and Speaking",
+      "unitTitle": "Pronunciation and Vocabulary",
+      "sourceUnitTitle": "Pronunciation and Vocabulary",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-12-2-outcome-1",
+          "text": "use pronunciation and vocabulary in clear listening, speaking, reading, writing, or grammar tasks"
+        },
+        {
+          "id": "grade-5-english-12-2-outcome-2",
+          "text": "construct sentences orally using words"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why should we speak clearly and confidently?",
+        "Why do we make speeches?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Pronunciation and Vocabulary.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Pronunciation and Vocabulary",
+        "Pronunciation",
+        "Vocabulary"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Pronunciation and Vocabulary",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Pronunciation and Vocabulary",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Pronunciation and Vocabulary",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-043",
+      "strandId": "2c747343-795e-4770-a609-f3003846170f",
+      "parentSubStrandId": "e629227c-ec45-4c56-8af9-c011a7a8fcd9",
+      "subStrandId": "e629227c-ec45-4c56-8af9-c011a7a8fcd9",
+      "strandTitle": "Reading",
+      "unitTitle": "Reading for Meaning and Evidence",
+      "sourceUnitTitle": "Reading for Meaning and Evidence",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-12-2-1-outcome-1",
+          "text": "events, characters and places in a text, meaning of words from context, inferential questions correctly"
+        }
+      ],
+      "inquiryQuestions": [
+        "What can you learn from poems and songs?",
+        "Which poems and songs do you know?",
+        "How do you tell the meaning of unfamiliar words while reading?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Reading for Meaning and Evidence.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Reading for Meaning and Evidence",
+        "Reading",
+        "Meaning",
+        "Evidence"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Reading for Meaning and Evidence",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Reading for Meaning and Evidence",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Reading for Meaning and Evidence",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-044",
+      "strandId": "53a86aa4-f51e-4ac9-8878-95c371b76ec8",
+      "parentSubStrandId": "8df078f6-1ddb-4ccc-9987-c97ef24653f1",
+      "subStrandId": "8df078f6-1ddb-4ccc-9987-c97ef24653f1",
+      "strandTitle": "Writing",
+      "unitTitle": "Functional",
+      "sourceUnitTitle": "Functional",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-12-4-1-outcome-1",
+          "text": "components of a diary/journal from a sample diary/journal, to convey desired information in the right format"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why should we plan our activities in advance?",
+        "What is the most memorable experience in your life?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Functional.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Functional"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Functional",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Functional",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Functional",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-045",
+      "strandId": "65ad9752-d045-4e80-ad94-b1ae9124abd0",
+      "parentSubStrandId": "fa05cc5d-4e8d-470b-9ab7-30881d7a0ea3",
+      "subStrandId": "fa05cc5d-4e8d-470b-9ab7-30881d7a0ea3",
+      "strandTitle": "Listening and Speaking",
+      "unitTitle": "Pronunciation and Vocabulary",
+      "sourceUnitTitle": "Pronunciation and Vocabulary",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-13-1-1-outcome-1",
+          "text": "use pronunciation and vocabulary in clear listening, speaking, reading, writing, or grammar tasks"
+        },
+        {
+          "id": "grade-5-english-13-1-1-outcome-2",
+          "text": "use similes and vocabulary related to the theme correctly in sentences"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why should we listen attentively?",
+        "How can you tell that someone is attentive?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Pronunciation and Vocabulary.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Pronunciation and Vocabulary",
+        "Pronunciation",
+        "Vocabulary"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Pronunciation and Vocabulary",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Pronunciation and Vocabulary",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Pronunciation and Vocabulary",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-046",
+      "strandId": "1efe7e9d-56ef-4c38-8960-757ee32003ea",
+      "parentSubStrandId": "9b9672e6-686a-4df9-8de8-7a35c9d9b260",
+      "subStrandId": "9b9672e6-686a-4df9-8de8-7a35c9d9b260",
+      "strandTitle": "Reading",
+      "unitTitle": "Extensive",
+      "sourceUnitTitle": "Extensive",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-13-2-1-outcome-1",
+          "text": "materials (newspapers, magazines, class readers or poems), from a collection, materials independently for information and pleasure"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why do you read?",
+        "What materials do you enjoy reading?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Extensive.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Extensive"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Extensive",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Extensive",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Extensive",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-047",
+      "strandId": "8dce828f-4967-49f7-bdfa-bc863c1924fe",
+      "parentSubStrandId": "83466eec-3351-492c-96df-fb2d794ec421",
+      "subStrandId": "83466eec-3351-492c-96df-fb2d794ec421",
+      "strandTitle": "Grammar in Use",
+      "unitTitle": "Word Class: Prepositions",
+      "sourceUnitTitle": "Word Class: Prepositions",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-13-3-1-outcome-1",
+          "text": "identify prepositions of time, in, on, at; place in, on, at and direction into, towards, to, through in sentences"
+        },
+        {
+          "id": "grade-5-english-13-3-1-outcome-2",
+          "text": "use prepositions of time, place and direction appropriately for effective communication"
+        },
+        {
+          "id": "grade-5-english-13-3-1-outcome-3",
+          "text": "appreciate the accuracy, appropriateness and correctness of prepositions used in varied texts."
+        }
+      ],
+      "inquiryQuestions": [
+        "Which words show direction and time?",
+        "Why is it important to show time and direction?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Word Class: Prepositions.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Word Class: Prepositions",
+        "Class",
+        "Prepositions"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Word Class: Prepositions",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Word Class: Prepositions",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Word Class: Prepositions",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-048",
+      "strandId": "45069cd2-2816-46bb-a57b-95bbc591e3c9",
+      "parentSubStrandId": "dda8e4bd-8b00-421c-9df4-ba49556de8ed",
+      "subStrandId": "dda8e4bd-8b00-421c-9df4-ba49556de8ed:topic-1",
+      "strandTitle": "Writing",
+      "unitTitle": "Spelling: homophones, words with double consonants and words",
+      "sourceUnitTitle": "Spelling",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-13-4-1-outcome-1",
+          "text": "identify homophones, words with double consonants and words with double vowels correctly"
+        },
+        {
+          "id": "grade-5-english-13-4-1-outcome-2",
+          "text": "spell homophones, words with double consonants and words with double vowels correctly"
+        },
+        {
+          "id": "grade-5-english-13-4-1-outcome-3",
+          "text": "uses homophones, words with double consonants and words with double vowels in sentences correctly"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why should we write words correctly?",
+        "Which words have the same pronunciation but different spelling?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Spelling.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Spelling: homophones, words with double consonants and words",
+        "Spelling",
+        "homophones",
+        "words",
+        "double",
+        "consonants"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Spelling: homophones, words with double consonants and words",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Spelling: homophones, words with double consonants and words",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Spelling: homophones, words with double consonants and words",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-english-topic-049",
+      "strandId": "45069cd2-2816-46bb-a57b-95bbc591e3c9",
+      "parentSubStrandId": "dda8e4bd-8b00-421c-9df4-ba49556de8ed",
+      "subStrandId": "dda8e4bd-8b00-421c-9df4-ba49556de8ed:topic-2",
+      "strandTitle": "Writing",
+      "unitTitle": "Spelling: recommend to peers ways of enhancing their spelling",
+      "sourceUnitTitle": "Spelling",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-english-13-4-1-outcome-4",
+          "text": "recommend to peers ways of enhancing their spelling skills for clarity of communication"
+        }
+      ],
+      "inquiryQuestions": [
+        "Which words have the same pronunciation but different spelling?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Spelling.",
+        "Review vocabulary from the previous English lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Spelling: recommend to peers ways of enhancing their spelling",
+        "Spelling",
+        "recommend",
+        "peers",
+        "enhancing",
+        "their"
+      ],
+      "misconceptions": [
+        "memorising rules without using them in meaningful speech, reading, or writing"
+      ],
+      "localContext": "a class discussion, reading club, letter, report, speech, or story situation linked to Spelling: recommend to peers ways of enhancing their spelling",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "meaning is clear",
+        "language choice fits the task",
+        "spelling, punctuation, and grammar are checked"
+      ],
+      "visualNeeds": [
+        {
+          "type": "reading passage card",
+          "description": "reading passage card for Spelling: recommend to peers ways of enhancing their spelling",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "writing checklist or dialogue panel",
+          "description": "writing checklist or dialogue panel for Spelling: recommend to peers ways of enhancing their spelling",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "924bd6c2-1f5e-4bd9-a3b1-d093e39be608",
+          "officialTitle": "Competency Based Curriculum Grade 5 English",
+          "sourceSnapshotHash": "46ded6bc9d689b16c6a45b30114a277cd162b23650adeb26a39938e6719cfc6b"
+        }
+      ]
+    }
+  ]
+}

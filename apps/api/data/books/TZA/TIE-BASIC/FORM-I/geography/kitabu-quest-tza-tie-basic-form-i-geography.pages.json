@@ -1,0 +1,2131 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-tza-tie-basic-form-i-geography",
+  "title": "KITABU QUEST Form I Geography",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Form I",
+  "subject": "Geography",
+  "subjectSlug": "geography",
+  "subjectColor": "#0E7490",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v13",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:44:08Z",
+  "sourceSnapshotHash": "eb9b9db6146941c31f98314f5a51ba488d89f2b919c50988c873c417ea193883",
+  "bookPlanHash": "e995bb7c614564e2d6d0c991cf2767af41f2069d19455dc0487c66a3af0c639a",
+  "pageCount": 85,
+  "wordCount": 8135,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 8,
+    "outcomeCount": 8,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "TZA",
+    "subject": "Geography",
+    "species": "giraffe",
+    "role": "maps and environment guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "students studying maps and landscapes with a giraffe mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Tanzania TIE-BASIC Form I Geography. Scene: students studying maps and landscapes with a giraffe mascot. Include a friendly giraffe mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 85630,
+    "sha256": "9eed8bda6fb35acd278739eb4cc10877a4002eb661f3370cfdc0401a73871cb7"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 85630,
+      "sha256": "9eed8bda6fb35acd278739eb4cc10877a4002eb661f3370cfdc0401a73871cb7",
+      "kind": "cover",
+      "altText": "KITABU QUEST Form I Geography cover with giraffe",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-tza-tie-basic-form-i-geography.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-tza-tie-basic-form-i-geography.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "c111166b-bcb5-4f40-9368-f0f1e1b7209e",
+      "subject": "Geography",
+      "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Geography",
+      "countryCode": "TZA",
+      "curriculumCode": "TIE-BASIC",
+      "gradeCode": "FORM_I",
+      "gradeLocalLevel": "Form I",
+      "localLevel": "Form I",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+      "objectKey": "data/curriculum/source-files/TZA/22439a89e08a05f32ad8a5ff37e97903fac831feeab12513070c1c324c9b20e7.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "FORM_I",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/geography/c111166b-bcb5-4f40-9368-f0f1e1b7209e.md",
+        "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "tie.go.tz"
+        ],
+        "markdownChecksum": "2ae3c300483fa5b6cc6d8973f59bd2da2478e4f57061e5c0a71bddc0590860e6",
+        "markdownPageCount": 31,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/geography/c111166b-bcb5-4f40-9368-f0f1e1b7209e.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "2ae3c300483fa5b6cc6d8973f59bd2da2478e4f57061e5c0a71bddc0590860e6",
+          "pageCount": 31,
+          "generatedAt": "2026-06-29T16:44:35.232Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "89a9dd3eb858f8d04152cd2cdba70d9b7fbf62c1bdc89517a8e49705434e9fc3"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:44:35.232Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p001",
+      "title": "Title Page",
+      "content": "KITABU QUEST Form I Geography\n\nTanzania TIE-BASIC learner book\n\nMascot: giraffe\n\nThis KITABU QUEST book turns the curriculum into short lessons, worked examples, guided activities, practice, review, and home links for Tanzania learners.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 3,
+      "wordCount": 33,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p002",
+      "title": "How To Use This Book",
+      "content": "This book helps Form I learners study Geography one teachable topic at a time.\n\n1. Start with the inquiry question and say what you already know.\n2. Read the Learn section slowly and mark new words.\n3. Try the worked example before reading the full solution.\n4. Complete the activity and practice tasks.\n5. Correct your answer using the success criteria.\n6. Ask for support when your answer is still unclear.\n\nSubject method: Use maps, field observations, diagrams, and local examples.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 81,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p003",
+      "title": "Learning Skills In This Book",
+      "content": "Each topic builds knowledge, skill, values, communication, collaboration, critical thinking, creativity, digital awareness, and self-confidence.\n\nStudy actively: speak answers aloud, draw when useful, show your working, cite evidence, use local examples, and correct mistakes after feedback.\n\nA strong answer is specific. It names the idea, gives evidence or method, applies it to the task, and checks whether it answers the question.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p004",
+      "title": "Table Of Contents",
+      "content": "Use this table to move through the book one topic at a time. Each topic has a lesson opener, clear teaching, a model or example, guided work, practice, and checks for understanding.\n\n1. Earth As A Planet And Solar System\n2. Weather Climate And Recording Instruments\n3. Map Reading Scale And Direction\n4. Major Landforms And Water Bodies\n5. Environment Resources And Conservation\n6. Population Settlement And Services\n7. Fieldwork Methods\n8. Form I Geography Project\n\nAs you finish each topic, return to the success criteria and correct one answer before moving on.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p005",
+      "title": "Earth As A Planet And Solar System: Lesson Opener",
+      "content": "Learning focus: Earth As A Planet And Solar System\n\nCountry link: a Tanzania map, community, citizenship, culture, environment, or heritage example for Earth As A Planet And Solar System.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; use maps, places, data, and environmental evidence.\n\nBy the end of this topic, you should be able to:\n- explain and apply earth as a planet and solar system in a real learning situation\n\nInquiry questions:\n- How can earth as a planet and solar system help you solve a real problem?\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-001:opener:visual-1:planned",
+        "TZA-FORM-I-geography-topic-001:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-1"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p006",
+      "title": "Earth As A Planet And Solar System: Learn",
+      "content": "Earth As A Planet And Solar System becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Earth As A Planet And Solar System\n- Earth\n- Planet\n- Solar\n- System\n- idea\n- skill\n- example",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-001:learn:visual-1:planned",
+        "TZA-FORM-I-geography-topic-001:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-1"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p007",
+      "title": "Earth As A Planet And Solar System: Worked Example",
+      "content": "Evidence model for Earth As A Planet And Solar System: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Geography.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-001:example:visual-1:planned",
+        "TZA-FORM-I-geography-topic-001:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-1"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p008",
+      "title": "Earth As A Planet And Solar System: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Earth As A Planet And Solar System. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Earth As A Planet And Solar System\n- Earth\n- Planet\n- Solar\n- System\n- idea\n- skill\n- example\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Earth As A Planet And Solar System without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 127,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-001:vocabulary:visual-1:planned",
+        "TZA-FORM-I-geography-topic-001:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-1"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p009",
+      "title": "Earth As A Planet And Solar System: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a Tanzania map, community, citizenship, culture, environment, or heritage example for Earth As A Planet And Solar System.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 97,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-001:activity:visual-1:planned",
+        "TZA-FORM-I-geography-topic-001:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-1"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p010",
+      "title": "Earth As A Planet And Solar System: Practice And Correction",
+      "content": "Practice for Earth As A Planet And Solar System:\n\n1. Use an example from your community or country to explain: explain and apply earth as a planet and solar system in a real learning situation.\n\nCorrection check:\n- answer uses a real example\n- reasoning is clear\n- work is checked\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to earth as a planet and solar system and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-001:practice:visual-1:planned",
+        "TZA-FORM-I-geography-topic-001:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-1"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p011",
+      "title": "Earth As A Planet And Solar System: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Earth As A Planet And Solar System.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 109,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-001:remediation:visual-1:planned",
+        "TZA-FORM-I-geography-topic-001:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-1"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p012",
+      "title": "Earth As A Planet And Solar System: Outcome Check",
+      "content": "Show that you can explain and apply earth as a planet and solar system in a real learning situation.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-001:assessment:visual-1:planned",
+        "TZA-FORM-I-geography-topic-001:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-1"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p013",
+      "title": "Weather Climate And Recording Instruments: Lesson Opener",
+      "content": "Learning focus: Weather Climate And Recording Instruments\n\nCountry link: a Tanzania map, community, citizenship, culture, environment, or heritage example for Weather Climate And Recording Instruments.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; use maps, places, data, and environmental evidence.\n\nBy the end of this topic, you should be able to:\n- explain and apply weather climate and recording instruments in a real learning situation\n\nInquiry questions:\n- How can weather climate and recording instruments help you solve a real problem?\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 100,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-002:opener:visual-1:planned",
+        "TZA-FORM-I-geography-topic-002:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-2"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p014",
+      "title": "Weather Climate And Recording Instruments: Learn",
+      "content": "Weather Climate And Recording Instruments becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Weather Climate And Recording Instruments\n- Weather\n- Climate\n- Recording\n- Instruments\n- idea\n- skill\n- example",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-002:learn:visual-1:planned",
+        "TZA-FORM-I-geography-topic-002:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-2"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p015",
+      "title": "Weather Climate And Recording Instruments: Worked Example",
+      "content": "Evidence model for Weather Climate And Recording Instruments: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Geography.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 59,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-002:example:visual-1:planned",
+        "TZA-FORM-I-geography-topic-002:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-2"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p016",
+      "title": "Weather Climate And Recording Instruments: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Weather Climate And Recording Instruments. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Weather Climate And Recording Instruments\n- Weather\n- Climate\n- Recording\n- Instruments\n- idea\n- skill\n- example\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Weather Climate And Recording Instruments without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-002:vocabulary:visual-1:planned",
+        "TZA-FORM-I-geography-topic-002:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-2"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p017",
+      "title": "Weather Climate And Recording Instruments: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a Tanzania map, community, citizenship, culture, environment, or heritage example for Weather Climate And Recording Instruments.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-002:activity:visual-1:planned",
+        "TZA-FORM-I-geography-topic-002:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-2"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p018",
+      "title": "Weather Climate And Recording Instruments: Practice And Correction",
+      "content": "Practice for Weather Climate And Recording Instruments:\n\n1. Use an example from your community or country to explain: explain and apply weather climate and recording instruments in a real learning situation.\n\nCorrection check:\n- answer uses a real example\n- reasoning is clear\n- work is checked\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to weather climate and recording instruments and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 89,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-002:practice:visual-1:planned",
+        "TZA-FORM-I-geography-topic-002:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-2"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p019",
+      "title": "Weather Climate And Recording Instruments: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Weather Climate And Recording Instruments.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-002:remediation:visual-1:planned",
+        "TZA-FORM-I-geography-topic-002:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-2"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p020",
+      "title": "Weather Climate And Recording Instruments: Outcome Check",
+      "content": "Show that you can explain and apply weather climate and recording instruments in a real learning situation.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-002:assessment:visual-1:planned",
+        "TZA-FORM-I-geography-topic-002:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-2"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p021",
+      "title": "Map Reading Scale And Direction: Lesson Opener",
+      "content": "Learning focus: Map Reading Scale And Direction\n\nCountry link: a Tanzania map, community, citizenship, culture, environment, or heritage example for Map Reading Scale And Direction.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; use maps, places, data, and environmental evidence.\n\nBy the end of this topic, you should be able to:\n- explain and apply map reading scale and direction in a real learning situation\n\nInquiry questions:\n- How can map reading scale and direction help you solve a real problem?\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 100,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-003:opener:visual-1:planned",
+        "TZA-FORM-I-geography-topic-003:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-3"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p022",
+      "title": "Map Reading Scale And Direction: Learn",
+      "content": "Map Reading Scale And Direction becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Map Reading Scale And Direction\n- Reading\n- Scale\n- Direction\n- idea\n- skill\n- example\n- practice",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-003:learn:visual-1:planned",
+        "TZA-FORM-I-geography-topic-003:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-3"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p023",
+      "title": "Map Reading Scale And Direction: Worked Example",
+      "content": "Evidence model for Map Reading Scale And Direction: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Geography.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 59,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-003:example:visual-1:planned",
+        "TZA-FORM-I-geography-topic-003:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-3"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p024",
+      "title": "Map Reading Scale And Direction: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Map Reading Scale And Direction. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Map Reading Scale And Direction\n- Reading\n- Scale\n- Direction\n- idea\n- skill\n- example\n- practice\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Map Reading Scale And Direction without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-003:vocabulary:visual-1:planned",
+        "TZA-FORM-I-geography-topic-003:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-3"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p025",
+      "title": "Map Reading Scale And Direction: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a Tanzania map, community, citizenship, culture, environment, or heritage example for Map Reading Scale And Direction.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-003:activity:visual-1:planned",
+        "TZA-FORM-I-geography-topic-003:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-3"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p026",
+      "title": "Map Reading Scale And Direction: Practice And Correction",
+      "content": "Practice for Map Reading Scale And Direction:\n\n1. Use an example from your community or country to explain: explain and apply map reading scale and direction in a real learning situation.\n\nCorrection check:\n- answer uses a real example\n- reasoning is clear\n- work is checked\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to map reading scale and direction and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 89,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-003:practice:visual-1:planned",
+        "TZA-FORM-I-geography-topic-003:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-3"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p027",
+      "title": "Map Reading Scale And Direction: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Map Reading Scale And Direction.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-003:remediation:visual-1:planned",
+        "TZA-FORM-I-geography-topic-003:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-3"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p028",
+      "title": "Map Reading Scale And Direction: Outcome Check",
+      "content": "Show that you can explain and apply map reading scale and direction in a real learning situation.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-003:assessment:visual-1:planned",
+        "TZA-FORM-I-geography-topic-003:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-3"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p029",
+      "title": "Major Landforms And Water Bodies: Lesson Opener",
+      "content": "Learning focus: Major Landforms And Water Bodies\n\nCountry link: a Tanzania map, community, citizenship, culture, environment, or heritage example for Major Landforms And Water Bodies.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; use maps, places, data, and environmental evidence.\n\nBy the end of this topic, you should be able to:\n- explain and apply major landforms and water bodies in a real learning situation\n\nInquiry questions:\n- How can major landforms and water bodies help you solve a real problem?\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 100,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-004:opener:visual-1:planned",
+        "TZA-FORM-I-geography-topic-004:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-4"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p030",
+      "title": "Major Landforms And Water Bodies: Learn",
+      "content": "Major Landforms And Water Bodies becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Major Landforms And Water Bodies\n- Major\n- Landforms\n- Water\n- Bodies\n- idea\n- skill\n- example",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-004:learn:visual-1:planned",
+        "TZA-FORM-I-geography-topic-004:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-4"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p031",
+      "title": "Major Landforms And Water Bodies: Worked Example",
+      "content": "Evidence model for Major Landforms And Water Bodies: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Geography.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 59,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-004:example:visual-1:planned",
+        "TZA-FORM-I-geography-topic-004:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-4"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p032",
+      "title": "Major Landforms And Water Bodies: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Major Landforms And Water Bodies. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Major Landforms And Water Bodies\n- Major\n- Landforms\n- Water\n- Bodies\n- idea\n- skill\n- example\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Major Landforms And Water Bodies without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-004:vocabulary:visual-1:planned",
+        "TZA-FORM-I-geography-topic-004:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-4"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p033",
+      "title": "Major Landforms And Water Bodies: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a Tanzania map, community, citizenship, culture, environment, or heritage example for Major Landforms And Water Bodies.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-004:activity:visual-1:planned",
+        "TZA-FORM-I-geography-topic-004:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-4"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p034",
+      "title": "Major Landforms And Water Bodies: Practice And Correction",
+      "content": "Practice for Major Landforms And Water Bodies:\n\n1. Use an example from your community or country to explain: explain and apply major landforms and water bodies in a real learning situation.\n\nCorrection check:\n- answer uses a real example\n- reasoning is clear\n- work is checked\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to major landforms and water bodies and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 89,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-004:practice:visual-1:planned",
+        "TZA-FORM-I-geography-topic-004:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-4"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p035",
+      "title": "Major Landforms And Water Bodies: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Major Landforms And Water Bodies.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-004:remediation:visual-1:planned",
+        "TZA-FORM-I-geography-topic-004:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-4"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p036",
+      "title": "Major Landforms And Water Bodies: Outcome Check",
+      "content": "Show that you can explain and apply major landforms and water bodies in a real learning situation.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-004:assessment:visual-1:planned",
+        "TZA-FORM-I-geography-topic-004:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-4"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p037",
+      "title": "Environment Resources And Conservation: Lesson Opener",
+      "content": "Learning focus: Environment Resources And Conservation\n\nCountry link: a Tanzania map, community, citizenship, culture, environment, or heritage example for Environment Resources And Conservation.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; use maps, places, data, and environmental evidence.\n\nBy the end of this topic, you should be able to:\n- explain and apply environment resources and conservation in a real learning situation\n\nInquiry questions:\n- How can environment resources and conservation help you solve a real problem?\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-005:opener:visual-1:planned",
+        "TZA-FORM-I-geography-topic-005:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-5"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p038",
+      "title": "Environment Resources And Conservation: Learn",
+      "content": "Environment Resources And Conservation becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Environment Resources And Conservation\n- Environment\n- Resources\n- Conservation\n- idea\n- skill\n- example\n- practice",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-005:learn:visual-1:planned",
+        "TZA-FORM-I-geography-topic-005:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-5"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p039",
+      "title": "Environment Resources And Conservation: Worked Example",
+      "content": "Evidence model for Environment Resources And Conservation: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Geography.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 58,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-005:example:visual-1:planned",
+        "TZA-FORM-I-geography-topic-005:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-5"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p040",
+      "title": "Environment Resources And Conservation: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Environment Resources And Conservation. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Environment Resources And Conservation\n- Environment\n- Resources\n- Conservation\n- idea\n- skill\n- example\n- practice\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Environment Resources And Conservation without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-005:vocabulary:visual-1:planned",
+        "TZA-FORM-I-geography-topic-005:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-5"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p041",
+      "title": "Environment Resources And Conservation: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a Tanzania map, community, citizenship, culture, environment, or heritage example for Environment Resources And Conservation.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-005:activity:visual-1:planned",
+        "TZA-FORM-I-geography-topic-005:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-5"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p042",
+      "title": "Environment Resources And Conservation: Practice And Correction",
+      "content": "Practice for Environment Resources And Conservation:\n\n1. Use an example from your community or country to explain: explain and apply environment resources and conservation in a real learning situation.\n\nCorrection check:\n- answer uses a real example\n- reasoning is clear\n- work is checked\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to environment resources and conservation and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 86,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-005:practice:visual-1:planned",
+        "TZA-FORM-I-geography-topic-005:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-5"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p043",
+      "title": "Environment Resources And Conservation: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Environment Resources And Conservation.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-005:remediation:visual-1:planned",
+        "TZA-FORM-I-geography-topic-005:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-5"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p044",
+      "title": "Environment Resources And Conservation: Outcome Check",
+      "content": "Show that you can explain and apply environment resources and conservation in a real learning situation.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 100,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-005:assessment:visual-1:planned",
+        "TZA-FORM-I-geography-topic-005:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-5"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p045",
+      "title": "Population Settlement And Services: Lesson Opener",
+      "content": "Learning focus: Population Settlement And Services\n\nCountry link: a Tanzania map, community, citizenship, culture, environment, or heritage example for Population Settlement And Services.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; use maps, places, data, and environmental evidence.\n\nBy the end of this topic, you should be able to:\n- explain and apply population settlement and services in a real learning situation\n\nInquiry questions:\n- How can population settlement and services help you solve a real problem?\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-006:opener:visual-1:planned",
+        "TZA-FORM-I-geography-topic-006:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-6"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p046",
+      "title": "Population Settlement And Services: Learn",
+      "content": "Population Settlement And Services becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Population Settlement And Services\n- Population\n- Settlement\n- Services\n- idea\n- skill\n- example\n- practice",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-006:learn:visual-1:planned",
+        "TZA-FORM-I-geography-topic-006:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-6"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p047",
+      "title": "Population Settlement And Services: Worked Example",
+      "content": "Evidence model for Population Settlement And Services: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Geography.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 58,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-006:example:visual-1:planned",
+        "TZA-FORM-I-geography-topic-006:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-6"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p048",
+      "title": "Population Settlement And Services: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Population Settlement And Services. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Population Settlement And Services\n- Population\n- Settlement\n- Services\n- idea\n- skill\n- example\n- practice\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Population Settlement And Services without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-006:vocabulary:visual-1:planned",
+        "TZA-FORM-I-geography-topic-006:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-6"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p049",
+      "title": "Population Settlement And Services: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a Tanzania map, community, citizenship, culture, environment, or heritage example for Population Settlement And Services.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-006:activity:visual-1:planned",
+        "TZA-FORM-I-geography-topic-006:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-6"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p050",
+      "title": "Population Settlement And Services: Practice And Correction",
+      "content": "Practice for Population Settlement And Services:\n\n1. Use an example from your community or country to explain: explain and apply population settlement and services in a real learning situation.\n\nCorrection check:\n- answer uses a real example\n- reasoning is clear\n- work is checked\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to population settlement and services and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 86,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-006:practice:visual-1:planned",
+        "TZA-FORM-I-geography-topic-006:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-6"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p051",
+      "title": "Population Settlement And Services: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Population Settlement And Services.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-006:remediation:visual-1:planned",
+        "TZA-FORM-I-geography-topic-006:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-6"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p052",
+      "title": "Population Settlement And Services: Outcome Check",
+      "content": "Show that you can explain and apply population settlement and services in a real learning situation.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 100,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-006:assessment:visual-1:planned",
+        "TZA-FORM-I-geography-topic-006:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-6"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p053",
+      "title": "Fieldwork Methods: Lesson Opener",
+      "content": "Learning focus: Fieldwork Methods\n\nCountry link: a Tanzania map, community, citizenship, culture, environment, or heritage example for Fieldwork Methods.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; use maps, places, data, and environmental evidence.\n\nBy the end of this topic, you should be able to:\n- explain and apply fieldwork methods in a real learning situation\n\nInquiry questions:\n- How can fieldwork methods help you solve a real problem?\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 88,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-007:opener:visual-1:planned",
+        "TZA-FORM-I-geography-topic-007:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-7"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p054",
+      "title": "Fieldwork Methods: Learn",
+      "content": "Fieldwork Methods becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Fieldwork Methods\n- Fieldwork\n- Methods\n- idea\n- skill\n- example\n- practice\n- correction",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 86,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-007:learn:visual-1:planned",
+        "TZA-FORM-I-geography-topic-007:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-7"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p055",
+      "title": "Fieldwork Methods: Worked Example",
+      "content": "Evidence model for Fieldwork Methods: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Geography.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 56,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-007:example:visual-1:planned",
+        "TZA-FORM-I-geography-topic-007:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-7"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p056",
+      "title": "Fieldwork Methods: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Fieldwork Methods. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Fieldwork Methods\n- Fieldwork\n- Methods\n- idea\n- skill\n- example\n- practice\n- correction\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Fieldwork Methods without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-007:vocabulary:visual-1:planned",
+        "TZA-FORM-I-geography-topic-007:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-7"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p057",
+      "title": "Fieldwork Methods: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a Tanzania map, community, citizenship, culture, environment, or heritage example for Fieldwork Methods.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-007:activity:visual-1:planned",
+        "TZA-FORM-I-geography-topic-007:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-7"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p058",
+      "title": "Fieldwork Methods: Practice And Correction",
+      "content": "Practice for Fieldwork Methods:\n\n1. Use an example from your community or country to explain: explain and apply fieldwork methods in a real learning situation.\n\nCorrection check:\n- answer uses a real example\n- reasoning is clear\n- work is checked\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to fieldwork methods and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 80,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-007:practice:visual-1:planned",
+        "TZA-FORM-I-geography-topic-007:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-7"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p059",
+      "title": "Fieldwork Methods: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Fieldwork Methods.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 104,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-007:remediation:visual-1:planned",
+        "TZA-FORM-I-geography-topic-007:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-7"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p060",
+      "title": "Fieldwork Methods: Outcome Check",
+      "content": "Show that you can explain and apply fieldwork methods in a real learning situation.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-007:assessment:visual-1:planned",
+        "TZA-FORM-I-geography-topic-007:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-7"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p061",
+      "title": "Form I Geography Project: Lesson Opener",
+      "content": "Learning focus: Form I Geography Project\n\nCountry link: a Tanzania map, community, citizenship, culture, environment, or heritage example for Form I Geography Project.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; use maps, places, data, and environmental evidence.\n\nBy the end of this topic, you should be able to:\n- explain and apply form i geography project in a real learning situation\n\nInquiry questions:\n- How can form i geography project help you solve a real problem?\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-008:opener:visual-1:planned",
+        "TZA-FORM-I-geography-topic-008:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-8"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p062",
+      "title": "Form I Geography Project: Learn",
+      "content": "Form I Geography Project becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Form I Geography Project\n- Form\n- Geography\n- Project\n- idea\n- skill\n- example\n- practice",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-008:learn:visual-1:planned",
+        "TZA-FORM-I-geography-topic-008:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-8"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p063",
+      "title": "Form I Geography Project: Worked Example",
+      "content": "Evidence model for Form I Geography Project: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from Geography.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 58,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-008:example:visual-1:planned",
+        "TZA-FORM-I-geography-topic-008:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-8"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p064",
+      "title": "Form I Geography Project: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Form I Geography Project. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Form I Geography Project\n- Form\n- Geography\n- Project\n- idea\n- skill\n- example\n- practice\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Form I Geography Project without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-008:vocabulary:visual-1:planned",
+        "TZA-FORM-I-geography-topic-008:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-8"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p065",
+      "title": "Form I Geography Project: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a Tanzania map, community, citizenship, culture, environment, or heritage example for Form I Geography Project.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-008:activity:visual-1:planned",
+        "TZA-FORM-I-geography-topic-008:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-8"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p066",
+      "title": "Form I Geography Project: Practice And Correction",
+      "content": "Practice for Form I Geography Project:\n\n1. Use an example from your community or country to explain: explain and apply form i geography project in a real learning situation.\n\nCorrection check:\n- answer uses a real example\n- reasoning is clear\n- work is checked\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to form i geography project and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 86,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-008:practice:visual-1:planned",
+        "TZA-FORM-I-geography-topic-008:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-8"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p067",
+      "title": "Form I Geography Project: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Form I Geography Project.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-008:remediation:visual-1:planned",
+        "TZA-FORM-I-geography-topic-008:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-8"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p068",
+      "title": "Form I Geography Project: Outcome Check",
+      "content": "Show that you can explain and apply form i geography project in a real learning situation.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 100,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-008:assessment:visual-1:planned",
+        "TZA-FORM-I-geography-topic-008:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-8"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p069",
+      "title": "Earth As A Planet And Solar System: Review Clinic 1",
+      "content": "Use this review clinic to strengthen Geography without copying earlier answers.\n\n1. Choose one idea from Earth As A Planet And Solar System that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 80,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-001:review:visual-1:planned",
+        "TZA-FORM-I-geography-topic-001:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-1"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p070",
+      "title": "Weather Climate And Recording Instruments: Review Clinic 2",
+      "content": "Use this review clinic to strengthen Geography without copying earlier answers.\n\n1. Choose one idea from Weather Climate And Recording Instruments that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 78,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-002:review:visual-1:planned",
+        "TZA-FORM-I-geography-topic-002:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-2"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p071",
+      "title": "Map Reading Scale And Direction: Review Clinic 3",
+      "content": "Use this review clinic to strengthen Geography without copying earlier answers.\n\n1. Choose one idea from Map Reading Scale And Direction that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 78,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-003:review:visual-1:planned",
+        "TZA-FORM-I-geography-topic-003:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-3"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p072",
+      "title": "Major Landforms And Water Bodies: Review Clinic 4",
+      "content": "Use this review clinic to strengthen Geography without copying earlier answers.\n\n1. Choose one idea from Major Landforms And Water Bodies that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 78,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-004:review:visual-1:planned",
+        "TZA-FORM-I-geography-topic-004:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-4"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p073",
+      "title": "Earth As A Planet And Solar System: Application Workshop 1",
+      "content": "Application workshop 1 for Earth As A Planet And Solar System.\n\nGrade move: build lower-secondary foundations with clear vocabulary and guided application; use maps, places, data, and environmental evidence.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 120,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-001:application-workshop:visual-1:planned",
+        "TZA-FORM-I-geography-topic-001:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-1"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p074",
+      "title": "Weather Climate And Recording Instruments: Application Workshop 2",
+      "content": "Application workshop 2 for Weather Climate And Recording Instruments.\n\nGrade move: build lower-secondary foundations with clear vocabulary and guided application; use maps, places, data, and environmental evidence.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-002:application-workshop:visual-1:planned",
+        "TZA-FORM-I-geography-topic-002:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-2"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p075",
+      "title": "Map Reading Scale And Direction: Application Workshop 3",
+      "content": "Application workshop 3 for Map Reading Scale And Direction.\n\nGrade move: build lower-secondary foundations with clear vocabulary and guided application; use maps, places, data, and environmental evidence.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-003:application-workshop:visual-1:planned",
+        "TZA-FORM-I-geography-topic-003:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-3"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p076",
+      "title": "Major Landforms And Water Bodies: Application Workshop 4",
+      "content": "Application workshop 4 for Major Landforms And Water Bodies.\n\nGrade move: build lower-secondary foundations with clear vocabulary and guided application; use maps, places, data, and environmental evidence.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-004:application-workshop:visual-1:planned",
+        "TZA-FORM-I-geography-topic-004:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-4"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p077",
+      "title": "Environment Resources And Conservation: Application Workshop 5",
+      "content": "Application workshop 5 for Environment Resources And Conservation.\n\nGrade move: build lower-secondary foundations with clear vocabulary and guided application; use maps, places, data, and environmental evidence.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 117,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-005:application-workshop:visual-1:planned",
+        "TZA-FORM-I-geography-topic-005:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-5"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p078",
+      "title": "Population Settlement And Services: Application Workshop 6",
+      "content": "Application workshop 6 for Population Settlement And Services.\n\nGrade move: build lower-secondary foundations with clear vocabulary and guided application; use maps, places, data, and environmental evidence.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 117,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-006:application-workshop:visual-1:planned",
+        "TZA-FORM-I-geography-topic-006:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-6"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p079",
+      "title": "Fieldwork Methods: Application Workshop 7",
+      "content": "Application workshop 7 for Fieldwork Methods.\n\nGrade move: build lower-secondary foundations with clear vocabulary and guided application; use maps, places, data, and environmental evidence.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-007:application-workshop:visual-1:planned",
+        "TZA-FORM-I-geography-topic-007:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-7"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p080",
+      "title": "Form I Geography Project: Application Workshop 8",
+      "content": "Application workshop 8 for Form I Geography Project.\n\nGrade move: build lower-secondary foundations with clear vocabulary and guided application; use maps, places, data, and environmental evidence.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 117,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-008:application-workshop:visual-1:planned",
+        "TZA-FORM-I-geography-topic-008:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-8"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p081",
+      "title": "Earth As A Planet And Solar System: Application Workshop 9",
+      "content": "Application workshop 9 for Earth As A Planet And Solar System.\n\nGrade move: build lower-secondary foundations with clear vocabulary and guided application; use maps, places, data, and environmental evidence.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 120,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-001:application-workshop:visual-1:planned",
+        "TZA-FORM-I-geography-topic-001:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-1"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p082",
+      "title": "Weather Climate And Recording Instruments: Application Workshop 10",
+      "content": "Application workshop 10 for Weather Climate And Recording Instruments.\n\nGrade move: build lower-secondary foundations with clear vocabulary and guided application; use maps, places, data, and environmental evidence.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-FORM-I-geography-topic-002:application-workshop:visual-1:planned",
+        "TZA-FORM-I-geography-topic-002:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-i-geography-2"
+      ],
+      "unitIds": [
+        "fallback-form-i-geography-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-i-geography-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-i-geography-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p083",
+      "title": "Glossary",
+      "content": "Use this glossary to revise important words in Geography.\n\n- Earth As A Planet And Solar System: Explain this term using an example from the book, your school, or your community.\n- Weather Climate And Recording Instruments: Explain this term using an example from the book, your school, or your community.\n- Map Reading Scale And Direction: Explain this term using an example from the book, your school, or your community.\n- Major Landforms And Water Bodies: Explain this term using an example from the book, your school, or your community.\n- Environment Resources And Conservation: Explain this term using an example from the book, your school, or your community.\n- Population Settlement And Services: Explain this term using an example from the book, your school, or your community.\n- Fieldwork Methods: Explain this term using an example from the book, your school, or your community.\n- Form I Geography Project: Explain this term using an example from the book, your school, or your community.\n\nAdd five more words from your lessons and write your own meanings.",
+      "pageType": "glossary",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 177,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p084",
+      "title": "Answer And Teacher Notes",
+      "content": "A strong Geography answer responds to the exact task, uses correct vocabulary, gives a clear example or evidence, and shows correction after feedback. For practical work, name materials, safety, process, quality checks, peer feedback, and one improvement made after review.",
+      "pageType": "answer-notes",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 40,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-i-geography-p085",
+      "title": "Final Project",
+      "content": "Create a final project for Geography that shows what you can now do independently.\n\nYour project must include:\n1. A clear title.\n2. A real-life problem, question, text, performance, investigation, design, or worked task.\n3. Evidence from at least three lessons in this book.\n4. A drawing, table, map, chart, model, dialogue, paragraph, performance plan, practical product, or worked solution.\n5. A correction note showing one improvement after feedback.\n6. A short reflection explaining what you learned, what was difficult, and what you will practise next.\n\nPresentation check: keep the work neat, label important parts, use correct vocabulary, and be ready to explain your choices to a classmate or teacher.",
+      "pageType": "project",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 110,
+      "imageRefs": []
+    }
+  ]
+}

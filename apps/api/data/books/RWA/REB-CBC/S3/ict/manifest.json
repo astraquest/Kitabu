@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-rwa-reb-cbc-s3-ict",
+  "title": "KITABU QUEST S3 ICT",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "S3",
+  "subject": "ICT",
+  "subjectSlug": "ict",
+  "subjectColor": "#4338CA",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v17",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T06:47:16Z",
+  "sourceSnapshotHash": "2bf04ff47e6b8189b533731adba2c84a5fdb597ac798054307c2a0e568fb8891",
+  "bookPlanHash": "5801925bb0424661e6da457c5a9fba8f4de7103563344bca6a585736a7fb2457",
+  "pageCount": 85,
+  "wordCount": 8830,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 7,
+    "outcomeCount": 7,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "RWA",
+    "subject": "ICT",
+    "species": "mountain gorilla",
+    "role": "digital skills guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners using computers safely with a mountain gorilla mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Rwanda REB-CBC S3 ICT. Scene: learners using computers safely with a mountain gorilla mascot. Include a friendly mountain gorilla mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 85582,
+    "sha256": "031ffc2119b90cee76d6e6d26c085306341751f139e9e1d8aabfb5cf1851274a"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 85582,
+      "sha256": "031ffc2119b90cee76d6e6d26c085306341751f139e9e1d8aabfb5cf1851274a",
+      "kind": "cover",
+      "altText": "KITABU QUEST S3 ICT cover with mountain gorilla",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-rwa-reb-cbc-s3-ict.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-rwa-reb-cbc-s3-ict.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "d8431656-7911-4aef-8b19-59f164c81a42",
+      "subject": "ICT",
+      "officialTitle": "Rwanda Competence Based Curriculum S3 ICT",
+      "countryCode": "RWA",
+      "curriculumCode": "REB-CBC",
+      "gradeCode": "S3",
+      "gradeLocalLevel": "S3",
+      "localLevel": "S3",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://elearning.reb.rw/pluginfile.php/55032/mod_resource/content/1/ICT%20Syllabus%20Lower%20Secondary.pdf",
+      "objectKey": "data/curriculum/source-files/RWA/ea0f23d5bd890695730aa56f7454bc6ed6a7ef94f93a66a6d8e1aaf6fe4a0374.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "S3",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://elearning.reb.rw/pluginfile.php/55032/mod_resource/content/1/ICT%20Syllabus%20Lower%20Secondary.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S3/ict/d8431656-7911-4aef-8b19-59f164c81a42.md",
+        "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "reb.gov.rw",
+          "reb.rw",
+          "elearning.reb.rw"
+        ],
+        "markdownChecksum": "ce12e113462aeeaf7a7454ed1ae4fd802333abaf0fb155277737d0d621b920a6",
+        "markdownPageCount": 84,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/RWA/REB-CBC/S3/ict/d8431656-7911-4aef-8b19-59f164c81a42.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "ce12e113462aeeaf7a7454ed1ae4fd802333abaf0fb155277737d0d621b920a6",
+          "pageCount": 84,
+          "generatedAt": "2026-07-01T01:20:11.815Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S3/ict/d8431656-7911-4aef-8b19-59f164c81a42.json",
+          "sourceChecksum": "cdb0d528506adf03c1d4dcdf2aec2de39f1a9416f94172e0f1a69d67bc5fba66"
+        },
+        "markdownGeneratedAt": "2026-07-01T01:20:11.815Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,2884 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-rwa-reb-cbc-s1-chemistry",
+  "title": "KITABU QUEST S1 Chemistry",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "S1",
+  "subject": "Chemistry",
+  "subjectSlug": "chemistry",
+  "subjectColor": "#7C3AED",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v17",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T06:41:53Z",
+  "sourceSnapshotHash": "8bda433d5a5a9c0bb3822da79d8d2e64425cff65dddcde328380ea07c0fd82e2",
+  "bookPlanHash": "0a0a0f66ad2892f60599789bf6d4390b5a306e65dae804e682efb59e15940107",
+  "pageCount": 115,
+  "wordCount": 11228,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 13,
+    "outcomeCount": 13,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "RWA",
+    "subject": "Chemistry",
+    "species": "chameleon",
+    "role": "science observation guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners carrying out a safe chemistry observation with a chameleon mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Rwanda REB-CBC S1 Chemistry. Scene: learners carrying out a safe chemistry observation with a chameleon mascot. Include a friendly chameleon mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 87208,
+    "sha256": "001084f8635e14002c63e6a32a0206bfa51998d4cda06c99f207ff0c6bd0b95e"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 87208,
+      "sha256": "001084f8635e14002c63e6a32a0206bfa51998d4cda06c99f207ff0c6bd0b95e",
+      "kind": "cover",
+      "altText": "KITABU QUEST S1 Chemistry cover with chameleon",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-rwa-reb-cbc-s1-chemistry.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-rwa-reb-cbc-s1-chemistry.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "cd3ea67b-193d-4593-bd8b-9b1a86201007",
+      "subject": "Chemistry",
+      "officialTitle": "Rwanda Competence Based Curriculum S1 Chemistry",
+      "countryCode": "RWA",
+      "curriculumCode": "REB-CBC",
+      "gradeCode": "S1",
+      "gradeLocalLevel": "S1",
+      "localLevel": "S1",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://elearning.reb.rw/pluginfile.php/55389/mod_resource/content/1/O-Level_competency-based__chemistry_syllabus__-October___2015%20%281%29.pdf",
+      "objectKey": "data/curriculum/source-files/RWA/406fd9d40dfe5691b50372e74c2ad08b8dae3220ec0b79f2f19e07562098addc.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "S1",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://elearning.reb.rw/pluginfile.php/55389/mod_resource/content/1/O-Level_competency-based__chemistry_syllabus__-October___2015%20%281%29.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S1/chemistry/cd3ea67b-193d-4593-bd8b-9b1a86201007.md",
+        "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "reb.gov.rw",
+          "reb.rw",
+          "elearning.reb.rw"
+        ],
+        "markdownChecksum": "c0468e54f40d5fbe13b93910ad6f3a8b83f445517f6c6c99ad7d8ba6709b95ae",
+        "markdownPageCount": 93,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/RWA/REB-CBC/S1/chemistry/cd3ea67b-193d-4593-bd8b-9b1a86201007.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "c0468e54f40d5fbe13b93910ad6f3a8b83f445517f6c6c99ad7d8ba6709b95ae",
+          "pageCount": 93,
+          "generatedAt": "2026-07-01T01:15:25.440Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S1/chemistry/cd3ea67b-193d-4593-bd8b-9b1a86201007.json",
+          "sourceChecksum": "f57dfd8b41744da3ab49b7329d82a9a4043b2e76a45ad5e071541ece875d0c17"
+        },
+        "markdownGeneratedAt": "2026-07-01T01:15:25.440Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p001",
+      "title": "Title Page",
+      "content": "KITABU QUEST S1 Chemistry\n\nRwanda REB-CBC learner book\n\nMascot: chameleon\n\nThis KITABU QUEST book turns the curriculum into short lessons, worked examples, guided activities, practice, review, and home links for Rwanda learners.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 3,
+      "wordCount": 32,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p002",
+      "title": "How To Use This Book",
+      "content": "This book helps S1 learners study Chemistry one teachable topic at a time.\n\n1. Start with the inquiry question and say what you already know.\n2. Read the Learn section slowly and mark new words.\n3. Try the worked example before reading the full solution.\n4. Complete the activity and practice tasks.\n5. Correct your answer using the success criteria.\n6. Ask for support when your answer is still unclear.\n\nSubject method: Use safe observations, simple models, data tables, and evidence-based explanations.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 82,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p003",
+      "title": "Learning Skills In This Book",
+      "content": "Each topic builds knowledge, skill, values, communication, collaboration, critical thinking, creativity, digital awareness, and self-confidence.\n\nStudy actively: speak answers aloud, draw when useful, show your working, cite evidence, use local examples, and correct mistakes after feedback.\n\nA strong answer is specific. It names the idea, gives evidence or method, applies it to the task, and checks whether it answers the question.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p004",
+      "title": "Table Of Contents",
+      "content": "Use this table to move through the book one topic at a time. Each topic has a lesson opener, clear teaching, a model or example, guided work, practice, and checks for understanding.\n\n1. Chemistry and society\n2. Laboratory safety and apparatus\n3. States and changes of states of matter\n4. Pure substances and mixtures\n5. Atoms, elements and compounds\n6. Arrangement of elements in the\n7. Water and its composition\n8. Air composition and pollution\n9. Waste materials\n10. Chemical equations\n11. Acids and bases and p H\n12. Inorganic salts and their properties\n13. Preparation of oxygen and its properties\n\nAs you finish each topic, return to the success criteria and correct one answer before moving on.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p005",
+      "title": "Chemistry and society: Lesson Opener",
+      "content": "Learning focus: Chemistry and society\n\nCountry link: a safe Rwandan observation, model, data table, or investigation for Chemistry and society.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- assess the application of chemistry in our daily life and its contribution to our economy today\n\nInquiry questions:\n- How can chemistry and society help you solve a real problem in Chemistry?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-001:opener:visual-1:planned",
+        "RWA-S1-chemistry-topic-001:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-1-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p006",
+      "title": "Chemistry and society: Learn",
+      "content": "Chemistry and society is learned by turning the topic into a clear, safe, evidence-based science task.\n\nCore idea:\n- Name the science idea before starting: structure, process, material, force, energy, organism, environment, or system.\n- Use a diagram, data table, labelled model, safe observation, or teacher-approved investigation.\n- Record what is seen or measured, not what is guessed.\n- Explain the result using the vocabulary from this topic.\n- Finish with one conclusion and one question for further study.\n\nKey words:\n- Chemistry and society\n- Chemistry\n- society\n- concept\n- observation\n- evidence\n- safety\n- conclusion",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 99,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-001:learn:visual-1:planned",
+        "RWA-S1-chemistry-topic-001:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-1-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p007",
+      "title": "Chemistry and society: Worked Example",
+      "content": "Investigation model for Chemistry and society: Turn the topic into a safe, clear classroom investigation or model.\n\n1. Question: write one question that can be answered by observing, comparing, classifying, measuring, modelling, or reading data.\n2. Materials: list safe classroom materials, diagrams, samples, cards, tables, or teacher-approved apparatus.\n3. Method: do one step at a time and keep one condition fair where comparison is needed.\n4. Safety: name any heat, glass, sharp tool, chemical, hygiene, electrical, or body-safety rule before starting.\n5. Record: use a labelled table, diagram, or sentence notes.\n6. Conclusion: state what the evidence shows and one limit of the investigation.\n\nAnswer check: a strong response names the concept, uses correct vocabulary, records evidence, and does not claim more than the evidence supports.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 126,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-001:example:visual-1:planned",
+        "RWA-S1-chemistry-topic-001:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-1-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p008",
+      "title": "Chemistry and society: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Chemistry and society. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Chemistry and society\n- Chemistry\n- society\n- concept\n- observation\n- evidence\n- safety\n- conclusion\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Chemistry and society without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-001:vocabulary:visual-1:planned",
+        "RWA-S1-chemistry-topic-001:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-1-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p009",
+      "title": "Chemistry and society: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwandan observation, model, data table, or investigation for Chemistry and society.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-001:activity:visual-1:planned",
+        "RWA-S1-chemistry-topic-001:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-1-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p010",
+      "title": "Chemistry and society: Practice And Correction",
+      "content": "Practice for Chemistry and society:\n\nMain outcome: assess the application of chemistry in our daily life and its contribution to our economy today.\n\n1. Write one safe investigation question.\n2. Name materials and observations needed.\n3. Use the evidence to write a conclusion.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 89,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-001:practice:visual-1:planned",
+        "RWA-S1-chemistry-topic-001:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-1-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p011",
+      "title": "Chemistry and society: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Chemistry and society.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 104,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-001:remediation:visual-1:planned",
+        "RWA-S1-chemistry-topic-001:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-1-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p012",
+      "title": "Chemistry and society: Outcome Check",
+      "content": "Outcome check for Chemistry and society: Assess the application of chemistry in our daily life and its contribution to our economy today.\n\n1. State a safe investigation question.\n2. Name the evidence needed.\n3. Write a conclusion from the evidence.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 55,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-001:assessment:visual-1:planned",
+        "RWA-S1-chemistry-topic-001:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-1-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-1-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p013",
+      "title": "Laboratory safety and apparatus: Lesson Opener",
+      "content": "Learning focus: Laboratory safety and apparatus\n\nCountry link: a safe Rwandan observation, model, data table, or investigation for Laboratory safety and apparatus.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- use effectively laboratory equipment/materials to carry out experiments\n\nInquiry questions:\n- How can laboratory safety and apparatus help you solve a real problem in Chemistry?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-002:opener:visual-1:planned",
+        "RWA-S1-chemistry-topic-002:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-2-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p014",
+      "title": "Laboratory safety and apparatus: Learn",
+      "content": "Laboratory safety and apparatus begins with safe behaviour and accurate measurement.\n\nCore idea:\n- Physics uses measurements such as length, mass, time, temperature, and volume.\n- A measurement is useful only when the number and unit are both written.\n- Safety rules protect learners, equipment, and results.\n- Read scales at eye level and record values immediately.\n\nLocal link: in Rwanda, careful measurement helps in health, building, farming, weather records, transport, and school laboratory work.\n\nKey words:\n- Laboratory safety and apparatus\n- Laboratory\n- safety\n- apparatus\n- concept\n- observation\n- evidence\n- conclusion",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-002:learn:visual-1:planned",
+        "RWA-S1-chemistry-topic-002:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-2-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p015",
+      "title": "Laboratory safety and apparatus: Worked Example",
+      "content": "Investigation model for Laboratory safety and apparatus: Measure the length of a desk safely.\n\n1. Choose a metre rule or tape measure.\n2. Place zero at one end of the desk.\n3. Read the scale at eye level.\n4. Record the value with the unit, for example 120 cm.\n5. Repeat once and compare readings.\n\nConclusion: a useful measurement includes a number, a unit, and a careful method.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 68,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-002:example:visual-1:planned",
+        "RWA-S1-chemistry-topic-002:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-2-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p016",
+      "title": "Laboratory safety and apparatus: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Laboratory safety and apparatus. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Laboratory safety and apparatus\n- Laboratory\n- safety\n- apparatus\n- concept\n- observation\n- evidence\n- conclusion\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Laboratory safety and apparatus without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-002:vocabulary:visual-1:planned",
+        "RWA-S1-chemistry-topic-002:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-2-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p017",
+      "title": "Laboratory safety and apparatus: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwandan observation, model, data table, or investigation for Laboratory safety and apparatus.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-002:activity:visual-1:planned",
+        "RWA-S1-chemistry-topic-002:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-2-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p018",
+      "title": "Laboratory safety and apparatus: Practice And Correction",
+      "content": "Practice for Laboratory safety and apparatus:\n\nMain outcome: use effectively laboratory equipment/materials to carry out experiments.\n\n1. Name three laboratory safety rules.\n2. Measure one classroom object and record the value with a unit.\n3. Explain one error that can make a measurement unreliable.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-002:practice:visual-1:planned",
+        "RWA-S1-chemistry-topic-002:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-2-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p019",
+      "title": "Laboratory safety and apparatus: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Laboratory safety and apparatus.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-002:remediation:visual-1:planned",
+        "RWA-S1-chemistry-topic-002:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-2-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p020",
+      "title": "Laboratory safety and apparatus: Outcome Check",
+      "content": "Outcome check for Laboratory safety and apparatus: Use effectively laboratory equipment/materials to carry out experiments.\n\n1. State a safe investigation question.\n2. Name the evidence needed.\n3. Write a conclusion from the evidence.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 48,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-002:assessment:visual-1:planned",
+        "RWA-S1-chemistry-topic-002:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-2-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-2-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p021",
+      "title": "States and changes of states of matter: Lesson Opener",
+      "content": "Learning focus: States and changes of states of matter\n\nCountry link: a safe Rwandan observation, model, data table, or investigation for States and changes of states of matter.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- relate properties of matter to daily life physical and chemical phenomena\n\nInquiry questions:\n- How can states and changes of states of matter help you solve a real problem in Chemistry?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-003:opener:visual-1:planned",
+        "RWA-S1-chemistry-topic-003:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-3-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p022",
+      "title": "States and changes of states of matter: Learn",
+      "content": "States and changes of states of matter explains particles in solids, liquids, and gases.\n\nCore idea:\n- Matter is made of tiny particles.\n- In solids, particles are close and vibrate in fixed positions.\n- In liquids, particles are close but can slide past each other.\n- In gases, particles are far apart and move freely.\n- Heating usually makes particles move faster.\n\nKey words:\n- States and changes of states of matter\n- States\n- changes\n- states\n- matter\n- concept\n- observation\n- evidence",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 87,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-003:learn:visual-1:planned",
+        "RWA-S1-chemistry-topic-003:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-3-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p023",
+      "title": "States and changes of states of matter: Worked Example",
+      "content": "Model for States and changes of states of matter: Compare particles in solids, liquids, and gases.\n\n1. Draw solid particles close together in a fixed pattern.\n2. Draw liquid particles close but uneven, able to slide.\n3. Draw gas particles far apart.\n4. Add arrows to show particle movement.\n\nConclusion: particle arrangement explains shape, flow, and expansion.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 57,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-003:example:visual-1:planned",
+        "RWA-S1-chemistry-topic-003:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-3-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p024",
+      "title": "States and changes of states of matter: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise States and changes of states of matter. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- States and changes of states of matter\n- States\n- changes\n- states\n- matter\n- concept\n- observation\n- evidence\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about States and changes of states of matter without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 127,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-003:vocabulary:visual-1:planned",
+        "RWA-S1-chemistry-topic-003:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-3-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p025",
+      "title": "States and changes of states of matter: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwandan observation, model, data table, or investigation for States and changes of states of matter.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-003:activity:visual-1:planned",
+        "RWA-S1-chemistry-topic-003:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-3-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p026",
+      "title": "States and changes of states of matter: Practice And Correction",
+      "content": "Practice for States and changes of states of matter:\n\nMain outcome: relate properties of matter to daily life physical and chemical phenomena.\n\n1. Draw particles in a solid, liquid, and gas.\n2. Explain why gases fill containers.\n3. State what heating does to particle movement.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-003:practice:visual-1:planned",
+        "RWA-S1-chemistry-topic-003:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-3-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p027",
+      "title": "States and changes of states of matter: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from States and changes of states of matter.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-003:remediation:visual-1:planned",
+        "RWA-S1-chemistry-topic-003:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-3-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p028",
+      "title": "States and changes of states of matter: Outcome Check",
+      "content": "Outcome check for States and changes of states of matter: Relate properties of matter to daily life physical and chemical phenomena.\n\n1. Compare particles in a solid and a gas.\n2. Draw a simple particle diagram.\n3. Explain what heating changes.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 56,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-003:assessment:visual-1:planned",
+        "RWA-S1-chemistry-topic-003:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-3-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-3-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p029",
+      "title": "Pure substances and mixtures: Lesson Opener",
+      "content": "Learning focus: Pure substances and mixtures\n\nCountry link: a safe Rwandan observation, model, data table, or investigation for Pure substances and mixtures.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- separate mixtures and determine their composition\n\nInquiry questions:\n- How can pure substances and mixtures help you solve a real problem in Chemistry?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 89,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-004:opener:visual-1:planned",
+        "RWA-S1-chemistry-topic-004:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-4-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p030",
+      "title": "Pure substances and mixtures: Learn",
+      "content": "Pure substances and mixtures is learned by turning the topic into a clear, safe, evidence-based science task.\n\nCore idea:\n- Name the science idea before starting: structure, process, material, force, energy, organism, environment, or system.\n- Use a diagram, data table, labelled model, safe observation, or teacher-approved investigation.\n- Record what is seen or measured, not what is guessed.\n- Explain the result using the vocabulary from this topic.\n- Finish with one conclusion and one question for further study.\n\nKey words:\n- Pure substances and mixtures\n- Pure\n- substances\n- mixtures\n- concept\n- observation\n- evidence\n- safety",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-004:learn:visual-1:planned",
+        "RWA-S1-chemistry-topic-004:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-4-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p031",
+      "title": "Pure substances and mixtures: Worked Example",
+      "content": "Investigation model for Pure substances and mixtures: Turn the topic into a safe, clear classroom investigation or model.\n\n1. Question: write one question that can be answered by observing, comparing, classifying, measuring, modelling, or reading data.\n2. Materials: list safe classroom materials, diagrams, samples, cards, tables, or teacher-approved apparatus.\n3. Method: do one step at a time and keep one condition fair where comparison is needed.\n4. Safety: name any heat, glass, sharp tool, chemical, hygiene, electrical, or body-safety rule before starting.\n5. Record: use a labelled table, diagram, or sentence notes.\n6. Conclusion: state what the evidence shows and one limit of the investigation.\n\nAnswer check: a strong response names the concept, uses correct vocabulary, records evidence, and does not claim more than the evidence supports.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 127,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-004:example:visual-1:planned",
+        "RWA-S1-chemistry-topic-004:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-4-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p032",
+      "title": "Pure substances and mixtures: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Pure substances and mixtures. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Pure substances and mixtures\n- Pure\n- substances\n- mixtures\n- concept\n- observation\n- evidence\n- safety\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Pure substances and mixtures without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-004:vocabulary:visual-1:planned",
+        "RWA-S1-chemistry-topic-004:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-4-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p033",
+      "title": "Pure substances and mixtures: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwandan observation, model, data table, or investigation for Pure substances and mixtures.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-004:activity:visual-1:planned",
+        "RWA-S1-chemistry-topic-004:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-4-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p034",
+      "title": "Pure substances and mixtures: Practice And Correction",
+      "content": "Practice for Pure substances and mixtures:\n\nMain outcome: separate mixtures and determine their composition.\n\n1. Write one safe investigation question.\n2. Name materials and observations needed.\n3. Use the evidence to write a conclusion.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 80,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-004:practice:visual-1:planned",
+        "RWA-S1-chemistry-topic-004:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-4-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p035",
+      "title": "Pure substances and mixtures: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Pure substances and mixtures.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-004:remediation:visual-1:planned",
+        "RWA-S1-chemistry-topic-004:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-4-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p036",
+      "title": "Pure substances and mixtures: Outcome Check",
+      "content": "Outcome check for Pure substances and mixtures: Separate mixtures and determine their composition.\n\n1. State a safe investigation question.\n2. Name the evidence needed.\n3. Write a conclusion from the evidence.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 46,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-004:assessment:visual-1:planned",
+        "RWA-S1-chemistry-topic-004:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-4-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-4-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p037",
+      "title": "Atoms, elements and compounds: Lesson Opener",
+      "content": "Learning focus: Atoms, elements and compounds\n\nCountry link: a safe Rwandan observation, model, data table, or investigation for Atoms, elements and compounds.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- comprehend the structure of an atom and relate the valency to the chemical formulae of compounds\n\nInquiry questions:\n- How can atoms, elements and compounds help you solve a real problem in Chemistry?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 99,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-005:opener:visual-1:planned",
+        "RWA-S1-chemistry-topic-005:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-5-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p038",
+      "title": "Atoms, elements and compounds: Learn",
+      "content": "Atoms, elements and compounds teaches useful computer work through exact steps, not guessing.\n\nCore idea:\n- Word processing is used to create, edit, format, save, and print text documents.\n- A spreadsheet organizes data in rows, columns, and cells.\n- A cell can hold text, a number, or a formula.\n- Formatting should make work clearer, not just more decorative.\n- Good digital work is saved with a clear file name and checked before sharing.\n\nLearner task link: create a class list, simple budget, marks table, timetable, or short report using safe school devices.\n\nKey words:\n- Atoms, elements and compounds\n- Atoms\n- elements\n- compounds\n- concept\n- observation\n- evidence\n- safety",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-005:learn:visual-1:planned",
+        "RWA-S1-chemistry-topic-005:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-5-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p039",
+      "title": "Atoms, elements and compounds: Worked Example",
+      "content": "Worked example for Atoms, elements and compounds: Make a simple spreadsheet for class garden harvest.\n\n1. Open a blank worksheet.\n2. In row 1, type headings: Crop, Week 1, Week 2, Total.\n3. Enter beans, maize, and tomatoes in the Crop column.\n4. Type harvest numbers for Week 1 and Week 2.\n5. In the Total column, use a formula such as =B2+C2.\n6. Save the file with a clear name, for example garden-harvest-p6.\n\nQuality check: headings are clear, numbers are in the correct cells, formulas give sensible totals, and the file is saved.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-005:example:visual-1:planned",
+        "RWA-S1-chemistry-topic-005:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-5-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p040",
+      "title": "Atoms, elements and compounds: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Atoms, elements and compounds. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Atoms, elements and compounds\n- Atoms\n- elements\n- compounds\n- concept\n- observation\n- evidence\n- safety\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Atoms, elements and compounds without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-005:vocabulary:visual-1:planned",
+        "RWA-S1-chemistry-topic-005:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-5-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p041",
+      "title": "Atoms, elements and compounds: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwandan observation, model, data table, or investigation for Atoms, elements and compounds.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-005:activity:visual-1:planned",
+        "RWA-S1-chemistry-topic-005:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-5-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p042",
+      "title": "Atoms, elements and compounds: Practice And Correction",
+      "content": "Practice for Atoms, elements and compounds:\n\nMain outcome: comprehend the structure of an atom and relate the valency to the chemical formulae of compounds.\n\n1. Create a document or worksheet with a clear title and headings.\n2. Enter five rows of useful class, garden, timetable, budget, or marks data.\n3. Format the work neatly, save it with a clear file name, and explain one formula or formatting choice.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 114,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-005:practice:visual-1:planned",
+        "RWA-S1-chemistry-topic-005:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-5-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p043",
+      "title": "Atoms, elements and compounds: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Atoms, elements and compounds.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-005:remediation:visual-1:planned",
+        "RWA-S1-chemistry-topic-005:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-5-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p044",
+      "title": "Atoms, elements and compounds: Outcome Check",
+      "content": "Outcome check for Atoms, elements and compounds: Comprehend the structure of an atom and relate the valency to the chemical formulae of compounds.\n\n1. Create a two-column table or worksheet for a real class task.\n2. Use one correct heading, formula, save step, or formatting step.\n3. Explain how the digital file can be checked for errors.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 72,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-005:assessment:visual-1:planned",
+        "RWA-S1-chemistry-topic-005:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-5-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-5-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-5-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p045",
+      "title": "Arrangement of elements in the: Lesson Opener",
+      "content": "Learning focus: Arrangement of elements in the\n\nCountry link: a safe Rwandan observation, model, data table, or investigation for Arrangement of elements in the.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- use the atomic number, valence electrons and number of shells to classify the first 20 elements in the Periodic Table\n\nInquiry questions:\n- How can arrangement of elements in the help you solve a real problem in Chemistry?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-006:opener:visual-1:planned",
+        "RWA-S1-chemistry-topic-006:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-6-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p046",
+      "title": "Arrangement of elements in the: Learn",
+      "content": "Arrangement of elements in the is learned by turning the topic into a clear, safe, evidence-based science task.\n\nCore idea:\n- Name the science idea before starting: structure, process, material, force, energy, organism, environment, or system.\n- Use a diagram, data table, labelled model, safe observation, or teacher-approved investigation.\n- Record what is seen or measured, not what is guessed.\n- Explain the result using the vocabulary from this topic.\n- Finish with one conclusion and one question for further study.\n\nKey words:\n- Arrangement of elements in the\n- Arrangement\n- elements\n- concept\n- observation\n- evidence\n- safety\n- conclusion",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-006:learn:visual-1:planned",
+        "RWA-S1-chemistry-topic-006:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-6-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p047",
+      "title": "Arrangement of elements in the: Worked Example",
+      "content": "Investigation model for Arrangement of elements in the: Turn the topic into a safe, clear classroom investigation or model.\n\n1. Question: write one question that can be answered by observing, comparing, classifying, measuring, modelling, or reading data.\n2. Materials: list safe classroom materials, diagrams, samples, cards, tables, or teacher-approved apparatus.\n3. Method: do one step at a time and keep one condition fair where comparison is needed.\n4. Safety: name any heat, glass, sharp tool, chemical, hygiene, electrical, or body-safety rule before starting.\n5. Record: use a labelled table, diagram, or sentence notes.\n6. Conclusion: state what the evidence shows and one limit of the investigation.\n\nAnswer check: a strong response names the concept, uses correct vocabulary, records evidence, and does not claim more than the evidence supports.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 128,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-006:example:visual-1:planned",
+        "RWA-S1-chemistry-topic-006:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-6-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p048",
+      "title": "Arrangement of elements in the: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Arrangement of elements in the. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Arrangement of elements in the\n- Arrangement\n- elements\n- concept\n- observation\n- evidence\n- safety\n- conclusion\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Arrangement of elements in the without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-006:vocabulary:visual-1:planned",
+        "RWA-S1-chemistry-topic-006:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-6-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p049",
+      "title": "Arrangement of elements in the: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwandan observation, model, data table, or investigation for Arrangement of elements in the.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-006:activity:visual-1:planned",
+        "RWA-S1-chemistry-topic-006:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-6-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p050",
+      "title": "Arrangement of elements in the: Practice And Correction",
+      "content": "Practice for Arrangement of elements in the:\n\nMain outcome: use the atomic number, valence electrons and number of shells to classify the first 20 elements in the Periodic Table.\n\n1. Write one safe investigation question.\n2. Name materials and observations needed.\n3. Use the evidence to write a conclusion.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-006:practice:visual-1:planned",
+        "RWA-S1-chemistry-topic-006:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-6-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p051",
+      "title": "Arrangement of elements in the: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Arrangement of elements in the.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-006:remediation:visual-1:planned",
+        "RWA-S1-chemistry-topic-006:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-6-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p052",
+      "title": "Arrangement of elements in the: Outcome Check",
+      "content": "Outcome check for Arrangement of elements in the: Use the atomic number, valence electrons and number of shells to classify the first 20 elements in the Periodic Table.\n\n1. State a safe investigation question.\n2. Name the evidence needed.\n3. Write a conclusion from the evidence.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-006:assessment:visual-1:planned",
+        "RWA-S1-chemistry-topic-006:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-6-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-6-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-6-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p053",
+      "title": "Water and its composition: Lesson Opener",
+      "content": "Learning focus: Water and its composition\n\nCountry link: a safe Rwandan observation, model, data table, or investigation for Water and its composition.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- state standard requirements for different categories of water and explain steps involved in water treatment\n\nInquiry questions:\n- How can water and its composition help you solve a real problem in Chemistry?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-007:opener:visual-1:planned",
+        "RWA-S1-chemistry-topic-007:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-7-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p054",
+      "title": "Water and its composition: Learn",
+      "content": "Water and its composition is learned by asking a clear question, observing carefully, recording evidence, and explaining what the evidence means.\n\nCore idea:\n- Start with the object, organism, material, body part, force, energy change, or environmental feature being studied.\n- Use safe observations, labelled diagrams, simple measurements, or comparison tables.\n- Keep evidence separate from guesses: evidence is what you saw, measured, read from a table, or labelled correctly.\n- A conclusion should answer the question and mention one limit or next observation.\n- Local examples from home, school, farms, water sources, weather, health, and the environment make the science useful.\n\nKey words:\n- Water and its composition\n- Water\n- composition\n- concept\n- observation\n- evidence\n- safety\n- conclusion",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 123,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-007:learn:visual-1:planned",
+        "RWA-S1-chemistry-topic-007:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-7-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p055",
+      "title": "Water and its composition: Worked Example",
+      "content": "Investigation model for Water and its composition: Turn the topic into a safe, clear classroom investigation or model.\n\n1. Question: write one question that can be answered by observing, comparing, classifying, measuring, modelling, or reading data.\n2. Materials: list safe classroom materials, diagrams, samples, cards, tables, or teacher-approved apparatus.\n3. Method: do one step at a time and keep one condition fair where comparison is needed.\n4. Safety: name any heat, glass, sharp tool, chemical, hygiene, electrical, or body-safety rule before starting.\n5. Record: use a labelled table, diagram, or sentence notes.\n6. Conclusion: state what the evidence shows and one limit of the investigation.\n\nAnswer check: a strong response names the concept, uses correct vocabulary, records evidence, and does not claim more than the evidence supports.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 127,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-007:example:visual-1:planned",
+        "RWA-S1-chemistry-topic-007:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-7-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p056",
+      "title": "Water and its composition: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Water and its composition. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Water and its composition\n- Water\n- composition\n- concept\n- observation\n- evidence\n- safety\n- conclusion\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Water and its composition without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-007:vocabulary:visual-1:planned",
+        "RWA-S1-chemistry-topic-007:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-7-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p057",
+      "title": "Water and its composition: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwandan observation, model, data table, or investigation for Water and its composition.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-007:activity:visual-1:planned",
+        "RWA-S1-chemistry-topic-007:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-7-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p058",
+      "title": "Water and its composition: Practice And Correction",
+      "content": "Practice for Water and its composition:\n\nMain outcome: state standard requirements for different categories of water and explain steps involved in water treatment.\n\n1. Write one clear science question for the topic.\n2. Use a labelled diagram, observation table, or model to record evidence.\n3. Write a conclusion that answers the question and uses topic vocabulary.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 102,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-007:practice:visual-1:planned",
+        "RWA-S1-chemistry-topic-007:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-7-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p059",
+      "title": "Water and its composition: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Water and its composition.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-007:remediation:visual-1:planned",
+        "RWA-S1-chemistry-topic-007:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-7-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p060",
+      "title": "Water and its composition: Outcome Check",
+      "content": "Outcome check for Water and its composition: State standard requirements for different categories of water and explain steps involved in water treatment.\n\n1. State the science question.\n2. Show the evidence with a labelled diagram, table, model, or observation.\n3. Write a conclusion that follows from the evidence.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 63,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-007:assessment:visual-1:planned",
+        "RWA-S1-chemistry-topic-007:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-7-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-7-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-7-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p061",
+      "title": "Air composition and pollution: Lesson Opener",
+      "content": "Learning focus: Air composition and pollution\n\nCountry link: a safe Rwandan observation, model, data table, or investigation for Air composition and pollution.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- assess the components of air and analyse the causes of air pollution and its prevention\n\nInquiry questions:\n- How can air composition and pollution help you solve a real problem in Chemistry?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-008:opener:visual-1:planned",
+        "RWA-S1-chemistry-topic-008:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-8-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p062",
+      "title": "Air composition and pollution: Learn",
+      "content": "Air composition and pollution is learned by asking a clear question, observing carefully, recording evidence, and explaining what the evidence means.\n\nCore idea:\n- Start with the object, organism, material, body part, force, energy change, or environmental feature being studied.\n- Use safe observations, labelled diagrams, simple measurements, or comparison tables.\n- Keep evidence separate from guesses: evidence is what you saw, measured, read from a table, or labelled correctly.\n- A conclusion should answer the question and mention one limit or next observation.\n- Local examples from home, school, farms, water sources, weather, health, and the environment make the science useful.\n\nKey words:\n- Air composition and pollution\n- composition\n- pollution\n- concept\n- observation\n- evidence\n- safety\n- conclusion",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 123,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-008:learn:visual-1:planned",
+        "RWA-S1-chemistry-topic-008:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-8-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p063",
+      "title": "Air composition and pollution: Worked Example",
+      "content": "Investigation model for Air composition and pollution: Turn the topic into a safe, clear classroom investigation or model.\n\n1. Question: write one question that can be answered by observing, comparing, classifying, measuring, modelling, or reading data.\n2. Materials: list safe classroom materials, diagrams, samples, cards, tables, or teacher-approved apparatus.\n3. Method: do one step at a time and keep one condition fair where comparison is needed.\n4. Safety: name any heat, glass, sharp tool, chemical, hygiene, electrical, or body-safety rule before starting.\n5. Record: use a labelled table, diagram, or sentence notes.\n6. Conclusion: state what the evidence shows and one limit of the investigation.\n\nAnswer check: a strong response names the concept, uses correct vocabulary, records evidence, and does not claim more than the evidence supports.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 127,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-008:example:visual-1:planned",
+        "RWA-S1-chemistry-topic-008:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-8-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p064",
+      "title": "Air composition and pollution: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Air composition and pollution. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Air composition and pollution\n- composition\n- pollution\n- concept\n- observation\n- evidence\n- safety\n- conclusion\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Air composition and pollution without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-008:vocabulary:visual-1:planned",
+        "RWA-S1-chemistry-topic-008:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-8-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p065",
+      "title": "Air composition and pollution: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwandan observation, model, data table, or investigation for Air composition and pollution.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-008:activity:visual-1:planned",
+        "RWA-S1-chemistry-topic-008:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-8-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p066",
+      "title": "Air composition and pollution: Practice And Correction",
+      "content": "Practice for Air composition and pollution:\n\nMain outcome: assess the components of air and analyse the causes of air pollution and its prevention.\n\n1. Write one clear science question for the topic.\n2. Use a labelled diagram, observation table, or model to record evidence.\n3. Write a conclusion that answers the question and uses topic vocabulary.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 102,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-008:practice:visual-1:planned",
+        "RWA-S1-chemistry-topic-008:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-8-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p067",
+      "title": "Air composition and pollution: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Air composition and pollution.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-008:remediation:visual-1:planned",
+        "RWA-S1-chemistry-topic-008:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-8-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p068",
+      "title": "Air composition and pollution: Outcome Check",
+      "content": "Outcome check for Air composition and pollution: Assess the components of air and analyse the causes of air pollution and its prevention.\n\n1. State the science question.\n2. Show the evidence with a labelled diagram, table, model, or observation.\n3. Write a conclusion that follows from the evidence.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 63,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-008:assessment:visual-1:planned",
+        "RWA-S1-chemistry-topic-008:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-8-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-8-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-8-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p069",
+      "title": "Waste materials: Lesson Opener",
+      "content": "Learning focus: Waste materials\n\nCountry link: a safe Rwandan observation, model, data table, or investigation for Waste materials.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- minimise and properly manage waste materials\n\nInquiry questions:\n- How can waste materials help you solve a real problem in Chemistry?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 83,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-009:opener:visual-1:planned",
+        "RWA-S1-chemistry-topic-009:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-9-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p070",
+      "title": "Waste materials: Learn",
+      "content": "Waste materials is learned by asking a clear question, observing carefully, recording evidence, and explaining what the evidence means.\n\nCore idea:\n- Start with the object, organism, material, body part, force, energy change, or environmental feature being studied.\n- Use safe observations, labelled diagrams, simple measurements, or comparison tables.\n- Keep evidence separate from guesses: evidence is what you saw, measured, read from a table, or labelled correctly.\n- A conclusion should answer the question and mention one limit or next observation.\n- Local examples from home, school, farms, water sources, weather, health, and the environment make the science useful.\n\nKey words:\n- Waste materials\n- Waste\n- materials\n- concept\n- observation\n- evidence\n- safety\n- conclusion",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 119,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-009:learn:visual-1:planned",
+        "RWA-S1-chemistry-topic-009:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-9-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p071",
+      "title": "Waste materials: Worked Example",
+      "content": "Investigation model for Waste materials: Turn the topic into a safe, clear classroom investigation or model.\n\n1. Question: write one question that can be answered by observing, comparing, classifying, measuring, modelling, or reading data.\n2. Materials: list safe classroom materials, diagrams, samples, cards, tables, or teacher-approved apparatus.\n3. Method: do one step at a time and keep one condition fair where comparison is needed.\n4. Safety: name any heat, glass, sharp tool, chemical, hygiene, electrical, or body-safety rule before starting.\n5. Record: use a labelled table, diagram, or sentence notes.\n6. Conclusion: state what the evidence shows and one limit of the investigation.\n\nAnswer check: a strong response names the concept, uses correct vocabulary, records evidence, and does not claim more than the evidence supports.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 125,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-009:example:visual-1:planned",
+        "RWA-S1-chemistry-topic-009:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-9-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p072",
+      "title": "Waste materials: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Waste materials. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Waste materials\n- Waste\n- materials\n- concept\n- observation\n- evidence\n- safety\n- conclusion\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Waste materials without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-009:vocabulary:visual-1:planned",
+        "RWA-S1-chemistry-topic-009:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-9-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p073",
+      "title": "Waste materials: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwandan observation, model, data table, or investigation for Waste materials.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-009:activity:visual-1:planned",
+        "RWA-S1-chemistry-topic-009:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-9-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p074",
+      "title": "Waste materials: Practice And Correction",
+      "content": "Practice for Waste materials:\n\nMain outcome: minimise and properly manage waste materials.\n\n1. Write one clear science question for the topic.\n2. Use a labelled diagram, observation table, or model to record evidence.\n3. Write a conclusion that answers the question and uses topic vocabulary.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-009:practice:visual-1:planned",
+        "RWA-S1-chemistry-topic-009:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-9-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p075",
+      "title": "Waste materials: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Waste materials.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-009:remediation:visual-1:planned",
+        "RWA-S1-chemistry-topic-009:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-9-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p076",
+      "title": "Waste materials: Outcome Check",
+      "content": "Outcome check for Waste materials: Minimise and properly manage waste materials.\n\n1. State the science question.\n2. Show the evidence with a labelled diagram, table, model, or observation.\n3. Write a conclusion that follows from the evidence.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 52,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-009:assessment:visual-1:planned",
+        "RWA-S1-chemistry-topic-009:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-9-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-9-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-9-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-9-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p077",
+      "title": "Chemical equations: Lesson Opener",
+      "content": "Learning focus: Chemical equations\n\nCountry link: a safe Rwandan observation, model, data table, or investigation for Chemical equations.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- write and use balanced chemical equations\n\nInquiry questions:\n- How can chemical equations help you solve a real problem in Chemistry?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 83,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-010:opener:visual-1:planned",
+        "RWA-S1-chemistry-topic-010:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-10-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-10-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-10-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-10-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p078",
+      "title": "Chemical equations: Learn",
+      "content": "Chemical equations is learned by turning the topic into a clear, safe, evidence-based science task.\n\nCore idea:\n- Name the science idea before starting: structure, process, material, force, energy, organism, environment, or system.\n- Use a diagram, data table, labelled model, safe observation, or teacher-approved investigation.\n- Record what is seen or measured, not what is guessed.\n- Explain the result using the vocabulary from this topic.\n- Finish with one conclusion and one question for further study.\n\nKey words:\n- Chemical equations\n- Chemical\n- equations\n- concept\n- observation\n- evidence\n- safety\n- conclusion",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 97,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-010:learn:visual-1:planned",
+        "RWA-S1-chemistry-topic-010:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-10-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-10-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-10-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-10-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p079",
+      "title": "Chemical equations: Worked Example",
+      "content": "Investigation model for Chemical equations: Turn the topic into a safe, clear classroom investigation or model.\n\n1. Question: write one question that can be answered by observing, comparing, classifying, measuring, modelling, or reading data.\n2. Materials: list safe classroom materials, diagrams, samples, cards, tables, or teacher-approved apparatus.\n3. Method: do one step at a time and keep one condition fair where comparison is needed.\n4. Safety: name any heat, glass, sharp tool, chemical, hygiene, electrical, or body-safety rule before starting.\n5. Record: use a labelled table, diagram, or sentence notes.\n6. Conclusion: state what the evidence shows and one limit of the investigation.\n\nAnswer check: a strong response names the concept, uses correct vocabulary, records evidence, and does not claim more than the evidence supports.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 125,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-010:example:visual-1:planned",
+        "RWA-S1-chemistry-topic-010:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-10-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-10-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-10-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-10-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p080",
+      "title": "Chemical equations: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Chemical equations. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Chemical equations\n- Chemical\n- equations\n- concept\n- observation\n- evidence\n- safety\n- conclusion\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Chemical equations without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-010:vocabulary:visual-1:planned",
+        "RWA-S1-chemistry-topic-010:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-10-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-10-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-10-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-10-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p081",
+      "title": "Chemical equations: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwandan observation, model, data table, or investigation for Chemical equations.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-010:activity:visual-1:planned",
+        "RWA-S1-chemistry-topic-010:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-10-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-10-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-10-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-10-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p082",
+      "title": "Chemical equations: Practice And Correction",
+      "content": "Practice for Chemical equations:\n\nMain outcome: write and use balanced chemical equations.\n\n1. Write one safe investigation question.\n2. Name materials and observations needed.\n3. Use the evidence to write a conclusion.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 78,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-010:practice:visual-1:planned",
+        "RWA-S1-chemistry-topic-010:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-10-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-10-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-10-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-10-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p083",
+      "title": "Chemical equations: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Chemical equations.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-010:remediation:visual-1:planned",
+        "RWA-S1-chemistry-topic-010:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-10-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-10-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-10-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-10-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p084",
+      "title": "Chemical equations: Outcome Check",
+      "content": "Outcome check for Chemical equations: Write and use balanced chemical equations.\n\n1. State a safe investigation question.\n2. Name the evidence needed.\n3. Write a conclusion from the evidence.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 44,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-010:assessment:visual-1:planned",
+        "RWA-S1-chemistry-topic-010:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-10-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-10-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-10-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-10-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p085",
+      "title": "Acids and bases and p H: Lesson Opener",
+      "content": "Learning focus: Acids and bases and p H\n\nCountry link: a safe Rwandan observation, model, data table, or investigation for Acids and bases and p H.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- extract indicators from flowers and use them to test the observable properties of acids and bases in common domestic substances\n\nInquiry questions:\n- How can acids and bases and ph help you solve a real problem in Chemistry?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-011:opener:visual-1:planned",
+        "RWA-S1-chemistry-topic-011:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-11-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-11-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-11-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-11-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p086",
+      "title": "Acids and bases and p H: Learn",
+      "content": "Acids and bases and p H is learned by turning the topic into a clear, safe, evidence-based science task.\n\nCore idea:\n- Name the science idea before starting: structure, process, material, force, energy, organism, environment, or system.\n- Use a diagram, data table, labelled model, safe observation, or teacher-approved investigation.\n- Record what is seen or measured, not what is guessed.\n- Explain the result using the vocabulary from this topic.\n- Finish with one conclusion and one question for further study.\n\nKey words:\n- Acids and bases and p H\n- Acids\n- bases\n- concept\n- observation\n- evidence\n- safety\n- conclusion",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-011:learn:visual-1:planned",
+        "RWA-S1-chemistry-topic-011:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-11-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-11-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-11-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-11-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p087",
+      "title": "Acids and bases and p H: Worked Example",
+      "content": "Investigation model for Acids and bases and p H: Turn the topic into a safe, clear classroom investigation or model.\n\n1. Question: write one question that can be answered by observing, comparing, classifying, measuring, modelling, or reading data.\n2. Materials: list safe classroom materials, diagrams, samples, cards, tables, or teacher-approved apparatus.\n3. Method: do one step at a time and keep one condition fair where comparison is needed.\n4. Safety: name any heat, glass, sharp tool, chemical, hygiene, electrical, or body-safety rule before starting.\n5. Record: use a labelled table, diagram, or sentence notes.\n6. Conclusion: state what the evidence shows and one limit of the investigation.\n\nAnswer check: a strong response names the concept, uses correct vocabulary, records evidence, and does not claim more than the evidence supports.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 129,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-011:example:visual-1:planned",
+        "RWA-S1-chemistry-topic-011:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-11-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-11-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-11-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-11-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p088",
+      "title": "Acids and bases and p H: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Acids and bases and p H. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Acids and bases and p H\n- Acids\n- bases\n- concept\n- observation\n- evidence\n- safety\n- conclusion\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Acids and bases and p H without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 124,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-011:vocabulary:visual-1:planned",
+        "RWA-S1-chemistry-topic-011:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-11-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-11-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-11-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-11-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p089",
+      "title": "Acids and bases and p H: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwandan observation, model, data table, or investigation for Acids and bases and p H.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-011:activity:visual-1:planned",
+        "RWA-S1-chemistry-topic-011:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-11-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-11-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-11-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-11-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p090",
+      "title": "Acids and bases and p H: Practice And Correction",
+      "content": "Practice for Acids and bases and p H:\n\nMain outcome: extract indicators from flowers and use them to test the observable properties of acids and bases in common domestic substances.\n\n1. Write one safe investigation question.\n2. Name materials and observations needed.\n3. Use the evidence to write a conclusion.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-011:practice:visual-1:planned",
+        "RWA-S1-chemistry-topic-011:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-11-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-11-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-11-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-11-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p091",
+      "title": "Acids and bases and p H: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Acids and bases and p H.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-011:remediation:visual-1:planned",
+        "RWA-S1-chemistry-topic-011:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-11-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-11-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-11-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-11-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p092",
+      "title": "Acids and bases and p H: Outcome Check",
+      "content": "Outcome check for Acids and bases and p H: Extract indicators from flowers and use them to test the observable properties of acids and bases in common domestic substances.\n\n1. State a safe investigation question.\n2. Name the evidence needed.\n3. Write a conclusion from the evidence.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 62,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-011:assessment:visual-1:planned",
+        "RWA-S1-chemistry-topic-011:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-11-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-11-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-11-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-11-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p093",
+      "title": "Inorganic salts and their properties: Lesson Opener",
+      "content": "Learning focus: Inorganic salts and their properties\n\nCountry link: a safe Rwandan observation, model, data table, or investigation for Inorganic salts and their properties.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- analyse properties of different types of salts\n\nInquiry questions:\n- How can inorganic salts and their properties help you solve a real problem in Chemistry?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-012:opener:visual-1:planned",
+        "RWA-S1-chemistry-topic-012:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-12-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-12-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-12-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-12-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p094",
+      "title": "Inorganic salts and their properties: Learn",
+      "content": "Inorganic salts and their properties is learned by turning the topic into a clear, safe, evidence-based science task.\n\nCore idea:\n- Name the science idea before starting: structure, process, material, force, energy, organism, environment, or system.\n- Use a diagram, data table, labelled model, safe observation, or teacher-approved investigation.\n- Record what is seen or measured, not what is guessed.\n- Explain the result using the vocabulary from this topic.\n- Finish with one conclusion and one question for further study.\n\nKey words:\n- Inorganic salts and their properties\n- Inorganic\n- salts\n- their\n- properties\n- concept\n- observation\n- evidence",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-012:learn:visual-1:planned",
+        "RWA-S1-chemistry-topic-012:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-12-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-12-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-12-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-12-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p095",
+      "title": "Inorganic salts and their properties: Worked Example",
+      "content": "Investigation model for Inorganic salts and their properties: Turn the topic into a safe, clear classroom investigation or model.\n\n1. Question: write one question that can be answered by observing, comparing, classifying, measuring, modelling, or reading data.\n2. Materials: list safe classroom materials, diagrams, samples, cards, tables, or teacher-approved apparatus.\n3. Method: do one step at a time and keep one condition fair where comparison is needed.\n4. Safety: name any heat, glass, sharp tool, chemical, hygiene, electrical, or body-safety rule before starting.\n5. Record: use a labelled table, diagram, or sentence notes.\n6. Conclusion: state what the evidence shows and one limit of the investigation.\n\nAnswer check: a strong response names the concept, uses correct vocabulary, records evidence, and does not claim more than the evidence supports.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 128,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-012:example:visual-1:planned",
+        "RWA-S1-chemistry-topic-012:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-12-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-12-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-12-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-12-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p096",
+      "title": "Inorganic salts and their properties: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Inorganic salts and their properties. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Inorganic salts and their properties\n- Inorganic\n- salts\n- their\n- properties\n- concept\n- observation\n- evidence\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Inorganic salts and their properties without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-012:vocabulary:visual-1:planned",
+        "RWA-S1-chemistry-topic-012:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-12-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-12-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-12-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-12-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p097",
+      "title": "Inorganic salts and their properties: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwandan observation, model, data table, or investigation for Inorganic salts and their properties.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-012:activity:visual-1:planned",
+        "RWA-S1-chemistry-topic-012:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-12-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-12-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-12-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-12-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p098",
+      "title": "Inorganic salts and their properties: Practice And Correction",
+      "content": "Practice for Inorganic salts and their properties:\n\nMain outcome: analyse properties of different types of salts.\n\n1. Write one safe investigation question.\n2. Name materials and observations needed.\n3. Use the evidence to write a conclusion.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 82,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-012:practice:visual-1:planned",
+        "RWA-S1-chemistry-topic-012:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-12-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-12-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-12-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-12-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p099",
+      "title": "Inorganic salts and their properties: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Inorganic salts and their properties.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-012:remediation:visual-1:planned",
+        "RWA-S1-chemistry-topic-012:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-12-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-12-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-12-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-12-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p100",
+      "title": "Inorganic salts and their properties: Outcome Check",
+      "content": "Outcome check for Inorganic salts and their properties: Analyse properties of different types of salts.\n\n1. State a safe investigation question.\n2. Name the evidence needed.\n3. Write a conclusion from the evidence.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 48,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-012:assessment:visual-1:planned",
+        "RWA-S1-chemistry-topic-012:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-12-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-12-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-12-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-12-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p101",
+      "title": "Preparation of oxygen and its properties: Lesson Opener",
+      "content": "Learning focus: Preparation of oxygen and its properties\n\nCountry link: a safe Rwandan observation, model, data table, or investigation for Preparation of oxygen and its properties.\n\nProgression focus: build lower-secondary foundations with clear vocabulary and guided application; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- prepare oxygen and show how it supports burning and reaction with some elements. Prepare other gases to demonstrate different methods of collection\n\nInquiry questions:\n- How can preparation of oxygen and its properties help you solve a real problem in Chemistry?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 111,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-013:opener:visual-1:planned",
+        "RWA-S1-chemistry-topic-013:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-13-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-13-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-13-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-13-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p102",
+      "title": "Preparation of oxygen and its properties: Learn",
+      "content": "Preparation of oxygen and its properties is learned by turning the topic into a clear, safe, evidence-based science task.\n\nCore idea:\n- Name the science idea before starting: structure, process, material, force, energy, organism, environment, or system.\n- Use a diagram, data table, labelled model, safe observation, or teacher-approved investigation.\n- Record what is seen or measured, not what is guessed.\n- Explain the result using the vocabulary from this topic.\n- Finish with one conclusion and one question for further study.\n\nKey words:\n- Preparation of oxygen and its properties\n- Preparation\n- oxygen\n- properties\n- concept\n- observation\n- evidence\n- safety",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-013:learn:visual-1:planned",
+        "RWA-S1-chemistry-topic-013:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-13-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-13-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-13-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-13-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p103",
+      "title": "Preparation of oxygen and its properties: Worked Example",
+      "content": "Investigation model for Preparation of oxygen and its properties: Turn the topic into a safe, clear classroom investigation or model.\n\n1. Question: write one question that can be answered by observing, comparing, classifying, measuring, modelling, or reading data.\n2. Materials: list safe classroom materials, diagrams, samples, cards, tables, or teacher-approved apparatus.\n3. Method: do one step at a time and keep one condition fair where comparison is needed.\n4. Safety: name any heat, glass, sharp tool, chemical, hygiene, electrical, or body-safety rule before starting.\n5. Record: use a labelled table, diagram, or sentence notes.\n6. Conclusion: state what the evidence shows and one limit of the investigation.\n\nAnswer check: a strong response names the concept, uses correct vocabulary, records evidence, and does not claim more than the evidence supports.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 129,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-013:example:visual-1:planned",
+        "RWA-S1-chemistry-topic-013:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-13-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-13-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-13-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-13-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p104",
+      "title": "Preparation of oxygen and its properties: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Preparation of oxygen and its properties. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Preparation of oxygen and its properties\n- Preparation\n- oxygen\n- properties\n- concept\n- observation\n- evidence\n- safety\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Rwanda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Preparation of oxygen and its properties without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 124,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-013:vocabulary:visual-1:planned",
+        "RWA-S1-chemistry-topic-013:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-13-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-13-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-13-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-13-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p105",
+      "title": "Preparation of oxygen and its properties: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Rwandan observation, model, data table, or investigation for Preparation of oxygen and its properties.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-013:activity:visual-1:planned",
+        "RWA-S1-chemistry-topic-013:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-13-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-13-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-13-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-13-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p106",
+      "title": "Preparation of oxygen and its properties: Practice And Correction",
+      "content": "Practice for Preparation of oxygen and its properties:\n\nMain outcome: prepare oxygen and show how it supports burning and reaction with some elements. Prepare other gases to demonstrate different methods of collection.\n\n1. Write one safe investigation question.\n2. Name materials and observations needed.\n3. Use the evidence to write a conclusion.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-013:practice:visual-1:planned",
+        "RWA-S1-chemistry-topic-013:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-13-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-13-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-13-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-13-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p107",
+      "title": "Preparation of oxygen and its properties: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Preparation of oxygen and its properties.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-013:remediation:visual-1:planned",
+        "RWA-S1-chemistry-topic-013:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-13-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-13-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-13-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-13-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p108",
+      "title": "Preparation of oxygen and its properties: Outcome Check",
+      "content": "Outcome check for Preparation of oxygen and its properties: Prepare oxygen and show how it supports burning and reaction with some elements. Prepare other gases to demonstrate different methods of collection.\n\n1. State a safe investigation question.\n2. Name the evidence needed.\n3. Write a conclusion from the evidence.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 64,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-013:assessment:visual-1:planned",
+        "RWA-S1-chemistry-topic-013:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-13-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-13-topic"
+      ],
+      "parentUnitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-13-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-13-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p109",
+      "title": "Chemistry and society: Review Clinic 1",
+      "content": "Use this review clinic to strengthen Chemistry without copying earlier answers.\n\n1. Choose one idea from Chemistry and society that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Rwanda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 76,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-001:review:visual-1:planned",
+        "RWA-S1-chemistry-topic-001:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-1-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-1-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p110",
+      "title": "Laboratory safety and apparatus: Review Clinic 2",
+      "content": "Use this review clinic to strengthen Chemistry without copying earlier answers.\n\n1. Choose one idea from Laboratory safety and apparatus that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Rwanda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 77,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-002:review:visual-1:planned",
+        "RWA-S1-chemistry-topic-002:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-2-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-2-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p111",
+      "title": "States and changes of states of matter: Review Clinic 3",
+      "content": "Use this review clinic to strengthen Chemistry without copying earlier answers.\n\n1. Choose one idea from States and changes of states of matter that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Rwanda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 80,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-003:review:visual-1:planned",
+        "RWA-S1-chemistry-topic-003:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-3-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-3-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p112",
+      "title": "Pure substances and mixtures: Review Clinic 4",
+      "content": "Use this review clinic to strengthen Chemistry without copying earlier answers.\n\n1. Choose one idea from Pure substances and mixtures that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Rwanda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 77,
+      "imageRefs": [
+        "RWA-S1-chemistry-topic-004:review:visual-1:planned",
+        "RWA-S1-chemistry-topic-004:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-4-strand"
+      ],
+      "unitIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-4-topic"
+      ],
+      "outcomeIds": [
+        "cd3ea67b-193d-4593-bd8b-9b1a86201007-unit-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p113",
+      "title": "Glossary",
+      "content": "Use this glossary to revise important words in Chemistry.\n\n- Chemistry and society: Explain this term using an example from the book, your school, or your community.\n- Laboratory safety and apparatus: Explain this term using an example from the book, your school, or your community.\n- States and changes of states of matter: Explain this term using an example from the book, your school, or your community.\n- Pure substances and mixtures: Explain this term using an example from the book, your school, or your community.\n- Atoms, elements and compounds: Explain this term using an example from the book, your school, or your community.\n- Arrangement of elements in the: Explain this term using an example from the book, your school, or your community.\n- Water and its composition: Explain this term using an example from the book, your school, or your community.\n- Air composition and pollution: Explain this term using an example from the book, your school, or your community.\n- Waste materials: Explain this term using an example from the book, your school, or your community.\n- Chemical equations: Explain this term using an example from the book, your school, or your community.\n- Acids and bases and p H: Explain this term using an example from the book, your school, or your community.\n- Inorganic salts and their properties: Explain this term using an example from the book, your school, or your community.\n- Preparation of oxygen and its properties: Explain this term using an example from the book, your school, or your community.\n\nAdd five more words from your lessons and write your own meanings.",
+      "pageType": "glossary",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 272,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p114",
+      "title": "Answer And Teacher Notes",
+      "content": "A strong Chemistry answer states the idea, uses correct scientific vocabulary, records observations or data, includes units or labels where needed, and writes a conclusion that follows from evidence. Safety rules always come first. If evidence is missing, repeat the observation safely or explain what evidence would be needed.",
+      "pageType": "answer-notes",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 49,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-rwa-reb-cbc-s1-chemistry-p115",
+      "title": "Final Project",
+      "content": "Create a final project for Chemistry that shows what you can now do independently.\n\nYour project must include:\n1. A clear title.\n2. A real-life problem, question, text, performance, investigation, design, or worked task.\n3. Evidence from at least three lessons in this book.\n4. A drawing, table, map, chart, model, dialogue, paragraph, performance plan, practical product, or worked solution.\n5. A correction note showing one improvement after feedback.\n6. A short reflection explaining what you learned, what was difficult, and what you will practise next.\n\nPresentation check: keep the work neat, label important parts, use correct vocabulary, and be ready to explain your choices to a classmate or teacher.",
+      "pageType": "project",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 110,
+      "imageRefs": []
+    }
+  ]
+}

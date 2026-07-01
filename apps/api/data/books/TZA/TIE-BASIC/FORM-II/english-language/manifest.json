@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-tza-tie-basic-form-ii-english-language",
+  "title": "KITABU QUEST Form II English Language",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Form II",
+  "subject": "English Language",
+  "subjectSlug": "english-language",
+  "subjectColor": "#2563EB",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v13",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:45:11Z",
+  "sourceSnapshotHash": "6609b5713e7ae36fb58decfeea17d91bb8f751530117d8b122330081382324e6",
+  "bookPlanHash": "c151781b644c4eaf08ed0024930a440d4ab05e6e8c5fca7e758ba83003f6931b",
+  "pageCount": 111,
+  "wordCount": 9594,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 8,
+    "outcomeCount": 8,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "TZA",
+    "subject": "English Language",
+    "species": "hare",
+    "role": "communication guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "students reading and presenting in English with a friendly hare mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Tanzania TIE-BASIC Form II English Language. Scene: students reading and presenting in English with a friendly hare mascot. Include a friendly hare mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 85693,
+    "sha256": "1cc974e5829c53487b29204b915be477f207c7571156387e65bacfd94a1e9dac"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 85693,
+      "sha256": "1cc974e5829c53487b29204b915be477f207c7571156387e65bacfd94a1e9dac",
+      "kind": "cover",
+      "altText": "KITABU QUEST Form II English Language cover with hare",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-tza-tie-basic-form-ii-english-language.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-tza-tie-basic-form-ii-english-language.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "41989724-a788-4ee5-a3b0-5cae8994bd8a",
+      "subject": "English Language",
+      "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II English Language",
+      "countryCode": "TZA",
+      "curriculumCode": "TIE-BASIC",
+      "gradeCode": "FORM_II",
+      "gradeLocalLevel": "Form II",
+      "localLevel": "Form II",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1756459411-ENGLISH%20lANGUAGE%20FINAL.pdf",
+      "objectKey": "data/curriculum/source-files/TZA/72f4682e7a414619f9f3fb492bb190e9b34c3b547a7d157c985e87bcc8ea3a2f.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "FORM_II",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1756459411-ENGLISH%20lANGUAGE%20FINAL.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/english-language/41989724-a788-4ee5-a3b0-5cae8994bd8a.md",
+        "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "tie.go.tz"
+        ],
+        "markdownChecksum": "6b9ea4b4d0a435767d4e470a26967f6248a2196e6dcd68aa0e3317b9409dd145",
+        "markdownPageCount": 88,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/english-language/41989724-a788-4ee5-a3b0-5cae8994bd8a.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "6b9ea4b4d0a435767d4e470a26967f6248a2196e6dcd68aa0e3317b9409dd145",
+          "pageCount": 88,
+          "generatedAt": "2026-06-29T16:45:13.872Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "6daa1f44f86bd186c4e78e24c716038e04f8da82555013e33cac0a5af8e0f3e9"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:45:13.872Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

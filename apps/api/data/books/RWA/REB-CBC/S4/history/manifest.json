@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-rwa-reb-cbc-s4-history",
+  "title": "KITABU QUEST S4 History",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "S4",
+  "subject": "History",
+  "subjectSlug": "history",
+  "subjectColor": "#BE123C",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v5",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T04:09:55Z",
+  "sourceSnapshotHash": "b76b7671f164bf233510fdcc51447b3a8703a40aedb6762b9e05107398d6cba3",
+  "bookPlanHash": "ebf7df7e70f3a0c946c258faa03c2563da4482f0f5d355a0500507247ce0a935",
+  "pageCount": 115,
+  "wordCount": 11268,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 13,
+    "outcomeCount": 13,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "RWA",
+    "subject": "History",
+    "species": "grey crowned crane",
+    "role": "heritage guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "students studying timelines and historical sources with a grey crowned crane mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Rwanda REB-CBC S4 History. Scene: students studying timelines and historical sources with a grey crowned crane mascot. Include a friendly grey crowned crane mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 91036,
+    "sha256": "14ed4107e9e0a2f0f75d4b47dd82b62f73a65784102bea0d7fee66aaf44fdf05"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 91036,
+      "sha256": "14ed4107e9e0a2f0f75d4b47dd82b62f73a65784102bea0d7fee66aaf44fdf05",
+      "kind": "cover",
+      "altText": "KITABU QUEST S4 History cover with grey crowned crane",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-rwa-reb-cbc-s4-history.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-rwa-reb-cbc-s4-history.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "5025581b-73e2-4cd4-8b16-8fbf96b8d888",
+      "subject": "History",
+      "officialTitle": "Rwanda Competence Based Curriculum S4 History",
+      "countryCode": "RWA",
+      "curriculumCode": "REB-CBC",
+      "gradeCode": "S4",
+      "gradeLocalLevel": "S4",
+      "localLevel": "S4",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://elearning.reb.rw/pluginfile.php/84695/mod_resource/content/1/HISTORY%20%20SYLLABUS%20%28S4-S6%29%20%281%29.pdf",
+      "objectKey": "data/curriculum/source-files/RWA/c8ef2dcd6bb81a860a36a10835cbf58d0b2d8897cd327c332df790e5de0d1976.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "S4",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://elearning.reb.rw/pluginfile.php/84695/mod_resource/content/1/HISTORY%20%20SYLLABUS%20%28S4-S6%29%20%281%29.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S4/history/5025581b-73e2-4cd4-8b16-8fbf96b8d888.md",
+        "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "reb.gov.rw",
+          "reb.rw",
+          "elearning.reb.rw"
+        ],
+        "markdownChecksum": "f6791a45d60045a5129a62682b511216b3fcf66c480980e537454de46dc36c24",
+        "markdownPageCount": 69,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/RWA/REB-CBC/S4/history/5025581b-73e2-4cd4-8b16-8fbf96b8d888.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "f6791a45d60045a5129a62682b511216b3fcf66c480980e537454de46dc36c24",
+          "pageCount": 69,
+          "generatedAt": "2026-07-01T01:22:33.929Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S4/history/5025581b-73e2-4cd4-8b16-8fbf96b8d888.json",
+          "sourceChecksum": "e3f16881b943b8c633990a13fca32ccf3fdbeca178def8785462894e3e33057d"
+        },
+        "markdownGeneratedAt": "2026-07-01T01:22:33.929Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

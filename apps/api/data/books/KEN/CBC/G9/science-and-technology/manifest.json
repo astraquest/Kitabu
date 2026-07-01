@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-grade-9-science-and-technology",
+  "title": "KITABU QUEST Grade 9 Science and Technology",
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 9",
+  "subject": "Science and Technology",
+  "subjectSlug": "science-and-technology",
+  "subjectColor": "#7C3AED",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "learner-first-language-depth-renderers-2026-07-01-v10",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-reviewed-draft",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T11:47:56Z",
+  "sourceSnapshotHash": "7b2ad8247653bd8236e065bec546fa47ce88f36427f76fb5d85eabd37d379fde",
+  "bookPlanHash": "5e372815c9d84ccac3ff563d090cbb1e95158b7f504443a6f992673a8ebbfe63",
+  "pageCount": 149,
+  "wordCount": 21750,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "ageBand": "junior-secondary",
+    "coversDeferred": true,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "topicCount": 18,
+    "outcomeCount": 46,
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "KEN",
+    "subject": "Science and Technology",
+    "species": "chameleon",
+    "role": "curiosity and observation guide",
+    "sourceRationale": "Observation, adaptation, biology, and learner investigations."
+  },
+  "cover": {
+    "scene": "learners observing a chameleon and plants during a safe outdoor investigation",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Kenya CBC Grade 9 Science and Technology. Scene: learners observing a chameleon and plants during a safe outdoor investigation. Include a friendly chameleon mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "assets": [],
+  "downloads": {
+    "markdown": "kitabu-quest-grade-9-science-and-technology.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-grade-9-science-and-technology.pdf"
+  },
+  "sourceDocuments": [
+    {
+      "id": "15aea879-f0d0-4601-8d86-b8c122cf6c29",
+      "subject": "Integrated Science",
+      "officialTitle": "Competency Based Curriculum Grade 9 Integrated Science",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_9",
+      "gradeLocalLevel": "Grade 9",
+      "localLevel": "Grade 9",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/18QAC1qZzTWQv4vso-y1c5qaY9YxeSaUp/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_9",
+        "documentUrl": "https://drive.google.com/file/d/18QAC1qZzTWQv4vso-y1c5qaY9YxeSaUp/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_9/integrated-science/15aea879-f0d0-4601-8d86-b8c122cf6c29.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-nine-designs/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "35eeb66102430d6d738b6eced0f0e31b6c35acf7aa918f58bd3434becd69acd9",
+        "markdownPageCount": 39,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_9/integrated-science/15aea879-f0d0-4601-8d86-b8c122cf6c29.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "35eeb66102430d6d738b6eced0f0e31b6c35acf7aa918f58bd3434becd69acd9",
+          "pageCount": 39,
+          "generatedAt": "2026-06-29T16:35:10.071Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "fa5719632ac40644c120aa96f0be2067ae7b9749428802f054d7be981858c04c"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:10.071Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    }
+  ]
+}

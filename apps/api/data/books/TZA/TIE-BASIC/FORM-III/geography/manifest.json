@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-tza-tie-basic-form-iii-geography",
+  "title": "KITABU QUEST Form III Geography",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Form III",
+  "subject": "Geography",
+  "subjectSlug": "geography",
+  "subjectColor": "#0E7490",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v13",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:48:00Z",
+  "sourceSnapshotHash": "b5de441a369277d71ad9737db8f65afe8fc3d91066b56450c3e13c51c48e86af",
+  "bookPlanHash": "ab5a06e6a74d44ed749e6bf8be15bd14f4e18ed5d384e5fe27868ad924b12c66",
+  "pageCount": 85,
+  "wordCount": 8106,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 8,
+    "outcomeCount": 8,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "TZA",
+    "subject": "Geography",
+    "species": "giraffe",
+    "role": "maps and environment guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "students studying maps and landscapes with a giraffe mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Tanzania TIE-BASIC Form III Geography. Scene: students studying maps and landscapes with a giraffe mascot. Include a friendly giraffe mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 85628,
+    "sha256": "64975f56938d7a44e0e0da22d8e5089a4b1862105f46ff9709823a62aeaab615"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 85628,
+      "sha256": "64975f56938d7a44e0e0da22d8e5089a4b1862105f46ff9709823a62aeaab615",
+      "kind": "cover",
+      "altText": "KITABU QUEST Form III Geography cover with giraffe",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-tza-tie-basic-form-iii-geography.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-tza-tie-basic-form-iii-geography.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "d3faa4f6-2a76-4bb7-8aa2-9b8e6445eaad",
+      "subject": "Geography",
+      "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form III Geography",
+      "countryCode": "TZA",
+      "curriculumCode": "TIE-BASIC",
+      "gradeCode": "FORM_III",
+      "gradeLocalLevel": "Form III",
+      "localLevel": "Form III",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+      "objectKey": "data/curriculum/source-files/TZA/22439a89e08a05f32ad8a5ff37e97903fac831feeab12513070c1c324c9b20e7.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "FORM_III",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255849-GEOGRAPHY%20O-Level.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/geography/d3faa4f6-2a76-4bb7-8aa2-9b8e6445eaad.md",
+        "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "tie.go.tz"
+        ],
+        "markdownChecksum": "2d2693b12b15cd38189b9bc5745ee749423e03227a1b71287bd962c481355106",
+        "markdownPageCount": 31,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/geography/d3faa4f6-2a76-4bb7-8aa2-9b8e6445eaad.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "2d2693b12b15cd38189b9bc5745ee749423e03227a1b71287bd962c481355106",
+          "pageCount": 31,
+          "generatedAt": "2026-06-29T16:45:57.263Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "89a9dd3eb858f8d04152cd2cdba70d9b7fbf62c1bdc89517a8e49705434e9fc3"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:45:57.263Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

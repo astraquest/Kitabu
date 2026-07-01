@@ -1,0 +1,2130 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-uga-ncdc-s2-entrepreneurship",
+  "title": "KITABU QUEST S2 Entrepreneurship",
+  "country": "UGA",
+  "curriculum": "NCDC",
+  "grade": "S2",
+  "subject": "Entrepreneurship",
+  "subjectSlug": "entrepreneurship",
+  "subjectColor": "#B45309",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v12",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:15:48Z",
+  "sourceSnapshotHash": "1c8ca807c5fb8afd366d8bbb72cc519780f3e8529a06b6972e81ffa5e48e9938",
+  "bookPlanHash": "4659c6c606cf1ebfdd7d857226a8486cf5646d8b84b9a5754b2b718ef995c45c",
+  "pageCount": 85,
+  "wordCount": 8961,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 5,
+    "outcomeCount": 5,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "UGA",
+    "subject": "Entrepreneurship",
+    "species": "Ankole longhorn cow",
+    "role": "enterprise and livelihood guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners running a small school market project with an Ankole longhorn cow mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Uganda NCDC S2 Entrepreneurship. Scene: learners running a small school market project with an Ankole longhorn cow mascot. Include a friendly Ankole longhorn cow mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 91582,
+    "sha256": "83041719b5d9bb1e05b4a2df4581234f02731f3131d2fd6895f7c438886930d9"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 91582,
+      "sha256": "83041719b5d9bb1e05b4a2df4581234f02731f3131d2fd6895f7c438886930d9",
+      "kind": "cover",
+      "altText": "KITABU QUEST S2 Entrepreneurship cover with Ankole longhorn cow",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-uga-ncdc-s2-entrepreneurship.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-uga-ncdc-s2-entrepreneurship.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "d1d3e2eb-9855-438d-b0c3-2c2e95cf8b7b",
+      "subject": "Entrepreneurship",
+      "officialTitle": "Uganda Curriculum S2 Entrepreneurship",
+      "countryCode": "UGA",
+      "curriculumCode": "NCDC",
+      "gradeCode": "S2",
+      "gradeLocalLevel": "S2",
+      "localLevel": "S2",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/ENTREPRENEURSHIP_SYLLABUS_compressed.pdf",
+      "objectKey": "data/curriculum/source-files/UGA/0b8dfaa3695912dfd3d83040a270f691550d88b2c2240a899a0cb3cb3a5a5b95.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "S2",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/ENTREPRENEURSHIP_SYLLABUS_compressed.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/UGA/NCDC/S2/entrepreneurship/d1d3e2eb-9855-438d-b0c3-2c2e95cf8b7b.md",
+        "sourcePageUrl": "https://ncdc.go.ug/wp-content/uploads/2024/03/Curriculum_Framework.pdf",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "ncdc.go.ug"
+        ],
+        "markdownChecksum": "28bbccda6a995a584180fc269310d2a357a5436770bed52e5558621108d08431",
+        "markdownPageCount": 64,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/UGA/NCDC/S2/entrepreneurship/d1d3e2eb-9855-438d-b0c3-2c2e95cf8b7b.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "28bbccda6a995a584180fc269310d2a357a5436770bed52e5558621108d08431",
+          "pageCount": 64,
+          "generatedAt": "2026-06-29T17:58:40.476Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "8ba8aff80e6c674a12615c2dc3b11d7cab1fa66aa10ac72f0baceb3afd8ecec6"
+        },
+        "markdownGeneratedAt": "2026-06-29T17:58:40.476Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p001",
+      "title": "Title Page",
+      "content": "KITABU QUEST S2 Entrepreneurship\n\nUganda NCDC learner book\n\nMascot: Ankole longhorn cow\n\nThis KITABU QUEST book turns the curriculum into short lessons, worked examples, guided activities, practice, review, and home links for Uganda learners.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 3,
+      "wordCount": 34,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p002",
+      "title": "How To Use This Book",
+      "content": "This book helps S2 learners study Entrepreneurship one teachable topic at a time.\n\n1. Start with the inquiry question and say what you already know.\n2. Read the Learn section slowly and mark new words.\n3. Try the worked example before reading the full solution.\n4. Complete the activity and practice tasks.\n5. Correct your answer using the success criteria.\n6. Ask for support when your answer is still unclear.\n\nSubject method: Use real school, home, farm, and market examples to practise enterprise skills.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 84,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p003",
+      "title": "Learning Skills In This Book",
+      "content": "Each topic builds knowledge, skill, values, communication, collaboration, critical thinking, creativity, digital awareness, and self-confidence.\n\nStudy actively: speak answers aloud, draw when useful, show your working, cite evidence, use local examples, and correct mistakes after feedback.\n\nA strong answer is specific. It names the idea, gives evidence or method, applies it to the task, and checks whether it answers the question.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p004",
+      "title": "Table Of Contents",
+      "content": "Use this table to move through the book one topic at a time. Each topic has a lesson opener, clear teaching, a model or example, guided work, practice, and checks for understanding.\n\n1. The Uganda Vision 2040 aims to transform Uganda into a modern\n2. KEY CHANGES IN THE CURRICULUM\n3. THE\n4. THE CURRICULUM\n5. ENTREPRENEURSHIP SYLLABUS\n\nAs you finish each topic, return to the success criteria and correct one answer before moving on.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 75,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p005",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a modern: Lesson Opener",
+      "content": "Learning focus: The Uganda Vision 2040 aims to transform Uganda into a modern\n\nCountry link: a Uganda school club, home, farm, cooperative, shop, service, savings, or market example for The Uganda Vision 2040 aims to transform Uganda into a modern.\n\nProgression focus: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nBy the end of this topic, you should be able to:\n- explain and apply the uganda vision 2040 aims to transform uganda into a modern in a real learning situation\n\nInquiry questions:\n- How can the uganda vision 2040 aims to transform uganda into a modern help you solve a real problem?\n\nSuccess criteria:\n- customer need is clear\n- costs or resources are realistic\n- risk and improvement are explained",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 132,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-001:opener:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-001:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "unitIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "parentUnitIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "outcomeIds": [
+        "3c980319-3e99-4035-8fb6-1321097b6080"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p006",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a modern: Learn",
+      "content": "The Uganda Vision 2040 aims to transform Uganda into a modern is learned through real enterprise decisions, not memorised definitions.\n\nCore idea:\n- Entrepreneurship begins with a need or problem people care about.\n- A useful idea must match customers, resources, cost, time, and skills.\n- Good planning names the product or service, who it helps, what it costs, what can go wrong, and how to improve it.\n- Responsible enterprise is honest, lawful, fair, and useful to the community.\n- Records help learners compare plans with what actually happened.\n\nKey words:\n- The Uganda Vision 2040 aims to transform Uganda into a modern\n- Uganda\n- Vision\n- 2040\n- aims\n- transform\n- into\n- modern",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-001:learn:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-001:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "unitIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "parentUnitIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "outcomeIds": [
+        "3c980319-3e99-4035-8fb6-1321097b6080"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p007",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a modern: Worked Example",
+      "content": "Worked example for The Uganda Vision 2040 aims to transform Uganda into a modern: Plan a small school enterprise decision.\n\n1. Need: learners want affordable exercise-book covers before exams.\n2. Resource: one group can buy manila paper, reuse clean packaging, and borrow scissors under supervision.\n3. Cost: estimate material cost, selling price, and expected surplus before starting.\n4. Risk: covers may tear if material is weak, so the group tests one sample first.\n5. Improvement: ask two customers for feedback and change the design or price.\n\nAnswer check: a strong enterprise answer names the customer need, resource, cost, risk, action, and improvement.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 102,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-001:example:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-001:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "unitIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "parentUnitIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "outcomeIds": [
+        "3c980319-3e99-4035-8fb6-1321097b6080"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p008",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a modern: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise The Uganda Vision 2040 aims to transform Uganda into a modern. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- The Uganda Vision 2040 aims to transform Uganda into a modern\n- Uganda\n- Vision\n- 2040\n- aims\n- transform\n- into\n- modern\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Uganda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about The Uganda Vision 2040 aims to transform Uganda into a modern without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 139,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-001:vocabulary:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-001:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "unitIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "parentUnitIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "outcomeIds": [
+        "3c980319-3e99-4035-8fb6-1321097b6080"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p009",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a modern: Guided Activity",
+      "content": "Guided enterprise activity for The Uganda Vision 2040 aims to transform Uganda into a modern:\n\n1. Choose one real need from school, home, farm, cooperative, shop, service, or market life.\n2. Name the customer or user and why the need matters.\n3. List available resources, estimated costs, possible income or value, and one risk.\n4. Decide on one responsible action and explain why it is fair and useful.\n5. Share the plan with a partner, receive feedback, and improve one detail.\n\nTeacher check: the plan should connect customer need, resources, cost, risk, and improvement.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-001:activity:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-001:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "unitIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "parentUnitIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "outcomeIds": [
+        "3c980319-3e99-4035-8fb6-1321097b6080"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p010",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a modern: Practice And Correction",
+      "content": "Enterprise practice for The Uganda Vision 2040 aims to transform Uganda into a modern:\n\n1. Use a school, home, farm, or market enterprise example for The Uganda Vision 2040 aims to transform Uganda into a modern: explain and apply the uganda vision 2040 aims to transform uganda into a modern in a real learning situation. Name the customer need, resource, cost, action, risk, and improvement.\n\nQuality checklist:\n- customer need is clear\n- costs or resources are realistic\n- risk and improvement are explained\n\nEvidence to show:\n- customer or user need\n- resources and cost estimate\n- action steps\n- risk and responsible decision\n- improvement after feedback\n\nHome link: ask a trusted adult about one small enterprise decision and write what made it responsible.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 126,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-001:practice:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-001:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "unitIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "parentUnitIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "outcomeIds": [
+        "3c980319-3e99-4035-8fb6-1321097b6080"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p011",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a modern: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from The Uganda Vision 2040 aims to transform Uganda into a modern.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- customer need is clear\n- costs or resources are realistic\n- risk and improvement are explained",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 116,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-001:remediation:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-001:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "unitIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "parentUnitIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "outcomeIds": [
+        "3c980319-3e99-4035-8fb6-1321097b6080"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p012",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a modern: Outcome Check",
+      "content": "Outcome check for The Uganda Vision 2040 aims to transform Uganda into a modern: Explain and apply the uganda vision 2040 aims to transform uganda into a modern in a real learning situation.\n\n1. State the customer need or enterprise problem.\n2. Name the product, service, record, calculation, or decision required.\n3. Show costs, resources, action steps, or a simple record where relevant.\n4. Identify one risk and one responsible way to reduce it.\n5. Write one improvement after feedback.\n\nSuccess criteria:\n- customer need is clear\n- costs or resources are realistic\n- risk and improvement are explained",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 99,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-001:assessment:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-001:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "unitIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "parentUnitIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "outcomeIds": [
+        "3c980319-3e99-4035-8fb6-1321097b6080"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p013",
+      "title": "KEY CHANGES IN THE CURRICULUM: Lesson Opener",
+      "content": "Learning focus: KEY CHANGES IN THE CURRICULUM\n\nCountry link: a Uganda school club, home, farm, cooperative, shop, service, savings, or market example for KEY CHANGES IN THE CURRICULUM.\n\nProgression focus: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nBy the end of this topic, you should be able to:\n- explain and apply key changes in the curriculum in a real learning situation\n\nInquiry questions:\n- How can key changes in the curriculum help you solve a real problem?\n\nSuccess criteria:\n- customer need is clear\n- costs or resources are realistic\n- risk and improvement are explained",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-002:opener:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-002:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "unitIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "parentUnitIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "outcomeIds": [
+        "1f84a3df-1074-456f-b760-5811e180e9ce"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p014",
+      "title": "KEY CHANGES IN THE CURRICULUM: Learn",
+      "content": "KEY CHANGES IN THE CURRICULUM is learned through real enterprise decisions, not memorised definitions.\n\nCore idea:\n- Entrepreneurship begins with a need or problem people care about.\n- A useful idea must match customers, resources, cost, time, and skills.\n- Good planning names the product or service, who it helps, what it costs, what can go wrong, and how to improve it.\n- Responsible enterprise is honest, lawful, fair, and useful to the community.\n- Records help learners compare plans with what actually happened.\n\nKey words:\n- KEY CHANGES IN THE CURRICULUM\n- CHANGES\n- CURRICULUM\n- idea\n- skill\n- example\n- practice\n- correction",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-002:learn:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-002:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "unitIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "parentUnitIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "outcomeIds": [
+        "1f84a3df-1074-456f-b760-5811e180e9ce"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p015",
+      "title": "KEY CHANGES IN THE CURRICULUM: Worked Example",
+      "content": "Worked example for KEY CHANGES IN THE CURRICULUM: Plan a small school enterprise decision.\n\n1. Need: learners want affordable exercise-book covers before exams.\n2. Resource: one group can buy manila paper, reuse clean packaging, and borrow scissors under supervision.\n3. Cost: estimate material cost, selling price, and expected surplus before starting.\n4. Risk: covers may tear if material is weak, so the group tests one sample first.\n5. Improvement: ask two customers for feedback and change the design or price.\n\nAnswer check: a strong enterprise answer names the customer need, resource, cost, risk, action, and improvement.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-002:example:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-002:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "unitIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "parentUnitIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "outcomeIds": [
+        "1f84a3df-1074-456f-b760-5811e180e9ce"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p016",
+      "title": "KEY CHANGES IN THE CURRICULUM: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise KEY CHANGES IN THE CURRICULUM. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- KEY CHANGES IN THE CURRICULUM\n- CHANGES\n- CURRICULUM\n- idea\n- skill\n- example\n- practice\n- correction\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Uganda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about KEY CHANGES IN THE CURRICULUM without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-002:vocabulary:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-002:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "unitIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "parentUnitIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "outcomeIds": [
+        "1f84a3df-1074-456f-b760-5811e180e9ce"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p017",
+      "title": "KEY CHANGES IN THE CURRICULUM: Guided Activity",
+      "content": "Guided enterprise activity for KEY CHANGES IN THE CURRICULUM:\n\n1. Choose one real need from school, home, farm, cooperative, shop, service, or market life.\n2. Name the customer or user and why the need matters.\n3. List available resources, estimated costs, possible income or value, and one risk.\n4. Decide on one responsible action and explain why it is fair and useful.\n5. Share the plan with a partner, receive feedback, and improve one detail.\n\nTeacher check: the plan should connect customer need, resources, cost, risk, and improvement.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 88,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-002:activity:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-002:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "unitIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "parentUnitIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "outcomeIds": [
+        "1f84a3df-1074-456f-b760-5811e180e9ce"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p018",
+      "title": "KEY CHANGES IN THE CURRICULUM: Practice And Correction",
+      "content": "Enterprise practice for KEY CHANGES IN THE CURRICULUM:\n\n1. Use a school, home, farm, or market enterprise example for KEY CHANGES IN THE CURRICULUM: explain and apply key changes in the curriculum in a real learning situation. Name the customer need, resource, cost, action, risk, and improvement.\n\nQuality checklist:\n- customer need is clear\n- costs or resources are realistic\n- risk and improvement are explained\n\nEvidence to show:\n- customer or user need\n- resources and cost estimate\n- action steps\n- risk and responsible decision\n- improvement after feedback\n\nHome link: ask a trusted adult about one small enterprise decision and write what made it responsible.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 108,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-002:practice:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-002:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "unitIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "parentUnitIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "outcomeIds": [
+        "1f84a3df-1074-456f-b760-5811e180e9ce"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p019",
+      "title": "KEY CHANGES IN THE CURRICULUM: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from KEY CHANGES IN THE CURRICULUM.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- customer need is clear\n- costs or resources are realistic\n- risk and improvement are explained",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 110,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-002:remediation:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-002:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "unitIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "parentUnitIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "outcomeIds": [
+        "1f84a3df-1074-456f-b760-5811e180e9ce"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p020",
+      "title": "KEY CHANGES IN THE CURRICULUM: Outcome Check",
+      "content": "Outcome check for KEY CHANGES IN THE CURRICULUM: Explain and apply key changes in the curriculum in a real learning situation.\n\n1. State the customer need or enterprise problem.\n2. Name the product, service, record, calculation, or decision required.\n3. Show costs, resources, action steps, or a simple record where relevant.\n4. Identify one risk and one responsible way to reduce it.\n5. Write one improvement after feedback.\n\nSuccess criteria:\n- customer need is clear\n- costs or resources are realistic\n- risk and improvement are explained",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 87,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-002:assessment:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-002:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "unitIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "parentUnitIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "outcomeIds": [
+        "1f84a3df-1074-456f-b760-5811e180e9ce"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p021",
+      "title": "THE: Lesson Opener",
+      "content": "Learning focus: THE\n\nCountry link: a Uganda school club, home, farm, cooperative, shop, service, savings, or market example for THE.\n\nProgression focus: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nBy the end of this topic, you should be able to:\n- explain and apply the in a real learning situation\n\nInquiry questions:\n- How can the help you solve a real problem?\n\nSuccess criteria:\n- customer need is clear\n- costs or resources are realistic\n- risk and improvement are explained",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-003:opener:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-003:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "unitIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "parentUnitIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "outcomeIds": [
+        "d5a43cf6-7e44-488d-97f0-e497d9be380f"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p022",
+      "title": "THE: Learn",
+      "content": "THE is learned through real enterprise decisions, not memorised definitions.\n\nCore idea:\n- Entrepreneurship begins with a need or problem people care about.\n- A useful idea must match customers, resources, cost, time, and skills.\n- Good planning names the product or service, who it helps, what it costs, what can go wrong, and how to improve it.\n- Responsible enterprise is honest, lawful, fair, and useful to the community.\n- Records help learners compare plans with what actually happened.\n\nKey words:\n- THE\n- idea\n- skill\n- example\n- practice\n- correction",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-003:learn:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-003:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "unitIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "parentUnitIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "outcomeIds": [
+        "d5a43cf6-7e44-488d-97f0-e497d9be380f"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p023",
+      "title": "THE: Worked Example",
+      "content": "Worked example for THE: Plan a small school enterprise decision.\n\n1. Need: learners want affordable exercise-book covers before exams.\n2. Resource: one group can buy manila paper, reuse clean packaging, and borrow scissors under supervision.\n3. Cost: estimate material cost, selling price, and expected surplus before starting.\n4. Risk: covers may tear if material is weak, so the group tests one sample first.\n5. Improvement: ask two customers for feedback and change the design or price.\n\nAnswer check: a strong enterprise answer names the customer need, resource, cost, risk, action, and improvement.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-003:example:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-003:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "unitIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "parentUnitIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "outcomeIds": [
+        "d5a43cf6-7e44-488d-97f0-e497d9be380f"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p024",
+      "title": "THE: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise THE. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- THE\n- idea\n- skill\n- example\n- practice\n- correction\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Uganda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about THE without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-003:vocabulary:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-003:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "unitIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "parentUnitIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "outcomeIds": [
+        "d5a43cf6-7e44-488d-97f0-e497d9be380f"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p025",
+      "title": "THE: Guided Activity",
+      "content": "Guided enterprise activity for THE:\n\n1. Choose one real need from school, home, farm, cooperative, shop, service, or market life.\n2. Name the customer or user and why the need matters.\n3. List available resources, estimated costs, possible income or value, and one risk.\n4. Decide on one responsible action and explain why it is fair and useful.\n5. Share the plan with a partner, receive feedback, and improve one detail.\n\nTeacher check: the plan should connect customer need, resources, cost, risk, and improvement.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 84,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-003:activity:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-003:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "unitIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "parentUnitIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "outcomeIds": [
+        "d5a43cf6-7e44-488d-97f0-e497d9be380f"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p026",
+      "title": "THE: Practice And Correction",
+      "content": "Enterprise practice for THE:\n\n1. Use a school, home, farm, or market enterprise example for THE: explain and apply the in a real learning situation. Name the customer need, resource, cost, action, risk, and improvement.\n\nQuality checklist:\n- customer need is clear\n- costs or resources are realistic\n- risk and improvement are explained\n\nEvidence to show:\n- customer or user need\n- resources and cost estimate\n- action steps\n- risk and responsible decision\n- improvement after feedback\n\nHome link: ask a trusted adult about one small enterprise decision and write what made it responsible.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-003:practice:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-003:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "unitIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "parentUnitIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "outcomeIds": [
+        "d5a43cf6-7e44-488d-97f0-e497d9be380f"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p027",
+      "title": "THE: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from THE.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- customer need is clear\n- costs or resources are realistic\n- risk and improvement are explained",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-003:remediation:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-003:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "unitIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "parentUnitIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "outcomeIds": [
+        "d5a43cf6-7e44-488d-97f0-e497d9be380f"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p028",
+      "title": "THE: Outcome Check",
+      "content": "Outcome check for THE: Explain and apply the in a real learning situation.\n\n1. State the customer need or enterprise problem.\n2. Name the product, service, record, calculation, or decision required.\n3. Show costs, resources, action steps, or a simple record where relevant.\n4. Identify one risk and one responsible way to reduce it.\n5. Write one improvement after feedback.\n\nSuccess criteria:\n- customer need is clear\n- costs or resources are realistic\n- risk and improvement are explained",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 79,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-003:assessment:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-003:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "unitIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "parentUnitIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "outcomeIds": [
+        "d5a43cf6-7e44-488d-97f0-e497d9be380f"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p029",
+      "title": "THE CURRICULUM: Lesson Opener",
+      "content": "Learning focus: THE CURRICULUM\n\nCountry link: a Uganda school club, home, farm, cooperative, shop, service, savings, or market example for THE CURRICULUM.\n\nProgression focus: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nBy the end of this topic, you should be able to:\n- explain and apply the curriculum in a real learning situation\n\nInquiry questions:\n- How can the curriculum help you solve a real problem?\n\nSuccess criteria:\n- customer need is clear\n- costs or resources are realistic\n- risk and improvement are explained",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-004:opener:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-004:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "unitIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "parentUnitIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "outcomeIds": [
+        "5c5fd787-a4d5-4ac0-99a1-1d34953bd22c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p030",
+      "title": "THE CURRICULUM: Learn",
+      "content": "THE CURRICULUM is learned through real enterprise decisions, not memorised definitions.\n\nCore idea:\n- Entrepreneurship begins with a need or problem people care about.\n- A useful idea must match customers, resources, cost, time, and skills.\n- Good planning names the product or service, who it helps, what it costs, what can go wrong, and how to improve it.\n- Responsible enterprise is honest, lawful, fair, and useful to the community.\n- Records help learners compare plans with what actually happened.\n\nKey words:\n- THE CURRICULUM\n- CURRICULUM\n- idea\n- skill\n- example\n- practice\n- correction",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 98,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-004:learn:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-004:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "unitIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "parentUnitIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "outcomeIds": [
+        "5c5fd787-a4d5-4ac0-99a1-1d34953bd22c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p031",
+      "title": "THE CURRICULUM: Worked Example",
+      "content": "Worked example for THE CURRICULUM: Plan a small school enterprise decision.\n\n1. Need: learners want affordable exercise-book covers before exams.\n2. Resource: one group can buy manila paper, reuse clean packaging, and borrow scissors under supervision.\n3. Cost: estimate material cost, selling price, and expected surplus before starting.\n4. Risk: covers may tear if material is weak, so the group tests one sample first.\n5. Improvement: ask two customers for feedback and change the design or price.\n\nAnswer check: a strong enterprise answer names the customer need, resource, cost, risk, action, and improvement.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-004:example:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-004:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "unitIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "parentUnitIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "outcomeIds": [
+        "5c5fd787-a4d5-4ac0-99a1-1d34953bd22c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p032",
+      "title": "THE CURRICULUM: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise THE CURRICULUM. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- THE CURRICULUM\n- CURRICULUM\n- idea\n- skill\n- example\n- practice\n- correction\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Uganda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about THE CURRICULUM without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 110,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-004:vocabulary:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-004:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "unitIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "parentUnitIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "outcomeIds": [
+        "5c5fd787-a4d5-4ac0-99a1-1d34953bd22c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p033",
+      "title": "THE CURRICULUM: Guided Activity",
+      "content": "Guided enterprise activity for THE CURRICULUM:\n\n1. Choose one real need from school, home, farm, cooperative, shop, service, or market life.\n2. Name the customer or user and why the need matters.\n3. List available resources, estimated costs, possible income or value, and one risk.\n4. Decide on one responsible action and explain why it is fair and useful.\n5. Share the plan with a partner, receive feedback, and improve one detail.\n\nTeacher check: the plan should connect customer need, resources, cost, risk, and improvement.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 85,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-004:activity:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-004:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "unitIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "parentUnitIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "outcomeIds": [
+        "5c5fd787-a4d5-4ac0-99a1-1d34953bd22c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p034",
+      "title": "THE CURRICULUM: Practice And Correction",
+      "content": "Enterprise practice for THE CURRICULUM:\n\n1. Use a school, home, farm, or market enterprise example for THE CURRICULUM: explain and apply the curriculum in a real learning situation. Name the customer need, resource, cost, action, risk, and improvement.\n\nQuality checklist:\n- customer need is clear\n- costs or resources are realistic\n- risk and improvement are explained\n\nEvidence to show:\n- customer or user need\n- resources and cost estimate\n- action steps\n- risk and responsible decision\n- improvement after feedback\n\nHome link: ask a trusted adult about one small enterprise decision and write what made it responsible.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 99,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-004:practice:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-004:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "unitIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "parentUnitIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "outcomeIds": [
+        "5c5fd787-a4d5-4ac0-99a1-1d34953bd22c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p035",
+      "title": "THE CURRICULUM: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from THE CURRICULUM.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- customer need is clear\n- costs or resources are realistic\n- risk and improvement are explained",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-004:remediation:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-004:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "unitIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "parentUnitIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "outcomeIds": [
+        "5c5fd787-a4d5-4ac0-99a1-1d34953bd22c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p036",
+      "title": "THE CURRICULUM: Outcome Check",
+      "content": "Outcome check for THE CURRICULUM: Explain and apply the curriculum in a real learning situation.\n\n1. State the customer need or enterprise problem.\n2. Name the product, service, record, calculation, or decision required.\n3. Show costs, resources, action steps, or a simple record where relevant.\n4. Identify one risk and one responsible way to reduce it.\n5. Write one improvement after feedback.\n\nSuccess criteria:\n- customer need is clear\n- costs or resources are realistic\n- risk and improvement are explained",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 81,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-004:assessment:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-004:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "unitIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "parentUnitIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "outcomeIds": [
+        "5c5fd787-a4d5-4ac0-99a1-1d34953bd22c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p037",
+      "title": "ENTREPRENEURSHIP SYLLABUS: Lesson Opener",
+      "content": "Learning focus: ENTREPRENEURSHIP SYLLABUS\n\nCountry link: a Uganda school club, home, farm, cooperative, shop, service, savings, or market example for ENTREPRENEURSHIP SYLLABUS.\n\nProgression focus: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nBy the end of this topic, you should be able to:\n- explain and apply entrepreneurship syllabus in a real learning situation\n\nInquiry questions:\n- How can entrepreneurship syllabus help you solve a real problem?\n\nSuccess criteria:\n- customer need is clear\n- costs or resources are realistic\n- risk and improvement are explained",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 96,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-005:opener:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-005:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "unitIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "parentUnitIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "outcomeIds": [
+        "009e95c5-ddcf-4de8-8285-baef70c19e88"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p038",
+      "title": "ENTREPRENEURSHIP SYLLABUS: Learn",
+      "content": "ENTREPRENEURSHIP SYLLABUS is learned through real enterprise decisions, not memorised definitions.\n\nCore idea:\n- Entrepreneurship begins with a need or problem people care about.\n- A useful idea must match customers, resources, cost, time, and skills.\n- Good planning names the product or service, who it helps, what it costs, what can go wrong, and how to improve it.\n- Responsible enterprise is honest, lawful, fair, and useful to the community.\n- Records help learners compare plans with what actually happened.\n\nKey words:\n- ENTREPRENEURSHIP SYLLABUS\n- ENTREPRENEURSHIP\n- SYLLABUS\n- idea\n- skill\n- example\n- practice\n- correction",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 100,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-005:learn:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-005:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "unitIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "parentUnitIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "outcomeIds": [
+        "009e95c5-ddcf-4de8-8285-baef70c19e88"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p039",
+      "title": "ENTREPRENEURSHIP SYLLABUS: Worked Example",
+      "content": "Worked example for ENTREPRENEURSHIP SYLLABUS: Plan a small school enterprise decision.\n\n1. Need: learners want affordable exercise-book covers before exams.\n2. Resource: one group can buy manila paper, reuse clean packaging, and borrow scissors under supervision.\n3. Cost: estimate material cost, selling price, and expected surplus before starting.\n4. Risk: covers may tear if material is weak, so the group tests one sample first.\n5. Improvement: ask two customers for feedback and change the design or price.\n\nAnswer check: a strong enterprise answer names the customer need, resource, cost, risk, action, and improvement.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-005:example:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-005:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "unitIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "parentUnitIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "outcomeIds": [
+        "009e95c5-ddcf-4de8-8285-baef70c19e88"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p040",
+      "title": "ENTREPRENEURSHIP SYLLABUS: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise ENTREPRENEURSHIP SYLLABUS. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- ENTREPRENEURSHIP SYLLABUS\n- ENTREPRENEURSHIP\n- SYLLABUS\n- idea\n- skill\n- example\n- practice\n- correction\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Uganda.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about ENTREPRENEURSHIP SYLLABUS without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 112,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-005:vocabulary:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-005:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "unitIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "parentUnitIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "outcomeIds": [
+        "009e95c5-ddcf-4de8-8285-baef70c19e88"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p041",
+      "title": "ENTREPRENEURSHIP SYLLABUS: Guided Activity",
+      "content": "Guided enterprise activity for ENTREPRENEURSHIP SYLLABUS:\n\n1. Choose one real need from school, home, farm, cooperative, shop, service, or market life.\n2. Name the customer or user and why the need matters.\n3. List available resources, estimated costs, possible income or value, and one risk.\n4. Decide on one responsible action and explain why it is fair and useful.\n5. Share the plan with a partner, receive feedback, and improve one detail.\n\nTeacher check: the plan should connect customer need, resources, cost, risk, and improvement.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 85,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-005:activity:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-005:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "unitIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "parentUnitIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "outcomeIds": [
+        "009e95c5-ddcf-4de8-8285-baef70c19e88"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p042",
+      "title": "ENTREPRENEURSHIP SYLLABUS: Practice And Correction",
+      "content": "Enterprise practice for ENTREPRENEURSHIP SYLLABUS:\n\n1. Use a school, home, farm, or market enterprise example for ENTREPRENEURSHIP SYLLABUS: explain and apply entrepreneurship syllabus in a real learning situation. Name the customer need, resource, cost, action, risk, and improvement.\n\nQuality checklist:\n- customer need is clear\n- costs or resources are realistic\n- risk and improvement are explained\n\nEvidence to show:\n- customer or user need\n- resources and cost estimate\n- action steps\n- risk and responsible decision\n- improvement after feedback\n\nHome link: ask a trusted adult about one small enterprise decision and write what made it responsible.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 99,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-005:practice:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-005:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "unitIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "parentUnitIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "outcomeIds": [
+        "009e95c5-ddcf-4de8-8285-baef70c19e88"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p043",
+      "title": "ENTREPRENEURSHIP SYLLABUS: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from ENTREPRENEURSHIP SYLLABUS.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- customer need is clear\n- costs or resources are realistic\n- risk and improvement are explained",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-005:remediation:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-005:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "unitIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "parentUnitIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "outcomeIds": [
+        "009e95c5-ddcf-4de8-8285-baef70c19e88"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p044",
+      "title": "ENTREPRENEURSHIP SYLLABUS: Outcome Check",
+      "content": "Outcome check for ENTREPRENEURSHIP SYLLABUS: Explain and apply entrepreneurship syllabus in a real learning situation.\n\n1. State the customer need or enterprise problem.\n2. Name the product, service, record, calculation, or decision required.\n3. Show costs, resources, action steps, or a simple record where relevant.\n4. Identify one risk and one responsible way to reduce it.\n5. Write one improvement after feedback.\n\nSuccess criteria:\n- customer need is clear\n- costs or resources are realistic\n- risk and improvement are explained",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 81,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-005:assessment:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-005:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "unitIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "parentUnitIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "outcomeIds": [
+        "009e95c5-ddcf-4de8-8285-baef70c19e88"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p045",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a modern: Review Clinic 1",
+      "content": "Use this review clinic to strengthen Entrepreneurship without copying earlier answers.\n\n1. Choose one idea from The Uganda Vision 2040 aims to transform Uganda into a modern that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Uganda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 84,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-001:review:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-001:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "unitIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "outcomeIds": [
+        "3c980319-3e99-4035-8fb6-1321097b6080"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p046",
+      "title": "KEY CHANGES IN THE CURRICULUM: Review Clinic 2",
+      "content": "Use this review clinic to strengthen Entrepreneurship without copying earlier answers.\n\n1. Choose one idea from KEY CHANGES IN THE CURRICULUM that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Uganda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 78,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-002:review:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-002:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "unitIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "outcomeIds": [
+        "1f84a3df-1074-456f-b760-5811e180e9ce"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p047",
+      "title": "THE: Review Clinic 3",
+      "content": "Use this review clinic to strengthen Entrepreneurship without copying earlier answers.\n\n1. Choose one idea from THE that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Uganda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 74,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-003:review:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-003:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "unitIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "outcomeIds": [
+        "d5a43cf6-7e44-488d-97f0-e497d9be380f"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p048",
+      "title": "THE CURRICULUM: Review Clinic 4",
+      "content": "Use this review clinic to strengthen Entrepreneurship without copying earlier answers.\n\n1. Choose one idea from THE CURRICULUM that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Uganda.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 75,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-004:review:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-004:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "unitIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "outcomeIds": [
+        "5c5fd787-a4d5-4ac0-99a1-1d34953bd22c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p049",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a modern: Application Workshop 1",
+      "content": "Enterprise application workshop 1 for The Uganda Vision 2040 aims to transform Uganda into a modern.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nUse this page to turn the idea into a responsible enterprise decision.\n\n1. Name a real customer need from school, home, farm, service, cooperative, or market life.\n2. Describe the product, service, record, calculation, or action that responds to the need.\n3. Estimate resources, cost, time, and possible value.\n4. Identify one risk and one fair way to reduce it.\n5. Ask for feedback and write one improvement.\n6. Decide whether the idea should continue, change, or stop, and give a reason.\n\nExtension: create a simple record table for the decision.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 127,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-001:application-workshop:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-001:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "unitIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "parentUnitIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "outcomeIds": [
+        "3c980319-3e99-4035-8fb6-1321097b6080"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p050",
+      "title": "KEY CHANGES IN THE CURRICULUM: Application Workshop 2",
+      "content": "Enterprise application workshop 2 for KEY CHANGES IN THE CURRICULUM.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nUse this page to turn the idea into a responsible enterprise decision.\n\n1. Name a real customer need from school, home, farm, service, cooperative, or market life.\n2. Describe the product, service, record, calculation, or action that responds to the need.\n3. Estimate resources, cost, time, and possible value.\n4. Identify one risk and one fair way to reduce it.\n5. Ask for feedback and write one improvement.\n6. Decide whether the idea should continue, change, or stop, and give a reason.\n\nExtension: create a simple record table for the decision.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-002:application-workshop:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-002:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "unitIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "parentUnitIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "outcomeIds": [
+        "1f84a3df-1074-456f-b760-5811e180e9ce"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p051",
+      "title": "THE: Application Workshop 3",
+      "content": "Enterprise application workshop 3 for THE.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nUse this page to turn the idea into a responsible enterprise decision.\n\n1. Name a real customer need from school, home, farm, service, cooperative, or market life.\n2. Describe the product, service, record, calculation, or action that responds to the need.\n3. Estimate resources, cost, time, and possible value.\n4. Identify one risk and one fair way to reduce it.\n5. Ask for feedback and write one improvement.\n6. Decide whether the idea should continue, change, or stop, and give a reason.\n\nExtension: create a simple record table for the decision.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 117,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-003:application-workshop:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-003:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "unitIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "parentUnitIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "outcomeIds": [
+        "d5a43cf6-7e44-488d-97f0-e497d9be380f"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p052",
+      "title": "THE CURRICULUM: Application Workshop 4",
+      "content": "Enterprise application workshop 4 for THE CURRICULUM.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nUse this page to turn the idea into a responsible enterprise decision.\n\n1. Name a real customer need from school, home, farm, service, cooperative, or market life.\n2. Describe the product, service, record, calculation, or action that responds to the need.\n3. Estimate resources, cost, time, and possible value.\n4. Identify one risk and one fair way to reduce it.\n5. Ask for feedback and write one improvement.\n6. Decide whether the idea should continue, change, or stop, and give a reason.\n\nExtension: create a simple record table for the decision.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-004:application-workshop:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-004:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "unitIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "parentUnitIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "outcomeIds": [
+        "5c5fd787-a4d5-4ac0-99a1-1d34953bd22c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p053",
+      "title": "ENTREPRENEURSHIP SYLLABUS: Application Workshop 5",
+      "content": "Enterprise application workshop 5 for ENTREPRENEURSHIP SYLLABUS.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nUse this page to turn the idea into a responsible enterprise decision.\n\n1. Name a real customer need from school, home, farm, service, cooperative, or market life.\n2. Describe the product, service, record, calculation, or action that responds to the need.\n3. Estimate resources, cost, time, and possible value.\n4. Identify one risk and one fair way to reduce it.\n5. Ask for feedback and write one improvement.\n6. Decide whether the idea should continue, change, or stop, and give a reason.\n\nExtension: create a simple record table for the decision.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-005:application-workshop:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-005:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "unitIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "parentUnitIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "outcomeIds": [
+        "009e95c5-ddcf-4de8-8285-baef70c19e88"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p054",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a modern: Application Workshop 6",
+      "content": "Enterprise application workshop 6 for The Uganda Vision 2040 aims to transform Uganda into a modern.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nUse this page to turn the idea into a responsible enterprise decision.\n\n1. Name a real customer need from school, home, farm, service, cooperative, or market life.\n2. Describe the product, service, record, calculation, or action that responds to the need.\n3. Estimate resources, cost, time, and possible value.\n4. Identify one risk and one fair way to reduce it.\n5. Ask for feedback and write one improvement.\n6. Decide whether the idea should continue, change, or stop, and give a reason.\n\nExtension: create a simple record table for the decision.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 127,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-001:application-workshop:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-001:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "unitIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "parentUnitIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "outcomeIds": [
+        "3c980319-3e99-4035-8fb6-1321097b6080"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p055",
+      "title": "KEY CHANGES IN THE CURRICULUM: Application Workshop 7",
+      "content": "Enterprise application workshop 7 for KEY CHANGES IN THE CURRICULUM.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nUse this page to turn the idea into a responsible enterprise decision.\n\n1. Name a real customer need from school, home, farm, service, cooperative, or market life.\n2. Describe the product, service, record, calculation, or action that responds to the need.\n3. Estimate resources, cost, time, and possible value.\n4. Identify one risk and one fair way to reduce it.\n5. Ask for feedback and write one improvement.\n6. Decide whether the idea should continue, change, or stop, and give a reason.\n\nExtension: create a simple record table for the decision.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-002:application-workshop:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-002:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "unitIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "parentUnitIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "outcomeIds": [
+        "1f84a3df-1074-456f-b760-5811e180e9ce"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p056",
+      "title": "THE: Application Workshop 8",
+      "content": "Enterprise application workshop 8 for THE.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nUse this page to turn the idea into a responsible enterprise decision.\n\n1. Name a real customer need from school, home, farm, service, cooperative, or market life.\n2. Describe the product, service, record, calculation, or action that responds to the need.\n3. Estimate resources, cost, time, and possible value.\n4. Identify one risk and one fair way to reduce it.\n5. Ask for feedback and write one improvement.\n6. Decide whether the idea should continue, change, or stop, and give a reason.\n\nExtension: create a simple record table for the decision.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 117,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-003:application-workshop:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-003:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "unitIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "parentUnitIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "outcomeIds": [
+        "d5a43cf6-7e44-488d-97f0-e497d9be380f"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p057",
+      "title": "THE CURRICULUM: Application Workshop 9",
+      "content": "Enterprise application workshop 9 for THE CURRICULUM.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nUse this page to turn the idea into a responsible enterprise decision.\n\n1. Name a real customer need from school, home, farm, service, cooperative, or market life.\n2. Describe the product, service, record, calculation, or action that responds to the need.\n3. Estimate resources, cost, time, and possible value.\n4. Identify one risk and one fair way to reduce it.\n5. Ask for feedback and write one improvement.\n6. Decide whether the idea should continue, change, or stop, and give a reason.\n\nExtension: create a simple record table for the decision.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-004:application-workshop:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-004:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "unitIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "parentUnitIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "outcomeIds": [
+        "5c5fd787-a4d5-4ac0-99a1-1d34953bd22c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p058",
+      "title": "ENTREPRENEURSHIP SYLLABUS: Application Workshop 10",
+      "content": "Enterprise application workshop 10 for ENTREPRENEURSHIP SYLLABUS.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nUse this page to turn the idea into a responsible enterprise decision.\n\n1. Name a real customer need from school, home, farm, service, cooperative, or market life.\n2. Describe the product, service, record, calculation, or action that responds to the need.\n3. Estimate resources, cost, time, and possible value.\n4. Identify one risk and one fair way to reduce it.\n5. Ask for feedback and write one improvement.\n6. Decide whether the idea should continue, change, or stop, and give a reason.\n\nExtension: create a simple record table for the decision.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-005:application-workshop:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-005:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "unitIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "parentUnitIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "outcomeIds": [
+        "009e95c5-ddcf-4de8-8285-baef70c19e88"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p059",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a modern: Application Workshop 11",
+      "content": "Enterprise application workshop 11 for The Uganda Vision 2040 aims to transform Uganda into a modern.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nUse this page to turn the idea into a responsible enterprise decision.\n\n1. Name a real customer need from school, home, farm, service, cooperative, or market life.\n2. Describe the product, service, record, calculation, or action that responds to the need.\n3. Estimate resources, cost, time, and possible value.\n4. Identify one risk and one fair way to reduce it.\n5. Ask for feedback and write one improvement.\n6. Decide whether the idea should continue, change, or stop, and give a reason.\n\nExtension: create a simple record table for the decision.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 127,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-001:application-workshop:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-001:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "unitIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "parentUnitIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "outcomeIds": [
+        "3c980319-3e99-4035-8fb6-1321097b6080"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p060",
+      "title": "KEY CHANGES IN THE CURRICULUM: Application Workshop 12",
+      "content": "Enterprise application workshop 12 for KEY CHANGES IN THE CURRICULUM.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nUse this page to turn the idea into a responsible enterprise decision.\n\n1. Name a real customer need from school, home, farm, service, cooperative, or market life.\n2. Describe the product, service, record, calculation, or action that responds to the need.\n3. Estimate resources, cost, time, and possible value.\n4. Identify one risk and one fair way to reduce it.\n5. Ask for feedback and write one improvement.\n6. Decide whether the idea should continue, change, or stop, and give a reason.\n\nExtension: create a simple record table for the decision.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-002:application-workshop:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-002:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "unitIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "parentUnitIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "outcomeIds": [
+        "1f84a3df-1074-456f-b760-5811e180e9ce"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p061",
+      "title": "THE: Application Workshop 13",
+      "content": "Enterprise application workshop 13 for THE.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nUse this page to turn the idea into a responsible enterprise decision.\n\n1. Name a real customer need from school, home, farm, service, cooperative, or market life.\n2. Describe the product, service, record, calculation, or action that responds to the need.\n3. Estimate resources, cost, time, and possible value.\n4. Identify one risk and one fair way to reduce it.\n5. Ask for feedback and write one improvement.\n6. Decide whether the idea should continue, change, or stop, and give a reason.\n\nExtension: create a simple record table for the decision.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 117,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-003:application-workshop:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-003:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "unitIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "parentUnitIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "outcomeIds": [
+        "d5a43cf6-7e44-488d-97f0-e497d9be380f"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p062",
+      "title": "THE CURRICULUM: Application Workshop 14",
+      "content": "Enterprise application workshop 14 for THE CURRICULUM.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nUse this page to turn the idea into a responsible enterprise decision.\n\n1. Name a real customer need from school, home, farm, service, cooperative, or market life.\n2. Describe the product, service, record, calculation, or action that responds to the need.\n3. Estimate resources, cost, time, and possible value.\n4. Identify one risk and one fair way to reduce it.\n5. Ask for feedback and write one improvement.\n6. Decide whether the idea should continue, change, or stop, and give a reason.\n\nExtension: create a simple record table for the decision.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-004:application-workshop:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-004:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "unitIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "parentUnitIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "outcomeIds": [
+        "5c5fd787-a4d5-4ac0-99a1-1d34953bd22c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p063",
+      "title": "ENTREPRENEURSHIP SYLLABUS: Application Workshop 15",
+      "content": "Enterprise application workshop 15 for ENTREPRENEURSHIP SYLLABUS.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nUse this page to turn the idea into a responsible enterprise decision.\n\n1. Name a real customer need from school, home, farm, service, cooperative, or market life.\n2. Describe the product, service, record, calculation, or action that responds to the need.\n3. Estimate resources, cost, time, and possible value.\n4. Identify one risk and one fair way to reduce it.\n5. Ask for feedback and write one improvement.\n6. Decide whether the idea should continue, change, or stop, and give a reason.\n\nExtension: create a simple record table for the decision.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-005:application-workshop:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-005:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "unitIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "parentUnitIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "outcomeIds": [
+        "009e95c5-ddcf-4de8-8285-baef70c19e88"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p064",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a modern: Application Workshop 16",
+      "content": "Enterprise application workshop 16 for The Uganda Vision 2040 aims to transform Uganda into a modern.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nUse this page to turn the idea into a responsible enterprise decision.\n\n1. Name a real customer need from school, home, farm, service, cooperative, or market life.\n2. Describe the product, service, record, calculation, or action that responds to the need.\n3. Estimate resources, cost, time, and possible value.\n4. Identify one risk and one fair way to reduce it.\n5. Ask for feedback and write one improvement.\n6. Decide whether the idea should continue, change, or stop, and give a reason.\n\nExtension: create a simple record table for the decision.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 127,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-001:application-workshop:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-001:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "unitIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "parentUnitIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "outcomeIds": [
+        "3c980319-3e99-4035-8fb6-1321097b6080"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p065",
+      "title": "KEY CHANGES IN THE CURRICULUM: Application Workshop 17",
+      "content": "Enterprise application workshop 17 for KEY CHANGES IN THE CURRICULUM.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nUse this page to turn the idea into a responsible enterprise decision.\n\n1. Name a real customer need from school, home, farm, service, cooperative, or market life.\n2. Describe the product, service, record, calculation, or action that responds to the need.\n3. Estimate resources, cost, time, and possible value.\n4. Identify one risk and one fair way to reduce it.\n5. Ask for feedback and write one improvement.\n6. Decide whether the idea should continue, change, or stop, and give a reason.\n\nExtension: create a simple record table for the decision.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-002:application-workshop:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-002:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "unitIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "parentUnitIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "outcomeIds": [
+        "1f84a3df-1074-456f-b760-5811e180e9ce"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p066",
+      "title": "THE: Application Workshop 18",
+      "content": "Enterprise application workshop 18 for THE.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nUse this page to turn the idea into a responsible enterprise decision.\n\n1. Name a real customer need from school, home, farm, service, cooperative, or market life.\n2. Describe the product, service, record, calculation, or action that responds to the need.\n3. Estimate resources, cost, time, and possible value.\n4. Identify one risk and one fair way to reduce it.\n5. Ask for feedback and write one improvement.\n6. Decide whether the idea should continue, change, or stop, and give a reason.\n\nExtension: create a simple record table for the decision.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 117,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-003:application-workshop:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-003:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "unitIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "parentUnitIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "outcomeIds": [
+        "d5a43cf6-7e44-488d-97f0-e497d9be380f"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p067",
+      "title": "THE CURRICULUM: Application Workshop 19",
+      "content": "Enterprise application workshop 19 for THE CURRICULUM.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nUse this page to turn the idea into a responsible enterprise decision.\n\n1. Name a real customer need from school, home, farm, service, cooperative, or market life.\n2. Describe the product, service, record, calculation, or action that responds to the need.\n3. Estimate resources, cost, time, and possible value.\n4. Identify one risk and one fair way to reduce it.\n5. Ask for feedback and write one improvement.\n6. Decide whether the idea should continue, change, or stop, and give a reason.\n\nExtension: create a simple record table for the decision.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-004:application-workshop:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-004:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "unitIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "parentUnitIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "outcomeIds": [
+        "5c5fd787-a4d5-4ac0-99a1-1d34953bd22c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p068",
+      "title": "ENTREPRENEURSHIP SYLLABUS: Application Workshop 20",
+      "content": "Enterprise application workshop 20 for ENTREPRENEURSHIP SYLLABUS.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nUse this page to turn the idea into a responsible enterprise decision.\n\n1. Name a real customer need from school, home, farm, service, cooperative, or market life.\n2. Describe the product, service, record, calculation, or action that responds to the need.\n3. Estimate resources, cost, time, and possible value.\n4. Identify one risk and one fair way to reduce it.\n5. Ask for feedback and write one improvement.\n6. Decide whether the idea should continue, change, or stop, and give a reason.\n\nExtension: create a simple record table for the decision.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-005:application-workshop:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-005:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "unitIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "parentUnitIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "outcomeIds": [
+        "009e95c5-ddcf-4de8-8285-baef70c19e88"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p069",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a modern: Application Workshop 21",
+      "content": "Enterprise application workshop 21 for The Uganda Vision 2040 aims to transform Uganda into a modern.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nUse this page to turn the idea into a responsible enterprise decision.\n\n1. Name a real customer need from school, home, farm, service, cooperative, or market life.\n2. Describe the product, service, record, calculation, or action that responds to the need.\n3. Estimate resources, cost, time, and possible value.\n4. Identify one risk and one fair way to reduce it.\n5. Ask for feedback and write one improvement.\n6. Decide whether the idea should continue, change, or stop, and give a reason.\n\nExtension: create a simple record table for the decision.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 127,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-001:application-workshop:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-001:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "unitIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "parentUnitIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "outcomeIds": [
+        "3c980319-3e99-4035-8fb6-1321097b6080"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p070",
+      "title": "KEY CHANGES IN THE CURRICULUM: Application Workshop 22",
+      "content": "Enterprise application workshop 22 for KEY CHANGES IN THE CURRICULUM.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nUse this page to turn the idea into a responsible enterprise decision.\n\n1. Name a real customer need from school, home, farm, service, cooperative, or market life.\n2. Describe the product, service, record, calculation, or action that responds to the need.\n3. Estimate resources, cost, time, and possible value.\n4. Identify one risk and one fair way to reduce it.\n5. Ask for feedback and write one improvement.\n6. Decide whether the idea should continue, change, or stop, and give a reason.\n\nExtension: create a simple record table for the decision.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-002:application-workshop:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-002:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "unitIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "parentUnitIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "outcomeIds": [
+        "1f84a3df-1074-456f-b760-5811e180e9ce"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p071",
+      "title": "THE: Application Workshop 23",
+      "content": "Enterprise application workshop 23 for THE.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nUse this page to turn the idea into a responsible enterprise decision.\n\n1. Name a real customer need from school, home, farm, service, cooperative, or market life.\n2. Describe the product, service, record, calculation, or action that responds to the need.\n3. Estimate resources, cost, time, and possible value.\n4. Identify one risk and one fair way to reduce it.\n5. Ask for feedback and write one improvement.\n6. Decide whether the idea should continue, change, or stop, and give a reason.\n\nExtension: create a simple record table for the decision.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 117,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-003:application-workshop:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-003:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "unitIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "parentUnitIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "outcomeIds": [
+        "d5a43cf6-7e44-488d-97f0-e497d9be380f"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p072",
+      "title": "THE CURRICULUM: Application Workshop 24",
+      "content": "Enterprise application workshop 24 for THE CURRICULUM.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nUse this page to turn the idea into a responsible enterprise decision.\n\n1. Name a real customer need from school, home, farm, service, cooperative, or market life.\n2. Describe the product, service, record, calculation, or action that responds to the need.\n3. Estimate resources, cost, time, and possible value.\n4. Identify one risk and one fair way to reduce it.\n5. Ask for feedback and write one improvement.\n6. Decide whether the idea should continue, change, or stop, and give a reason.\n\nExtension: create a simple record table for the decision.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-004:application-workshop:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-004:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "unitIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "parentUnitIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "outcomeIds": [
+        "5c5fd787-a4d5-4ac0-99a1-1d34953bd22c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p073",
+      "title": "ENTREPRENEURSHIP SYLLABUS: Application Workshop 25",
+      "content": "Enterprise application workshop 25 for ENTREPRENEURSHIP SYLLABUS.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nUse this page to turn the idea into a responsible enterprise decision.\n\n1. Name a real customer need from school, home, farm, service, cooperative, or market life.\n2. Describe the product, service, record, calculation, or action that responds to the need.\n3. Estimate resources, cost, time, and possible value.\n4. Identify one risk and one fair way to reduce it.\n5. Ask for feedback and write one improvement.\n6. Decide whether the idea should continue, change, or stop, and give a reason.\n\nExtension: create a simple record table for the decision.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-005:application-workshop:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-005:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "unitIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "parentUnitIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "outcomeIds": [
+        "009e95c5-ddcf-4de8-8285-baef70c19e88"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p074",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a modern: Application Workshop 26",
+      "content": "Enterprise application workshop 26 for The Uganda Vision 2040 aims to transform Uganda into a modern.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nUse this page to turn the idea into a responsible enterprise decision.\n\n1. Name a real customer need from school, home, farm, service, cooperative, or market life.\n2. Describe the product, service, record, calculation, or action that responds to the need.\n3. Estimate resources, cost, time, and possible value.\n4. Identify one risk and one fair way to reduce it.\n5. Ask for feedback and write one improvement.\n6. Decide whether the idea should continue, change, or stop, and give a reason.\n\nExtension: create a simple record table for the decision.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 127,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-001:application-workshop:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-001:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "unitIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "parentUnitIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "outcomeIds": [
+        "3c980319-3e99-4035-8fb6-1321097b6080"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p075",
+      "title": "KEY CHANGES IN THE CURRICULUM: Application Workshop 27",
+      "content": "Enterprise application workshop 27 for KEY CHANGES IN THE CURRICULUM.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nUse this page to turn the idea into a responsible enterprise decision.\n\n1. Name a real customer need from school, home, farm, service, cooperative, or market life.\n2. Describe the product, service, record, calculation, or action that responds to the need.\n3. Estimate resources, cost, time, and possible value.\n4. Identify one risk and one fair way to reduce it.\n5. Ask for feedback and write one improvement.\n6. Decide whether the idea should continue, change, or stop, and give a reason.\n\nExtension: create a simple record table for the decision.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-002:application-workshop:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-002:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "unitIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "parentUnitIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "outcomeIds": [
+        "1f84a3df-1074-456f-b760-5811e180e9ce"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p076",
+      "title": "THE: Application Workshop 28",
+      "content": "Enterprise application workshop 28 for THE.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nUse this page to turn the idea into a responsible enterprise decision.\n\n1. Name a real customer need from school, home, farm, service, cooperative, or market life.\n2. Describe the product, service, record, calculation, or action that responds to the need.\n3. Estimate resources, cost, time, and possible value.\n4. Identify one risk and one fair way to reduce it.\n5. Ask for feedback and write one improvement.\n6. Decide whether the idea should continue, change, or stop, and give a reason.\n\nExtension: create a simple record table for the decision.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 117,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-003:application-workshop:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-003:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "unitIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "parentUnitIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "outcomeIds": [
+        "d5a43cf6-7e44-488d-97f0-e497d9be380f"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p077",
+      "title": "THE CURRICULUM: Application Workshop 29",
+      "content": "Enterprise application workshop 29 for THE CURRICULUM.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nUse this page to turn the idea into a responsible enterprise decision.\n\n1. Name a real customer need from school, home, farm, service, cooperative, or market life.\n2. Describe the product, service, record, calculation, or action that responds to the need.\n3. Estimate resources, cost, time, and possible value.\n4. Identify one risk and one fair way to reduce it.\n5. Ask for feedback and write one improvement.\n6. Decide whether the idea should continue, change, or stop, and give a reason.\n\nExtension: create a simple record table for the decision.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-004:application-workshop:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-004:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "unitIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "parentUnitIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "outcomeIds": [
+        "5c5fd787-a4d5-4ac0-99a1-1d34953bd22c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p078",
+      "title": "ENTREPRENEURSHIP SYLLABUS: Application Workshop 30",
+      "content": "Enterprise application workshop 30 for ENTREPRENEURSHIP SYLLABUS.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nUse this page to turn the idea into a responsible enterprise decision.\n\n1. Name a real customer need from school, home, farm, service, cooperative, or market life.\n2. Describe the product, service, record, calculation, or action that responds to the need.\n3. Estimate resources, cost, time, and possible value.\n4. Identify one risk and one fair way to reduce it.\n5. Ask for feedback and write one improvement.\n6. Decide whether the idea should continue, change, or stop, and give a reason.\n\nExtension: create a simple record table for the decision.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-005:application-workshop:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-005:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "unitIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "parentUnitIds": [
+        "73399fb5-482b-4365-af80-0ff7c015f95f"
+      ],
+      "outcomeIds": [
+        "009e95c5-ddcf-4de8-8285-baef70c19e88"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p079",
+      "title": "The Uganda Vision 2040 aims to transform Uganda into a modern: Application Workshop 31",
+      "content": "Enterprise application workshop 31 for The Uganda Vision 2040 aims to transform Uganda into a modern.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nUse this page to turn the idea into a responsible enterprise decision.\n\n1. Name a real customer need from school, home, farm, service, cooperative, or market life.\n2. Describe the product, service, record, calculation, or action that responds to the need.\n3. Estimate resources, cost, time, and possible value.\n4. Identify one risk and one fair way to reduce it.\n5. Ask for feedback and write one improvement.\n6. Decide whether the idea should continue, change, or stop, and give a reason.\n\nExtension: create a simple record table for the decision.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 127,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-001:application-workshop:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-001:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "unitIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "parentUnitIds": [
+        "3f4fbae2-130b-4116-b519-83d2c6344d99"
+      ],
+      "outcomeIds": [
+        "3c980319-3e99-4035-8fb6-1321097b6080"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p080",
+      "title": "KEY CHANGES IN THE CURRICULUM: Application Workshop 32",
+      "content": "Enterprise application workshop 32 for KEY CHANGES IN THE CURRICULUM.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nUse this page to turn the idea into a responsible enterprise decision.\n\n1. Name a real customer need from school, home, farm, service, cooperative, or market life.\n2. Describe the product, service, record, calculation, or action that responds to the need.\n3. Estimate resources, cost, time, and possible value.\n4. Identify one risk and one fair way to reduce it.\n5. Ask for feedback and write one improvement.\n6. Decide whether the idea should continue, change, or stop, and give a reason.\n\nExtension: create a simple record table for the decision.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-002:application-workshop:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-002:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "unitIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "parentUnitIds": [
+        "dc9f9aac-f915-41dd-914f-f96550bca64a"
+      ],
+      "outcomeIds": [
+        "1f84a3df-1074-456f-b760-5811e180e9ce"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p081",
+      "title": "THE: Application Workshop 33",
+      "content": "Enterprise application workshop 33 for THE.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nUse this page to turn the idea into a responsible enterprise decision.\n\n1. Name a real customer need from school, home, farm, service, cooperative, or market life.\n2. Describe the product, service, record, calculation, or action that responds to the need.\n3. Estimate resources, cost, time, and possible value.\n4. Identify one risk and one fair way to reduce it.\n5. Ask for feedback and write one improvement.\n6. Decide whether the idea should continue, change, or stop, and give a reason.\n\nExtension: create a simple record table for the decision.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 117,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-003:application-workshop:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-003:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "unitIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "parentUnitIds": [
+        "7ee72b83-c13b-42d5-99ab-14d53e4caba5"
+      ],
+      "outcomeIds": [
+        "d5a43cf6-7e44-488d-97f0-e497d9be380f"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p082",
+      "title": "THE CURRICULUM: Application Workshop 34",
+      "content": "Enterprise application workshop 34 for THE CURRICULUM.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect customer need, resources, cost, risk, and improvement.\n\nUse this page to turn the idea into a responsible enterprise decision.\n\n1. Name a real customer need from school, home, farm, service, cooperative, or market life.\n2. Describe the product, service, record, calculation, or action that responds to the need.\n3. Estimate resources, cost, time, and possible value.\n4. Identify one risk and one fair way to reduce it.\n5. Ask for feedback and write one improvement.\n6. Decide whether the idea should continue, change, or stop, and give a reason.\n\nExtension: create a simple record table for the decision.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "UGA-S2-entrepreneurship-topic-004:application-workshop:visual-1:planned",
+        "UGA-S2-entrepreneurship-topic-004:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "unitIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "parentUnitIds": [
+        "ac4a7d7a-be09-4e64-98c6-d114a61ca893"
+      ],
+      "outcomeIds": [
+        "5c5fd787-a4d5-4ac0-99a1-1d34953bd22c"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p083",
+      "title": "Glossary",
+      "content": "Use this glossary to revise important words in Entrepreneurship.\n\n- The Uganda Vision 2040 aims to transform Uganda into a modern: Explain this term using an example from the book, your school, or your community.\n- KEY CHANGES IN THE CURRICULUM: Explain this term using an example from the book, your school, or your community.\n- THE: Explain this term using an example from the book, your school, or your community.\n- THE CURRICULUM: Explain this term using an example from the book, your school, or your community.\n- ENTREPRENEURSHIP SYLLABUS: Explain this term using an example from the book, your school, or your community.\n\nAdd five more words from your lessons and write your own meanings.",
+      "pageType": "glossary",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 117,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p084",
+      "title": "Answer And Teacher Notes",
+      "content": "A strong Entrepreneurship answer responds to the exact task, uses correct vocabulary, gives a clear example or evidence, and shows correction after feedback. For practical work, name materials, safety, process, quality checks, peer feedback, and one improvement made after review.",
+      "pageType": "answer-notes",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 40,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-uga-ncdc-s2-entrepreneurship-p085",
+      "title": "Final Project",
+      "content": "Create a final project for Entrepreneurship that shows what you can now do independently.\n\nYour project must include:\n1. A clear title.\n2. A real-life problem, question, text, performance, investigation, design, or worked task.\n3. Evidence from at least three lessons in this book.\n4. A drawing, table, map, chart, model, dialogue, paragraph, performance plan, practical product, or worked solution.\n5. A correction note showing one improvement after feedback.\n6. A short reflection explaining what you learned, what was difficult, and what you will practise next.\n\nPresentation check: keep the work neat, label important parts, use correct vocabulary, and be ready to explain your choices to a classmate or teacher.",
+      "pageType": "project",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 110,
+      "imageRefs": []
+    }
+  ]
+}

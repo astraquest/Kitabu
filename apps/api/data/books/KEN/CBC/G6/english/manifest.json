@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-grade-6-english",
+  "title": "KITABU QUEST Grade 6 English",
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 6",
+  "subject": "English",
+  "subjectSlug": "english",
+  "subjectColor": "#2563EB",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "learner-first-language-depth-renderers-2026-07-01-v10",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-reviewed-draft",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T13:08:39Z",
+  "sourceSnapshotHash": "f67332a19f648ebae149196a76bb80583ed6350f251508e439d52c5020d8221c",
+  "bookPlanHash": "3c9765635c0a3cd705cad5a71be579586f0eb9955c5a9fef525e8917c3be8ccf",
+  "pageCount": 243,
+  "wordCount": 40299,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "ageBand": "upper-primary",
+    "coversDeferred": true,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "topicCount": 57,
+    "outcomeCount": 110,
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "KEN",
+    "subject": "English",
+    "species": "fox rabbit",
+    "role": "reading and storytelling guide",
+    "sourceRationale": "User-approved English mascot for clever reading and storytelling."
+  },
+  "cover": {
+    "scene": "learners in a reading club with storybooks, a word wall, and a friendly fox rabbit mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Kenya CBC Grade 6 English. Scene: learners in a reading club with storybooks, a word wall, and a friendly fox rabbit mascot. Include a friendly fox rabbit mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "assets": [],
+  "downloads": {
+    "markdown": "kitabu-quest-grade-6-english.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-grade-6-english.pdf"
+  },
+  "sourceDocuments": [
+    {
+      "id": "686cc1b8-02b5-4619-b46f-1402ca67c46f",
+      "subject": "English",
+      "officialTitle": "Competency Based Curriculum Grade 6 English",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_6",
+      "gradeLocalLevel": "Grade 6",
+      "localLevel": "Grade 6",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/1QR9nW3baakrHLIIpv-9UfQyMbOoDTcDX/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_6",
+        "documentUrl": "https://drive.google.com/file/d/1QR9nW3baakrHLIIpv-9UfQyMbOoDTcDX/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_6/english/686cc1b8-02b5-4619-b46f-1402ca67c46f.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-six-designs/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "c3d44e2779709a7fe471b1efac978b49d6019be25da1459bd10a883ad369b4cb",
+        "markdownPageCount": 140,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_6/english/686cc1b8-02b5-4619-b46f-1402ca67c46f.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "c3d44e2779709a7fe471b1efac978b49d6019be25da1459bd10a883ad369b4cb",
+          "pageCount": 140,
+          "generatedAt": "2026-06-29T16:35:08.770Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "40989e33676d89a98e0a84d1541cf4787c27cf6f199538217c68a2e58212e12f"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:08.770Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    }
+  ]
+}

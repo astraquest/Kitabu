@@ -1,0 +1,2131 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-tza-tie-basic-form-ii-physics",
+  "title": "KITABU QUEST Form II Physics",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Form II",
+  "subject": "Physics",
+  "subjectSlug": "physics",
+  "subjectColor": "#0E7490",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v13",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:45:54Z",
+  "sourceSnapshotHash": "71e2d926b201b39d53e4ec142d6a8adc0c20edcb2bd2aa9b10b2f9a144a34e3b",
+  "bookPlanHash": "65f47caf5f95549bc99076a0be9a77c98c58d443f05e8f8c4be859acb0880b80",
+  "pageCount": 85,
+  "wordCount": 7903,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 8,
+    "outcomeCount": 8,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "TZA",
+    "subject": "Physics",
+    "species": "elephant",
+    "role": "measurement and systems guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "students exploring physics with apparatus and an elephant mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Tanzania TIE-BASIC Form II Physics. Scene: students exploring physics with apparatus and an elephant mascot. Include a friendly elephant mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 85544,
+    "sha256": "f898d14e3edc121a447c3f9cbd8b59c82ce812410074191cc5f6c4501e7d77d7"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 85544,
+      "sha256": "f898d14e3edc121a447c3f9cbd8b59c82ce812410074191cc5f6c4501e7d77d7",
+      "kind": "cover",
+      "altText": "KITABU QUEST Form II Physics cover with elephant",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-tza-tie-basic-form-ii-physics.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-tza-tie-basic-form-ii-physics.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "b8b3d810-5983-43d3-affe-e6b95217ac63",
+      "subject": "Physics",
+      "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form II Physics",
+      "countryCode": "TZA",
+      "curriculumCode": "TIE-BASIC",
+      "gradeCode": "FORM_II",
+      "gradeLocalLevel": "Form II",
+      "localLevel": "Form II",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+      "objectKey": "data/curriculum/source-files/TZA/0d7c0b23b510f3b4aa3794b3686673426584be94dd1f84f8204e273a9e24b0d6.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "FORM_II",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727257838-PHYSICS%20FOR%20ORDINARY%20SECONDARY%20EDUCATION%20FINAL.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/physics/b8b3d810-5983-43d3-affe-e6b95217ac63.md",
+        "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "tie.go.tz"
+        ],
+        "markdownChecksum": "da4d1f420e208c8553c9132806be43a3d7b99b8c12bcb0a6cd3bab7f00accb77",
+        "markdownPageCount": 61,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_II/physics/b8b3d810-5983-43d3-affe-e6b95217ac63.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "da4d1f420e208c8553c9132806be43a3d7b99b8c12bcb0a6cd3bab7f00accb77",
+          "pageCount": 61,
+          "generatedAt": "2026-06-29T16:45:28.939Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "0e0f96e61e9ec349deb3f46933e4a6d045aa58c5a12c7c450c9247521f33669f"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:45:28.939Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p001",
+      "title": "Title Page",
+      "content": "KITABU QUEST Form II Physics\n\nTanzania TIE-BASIC learner book\n\nMascot: elephant\n\nThis KITABU QUEST book turns the curriculum into short lessons, worked examples, guided activities, practice, review, and home links for Tanzania learners.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 3,
+      "wordCount": 33,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p002",
+      "title": "How To Use This Book",
+      "content": "This book helps Form II learners study Physics one teachable topic at a time.\n\n1. Start with the inquiry question and say what you already know.\n2. Read the Learn section slowly and mark new words.\n3. Try the worked example before reading the full solution.\n4. Complete the activity and practice tasks.\n5. Correct your answer using the success criteria.\n6. Ask for support when your answer is still unclear.\n\nSubject method: Use measurements, diagrams, models, and step-by-step reasoning about systems and forces.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 84,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p003",
+      "title": "Learning Skills In This Book",
+      "content": "Each topic builds knowledge, skill, values, communication, collaboration, critical thinking, creativity, digital awareness, and self-confidence.\n\nStudy actively: speak answers aloud, draw when useful, show your working, cite evidence, use local examples, and correct mistakes after feedback.\n\nA strong answer is specific. It names the idea, gives evidence or method, applies it to the task, and checks whether it answers the question.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p004",
+      "title": "Table Of Contents",
+      "content": "Use this table to move through the book one topic at a time. Each topic has a lesson opener, clear teaching, a model or example, guided work, practice, and checks for understanding.\n\n1. Linear Motion And Graphs\n2. Newton Laws And Forces\n3. Moments Centre Of Gravity And Stability\n4. Waves Sound And Vibrations\n5. Electricity Current Voltage And Resistance\n6. Lenses Mirrors And Optical Instruments\n7. Thermal Energy Transfer\n8. Form II Physics Project\n\nAs you finish each topic, return to the success criteria and correct one answer before moving on.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p005",
+      "title": "Linear Motion And Graphs: Lesson Opener",
+      "content": "Learning focus: Linear Motion And Graphs\n\nCountry link: a safe Tanzania observation, model, data table, or investigation for Linear Motion And Graphs.\n\nProgression focus: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- investigate and explain linear motion and graphs using evidence\n\nInquiry questions:\n- How can linear motion and graphs help you solve a real problem?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-001:opener:visual-1:planned",
+        "TZA-FORM-II-physics-topic-001:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-1"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p006",
+      "title": "Linear Motion And Graphs: Learn",
+      "content": "Linear Motion And Graphs explains how position changes with time.\n\nCore idea:\n- Motion means an object changes position compared with a reference point.\n- Distance tells how far an object moves.\n- Time tells how long the motion takes.\n- Speed compares distance and time.\n- A distance-time table or graph can show whether motion is slow, fast, or changing.\n\nKey words:\n- Linear Motion And Graphs\n- Linear\n- Motion\n- Graphs\n- concept\n- observation\n- evidence\n- safety",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 82,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-001:learn:visual-1:planned",
+        "TZA-FORM-II-physics-topic-001:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-1"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p007",
+      "title": "Linear Motion And Graphs: Worked Example",
+      "content": "Worked example for Linear Motion And Graphs: A cart moves 12 metres in 4 seconds. Find its speed.\n\n1. Speed = distance / time.\n2. Distance = 12 m and time = 4 s.\n3. 12 / 4 = 3.\n\nAnswer: the cart moves at 3 m/s.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 47,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-001:example:visual-1:planned",
+        "TZA-FORM-II-physics-topic-001:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-1"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p008",
+      "title": "Linear Motion And Graphs: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Linear Motion And Graphs. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Linear Motion And Graphs\n- Linear\n- Motion\n- Graphs\n- concept\n- observation\n- evidence\n- safety\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Linear Motion And Graphs without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-001:vocabulary:visual-1:planned",
+        "TZA-FORM-II-physics-topic-001:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-1"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p009",
+      "title": "Linear Motion And Graphs: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Tanzania observation, model, data table, or investigation for Linear Motion And Graphs.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-001:activity:visual-1:planned",
+        "TZA-FORM-II-physics-topic-001:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-1"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p010",
+      "title": "Linear Motion And Graphs: Practice And Correction",
+      "content": "Practice for Linear Motion And Graphs:\n\nMain outcome: investigate and explain linear motion and graphs using evidence.\n\n1. A bicycle moves 30 m in 6 s. Calculate its speed.\n2. Draw a two-row table for distance and time.\n3. Explain what happens to speed if the same distance takes more time.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 97,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-001:practice:visual-1:planned",
+        "TZA-FORM-II-physics-topic-001:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-1"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p011",
+      "title": "Linear Motion And Graphs: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Linear Motion And Graphs.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-001:remediation:visual-1:planned",
+        "TZA-FORM-II-physics-topic-001:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-1"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p012",
+      "title": "Linear Motion And Graphs: Outcome Check",
+      "content": "Outcome check for Linear Motion And Graphs: Investigate and explain linear motion and graphs using evidence.\n\n1. Calculate the speed of an object that moves 20 m in 5 s.\n2. State the formula used.\n3. Write the unit.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 54,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-001:assessment:visual-1:planned",
+        "TZA-FORM-II-physics-topic-001:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-1"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p013",
+      "title": "Newton Laws And Forces: Lesson Opener",
+      "content": "Learning focus: Newton Laws And Forces\n\nCountry link: a safe Tanzania observation, model, data table, or investigation for Newton Laws And Forces.\n\nProgression focus: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- investigate and explain newton laws and forces using evidence\n\nInquiry questions:\n- How can newton laws and forces help you solve a real problem?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-002:opener:visual-1:planned",
+        "TZA-FORM-II-physics-topic-002:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-2"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p014",
+      "title": "Newton Laws And Forces: Learn",
+      "content": "Newton Laws And Forces explains how forces affect motion using Newton's laws.\n\nCore idea:\n- First law: an object stays at rest or keeps moving in a straight line unless an unbalanced force acts on it.\n- Second law: a larger force causes a larger acceleration, while a larger mass is harder to accelerate.\n- Third law: when one object exerts a force on another, the second object exerts an equal and opposite force.\n- Force diagrams help you show direction and balance.\n\nKey words:\n- Newton Laws And Forces\n- Newton\n- Laws\n- Forces\n- concept\n- observation\n- evidence\n- safety",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 104,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-002:learn:visual-1:planned",
+        "TZA-FORM-II-physics-topic-002:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-2"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p015",
+      "title": "Newton Laws And Forces: Worked Example",
+      "content": "Worked example for Newton Laws And Forces: Explain why a football at rest starts moving when kicked.\n\n1. Before the kick, the ball is at rest.\n2. The foot applies an unbalanced force on the ball.\n3. Because of Newton's first law, the ball changes its state of motion only when the force acts.\n4. The ball also pushes back on the foot with an equal and opposite force, showing Newton's third law.\n\nConclusion: the kick changes the motion because it provides an unbalanced force.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 85,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-002:example:visual-1:planned",
+        "TZA-FORM-II-physics-topic-002:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-2"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p016",
+      "title": "Newton Laws And Forces: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Newton Laws And Forces. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Newton Laws And Forces\n- Newton\n- Laws\n- Forces\n- concept\n- observation\n- evidence\n- safety\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Newton Laws And Forces without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-002:vocabulary:visual-1:planned",
+        "TZA-FORM-II-physics-topic-002:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-2"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p017",
+      "title": "Newton Laws And Forces: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Tanzania observation, model, data table, or investigation for Newton Laws And Forces.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-002:activity:visual-1:planned",
+        "TZA-FORM-II-physics-topic-002:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-2"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p018",
+      "title": "Newton Laws And Forces: Practice And Correction",
+      "content": "Practice for Newton Laws And Forces:\n\nMain outcome: investigate and explain newton laws and forces using evidence.\n\n1. State Newton’s first, second, and third laws in your own words.\n2. Draw a force diagram for a pushed box or kicked ball.\n3. Explain which law is shown when the object starts moving, speeds up, or pushes back.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-002:practice:visual-1:planned",
+        "TZA-FORM-II-physics-topic-002:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-2"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p019",
+      "title": "Newton Laws And Forces: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Newton Laws And Forces.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-002:remediation:visual-1:planned",
+        "TZA-FORM-II-physics-topic-002:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-2"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p020",
+      "title": "Newton Laws And Forces: Outcome Check",
+      "content": "Outcome check for Newton Laws And Forces: Investigate and explain newton laws and forces using evidence.\n\n1. State one Newton law correctly.\n2. Apply it to a moving or resting object.\n3. Draw or describe the force direction.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 53,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-002:assessment:visual-1:planned",
+        "TZA-FORM-II-physics-topic-002:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-2"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p021",
+      "title": "Moments Centre Of Gravity And Stability: Lesson Opener",
+      "content": "Learning focus: Moments Centre Of Gravity And Stability\n\nCountry link: a safe Tanzania observation, model, data table, or investigation for Moments Centre Of Gravity And Stability.\n\nProgression focus: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- investigate and explain moments centre of gravity and stability using evidence\n\nInquiry questions:\n- How can moments centre of gravity and stability help you solve a real problem?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 99,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-003:opener:visual-1:planned",
+        "TZA-FORM-II-physics-topic-003:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-3"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p022",
+      "title": "Moments Centre Of Gravity And Stability: Learn",
+      "content": "Moments Centre Of Gravity And Stability explains balance and stability.\n\nCore idea:\n- Centre of gravity is the point where the weight of an object seems to act.\n- A low centre of gravity usually makes an object more stable.\n- A wide base of support helps an object resist toppling.\n- You can investigate balance using safe objects such as rulers, cardboard shapes, and books.\n\nKey words:\n- Moments Centre Of Gravity And Stability\n- Moments\n- Centre\n- Gravity\n- Stability\n- concept\n- observation\n- evidence",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 89,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-003:learn:visual-1:planned",
+        "TZA-FORM-II-physics-topic-003:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-3"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p023",
+      "title": "Moments Centre Of Gravity And Stability: Worked Example",
+      "content": "Investigation model for Moments Centre Of Gravity And Stability: Balance a ruler on one finger.\n\n1. Place a ruler across one finger.\n2. Move your finger slowly until the ruler balances.\n3. Mark the balance point.\n4. Add a small rubber on one side and observe the new balance point.\n\nConclusion: adding mass changes where the centre of gravity acts.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 60,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-003:example:visual-1:planned",
+        "TZA-FORM-II-physics-topic-003:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-3"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p024",
+      "title": "Moments Centre Of Gravity And Stability: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Moments Centre Of Gravity And Stability. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Moments Centre Of Gravity And Stability\n- Moments\n- Centre\n- Gravity\n- Stability\n- concept\n- observation\n- evidence\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Moments Centre Of Gravity And Stability without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 124,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-003:vocabulary:visual-1:planned",
+        "TZA-FORM-II-physics-topic-003:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-3"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p025",
+      "title": "Moments Centre Of Gravity And Stability: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Tanzania observation, model, data table, or investigation for Moments Centre Of Gravity And Stability.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-003:activity:visual-1:planned",
+        "TZA-FORM-II-physics-topic-003:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-3"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p026",
+      "title": "Moments Centre Of Gravity And Stability: Practice And Correction",
+      "content": "Practice for Moments Centre Of Gravity And Stability:\n\nMain outcome: investigate and explain moments centre of gravity and stability using evidence.\n\n1. Balance a safe flat object and mark the balance point.\n2. Explain why a wide base improves stability.\n3. Name one object designed to avoid toppling.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-003:practice:visual-1:planned",
+        "TZA-FORM-II-physics-topic-003:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-3"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p027",
+      "title": "Moments Centre Of Gravity And Stability: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Moments Centre Of Gravity And Stability.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-003:remediation:visual-1:planned",
+        "TZA-FORM-II-physics-topic-003:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-3"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p028",
+      "title": "Moments Centre Of Gravity And Stability: Outcome Check",
+      "content": "Outcome check for Moments Centre Of Gravity And Stability: Investigate and explain moments centre of gravity and stability using evidence.\n\n1. Explain why a low, wide object is more stable.\n2. Name one example.\n3. Use the term centre of gravity correctly.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 57,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-003:assessment:visual-1:planned",
+        "TZA-FORM-II-physics-topic-003:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-3"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p029",
+      "title": "Waves Sound And Vibrations: Lesson Opener",
+      "content": "Learning focus: Waves Sound And Vibrations\n\nCountry link: a safe Tanzania observation, model, data table, or investigation for Waves Sound And Vibrations.\n\nProgression focus: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- investigate and explain waves sound and vibrations using evidence\n\nInquiry questions:\n- How can waves sound and vibrations help you solve a real problem?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-004:opener:visual-1:planned",
+        "TZA-FORM-II-physics-topic-004:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-4"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p030",
+      "title": "Waves Sound And Vibrations: Learn",
+      "content": "Waves Sound And Vibrations is learned by turning the topic into a clear, safe, evidence-based science task.\n\nCore idea:\n- Name the science idea before starting: structure, process, material, force, energy, organism, environment, or system.\n- Use a diagram, data table, labelled model, safe observation, or teacher-approved investigation.\n- Record what is seen or measured, not what is guessed.\n- Explain the result using the vocabulary from this topic.\n- Finish with one conclusion and one question for further study.\n\nKey words:\n- Waves Sound And Vibrations\n- Waves\n- Sound\n- Vibrations\n- concept\n- observation\n- evidence\n- safety",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-004:learn:visual-1:planned",
+        "TZA-FORM-II-physics-topic-004:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-4"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p031",
+      "title": "Waves Sound And Vibrations: Worked Example",
+      "content": "Investigation model for Waves Sound And Vibrations: Turn the topic into a safe, clear classroom investigation or model.\n\n1. Question: write one question that can be answered by observing, comparing, classifying, measuring, modelling, or reading data.\n2. Materials: list safe classroom materials, diagrams, samples, cards, tables, or teacher-approved apparatus.\n3. Method: do one step at a time and keep one condition fair where comparison is needed.\n4. Safety: name any heat, glass, sharp tool, chemical, hygiene, electrical, or body-safety rule before starting.\n5. Record: use a labelled table, diagram, or sentence notes.\n6. Conclusion: state what the evidence shows and one limit of the investigation.\n\nAnswer check: a strong response names the concept, uses correct vocabulary, records evidence, and does not claim more than the evidence supports.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 127,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-004:example:visual-1:planned",
+        "TZA-FORM-II-physics-topic-004:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-4"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p032",
+      "title": "Waves Sound And Vibrations: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Waves Sound And Vibrations. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Waves Sound And Vibrations\n- Waves\n- Sound\n- Vibrations\n- concept\n- observation\n- evidence\n- safety\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Waves Sound And Vibrations without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-004:vocabulary:visual-1:planned",
+        "TZA-FORM-II-physics-topic-004:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-4"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p033",
+      "title": "Waves Sound And Vibrations: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Tanzania observation, model, data table, or investigation for Waves Sound And Vibrations.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-004:activity:visual-1:planned",
+        "TZA-FORM-II-physics-topic-004:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-4"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p034",
+      "title": "Waves Sound And Vibrations: Practice And Correction",
+      "content": "Practice for Waves Sound And Vibrations:\n\nMain outcome: investigate and explain waves sound and vibrations using evidence.\n\n1. Write one safe investigation question.\n2. Name materials and observations needed.\n3. Use the evidence to write a conclusion.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 83,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-004:practice:visual-1:planned",
+        "TZA-FORM-II-physics-topic-004:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-4"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p035",
+      "title": "Waves Sound And Vibrations: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Waves Sound And Vibrations.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-004:remediation:visual-1:planned",
+        "TZA-FORM-II-physics-topic-004:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-4"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p036",
+      "title": "Waves Sound And Vibrations: Outcome Check",
+      "content": "Outcome check for Waves Sound And Vibrations: Investigate and explain waves sound and vibrations using evidence.\n\n1. State a safe investigation question.\n2. Name the evidence needed.\n3. Write a conclusion from the evidence.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 49,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-004:assessment:visual-1:planned",
+        "TZA-FORM-II-physics-topic-004:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-4"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p037",
+      "title": "Electricity Current Voltage And Resistance: Lesson Opener",
+      "content": "Learning focus: Electricity Current Voltage And Resistance\n\nCountry link: a safe Tanzania observation, model, data table, or investigation for Electricity Current Voltage And Resistance.\n\nProgression focus: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- investigate and explain electricity current voltage and resistance using evidence\n\nInquiry questions:\n- How can electricity current voltage and resistance help you solve a real problem?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-005:opener:visual-1:planned",
+        "TZA-FORM-II-physics-topic-005:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-5"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p038",
+      "title": "Electricity Current Voltage And Resistance: Learn",
+      "content": "Electricity Current Voltage And Resistance explains moving electric charge in circuits.\n\nCore idea:\n- A complete circuit is needed for current to flow.\n- Cells, wires, switches, and bulbs can show current effects safely.\n- Electricity can produce light, heat, sound, movement, and magnetism.\n- Safety matters: never experiment with mains electricity.\n\nKey words:\n- Electricity Current Voltage And Resistance\n- Electricity\n- Current\n- Voltage\n- Resistance\n- concept\n- observation\n- evidence",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 74,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-005:learn:visual-1:planned",
+        "TZA-FORM-II-physics-topic-005:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-5"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p039",
+      "title": "Electricity Current Voltage And Resistance: Worked Example",
+      "content": "Circuit model for Electricity Current Voltage And Resistance: Light a bulb safely.\n\n1. Use a cell, two wires, a switch, and a small bulb.\n2. Connect a complete circuit.\n3. Close the switch and observe the bulb.\n4. Open the switch and observe again.\n\nConclusion: current flows only when the circuit is complete.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 53,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-005:example:visual-1:planned",
+        "TZA-FORM-II-physics-topic-005:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-5"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p040",
+      "title": "Electricity Current Voltage And Resistance: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Electricity Current Voltage And Resistance. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Electricity Current Voltage And Resistance\n- Electricity\n- Current\n- Voltage\n- Resistance\n- concept\n- observation\n- evidence\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Electricity Current Voltage And Resistance without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-005:vocabulary:visual-1:planned",
+        "TZA-FORM-II-physics-topic-005:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-5"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p041",
+      "title": "Electricity Current Voltage And Resistance: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Tanzania observation, model, data table, or investigation for Electricity Current Voltage And Resistance.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-005:activity:visual-1:planned",
+        "TZA-FORM-II-physics-topic-005:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-5"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p042",
+      "title": "Electricity Current Voltage And Resistance: Practice And Correction",
+      "content": "Practice for Electricity Current Voltage And Resistance:\n\nMain outcome: investigate and explain electricity current voltage and resistance using evidence.\n\n1. Draw a complete circuit with a cell, switch, and bulb.\n2. Explain why a broken circuit stops current.\n3. List two electrical safety rules.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-005:practice:visual-1:planned",
+        "TZA-FORM-II-physics-topic-005:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-5"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p043",
+      "title": "Electricity Current Voltage And Resistance: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Electricity Current Voltage And Resistance.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-005:remediation:visual-1:planned",
+        "TZA-FORM-II-physics-topic-005:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-5"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p044",
+      "title": "Electricity Current Voltage And Resistance: Outcome Check",
+      "content": "Outcome check for Electricity Current Voltage And Resistance: Investigate and explain electricity current voltage and resistance using evidence.\n\n1. Draw a complete circuit.\n2. Explain why a switch can stop current.\n3. Write one electrical safety rule.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 52,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-005:assessment:visual-1:planned",
+        "TZA-FORM-II-physics-topic-005:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-5"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p045",
+      "title": "Lenses Mirrors And Optical Instruments: Lesson Opener",
+      "content": "Learning focus: Lenses Mirrors And Optical Instruments\n\nCountry link: a safe Tanzania observation, model, data table, or investigation for Lenses Mirrors And Optical Instruments.\n\nProgression focus: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- investigate and explain lenses mirrors and optical instruments using evidence\n\nInquiry questions:\n- How can lenses mirrors and optical instruments help you solve a real problem?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-006:opener:visual-1:planned",
+        "TZA-FORM-II-physics-topic-006:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-6"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p046",
+      "title": "Lenses Mirrors And Optical Instruments: Learn",
+      "content": "Lenses Mirrors And Optical Instruments is learned by turning the topic into a clear, safe, evidence-based science task.\n\nCore idea:\n- Name the science idea before starting: structure, process, material, force, energy, organism, environment, or system.\n- Use a diagram, data table, labelled model, safe observation, or teacher-approved investigation.\n- Record what is seen or measured, not what is guessed.\n- Explain the result using the vocabulary from this topic.\n- Finish with one conclusion and one question for further study.\n\nKey words:\n- Lenses Mirrors And Optical Instruments\n- Lenses\n- Mirrors\n- Optical\n- Instruments\n- concept\n- observation\n- evidence",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-006:learn:visual-1:planned",
+        "TZA-FORM-II-physics-topic-006:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-6"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p047",
+      "title": "Lenses Mirrors And Optical Instruments: Worked Example",
+      "content": "Investigation model for Lenses Mirrors And Optical Instruments: Turn the topic into a safe, clear classroom investigation or model.\n\n1. Question: write one question that can be answered by observing, comparing, classifying, measuring, modelling, or reading data.\n2. Materials: list safe classroom materials, diagrams, samples, cards, tables, or teacher-approved apparatus.\n3. Method: do one step at a time and keep one condition fair where comparison is needed.\n4. Safety: name any heat, glass, sharp tool, chemical, hygiene, electrical, or body-safety rule before starting.\n5. Record: use a labelled table, diagram, or sentence notes.\n6. Conclusion: state what the evidence shows and one limit of the investigation.\n\nAnswer check: a strong response names the concept, uses correct vocabulary, records evidence, and does not claim more than the evidence supports.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 128,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-006:example:visual-1:planned",
+        "TZA-FORM-II-physics-topic-006:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-6"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p048",
+      "title": "Lenses Mirrors And Optical Instruments: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Lenses Mirrors And Optical Instruments. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Lenses Mirrors And Optical Instruments\n- Lenses\n- Mirrors\n- Optical\n- Instruments\n- concept\n- observation\n- evidence\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Lenses Mirrors And Optical Instruments without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-006:vocabulary:visual-1:planned",
+        "TZA-FORM-II-physics-topic-006:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-6"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p049",
+      "title": "Lenses Mirrors And Optical Instruments: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Tanzania observation, model, data table, or investigation for Lenses Mirrors And Optical Instruments.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-006:activity:visual-1:planned",
+        "TZA-FORM-II-physics-topic-006:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-6"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p050",
+      "title": "Lenses Mirrors And Optical Instruments: Practice And Correction",
+      "content": "Practice for Lenses Mirrors And Optical Instruments:\n\nMain outcome: investigate and explain lenses mirrors and optical instruments using evidence.\n\n1. Write one safe investigation question.\n2. Name materials and observations needed.\n3. Use the evidence to write a conclusion.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 85,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-006:practice:visual-1:planned",
+        "TZA-FORM-II-physics-topic-006:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-6"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p051",
+      "title": "Lenses Mirrors And Optical Instruments: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Lenses Mirrors And Optical Instruments.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-006:remediation:visual-1:planned",
+        "TZA-FORM-II-physics-topic-006:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-6"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p052",
+      "title": "Lenses Mirrors And Optical Instruments: Outcome Check",
+      "content": "Outcome check for Lenses Mirrors And Optical Instruments: Investigate and explain lenses mirrors and optical instruments using evidence.\n\n1. State a safe investigation question.\n2. Name the evidence needed.\n3. Write a conclusion from the evidence.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 51,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-006:assessment:visual-1:planned",
+        "TZA-FORM-II-physics-topic-006:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-6"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p053",
+      "title": "Thermal Energy Transfer: Lesson Opener",
+      "content": "Learning focus: Thermal Energy Transfer\n\nCountry link: a safe Tanzania observation, model, data table, or investigation for Thermal Energy Transfer.\n\nProgression focus: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- investigate and explain thermal energy transfer using evidence\n\nInquiry questions:\n- How can thermal energy transfer help you solve a real problem?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 87,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-007:opener:visual-1:planned",
+        "TZA-FORM-II-physics-topic-007:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-7"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p054",
+      "title": "Thermal Energy Transfer: Learn",
+      "content": "Thermal Energy Transfer connects work, power, and energy changes.\n\nCore idea:\n- Work is done when a force moves an object through a distance.\n- Energy is the ability to do work.\n- Power describes how quickly work is done or energy is transferred.\n- Energy can change form, such as chemical to movement, electrical to light, or potential to kinetic.\n\nKey words:\n- Thermal Energy Transfer\n- Thermal\n- Energy\n- Transfer\n- concept\n- observation\n- evidence\n- safety",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 81,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-007:learn:visual-1:planned",
+        "TZA-FORM-II-physics-topic-007:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-7"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p055",
+      "title": "Thermal Energy Transfer: Worked Example",
+      "content": "Worked example for Thermal Energy Transfer: A learner lifts a book from the floor to a desk.\n\n1. The learner applies an upward force.\n2. The book moves upward through a distance.\n3. Work is done on the book.\n4. The book gains gravitational potential energy.\n\nConclusion: work can transfer energy to an object.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 54,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-007:example:visual-1:planned",
+        "TZA-FORM-II-physics-topic-007:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-7"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p056",
+      "title": "Thermal Energy Transfer: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Thermal Energy Transfer. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Thermal Energy Transfer\n- Thermal\n- Energy\n- Transfer\n- concept\n- observation\n- evidence\n- safety\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Thermal Energy Transfer without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-007:vocabulary:visual-1:planned",
+        "TZA-FORM-II-physics-topic-007:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-7"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p057",
+      "title": "Thermal Energy Transfer: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Tanzania observation, model, data table, or investigation for Thermal Energy Transfer.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-007:activity:visual-1:planned",
+        "TZA-FORM-II-physics-topic-007:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-7"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p058",
+      "title": "Thermal Energy Transfer: Practice And Correction",
+      "content": "Practice for Thermal Energy Transfer:\n\nMain outcome: investigate and explain thermal energy transfer using evidence.\n\n1. Give two examples of energy transformation.\n2. Explain when work is done on an object.\n3. Compare work and power in one sentence.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 85,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-007:practice:visual-1:planned",
+        "TZA-FORM-II-physics-topic-007:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-7"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p059",
+      "title": "Thermal Energy Transfer: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Thermal Energy Transfer.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 104,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-007:remediation:visual-1:planned",
+        "TZA-FORM-II-physics-topic-007:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-7"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p060",
+      "title": "Thermal Energy Transfer: Outcome Check",
+      "content": "Outcome check for Thermal Energy Transfer: Investigate and explain thermal energy transfer using evidence.\n\n1. Give one example of energy changing form.\n2. Explain when work is done.\n3. Compare work and power in one sentence.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 51,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-007:assessment:visual-1:planned",
+        "TZA-FORM-II-physics-topic-007:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-7"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p061",
+      "title": "Form II Physics Project: Lesson Opener",
+      "content": "Learning focus: Form II Physics Project\n\nCountry link: a safe Tanzania observation, model, data table, or investigation for Form II Physics Project.\n\nProgression focus: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- investigate and explain form ii physics project using evidence\n\nInquiry questions:\n- How can form ii physics project help you solve a real problem?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-008:opener:visual-1:planned",
+        "TZA-FORM-II-physics-topic-008:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-8"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p062",
+      "title": "Form II Physics Project: Learn",
+      "content": "Form II Physics Project is learned by turning the topic into a clear, safe, evidence-based science task.\n\nCore idea:\n- Name the science idea before starting: structure, process, material, force, energy, organism, environment, or system.\n- Use a diagram, data table, labelled model, safe observation, or teacher-approved investigation.\n- Record what is seen or measured, not what is guessed.\n- Explain the result using the vocabulary from this topic.\n- Finish with one conclusion and one question for further study.\n\nKey words:\n- Form II Physics Project\n- Form\n- Physics\n- Project\n- concept\n- observation\n- evidence\n- safety",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-008:learn:visual-1:planned",
+        "TZA-FORM-II-physics-topic-008:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-8"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p063",
+      "title": "Form II Physics Project: Worked Example",
+      "content": "Investigation model for Form II Physics Project: Turn the topic into a safe, clear classroom investigation or model.\n\n1. Question: write one question that can be answered by observing, comparing, classifying, measuring, modelling, or reading data.\n2. Materials: list safe classroom materials, diagrams, samples, cards, tables, or teacher-approved apparatus.\n3. Method: do one step at a time and keep one condition fair where comparison is needed.\n4. Safety: name any heat, glass, sharp tool, chemical, hygiene, electrical, or body-safety rule before starting.\n5. Record: use a labelled table, diagram, or sentence notes.\n6. Conclusion: state what the evidence shows and one limit of the investigation.\n\nAnswer check: a strong response names the concept, uses correct vocabulary, records evidence, and does not claim more than the evidence supports.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 127,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-008:example:visual-1:planned",
+        "TZA-FORM-II-physics-topic-008:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-8"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p064",
+      "title": "Form II Physics Project: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Form II Physics Project. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Form II Physics Project\n- Form\n- Physics\n- Project\n- concept\n- observation\n- evidence\n- safety\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Form II Physics Project without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-008:vocabulary:visual-1:planned",
+        "TZA-FORM-II-physics-topic-008:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-8"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p065",
+      "title": "Form II Physics Project: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Tanzania observation, model, data table, or investigation for Form II Physics Project.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-008:activity:visual-1:planned",
+        "TZA-FORM-II-physics-topic-008:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-8"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p066",
+      "title": "Form II Physics Project: Practice And Correction",
+      "content": "Practice for Form II Physics Project:\n\nMain outcome: investigate and explain form ii physics project using evidence.\n\n1. Write one safe investigation question.\n2. Name materials and observations needed.\n3. Use the evidence to write a conclusion.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 83,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-008:practice:visual-1:planned",
+        "TZA-FORM-II-physics-topic-008:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-8"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p067",
+      "title": "Form II Physics Project: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Form II Physics Project.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-008:remediation:visual-1:planned",
+        "TZA-FORM-II-physics-topic-008:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-8"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p068",
+      "title": "Form II Physics Project: Outcome Check",
+      "content": "Outcome check for Form II Physics Project: Investigate and explain form ii physics project using evidence.\n\n1. State a safe investigation question.\n2. Name the evidence needed.\n3. Write a conclusion from the evidence.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 49,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-008:assessment:visual-1:planned",
+        "TZA-FORM-II-physics-topic-008:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-8"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p069",
+      "title": "Linear Motion And Graphs: Review Clinic 1",
+      "content": "Use this review clinic to strengthen Physics without copying earlier answers.\n\n1. Choose one idea from Linear Motion And Graphs that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 77,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-001:review:visual-1:planned",
+        "TZA-FORM-II-physics-topic-001:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-1"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p070",
+      "title": "Newton Laws And Forces: Review Clinic 2",
+      "content": "Use this review clinic to strengthen Physics without copying earlier answers.\n\n1. Choose one idea from Newton Laws And Forces that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 77,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-002:review:visual-1:planned",
+        "TZA-FORM-II-physics-topic-002:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-2"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p071",
+      "title": "Moments Centre Of Gravity And Stability: Review Clinic 3",
+      "content": "Use this review clinic to strengthen Physics without copying earlier answers.\n\n1. Choose one idea from Moments Centre Of Gravity And Stability that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 79,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-003:review:visual-1:planned",
+        "TZA-FORM-II-physics-topic-003:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-3"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p072",
+      "title": "Waves Sound And Vibrations: Review Clinic 4",
+      "content": "Use this review clinic to strengthen Physics without copying earlier answers.\n\n1. Choose one idea from Waves Sound And Vibrations that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 77,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-004:review:visual-1:planned",
+        "TZA-FORM-II-physics-topic-004:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-4"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p073",
+      "title": "Linear Motion And Graphs: Application Workshop 1",
+      "content": "Application workshop 1 for Linear Motion And Graphs.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-001:application-workshop:visual-1:planned",
+        "TZA-FORM-II-physics-topic-001:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-1"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p074",
+      "title": "Newton Laws And Forces: Application Workshop 2",
+      "content": "Application workshop 2 for Newton Laws And Forces.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-002:application-workshop:visual-1:planned",
+        "TZA-FORM-II-physics-topic-002:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-2"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p075",
+      "title": "Moments Centre Of Gravity And Stability: Application Workshop 3",
+      "content": "Application workshop 3 for Moments Centre Of Gravity And Stability.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 117,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-003:application-workshop:visual-1:planned",
+        "TZA-FORM-II-physics-topic-003:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-3"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p076",
+      "title": "Waves Sound And Vibrations: Application Workshop 4",
+      "content": "Application workshop 4 for Waves Sound And Vibrations.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-004:application-workshop:visual-1:planned",
+        "TZA-FORM-II-physics-topic-004:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-4"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p077",
+      "title": "Electricity Current Voltage And Resistance: Application Workshop 5",
+      "content": "Application workshop 5 for Electricity Current Voltage And Resistance.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 116,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-005:application-workshop:visual-1:planned",
+        "TZA-FORM-II-physics-topic-005:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-5"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p078",
+      "title": "Lenses Mirrors And Optical Instruments: Application Workshop 6",
+      "content": "Application workshop 6 for Lenses Mirrors And Optical Instruments.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 116,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-006:application-workshop:visual-1:planned",
+        "TZA-FORM-II-physics-topic-006:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-6"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p079",
+      "title": "Thermal Energy Transfer: Application Workshop 7",
+      "content": "Application workshop 7 for Thermal Energy Transfer.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 114,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-007:application-workshop:visual-1:planned",
+        "TZA-FORM-II-physics-topic-007:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-7"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p080",
+      "title": "Form II Physics Project: Application Workshop 8",
+      "content": "Application workshop 8 for Form II Physics Project.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-008:application-workshop:visual-1:planned",
+        "TZA-FORM-II-physics-topic-008:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-8"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p081",
+      "title": "Linear Motion And Graphs: Application Workshop 9",
+      "content": "Application workshop 9 for Linear Motion And Graphs.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-001:application-workshop:visual-1:planned",
+        "TZA-FORM-II-physics-topic-001:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-1"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p082",
+      "title": "Newton Laws And Forces: Application Workshop 10",
+      "content": "Application workshop 10 for Newton Laws And Forces.\n\nGrade move: connect ideas across topics and explain causes, methods, or consequences; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "TZA-FORM-II-physics-topic-002:application-workshop:visual-1:planned",
+        "TZA-FORM-II-physics-topic-002:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-ii-physics-2"
+      ],
+      "unitIds": [
+        "fallback-form-ii-physics-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-ii-physics-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-ii-physics-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p083",
+      "title": "Glossary",
+      "content": "Use this glossary to revise important words in Physics.\n\n- Linear Motion And Graphs: Explain this term using an example from the book, your school, or your community.\n- Newton Laws And Forces: Explain this term using an example from the book, your school, or your community.\n- Moments Centre Of Gravity And Stability: Explain this term using an example from the book, your school, or your community.\n- Waves Sound And Vibrations: Explain this term using an example from the book, your school, or your community.\n- Electricity Current Voltage And Resistance: Explain this term using an example from the book, your school, or your community.\n- Lenses Mirrors And Optical Instruments: Explain this term using an example from the book, your school, or your community.\n- Thermal Energy Transfer: Explain this term using an example from the book, your school, or your community.\n- Form II Physics Project: Explain this term using an example from the book, your school, or your community.\n\nAdd five more words from your lessons and write your own meanings.",
+      "pageType": "glossary",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 176,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p084",
+      "title": "Answer And Teacher Notes",
+      "content": "A strong Physics answer states the idea, uses correct scientific vocabulary, records observations or data, includes units or labels where needed, and writes a conclusion that follows from evidence. Safety rules always come first. If evidence is missing, repeat the observation safely or explain what evidence would be needed.",
+      "pageType": "answer-notes",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 49,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-ii-physics-p085",
+      "title": "Final Project",
+      "content": "Create a final project for Physics that shows what you can now do independently.\n\nYour project must include:\n1. A clear title.\n2. A real-life problem, question, text, performance, investigation, design, or worked task.\n3. Evidence from at least three lessons in this book.\n4. A drawing, table, map, chart, model, dialogue, paragraph, performance plan, practical product, or worked solution.\n5. A correction note showing one improvement after feedback.\n6. A short reflection explaining what you learned, what was difficult, and what you will practise next.\n\nPresentation check: keep the work neat, label important parts, use correct vocabulary, and be ready to explain your choices to a classmate or teacher.",
+      "pageType": "project",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 110,
+      "imageRefs": []
+    }
+  ]
+}

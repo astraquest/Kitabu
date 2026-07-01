@@ -1,0 +1,2131 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-tza-tie-basic-form-iv-history",
+  "title": "KITABU QUEST Form IV History",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Form IV",
+  "subject": "History",
+  "subjectSlug": "history",
+  "subjectColor": "#BE123C",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v13",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:50:04Z",
+  "sourceSnapshotHash": "88c56ad083f1a46efb2a01521ef13e6e336b7994bb9b25c1e2e4d5c00bfae24b",
+  "bookPlanHash": "335ea5470bbdfbbdb3c25040c3ddb0b59cf96fb9e680af77aa7f4c371863aa43",
+  "pageCount": 85,
+  "wordCount": 8163,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 8,
+    "outcomeCount": 8,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "TZA",
+    "subject": "History",
+    "species": "lion",
+    "role": "heritage guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "students studying historical sources with a lion mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Tanzania TIE-BASIC Form IV History. Scene: students studying historical sources with a lion mascot. Include a friendly lion mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 82635,
+    "sha256": "c3752d3984681e6e154d419e8d04d7a9f299cae8e74dfe41fe6b41c4abff8098"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 82635,
+      "sha256": "c3752d3984681e6e154d419e8d04d7a9f299cae8e74dfe41fe6b41c4abff8098",
+      "kind": "cover",
+      "altText": "KITABU QUEST Form IV History cover with lion",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-tza-tie-basic-form-iv-history.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-tza-tie-basic-form-iv-history.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "db942a6a-9275-4eb4-815e-fe4ff36fbeb2",
+      "subject": "History",
+      "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV History",
+      "countryCode": "TZA",
+      "curriculumCode": "TIE-BASIC",
+      "gradeCode": "FORM_IV",
+      "gradeLocalLevel": "Form IV",
+      "localLevel": "Form IV",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+      "objectKey": "data/curriculum/source-files/TZA/8809c90995f462e7e30624c84105fd8d3f2b5dc47a71aeb86384cf64d2be4999.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "FORM_IV",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/history/db942a6a-9275-4eb4-815e-fe4ff36fbeb2.md",
+        "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "tie.go.tz"
+        ],
+        "markdownChecksum": "d5a67e7aa844ca464dd0fcfe14fe2bd2c3fd0bdf084f76f923fc5b8759bea89a",
+        "markdownPageCount": 32,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/history/db942a6a-9275-4eb4-815e-fe4ff36fbeb2.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "d5a67e7aa844ca464dd0fcfe14fe2bd2c3fd0bdf084f76f923fc5b8759bea89a",
+          "pageCount": 32,
+          "generatedAt": "2026-06-29T16:46:48.881Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "464511ca30241164b2f8885e994453ccfc4735c0a81579ebcd28062d664130a0"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:46:48.881Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p001",
+      "title": "Title Page",
+      "content": "KITABU QUEST Form IV History\n\nTanzania TIE-BASIC learner book\n\nMascot: lion\n\nThis KITABU QUEST book turns the curriculum into short lessons, worked examples, guided activities, practice, review, and home links for Tanzania learners.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 3,
+      "wordCount": 33,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p002",
+      "title": "How To Use This Book",
+      "content": "This book helps Form IV learners study History one teachable topic at a time.\n\n1. Start with the inquiry question and say what you already know.\n2. Read the Learn section slowly and mark new words.\n3. Try the worked example before reading the full solution.\n4. Complete the activity and practice tasks.\n5. Correct your answer using the success criteria.\n6. Ask for support when your answer is still unclear.\n\nSubject method: Use timelines, sources, evidence, and careful explanation of cause, change, and consequence.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 85,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p003",
+      "title": "Learning Skills In This Book",
+      "content": "Each topic builds knowledge, skill, values, communication, collaboration, critical thinking, creativity, digital awareness, and self-confidence.\n\nStudy actively: speak answers aloud, draw when useful, show your working, cite evidence, use local examples, and correct mistakes after feedback.\n\nA strong answer is specific. It names the idea, gives evidence or method, applies it to the task, and checks whether it answers the question.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p004",
+      "title": "Table Of Contents",
+      "content": "Use this table to move through the book one topic at a time. Each topic has a lesson opener, clear teaching, a model or example, guided work, practice, and checks for understanding.\n\n1. Contemporary Tanzania And Africa\n2. Globalisation And Development\n3. Conflict Peace And International Relations\n4. Constitution Citizenship And Accountability\n5. Economic Policies And Social Change\n6. Historical Research And Source Evaluation\n7. Revision Of Major Themes\n8. Form IV History Examination Project\n\nAs you finish each topic, return to the success criteria and correct one answer before moving on.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p005",
+      "title": "Contemporary Tanzania And Africa: Lesson Opener",
+      "content": "Learning focus: Contemporary Tanzania And Africa\n\nCountry link: a Tanzania map, community, citizenship, culture, environment, or heritage example for Contemporary Tanzania And Africa.\n\nProgression focus: prepare for assessment and real-world use through extended tasks and correction; use sources, timelines, citizenship ideas, and careful explanation.\n\nBy the end of this topic, you should be able to:\n- explain and apply contemporary tanzania and africa in a real learning situation\n\nInquiry questions:\n- How can contemporary tanzania and africa help you solve a real problem?\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 99,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-001:opener:visual-1:planned",
+        "TZA-FORM-IV-history-topic-001:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-1"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p006",
+      "title": "Contemporary Tanzania And Africa: Learn",
+      "content": "Contemporary Tanzania And Africa becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Contemporary Tanzania And Africa\n- Contemporary\n- Tanzania\n- Africa\n- idea\n- skill\n- example\n- practice",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-001:learn:visual-1:planned",
+        "TZA-FORM-IV-history-topic-001:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-1"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p007",
+      "title": "Contemporary Tanzania And Africa: Worked Example",
+      "content": "Evidence model for Contemporary Tanzania And Africa: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from History.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 58,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-001:example:visual-1:planned",
+        "TZA-FORM-IV-history-topic-001:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-1"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p008",
+      "title": "Contemporary Tanzania And Africa: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Contemporary Tanzania And Africa. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Contemporary Tanzania And Africa\n- Contemporary\n- Tanzania\n- Africa\n- idea\n- skill\n- example\n- practice\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Contemporary Tanzania And Africa without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-001:vocabulary:visual-1:planned",
+        "TZA-FORM-IV-history-topic-001:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-1"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p009",
+      "title": "Contemporary Tanzania And Africa: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a Tanzania map, community, citizenship, culture, environment, or heritage example for Contemporary Tanzania And Africa.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-001:activity:visual-1:planned",
+        "TZA-FORM-IV-history-topic-001:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-1"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p010",
+      "title": "Contemporary Tanzania And Africa: Practice And Correction",
+      "content": "Practice for Contemporary Tanzania And Africa:\n\n1. Use an example from your community or country to explain: explain and apply contemporary tanzania and africa in a real learning situation.\n\nCorrection check:\n- answer uses a real example\n- reasoning is clear\n- work is checked\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to contemporary tanzania and africa and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 86,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-001:practice:visual-1:planned",
+        "TZA-FORM-IV-history-topic-001:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-1"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p011",
+      "title": "Contemporary Tanzania And Africa: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Contemporary Tanzania And Africa.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-001:remediation:visual-1:planned",
+        "TZA-FORM-IV-history-topic-001:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-1"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p012",
+      "title": "Contemporary Tanzania And Africa: Outcome Check",
+      "content": "Show that you can explain and apply contemporary tanzania and africa in a real learning situation.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 100,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-001:assessment:visual-1:planned",
+        "TZA-FORM-IV-history-topic-001:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-1"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p013",
+      "title": "Globalisation And Development: Lesson Opener",
+      "content": "Learning focus: Globalisation And Development\n\nCountry link: a Tanzania map, community, citizenship, culture, environment, or heritage example for Globalisation And Development.\n\nProgression focus: prepare for assessment and real-world use through extended tasks and correction; use sources, timelines, citizenship ideas, and careful explanation.\n\nBy the end of this topic, you should be able to:\n- explain and apply globalisation and development in a real learning situation\n\nInquiry questions:\n- How can globalisation and development help you solve a real problem?\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-002:opener:visual-1:planned",
+        "TZA-FORM-IV-history-topic-002:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-2"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p014",
+      "title": "Globalisation And Development: Learn",
+      "content": "Globalisation And Development becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Globalisation And Development\n- Globalisation\n- Development\n- idea\n- skill\n- example\n- practice\n- correction",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 88,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-002:learn:visual-1:planned",
+        "TZA-FORM-IV-history-topic-002:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-2"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p015",
+      "title": "Globalisation And Development: Worked Example",
+      "content": "Evidence model for Globalisation And Development: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from History.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 57,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-002:example:visual-1:planned",
+        "TZA-FORM-IV-history-topic-002:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-2"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p016",
+      "title": "Globalisation And Development: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Globalisation And Development. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Globalisation And Development\n- Globalisation\n- Development\n- idea\n- skill\n- example\n- practice\n- correction\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Globalisation And Development without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-002:vocabulary:visual-1:planned",
+        "TZA-FORM-IV-history-topic-002:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-2"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p017",
+      "title": "Globalisation And Development: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a Tanzania map, community, citizenship, culture, environment, or heritage example for Globalisation And Development.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-002:activity:visual-1:planned",
+        "TZA-FORM-IV-history-topic-002:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-2"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p018",
+      "title": "Globalisation And Development: Practice And Correction",
+      "content": "Practice for Globalisation And Development:\n\n1. Use an example from your community or country to explain: explain and apply globalisation and development in a real learning situation.\n\nCorrection check:\n- answer uses a real example\n- reasoning is clear\n- work is checked\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to globalisation and development and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 83,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-002:practice:visual-1:planned",
+        "TZA-FORM-IV-history-topic-002:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-2"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p019",
+      "title": "Globalisation And Development: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Globalisation And Development.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-002:remediation:visual-1:planned",
+        "TZA-FORM-IV-history-topic-002:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-2"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p020",
+      "title": "Globalisation And Development: Outcome Check",
+      "content": "Show that you can explain and apply globalisation and development in a real learning situation.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 99,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-002:assessment:visual-1:planned",
+        "TZA-FORM-IV-history-topic-002:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-2"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p021",
+      "title": "Conflict Peace And International Relations: Lesson Opener",
+      "content": "Learning focus: Conflict Peace And International Relations\n\nCountry link: a Tanzania map, community, citizenship, culture, environment, or heritage example for Conflict Peace And International Relations.\n\nProgression focus: prepare for assessment and real-world use through extended tasks and correction; use sources, timelines, citizenship ideas, and careful explanation.\n\nBy the end of this topic, you should be able to:\n- explain and apply conflict peace and international relations in a real learning situation\n\nInquiry questions:\n- How can conflict peace and international relations help you solve a real problem?\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-003:opener:visual-1:planned",
+        "TZA-FORM-IV-history-topic-003:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-3"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p022",
+      "title": "Conflict Peace And International Relations: Learn",
+      "content": "Conflict Peace And International Relations becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Conflict Peace And International Relations\n- Conflict\n- Peace\n- International\n- Relations\n- idea\n- skill\n- example",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-003:learn:visual-1:planned",
+        "TZA-FORM-IV-history-topic-003:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-3"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p023",
+      "title": "Conflict Peace And International Relations: Worked Example",
+      "content": "Evidence model for Conflict Peace And International Relations: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from History.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 59,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-003:example:visual-1:planned",
+        "TZA-FORM-IV-history-topic-003:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-3"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p024",
+      "title": "Conflict Peace And International Relations: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Conflict Peace And International Relations. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Conflict Peace And International Relations\n- Conflict\n- Peace\n- International\n- Relations\n- idea\n- skill\n- example\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Conflict Peace And International Relations without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-003:vocabulary:visual-1:planned",
+        "TZA-FORM-IV-history-topic-003:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-3"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p025",
+      "title": "Conflict Peace And International Relations: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a Tanzania map, community, citizenship, culture, environment, or heritage example for Conflict Peace And International Relations.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-003:activity:visual-1:planned",
+        "TZA-FORM-IV-history-topic-003:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-3"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p026",
+      "title": "Conflict Peace And International Relations: Practice And Correction",
+      "content": "Practice for Conflict Peace And International Relations:\n\n1. Use an example from your community or country to explain: explain and apply conflict peace and international relations in a real learning situation.\n\nCorrection check:\n- answer uses a real example\n- reasoning is clear\n- work is checked\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to conflict peace and international relations and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 89,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-003:practice:visual-1:planned",
+        "TZA-FORM-IV-history-topic-003:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-3"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p027",
+      "title": "Conflict Peace And International Relations: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Conflict Peace And International Relations.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-003:remediation:visual-1:planned",
+        "TZA-FORM-IV-history-topic-003:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-3"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p028",
+      "title": "Conflict Peace And International Relations: Outcome Check",
+      "content": "Show that you can explain and apply conflict peace and international relations in a real learning situation.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-003:assessment:visual-1:planned",
+        "TZA-FORM-IV-history-topic-003:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-3"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p029",
+      "title": "Constitution Citizenship And Accountability: Lesson Opener",
+      "content": "Learning focus: Constitution Citizenship And Accountability\n\nCountry link: a Tanzania map, community, citizenship, culture, environment, or heritage example for Constitution Citizenship And Accountability.\n\nProgression focus: prepare for assessment and real-world use through extended tasks and correction; use sources, timelines, citizenship ideas, and careful explanation.\n\nBy the end of this topic, you should be able to:\n- explain and apply constitution citizenship and accountability in a real learning situation\n\nInquiry questions:\n- How can constitution citizenship and accountability help you solve a real problem?\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 99,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-004:opener:visual-1:planned",
+        "TZA-FORM-IV-history-topic-004:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-4"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p030",
+      "title": "Constitution Citizenship And Accountability: Learn",
+      "content": "Constitution Citizenship And Accountability becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Constitution Citizenship And Accountability\n- Constitution\n- Citizenship\n- Accountability\n- idea\n- skill\n- example\n- practice",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-004:learn:visual-1:planned",
+        "TZA-FORM-IV-history-topic-004:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-4"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p031",
+      "title": "Constitution Citizenship And Accountability: Worked Example",
+      "content": "Evidence model for Constitution Citizenship And Accountability: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from History.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 58,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-004:example:visual-1:planned",
+        "TZA-FORM-IV-history-topic-004:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-4"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p032",
+      "title": "Constitution Citizenship And Accountability: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Constitution Citizenship And Accountability. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Constitution Citizenship And Accountability\n- Constitution\n- Citizenship\n- Accountability\n- idea\n- skill\n- example\n- practice\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Constitution Citizenship And Accountability without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-004:vocabulary:visual-1:planned",
+        "TZA-FORM-IV-history-topic-004:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-4"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p033",
+      "title": "Constitution Citizenship And Accountability: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a Tanzania map, community, citizenship, culture, environment, or heritage example for Constitution Citizenship And Accountability.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-004:activity:visual-1:planned",
+        "TZA-FORM-IV-history-topic-004:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-4"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p034",
+      "title": "Constitution Citizenship And Accountability: Practice And Correction",
+      "content": "Practice for Constitution Citizenship And Accountability:\n\n1. Use an example from your community or country to explain: explain and apply constitution citizenship and accountability in a real learning situation.\n\nCorrection check:\n- answer uses a real example\n- reasoning is clear\n- work is checked\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to constitution citizenship and accountability and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 86,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-004:practice:visual-1:planned",
+        "TZA-FORM-IV-history-topic-004:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-4"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p035",
+      "title": "Constitution Citizenship And Accountability: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Constitution Citizenship And Accountability.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-004:remediation:visual-1:planned",
+        "TZA-FORM-IV-history-topic-004:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-4"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p036",
+      "title": "Constitution Citizenship And Accountability: Outcome Check",
+      "content": "Show that you can explain and apply constitution citizenship and accountability in a real learning situation.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 100,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-004:assessment:visual-1:planned",
+        "TZA-FORM-IV-history-topic-004:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-4"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p037",
+      "title": "Economic Policies And Social Change: Lesson Opener",
+      "content": "Learning focus: Economic Policies And Social Change\n\nCountry link: a Tanzania map, community, citizenship, culture, environment, or heritage example for Economic Policies And Social Change.\n\nProgression focus: prepare for assessment and real-world use through extended tasks and correction; use sources, timelines, citizenship ideas, and careful explanation.\n\nBy the end of this topic, you should be able to:\n- explain and apply economic policies and social change in a real learning situation\n\nInquiry questions:\n- How can economic policies and social change help you solve a real problem?\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-005:opener:visual-1:planned",
+        "TZA-FORM-IV-history-topic-005:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-5"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p038",
+      "title": "Economic Policies And Social Change: Learn",
+      "content": "Economic Policies And Social Change becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Economic Policies And Social Change\n- Economic\n- Policies\n- Social\n- Change\n- idea\n- skill\n- example",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-005:learn:visual-1:planned",
+        "TZA-FORM-IV-history-topic-005:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-5"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p039",
+      "title": "Economic Policies And Social Change: Worked Example",
+      "content": "Evidence model for Economic Policies And Social Change: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from History.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 59,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-005:example:visual-1:planned",
+        "TZA-FORM-IV-history-topic-005:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-5"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p040",
+      "title": "Economic Policies And Social Change: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Economic Policies And Social Change. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Economic Policies And Social Change\n- Economic\n- Policies\n- Social\n- Change\n- idea\n- skill\n- example\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Economic Policies And Social Change without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-005:vocabulary:visual-1:planned",
+        "TZA-FORM-IV-history-topic-005:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-5"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p041",
+      "title": "Economic Policies And Social Change: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a Tanzania map, community, citizenship, culture, environment, or heritage example for Economic Policies And Social Change.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-005:activity:visual-1:planned",
+        "TZA-FORM-IV-history-topic-005:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-5"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p042",
+      "title": "Economic Policies And Social Change: Practice And Correction",
+      "content": "Practice for Economic Policies And Social Change:\n\n1. Use an example from your community or country to explain: explain and apply economic policies and social change in a real learning situation.\n\nCorrection check:\n- answer uses a real example\n- reasoning is clear\n- work is checked\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to economic policies and social change and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 89,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-005:practice:visual-1:planned",
+        "TZA-FORM-IV-history-topic-005:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-5"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p043",
+      "title": "Economic Policies And Social Change: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Economic Policies And Social Change.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-005:remediation:visual-1:planned",
+        "TZA-FORM-IV-history-topic-005:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-5"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p044",
+      "title": "Economic Policies And Social Change: Outcome Check",
+      "content": "Show that you can explain and apply economic policies and social change in a real learning situation.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-005:assessment:visual-1:planned",
+        "TZA-FORM-IV-history-topic-005:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-5"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p045",
+      "title": "Historical Research And Source Evaluation: Lesson Opener",
+      "content": "Learning focus: Historical Research And Source Evaluation\n\nCountry link: a Tanzania map, community, citizenship, culture, environment, or heritage example for Historical Research And Source Evaluation.\n\nProgression focus: prepare for assessment and real-world use through extended tasks and correction; use sources, timelines, citizenship ideas, and careful explanation.\n\nBy the end of this topic, you should be able to:\n- explain and apply historical research and source evaluation in a real learning situation\n\nInquiry questions:\n- How can historical research and source evaluation help you solve a real problem?\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-006:opener:visual-1:planned",
+        "TZA-FORM-IV-history-topic-006:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-6"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p046",
+      "title": "Historical Research And Source Evaluation: Learn",
+      "content": "Historical Research And Source Evaluation becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Historical Research And Source Evaluation\n- Historical\n- Research\n- Source\n- Evaluation\n- idea\n- skill\n- example",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-006:learn:visual-1:planned",
+        "TZA-FORM-IV-history-topic-006:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-6"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p047",
+      "title": "Historical Research And Source Evaluation: Worked Example",
+      "content": "Evidence model for Historical Research And Source Evaluation: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from History.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 59,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-006:example:visual-1:planned",
+        "TZA-FORM-IV-history-topic-006:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-6"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p048",
+      "title": "Historical Research And Source Evaluation: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Historical Research And Source Evaluation. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Historical Research And Source Evaluation\n- Historical\n- Research\n- Source\n- Evaluation\n- idea\n- skill\n- example\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Historical Research And Source Evaluation without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-006:vocabulary:visual-1:planned",
+        "TZA-FORM-IV-history-topic-006:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-6"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p049",
+      "title": "Historical Research And Source Evaluation: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a Tanzania map, community, citizenship, culture, environment, or heritage example for Historical Research And Source Evaluation.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-006:activity:visual-1:planned",
+        "TZA-FORM-IV-history-topic-006:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-6"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p050",
+      "title": "Historical Research And Source Evaluation: Practice And Correction",
+      "content": "Practice for Historical Research And Source Evaluation:\n\n1. Use an example from your community or country to explain: explain and apply historical research and source evaluation in a real learning situation.\n\nCorrection check:\n- answer uses a real example\n- reasoning is clear\n- work is checked\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to historical research and source evaluation and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 89,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-006:practice:visual-1:planned",
+        "TZA-FORM-IV-history-topic-006:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-6"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p051",
+      "title": "Historical Research And Source Evaluation: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Historical Research And Source Evaluation.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-006:remediation:visual-1:planned",
+        "TZA-FORM-IV-history-topic-006:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-6"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p052",
+      "title": "Historical Research And Source Evaluation: Outcome Check",
+      "content": "Show that you can explain and apply historical research and source evaluation in a real learning situation.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-006:assessment:visual-1:planned",
+        "TZA-FORM-IV-history-topic-006:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-6"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p053",
+      "title": "Revision Of Major Themes: Lesson Opener",
+      "content": "Learning focus: Revision Of Major Themes\n\nCountry link: a Tanzania map, community, citizenship, culture, environment, or heritage example for Revision Of Major Themes.\n\nProgression focus: prepare for assessment and real-world use through extended tasks and correction; use sources, timelines, citizenship ideas, and careful explanation.\n\nBy the end of this topic, you should be able to:\n- explain and apply revision of major themes in a real learning situation\n\nInquiry questions:\n- How can revision of major themes help you solve a real problem?\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 99,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-007:opener:visual-1:planned",
+        "TZA-FORM-IV-history-topic-007:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-7"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p054",
+      "title": "Revision Of Major Themes: Learn",
+      "content": "Revision Of Major Themes becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Revision Of Major Themes\n- Revision\n- Major\n- Themes\n- idea\n- skill\n- example\n- practice",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 90,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-007:learn:visual-1:planned",
+        "TZA-FORM-IV-history-topic-007:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-7"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p055",
+      "title": "Revision Of Major Themes: Worked Example",
+      "content": "Evidence model for Revision Of Major Themes: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from History.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 58,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-007:example:visual-1:planned",
+        "TZA-FORM-IV-history-topic-007:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-7"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p056",
+      "title": "Revision Of Major Themes: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Revision Of Major Themes. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Revision Of Major Themes\n- Revision\n- Major\n- Themes\n- idea\n- skill\n- example\n- practice\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Revision Of Major Themes without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-007:vocabulary:visual-1:planned",
+        "TZA-FORM-IV-history-topic-007:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-7"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p057",
+      "title": "Revision Of Major Themes: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a Tanzania map, community, citizenship, culture, environment, or heritage example for Revision Of Major Themes.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-007:activity:visual-1:planned",
+        "TZA-FORM-IV-history-topic-007:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-7"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p058",
+      "title": "Revision Of Major Themes: Practice And Correction",
+      "content": "Practice for Revision Of Major Themes:\n\n1. Use an example from your community or country to explain: explain and apply revision of major themes in a real learning situation.\n\nCorrection check:\n- answer uses a real example\n- reasoning is clear\n- work is checked\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to revision of major themes and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 86,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-007:practice:visual-1:planned",
+        "TZA-FORM-IV-history-topic-007:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-7"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p059",
+      "title": "Revision Of Major Themes: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Revision Of Major Themes.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-007:remediation:visual-1:planned",
+        "TZA-FORM-IV-history-topic-007:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-7"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p060",
+      "title": "Revision Of Major Themes: Outcome Check",
+      "content": "Show that you can explain and apply revision of major themes in a real learning situation.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 100,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-007:assessment:visual-1:planned",
+        "TZA-FORM-IV-history-topic-007:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-7"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p061",
+      "title": "Form IV History Examination Project: Lesson Opener",
+      "content": "Learning focus: Form IV History Examination Project\n\nCountry link: a Tanzania map, community, citizenship, culture, environment, or heritage example for Form IV History Examination Project.\n\nProgression focus: prepare for assessment and real-world use through extended tasks and correction; use sources, timelines, citizenship ideas, and careful explanation.\n\nBy the end of this topic, you should be able to:\n- explain and apply form iv history examination project in a real learning situation\n\nInquiry questions:\n- How can form iv history examination project help you solve a real problem?\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-008:opener:visual-1:planned",
+        "TZA-FORM-IV-history-topic-008:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-8"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p062",
+      "title": "Form IV History Examination Project: Learn",
+      "content": "Form IV History Examination Project becomes easier when you connect the idea to a real situation, name the important vocabulary, and practise one step at a time.\n\nLearning routine:\n1. Look at a real situation in Tanzania.\n2. Name the exact idea or skill.\n3. Explain it in simple words.\n4. Work through one model example.\n5. Try a similar task independently.\n6. Correct your answer using the success criteria.\n\nKey words:\n- Form IV History Examination Project\n- Form\n- History\n- Examination\n- Project\n- idea\n- skill\n- example",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-008:learn:visual-1:planned",
+        "TZA-FORM-IV-history-topic-008:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-8"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p063",
+      "title": "Form IV History Examination Project: Worked Example",
+      "content": "Evidence model for Form IV History Examination Project: Teach a real example clearly.\n\n1. Name the place, group, object, source, skill, or issue.\n2. Give two facts or observations from the lesson.\n3. Explain why the example matters in Tanzania.\n4. Add one responsible action, improvement, or reflection.\n5. Check that your response uses the exact vocabulary from History.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 59,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-008:example:visual-1:planned",
+        "TZA-FORM-IV-history-topic-008:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-8"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p064",
+      "title": "Form IV History Examination Project: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Form IV History Examination Project. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Form IV History Examination Project\n- Form\n- History\n- Examination\n- Project\n- idea\n- skill\n- example\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Form IV History Examination Project without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-008:vocabulary:visual-1:planned",
+        "TZA-FORM-IV-history-topic-008:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-8"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p065",
+      "title": "Form IV History Examination Project: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a Tanzania map, community, citizenship, culture, environment, or heritage example for Form IV History Examination Project.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-008:activity:visual-1:planned",
+        "TZA-FORM-IV-history-topic-008:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-8"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p066",
+      "title": "Form IV History Examination Project: Practice And Correction",
+      "content": "Practice for Form IV History Examination Project:\n\n1. Use an example from your community or country to explain: explain and apply form iv history examination project in a real learning situation.\n\nCorrection check:\n- answer uses a real example\n- reasoning is clear\n- work is checked\n\nReflection: What was clear? What needs more practice? What question will you ask your teacher or study partner?\n\nHome link: Ask someone at home for one safe example related to form iv history examination project and write two useful sentences about it.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 89,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-008:practice:visual-1:planned",
+        "TZA-FORM-IV-history-topic-008:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-8"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p067",
+      "title": "Form IV History Examination Project: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Form IV History Examination Project.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-008:remediation:visual-1:planned",
+        "TZA-FORM-IV-history-topic-008:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-8"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p068",
+      "title": "Form IV History Examination Project: Outcome Check",
+      "content": "Show that you can explain and apply form iv history examination project in a real learning situation.\n\nBefore answering, reread the topic title and choose the exact vocabulary, method, evidence, tool, diagram, or example that fits this outcome.\n\n1. State the main idea in one clear sentence.\n2. Give one example, method, source, observation, or piece of evidence from this topic.\n3. Complete a short task that applies the idea.\n4. Check your answer against the success criteria.\n5. Write one correction or next step.\n\nSuccess criteria:\n- answer uses a real example\n- reasoning is clear\n- work is checked",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-008:assessment:visual-1:planned",
+        "TZA-FORM-IV-history-topic-008:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-8"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p069",
+      "title": "Contemporary Tanzania And Africa: Review Clinic 1",
+      "content": "Use this review clinic to strengthen History without copying earlier answers.\n\n1. Choose one idea from Contemporary Tanzania And Africa that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 77,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-001:review:visual-1:planned",
+        "TZA-FORM-IV-history-topic-001:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-1"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p070",
+      "title": "Globalisation And Development: Review Clinic 2",
+      "content": "Use this review clinic to strengthen History without copying earlier answers.\n\n1. Choose one idea from Globalisation And Development that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 76,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-002:review:visual-1:planned",
+        "TZA-FORM-IV-history-topic-002:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-2"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p071",
+      "title": "Conflict Peace And International Relations: Review Clinic 3",
+      "content": "Use this review clinic to strengthen History without copying earlier answers.\n\n1. Choose one idea from Conflict Peace And International Relations that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 78,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-003:review:visual-1:planned",
+        "TZA-FORM-IV-history-topic-003:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-3"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p072",
+      "title": "Constitution Citizenship And Accountability: Review Clinic 4",
+      "content": "Use this review clinic to strengthen History without copying earlier answers.\n\n1. Choose one idea from Constitution Citizenship And Accountability that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 77,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-004:review:visual-1:planned",
+        "TZA-FORM-IV-history-topic-004:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-4"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p073",
+      "title": "Contemporary Tanzania And Africa: Application Workshop 1",
+      "content": "Application workshop 1 for Contemporary Tanzania And Africa.\n\nGrade move: prepare for assessment and real-world use through extended tasks and correction; use sources, timelines, citizenship ideas, and careful explanation.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 120,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-001:application-workshop:visual-1:planned",
+        "TZA-FORM-IV-history-topic-001:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-1"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p074",
+      "title": "Globalisation And Development: Application Workshop 2",
+      "content": "Application workshop 2 for Globalisation And Development.\n\nGrade move: prepare for assessment and real-world use through extended tasks and correction; use sources, timelines, citizenship ideas, and careful explanation.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 119,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-002:application-workshop:visual-1:planned",
+        "TZA-FORM-IV-history-topic-002:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-2"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p075",
+      "title": "Conflict Peace And International Relations: Application Workshop 3",
+      "content": "Application workshop 3 for Conflict Peace And International Relations.\n\nGrade move: prepare for assessment and real-world use through extended tasks and correction; use sources, timelines, citizenship ideas, and careful explanation.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-003:application-workshop:visual-1:planned",
+        "TZA-FORM-IV-history-topic-003:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-3"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p076",
+      "title": "Constitution Citizenship And Accountability: Application Workshop 4",
+      "content": "Application workshop 4 for Constitution Citizenship And Accountability.\n\nGrade move: prepare for assessment and real-world use through extended tasks and correction; use sources, timelines, citizenship ideas, and careful explanation.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 120,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-004:application-workshop:visual-1:planned",
+        "TZA-FORM-IV-history-topic-004:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-4"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p077",
+      "title": "Economic Policies And Social Change: Application Workshop 5",
+      "content": "Application workshop 5 for Economic Policies And Social Change.\n\nGrade move: prepare for assessment and real-world use through extended tasks and correction; use sources, timelines, citizenship ideas, and careful explanation.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-005:application-workshop:visual-1:planned",
+        "TZA-FORM-IV-history-topic-005:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-5"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p078",
+      "title": "Historical Research And Source Evaluation: Application Workshop 6",
+      "content": "Application workshop 6 for Historical Research And Source Evaluation.\n\nGrade move: prepare for assessment and real-world use through extended tasks and correction; use sources, timelines, citizenship ideas, and careful explanation.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-006:application-workshop:visual-1:planned",
+        "TZA-FORM-IV-history-topic-006:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-6"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p079",
+      "title": "Revision Of Major Themes: Application Workshop 7",
+      "content": "Application workshop 7 for Revision Of Major Themes.\n\nGrade move: prepare for assessment and real-world use through extended tasks and correction; use sources, timelines, citizenship ideas, and careful explanation.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 120,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-007:application-workshop:visual-1:planned",
+        "TZA-FORM-IV-history-topic-007:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-7"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p080",
+      "title": "Form IV History Examination Project: Application Workshop 8",
+      "content": "Application workshop 8 for Form IV History Examination Project.\n\nGrade move: prepare for assessment and real-world use through extended tasks and correction; use sources, timelines, citizenship ideas, and careful explanation.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-008:application-workshop:visual-1:planned",
+        "TZA-FORM-IV-history-topic-008:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-8"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p081",
+      "title": "Contemporary Tanzania And Africa: Application Workshop 9",
+      "content": "Application workshop 9 for Contemporary Tanzania And Africa.\n\nGrade move: prepare for assessment and real-world use through extended tasks and correction; use sources, timelines, citizenship ideas, and careful explanation.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 120,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-001:application-workshop:visual-1:planned",
+        "TZA-FORM-IV-history-topic-001:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-1"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p082",
+      "title": "Globalisation And Development: Application Workshop 10",
+      "content": "Application workshop 10 for Globalisation And Development.\n\nGrade move: prepare for assessment and real-world use through extended tasks and correction; use sources, timelines, citizenship ideas, and careful explanation.\n\nUse this page to make the topic useful beyond one short answer.\n\n1. Name the exact idea, skill, value, process, source, tool, or example from this topic.\n2. Connect it to a real situation in Tanzania school, home, community, environment, sport, art, market, or fieldwork.\n3. Explain the steps, evidence, vocabulary, or choices needed.\n4. Complete a clear response, table, drawing, plan, paragraph, performance note, or checklist.\n5. Ask for feedback and improve one part.\n6. Write what the improved answer now shows.\n\nExtension: create one question another learner can answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 119,
+      "imageRefs": [
+        "TZA-FORM-IV-history-topic-002:application-workshop:visual-1:planned",
+        "TZA-FORM-IV-history-topic-002:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iv-history-2"
+      ],
+      "unitIds": [
+        "fallback-form-iv-history-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iv-history-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iv-history-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p083",
+      "title": "Glossary",
+      "content": "Use this glossary to revise important words in History.\n\n- Contemporary Tanzania And Africa: Explain this term using an example from the book, your school, or your community.\n- Globalisation And Development: Explain this term using an example from the book, your school, or your community.\n- Conflict Peace And International Relations: Explain this term using an example from the book, your school, or your community.\n- Constitution Citizenship And Accountability: Explain this term using an example from the book, your school, or your community.\n- Economic Policies And Social Change: Explain this term using an example from the book, your school, or your community.\n- Historical Research And Source Evaluation: Explain this term using an example from the book, your school, or your community.\n- Revision Of Major Themes: Explain this term using an example from the book, your school, or your community.\n- Form IV History Examination Project: Explain this term using an example from the book, your school, or your community.\n\nAdd five more words from your lessons and write your own meanings.",
+      "pageType": "glossary",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 176,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p084",
+      "title": "Answer And Teacher Notes",
+      "content": "A strong History answer responds to the exact task, uses correct vocabulary, gives a clear example or evidence, and shows correction after feedback. For practical work, name materials, safety, process, quality checks, peer feedback, and one improvement made after review.",
+      "pageType": "answer-notes",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 40,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iv-history-p085",
+      "title": "Final Project",
+      "content": "Create a final project for History that shows what you can now do independently.\n\nYour project must include:\n1. A clear title.\n2. A real-life problem, question, text, performance, investigation, design, or worked task.\n3. Evidence from at least three lessons in this book.\n4. A drawing, table, map, chart, model, dialogue, paragraph, performance plan, practical product, or worked solution.\n5. A correction note showing one improvement after feedback.\n6. A short reflection explaining what you learned, what was difficult, and what you will practise next.\n\nPresentation check: keep the work neat, label important parts, use correct vocabulary, and be ready to explain your choices to a classmate or teacher.",
+      "pageType": "project",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 110,
+      "imageRefs": []
+    }
+  ]
+}

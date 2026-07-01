@@ -4,6 +4,7 @@ import { Check, ChevronRight } from 'lucide-react-native';
 import ReactTestRenderer, { act } from 'react-test-renderer';
 
 import { SubjectGrid, SubjectSelector } from '../src/components/SubjectGrid';
+import { StudentHeader } from '../src/components/StudentHeader';
 import { SubscriptionCheckoutModal } from '../src/components/SubscriptionCheckoutModal';
 import { INITIAL_ASSIGNMENTS, SUBJECTS } from '../src/data/mockData';
 import { DashboardScreen } from '../src/screens/DashboardScreen';
@@ -120,6 +121,8 @@ const schools: SchoolData[] = [
   },
 ];
 const kitabuGrade6SchoolLabel = 'Choose Kitabu Demo School, Nairobi, 40 Grade 6 learners';
+// Teachers pick their school before a grade is known, so the roster shows the school total.
+const kitabuTeacherSchoolLabel = 'Choose Kitabu Demo School, Nairobi, 120 learners';
 const kitabuGrade8SchoolLabel = 'Choose Kitabu Demo School, Nairobi, No Grade 8 learners yet';
 const otherGrade6SchoolLabel = 'Choose Other Demo School, Mombasa, 20 Grade 6 learners';
 const defaultOnboardingSubjectIds = SUBJECTS.slice(0, 5).map(subject => subject.id);
@@ -172,11 +175,19 @@ async function pressAutoAdvanceChoice(root: ReactTestRenderer.ReactTestInstance,
   });
 }
 
+async function openCountyPicker(root: ReactTestRenderer.ReactTestInstance) {
+  await act(() => {
+    root.findByProps({ accessibilityLabel: 'County selector' }).props.onPress();
+  });
+}
+
 async function selectCounty(root: ReactTestRenderer.ReactTestInstance, county = 'Nairobi City') {
+  await openCountyPicker(root);
   await act(() => {
     root.findByProps({ accessibilityLabel: `Select ${county} county` }).props.onPress();
   });
 }
+
 
 test('mock homework includes sample assignments for testing', () => {
   expect(INITIAL_ASSIGNMENTS).toHaveLength(5);
@@ -248,26 +259,23 @@ test('dashboard subject grid opens plus selector and saves selected subjects', a
   );
 });
 
-test('student dashboard shows all supported grades and updates selection', async () => {
+test('student dashboard grade selector is a header dropdown and updates selection', async () => {
   const onSelectGrade = jest.fn();
   let renderer: ReactTestRenderer.ReactTestRenderer;
 
   await act(() => {
     renderer = ReactTestRenderer.create(
-      <DashboardScreen
-        banner={null}
-        homeworkNotificationCount={0}
+      <StudentHeader
         currentGrade="Grade 6"
-        subjects={SUBJECTS.slice(0, 5)}
-        allSubjects={SUBJECTS}
-        selectedSubjectIds={SUBJECTS.slice(0, 5).map(subject => subject.id)}
         onSelectGrade={onSelectGrade}
-        onOpenSubject={jest.fn()}
-        onSaveSubjectSelection={jest.fn()}
-        onOpenFeature={jest.fn()}
-        onBannerAction={jest.fn()}
+        onOpenProfile={jest.fn()}
+        onOpenNotifications={jest.fn()}
       />,
     );
+  });
+
+  await act(() => {
+    renderer!.root.findByProps({ accessibilityLabel: 'Select learning grade' }).props.onPress();
   });
 
   const text = renderedText(renderer!.root);
@@ -513,6 +521,24 @@ test('onboarding full intro captures profile details before account setup', asyn
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Choose Amina voice' }).props.accessibilityState).toEqual({
     checked: false,
   });
+  // Voice step gates Continue until a voice (or text-only) is chosen.
+  expect(
+    renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.accessibilityState,
+  ).toEqual({ disabled: true, busy: false });
+  expect(StyleSheet.flatten(renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.style)).toEqual(
+    expect.objectContaining({
+      elevation: 0,
+      shadowOpacity: 0,
+      shadowRadius: 0,
+    }),
+  );
+
+  await act(() => {
+    renderer!.root.findByProps({ accessibilityLabel: 'Choose Zawadi voice' }).props.onPress();
+  });
+  expect(
+    renderer!.root.findByProps({ accessibilityLabel: 'Choose Zawadi voice' }).props.accessibilityState,
+  ).toEqual({ checked: true });
   expect(
     renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.accessibilityState,
   ).toEqual({ disabled: false, busy: false });
@@ -525,13 +551,6 @@ test('onboarding full intro captures profile details before account setup', asyn
       shadowRadius: 16,
     }),
   );
-
-  await act(() => {
-    renderer!.root.findByProps({ accessibilityLabel: 'Choose Zawadi voice' }).props.onPress();
-  });
-  expect(
-    renderer!.root.findByProps({ accessibilityLabel: 'Choose Zawadi voice' }).props.accessibilityState,
-  ).toEqual({ checked: true });
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Selected voice name' }).props.children).toBe('Zawadi');
   expect(renderer!.root.findByProps({ testID: 'voice-slider-dot-Zawadi' }).props.style).toEqual(
     expect.arrayContaining([expect.objectContaining({ backgroundColor: '#E07B00' })]),
@@ -768,8 +787,8 @@ test('onboarding full intro captures profile details before account setup', asyn
   expect(renderedText(renderer!.root)).toContain('\uD83D\uDE0C');
   expect(renderedText(renderer!.root)).toContain('NA KITABU AI');
   expect(renderedText(renderer!.root)).toContain('Mpango wazi wa kustudy');
-  expect(renderedText(renderer!.root)).toContain('Uko tayari - unajua yaliyoulizwa KNEC');
-  expect(renderedText(renderer!.root)).toContain('Unalala amani kabla ya mtihani');
+  expect(renderedText(renderer!.root)).toContain('Karatasi za marudio na maswali yanayolingana na CBC');
+  expect(renderedText(renderer!.root)).toContain('Uchambuzi unaoonyesha udhaifu wako na kuurekebisha');
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Onboarding progress' }).props.accessibilityValue).toEqual({
     max: 25,
     min: 1,
@@ -840,22 +859,20 @@ test('onboarding full intro captures profile details before account setup', asyn
   expect(renderer!.root.findAllByProps({ testID: 'onboarding-footer' })).toHaveLength(0);
   await pressAutoAdvanceChoice(renderer!.root, 'Choose achievement Shangilia mitihani inayokuja.');
 
-  expect(renderedText(renderer!.root)).toContain('Habari njema! \uD83D\uDC47');
-  expect(renderedText(renderer!.root)).toContain('Si wewe peke yako anayetaka kuboresha alama.');
-  expect(renderedText(renderer!.root)).toContain('Maboresho ya hadi');
-  expect(renderedText(renderer!.root)).toContain('Daraja 2');
-  expect(renderedText(renderer!.root)).toContain('baada ya miezi 3 na Kitabu AI');
-  expect(renderedText(renderer!.root)).toContain('Daraja lako sasa');
-  expect(renderedText(renderer!.root)).toContain('Daraja na Kitabu AI');
-  expect(renderedText(renderer!.root)).toContain('mara mbili zaidi');
-  expect(renderedText(renderer!.root)).toContain('EdTech Africa Research, 2024');
-  expect(
-    renderer!.root.findByProps({ testID: 'current-grade-proof-fill' }).props.style,
-  ).toEqual(expect.arrayContaining([expect.objectContaining({ width: '38%' })]));
-  expect(
-    renderer!.root.findByProps({ testID: 'kitabu-grade-proof-fill' }).props.style,
-  ).toEqual(expect.arrayContaining([expect.objectContaining({ width: '72%' })]));
-  expect(renderedText(renderer!.root)).toContain('Tufanikishe hili \uD83D\uDCAA');
+  expect(renderedText(renderer!.root)).toContain('Mpango wa kuongeza alama');
+  expect(renderedText(renderer!.root)).toContain('+2');
+  expect(renderedText(renderer!.root)).toContain('points');
+  expect(renderedText(renderer!.root)).toContain('muhula huu');
+  expect(renderedText(renderer!.root)).toContain('Mathematics');
+  expect(renderedText(renderer!.root)).toContain('English');
+  expect(renderedText(renderer!.root)).toContain('Njia yako ya kuboresha');
+  expect(renderedText(renderer!.root)).toContain('Maendeleo ya kawaida ukifanya mazoezi kila siku');
+  expect(renderedText(renderer!.root)).toContain('Rekebisha mada dhaifu');
+  expect(renderedText(renderer!.root)).toContain('Mazoezi ya CBC');
+  expect(renderedText(renderer!.root)).toContain('Vidokezo smart');
+  expect(renderedText(renderer!.root)).toContain('Lengo lako limegeuzwa kuwa mpango wa kila siku.');
+  expect(renderedText(renderer!.root)).toContain('Anza kuongeza alama');
+  expect(renderer!.root.findByProps({ accessibilityLabel: 'upper-primary girl student studying in a bright studio scene' })).toBeTruthy();
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Onboarding progress' }).props.accessibilityValue).toEqual({
     max: 25,
     min: 1,
@@ -986,7 +1003,7 @@ test('onboarding full intro captures profile details before account setup', asyn
 
   expect(renderedText(renderer!.root)).toContain('Nia, Profaili yako ya masomo iko tayari!');
   expect(renderedText(renderer!.root)).toContain('Malengo ya kufikiwa');
-  expect(renderedText(renderer!.root)).toContain('\uD83C\uDDF0\uD83C\uDDEA Kenya \u00B7 Grade 6');
+  expect(renderedText(renderer!.root)).toContain('Grade 6 \u00B7 2 masomo \u00B7 Kenya CBC');
   expect(renderedText(renderer!.root)).toContain('4.89');
   expect(renderedText(renderer!.root)).toContain('Kitabu ilinisaidia kupanda daraja moja kwa term.');
   expect(renderedText(renderer!.root)).toContain('Wanjiru - Grade 8');
@@ -1020,7 +1037,7 @@ test('onboarding full intro captures profile details before account setup', asyn
   });
 
   expect(renderedText(renderer!.root)).toContain('Hifadhi akaunti yako');
-  expect(renderedText(renderer!.root)).toContain('Jiandikishe kuendelea na mpango wako wa masomo.');
+  expect(renderedText(renderer!.root)).toContain('Jiandikishe kuendelea na mpango wako wa masomo');
   expect(renderer!.root.findByProps({ testID: 'onboarding-mascot-motion' }).props.accessibilityLabel).toBe(
     'Rafiki the Lion mascot, cool pose',
   );
@@ -1212,7 +1229,8 @@ test('onboarding need intro uses teacher and parent priorities', async () => {
       name: 'Teacher Amina',
       detailTitle: 'Which grades do you teach?',
       totalSteps: 20,
-      detailProgress: 'Step 9 of 20, Classes',
+      // Country (9) and county/school (10) now precede grade selection (11).
+      detailProgress: 'Step 11 of 20, Classes',
     },
     {
       role: 'parent' as const,
@@ -1224,9 +1242,9 @@ test('onboarding need intro uses teacher and parent priorities', async () => {
       namePlaceholder: 'Your name...',
       nameSubText: 'Rafiki will personalise the experience for your family.',
       name: 'Parent Kamau',
-      detailTitle: 'Tell me about your student',
-      totalSteps: 19,
-      detailProgress: 'Step 9 of 19, Child',
+      detailTitle: 'Tell me about your children',
+      totalSteps: 20,
+      detailProgress: 'Step 11 of 20, Children',
     },
   ];
 
@@ -1259,6 +1277,9 @@ test('onboarding need intro uses teacher and parent priorities', async () => {
       renderer!.root,
       `Selected ${expectation.role === 'teacher' ? 'Teacher' : 'Parent'} role`,
     );
+    await act(() => {
+      renderer!.root.findByProps({ accessibilityLabel: 'Use text only' }).props.onPress();
+    });
     await act(() => {
       renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
     });
@@ -1304,18 +1325,27 @@ test('onboarding need intro uses teacher and parent priorities', async () => {
       text: `Step 8 of ${expectation.totalSteps}, Gender`,
     });
 
-    await act(() => {
-      renderer!.root.findByProps({ accessibilityLabel: 'Select Male' }).props.onPress();
-    });
-    await act(() => {
-      renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
-    });
+    await pressAutoAdvanceChoice(renderer!.root, 'Select Male');
+
+    if (expectation.role === 'teacher' || expectation.role === 'parent') {
+      // Teachers and parents confirm country and county/school before grade/child details.
+      expect(renderedText(renderer!.root)).toContain(
+        expectation.role === 'teacher' ? 'Are you teaching in this country?' : 'Is your family in this country?',
+      );
+      await act(() => {
+        renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
+      });
+      // County/school can be skipped to reach grade/child selection.
+      await act(() => {
+        renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
+      });
+    }
 
     expect(renderedText(renderer!.root)).toContain(expectation.detailTitle);
     expect(renderer!.root.findByProps({ accessibilityLabel: 'Onboarding progress' }).props.accessibilityValue).toEqual({
       max: expectation.totalSteps,
       min: 1,
-      now: 9,
+      now: 11,
       text: expectation.detailProgress,
     });
 
@@ -1409,6 +1439,9 @@ test('onboarding supports the other role as a learner-style flow', async () => {
 
   await pressAutoAdvanceChoice(renderer!.root, 'Selected Other role');
   await act(() => {
+    renderer!.root.findByProps({ accessibilityLabel: 'Use text only' }).props.onPress();
+  });
+  await act(() => {
     renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
   });
 
@@ -1457,12 +1490,7 @@ test('onboarding supports the other role as a learner-style flow', async () => {
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Select Alien from space' }).props.accessibilityState).toEqual({
     checked: false,
   });
-  await act(() => {
-    renderer!.root.findByProps({ accessibilityLabel: 'Select Male' }).props.onPress();
-  });
-  await act(() => {
-    renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
-  });
+  await pressAutoAdvanceChoice(renderer!.root, 'Select Male');
 
   expect(renderedText(renderer!.root)).toContain('Are you studying in this country?');
   await act(() => {
@@ -1519,13 +1547,21 @@ test('full intro loading and ready states use teacher and parent context', async
         await act(() => {
           root.findByProps({ accessibilityLabel: 'Add teaching Grade 6' }).props.onPress();
         });
+        await act(() => {
+          root.findByProps({ accessibilityLabel: 'Add teaching Grade 7' }).props.onPress();
+        });
       },
       reminderKicker: 'Class reminders',
       reminderQuestion: 'Want a class planning reminder?',
+      reminderNotice: 'Teacher Amina, 24 assignments are ready to review.',
+      reminderNoticeSub: "Let's keep the class on track!",
+      reminderBenefits: ['On schedule', 'Class insights', 'Less admin'],
+      readySocial: "You're joining thousands of teachers raising results.",
+      readyTestimonial: 'Ms. Achieng - Teacher, Kisumu',
       loadingTitle: 'Building Teacher Amina class workspace',
       loadingText: 'We are combining your mascot, teaching goal, curriculum, reminders, classes, subjects, and school.',
       readyTitle: 'Workspace ready',
-      readyText: 'Your first dashboard will open with Grade 6, 2 subjects, Kenya CBC, and class planning reminders.',
+      readyText: 'Grade 6 · 2 subjects · Kenya CBC',
     },
     {
       role: 'parent' as const,
@@ -1566,10 +1602,15 @@ test('full intro loading and ready states use teacher and parent context', async
       },
       reminderKicker: 'Family reminders',
       reminderQuestion: 'Want a family progress reminder?',
+      reminderNotice: "Parent Kamau, Amani's progress report is ready.",
+      reminderNoticeSub: 'See strengths, gaps, and what to support next.',
+      reminderBenefits: ['Progress reports', 'Learning gaps', 'Homework support'],
+      readySocial: "You're joining millions of satisfied students.",
+      readyTestimonial: 'Wanjiru - Grade 8',
       loadingTitle: 'Building Parent Kamau family dashboard',
       loadingText: 'We are combining your mascot, family goal, curriculum, reminders, child profile, and school.',
       readyTitle: 'Dashboard ready',
-      readyText: 'Your family dashboard will open with Grade 6, Kenya CBC, school context, and progress reminders.',
+      readyText: 'Grade 6 · Kenya CBC',
     },
   ];
 
@@ -1603,6 +1644,9 @@ test('full intro loading and ready states use teacher and parent context', async
       `Selected ${expectation.role === 'teacher' ? 'Teacher' : 'Parent'} role`,
     );
     await act(() => {
+      renderer!.root.findByProps({ accessibilityLabel: 'Use text only' }).props.onPress();
+    });
+    await act(() => {
       renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
     });
     expect(renderedText(renderer!.root)).toContain(expectation.needHeading);
@@ -1614,21 +1658,45 @@ test('full intro loading and ready states use teacher and parent context', async
       renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
     });
     expect(renderedText(renderer!.root)).toContain('What is your gender?');
-    await act(() => {
-      renderer!.root.findByProps({ accessibilityLabel: 'Select Male' }).props.onPress();
-    });
-    await act(() => {
-      renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
-    });
-    if (expectation.detailAction) {
-      await expectation.detailAction(renderer!.root);
-    }
-    await act(() => {
-      renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
-    });
+    await pressAutoAdvanceChoice(renderer!.root, 'Select Male');
     if (expectation.role === 'teacher') {
+      // New teacher order: gender → country → county/school → grade → subjects → goal.
+      expect(renderedText(renderer!.root)).toContain('Are you teaching in this country?');
+      // The curriculum detail card and "Confirm location" copy are student-only.
+      expect(renderedText(renderer!.root)).not.toContain('CBC / KNEC Kenya curriculum');
+      expect(renderedText(renderer!.root)).toContain('Yes');
+      await act(() => {
+        renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
+      });
+      // County / school comes before grades, so the roster shows the school total.
+      expect(renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.accessibilityHint).toBe(
+        'Skips school selection for now',
+      );
+      await selectCounty(renderer!.root);
+      await act(() => {
+        renderer!.root.findByProps({ accessibilityLabel: kitabuTeacherSchoolLabel }).props.onPress();
+      });
+      await act(() => {
+        renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
+      });
+      // Grade selection (roleDetails)
+      expect(renderedText(renderer!.root)).toContain('Which grades do you teach?');
+      if (expectation.detailAction) {
+        await expectation.detailAction(renderer!.root);
+      }
+      await act(() => {
+        renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
+      });
+      // Subjects are captured one screen per selected grade. First screen: Grade 6.
       expect(renderedText(renderer!.root)).toContain('Your subjects \uD83D\uDCD6');
       expect(renderedText(renderer!.root)).toContain('Which subjects do you teach?');
+      expect(renderedText(renderer!.root.findByProps({ accessibilityLabel: 'Subject grade context' }))).toContain(
+        'Grade 6',
+      );
+      // The subject badge shows just the grade — no "N of M" counter.
+      expect(renderedText(renderer!.root.findByProps({ accessibilityLabel: 'Subject grade context' }))).not.toContain(
+        ' of ',
+      );
       expect(renderedText(renderer!.root)).toContain('Science & Technology');
       expect(
         renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.accessibilityState,
@@ -1638,16 +1706,18 @@ test('full intro loading and ready states use teacher and parent context', async
       });
       expect(renderedText(renderer!.root)).toContain('1 selected \u2713');
       expect(renderedText(renderer!.root)).toContain('\u2713 Mathematics');
-      await act(() => {
-        renderer!.root.findByProps({ testID: 'mascot-nav-back' }).props.onPress();
-      });
-      await act(() => {
-        renderer!.root.findByProps({ accessibilityLabel: 'Add teaching Grade 7' }).props.onPress();
-      });
+      // Advance to the second grade's subject screen: Grade 7.
       await act(() => {
         renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
       });
+      expect(renderedText(renderer!.root.findByProps({ accessibilityLabel: 'Subject grade context' }))).toContain(
+        'Grade 7',
+      );
+      expect(renderedText(renderer!.root.findByProps({ accessibilityLabel: 'Subject grade context' }))).not.toContain(
+        ' of ',
+      );
       expect(renderedText(renderer!.root)).toContain('Pre-Technical Studies');
+      // Each grade tracks its own subjects, so Grade 7 starts fresh.
       expect(renderedText(renderer!.root)).not.toContain('1 selected \u2713');
       expect(renderer!.root.findByProps({ accessibilityLabel: 'Add Mathematics' }).props.accessibilityState).toEqual({
         disabled: false,
@@ -1659,23 +1729,71 @@ test('full intro loading and ready states use teacher and parent context', async
       await act(() => {
         renderer!.root.findByProps({ accessibilityLabel: 'Add English' }).props.onPress();
       });
+      // Last subjects screen advances straight to the teaching goal.
+      await act(() => {
+        renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
+      });
+    } else {
+      // Parent order: gender -> country -> county/school -> children/grades -> subjects -> goal.
+      expect(renderedText(renderer!.root)).toContain('Is your family in this country?');
+      await act(() => {
+        renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
+      });
+      expect(
+        renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.accessibilityState,
+      ).toEqual({ disabled: false, busy: false });
+      expect(renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.accessibilityHint).toBe(
+        'Skips school selection and moves to child details',
+      );
+      await act(() => {
+        renderer!.root.findByProps({ accessibilityLabel: 'Back in setup' }).props.onPress();
+      });
+      expect(renderedText(renderer!.root)).toContain('Is your family in this country?');
+      await act(() => {
+        renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
+      });
+      await selectCounty(renderer!.root);
+      await act(() => {
+        renderer!.root.findByProps({ accessibilityLabel: kitabuTeacherSchoolLabel }).props.onPress();
+      });
+      await act(() => {
+        renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
+      });
+      expect(renderedText(renderer!.root)).toContain('Tell me about your children');
+      if (expectation.detailAction) {
+        await expectation.detailAction(renderer!.root);
+      }
+      await act(() => {
+        renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
+      });
+      expect(renderedText(renderer!.root)).toContain('Child subjects');
+      expect(renderedText(renderer!.root)).toContain('Which subjects should we track for Amani?');
+      expect(renderedText(renderer!.root.findByProps({ accessibilityLabel: 'Subject child context' }))).toContain(
+        'Amani',
+      );
+      expect(renderedText(renderer!.root.findByProps({ accessibilityLabel: 'Subject child context' }))).toContain(
+        'Grade 6',
+      );
+      await act(() => {
+        renderer!.root.findByProps({ accessibilityLabel: 'Add Mathematics' }).props.onPress();
+      });
+      await act(() => {
+        renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
+      });
+      expect(renderedText(renderer!.root)).toContain('Which subjects should we track for Baraka?');
+      expect(renderedText(renderer!.root.findByProps({ accessibilityLabel: 'Subject child context' }))).toContain(
+        'Baraka',
+      );
+      expect(renderedText(renderer!.root.findByProps({ accessibilityLabel: 'Subject child context' }))).toContain(
+        'Grade 5',
+      );
+      await act(() => {
+        renderer!.root.findByProps({ accessibilityLabel: 'Add English' }).props.onPress();
+      });
       await act(() => {
         renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
       });
     }
-    expect(
-      renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.accessibilityState,
-    ).toEqual({ disabled: false, busy: false });
-    expect(renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.accessibilityHint).toBe(
-      'Skips school selection for now',
-    );
-    await selectCounty(renderer!.root);
-    await act(() => {
-      renderer!.root.findByProps({ accessibilityLabel: kitabuGrade6SchoolLabel }).props.onPress();
-    });
-    await act(() => {
-      renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
-    });
     if (expectation.role === 'teacher') {
       expect(renderedText(renderer!.root)).toContain('Engage my students better');
       expect(renderedText(renderer!.root)).toContain('Improve exam results');
@@ -1725,17 +1843,39 @@ test('full intro loading and ready states use teacher and parent context', async
     }
     await pressAutoAdvanceChoice(renderer!.root, `Choose achievement ${expectation.achievement}`);
 
-    await act(() => {
-      renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
-    });
-
-    expect(renderedText(renderer!.root)).toContain(`Nice to meet you, ${expectation.name} \uD83D\uDE4C`);
-    expect(renderedText(renderer!.root)).toContain('Are you studying in this country?');
-    expect(renderer!.root.findByProps({ accessibilityLabel: 'Kenya flag' })).toBeTruthy();
-    expect(renderedText(renderer!.root)).toContain('Kenya ▾');
-    expect(renderedText(renderer!.root)).toContain('\uD83D\uDCDA');
-    expect(renderedText(renderer!.root)).toContain('CBC / KNEC Kenya curriculum');
-    expect(renderedText(renderer!.root)).toContain('Confirm location');
+    if (expectation.role === 'teacher') {
+      expect(renderedText(renderer!.root)).toContain('Class lift plan');
+      expect(renderedText(renderer!.root)).toContain('+2');
+      expect(renderedText(renderer!.root)).toContain('Grades');
+      expect(renderedText(renderer!.root)).toContain('Across Your Class');
+      expect(renderedText(renderer!.root)).toContain('Turn Grade 6 + 1 more practice into short CBC drills');
+      expect(renderedText(renderer!.root)).toContain('Mathematics');
+      expect(renderedText(renderer!.root)).toContain('English');
+      expect(renderedText(renderer!.root)).toContain('Your class improvement path');
+      expect(renderedText(renderer!.root)).toContain('Typical class progress with consistent practice');
+      expect(renderedText(renderer!.root)).toContain('Find weak topics');
+      expect(renderedText(renderer!.root)).toContain('Auto-mark work');
+      expect(renderedText(renderer!.root)).toContain('Plan next lesson');
+      expect(renderedText(renderer!.root)).toContain('Low engagement? Kitabu AI turns lessons into interactive quizzes and games.');
+      expect(renderedText(renderer!.root)).toContain('Start Lifting My Class');
+      expect(renderer!.root.findByProps({ accessibilityLabel: 'teacher Good News plan' })).toBeTruthy();
+    } else {
+      expect(renderedText(renderer!.root)).toContain('Family progress plan');
+      expect(renderedText(renderer!.root)).toContain('+2');
+      expect(renderedText(renderer!.root)).toContain('Points');
+      expect(renderedText(renderer!.root)).toContain('With Clear Reports');
+      expect(renderedText(renderer!.root)).toContain('See how 2 children are doing in Grade 6');
+      expect(renderedText(renderer!.root)).toContain('Mathematics');
+      expect(renderedText(renderer!.root)).toContain('English');
+      expect(renderedText(renderer!.root)).toContain('Your child improvement path');
+      expect(renderedText(renderer!.root)).toContain('Weekly reports show strengths, gaps, and what to support next');
+      expect(renderedText(renderer!.root)).toContain('Progress reports');
+      expect(renderedText(renderer!.root)).toContain('Learning gaps');
+      expect(renderedText(renderer!.root)).toContain('Homework help');
+      expect(renderedText(renderer!.root)).toContain('When motivation drops, Kitabu AI turns revision into short wins your child can finish daily.');
+      expect(renderedText(renderer!.root)).toContain('Start Tracking Progress');
+      expect(renderer!.root.findByProps({ accessibilityLabel: 'parent Good News plan' })).toBeTruthy();
+    }
 
     await act(() => {
       renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
@@ -1744,11 +1884,11 @@ test('full intro loading and ready states use teacher and parent context', async
     expect(renderedText(renderer!.root)).toContain(expectation.reminderKicker);
     expect(renderedText(renderer!.root)).toContain(expectation.reminderQuestion);
     expect(renderedText(renderer!.root)).toContain('just now');
-    expect(renderedText(renderer!.root)).toContain(`${expectation.name}, your Maths exam is tomorrow.`);
-    expect(renderedText(renderer!.root)).toContain("Let's get ready together!");
-    expect(renderedText(renderer!.root)).toContain('Daily streak');
-    expect(renderedText(renderer!.root)).toContain('Better grades');
-    expect(renderedText(renderer!.root)).toContain('Stay sharp');
+    expect(renderedText(renderer!.root)).toContain(expectation.reminderNotice);
+    expect(renderedText(renderer!.root)).toContain(expectation.reminderNoticeSub);
+    for (const benefit of expectation.reminderBenefits) {
+      expect(renderedText(renderer!.root)).toContain(benefit);
+    }
     expect(renderer!.root.findByProps({ accessibilityLabel: 'Daily study reminder preview' })).toBeTruthy();
 
     await act(async () => {
@@ -1795,8 +1935,8 @@ test('full intro loading and ready states use teacher and parent context', async
     expect(renderedText(renderer!.root)).toContain(expectation.readyTitle);
     expect(renderedText(renderer!.root)).toContain(expectation.readyText);
     expect(renderedText(renderer!.root)).toContain('4.89');
-    expect(renderedText(renderer!.root)).toContain("You're joining millions of satisfied students.");
-    expect(renderedText(renderer!.root)).toContain('Wanjiru - Grade 8');
+    expect(renderedText(renderer!.root)).toContain(expectation.readySocial);
+    expect(renderedText(renderer!.root)).toContain(expectation.readyTestimonial);
     expect(renderer!.root.findByProps({ accessibilityLabel: 'Show testimonial 4' })).toBeTruthy();
 
     await act(() => {
@@ -1817,7 +1957,7 @@ test('full intro loading and ready states use teacher and parent context', async
         role: expectation.role,
         name: expectation.name,
         voice: '',
-        noVoice: false,
+        noVoice: true,
         county: 'Nairobi City',
         school: 'Kitabu Demo School',
         signupMethod: 'google',
@@ -1835,9 +1975,10 @@ test('full intro loading and ready states use teacher and parent context', async
       expect(onSubmit).toHaveBeenCalledWith(
         expect.objectContaining({
           children: [
-            { name: 'Amani', age: '', grade: 'Grade 6' },
-            { name: 'Baraka', age: '', grade: 'Grade 5' },
+            { name: 'Amani', age: '', grade: 'Grade 6', subjects: ['math'] },
+            { name: 'Baraka', age: '', grade: 'Grade 5', subjects: ['english'] },
           ],
+          selectedSubjectIds: ['math', 'english'],
         }),
       );
       expect(onSubmit.mock.calls[0]?.[0]).not.toHaveProperty('parentChildren');
@@ -1887,8 +2028,12 @@ test('teacher onboarding uses teacher copy and submits school, class, and option
   expect(renderedText(renderer!.root)).toContain('Step 2 of 3');
   expect(renderedText(renderer!.root)).toContain('Your school \uD83C\uDFEB');
   expect(renderedText(renderer!.root)).toContain('Which school do you teach at?');
-  expect(renderer!.root.findByProps({ accessibilityLabel: 'School result count' }).props.children).toBe(
-    'Select a county to see schools',
+  // Before a county is picked the school dropdown is disabled (the searchable list lives inside it).
+  expect(renderer!.root.findByProps({ accessibilityLabel: 'School selector' }).props.accessibilityState).toEqual({
+    disabled: true,
+  });
+  expect(renderedText(renderer!.root.findByProps({ accessibilityLabel: 'School selector' }))).toContain(
+    'Select county first',
   );
   expect(
     renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.accessibilityState,
@@ -1915,7 +2060,7 @@ test('teacher onboarding uses teacher copy and submits school, class, and option
   ).toEqual({ checked: true });
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Selected school confirmation' })).toBeTruthy();
   expect(renderedText(renderer!.root)).toContain('Kitabu Demo School');
-  expect(renderedText(renderer!.root)).toContain('Nairobi City County');
+  expect(renderedText(renderer!.root)).toContain('Nairobi City · Kenya');
 
   await act(() => {
     renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
@@ -2375,18 +2520,14 @@ test('onboarding supports keyboard submit for school search and M-Pesa', async (
   });
   expect(renderedText(renderer!.root)).toContain('Your child\'s school \uD83C\uDFEB');
   expect(renderedText(renderer!.root)).toContain('Which school does your child attend?');
-  const schoolResults = renderer!.root.findByProps({ accessibilityLabel: 'School search results' });
-  expect(schoolResults.type).toBe(ScrollView);
-  expect(schoolResults.props.accessibilityRole).toBe('radiogroup');
-  expect(schoolResults.props.keyboardShouldPersistTaps).toBe('handled');
-  expect(schoolResults.props.nestedScrollEnabled).toBe(true);
-  expect(renderer!.root.findByProps({ accessibilityLabel: 'Search school by name' }).props.editable).toBe(false);
-  expect(renderer!.root.findByProps({ accessibilityLabel: 'Search school by name' }).props.placeholder).toBe(
+  // Before a county is picked, the school dropdown is disabled and its searchable list is closed.
+  expect(renderer!.root.findByProps({ accessibilityLabel: 'School selector' }).props.accessibilityState).toEqual({
+    disabled: true,
+  });
+  expect(renderedText(renderer!.root.findByProps({ accessibilityLabel: 'School selector' }))).toContain(
     'Select county first',
   );
-  expect(renderer!.root.findByProps({ accessibilityLabel: 'School result count' }).props.children).toBe(
-    'Select a county to see schools',
-  );
+  await openCountyPicker(renderer!.root);
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Select Nairobi City county' }).props.accessibilityState).toEqual({
     checked: false,
   });
@@ -2405,10 +2546,16 @@ test('onboarding supports keyboard submit for school search and M-Pesa', async (
   expect(countyLabels.size).toBe(47);
   expect(missingSchoolLinks(renderer!.root)).toHaveLength(0);
   await selectCounty(renderer!.root);
+  // Picking a county opens the searchable school dropdown.
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Search school by name' }).props.editable).toBe(true);
-  expect(renderer!.root.findByProps({ accessibilityLabel: 'Select Nairobi City county' }).props.accessibilityState).toEqual({
-    checked: true,
-  });
+  const schoolResults = renderer!.root.findByProps({ accessibilityLabel: 'School search results' });
+  expect(schoolResults.type).toBe(ScrollView);
+  expect(schoolResults.props.accessibilityRole).toBe('radiogroup');
+  expect(schoolResults.props.keyboardShouldPersistTaps).toBe('handled');
+  expect(schoolResults.props.nestedScrollEnabled).toBe(true);
+  expect(
+    renderedText(renderer!.root.findByProps({ accessibilityLabel: 'County selector' })),
+  ).toContain('Nairobi City');
   expect(renderer!.root.findByProps({ accessibilityLabel: 'School result count' }).props.children).toBe(
     'Showing 1 school in Nairobi City for Grade 6',
   );
@@ -2432,7 +2579,7 @@ test('onboarding supports keyboard submit for school search and M-Pesa', async (
   ).toEqual({ checked: true });
   expect(selectedSchoolChecks(renderer!.root)).toHaveLength(1);
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Selected school confirmation' })).toBeTruthy();
-  expect(renderedText(renderer!.root)).toContain('Nairobi City County');
+  expect(renderedText(renderer!.root)).toContain('Nairobi City · Kenya');
   expect(renderedText(renderer!.root)).toContain('Kenya');
   expect(missingSchoolLinks(renderer!.root)).toHaveLength(0);
   expect(dismissSpy).toHaveBeenCalledTimes(2);
@@ -2526,7 +2673,7 @@ test('onboarding opens missing-school help through WhatsApp and reports failures
   await selectCounty(renderer!.root);
 
   const helpLink = renderer!.root.findByProps({ accessibilityLabel: 'Request school on WhatsApp' });
-  expect(helpLink.props.accessibilityRole).toBe('link');
+  expect(helpLink.props.accessibilityRole).toBe('button');
   expect(helpLink.props.accessibilityHint).toBe('Opens WhatsApp to message Kitabu admin');
 
   await act(async () => {
@@ -2576,15 +2723,13 @@ test('onboarding clears selected school when the search query changes', async ()
   await act(() => {
     renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
   });
-  expect(renderer!.root.findByProps({ accessibilityLabel: 'School result count' }).props.children).toBe(
-    'Select a county to see schools',
-  );
+  expect(renderer!.root.findByProps({ accessibilityLabel: 'School selector' }).props.accessibilityState).toEqual({
+    disabled: true,
+  });
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.accessibilityHint).toBe(
     'Choose a county before continuing',
   );
-  await act(() => {
-    renderer!.root.findByProps({ accessibilityLabel: 'Select Nairobi City county' }).props.onPress();
-  });
+  await selectCounty(renderer!.root);
   await act(() => {
     renderer!.root.findByProps({ accessibilityLabel: kitabuGrade6SchoolLabel }).props.onPress();
   });
@@ -2619,9 +2764,7 @@ test('onboarding clears selected school when the search query changes', async ()
     renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.accessibilityState,
   ).toEqual({ disabled: true, busy: false });
 
-  await act(() => {
-    renderer!.root.findByProps({ accessibilityLabel: 'Select Mombasa county' }).props.onPress();
-  });
+  await selectCounty(renderer!.root, 'Mombasa');
 
   await act(() => {
     renderer!.root.findByProps({ accessibilityLabel: 'Search school by name' }).props.onChangeText('Other');
@@ -2720,7 +2863,7 @@ test('onboarding commits school selection and dismisses the keyboard', async () 
   expect(
     StyleSheet.flatten(renderer!.root.findByProps({ accessibilityLabel: 'Search school by name' }).props.style)
       .borderColor,
-  ).toBe('#E07B00');
+  ).toBe('#235A8C');
 
   dismissSpy.mockClear();
 
@@ -2806,7 +2949,7 @@ test('onboarding dismisses keyboard during step navigation and uses mobile keybo
 test('onboarding selected controls use role accent colors', async () => {
   const expectations = [
     { role: 'student' as const, accent: '#E07B00' },
-    { role: 'teacher' as const, accent: '#E07B00' },
+    { role: 'teacher' as const, accent: '#235A8C' },
     { role: 'parent' as const, accent: '#2D8653' },
   ];
 

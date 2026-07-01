@@ -1,0 +1,1043 @@
+{
+  "schemaVersion": 1,
+  "sourceType": "normalized-curriculum",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "S4",
+  "subject": "Computer Science",
+  "generatedAt": "2026-07-01T04:10:08Z",
+  "sourceSnapshotHash": "27812cfe370da8dd29bb2b87774c05558a5f95d18071c1c5f1afb56418c1e28d",
+  "writingStandard": {
+    "voice": "simple, conversational, purposeful, age-appropriate, and learner-first",
+    "antiFluff": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "coversDeferred": true
+  },
+  "strands": [
+    {
+      "strandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-1-strand",
+      "number": "",
+      "title": "Computer fundamental",
+      "topicCount": 1
+    },
+    {
+      "strandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-3-strand",
+      "number": "",
+      "title": "Safe and ethical use of computer",
+      "topicCount": 1
+    },
+    {
+      "strandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-5-strand",
+      "number": "",
+      "title": "Number system",
+      "topicCount": 1
+    },
+    {
+      "strandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-6-strand",
+      "number": "",
+      "title": "Boolean algebra and logic gates",
+      "topicCount": 1
+    },
+    {
+      "strandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-8-strand",
+      "number": "",
+      "title": "Control statements and one dimension array",
+      "topicCount": 1
+    },
+    {
+      "strandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-11-strand",
+      "number": "",
+      "title": "Expression and Operator in C++ language",
+      "topicCount": 1
+    },
+    {
+      "strandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-12-strand",
+      "number": "",
+      "title": "Control Statements in C++",
+      "topicCount": 1
+    },
+    {
+      "strandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-13-strand",
+      "number": "",
+      "title": "Function in C++ language",
+      "topicCount": 1
+    },
+    {
+      "strandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-14-strand",
+      "number": "",
+      "title": "Arrays in C++",
+      "topicCount": 1
+    },
+    {
+      "strandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-16-strand",
+      "number": "",
+      "title": "HTML",
+      "topicCount": 1
+    },
+    {
+      "strandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-17-strand",
+      "number": "",
+      "title": "Cascading style sheet",
+      "topicCount": 1
+    }
+  ],
+  "topics": [
+    {
+      "topicId": "RWA-S4-computer-science-topic-001",
+      "grade": "S4",
+      "strandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-1-strand",
+      "subStrandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-1-topic",
+      "parentSubStrandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-1-topic",
+      "strandTitle": "Computer fundamental",
+      "unitTitle": "Computer fundamental",
+      "sourceUnitTitle": "Computer fundamental",
+      "learningOutcomes": [
+        {
+          "id": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-1-outcome-1",
+          "text": "explain characteristics and evolution of computers and detect the impact of computer in society"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can computer fundamental help you solve a real problem in Computer Science?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Computer fundamental.",
+        "Review key vocabulary from the previous Computer Science lesson."
+      ],
+      "keyVocabulary": [
+        "Computer fundamental",
+        "Computer",
+        "fundamental",
+        "concept",
+        "observation",
+        "evidence",
+        "safety",
+        "conclusion"
+      ],
+      "misconceptions": [
+        "giving a general answer about Computer fundamental without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwanda observation, model, data table, or investigation for Computer fundamental",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Computer fundamental",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Computer fundamental",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7",
+          "officialTitle": "Rwanda Competence Based Curriculum S4 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S4/computer-science/dd87f0df-0d1a-449b-b5cf-d5f44cab97f7.md",
+          "sourceSectionHash": "bc44ca70b9797e1a5a0ddc4dd020772ae63cf7b265b26a6650efe631d23eade6",
+          "sourceSnapshotHash": "27812cfe370da8dd29bb2b87774c05558a5f95d18071c1c5f1afb56418c1e28d"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7",
+          "officialTitle": "Rwanda Competence Based Curriculum S4 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S4/computer-science/dd87f0df-0d1a-449b-b5cf-d5f44cab97f7.md",
+          "sourceSectionHash": "bc44ca70b9797e1a5a0ddc4dd020772ae63cf7b265b26a6650efe631d23eade6",
+          "sourceSnapshotHash": "27812cfe370da8dd29bb2b87774c05558a5f95d18071c1c5f1afb56418c1e28d"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S4-computer-science-topic-002",
+      "grade": "S4",
+      "strandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-3-strand",
+      "subStrandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-3-topic",
+      "parentSubStrandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-3-topic",
+      "strandTitle": "Safe and ethical use of computer",
+      "unitTitle": "Safe and ethical use of computer",
+      "sourceUnitTitle": "Safe and ethical use of computer",
+      "learningOutcomes": [
+        {
+          "id": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-3-outcome-1",
+          "text": "integrate safety guidelines, ergonomics and ethical issues to have a good working environment"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can safe and ethical use of computer help you solve a real problem in Computer Science?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Safe and ethical use of computer.",
+        "Review key vocabulary from the previous Computer Science lesson."
+      ],
+      "keyVocabulary": [
+        "Safe and ethical use of computer",
+        "Safe",
+        "ethical",
+        "computer",
+        "concept",
+        "observation",
+        "evidence",
+        "safety"
+      ],
+      "misconceptions": [
+        "giving a general answer about Safe and ethical use of computer without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwanda observation, model, data table, or investigation for Safe and ethical use of computer",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Safe and ethical use of computer",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Safe and ethical use of computer",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7",
+          "officialTitle": "Rwanda Competence Based Curriculum S4 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S4/computer-science/dd87f0df-0d1a-449b-b5cf-d5f44cab97f7.md",
+          "sourceSectionHash": "f6d606d96bc9b0f9b1cd92f880dfe625a7269032fb491cd6d1a1bbeeb1fb4ddf",
+          "sourceSnapshotHash": "27812cfe370da8dd29bb2b87774c05558a5f95d18071c1c5f1afb56418c1e28d"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7",
+          "officialTitle": "Rwanda Competence Based Curriculum S4 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S4/computer-science/dd87f0df-0d1a-449b-b5cf-d5f44cab97f7.md",
+          "sourceSectionHash": "f6d606d96bc9b0f9b1cd92f880dfe625a7269032fb491cd6d1a1bbeeb1fb4ddf",
+          "sourceSnapshotHash": "27812cfe370da8dd29bb2b87774c05558a5f95d18071c1c5f1afb56418c1e28d"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S4-computer-science-topic-003",
+      "grade": "S4",
+      "strandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-5-strand",
+      "subStrandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-5-topic",
+      "parentSubStrandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-5-topic",
+      "strandTitle": "Number system",
+      "unitTitle": "Number system",
+      "sourceUnitTitle": "Number system",
+      "learningOutcomes": [
+        {
+          "id": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-5-outcome-1",
+          "text": "compute numbers in different base systems and to do arithmetic operations based on binary numbers"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can number system help you solve a real problem in Computer Science?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Number system.",
+        "Review key vocabulary from the previous Computer Science lesson."
+      ],
+      "keyVocabulary": [
+        "Number system",
+        "Number",
+        "system",
+        "concept",
+        "observation",
+        "evidence",
+        "safety",
+        "conclusion"
+      ],
+      "misconceptions": [
+        "giving a general answer about Number system without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwanda observation, model, data table, or investigation for Number system",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Number system",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Number system",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7",
+          "officialTitle": "Rwanda Competence Based Curriculum S4 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S4/computer-science/dd87f0df-0d1a-449b-b5cf-d5f44cab97f7.md",
+          "sourceSectionHash": "18389bff831d4de216d0ddb96c069fc0f48d390519d72e5aadc195f2f2619413",
+          "sourceSnapshotHash": "27812cfe370da8dd29bb2b87774c05558a5f95d18071c1c5f1afb56418c1e28d"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7",
+          "officialTitle": "Rwanda Competence Based Curriculum S4 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S4/computer-science/dd87f0df-0d1a-449b-b5cf-d5f44cab97f7.md",
+          "sourceSectionHash": "18389bff831d4de216d0ddb96c069fc0f48d390519d72e5aadc195f2f2619413",
+          "sourceSnapshotHash": "27812cfe370da8dd29bb2b87774c05558a5f95d18071c1c5f1afb56418c1e28d"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S4-computer-science-topic-004",
+      "grade": "S4",
+      "strandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-6-strand",
+      "subStrandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-6-topic",
+      "parentSubStrandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-6-topic",
+      "strandTitle": "Boolean algebra and logic gates",
+      "unitTitle": "Boolean algebra and logic gates",
+      "sourceUnitTitle": "Boolean algebra and logic gates",
+      "learningOutcomes": [
+        {
+          "id": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-6-outcome-1",
+          "text": " Identify different logic gates, theorems of Boolean algebra and evaluate Boolean expressions  Utilise laws of Boolean algebra on Boolean expressions and draw a simple logic circuit using logic gates"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can boolean algebra and logic gates help you solve a real problem in Computer Science?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Boolean algebra and logic gates.",
+        "Review key vocabulary from the previous Computer Science lesson."
+      ],
+      "keyVocabulary": [
+        "Boolean algebra and logic gates",
+        "Boolean",
+        "algebra",
+        "logic",
+        "gates",
+        "concept",
+        "observation",
+        "evidence"
+      ],
+      "misconceptions": [
+        "giving a general answer about Boolean algebra and logic gates without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwanda observation, model, data table, or investigation for Boolean algebra and logic gates",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Boolean algebra and logic gates",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Boolean algebra and logic gates",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7",
+          "officialTitle": "Rwanda Competence Based Curriculum S4 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S4/computer-science/dd87f0df-0d1a-449b-b5cf-d5f44cab97f7.md",
+          "sourceSectionHash": "99877fe2bf5660154feaf312ef920e052b5b18eef9159ca330631f5bfabfa91c",
+          "sourceSnapshotHash": "27812cfe370da8dd29bb2b87774c05558a5f95d18071c1c5f1afb56418c1e28d"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7",
+          "officialTitle": "Rwanda Competence Based Curriculum S4 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S4/computer-science/dd87f0df-0d1a-449b-b5cf-d5f44cab97f7.md",
+          "sourceSectionHash": "99877fe2bf5660154feaf312ef920e052b5b18eef9159ca330631f5bfabfa91c",
+          "sourceSnapshotHash": "27812cfe370da8dd29bb2b87774c05558a5f95d18071c1c5f1afb56418c1e28d"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S4-computer-science-topic-005",
+      "grade": "S4",
+      "strandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-8-strand",
+      "subStrandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-8-topic",
+      "parentSubStrandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-8-topic",
+      "strandTitle": "Control statements and one dimension array",
+      "unitTitle": "Control statements and one dimension array",
+      "sourceUnitTitle": "Control statements and one dimension array",
+      "learningOutcomes": [
+        {
+          "id": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-8-outcome-1",
+          "text": "derive logic in algorithm which include Control Statements and to handle one dimension array in algorithm"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can control statements and one dimension array help you solve a real problem in Computer Science?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Control statements and one dimension array.",
+        "Review key vocabulary from the previous Computer Science lesson."
+      ],
+      "keyVocabulary": [
+        "Control statements and one dimension array",
+        "Control",
+        "statements",
+        "dimension",
+        "array",
+        "concept",
+        "observation",
+        "evidence"
+      ],
+      "misconceptions": [
+        "giving a general answer about Control statements and one dimension array without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwanda observation, model, data table, or investigation for Control statements and one dimension array",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Control statements and one dimension array",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Control statements and one dimension array",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7",
+          "officialTitle": "Rwanda Competence Based Curriculum S4 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S4/computer-science/dd87f0df-0d1a-449b-b5cf-d5f44cab97f7.md",
+          "sourceSectionHash": "b0d9a48becd9ba8661029f4491d4d4536990773d689e183cf9432585ee0459c5",
+          "sourceSnapshotHash": "27812cfe370da8dd29bb2b87774c05558a5f95d18071c1c5f1afb56418c1e28d"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7",
+          "officialTitle": "Rwanda Competence Based Curriculum S4 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S4/computer-science/dd87f0df-0d1a-449b-b5cf-d5f44cab97f7.md",
+          "sourceSectionHash": "b0d9a48becd9ba8661029f4491d4d4536990773d689e183cf9432585ee0459c5",
+          "sourceSnapshotHash": "27812cfe370da8dd29bb2b87774c05558a5f95d18071c1c5f1afb56418c1e28d"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S4-computer-science-topic-006",
+      "grade": "S4",
+      "strandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-11-strand",
+      "subStrandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-11-topic",
+      "parentSubStrandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-11-topic",
+      "strandTitle": "Expression and Operator in C++ language",
+      "unitTitle": "Expression and Operator in C++ language",
+      "sourceUnitTitle": "Expression and Operator in C++ language",
+      "learningOutcomes": [
+        {
+          "id": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-11-outcome-1",
+          "text": "apply expressions and operators in C++ language"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can expression and operator in c++ language help you solve a real problem in Computer Science?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Expression and Operator in C++ language.",
+        "Review key vocabulary from the previous Computer Science lesson."
+      ],
+      "keyVocabulary": [
+        "Expression and Operator in C++ language",
+        "Expression",
+        "Operator",
+        "language",
+        "concept",
+        "observation",
+        "evidence",
+        "safety"
+      ],
+      "misconceptions": [
+        "giving a general answer about Expression and Operator in C++ language without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwanda observation, model, data table, or investigation for Expression and Operator in C++ language",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Expression and Operator in C++ language",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Expression and Operator in C++ language",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7",
+          "officialTitle": "Rwanda Competence Based Curriculum S4 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S4/computer-science/dd87f0df-0d1a-449b-b5cf-d5f44cab97f7.md",
+          "sourceSectionHash": "579bdef4b5f0c3faa910b26bf83ded1212b8b3b6574f406b0fed724ad9692bf5",
+          "sourceSnapshotHash": "27812cfe370da8dd29bb2b87774c05558a5f95d18071c1c5f1afb56418c1e28d"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7",
+          "officialTitle": "Rwanda Competence Based Curriculum S4 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S4/computer-science/dd87f0df-0d1a-449b-b5cf-d5f44cab97f7.md",
+          "sourceSectionHash": "579bdef4b5f0c3faa910b26bf83ded1212b8b3b6574f406b0fed724ad9692bf5",
+          "sourceSnapshotHash": "27812cfe370da8dd29bb2b87774c05558a5f95d18071c1c5f1afb56418c1e28d"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S4-computer-science-topic-007",
+      "grade": "S4",
+      "strandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-12-strand",
+      "subStrandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-12-topic",
+      "parentSubStrandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-12-topic",
+      "strandTitle": "Control Statements in C++",
+      "unitTitle": "Control Statements in C++",
+      "sourceUnitTitle": "Control Statements in C++",
+      "learningOutcomes": [
+        {
+          "id": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-12-outcome-1",
+          "text": "use control statements in C++ program to implement branching and iterations"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can control statements in c++ help you solve a real problem in Computer Science?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Control Statements in C++.",
+        "Review key vocabulary from the previous Computer Science lesson."
+      ],
+      "keyVocabulary": [
+        "Control Statements in C++",
+        "Control",
+        "Statements",
+        "concept",
+        "observation",
+        "evidence",
+        "safety",
+        "conclusion"
+      ],
+      "misconceptions": [
+        "giving a general answer about Control Statements in C++ without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwanda observation, model, data table, or investigation for Control Statements in C++",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Control Statements in C++",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Control Statements in C++",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7",
+          "officialTitle": "Rwanda Competence Based Curriculum S4 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S4/computer-science/dd87f0df-0d1a-449b-b5cf-d5f44cab97f7.md",
+          "sourceSectionHash": "c9a5b52b9812bc6ce8174eded94107fe50d374d6096320541fcc26267337c702",
+          "sourceSnapshotHash": "27812cfe370da8dd29bb2b87774c05558a5f95d18071c1c5f1afb56418c1e28d"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7",
+          "officialTitle": "Rwanda Competence Based Curriculum S4 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S4/computer-science/dd87f0df-0d1a-449b-b5cf-d5f44cab97f7.md",
+          "sourceSectionHash": "c9a5b52b9812bc6ce8174eded94107fe50d374d6096320541fcc26267337c702",
+          "sourceSnapshotHash": "27812cfe370da8dd29bb2b87774c05558a5f95d18071c1c5f1afb56418c1e28d"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S4-computer-science-topic-008",
+      "grade": "S4",
+      "strandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-13-strand",
+      "subStrandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-13-topic",
+      "parentSubStrandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-13-topic",
+      "strandTitle": "Function in C++ language",
+      "unitTitle": "Function in C++ language",
+      "sourceUnitTitle": "Function in C++ language",
+      "learningOutcomes": [
+        {
+          "id": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-13-outcome-1",
+          "text": "define and use functions in C++ program"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can function in c++ language help you solve a real problem in Computer Science?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Function in C++ language.",
+        "Review key vocabulary from the previous Computer Science lesson."
+      ],
+      "keyVocabulary": [
+        "Function in C++ language",
+        "Function",
+        "language",
+        "concept",
+        "observation",
+        "evidence",
+        "safety",
+        "conclusion"
+      ],
+      "misconceptions": [
+        "giving a general answer about Function in C++ language without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwanda observation, model, data table, or investigation for Function in C++ language",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Function in C++ language",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Function in C++ language",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7",
+          "officialTitle": "Rwanda Competence Based Curriculum S4 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S4/computer-science/dd87f0df-0d1a-449b-b5cf-d5f44cab97f7.md",
+          "sourceSectionHash": "80cc79c242667d795cbba9f28f725432331976a696e2d037c7b52387c37f90a1",
+          "sourceSnapshotHash": "27812cfe370da8dd29bb2b87774c05558a5f95d18071c1c5f1afb56418c1e28d"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7",
+          "officialTitle": "Rwanda Competence Based Curriculum S4 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S4/computer-science/dd87f0df-0d1a-449b-b5cf-d5f44cab97f7.md",
+          "sourceSectionHash": "80cc79c242667d795cbba9f28f725432331976a696e2d037c7b52387c37f90a1",
+          "sourceSnapshotHash": "27812cfe370da8dd29bb2b87774c05558a5f95d18071c1c5f1afb56418c1e28d"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S4-computer-science-topic-009",
+      "grade": "S4",
+      "strandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-14-strand",
+      "subStrandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-14-topic",
+      "parentSubStrandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-14-topic",
+      "strandTitle": "Arrays in C++",
+      "unitTitle": "Arrays in C++",
+      "sourceUnitTitle": "Arrays in C++",
+      "learningOutcomes": [
+        {
+          "id": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-14-outcome-1",
+          "text": "use arrays and strings in a C++ program"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can arrays in c++ help you solve a real problem in Computer Science?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Arrays in C++.",
+        "Review key vocabulary from the previous Computer Science lesson."
+      ],
+      "keyVocabulary": [
+        "Arrays in C++",
+        "Arrays",
+        "concept",
+        "observation",
+        "evidence",
+        "safety",
+        "conclusion"
+      ],
+      "misconceptions": [
+        "giving a general answer about Arrays in C++ without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwanda observation, model, data table, or investigation for Arrays in C++",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Arrays in C++",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Arrays in C++",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7",
+          "officialTitle": "Rwanda Competence Based Curriculum S4 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S4/computer-science/dd87f0df-0d1a-449b-b5cf-d5f44cab97f7.md",
+          "sourceSectionHash": "05fb56219da9d436e89afaa3ae7deca393138cdc8abf01c015f67ca7ca48720c",
+          "sourceSnapshotHash": "27812cfe370da8dd29bb2b87774c05558a5f95d18071c1c5f1afb56418c1e28d"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7",
+          "officialTitle": "Rwanda Competence Based Curriculum S4 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S4/computer-science/dd87f0df-0d1a-449b-b5cf-d5f44cab97f7.md",
+          "sourceSectionHash": "05fb56219da9d436e89afaa3ae7deca393138cdc8abf01c015f67ca7ca48720c",
+          "sourceSnapshotHash": "27812cfe370da8dd29bb2b87774c05558a5f95d18071c1c5f1afb56418c1e28d"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S4-computer-science-topic-010",
+      "grade": "S4",
+      "strandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-16-strand",
+      "subStrandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-16-topic",
+      "parentSubStrandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-16-topic",
+      "strandTitle": "HTML",
+      "unitTitle": "HTML",
+      "sourceUnitTitle": "HTML",
+      "learningOutcomes": [
+        {
+          "id": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-16-outcome-1",
+          "text": "build standards compliant web pages using HTML,"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can html help you solve a real problem in Computer Science?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to HTML.",
+        "Review key vocabulary from the previous Computer Science lesson."
+      ],
+      "keyVocabulary": [
+        "HTML",
+        "concept",
+        "observation",
+        "evidence",
+        "safety",
+        "conclusion"
+      ],
+      "misconceptions": [
+        "giving a general answer about HTML without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwanda observation, model, data table, or investigation for HTML",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for HTML",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for HTML",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7",
+          "officialTitle": "Rwanda Competence Based Curriculum S4 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S4/computer-science/dd87f0df-0d1a-449b-b5cf-d5f44cab97f7.md",
+          "sourceSectionHash": "8b46df13b9f08f5c574f0bd8f2e801b56e28168e157648476926b287825b862f",
+          "sourceSnapshotHash": "27812cfe370da8dd29bb2b87774c05558a5f95d18071c1c5f1afb56418c1e28d"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7",
+          "officialTitle": "Rwanda Competence Based Curriculum S4 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S4/computer-science/dd87f0df-0d1a-449b-b5cf-d5f44cab97f7.md",
+          "sourceSectionHash": "8b46df13b9f08f5c574f0bd8f2e801b56e28168e157648476926b287825b862f",
+          "sourceSnapshotHash": "27812cfe370da8dd29bb2b87774c05558a5f95d18071c1c5f1afb56418c1e28d"
+        }
+      ]
+    },
+    {
+      "topicId": "RWA-S4-computer-science-topic-011",
+      "grade": "S4",
+      "strandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-17-strand",
+      "subStrandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-17-topic",
+      "parentSubStrandId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-17-topic",
+      "strandTitle": "Cascading style sheet",
+      "unitTitle": "Cascading style sheet",
+      "sourceUnitTitle": "Cascading style sheet",
+      "learningOutcomes": [
+        {
+          "id": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7-unit-17-outcome-1",
+          "text": "build standards compliant web pages using CSS"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can cascading style sheet help you solve a real problem in Computer Science?"
+      ],
+      "prerequisites": [
+        "Recall one school, home, or community example connected to Cascading style sheet.",
+        "Review key vocabulary from the previous Computer Science lesson."
+      ],
+      "keyVocabulary": [
+        "Cascading style sheet",
+        "Cascading",
+        "style",
+        "sheet",
+        "concept",
+        "observation",
+        "evidence",
+        "safety"
+      ],
+      "misconceptions": [
+        "giving a general answer about Cascading style sheet without a clear example, method, or evidence"
+      ],
+      "localContext": "a safe Rwanda observation, model, data table, or investigation for Cascading style sheet",
+      "explanationSequence": [
+        "Start with a concrete country or local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "evidence is specific",
+        "safety is considered",
+        "conclusion uses the evidence"
+      ],
+      "visualNeeds": [
+        {
+          "type": "labelled diagram",
+          "description": "labelled diagram for Cascading style sheet",
+          "status": "deferred-until-cover-visual-phase"
+        },
+        {
+          "type": "investigation or data table",
+          "description": "investigation or data table for Cascading style sheet",
+          "status": "deferred-until-cover-visual-phase"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7",
+          "officialTitle": "Rwanda Competence Based Curriculum S4 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S4/computer-science/dd87f0df-0d1a-449b-b5cf-d5f44cab97f7.md",
+          "sourceSectionHash": "e2dda9bc1e415d0df25cd19b55602ae61b3f4e68229526ac22e7c0596a633366",
+          "sourceSnapshotHash": "27812cfe370da8dd29bb2b87774c05558a5f95d18071c1c5f1afb56418c1e28d"
+        }
+      ],
+      "fullSourceRefs": [
+        {
+          "type": "curriculum-source-section",
+          "sourceDocumentId": "dd87f0df-0d1a-449b-b5cf-d5f44cab97f7",
+          "officialTitle": "Rwanda Competence Based Curriculum S4 Computer Science",
+          "sourceMarkdownPath": "apps/api/data/curriculum/markdown/RWA/REB-CBC/S4/computer-science/dd87f0df-0d1a-449b-b5cf-d5f44cab97f7.md",
+          "sourceSectionHash": "e2dda9bc1e415d0df25cd19b55602ae61b3f4e68229526ac22e7c0596a633366",
+          "sourceSnapshotHash": "27812cfe370da8dd29bb2b87774c05558a5f95d18071c1c5f1afb56418c1e28d"
+        }
+      ]
+    }
+  ]
+}

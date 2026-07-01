@@ -1,0 +1,280 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-grade-12-science-and-technology",
+  "title": "KITABU QUEST Grade 12 Science and Technology",
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 12",
+  "subject": "Science and Technology",
+  "subjectSlug": "science-and-technology",
+  "subjectColor": "#7C3AED",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "learner-first-language-depth-renderers-2026-07-01-v10",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-reviewed-draft",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T12:01:11Z",
+  "sourceSnapshotHash": "6a8ea4a76856abb0bedb79abe0e12af8fb1f78a658c30ace68e577dd7d2600c0",
+  "bookPlanHash": "83c8e4c07bf7f883d0e9fc1f854f523ef0f80bcb6394e3f97e0d41dd367c8b34",
+  "pageCount": 242,
+  "wordCount": 38629,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "ageBand": "senior-secondary",
+    "coversDeferred": true,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "topicCount": 30,
+    "outcomeCount": 79,
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "KEN",
+    "subject": "Science and Technology",
+    "species": "chameleon",
+    "role": "curiosity and observation guide",
+    "sourceRationale": "Observation, adaptation, biology, and learner investigations."
+  },
+  "cover": {
+    "scene": "learners observing a chameleon and plants during a safe outdoor investigation",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Kenya CBC Grade 12 Science and Technology. Scene: learners observing a chameleon and plants during a safe outdoor investigation. Include a friendly chameleon mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "assets": [],
+  "downloads": {
+    "markdown": "kitabu-quest-grade-12-science-and-technology.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-grade-12-science-and-technology.pdf"
+  },
+  "sourceDocuments": [
+    {
+      "id": "b1c0f63c-7733-4b8c-b35e-40b093a37049",
+      "subject": "Biology",
+      "officialTitle": "Competency Based Curriculum Grade 12 Biology",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_12",
+      "gradeLocalLevel": "Grade 12",
+      "localLevel": "Grade 12",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/1YNHD3E0kZ55o_B2HBtcWQPKttHBA6-W1/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_12",
+        "documentUrl": "https://drive.google.com/file/d/1YNHD3E0kZ55o_B2HBtcWQPKttHBA6-W1/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_12/biology/b1c0f63c-7733-4b8c-b35e-40b093a37049.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-twelve/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "1f90fdcd2cddb1b5f88fd22bbf43c3a892c12bc169c1178d526a6d60f4043c3e",
+        "markdownPageCount": 38,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_12/biology/b1c0f63c-7733-4b8c-b35e-40b093a37049.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "1f90fdcd2cddb1b5f88fd22bbf43c3a892c12bc169c1178d526a6d60f4043c3e",
+          "pageCount": 38,
+          "generatedAt": "2026-06-29T16:35:07.346Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "c2d3926e0b2dd07e44140956d6c43b48b72c9a14d177ba8c5a51f6224be2e135"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:07.346Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    },
+    {
+      "id": "ba878c9e-8146-4a28-a837-7735555b06ac",
+      "subject": "Chemistry",
+      "officialTitle": "Competency Based Curriculum Grade 12 Chemistry",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_12",
+      "gradeLocalLevel": "Grade 12",
+      "localLevel": "Grade 12",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/1GcLr251w5DqDlHQXTtdFy3HPdS6jWf1q/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_12",
+        "documentUrl": "https://drive.google.com/file/d/1GcLr251w5DqDlHQXTtdFy3HPdS6jWf1q/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_12/chemistry/ba878c9e-8146-4a28-a837-7735555b06ac.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-twelve/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "3c5b6239f51f5242506e749db606e10651912bba6adef7b05ea60c889dccb96e",
+        "markdownPageCount": 40,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_12/chemistry/ba878c9e-8146-4a28-a837-7735555b06ac.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "3c5b6239f51f5242506e749db606e10651912bba6adef7b05ea60c889dccb96e",
+          "pageCount": 40,
+          "generatedAt": "2026-06-29T16:35:07.404Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "c1a470e8b16546092c188438522d55f63fd1d10550e78731d6cbe2e377892fb3"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:07.404Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    },
+    {
+      "id": "a0bb5bce-6519-4786-8e6b-81a1b39871b1",
+      "subject": "General Science",
+      "officialTitle": "Competency Based Curriculum Grade 12 General Science",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_12",
+      "gradeLocalLevel": "Grade 12",
+      "localLevel": "Grade 12",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/1sZigVO4-SD6cxio9wXcbAkPuL5u14GG0/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_12",
+        "documentUrl": "https://drive.google.com/file/d/1sZigVO4-SD6cxio9wXcbAkPuL5u14GG0/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_12/general-science/a0bb5bce-6519-4786-8e6b-81a1b39871b1.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-twelve/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "cddbeb6e3f71c4ed2ce6f122ad094967a2352f3c39512bb283c6783f917f039c",
+        "markdownPageCount": 55,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_12/general-science/a0bb5bce-6519-4786-8e6b-81a1b39871b1.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "cddbeb6e3f71c4ed2ce6f122ad094967a2352f3c39512bb283c6783f917f039c",
+          "pageCount": 55,
+          "generatedAt": "2026-06-29T16:35:07.614Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "70b6c457e965145217a8b3cac8a5ec0eb23b56845d7d876910cd9c5a2a9c10eb"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:07.614Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    },
+    {
+      "id": "fc5ea943-c036-4a75-b3bb-0e4a289e7dd6",
+      "subject": "Physics",
+      "officialTitle": "Competency Based Curriculum Grade 12 Physics",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_12",
+      "gradeLocalLevel": "Grade 12",
+      "localLevel": "Grade 12",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/19s1ooB6CzN5RB9hAz85T0HemYdCx3sf9/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_12",
+        "documentUrl": "https://drive.google.com/file/d/19s1ooB6CzN5RB9hAz85T0HemYdCx3sf9/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_12/physics/fc5ea943-c036-4a75-b3bb-0e4a289e7dd6.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-twelve/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "18ff581c0dde7d3b5c9de342bd70f2348c216f440f3fc7bdf4cc25414e0b4dbb",
+        "markdownPageCount": 49,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_12/physics/fc5ea943-c036-4a75-b3bb-0e4a289e7dd6.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "18ff581c0dde7d3b5c9de342bd70f2348c216f440f3fc7bdf4cc25414e0b4dbb",
+          "pageCount": 49,
+          "generatedAt": "2026-06-29T16:35:07.969Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "42109a73d11dbfe2441b10b078ab1f1c2ad7c32e884a34233349a5043efb3535"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:07.969Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    }
+  ]
+}

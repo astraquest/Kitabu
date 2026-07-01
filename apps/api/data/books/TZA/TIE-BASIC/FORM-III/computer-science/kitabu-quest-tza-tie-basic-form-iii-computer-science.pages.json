@@ -1,0 +1,2131 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-tza-tie-basic-form-iii-computer-science",
+  "title": "KITABU QUEST Form III Computer Science",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Form III",
+  "subject": "Computer Science",
+  "subjectSlug": "computer-science",
+  "subjectColor": "#4338CA",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v13",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:48:31Z",
+  "sourceSnapshotHash": "a8814c479032826695a1f8fd6d3e516eac610932fd004006037ff9e37ab432d7",
+  "bookPlanHash": "f29268cff7940412d892f82c9df3769dca09680ad5ea7a14ee2fa474c6476288",
+  "pageCount": 85,
+  "wordCount": 8336,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 8,
+    "outcomeCount": 8,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "TZA",
+    "subject": "Computer Science",
+    "species": "giraffe",
+    "role": "digital skills guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "students using computers safely with a giraffe mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Tanzania TIE-BASIC Form III Computer Science. Scene: students using computers safely with a giraffe mascot. Include a friendly giraffe mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 85830,
+    "sha256": "71d8655f4111c35c85c4bcf9afa122a962976fe8b99dc9dbe1e70d2e4ca8b1f8"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 85830,
+      "sha256": "71d8655f4111c35c85c4bcf9afa122a962976fe8b99dc9dbe1e70d2e4ca8b1f8",
+      "kind": "cover",
+      "altText": "KITABU QUEST Form III Computer Science cover with giraffe",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-tza-tie-basic-form-iii-computer-science.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-tza-tie-basic-form-iii-computer-science.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "0f187d51-8aa9-4391-8184-f5b3b1cef92f",
+      "subject": "Computer Science",
+      "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form III Computer Science",
+      "countryCode": "TZA",
+      "curriculumCode": "TIE-BASIC",
+      "gradeCode": "FORM_III",
+      "gradeLocalLevel": "Form III",
+      "localLevel": "Form III",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+      "objectKey": "data/curriculum/source-files/TZA/3704692c1cf5dcc8c4e32a77e6b0669e1ef23414eee79c8297ba6c685f954cee.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "FORM_III",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/computer-science/0f187d51-8aa9-4391-8184-f5b3b1cef92f.md",
+        "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "tie.go.tz"
+        ],
+        "markdownChecksum": "364ec6452c9da4f5604defd35322d04115be0d9e096ef25edb78f5c4c72fa165",
+        "markdownPageCount": 40,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/computer-science/0f187d51-8aa9-4391-8184-f5b3b1cef92f.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "364ec6452c9da4f5604defd35322d04115be0d9e096ef25edb78f5c4c72fa165",
+          "pageCount": 40,
+          "generatedAt": "2026-06-29T17:39:55.996Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "a6169f241747b4661b053759507e6dd9572e38235c36f9764226d5cf8f2ea6ef"
+        },
+        "markdownGeneratedAt": "2026-06-29T17:39:55.996Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p001",
+      "title": "Title Page",
+      "content": "KITABU QUEST Form III Computer Science\n\nTanzania TIE-BASIC learner book\n\nMascot: giraffe\n\nThis KITABU QUEST book turns the curriculum into short lessons, worked examples, guided activities, practice, review, and home links for Tanzania learners.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 3,
+      "wordCount": 34,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p002",
+      "title": "How To Use This Book",
+      "content": "This book helps Form III learners study Computer Science one teachable topic at a time.\n\n1. Start with the inquiry question and say what you already know.\n2. Read the Learn section slowly and mark new words.\n3. Try the worked example before reading the full solution.\n4. Complete the activity and practice tasks.\n5. Correct your answer using the success criteria.\n6. Ask for support when your answer is still unclear.\n\nSubject method: Practise safe computing, algorithms, data, systems thinking, and clear step-by-step explanations.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 85,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p003",
+      "title": "Learning Skills In This Book",
+      "content": "Each topic builds knowledge, skill, values, communication, collaboration, critical thinking, creativity, digital awareness, and self-confidence.\n\nStudy actively: speak answers aloud, draw when useful, show your working, cite evidence, use local examples, and correct mistakes after feedback.\n\nA strong answer is specific. It names the idea, gives evidence or method, applies it to the task, and checks whether it answers the question.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 61,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p004",
+      "title": "Table Of Contents",
+      "content": "Use this table to move through the book one topic at a time. Each topic has a lesson opener, clear teaching, a model or example, guided work, practice, and checks for understanding.\n\n1. Programming Concepts Variables And Control\n2. Algorithms Testing And Debugging\n3. Database Design Tables And Relationships\n4. Web Design HTML CSS And Multimedia\n5. Computer Networks And Services\n6. Cybersecurity Ethics And Law\n7. Systems Analysis Basics\n8. Form III Computing Portfolio\n\nAs you finish each topic, return to the success criteria and correct one answer before moving on.",
+      "pageType": "front-matter",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p005",
+      "title": "Programming Concepts Variables And Control: Lesson Opener",
+      "content": "Learning focus: Programming Concepts Variables And Control\n\nCountry link: a safe Tanzania observation, model, data table, or investigation for Programming Concepts Variables And Control.\n\nProgression focus: apply ideas to unfamiliar situations and justify decisions with evidence; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- investigate and explain programming concepts variables and control using evidence\n\nInquiry questions:\n- How can programming concepts variables and control help you solve a real problem?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-001:opener:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-001:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-1"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p006",
+      "title": "Programming Concepts Variables And Control: Learn",
+      "content": "Programming Concepts Variables And Control is learned by connecting a computing concept to a clear problem, exact steps, and a checked output.\n\nCore idea:\n- Name the computing object first: data, algorithm, program, web page, database, network, device, or security control.\n- Break the task into steps before using a computer.\n- Use correct technical vocabulary such as input, process, output, variable, file, table, tag, command, or protocol where it fits.\n- Test the result with a small example and correct one error.\n- Save or present the work in a way another learner can inspect.\n\nKey words:\n- Programming Concepts Variables And Control\n- Programming\n- Concepts\n- Variables\n- Control\n- concept\n- observation\n- evidence",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-001:learn:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-001:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-1"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p007",
+      "title": "Programming Concepts Variables And Control: Worked Example",
+      "content": "Worked example for Programming Concepts Variables And Control: Build a small checked computing output.\n\n1. Define the task in one sentence.\n2. List the inputs needed, such as text, numbers, records, tags, commands, or devices.\n3. Write the steps before using the computer.\n4. Create a small version of the output: a web page, algorithm trace, table, query, program fragment, network diagram, or security checklist.\n5. Test with one example and correct one error.\n\nAnswer check: the output should match the task, use correct vocabulary, and be easy for another learner to inspect.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-001:example:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-001:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-1"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p008",
+      "title": "Programming Concepts Variables And Control: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Programming Concepts Variables And Control. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Programming Concepts Variables And Control\n- Programming\n- Concepts\n- Variables\n- Control\n- concept\n- observation\n- evidence\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Programming Concepts Variables And Control without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-001:vocabulary:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-001:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-1"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p009",
+      "title": "Programming Concepts Variables And Control: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Tanzania observation, model, data table, or investigation for Programming Concepts Variables And Control.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-001:activity:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-001:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-1"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p010",
+      "title": "Programming Concepts Variables And Control: Practice And Correction",
+      "content": "Practice for Programming Concepts Variables And Control:\n\nMain outcome: investigate and explain programming concepts variables and control using evidence.\n\n1. Write the purpose of the computing task in one sentence.\n2. Create a small algorithm, code fragment, table, diagram, web page structure, database record, or network/security checklist.\n3. Test it with one example and write one correction.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-001:practice:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-001:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-1"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p011",
+      "title": "Programming Concepts Variables And Control: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Programming Concepts Variables And Control.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-001:remediation:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-001:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-1"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p012",
+      "title": "Programming Concepts Variables And Control: Outcome Check",
+      "content": "Outcome check for Programming Concepts Variables And Control: Investigate and explain programming concepts variables and control using evidence.\n\n1. State the computing task or problem.\n2. Show the algorithm, code fragment, table, web page structure, database object, diagram, or security control.\n3. Test with one example and write one correction.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 65,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-001:assessment:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-001:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-1"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p013",
+      "title": "Algorithms Testing And Debugging: Lesson Opener",
+      "content": "Learning focus: Algorithms Testing And Debugging\n\nCountry link: a safe Tanzania observation, model, data table, or investigation for Algorithms Testing And Debugging.\n\nProgression focus: apply ideas to unfamiliar situations and justify decisions with evidence; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- investigate and explain algorithms testing and debugging using evidence\n\nInquiry questions:\n- How can algorithms testing and debugging help you solve a real problem?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-002:opener:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-002:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-2"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p014",
+      "title": "Algorithms Testing And Debugging: Learn",
+      "content": "Algorithms Testing And Debugging is learned by connecting a computing concept to a clear problem, exact steps, and a checked output.\n\nCore idea:\n- Name the computing object first: data, algorithm, program, web page, database, network, device, or security control.\n- Break the task into steps before using a computer.\n- Use correct technical vocabulary such as input, process, output, variable, file, table, tag, command, or protocol where it fits.\n- Test the result with a small example and correct one error.\n- Save or present the work in a way another learner can inspect.\n\nKey words:\n- Algorithms Testing And Debugging\n- Algorithms\n- Testing\n- Debugging\n- concept\n- observation\n- evidence\n- safety",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 116,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-002:learn:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-002:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-2"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p015",
+      "title": "Algorithms Testing And Debugging: Worked Example",
+      "content": "Worked example for Algorithms Testing And Debugging: Build a small checked computing output.\n\n1. Define the task in one sentence.\n2. List the inputs needed, such as text, numbers, records, tags, commands, or devices.\n3. Write the steps before using the computer.\n4. Create a small version of the output: a web page, algorithm trace, table, query, program fragment, network diagram, or security checklist.\n5. Test with one example and correct one error.\n\nAnswer check: the output should match the task, use correct vocabulary, and be easy for another learner to inspect.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-002:example:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-002:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-2"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p016",
+      "title": "Algorithms Testing And Debugging: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Algorithms Testing And Debugging. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Algorithms Testing And Debugging\n- Algorithms\n- Testing\n- Debugging\n- concept\n- observation\n- evidence\n- safety\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Algorithms Testing And Debugging without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-002:vocabulary:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-002:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-2"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p017",
+      "title": "Algorithms Testing And Debugging: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Tanzania observation, model, data table, or investigation for Algorithms Testing And Debugging.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-002:activity:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-002:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-2"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p018",
+      "title": "Algorithms Testing And Debugging: Practice And Correction",
+      "content": "Practice for Algorithms Testing And Debugging:\n\nMain outcome: investigate and explain algorithms testing and debugging using evidence.\n\n1. Write the purpose of the computing task in one sentence.\n2. Create a small algorithm, code fragment, table, diagram, web page structure, database record, or network/security checklist.\n3. Test it with one example and write one correction.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-002:practice:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-002:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-2"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p019",
+      "title": "Algorithms Testing And Debugging: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Algorithms Testing And Debugging.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-002:remediation:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-002:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-2"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p020",
+      "title": "Algorithms Testing And Debugging: Outcome Check",
+      "content": "Outcome check for Algorithms Testing And Debugging: Investigate and explain algorithms testing and debugging using evidence.\n\n1. State the computing task or problem.\n2. Show the algorithm, code fragment, table, web page structure, database object, diagram, or security control.\n3. Test with one example and write one correction.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 63,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-002:assessment:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-002:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-2"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p021",
+      "title": "Database Design Tables And Relationships: Lesson Opener",
+      "content": "Learning focus: Database Design Tables And Relationships\n\nCountry link: a safe Tanzania observation, model, data table, or investigation for Database Design Tables And Relationships.\n\nProgression focus: apply ideas to unfamiliar situations and justify decisions with evidence; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- investigate and explain database design tables and relationships using evidence\n\nInquiry questions:\n- How can database design tables and relationships help you solve a real problem?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-003:opener:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-003:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-3"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p022",
+      "title": "Database Design Tables And Relationships: Learn",
+      "content": "Database Design Tables And Relationships is learned by connecting a computing concept to a clear problem, exact steps, and a checked output.\n\nCore idea:\n- Name the computing object first: data, algorithm, program, web page, database, network, device, or security control.\n- Break the task into steps before using a computer.\n- Use correct technical vocabulary such as input, process, output, variable, file, table, tag, command, or protocol where it fits.\n- Test the result with a small example and correct one error.\n- Save or present the work in a way another learner can inspect.\n\nKey words:\n- Database Design Tables And Relationships\n- Database\n- Design\n- Tables\n- Relationships\n- concept\n- observation\n- evidence",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-003:learn:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-003:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-3"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p023",
+      "title": "Database Design Tables And Relationships: Worked Example",
+      "content": "Worked example for Database Design Tables And Relationships: Build a small checked computing output.\n\n1. Define the task in one sentence.\n2. List the inputs needed, such as text, numbers, records, tags, commands, or devices.\n3. Write the steps before using the computer.\n4. Create a small version of the output: a web page, algorithm trace, table, query, program fragment, network diagram, or security checklist.\n5. Test with one example and correct one error.\n\nAnswer check: the output should match the task, use correct vocabulary, and be easy for another learner to inspect.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-003:example:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-003:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-3"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p024",
+      "title": "Database Design Tables And Relationships: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Database Design Tables And Relationships. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Database Design Tables And Relationships\n- Database\n- Design\n- Tables\n- Relationships\n- concept\n- observation\n- evidence\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Database Design Tables And Relationships without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 121,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-003:vocabulary:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-003:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-3"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p025",
+      "title": "Database Design Tables And Relationships: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Tanzania observation, model, data table, or investigation for Database Design Tables And Relationships.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-003:activity:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-003:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-3"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p026",
+      "title": "Database Design Tables And Relationships: Practice And Correction",
+      "content": "Practice for Database Design Tables And Relationships:\n\nMain outcome: investigate and explain database design tables and relationships using evidence.\n\n1. Write the purpose of the computing task in one sentence.\n2. Create a small algorithm, code fragment, table, diagram, web page structure, database record, or network/security checklist.\n3. Test it with one example and write one correction.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 103,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-003:practice:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-003:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-3"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p027",
+      "title": "Database Design Tables And Relationships: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Database Design Tables And Relationships.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 106,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-003:remediation:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-003:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-3"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p028",
+      "title": "Database Design Tables And Relationships: Outcome Check",
+      "content": "Outcome check for Database Design Tables And Relationships: Investigate and explain database design tables and relationships using evidence.\n\n1. State the computing task or problem.\n2. Show the algorithm, code fragment, table, web page structure, database object, diagram, or security control.\n3. Test with one example and write one correction.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 65,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-003:assessment:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-003:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-3"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p029",
+      "title": "Web Design HTML CSS And Multimedia: Lesson Opener",
+      "content": "Learning focus: Web Design HTML CSS And Multimedia\n\nCountry link: a safe Tanzania observation, model, data table, or investigation for Web Design HTML CSS And Multimedia.\n\nProgression focus: apply ideas to unfamiliar situations and justify decisions with evidence; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- investigate and explain web design html css and multimedia using evidence\n\nInquiry questions:\n- How can web design html css and multimedia help you solve a real problem?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 99,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-004:opener:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-004:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-4"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p030",
+      "title": "Web Design HTML CSS And Multimedia: Learn",
+      "content": "Web Design HTML CSS And Multimedia is learned by connecting a computing concept to a clear problem, exact steps, and a checked output.\n\nCore idea:\n- Name the computing object first: data, algorithm, program, web page, database, network, device, or security control.\n- Break the task into steps before using a computer.\n- Use correct technical vocabulary such as input, process, output, variable, file, table, tag, command, or protocol where it fits.\n- Test the result with a small example and correct one error.\n- Save or present the work in a way another learner can inspect.\n\nKey words:\n- Web Design HTML CSS And Multimedia\n- Design\n- HTML\n- Multimedia\n- concept\n- observation\n- evidence\n- safety",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 120,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-004:learn:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-004:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-4"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p031",
+      "title": "Web Design HTML CSS And Multimedia: Worked Example",
+      "content": "Worked example for Web Design HTML CSS And Multimedia: Build a small checked computing output.\n\n1. Define the task in one sentence.\n2. List the inputs needed, such as text, numbers, records, tags, commands, or devices.\n3. Write the steps before using the computer.\n4. Create a small version of the output: a web page, algorithm trace, table, query, program fragment, network diagram, or security checklist.\n5. Test with one example and correct one error.\n\nAnswer check: the output should match the task, use correct vocabulary, and be easy for another learner to inspect.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 94,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-004:example:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-004:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-4"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p032",
+      "title": "Web Design HTML CSS And Multimedia: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Web Design HTML CSS And Multimedia. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Web Design HTML CSS And Multimedia\n- Design\n- HTML\n- Multimedia\n- concept\n- observation\n- evidence\n- safety\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Web Design HTML CSS And Multimedia without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 124,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-004:vocabulary:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-004:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-4"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p033",
+      "title": "Web Design HTML CSS And Multimedia: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Tanzania observation, model, data table, or investigation for Web Design HTML CSS And Multimedia.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 95,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-004:activity:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-004:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-4"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p034",
+      "title": "Web Design HTML CSS And Multimedia: Practice And Correction",
+      "content": "Practice for Web Design HTML CSS And Multimedia:\n\nMain outcome: investigate and explain web design html css and multimedia using evidence.\n\n1. Write the purpose of the computing task in one sentence.\n2. Create a small algorithm, code fragment, table, diagram, web page structure, database record, or network/security checklist.\n3. Test it with one example and write one correction.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-004:practice:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-004:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-4"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p035",
+      "title": "Web Design HTML CSS And Multimedia: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Web Design HTML CSS And Multimedia.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 107,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-004:remediation:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-004:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-4"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p036",
+      "title": "Web Design HTML CSS And Multimedia: Outcome Check",
+      "content": "Outcome check for Web Design HTML CSS And Multimedia: Investigate and explain web design html css and multimedia using evidence.\n\n1. State the computing task or problem.\n2. Show the algorithm, code fragment, table, web page structure, database object, diagram, or security control.\n3. Test with one example and write one correction.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 67,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-004:assessment:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-004:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-4"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p037",
+      "title": "Computer Networks And Services: Lesson Opener",
+      "content": "Learning focus: Computer Networks And Services\n\nCountry link: a safe Tanzania observation, model, data table, or investigation for Computer Networks And Services.\n\nProgression focus: apply ideas to unfamiliar situations and justify decisions with evidence; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- investigate and explain computer networks and services using evidence\n\nInquiry questions:\n- How can computer networks and services help you solve a real problem?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-005:opener:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-005:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-5"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p038",
+      "title": "Computer Networks And Services: Learn",
+      "content": "Computer Networks And Services is learned by connecting a computing concept to a clear problem, exact steps, and a checked output.\n\nCore idea:\n- Name the computing object first: data, algorithm, program, web page, database, network, device, or security control.\n- Break the task into steps before using a computer.\n- Use correct technical vocabulary such as input, process, output, variable, file, table, tag, command, or protocol where it fits.\n- Test the result with a small example and correct one error.\n- Save or present the work in a way another learner can inspect.\n\nKey words:\n- Computer Networks And Services\n- Computer\n- Networks\n- Services\n- concept\n- observation\n- evidence\n- safety",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 116,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-005:learn:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-005:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-5"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p039",
+      "title": "Computer Networks And Services: Worked Example",
+      "content": "Worked example for Computer Networks And Services: Build a small checked computing output.\n\n1. Define the task in one sentence.\n2. List the inputs needed, such as text, numbers, records, tags, commands, or devices.\n3. Write the steps before using the computer.\n4. Create a small version of the output: a web page, algorithm trace, table, query, program fragment, network diagram, or security checklist.\n5. Test with one example and correct one error.\n\nAnswer check: the output should match the task, use correct vocabulary, and be easy for another learner to inspect.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-005:example:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-005:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-5"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p040",
+      "title": "Computer Networks And Services: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Computer Networks And Services. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Computer Networks And Services\n- Computer\n- Networks\n- Services\n- concept\n- observation\n- evidence\n- safety\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Computer Networks And Services without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-005:vocabulary:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-005:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-5"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p041",
+      "title": "Computer Networks And Services: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Tanzania observation, model, data table, or investigation for Computer Networks And Services.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-005:activity:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-005:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-5"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p042",
+      "title": "Computer Networks And Services: Practice And Correction",
+      "content": "Practice for Computer Networks And Services:\n\nMain outcome: investigate and explain computer networks and services using evidence.\n\n1. Write the purpose of the computing task in one sentence.\n2. Create a small algorithm, code fragment, table, diagram, web page structure, database record, or network/security checklist.\n3. Test it with one example and write one correction.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-005:practice:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-005:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-5"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p043",
+      "title": "Computer Networks And Services: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Computer Networks And Services.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-005:remediation:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-005:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-5"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p044",
+      "title": "Computer Networks And Services: Outcome Check",
+      "content": "Outcome check for Computer Networks And Services: Investigate and explain computer networks and services using evidence.\n\n1. State the computing task or problem.\n2. Show the algorithm, code fragment, table, web page structure, database object, diagram, or security control.\n3. Test with one example and write one correction.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 63,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-005:assessment:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-005:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-5"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p045",
+      "title": "Cybersecurity Ethics And Law: Lesson Opener",
+      "content": "Learning focus: Cybersecurity Ethics And Law\n\nCountry link: a safe Tanzania observation, model, data table, or investigation for Cybersecurity Ethics And Law.\n\nProgression focus: apply ideas to unfamiliar situations and justify decisions with evidence; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- investigate and explain cybersecurity ethics and law using evidence\n\nInquiry questions:\n- How can cybersecurity ethics and law help you solve a real problem?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-006:opener:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-006:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-6"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p046",
+      "title": "Cybersecurity Ethics And Law: Learn",
+      "content": "Cybersecurity Ethics And Law is learned by connecting a computing concept to a clear problem, exact steps, and a checked output.\n\nCore idea:\n- Name the computing object first: data, algorithm, program, web page, database, network, device, or security control.\n- Break the task into steps before using a computer.\n- Use correct technical vocabulary such as input, process, output, variable, file, table, tag, command, or protocol where it fits.\n- Test the result with a small example and correct one error.\n- Save or present the work in a way another learner can inspect.\n\nKey words:\n- Cybersecurity Ethics And Law\n- Cybersecurity\n- Ethics\n- concept\n- observation\n- evidence\n- safety\n- conclusion",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 116,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-006:learn:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-006:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-6"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p047",
+      "title": "Cybersecurity Ethics And Law: Worked Example",
+      "content": "Worked example for Cybersecurity Ethics And Law: Build a small checked computing output.\n\n1. Define the task in one sentence.\n2. List the inputs needed, such as text, numbers, records, tags, commands, or devices.\n3. Write the steps before using the computer.\n4. Create a small version of the output: a web page, algorithm trace, table, query, program fragment, network diagram, or security checklist.\n5. Test with one example and correct one error.\n\nAnswer check: the output should match the task, use correct vocabulary, and be easy for another learner to inspect.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-006:example:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-006:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-6"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p048",
+      "title": "Cybersecurity Ethics And Law: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Cybersecurity Ethics And Law. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Cybersecurity Ethics And Law\n- Cybersecurity\n- Ethics\n- concept\n- observation\n- evidence\n- safety\n- conclusion\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Cybersecurity Ethics And Law without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-006:vocabulary:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-006:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-6"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p049",
+      "title": "Cybersecurity Ethics And Law: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Tanzania observation, model, data table, or investigation for Cybersecurity Ethics And Law.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-006:activity:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-006:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-6"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p050",
+      "title": "Cybersecurity Ethics And Law: Practice And Correction",
+      "content": "Practice for Cybersecurity Ethics And Law:\n\nMain outcome: investigate and explain cybersecurity ethics and law using evidence.\n\n1. Write the purpose of the computing task in one sentence.\n2. Create a small algorithm, code fragment, table, diagram, web page structure, database record, or network/security checklist.\n3. Test it with one example and write one correction.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-006:practice:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-006:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-6"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p051",
+      "title": "Cybersecurity Ethics And Law: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Cybersecurity Ethics And Law.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-006:remediation:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-006:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-6"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p052",
+      "title": "Cybersecurity Ethics And Law: Outcome Check",
+      "content": "Outcome check for Cybersecurity Ethics And Law: Investigate and explain cybersecurity ethics and law using evidence.\n\n1. State the computing task or problem.\n2. Show the algorithm, code fragment, table, web page structure, database object, diagram, or security control.\n3. Test with one example and write one correction.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 63,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-006:assessment:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-006:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-6"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p053",
+      "title": "Systems Analysis Basics: Lesson Opener",
+      "content": "Learning focus: Systems Analysis Basics\n\nCountry link: a safe Tanzania observation, model, data table, or investigation for Systems Analysis Basics.\n\nProgression focus: apply ideas to unfamiliar situations and justify decisions with evidence; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- investigate and explain systems analysis basics using evidence\n\nInquiry questions:\n- How can systems analysis basics help you solve a real problem?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 87,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-007:opener:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-007:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-7"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p054",
+      "title": "Systems Analysis Basics: Learn",
+      "content": "Systems Analysis Basics is learned by turning the topic into a clear, safe, evidence-based science task.\n\nCore idea:\n- Name the science idea before starting: structure, process, material, force, energy, organism, environment, or system.\n- Use a diagram, data table, labelled model, safe observation, or teacher-approved investigation.\n- Record what is seen or measured, not what is guessed.\n- Explain the result using the vocabulary from this topic.\n- Finish with one conclusion and one question for further study.\n\nKey words:\n- Systems Analysis Basics\n- Systems\n- Analysis\n- Basics\n- concept\n- observation\n- evidence\n- safety",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 99,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-007:learn:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-007:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-7"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p055",
+      "title": "Systems Analysis Basics: Worked Example",
+      "content": "Investigation model for Systems Analysis Basics: Turn the topic into a safe, clear classroom investigation or model.\n\n1. Question: write one question that can be answered by observing, comparing, classifying, measuring, modelling, or reading data.\n2. Materials: list safe classroom materials, diagrams, samples, cards, tables, or teacher-approved apparatus.\n3. Method: do one step at a time and keep one condition fair where comparison is needed.\n4. Safety: name any heat, glass, sharp tool, chemical, hygiene, electrical, or body-safety rule before starting.\n5. Record: use a labelled table, diagram, or sentence notes.\n6. Conclusion: state what the evidence shows and one limit of the investigation.\n\nAnswer check: a strong response names the concept, uses correct vocabulary, records evidence, and does not claim more than the evidence supports.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 126,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-007:example:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-007:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-7"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p056",
+      "title": "Systems Analysis Basics: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Systems Analysis Basics. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Systems Analysis Basics\n- Systems\n- Analysis\n- Basics\n- concept\n- observation\n- evidence\n- safety\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Systems Analysis Basics without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-007:vocabulary:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-007:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-7"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p057",
+      "title": "Systems Analysis Basics: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Tanzania observation, model, data table, or investigation for Systems Analysis Basics.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 92,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-007:activity:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-007:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-7"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p058",
+      "title": "Systems Analysis Basics: Practice And Correction",
+      "content": "Practice for Systems Analysis Basics:\n\nMain outcome: investigate and explain systems analysis basics using evidence.\n\n1. Write one safe investigation question.\n2. Name materials and observations needed.\n3. Use the evidence to write a conclusion.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 81,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-007:practice:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-007:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-7"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p059",
+      "title": "Systems Analysis Basics: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Systems Analysis Basics.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 104,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-007:remediation:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-007:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-7"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p060",
+      "title": "Systems Analysis Basics: Outcome Check",
+      "content": "Outcome check for Systems Analysis Basics: Investigate and explain systems analysis basics using evidence.\n\n1. State a safe investigation question.\n2. Name the evidence needed.\n3. Write a conclusion from the evidence.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 47,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-007:assessment:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-007:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-7"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p061",
+      "title": "Form III Computing Portfolio: Lesson Opener",
+      "content": "Learning focus: Form III Computing Portfolio\n\nCountry link: a safe Tanzania observation, model, data table, or investigation for Form III Computing Portfolio.\n\nProgression focus: apply ideas to unfamiliar situations and justify decisions with evidence; connect evidence, diagrams, safety, and conclusions.\n\nBy the end of this topic, you should be able to:\n- investigate and explain form iii computing portfolio using evidence\n\nInquiry questions:\n- How can form iii computing portfolio help you solve a real problem?\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "lesson-opener",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 91,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-008:opener:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-008:opener:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-8"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p062",
+      "title": "Form III Computing Portfolio: Learn",
+      "content": "Form III Computing Portfolio is learned by turning the topic into a clear, safe, evidence-based science task.\n\nCore idea:\n- Name the science idea before starting: structure, process, material, force, energy, organism, environment, or system.\n- Use a diagram, data table, labelled model, safe observation, or teacher-approved investigation.\n- Record what is seen or measured, not what is guessed.\n- Explain the result using the vocabulary from this topic.\n- Finish with one conclusion and one question for further study.\n\nKey words:\n- Form III Computing Portfolio\n- Form\n- Computing\n- Portfolio\n- concept\n- observation\n- evidence\n- safety",
+      "pageType": "explanation",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 101,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-008:learn:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-008:learn:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-8"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p063",
+      "title": "Form III Computing Portfolio: Worked Example",
+      "content": "Investigation model for Form III Computing Portfolio: Turn the topic into a safe, clear classroom investigation or model.\n\n1. Question: write one question that can be answered by observing, comparing, classifying, measuring, modelling, or reading data.\n2. Materials: list safe classroom materials, diagrams, samples, cards, tables, or teacher-approved apparatus.\n3. Method: do one step at a time and keep one condition fair where comparison is needed.\n4. Safety: name any heat, glass, sharp tool, chemical, hygiene, electrical, or body-safety rule before starting.\n5. Record: use a labelled table, diagram, or sentence notes.\n6. Conclusion: state what the evidence shows and one limit of the investigation.\n\nAnswer check: a strong response names the concept, uses correct vocabulary, records evidence, and does not claim more than the evidence supports.",
+      "pageType": "worked-example",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 127,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-008:example:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-008:example:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-8"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p064",
+      "title": "Form III Computing Portfolio: Vocabulary And Study Skill",
+      "content": "Use these words and study moves before you practise Form III Computing Portfolio. Good vocabulary helps you read the question, choose the right method, and explain your answer clearly.\n\nKey words:\n- Form III Computing Portfolio\n- Form\n- Computing\n- Portfolio\n- concept\n- observation\n- evidence\n- safety\n\nStudy skill:\n1. Choose three key words.\n2. Say each word in your own words.\n3. Give one example from Tanzania.\n4. Use each word in a correct sentence, calculation step, diagram label, or oral answer.\n5. Ask a partner to check whether your example matches the topic.\n\nCommon mistake to avoid: giving a general answer about Form III Computing Portfolio without a clear example, method, or evidence.",
+      "pageType": "explanation",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 118,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-008:vocabulary:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-008:vocabulary:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-8"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p065",
+      "title": "Form III Computing Portfolio: Guided Activity",
+      "content": "Work with a partner or small group.\n\n1. Read the inquiry question again.\n2. Choose one real situation linked to a safe Tanzania observation, model, data table, or investigation for Form III Computing Portfolio.\n3. Decide what evidence, method, vocabulary, tool, text, map, diagram, movement, or example is needed.\n4. Complete the task together and explain each step aloud.\n5. Compare your answer with another group.\n6. Improve one part after feedback.\n\nGroup role check: one learner reads the task, one records ideas, one checks vocabulary or working, and one reports the answer.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 93,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-008:activity:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-008:activity:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-8"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p066",
+      "title": "Form III Computing Portfolio: Practice And Correction",
+      "content": "Practice for Form III Computing Portfolio:\n\nMain outcome: investigate and explain form iii computing portfolio using evidence.\n\n1. Write one safe investigation question.\n2. Name materials and observations needed.\n3. Use the evidence to write a conclusion.\n\nAnswer check:\nA strong science answer names the idea, uses correct units or labels where needed, records evidence, and writes a conclusion that follows from the evidence.\n\nSafety check: use only teacher-approved materials and never test mains electricity, heat, sharp tools, or chemicals without direct supervision.",
+      "pageType": "practice",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 83,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-008:practice:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-008:practice:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-8"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p067",
+      "title": "Form III Computing Portfolio: Challenge And Remediation",
+      "content": "Use this page after practice.\n\nIf you need support:\n1. Re-read the success criteria.\n2. Copy the worked example steps as headings.\n3. Replace the model details with details from Form III Computing Portfolio.\n4. Ask one clear question about the step that is confusing.\n\nIf you are ready for a challenge:\n1. Create a new task from school, home, community, environment, technology, sport, art, market, or fieldwork.\n2. Solve or answer it using correct vocabulary.\n3. Explain why your answer is reasonable.\n4. Write one extension question for a classmate.\n\nCheck:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 105,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-008:remediation:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-008:remediation:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-8"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p068",
+      "title": "Form III Computing Portfolio: Outcome Check",
+      "content": "Outcome check for Form III Computing Portfolio: Investigate and explain form iii computing portfolio using evidence.\n\n1. State a safe investigation question.\n2. Name the evidence needed.\n3. Write a conclusion from the evidence.\n\nSuccess criteria:\n- evidence is specific\n- safety is considered\n- conclusion uses the evidence",
+      "pageType": "assessment",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 49,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-008:assessment:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-008:assessment:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-8"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p069",
+      "title": "Programming Concepts Variables And Control: Review Clinic 1",
+      "content": "Use this review clinic to strengthen Computer Science without copying earlier answers.\n\n1. Choose one idea from Programming Concepts Variables And Control that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 79,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-001:review:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-001:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-1"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p070",
+      "title": "Algorithms Testing And Debugging: Review Clinic 2",
+      "content": "Use this review clinic to strengthen Computer Science without copying earlier answers.\n\n1. Choose one idea from Algorithms Testing And Debugging that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 78,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-002:review:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-002:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-2"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p071",
+      "title": "Database Design Tables And Relationships: Review Clinic 3",
+      "content": "Use this review clinic to strengthen Computer Science without copying earlier answers.\n\n1. Choose one idea from Database Design Tables And Relationships that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 79,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-003:review:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-003:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-3"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p072",
+      "title": "Web Design HTML CSS And Multimedia: Review Clinic 4",
+      "content": "Use this review clinic to strengthen Computer Science without copying earlier answers.\n\n1. Choose one idea from Web Design HTML CSS And Multimedia that was difficult.\n2. Explain the idea in your own words.\n3. Make one new example from Tanzania.\n4. Create one question that checks knowledge.\n5. Create one question that checks skill or application.\n6. Answer both questions and correct your work.\n\nChallenge: Turn the idea into a drawing, table, map, dialogue, model, demonstration, or worked solution.",
+      "pageType": "review",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 80,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-004:review:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-004:review:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-4"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p073",
+      "title": "Programming Concepts Variables And Control: Application Workshop 1",
+      "content": "Application workshop 1 for Programming Concepts Variables And Control.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 116,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-001:application-workshop:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-001:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-1"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p074",
+      "title": "Algorithms Testing And Debugging: Application Workshop 2",
+      "content": "Application workshop 2 for Algorithms Testing And Debugging.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-002:application-workshop:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-002:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-2"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p075",
+      "title": "Database Design Tables And Relationships: Application Workshop 3",
+      "content": "Application workshop 3 for Database Design Tables And Relationships.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 116,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-003:application-workshop:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-003:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-3"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-3"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-3"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-3-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p076",
+      "title": "Web Design HTML CSS And Multimedia: Application Workshop 4",
+      "content": "Application workshop 4 for Web Design HTML CSS And Multimedia.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 117,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-004:application-workshop:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-004:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-4"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-4"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-4"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-4-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p077",
+      "title": "Computer Networks And Services: Application Workshop 5",
+      "content": "Application workshop 5 for Computer Networks And Services.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-005:application-workshop:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-005:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-5"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-5"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-5"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-5-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p078",
+      "title": "Cybersecurity Ethics And Law: Application Workshop 6",
+      "content": "Application workshop 6 for Cybersecurity Ethics And Law.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-006:application-workshop:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-006:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-6"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-6"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-6"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-6-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p079",
+      "title": "Systems Analysis Basics: Application Workshop 7",
+      "content": "Application workshop 7 for Systems Analysis Basics.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 114,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-007:application-workshop:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-007:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-7"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-7"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-7"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-7-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p080",
+      "title": "Form III Computing Portfolio: Application Workshop 8",
+      "content": "Application workshop 8 for Form III Computing Portfolio.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-008:application-workshop:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-008:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-8"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-8"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-8"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-8-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p081",
+      "title": "Programming Concepts Variables And Control: Application Workshop 9",
+      "content": "Application workshop 9 for Programming Concepts Variables And Control.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 116,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-001:application-workshop:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-001:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-1"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-1"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-1"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-1-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p082",
+      "title": "Algorithms Testing And Debugging: Application Workshop 10",
+      "content": "Application workshop 10 for Algorithms Testing And Debugging.\n\nGrade move: apply ideas to unfamiliar situations and justify decisions with evidence; connect evidence, diagrams, safety, and conclusions.\n\nUse this page to deepen the science idea with evidence.\n\n1. Write one question that can be answered by observation, model, measurement, classification, or data reading.\n2. Name safe materials, diagrams, samples, tables, or apparatus that would help.\n3. Predict what you expect and explain why.\n4. Record evidence in a labelled table, diagram, or sentence notes.\n5. Write a conclusion that answers the question without adding unsupported guesses.\n6. Add one safety rule and one limitation of the evidence.\n\nExtension: suggest one improved investigation for a future lesson.",
+      "pageType": "activity",
+      "difficulty": "core",
+      "estimatedMinutes": 5,
+      "wordCount": 115,
+      "imageRefs": [
+        "TZA-FORM-III-computer-science-topic-002:application-workshop:visual-1:planned",
+        "TZA-FORM-III-computer-science-topic-002:application-workshop:visual-2:planned"
+      ],
+      "strandIds": [
+        "fallback-form-iii-computer-science-2"
+      ],
+      "unitIds": [
+        "fallback-form-iii-computer-science-2"
+      ],
+      "parentUnitIds": [
+        "fallback-form-iii-computer-science-2"
+      ],
+      "outcomeIds": [
+        "fallback-form-iii-computer-science-2-outcome-1"
+      ]
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p083",
+      "title": "Glossary",
+      "content": "Use this glossary to revise important words in Computer Science.\n\n- Programming Concepts Variables And Control: Explain this term using an example from the book, your school, or your community.\n- Algorithms Testing And Debugging: Explain this term using an example from the book, your school, or your community.\n- Database Design Tables And Relationships: Explain this term using an example from the book, your school, or your community.\n- Web Design HTML CSS And Multimedia: Explain this term using an example from the book, your school, or your community.\n- Computer Networks And Services: Explain this term using an example from the book, your school, or your community.\n- Cybersecurity Ethics And Law: Explain this term using an example from the book, your school, or your community.\n- Systems Analysis Basics: Explain this term using an example from the book, your school, or your community.\n- Form III Computing Portfolio: Explain this term using an example from the book, your school, or your community.\n\nAdd five more words from your lessons and write your own meanings.",
+      "pageType": "glossary",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 177,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p084",
+      "title": "Answer And Teacher Notes",
+      "content": "A strong Computer Science answer states the idea, uses correct scientific vocabulary, records observations or data, includes units or labels where needed, and writes a conclusion that follows from evidence. Safety rules always come first. If evidence is missing, repeat the observation safely or explain what evidence would be needed.",
+      "pageType": "answer-notes",
+      "difficulty": "support",
+      "estimatedMinutes": 5,
+      "wordCount": 50,
+      "imageRefs": []
+    },
+    {
+      "pageId": "kitabu-quest-tza-tie-basic-form-iii-computer-science-p085",
+      "title": "Final Project",
+      "content": "Create a final project for Computer Science that shows what you can now do independently.\n\nYour project must include:\n1. A clear title.\n2. A real-life problem, question, text, performance, investigation, design, or worked task.\n3. Evidence from at least three lessons in this book.\n4. A drawing, table, map, chart, model, dialogue, paragraph, performance plan, practical product, or worked solution.\n5. A correction note showing one improvement after feedback.\n6. A short reflection explaining what you learned, what was difficult, and what you will practise next.\n\nPresentation check: keep the work neat, label important parts, use correct vocabulary, and be ready to explain your choices to a classmate or teacher.",
+      "pageType": "project",
+      "difficulty": "challenge",
+      "estimatedMinutes": 5,
+      "wordCount": 111,
+      "imageRefs": []
+    }
+  ]
+}

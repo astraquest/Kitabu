@@ -1,0 +1,2484 @@
+{
+  "schemaVersion": 1,
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 5",
+  "subject": "Mathematics",
+  "generatedAt": "2026-07-01T12:25:01Z",
+  "sourceSnapshotHash": "6428a70f9739bf19a280b5a734544dc1e4fe7496c5729a9dbd5331b9c1bc787c",
+  "ageBand": {
+    "band": "upper-primary",
+    "language": "short sentences, concrete examples, and step-by-step guidance",
+    "taskDepth": "one clear idea at a time, then guided practice"
+  },
+  "writingStandard": {
+    "voice": "simple, conversational, purposeful, and learner-first",
+    "antiFluff": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "coversDeferred": true
+  },
+  "strands": [
+    {
+      "strandId": "50dc449f-673f-4218-92a7-154daf1ba326",
+      "number": "1.0",
+      "title": "Numbers",
+      "topicCount": 11
+    },
+    {
+      "strandId": "376b1b09-0431-4d31-b4f4-8e364760ecaf",
+      "number": "2.0",
+      "title": "Measurement",
+      "topicCount": 13
+    },
+    {
+      "strandId": "575de178-299a-4cb8-beeb-6ea6dd094ca5",
+      "number": "3.0",
+      "title": "Geometry",
+      "topicCount": 5
+    },
+    {
+      "strandId": "892036f7-1bd7-4131-9be8-89ed99669439",
+      "number": "4.0",
+      "title": "Data Handling",
+      "topicCount": 2
+    }
+  ],
+  "topics": [
+    {
+      "topicId": "G5-mathematics-topic-001",
+      "strandId": "50dc449f-673f-4218-92a7-154daf1ba326",
+      "parentSubStrandId": "e17213fd-3d07-4df5-b7f5-0d590e9beb4c",
+      "subStrandId": "e17213fd-3d07-4df5-b7f5-0d590e9beb4c:topic-1",
+      "strandTitle": "Numbers",
+      "unitTitle": "Whole Numbers: place value and total value of digits up",
+      "sourceUnitTitle": "Whole Numbers",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-math-1-1-outcome-1",
+          "text": "use place value and total value of digits up to hundreds of thousands in different situations"
+        },
+        {
+          "id": "grade-5-math-1-1-outcome-2",
+          "text": "read and write numbers up to tens of thousands in words in different read numbers up to hundreds of situations"
+        },
+        {
+          "id": "grade-5-math-1-1-outcome-3",
+          "text": "order numbers up to tens of thousands in different read and write numbers up to tens of situations"
+        },
+        {
+          "id": "grade-5-math-1-1-outcome-4",
+          "text": "round off numbers up to tens of thousands to the arrange numbers up to tens"
+        }
+      ],
+      "inquiryQuestions": [
+        "Where can we use ordering of numbers in real life?",
+        "Why should we round off numbers?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Whole Numbers.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Whole Numbers: place value and total value of digits up",
+        "Whole Numbers",
+        "Whole",
+        "Numbers",
+        "place",
+        "value",
+        "total",
+        "digits"
+      ],
+      "misconceptions": [
+        "mixing up the method for Whole Numbers: place value and total value of digits up with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Whole Numbers: place value and total value of digits up",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Whole Numbers: place value and total value of digits up",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Whole Numbers: place value and total value of digits up",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "6f97be5a-66fe-4f15-8bf0-a0338437b33a",
+          "officialTitle": "Competency Based Curriculum Grade 5 Mathematics",
+          "sourceSnapshotHash": "6428a70f9739bf19a280b5a734544dc1e4fe7496c5729a9dbd5331b9c1bc787c"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-mathematics-topic-002",
+      "strandId": "50dc449f-673f-4218-92a7-154daf1ba326",
+      "parentSubStrandId": "e17213fd-3d07-4df5-b7f5-0d590e9beb4c",
+      "subStrandId": "e17213fd-3d07-4df5-b7f5-0d590e9beb4c:topic-2",
+      "strandTitle": "Numbers",
+      "unitTitle": "Whole Numbers: divisibility tests of 2, 5",
+      "sourceUnitTitle": "Whole Numbers",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-math-1-1-outcome-5",
+          "text": "apply divisibility tests of 2, 5 and 10 in real-life situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why should we round off numbers?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Whole Numbers.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Whole Numbers: divisibility tests of 2,",
+        "Whole Numbers",
+        "Whole",
+        "Numbers",
+        "divisibility",
+        "tests"
+      ],
+      "misconceptions": [
+        "mixing up the method for Whole Numbers: divisibility tests of 2, 5 with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Whole Numbers: divisibility tests of 2, 5",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Whole Numbers: divisibility tests of 2, 5",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Whole Numbers: divisibility tests of 2, 5",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "6f97be5a-66fe-4f15-8bf0-a0338437b33a",
+          "officialTitle": "Competency Based Curriculum Grade 5 Mathematics",
+          "sourceSnapshotHash": "6428a70f9739bf19a280b5a734544dc1e4fe7496c5729a9dbd5331b9c1bc787c"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-mathematics-topic-003",
+      "strandId": "50dc449f-673f-4218-92a7-154daf1ba326",
+      "parentSubStrandId": "6e1dde59-bb73-4996-b2b0-8de0bc3f2a29",
+      "subStrandId": "6e1dde59-bb73-4996-b2b0-8de0bc3f2a29",
+      "strandTitle": "Numbers",
+      "unitTitle": "you estimate the sum of given numbers",
+      "sourceUnitTitle": "you estimate the sum of given numbers",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-math-1-2-outcome-1",
+          "text": "without regrouping up to a sum not exceeding 1,000,000 in different situations, with double regrouping"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can you estimate the sum of given numbers?",
+        "How can you create patterns in addition?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to you estimate the sum of given numbers.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "you estimate the sum of given numbers",
+        "estimate",
+        "given",
+        "numbers"
+      ],
+      "misconceptions": [
+        "mixing up the method for you estimate the sum of given numbers with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to you estimate the sum of given numbers",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for you estimate the sum of given numbers",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for you estimate the sum of given numbers",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "6f97be5a-66fe-4f15-8bf0-a0338437b33a",
+          "officialTitle": "Competency Based Curriculum Grade 5 Mathematics",
+          "sourceSnapshotHash": "6428a70f9739bf19a280b5a734544dc1e4fe7496c5729a9dbd5331b9c1bc787c"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-mathematics-topic-004",
+      "strandId": "50dc449f-673f-4218-92a7-154daf1ba326",
+      "parentSubStrandId": "6567f16c-c204-41ee-af7d-ac0467f4379c",
+      "subStrandId": "6567f16c-c204-41ee-af7d-ac0467f4379c",
+      "strandTitle": "Numbers",
+      "unitTitle": "Subtraction a) subtract up to two 6-digit",
+      "sourceUnitTitle": "Subtraction a) subtract up to two 6-digit",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-math-1-3-outcome-1",
+          "text": "numbers without regrouping in real-life situations, numbers with regrouping in different situations, rounding off the minuend"
+        }
+      ],
+      "inquiryQuestions": [
+        "How do you estimate difference to the nearest hundred?",
+        "How can you create number patterns involving subtraction?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Subtraction a) subtract up to two 6-digit.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Subtraction a) subtract up to two 6-digit",
+        "Subtraction",
+        "subtract",
+        "6-digit"
+      ],
+      "misconceptions": [
+        "mixing up the method for Subtraction a) subtract up to two 6-digit with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Subtraction a) subtract up to two 6-digit",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Subtraction a) subtract up to two 6-digit",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Subtraction a) subtract up to two 6-digit",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "6f97be5a-66fe-4f15-8bf0-a0338437b33a",
+          "officialTitle": "Competency Based Curriculum Grade 5 Mathematics",
+          "sourceSnapshotHash": "6428a70f9739bf19a280b5a734544dc1e4fe7496c5729a9dbd5331b9c1bc787c"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-mathematics-topic-005",
+      "strandId": "50dc449f-673f-4218-92a7-154daf1ba326",
+      "parentSubStrandId": "c60e5f06-4fe3-472e-9a42-ade2bdacbef2",
+      "subStrandId": "c60e5f06-4fe3-472e-9a42-ade2bdacbef2",
+      "strandTitle": "Numbers",
+      "unitTitle": "Multiplication",
+      "sourceUnitTitle": "Multiplication",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-math-1-4-outcome-1",
+          "text": "multiply up to a 3-digit number by up to a 2-digit number in real-life situations"
+        },
+        {
+          "id": "grade-5-math-1-4-outcome-2",
+          "text": "estimate product by rounding off numbers to the nearest ten in different situations"
+        },
+        {
+          "id": "grade-5-math-1-4-outcome-3",
+          "text": "make patterns involving multiplication of numbers with product not exceeding 1000 in different situations"
+        },
+        {
+          "id": "grade-5-math-1-4-outcome-4",
+          "text": "appreciate use of multiplication in real life."
+        }
+      ],
+      "inquiryQuestions": [
+        "Where can multiplication be used in real life?",
+        "How can you form patterns involving multiplication?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Multiplication.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Multiplication"
+      ],
+      "misconceptions": [
+        "mixing up the method for Multiplication with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Multiplication",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Multiplication",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Multiplication",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "6f97be5a-66fe-4f15-8bf0-a0338437b33a",
+          "officialTitle": "Competency Based Curriculum Grade 5 Mathematics",
+          "sourceSnapshotHash": "6428a70f9739bf19a280b5a734544dc1e4fe7496c5729a9dbd5331b9c1bc787c"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-mathematics-topic-006",
+      "strandId": "50dc449f-673f-4218-92a7-154daf1ba326",
+      "parentSubStrandId": "426b5bf3-1630-4165-8e85-0076e6085754",
+      "subStrandId": "426b5bf3-1630-4165-8e85-0076e6085754",
+      "strandTitle": "Numbers",
+      "unitTitle": "Division",
+      "sourceUnitTitle": "Division",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-math-1-5-outcome-1",
+          "text": "up to a 2-digit number where the dividend is greater than the divisor in real life"
+        }
+      ],
+      "inquiryQuestions": [
+        "Where is division used in real life?",
+        "How can we estimate quotients?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Division.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Division"
+      ],
+      "misconceptions": [
+        "mixing up the method for Division with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Division",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Division",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Division",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "6f97be5a-66fe-4f15-8bf0-a0338437b33a",
+          "officialTitle": "Competency Based Curriculum Grade 5 Mathematics",
+          "sourceSnapshotHash": "6428a70f9739bf19a280b5a734544dc1e4fe7496c5729a9dbd5331b9c1bc787c"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-mathematics-topic-007",
+      "strandId": "50dc449f-673f-4218-92a7-154daf1ba326",
+      "parentSubStrandId": "bbb5d963-4a4b-4529-baf6-337b8bf58542",
+      "subStrandId": "bbb5d963-4a4b-4529-baf6-337b8bf58542:topic-1",
+      "strandTitle": "Numbers",
+      "unitTitle": "we order fractions in real life: simplify fractions",
+      "sourceUnitTitle": "we order fractions in real life",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-math-1-6-outcome-1",
+          "text": "simplify fractions in different situations"
+        },
+        {
+          "id": "grade-5-math-1-6-outcome-2",
+          "text": "compare fractions in different situations"
+        },
+        {
+          "id": "grade-5-math-1-6-outcome-3",
+          "text": "order fractions with denominators not exceeding 12 in different situations"
+        },
+        {
+          "id": "grade-5-math-1-6-outcome-4",
+          "text": "add two fractions with the same denominator in different situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why can we order fractions in real life?",
+        "Where are fractions used in real life?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to we order fractions in real life.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "we order fractions in real life: simplify fractions",
+        "we order fractions in real life",
+        "order",
+        "fractions",
+        "life",
+        "simplify"
+      ],
+      "misconceptions": [
+        "mixing up the method for we order fractions in real life: simplify fractions with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to we order fractions in real life: simplify fractions",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for we order fractions in real life: simplify fractions",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for we order fractions in real life: simplify fractions",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "6f97be5a-66fe-4f15-8bf0-a0338437b33a",
+          "officialTitle": "Competency Based Curriculum Grade 5 Mathematics",
+          "sourceSnapshotHash": "6428a70f9739bf19a280b5a734544dc1e4fe7496c5729a9dbd5331b9c1bc787c"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-mathematics-topic-008",
+      "strandId": "50dc449f-673f-4218-92a7-154daf1ba326",
+      "parentSubStrandId": "bbb5d963-4a4b-4529-baf6-337b8bf58542",
+      "subStrandId": "bbb5d963-4a4b-4529-baf6-337b8bf58542:topic-2",
+      "strandTitle": "Numbers",
+      "unitTitle": "we order fractions in real life: two fractions with the same denominator",
+      "sourceUnitTitle": "we order fractions in real life",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-math-1-6-outcome-5",
+          "text": "subtract two fractions with the same denominator in different situations"
+        },
+        {
+          "id": "grade-5-math-1-6-outcome-6",
+          "text": "add two fractions with one renaming in different situations"
+        },
+        {
+          "id": "grade-5-math-1-6-outcome-7",
+          "text": "subtract two fractions with one renaming in different situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "Where are fractions used in real life?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to we order fractions in real life.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "we order fractions in real life: two fractions with the same denominator",
+        "we order fractions in real life",
+        "order",
+        "fractions",
+        "life",
+        "denominator"
+      ],
+      "misconceptions": [
+        "mixing up the method for we order fractions in real life: two fractions with the same denominator with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to we order fractions in real life: two fractions with the same denominator",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for we order fractions in real life: two fractions with the same denominator",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for we order fractions in real life: two fractions with the same denominator",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "6f97be5a-66fe-4f15-8bf0-a0338437b33a",
+          "officialTitle": "Competency Based Curriculum Grade 5 Mathematics",
+          "sourceSnapshotHash": "6428a70f9739bf19a280b5a734544dc1e4fe7496c5729a9dbd5331b9c1bc787c"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-mathematics-topic-009",
+      "strandId": "50dc449f-673f-4218-92a7-154daf1ba326",
+      "parentSubStrandId": "5b861725-e225-4503-87c3-844983c53345",
+      "subStrandId": "5b861725-e225-4503-87c3-844983c53345:topic-1",
+      "strandTitle": "Numbers",
+      "unitTitle": "Decimals: place value of decimals up to thousandths",
+      "sourceUnitTitle": "Decimals",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-math-1-7-outcome-1",
+          "text": "identify place value of decimals up to thousandths in different situations"
+        },
+        {
+          "id": "grade-5-math-1-7-outcome-2",
+          "text": "order decimals up to thousandths in different situations"
+        },
+        {
+          "id": "grade-5-math-1-7-outcome-3",
+          "text": "add decimals up to thousandths in different situations"
+        },
+        {
+          "id": "grade-5-math-1-7-outcome-4",
+          "text": "subtract decimals up to thousandths in different situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "Where can you use decimals in real life?",
+        "What is the importance of ordering decimals?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Decimals.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Decimals: place value of decimals up to thousandths",
+        "Decimals",
+        "place",
+        "value",
+        "thousandths"
+      ],
+      "misconceptions": [
+        "mixing up the method for Decimals: place value of decimals up to thousandths with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Decimals: place value of decimals up to thousandths",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Decimals: place value of decimals up to thousandths",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Decimals: place value of decimals up to thousandths",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "6f97be5a-66fe-4f15-8bf0-a0338437b33a",
+          "officialTitle": "Competency Based Curriculum Grade 5 Mathematics",
+          "sourceSnapshotHash": "6428a70f9739bf19a280b5a734544dc1e4fe7496c5729a9dbd5331b9c1bc787c"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-mathematics-topic-010",
+      "strandId": "50dc449f-673f-4218-92a7-154daf1ba326",
+      "parentSubStrandId": "5b861725-e225-4503-87c3-844983c53345",
+      "subStrandId": "5b861725-e225-4503-87c3-844983c53345:topic-2",
+      "strandTitle": "Numbers",
+      "unitTitle": "Decimals: decimal numbers of up to thousandths",
+      "sourceUnitTitle": "Decimals",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-math-1-7-outcome-5",
+          "text": "multiply decimal numbers of up to thousandths by 1000 in different situations"
+        },
+        {
+          "id": "grade-5-math-1-7-outcome-6",
+          "text": "appreciate use of decimals in real-life situations."
+        }
+      ],
+      "inquiryQuestions": [
+        "What is the importance of ordering decimals?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Decimals.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Decimals: decimal numbers of up to thousandths",
+        "Decimals",
+        "decimal",
+        "numbers",
+        "thousandths"
+      ],
+      "misconceptions": [
+        "mixing up the method for Decimals: decimal numbers of up to thousandths with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Decimals: decimal numbers of up to thousandths",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Decimals: decimal numbers of up to thousandths",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Decimals: decimal numbers of up to thousandths",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "6f97be5a-66fe-4f15-8bf0-a0338437b33a",
+          "officialTitle": "Competency Based Curriculum Grade 5 Mathematics",
+          "sourceSnapshotHash": "6428a70f9739bf19a280b5a734544dc1e4fe7496c5729a9dbd5331b9c1bc787c"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-mathematics-topic-011",
+      "strandId": "50dc449f-673f-4218-92a7-154daf1ba326",
+      "parentSubStrandId": "d73355e9-ec91-4e11-b60e-91fdde754a41",
+      "subStrandId": "d73355e9-ec91-4e11-b60e-91fdde754a41",
+      "strandTitle": "Numbers",
+      "unitTitle": "Simple Equations",
+      "sourceUnitTitle": "Simple Equations",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-math-1-8-outcome-1",
+          "text": "form simple equations with one unknown involving real-life situations"
+        },
+        {
+          "id": "grade-5-math-1-8-outcome-2",
+          "text": "solve simple equations with one unknown involving real-life situations"
+        },
+        {
+          "id": "grade-5-math-1-8-outcome-3",
+          "text": "appreciate use of equations in solving problems in real life."
+        }
+      ],
+      "inquiryQuestions": [
+        "Where are equations used in real life?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Simple Equations.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Simple Equations",
+        "Simple",
+        "Equations"
+      ],
+      "misconceptions": [
+        "mixing up the method for Simple Equations with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Simple Equations",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Simple Equations",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Simple Equations",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "6f97be5a-66fe-4f15-8bf0-a0338437b33a",
+          "officialTitle": "Competency Based Curriculum Grade 5 Mathematics",
+          "sourceSnapshotHash": "6428a70f9739bf19a280b5a734544dc1e4fe7496c5729a9dbd5331b9c1bc787c"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-mathematics-topic-012",
+      "strandId": "376b1b09-0431-4d31-b4f4-8e364760ecaf",
+      "parentSubStrandId": "a20b0b7e-2582-4431-9636-73ef9e31afa1",
+      "subStrandId": "a20b0b7e-2582-4431-9636-73ef9e31afa1:topic-1",
+      "strandTitle": "Measurement",
+      "unitTitle": "Measurement 2.7: explain the term budget",
+      "sourceUnitTitle": "Measurement 2.7",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-math-2-0-outcome-1",
+          "text": "explain the term budget in real-life situations"
+        },
+        {
+          "id": "grade-5-math-2-0-outcome-2",
+          "text": "identify the importance of a budget in real life"
+        },
+        {
+          "id": "grade-5-math-2-0-outcome-3",
+          "text": "prepare a budget of up to 5 items used in daily life"
+        },
+        {
+          "id": "grade-5-math-2-0-outcome-4",
+          "text": "explain meaning of tax and its importance to the government"
+        }
+      ],
+      "inquiryQuestions": [
+        "How do you spend your money?",
+        "What is the importance of paying taxes?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Measurement 2.7.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Measurement 2.7: explain the term budget",
+        "Measurement 2.7",
+        "Measurement",
+        "explain",
+        "budget"
+      ],
+      "misconceptions": [
+        "mixing up the method for Measurement 2.7: explain the term budget with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Measurement 2.7: explain the term budget",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Measurement 2.7: explain the term budget",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Measurement 2.7: explain the term budget",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "6f97be5a-66fe-4f15-8bf0-a0338437b33a",
+          "officialTitle": "Competency Based Curriculum Grade 5 Mathematics",
+          "sourceSnapshotHash": "6428a70f9739bf19a280b5a734544dc1e4fe7496c5729a9dbd5331b9c1bc787c"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-mathematics-topic-013",
+      "strandId": "376b1b09-0431-4d31-b4f4-8e364760ecaf",
+      "parentSubStrandId": "a20b0b7e-2582-4431-9636-73ef9e31afa1",
+      "subStrandId": "a20b0b7e-2582-4431-9636-73ef9e31afa1:topic-2",
+      "strandTitle": "Measurement",
+      "unitTitle": "Measurement 2.7: services provided by banks",
+      "sourceUnitTitle": "Measurement 2.7",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-math-2-0-outcome-5",
+          "text": "identify services provided by banks in real-life situations"
+        },
+        {
+          "id": "grade-5-math-2-0-outcome-6",
+          "text": "identify factors to consider in order to save money wisely"
+        },
+        {
+          "id": "grade-5-math-2-0-outcome-7",
+          "text": "appreciate use of budgeting, bank services and payment of taxes in real life."
+        }
+      ],
+      "inquiryQuestions": [
+        "What is the importance of paying taxes?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Measurement 2.7.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Measurement 2.7: services provided by banks",
+        "Measurement 2.7",
+        "Measurement",
+        "services",
+        "banks"
+      ],
+      "misconceptions": [
+        "mixing up the method for Measurement 2.7: services provided by banks with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Measurement 2.7: services provided by banks",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Measurement 2.7: services provided by banks",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Measurement 2.7: services provided by banks",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "6f97be5a-66fe-4f15-8bf0-a0338437b33a",
+          "officialTitle": "Competency Based Curriculum Grade 5 Mathematics",
+          "sourceSnapshotHash": "6428a70f9739bf19a280b5a734544dc1e4fe7496c5729a9dbd5331b9c1bc787c"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-mathematics-topic-014",
+      "strandId": "376b1b09-0431-4d31-b4f4-8e364760ecaf",
+      "parentSubStrandId": "b68a7a00-00f1-4f12-ac06-38423a5131fe",
+      "subStrandId": "b68a7a00-00f1-4f12-ac06-38423a5131fe:topic-1",
+      "strandTitle": "Measurement",
+      "unitTitle": "Length: kilometre (km) as a unit of measuring length",
+      "sourceUnitTitle": "Length",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-math-2-1-outcome-1",
+          "text": "identify the kilometre (km) as a unit of measuring length in real life"
+        },
+        {
+          "id": "grade-5-math-2-1-outcome-2",
+          "text": "estimate distance in kilometres in real-life situations"
+        },
+        {
+          "id": "grade-5-math-2-1-outcome-3",
+          "text": "identify the relationship between the kilometre (km) and the metre (m) in different situations"
+        },
+        {
+          "id": "grade-5-math-2-1-outcome-4",
+          "text": "convert kilometres to metres and metres to kilometres in different situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can you measure distance?",
+        "Why should you measure distance?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Length.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Length: kilometre (km) as a unit of measuring length",
+        "Length",
+        "kilometre",
+        "measuring"
+      ],
+      "misconceptions": [
+        "mixing up the method for Length: kilometre (km) as a unit of measuring length with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Length: kilometre (km) as a unit of measuring length",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Length: kilometre (km) as a unit of measuring length",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Length: kilometre (km) as a unit of measuring length",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "6f97be5a-66fe-4f15-8bf0-a0338437b33a",
+          "officialTitle": "Competency Based Curriculum Grade 5 Mathematics",
+          "sourceSnapshotHash": "6428a70f9739bf19a280b5a734544dc1e4fe7496c5729a9dbd5331b9c1bc787c"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-mathematics-topic-015",
+      "strandId": "376b1b09-0431-4d31-b4f4-8e364760ecaf",
+      "parentSubStrandId": "b68a7a00-00f1-4f12-ac06-38423a5131fe",
+      "subStrandId": "b68a7a00-00f1-4f12-ac06-38423a5131fe:topic-2",
+      "strandTitle": "Measurement",
+      "unitTitle": "Length: metres and kilometres",
+      "sourceUnitTitle": "Length",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-math-2-1-outcome-5",
+          "text": "add metres and kilometres in real-life situations"
+        },
+        {
+          "id": "grade-5-math-2-1-outcome-6",
+          "text": "subtract metres and kilometres in real life situations"
+        },
+        {
+          "id": "grade-5-math-2-1-outcome-7",
+          "text": "multiply metres and kilometres by whole numbers in real life situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why should you measure distance?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Length.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Length: metres and kilometres",
+        "Length",
+        "metres",
+        "kilometres"
+      ],
+      "misconceptions": [
+        "mixing up the method for Length: metres and kilometres with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Length: metres and kilometres",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Length: metres and kilometres",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Length: metres and kilometres",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "6f97be5a-66fe-4f15-8bf0-a0338437b33a",
+          "officialTitle": "Competency Based Curriculum Grade 5 Mathematics",
+          "sourceSnapshotHash": "6428a70f9739bf19a280b5a734544dc1e4fe7496c5729a9dbd5331b9c1bc787c"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-mathematics-topic-016",
+      "strandId": "376b1b09-0431-4d31-b4f4-8e364760ecaf",
+      "parentSubStrandId": "c171e220-6ded-4d36-b0a1-ebe2f2470670",
+      "subStrandId": "c171e220-6ded-4d36-b0a1-ebe2f2470670",
+      "strandTitle": "Measurement",
+      "unitTitle": "Area",
+      "sourceUnitTitle": "Area",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-math-2-2-outcome-1",
+          "text": "identify the square centimetre (cm2) as a unit of measuring area in real life, cover a given surface using"
+        },
+        {
+          "id": "grade-5-math-2-2-outcome-2",
+          "text": "work out area of 1-centimetre square cut-outs and count rectangles and the number of cut-outs"
+        },
+        {
+          "id": "grade-5-math-2-2-outcome-3",
+          "text": "appreciate the use of cm2 in working out area in real life. team up with peers to play games"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can you determine the area of different surfaces?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Area.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Area"
+      ],
+      "misconceptions": [
+        "mixing up the method for Area with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Area",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Area",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Area",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "6f97be5a-66fe-4f15-8bf0-a0338437b33a",
+          "officialTitle": "Competency Based Curriculum Grade 5 Mathematics",
+          "sourceSnapshotHash": "6428a70f9739bf19a280b5a734544dc1e4fe7496c5729a9dbd5331b9c1bc787c"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-mathematics-topic-017",
+      "strandId": "376b1b09-0431-4d31-b4f4-8e364760ecaf",
+      "parentSubStrandId": "6714a8be-dbac-4434-8045-5e98ee186540",
+      "subStrandId": "6714a8be-dbac-4434-8045-5e98ee186540:topic-1",
+      "strandTitle": "Measurement",
+      "unitTitle": "Volume: cubic centimetre (cm3) as a unit of measuring",
+      "sourceUnitTitle": "Volume",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-math-2-3-outcome-1",
+          "text": "identify the cubic centimetre (cm3) as a unit of measuring volume in different situations"
+        },
+        {
+          "id": "grade-5-math-2-3-outcome-2",
+          "text": "derive the formula for the volume of cuboid as v= l x w x h practically"
+        },
+        {
+          "id": "grade-5-math-2-3-outcome-3",
+          "text": "work out volume of cuboids in cubic centimetres (cm3) using the formula"
+        },
+        {
+          "id": "grade-5-math-2-3-outcome-4",
+          "text": "derive the formula for the volume of cube as v= s x s x s practically"
+        }
+      ],
+      "inquiryQuestions": [
+        "Where is volume applicable in real life?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Volume.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Volume: cubic centimetre (cm3) as a unit of measuring",
+        "Volume",
+        "cubic",
+        "centimetre",
+        "cm3)",
+        "measuring"
+      ],
+      "misconceptions": [
+        "mixing up the method for Volume: cubic centimetre (cm3) as a unit of measuring with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Volume: cubic centimetre (cm3) as a unit of measuring",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Volume: cubic centimetre (cm3) as a unit of measuring",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Volume: cubic centimetre (cm3) as a unit of measuring",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "6f97be5a-66fe-4f15-8bf0-a0338437b33a",
+          "officialTitle": "Competency Based Curriculum Grade 5 Mathematics",
+          "sourceSnapshotHash": "6428a70f9739bf19a280b5a734544dc1e4fe7496c5729a9dbd5331b9c1bc787c"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-mathematics-topic-018",
+      "strandId": "376b1b09-0431-4d31-b4f4-8e364760ecaf",
+      "parentSubStrandId": "6714a8be-dbac-4434-8045-5e98ee186540",
+      "subStrandId": "6714a8be-dbac-4434-8045-5e98ee186540:topic-2",
+      "strandTitle": "Measurement",
+      "unitTitle": "Volume: of cubes in cubic",
+      "sourceUnitTitle": "Volume",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-math-2-3-outcome-5",
+          "text": "work out volume of cubes in cubic"
+        }
+      ],
+      "inquiryQuestions": [
+        "Where is volume applicable in real life?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Volume.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Volume: of cubes in cubic",
+        "Volume",
+        "cubes",
+        "cubic"
+      ],
+      "misconceptions": [
+        "mixing up the method for Volume: of cubes in cubic with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Volume: of cubes in cubic",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Volume: of cubes in cubic",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Volume: of cubes in cubic",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "6f97be5a-66fe-4f15-8bf0-a0338437b33a",
+          "officialTitle": "Competency Based Curriculum Grade 5 Mathematics",
+          "sourceSnapshotHash": "6428a70f9739bf19a280b5a734544dc1e4fe7496c5729a9dbd5331b9c1bc787c"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-mathematics-topic-019",
+      "strandId": "376b1b09-0431-4d31-b4f4-8e364760ecaf",
+      "parentSubStrandId": "fe127182-6c54-4c6a-aa3d-501f04b74844",
+      "subStrandId": "fe127182-6c54-4c6a-aa3d-501f04b74844:topic-1",
+      "strandTitle": "Measurement",
+      "unitTitle": "Capacity: millilitre as a unit of measuring capacity",
+      "sourceUnitTitle": "Capacity",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-math-2-4-outcome-1",
+          "text": "identify the millilitre as a unit of measuring capacity in real life"
+        },
+        {
+          "id": "grade-5-math-2-4-outcome-2",
+          "text": "measure capacity in millilitres in real-life situations"
+        },
+        {
+          "id": "grade-5-math-2-4-outcome-3",
+          "text": "estimate and measure capacity in millilitres in different situations"
+        },
+        {
+          "id": "grade-5-math-2-4-outcome-4",
+          "text": "identify the relationship between litres and millilitres in real life"
+        }
+      ],
+      "inquiryQuestions": [
+        "Where are litres and millilitres used in day-to-day life?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Capacity.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Capacity: millilitre as a unit of measuring capacity",
+        "Capacity",
+        "millilitre",
+        "measuring"
+      ],
+      "misconceptions": [
+        "mixing up the method for Capacity: millilitre as a unit of measuring capacity with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Capacity: millilitre as a unit of measuring capacity",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Capacity: millilitre as a unit of measuring capacity",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Capacity: millilitre as a unit of measuring capacity",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "6f97be5a-66fe-4f15-8bf0-a0338437b33a",
+          "officialTitle": "Competency Based Curriculum Grade 5 Mathematics",
+          "sourceSnapshotHash": "6428a70f9739bf19a280b5a734544dc1e4fe7496c5729a9dbd5331b9c1bc787c"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-mathematics-topic-020",
+      "strandId": "376b1b09-0431-4d31-b4f4-8e364760ecaf",
+      "parentSubStrandId": "fe127182-6c54-4c6a-aa3d-501f04b74844",
+      "subStrandId": "fe127182-6c54-4c6a-aa3d-501f04b74844:topic-2",
+      "strandTitle": "Measurement",
+      "unitTitle": "Capacity: convert litres to millilitres and millilitres to litres",
+      "sourceUnitTitle": "Capacity",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-math-2-4-outcome-5",
+          "text": "convert litres to millilitres and millilitres to litres in real-life situations"
+        },
+        {
+          "id": "grade-5-math-2-4-outcome-6",
+          "text": "add litres and millilitres in real-life situations"
+        },
+        {
+          "id": "grade-5-math-2-4-outcome-7",
+          "text": "subtract litres and millilitres in real-life situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "Where are litres and millilitres used in day-to-day life?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Capacity.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Capacity: convert litres to millilitres and millilitres to litres",
+        "Capacity",
+        "convert",
+        "litres",
+        "millilitres"
+      ],
+      "misconceptions": [
+        "mixing up the method for Capacity: convert litres to millilitres and millilitres to litres with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Capacity: convert litres to millilitres and millilitres to litres",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Capacity: convert litres to millilitres and millilitres to litres",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Capacity: convert litres to millilitres and millilitres to litres",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "6f97be5a-66fe-4f15-8bf0-a0338437b33a",
+          "officialTitle": "Competency Based Curriculum Grade 5 Mathematics",
+          "sourceSnapshotHash": "6428a70f9739bf19a280b5a734544dc1e4fe7496c5729a9dbd5331b9c1bc787c"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-mathematics-topic-021",
+      "strandId": "376b1b09-0431-4d31-b4f4-8e364760ecaf",
+      "parentSubStrandId": "7c813f38-2d32-4da9-a3f2-f1107c458a63",
+      "subStrandId": "7c813f38-2d32-4da9-a3f2-f1107c458a63:topic-1",
+      "strandTitle": "Measurement",
+      "unitTitle": "Mass: gramme as a unit of measuring mass",
+      "sourceUnitTitle": "Mass",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-math-2-5-outcome-1",
+          "text": "identify the gramme as a unit of measuring mass in real life"
+        },
+        {
+          "id": "grade-5-math-2-5-outcome-2",
+          "text": "measure mass in grammes in different situations"
+        },
+        {
+          "id": "grade-5-math-2-5-outcome-3",
+          "text": "estimate and measure mass in grammes in different situations"
+        },
+        {
+          "id": "grade-5-math-2-5-outcome-4",
+          "text": "identify the relationship between the kilogramme and the gramme in real-life situations"
+        }
+      ],
+      "inquiryQuestions": [
+        "What is the importance of measuring mass?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Mass.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Mass: gramme as a unit of measuring mass",
+        "Mass",
+        "gramme",
+        "measuring"
+      ],
+      "misconceptions": [
+        "mixing up the method for Mass: gramme as a unit of measuring mass with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Mass: gramme as a unit of measuring mass",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Mass: gramme as a unit of measuring mass",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Mass: gramme as a unit of measuring mass",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "6f97be5a-66fe-4f15-8bf0-a0338437b33a",
+          "officialTitle": "Competency Based Curriculum Grade 5 Mathematics",
+          "sourceSnapshotHash": "6428a70f9739bf19a280b5a734544dc1e4fe7496c5729a9dbd5331b9c1bc787c"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-mathematics-topic-022",
+      "strandId": "376b1b09-0431-4d31-b4f4-8e364760ecaf",
+      "parentSubStrandId": "7c813f38-2d32-4da9-a3f2-f1107c458a63",
+      "subStrandId": "7c813f38-2d32-4da9-a3f2-f1107c458a63:topic-2",
+      "strandTitle": "Measurement",
+      "unitTitle": "Mass: convert kilogrammes",
+      "sourceUnitTitle": "Mass",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-math-2-5-outcome-5",
+          "text": "convert kilogrammes"
+        }
+      ],
+      "inquiryQuestions": [
+        "What is the importance of measuring mass?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Mass.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Mass: convert kilogrammes",
+        "Mass",
+        "convert",
+        "kilogrammes"
+      ],
+      "misconceptions": [
+        "mixing up the method for Mass: convert kilogrammes with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Mass: convert kilogrammes",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Mass: convert kilogrammes",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Mass: convert kilogrammes",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "6f97be5a-66fe-4f15-8bf0-a0338437b33a",
+          "officialTitle": "Competency Based Curriculum Grade 5 Mathematics",
+          "sourceSnapshotHash": "6428a70f9739bf19a280b5a734544dc1e4fe7496c5729a9dbd5331b9c1bc787c"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-mathematics-topic-023",
+      "strandId": "376b1b09-0431-4d31-b4f4-8e364760ecaf",
+      "parentSubStrandId": "0c8d08ff-77f2-4ce8-9e76-bdda8506fc04",
+      "subStrandId": "0c8d08ff-77f2-4ce8-9e76-bdda8506fc04:topic-1",
+      "strandTitle": "Measurement",
+      "unitTitle": "Time: second as a unit of measuring time",
+      "sourceUnitTitle": "Time",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-math-2-6-outcome-1",
+          "text": "identify the second as a unit of measuring time from a clock"
+        },
+        {
+          "id": "grade-5-math-2-6-outcome-2",
+          "text": "use digital or analogues clocks to read time in seconds"
+        },
+        {
+          "id": "grade-5-math-2-6-outcome-3",
+          "text": "identify the relationship between the minute and the second in real-life situations"
+        },
+        {
+          "id": "grade-5-math-2-6-outcome-4",
+          "text": "convert minutes to seconds and seconds to minutes in real life"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can we read and tell time?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Time.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Time: second as a unit of measuring time",
+        "Time",
+        "second",
+        "measuring"
+      ],
+      "misconceptions": [
+        "mixing up the method for Time: second as a unit of measuring time with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Time: second as a unit of measuring time",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Time: second as a unit of measuring time",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Time: second as a unit of measuring time",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "6f97be5a-66fe-4f15-8bf0-a0338437b33a",
+          "officialTitle": "Competency Based Curriculum Grade 5 Mathematics",
+          "sourceSnapshotHash": "6428a70f9739bf19a280b5a734544dc1e4fe7496c5729a9dbd5331b9c1bc787c"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-mathematics-topic-024",
+      "strandId": "376b1b09-0431-4d31-b4f4-8e364760ecaf",
+      "parentSubStrandId": "0c8d08ff-77f2-4ce8-9e76-bdda8506fc04",
+      "subStrandId": "0c8d08ff-77f2-4ce8-9e76-bdda8506fc04:topic-2",
+      "strandTitle": "Measurement",
+      "unitTitle": "Time: minutes and seconds with conversion",
+      "sourceUnitTitle": "Time",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-math-2-6-outcome-5",
+          "text": "add minutes and seconds with conversion in real-life situations"
+        },
+        {
+          "id": "grade-5-math-2-6-outcome-6",
+          "text": "subtract minutes and seconds with conversion in real life situations"
+        },
+        {
+          "id": "grade-5-math-2-6-outcome-7",
+          "text": "multiply minutes and seconds by whole numbers in real-life situations"
+        },
+        {
+          "id": "grade-5-math-2-6-outcome-8",
+          "text": "divide minutes and seconds"
+        }
+      ],
+      "inquiryQuestions": [
+        "How can we read and tell time?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Time.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Time: minutes and seconds with conversion",
+        "Time",
+        "minutes",
+        "seconds",
+        "conversion"
+      ],
+      "misconceptions": [
+        "mixing up the method for Time: minutes and seconds with conversion with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Time: minutes and seconds with conversion",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Time: minutes and seconds with conversion",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Time: minutes and seconds with conversion",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "6f97be5a-66fe-4f15-8bf0-a0338437b33a",
+          "officialTitle": "Competency Based Curriculum Grade 5 Mathematics",
+          "sourceSnapshotHash": "6428a70f9739bf19a280b5a734544dc1e4fe7496c5729a9dbd5331b9c1bc787c"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-mathematics-topic-025",
+      "strandId": "575de178-299a-4cb8-beeb-6ea6dd094ca5",
+      "parentSubStrandId": "57d945cf-83ef-4d10-b189-c3c9a5aa901a",
+      "subStrandId": "57d945cf-83ef-4d10-b189-c3c9a5aa901a:topic-1",
+      "strandTitle": "Geometry",
+      "unitTitle": "Lines: horizontal and vertical lines",
+      "sourceUnitTitle": "Lines",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-math-3-1-outcome-1",
+          "text": "identify horizontal and vertical lines in different situations"
+        },
+        {
+          "id": "grade-5-math-3-1-outcome-2",
+          "text": "draw horizontal and vertical lines in different salutations"
+        },
+        {
+          "id": "grade-5-math-3-1-outcome-3",
+          "text": "identify perpendicular lines in different situations"
+        },
+        {
+          "id": "grade-5-math-3-1-outcome-4",
+          "text": "draw perpendicular lines in different salutations"
+        }
+      ],
+      "inquiryQuestions": [
+        "Where are perpendicular lines used?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Lines.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Lines: horizontal and vertical lines",
+        "Lines",
+        "horizontal",
+        "vertical"
+      ],
+      "misconceptions": [
+        "mixing up the method for Lines: horizontal and vertical lines with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Lines: horizontal and vertical lines",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Lines: horizontal and vertical lines",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Lines: horizontal and vertical lines",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "6f97be5a-66fe-4f15-8bf0-a0338437b33a",
+          "officialTitle": "Competency Based Curriculum Grade 5 Mathematics",
+          "sourceSnapshotHash": "6428a70f9739bf19a280b5a734544dc1e4fe7496c5729a9dbd5331b9c1bc787c"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-mathematics-topic-026",
+      "strandId": "575de178-299a-4cb8-beeb-6ea6dd094ca5",
+      "parentSubStrandId": "57d945cf-83ef-4d10-b189-c3c9a5aa901a",
+      "subStrandId": "57d945cf-83ef-4d10-b189-c3c9a5aa901a:topic-2",
+      "strandTitle": "Geometry",
+      "unitTitle": "Lines: parallel lines",
+      "sourceUnitTitle": "Lines",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-math-3-1-outcome-5",
+          "text": "identify parallel lines in different situations"
+        },
+        {
+          "id": "grade-5-math-3-1-outcome-6",
+          "text": "draw parallel lines in different salutations"
+        },
+        {
+          "id": "grade-5-math-3-1-outcome-7",
+          "text": "appreciate use of various types of lines in real life."
+        }
+      ],
+      "inquiryQuestions": [
+        "Where are perpendicular lines used?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Lines.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Lines: parallel lines",
+        "Lines",
+        "parallel"
+      ],
+      "misconceptions": [
+        "mixing up the method for Lines: parallel lines with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Lines: parallel lines",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Lines: parallel lines",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Lines: parallel lines",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "6f97be5a-66fe-4f15-8bf0-a0338437b33a",
+          "officialTitle": "Competency Based Curriculum Grade 5 Mathematics",
+          "sourceSnapshotHash": "6428a70f9739bf19a280b5a734544dc1e4fe7496c5729a9dbd5331b9c1bc787c"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-mathematics-topic-027",
+      "strandId": "575de178-299a-4cb8-beeb-6ea6dd094ca5",
+      "parentSubStrandId": "8a55dcae-9280-4cf2-8ded-aa5b6b2287db",
+      "subStrandId": "8a55dcae-9280-4cf2-8ded-aa5b6b2287db:topic-1",
+      "strandTitle": "Geometry",
+      "unitTitle": "Angles: relate a turn to angles",
+      "sourceUnitTitle": "Angles",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-math-3-2-outcome-1",
+          "text": "relate a turn to angles in real life"
+        },
+        {
+          "id": "grade-5-math-3-2-outcome-2",
+          "text": "read angles from protractor in both directions"
+        },
+        {
+          "id": "grade-5-math-3-2-outcome-3",
+          "text": "use protractor to measure angles in different situations"
+        },
+        {
+          "id": "grade-5-math-3-2-outcome-4",
+          "text": "measure angles in degrees in different situations, measure angles in degrees using"
+        }
+      ],
+      "inquiryQuestions": [
+        "Where are angles used in the environment?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Angles.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Angles: relate a turn to angles",
+        "Angles",
+        "relate"
+      ],
+      "misconceptions": [
+        "mixing up the method for Angles: relate a turn to angles with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Angles: relate a turn to angles",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Angles: relate a turn to angles",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Angles: relate a turn to angles",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "6f97be5a-66fe-4f15-8bf0-a0338437b33a",
+          "officialTitle": "Competency Based Curriculum Grade 5 Mathematics",
+          "sourceSnapshotHash": "6428a70f9739bf19a280b5a734544dc1e4fe7496c5729a9dbd5331b9c1bc787c"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-mathematics-topic-028",
+      "strandId": "575de178-299a-4cb8-beeb-6ea6dd094ca5",
+      "parentSubStrandId": "8a55dcae-9280-4cf2-8ded-aa5b6b2287db",
+      "subStrandId": "8a55dcae-9280-4cf2-8ded-aa5b6b2287db:topic-2",
+      "strandTitle": "Geometry",
+      "unitTitle": "Angles: use of angles in the environment, work",
+      "sourceUnitTitle": "Angles",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-math-3-2-outcome-5",
+          "text": "identify the use of angles in the environment, work with peers to measure angles"
+        },
+        {
+          "id": "grade-5-math-3-2-outcome-6",
+          "text": "appreciate the use of angles in our day-to-day life. use digital devices and other"
+        }
+      ],
+      "inquiryQuestions": [
+        "Where are angles used in the environment?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Angles.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Angles: use of angles in the environment, work",
+        "Angles",
+        "environment"
+      ],
+      "misconceptions": [
+        "mixing up the method for Angles: use of angles in the environment, work with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Angles: use of angles in the environment, work",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Angles: use of angles in the environment, work",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Angles: use of angles in the environment, work",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "6f97be5a-66fe-4f15-8bf0-a0338437b33a",
+          "officialTitle": "Competency Based Curriculum Grade 5 Mathematics",
+          "sourceSnapshotHash": "6428a70f9739bf19a280b5a734544dc1e4fe7496c5729a9dbd5331b9c1bc787c"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-mathematics-topic-029",
+      "strandId": "575de178-299a-4cb8-beeb-6ea6dd094ca5",
+      "parentSubStrandId": "81558250-3eb8-431a-8c29-da972ab6995e",
+      "subStrandId": "81558250-3eb8-431a-8c29-da972ab6995e",
+      "strandTitle": "Geometry",
+      "unitTitle": "Three- Dimension (3- D) Objects",
+      "sourceUnitTitle": "Three- Dimension (3- D) Objects",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-math-3-3-outcome-1",
+          "text": "describe 3-D objects in the environment, in the environment, watch a video on 3-D objects"
+        },
+        {
+          "id": "grade-5-math-3-3-outcome-2",
+          "text": "describe 2-D shapes describe 2-D shapes found in 3-D in 3-D objects in the objects"
+        },
+        {
+          "id": "grade-5-math-3-3-outcome-3",
+          "text": "appreciate the use of draw and learn more about 3-D objects. 3-D objects in the environment."
+        }
+      ],
+      "inquiryQuestions": [
+        "Where are 3-D objects used in the environment?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Three- Dimension (3- D) Objects.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Three- Dimension (3- D) Objects",
+        "Dimension",
+        "Objects"
+      ],
+      "misconceptions": [
+        "mixing up the method for Three- Dimension (3- D) Objects with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Three- Dimension (3- D) Objects",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Three- Dimension (3- D) Objects",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Three- Dimension (3- D) Objects",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "6f97be5a-66fe-4f15-8bf0-a0338437b33a",
+          "officialTitle": "Competency Based Curriculum Grade 5 Mathematics",
+          "sourceSnapshotHash": "6428a70f9739bf19a280b5a734544dc1e4fe7496c5729a9dbd5331b9c1bc787c"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-mathematics-topic-030",
+      "strandId": "892036f7-1bd7-4131-9be8-89ed99669439",
+      "parentSubStrandId": "1a66b73c-5234-439c-b71c-fa06df9ed560",
+      "subStrandId": "1a66b73c-5234-439c-b71c-fa06df9ed560:topic-1",
+      "strandTitle": "Data Handling",
+      "unitTitle": "Data Representation: collect data of about 30 items relating",
+      "sourceUnitTitle": "Data Representation",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-math-4-1-outcome-1",
+          "text": "collect data of about 30 items relating to real-life experiences"
+        },
+        {
+          "id": "grade-5-math-4-1-outcome-2",
+          "text": "draw a table to record data from real-life situations"
+        },
+        {
+          "id": "grade-5-math-4-1-outcome-3",
+          "text": "draw tally marks of the collected data"
+        },
+        {
+          "id": "grade-5-math-4-1-outcome-4",
+          "text": "prepare a frequency table to represent data"
+        }
+      ],
+      "inquiryQuestions": [
+        "Why is representing data in tables important?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Data Representation.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Data Representation: collect data of about 30 items relating",
+        "Data Representation",
+        "Representation",
+        "collect",
+        "about",
+        "items",
+        "relating"
+      ],
+      "misconceptions": [
+        "mixing up the method for Data Representation: collect data of about 30 items relating with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Data Representation: collect data of about 30 items relating",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Data Representation: collect data of about 30 items relating",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Data Representation: collect data of about 30 items relating",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "6f97be5a-66fe-4f15-8bf0-a0338437b33a",
+          "officialTitle": "Competency Based Curriculum Grade 5 Mathematics",
+          "sourceSnapshotHash": "6428a70f9739bf19a280b5a734544dc1e4fe7496c5729a9dbd5331b9c1bc787c"
+        }
+      ]
+    },
+    {
+      "topicId": "G5-mathematics-topic-031",
+      "strandId": "892036f7-1bd7-4131-9be8-89ed99669439",
+      "parentSubStrandId": "1a66b73c-5234-439c-b71c-fa06df9ed560",
+      "subStrandId": "1a66b73c-5234-439c-b71c-fa06df9ed560:topic-2",
+      "strandTitle": "Data Handling",
+      "unitTitle": "Data Representation: interpret data represented by frequency tables",
+      "sourceUnitTitle": "Data Representation",
+      "learningOutcomes": [
+        {
+          "id": "grade-5-math-4-1-outcome-5",
+          "text": "interpret data represented by frequency tables"
+        },
+        {
+          "id": "grade-5-math-4-1-outcome-6",
+          "text": "appreciate use frequency tables in real life."
+        }
+      ],
+      "inquiryQuestions": [
+        "Why is representing data in tables important?"
+      ],
+      "prerequisites": [
+        "Recall everyday examples connected to Data Representation.",
+        "Review vocabulary from the previous Mathematics lesson before starting."
+      ],
+      "keyVocabulary": [
+        "Data Representation: interpret data represented by frequency tables",
+        "Data Representation",
+        "Representation",
+        "interpret",
+        "represented",
+        "frequency",
+        "tables"
+      ],
+      "misconceptions": [
+        "mixing up the method for Data Representation: interpret data represented by frequency tables with a similar method, skipping working, or not checking units"
+      ],
+      "localContext": "a learner solving a money, distance, farming, building, market, or school-data problem linked to Data Representation: interpret data represented by frequency tables",
+      "explanationSequence": [
+        "Start with a concrete local situation.",
+        "Name the important idea in learner-friendly words.",
+        "Model one example slowly.",
+        "Guide the learner through a similar task.",
+        "Ask the learner to apply the idea independently."
+      ],
+      "practiceTypes": [
+        "guided oral or written response",
+        "independent practice",
+        "home/community link",
+        "reflection and correction"
+      ],
+      "successCriteria": [
+        "method is clear",
+        "working is shown step by step",
+        "answer is checked in context"
+      ],
+      "visualNeeds": [
+        {
+          "type": "worked-solution panel",
+          "description": "worked-solution panel for Data Representation: interpret data represented by frequency tables",
+          "status": "inline-text-fallback-ready"
+        },
+        {
+          "type": "number line/table/chart/manipulative diagram",
+          "description": "number line/table/chart/manipulative diagram for Data Representation: interpret data represented by frequency tables",
+          "status": "inline-text-fallback-ready"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "type": "curriculum-source-document",
+          "sourceDocumentId": "6f97be5a-66fe-4f15-8bf0-a0338437b33a",
+          "officialTitle": "Competency Based Curriculum Grade 5 Mathematics",
+          "sourceSnapshotHash": "6428a70f9739bf19a280b5a734544dc1e4fe7496c5729a9dbd5331b9c1bc787c"
+        }
+      ]
+    }
+  ]
+}

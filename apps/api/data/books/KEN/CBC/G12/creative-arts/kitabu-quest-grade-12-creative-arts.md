@@ -7,7 +7,7 @@ grade: "Grade 12"
 subject: "Creative Arts"
 status: "content-draft-review-needed"
 version: "draft-2026-07-01"
-source_snapshot_hash: "ce580fd56debd432de94703b8dd6a1d18e0260b284b80c4aa9ca8950b7082c1b"
+source_snapshot_hash: "604078f3a2a64cece1f38c0fd1bc32cd5a39ccbb6c68b147f466366b3e5ef771"
 ---
 # KITABU QUEST Grade 12 Creative Arts
 
@@ -1742,7 +1742,7 @@ Show mastery with evidence.
 
 Evidence of mastery: your work answers the exact outcome, gives a relevant example, and shows a correction after feedback.
 
-##: Multimedia Arts (2D Art): Chapter Review
+## : Multimedia Arts (2D Art): Chapter Review
 
 Review the chapter carefully.
 
@@ -1825,16 +1825,16 @@ Explain the idea in your own words before attempting the activities.
 
 ## Pottery and Ceramics Throwing technique Bisque fired decorative techniques: explain the throwing technique in pottery: Worked Example
 
-Creative process model for Pottery and Ceramics Throwing technique Bisque fired decorative techniques: explain the throwing technique in pottery: Choose the art form, practise the technique, and show improvement.
+Craft model for Pottery and Ceramics Throwing technique Bisque fired decorative techniques: explain the throwing technique in pottery: Shape and finish a stable three-dimensional form safely.
 
 Procedure:
-1. Choose the exact form for this topic: drawing, painting, craft, music, dance, drama, design, exhibition, or physical performance.
-2. Define purpose, audience, material, space, and time.
-3. Practise one core technique slowly before producing the final work.
-4. Ask for feedback on one visible or audible feature.
-5. Improve one part and explain what changed.
+1. Sketch the object and label materials, tools, joining method, and finish before starting.
+2. Prepare clay, paper, paste, or other teacher-approved material safely.
+3. Shape the object using the technique taught, such as coil, slab, throwing, casting, folding, joining, or modelling.
+4. Check wall thickness, strength, balance, surface finish, safe tool use, and drying or firing requirements.
+5. Improve one feature after feedback and explain the change using correct art vocabulary.
 
-Rubric: excellent work has a clear idea, safe process, practised technique, visible improvement, teamwork where needed, and an explanation of creative choices.
+Rubric: excellent work is safely made, structurally stable, neatly finished, improved after feedback, and explained with the correct technique terms.
 
 ## Pottery and Ceramics Throwing technique Bisque fired decorative techniques: explain the throwing technique in pottery: Activity
 
@@ -1975,16 +1975,16 @@ Explain the idea in your own words before attempting the activities.
 
 ## Pottery and Ceramics Throwing technique Bisque fired decorative techniques: appraise own and other's pottery ware.: Worked Example
 
-Creative process model for Pottery and Ceramics Throwing technique Bisque fired decorative techniques: appraise own and other's pottery ware.: Choose the art form, practise the technique, and show improvement.
+Craft model for Pottery and Ceramics Throwing technique Bisque fired decorative techniques: appraise own and other's pottery ware.: Shape and finish a stable three-dimensional form safely.
 
 Procedure:
-1. Choose the exact form for this topic: drawing, painting, craft, music, dance, drama, design, exhibition, or physical performance.
-2. Define purpose, audience, material, space, and time.
-3. Practise one core technique slowly before producing the final work.
-4. Ask for feedback on one visible or audible feature.
-5. Improve one part and explain what changed.
+1. Sketch the object and label materials, tools, joining method, and finish before starting.
+2. Prepare clay, paper, paste, or other teacher-approved material safely.
+3. Shape the object using the technique taught, such as coil, slab, throwing, casting, folding, joining, or modelling.
+4. Check wall thickness, strength, balance, surface finish, safe tool use, and drying or firing requirements.
+5. Improve one feature after feedback and explain the change using correct art vocabulary.
 
-Rubric: excellent work has a clear idea, safe process, practised technique, visible improvement, teamwork where needed, and an explanation of creative choices.
+Rubric: excellent work is safely made, structurally stable, neatly finished, improved after feedback, and explained with the correct technique terms.
 
 ## Pottery and Ceramics Throwing technique Bisque fired decorative techniques: appraise own and other's pottery ware.: Activity
 

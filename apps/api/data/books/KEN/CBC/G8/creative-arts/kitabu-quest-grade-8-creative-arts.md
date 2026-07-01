@@ -7,7 +7,7 @@ grade: "Grade 8"
 subject: "Creative Arts"
 status: "content-draft-review-needed"
 version: "draft-2026-07-01"
-source_snapshot_hash: "9d3e13f7792dbf4e3ed2ea662ed66218109bf63efaf20263859e2fbc18a3ea0d"
+source_snapshot_hash: "0698889076bf0afad362efbd38ef303eb13112576943561d558fd871243418d2"
 ---
 # KITABU QUEST Grade 8 Creative Arts
 
@@ -1544,13 +1544,13 @@ Show mastery with evidence.
 
 Evidence of mastery: your work answers the exact outcome, gives a relevant example, and shows a correction after feedback.
 
-## Fabric Decoration: fabrics decorated for familiarity: Lesson Opener
+## Fabric Decoration: we finish a decorated fabric: Lesson Opener
 
-Learning area: Fabric Decoration: fabrics decorated for familiarity
+Learning area: Fabric Decoration: we finish a decorated fabric
 
-Start here: a drawing, design, music, dance, drama, craft, exhibition, or performance activity linked to Fabric Decoration: fabrics decorated for familiarity.
+Start here: a drawing, design, music, dance, drama, craft, exhibition, or performance activity linked to Fabric Decoration: we finish a decorated fabric.
 
-Curriculum link: This lesson follows the Grade 8 curriculum sequence and focuses on Fabric Decoration: fabrics decorated for familiarity.
+Curriculum link: This lesson follows the Grade 8 curriculum sequence and focuses on Fabric Decoration: we finish a decorated fabric.
 
 By the end of this lesson sequence, you should be able to:
 - identify fabrics decorated for familiarity
@@ -1563,11 +1563,11 @@ Inquiry questions:
 
 Before reading, write one thing you already know and one question you want this lesson to answer.
 
-## Fabric Decoration: fabrics decorated for familiarity: Learn
+## Fabric Decoration: we finish a decorated fabric: Learn
 
-Start with this real situation: a drawing, design, music, dance, drama, craft, exhibition, or performance activity linked to Fabric Decoration: fabrics decorated for familiarity.
+Start with this real situation: a drawing, design, music, dance, drama, craft, exhibition, or performance activity linked to Fabric Decoration: we finish a decorated fabric.
 
-The important idea is Fabric Decoration: fabrics decorated for familiarity. In this lesson, do not memorise words only. Read the example, try the guided task, then explain the idea in your own words.
+The important idea is Fabric Decoration: we finish a decorated fabric. In this lesson, do not memorise words only. Read the example, try the guided task, then explain the idea in your own words.
 
 A common mistake is finishing a product without planning, practising, improving, or explaining creative choices. Avoid it by checking your work against these success criteria:
 - idea is planned
@@ -1588,19 +1588,18 @@ Inline visual support:
 Method for Creative Arts: Create, perform, observe, improve, and reflect using local materials and culture.
 
 Key words:
-- Fabric Decoration: fabrics decorated for familiarity
+- Fabric Decoration: we finish a decorated fabric
 - Fabric Decoration
 - Fabric
 - Decoration
-- fabrics
+- finish
 - decorated
-- familiarity
 
 Explain the idea in your own words before attempting the activities.
 
-## Fabric Decoration: fabrics decorated for familiarity: Worked Example
+## Fabric Decoration: we finish a decorated fabric: Worked Example
 
-Creative process model for Fabric Decoration: fabrics decorated for familiarity: Choose the art form, practise the technique, and show improvement.
+Creative process model for Fabric Decoration: we finish a decorated fabric: Choose the art form, practise the technique, and show improvement.
 
 Procedure:
 1. Choose the exact form for this topic: drawing, painting, craft, music, dance, drama, design, exhibition, or physical performance.
@@ -1611,9 +1610,9 @@ Procedure:
 
 Rubric: excellent work has a clear idea, safe process, practised technique, visible improvement, teamwork where needed, and an explanation of creative choices.
 
-## Fabric Decoration: fabrics decorated for familiarity: Activity
+## Fabric Decoration: we finish a decorated fabric: Activity
 
-Activity for Fabric Decoration: fabrics decorated for familiarity: Use a safe creative-process checklist.
+Activity for Fabric Decoration: we finish a decorated fabric: Use a safe creative-process checklist.
 
 Inquiry question: Why do we finish a decorated fabric?
 
@@ -1631,9 +1630,9 @@ Success criteria:
 
 Home link: Find a safe artwork, song, dance, craft, game, or performance example. Describe one technique and one safety rule.
 
-## Fabric Decoration: fabrics decorated for familiarity: Activity And Practice
+## Fabric Decoration: we finish a decorated fabric: Activity And Practice
 
-Practice for Fabric Decoration: fabrics decorated for familiarity:
+Practice for Fabric Decoration: we finish a decorated fabric:
 
 1. Carry out or describe a practical task for this outcome: identify fabrics decorated for familiarity. List materials, steps, safety checks, and how you will judge quality.
 2. Carry out or describe a practical task for this outcome: tie and dye a fabric using marbling. List materials, steps, safety checks, and how you will judge quality.
@@ -1647,9 +1646,9 @@ Correction check:
 
 Reflection: What was easy? What needs more practice? What question will you ask your teacher or study partner?
 
-Home link: Ask someone at home for an example related to fabric decoration: fabrics decorated for familiarity and write two useful sentences about it.
+Home link: Ask someone at home for an example related to fabric decoration: we finish a decorated fabric and write two useful sentences about it.
 
-## Fabric Decoration: fabrics decorated for familiarity: Outcome Check
+## Fabric Decoration: we finish a decorated fabric: Outcome Check
 
 Outcome: identify fabrics decorated for familiarity
 
@@ -1657,14 +1656,14 @@ Show mastery with evidence.
 
 1. Explain the outcome in your own words.
 2. Give one local, school, home, community, practical, or text-based example.
-3. Complete a short task that proves you can apply the idea in Fabric Decoration: fabrics decorated for familiarity.
+3. Complete a short task that proves you can apply the idea in Fabric Decoration: we finish a decorated fabric.
 4. Use correct vocabulary and include a reason, observation, example, step, or result.
 5. Write one mistake a learner might make and how to avoid it.
 6. Ask a peer, teacher, or parent to check whether your answer is clear.
 
 Evidence of mastery: your work answers the exact outcome, gives a relevant example, and shows a correction after feedback.
 
-## Fabric Decoration: fabrics decorated for familiarity: Outcome Check
+## Fabric Decoration: we finish a decorated fabric: Outcome Check
 
 Outcome: tie and dye a fabric using marbling
 
@@ -1672,14 +1671,14 @@ Show mastery with evidence.
 
 1. Explain the outcome in your own words.
 2. Give one local, school, home, community, practical, or text-based example.
-3. Complete a short task that proves you can apply the idea in Fabric Decoration: fabrics decorated for familiarity.
+3. Complete a short task that proves you can apply the idea in Fabric Decoration: we finish a decorated fabric.
 4. Use correct vocabulary and include a reason, observation, example, step, or result.
 5. Write one mistake a learner might make and how to avoid it.
 6. Ask a peer, teacher, or parent to check whether your answer is clear.
 
 Evidence of mastery: your work answers the exact outcome, gives a relevant example, and shows a correction after feedback.
 
-## Fabric Decoration: fabrics decorated for familiarity: Outcome Check
+## Fabric Decoration: we finish a decorated fabric: Outcome Check
 
 Outcome: decorate a fabric using pleating technique
 
@@ -1687,7 +1686,7 @@ Show mastery with evidence.
 
 1. Explain the outcome in your own words.
 2. Give one local, school, home, community, practical, or text-based example.
-3. Complete a short task that proves you can apply the idea in Fabric Decoration: fabrics decorated for familiarity.
+3. Complete a short task that proves you can apply the idea in Fabric Decoration: we finish a decorated fabric.
 4. Use correct vocabulary and include a reason, observation, example, step, or result.
 5. Write one mistake a learner might make and how to avoid it.
 6. Ask a peer, teacher, or parent to check whether your answer is clear.
@@ -2443,16 +2442,16 @@ Explain the idea in your own words before attempting the activities.
 
 ## Indigenous Kenyan Craft (Basketry): Worked Example
 
-Craft model for Indigenous Kenyan Craft (Basketry): Make a useful or expressive object safely.
+Craft model for Indigenous Kenyan Craft (Basketry): Shape and finish a stable three-dimensional form safely.
 
 Procedure:
-1. Sketch the object and label materials before starting.
+1. Sketch the object and label materials, tools, joining method, and finish before starting.
 2. Prepare clay, paper, paste, or other teacher-approved material safely.
-3. Shape the object using the technique taught, such as coil, slab, casting, folding, joining, or modelling.
-4. Check strength, neatness, balance, surface finish, and safe handling while working.
-5. Improve one feature after feedback and explain the change.
+3. Shape the object using the technique taught, such as coil, slab, throwing, casting, folding, joining, or modelling.
+4. Check wall thickness, strength, balance, surface finish, safe tool use, and drying or firing requirements.
+5. Improve one feature after feedback and explain the change using correct art vocabulary.
 
-Rubric: excellent work is safely made, structurally stable, neatly finished, improved after feedback, and explained with correct art vocabulary.
+Rubric: excellent work is safely made, structurally stable, neatly finished, improved after feedback, and explained with the correct technique terms.
 
 ## Indigenous Kenyan Craft (Basketry): Activity
 
@@ -2589,18 +2588,18 @@ Explain the idea in your own words before attempting the activities.
 
 ## Swimming (Optional): Worked Example
 
-Movement model for Swimming (Optional): Safe physical performance.
+Movement model for Swimming (Optional): Practise safe pool entry and water confidence.
 
 Teacher-supervised procedure:
-1. Warm up before the activity.
-2. Check the field, pool, or performance space for hazards.
-3. Practise the skill slowly before increasing speed or force.
-4. Follow rules on contact, spacing, rescue, hydration, and stopping when tired or injured.
-5. Cool down and reflect on teamwork, control, and safety.
+1. Check pool rules, lifeguard or teacher position, depth markings, and safe entry point before entering.
+2. Enter only when instructed, using the taught entry method for that depth.
+3. Keep space from other swimmers and avoid pushing, running, or diving without permission.
+4. Practise breathing, floating, kicking, or movement slowly near the safe area first.
+5. Exit calmly, report discomfort immediately, and reflect on one safety action used.
 
-Hazards: collision, drowning risk, sprains, unsafe surfaces, dehydration, and ignoring instructions.
+Hazards: slipping, panic, water inhalation, collision, unsafe depth, and ignoring instructions.
 
-Quality criteria: correct technique, safe spacing, teamwork, rule-following, and controlled movement.
+Quality criteria: follows pool rules, enters safely, controls movement, respects others, and can explain the safety reason for each action.
 
 ## Swimming (Optional): Activity
 

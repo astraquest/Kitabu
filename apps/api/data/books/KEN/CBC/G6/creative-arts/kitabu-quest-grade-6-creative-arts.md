@@ -7,7 +7,7 @@ grade: "Grade 6"
 subject: "Creative Arts"
 status: "content-draft-review-needed"
 version: "draft-2026-07-01"
-source_snapshot_hash: "5e5e51f02793ca302325cb466d48c5d6d287921392bcc24270a6f7c8c0f2ff23"
+source_snapshot_hash: "68ba573259c1ad35609cbbaa04501432800b9444ae16b71a6b65c0096bd232d6"
 ---
 # KITABU QUEST Grade 6 Creative Arts
 
@@ -1904,16 +1904,16 @@ Explain the idea in your own words before attempting the activities.
 
 ## Indigenous Kenyan Craft- Pottery: Worked Example
 
-Craft model for Indigenous Kenyan Craft- Pottery: Make a useful or expressive object safely.
+Craft model for Indigenous Kenyan Craft- Pottery: Shape and finish a stable three-dimensional form safely.
 
 Procedure:
-1. Sketch the object and label materials before starting.
+1. Sketch the object and label materials, tools, joining method, and finish before starting.
 2. Prepare clay, paper, paste, or other teacher-approved material safely.
-3. Shape the object using the technique taught, such as coil, slab, casting, folding, joining, or modelling.
-4. Check strength, neatness, balance, surface finish, and safe handling while working.
-5. Improve one feature after feedback and explain the change.
+3. Shape the object using the technique taught, such as coil, slab, throwing, casting, folding, joining, or modelling.
+4. Check wall thickness, strength, balance, surface finish, safe tool use, and drying or firing requirements.
+5. Improve one feature after feedback and explain the change using correct art vocabulary.
 
-Rubric: excellent work is safely made, structurally stable, neatly finished, improved after feedback, and explained with correct art vocabulary.
+Rubric: excellent work is safely made, structurally stable, neatly finished, improved after feedback, and explained with the correct technique terms.
 
 ## Indigenous Kenyan Craft- Pottery: Activity
 
@@ -2055,18 +2055,18 @@ Explain the idea in your own words before attempting the activities.
 
 ## Swimming: breaststroke, swimming for skill acquisition, stroke skill: Worked Example
 
-Movement model for Swimming: breaststroke, swimming for skill acquisition, stroke skill: Safe physical performance.
+Movement model for Swimming: breaststroke, swimming for skill acquisition, stroke skill: Practise safe pool entry and water confidence.
 
 Teacher-supervised procedure:
-1. Warm up before the activity.
-2. Check the field, pool, or performance space for hazards.
-3. Practise the skill slowly before increasing speed or force.
-4. Follow rules on contact, spacing, rescue, hydration, and stopping when tired or injured.
-5. Cool down and reflect on teamwork, control, and safety.
+1. Check pool rules, lifeguard or teacher position, depth markings, and safe entry point before entering.
+2. Enter only when instructed, using the taught entry method for that depth.
+3. Keep space from other swimmers and avoid pushing, running, or diving without permission.
+4. Practise breathing, floating, kicking, or movement slowly near the safe area first.
+5. Exit calmly, report discomfort immediately, and reflect on one safety action used.
 
-Hazards: collision, drowning risk, sprains, unsafe surfaces, dehydration, and ignoring instructions.
+Hazards: slipping, panic, water inhalation, collision, unsafe depth, and ignoring instructions.
 
-Quality criteria: correct technique, safe spacing, teamwork, rule-following, and controlled movement.
+Quality criteria: follows pool rules, enters safely, controls movement, respects others, and can explain the safety reason for each action.
 
 ## Swimming: breaststroke, swimming for skill acquisition, stroke skill: Activity
 
@@ -2205,18 +2205,18 @@ Explain the idea in your own words before attempting the activities.
 
 ## Swimming: role played by indigenous floor games for fitness: Worked Example
 
-Movement model for Swimming: role played by indigenous floor games for fitness: Safe physical performance.
+Movement model for Swimming: role played by indigenous floor games for fitness: Practise safe pool entry and water confidence.
 
 Teacher-supervised procedure:
-1. Warm up before the activity.
-2. Check the field, pool, or performance space for hazards.
-3. Practise the skill slowly before increasing speed or force.
-4. Follow rules on contact, spacing, rescue, hydration, and stopping when tired or injured.
-5. Cool down and reflect on teamwork, control, and safety.
+1. Check pool rules, lifeguard or teacher position, depth markings, and safe entry point before entering.
+2. Enter only when instructed, using the taught entry method for that depth.
+3. Keep space from other swimmers and avoid pushing, running, or diving without permission.
+4. Practise breathing, floating, kicking, or movement slowly near the safe area first.
+5. Exit calmly, report discomfort immediately, and reflect on one safety action used.
 
-Hazards: collision, drowning risk, sprains, unsafe surfaces, dehydration, and ignoring instructions.
+Hazards: slipping, panic, water inhalation, collision, unsafe depth, and ignoring instructions.
 
-Quality criteria: correct technique, safe spacing, teamwork, rule-following, and controlled movement.
+Quality criteria: follows pool rules, enters safely, controls movement, respects others, and can explain the safety reason for each action.
 
 ## Swimming: role played by indigenous floor games for fitness: Activity
 

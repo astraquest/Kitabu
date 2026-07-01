@@ -7,7 +7,7 @@ grade: "Grade 9"
 subject: "Creative Arts"
 status: "content-draft-review-needed"
 version: "draft-2026-07-01"
-source_snapshot_hash: "661410c1f1c1f05a0342582d7d5f8f966753d49d92c1f51ac49ff3fde3374240"
+source_snapshot_hash: "ef2810b1f3d13c42c2505269fc88bc5cbd6f2477ea6fc75225671b6245487c91"
 ---
 # KITABU QUEST Grade 9 Creative Arts
 
@@ -359,13 +359,13 @@ Show mastery with evidence.
 
 Evidence of mastery: your work answers the exact outcome, gives a relevant example, and shows a correction after feedback.
 
-## Components of Creative Arts and Sports: construct the scale of F major on: Lesson Opener
+## Components of Creative Arts and Sports: es one create harmony pictorial composition: Lesson Opener
 
-Learning area: Components of Creative Arts and Sports: construct the scale of F major on
+Learning area: Components of Creative Arts and Sports: es one create harmony pictorial composition
 
-Start here: a drawing, design, music, dance, drama, craft, exhibition, or performance activity linked to Components of Creative Arts and Sports: construct the scale of F major on.
+Start here: a drawing, design, music, dance, drama, craft, exhibition, or performance activity linked to Components of Creative Arts and Sports: es one create harmony pictorial composition.
 
-Curriculum link: This lesson follows the Grade 9 curriculum sequence and focuses on Components of Creative Arts and Sports: construct the scale of F major on.
+Curriculum link: This lesson follows the Grade 9 curriculum sequence and focuses on Components of Creative Arts and Sports: es one create harmony pictorial composition.
 
 By the end of this lesson sequence, you should be able to:
 - construct the scale of F major on a staff
@@ -377,11 +377,11 @@ Inquiry questions:
 
 Before reading, write one thing you already know and one question you want this lesson to answer.
 
-## Components of Creative Arts and Sports: construct the scale of F major on: Learn
+## Components of Creative Arts and Sports: es one create harmony pictorial composition: Learn
 
-Start with this real situation: a drawing, design, music, dance, drama, craft, exhibition, or performance activity linked to Components of Creative Arts and Sports: construct the scale of F major on.
+Start with this real situation: a drawing, design, music, dance, drama, craft, exhibition, or performance activity linked to Components of Creative Arts and Sports: es one create harmony pictorial composition.
 
-The important idea is Components of Creative Arts and Sports: construct the scale of F major on. In this lesson, do not memorise words only. Read the example, try the guided task, then explain the idea in your own words.
+The important idea is Components of Creative Arts and Sports: es one create harmony pictorial composition. In this lesson, do not memorise words only. Read the example, try the guided task, then explain the idea in your own words.
 
 A common mistake is finishing a product without planning, practising, improving, or explaining creative choices. Avoid it by checking your work against these success criteria:
 - idea is planned
@@ -402,20 +402,20 @@ Inline visual support:
 Method for Creative Arts: Create, perform, observe, improve, and reflect using local materials and culture.
 
 Key words:
-- Components of Creative Arts and Sports: construct the scale of F major on
+- Components of Creative Arts and Sports: es one create harmony pictorial composition
 - Components of Creative Arts and Sports
 - Components
 - Creative
 - Sports
-- construct
-- scale
-- major
+- create
+- harmony
+- pictorial
 
 Explain the idea in your own words before attempting the activities.
 
-## Components of Creative Arts and Sports: construct the scale of F major on: Worked Example
+## Components of Creative Arts and Sports: es one create harmony pictorial composition: Worked Example
 
-Creative process model for Components of Creative Arts and Sports: construct the scale of F major on: Choose the art form, practise the technique, and show improvement.
+Creative process model for Components of Creative Arts and Sports: es one create harmony pictorial composition: Choose the art form, practise the technique, and show improvement.
 
 Procedure:
 1. Choose the exact form for this topic: drawing, painting, craft, music, dance, drama, design, exhibition, or physical performance.
@@ -426,9 +426,9 @@ Procedure:
 
 Rubric: excellent work has a clear idea, safe process, practised technique, visible improvement, teamwork where needed, and an explanation of creative choices.
 
-## Components of Creative Arts and Sports: construct the scale of F major on: Activity
+## Components of Creative Arts and Sports: es one create harmony pictorial composition: Activity
 
-Activity for Components of Creative Arts and Sports: construct the scale of F major on: Use a safe creative-process checklist.
+Activity for Components of Creative Arts and Sports: es one create harmony pictorial composition: Use a safe creative-process checklist.
 
 Inquiry question: Why should athletes avoid performance enhancers to develop physical fitness?
 
@@ -446,9 +446,9 @@ Success criteria:
 
 Home link: Find a safe artwork, song, dance, craft, game, or performance example. Describe one technique and one safety rule.
 
-## Components of Creative Arts and Sports: construct the scale of F major on: Activity And Practice
+## Components of Creative Arts and Sports: es one create harmony pictorial composition: Activity And Practice
 
-Practice for Components of Creative Arts and Sports: construct the scale of F major on:
+Practice for Components of Creative Arts and Sports: es one create harmony pictorial composition:
 
 1. Carry out or describe a practical task for this outcome: construct the scale of F major on a staff. List materials, steps, safety checks, and how you will judge quality.
 2. Carry out or describe a practical task for this outcome: appreciate the basic elements of Creative Arts and sports. List materials, steps, safety checks, and how you will judge quality.
@@ -460,9 +460,9 @@ Correction check:
 
 Reflection: What was easy? What needs more practice? What question will you ask your teacher or study partner?
 
-Home link: Ask someone at home for an example related to components of creative arts and sports: construct the scale of f major on and write two useful sentences about it.
+Home link: Ask someone at home for an example related to components of creative arts and sports: es one create harmony pictorial composition and write two useful sentences about it.
 
-## Components of Creative Arts and Sports: construct the scale of F major on: Outcome Check
+## Components of Creative Arts and Sports: es one create harmony pictorial composition: Outcome Check
 
 Outcome: construct the scale of F major on a staff
 
@@ -470,14 +470,14 @@ Show mastery with evidence.
 
 1. Explain the outcome in your own words.
 2. Give one local, school, home, community, practical, or text-based example.
-3. Complete a short task that proves you can apply the idea in Components of Creative Arts and Sports: construct the scale of F major on.
+3. Complete a short task that proves you can apply the idea in Components of Creative Arts and Sports: es one create harmony pictorial composition.
 4. Use correct vocabulary and include a reason, observation, example, step, or result.
 5. Write one mistake a learner might make and how to avoid it.
 6. Ask a peer, teacher, or parent to check whether your answer is clear.
 
 Evidence of mastery: your work answers the exact outcome, gives a relevant example, and shows a correction after feedback.
 
-## Components of Creative Arts and Sports: construct the scale of F major on: Outcome Check
+## Components of Creative Arts and Sports: es one create harmony pictorial composition: Outcome Check
 
 Outcome: appreciate the basic elements of Creative Arts and sports.
 
@@ -485,7 +485,7 @@ Show mastery with evidence.
 
 1. Explain the outcome in your own words.
 2. Give one local, school, home, community, practical, or text-based example.
-3. Complete a short task that proves you can apply the idea in Components of Creative Arts and Sports: construct the scale of F major on.
+3. Complete a short task that proves you can apply the idea in Components of Creative Arts and Sports: es one create harmony pictorial composition.
 4. Use correct vocabulary and include a reason, observation, example, step, or result.
 5. Write one mistake a learner might make and how to avoid it.
 6. Ask a peer, teacher, or parent to check whether your answer is clear.
@@ -1615,7 +1615,7 @@ By the end of this lesson sequence, you should be able to:
 - present the photographs for appreciation.
 
 Inquiry questions:
--: Which are the ethical issues to consider in photography?
+- Which are the ethical issues to consider in photography?
 
 Before reading, write one thing you already know and one question you want this lesson to answer.
 
@@ -1665,7 +1665,7 @@ Rubric: excellent work has a clear idea, safe process, practised technique, visi
 
 Activity for Photography: Use a safe creative-process checklist.
 
-Inquiry question:: Which are the ethical issues to consider in photography?
+Inquiry question: Which are the ethical issues to consider in photography?
 
 1. Plan the purpose, audience, material, space, and time.
 2. Identify hazards such as sharp tools, dyes, hot wax, dust, water, slippery surfaces, collision, or voice strain.
@@ -2238,16 +2238,16 @@ Explain the idea in your own words before attempting the activities.
 
 ## Indigenous Kenyan Crafts: coil techniques in pottery: Worked Example
 
-Craft model for Indigenous Kenyan Crafts: coil techniques in pottery: Make a useful or expressive object safely.
+Craft model for Indigenous Kenyan Crafts: coil techniques in pottery: Shape and finish a stable three-dimensional form safely.
 
 Procedure:
-1. Sketch the object and label materials before starting.
+1. Sketch the object and label materials, tools, joining method, and finish before starting.
 2. Prepare clay, paper, paste, or other teacher-approved material safely.
-3. Shape the object using the technique taught, such as coil, slab, casting, folding, joining, or modelling.
-4. Check strength, neatness, balance, surface finish, and safe handling while working.
-5. Improve one feature after feedback and explain the change.
+3. Shape the object using the technique taught, such as coil, slab, throwing, casting, folding, joining, or modelling.
+4. Check wall thickness, strength, balance, surface finish, safe tool use, and drying or firing requirements.
+5. Improve one feature after feedback and explain the change using correct art vocabulary.
 
-Rubric: excellent work is safely made, structurally stable, neatly finished, improved after feedback, and explained with correct art vocabulary.
+Rubric: excellent work is safely made, structurally stable, neatly finished, improved after feedback, and explained with the correct technique terms.
 
 ## Indigenous Kenyan Crafts: coil techniques in pottery: Activity
 
@@ -2498,18 +2498,18 @@ Explain the idea in your own words before attempting the activities.
 
 ## Swimming: Worked Example
 
-Movement model for Swimming: Safe physical performance.
+Movement model for Swimming: Practise safe pool entry and water confidence.
 
 Teacher-supervised procedure:
-1. Warm up before the activity.
-2. Check the field, pool, or performance space for hazards.
-3. Practise the skill slowly before increasing speed or force.
-4. Follow rules on contact, spacing, rescue, hydration, and stopping when tired or injured.
-5. Cool down and reflect on teamwork, control, and safety.
+1. Check pool rules, lifeguard or teacher position, depth markings, and safe entry point before entering.
+2. Enter only when instructed, using the taught entry method for that depth.
+3. Keep space from other swimmers and avoid pushing, running, or diving without permission.
+4. Practise breathing, floating, kicking, or movement slowly near the safe area first.
+5. Exit calmly, report discomfort immediately, and reflect on one safety action used.
 
-Hazards: collision, drowning risk, sprains, unsafe surfaces, dehydration, and ignoring instructions.
+Hazards: slipping, panic, water inhalation, collision, unsafe depth, and ignoring instructions.
 
-Quality criteria: correct technique, safe spacing, teamwork, rule-following, and controlled movement.
+Quality criteria: follows pool rules, enters safely, controls movement, respects others, and can explain the safety reason for each action.
 
 ## Swimming: Activity
 

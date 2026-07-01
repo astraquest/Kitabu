@@ -7,7 +7,7 @@ grade: "Grade 5"
 subject: "Creative Arts"
 status: "content-draft-review-needed"
 version: "draft-2026-07-01"
-source_snapshot_hash: "44cdf8493e53df75f1363ebd086161744d22ad091075a0a24a8c871ba4fe3add"
+source_snapshot_hash: "1f0cee36e07a78a68024e4652b575376ae8bac1de100a20b5e8d7b1a4a40bd42"
 ---
 # KITABU QUEST Grade 5 Creative Arts
 
@@ -480,7 +480,7 @@ By the end of this lesson sequence, you should be able to:
 - secondary colours on the colour wheel, composition using the wash technique, making a mosaic picture
 
 Inquiry questions:
-- (s) How do we use pictures in our daily lives?
+- s) How do we use pictures in our daily lives?
 
 Before reading, write one thing you already know and one question you want this lesson to answer.
 
@@ -530,7 +530,7 @@ Rubric: excellent work has a clear message, controlled technique, safe material 
 
 Activity for Painting: Use a safe creative-process checklist.
 
-Inquiry question: (s) How do we use pictures in our daily lives?
+Inquiry question: s) How do we use pictures in our daily lives?
 
 1. Plan the purpose, audience, material, space, and time.
 2. Identify hazards such as sharp tools, dyes, hot wax, dust, water, slippery surfaces, collision, or voice strain.
@@ -1270,13 +1270,13 @@ Show mastery with evidence.
 
 Evidence of mastery: your work answers the exact outcome, gives a relevant example, and shows a correction after feedback.
 
-## Kenyan Folk Dance: in a folk dance from a Kenyan indigenous: Lesson Opener
+## Kenyan Folk Dance: it necessary to perform a folk dance: Lesson Opener
 
-Learning area: Kenyan Folk Dance: in a folk dance from a Kenyan indigenous
+Learning area: Kenyan Folk Dance: it necessary to perform a folk dance
 
-Start here: a drawing, design, music, dance, drama, craft, exhibition, or performance activity linked to Kenyan Folk Dance: in a folk dance from a Kenyan indigenous.
+Start here: a drawing, design, music, dance, drama, craft, exhibition, or performance activity linked to Kenyan Folk Dance: it necessary to perform a folk dance.
 
-Curriculum link: This lesson follows the Grade 5 curriculum sequence and focuses on Kenyan Folk Dance: in a folk dance from a Kenyan indigenous.
+Curriculum link: This lesson follows the Grade 5 curriculum sequence and focuses on Kenyan Folk Dance: it necessary to perform a folk dance.
 
 By the end of this lesson sequence, you should be able to:
 - perform in a folk dance from a Kenyan indigenous community
@@ -1287,11 +1287,11 @@ Inquiry questions:
 
 Before reading, write one thing you already know and one question you want this lesson to answer.
 
-## Kenyan Folk Dance: in a folk dance from a Kenyan indigenous: Learn
+## Kenyan Folk Dance: it necessary to perform a folk dance: Learn
 
-Start with this real situation: a drawing, design, music, dance, drama, craft, exhibition, or performance activity linked to Kenyan Folk Dance: in a folk dance from a Kenyan indigenous.
+Start with this real situation: a drawing, design, music, dance, drama, craft, exhibition, or performance activity linked to Kenyan Folk Dance: it necessary to perform a folk dance.
 
-The important idea is Kenyan Folk Dance: in a folk dance from a Kenyan indigenous. In this lesson, do not memorise words only. Read the example, try the guided task, then explain the idea in your own words.
+The important idea is Kenyan Folk Dance: it necessary to perform a folk dance. In this lesson, do not memorise words only. Read the example, try the guided task, then explain the idea in your own words.
 
 A common mistake is finishing a product without planning, practising, improving, or explaining creative choices. Avoid it by checking your work against these success criteria:
 - idea is planned
@@ -1312,17 +1312,18 @@ Inline visual support:
 Method for Creative Arts: Create, perform, observe, improve, and reflect using local materials and culture.
 
 Key words:
-- Kenyan Folk Dance: in a folk dance from a Kenyan indigenous
+- Kenyan Folk Dance: it necessary to perform a folk dance
 - Kenyan Folk Dance
 - Kenyan
 - Dance
-- indigenous
+- necessary
+- perform
 
 Explain the idea in your own words before attempting the activities.
 
-## Kenyan Folk Dance: in a folk dance from a Kenyan indigenous: Worked Example
+## Kenyan Folk Dance: it necessary to perform a folk dance: Worked Example
 
-Creative process model for Kenyan Folk Dance: in a folk dance from a Kenyan indigenous: Choose the art form, practise the technique, and show improvement.
+Creative process model for Kenyan Folk Dance: it necessary to perform a folk dance: Choose the art form, practise the technique, and show improvement.
 
 Procedure:
 1. Choose the exact form for this topic: drawing, painting, craft, music, dance, drama, design, exhibition, or physical performance.
@@ -1333,9 +1334,9 @@ Procedure:
 
 Rubric: excellent work has a clear idea, safe process, practised technique, visible improvement, teamwork where needed, and an explanation of creative choices.
 
-## Kenyan Folk Dance: in a folk dance from a Kenyan indigenous: Activity
+## Kenyan Folk Dance: it necessary to perform a folk dance: Activity
 
-Activity for Kenyan Folk Dance: in a folk dance from a Kenyan indigenous: Use a safe creative-process checklist.
+Activity for Kenyan Folk Dance: it necessary to perform a folk dance: Use a safe creative-process checklist.
 
 Inquiry question: How do the components of a folk dance contribute to its performance?
 
@@ -1353,9 +1354,9 @@ Success criteria:
 
 Home link: Find a safe artwork, song, dance, craft, game, or performance example. Describe one technique and one safety rule.
 
-## Kenyan Folk Dance: in a folk dance from a Kenyan indigenous: Activity And Practice
+## Kenyan Folk Dance: it necessary to perform a folk dance: Activity And Practice
 
-Practice for Kenyan Folk Dance: in a folk dance from a Kenyan indigenous:
+Practice for Kenyan Folk Dance: it necessary to perform a folk dance:
 
 1. Carry out or describe a practical task for this outcome: perform in a folk dance from a Kenyan indigenous community. List materials, steps, safety checks, and how you will judge quality.
 2. Carry out or describe a practical task for this outcome: acknowledge the role of folk dance in the society. List materials, steps, safety checks, and how you will judge quality.
@@ -1367,9 +1368,9 @@ Correction check:
 
 Reflection: What was easy? What needs more practice? What question will you ask your teacher or study partner?
 
-Home link: Ask someone at home for an example related to kenyan folk dance: in a folk dance from a kenyan indigenous and write two useful sentences about it.
+Home link: Ask someone at home for an example related to kenyan folk dance: it necessary to perform a folk dance and write two useful sentences about it.
 
-## Kenyan Folk Dance: in a folk dance from a Kenyan indigenous: Outcome Check
+## Kenyan Folk Dance: it necessary to perform a folk dance: Outcome Check
 
 Outcome: perform in a folk dance from a Kenyan indigenous community
 
@@ -1377,14 +1378,14 @@ Show mastery with evidence.
 
 1. Explain the outcome in your own words.
 2. Give one local, school, home, community, practical, or text-based example.
-3. Complete a short task that proves you can apply the idea in Kenyan Folk Dance: in a folk dance from a Kenyan indigenous.
+3. Complete a short task that proves you can apply the idea in Kenyan Folk Dance: it necessary to perform a folk dance.
 4. Use correct vocabulary and include a reason, observation, example, step, or result.
 5. Write one mistake a learner might make and how to avoid it.
 6. Ask a peer, teacher, or parent to check whether your answer is clear.
 
 Evidence of mastery: your work answers the exact outcome, gives a relevant example, and shows a correction after feedback.
 
-## Kenyan Folk Dance: in a folk dance from a Kenyan indigenous: Outcome Check
+## Kenyan Folk Dance: it necessary to perform a folk dance: Outcome Check
 
 Outcome: acknowledge the role of folk dance in the society.
 
@@ -1392,7 +1393,7 @@ Show mastery with evidence.
 
 1. Explain the outcome in your own words.
 2. Give one local, school, home, community, practical, or text-based example.
-3. Complete a short task that proves you can apply the idea in Kenyan Folk Dance: in a folk dance from a Kenyan indigenous.
+3. Complete a short task that proves you can apply the idea in Kenyan Folk Dance: it necessary to perform a folk dance.
 4. Use correct vocabulary and include a reason, observation, example, step, or result.
 5. Write one mistake a learner might make and how to avoid it.
 6. Ask a peer, teacher, or parent to check whether your answer is clear.
@@ -1525,7 +1526,7 @@ By the end of this lesson sequence, you should be able to:
 - enjoy playing melodies using the descant recorder.
 
 Inquiry questions:
-- (s) How is a good tone produced and on the descant recorder?
+- s) How is a good tone produced and on the descant recorder?
 
 Before reading, write one thing you already know and one question you want this lesson to answer.
 
@@ -1577,7 +1578,7 @@ Rubric: excellent work has a clear idea, safe process, practised technique, visi
 
 Activity for Descant Recorder: Use a safe creative-process checklist.
 
-Inquiry question: (s) How is a good tone produced and on the descant recorder?
+Inquiry question: s) How is a good tone produced and on the descant recorder?
 
 1. Plan the purpose, audience, material, space, and time.
 2. Identify hazards such as sharp tools, dyes, hot wax, dust, water, slippery surfaces, collision, or voice strain.
@@ -1671,7 +1672,7 @@ By the end of this lesson sequence, you should be able to:
 - perform indigenous counting games to a musical rhythm
 
 Inquiry questions:
-- (s) Why is hygiene and safety necessary in swimming?
+- s) Why is hygiene and safety necessary in swimming?
 - How do indigenous counting games enhance physical fitness?
 
 Before reading, write one thing you already know and one question you want this lesson to answer.
@@ -1714,24 +1715,24 @@ Explain the idea in your own words before attempting the activities.
 
 ## s) Why is hygiene and safety necessary in swimming: technique in swimming, technique for skill acquisition, technique: Worked Example
 
-Movement model for s) Why is hygiene and safety necessary in swimming: technique in swimming, technique for skill acquisition, technique: Safe physical performance.
+Movement model for s) Why is hygiene and safety necessary in swimming: technique in swimming, technique for skill acquisition, technique: Practise safe pool entry and water confidence.
 
 Teacher-supervised procedure:
-1. Warm up before the activity.
-2. Check the field, pool, or performance space for hazards.
-3. Practise the skill slowly before increasing speed or force.
-4. Follow rules on contact, spacing, rescue, hydration, and stopping when tired or injured.
-5. Cool down and reflect on teamwork, control, and safety.
+1. Check pool rules, lifeguard or teacher position, depth markings, and safe entry point before entering.
+2. Enter only when instructed, using the taught entry method for that depth.
+3. Keep space from other swimmers and avoid pushing, running, or diving without permission.
+4. Practise breathing, floating, kicking, or movement slowly near the safe area first.
+5. Exit calmly, report discomfort immediately, and reflect on one safety action used.
 
-Hazards: collision, drowning risk, sprains, unsafe surfaces, dehydration, and ignoring instructions.
+Hazards: slipping, panic, water inhalation, collision, unsafe depth, and ignoring instructions.
 
-Quality criteria: correct technique, safe spacing, teamwork, rule-following, and controlled movement.
+Quality criteria: follows pool rules, enters safely, controls movement, respects others, and can explain the safety reason for each action.
 
 ## s) Why is hygiene and safety necessary in swimming: technique in swimming, technique for skill acquisition, technique: Activity
 
 Activity for s) Why is hygiene and safety necessary in swimming: technique in swimming, technique for skill acquisition, technique: Use a safe creative-process checklist.
 
-Inquiry question: (s) Why is hygiene and safety necessary in swimming?
+Inquiry question: s) Why is hygiene and safety necessary in swimming?
 
 1. Plan the purpose, audience, material, space, and time.
 2. Identify hazards such as sharp tools, dyes, hot wax, dust, water, slippery surfaces, collision, or voice strain.
@@ -1864,18 +1865,18 @@ Explain the idea in your own words before attempting the activities.
 
 ## s) Why is hygiene and safety necessary in swimming: role played by counting games for fitness: Worked Example
 
-Movement model for s) Why is hygiene and safety necessary in swimming: role played by counting games for fitness: Safe physical performance.
+Movement model for s) Why is hygiene and safety necessary in swimming: role played by counting games for fitness: Practise safe pool entry and water confidence.
 
 Teacher-supervised procedure:
-1. Warm up before the activity.
-2. Check the field, pool, or performance space for hazards.
-3. Practise the skill slowly before increasing speed or force.
-4. Follow rules on contact, spacing, rescue, hydration, and stopping when tired or injured.
-5. Cool down and reflect on teamwork, control, and safety.
+1. Check pool rules, lifeguard or teacher position, depth markings, and safe entry point before entering.
+2. Enter only when instructed, using the taught entry method for that depth.
+3. Keep space from other swimmers and avoid pushing, running, or diving without permission.
+4. Practise breathing, floating, kicking, or movement slowly near the safe area first.
+5. Exit calmly, report discomfort immediately, and reflect on one safety action used.
 
-Hazards: collision, drowning risk, sprains, unsafe surfaces, dehydration, and ignoring instructions.
+Hazards: slipping, panic, water inhalation, collision, unsafe depth, and ignoring instructions.
 
-Quality criteria: correct technique, safe spacing, teamwork, rule-following, and controlled movement.
+Quality criteria: follows pool rules, enters safely, controls movement, respects others, and can explain the safety reason for each action.
 
 ## s) Why is hygiene and safety necessary in swimming: role played by counting games for fitness: Activity
 
@@ -1962,7 +1963,7 @@ By the end of this lesson sequence, you should be able to:
 - discuss the East African Community Anthem to foster patriotism
 
 Inquiry questions:
-- (s) Why is it important to showcase Creative Arts works?
+- s) Why is it important to showcase Creative Arts works?
 
 Before reading, write one thing you already know and one question you want this lesson to answer.
 
@@ -2015,7 +2016,7 @@ Rubric: excellent work has a clear idea, safe process, practised technique, visi
 
 Activity for Analysis of Creative Arts works: Use a safe creative-process checklist.
 
-Inquiry question: (s) Why is it important to showcase Creative Arts works?
+Inquiry question: s) Why is it important to showcase Creative Arts works?
 
 1. Plan the purpose, audience, material, space, and time.
 2. Identify hazards such as sharp tools, dyes, hot wax, dust, water, slippery surfaces, collision, or voice strain.

@@ -7,7 +7,7 @@ grade: "Grade 11"
 subject: "Creative Arts"
 status: "content-draft-review-needed"
 version: "draft-2026-07-01"
-source_snapshot_hash: "348ae49086f0006ce5a73e5253ae59d48e121abc7328100c22e0be51881000b6"
+source_snapshot_hash: "926c75178956c8e22c35a1fbe4f3177b7a13070d4c43719a29139d5468568721"
 ---
 # KITABU QUEST Grade 11 Creative Arts
 
@@ -1620,7 +1620,7 @@ Show mastery with evidence.
 
 Evidence of mastery: your work answers the exact outcome, gives a relevant example, and shows a correction after feedback.
 
-##: Multimedia Arts: Chapter Review
+## : Multimedia Arts: Chapter Review
 
 Review the chapter carefully.
 
@@ -1639,7 +1639,7 @@ Inquiry starter: What do you already know about this topic from home, school, or
 Chapter units:
 - 3.1 Pottery greenware decorative techniques (Sgraffito, Engobe, Slip trailing)
 - 3.2 Sculpture  sculpture in the round  carving (wood, stone, rubber, bones, coconut shells)  modelling
-- 3.3 Jewellery and Ornamentation  beadwork: papier mâché or any other recyclable materials  leather work-thonging
+- 3.3 Jewellery and Ornamentation  beadwork: papier mâché or any other recyclable materials  leather work-thonging technique
 - 3.4 Weaving  twill weave (3/1)  tapestry
 - 3.5 Art Appreciation
 
@@ -1703,16 +1703,16 @@ Explain the idea in your own words before attempting the activities.
 
 ## Pottery greenware decorative techniques (Sgraffito, Engobe, Slip trailing): Worked Example
 
-Creative process model for Pottery greenware decorative techniques (Sgraffito, Engobe, Slip trailing): Choose the art form, practise the technique, and show improvement.
+Craft model for Pottery greenware decorative techniques (Sgraffito, Engobe, Slip trailing): Shape and finish a stable three-dimensional form safely.
 
 Procedure:
-1. Choose the exact form for this topic: drawing, painting, craft, music, dance, drama, design, exhibition, or physical performance.
-2. Define purpose, audience, material, space, and time.
-3. Practise one core technique slowly before producing the final work.
-4. Ask for feedback on one visible or audible feature.
-5. Improve one part and explain what changed.
+1. Sketch the object and label materials, tools, joining method, and finish before starting.
+2. Prepare clay, paper, paste, or other teacher-approved material safely.
+3. Shape the object using the technique taught, such as coil, slab, throwing, casting, folding, joining, or modelling.
+4. Check wall thickness, strength, balance, surface finish, safe tool use, and drying or firing requirements.
+5. Improve one feature after feedback and explain the change using correct art vocabulary.
 
-Rubric: excellent work has a clear idea, safe process, practised technique, visible improvement, teamwork where needed, and an explanation of creative choices.
+Rubric: excellent work is safely made, structurally stable, neatly finished, improved after feedback, and explained with the correct technique terms.
 
 ## Pottery greenware decorative techniques (Sgraffito, Engobe, Slip trailing): Activity
 
@@ -2114,7 +2114,7 @@ Method for Creative Arts: Create, perform, observe, improve, and reflect using l
 
 Key words:
 - Jewellery and Ornamentation  beadwork: papier mâché or any other recyclable materials
-- Jewellery and Ornamentation  beadwork: papier mâché or any other recyclable materials  leather work-thonging
+- Jewellery and Ornamentation  beadwork: papier mâché or any other recyclable materials  leather work-thonging technique
 - Jewellery
 - Ornamentation
 - beadwork
@@ -2126,16 +2126,16 @@ Explain the idea in your own words before attempting the activities.
 
 ## Jewellery and Ornamentation  beadwork: papier mâché or any other recyclable materials: Worked Example
 
-Craft model for Jewellery and Ornamentation  beadwork: papier mâché or any other recyclable materials: Make a useful or expressive object safely.
+Craft model for Jewellery and Ornamentation  beadwork: papier mâché or any other recyclable materials: Shape and finish a stable three-dimensional form safely.
 
 Procedure:
-1. Sketch the object and label materials before starting.
+1. Sketch the object and label materials, tools, joining method, and finish before starting.
 2. Prepare clay, paper, paste, or other teacher-approved material safely.
-3. Shape the object using the technique taught, such as coil, slab, casting, folding, joining, or modelling.
-4. Check strength, neatness, balance, surface finish, and safe handling while working.
-5. Improve one feature after feedback and explain the change.
+3. Shape the object using the technique taught, such as coil, slab, throwing, casting, folding, joining, or modelling.
+4. Check wall thickness, strength, balance, surface finish, safe tool use, and drying or firing requirements.
+5. Improve one feature after feedback and explain the change using correct art vocabulary.
 
-Rubric: excellent work is safely made, structurally stable, neatly finished, improved after feedback, and explained with correct art vocabulary.
+Rubric: excellent work is safely made, structurally stable, neatly finished, improved after feedback, and explained with the correct technique terms.
 
 ## Jewellery and Ornamentation  beadwork: papier mâché or any other recyclable materials: Activity
 

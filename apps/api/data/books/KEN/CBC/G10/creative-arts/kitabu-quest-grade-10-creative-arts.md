@@ -7,7 +7,7 @@ grade: "Grade 10"
 subject: "Creative Arts"
 status: "content-draft-review-needed"
 version: "draft-2026-07-01"
-source_snapshot_hash: "6bf29cfa6033d79c893b05a818d30a9ad61a8be6eb6329789920ebe462afbbba"
+source_snapshot_hash: "544493b4ee8a776a0835a48bcac89e486d8c514ca6ab73c41d372d578e16d11b"
 ---
 # KITABU QUEST Grade 10 Creative Arts
 
@@ -1698,16 +1698,16 @@ Explain the idea in your own words before attempting the activities.
 
 ## Pottery and Ceramics: Elements of 3-D Art: Elements and Principles: Worked Example
 
-Creative process model for Pottery and Ceramics: Elements of 3-D Art: Elements and Principles: Choose the art form, practise the technique, and show improvement.
+Craft model for Pottery and Ceramics: Elements of 3-D Art: Elements and Principles: Shape and finish a stable three-dimensional form safely.
 
 Procedure:
-1. Choose the exact form for this topic: drawing, painting, craft, music, dance, drama, design, exhibition, or physical performance.
-2. Define purpose, audience, material, space, and time.
-3. Practise one core technique slowly before producing the final work.
-4. Ask for feedback on one visible or audible feature.
-5. Improve one part and explain what changed.
+1. Sketch the object and label materials, tools, joining method, and finish before starting.
+2. Prepare clay, paper, paste, or other teacher-approved material safely.
+3. Shape the object using the technique taught, such as coil, slab, throwing, casting, folding, joining, or modelling.
+4. Check wall thickness, strength, balance, surface finish, safe tool use, and drying or firing requirements.
+5. Improve one feature after feedback and explain the change using correct art vocabulary.
 
-Rubric: excellent work has a clear idea, safe process, practised technique, visible improvement, teamwork where needed, and an explanation of creative choices.
+Rubric: excellent work is safely made, structurally stable, neatly finished, improved after feedback, and explained with the correct technique terms.
 
 ## Pottery and Ceramics: Elements of 3-D Art: Elements and Principles: Activity
 
@@ -1846,16 +1846,16 @@ Explain the idea in your own words before attempting the activities.
 
 ## Pottery and Ceramics: Elements of 3-D Art: fire the pellet vases in a kiln: Worked Example
 
-Creative process model for Pottery and Ceramics: Elements of 3-D Art: fire the pellet vases in a kiln: Choose the art form, practise the technique, and show improvement.
+Craft model for Pottery and Ceramics: Elements of 3-D Art: fire the pellet vases in a kiln: Shape and finish a stable three-dimensional form safely.
 
 Procedure:
-1. Choose the exact form for this topic: drawing, painting, craft, music, dance, drama, design, exhibition, or physical performance.
-2. Define purpose, audience, material, space, and time.
-3. Practise one core technique slowly before producing the final work.
-4. Ask for feedback on one visible or audible feature.
-5. Improve one part and explain what changed.
+1. Sketch the object and label materials, tools, joining method, and finish before starting.
+2. Prepare clay, paper, paste, or other teacher-approved material safely.
+3. Shape the object using the technique taught, such as coil, slab, throwing, casting, folding, joining, or modelling.
+4. Check wall thickness, strength, balance, surface finish, safe tool use, and drying or firing requirements.
+5. Improve one feature after feedback and explain the change using correct art vocabulary.
 
-Rubric: excellent work has a clear idea, safe process, practised technique, visible improvement, teamwork where needed, and an explanation of creative choices.
+Rubric: excellent work is safely made, structurally stable, neatly finished, improved after feedback, and explained with the correct technique terms.
 
 ## Pottery and Ceramics: Elements of 3-D Art: fire the pellet vases in a kiln: Activity
 
@@ -1980,16 +1980,16 @@ Explain the idea in your own words before attempting the activities.
 
 ## Sculpture- Carving Concepts of carving (materials-wood/stone/clay/, and tools, finishing technique) Process of: concept of carving technique: Worked Example
 
-Craft model for Sculpture- Carving Concepts of carving (materials-wood/stone/clay/, and tools, finishing technique) Process of: concept of carving technique: Make a useful or expressive object safely.
+Craft model for Sculpture- Carving Concepts of carving (materials-wood/stone/clay/, and tools, finishing technique) Process of: concept of carving technique: Shape and finish a stable three-dimensional form safely.
 
 Procedure:
-1. Sketch the object and label materials before starting.
+1. Sketch the object and label materials, tools, joining method, and finish before starting.
 2. Prepare clay, paper, paste, or other teacher-approved material safely.
-3. Shape the object using the technique taught, such as coil, slab, casting, folding, joining, or modelling.
-4. Check strength, neatness, balance, surface finish, and safe handling while working.
-5. Improve one feature after feedback and explain the change.
+3. Shape the object using the technique taught, such as coil, slab, throwing, casting, folding, joining, or modelling.
+4. Check wall thickness, strength, balance, surface finish, safe tool use, and drying or firing requirements.
+5. Improve one feature after feedback and explain the change using correct art vocabulary.
 
-Rubric: excellent work is safely made, structurally stable, neatly finished, improved after feedback, and explained with correct art vocabulary.
+Rubric: excellent work is safely made, structurally stable, neatly finished, improved after feedback, and explained with the correct technique terms.
 
 ## Sculpture- Carving Concepts of carving (materials-wood/stone/clay/, and tools, finishing technique) Process of: concept of carving technique: Activity
 
@@ -2128,16 +2128,16 @@ Explain the idea in your own words before attempting the activities.
 
 ## Sculpture- Carving Concepts of carving (materials-wood/stone/clay/, and tools, finishing technique) Process of: own and others' relief: Worked Example
 
-Craft model for Sculpture- Carving Concepts of carving (materials-wood/stone/clay/, and tools, finishing technique) Process of: own and others' relief: Make a useful or expressive object safely.
+Craft model for Sculpture- Carving Concepts of carving (materials-wood/stone/clay/, and tools, finishing technique) Process of: own and others' relief: Shape and finish a stable three-dimensional form safely.
 
 Procedure:
-1. Sketch the object and label materials before starting.
+1. Sketch the object and label materials, tools, joining method, and finish before starting.
 2. Prepare clay, paper, paste, or other teacher-approved material safely.
-3. Shape the object using the technique taught, such as coil, slab, casting, folding, joining, or modelling.
-4. Check strength, neatness, balance, surface finish, and safe handling while working.
-5. Improve one feature after feedback and explain the change.
+3. Shape the object using the technique taught, such as coil, slab, throwing, casting, folding, joining, or modelling.
+4. Check wall thickness, strength, balance, surface finish, safe tool use, and drying or firing requirements.
+5. Improve one feature after feedback and explain the change using correct art vocabulary.
 
-Rubric: excellent work is safely made, structurally stable, neatly finished, improved after feedback, and explained with correct art vocabulary.
+Rubric: excellent work is safely made, structurally stable, neatly finished, improved after feedback, and explained with the correct technique terms.
 
 ## Sculpture- Carving Concepts of carving (materials-wood/stone/clay/, and tools, finishing technique) Process of: own and others' relief: Activity
 

@@ -7,7 +7,7 @@ grade: "Grade 7"
 subject: "Creative Arts"
 status: "content-draft-review-needed"
 version: "draft-2026-07-01"
-source_snapshot_hash: "da02623fcea905c2304d73032fa1690d8586c1562f030983993750b8de72f6c2"
+source_snapshot_hash: "c1db249831c0a82a00572dfc29634daa407d21c04db8bde32c2b0ea5f7535431"
 ---
 # KITABU QUEST Grade 7 Creative Arts
 
@@ -2451,18 +2451,18 @@ Explain the idea in your own words before attempting the activities.
 
 ## Swimming: different ways of water entry in a pool: Worked Example
 
-Movement model for Swimming: different ways of water entry in a pool: Safe physical performance.
+Movement model for Swimming: different ways of water entry in a pool: Practise safe pool entry and water confidence.
 
 Teacher-supervised procedure:
-1. Warm up before the activity.
-2. Check the field, pool, or performance space for hazards.
-3. Practise the skill slowly before increasing speed or force.
-4. Follow rules on contact, spacing, rescue, hydration, and stopping when tired or injured.
-5. Cool down and reflect on teamwork, control, and safety.
+1. Check pool rules, lifeguard or teacher position, depth markings, and safe entry point before entering.
+2. Enter only when instructed, using the taught entry method for that depth.
+3. Keep space from other swimmers and avoid pushing, running, or diving without permission.
+4. Practise breathing, floating, kicking, or movement slowly near the safe area first.
+5. Exit calmly, report discomfort immediately, and reflect on one safety action used.
 
-Hazards: collision, drowning risk, sprains, unsafe surfaces, dehydration, and ignoring instructions.
+Hazards: slipping, panic, water inhalation, collision, unsafe depth, and ignoring instructions.
 
-Quality criteria: correct technique, safe spacing, teamwork, rule-following, and controlled movement.
+Quality criteria: follows pool rules, enters safely, controls movement, respects others, and can explain the safety reason for each action.
 
 ## Swimming: different ways of water entry in a pool: Activity
 
@@ -2604,18 +2604,18 @@ Explain the idea in your own words before attempting the activities.
 
 ## Swimming: types of indigenous rope games played in Kenya: Worked Example
 
-Movement model for Swimming: types of indigenous rope games played in Kenya: Safe physical performance.
+Movement model for Swimming: types of indigenous rope games played in Kenya: Practise safe pool entry and water confidence.
 
 Teacher-supervised procedure:
-1. Warm up before the activity.
-2. Check the field, pool, or performance space for hazards.
-3. Practise the skill slowly before increasing speed or force.
-4. Follow rules on contact, spacing, rescue, hydration, and stopping when tired or injured.
-5. Cool down and reflect on teamwork, control, and safety.
+1. Check pool rules, lifeguard or teacher position, depth markings, and safe entry point before entering.
+2. Enter only when instructed, using the taught entry method for that depth.
+3. Keep space from other swimmers and avoid pushing, running, or diving without permission.
+4. Practise breathing, floating, kicking, or movement slowly near the safe area first.
+5. Exit calmly, report discomfort immediately, and reflect on one safety action used.
 
-Hazards: collision, drowning risk, sprains, unsafe surfaces, dehydration, and ignoring instructions.
+Hazards: slipping, panic, water inhalation, collision, unsafe depth, and ignoring instructions.
 
-Quality criteria: correct technique, safe spacing, teamwork, rule-following, and controlled movement.
+Quality criteria: follows pool rules, enters safely, controls movement, respects others, and can explain the safety reason for each action.
 
 ## Swimming: types of indigenous rope games played in Kenya: Activity
 

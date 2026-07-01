@@ -7,7 +7,7 @@ grade: "Grade 4"
 subject: "Creative Arts"
 status: "content-draft-review-needed"
 version: "draft-2026-07-01"
-source_snapshot_hash: "794ba96b3eeb38e0689a583e74a0540a208cdd0e656200379153d4f782ba3319"
+source_snapshot_hash: "d04ed64dbbb522cf26e51acb5a8b07a62234c4ad013e588ca5805e508d376a4f"
 ---
 # KITABU QUEST Grade 4 Creative Arts
 
@@ -764,7 +764,7 @@ By the end of this lesson sequence, you should be able to:
 - model clay slabs using coil and slab techniques
 
 Inquiry questions:
-- s) How can interesting melodies be created?
+- (s) How can interesting melodies be created?
 
 Before reading, write one thing you already know and one question you want this lesson to answer.
 
@@ -794,29 +794,28 @@ Method for Creative Arts: Create, perform, observe, improve, and reflect using l
 
 Key words:
 - Clay Slab Modelling
-- Melody
 - Modelling
 
 Explain the idea in your own words before attempting the activities.
 
 ## Clay Slab Modelling: Worked Example
 
-Craft model for Clay Slab Modelling: Make a useful or expressive object safely.
+Craft model for Clay Slab Modelling: Shape and finish a stable three-dimensional form safely.
 
 Procedure:
-1. Sketch the object and label materials before starting.
+1. Sketch the object and label materials, tools, joining method, and finish before starting.
 2. Prepare clay, paper, paste, or other teacher-approved material safely.
-3. Shape the object using the technique taught, such as coil, slab, casting, folding, joining, or modelling.
-4. Check strength, neatness, balance, surface finish, and safe handling while working.
-5. Improve one feature after feedback and explain the change.
+3. Shape the object using the technique taught, such as coil, slab, throwing, casting, folding, joining, or modelling.
+4. Check wall thickness, strength, balance, surface finish, safe tool use, and drying or firing requirements.
+5. Improve one feature after feedback and explain the change using correct art vocabulary.
 
-Rubric: excellent work is safely made, structurally stable, neatly finished, improved after feedback, and explained with correct art vocabulary.
+Rubric: excellent work is safely made, structurally stable, neatly finished, improved after feedback, and explained with the correct technique terms.
 
 ## Clay Slab Modelling: Activity
 
 Activity for Clay Slab Modelling: Use a safe creative-process checklist.
 
-Inquiry question: s) How can interesting melodies be created?
+Inquiry question: (s) How can interesting melodies be created?
 
 1. Plan the purpose, audience, material, space, and time.
 2. Identify hazards such as sharp tools, dyes, hot wax, dust, water, slippery surfaces, collision, or voice strain.
@@ -1999,13 +1998,13 @@ Show mastery with evidence.
 
 Evidence of mastery: your work answers the exact outcome, gives a relevant example, and shows a correction after feedback.
 
-## Swimming (Optional): role played by animal games for fitness: Lesson Opener
+## Swimming (Optional): s) Why is Swimming an essential life skill: Lesson Opener
 
-Learning area: Swimming (Optional): role played by animal games for fitness
+Learning area: Swimming (Optional): s) Why is Swimming an essential life skill
 
-Start here: a drawing, design, music, dance, drama, craft, exhibition, or performance activity linked to Swimming (Optional): role played by animal games for fitness.
+Start here: a drawing, design, music, dance, drama, craft, exhibition, or performance activity linked to Swimming (Optional): s) Why is Swimming an essential life skill.
 
-Curriculum link: This lesson follows the Grade 4 curriculum sequence and focuses on Swimming (Optional): role played by animal games for fitness.
+Curriculum link: This lesson follows the Grade 4 curriculum sequence and focuses on Swimming (Optional): s) Why is Swimming an essential life skill.
 
 By the end of this lesson sequence, you should be able to:
 - appreciate the role played by animal games for fitness and health.
@@ -2015,11 +2014,11 @@ Inquiry questions:
 
 Before reading, write one thing you already know and one question you want this lesson to answer.
 
-## Swimming (Optional): role played by animal games for fitness: Learn
+## Swimming (Optional): s) Why is Swimming an essential life skill: Learn
 
-Start with this real situation: a drawing, design, music, dance, drama, craft, exhibition, or performance activity linked to Swimming (Optional): role played by animal games for fitness.
+Start with this real situation: a drawing, design, music, dance, drama, craft, exhibition, or performance activity linked to Swimming (Optional): s) Why is Swimming an essential life skill.
 
-The important idea is Swimming (Optional): role played by animal games for fitness. In this lesson, do not memorise words only. Read the example, try the guided task, then explain the idea in your own words.
+The important idea is Swimming (Optional): s) Why is Swimming an essential life skill. In this lesson, do not memorise words only. Read the example, try the guided task, then explain the idea in your own words.
 
 A common mistake is finishing a product without planning, practising, improving, or explaining creative choices. Avoid it by checking your work against these success criteria:
 - idea is planned
@@ -2040,20 +2039,18 @@ Inline visual support:
 Method for Creative Arts: Create, perform, observe, improve, and reflect using local materials and culture.
 
 Key words:
-- Swimming (Optional): role played by animal games for fitness
+- Swimming (Optional): s) Why is Swimming an essential life skill
 - Swimming (Optional)
 - Swimming
 - Optional)
-- played
-- animal
-- games
-- fitness
+- essential
+- skill
 
 Explain the idea in your own words before attempting the activities.
 
-## Swimming (Optional): role played by animal games for fitness: Worked Example
+## Swimming (Optional): s) Why is Swimming an essential life skill: Worked Example
 
-Movement model for Swimming (Optional): role played by animal games for fitness: Practise safe pool entry and water confidence.
+Movement model for Swimming (Optional): s) Why is Swimming an essential life skill: Practise safe pool entry and water confidence.
 
 Teacher-supervised procedure:
 1. Check pool rules, lifeguard or teacher position, depth markings, and safe entry point before entering.
@@ -2066,9 +2063,9 @@ Hazards: slipping, panic, water inhalation, collision, unsafe depth, and ignorin
 
 Quality criteria: follows pool rules, enters safely, controls movement, respects others, and can explain the safety reason for each action.
 
-## Swimming (Optional): role played by animal games for fitness: Activity
+## Swimming (Optional): s) Why is Swimming an essential life skill: Activity
 
-Activity for Swimming (Optional): role played by animal games for fitness: Use a safe creative-process checklist.
+Activity for Swimming (Optional): s) Why is Swimming an essential life skill: Use a safe creative-process checklist.
 
 Inquiry question: s) Why is Swimming an essential life skill?
 
@@ -2086,9 +2083,9 @@ Success criteria:
 
 Home link: Find a safe artwork, song, dance, craft, game, or performance example. Describe one technique and one safety rule.
 
-## Swimming (Optional): role played by animal games for fitness: Activity And Practice
+## Swimming (Optional): s) Why is Swimming an essential life skill: Activity And Practice
 
-Practice for Swimming (Optional): role played by animal games for fitness:
+Practice for Swimming (Optional): s) Why is Swimming an essential life skill:
 
 1. Carry out or describe a practical task for this outcome: appreciate the role played by animal games for fitness and health. List materials, steps, safety checks, and how you will judge quality.
 
@@ -2099,9 +2096,9 @@ Correction check:
 
 Reflection: What was easy? What needs more practice? What question will you ask your teacher or study partner?
 
-Home link: Ask someone at home for an example related to swimming (optional): role played by animal games for fitness and write two useful sentences about it.
+Home link: Ask someone at home for an example related to swimming (optional): s) why is swimming an essential life skill and write two useful sentences about it.
 
-## Swimming (Optional): role played by animal games for fitness: Outcome Check
+## Swimming (Optional): s) Why is Swimming an essential life skill: Outcome Check
 
 Outcome: appreciate the role played by animal games for fitness and health.
 
@@ -2109,7 +2106,7 @@ Show mastery with evidence.
 
 1. Explain the outcome in your own words.
 2. Give one local, school, home, community, practical, or text-based example.
-3. Complete a short task that proves you can apply the idea in Swimming (Optional): role played by animal games for fitness.
+3. Complete a short task that proves you can apply the idea in Swimming (Optional): s) Why is Swimming an essential life skill.
 4. Use correct vocabulary and include a reason, observation, example, step, or result.
 5. Write one mistake a learner might make and how to avoid it.
 6. Ask a peer, teacher, or parent to check whether your answer is clear.

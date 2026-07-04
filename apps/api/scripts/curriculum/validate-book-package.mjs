@@ -24,22 +24,25 @@ const SUBJECT_CONTAMINATION_RULES = [
   }
 ];
 
-const LANGUAGE_SUBJECT_PATTERN = /^(english|kiswahili)$/i;
+const LANGUAGE_SUBJECT_PATTERN = /^(english|english language|kiswahili|kinyarwanda|french)$/i;
 const LANGUAGE_SCAFFOLD_PATTERNS = [
-  /\bLearning area\b/i,
-  /\bCurriculum link\b/i,
-  /\bStart here\b/i,
-  /\bBefore reading\b/i,
-  /\bBy the end\b/i,
-  /\bEneo la kujifunza\b/i,
-  /\bKiungo cha mtaala\b/i,
-  /\bAnzia hapa\b/i,
-  /\bKabla ya kusoma\b/i
+  /^\s*Learning area\s*:/im,
+  /^\s*Curriculum link\s*:/im,
+  /^\s*Start here\s*:/im,
+  /^\s*Before reading\s*[:,]/im,
+  /^\s*By the end of this lesson sequence\s*,/im,
+  /^\s*Eneo la kujifunza\s*:/im,
+  /^\s*Kiungo cha mtaala\s*:/im,
+  /^\s*Anzia hapa\s*:/im,
+  /^\s*Kabla ya kusoma\s*,/im,
+  /^\s*Mwishoni mwa mfululizo huu wa masomo\s*,/im
 ];
 const LANGUAGE_RAW_TITLE_PATTERNS = [
   /\bStrand\s+\d+\b/i,
-  /\bWriting\s+\d+(?:\.\d+)+\b/i,
-  /\bGrammar in uses\b/i,
+  /\b(?:Reading|Listening|Speaking|Writing)\s+\d+(?:\.\d+)+\b/i,
+  /\bGrammar in uses?\b/i,
+  /\b(?:Kusoma|Kuandika|Kusikiliza|Kuzungumza|Sarufi)\s+\d+(?:\.\d+)+\b/i,
+  /\b(?:English|Kiswahili)\s+(?:Topic|Chapter)\s+\d+(?:\.\d+)*\b/i,
   /\bWakati\s+Wakati\b/i,
   /\b[a-z]{12,}\s+kwa\s+[a-z]{12,}\b/i
 ];
@@ -274,7 +277,7 @@ function pushGateMessage(errors, warnings, publicationGate, message) {
   }
 }
 
-function validateLanguageArtifacts(manifest, pages, bookPlan, errors, warnings, publicationGate) {
+function validateLanguageArtifacts(manifest, pages, _bookPlan, errors, warnings, publicationGate) {
   const subject = String(manifest?.subject || '').trim();
   if (!LANGUAGE_SUBJECT_PATTERN.test(subject)) return;
 
@@ -295,13 +298,16 @@ function validateLanguageArtifacts(manifest, pages, bookPlan, errors, warnings, 
     );
   }
 
-  const bookPlanText = collectStrings(bookPlan).join('\n');
-  const allText = [bookPlanText, ...pages.map(page => pageText(page))].join('\n');
+  const allText = pages.map(page => pageText(page)).join('\n');
   const scaffoldHits = LANGUAGE_SCAFFOLD_PATTERNS
-    .map(pattern => ({ pattern, count: (allText.match(new RegExp(pattern.source, `${pattern.flags.includes('i') ? 'i' : ''}g`)) || []).length }))
+    .map(pattern => {
+      const flags = [...new Set([...pattern.flags, 'g'])].join('');
+      return { pattern, count: (allText.match(new RegExp(pattern.source, flags)) || []).length };
+    })
     .filter(hit => hit.count > 0);
   const totalScaffoldHits = scaffoldHits.reduce((sum, hit) => sum + hit.count, 0);
-  if (totalScaffoldHits > 12) {
+  const scaffoldLimit = publicationGate ? 0 : 12;
+  if (totalScaffoldHits > scaffoldLimit) {
     pushGateMessage(
       errors,
       warnings,
@@ -324,7 +330,7 @@ function validateLanguageArtifacts(manifest, pages, bookPlan, errors, warnings, 
 
   if (/^kiswahili$/i.test(subject)) {
     const casingHits = pageTitles
-      .filter(page => KISWAHILI_TITLECASE_PATTERN.test(page.title))
+      .filter(page => KISWAHILI_TITLECASE_PATTERN.test(page.title.replace(/^\S+\s*/, '')))
       .slice(0, 8);
     if (casingHits.length > 4) {
       pushGateMessage(

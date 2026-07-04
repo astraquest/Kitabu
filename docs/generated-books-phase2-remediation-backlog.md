@@ -32,6 +32,8 @@ A book can move from `published-for-testing` only after all of these are true:
 - `pages.json` parses and remains readable in the app.
 - Manifest metadata includes status, version, checksums, page count, downloads, and deferred visual list.
 - Validation report is clean or has only documented accepted warnings.
+- Repo-owned validation gates pass, including package/cover integrity and strict publication-gate checks before moving beyond `published-for-testing`.
+- Language packages pass artifact gates for raw numbered titles, scaffold labels, raw curriculum fragments, and Kiswahili heading casing issues. These gates cover Kenya language packages and Rwanda-style language subjects such as English Language, Kinyarwanda, and French.
 - Adversarial reviewer confirms the book is genuinely helpful to learners.
 
 Accepted manual feedback must be fixed in the generator or source-normalization path where possible, not only by editing one output page. Final market-quality cover and mascot work should wait until content acceptance for that book or batch.
@@ -54,6 +56,7 @@ Generated packages are not a normal Git artifact in this phase. Before regenerat
 - Record the backup path in the relevant release note or remediation PR.
 - Remember that the previous database checkpoint was a logical DB census and generated-library manifest snapshot, not a full `pg_dump`.
 - Run the repo package validator before promotion. Use the strict publication gate when moving any book beyond `published-for-testing`.
+- Ensure deployment rebuilds the API image or otherwise makes repo validation scripts available wherever release checks run; the production checkout had the validator while the running API container image did not.
 - Verify after changes that `/health` passes.
 - Verify `student@kitabu.ai` still sees 280 generated books, all readable, with 280 cover URLs.
 - Verify at least one normal scoped student sees only the selected country/curriculum/grade books and can switch grade.

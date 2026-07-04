@@ -10,13 +10,24 @@ import {
   Gamepad2,
   Globe,
   Languages,
+  Palette,
   Plus,
+  Sprout,
   X,
 } from 'lucide-react-native';
 
 import { Subject } from '../types/app';
 
-const SUBJECT_ORDER = ['science', 'english', 'math', 'kiswahili', 'social', 'ai_education'];
+const SUBJECT_ORDER = [
+  'science',
+  'english',
+  'math',
+  'kiswahili',
+  'social',
+  'agriculture',
+  'creative_arts',
+  'ai_education',
+];
 const MAX_SELECTED_SUBJECTS = 5;
 
 const SUBJECT_ICONS: Record<
@@ -28,6 +39,8 @@ const SUBJECT_ICONS: Record<
   math: Calculator,
   kiswahili: Languages,
   social: Globe,
+  agriculture: Sprout,
+  creative_arts: Palette,
   ai_education: Bot,
 };
 

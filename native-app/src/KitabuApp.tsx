@@ -18,6 +18,7 @@ import { StudentHeader } from './components/StudentHeader';
 import { SubscriptionCheckoutModal } from './components/SubscriptionCheckoutModal';
 import { TryForOneBobModal } from './components/TryForOneBobModal';
 import { useKitabuApp } from './hooks/useKitabuApp';
+import { PublicSignupRole, SchoolData } from './types/app';
 import { LoginScreen } from './screens/LoginScreen';
 import { AdminPortalScreen } from './screens/AdminPortalScreen';
 import { BookReaderScreen } from './screens/BookReaderScreen';
@@ -47,6 +48,14 @@ import { WeeklyExamScreen } from './screens/WeeklyExamScreen';
 import { PreviewDiagnosticQuestion } from './screens/DiagnosticScreen';
 
 const splashImage = require('./assets/splashscreen.png');
+
+const ONBOARDING_PREVIEW_SCHOOL: SchoolData = {
+  id: '11111111-1111-4111-8111-111111111111',
+  name: 'Kitabu Demo School',
+  location: 'Nairobi',
+  totalStudents: 120,
+  gradeCounts: { 'Grade 6': 40 },
+};
 
 const PREVIEW_DIAGNOSTIC_QUESTIONS: PreviewDiagnosticQuestion[] = [
   {
@@ -89,6 +98,36 @@ function shouldShowDiagnosticPreview() {
   return Boolean(__DEV__ && location?.search?.includes('previewDiagnostic=1'));
 }
 
+function getOnboardingPreviewRole(): PublicSignupRole | null {
+  if (!__DEV__) {
+    return null;
+  }
+
+  const location = (globalThis as {
+    location?: { hash?: string; pathname?: string; search?: string };
+  }).location;
+  const params = new URLSearchParams(location?.search ?? '');
+  const role = params.get('previewOnboarding');
+
+  if (role !== 'student' && role !== 'teacher' && role !== 'parent' && role !== 'other') {
+    return null;
+  }
+
+  try {
+    params.delete('previewOnboarding');
+    const nextSearch = params.toString();
+    const nextUrl = `${location?.pathname ?? '/'}${nextSearch ? `?${nextSearch}` : ''}${location?.hash ?? ''}`;
+    const history = (globalThis as {
+      history?: { replaceState?: (data: unknown, unused: string, url?: string | URL | null) => void; state?: unknown };
+    }).history;
+    history?.replaceState?.(history.state ?? null, '', nextUrl);
+  } catch {
+    // URL cleanup is best-effort; the preview should still render if history is unavailable.
+  }
+
+  return role;
+}
+
 function AppSafeArea({ children }: { children: React.ReactNode }) {
   return (
     <SafeAreaView edges={['left', 'right', 'bottom']} style={styles.safeArea}>
@@ -100,9 +139,11 @@ function AppSafeArea({ children }: { children: React.ReactNode }) {
 
 export function KitabuApp() {
   const { state, actions } = useKitabuApp();
+  const [onboardingPreviewRole] = React.useState(getOnboardingPreviewRole);
   const usesStudentHeader = shouldUseStudentHeader(state.currentView);
   const usesStandaloneScreen = shouldUseStandaloneScreen(state.currentView);
   const showDiagnosticPreview = shouldShowDiagnosticPreview();
+  const activeUserProfile = state.activeUserProfile;
 
   if (showDiagnosticPreview) {
     return (
@@ -110,6 +151,21 @@ export function KitabuApp() {
         <DiagnosticScreen
           previewQuestions={PREVIEW_DIAGNOSTIC_QUESTIONS}
           onComplete={() => undefined}
+        />
+      </AppSafeArea>
+    );
+  }
+
+  if (onboardingPreviewRole) {
+    return (
+      <AppSafeArea>
+        <StudentOnboardingScreen
+          role={onboardingPreviewRole}
+          schools={[ONBOARDING_PREVIEW_SCHOOL]}
+          isSubmitting={false}
+          includeIntroChoices
+          collectSignupCredentials
+          onSubmit={() => undefined}
         />
       </AppSafeArea>
     );
@@ -132,6 +188,23 @@ export function KitabuApp() {
           <IntroCarouselScreen
             onSignIn={actions.openSignInEntry}
             onCreateAccount={actions.openSignupEntry}
+          />
+        </AppSafeArea>
+      );
+    }
+
+    if (state.authMode === 'signup') {
+      return (
+        <AppSafeArea>
+          <StudentOnboardingScreen
+            role={state.signupRole ?? 'student'}
+            schools={state.schoolsList}
+            isSubmitting={state.isAuthenticating}
+            error={state.authError}
+            includeIntroChoices
+            collectSignupCredentials
+            onRoleChange={actions.setSignupRole}
+            onSubmit={actions.signUp}
           />
         </AppSafeArea>
       );
@@ -175,14 +248,22 @@ export function KitabuApp() {
     );
   }
 
-  if (state.hasPendingStudentOnboarding) {
+  if (state.hasPendingAccountOnboarding) {
     return (
       <AppSafeArea>
         <StudentOnboardingScreen
+          role={
+            state.authSession.user.roles.includes('teacher')
+              ? 'teacher'
+              : state.authSession.user.roles.includes('parent')
+                ? 'parent'
+                : 'student'
+          }
           schools={state.schoolsList}
           isSubmitting={state.isSubmittingOnboarding}
           error={state.onboardingError}
-          onSubmit={actions.submitStudentOnboarding}
+          includeIntroChoices
+          onSubmit={actions.submitAccountOnboarding}
         />
       </AppSafeArea>
     );
@@ -236,7 +317,7 @@ export function KitabuApp() {
       <View style={styles.container}>
         {usesStudentHeader ? (
           <StudentHeader
-            userAvatar={state.userProfile.avatar}
+            userAvatar={activeUserProfile.avatar}
             onOpenProfile={() => {
               if (!state.focusModeActive) {
                 actions.setProfileOpen(true);
@@ -244,6 +325,8 @@ export function KitabuApp() {
             }}
             onOpenNotifications={() => actions.setNotificationsOpen(true)}
             unreadNotificationCount={state.unreadNotificationCount}
+            currentGrade={state.currentView === 'dashboard' ? state.currentGrade : undefined}
+            onSelectGrade={state.currentView === 'dashboard' ? actions.setCurrentGrade : undefined}
             showPreviewExit={state.isStudentPreview && !state.focusModeActive}
             onExitPreview={actions.exitStudentPreview}
           />
@@ -340,7 +423,7 @@ export function KitabuApp() {
           selectedSubject={state.selectedSubject}
           selectedSubStrand={state.selectedSubStrand}
           selectedAssignment={state.selectedAssignment}
-          userProfile={state.userProfile}
+          userProfile={activeUserProfile}
           startLiveAudio={state.startLiveAudio}
           attachmentPickerSignal={state.chatAttachmentPickerSignal}
           onClose={actions.closeChat}
@@ -559,7 +642,7 @@ function renderScreen(
           onSetPreviewBookId={actions.setPreviewBookId}
           onToggleSpotlight={() => actions.setIsSpotlightMode(!state.isSpotlightMode)}
           onToggleDownload={actions.toggleDownload}
-          user={state.userProfile}
+          user={state.activeUserProfile}
         />
       );
     case 'reading_mode':
@@ -585,13 +668,14 @@ function renderScreen(
           onSetPreviewBookId={actions.setPreviewBookId}
           onToggleSpotlight={() => actions.setIsSpotlightMode(!state.isSpotlightMode)}
           onToggleDownload={actions.toggleDownload}
-          user={state.userProfile}
+          user={state.activeUserProfile}
         />
       );
     case 'quiz_me_config':
       return (
         <QuizMeScreen
           isLoading={state.isLoading}
+          error={state.quizGenerationError}
           strandsBySubject={state.quizMeStrandsBySubject}
           subStrandsByStrand={state.quizMeSubStrandsByStrand}
           onBack={actions.goHome}
@@ -607,7 +691,7 @@ function renderScreen(
           selectedSubject={state.selectedSubject}
           selectedSubStrand={state.selectedSubStrand}
           selectedAssignment={state.selectedAssignment}
-          userProfile={state.userProfile}
+          userProfile={state.activeUserProfile}
         />
       );
     case 'brain_tease':
@@ -660,7 +744,7 @@ function renderScreen(
     case 'game_zone':
       return (
         <GameZoneScreen
-          totalPoints={state.userProfile.points || 0}
+          totalPoints={state.activeUserProfile.points || 0}
           onBack={actions.goHome}
           onPlayGame={actions.playGame}
         />
@@ -684,8 +768,8 @@ function renderScreen(
     case 'teachers_portal':
       return (
         <TeacherPortalScreen
-          onBack={() => actions.openFeature('dashboard')}
-          onOpenStudentPreview={actions.openStudentPreview}
+          teacherName={state.authSession.user.fullName}
+          teacherEmail={state.authSession.user.email}
           students={state.teacherStudents}
           assignments={state.teacherAssignments}
           submissionsByAssignment={state.submissionsByAssignment}
@@ -725,6 +809,7 @@ function renderScreen(
         <ParentDashboardScreen
           children={state.parentChildren}
           selectedChildId={state.selectedParentChildId}
+          parentName={state.authSession.user.fullName}
           linkIdentifier={state.parentChildIdentifier}
           linkMethod={state.parentChildLinkMethod}
           isLoading={state.isLoadingParentDashboard}

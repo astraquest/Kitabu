@@ -49,8 +49,7 @@ export function DashboardScreen({
     <ScrollView
       style={styles.screen}
       contentContainerStyle={styles.content}
-      showsVerticalScrollIndicator={false}
-      stickyHeaderIndices={[1]}>
+      showsVerticalScrollIndicator={false}>
       <PromoBanner banner={banner} onPressCta={onBannerAction} />
       <QuickAccessGrid
         pendingAssignments={homeworkNotificationCount}

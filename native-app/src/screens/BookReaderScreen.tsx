@@ -51,15 +51,16 @@ export function BookReaderScreen({
   const [showSettings, setShowSettings] = useState(false);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const totalPages = Math.max(1, book.pages?.length || TOTAL_PAGES);
 
   useEffect(() => {
     setTheme(isSpotlightMode ? 'dark' : 'light');
   }, [isSpotlightMode]);
 
   useEffect(() => {
-    setPage(initialPage);
+    setPage(Math.min(initialPage, totalPages));
     setShowSettings(false);
-  }, [book.id, initialPage]);
+  }, [book.id, initialPage, totalPages]);
 
   useEffect(() => {
     onUpdateProgress(page);
@@ -72,7 +73,7 @@ export function BookReaderScreen({
   }, []);
 
   useEffect(() => {
-    const data = getPageData(page);
+    const data = getPageData(book, page);
 
     if (!isMuted && page > 1) {
       speechPlaybackBridge.stop().catch(() => undefined);
@@ -82,12 +83,12 @@ export function BookReaderScreen({
 
     speechPlaybackBridge.stop().catch(() => undefined);
     return undefined;
-  }, [isMuted, page]);
+  }, [book, isMuted, page]);
 
-  const content = useMemo(() => getPageData(page), [page]);
+  const content = useMemo(() => getPageData(book, page), [book, page]);
 
   function goNext() {
-    setPage(current => Math.min(TOTAL_PAGES, current + 1));
+    setPage(current => Math.min(totalPages, current + 1));
   }
 
   function goPrev() {
@@ -109,7 +110,7 @@ export function BookReaderScreen({
     }
 
     const distance = touchStart - touchEnd;
-    if (distance > MIN_SWIPE_DISTANCE && page < TOTAL_PAGES) {
+    if (distance > MIN_SWIPE_DISTANCE && page < totalPages) {
       goNext();
     }
     if (distance < -MIN_SWIPE_DISTANCE && page > 1) {
@@ -135,7 +136,7 @@ export function BookReaderScreen({
             {book.title}
           </Text>
           <Text style={styles.headerMeta}>
-            Page {page} of {TOTAL_PAGES}
+            Page {page} of {totalPages}
           </Text>
         </View>
 
@@ -254,12 +255,12 @@ export function BookReaderScreen({
           <Text style={styles.footerButtonText}>Prev</Text>
         </Pressable>
         <Text style={styles.footerMeta}>
-          {Math.round((page / TOTAL_PAGES) * 100)}% Completed
+          {Math.round((page / totalPages) * 100)}% Completed
         </Text>
         <Pressable
-          disabled={page >= TOTAL_PAGES}
+          disabled={page >= totalPages}
           onPress={goNext}
-          style={[styles.footerButton, page >= TOTAL_PAGES && styles.disabled]}>
+          style={[styles.footerButton, page >= totalPages && styles.disabled]}>
           <Text style={styles.footerButtonText}>Next</Text>
         </Pressable>
       </View>
@@ -267,38 +268,23 @@ export function BookReaderScreen({
   );
 }
 
-function getPageData(pageNum: number) {
-  if (pageNum === 1) {
+function getPageData(book: Book, pageNum: number) {
+  const storedPage = book.pages?.[Math.max(0, pageNum - 1)];
+  if (storedPage) {
     return {
-      title: 'Table of Contents',
-      paragraphs: [
-        'Chapter 1: The Beginning',
-        'Chapter 2: The Middle',
-        'Chapter 3: The End',
-        'About the Author',
-      ],
+      title: storedPage.title,
+      paragraphs: storedPage.content
+        .split(/\n{2,}|\r?\n/)
+        .map(paragraph => paragraph.trim())
+        .filter(Boolean),
     };
   }
 
-  const texts = [
-    'It was a bright cold day in April, and the clocks were striking thirteen.',
-    'Call me Ishmael. Some years ago-never mind how long precisely-having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.',
-    'It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.',
-    'Happy families are all alike; every unhappy family is unhappy in its own way.',
-    'In a hole in the ground there lived a hobbit. Not a nasty, dirty, wet hole, but a hobbit-hole, and that means comfort.',
-    'All children, except one, grow up. They soon know that they will grow up, and the way Wendy knew was this.',
-    'The man in black fled across the desert, and the gunslinger followed.',
-    'It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness.',
-  ];
-
-  const seed = pageNum % texts.length;
-  let mainText = texts[seed];
-
   return {
+    title: 'Book Content Unavailable',
     paragraphs: [
-      mainText,
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+      'This book does not have readable pages cached on this device.',
+      'Return to the library, connect to the internet, and download the book again. If the problem continues, the book package needs review before it can be read offline.',
     ],
   };
 }

@@ -78,8 +78,8 @@ const configSchema = z.object({
   KITABU_JWT_PRIVATE_KEY: z.string().min(1),
   KITABU_JWT_PUBLIC_KEY: z.string().min(1),
   KITABU_OPENAI_API_KEY: z.string().optional(),
-  KITABU_OPENAI_STUDENT_MODEL: z.string().default('gpt-5.4-mini'),
-  KITABU_OPENAI_REASONING_MODEL: z.string().default('gpt-5.4-mini'),
+  KITABU_OPENAI_STUDENT_MODEL: z.string().default('gpt-5.5'),
+  KITABU_OPENAI_REASONING_MODEL: z.string().default('gpt-5.5'),
   KITABU_OPENAI_REASONING_EFFORT: z.enum(['minimal', 'low', 'medium', 'high']).default('medium'),
   KITABU_OPENAI_TRANSCRIPTION_MODEL: z.string().default('whisper-1'),
   KITABU_DEEPSEEK_API_KEY: z.string().optional(),
@@ -93,6 +93,7 @@ const configSchema = z.object({
   KITABU_GROQ_TTS_ENGLISH_MODEL: z.string().default('canopylabs/orpheus-v1-english'),
   KITABU_GROQ_TTS_ENGLISH_VOICE: z.string().default('hannah'),
   KITABU_NVIDIA_API_KEY: z.string().optional(),
+  KITABU_NVIDIA_TEXT_FAST_MODEL: z.string().default('nvidia/llama-3.3-nemotron-super-49b-v1'),
   KITABU_NVIDIA_DEEPSEEK_PRO_MODEL: z.string().default('deepseek-ai/deepseek-v4-pro'),
   KITABU_NVIDIA_DEEPSEEK_FLASH_MODEL: z.string().default('deepseek-ai/deepseek-v4-flash'),
   KITABU_NVIDIA_NEMOTRON_ULTRA_MODEL: z.string().default('nvidia/nemotron-3-ultra-550b-a55b'),
@@ -129,10 +130,11 @@ const configSchema = z.object({
   KITABU_SMTP_PASS: z.string().optional(),
   KITABU_SMTP_TIMEOUT_MS: z.coerce.number().int().positive().default(8000),
   KITABU_MAIL_FROM: z.string().default('Kitabu AI <noreply@kitabu.ai>'),
-  KITABU_TERMS_VERSION: z.string().default('2026-03'),
-  KITABU_PRIVACY_VERSION: z.string().default('2026-03'),
+  KITABU_SCHOOL_LEADS_EMAIL: z.string().default('hello@kitabu.ai'),
+  KITABU_TERMS_VERSION: z.string().default('2026-06'),
+  KITABU_PRIVACY_VERSION: z.string().default('2026-06'),
   KITABU_TERMS_OF_SERVICE_URL: z.string().url().default('https://kitabu.ai/terms'),
-  KITABU_PRIVACY_POLICY_URL: z.string().url().default('https://kitabu.ai/privacy'),
+  KITABU_PRIVACY_POLICY_URL: z.string().url().default('https://kitabu.ai/policy'),
   KITABU_ADMIN_ANALYTICS_RATE_LIMIT_MAX: z.coerce.number().int().positive().default(30),
   KITABU_ADMIN_ANALYTICS_RATE_LIMIT_WINDOW: z.string().default('1 minute'),
   KITABU_AI_RATE_LIMIT_MAX: z.coerce.number().int().positive().default(20),
@@ -167,6 +169,7 @@ appConfig.KITABU_GROQ_STT_ACCURATE_MODEL = appConfig.KITABU_GROQ_STT_ACCURATE_MO
 appConfig.KITABU_GROQ_TTS_ENGLISH_MODEL = appConfig.KITABU_GROQ_TTS_ENGLISH_MODEL.trim();
 appConfig.KITABU_GROQ_TTS_ENGLISH_VOICE = appConfig.KITABU_GROQ_TTS_ENGLISH_VOICE.trim();
 appConfig.KITABU_NVIDIA_API_KEY = trimOptionalSecret(appConfig.KITABU_NVIDIA_API_KEY);
+appConfig.KITABU_NVIDIA_TEXT_FAST_MODEL = appConfig.KITABU_NVIDIA_TEXT_FAST_MODEL.trim();
 appConfig.KITABU_NVIDIA_DEEPSEEK_PRO_MODEL = appConfig.KITABU_NVIDIA_DEEPSEEK_PRO_MODEL.trim();
 appConfig.KITABU_NVIDIA_DEEPSEEK_FLASH_MODEL = appConfig.KITABU_NVIDIA_DEEPSEEK_FLASH_MODEL.trim();
 appConfig.KITABU_NVIDIA_NEMOTRON_ULTRA_MODEL = appConfig.KITABU_NVIDIA_NEMOTRON_ULTRA_MODEL.trim();

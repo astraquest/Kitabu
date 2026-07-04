@@ -126,19 +126,27 @@ export async function deleteMyAccount() {
     throw new Error('Authentication required');
   }
 
-  const payload = await apiJsonRequest<{ deleted?: boolean }>('/me/account', {
+  const payload = await apiJsonRequest<{
+    deletionRequested?: boolean;
+    message?: string;
+  }>('/me/account', {
     method: 'DELETE',
-    body: JSON.stringify({ confirmationText: 'DELETE' }),
+    body: JSON.stringify({ confirmationText: 'DELETE MY ACCOUNT' }),
   });
 
-  return { deleted: Boolean(payload.deleted) };
+  return {
+    deletionRequested: Boolean(payload.deletionRequested),
+    message: payload.message || 'Account deletion requested.',
+  };
 }
 
-export async function completeStudentOnboarding(input: {
-  schoolId: string;
+export async function completeAccountOnboarding(input: {
+  schoolId?: string | null;
   gender: GenderOption;
   grade: string;
   mpesaPhoneNumber?: string | null;
+  school?: string;
+  county?: string;
 }): Promise<AuthSession> {
   const session = await loadStoredAuthSession();
   if (!session?.accessToken) {
@@ -161,3 +169,5 @@ export async function completeStudentOnboarding(input: {
   await persistAuthSession(nextSession);
   return nextSession;
 }
+
+export const completeStudentOnboarding = completeAccountOnboarding;

@@ -7,6 +7,16 @@ import java.util.Properties
 def keystoreProperties = new Properties()
 def keystorePropertiesFile = rootProject.file("key.properties")
 def googleWebClientId = (project.findProperty("KITABU_GOOGLE_WEB_CLIENT_ID") ?: System.getenv("KITABU_GOOGLE_WEB_CLIENT_ID") ?: "").toString()
+def googleAndroidClientId = (project.findProperty("KITABU_GOOGLE_ANDROID_CLIENT_ID") ?: System.getenv("KITABU_GOOGLE_ANDROID_CLIENT_ID") ?: "").toString()
+gradle.taskGraph.whenReady { graph ->
+    def hasReleaseTask = graph.allTasks.any { task -> task.name.toLowerCase().contains("release") }
+    if (hasReleaseTask && googleWebClientId.trim().isEmpty()) {
+        throw new GradleException("KITABU_GOOGLE_WEB_CLIENT_ID must be configured for release builds.")
+    }
+    if (hasReleaseTask && googleAndroidClientId.trim().isEmpty()) {
+        throw new GradleException("KITABU_GOOGLE_ANDROID_CLIENT_ID must be configured for release builds.")
+    }
+}
 if (keystorePropertiesFile.exists()) {
     keystorePropertiesFile.withInputStream { stream ->
         keystoreProperties.load(stream)
@@ -96,6 +106,7 @@ android {
         versionCode 1
         versionName "1.0"
         buildConfigField "String", "GOOGLE_WEB_CLIENT_ID", "\"${googleWebClientId.replace('\\', '\\\\').replace('"', '\\"')}\""
+        buildConfigField "String", "GOOGLE_ANDROID_CLIENT_ID", "\"${googleAndroidClientId.replace('\\', '\\\\').replace('"', '\\"')}\""
     }
     signingConfigs {
         debug {

@@ -17,10 +17,24 @@ Set `KITABU_API_BASE_URL` for release builds. Development builds fall back to:
 
 Release builds now fail fast if `KITABU_API_BASE_URL` is missing.
 
-For Google sign-in, set `KITABU_GOOGLE_WEB_CLIENT_ID` in the build environment or pass
-`-PKITABU_GOOGLE_WEB_CLIENT_ID=...` to Gradle. Add that same Web OAuth client ID to the
-API's comma-separated `KITABU_GOOGLE_CLIENT_IDS`. The Android OAuth client must include
-the app package name and the signing certificate fingerprints used for the build.
+For Google sign-in, set the platform-specific Google OAuth client IDs in the build
+environment:
+
+- `KITABU_GOOGLE_WEB_CLIENT_ID`
+- `KITABU_GOOGLE_ANDROID_CLIENT_ID`
+- `KITABU_GOOGLE_IOS_CLIENT_ID`
+
+Android release builds fail fast if the web or Android client ID is missing. Local Android
+builds also read `android/gradle.properties` when environment variables are absent. Add
+all Google OAuth client IDs accepted by released apps to the API's comma-separated
+`KITABU_GOOGLE_CLIENT_IDS`. The Android OAuth client must include the app package name and
+the signing certificate fingerprints used for the build.
+
+Set `KITABU_GOOGLE_REDIRECT_URI` / `EXPO_PUBLIC_KITABU_GOOGLE_REDIRECT_URI` when a build
+must use a fixed redirect URI. Every redirect URI emitted by the app must be registered in
+the Google Cloud OAuth client. For local Expo web on port 8098, register
+`http://localhost:8098`. For production web, register the production app URL used by the
+deployed client.
 
 ## Development
 

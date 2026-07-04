@@ -226,26 +226,63 @@ returns HTTP 503.
 
 ## 9. Update the server on new releases
 
+Pushes to `main` deploy through `.github/workflows/deploy-api.yml` after the
+validation job passes. The workflow uses GitHub-hosted runners, a dedicated SSH
+deploy key, and the `production` environment secrets:
+
+- `KITABU_DEPLOY_HOST`
+- `KITABU_DEPLOY_USER`
+- `KITABU_DEPLOY_KNOWN_HOSTS`
+- `KITABU_DEPLOY_SSH_KEY`
+
+The workflow refuses to deploy if `/opt/kitabu-ai` has uncommitted or untracked
+changes, excluding production env files. Reconcile production drift before
+deploying so GitHub cannot overwrite server-side work silently.
+
+Generated books under `apps/api/data/books/` are server-local until they are
+moved to object storage. They are ignored by Git, excluded from deploy rsync
+deletion, and mounted read-only into the API and worker containers at
+`/app/data/books`.
+
+```bash
+ssh kitabu-prod
+cd /opt/kitabu-ai
+git status --short --untracked-files=all
+```
+
+Manual production deploys can still be started from the GitHub Actions UI.
+If a manual server deploy is needed, use the same sequence as the workflow:
+
 ```bash
 cd /opt/kitabu-ai
-git pull origin main
-docker compose up -d --build
-docker compose run --rm api npm run migrate
+docker compose config --quiet
+docker compose up -d postgres redis
+docker compose build api worke
+docker compose run --rm api node scripts/apply-migrations.mjs
+docker compose run --rm api node scripts/verify-production-readiness.mjs
+docker compose up -d --force-recreate api worker caddy
 curl https://app.kitabu.ai/health
 ```
 
 ## 10. Backups
 
-This repo already includes `infra/backup.sh`, which runs `pg_dump` and keeps 14 days of compressed backups.
+This repo includes `infra/backup.sh`, which writes compressed Postgres dumps and
+keeps 14 days of backups. It uses local `pg_dump` when `KITABU_DATABASE_URL` is
+set and falls back to `docker compose exec -T postgres pg_dump` for the current
+Compose production layout.
 
-Example cron entry:
+Current local-only production cron:
 
 ```bash
-crontab -e
+15 2 * * * KITABU_BACKUP_DIR=/var/backups/kitabu KITABU_COMPOSE_DIR=/opt/kitabu-ai /opt/kitabu-ai/infra/backup.sh >> /var/backups/kitabu/backup.log 2>&1
 ```
 
-```cron
-0 2 * * * KITABU_DATABASE_URL='postgres://kitabu:REPLACE_DB_PASSWORD@127.0.0.1:55432/kitabu_api' KITABU_BACKUP_DIR='/var/backups/kitabu' /opt/kitabu-ai/infra/backup.sh >> /var/log/kitabu-backup.log 2>&1
+Manual verification:
+
+```bash
+ssh kitabu-prod
+KITABU_BACKUP_DIR=/var/backups/kitabu KITABU_COMPOSE_DIR=/opt/kitabu-ai /opt/kitabu-ai/infra/backup.sh
+gzip -t /var/backups/kitabu/kitabu-api-*.sql.gz
 ```
 
 For production, local backups are not enough. Send encrypted backups to Cloudflare
@@ -266,6 +303,5 @@ Do not try to self-host email delivery on the same Hetzner box for first launch.
 ## 12. Known production gaps
 
 - secrets are stored in a server-side `.env` file
-- there is no deployment automation yet
-- R2 must be enabled before off-server backups can be configured
+- off-server encrypted backups must still be configured
 - restore testing still needs to be done

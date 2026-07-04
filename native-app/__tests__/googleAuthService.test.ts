@@ -4,6 +4,16 @@ describe('googleAuthService', () => {
     jest.clearAllMocks();
     delete process.env.EXPO_PUBLIC_KITABU_GOOGLE_WEB_CLIENT_ID;
     delete process.env.KITABU_GOOGLE_WEB_CLIENT_ID;
+    delete process.env.EXPO_PUBLIC_KITABU_GOOGLE_ANDROID_CLIENT_ID;
+    delete process.env.KITABU_GOOGLE_ANDROID_CLIENT_ID;
+    delete process.env.EXPO_PUBLIC_KITABU_GOOGLE_IOS_CLIENT_ID;
+    delete process.env.KITABU_GOOGLE_IOS_CLIENT_ID;
+    delete process.env.EXPO_PUBLIC_KITABU_GOOGLE_REDIRECT_URI;
+    delete process.env.KITABU_GOOGLE_REDIRECT_URI;
+    const { NativeModules } = require('react-native');
+    const { Platform } = require('react-native');
+    Platform.OS = 'web';
+    delete NativeModules.KitabuAuthConfig;
   });
 
   test('fails clearly when the build has no Google web client ID', async () => {
@@ -31,6 +41,76 @@ describe('googleAuthService', () => {
         clientId: 'web-client-id.apps.googleusercontent.com',
         responseType: AuthSession.ResponseType.IdToken,
         scopes: ['openid', 'email', 'profile'],
+      }),
+    );
+  });
+
+  test('uses the native Android build config when env and Expo config are absent', () => {
+    const { NativeModules } = require('react-native');
+    NativeModules.KitabuAuthConfig = {
+      googleWebClientId: 'native-web-client-id.apps.googleusercontent.com',
+      googleAndroidClientId: 'native-android-client-id.apps.googleusercontent.com',
+    };
+    const { getGoogleAndroidClientId, getGoogleWebClientId } = require('../src/services/googleAuthService');
+
+    expect(getGoogleWebClientId()).toBe('native-web-client-id.apps.googleusercontent.com');
+    expect(getGoogleAndroidClientId()).toBe('native-android-client-id.apps.googleusercontent.com');
+  });
+
+  test('uses the Android client ID for Android auth sessions', async () => {
+    const { Platform } = require('react-native');
+    Platform.OS = 'android';
+    process.env.EXPO_PUBLIC_KITABU_GOOGLE_WEB_CLIENT_ID = 'web-client-id.apps.googleusercontent.com';
+    process.env.EXPO_PUBLIC_KITABU_GOOGLE_ANDROID_CLIENT_ID = 'android-client-id.apps.googleusercontent.com';
+    const AuthSession = require('expo-auth-session');
+    AuthSession.__promptAsync.mockResolvedValue({
+      type: 'success',
+      params: { id_token: 'verified-google-id-token' },
+    });
+    const { requestGoogleIdToken } = require('../src/services/googleAuthService');
+
+    await expect(requestGoogleIdToken()).resolves.toBe('verified-google-id-token');
+    expect(AuthSession.AuthRequest).toHaveBeenCalledWith(
+      expect.objectContaining({
+        clientId: 'android-client-id.apps.googleusercontent.com',
+      }),
+    );
+  });
+
+  test('uses the iOS client ID for iOS auth sessions', async () => {
+    const { Platform } = require('react-native');
+    Platform.OS = 'ios';
+    process.env.EXPO_PUBLIC_KITABU_GOOGLE_WEB_CLIENT_ID = 'web-client-id.apps.googleusercontent.com';
+    process.env.EXPO_PUBLIC_KITABU_GOOGLE_IOS_CLIENT_ID = 'ios-client-id.apps.googleusercontent.com';
+    const AuthSession = require('expo-auth-session');
+    AuthSession.__promptAsync.mockResolvedValue({
+      type: 'success',
+      params: { id_token: 'verified-google-id-token' },
+    });
+    const { requestGoogleIdToken } = require('../src/services/googleAuthService');
+
+    await expect(requestGoogleIdToken()).resolves.toBe('verified-google-id-token');
+    expect(AuthSession.AuthRequest).toHaveBeenCalledWith(
+      expect.objectContaining({
+        clientId: 'ios-client-id.apps.googleusercontent.com',
+      }),
+    );
+  });
+
+  test('passes a configured Google redirect URI to the auth request', async () => {
+    process.env.EXPO_PUBLIC_KITABU_GOOGLE_WEB_CLIENT_ID = 'web-client-id.apps.googleusercontent.com';
+    process.env.EXPO_PUBLIC_KITABU_GOOGLE_REDIRECT_URI = 'http://localhost:8098';
+    const AuthSession = require('expo-auth-session');
+    AuthSession.__promptAsync.mockResolvedValue({
+      type: 'success',
+      params: { id_token: 'verified-google-id-token' },
+    });
+    const { requestGoogleIdToken } = require('../src/services/googleAuthService');
+
+    await expect(requestGoogleIdToken()).resolves.toBe('verified-google-id-token');
+    expect(AuthSession.AuthRequest).toHaveBeenCalledWith(
+      expect.objectContaining({
+        redirectUri: 'http://localhost:8098',
       }),
     );
   });

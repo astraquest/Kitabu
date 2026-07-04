@@ -2,21 +2,23 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Cache-Control: public, max-age=300, stale-while-revalidate=86400
 
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
-/main.js
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+
+/styles-20260704.css
   Cache-Control: public, max-age=31536000, immutable
 
-/styles*.css
+/site-20260704.js
   Cache-Control: public, max-age=31536000, immutable
 
-/
-  Cache-Control: public, max-age=300, stale-while-revalidate=86400
-
-/blog/*
-  Cache-Control: public, max-age=300, stale-while-revalidate=86400
+/styles.css
+  Cache-Control: public, max-age=86400
 
 /sitemap.xml
   Cache-Control: public, max-age=3600

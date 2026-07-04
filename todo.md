@@ -110,6 +110,7 @@ Reason: the user changed the goal to create a stable manual-testing checkpoint b
 - [x] Snapshot Phase 1 state: library manifest snapshot and logical DB census written under `tmp/book-agent-notes`.
 - [x] Create tracked Phase 2 remediation backlog from the published testing baseline: `docs/generated-books-phase2-remediation-backlog.md`.
 - [x] Run Phase 2 production readiness audit and record production-confirmed blockers: `docs/generated-books-phase2-production-audit-2026-07-04.md`.
+- [x] Patch Kenya generator v47 to filter known clothing/laundry/textile source-contamination rows out of Agriculture regeneration; G9 Agriculture still needs targeted regeneration and production sync before the published testing package is fixed.
 - [ ] Collect tester feedback by country, grade, subject, page number, and issue type.
 - [ ] Convert accepted feedback into country-specific remediation tasks before moving to final readiness.
 

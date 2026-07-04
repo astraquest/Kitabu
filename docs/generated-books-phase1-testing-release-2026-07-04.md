@@ -91,6 +91,12 @@ Access behavior:
 - Demo/staff/admin preview users can review the full cross-country generated-book set.
 - `published-for-testing` is not final academic acceptance.
 
+Feedback intake:
+
+- Use `docs/generated-books-phase1-feedback-template.md` to capture manual testing findings.
+- Accepted issues should include country, curriculum, grade, subject, book ID, page number, severity, and evidence.
+- Phase 2 remediation should fix generator/source-normalization causes where possible, not only individual output pages.
+
 ## Phase 2 Resume Point
 
 Resume the paused adversarial review findings before any final promotion:

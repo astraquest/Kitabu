@@ -30,6 +30,8 @@ services:
     restart: unless-stopped
     env_file:
       - ./apps/api/.env
+    volumes:
+      - ./apps/api/data/books:/app/data/books:ro
     depends_on:
       - postgres
       - redis
@@ -44,6 +46,8 @@ services:
     restart: unless-stopped
     env_file:
       - ./apps/api/.env
+    volumes:
+      - ./apps/api/data/books:/app/data/books:ro
     command: ["node", "dist/worker.js"]
     healthcheck:
       disable: true

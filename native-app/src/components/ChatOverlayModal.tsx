@@ -104,7 +104,7 @@ function ChatMessageContent({ message }: { message: ChatMessage }) {
   return (
     <View style={styles.formattedMessage}>
       {lines.map((line, index) => {
-        const listMatch = line.match(/^(\d+[\.)]|[-•])\s+(.*)$/);
+        const listMatch = line.match(/^(\d+[.)]|[-\u2022])\s+(.*)$/);
         if (listMatch) {
           return (
             <View key={`${line}-${index}`} style={styles.messageListLine}>

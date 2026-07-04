@@ -9,6 +9,12 @@
 - RBAC gates protect teacher, school admin, and platform admin routes.
 - Audit logs exist for auth, billing, curriculum, and admin actions.
 - AI calls are proxied through the API and rate-limited per user.
+- Production SSH uses key-only access for the `deploy` user.
+- Production deploys use a dedicated GitHub Actions SSH key scoped to the server.
+- Postgres and Redis are private to the host/container network.
+- UFW denies unsolicited inbound traffic.
+- fail2ban is enabled for SSH abuse protection.
+- Nightly local database backups are retained for 14 days.
 
 ## Notification/SMS Controls
 
@@ -21,5 +27,6 @@
 
 - Add API integration tests for auth, billing callback idempotency, notifications, and admin RBAC.
 - Add Sentry with payload scrubbing before production.
+- Add encrypted off-server database backups.
 - Confirm backup restore works against a clean database.
 - Review public Terms and Privacy URLs before store submission.

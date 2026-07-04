@@ -24,6 +24,27 @@ const SUBJECT_CONTAMINATION_RULES = [
   }
 ];
 
+const LANGUAGE_SUBJECT_PATTERN = /^(english|kiswahili)$/i;
+const LANGUAGE_SCAFFOLD_PATTERNS = [
+  /\bLearning area\b/i,
+  /\bCurriculum link\b/i,
+  /\bStart here\b/i,
+  /\bBefore reading\b/i,
+  /\bBy the end\b/i,
+  /\bEneo la kujifunza\b/i,
+  /\bKiungo cha mtaala\b/i,
+  /\bAnzia hapa\b/i,
+  /\bKabla ya kusoma\b/i
+];
+const LANGUAGE_RAW_TITLE_PATTERNS = [
+  /\bStrand\s+\d+\b/i,
+  /\bWriting\s+\d+(?:\.\d+)+\b/i,
+  /\bGrammar in uses\b/i,
+  /\bWakati\s+Wakati\b/i,
+  /\b[a-z]{12,}\s+kwa\s+[a-z]{12,}\b/i
+];
+const KISWAHILI_TITLECASE_PATTERN = /\b(?:Wa|Ya|Za|Na|Kwa|Katika|Hiki|Huu|Haya)\b/;
+
 function parseArgs(argv) {
   const args = {};
   for (let index = 2; index < argv.length; index += 1) {
@@ -245,6 +266,77 @@ function validateRepeatedOpenings(pages, errors, warnings, publicationGate) {
   }
 }
 
+function pushGateMessage(errors, warnings, publicationGate, message) {
+  if (publicationGate) {
+    errors.push(`Publication gate failed: ${message}`);
+  } else {
+    warnings.push(message);
+  }
+}
+
+function validateLanguageArtifacts(manifest, pages, bookPlan, errors, warnings, publicationGate) {
+  const subject = String(manifest?.subject || '').trim();
+  if (!LANGUAGE_SUBJECT_PATTERN.test(subject)) return;
+
+  const pageTitles = pages
+    .map((page, index) => ({ index: index + 1, title: String(page?.title || '').trim() }))
+    .filter(page => page.title);
+  const longRawTitles = pageTitles.filter(page => (
+    page.title.length > 96 ||
+    (page.title.match(/:/g) || []).length >= 2 ||
+    LANGUAGE_RAW_TITLE_PATTERNS.some(pattern => pattern.test(page.title))
+  ));
+  if (longRawTitles.length) {
+    pushGateMessage(
+      errors,
+      warnings,
+      publicationGate,
+      `Language title gate found raw or overlong page titles: ${longRawTitles.slice(0, 5).map(page => `page ${page.index} "${page.title.slice(0, 90)}"`).join('; ')}`
+    );
+  }
+
+  const bookPlanText = collectStrings(bookPlan).join('\n');
+  const allText = [bookPlanText, ...pages.map(page => pageText(page))].join('\n');
+  const scaffoldHits = LANGUAGE_SCAFFOLD_PATTERNS
+    .map(pattern => ({ pattern, count: (allText.match(new RegExp(pattern.source, `${pattern.flags.includes('i') ? 'i' : ''}g`)) || []).length }))
+    .filter(hit => hit.count > 0);
+  const totalScaffoldHits = scaffoldHits.reduce((sum, hit) => sum + hit.count, 0);
+  if (totalScaffoldHits > 12) {
+    pushGateMessage(
+      errors,
+      warnings,
+      publicationGate,
+      `Language scaffold gate found ${totalScaffoldHits} learner-facing metadata labels (${scaffoldHits.slice(0, 5).map(hit => `${hit.pattern.source}: ${hit.count}`).join(', ')}).`
+    );
+  }
+
+  const rawTocHits = LANGUAGE_RAW_TITLE_PATTERNS
+    .map(pattern => allText.match(pattern)?.[0])
+    .filter(Boolean);
+  if (rawTocHits.length) {
+    pushGateMessage(
+      errors,
+      warnings,
+      publicationGate,
+      `Language artifact gate found raw curriculum display text: ${[...new Set(rawTocHits)].slice(0, 6).join(', ')}.`
+    );
+  }
+
+  if (/^kiswahili$/i.test(subject)) {
+    const casingHits = pageTitles
+      .filter(page => KISWAHILI_TITLECASE_PATTERN.test(page.title))
+      .slice(0, 8);
+    if (casingHits.length > 4) {
+      pushGateMessage(
+        errors,
+        warnings,
+        publicationGate,
+        `Kiswahili heading gate found English-style function-word casing: ${casingHits.map(page => `page ${page.index} "${page.title}"`).join('; ')}`
+      );
+    }
+  }
+}
+
 async function validatePackage(packageDir, options = {}) {
   const errors = [];
   const warnings = [];
@@ -284,6 +376,7 @@ async function validatePackage(packageDir, options = {}) {
     await Promise.all(validateAppSafeCoverFields(packageDir, entries, manifest, errors, warnings, visibleGate || publicationGate));
     validateSourceContamination(manifest, pages, bookPlan, sourceMap, markdownText, errors);
     validateRepeatedOpenings(pages, errors, warnings, publicationGate);
+    validateLanguageArtifacts(manifest, pages, bookPlan, errors, warnings, publicationGate);
   }
 
   return {

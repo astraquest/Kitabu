@@ -109,6 +109,7 @@ Reason: the user changed the goal to create a stable manual-testing checkpoint b
 - [x] Preserve quality gates: 0 `ready-for-cover`, 0 `library-ready`, 0 `published-library`; content statuses remain draft/review-needed or reviewed-draft.
 - [x] Snapshot Phase 1 state: library manifest snapshot and logical DB census written under `tmp/book-agent-notes`.
 - [x] Create tracked Phase 2 remediation backlog from the published testing baseline: `docs/generated-books-phase2-remediation-backlog.md`.
+- [x] Run Phase 2 production readiness audit and record production-confirmed blockers: `docs/generated-books-phase2-production-audit-2026-07-04.md`.
 - [ ] Collect tester feedback by country, grade, subject, page number, and issue type.
 - [ ] Convert accepted feedback into country-specific remediation tasks before moving to final readiness.
 

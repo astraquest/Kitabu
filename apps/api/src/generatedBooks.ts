@@ -2,6 +2,7 @@ import { createReadStream } from 'node:fs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { Readable } from 'node:stream';
 import type { ReadStream } from 'node:fs';
 import type { AuthenticatedUser } from './types.js';
 
@@ -53,15 +54,16 @@ function isGeneratedBookAdmin(user: AuthenticatedUser) {
 }
 
 function isPublishedGeneratedBook(manifest: BookManifest) {
-  const status = (manifest.contentStatus || manifest.status || '').toLowerCase();
+  const statuses = [manifest.contentStatus, manifest.status]
+    .filter((value): value is string => Boolean(value))
+    .map(value => value.toLowerCase());
   return [
-    'content-approved',
-    'ready-for-cover',
-    'cover-ready',
     'library-ready',
     'published',
-    'published-library'
-  ].includes(status);
+    'published-library',
+    'published-for-testing',
+    'phase1-testing-published'
+  ].some(status => statuses.includes(status));
 }
 
 function userCanPreviewGeneratedDrafts(user: AuthenticatedUser) {
@@ -85,6 +87,32 @@ function manifestForUser(user: AuthenticatedUser, manifest: BookManifest) {
     sanitized.downloads = downloads;
   }
   return sanitized as BookManifest;
+}
+
+function pageForUser(user: AuthenticatedUser, page: BookPage) {
+  if (isGeneratedBookAdmin(user)) return page;
+  const sanitized = { ...(page as BookPage & Record<string, unknown>) };
+  delete sanitized.sourceRefs;
+  delete sanitized.sourceDocuments;
+  delete sanitized.sourceDocumentId;
+  delete sanitized.sourceUrl;
+  delete sanitized.sourceUrlStatus;
+  delete sanitized.sourceSnapshotHash;
+  delete sanitized.objectKey;
+  delete sanitized.reviewStatus;
+  delete sanitized.officialTitle;
+  return sanitized as BookPage;
+}
+
+function pagesPayloadForUser(user: AuthenticatedUser, payload: BookPage[] | ({ pages?: BookPage[] } & Record<string, unknown>)) {
+  if (Array.isArray(payload)) {
+    return payload.map(page => pageForUser(user, page));
+  }
+  const sanitized = isGeneratedBookAdmin(user)
+    ? { ...payload }
+    : { ...(manifestForUser(user, payload as unknown as BookManifest) as unknown as Record<string, unknown>) };
+  sanitized.pages = (payload.pages ?? []).map(page => pageForUser(user, page));
+  return sanitized;
 }
 
 export type GeneratedLibraryBook = {
@@ -113,7 +141,7 @@ export type GeneratedLibraryBook = {
 };
 
 export type GeneratedBookAsset = {
-  stream: ReadStream;
+  stream: ReadStream | Readable;
   fileName: string;
   contentType: string;
   sizeBytes: number;
@@ -235,6 +263,7 @@ async function loadBook(manifestPath: string, user: AuthenticatedUser): Promise<
     if (!pages.length) {
       return null;
     }
+    const visiblePages = pages.map(page => pageForUser(user, page));
     await fs.access(path.join(packageDir, 'source-map.json'));
     const pdfName = manifest.downloads?.pdf ?? `${manifest.bookId}.pdf`;
     const pdfPath = path.join(packageDir, pdfName);
@@ -252,13 +281,13 @@ async function loadBook(manifestPath: string, user: AuthenticatedUser): Promise<
       subjectName: manifest.subject,
       title: manifest.title,
       author: 'Kitabu AI Learning Studio',
-      description: `${manifest.subject} learner book with ${pages.length} reading pages, mascot-guided activities, source map, and offline PDF.`,
+      description: `${manifest.subject} learner book with ${visiblePages.length} reading pages, mascot-guided activities, source map, and offline PDF.`,
       spineColor: manifest.subjectColor ?? '#0F766E',
       textColor: '#FFFFFF',
-      height: pages.length >= 220 ? 'h40' : pages.length >= 160 ? 'h36' : 'h32',
-      spinePattern: pages.length >= 220 ? 'striped' : 'banded',
+      height: visiblePages.length >= 220 ? 'h40' : visiblePages.length >= 160 ? 'h36' : 'h32',
+      spinePattern: visiblePages.length >= 220 ? 'striped' : 'banded',
       downloadable: true,
-      pageCount: pages.length,
+      pageCount: visiblePages.length,
       wordCount: manifest.wordCount ?? 0,
       version: manifest.version ?? null,
       manifestUrl: `/app/library/books/${encodeURIComponent(manifest.bookId)}/manifest`,
@@ -267,7 +296,7 @@ async function loadBook(manifestPath: string, user: AuthenticatedUser): Promise<
         ? `/app/library/books/${encodeURIComponent(manifest.bookId)}/download?format=cover`
         : null,
       checksum: manifest.packageChecksum ?? manifest.coverImage?.sha256 ?? null,
-      pages
+      pages: visiblePages
     };
   } catch {
     return null;
@@ -402,6 +431,17 @@ export async function openGeneratedBookAssetForUser(
   const stat = await fs.stat(filePath).catch(() => null);
   if (!stat?.isFile()) {
     return null;
+  }
+
+  if (format === 'pages' && !isGeneratedBookAdmin(user)) {
+    const payload = await readJson<BookPage[] | ({ pages?: BookPage[] } & Record<string, unknown>)>(filePath);
+    const buffer = Buffer.from(`${JSON.stringify(pagesPayloadForUser(user, payload), null, 2)}\n`, 'utf8');
+    return {
+      stream: Readable.from([buffer]),
+      fileName: path.basename(filePath),
+      contentType: contentTypes[format],
+      sizeBytes: buffer.byteLength
+    };
   }
 
   return {

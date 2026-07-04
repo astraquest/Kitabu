@@ -794,6 +794,8 @@ export function useKitabuApp() {
     return () => {
       mounted = false;
     };
+    // Bootstrap must run once from persisted state; subsequent refreshes are triggered by focused effects/actions.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

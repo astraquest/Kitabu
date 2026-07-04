@@ -1,5 +1,4 @@
 import { createRemoteJWKSet, jwtVerify, type JWTPayload } from 'jose';
-import { appConfig } from './config.js';
 
 const googleJwks = createRemoteJWKSet(
   new URL('https://www.googleapis.com/oauth2/v3/certs')
@@ -12,7 +11,7 @@ export interface VerifiedGoogleIdentity {
 }
 
 export function getGoogleClientIds() {
-  return appConfig.KITABU_GOOGLE_CLIENT_IDS
+  return (process.env.KITABU_GOOGLE_CLIENT_IDS ?? '')
     .split(',')
     .map(value => value.trim())
     .filter(Boolean);

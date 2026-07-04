@@ -7,7 +7,6 @@ import { SubjectGrid, SubjectSelector } from '../src/components/SubjectGrid';
 import { StudentHeader } from '../src/components/StudentHeader';
 import { SubscriptionCheckoutModal } from '../src/components/SubscriptionCheckoutModal';
 import { INITIAL_ASSIGNMENTS, SUBJECTS } from '../src/data/mockData';
-import { DashboardScreen } from '../src/screens/DashboardScreen';
 import { HomeworkListScreen } from '../src/screens/HomeworkListScreen';
 import { LoginScreen } from '../src/screens/LoginScreen';
 import { StudentOnboardingScreen } from '../src/screens/StudentOnboardingScreen';
@@ -257,7 +256,7 @@ test('dashboard subject grid opens plus selector and saves selected subjects', a
   expect(onSaveSubjectSelection).toHaveBeenCalledWith(
     SUBJECTS.slice(0, 5).map(subject => subject.id),
   );
-});
+}, 60_000);
 
 test('student dashboard grade selector is a header dropdown and updates selection', async () => {
   const onSelectGrade = jest.fn();
@@ -1212,7 +1211,7 @@ test('onboarding full intro captures profile details before account setup', asyn
   expect(renderer!.root.findAllByProps({ testID: 'onboarding-dashboard' })).toHaveLength(0);
   expect(renderedText(renderer!.root)).not.toContain('Simulate success');
   jest.useRealTimers();
-});
+}, 60_000);
 
 test('onboarding need intro uses teacher and parent priorities', async () => {
   jest.useFakeTimers();

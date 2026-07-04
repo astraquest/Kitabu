@@ -15,14 +15,14 @@ supabase/.temp/
 **/.env.*
 !**/.env.example
 
+apps/api/data/books/**
+
 *.log
 *.out.log
 *.err.log
 *.bundle
 *.hbc
 *.png
-!apps/api/data/books/assets/
-!apps/api/data/books/assets/*.png
 !native-app/src/assets/logo.png
 !native-app/src/assets/splashscreen.png
 !native-app/src/assets/good-news/

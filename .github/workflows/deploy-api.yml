@@ -14,8 +14,26 @@ on:
           - staging
           - production
 
+permissions:
+  contents: read
+
 jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - run: npm run build
+      - run: npm run test:api
+
   deploy:
+    needs: validate
     runs-on: ubuntu-latest
     timeout-minutes: 30
     environment: ${{ github.event_name == 'workflow_dispatch' && inputs.environment || 'production' }}
@@ -32,6 +50,27 @@ jobs:
           chmod 600 ~/.ssh/kitabu_deploy
           printf '%s\n' "${{ secrets.KITABU_DEPLOY_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
           chmod 644 ~/.ssh/known_hosts
+      - name: Refuse deploy over production drift
+        run: |
+          set -euo pipefail
+          ssh -i ~/.ssh/kitabu_deploy "${{ secrets.KITABU_DEPLOY_USER }}@${{ secrets.KITABU_DEPLOY_HOST }}" 'bash -se' <<'REMOTE'
+          set -euo pipefail
+          cd /opt/kitabu-ai
+          if [ ! -d .git ]; then
+            echo "::error::/opt/kitabu-ai is not a Git worktree; refusing rsync deploy."
+            exit 1
+          fi
+
+          status="$(
+            git status --porcelain --untracked-files=all |
+              grep -Ev '^(\?\? | M |M  |A  | D |D  )(\.env|\.env\..*|apps/api/\.env|apps/api/\.env\..*)$' || true
+          )"
+          if [ -n "$status" ]; then
+            echo "::error::Production tree has uncommitted or untracked changes. Commit/reconcile them before deploying."
+            printf '%s\n' "$status" | sed -n '1,120p'
+            exit 1
+          fi
+          REMOTE
       - name: Sync code to production host
         run: |
           set -euo pipefail
@@ -40,8 +79,13 @@ jobs:
             --exclude '.git' \
             --exclude 'node_modules' \
             --exclude '.env' \
+            --exclude '.env.*' \
             --exclude 'apps/api/.env' \
+            --exclude 'apps/api/.env.*' \
+            --exclude 'apps/api/data/books/' \
+            --exclude '*.pem' \
             --exclude '.secrets' \
+            --exclude 'smoke-email.txt' \
             ./ "${{ secrets.KITABU_DEPLOY_USER }}@${{ secrets.KITABU_DEPLOY_HOST }}:/opt/kitabu-ai/"
       - name: Deploy on Hetzner
         run: |
@@ -49,13 +93,12 @@ jobs:
           ssh -i ~/.ssh/kitabu_deploy "${{ secrets.KITABU_DEPLOY_USER }}@${{ secrets.KITABU_DEPLOY_HOST }}" 'bash -se' <<'REMOTE'
           set -euo pipefail
           cd /opt/kitabu-ai
+          docker compose config --quiet
           docker compose up -d postgres redis
           docker compose build api worker
           docker compose run --rm api node scripts/apply-migrations.mjs
           docker compose run --rm api node scripts/verify-production-readiness.mjs
-          docker stop kitabu-api kitabu-worker kitabu-caddy || true
-          docker rm kitabu-api kitabu-worker kitabu-caddy || true
-          docker compose up -d api worker caddy
+          docker compose up -d --force-recreate api worker caddy
           docker exec kitabu-caddy grep -q 'resetPasswordPath' /etc/caddy/Caddyfile
           docker exec kitabu-caddy grep -q 'verifyEmailPath' /etc/caddy/Caddyfile
           docker exec kitabu-api grep -q 'Reset link unavailable' /app/dist/server.js
@@ -89,3 +132,6 @@ jobs:
           curl --fail --silent https://admin.kitabu.ai/app.js | grep -q '/curriculum/import/pdf'
           curl --fail --silent https://admin.kitabu.ai/app.js | grep -q '/ai/generate-text'
           REMOTE
+      - name: Remove deploy SSH key from runner
+        if: always()
+        run: rm -f ~/.ssh/kitabu_deploy

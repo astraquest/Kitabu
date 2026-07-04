@@ -29,12 +29,13 @@ export type AuthRole =
   | 'teacher'
   | 'school_admin'
   | 'platform_admin'
+  | 'sales_agent'
   | 'parent';
 export type PublicSignupRole = 'student' | 'teacher' | 'parent' | 'other';
 export type GenderOption = 'male' | 'female' | 'not_specified';
 export type OnboardingLanguageCode = 'en' | 'sw';
 export type OnboardingMascotKey = 'lion' | 'rabbit' | 'elephant';
-export type OnboardingVoiceName = 'Amina' | 'Kamau' | 'Zawadi' | 'Juma';
+export type OnboardingVoiceName = 'Samora' | 'Jabali' | 'Bella' | 'Judith';
 export type OnboardingNeedKey =
   | 'exam'
   | 'grades'
@@ -359,8 +360,85 @@ export interface AdminPortalUser {
   grade: string;
   school: string;
   email: string;
+  phone?: string | null;
+  county?: string | null;
+  roles?: AuthRole[];
   status: 'Online' | 'Offline' | 'Active';
   color: 'green' | 'gray';
+  createdAt?: string;
+  lastActive?: string;
+  lastActiveAt?: string | null;
+  watchTimeSeconds?: number;
+  hasActiveSubscription?: boolean;
+  activeSubscriptionPeriodEnd?: string | null;
+  activeSubscriptionPriceKshCents?: number;
+}
+
+export interface AdminAiUsageRow {
+  id?: string;
+  name?: string;
+  full_name?: string;
+  email?: string;
+  feature?: string;
+  provider?: string;
+  model?: string;
+  events?: string | number;
+  total_tokens?: string | number;
+  spend_ksh_cents?: string | number;
+  active_ai_users?: string | number;
+  average_tokens_per_user?: string | number;
+  average_spend_ksh_cents_per_user?: string | number;
+  subscription_price_ksh_cents?: string | number;
+  token_share?: string | number;
+}
+
+export interface AdminAiAnalytics {
+  topUsers: AdminAiUsageRow[];
+  topFeatures: AdminAiUsageRow[];
+  blockedEvents: number;
+  costBySchool: AdminAiUsageRow[];
+  marginByUser: AdminAiUsageRow[];
+  modelBreakdown?: AdminAiUsageRow[];
+  costTrend?: Array<{
+    period?: string;
+    total_tokens?: string | number;
+    spend_ksh_cents?: string | number;
+  }>;
+}
+
+export interface AdminBillingAnalytics {
+  activeSubscriptions: number;
+  failedPayments: number;
+  recentPayments: Array<{
+    id?: string;
+    plan_code?: string;
+    status?: string;
+    amount_ksh_cents?: string | number;
+    result_desc?: string | null;
+    created_at?: string;
+    email?: string;
+  }>;
+  revenueByPlan: Array<{
+    plan_code?: string;
+    total_payments?: string | number;
+    revenue_ksh_cents?: string | number;
+  }>;
+}
+
+export interface AdminSubjectEngagementRow {
+  grade?: string;
+  subjectId: string;
+  subjectName: string;
+  activeStudents: number;
+  interactions: number;
+  durationSeconds: number;
+  lastInteractionAt?: string | null;
+  featureBreakdown?: Record<string, number>;
+}
+
+export interface AdminSubjectEngagementAnalytics {
+  grade: string | null;
+  subjects: AdminSubjectEngagementRow[];
 }
 
 export interface SchoolData {

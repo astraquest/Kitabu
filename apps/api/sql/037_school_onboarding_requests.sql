@@ -3,12 +3,13 @@
 CREATE TABLE IF NOT EXISTS school_onboarding_requests (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   school_name TEXT NOT NULL,
-  county TEXT NOT NULL,
-  town TEXT,
+  country TEXT NOT NULL,
+  county TEXT,
   school_level TEXT NOT NULL CHECK (school_level IN ('junior', 'senior', 'junior_and_senior')),
   boarding_type TEXT NOT NULL CHECK (boarding_type IN ('day', 'boarding', 'day_and_boarding')),
   student_count INTEGER NOT NULL CHECK (student_count > 0),
   contact_phone TEXT NOT NULL,
+  contact_email TEXT,
   source TEXT NOT NULL DEFAULT 'website',
   email_delivered BOOLEAN NOT NULL DEFAULT FALSE,
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()

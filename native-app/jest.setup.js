@@ -73,7 +73,38 @@ jest.mock('expo-speech', () => ({
   stop: jest.fn(),
 }));
 
+jest.mock('expo-asset', () => ({
+  Asset: {
+    fromModule: jest.fn(moduleId => ({
+      uri: `asset://${moduleId}`,
+      localUri: `asset://${moduleId}`,
+      downloadAsync: jest.fn(function downloadAsync() {
+        return Promise.resolve(this);
+      }),
+    })),
+  },
+}));
+
 jest.mock('expo-audio', () => ({
+  createAudioPlayer: jest.fn(() => {
+    const listeners = new Map();
+    return {
+      addListener: jest.fn((eventName, listener) => {
+        listeners.set(eventName, listener);
+        return {
+          remove: jest.fn(() => listeners.delete(eventName)),
+        };
+      }),
+      play: jest.fn(() => {
+        listeners.get('playbackStatusUpdate')?.({
+          playing: true,
+          didJustFinish: false,
+        });
+      }),
+      pause: jest.fn(),
+      remove: jest.fn(),
+    };
+  }),
   requestRecordingPermissionsAsync: jest.fn(() => Promise.resolve({ granted: true })),
   setAudioModeAsync: jest.fn(() => Promise.resolve()),
   RecordingPresets: {

@@ -3,7 +3,6 @@ import {
   ActivityIndicator,
   Image,
   KeyboardAvoidingView,
-  Linking,
   Modal,
   Platform,
   Pressable,
@@ -35,10 +34,9 @@ import { requestGoogleIdToken } from '../services/googleAuthService';
 import { getUserFacingApiError } from '../services/requestHelpers';
 import { AuthSession, PublicSignupRole } from '../types/app';
 import { AvatarArt, LocalAvatarKey } from '../components/AvatarArt';
+import { GoogleLogo } from '../components/GoogleLogo';
 import {
   PRIVACY_POLICY_SECTIONS,
-  PRIVACY_POLICY_URL,
-  TERMS_OF_SERVICE_URL,
   TERMS_OF_USE_SECTIONS,
 } from '../content/legal';
 
@@ -91,13 +89,16 @@ const ROLE_OPTIONS: RoleOption[] = [
     detail: 'Track learning and homework',
     avatar: 'avatar-afro-girl',
   },
-  {
-    role: 'other',
-    label: 'Other',
-    detail: 'Learn or help someone else',
-    avatar: 'avatar-afro-boy',
-  },
 ];
+
+function sanitizePersonName(value: string) {
+  return value.replace(/\d/g, '');
+}
+
+function isValidPersonName(value: string) {
+  const trimmed = value.trim();
+  return trimmed.length >= 2 && /[A-Za-z]/.test(trimmed) && !/\d/.test(trimmed);
+}
 
 export function LoginScreen({
   mode,
@@ -289,15 +290,19 @@ export function LoginScreen({
       });
       return;
     }
-    if (mode === 'signup' && !fullName.trim()) {
+    if (mode === 'signup' && !isValidPersonName(fullName)) {
       setProviderState({
         isSubmitting: false,
         message: null,
-        error: 'Enter your full name to create an account.',
+        error: 'Enter a full name without numbers to create an account.',
       });
       return;
     }
     onSubmit();
+  }
+
+  function handleFullNameChange(value: string) {
+    onFullNameChange(sanitizePersonName(value));
   }
 
   async function handleGoogleSubmit() {
@@ -403,7 +408,7 @@ export function LoginScreen({
               disabled={isBusy}
               onPress={handleGoogleSubmit}
               style={styles.googleButton}>
-              <Text style={styles.googleMark}>G</Text>
+              <GoogleLogo size={20} />
               <Text style={styles.googleButtonText}>Continue with Google</Text>
             </Pressable>
 
@@ -417,7 +422,7 @@ export function LoginScreen({
               <FieldShell label="Full Name" icon={<User color="#8B5CF6" size={16} />}>
                 <TextInput
                   autoCapitalize="words"
-                  onChangeText={onFullNameChange}
+                  onChangeText={handleFullNameChange}
                   placeholder="Full name"
                   placeholderTextColor="#94A3B8"
                   style={styles.input}
@@ -756,16 +761,6 @@ function GlassSheet({
           </LinearGradient>
           <View style={styles.modalBody}>{children}</View>
           {footer ? footer : null}
-          {!footer && open && title === 'Terms of Use' ? (
-            <Pressable onPress={() => Linking.openURL(TERMS_OF_SERVICE_URL)} style={styles.hostedLinkButton}>
-              <Text style={styles.hostedLinkButtonText}>Open hosted copy</Text>
-            </Pressable>
-          ) : null}
-          {!footer && open && title === 'Privacy Policy' ? (
-            <Pressable onPress={() => Linking.openURL(PRIVACY_POLICY_URL)} style={styles.hostedLinkButton}>
-              <Text style={styles.hostedLinkButtonText}>Open hosted copy</Text>
-            </Pressable>
-          ) : null}
         </View>
       </View>
     </Modal>

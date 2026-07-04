@@ -195,6 +195,11 @@ const loginSchema = z.object({
   password: z.string().min(8)
 });
 
+const personNameSchema = z.string().trim().min(2).max(120).refine(
+  value => /[A-Za-z]/.test(value) && !/\d/.test(value),
+  'Name cannot include numbers'
+);
+
 const phoneAuthRequestSchema = z.discriminatedUnion('purpose', [
   z.object({
     purpose: z.literal('login'),
@@ -203,7 +208,7 @@ const phoneAuthRequestSchema = z.discriminatedUnion('purpose', [
   z.object({
     purpose: z.literal('signup'),
     phoneNumber: z.string().trim().min(9).max(20),
-    fullName: z.string().trim().min(2).max(120),
+    fullName: personNameSchema,
     role: z.enum(['student', 'teacher', 'parent']),
     acceptedTerms: z.literal(true)
   })
@@ -235,7 +240,7 @@ const forgotPasswordSchema = z.object({
 });
 
 const signupSchema = z.object({
-  fullName: z.string().min(2),
+  fullName: personNameSchema,
   email: z.string().email(),
   password: z.string().min(8),
   role: z.enum(['student', 'teacher', 'parent']),
@@ -301,7 +306,7 @@ const schoolParamsSchema = z.object({
 });
 
 const salesAgentCreateSchema = z.object({
-  fullName: z.string().trim().min(2).max(120),
+  fullName: personNameSchema,
   email: z.string().email(),
   phoneNumber: z.string().trim().min(9).max(20).nullable().optional(),
   county: z.string().trim().min(2).max(80).nullable().optional()
@@ -2784,12 +2789,13 @@ Requirements:
 
   const schoolOnboardingSchema = z.object({
     schoolName: z.string().trim().min(2).max(200),
-    county: z.string().trim().min(2).max(60),
-    town: z.string().trim().max(120).optional(),
+    country: z.enum(['Kenya', 'Uganda', 'Tanzania', 'Rwanda', 'Ethiopia']),
+    county: z.string().trim().max(80).optional(),
     schoolLevel: z.enum(['junior', 'senior', 'junior_and_senior']),
     boardingType: z.enum(['day', 'boarding', 'day_and_boarding']),
     studentCount: z.coerce.number().int().min(1).max(100000),
     contactPhone: z.string().trim().min(7).max(20),
+    contactEmail: z.string().trim().max(160).email().optional().or(z.literal('')),
     source: z.string().trim().max(60).optional()
   });
 
@@ -2799,21 +2805,24 @@ Requirements:
     { config: { rateLimit: { max: 5, timeWindow: '1 minute' } } },
     async (request, reply) => {
       const body = schoolOnboardingSchema.parse(request.body);
+      const county = body.county?.length ? body.county : null;
+      const contactEmail = body.contactEmail?.length ? body.contactEmail : null;
 
       const record = await withTransaction(async client => {
         const created = await createSchoolOnboardingRequest(client, {
           schoolName: body.schoolName,
-          county: body.county,
-          town: body.town?.length ? body.town : null,
+          country: body.country,
+          county,
           schoolLevel: body.schoolLevel,
           boardingType: body.boardingType,
           studentCount: body.studentCount,
           contactPhone: body.contactPhone,
+          contactEmail,
           source: body.source?.length ? body.source : 'website'
         });
         await createAuditLog(client, null, null, 'school.onboarding.requested', {
           requestId: created.id,
-          county: body.county,
+          country: body.country,
           studentCount: body.studentCount
         });
         return created;
@@ -2831,16 +2840,18 @@ Requirements:
       }[body.boardingType];
       const detailPairs: Array<[string, string]> = [
         ['School', body.schoolName],
-        ['Location', body.town?.length ? `${body.town}, ${body.county} County` : `${body.county} County`],
+        ['Country', body.country],
+        ['County / region', county ?? '—'],
         ['Level', levelLabel],
         ['Type', boardingLabel],
         ['Students', String(body.studentCount)],
         ['Phone / WhatsApp', body.contactPhone],
+        ['Email', contactEmail ?? '—'],
         ['Request ID', record.id]
       ];
       const emailDelivered = await sendTransactionalEmail({
         to: appConfig.KITABU_SCHOOL_LEADS_EMAIL,
-        subject: `New school onboarding request: ${body.schoolName} (${body.county})`,
+        subject: `New school onboarding request: ${body.schoolName} (${body.country})`,
         text: detailPairs.map(([label, value]) => `${label}: ${value}`).join('\n'),
         html: `
           <div style="font-family:Segoe UI,Arial,sans-serif;line-height:1.6;color:#0f172a">
@@ -4771,12 +4782,7 @@ Return valid JSON with this shape:
     return { completed: true };
   });
 
-  app.get('/schools', async (request, reply) => {
-    const authError = await requireAuthenticated(request, reply);
-    if (authError) {
-      return;
-    }
-
+  app.get('/schools', async () => {
     const schools = await listSchools();
     return {
       schools: schools.map(serializeSchool)

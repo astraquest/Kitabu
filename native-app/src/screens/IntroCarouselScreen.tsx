@@ -23,22 +23,37 @@ const logoAsset = require('../assets/logo.png');
 const SLIDES = [
   {
     image: portraitDesk,
-    title: 'Every Learner Deserves A Personal Tutor who Never Gets Tired of Explaining. Not More Books.',
+    titleParts: [
+      { text: 'Every Learner Deserves A ' },
+      { text: 'Personal Tutor', highlight: true },
+      { text: ' Who Never Gets Tired of Explaining.' },
+    ],
     body: '',
   },
   {
     image: portraitSisters,
-    title: 'For Less than the Price of One Mandazi, You Get Unlimited Revision Questions and Answers Everyday.',
+    titleParts: [
+      { text: 'For Less than One ' },
+      { text: 'Mandazi', highlight: true },
+      { text: ', Get Unlimited Revision Questions Every Day.' },
+    ],
     body: '',
   },
   {
     image: portraitLaptop,
-    title: 'Daily Homework Aligned with CBC. Automated Grading and Results Shared to Teachers and Parents Automatically.',
+    titleParts: [
+      { text: 'Daily Homework Aligned with ' },
+      { text: 'CBC', highlight: true },
+      { text: '. Automated Grading for Teachers and Parents.' },
+    ],
     body: '',
   },
   {
     image: reportCardReview,
-    title: 'Usingoje Report Form Ndio Ujue Kuna Makosa Mahali. Fungua Kitabu!',
+    titleParts: [
+      { text: 'Usingoje Report Form Ndio Ujue Kuna Makosa Mahali. ' },
+      { text: 'Fungua Kitabu!', highlight: true },
+    ],
     body: '',
   },
 ] as const;
@@ -102,13 +117,21 @@ export function IntroCarouselScreen({
         onMomentumScrollEnd={handleScrollEnd}
         style={styles.carousel}>
         {SLIDES.map(slide => (
-          <View key={slide.title} style={styles.slide}>
+          <View key={slide.titleParts.map(part => part.text).join('')} style={styles.slide}>
             <View style={styles.card}>
               <View style={styles.imageWrap}>
                 <View style={styles.imageHalo} />
                 <Image source={slide.image} style={styles.image} resizeMode="cover" />
               </View>
-              <Text style={styles.title}>{slide.title}</Text>
+              <Text style={styles.title}>
+                {slide.titleParts.map(part => (
+                  <Text
+                    key={part.text}
+                    style={part.highlight ? styles.titleHighlight : undefined}>
+                    {part.text}
+                  </Text>
+                ))}
+              </Text>
               {slide.body ? <Text style={styles.body}>{slide.body}</Text> : null}
             </View>
           </View>
@@ -119,7 +142,7 @@ export function IntroCarouselScreen({
         <View style={styles.progressRow}>
           {progress.map((isActive, index) => (
             <View
-              key={SLIDES[index].title}
+              key={SLIDES[index].titleParts.map(part => part.text).join('')}
               style={[styles.progressDot, isActive && styles.progressDotActive]}
             />
           ))}
@@ -220,9 +243,13 @@ const styles = StyleSheet.create({
   },
   title: {
     color: '#FFFFFF',
-    fontSize: 28,
+    fontSize: 25,
     fontWeight: '900',
-    lineHeight: 34,
+    lineHeight: 31,
+    textAlign: 'center',
+  },
+  titleHighlight: {
+    color: '#FDE68A',
   },
   body: {
     color: 'rgba(255,255,255,0.85)',

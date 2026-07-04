@@ -1,5 +1,8 @@
 import {
+  AdminAiAnalytics,
+  AdminBillingAnalytics,
   AdminPortalUser,
+  AdminSubjectEngagementAnalytics,
   BannerAnnouncement,
   BillingPlan,
   DashboardBanner,
@@ -108,6 +111,25 @@ export async function getAdminUsers() {
     method: 'GET',
   });
   return payload.users;
+}
+
+export async function getAdminAiAnalytics() {
+  return apiRequest<AdminAiAnalytics>('/admin/analytics/ai-usage', {
+    method: 'GET',
+  });
+}
+
+export async function getAdminBillingAnalytics() {
+  return apiRequest<AdminBillingAnalytics>('/admin/analytics/billing', {
+    method: 'GET',
+  });
+}
+
+export async function getAdminSubjectEngagementAnalytics(grade?: string | null) {
+  const query = grade ? `?grade=${encodeURIComponent(grade)}` : '';
+  return apiRequest<AdminSubjectEngagementAnalytics>(`/admin/analytics/subject-engagement${query}`, {
+    method: 'GET',
+  });
 }
 
 export async function createAdminSchool(input: {

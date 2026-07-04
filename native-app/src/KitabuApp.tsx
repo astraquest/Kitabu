@@ -142,6 +142,8 @@ export function KitabuApp() {
   const [onboardingPreviewRole] = React.useState(getOnboardingPreviewRole);
   const usesStudentHeader = shouldUseStudentHeader(state.currentView);
   const usesStandaloneScreen = shouldUseStandaloneScreen(state.currentView);
+  const canSwitchHeaderGrade =
+    state.currentView === 'dashboard' || state.currentView === 'bookshelf_view';
   const showDiagnosticPreview = shouldShowDiagnosticPreview();
   const activeUserProfile = state.activeUserProfile;
 
@@ -325,8 +327,8 @@ export function KitabuApp() {
             }}
             onOpenNotifications={() => actions.setNotificationsOpen(true)}
             unreadNotificationCount={state.unreadNotificationCount}
-            currentGrade={state.currentView === 'dashboard' ? state.currentGrade : undefined}
-            onSelectGrade={state.currentView === 'dashboard' ? actions.setCurrentGrade : undefined}
+            currentGrade={canSwitchHeaderGrade ? state.currentGrade : undefined}
+            onSelectGrade={canSwitchHeaderGrade ? actions.setCurrentGrade : undefined}
             showPreviewExit={state.isStudentPreview && !state.focusModeActive}
             onExitPreview={actions.exitStudentPreview}
           />

@@ -53,6 +53,7 @@ Generated packages are not a normal Git artifact in this phase. Before regenerat
 - Do not assume a code commit, PR merge, or Git push contains the generated corpus; package availability must be verified on the production server-local path.
 - Record the backup path in the relevant release note or remediation PR.
 - Remember that the previous database checkpoint was a logical DB census and generated-library manifest snapshot, not a full `pg_dump`.
+- Run the repo package validator before promotion. Use the strict publication gate when moving any book beyond `published-for-testing`.
 - Verify after changes that `/health` passes.
 - Verify `student@kitabu.ai` still sees 280 generated books, all readable, with 280 cover URLs.
 - Verify at least one normal scoped student sees only the selected country/curriculum/grade books and can switch grade.

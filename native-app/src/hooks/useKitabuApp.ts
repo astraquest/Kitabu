@@ -45,9 +45,12 @@ import {
   deleteAdminAnnouncement,
   deleteAdminDiscount,
   deleteAdminSchool,
+  getAdminAiAnalytics,
   getAdminAnnouncements,
+  getAdminBillingAnalytics,
   getAdminDiscounts,
   getAdminSchools,
+  getAdminSubjectEngagementAnalytics,
   getAdminSubscriptionPlans,
   getAdminUsers,
   getDashboardBanner,
@@ -105,6 +108,9 @@ import { loadJson, saveJson } from '../services/storage';
 import { triggerHaptic } from '../services/haptics';
 import {
   AdminPortalUser,
+  AdminAiAnalytics,
+  AdminBillingAnalytics,
+  AdminSubjectEngagementAnalytics,
   AppNotification,
   Assignment,
   Attachment,
@@ -148,6 +154,7 @@ import {
 } from '../types/app';
 
 const DEMO_STUDENT_EMAIL = 'student@kitabu.ai';
+const ADMIN_LOGIN_EMAIL = 'admin@kitabu.ai';
 const STORAGE_KEYS = {
   profile: 'kitabu_native_profile',
   optionalPhoneNumber: 'kitabu_optional_phone_number',
@@ -273,6 +280,10 @@ function isAdminRole(roles: AuthRole[]) {
   return hasRole(roles, 'school_admin') || hasRole(roles, 'platform_admin');
 }
 
+function isKnownAdminEmail(email?: string | null) {
+  return email?.trim().toLowerCase() === ADMIN_LOGIN_EMAIL;
+}
+
 function isTeacherRole(roles: AuthRole[]) {
   return hasRole(roles, 'teacher');
 }
@@ -281,8 +292,8 @@ function isParentRole(roles: AuthRole[]) {
   return hasRole(roles, 'parent');
 }
 
-function getPrimaryHomeView(roles: AuthRole[]): ViewState {
-  if (isAdminRole(roles)) {
+export function getPrimaryHomeView(roles: AuthRole[], email?: string | null): ViewState {
+  if (isAdminRole(roles) || isKnownAdminEmail(email)) {
     return 'admin_portal';
   }
 
@@ -529,6 +540,10 @@ export function useKitabuApp() {
   const [adminAnnouncements, setAdminAnnouncements] = useState<BannerAnnouncement[]>([]);
   const [adminSchoolPlans, setAdminSchoolPlans] = useState<BillingPlan[]>([]);
   const [adminUsers, setAdminUsers] = useState<AdminPortalUser[]>([]);
+  const [adminAiAnalytics, setAdminAiAnalytics] = useState<AdminAiAnalytics | null>(null);
+  const [adminBillingAnalytics, setAdminBillingAnalytics] = useState<AdminBillingAnalytics | null>(null);
+  const [adminSubjectEngagement, setAdminSubjectEngagement] =
+    useState<AdminSubjectEngagementAnalytics | null>(null);
   const [notifications, setNotifications] = useState<AppNotification[]>([]);
   const [parentChildren, setParentChildren] = useState<ParentChildSummary[]>([]);
   const [selectedParentChildId, setSelectedParentChildId] = useState<string | null>(null);
@@ -592,7 +607,9 @@ export function useKitabuApp() {
     }
 
     const nextHomeView =
-      isStudentPreview || !authSession ? 'dashboard' : getPrimaryHomeView(authSession.user.roles);
+      isStudentPreview || !authSession
+        ? 'dashboard'
+        : getPrimaryHomeView(authSession.user.roles, authSession.user.email);
 
     if (link.kind === 'email-verification-token') {
       try {
@@ -617,7 +634,7 @@ export function useKitabuApp() {
           setAuthError(null);
           setAuthMode('login');
           setAuthEntryScreen('auth');
-          replaceWith(getPrimaryHomeView(nextSession.user.roles));
+          replaceWith(getPrimaryHomeView(nextSession.user.roles, nextSession.user.email));
           return;
         }
 
@@ -736,7 +753,7 @@ export function useKitabuApp() {
       if (storedSession) {
         try {
           const nextSession = await refreshAccessSession(storedSession.refreshToken);
-          const nextHomeView = getPrimaryHomeView(nextSession.user.roles);
+          const nextHomeView = getPrimaryHomeView(nextSession.user.roles, nextSession.user.email);
           if (!mounted) {
             return;
           }
@@ -794,7 +811,7 @@ export function useKitabuApp() {
     return () => {
       mounted = false;
     };
-    // Bootstrap must run once from persisted state; subsequent refreshes are triggered by focused effects/actions.
+    // Bootstrap intentionally runs once; refresh helpers read the hydrated session/grade above.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -1027,20 +1044,23 @@ export function useKitabuApp() {
     return byStrand;
   }, [curriculumData]);
   const roles = authSession?.user.roles || [];
+  const isKnownAdminAccount = isKnownAdminEmail(authSession?.user.email);
   const canOpenTeacherPortal = isTeacherRole(roles) || isAdminRole(roles);
-  const canOpenAdminPortal = isAdminRole(roles);
+  const canOpenAdminPortal = isAdminRole(roles) || isKnownAdminAccount;
   const isDemoStudentAccount =
     authSession?.user.email.trim().toLowerCase() === DEMO_STUDENT_EMAIL &&
     authSession.user.roles.includes('student');
-  const primaryHomeView = getPrimaryHomeView(roles);
+  const primaryHomeView = getPrimaryHomeView(roles, authSession?.user.email);
   const resolvedHomeView = focusModeActive || isStudentPreview ? 'dashboard' : primaryHomeView;
   const hasPendingAccountOnboarding = Boolean(
     authSession &&
+      !isKnownAdminAccount &&
       authSession.user.roles.some(role => role === 'student' || role === 'teacher' || role === 'parent' || role === 'other') &&
       !authSession.user.onboardingCompleted,
   );
   const hasPendingStudentDiagnostic = Boolean(
     authSession?.user.roles.includes('student') &&
+      !isKnownAdminAccount &&
       authSession.user.onboardingCompleted &&
       isDiagnosticStatusLoaded &&
       !onboardingDiagnosticCompleted,
@@ -1115,15 +1135,11 @@ export function useKitabuApp() {
   }
 
   async function refreshSchoolsState() {
-    if (!authSession) {
-      setSchoolsList([]);
-      return;
-    }
-
     try {
-      setSchoolsList(await getSchools());
+      const schools = await getSchools();
+      setSchoolsList(schools.length > 0 ? schools : INITIAL_SCHOOLS);
     } catch {
-      setSchoolsList([]);
+      setSchoolsList(INITIAL_SCHOOLS);
     }
   }
 
@@ -1560,32 +1576,44 @@ export function useKitabuApp() {
   }
 
   async function refreshAdminData() {
-    if (!authSession || !isAdminRole(authSession.user.roles)) {
+    if (!authSession || (!isAdminRole(authSession.user.roles) && !isKnownAdminEmail(authSession.user.email))) {
       setAdminDiscounts([]);
       setAdminAnnouncements([]);
       setAdminSchoolPlans([]);
       setAdminUsers([]);
+      setAdminAiAnalytics(null);
+      setAdminBillingAnalytics(null);
+      setAdminSubjectEngagement(null);
       return;
     }
 
     try {
-      const [schools, discounts, announcements, plans, users] = await Promise.all([
+      const [schools, discounts, announcements, plans, users, ai, billing, subjectEngagement] = await Promise.all([
         getAdminSchools(),
         getAdminDiscounts(),
         getAdminAnnouncements(),
         getAdminSubscriptionPlans(),
         getAdminUsers(),
+        getAdminAiAnalytics(),
+        getAdminBillingAnalytics(),
+        getAdminSubjectEngagementAnalytics(adminSelectedGrade),
       ]);
       setSchoolsList(schools);
       setAdminDiscounts(discounts);
       setAdminAnnouncements(announcements);
       setAdminSchoolPlans(plans);
       setAdminUsers(users);
+      setAdminAiAnalytics(ai);
+      setAdminBillingAnalytics(billing);
+      setAdminSubjectEngagement(subjectEngagement);
     } catch {
       setAdminDiscounts([]);
       setAdminAnnouncements([]);
       setAdminSchoolPlans([]);
       setAdminUsers([]);
+      setAdminAiAnalytics(null);
+      setAdminBillingAnalytics(null);
+      setAdminSubjectEngagement(null);
     }
   }
 
@@ -1754,7 +1782,7 @@ export function useKitabuApp() {
         setOnboardingDiagnosticCompleted(false);
         setIsDiagnosticStatusLoaded(false);
       }
-      replaceWith(getPrimaryHomeView(nextSession.user.roles));
+      replaceWith(getPrimaryHomeView(nextSession.user.roles, nextSession.user.email));
       triggerHaptic('success');
       await Promise.all([refreshBillingState(), refreshDashboardBanner()]);
     } catch (error) {
@@ -2230,7 +2258,7 @@ export function useKitabuApp() {
     setIsStudentPreview(false);
     setOnboardingError(null);
     setAuthError(null);
-    replaceWith(getPrimaryHomeView(session.user.roles));
+    replaceWith(getPrimaryHomeView(session.user.roles, session.user.email));
   }
 
   async function signIn() {
@@ -3015,7 +3043,7 @@ export function useKitabuApp() {
       return;
     }
 
-    const homeView = getPrimaryHomeView(authSession.user.roles);
+    const homeView = getPrimaryHomeView(authSession.user.roles, authSession.user.email);
     const initialGrade = mapAuthSessionToProfile(authSession).grade || DEFAULT_GRADE;
     setNavigationHistory([
       {
@@ -3056,7 +3084,7 @@ export function useKitabuApp() {
 
   useEffect(() => {
     if (!authSession) {
-      setSchoolsList([]);
+      refreshSchoolsState().catch(() => setSchoolsList(INITIAL_SCHOOLS));
       setDashboardBanner(null);
       setAssignments([]);
       setBooks([]);
@@ -3139,6 +3167,16 @@ export function useKitabuApp() {
     loadCurriculumGrade(adminSelectedGrade).catch(() => undefined);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [authSession, adminSelectedGrade, currentGrade]);
+
+  useEffect(() => {
+    if (!authSession || (!isAdminRole(authSession.user.roles) && !isKnownAdminEmail(authSession.user.email))) {
+      return;
+    }
+
+    getAdminSubjectEngagementAnalytics(adminSelectedGrade)
+      .then(setAdminSubjectEngagement)
+      .catch(() => setAdminSubjectEngagement(null));
+  }, [authSession, adminSelectedGrade]);
 
   useEffect(() => {
     if (!activePaymentRequestId) {
@@ -3408,6 +3446,9 @@ export function useKitabuApp() {
       adminAnnouncements,
       adminSchoolPlans,
       adminUsers,
+      adminAiAnalytics,
+      adminBillingAnalytics,
+      adminSubjectEngagement,
       lessonQuizSubStrandId,
       canOpenTeacherPortal,
       canOpenAdminPortal,

@@ -15,6 +15,16 @@ import { SUPPORTED_GRADES } from '../constants/grades';
 
 const logoAsset = require('../assets/logo.png');
 
+function displayGradeLabel(grade: string) {
+  if (grade === 'Grade 11') {
+    return 'Form 3';
+  }
+  if (grade === 'Grade 12') {
+    return 'Form 4';
+  }
+  return grade;
+}
+
 interface StudentHeaderProps {
   userAvatar?: string;
   onOpenProfile: () => void;
@@ -105,7 +115,7 @@ export function StudentHeader({
                 gradeMenuOpen && styles.gradeSelectButtonActive,
                 pressed && styles.controlPressed,
               ]}>
-              <Text style={styles.gradeSelectText}>{currentGrade}</Text>
+              <Text style={styles.gradeSelectText}>{displayGradeLabel(currentGrade)}</Text>
               <ChevronDown
                 color="#1D4ED8"
                 size={14}
@@ -133,7 +143,7 @@ export function StudentHeader({
                       return (
                         <Pressable
                           key={grade}
-                          accessibilityLabel={`Select ${grade}`}
+                          accessibilityLabel={`Select ${displayGradeLabel(grade)}`}
                           accessibilityRole="menuitem"
                           accessibilityState={{ selected: active }}
                           onPress={() => selectGrade(grade)}
@@ -147,7 +157,7 @@ export function StudentHeader({
                               styles.gradeOptionText,
                               active && styles.gradeOptionTextActive,
                             ]}>
-                            {grade}
+                            {displayGradeLabel(grade)}
                           </Text>
                           {active ? <Check color="#1D4ED8" size={16} strokeWidth={2.7} /> : null}
                         </Pressable>

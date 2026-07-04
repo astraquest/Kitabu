@@ -1,5 +1,6 @@
 import React from 'react';
-import { AccessibilityInfo, Keyboard, KeyboardAvoidingView, Linking, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { AccessibilityInfo, Keyboard, KeyboardAvoidingView, Linking, Modal, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { createAudioPlayer } from 'expo-audio';
 import { Check, ChevronRight } from 'lucide-react-native';
 import ReactTestRenderer, { act } from 'react-test-renderer';
 
@@ -124,6 +125,7 @@ const kitabuGrade6SchoolLabel = 'Choose Kitabu Demo School, Nairobi, 40 Grade 6 
 const kitabuTeacherSchoolLabel = 'Choose Kitabu Demo School, Nairobi, 120 learners';
 const kitabuGrade8SchoolLabel = 'Choose Kitabu Demo School, Nairobi, No Grade 8 learners yet';
 const otherGrade6SchoolLabel = 'Choose Other Demo School, Mombasa, 20 Grade 6 learners';
+const kisiiGrade6SchoolLabel = 'Choose Kisii Demo School, Kisii County, Kenya, 18 Grade 6 learners';
 const defaultOnboardingSubjectIds = SUBJECTS.slice(0, 5).map(subject => subject.id);
 const selectedFullIntroSubjectIds = SUBJECTS.filter(subject =>
   ['Mathematics', 'English'].includes(subject.name),
@@ -163,6 +165,10 @@ function missingSchoolLinks(root: ReactTestRenderer.ReactTestInstance) {
   return root.findAll(
     node => node.props.testID === 'missing-school-link' && typeof node.props.onPress === 'function',
   );
+}
+
+function schoolPickerModal(root: ReactTestRenderer.ReactTestInstance) {
+  return root.findByProps({ testID: 'school-picker-modal' });
 }
 
 async function pressAutoAdvanceChoice(root: ReactTestRenderer.ReactTestInstance, accessibilityLabel: string) {
@@ -256,7 +262,7 @@ test('dashboard subject grid opens plus selector and saves selected subjects', a
   expect(onSaveSubjectSelection).toHaveBeenCalledWith(
     SUBJECTS.slice(0, 5).map(subject => subject.id),
   );
-}, 60_000);
+});
 
 test('student dashboard grade selector is a header dropdown and updates selection', async () => {
   const onSelectGrade = jest.fn();
@@ -279,11 +285,13 @@ test('student dashboard grade selector is a header dropdown and updates selectio
 
   const text = renderedText(renderer!.root);
 
-  ['Grade 4', 'Grade 5', 'Grade 6', 'Grade 7', 'Grade 8', 'Grade 9', 'Grade 10', 'Grade 11', 'Grade 12']
+  ['Grade 4', 'Grade 5', 'Grade 6', 'Grade 7', 'Grade 8', 'Grade 9', 'Grade 10', 'Form 3', 'Form 4']
     .forEach(grade => expect(text).toContain(grade));
+  expect(text).not.toContain('Grade 11');
+  expect(text).not.toContain('Grade 12');
 
   await act(() => {
-    renderer!.root.findByProps({ accessibilityLabel: 'Select Grade 12' }).props.onPress();
+    renderer!.root.findByProps({ accessibilityLabel: 'Select Form 4' }).props.onPress();
   });
 
   expect(onSelectGrade).toHaveBeenCalledWith('Grade 12');
@@ -368,7 +376,8 @@ test('sign-in page renders account-type cards before credentials', async () => {
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Continue as Student' })).toBeTruthy();
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Continue as Teacher' })).toBeTruthy();
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Continue as Parent' })).toBeTruthy();
-  expect(renderer!.root.findByProps({ accessibilityLabel: 'Continue as Other' })).toBeTruthy();
+  expect(renderer!.root.findAllByProps({ accessibilityLabel: 'Continue as Other' })).toHaveLength(0);
+  expect(renderedText(renderer!.root)).not.toContain('Other');
 });
 
 test('onboarding full intro captures profile details before account setup', async () => {
@@ -476,7 +485,7 @@ test('onboarding full intro captures profile details before account setup', asyn
   expect(renderedText(renderer!.root)).toContain('Natafuta msaada');
   expect(renderedText(renderer!.root)).toContain('Mwalimu');
   expect(renderedText(renderer!.root)).toContain('Mzazi');
-  expect(renderedText(renderer!.root)).toContain('Nyingine');
+  expect(renderedText(renderer!.root)).not.toContain('Nyingine');
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Mascot navigation bar' })).toBeTruthy();
   expect(renderer!.root.findAllByProps({ accessibilityLabel: 'Mascot coach tip' })).toHaveLength(0);
   expect(renderer!.root.findAllByProps({ testID: 'mascot-nav-back' }).length).toBeGreaterThan(0);
@@ -500,15 +509,18 @@ test('onboarding full intro captures profile details before account setup', asyn
   expect(renderedText(renderer!.root)).toContain('Sauti 🔊');
   expect(renderedText(renderer!.root)).toContain('Sauti ya mwalimu wako isikike vipi?');
   expect(renderedText(renderer!.root)).toContain('Chagua sauti');
-  expect(renderedText(renderer!.root)).toContain('Telezesha kusikia kila sauti');
-  expect(renderedText(renderer!.root)).toContain('Amina');
+  expect(renderedText(renderer!.root)).toContain('Gusa sauti ili kuisikiza kwanza');
+  expect(renderedText(renderer!.root)).toContain('Samora');
+  expect(renderedText(renderer!.root)).toContain('Jabali');
+  expect(renderedText(renderer!.root)).toContain('Bella');
+  expect(renderedText(renderer!.root)).toContain('Judith');
   expect(renderedText(renderer!.root)).toContain('🎙️');
   expect(StyleSheet.flatten(renderer!.root.findByProps({ testID: 'voice-orb' }).props.style)?.backgroundColor).toBe(
     '#FEF0D9',
   );
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Selected voice name' }).props.children).toBe('Chagua sauti');
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Voice slider positions' })).toBeTruthy();
-  expect(renderer!.root.findByProps({ testID: 'voice-slider-dot-Zawadi' }).props.style).toEqual(
+  expect(renderer!.root.findByProps({ testID: 'voice-slider-dot-Samora' }).props.style).toEqual(
     expect.arrayContaining([expect.not.objectContaining({ backgroundColor: '#E07B00' })]),
   );
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Onboarding progress' }).props.accessibilityValue).toEqual({
@@ -517,7 +529,7 @@ test('onboarding full intro captures profile details before account setup', asyn
     now: 5,
     text: 'Step 5 of 25, Voice',
   });
-  expect(renderer!.root.findByProps({ accessibilityLabel: 'Choose Amina voice' }).props.accessibilityState).toEqual({
+  expect(renderer!.root.findByProps({ accessibilityLabel: 'Choose Samora voice' }).props.accessibilityState).toEqual({
     checked: false,
   });
   // Voice step gates Continue until a voice (or text-only) is chosen.
@@ -532,11 +544,13 @@ test('onboarding full intro captures profile details before account setup', asyn
     }),
   );
 
-  await act(() => {
-    renderer!.root.findByProps({ accessibilityLabel: 'Choose Zawadi voice' }).props.onPress();
+  await act(async () => {
+    renderer!.root.findByProps({ accessibilityLabel: 'Choose Jabali voice' }).props.onPress();
+    await Promise.resolve();
   });
+  expect(createAudioPlayer).toHaveBeenCalledWith(expect.anything(), { downloadFirst: false });
   expect(
-    renderer!.root.findByProps({ accessibilityLabel: 'Choose Zawadi voice' }).props.accessibilityState,
+    renderer!.root.findByProps({ accessibilityLabel: 'Choose Jabali voice' }).props.accessibilityState,
   ).toEqual({ checked: true });
   expect(
     renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.accessibilityState,
@@ -550,8 +564,8 @@ test('onboarding full intro captures profile details before account setup', asyn
       shadowRadius: 16,
     }),
   );
-  expect(renderer!.root.findByProps({ accessibilityLabel: 'Selected voice name' }).props.children).toBe('Zawadi');
-  expect(renderer!.root.findByProps({ testID: 'voice-slider-dot-Zawadi' }).props.style).toEqual(
+  expect(renderer!.root.findByProps({ accessibilityLabel: 'Selected voice name' }).props.children).toBe('Jabali');
+  expect(renderer!.root.findByProps({ testID: 'voice-slider-dot-Jabali' }).props.style).toEqual(
     expect.arrayContaining([expect.objectContaining({ backgroundColor: '#E07B00' })]),
   );
 
@@ -618,8 +632,25 @@ test('onboarding full intro captures profile details before account setup', asyn
   ).toEqual({ disabled: true, busy: false });
 
   await act(() => {
+    renderer!.root.findByProps({ accessibilityLabel: 'Your age' }).props.onChangeText('3');
+  });
+  expect(renderedText(renderer!.root)).toContain('Uko Sure? Age must be between 4 and 20.');
+  expect(
+    renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.accessibilityState,
+  ).toEqual({ disabled: true, busy: false });
+  await act(() => {
+    renderer!.root.findByProps({ accessibilityLabel: 'Your age' }).props.onChangeText('21');
+  });
+  expect(renderedText(renderer!.root)).toContain('Uko Sure? Age must be between 4 and 20.');
+  expect(
+    renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.accessibilityState,
+  ).toEqual({ disabled: true, busy: false });
+  await act(() => {
     renderer!.root.findByProps({ accessibilityLabel: 'Your age' }).props.onChangeText('13');
   });
+  expect(
+    renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.accessibilityState,
+  ).toEqual({ disabled: false, busy: false });
   await act(() => {
     renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
   });
@@ -688,23 +719,23 @@ test('onboarding full intro captures profile details before account setup', asyn
     now: 11,
     text: 'Step 11 of 25, School',
   });
-  expect(renderedText(renderer!.root)).toContain('Ruka');
   expect(
     renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.accessibilityState,
-  ).toEqual({ disabled: false, busy: false });
+  ).toEqual({ disabled: true, busy: false });
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.accessibilityHint).toBe(
-    'Skips school selection for now',
+    'Choose a school before continuing',
   );
   await selectCounty(renderer!.root);
   await act(() => {
     renderer!.root.findByProps({ accessibilityLabel: 'Search school by name' }).props.onChangeText('Nia Academy');
   });
-  expect(renderer!.root.findByProps({ accessibilityLabel: 'Add Nia Academy school' })).toBeTruthy();
+  expect(renderer!.root.findAllByProps({ accessibilityLabel: 'Add Nia Academy school' })).toHaveLength(0);
+  expect(missingSchoolLinks(renderer!.root)).toHaveLength(1);
   await act(() => {
-    renderer!.root.findByProps({ accessibilityLabel: 'Add Nia Academy school' }).props.onPress();
+    renderer!.root.findByProps({ accessibilityLabel: 'Clear school search' }).props.onPress();
   });
-  expect(renderer!.root.findByProps({ accessibilityLabel: 'Add Nia Academy school' }).props.accessibilityState).toEqual({
-    checked: true,
+  await act(() => {
+    renderer!.root.findByProps({ accessibilityLabel: kitabuTeacherSchoolLabel }).props.onPress();
   });
   expect(missingSchoolLinks(renderer!.root)).toHaveLength(0);
 
@@ -766,9 +797,9 @@ test('onboarding full intro captures profile details before account setup', asyn
   expect(renderedText(renderer!.root)).toContain('Inakujua? \uD83D\uDE2C');
   expect(renderedText(renderer!.root)).toContain('\uD83E\uDD2F');
   expect(renderedText(renderer!.root)).toContain('BILA KITABU AI');
-  expect(renderedText(renderer!.root)).toContain('Kurasa 200 za notes kusomwa');
-  expect(renderedText(renderer!.root)).toContain('Hofu na wasiwasi mkubwa');
-  expect(renderedText(renderer!.root)).toContain('Nianze wapi? Sina mpango');
+  expect(renderedText(renderer!.root)).toContain('Ninapata wasiwasi wakati wa mitihani');
+  expect(renderedText(renderer!.root)).toContain('Natamani ningekuwa na revision partner');
+  expect(renderedText(renderer!.root)).toContain('Notes zinaweza kuchosha kusoma');
   expect(renderer!.root.findByProps({ testID: 'onboarding-mascot-motion' }).props.accessibilityLabel).toBe(
     'Rafiki the Lion mascot, worried pose',
   );
@@ -785,9 +816,9 @@ test('onboarding full intro captures profile details before account setup', asyn
   expect(renderedText(renderer!.root)).toContain('Usiku kabla ya mtihani wako...');
   expect(renderedText(renderer!.root)).toContain('\uD83D\uDE0C');
   expect(renderedText(renderer!.root)).toContain('NA KITABU AI');
-  expect(renderedText(renderer!.root)).toContain('Mpango wazi wa kustudy');
-  expect(renderedText(renderer!.root)).toContain('Karatasi za marudio na maswali yanayolingana na CBC');
-  expect(renderedText(renderer!.root)).toContain('Uchambuzi unaoonyesha udhaifu wako na kuurekebisha');
+  expect(renderedText(renderer!.root)).toContain('Kitabu hukupa mpango wazi wa masomo na karatasi za revision');
+  expect(renderedText(renderer!.root)).toContain('Rafiki ni revision partner wako anayepatikana kila wakati');
+  expect(renderedText(renderer!.root)).toContain('Tunakuonyesha maeneo dhaifu na jinsi ya kuyarekebisha');
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Onboarding progress' }).props.accessibilityValue).toEqual({
     max: 25,
     min: 1,
@@ -858,30 +889,6 @@ test('onboarding full intro captures profile details before account setup', asyn
   expect(renderer!.root.findAllByProps({ testID: 'onboarding-footer' })).toHaveLength(0);
   await pressAutoAdvanceChoice(renderer!.root, 'Choose achievement Shangilia mitihani inayokuja.');
 
-  expect(renderedText(renderer!.root)).toContain('Mpango wa kuongeza alama');
-  expect(renderedText(renderer!.root)).toContain('+2');
-  expect(renderedText(renderer!.root)).toContain('points');
-  expect(renderedText(renderer!.root)).toContain('muhula huu');
-  expect(renderedText(renderer!.root)).toContain('Mathematics');
-  expect(renderedText(renderer!.root)).toContain('English');
-  expect(renderedText(renderer!.root)).toContain('Njia yako ya kuboresha');
-  expect(renderedText(renderer!.root)).toContain('Maendeleo ya kawaida ukifanya mazoezi kila siku');
-  expect(renderedText(renderer!.root)).toContain('Rekebisha mada dhaifu');
-  expect(renderedText(renderer!.root)).toContain('Mazoezi ya CBC');
-  expect(renderedText(renderer!.root)).toContain('Vidokezo smart');
-  expect(renderedText(renderer!.root)).toContain('Lengo lako limegeuzwa kuwa mpango wa kila siku.');
-  expect(renderedText(renderer!.root)).toContain('Anza kuongeza alama');
-  expect(renderer!.root.findByProps({ accessibilityLabel: 'upper-primary girl student studying in a bright studio scene' })).toBeTruthy();
-  expect(renderer!.root.findByProps({ accessibilityLabel: 'Onboarding progress' }).props.accessibilityValue).toEqual({
-    max: 25,
-    min: 1,
-    now: 20,
-    text: 'Step 20 of 25, Social proof',
-  });
-  await act(() => {
-    renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
-  });
-
   expect(renderedText(renderer!.root)).toContain('Mambo unayopenda?');
   expect(renderedText(renderer!.root)).toContain('Jambo moja zaidi \uD83D\uDC4D');
   expect(renderedText(renderer!.root)).toContain('Tutafanya maudhui ya masomo kulingana na unayopenda.');
@@ -900,8 +907,8 @@ test('onboarding full intro captures profile details before account setup', asyn
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Onboarding progress' }).props.accessibilityValue).toEqual({
     max: 25,
     min: 1,
-    now: 21,
-    text: 'Step 21 of 25, Interests',
+    now: 20,
+    text: 'Step 20 of 25, Interests',
   });
   await act(() => {
     renderer!.root.findByProps({ accessibilityLabel: 'Add interest Football' }).props.onPress();
@@ -912,6 +919,30 @@ test('onboarding full intro captures profile details before account setup', asyn
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.accessibilityState).toEqual({
     disabled: false,
     busy: false,
+  });
+  await act(() => {
+    renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
+  });
+
+  expect(renderedText(renderer!.root)).toContain('Mpango wa kuongeza alama');
+  expect(renderedText(renderer!.root)).toContain('+2');
+  expect(renderedText(renderer!.root)).toContain('points');
+  expect(renderedText(renderer!.root)).toContain('muhula huu');
+  expect(renderedText(renderer!.root)).toContain('Mathematics');
+  expect(renderedText(renderer!.root)).toContain('English');
+  expect(renderedText(renderer!.root)).toContain('Njia yako ya kuboresha');
+  expect(renderedText(renderer!.root)).toContain('Maendeleo ya kawaida ukifanya mazoezi kila siku');
+  expect(renderedText(renderer!.root)).toContain('Rekebisha mada dhaifu');
+  expect(renderedText(renderer!.root)).toContain('Mazoezi ya CBC');
+  expect(renderedText(renderer!.root)).toContain('Vidokezo smart');
+  expect(renderedText(renderer!.root)).toContain('Lengo lako limegeuzwa kuwa mpango wa kila siku.');
+  expect(renderedText(renderer!.root)).toContain('Anza kuongeza alama');
+  expect(renderer!.root.findByProps({ accessibilityLabel: 'upper-primary girl student studying in a bright studio scene' })).toBeTruthy();
+  expect(renderer!.root.findByProps({ accessibilityLabel: 'Onboarding progress' }).props.accessibilityValue).toEqual({
+    max: 25,
+    min: 1,
+    now: 21,
+    text: 'Step 21 of 25, Social proof',
   });
   await act(() => {
     renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
@@ -1000,7 +1031,8 @@ test('onboarding full intro captures profile details before account setup', asyn
     jest.advanceTimersByTime(1);
   });
 
-  expect(renderedText(renderer!.root)).toContain('Nia, Profaili yako ya masomo iko tayari!');
+  expect(renderedText(renderer!.root)).not.toContain('Nia, Profaili yako ya masomo iko tayari!');
+  expect(renderedText(renderer!.root)).toContain('Nia,Mpango wako wa masomo uko tayari.');
   expect(renderedText(renderer!.root)).toContain('Malengo ya kufikiwa');
   expect(renderedText(renderer!.root)).toContain('Grade 6 \u00B7 2 masomo \u00B7 Kenya CBC');
   expect(renderedText(renderer!.root)).toContain('4.89');
@@ -1171,7 +1203,7 @@ test('onboarding full intro captures profile details before account setup', asyn
   expect(onSubmit).toHaveBeenCalledWith({
     gender: 'female',
     grade: 'Grade 6',
-    schoolId: null,
+    schoolId: schools[0].id,
     mpesaPhoneNumber: null,
     selectedSubjectIds: selectedFullIntroSubjectIds,
     lang: 'sw',
@@ -1180,8 +1212,7 @@ test('onboarding full intro captures profile details before account setup', asyn
     mascotKey: 'lion',
     role: 'student',
     name: 'Nia',
-    voice: 'Zawadi',
-    voiceName: 'Zawadi',
+    voice: '',
     noVoice: true,
     need: 'exam',
     needKey: 'exam',
@@ -1189,7 +1220,7 @@ test('onboarding full intro captures profile details before account setup', asyn
     age: '13',
     subjects: ['Mathematics', 'English'],
     county: 'Nairobi City',
-    school: 'Nia Academy',
+    school: 'Kitabu Demo School',
     goal: 'consistent',
     goalKey: 'consistent',
     concern: 'stress',
@@ -1211,7 +1242,86 @@ test('onboarding full intro captures profile details before account setup', asyn
   expect(renderer!.root.findAllByProps({ testID: 'onboarding-dashboard' })).toHaveLength(0);
   expect(renderedText(renderer!.root)).not.toContain('Simulate success');
   jest.useRealTimers();
-}, 60_000);
+});
+
+test('onboarding displays Form aliases and filters subjects by selected senior grade', async () => {
+  jest.useFakeTimers();
+  let renderer: ReactTestRenderer.ReactTestRenderer;
+
+  await act(() => {
+    renderer = ReactTestRenderer.create(
+      <StudentOnboardingScreen
+        role="student"
+        schools={schools}
+        isSubmitting={false}
+        includeIntroChoices
+        onSubmit={jest.fn()}
+      />,
+    );
+  });
+
+  await pressAutoAdvanceChoice(renderer!.root, 'Select English language');
+  await pressAutoAdvanceChoice(renderer!.root, 'Choose Rafiki the Rabbit mascot');
+  await act(() => {
+    renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
+  });
+  await pressAutoAdvanceChoice(renderer!.root, 'Selected Student role');
+  await act(() => {
+    renderer!.root.findByProps({ accessibilityLabel: 'Use text only' }).props.onPress();
+  });
+  await act(() => {
+    renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
+  });
+  await pressAutoAdvanceChoice(renderer!.root, 'Choose I have an exam coming up');
+  await act(() => {
+    renderer!.root.findByProps({ accessibilityLabel: 'Your name' }).props.onChangeText('55');
+  });
+  expect(renderer!.root.findByProps({ accessibilityLabel: 'Your name' }).props.value).toBe('');
+  expect(
+    renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.accessibilityState,
+  ).toEqual({ disabled: true, busy: false });
+  await act(() => {
+    renderer!.root.findByProps({ accessibilityLabel: 'Your name' }).props.onChangeText('Alex');
+  });
+  await act(() => {
+    renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
+  });
+  await act(() => {
+    renderer!.root.findByProps({ accessibilityLabel: 'Your age' }).props.onChangeText('18');
+  });
+  await act(() => {
+    renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
+  });
+  await pressAutoAdvanceChoice(renderer!.root, 'Select Male');
+  await act(() => {
+    renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
+  });
+  await selectCounty(renderer!.root);
+  await act(() => {
+    renderer!.root.findByProps({ accessibilityLabel: kitabuTeacherSchoolLabel }).props.onPress();
+  });
+  await act(() => {
+    renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
+  });
+
+  expect(renderedText(renderer!.root)).toContain('Form 3');
+  expect(renderedText(renderer!.root)).toContain('Form 4');
+  await act(() => {
+    renderer!.root.findByProps({ accessibilityLabel: 'Select Form 4 · KNEC' }).props.onPress();
+  });
+  expect(renderedText(renderer!.root)).toContain('Senior School (KNEC)');
+  await act(() => {
+    renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
+  });
+
+  expect(renderedText(renderer!.root)).toContain('Select the subjects you study');
+  expect(renderedText(renderer!.root)).toContain('Biology');
+  expect(renderedText(renderer!.root)).toContain('Physics');
+  expect(renderedText(renderer!.root)).toContain('Computer Studies');
+  expect(renderedText(renderer!.root)).not.toContain('Science & Technology');
+  expect(renderedText(renderer!.root)).not.toContain('Pre-Technical Studies');
+  jest.useRealTimers();
+});
 
 test('onboarding need intro uses teacher and parent priorities', async () => {
   jest.useFakeTimers();
@@ -1334,7 +1444,13 @@ test('onboarding need intro uses teacher and parent priorities', async () => {
       await act(() => {
         renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
       });
-      // County/school can be skipped to reach grade/child selection.
+      expect(
+        renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.accessibilityState,
+      ).toEqual({ disabled: true, busy: false });
+      await selectCounty(renderer!.root);
+      await act(() => {
+        renderer!.root.findByProps({ accessibilityLabel: kitabuTeacherSchoolLabel }).props.onPress();
+      });
       await act(() => {
         renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
       });
@@ -1351,7 +1467,7 @@ test('onboarding need intro uses teacher and parent priorities', async () => {
     if (expectation.role === 'teacher') {
       expect(renderedText(renderer!.root)).toContain('Upper Primary (CBC)');
       expect(renderedText(renderer!.root)).toContain('Junior Secondary (CBC)');
-      expect(renderedText(renderer!.root)).toContain('Senior Secondary (CBC)');
+      expect(renderedText(renderer!.root)).toContain('Senior School');
       expect(renderedText(renderer!.root)).toContain('0 grades selected \u2713');
       expect(
         renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.accessibilityState,
@@ -1374,6 +1490,15 @@ test('onboarding need intro uses teacher and parent priorities', async () => {
         renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.accessibilityState,
       ).toEqual({ disabled: true, busy: false });
       await act(() => {
+        renderer!.root.findByProps({ accessibilityLabel: 'Child age' }).props.onChangeText('3');
+      });
+      expect(
+        renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.accessibilityState,
+      ).toEqual({ disabled: true, busy: false });
+      await act(() => {
+        renderer!.root.findByProps({ accessibilityLabel: 'Child age' }).props.onChangeText('11');
+      });
+      await act(() => {
         renderer!.root.findByProps({ accessibilityLabel: 'Select child Grade 6' }).props.onPress();
       });
       expect(
@@ -1385,6 +1510,9 @@ test('onboarding need intro uses teacher and parent priorities', async () => {
       expect(renderer!.root.findByProps({ accessibilityLabel: 'Child 2 name' })).toBeTruthy();
       await act(() => {
         renderer!.root.findByProps({ accessibilityLabel: 'Child 2 name' }).props.onChangeText('Baraka');
+      });
+      await act(() => {
+        renderer!.root.findByProps({ accessibilityLabel: 'Child 2 age' }).props.onChangeText('10');
       });
       await act(() => {
         renderer!.root.findByProps({ accessibilityLabel: 'Select child 2 Grade 4' }).props.onPress();
@@ -1402,14 +1530,14 @@ test('onboarding need intro uses teacher and parent priorities', async () => {
   jest.useRealTimers();
 });
 
-test('onboarding supports the other role as a learner-style flow', async () => {
+test('onboarding role step does not expose the removed Other role', async () => {
   jest.useFakeTimers();
   let renderer: ReactTestRenderer.ReactTestRenderer;
 
   await act(() => {
     renderer = ReactTestRenderer.create(
       <StudentOnboardingScreen
-        role="other"
+        role="student"
         schools={schools}
         isSubmitting={false}
         includeIntroChoices
@@ -1425,16 +1553,19 @@ test('onboarding supports the other role as a learner-style flow', async () => {
   });
 
   expect(renderedText(renderer!.root)).toContain('Who are you?');
-  expect(renderer!.root.findByProps({ accessibilityLabel: 'Selected Other role' }).props.accessibilityState).toEqual({
-    checked: true,
-    disabled: false,
-  });
+  expect(renderer!.root.findAllByProps({ accessibilityLabel: 'Selected Other role' })).toHaveLength(0);
+  expect(renderer!.root.findAllByProps({ accessibilityLabel: 'Choose Other role' })).toHaveLength(0);
+  expect(renderedText(renderer!.root)).not.toContain('Other');
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Onboarding progress' }).props.accessibilityValue).toEqual({
     max: 25,
     min: 1,
     now: 4,
     text: 'Step 4 of 25, Role',
   });
+  jest.useRealTimers();
+  if (renderer) {
+    return;
+  }
 
   await pressAutoAdvanceChoice(renderer!.root, 'Selected Other role');
   await act(() => {
@@ -1575,6 +1706,9 @@ test('full intro loading and ready states use teacher and parent context', async
           root.findByProps({ accessibilityLabel: 'Child name' }).props.onChangeText('Amani');
         });
         await act(() => {
+          root.findByProps({ accessibilityLabel: 'Child age' }).props.onChangeText('11');
+        });
+        await act(() => {
           root.findByProps({ accessibilityLabel: 'Select child Grade 6' }).props.onPress();
         });
         await act(() => {
@@ -1586,6 +1720,9 @@ test('full intro loading and ready states use teacher and parent context', async
         });
         await act(() => {
           root.findByProps({ accessibilityLabel: 'Child 2 name' }).props.onChangeText('Baraka');
+        });
+        await act(() => {
+          root.findByProps({ accessibilityLabel: 'Child 2 age' }).props.onChangeText('10');
         });
         expect(root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.accessibilityState).toEqual({
           disabled: true,
@@ -1668,8 +1805,11 @@ test('full intro loading and ready states use teacher and parent context', async
         renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
       });
       // County / school comes before grades, so the roster shows the school total.
+      expect(
+        renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.accessibilityState,
+      ).toEqual({ disabled: true, busy: false });
       expect(renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.accessibilityHint).toBe(
-        'Skips school selection for now',
+        'Choose a school before continuing',
       );
       await selectCounty(renderer!.root);
       await act(() => {
@@ -1740,17 +1880,10 @@ test('full intro loading and ready states use teacher and parent context', async
       });
       expect(
         renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.accessibilityState,
-      ).toEqual({ disabled: false, busy: false });
+      ).toEqual({ disabled: true, busy: false });
       expect(renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.accessibilityHint).toBe(
-        'Skips school selection and moves to child details',
+        'Choose a school before continuing to child details',
       );
-      await act(() => {
-        renderer!.root.findByProps({ accessibilityLabel: 'Back in setup' }).props.onPress();
-      });
-      expect(renderedText(renderer!.root)).toContain('Is your family in this country?');
-      await act(() => {
-        renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
-      });
       await selectCounty(renderer!.root);
       await act(() => {
         renderer!.root.findByProps({ accessibilityLabel: kitabuTeacherSchoolLabel }).props.onPress();
@@ -1974,8 +2107,8 @@ test('full intro loading and ready states use teacher and parent context', async
       expect(onSubmit).toHaveBeenCalledWith(
         expect.objectContaining({
           children: [
-            { name: 'Amani', age: '', grade: 'Grade 6', subjects: ['math'] },
-            { name: 'Baraka', age: '', grade: 'Grade 5', subjects: ['english'] },
+            { name: 'Amani', age: '11', grade: 'Grade 6', subjects: ['math'] },
+            { name: 'Baraka', age: '10', grade: 'Grade 5', subjects: ['english'] },
           ],
           selectedSubjectIds: ['math', 'english'],
         }),
@@ -2054,10 +2187,11 @@ test('teacher onboarding uses teacher copy and submits school, class, and option
     renderer!.root.findByProps({ accessibilityLabel: kitabuGrade8SchoolLabel }).props.onPress();
   });
 
-  expect(
-    renderer!.root.findByProps({ accessibilityLabel: kitabuGrade8SchoolLabel }).props.accessibilityState,
-  ).toEqual({ checked: true });
+  expect(schoolPickerModal(renderer!.root).props.visible).toBe(false);
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Selected school confirmation' })).toBeTruthy();
+  expect(renderedText(renderer!.root.findByProps({ accessibilityLabel: 'School selector' }))).toContain(
+    'Kitabu Demo School',
+  );
   expect(renderedText(renderer!.root)).toContain('Kitabu Demo School');
   expect(renderedText(renderer!.root)).toContain('Nairobi City · Kenya');
 
@@ -2465,6 +2599,10 @@ test('student onboarding exposes accessible gender and grade selections', async 
     .toBe('radiogroup');
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Select Grade 6' }).props.accessibilityRole)
     .toBe('radio');
+  expect(renderedText(renderer!.root)).toContain('Form 3');
+  expect(renderedText(renderer!.root)).toContain('Form 4');
+  expect(renderedText(renderer!.root)).not.toContain('Grade 11');
+  expect(renderedText(renderer!.root)).not.toContain('Grade 12');
   expect(React.Children.toArray(renderer!.root.findByProps({ testID: 'onboarding-footer' }).props.children))
     .toHaveLength(1);
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Subjects you study' }).props.accessibilityRole)
@@ -2532,15 +2670,17 @@ test('onboarding supports keyboard submit for school search and M-Pesa', async (
   });
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Select Baringo county' })).toBeTruthy();
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Select West Pokot county' })).toBeTruthy();
+  const countyOptionLabels = renderer!.root
+    .findAll(
+      node =>
+        typeof node.props.accessibilityLabel === 'string' &&
+        node.props.accessibilityLabel.startsWith('Select ') &&
+        node.props.accessibilityLabel.endsWith(' county'),
+    )
+    .map(node => node.props.accessibilityLabel);
+  expect(countyOptionLabels[0]).toBe('Select Nairobi City county');
   const countyLabels = new Set(
-    renderer!.root
-      .findAll(
-        node =>
-          typeof node.props.accessibilityLabel === 'string' &&
-          node.props.accessibilityLabel.startsWith('Select ') &&
-          node.props.accessibilityLabel.endsWith(' county'),
-      )
-      .map(node => node.props.accessibilityLabel),
+    countyOptionLabels,
   );
   expect(countyLabels.size).toBe(47);
   expect(missingSchoolLinks(renderer!.root)).toHaveLength(0);
@@ -2573,19 +2713,16 @@ test('onboarding supports keyboard submit for school search and M-Pesa', async (
     });
   });
 
-  expect(
-    renderer!.root.findByProps({ accessibilityLabel: kitabuGrade6SchoolLabel }).props.accessibilityState,
-  ).toEqual({ checked: true });
-  expect(selectedSchoolChecks(renderer!.root)).toHaveLength(1);
+  expect(schoolPickerModal(renderer!.root).type).toBe(Modal);
+  expect(schoolPickerModal(renderer!.root).props.visible).toBe(false);
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Selected school confirmation' })).toBeTruthy();
+  expect(renderedText(renderer!.root.findByProps({ accessibilityLabel: 'School selector' }))).toContain(
+    'Kitabu Demo School',
+  );
   expect(renderedText(renderer!.root)).toContain('Nairobi City · Kenya');
   expect(renderedText(renderer!.root)).toContain('Kenya');
   expect(missingSchoolLinks(renderer!.root)).toHaveLength(0);
   expect(dismissSpy).toHaveBeenCalledTimes(2);
-  expect(
-    StyleSheet.flatten(renderer!.root.findByProps({ accessibilityLabel: 'Search school by name' }).props.style)
-      .borderColor,
-  ).toBe('#E8E0D4');
   const continuePaymentText = renderer!.root.findAllByType(Text).find(node => node.props.children === 'Continue to payment');
   expect(continuePaymentText?.props.numberOfLines).toBe(2);
   expect(StyleSheet.flatten(continuePaymentText?.props.style)).toEqual(
@@ -2593,9 +2730,7 @@ test('onboarding supports keyboard submit for school search and M-Pesa', async (
   );
 
   await act(() => {
-    renderer!.root.findByProps({ accessibilityLabel: 'Search school by name' }).props.onKeyPress({
-      nativeEvent: { key: 'Enter' },
-    });
+    renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
   });
 
   expect(renderedText(renderer!.root)).toContain('Step 3 of 3');
@@ -2618,6 +2753,89 @@ test('onboarding supports keyboard submit for school search and M-Pesa', async (
   });
 
   dismissSpy.mockRestore();
+}, 15000);
+
+test('onboarding prioritizes populated counties and schools without extra labels', async () => {
+  const rankedSchools: SchoolData[] = [
+    {
+      id: 'school-alpha',
+      name: 'Alpha Academy',
+      location: 'Nairobi County',
+      totalStudents: 200,
+      gradeCounts: { 'Grade 6': 1 },
+    },
+    {
+      id: 'school-kitabu',
+      name: 'Kitabu Demo School',
+      location: 'Nairobi County',
+      totalStudents: 40,
+      gradeCounts: { 'Grade 6': 15 },
+    },
+    {
+      id: 'school-zed',
+      name: 'Zed Prep',
+      location: 'Nairobi County',
+      totalStudents: 70,
+      gradeCounts: { 'Grade 6': 25 },
+    },
+    {
+      id: 'school-kisii',
+      name: 'Kisii Demo School',
+      location: 'Kisii County',
+      totalStudents: 18,
+      gradeCounts: { 'Grade 6': 18 },
+    },
+  ];
+  let renderer: ReactTestRenderer.ReactTestRenderer;
+
+  await act(() => {
+    renderer = ReactTestRenderer.create(
+      <StudentOnboardingScreen
+        role="parent"
+        schools={rankedSchools}
+        isSubmitting={false}
+        onSubmit={jest.fn()}
+      />,
+    );
+  });
+
+  await act(() => {
+    renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
+  });
+  await openCountyPicker(renderer!.root);
+
+  const countyOptionLabels = renderer!.root
+    .findAll(
+      node =>
+        typeof node.props.accessibilityLabel === 'string' &&
+        node.props.accessibilityLabel.startsWith('Select ') &&
+        node.props.accessibilityLabel.endsWith(' county'),
+    )
+    .map(node => node.props.accessibilityLabel);
+  expect(countyOptionLabels[0]).toBe('Select Nairobi City county');
+  expect(renderedText(renderer!.root)).not.toContain('Top counties');
+
+  await selectCounty(renderer!.root);
+
+  const schoolOptionLabels = Array.from(
+    new Set(
+      renderer!.root
+        .findAll(
+          node =>
+            typeof node.props.accessibilityLabel === 'string' &&
+            node.props.accessibilityLabel.startsWith('Choose ') &&
+            node.props.accessibilityLabel.includes('Grade 6'),
+        )
+        .map(node => node.props.accessibilityLabel),
+    ),
+  );
+
+  expect(schoolOptionLabels.slice(0, 3)).toEqual([
+    'Choose Zed Prep, Nairobi County, 25 Grade 6 learners',
+    'Choose Kitabu Demo School, Nairobi County, 15 Grade 6 learners',
+    'Choose Alpha Academy, Nairobi County, 1 Grade 6 learner',
+  ]);
+  expect(renderedText(renderer!.root)).not.toContain('Top schools');
 });
 
 test('onboarding announces empty school search results', async () => {
@@ -2648,6 +2866,7 @@ test('onboarding announces empty school search results', async () => {
   const emptyState = renderer!.root.findByProps({ accessibilityLabel: 'No matching schools' });
   expect(emptyState.props.accessibilityLiveRegion).toBe('polite');
   expect(emptyState.props.role).toBe('status');
+  expect(renderer!.root.findAllByProps({ accessibilityLabel: 'Add No Such School school' })).toHaveLength(0);
   expect(renderedText(renderer!.root)).toContain('No match yet. You can ask admin to add your school.');
 });
 
@@ -2679,9 +2898,8 @@ test('onboarding opens missing-school help through WhatsApp and reports failures
     await helpLink.props.onPress();
   });
 
-  expect(openUrlSpy).toHaveBeenCalledWith(
-    'https://wa.me/254716175485?text=I%20need%20help',
-  );
+  expect(openUrlSpy).toHaveBeenCalledWith(expect.stringContaining('https://wa.me/254716175485'));
+  expect(openUrlSpy).toHaveBeenCalledWith(expect.stringContaining('Nairobi%20City'));
 
   openUrlSpy.mockRejectedValueOnce(new Error('unavailable'));
 
@@ -2704,6 +2922,13 @@ test('onboarding clears selected school when the search query changes', async ()
       location: 'Mombasa',
       totalStudents: 80,
       gradeCounts: { 'Grade 6': 20 },
+    },
+    {
+      id: '33333333-3333-3333-3333-333333333333',
+      name: 'Kisii Demo School',
+      location: 'Kisii County, Kenya',
+      totalStudents: 80,
+      gradeCounts: { 'Grade 6': 18 },
     },
   ];
   let renderer: ReactTestRenderer.ReactTestRenderer;
@@ -2731,6 +2956,11 @@ test('onboarding clears selected school when the search query changes', async ()
   await selectCounty(renderer!.root);
   await act(() => {
     renderer!.root.findByProps({ accessibilityLabel: kitabuGrade6SchoolLabel }).props.onPress();
+  });
+
+  expect(schoolPickerModal(renderer!.root).props.visible).toBe(false);
+  await act(() => {
+    renderer!.root.findByProps({ accessibilityLabel: 'School selector' }).props.onPress();
   });
 
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Search school by name' }).props.value).toBe(
@@ -2763,6 +2993,13 @@ test('onboarding clears selected school when the search query changes', async ()
     renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.accessibilityState,
   ).toEqual({ disabled: true, busy: false });
 
+  await selectCounty(renderer!.root, 'Kisii');
+
+  expect(renderer!.root.findByProps({ accessibilityLabel: 'School result count' }).props.children).toBe(
+    'Showing 1 school in Kisii for Grade 6',
+  );
+  expect(renderer!.root.findByProps({ accessibilityLabel: kisiiGrade6SchoolLabel })).toBeTruthy();
+
   await selectCounty(renderer!.root, 'Mombasa');
 
   await act(() => {
@@ -2775,10 +3012,8 @@ test('onboarding clears selected school when the search query changes', async ()
     });
   });
 
-  expect(
-    renderer!.root.findByProps({ accessibilityLabel: otherGrade6SchoolLabel }).props.accessibilityState,
-  ).toEqual({ checked: true });
-  expect(renderer!.root.findByProps({ accessibilityLabel: 'Search school by name' }).props.value).toBe(
+  expect(schoolPickerModal(renderer!.root).props.visible).toBe(false);
+  expect(renderedText(renderer!.root.findByProps({ accessibilityLabel: 'School selector' }))).toContain(
     'Other Demo School',
   );
 });
@@ -2828,6 +3063,10 @@ test('onboarding clears selected school when grade changes after selection', asy
     renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
   });
 
+  await act(() => {
+    renderer!.root.findByProps({ accessibilityLabel: 'School selector' }).props.onPress();
+  });
+
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Search school by name' }).props.value).toBe('');
   expect(
     renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.accessibilityState,
@@ -2871,17 +3110,11 @@ test('onboarding commits school selection and dismisses the keyboard', async () 
   });
 
   expect(dismissSpy).toHaveBeenCalledTimes(1);
-  expect(renderer!.root.findByProps({ accessibilityLabel: 'Search school by name' }).props.value).toBe(
+  expect(schoolPickerModal(renderer!.root).props.visible).toBe(false);
+  expect(renderedText(renderer!.root.findByProps({ accessibilityLabel: 'School selector' }))).toContain(
     'Kitabu Demo School',
   );
-  expect(
-    renderer!.root.findByProps({ accessibilityLabel: kitabuGrade6SchoolLabel }).props.accessibilityState,
-  ).toEqual({ checked: true });
-  expect(selectedSchoolChecks(renderer!.root)).toHaveLength(1);
-  expect(
-    StyleSheet.flatten(renderer!.root.findByProps({ accessibilityLabel: 'Search school by name' }).props.style)
-      .borderColor,
-  ).toBe('#E8E0D4');
+  expect(renderer!.root.findByProps({ accessibilityLabel: 'Selected school confirmation' })).toBeTruthy();
 
   dismissSpy.mockRestore();
 });

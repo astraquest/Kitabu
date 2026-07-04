@@ -4831,12 +4831,13 @@ export async function listAdminUsers(user: AuthenticatedUser): Promise<AdminUser
 
 export interface SchoolOnboardingRequestInput {
   schoolName: string;
-  county: string;
-  town: string | null;
+  country: string;
+  county: string | null;
   schoolLevel: 'junior' | 'senior' | 'junior_and_senior';
   boardingType: 'day' | 'boarding' | 'day_and_boarding';
   studentCount: number;
   contactPhone: string;
+  contactEmail: string | null;
   source: string;
 }
 
@@ -4844,17 +4845,18 @@ export async function createSchoolOnboardingRequest(client: MaybeClient, input: 
   const result = await q<{ id: string; created_at: Date }>(
     client,
     `INSERT INTO school_onboarding_requests (
-      school_name, county, town, school_level, boarding_type, student_count, contact_phone, source
-     ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+      school_name, country, county, school_level, boarding_type, student_count, contact_phone, contact_email, source
+     ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
      RETURNING id, created_at`,
     [
       input.schoolName,
+      input.country,
       input.county,
-      input.town,
       input.schoolLevel,
       input.boardingType,
       input.studentCount,
       input.contactPhone,
+      input.contactEmail,
       input.source
     ]
   );

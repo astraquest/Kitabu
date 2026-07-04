@@ -24,7 +24,9 @@ import type {
   TextInputKeyPressEventData,
   ViewStyle,
 } from 'react-native';
+import { Asset } from 'expo-asset';
 import { LinearGradient } from 'expo-linear-gradient';
+import { createAudioPlayer, setAudioModeAsync, type AudioPlayer, type AudioSource, type AudioStatus } from 'expo-audio';
 import Svg, { Path } from 'react-native-svg';
 import {
   Check,
@@ -42,7 +44,10 @@ import { DEFAULT_GRADE, SUPPORTED_GRADES } from '../constants/grades';
 import { SUBJECTS } from '../data/mockData';
 import { requestPhoneAuthCode } from '../services/authService';
 import { triggerHaptic } from '../services/haptics';
+import { postOnboardingSelectionEvent } from '../services/onboardingAnalyticsService';
 import { requestPushPermission } from '../services/pushNotifications';
+import { AvatarArt } from '../components/AvatarArt';
+import { GoogleLogo } from '../components/GoogleLogo';
 import {
   GenderOption,
   OnboardingAchievementKey,
@@ -57,9 +62,11 @@ import {
   SchoolData,
 } from '../types/app';
 
-const WHATSAPP_ADMIN_LINK = 'https://wa.me/254716175485?text=I%20need%20help';
+const WHATSAPP_ADMIN_PHONE = '254716175485';
 const MPESA_PHONE_ERROR = 'Enter a valid Safaricom M-Pesa number, for example 0716175485.';
 const MAX_ONBOARDING_SUBJECTS = 5;
+const LEARNER_MIN_AGE = 4;
+const LEARNER_MAX_AGE = 20;
 const AUTO_ADVANCE_DELAY_MS = 200;
 const MASCOT_AUTO_ADVANCE_DELAY_MS = 240;
 const LOADING_PROGRESS_INTERVAL_MS = 50;
@@ -353,6 +360,8 @@ type ParentChildOnboardingInput = {
 type VoiceOption = {
   name: OnboardingVoiceName;
   description: string;
+  en: AudioSource;
+  sw: AudioSource;
 };
 
 type RoleChoiceOption = {
@@ -559,10 +568,30 @@ const MASCOT_PICKER_COLORS: Record<OnboardingMascotKey, { color: string; lightCo
 };
 
 const VOICE_OPTIONS: readonly VoiceOption[] = [
-  { name: 'Amina', description: 'Warm and encouraging' },
-  { name: 'Kamau', description: 'Calm and clear' },
-  { name: 'Zawadi', description: 'Bright and energetic' },
-  { name: 'Juma', description: 'Patient and steady' },
+  {
+    name: 'Samora',
+    description: 'Warm and encouraging',
+    en: require('../assets/Samora-Sekou-Eng.mp3'),
+    sw: require('../assets/Samora-Sekou-Kisw.mp3'),
+  },
+  {
+    name: 'Jabali',
+    description: 'Calm and clear',
+    en: require('../assets/jabali-Dexter-Eng.mp3'),
+    sw: require('../assets/Jabali-Dexter-Kisw.mp3'),
+  },
+  {
+    name: 'Bella',
+    description: 'Bright and energetic',
+    en: require('../assets/Bella-Anya-Eng.mp3'),
+    sw: require('../assets/Bella-Anya-Kisw.mp3'),
+  },
+  {
+    name: 'Judith',
+    description: 'Patient and steady',
+    en: require('../assets/Judith-cay-Eng.mp3'),
+    sw: require('../assets/Judith-Cay-Kisw.mp3'),
+  },
 ];
 
 function WhatsAppGlyph({ size = 18, color = '#FFFFFF' }: { size?: number; color?: string }) {
@@ -610,6 +639,7 @@ const ROLE_OPTIONS: readonly OnboardingRoleOption[] = [
     swDescription: '',
   },
 ];
+const PUBLIC_ROLE_OPTIONS = ROLE_OPTIONS.filter(option => option.role !== 'other');
 
 const NEED_OPTIONS: Record<PublicSignupRole, readonly NeedOption[]> = {
   student: [
@@ -934,7 +964,7 @@ const TEACHER_GRADE_BANDS: Array<{ label: string; grades: readonly string[] }> =
     grades: ['Grade 7', 'Grade 8', 'Grade 9'],
   },
   {
-    label: 'Senior Secondary (CBC)',
+    label: 'Senior School',
     grades: ['Grade 10', 'Grade 11', 'Grade 12'],
   },
 ];
@@ -965,10 +995,8 @@ const CBC_SUBJECTS_BY_GRADE_BAND: Record<'upper' | 'junior' | 'senior', readonly
   ],
   senior: [
     'English',
+    'Mathematics',
     'Kiswahili',
-    'Community Service Learning',
-    'Physical Education',
-    'Mathematics / Adv. Mathematics',
     'Biology',
     'Chemistry',
     'Physics',
@@ -980,8 +1008,6 @@ const CBC_SUBJECTS_BY_GRADE_BAND: Record<'upper' | 'junior' | 'senior', readonly
     'History & Citizenship',
     'Geography',
     'Business Education',
-    'Literature in English',
-    'Fasihi ya Kiswahili',
     'CRE / IRE / HRE',
     'French',
     'German',
@@ -997,7 +1023,7 @@ const CBC_SUBJECTS_BY_GRADE_BAND: Record<'upper' | 'junior' | 'senior', readonly
 const CBC_CORE_SUBJECTS_BY_GRADE_BAND: Record<'upper' | 'junior' | 'senior', readonly string[]> = {
   upper: ['English', 'Mathematics', 'Kiswahili'],
   junior: ['English', 'Mathematics', 'Kiswahili'],
-  senior: ['English', 'Kiswahili', 'Community Service Learning', 'Physical Education'],
+  senior: ['English', 'Mathematics', 'Kiswahili'],
 };
 
 const GRADE_BAND_LABELS: Record<'upper' | 'junior' | 'senior', Record<OnboardingLanguageCode, string>> = {
@@ -1010,8 +1036,8 @@ const GRADE_BAND_LABELS: Record<'upper' | 'junior' | 'senior', Record<Onboarding
     sw: 'Shule ya Sekondari ya Chini (CBC)',
   },
   senior: {
-    en: 'Senior Secondary (CBC)',
-    sw: 'Shule ya Sekondari ya Juu (CBC)',
+    en: 'Senior School (KNEC)',
+    sw: 'Shule ya Sekondari ya Juu (KNEC)',
   },
 };
 
@@ -1036,6 +1062,41 @@ function gradeBandForGrade(gradeValue: string): 'upper' | 'junior' | 'senior' {
   }
 
   return 'upper';
+}
+
+function displayGradeLabel(gradeValue: string) {
+  if (gradeValue === 'Grade 11') {
+    return 'Form 3';
+  }
+  if (gradeValue === 'Grade 12') {
+    return 'Form 4';
+  }
+  return gradeValue;
+}
+
+function displayGradeChipLabel(gradeValue: string) {
+  const label = displayGradeLabel(gradeValue);
+  return gradeValue === 'Grade 11' || gradeValue === 'Grade 12' ? `${label} · KNEC` : label;
+}
+
+function displayGradeBandLabel(gradeValue: string, languageCode: OnboardingLanguageCode) {
+  if (gradeValue === 'Grade 11' || gradeValue === 'Grade 12') {
+    return languageCode === 'sw' ? 'Sekondari ya Juu (KNEC)' : 'Senior School (KNEC)';
+  }
+  if (gradeValue === 'Grade 10') {
+    return languageCode === 'sw' ? 'Shule ya Sekondari ya Juu (CBC)' : 'Senior School (CBC)';
+  }
+  return GRADE_BAND_LABELS[gradeBandForGrade(gradeValue)][languageCode];
+}
+
+function isValidLearnerAge(value: string) {
+  const parsed = Number(value.trim());
+  return Number.isInteger(parsed) && parsed >= LEARNER_MIN_AGE && parsed <= LEARNER_MAX_AGE;
+}
+
+function isValidDisplayName(value: string) {
+  const trimmed = value.trim();
+  return trimmed.length >= 2 && /[A-Za-z]/.test(trimmed) && !/\d/.test(trimmed);
 }
 
 function subjectIdFromName(name: string) {
@@ -1066,26 +1127,26 @@ const GOAL_OPTIONS: Record<PublicSignupRole, readonly RoleChoiceOption[]> = {
     {
       key: 'habit',
       icon: '\uD83C\uDF31',
-      label: 'Build a daily habit',
+      label: 'Build a Daily Study Habit',
       description: '10 min / day',
     },
     {
-      key: 'consistent',
+      key: 'top',
       icon: '\u2B50',
-      label: 'Stay consistent',
+      label: 'Become a Top Student',
       description: '15 min / day',
       recommended: true,
     },
     {
-      key: 'top',
+      key: 'specific',
       icon: '\uD83D\uDCAA',
-      label: 'Become a top student',
-      description: '45 min / day',
+      label: 'Improve in Specific Subjects',
+      description: '30 min / day',
     },
     {
       key: 'full',
       icon: '\uD83D\uDD25',
-      label: 'Reach full potential',
+      label: 'Reach my full potential',
       description: '60+ min / day',
     },
   ],
@@ -1876,11 +1937,80 @@ function formatSchoolGradeMeta(school: SchoolData, grade: string) {
 }
 
 function normalizeCountyName(value: string) {
-  return value.trim().toLowerCase().replace(/\s+city$/, '');
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/,/g, ' ')
+    .replace(/\b(county|kenya)\b/g, '')
+    .replace(/\s+city$/, '')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 function countyMatchesLocation(county: string, location: string) {
   return normalizeCountyName(county) === normalizeCountyName(location);
+}
+
+function compareLabels(a: string, b: string) {
+  return a.localeCompare(b, undefined, { sensitivity: 'base' });
+}
+
+function schoolEnrollmentForSort(school: SchoolData, grade?: string) {
+  if (grade) {
+    const gradeEnrollment = school.gradeCounts[grade];
+    if (typeof gradeEnrollment === 'number') {
+      return gradeEnrollment;
+    }
+  }
+
+  return school.totalStudents;
+}
+
+function prioritizeCountiesBySchoolCount(counties: string[], schools: SchoolData[]) {
+  const schoolCountsByCounty = new Map<string, number>();
+
+  schools.forEach(school => {
+    const countyKey = normalizeCountyName(school.location);
+    if (!countyKey) {
+      return;
+    }
+
+    schoolCountsByCounty.set(countyKey, (schoolCountsByCounty.get(countyKey) ?? 0) + 1);
+  });
+
+  const uniqueCounties = Array.from(new Set(counties));
+  const topCounties = uniqueCounties
+    .map(option => ({
+      option,
+      count: schoolCountsByCounty.get(normalizeCountyName(option)) ?? 0,
+    }))
+    .filter(item => item.count > 0)
+    .sort((a, b) => b.count - a.count || compareLabels(a.option, b.option))
+    .slice(0, 5)
+    .map(item => item.option);
+  const topCountySet = new Set(topCounties);
+  const remainingCounties = uniqueCounties
+    .filter(option => !topCountySet.has(option))
+    .sort(compareLabels);
+
+  return [...topCounties, ...remainingCounties];
+}
+
+function prioritizeSchoolsByEnrollment(schoolOptions: SchoolData[], grade?: string) {
+  const topSchools = [...schoolOptions]
+    .filter(school => schoolEnrollmentForSort(school, grade) > 0)
+    .sort(
+      (a, b) =>
+        schoolEnrollmentForSort(b, grade) - schoolEnrollmentForSort(a, grade) ||
+        compareLabels(a.name, b.name),
+    )
+    .slice(0, 5);
+  const topSchoolIds = new Set(topSchools.map(school => school.id));
+  const remainingSchools = schoolOptions
+    .filter(school => !topSchoolIds.has(school.id))
+    .sort((a, b) => compareLabels(a.name, b.name));
+
+  return [...topSchools, ...remainingSchools];
 }
 
 interface StudentOnboardingScreenProps {
@@ -1957,6 +2087,8 @@ export function StudentOnboardingScreen({
   // pre-highlight the incoming default role; the user must explicitly pick one before continuing.
   const [roleChosen, setRoleChosen] = useState(false);
   const [selectedVoiceName, setSelectedVoiceName] = useState<OnboardingVoiceName | null>(null);
+  const [voicePreviewedName, setVoicePreviewedName] = useState<OnboardingVoiceName | null>(null);
+  const [voicePreviewingName, setVoicePreviewingName] = useState<OnboardingVoiceName | null>(null);
   const [noVoice, setNoVoice] = useState(false);
   const [selectedNeedKey, setSelectedNeedKey] = useState<OnboardingNeedKey | null>(null);
   const [displayName, setDisplayName] = useState('');
@@ -1991,7 +2123,6 @@ export function StudentOnboardingScreen({
   const [county, setCounty] = useState('');
   const [schoolQuery, setSchoolQuery] = useState('');
   const [schoolId, setSchoolId] = useState('');
-  const [customSchoolName, setCustomSchoolName] = useState('');
   const [mpesaPhoneNumber, setMpesaPhoneNumber] = useState('');
   const [signupStep, setSignupStep] = useState<SignupStep>('method');
   const [signupMethod, setSignupMethod] = useState<SignupMethod | null>(null);
@@ -2010,7 +2141,7 @@ export function StudentOnboardingScreen({
   const [focusedField, setFocusedField] = useState<'school' | 'mpesa' | null>(null);
   const { height, width } = useWindowDimensions();
   const insets = useContext(SafeAreaInsetsContext) ?? ZERO_SAFE_AREA_INSETS;
-  const compactLayout = height < 760 || width < 370;
+  const compactLayout = height < 860 || width < 370;
   const content = ONBOARDING_CONTENT[role];
   const fullIntro = includeIntroChoices;
   const swahiliIntro = fullIntro && languageCode === 'sw';
@@ -2063,10 +2194,19 @@ export function StudentOnboardingScreen({
       : null;
   const mascotMotion = useRef(new Animated.Value(0)).current;
   const genderShakeMotion = useRef(new Animated.Value(0)).current;
+  const learnerAgeShakeMotion = useRef(new Animated.Value(0)).current;
+  const childAgeShakeMotion = useRef(new Animated.Value(0)).current;
   const scrollViewRef = useRef<ScrollView | null>(null);
   const signupOtpRefs = useRef<Array<React.ElementRef<typeof TextInput> | null>>([]);
   const autoAdvanceTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const alienErrorTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const voicePlayerRef = useRef<AudioPlayer | null>(null);
+  const voicePreviewTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const voicePreviewSubscriptionRef = useRef<{ remove: () => void } | null>(null);
+  const voicePreviewRequestIdRef = useRef(0);
+  const voicePreviewSourceCacheRef = useRef<Record<string, AudioSource>>({});
+  const voicePreviewBlobUrlsRef = useRef<string[]>([]);
+  const onboardingSessionIdRef = useRef(`onboarding-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`);
   const introStepCount = includeIntroChoices ? 19 : 0;
   const postSetupStepCount = includeIntroChoices ? 2 : 0;
   const totalStepCount = includeIntroChoices
@@ -2107,8 +2247,8 @@ export function StudentOnboardingScreen({
         goalConfirm: 16,
         concerns: 17,
         achieve: 18,
-        resultProof: 19,
-        interests: 20,
+        interests: 19,
+        resultProof: 20,
         reminder: 21,
         loading: 22,
         profileReady: 23,
@@ -2391,9 +2531,16 @@ export function StudentOnboardingScreen({
     subjects: parentSubjectsByChild[`child-${childIndex}`] ?? [],
   }));
   const allParentChildrenComplete =
-    Boolean(primaryParentChild.name && primaryParentChild.grade) &&
-    normalizedAdditionalParentChildren.every(child => child.name && child.grade);
+    Boolean(
+      isValidDisplayName(primaryParentChild.name) &&
+      primaryParentChild.grade &&
+      isValidLearnerAge(primaryParentChild.age),
+    ) &&
+    normalizedAdditionalParentChildren.every(
+      child => isValidDisplayName(child.name) && child.grade && isValidLearnerAge(child.age),
+    );
   const resolvedGender: GenderOption = gender ?? 'not_specified';
+  const learnerAvatarKey = resolvedGender === 'female' ? 'avatar-afro-girl' : 'avatar-afro-boy';
   const signupEmailTrimmed = signupEmail.trim();
   const signupPhoneTrimmed = signupPhone.trim();
   const signupPhoneDigits = signupPhoneTrimmed.replace(/\D/g, '');
@@ -2548,7 +2695,7 @@ export function StudentOnboardingScreen({
       badge: swahiliIntro ? 'Mpango wa kuongeza alama' : 'Grade boost plan',
       badgeIcon: '\uD83D\uDE80',
       headlineAccent: '+2',
-      headlineRest: swahiliIntro ? ' points\nmuhula huu' : ' Points\nin One Term',
+      headlineRest: swahiliIntro ? ' points muhula huu' : ' Points in One Term',
       body: swahiliIntro
         ? `Rafiki anaweka mazoezi ya ${learnerAgeBand} katika ${goodNewsSubjectLabels.join(', ')} ili ujue pa kuboresha.`
         : `Find your weak spots in ${goodNewsSubjectLabels.join(', ')}, get simple explanations, and practise 20-30 mins daily.`,
@@ -3104,7 +3251,7 @@ export function StudentOnboardingScreen({
     () => schools.find(school => school.id === schoolId) ?? null,
     [schoolId, schools],
   );
-  const selectedSchoolName = selectedSchool?.name ?? customSchoolName;
+  const selectedSchoolName = selectedSchool?.name ?? '';
   const hasSelectedSchool = Boolean(selectedSchoolName);
   const regionMeta = REGIONS_BY_COUNTRY[countryCode] ?? REGIONS_BY_COUNTRY.KE;
   const regionLabel = swahiliIntro ? regionMeta.labelSw : regionMeta.label;
@@ -3128,7 +3275,7 @@ export function StudentOnboardingScreen({
         ),
       ).sort();
 
-      return [...KENYAN_COUNTIES, ...extraCountyOptions];
+      return prioritizeCountiesBySchoolCount([...KENYAN_COUNTIES, ...extraCountyOptions], schools);
     },
     [schools, countryCode, regionMeta],
   );
@@ -3328,9 +3475,30 @@ export function StudentOnboardingScreen({
       if (alienErrorTimeoutRef.current) {
         clearTimeout(alienErrorTimeoutRef.current);
       }
+      if (voicePreviewTimerRef.current) {
+        clearTimeout(voicePreviewTimerRef.current);
+      }
+      voicePreviewSubscriptionRef.current?.remove();
+      voicePreviewSubscriptionRef.current = null;
+      voicePlayerRef.current?.pause();
+      voicePlayerRef.current?.remove();
+      voicePlayerRef.current = null;
+      voicePreviewBlobUrlsRef.current.forEach(uri => {
+        if (globalThis.URL?.revokeObjectURL) {
+          globalThis.URL.revokeObjectURL(uri);
+        }
+      });
+      voicePreviewBlobUrlsRef.current = [];
     },
     [],
   );
+
+  useEffect(() => {
+    preloadVoicePreviewSources('en').catch(() => undefined);
+    preloadVoicePreviewSources('sw').catch(() => undefined);
+    // Voice preview sources are preloaded once for the fixed intro languages.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     if (signupStep !== 'verify' || signupResendSeconds <= 0) {
@@ -3369,23 +3537,26 @@ export function StudentOnboardingScreen({
     }
   }, [county, countyOptions]);
 
-  const filteredSchools = useMemo(
-    () =>
-      county
-        ? schools.filter(
-            school =>
-              countyMatchesLocation(county, school.location) &&
-              school.name.toLowerCase().includes(schoolQuery.trim().toLowerCase()),
-          )
-        : [],
-    [county, schoolQuery, schools],
-  );
   const schoolLookupGrade =
     includeIntroChoices && role === 'teacher'
       ? teacherGradeIds[0] ?? grade
       : includeIntroChoices && role === 'parent'
         ? parentChildGrade
         : grade;
+  const filteredSchools = useMemo(
+    () =>
+      county
+        ? prioritizeSchoolsByEnrollment(
+            schools.filter(
+              school =>
+                countyMatchesLocation(county, school.location) &&
+                school.name.toLowerCase().includes(schoolQuery.trim().toLowerCase()),
+            ),
+            schoolLookupGrade || grade,
+          )
+        : [],
+    [county, grade, schoolLookupGrade, schoolQuery, schools],
+  );
   const schoolResultStatus =
     !county
       ? `Select a ${regionLabel.toLowerCase()} to see schools`
@@ -3403,11 +3574,11 @@ export function StudentOnboardingScreen({
     : introStep === 'role'
       ? roleChosen || !onRoleChange
     : introStep === 'voice'
-      ? Boolean(selectedVoiceName) || noVoice
+      ? noVoice || (Boolean(selectedVoiceName) && voicePreviewedName === selectedVoiceName)
     : introStep === 'need'
       ? Boolean(selectedNeedKey)
       : introStep === 'name'
-        ? Boolean(displayName.trim())
+        ? isValidDisplayName(displayName)
         : introStep === 'gender'
           ? Boolean(gender)
         : introStep === 'roleDetails'
@@ -3415,7 +3586,7 @@ export function StudentOnboardingScreen({
             ? teacherGradeIds.length > 0
             : role === 'parent'
               ? allParentChildrenComplete
-              : Boolean(age.trim())
+              : isValidLearnerAge(age)
           : introStep === 'goal'
             ? Boolean(selectedGoalKey)
             : introStep === 'concerns'
@@ -3435,8 +3606,10 @@ export function StudentOnboardingScreen({
                 : true
             : Boolean(grade)
         : step === 1
-            ? includeIntroChoices || hasSelectedSchool
-            : true;
+            ? studentFullIntro ? true : hasSelectedSchool
+            : step === 2 && studentFullIntro
+              ? hasSelectedSchool
+              : true;
   const primaryActionText =
     introStep === 'language'
       ? swahiliIntro
@@ -3524,13 +3697,13 @@ export function StudentOnboardingScreen({
                       : studentFullIntro
                         ? 'Continue'
                         : 'Continue to school'
-                  : step === 1
+                    : step === 1
                     ? includeIntroChoices
                       ? studentFullIntro
                         ? 'Continue'
                         : hasSelectedSchool
                           ? 'Continue'
-                          : 'Skip'
+                          : 'Continue'
                       : 'Continue to payment'
                     : studentFullIntro && step === 2
                       ? 'Continue'
@@ -3612,13 +3785,13 @@ export function StudentOnboardingScreen({
                 ? 'Back to goal'
                 : 'Back'
             : introStep === 'resultProof'
-              ? 'Back to achievement'
+              ? studentFullIntro ? 'Back to interests' : 'Back to achievement'
             : introStep === 'country'
               ? studentFullIntro
                 ? 'Back to results'
                 : 'Back'
             : introStep === 'interests'
-              ? 'Back'
+              ? 'Back to achievement'
             : introStep === 'reminder'
               ? 'Back'
             : introStep === 'profileReady'
@@ -3686,15 +3859,15 @@ export function StudentOnboardingScreen({
             : introStep === 'socialProof'
               ? 'Returns to with Kitabu'
             : introStep === 'resultProof'
-              ? 'Returns to achievement selection'
+              ? studentFullIntro ? 'Returns to interest selection' : 'Returns to achievement selection'
             : introStep === 'country'
               ? includeIntroChoices
                 ? 'Returns to result proof'
                 : 'Returns to social proof'
             : introStep === 'interests'
-              ? 'Returns to curriculum confirmation'
+              ? 'Returns to achievement selection'
             : introStep === 'reminder'
-              ? 'Returns to interests'
+              ? studentFullIntro ? 'Returns to grade boost plan' : 'Returns to interests'
             : introStep === 'profileReady'
               ? 'Returns to reminder selection'
             : introStep === 'signup'
@@ -3731,6 +3904,8 @@ export function StudentOnboardingScreen({
             ? 'Moves to name entry'
             : introStep === 'name' && !displayName.trim()
               ? 'Enter your name before continuing'
+              : introStep === 'name' && !isValidDisplayName(displayName)
+                ? 'Enter a name without numbers before continuing'
               : introStep === 'name'
                 ? 'Moves to profile details'
                 : introStep === 'gender'
@@ -3767,7 +3942,7 @@ export function StudentOnboardingScreen({
                               ? 'Choose what you want to achieve before continuing'
                                : introStep === 'achieve'
                                 ? includeIntroChoices
-                                  ? 'Moves to social proof'
+                                  ? studentFullIntro ? 'Moves to interest selection' : 'Moves to social proof'
                                   : 'Moves to before Kitabu'
                                 : introStep === 'painBefore'
                                   ? 'Moves to with Kitabu'
@@ -3780,13 +3955,13 @@ export function StudentOnboardingScreen({
                                       : introStep === 'resultProof'
                                         ? role === 'teacher' || role === 'parent'
                                           ? 'Moves to reminder setup'
-                                          : 'Moves to curriculum confirmation'
+                                          : studentFullIntro ? 'Moves to reminder setup' : 'Moves to curriculum confirmation'
                                       : introStep === 'country'
                                         ? role === 'teacher' || role === 'parent'
                                           ? 'Moves to school selection'
                                           : 'Moves to interest selection'
                                         : introStep === 'interests'
-                                          ? 'Moves to reminder setup'
+                                          ? studentFullIntro ? 'Moves to grade boost plan' : 'Moves to reminder setup'
                                           : introStep === 'reminder'
                                             ? 'Moves to account setup'
                                             : introStep === 'loading'
@@ -3805,8 +3980,8 @@ export function StudentOnboardingScreen({
                             ? 'Moves to child details'
                             : 'Moves to goal selection'
                         : role === 'parent'
-                          ? 'Skips school selection and moves to child details'
-                          : 'Skips school selection for now'
+                          ? 'Choose a school before continuing to child details'
+                          : 'Choose a school before continuing'
                       : !canContinue && step === 1 && !county
                       ? `Choose a ${regionLabel.toLowerCase()} before continuing`
                       : !canContinue && step === 1
@@ -3914,6 +4089,229 @@ export function StudentOnboardingScreen({
     }, delayMs);
   }
 
+  function trackOnboardingSelection(
+    stepKey: string,
+    optionKey: string,
+    optionLabel: string,
+    metadata?: Record<string, unknown>,
+  ) {
+    if (!includeIntroChoices) {
+      return;
+    }
+
+    postOnboardingSelectionEvent({
+      sessionId: onboardingSessionIdRef.current,
+      stepKey,
+      optionKey,
+      optionLabel,
+      role,
+      county: county || null,
+      grade: grade || null,
+      countryCode,
+      curriculumCode: selectedCountry.curriculum,
+      metadata,
+    }).catch(() => undefined);
+  }
+
+  function voicePreviewCacheKey(option: VoiceOption, nextLanguageCode: OnboardingLanguageCode | null) {
+    return `${nextLanguageCode ?? 'en'}:${option.name}`;
+  }
+
+  function voicePreviewRawSource(option: VoiceOption, nextLanguageCode: OnboardingLanguageCode | null) {
+    return nextLanguageCode === 'sw' ? option.sw : option.en;
+  }
+
+  async function resolveVoicePreviewSource(
+    option: VoiceOption,
+    nextLanguageCode: OnboardingLanguageCode | null = languageCode,
+  ) {
+    const cacheKey = voicePreviewCacheKey(option, nextLanguageCode);
+    const cachedSource = voicePreviewSourceCacheRef.current[cacheKey];
+    if (cachedSource) {
+      return cachedSource;
+    }
+
+    const rawSource = voicePreviewRawSource(option, nextLanguageCode);
+
+    try {
+      if (typeof rawSource !== 'number' && typeof rawSource !== 'string') {
+        voicePreviewSourceCacheRef.current[cacheKey] = rawSource;
+        return rawSource;
+      }
+
+      const asset = Asset.fromModule(rawSource);
+      const assetToDownload =
+        Platform.OS === 'web' || asset.type
+          ? asset
+          : new Asset({
+              name: asset.name,
+              type: 'mp3',
+              uri: asset.uri,
+            });
+      await assetToDownload.downloadAsync();
+      let uri = assetToDownload.localUri ?? assetToDownload.uri;
+
+      if (Platform.OS === 'web' && uri && typeof fetch === 'function' && globalThis.URL?.createObjectURL) {
+        const response = await fetch(uri);
+        const blob = await response.blob();
+        uri = globalThis.URL.createObjectURL(blob);
+        voicePreviewBlobUrlsRef.current.push(uri);
+      }
+
+      const resolvedSource: AudioSource =
+        Platform.OS === 'web'
+          ? { uri }
+          : typeof rawSource === 'number'
+            ? { assetId: rawSource, uri }
+            : { uri };
+      voicePreviewSourceCacheRef.current[cacheKey] = resolvedSource;
+      return resolvedSource;
+    } catch {
+      voicePreviewSourceCacheRef.current[cacheKey] = rawSource;
+      return rawSource;
+    }
+  }
+
+  async function preloadVoicePreviewSources(nextLanguageCode: OnboardingLanguageCode | null = languageCode) {
+    await Promise.all(VOICE_OPTIONS.map(option => resolveVoicePreviewSource(option, nextLanguageCode)));
+  }
+
+  function stopVoicePreview() {
+    if (voicePreviewTimerRef.current) {
+      clearTimeout(voicePreviewTimerRef.current);
+      voicePreviewTimerRef.current = null;
+    }
+    voicePreviewSubscriptionRef.current?.remove();
+    voicePreviewSubscriptionRef.current = null;
+    voicePlayerRef.current?.pause();
+    voicePlayerRef.current?.remove();
+    voicePlayerRef.current = null;
+    setVoicePreviewingName(null);
+  }
+
+  function triggerInvalidAgeFeedback(shakeMotion: Animated.Value) {
+    triggerHaptic('error');
+    shakeMotion.stopAnimation();
+    shakeMotion.setValue(0);
+    Animated.sequence([
+      Animated.timing(shakeMotion, {
+        toValue: 1,
+        duration: 46,
+        easing: Easing.linear,
+        useNativeDriver: true,
+      }),
+      Animated.timing(shakeMotion, {
+        toValue: -1,
+        duration: 46,
+        easing: Easing.linear,
+        useNativeDriver: true,
+      }),
+      Animated.timing(shakeMotion, {
+        toValue: 1,
+        duration: 46,
+        easing: Easing.linear,
+        useNativeDriver: true,
+      }),
+      Animated.timing(shakeMotion, {
+        toValue: 0,
+        duration: 46,
+        easing: Easing.out(Easing.quad),
+        useNativeDriver: true,
+      }),
+    ]).start();
+  }
+
+  function ageShakeStyle(shakeMotion: Animated.Value) {
+    return {
+      transform: [
+        {
+          translateX: shakeMotion.interpolate({
+            inputRange: [-1, 0, 1],
+            outputRange: [-8, 0, 8],
+          }),
+        },
+      ],
+    };
+  }
+
+  function invalidAgeText() {
+    return 'Uko Sure? Age must be between 4 and 20.';
+  }
+
+  function handleInvalidContinueFeedback() {
+    if (introStep === 'name' && displayName.trim() && !isValidDisplayName(displayName)) {
+      triggerHaptic('error');
+      return true;
+    }
+
+    if (introStep !== 'roleDetails') {
+      return false;
+    }
+
+    if (role === 'student' && age.trim() && !isValidLearnerAge(age)) {
+      triggerInvalidAgeFeedback(learnerAgeShakeMotion);
+      return true;
+    }
+
+    if (
+      role === 'parent' &&
+      ((parentChildAge.trim() && !isValidLearnerAge(parentChildAge)) ||
+        additionalParentChildren.some(child => child.age.trim() && !isValidLearnerAge(child.age)))
+    ) {
+      triggerInvalidAgeFeedback(childAgeShakeMotion);
+      return true;
+    }
+
+    return false;
+  }
+
+  async function playVoicePreview(option: VoiceOption) {
+    stopVoicePreview();
+    const requestId = voicePreviewRequestIdRef.current + 1;
+    voicePreviewRequestIdRef.current = requestId;
+    setVoicePreviewedName(null);
+    setVoicePreviewingName(option.name);
+
+    try {
+      const source = await resolveVoicePreviewSource(option);
+      if (voicePreviewRequestIdRef.current !== requestId) {
+        return;
+      }
+
+      if (Platform.OS !== 'web') {
+        await setAudioModeAsync({
+          allowsRecording: false,
+          interruptionMode: 'duckOthers',
+          playsInSilentMode: true,
+          shouldPlayInBackground: false,
+          shouldRouteThroughEarpiece: false,
+        });
+      }
+
+      voicePlayerRef.current = createAudioPlayer(source, { downloadFirst: false });
+      voicePreviewSubscriptionRef.current = voicePlayerRef.current.addListener(
+        'playbackStatusUpdate',
+        (status: AudioStatus) => {
+          if (voicePreviewRequestIdRef.current !== requestId) {
+            return;
+          }
+
+          if (status.playing) {
+            setVoicePreviewedName(option.name);
+            setVoicePreviewingName(null);
+          }
+
+          if (status.didJustFinish) {
+            setVoicePreviewingName(null);
+          }
+        },
+      );
+      voicePlayerRef.current.play();
+    } catch {
+      setVoicePreviewingName(null);
+    }
+  }
+
   async function handleContinue() {
     if (isSubmitting) {
       return;
@@ -3923,7 +4321,9 @@ export function StudentOnboardingScreen({
     setLocalError(null);
 
     if (!canContinue) {
-      triggerHaptic('error');
+      if (!handleInvalidContinueFeedback()) {
+        triggerHaptic('error');
+      }
       return;
     }
 
@@ -4020,14 +4420,14 @@ export function StudentOnboardingScreen({
 
     if (introStep === 'achieve') {
       triggerHaptic('impact');
-      setIntroStep(includeIntroChoices ? 'resultProof' : 'painBefore');
+      setIntroStep(includeIntroChoices ? (studentFullIntro ? 'interests' : 'resultProof') : 'painBefore');
       return;
     }
 
     if (introStep === 'resultProof') {
       triggerHaptic('impact');
       // Teachers pick their country earlier (before county/school), so skip straight to reminders.
-      setIntroStep(studentFullIntro ? 'interests' : role === 'teacher' || role === 'parent' ? 'reminder' : 'country');
+      setIntroStep(studentFullIntro ? 'reminder' : role === 'teacher' || role === 'parent' ? 'reminder' : 'country');
       return;
     }
 
@@ -4073,7 +4473,7 @@ export function StudentOnboardingScreen({
 
     if (introStep === 'interests') {
       triggerHaptic('impact');
-      setIntroStep('reminder');
+      setIntroStep(studentFullIntro ? 'resultProof' : 'reminder');
       return;
     }
 
@@ -4209,6 +4609,8 @@ export function StudentOnboardingScreen({
   function handleLanguageSelect(value: OnboardingLanguageCode) {
     triggerHaptic('selection');
     setLanguageCode(value);
+    const option = LANGUAGE_OPTIONS.find(item => item.code === value);
+    trackOnboardingSelection('language', value, option?.label ?? value);
     if (includeIntroChoices) {
       scheduleAutoAdvance(() => setIntroStep('mascot'));
     }
@@ -4217,6 +4619,8 @@ export function StudentOnboardingScreen({
   function handleMascotSelect(value: OnboardingMascotKey) {
     triggerHaptic('selection');
     setSelectedMascotKey(value);
+    const option = MASCOT_OPTIONS.find(item => item.key === value);
+    trackOnboardingSelection('mascot', value, option?.name ?? value);
     if (includeIntroChoices) {
       scheduleAutoAdvance(() => setIntroStep('rafiki'), MASCOT_AUTO_ADVANCE_DELAY_MS);
     }
@@ -4225,6 +4629,8 @@ export function StudentOnboardingScreen({
   function handleRoleSelect(value: PublicSignupRole) {
     triggerHaptic('selection');
     setRoleChosen(true);
+    const option = PUBLIC_ROLE_OPTIONS.find(item => item.role === value);
+    trackOnboardingSelection('role', value, option?.label ?? value);
     onRoleChange?.(value);
     if (includeIntroChoices) {
       scheduleAutoAdvance(() => setIntroStep('voice'));
@@ -4233,18 +4639,34 @@ export function StudentOnboardingScreen({
 
   function handleVoiceSelect(value: OnboardingVoiceName) {
     triggerHaptic('selection');
+    const option = VOICE_OPTIONS.find(item => item.name === value);
     setSelectedVoiceName(value);
     setNoVoice(false);
+    trackOnboardingSelection('voice', value, value);
+    if (option) {
+      playVoicePreview(option).catch(() => undefined);
+    }
   }
 
   function handleNoVoiceToggle() {
     triggerHaptic('selection');
-    setNoVoice(current => !current);
+    stopVoicePreview();
+    setNoVoice(current => {
+      const next = !current;
+      if (next) {
+        setSelectedVoiceName(null);
+        setVoicePreviewedName(null);
+        trackOnboardingSelection('voice', 'text_only', 'Text only');
+      }
+      return next;
+    });
   }
 
   function handleNeedSelect(value: OnboardingNeedKey) {
     triggerHaptic('selection');
     setSelectedNeedKey(value);
+    const option = needOptions.find(item => item.key === value);
+    trackOnboardingSelection('need', value, option?.label ?? value);
     if (includeIntroChoices) {
       scheduleAutoAdvance(() => setIntroStep('name'));
     }
@@ -4253,6 +4675,10 @@ export function StudentOnboardingScreen({
   function handleGoalSelect(value: OnboardingGoalKey) {
     triggerHaptic('selection');
     setSelectedGoalKey(value);
+    const option = goalOptions.find(item => item.key === value);
+    trackOnboardingSelection('goal', value, option?.label ?? value, {
+      recommended: Boolean(option?.recommended),
+    });
     if (includeIntroChoices) {
       scheduleAutoAdvance(() => setIntroStep(studentFullIntro ? 'goalConfirm' : 'concerns'));
     }
@@ -4261,6 +4687,8 @@ export function StudentOnboardingScreen({
   function handleConcernSelect(value: OnboardingConcernKey) {
     triggerHaptic('selection');
     setSelectedConcernKey(value);
+    const option = displayedConcernOptions.find(item => item.key === value);
+    trackOnboardingSelection('concern', value, option?.label ?? value);
     if (includeIntroChoices) {
       scheduleAutoAdvance(() => setIntroStep('achieve'));
     }
@@ -4269,41 +4697,53 @@ export function StudentOnboardingScreen({
   function handleAchievementSelect(value: OnboardingAchievementKey) {
     triggerHaptic('selection');
     setSelectedAchievementKey(value);
+    const option = achievementOptions.find(item => item.key === value);
+    trackOnboardingSelection('achievement', value, option?.label ?? value);
     if (includeIntroChoices) {
-      scheduleAutoAdvance(() => setIntroStep('resultProof'));
+      scheduleAutoAdvance(() => setIntroStep(studentFullIntro ? 'interests' : 'resultProof'));
     }
   }
 
   function handleInterestToggle(value: OnboardingInterestKey) {
     triggerHaptic('selection');
+    const option = INTEREST_OPTIONS.find(item => item.key === value);
     setSelectedInterestKeys(current =>
       current.includes(value) ? current.filter(key => key !== value) : [...current, value],
     );
+    trackOnboardingSelection('interest', value, option?.label ?? value);
   }
 
   function handleDisplayNameChange(value: string) {
-    setDisplayName(value);
+    setDisplayName(value.replace(/\d/g, ''));
     if (localError) {
       setLocalError(null);
     }
   }
 
   function handleAgeChange(value: string) {
-    setAge(value.replace(/[^\d]/g, '').slice(0, 2));
+    const nextAge = value.replace(/[^\d]/g, '').slice(0, 2);
+    setAge(nextAge);
+    if (nextAge && !isValidLearnerAge(nextAge)) {
+      triggerInvalidAgeFeedback(learnerAgeShakeMotion);
+    }
     if (localError) {
       setLocalError(null);
     }
   }
 
   function handleParentChildNameChange(value: string) {
-    setParentChildName(value);
+    setParentChildName(value.replace(/\d/g, ''));
     if (localError) {
       setLocalError(null);
     }
   }
 
   function handleParentChildAgeChange(value: string) {
-    setParentChildAge(value.replace(/[^\d]/g, '').slice(0, 2));
+    const nextAge = value.replace(/[^\d]/g, '').slice(0, 2);
+    setParentChildAge(nextAge);
+    if (nextAge && !isValidLearnerAge(nextAge)) {
+      triggerInvalidAgeFeedback(childAgeShakeMotion);
+    }
     if (localError) {
       setLocalError(null);
     }
@@ -4322,6 +4762,7 @@ export function StudentOnboardingScreen({
       });
     }
     setParentChildGrade(value);
+    trackOnboardingSelection('child_grade', value, displayGradeLabel(value));
   }
 
   function handleAddParentChild() {
@@ -4367,12 +4808,17 @@ export function StudentOnboardingScreen({
         return next;
       });
     }
+    const nextValue =
+      field === 'age' ? value.replace(/[^\d]/g, '').slice(0, 2) : field === 'name' ? value.replace(/\d/g, '') : value;
+    if (field === 'age' && nextValue && !isValidLearnerAge(nextValue)) {
+      triggerInvalidAgeFeedback(childAgeShakeMotion);
+    }
     setAdditionalParentChildren(current =>
       current.map((child, childIndex) =>
         childIndex === index
           ? {
               ...child,
-              [field]: field === 'age' ? value.replace(/[^\d]/g, '').slice(0, 2) : value,
+              [field]: nextValue,
             }
           : child,
       ),
@@ -4397,6 +4843,7 @@ export function StudentOnboardingScreen({
         return current.filter(id => id !== value);
       }
 
+      trackOnboardingSelection('teacher_grade', value, displayGradeLabel(value));
       return [...current, value];
     });
   }
@@ -4414,7 +4861,6 @@ export function StudentOnboardingScreen({
     }
 
     setSchoolQuery(value);
-    setCustomSchoolName('');
     if (localError) {
       setLocalError(null);
     }
@@ -4436,9 +4882,9 @@ export function StudentOnboardingScreen({
     setCounty(value);
     setSchoolQuery('');
     setSchoolId('');
-    setCustomSchoolName('');
     setLocalError(null);
     setFocusedField(null);
+    trackOnboardingSelection('county', value, value, { countryCode });
     // Surface the searchable school picker straight away so the user can find their
     // school right after choosing a county.
     setSchoolPickerOpen(true);
@@ -4447,7 +4893,6 @@ export function StudentOnboardingScreen({
   function handleClearSchoolSearch() {
     setSchoolQuery('');
     setSchoolId('');
-    setCustomSchoolName('');
     setLocalError(null);
     setFocusedField('school');
     triggerHaptic('selection');
@@ -4455,23 +4900,11 @@ export function StudentOnboardingScreen({
 
   function handleSelectSchool(school: SchoolData) {
     setSchoolId(school.id);
-    setCustomSchoolName('');
     setSchoolQuery(school.name);
-  }
-
-  function handleAddCustomSchool() {
-    const nextSchoolName = schoolQuery.trim();
-    if (!county || !nextSchoolName) {
-      return;
-    }
-
-    Keyboard.dismiss();
-    setFocusedField(null);
-    setSchoolId('');
-    setCustomSchoolName(nextSchoolName);
-    setSchoolQuery(nextSchoolName);
-    setLocalError(null);
-    triggerHaptic('selection');
+    trackOnboardingSelection('school', school.id, school.name, {
+      county: school.location,
+      totalStudents: school.totalStudents,
+    });
   }
 
   function handleGenderSelect(value: GenderOption) {
@@ -4686,11 +5119,17 @@ export function StudentOnboardingScreen({
   function handleTeacherSubjectToggle(subjectId: string) {
     triggerHaptic('selection');
     const gradeValue = currentTeacherSubjectGrade;
+    const subject = subjectOptions.find(option => option.id === subjectId);
     if (!gradeValue) {
       return;
     }
     setTeacherSubjectsByGrade(current => {
       const existing = current[gradeValue] ?? [];
+      if (!existing.includes(subjectId)) {
+        trackOnboardingSelection('teacher_subject', subjectId, subject?.name ?? subjectId, {
+          grade: gradeValue,
+        });
+      }
       const next = existing.includes(subjectId)
         ? existing.filter(id => id !== subjectId)
         : [...existing, subjectId];
@@ -4700,8 +5139,15 @@ export function StudentOnboardingScreen({
 
   function handleParentSubjectToggle(subjectId: string) {
     triggerHaptic('selection');
+    const subject = subjectOptions.find(option => option.id === subjectId);
     setParentSubjectsByChild(current => {
       const existing = current[currentParentSubjectChildKey] ?? [];
+      if (!existing.includes(subjectId)) {
+        trackOnboardingSelection('parent_subject', subjectId, subject?.name ?? subjectId, {
+          childIndex: parentSubjectChildIndex,
+          grade: currentParentSubjectChild.grade,
+        });
+      }
       const next = existing.includes(subjectId)
         ? existing.filter(id => id !== subjectId)
         : [...existing, subjectId];
@@ -4711,6 +5157,7 @@ export function StudentOnboardingScreen({
 
   function handleSubjectToggle(subjectId: string) {
     triggerHaptic('selection');
+    const subject = subjectOptions.find(option => option.id === subjectId);
     setSelectedSubjectIds(current => {
       if (current.includes(subjectId)) {
         return current.length > 1 ? current.filter(id => id !== subjectId) : current;
@@ -4720,6 +5167,7 @@ export function StudentOnboardingScreen({
         return current;
       }
 
+      trackOnboardingSelection('subject', subjectId, subject?.name ?? subjectId);
       return [...current, subjectId];
     });
   }
@@ -4730,9 +5178,10 @@ export function StudentOnboardingScreen({
       setSelectedSubjectIds([]);
     }
     setGrade(value);
-    // Only a list-selected school depends on grade availability; a custom
-    // (manually typed) school is grade-independent, so keep it when grade changes.
-    if (value !== grade && schoolId) {
+    trackOnboardingSelection('grade', value, displayGradeLabel(value), {
+      curriculum: value === 'Grade 11' || value === 'Grade 12' ? 'KNEC' : 'CBC',
+    });
+    if (value !== grade && schoolId && !studentFullIntro) {
       setSchoolId('');
       setSchoolQuery('');
       setLocalError(null);
@@ -4744,6 +5193,7 @@ export function StudentOnboardingScreen({
     setFocusedField(null);
     triggerHaptic('selection');
     handleSelectSchool(school);
+    setSchoolPickerOpen(false);
   }
 
   function handleSchoolSearchSubmit() {
@@ -4778,9 +5228,14 @@ export function StudentOnboardingScreen({
 
   async function handleRequestMissingSchool() {
     setLocalError(null);
+    const message = [
+      "I couldn't find my school on Kitabu AI App",
+      county ? `County: ${county}` : null,
+    ].filter(Boolean).join('\n');
+    const whatsappUrl = `https://wa.me/${WHATSAPP_ADMIN_PHONE}?text=${encodeURIComponent(message)}`;
 
     try {
-      await Linking.openURL(WHATSAPP_ADMIN_LINK);
+      await Linking.openURL(whatsappUrl);
     } catch {
       triggerHaptic('warning');
       setLocalError('Could not open WhatsApp. Message admin at 0716175485.');
@@ -4902,7 +5357,7 @@ export function StudentOnboardingScreen({
     }
 
     if (introStep === 'resultProof') {
-      setIntroStep('achieve');
+      setIntroStep(studentFullIntro ? 'interests' : 'achieve');
       return;
     }
 
@@ -4917,13 +5372,13 @@ export function StudentOnboardingScreen({
     }
 
     if (introStep === 'interests') {
-      setIntroStep(studentFullIntro ? 'resultProof' : 'country');
+      setIntroStep(studentFullIntro ? 'achieve' : 'country');
       return;
     }
 
     if (introStep === 'reminder') {
       // Teachers and parents already confirmed country before county/school.
-      setIntroStep(usesLearnerFlow ? 'interests' : role === 'teacher' || role === 'parent' ? 'resultProof' : 'country');
+      setIntroStep(studentFullIntro ? 'resultProof' : usesLearnerFlow ? 'interests' : role === 'teacher' || role === 'parent' ? 'resultProof' : 'country');
       return;
     }
 
@@ -4982,8 +5437,26 @@ export function StudentOnboardingScreen({
     setStep(current => current - 1);
   }
 
-  function renderMascotPoseEffect(size: 'header' | 'large' = 'header') {
+  function renderMascotPoseEffect(size: 'header' | 'large' | 'signup' | 'signupCompact' = 'header') {
     const scaleStyle = size === 'large' ? styles.mascotPoseEffectLarge : null;
+    const sunglassStyle =
+      size === 'signupCompact'
+        ? styles.mascotSunglassesSignupCompact
+        : size === 'signup'
+          ? styles.mascotSunglassesSignup
+          : styles.mascotSunglasses;
+    const sunglassLensStyle =
+      size === 'signupCompact'
+        ? styles.mascotSunglassLensSignupCompact
+        : size === 'signup'
+          ? styles.mascotSunglassLensSignup
+          : null;
+    const sunglassBridgeStyle =
+      size === 'signupCompact'
+        ? styles.mascotSunglassBridgeSignupCompact
+        : size === 'signup'
+          ? styles.mascotSunglassBridgeSignup
+          : null;
 
     if (mascotPose === 'think') {
       return (
@@ -5005,10 +5478,10 @@ export function StudentOnboardingScreen({
     if (mascotPose === 'cool') {
       return (
         <View pointerEvents="none" style={[styles.mascotPoseEffect, scaleStyle]}>
-          <View style={styles.mascotSunglasses}>
-            <View style={styles.mascotSunglassLens} />
-            <View style={styles.mascotSunglassBridge} />
-            <View style={styles.mascotSunglassLens} />
+          <View style={[styles.mascotSunglasses, sunglassStyle]}>
+            <View style={[styles.mascotSunglassLens, sunglassLensStyle]} />
+            <View style={[styles.mascotSunglassBridge, sunglassBridgeStyle]} />
+            <View style={[styles.mascotSunglassLens, sunglassLensStyle]} />
           </View>
         </View>
       );
@@ -5177,17 +5650,15 @@ export function StudentOnboardingScreen({
             </View>
           ) : null}
 
-          {!usesBrandLanguageStep && !usesCompactIntroNav && !usesMascotNavBar ? (
+          {!usesBrandLanguageStep && !usesCompactIntroNav && !usesMascotNavBar && !usesFullscreenCommitmentStep ? (
             <View style={styles.header}>
-              {introStep !== 'signup' ? (
-                <View style={styles.headerCopy}>
-                  <Text style={[styles.eyebrow, { color: content.accent }]}>{headerEyebrow}</Text>
-                  <Text style={[styles.title, compactLayout && styles.titleCompact]}>
-                    {headerTitle}
-                  </Text>
-                  <Text style={[styles.body, compactLayout && styles.bodyCompact]}>{headerBody}</Text>
-                </View>
-              ) : null}
+              <View style={styles.headerCopy}>
+                <Text style={[styles.eyebrow, { color: content.accent }]}>{headerEyebrow}</Text>
+                <Text style={[styles.title, compactLayout && styles.titleCompact]}>
+                  {headerTitle}
+                </Text>
+                <Text style={[styles.body, compactLayout && styles.bodyCompact]}>{headerBody}</Text>
+              </View>
               {!usesMascotNavBar ? (
                 <View style={[styles.mascotStage, compactLayout && styles.mascotStageCompact]}>
                 <Animated.View
@@ -5370,7 +5841,7 @@ export function StudentOnboardingScreen({
                 <Text style={[styles.stepKicker, { color: content.accent }]}>
                   {swahiliIntro ? 'Rafiki wako wa masomo ✨' : 'Your study buddy ✨'}
                 </Text>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {swahiliIntro ? 'Chagua mwenzako!' : 'Choose your buddy!'}
                 </Text>
                 <Text style={[styles.stepText, compactLayout && styles.stepTextCompact]}>
@@ -5473,14 +5944,14 @@ export function StudentOnboardingScreen({
                 <Text style={[styles.stepKicker, { color: content.accent }]}>
                   {swahiliIntro ? 'Karibu! 🚀' : 'Welcome! 🚀'}
                 </Text>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {swahiliIntro ? 'Ni nani wewe?' : 'Who are you?'}
                 </Text>
                 <View
                   accessibilityLabel="Account role options"
                   accessibilityRole="radiogroup"
                   style={styles.roleGrid}>
-                  {ROLE_OPTIONS.map(option => {
+                  {PUBLIC_ROLE_OPTIONS.map(option => {
                     const canChangeRole = Boolean(onRoleChange);
                     // Don't pre-select the default role when the user is free to change it —
                     // they must tap a role first. A locked role (no onRoleChange) stays selected.
@@ -5534,7 +6005,7 @@ export function StudentOnboardingScreen({
                 <Text style={[styles.stepKicker, { color: content.accent }]}>
                   {swahiliIntro ? 'Sauti 🔊' : 'Voice 🔊'}
                 </Text>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {swahiliIntro ? 'Sauti ya mwalimu wako isikike vipi?' : 'How should your tutor sound?'}
                 </Text>
                 <View
@@ -5551,7 +6022,11 @@ export function StudentOnboardingScreen({
                   {selectedVoiceName ?? (swahiliIntro ? 'Chagua sauti' : 'Choose voice')}
                 </Text>
                 <Text style={[styles.stepText, compactLayout && styles.stepTextCompact]}>
-                  {swahiliIntro ? 'Telezesha kusikia kila sauti' : 'Slide to hear each voice'}
+                  {voicePreviewingName
+                    ? `Playing ${voicePreviewingName}...`
+                    : selectedVoiceName && voicePreviewedName === selectedVoiceName
+                      ? `${selectedVoiceName} preview complete.`
+                      : swahiliIntro ? 'Gusa sauti ili kuisikiza kwanza' : 'Tap a voice to hear it before continuing'}
                 </Text>
                 <View
                   accessibilityLabel="Voice slider positions"
@@ -5644,7 +6119,7 @@ export function StudentOnboardingScreen({
                 <Text style={[styles.stepKicker, { color: content.accent }]}>
                   {needStepCopy.eyebrow}
                 </Text>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {needStepCopy.heading}
                 </Text>
                 <View
@@ -5691,7 +6166,7 @@ export function StudentOnboardingScreen({
                 <Text style={[styles.stepKicker, { color: content.accent }]}>
                   {nameStepCopy.eyebrow}
                 </Text>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {swahiliIntro ? 'Jina lako ni nani?' : 'What\'s your name?'}
                 </Text>
                 <TextInput
@@ -5710,7 +6185,11 @@ export function StudentOnboardingScreen({
                   value={displayName}
                 />
                 <Text style={[styles.stepText, compactLayout && styles.stepTextCompact]}>
-                  {nameStepCopy.subText}
+                  {displayName.trim() && !isValidDisplayName(displayName)
+                    ? swahiliIntro
+                      ? 'Tumia jina bila nambari.'
+                      : 'Names cannot include numbers.'
+                    : nameStepCopy.subText}
                 </Text>
               </>
             ) : null}
@@ -5720,7 +6199,7 @@ export function StudentOnboardingScreen({
                 <Text style={[styles.stepKicker, { color: content.accent }]}>
                   {languageCode === 'sw' ? 'Kuhusu wewe \uD83E\uDDCD' : 'About you \uD83E\uDDCD'}
                 </Text>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {languageCode === 'sw' ? 'Wewe ni wa jinsia gani?' : 'What is your gender?'}
                 </Text>
                 <Animated.View
@@ -5784,7 +6263,7 @@ export function StudentOnboardingScreen({
                     <Text style={[styles.stepKicker, { color: content.accent }]}>
                       {swahiliIntro ? 'Madarasa yako' : 'Your classes'}
                     </Text>
-                    <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                    <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                       {swahiliIntro ? 'Unafundisha madarasa gani?' : 'Which grades do you teach?'}
                     </Text>
                     <Text style={[styles.stepText, compactLayout && styles.stepTextCompact]}>
@@ -5802,10 +6281,11 @@ export function StudentOnboardingScreen({
                           <View style={styles.teacherGradeBandGrid}>
                             {band.grades.map(option => {
                               const selected = teacherGradeIds.includes(option);
+                              const optionLabel = displayGradeChipLabel(option);
                               return (
                                 <Pressable
                                   accessibilityRole="button"
-                                  accessibilityLabel={`${selected ? 'Remove' : 'Add'} teaching ${option}`}
+                                  accessibilityLabel={`${selected ? 'Remove' : 'Add'} teaching ${optionLabel}`}
                                   accessibilityState={{ selected }}
                                   key={option}
                                   onPress={() => handleTeacherGradeToggle(option)}
@@ -5817,7 +6297,7 @@ export function StudentOnboardingScreen({
                                     },
                                   ]}>
                                   <Text style={[styles.choiceChipText, selected && styles.choiceChipTextActive]}>
-                                    {option}
+                                    {optionLabel}
                                   </Text>
                                 </Pressable>
                               );
@@ -5838,7 +6318,7 @@ export function StudentOnboardingScreen({
                     <Text style={[styles.stepKicker, { color: content.accent }]}>
                       {swahiliIntro ? 'Watoto wako' : 'Your children'} {'👨‍👧'}
                     </Text>
-                    <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                    <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                       {swahiliIntro
                         ? 'Niambie kuhusu mtoto/watoto wako'
                         : 'Tell me about your children'}
@@ -5874,18 +6354,27 @@ export function StudentOnboardingScreen({
                       <Text style={styles.childFieldLabel}>
                         {swahiliIntro ? 'Umri' : 'Age'}
                       </Text>
-                      <TextInput
-                        accessibilityLabel="Child age"
-                        keyboardType="number-pad"
-                        maxLength={2}
-                        onChangeText={handleParentChildAgeChange}
-                        placeholder={swahiliIntro ? 'Umri...' : 'Age...'}
-                        placeholderTextColor={ONBOARDING_COLORS.textMuted}
-                        returnKeyType="done"
-                        selectionColor={content.accent}
-                        style={[styles.input, compactLayout && styles.inputCompact]}
-                        value={parentChildAge}
-                      />
+                      <Animated.View style={ageShakeStyle(childAgeShakeMotion)}>
+                        <TextInput
+                          accessibilityLabel="Child age"
+                          keyboardType="number-pad"
+                          maxLength={2}
+                          onChangeText={handleParentChildAgeChange}
+                          placeholder={swahiliIntro ? 'Umri...' : 'Age...'}
+                          placeholderTextColor={ONBOARDING_COLORS.textMuted}
+                          returnKeyType="done"
+                          selectionColor={content.accent}
+                          style={[
+                            styles.input,
+                            compactLayout && styles.inputCompact,
+                            parentChildAge && !isValidLearnerAge(parentChildAge) && styles.signupInputInvalid,
+                          ]}
+                          value={parentChildAge}
+                        />
+                      </Animated.View>
+                      {parentChildAge && !isValidLearnerAge(parentChildAge) ? (
+                        <Text style={styles.signupFieldError}>{invalidAgeText()}</Text>
+                      ) : null}
                       <Text style={styles.childFieldLabel}>
                         {swahiliIntro ? 'Darasa la Sasa' : 'Current grade'}
                       </Text>
@@ -5907,7 +6396,7 @@ export function StudentOnboardingScreen({
                                 },
                               ]}>
                               <Text style={[styles.choiceChipText, selected && styles.choiceChipTextActive]}>
-                                {option.replace('Grade ', '')}
+                                {displayGradeLabel(option).replace('Grade ', '')}
                               </Text>
                             </Pressable>
                           );
@@ -5948,18 +6437,27 @@ export function StudentOnboardingScreen({
                         <Text style={styles.childFieldLabel}>
                           {swahiliIntro ? 'Umri' : 'Age'}
                         </Text>
-                        <TextInput
-                          accessibilityLabel={`Child ${index + 2} age`}
-                          keyboardType="number-pad"
-                          maxLength={2}
-                          onChangeText={value => handleAdditionalParentChildChange(index, 'age', value)}
-                          placeholder={swahiliIntro ? 'Umri...' : 'Age...'}
-                          placeholderTextColor={ONBOARDING_COLORS.textMuted}
-                          returnKeyType="done"
-                          selectionColor={content.accent}
-                          style={[styles.input, compactLayout && styles.inputCompact]}
-                          value={child.age}
-                        />
+                        <Animated.View style={ageShakeStyle(childAgeShakeMotion)}>
+                          <TextInput
+                            accessibilityLabel={`Child ${index + 2} age`}
+                            keyboardType="number-pad"
+                            maxLength={2}
+                            onChangeText={value => handleAdditionalParentChildChange(index, 'age', value)}
+                            placeholder={swahiliIntro ? 'Umri...' : 'Age...'}
+                            placeholderTextColor={ONBOARDING_COLORS.textMuted}
+                            returnKeyType="done"
+                            selectionColor={content.accent}
+                            style={[
+                              styles.input,
+                              compactLayout && styles.inputCompact,
+                              child.age && !isValidLearnerAge(child.age) && styles.signupInputInvalid,
+                            ]}
+                            value={child.age}
+                          />
+                        </Animated.View>
+                        {child.age && !isValidLearnerAge(child.age) ? (
+                          <Text style={styles.signupFieldError}>{invalidAgeText()}</Text>
+                        ) : null}
                         <Text style={styles.childFieldLabel}>
                           {swahiliIntro ? 'Darasa la Sasa' : 'Current grade'}
                         </Text>
@@ -5983,7 +6481,7 @@ export function StudentOnboardingScreen({
                                   },
                                 ]}>
                                 <Text style={[styles.choiceChipText, selected && styles.choiceChipTextActive]}>
-                                  {option.replace('Grade ', '')}
+                                  {displayGradeLabel(option).replace('Grade ', '')}
                                 </Text>
                               </Pressable>
                             );
@@ -6009,24 +6507,33 @@ export function StudentOnboardingScreen({
                 ) : (
                   <>
                     <Text style={[styles.stepKicker, { color: content.accent }]}>{ageStepCopy.eyebrow}</Text>
-                    <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                    <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                       {ageStepCopy.heading(displayName.trim())}
                     </Text>
-                    <TextInput
-                      accessibilityLabel="Your age"
-                      keyboardType="number-pad"
-                      maxLength={2}
-                      onChangeText={handleAgeChange}
-                      onSubmitEditing={handleContinue}
-                      placeholder={ageStepCopy.placeholder}
-                      placeholderTextColor={ONBOARDING_COLORS.textMuted}
-                      returnKeyType="next"
-                      selectionColor={content.accent}
-                      style={[styles.input, styles.profileInput, compactLayout && styles.inputCompact]}
-                      value={age}
-                    />
+                    <Animated.View style={ageShakeStyle(learnerAgeShakeMotion)}>
+                      <TextInput
+                        accessibilityLabel="Your age"
+                        keyboardType="number-pad"
+                        maxLength={2}
+                        onChangeText={handleAgeChange}
+                        onSubmitEditing={handleContinue}
+                        placeholder={ageStepCopy.placeholder}
+                        placeholderTextColor={ONBOARDING_COLORS.textMuted}
+                        returnKeyType="next"
+                        selectionColor={content.accent}
+                        style={[
+                          styles.input,
+                          styles.profileInput,
+                          compactLayout && styles.inputCompact,
+                          age && !isValidLearnerAge(age) && styles.signupInputInvalid,
+                        ]}
+                        value={age}
+                      />
+                    </Animated.View>
                     <Text style={[styles.stepText, compactLayout && styles.stepTextCompact]}>
-                      {ageStepCopy.subText}
+                      {age && !isValidLearnerAge(age)
+                        ? invalidAgeText()
+                        : ageStepCopy.subText}
                     </Text>
                   </>
                 )}
@@ -6048,7 +6555,7 @@ export function StudentOnboardingScreen({
                         ? 'Your goals 🤝'
                         : 'So tell me 🧠'}
                 </Text>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {swahiliIntro
                     ? role === 'teacher'
                       ? 'Lengo lako kuu la ufundishaji ni nini?'
@@ -6157,7 +6664,7 @@ export function StudentOnboardingScreen({
                         ? 'What worries you most? \uD83D\uDC9B'
                         : 'Tell me \uD83E\uDDE0'}
                 </Text>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {swahiliIntro
                     ? role === 'teacher'
                       ? 'Changamoto yako kubwa zaidi ya ufundishaji ni nini?'
@@ -6233,7 +6740,7 @@ export function StudentOnboardingScreen({
                           ? 'What are you hoping for? \uD83E\uDD1D'
                           : 'Your goals \uD83E\uDD1D'}
                 </Text>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {swahiliIntro
                     ? role === 'teacher'
                       ? 'Kitabu AI itafaa vipi kwako?'
@@ -6295,7 +6802,7 @@ export function StudentOnboardingScreen({
                 <Text style={[styles.stepKicker, { color: content.accent }]}>
                   {studentSwahiliIntro ? 'Inakujua? \uD83D\uDE2C' : 'Sound familiar? \uD83D\uDE2C'}
                 </Text>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {studentSwahiliIntro ? 'Usiku kabla ya mtihani wa KNEC...' : 'The night before an exam...'}
                 </Text>
                 <Text style={styles.storyHeroEmoji}>{'\uD83E\uDD2F'}</Text>
@@ -6306,15 +6813,15 @@ export function StudentOnboardingScreen({
                   {[
                     {
                       icon: '\uD83D\uDCDA',
-                      label: studentSwahiliIntro ? 'Kurasa 200 za notes kusomwa' : '200 pages of notes to read',
+                      label: studentSwahiliIntro ? 'Ninapata wasiwasi wakati wa mitihani' : 'I get anxious when we have exams',
                     },
                     {
                       icon: '\uD83D\uDE30',
-                      label: studentSwahiliIntro ? 'Hofu na wasiwasi mkubwa' : 'Panic and anxiety',
+                      label: studentSwahiliIntro ? 'Natamani ningekuwa na revision partner' : 'I wish I could have a revision partner',
                     },
                     {
                       icon: '❓',
-                      label: studentSwahiliIntro ? 'Nianze wapi? Sina mpango' : 'Where do I even start?',
+                      label: studentSwahiliIntro ? 'Notes zinaweza kuchosha kusoma' : 'Notes can be overwhelming to read',
                     },
                   ].map(item => (
                     <View key={item.label} style={[styles.needChoice, styles.storyPanelDanger, styles.storyPanelRow]}>
@@ -6331,7 +6838,7 @@ export function StudentOnboardingScreen({
                 <Text style={[styles.stepKicker, { color: content.accent }]}>
                   {studentSwahiliIntro ? 'Sasa na Kitabu AI \uD83D\uDE0C' : 'With Kitabu AI \uD83D\uDE0C'}
                 </Text>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {studentSwahiliIntro ? 'Usiku kabla ya mtihani wako...' : 'The night before your exam...'}
                 </Text>
                 <Text style={styles.storyHeroEmoji}>{'\uD83D\uDE0C'}</Text>
@@ -6340,9 +6847,9 @@ export function StudentOnboardingScreen({
                 </Text>
                 <View style={styles.needChoiceGrid}>
                   {[
-                    studentSwahiliIntro ? 'Mpango wazi wa kustudy' : 'A clear study plan',
-                    studentSwahiliIntro ? 'Karatasi za marudio na maswali yanayolingana na CBC' : 'Revision papers and quizzes aligned with CBC',
-                    studentSwahiliIntro ? 'Uchambuzi unaoonyesha udhaifu wako na kuurekebisha' : 'Analysis that shows your weak areas and fixes them',
+                    studentSwahiliIntro ? 'Kitabu hukupa mpango wazi wa masomo na karatasi za revision' : 'Kitabu Gives You a Clear Study Plan and Revision Papers',
+                    studentSwahiliIntro ? 'Rafiki ni revision partner wako anayepatikana kila wakati' : 'Rafiki is Your Always Available Revision Partner',
+                    studentSwahiliIntro ? 'Tunakuonyesha maeneo dhaifu na jinsi ya kuyarekebisha' : 'We Give You an Analysis that shows Your Weak Areas and How to Fix them',
                   ].map(item => (
                     <View key={item} style={[styles.needChoice, styles.storyPanelSuccess, styles.storyPanelRow]}>
                       <Text style={styles.storyPanelIcon}>{'\u2705'}</Text>
@@ -6358,7 +6865,7 @@ export function StudentOnboardingScreen({
                 <Text style={[styles.stepKicker, { color: content.accent }]}>
                   {studentSwahiliIntro ? 'Ni bidii' : 'Real progress'}
                 </Text>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {studentSwahiliIntro ? 'Ni bidii ya kweli!' : 'Learners improve faster with guided practice.'}
                 </Text>
                 <View style={[styles.socialProofPanel, { borderColor: `${content.accent}55` }]}>
@@ -6408,7 +6915,13 @@ export function StudentOnboardingScreen({
                     </LinearGradient>
                     <View style={styles.goodNewsHeadlineWrap}>
                       <Text style={styles.goodNewsHeadlineAccent}>{goodNewsPlan.headlineAccent}</Text>
-                      <Text style={styles.goodNewsHeadlineRest}>{goodNewsPlan.headlineRest.trimStart()}</Text>
+                      <Text
+                        adjustsFontSizeToFit
+                        minimumFontScale={0.72}
+                        numberOfLines={1}
+                        style={styles.goodNewsHeadlineRest}>
+                        {goodNewsPlan.headlineRest.trimStart()}
+                      </Text>
                     </View>
                     <Text style={styles.goodNewsBody}>{goodNewsPlan.body}</Text>
                   </View>
@@ -6527,7 +7040,7 @@ export function StudentOnboardingScreen({
                     ? `Karibu, ${displayName.trim() || 'rafiki'} \uD83D\uDE4C`
                     : `Nice to meet you, ${displayName.trim() || 'friend'} \uD83D\uDE4C`}
                 </Text>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {swahiliIntro
                     ? role === 'teacher'
                       ? 'Unafundisha katika nchi hii?'
@@ -6590,7 +7103,6 @@ export function StudentOnboardingScreen({
                                 // Region and school belong to the previous country, so reset them.
                                 setCounty('');
                                 setSchoolId('');
-                                setCustomSchoolName('');
                                 setSchoolQuery('');
                               }
                               setCountryCode(option.code);
@@ -6619,7 +7131,7 @@ export function StudentOnboardingScreen({
                 <Text style={[styles.stepKicker, { color: content.accent }]}>
                   {swahiliIntro ? 'Jambo moja zaidi \uD83D\uDC4D' : 'Just one more thing \uD83D\uDC4D'}
                 </Text>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {swahiliIntro ? 'Mambo unayopenda?' : 'What are your interests?'}
                 </Text>
                 <Text style={[styles.stepText, compactLayout && styles.stepTextCompact]}>
@@ -6627,7 +7139,7 @@ export function StudentOnboardingScreen({
                     ? 'Tutafanya maudhui ya masomo kulingana na unayopenda.'
                     : "We'll create study content you'll actually enjoy."}
                 </Text>
-                <View style={styles.roleGrid}>
+                <View style={[styles.roleGrid, styles.interestGrid]}>
                   {INTEREST_OPTIONS.map(option => {
                     const selected = selectedInterestKeys.includes(option.key);
                     const interestLabel = swahiliIntro ? option.swLabel ?? option.label : option.label;
@@ -6639,7 +7151,8 @@ export function StudentOnboardingScreen({
                         key={option.key}
                         onPress={() => handleInterestToggle(option.key)}
                         style={[
-                          styles.roleCard,
+                           styles.roleCard,
+                           styles.interestCard,
                           selected && {
                             backgroundColor: ONBOARDING_COLORS.primaryLight,
                             borderColor: ONBOARDING_COLORS.primary,
@@ -6666,7 +7179,7 @@ export function StudentOnboardingScreen({
                 <Text style={[styles.stepKicker, { color: content.accent }]}>
                   {reminderKicker}
                 </Text>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {reminderQuestion}
                 </Text>
                 <View
@@ -6945,10 +7458,11 @@ export function StudentOnboardingScreen({
                       {SUPPORTED_GRADES.map(option => {
                         const gradeSelected = grade === option;
                         const usePrdGrade = usesLearnerFlow && includeIntroChoices;
+                        const optionLabel = displayGradeChipLabel(option);
                         return (
                         <Pressable
                           accessibilityRole="radio"
-                          accessibilityLabel={`Select ${option}`}
+                          accessibilityLabel={`Select ${optionLabel}`}
                           accessibilityState={{ checked: gradeSelected }}
                           key={option}
                           onPress={() => handleGradeSelect(option)}
@@ -6970,9 +7484,9 @@ export function StudentOnboardingScreen({
                             ]}>
                             {swahiliIntro
                               ? role === 'teacher'
-                                ? option.replace('Grade ', 'Dar. ')
-                                : option.replace('Grade ', 'Darasa la ')
-                              : option}
+                                ? optionLabel.replace('Grade ', 'Dar. ')
+                                : optionLabel.replace('Grade ', 'Darasa la ')
+                              : optionLabel}
                           </Text>
                         </Pressable>
                         );
@@ -6990,7 +7504,7 @@ export function StudentOnboardingScreen({
                         ]}>
                         <Text style={styles.gradeBandIndicatorIcon}>{'\uD83D\uDCCB'}</Text>
                         <Text style={[styles.gradeBandIndicatorText, { color: ONBOARDING_COLORS.primary }]}>
-                          {GRADE_BAND_LABELS[activeGradeBand][languageCode]}
+                          {displayGradeBandLabel(grade, languageCode ?? 'en')}
                         </Text>
                       </View>
                     ) : null}
@@ -7119,7 +7633,7 @@ export function StudentOnboardingScreen({
                 <Text style={[styles.stepKicker, { color: content.accent }]}>
                   {schoolStepCopy.eyebrow}
                 </Text>
-                <Text style={[styles.stepTitle, schoolStepCompactLayout && styles.stepTitleCompact]}>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, schoolStepCompactLayout && styles.stepTitleCompact]}>
                   {schoolStepCopy.heading}
                 </Text>
                 {!includeIntroChoices ? (
@@ -7230,6 +7744,7 @@ export function StudentOnboardingScreen({
                   animationType="slide"
                   onRequestClose={() => setSchoolPickerOpen(false)}
                   transparent
+                  testID="school-picker-modal"
                   visible={schoolPickerOpen}>
                   <Pressable style={styles.pickerBackdrop} onPress={() => setSchoolPickerOpen(false)}>
                     <Pressable style={styles.schoolPickerSheet} onPress={() => undefined}>
@@ -7334,37 +7849,6 @@ export function StudentOnboardingScreen({
                       </Pressable>
                     );
                   })}
-                  {county && schoolQuery.trim() ? (
-                    <Pressable
-                      accessibilityRole="radio"
-                      accessibilityLabel={`Add ${schoolQuery.trim()} school`}
-                      accessibilityState={{ checked: customSchoolName === schoolQuery.trim() && !schoolId }}
-                      onPress={handleAddCustomSchool}
-                      style={[
-                        styles.schoolOption,
-                        schoolStepCompactLayout && styles.schoolOptionCompact,
-                        customSchoolName === schoolQuery.trim() && !schoolId
-                          ? [styles.schoolOptionSelected, { borderColor: content.accent }]
-                          : {},
-                      ]}>
-                      <View style={styles.schoolOptionHeader}>
-                        <Text style={[styles.schoolName, { color: content.accent }]}>
-                          + Add "{schoolQuery.trim()}"
-                        </Text>
-                        {customSchoolName === schoolQuery.trim() && !schoolId ? (
-                          <View
-                            style={[styles.schoolSelectedCheck, { backgroundColor: content.accent }]}
-                            testID="selected-school-check">
-                            <Check color={ONBOARDING_COLORS.white} size={12} strokeWidth={3} />
-                          </View>
-                        ) : null}
-                      </View>
-                      <Text style={styles.schoolMeta}>{county}</Text>
-                      <Text style={[styles.schoolGradeMeta, { color: content.accent }]}>
-                        Custom school
-                      </Text>
-                    </Pressable>
-                  ) : null}
                   {filteredSchools.length === 0 ? (
                     <Text
                       accessibilityLabel="No matching schools"
@@ -7430,7 +7914,7 @@ export function StudentOnboardingScreen({
             {introStep === 'setup' && step === 2 && !includeIntroChoices ? (
               <>
                 <Text style={[styles.stepKicker, { color: content.accent }]}>Payments</Text>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   Optional M-Pesa shortcut
                 </Text>
                 <Text style={[styles.stepText, compactLayout && styles.stepTextCompact]}>
@@ -7522,7 +8006,7 @@ export function StudentOnboardingScreen({
                 <Text style={[styles.stepKicker, { color: content.accent }]}>
                   {swahiliIntro ? 'Kitabu AI' : role === 'teacher' ? 'Building workspace' : role === 'parent' ? 'Building dashboard' : 'Building profile'}
                 </Text>
-                <Text style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
+                <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>
                   {loadingHeaderTitle}
                 </Text>
                 <View style={[styles.loadingProfilePanel, { borderColor: `${content.accent}55` }]}>
@@ -7584,49 +8068,67 @@ export function StudentOnboardingScreen({
 
             {introStep === 'profileReady' ? (
               <>
-                <LinearGradient
-                  colors={[
-                    content.accent,
-                    content.accent === ONBOARDING_COLORS.primary
-                      ? ONBOARDING_COLORS.primaryDark
-                      : content.accent === ONBOARDING_COLORS.pro
-                        ? ONBOARDING_COLORS.proDark
-                        : content.accent,
-                  ]}
-                  start={{ x: 0, y: 0 }}
-                  end={{ x: 1, y: 1 }}
-                  style={[styles.readyHeroBand, compactLayout && styles.readyHeroBandCompact]}>
-                  <View
+                <View style={[styles.readyHeroRow, compactLayout && styles.readyHeroRowCompact]}>
+                  <LinearGradient
+                    colors={[
+                      content.accent,
+                      content.accent === ONBOARDING_COLORS.primary
+                        ? ONBOARDING_COLORS.primaryDark
+                        : content.accent === ONBOARDING_COLORS.pro
+                          ? ONBOARDING_COLORS.proDark
+                          : content.accent,
+                    ]}
+                    start={{ x: 0, y: 0 }}
+                    end={{ x: 1, y: 1 }}
+                    style={[
+                      styles.readyHeroBand,
+                      styles.readyHeroBandInline,
+                      compactLayout && styles.readyHeroBandCompact,
+                      compactLayout && styles.readyHeroBandInlineCompact,
+                    ]}>
+                    <View
+                      accessibilityLabel="Student avatar"
+                      accessibilityRole="image"
+                      style={[
+                        styles.readyHeroBandMascot,
+                        styles.readyHeroBandMascotInline,
+                        compactLayout && styles.readyHeroBandMascotCompact,
+                      ]}>
+                      <AvatarArt avatarKey={learnerAvatarKey} size={compactLayout ? 52 : 58} />
+                    </View>
+                    <View style={styles.readyHeroBandCopy}>
+                      <Text style={styles.readyHeroBandEyebrow}>
+                        {swahiliIntro ? 'Mwenzako wa masomo' : role === 'teacher' ? 'Workspace ready' : role === 'parent' ? 'Dashboard ready' : 'Profile ready'}
+                      </Text>
+                      <Text numberOfLines={1} style={[styles.readyHeroBandTitle, compactLayout && styles.readyHeroBandTitleCompact]}>
+                        {`${displayName.trim() || (swahiliIntro ? 'Wewe' : 'You')},`}
+                      </Text>
+                      <Text numberOfLines={2} style={styles.readyHeroBandSub}>
+                        {swahiliIntro
+                          ? role === 'teacher' ? 'Kila kitu kiko tayari kwa darasa lako.' : 'Mpango wako wa masomo uko tayari.'
+                          : role === 'teacher' ? 'Everything is set for your class.' : 'Your study plan is ready to go.'}
+                      </Text>
+                      {readySummary ? (
+                        <View style={styles.readyHeroBandPill}>
+                          <Text numberOfLines={1} style={styles.readyHeroBandPillText}>{readySummary}</Text>
+                        </View>
+                      ) : null}
+                    </View>
+                  </LinearGradient>
+                  <Animated.View
                     accessibilityLabel={mascotPoseAccessibilityLabel}
                     accessibilityRole="image"
-                    style={[styles.readyHeroBandMascot, compactLayout && styles.readyHeroBandMascotCompact]}>
+                    style={[styles.readyMascotStage, compactLayout && styles.readyMascotStageCompact, mascotMotionStyle]}>
                     <Image
                       accessibilityIgnoresInvertColors
                       accessibilityLabel={activeMascot.label}
-                      source={activeMascot.source}
                       resizeMode="contain"
-                      style={[styles.readyHeroBandMascotImage, compactLayout && styles.readyHeroBandMascotImageCompact]}
+                      source={activeMascot.source}
+                      style={[styles.readyMascotImage, compactLayout && styles.readyMascotImageCompact]}
                     />
-                  </View>
-                  <View style={styles.readyHeroBandCopy}>
-                    <Text style={styles.readyHeroBandEyebrow}>
-                      {swahiliIntro ? 'Mwenzako wa masomo' : role === 'teacher' ? 'Workspace ready' : role === 'parent' ? 'Dashboard ready' : 'Profile ready'}
-                    </Text>
-                    <Text numberOfLines={1} style={[styles.readyHeroBandTitle, compactLayout && styles.readyHeroBandTitleCompact]}>
-                      {`${displayName.trim() || (swahiliIntro ? 'Wewe' : 'You')},`}
-                    </Text>
-                    <Text numberOfLines={2} style={styles.readyHeroBandSub}>
-                      {swahiliIntro
-                        ? role === 'teacher' ? 'Kila kitu kiko tayari kwa darasa lako.' : 'Mpango wako wa masomo uko tayari.'
-                        : role === 'teacher' ? 'Everything is set for your class.' : 'Your study plan is ready to go.'}
-                    </Text>
-                    {readySummary ? (
-                      <View style={styles.readyHeroBandPill}>
-                        <Text style={styles.readyHeroBandPillText}>{readySummary}</Text>
-                      </View>
-                    ) : null}
-                  </View>
-                </LinearGradient>
+                    {renderMascotPoseEffect()}
+                  </Animated.View>
+                </View>
                 <Text style={[styles.readyGoalsHeading, compactLayout && styles.readyGoalsHeadingCompact, { color: content.accent }]}>
                   {swahiliIntro ? 'Malengo ya kufikiwa' : 'Goals to reach'}
                 </Text>
@@ -7693,17 +8195,39 @@ export function StudentOnboardingScreen({
 
             {introStep === 'signup' ? (
               <>
-                <View style={styles.signupBrandRow}>
-                  <Text style={styles.signupBrandIcon}>{'📚'}</Text>
-                  <Text style={styles.signupBrandWordmark}>Kitabu</Text>
-                  <Text style={styles.signupBrandBadge}>AI</Text>
+                <View
+                  style={[
+                    styles.signupBrandRow,
+                    (signupStep === 'email' || signupStep === 'phone') && styles.signupBrandRowCompact,
+                  ]}>
+                  <Animated.View
+                    accessibilityLabel={mascotPoseAccessibilityLabel}
+                    accessibilityRole="image"
+                    testID="onboarding-mascot-motion"
+                    style={mascotMotionStyle}>
+                    <Image
+                      accessibilityIgnoresInvertColors
+                      accessibilityLabel={activeMascot.label}
+                      resizeMode="contain"
+                      source={activeMascot.source}
+                      style={[
+                        styles.signupMascotCentered,
+                        (signupStep === 'email' || signupStep === 'phone') && styles.signupMascotCenteredCompact,
+                      ]}
+                    />
+                    {renderMascotPoseEffect(signupStep === 'email' || signupStep === 'phone' ? 'signupCompact' : 'signup')}
+                  </Animated.View>
                 </View>
-                <Text style={[styles.stepTitle, styles.centeredText, compactLayout && styles.stepTitleCompact]}>
-                  {swahiliIntro ? 'Hifadhi akaunti yako' : 'Save your account'}
-                </Text>
-                <Text style={[styles.stepText, styles.centeredText, compactLayout && styles.stepTextCompact]}>
-                  {swahiliIntro ? 'Jiandikishe kuendelea na mpango wako wa masomo' : 'Sign up to continue with your study plan'}
-                </Text>
+                {signupStep === 'method' ? (
+                  <>
+                    <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, styles.centeredText, compactLayout && styles.stepTitleCompact]}>
+                      {swahiliIntro ? 'Hifadhi akaunti yako' : 'Save your account'}
+                    </Text>
+                    <Text style={[styles.stepText, styles.centeredText, compactLayout && styles.stepTextCompact]}>
+                      {swahiliIntro ? 'Jiandikishe kuendelea na mpango wako wa masomo' : 'Sign up to continue with your study plan'}
+                    </Text>
+                  </>
+                ) : null}
                 {collectSignupCredentials ? (
                   <>
                     {signupStep !== 'method' ? (
@@ -7745,7 +8269,7 @@ export function StudentOnboardingScreen({
                           accessibilityRole="button"
                           onPress={() => handleSignupMethodSelect('google')}
                           style={styles.signupGoogleButton}>
-                          <Text style={styles.signupGoogleMark}>G</Text>
+                          <GoogleLogo size={20} />
                           <Text style={styles.signupGoogleText}>Continue with Google</Text>
                         </Pressable>
                         <Pressable
@@ -7949,14 +8473,6 @@ export function StudentOnboardingScreen({
 
                     {signupStep === 'verify' ? (
                       <View style={styles.signupFormPanel}>
-                        <Image
-                          accessibilityIgnoresInvertColors
-                          accessibilityLabel={mascotPoseAccessibilityLabel}
-                          resizeMode="contain"
-                          source={activeMascot.source}
-                          style={styles.signupVerifyMascot}
-                        />
-                        {renderMascotPoseEffect('large')}
                         <Text style={[styles.needChoiceTitle, styles.centeredText]}>
                           {swahiliIntro ? 'Ingiza msimbo wa nambari 6' : 'Enter the 6-digit code'}
                         </Text>
@@ -8050,8 +8566,7 @@ export function StudentOnboardingScreen({
             <View
               testID="onboarding-footer"
               style={[styles.footerRow, footerCompactLayout && styles.footerRowCompact]}>
-              {(includeIntroChoices && studentFullIntro && introStep === 'setup' && (step === 1 || step === 2)) ||
-              (includeIntroChoices && (introStep === 'interests' || introStep === 'reminder')) ? (
+              {includeIntroChoices && (introStep === 'interests' || introStep === 'reminder') ? (
                 <Pressable
                   accessibilityRole="button"
                   accessibilityLabel="Skip this step"
@@ -8227,16 +8742,42 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 43,
   },
+  mascotSunglassesSignup: {
+    left: 24,
+    top: 28,
+  },
+  mascotSunglassesSignupCompact: {
+    left: 18,
+    top: 21,
+  },
   mascotSunglassLens: {
     backgroundColor: ONBOARDING_COLORS.textPrimary,
     borderRadius: 5,
     height: 10,
     width: 18,
   },
+  mascotSunglassLensSignup: {
+    borderRadius: 4,
+    height: 8,
+    width: 14,
+  },
+  mascotSunglassLensSignupCompact: {
+    borderRadius: 4,
+    height: 6,
+    width: 11,
+  },
   mascotSunglassBridge: {
     backgroundColor: ONBOARDING_COLORS.textPrimary,
     height: 3,
     width: 7,
+  },
+  mascotSunglassBridgeSignup: {
+    height: 2,
+    width: 5,
+  },
+  mascotSunglassBridgeSignupCompact: {
+    height: 2,
+    width: 4,
   },
   mascotConfetti: {
     borderRadius: 2,
@@ -8673,9 +9214,11 @@ const styles = StyleSheet.create({
   },
   stepTitle: {
     color: ONBOARDING_COLORS.textPrimary,
-    fontSize: 24,
+    fontSize: 23,
     fontWeight: '900',
+    lineHeight: 28,
     marginTop: 10,
+    textAlign: 'center',
   },
   stepTitleNoKicker: {
     marginTop: 0,
@@ -9182,6 +9725,10 @@ const styles = StyleSheet.create({
     rowGap: 10,
     marginTop: 18,
   },
+  interestGrid: {
+    marginTop: 14,
+    rowGap: 8,
+  },
   roleCard: {
     alignItems: 'center',
     backgroundColor: ONBOARDING_COLORS.bgSoft,
@@ -9194,6 +9741,10 @@ const styles = StyleSheet.create({
     paddingVertical: 18,
     position: 'relative',
     width: '48%',
+  },
+  interestCard: {
+    minHeight: 118,
+    paddingVertical: 15,
   },
   roleCardCheck: {
     alignItems: 'center',
@@ -9265,10 +9816,20 @@ const styles = StyleSheet.create({
   },
   signupBrandRow: {
     alignItems: 'center',
-    flexDirection: 'row',
     justifyContent: 'center',
-    marginBottom: 16,
-    marginTop: 8,
+    marginBottom: 8,
+    marginTop: 0,
+  },
+  signupBrandRowCompact: {
+    marginBottom: 4,
+  },
+  signupMascotCentered: {
+    height: 82,
+    width: 82,
+  },
+  signupMascotCenteredCompact: {
+    height: 62,
+    width: 62,
   },
   signupBrandIcon: {
     fontSize: 26,
@@ -9531,17 +10092,17 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   goodNewsStudioPage: {
-    gap: 9,
+    gap: 7,
     marginTop: 0,
   },
   goodNewsHeroCluster: {
     flexDirection: 'row',
-    minHeight: 220,
+    minHeight: 190,
     position: 'relative',
   },
   goodNewsCopyColumn: {
     flexShrink: 0,
-    paddingTop: 2,
+    paddingTop: 0,
     width: 206,
     zIndex: 2,
   },
@@ -9550,10 +10111,10 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     borderRadius: 999,
     flexDirection: 'row',
-    gap: 8,
-    minHeight: 34,
-    paddingHorizontal: 12,
-    paddingVertical: 7,
+    gap: 6,
+    minHeight: 30,
+    paddingHorizontal: 11,
+    paddingVertical: 5,
   },
   goodNewsBadgeIcon: {
     fontSize: 17,
@@ -9567,69 +10128,69 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
   },
   goodNewsHeadlineWrap: {
-    marginTop: 12,
+    marginTop: 8,
   },
   goodNewsHeadlineRest: {
     color: '#071A44',
-    fontSize: 36,
+    fontSize: 20,
     fontWeight: '900',
     letterSpacing: 0,
-    lineHeight: 40,
+    lineHeight: 24,
   },
   goodNewsHeadlineAccent: {
     color: '#095CFF',
-    fontSize: 50,
+    fontSize: 46,
     fontWeight: '900',
     letterSpacing: 0,
-    lineHeight: 54,
+    lineHeight: 49,
   },
   goodNewsBody: {
     color: '#071A44',
     fontSize: 13,
     fontWeight: '600',
-    lineHeight: 19,
-    marginTop: 8,
+    lineHeight: 18,
+    marginTop: 6,
     maxWidth: 205,
   },
   goodNewsPhotoFrame: {
-    height: 210,
+    height: 184,
     position: 'absolute',
     right: -14,
-    top: 12,
-    width: 170,
+    top: 6,
+    width: 150,
     zIndex: 1,
   },
   goodNewsPhotoHalo: {
     backgroundColor: '#DFF5F8',
     borderRadius: 96,
-    height: 190,
+    height: 166,
     opacity: 0.8,
     position: 'absolute',
     right: -18,
     top: -10,
-    width: 190,
+    width: 166,
   },
   goodNewsPhoto: {
     borderBottomLeftRadius: 30,
     borderBottomRightRadius: 30,
     borderTopLeftRadius: 82,
     borderTopRightRadius: 82,
-    height: 190,
+    height: 166,
     position: 'absolute',
     right: 4,
     top: 0,
-    width: 154,
+    width: 134,
   },
   goodNewsMascotBubble: {
     backgroundColor: '#E8F8EE',
-    borderRadius: 34,
+    borderRadius: 28,
     borderWidth: 2,
-    bottom: 8,
-    height: 58,
+    bottom: 6,
+    height: 50,
     overflow: 'hidden',
     position: 'absolute',
     right: -2,
-    width: 58,
+    width: 50,
     zIndex: 3,
   },
   goodNewsMascotImage: {
@@ -9674,7 +10235,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderWidth: 1,
     paddingHorizontal: 12,
-    paddingVertical: 12,
+    paddingVertical: 10,
     shadowColor: '#244B84',
     shadowOffset: { width: 0, height: 14 },
     shadowOpacity: 0.12,
@@ -9682,10 +10243,10 @@ const styles = StyleSheet.create({
   },
   goodNewsPathTitle: {
     color: '#071A44',
-    fontSize: 15,
+    fontSize: 14,
     fontWeight: '900',
     letterSpacing: 0,
-    marginBottom: 9,
+    marginBottom: 7,
   },
   goodNewsPathBody: {
     alignItems: 'center',
@@ -9696,7 +10257,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#EEF2F8',
     borderRadius: 10,
-    height: 72,
+    height: 64,
     justifyContent: 'center',
     width: 64,
   },
@@ -9708,14 +10269,14 @@ const styles = StyleSheet.create({
   },
   goodNewsGradeBlockValue: {
     color: '#405172',
-    fontSize: 34,
+    fontSize: 31,
     fontWeight: '900',
-    lineHeight: 38,
+    lineHeight: 34,
   },
   goodNewsPathArrowArea: {
     alignItems: 'center',
     flex: 1,
-    height: 74,
+    height: 64,
     justifyContent: 'center',
     minWidth: 96,
   },
@@ -9724,16 +10285,16 @@ const styles = StyleSheet.create({
     top: 0,
   },
   goodNewsMidpoint: {
-    fontSize: 25,
+    fontSize: 22,
     fontWeight: '900',
-    lineHeight: 26,
-    marginTop: 24,
+    lineHeight: 23,
+    marginTop: 18,
     textAlign: 'center',
   },
   goodNewsGradeBlockAfter: {
     alignItems: 'center',
     borderRadius: 10,
-    height: 78,
+    height: 68,
     justifyContent: 'center',
     width: 66,
   },
@@ -9745,9 +10306,9 @@ const styles = StyleSheet.create({
   },
   goodNewsGradeBlockAfterValue: {
     color: ONBOARDING_COLORS.white,
-    fontSize: 40,
+    fontSize: 35,
     fontWeight: '900',
-    lineHeight: 44,
+    lineHeight: 38,
   },
   goodNewsProgressRail: {
     alignItems: 'center',
@@ -9781,12 +10342,12 @@ const styles = StyleSheet.create({
     fontSize: 11,
     fontWeight: '800',
     lineHeight: 15,
-    marginTop: 7,
+    marginTop: 5,
     textAlign: 'center',
   },
   goodNewsBenefitGrid: {
     flexDirection: 'row',
-    gap: 7,
+    gap: 6,
   },
   goodNewsBenefitCard: {
     alignItems: 'center',
@@ -9796,9 +10357,9 @@ const styles = StyleSheet.create({
     borderTopWidth: 4,
     borderWidth: 1,
     flex: 1,
-    minHeight: 108,
+    minHeight: 96,
     paddingHorizontal: 6,
-    paddingVertical: 9,
+    paddingVertical: 7,
     shadowColor: '#244B84',
     shadowOffset: { width: 0, height: 10 },
     shadowOpacity: 0.08,
@@ -9807,31 +10368,31 @@ const styles = StyleSheet.create({
   goodNewsBenefitIconBubble: {
     alignItems: 'center',
     borderRadius: 23,
-    height: 44,
+    height: 38,
     justifyContent: 'center',
-    marginBottom: 7,
-    width: 44,
+    marginBottom: 5,
+    width: 38,
   },
   goodNewsBenefitIcon: {
     color: ONBOARDING_COLORS.white,
-    fontSize: 23,
+    fontSize: 20,
     fontWeight: '900',
-    lineHeight: 27,
+    lineHeight: 24,
   },
   goodNewsBenefitTitle: {
     color: '#071A44',
-    fontSize: 12,
+    fontSize: 11,
     fontWeight: '900',
     letterSpacing: 0,
-    lineHeight: 15,
+    lineHeight: 14,
     textAlign: 'center',
   },
   goodNewsBenefitBody: {
     color: '#405172',
     fontSize: 10,
     fontWeight: '600',
-    lineHeight: 13,
-    marginTop: 3,
+    lineHeight: 12,
+    marginTop: 2,
     textAlign: 'center',
   },
   goodNewsSupportCard: {
@@ -9842,7 +10403,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 7,
     paddingHorizontal: 10,
-    paddingVertical: 7,
+    paddingVertical: 6,
   },
   goodNewsSupportMark: {
     fontSize: 12,
@@ -10174,7 +10735,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 8,
     justifyContent: 'center',
-    marginTop: 16,
+    marginTop: 8,
   },
   signupStepDot: {
     backgroundColor: 'transparent',
@@ -10186,7 +10747,7 @@ const styles = StyleSheet.create({
   },
   signupInlineBack: {
     alignSelf: 'flex-start',
-    marginTop: 14,
+    marginTop: 8,
     minHeight: 34,
     paddingVertical: 8,
   },
@@ -10196,7 +10757,7 @@ const styles = StyleSheet.create({
   },
   signupMethodStack: {
     gap: 12,
-    marginTop: 18,
+    marginTop: 14,
   },
   signupGoogleButton: {
     alignItems: 'center',
@@ -10227,8 +10788,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 9,
     justifyContent: 'center',
-    marginTop: 12,
-    minHeight: 56,
+    marginTop: 10,
+    minHeight: 52,
     paddingHorizontal: 18,
     shadowColor: ONBOARDING_COLORS.primary,
     shadowOffset: { width: 0, height: 4 },
@@ -10269,8 +10830,8 @@ const styles = StyleSheet.create({
     borderColor: ONBOARDING_COLORS.border,
     borderRadius: 20,
     borderWidth: 1,
-    marginTop: 16,
-    padding: 16,
+    marginTop: 10,
+    padding: 12,
   },
   signupInputInvalid: {
     borderColor: ONBOARDING_COLORS.danger,
@@ -10329,7 +10890,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
     paddingHorizontal: 14,
-    paddingVertical: 14,
+    paddingVertical: 11,
   },
   signupEyeButton: {
     alignItems: 'center',
@@ -10340,7 +10901,7 @@ const styles = StyleSheet.create({
   signupStrengthRow: {
     flexDirection: 'row',
     gap: 6,
-    marginTop: 10,
+    marginTop: 8,
   },
   signupStrengthSegment: {
     backgroundColor: ONBOARDING_COLORS.border,
@@ -10351,13 +10912,7 @@ const styles = StyleSheet.create({
   signupStrengthLabel: {
     fontSize: 12,
     fontWeight: '900',
-    marginTop: 6,
-  },
-  signupVerifyMascot: {
-    alignSelf: 'center',
-    height: 90,
-    marginBottom: 12,
-    width: 90,
+    marginTop: 4,
   },
   signupDestinationText: {
     color: ONBOARDING_COLORS.textSecondary,
@@ -10402,6 +10957,16 @@ const styles = StyleSheet.create({
     height: 52,
     width: 40,
   },
+  readyHeroRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 8,
+    marginTop: 4,
+  },
+  readyHeroRowCompact: {
+    gap: 6,
+    marginTop: 0,
+  },
   readyHeroBand: {
     alignItems: 'center',
     borderRadius: 24,
@@ -10410,11 +10975,24 @@ const styles = StyleSheet.create({
     marginTop: 16,
     padding: 18,
   },
+  readyHeroBandInline: {
+    flex: 1,
+    gap: 8,
+    marginTop: 0,
+    minHeight: 112,
+    padding: 12,
+  },
   readyHeroBandCompact: {
     borderRadius: 20,
     gap: 10,
     marginTop: 8,
     padding: 12,
+  },
+  readyHeroBandInlineCompact: {
+    gap: 7,
+    marginTop: 0,
+    minHeight: 96,
+    padding: 10,
   },
   readyHeroBandMascot: {
     alignItems: 'center',
@@ -10424,6 +11002,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     overflow: 'hidden',
     width: 80,
+  },
+  readyHeroBandMascotInline: {
+    borderRadius: 30,
+    height: 60,
+    width: 60,
   },
   readyHeroBandMascotCompact: {
     borderRadius: 28,
@@ -10475,6 +11058,25 @@ const styles = StyleSheet.create({
     color: ONBOARDING_COLORS.white,
     fontSize: 12,
     fontWeight: '700',
+  },
+  readyMascotStage: {
+    alignItems: 'center',
+    height: 100,
+    justifyContent: 'center',
+    overflow: 'visible',
+    width: 82,
+  },
+  readyMascotStageCompact: {
+    height: 82,
+    width: 66,
+  },
+  readyMascotImage: {
+    height: 96,
+    width: 96,
+  },
+  readyMascotImageCompact: {
+    height: 78,
+    width: 78,
   },
   readyGoalsHeading: {
     fontSize: 14,

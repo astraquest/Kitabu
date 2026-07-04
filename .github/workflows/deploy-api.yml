@@ -87,6 +87,15 @@ jobs:
             --exclude '.secrets' \
             --exclude 'smoke-email.txt' \
             ./ "${{ secrets.KITABU_DEPLOY_USER }}@${{ secrets.KITABU_DEPLOY_HOST }}:/opt/kitabu-ai/"
+      - name: Mark production Git revision
+        run: |
+          set -euo pipefail
+          ssh -i ~/.ssh/kitabu_deploy "${{ secrets.KITABU_DEPLOY_USER }}@${{ secrets.KITABU_DEPLOY_HOST }}" 'bash -se' <<'REMOTE'
+          set -euo pipefail
+          cd /opt/kitabu-ai
+          git fetch origin '${{ github.ref_name }}'
+          git reset --mixed '${{ github.sha }}'
+          REMOTE
       - name: Deploy on Hetzner
         run: |
           set -euo pipefail

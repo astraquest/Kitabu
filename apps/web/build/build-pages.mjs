@@ -15,9 +15,9 @@
 // - Compliance guardrails: grades are "4–10 at launch, expanding to Senior
 //   School"; offline = downloaded books & saved lessons only; holidays are
 //   "parent-led home revision"; never invent testimonials or school names.
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const WEB = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ASSET_CSS = '/styles-20260704.css';
@@ -134,6 +134,7 @@ const footer = () => `    <footer class="site-footer">
         <div>
           <h3>Learn</h3>
           <a href="/cbc-revision-app-kenya/">CBC revision app Kenya</a>
+          <a href="/blog/kjsea-grade-9-parents-guide">KJSEA 2026 guide (Grade 9)</a>
           <a href="/grade-6-kpsea-revision/">KPSEA revision (Grade 6)</a>
           <a href="/online-homework-help-kenya/">Homework help Kenya</a>
           <a href="/curriculum-alignment/">Curriculum alignment</a>
@@ -230,6 +231,7 @@ function article(def) {
       publisher: { '@type': 'Organization', name: 'Kitabu AI', logo: { '@type': 'ImageObject', url: 'https://kitabu.ai/assets/kitabu-icon-bold-512.png' } },
       mainEntityOfPage: 'https://kitabu.ai' + def.url
     }];
+  if (def.faq) schemas.push(faqSchema(def.faq));
   const schemaTags = schemas.map(s => `    <script type="application/ld+json">\n${JSON.stringify(s, null, 2).replace(/^/gm, '      ')}\n    </script>`).join('\n');
   return `<!DOCTYPE html>
 <html lang="en">
@@ -243,6 +245,9 @@ function article(def) {
     <meta property="og:description" content="${def.desc}" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://kitabu.ai${def.url}" />
+    <meta property="og:image" content="https://kitabu.ai${def.image || '/assets/kitabu-hero-family-optimized.jpg'}" />
+    <meta property="article:published_time" content="${def.published}" />
+    <meta property="article:modified_time" content="2026-07-04" />
     <link rel="canonical" href="https://kitabu.ai${def.url}" />
     <link rel="icon" href="/assets/kitabu-favicon-bold.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/kitabu-favicon-bold-32.png" />
@@ -267,7 +272,12 @@ ${header()}
 ${def.body}
         </div>
       </section>
-    </main>
+${def.faq ? `      <section class="section" style="padding-top: 0">
+        <div class="container prose" style="margin-inline:auto">
+          <h2>Common questions</h2>${faqHtml(def.faq)}
+        </div>
+      </section>
+` : ''}    </main>
 ${footer()}
     <script src="${ASSET_JS}" defer></script>
   </body>
@@ -1075,200 +1085,27 @@ ${footer()}
 `;
 
 /* =====================================================================
-   BLOGS — 3 new (Playbook 4.4) + 5 existing regenerated (cleaned copy)
+   BLOGS — every post lives in apps/web/build/articles/*.mjs (one module
+   per post; each default-exports an array of article definitions). Add
+   new posts there, not here, so the content engine can grow to weekly
+   publishing without bloating this file. Content rules: see
+   growth-machine/seo-content-strategy.md at the repo root.
    ===================================================================== */
 const articles = [];
-
-articles.push({
-  path: 'blog/help-child-cbc-homework.html',
-  url: '/blog/help-child-cbc-homework',
-  crumbName: 'CBC homework help',
-  published: '2026-07-04',
-  kicker: 'Homework',
-  title: 'CBC Homework Is Confusing Parents — How to Actually Help Your Child | Kitabu AI',
-  desc: 'You don’t need to be a CBC expert to help with homework. Practical, calm steps Kenyan parents can use tonight — plus what to do when you’re stuck too.',
-  h1: 'CBC homework is confusing parents — here’s how to actually help your child',
-  lede: 'The methods are new, the terms are new, and the worksheet looks nothing like what we studied. Here’s what actually helps — and none of it requires becoming a CBC expert.',
-  image: '/assets/audience-parent-story.jpg',
-  body: `          <h2>First, the truth: it’s not you</h2>
-          <p>The CBC teaches differently on purpose. Where we memorised, today’s learners are asked to show working, apply ideas to real situations, and explain their thinking. That’s a better way to learn — and a disorienting thing to supervise when the method on the page isn’t the one you were taught. Almost every Kenyan parent of a Grade 4–10 learner is having this exact evening.</p>
-          <h2>What helps (and doesn’t need expertise)</h2>
-          <ul>
-            <li><strong>Ask "show me how your teacher did it" instead of teaching your way.</strong> Two competing methods confuse a child. Let them reconstruct the class method — the reconstruction itself is revision.</li>
-            <li><strong>Praise the working, not just the answer.</strong> CBC marks reward the process. A child who shows clear working with one slip is closer than a child with a lucky answer.</li>
-            <li><strong>Shrink the session.</strong> Twenty focused minutes beats a two-hour standoff. Stop while it’s still going well.</li>
-            <li><strong>Keep a "stuck list."</strong> When neither of you can crack a question, write it down and move on. A list of specific stuck topics is gold — for the teacher, and for revision time.</li>
-            <li><strong>Never do the homework for them.</strong> A finished worksheet the child can’t explain just hides the gap until exam time.</li>
-          </ul>
-          <h2>When you’re both stuck</h2>
-          <p>This is the moment families usually reach for expensive tuition — or give up. It’s also exactly the gap a patient tutor in the phone can fill: your child asks the question, gets it explained step by step the CBC way, in English or Kiswahili, and can ask again as many times as they need. Then a short practice quiz confirms it landed. If evenings keep snagging on the same subject, our guide to <a href="/online-homework-help-kenya/">online homework help in Kenya</a> covers what good help looks like — and what answer-dumping looks like, so you can avoid it.</p>
-          <h2>Watch the pattern, not the night</h2>
-          <p>One hard evening means nothing. The same topic being hard for three weeks means something. That’s why <a href="/blog/parent-progress-updates">weekly progress signals</a> matter more than any single homework battle: they tell you where to point your energy while there’s still time to act.</p>
-          <p>If you’d like a patient teacher on call for the 8 PM questions — and a Friday WhatsApp message telling you how the week really went — <a href="/">Kitabu AI</a> starts free, from KSh 250/month after.</p>`
-});
-
-articles.push({
-  path: 'blog/child-failing-maths-kenya.html',
-  url: '/blog/child-failing-maths-kenya',
-  crumbName: 'Failing maths',
-  published: '2026-07-04',
-  kicker: 'Mathematics',
-  title: '"My Child Is Failing Maths." What’s Really Going On — and the Calm Way to Fix It | Kitabu AI',
-  desc: 'A failing maths grade is usually one or two missing foundations, not a weak child. How Kenyan parents can find the real gap and fix it calmly.',
-  h1: '"My child is failing maths." What’s really going on — and the calm way to fix it',
-  lede: 'Before you buy another revision book or book emergency tuition, it’s worth understanding what a failing maths grade usually means. It’s rarely what parents fear.',
-  image: '/assets/audience-junior-home.jpg',
-  body: `          <h2>What a failing grade usually hides</h2>
-          <p>Maths is the most cumulative subject on the timetable. Fractions feed decimals, decimals feed percentages, percentages feed ratio and rate — and by Grade 8, half the syllabus stands on foundations poured in Grades 5 and 6. When one of those foundations never set properly, every topic built on it wobbles. The mark says "failing Grade 8 maths." The truth is usually "missing two Grade 6 ideas."</p>
-          <h2>Why trying harder doesn’t work</h2>
-          <p>More hours on this term’s topics can’t fix last year’s gap — it’s like painting a wall that isn’t plumb. Worse, the child concludes they’re "just bad at maths," stops asking questions in class to avoid embarrassment, and the gap compounds quietly. The single most valuable thing you can do is separate <em>effort</em> from <em>diagnosis</em>: the problem isn’t how hard they’re working, it’s where they’re working.</p>
-          <h2>The calm fix, step by step</h2>
-          <ul>
-            <li><strong>1. Find the real starting point.</strong> A proper diagnostic — not a test that punishes, a check-up that locates. Kitabu’s free ≈15-minute check-up maps exactly which strands are solid and which are missing, even when they belong to an earlier grade.</li>
-            <li><strong>2. Repair below, quietly.</strong> The child revises the missing Grade 6 ideas in private, at their own pace, with no classmates watching. This is where a patient tutor matters: ask again, and again, no judgment.</li>
-            <li><strong>3. Reconnect to classwork.</strong> As foundations set, this term’s topics start making sense on their own — often faster than parents expect.</li>
-            <li><strong>4. Watch the climb, weekly.</strong> Progress you can see is progress that continues. A Friday message saying "improved from 42% to 68% on decimals" changes the mood of a whole household.</li>
-          </ul>
-          <h2>What to say tonight</h2>
-          <p>Skip "why are you failing?" Try: "I think there’s one or two old topics playing tricks on you. Let’s find them — it’s not your fault." A child who believes the problem is findable will work with you. For the practical evening routine, see <a href="/blog/help-child-cbc-homework">how to actually help with CBC homework</a>, and if you’re weighing tutors, compare costs on our <a href="/private-tuition-alternative-kenya/">private tuition alternative</a> page.</p>
-          <p>When you’re ready to find the real gap, <a href="/">Kitabu AI</a>’s diagnostic is free — no card, from KSh 250/month only when you choose to continue.</p>`
-});
-
-articles.push({
-  path: 'blog/is-my-child-really-revising.html',
-  url: '/blog/is-my-child-really-revising',
-  crumbName: 'Really revising?',
-  published: '2026-07-04',
-  kicker: 'Revision',
-  title: 'How to Know If Your Child Is Actually Revising (Not Just Holding the Phone) | Kitabu AI',
-  desc: 'Phone in hand, door closed, "I’m revising." The honest signs real revision is happening — and how Kenyan parents can check without a nightly interrogation.',
-  h1: 'How to know if your child is actually revising (not just holding the phone)',
-  lede: 'Every parent knows the scene: door closed, phone in hand, "I’m revising." Sometimes it’s true. Here’s how to tell — kindly — when it isn’t.',
-  image: '/assets/audience-senior-kenya.jpg',
-  body: `          <h2>Why "umesoma?" doesn’t work</h2>
-          <p>The nightly interrogation has a design flaw: it can only ever collect one answer. "Yes." A child who studied for two focused hours says yes; a child who watched videos for two hours says yes. The question isn’t dishonest — it’s unanswerable. Time with a book open, or a phone in hand, simply isn’t evidence of learning either way.</p>
-          <h2>The signs of real revision</h2>
-          <ul>
-            <li><strong>They can explain it back.</strong> Real revision leaves residue. "Teach me the thing you revised" for two minutes tells you more than an hour of supervision. Confusion here isn’t failure — it’s information.</li>
-            <li><strong>Something gets produced.</strong> Worked examples, practice answers, quiz scores — real revision leaves artifacts. Reading without producing anything is the weakest form of study.</li>
-            <li><strong>The same topics don’t stay "hard" forever.</strong> If fractions are the excuse in Week 2 and still the excuse in Week 8, revision isn’t happening — avoidance is.</li>
-            <li><strong>Effort shows up in results, eventually.</strong> Not overnight. But real weekly revision shows a visible climb within a few weeks.</li>
-          </ul>
-          <h2>Make the phone testify</h2>
-          <p>Here’s the modern problem: revision genuinely happens on phones now — and so does everything else. The fix isn’t confiscation; it’s visibility. When revision happens inside a learning app that reports honestly, the phone itself becomes your witness: what was studied, for how long, which quiz was taken, what improved. That’s exactly the window Kitabu gives parents — a daily dashboard, and every Friday a WhatsApp message like "Mary struggled with decimals this week but improved from 42% to 68%." No interrogation required. More on why that timing matters: <a href="/blog/parent-progress-updates">progress updates before report cards</a>.</p>
-          <h2>Keep it kind</h2>
-          <p>The goal isn’t catching a child pretending — it’s removing the pretending as an option while protecting trust. Swap "umesoma?" for "show me your best question this week." Celebrate produced work, not hours logged. And if revision needs a patient teacher to become worth doing, <a href="/">Kitabu AI</a> starts free — the games inside it are the revision, and you can see exactly what they did.</p>`
-});
-
-/* ---- Existing 5, regenerated with cleaned parent-facing copy ---- */
-articles.push({
-  path: 'blog/cbc-ai-tutor-kenya.html',
-  url: '/blog/cbc-ai-tutor-kenya',
-  crumbName: 'CBC AI tutor',
-  published: '2026-06-19',
-  kicker: 'CBC learning',
-  title: 'How an AI Tutor Can Support CBC Learners in Kenya | Kitabu AI',
-  desc: 'A practical guide for Kenyan parents on how AI tutoring can support CBC learners with step-by-step explanations, practice, homework help, and progress tracking.',
-  h1: 'How an AI tutor can support CBC learners in Kenya',
-  lede: 'The best AI tutor is not a shortcut around school. It is a patient second explanation that helps a learner practise until the idea becomes clear.',
-  image: '/assets/app-dashboard.jpg',
-  body: `          <h2>Why CBC learners need timely support</h2>
-          <p>CBC learning rewards understanding, practice, communication, and confidence. The challenge for many families is timing. A learner may get stuck on fractions, grammar, or science vocabulary on a Tuesday evening, but the parent may only discover the gap at the end of term.</p>
-          <p>An AI tutor helps by making support available when the learner is actually studying. The learner asks a question, gets a simpler explanation, practises with a quiz, and tries again without embarrassment.</p>
-          <img src="/assets/app-ai-tutor.jpg" width="900" height="1952" alt="Kitabu AI tutor chat on a phone" loading="lazy" style="max-width: 320px" />
-          <h2>What useful AI tutoring should do</h2>
-          <p>A good learning assistant should explain step by step, check understanding, keep the learner on the syllabus, and show progress to adults. It should feel like a guided study room, not open-ended browsing. That’s how Kitabu AI is built: every conversation is about schoolwork, and parents can see what happened. More on the safeguards on our <a href="/safety/">safety page</a>.</p>
-          <h2>What parents should look for</h2>
-          <p>Look for real curriculum alignment (<a href="/curriculum-alignment/">strand by strand</a>), practice questions after every explanation, plain-language progress updates, and payment that fits Kenyan families. The goal is not more screen time. The goal is useful study time that can be understood and measured — here’s <a href="/blog/is-my-child-really-revising">how to tell the difference</a>.</p>
-          <p>Ready to see it? <a href="/download/">Get early access to Kitabu AI</a> — free to start, from KSh 250/month.</p>`
-});
-
-articles.push({
-  path: 'blog/parent-progress-updates.html',
-  url: '/blog/parent-progress-updates',
-  crumbName: 'Progress updates',
-  published: '2026-06-19',
-  kicker: 'Parents',
-  title: 'Why Parent Progress Updates Matter Before Report Cards | Kitabu AI',
-  desc: 'Why Kenyan parents need weekly learning progress updates before report cards, and how Kitabu AI makes learner gaps visible earlier.',
-  h1: 'Why parent progress updates matter before report cards',
-  lede: 'A report card is useful, but it arrives late. Parents need simple progress signals while there is still time to help.',
-  image: '/assets/app-dashboard.jpg',
-  body: `          <h2>The problem with waiting</h2>
-          <p>Many learning gaps begin quietly. A child misses one topic, then the next topic depends on it, and by closing day the parent is looking at a grade that feels sudden. The grade was not sudden. The visibility was late.</p>
-          <p>Weekly progress updates help families respond earlier. A parent does not need complex charts. They need plain language: what the learner studied, what improved, and what still needs support.</p>
-          <h2>What a good update should include</h2>
-          <p>A useful update shows activity, understanding, weak topics, and next actions. It separates time spent from real progress, because a child can spend an hour on a phone without learning much — <a href="/blog/is-my-child-really-revising">here’s how to tell</a>.</p>
-          <p>That’s why Kitabu’s update is one Friday WhatsApp message in plain words: "Mary struggled with decimals this week but improved from 42% to 68%." You know before the report card does.</p>
-          <h2>How parents can use the signal</h2>
-          <p>Ask better questions at home, encourage a specific topic, request teacher support early, or let the learner repeat a lesson before the gap grows. If maths is where the surprises keep coming from, start with <a href="/blog/child-failing-maths-kenya">the calm way to fix a failing maths grade</a>.</p>
-          <p>Want the Friday message for your family? <a href="/for-parents/">See what parents get with Kitabu AI</a> — free to start.</p>`
-});
-
-articles.push({
-  path: 'blog/homework-help-without-extra-tuition.html',
-  url: '/blog/homework-help-without-extra-tuition',
-  crumbName: 'Homework help',
-  published: '2026-06-19',
-  kicker: 'Homework',
-  title: 'Homework Help Without Extra Tuition: What Changes | Kitabu AI',
-  desc: 'How patient homework help can reduce pressure on Kenyan families by giving learners explanations, practice, and revision support every evening.',
-  h1: 'Homework help without extra tuition: what changes',
-  lede: 'Extra tuition can help, but many learners first need an affordable way to get unstuck every evening.',
-  image: '/assets/app-ai-tutor.jpg',
-  body: `          <h2>Why homework becomes stressful</h2>
-          <p>Homework stress usually starts when the learner cannot remember how the teacher explained a concept. Parents may be busy, far away, or unsure how CBC expects the answer to be shown — <a href="/blog/help-child-cbc-homework">you’re not alone in that</a>.</p>
-          <p>A patient tutor in the phone reduces that pressure by giving the learner another explanation immediately. The learner can ask the same question more than once, try a simpler example, and practise before moving on.</p>
-          <h2>What should not change</h2>
-          <p>The teacher still matters. The syllabus still matters. The learner still has to practise. A learning app should support schoolwork, not replace the classroom or encourage copying answers without understanding.</p>
-          <p>That is why Kitabu AI pairs every explanation with practice and progress signals. The goal is understanding, not answer dumping.</p>
-          <h2>How families can start</h2>
-          <p>Start with one subject where the learner often gets stuck. Use the app for a short evening session, review the weak topics, then repeat. Consistency matters more than long study marathons. Compare the cost against books and tuition on our <a href="/private-tuition-alternative-kenya/">tuition alternative page</a>.</p>
-          <p>Ready for calmer evenings? <a href="/download/">Start free with Kitabu AI</a> — from KSh 250/month with M-Pesa.</p>`
-});
-
-articles.push({
-  path: 'blog/mpesa-subscriptions-learning-apps.html',
-  url: '/blog/mpesa-subscriptions-learning-apps',
-  crumbName: 'M-Pesa payments',
-  published: '2026-06-19',
-  kicker: 'Payments',
-  title: 'Why M-Pesa Subscriptions Matter for Learning Apps | Kitabu AI',
-  desc: 'Why M-Pesa payment matters for Kenyan education apps, family subscriptions, and school pilots — and what fair pricing looks like.',
-  h1: 'Why M-Pesa subscriptions matter for learning apps',
-  lede: 'A learning app can be useful and still fail a family if paying for it doesn’t work the way Kenyan households actually pay.',
-  image: '/assets/app-dashboard.jpg',
-  body: `          <h2>Payment design is family design</h2>
-          <p>In Kenya, M-Pesa is not an optional convenience. It is often the difference between a parent trying a service and abandoning it at the till. A family learning product should make paying familiar, short, and forgiving — no cards, no foreign checkout pages, no subscription traps.</p>
-          <p>Kitabu AI is built M-Pesa-first: you start free, and when you’re ready, you pay from your phone the way you pay for everything else.</p>
-          <h2>Why subscriptions need clear value</h2>
-          <p>Parents do not pay for an app icon. They pay for visible learning improvement. That means the price should buy tutor access, practice, homework help, and progress you can actually see — the Friday WhatsApp message that says what improved. <a href="/blog/parent-progress-updates">That visibility</a> is what makes month two an easy decision.</p>
-          <h2>What fair pricing looks like</h2>
-          <p>Anchored to what families already spend: one revision book is about KSh 500 and can’t answer a question; Kitabu is KSh 250 a month per learner and never closes. Weekly and annual options exist for different months — see the <a href="/pricing/">pricing page</a> for all of it, plainly.</p>
-          <p>Try it before paying anything: <a href="/download/">start with the free diagnostic</a>.</p>`
-});
-
-articles.push({
-  path: 'blog/school-pilots-ai-learning.html',
-  url: '/blog/school-pilots-ai-learning',
-  crumbName: 'School pilots',
-  published: '2026-06-19',
-  kicker: 'Schools',
-  title: 'How Schools Can Pilot AI Learning Safely | Kitabu AI',
-  desc: 'A practical framework for Kenyan schools piloting AI learning tools: clear goals, teachers in the loop, safety controls, and honest measurement.',
-  h1: 'How schools can pilot AI learning safely',
-  lede: 'A school pilot should prove learner value while protecting teachers, students, data, and classroom trust.',
-  image: '/assets/app-game-zone.jpg',
-  body: `          <h2>Start with a narrow learning goal</h2>
-          <p>The safest pilot begins with a clear goal: improve homework completion, support weak maths topics, add evening practice, or give teachers earlier visibility of who’s falling behind. Avoid launching every feature at once — one goal, one term, honest numbers.</p>
-          <h2>Keep teachers in the loop</h2>
-          <p>AI should not replace teachers. It should help them see who is struggling, where, and what kind of support may help — while taking routine marking off their plates so their time goes where judgment matters. A pilot that teachers experience as relief succeeds; one they experience as surveillance fails. More on the teacher experience: <a href="/for-teachers/">Kitabu for teachers</a>.</p>
-          <h2>Use the right controls</h2>
-          <p>Schools should ask hard questions before any pilot: Is the space guided and age-appropriate? Is parent consent collected for under-18s? Does the provider comply with the Kenya Data Protection Act? Can accounts be deleted? Kitabu’s answers are on our <a href="/safety/">safety page</a> — bring the same questions to any tool you evaluate.</p>
-          <h2>Measure the pilot honestly</h2>
-          <p>Measure learner activation, minutes revised, topics improved, teacher workload, and parent feedback. If the pilot improves learning visibility without creating operational chaos, it is ready to scale — and if the numbers don’t move, stop. That’s why Kitabu’s 30-day whole-school pilot is free: the numbers should make the decision.</p>
-          <p>Ready to see it at your school? <a href="/schools/demo/">Book a free demo</a> — we’ll call you the same day.</p>`
-});
+const ARTICLES_DIR = join(dirname(fileURLToPath(import.meta.url)), 'articles');
+if (existsSync(ARTICLES_DIR)) {
+  for (const f of readdirSync(ARTICLES_DIR).filter(n => n.endsWith('.mjs')).sort()) {
+    const mod = await import(pathToFileURL(join(ARTICLES_DIR, f)).href);
+    articles.push(...mod.default);
+  }
+}
+{
+  const seen = new Set();
+  for (const a of articles) {
+    if (seen.has(a.url)) throw new Error(`Duplicate article url: ${a.url}`);
+    seen.add(a.url);
+  }
+}
 
 /* =====================================================================
    SITEMAP

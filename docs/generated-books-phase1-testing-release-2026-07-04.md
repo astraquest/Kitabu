@@ -94,6 +94,7 @@ Access behavior:
 Feedback intake:
 
 - Use `docs/generated-books-phase1-feedback-template.md` to capture manual testing findings.
+- Use `docs/generated-books-phase2-remediation-backlog.md` to resume remediation from the published testing baseline.
 - Accepted issues should include country, curriculum, grade, subject, book ID, page number, severity, and evidence.
 - Phase 2 remediation should fix generator/source-normalization causes where possible, not only individual output pages.
 

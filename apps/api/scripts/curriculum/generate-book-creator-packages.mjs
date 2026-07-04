@@ -2522,8 +2522,6 @@ function sourceRefsFor(manifest) {
 function appSafeManifest(manifest) {
   const {
     sourceDocuments,
-    coverImage,
-    assets,
     ...safe
   } = manifest;
   return {
@@ -2543,6 +2541,59 @@ function appSafeManifest(manifest) {
   };
 }
 
+function isPublishedForTestingManifest(manifest) {
+  const statuses = [manifest?.status, manifest?.publicationStatus]
+    .filter(Boolean)
+    .map(value => String(value).toLowerCase());
+  return statuses.includes('published-for-testing') || statuses.includes('phase1-testing-published');
+}
+
+async function existingFileInPackage(outDir, relativePath) {
+  if (!relativePath || path.isAbsolute(relativePath) || relativePath.includes('..')) return false;
+  return fileExists(path.join(outDir, relativePath));
+}
+
+async function publishedTestingMetadataForRegeneration(outDir, previousManifest) {
+  if (!isPublishedForTestingManifest(previousManifest)) return {};
+
+  const preserved = {
+    status: previousManifest.status || 'published-for-testing',
+    publicationStatus: previousManifest.publicationStatus || 'published-for-testing'
+  };
+
+  for (const field of ['testingRelease', 'reviewStatus']) {
+    if (previousManifest[field] !== undefined) {
+      preserved[field] = previousManifest[field];
+    }
+  }
+
+  const previousAssets = Array.isArray(previousManifest.assets) ? previousManifest.assets : [];
+  const coverAssets = [];
+  for (const asset of previousAssets) {
+    if (!asset || asset.kind !== 'cover') continue;
+    if (await existingFileInPackage(outDir, asset.path)) {
+      coverAssets.push(asset);
+    }
+  }
+
+  const coverImage = previousManifest.coverImage?.path && await existingFileInPackage(outDir, previousManifest.coverImage.path)
+    ? previousManifest.coverImage
+    : coverAssets[0];
+
+  if (coverImage || coverAssets.length) {
+    preserved.coverImage = coverImage;
+    if (coverAssets.length) {
+      preserved.assets = coverAssets;
+    }
+    preserved.coverStatus = previousManifest.coverStatus || 'phase1-testing-cover-attached';
+    if (previousManifest.coverAssetStatus !== undefined) {
+      preserved.coverAssetStatus = previousManifest.coverAssetStatus;
+    }
+  }
+
+  return preserved;
+}
+
 async function buildBook(client, grade, subject, options) {
   const progress = await loadProgress();
   const key = jobKey(grade, subject);
@@ -2558,6 +2609,8 @@ async function buildBook(client, grade, subject, options) {
   snapshot.inputHash = hash;
   const bookId = `kitabu-quest-grade-${gradeNumber(grade)}-${subject.slug}`;
   const outDir = path.join(BOOK_ROOT, 'KEN', 'CBC', gradeCode(grade), subject.slug);
+  const previousManifest = await readJsonIfExists(path.join(outDir, 'manifest.json'));
+  const publishedTestingMetadata = await publishedTestingMetadataForRegeneration(outDir, previousManifest);
   const snapshotPath = path.join(SNAPSHOT_ROOT, 'KEN', 'CBC', gradeCode(grade), `${bookId}-${hash.slice(0, 12)}.json`);
 
   await writeJsonAtomic(snapshotPath, snapshot);
@@ -2626,7 +2679,8 @@ async function buildBook(client, grade, subject, options) {
       sourceUrl: doc.source_url,
       objectKey: doc.object_key,
       metadata: doc.metadata
-    }))
+    })),
+    ...publishedTestingMetadata
   };
 
   await fs.mkdir(outDir, { recursive: true });

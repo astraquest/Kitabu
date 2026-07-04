@@ -9,10 +9,12 @@ This backlog preserves the paused review context so the next work can continue q
 - Production has 280 generated packages: Kenya 63, Rwanda 87, Uganda 38, Tanzania 65, Ethiopia 27.
 - Every Phase 1 package has readable `pages.json`, a PDF, `source-map.json`, and `assets/cover.png` referenced by manifest `coverImage`.
 - Production data is server-local at `/opt/kitabu-ai/apps/api/data/books`; normal code deploys do not ship the generated corpus.
+- The failed local full-corpus Git push does not affect production availability. Generated package files are ignored by Git; the production server-local data directory is the source of truth for the Phase 1.5 testing baseline.
 - Normal authenticated users see `published-for-testing` books scoped to country, curriculum, and selected grade.
 - Demo, staff, and admin preview users can review the full generated-book set.
 - Current final gates remain closed: 0 `ready-for-cover`, 0 `library-ready`, and 0 `published-library`.
 - Kenya remains `content-reviewed-draft`; the other 217 generated packages remain `content-draft-review-needed`.
+- Post-baseline correction: `KEN/CBC/G9/agriculture` was regenerated with generator v47 and synced to production after package backup `/var/backups/kitabu/generated-books-G9-agriculture-pre-v47-20260704224657`; the invalid clothing/household-disinfection contamination scan now returns 0 hits.
 
 Do not break this baseline while remediating. Phase 2 work should create new validated package versions and preserve enough rollback evidence to return to the Phase 1 testing snapshot.
 
@@ -48,6 +50,7 @@ Every accepted feedback item should carry:
 Generated packages are not a normal Git artifact in this phase. Before regeneration, package sync, or production deploy:
 
 - Back up `/opt/kitabu-ai/apps/api/data/books`.
+- Do not assume a code commit, PR merge, or Git push contains the generated corpus; package availability must be verified on the production server-local path.
 - Record the backup path in the relevant release note or remediation PR.
 - Remember that the previous database checkpoint was a logical DB census and generated-library manifest snapshot, not a full `pg_dump`.
 - Verify after changes that `/health` passes.

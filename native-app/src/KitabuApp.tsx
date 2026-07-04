@@ -103,11 +103,29 @@ function getOnboardingPreviewRole(): PublicSignupRole | null {
     return null;
   }
 
-  const location = (globalThis as { location?: { search?: string } }).location;
+  const location = (globalThis as {
+    location?: { hash?: string; pathname?: string; search?: string };
+  }).location;
   const params = new URLSearchParams(location?.search ?? '');
   const role = params.get('previewOnboarding');
 
-  return role === 'student' || role === 'teacher' || role === 'parent' || role === 'other' ? role : null;
+  if (role !== 'student' && role !== 'teacher' && role !== 'parent' && role !== 'other') {
+    return null;
+  }
+
+  try {
+    params.delete('previewOnboarding');
+    const nextSearch = params.toString();
+    const nextUrl = `${location?.pathname ?? '/'}${nextSearch ? `?${nextSearch}` : ''}${location?.hash ?? ''}`;
+    const history = (globalThis as {
+      history?: { replaceState?: (data: unknown, unused: string, url?: string | URL | null) => void; state?: unknown };
+    }).history;
+    history?.replaceState?.(history.state ?? null, '', nextUrl);
+  } catch {
+    // URL cleanup is best-effort; the preview should still render if history is unavailable.
+  }
+
+  return role;
 }
 
 function AppSafeArea({ children }: { children: React.ReactNode }) {
@@ -121,10 +139,10 @@ function AppSafeArea({ children }: { children: React.ReactNode }) {
 
 export function KitabuApp() {
   const { state, actions } = useKitabuApp();
+  const [onboardingPreviewRole] = React.useState(getOnboardingPreviewRole);
   const usesStudentHeader = shouldUseStudentHeader(state.currentView);
   const usesStandaloneScreen = shouldUseStandaloneScreen(state.currentView);
   const showDiagnosticPreview = shouldShowDiagnosticPreview();
-  const onboardingPreviewRole = getOnboardingPreviewRole();
   const activeUserProfile = state.activeUserProfile;
 
   if (showDiagnosticPreview) {
@@ -307,6 +325,8 @@ export function KitabuApp() {
             }}
             onOpenNotifications={() => actions.setNotificationsOpen(true)}
             unreadNotificationCount={state.unreadNotificationCount}
+            currentGrade={state.currentView === 'dashboard' ? state.currentGrade : undefined}
+            onSelectGrade={state.currentView === 'dashboard' ? actions.setCurrentGrade : undefined}
             showPreviewExit={state.isStudentPreview && !state.focusModeActive}
             onExitPreview={actions.exitStudentPreview}
           />
@@ -544,9 +564,7 @@ function renderScreen(
           }
           subjects={state.dashboardSubjects}
           allSubjects={state.subjects}
-          currentGrade={state.currentGrade}
           selectedSubjectIds={state.dashboardSubjectIds}
-          onSelectGrade={actions.setCurrentGrade}
           onOpenSubject={actions.openSubject}
           onSaveSubjectSelection={actions.saveDashboardSubjects}
           onOpenFeature={actions.openFeature}
@@ -657,6 +675,7 @@ function renderScreen(
       return (
         <QuizMeScreen
           isLoading={state.isLoading}
+          error={state.quizGenerationError}
           strandsBySubject={state.quizMeStrandsBySubject}
           subStrandsByStrand={state.quizMeSubStrandsByStrand}
           onBack={actions.goHome}
@@ -848,9 +867,7 @@ function renderScreen(
           }
           subjects={state.dashboardSubjects}
           allSubjects={state.subjects}
-          currentGrade={state.currentGrade}
           selectedSubjectIds={state.dashboardSubjectIds}
-          onSelectGrade={actions.setCurrentGrade}
           onOpenSubject={actions.openSubject}
           onSaveSubjectSelection={actions.saveDashboardSubjects}
           onOpenFeature={actions.openFeature}

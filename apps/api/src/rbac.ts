@@ -12,23 +12,36 @@ export async function requireRoles(
   options?: { requireStepUp?: boolean }
 ) {
   if (!request.user) {
-    return reply.unauthorized('Authentication required');
+    reply.status(401).send({
+      error: 'Unauthorized',
+      message: 'Authentication required'
+    });
+    return true;
   }
 
   if (!hasAnyRole(request.user, roles)) {
-    return reply.forbidden('Insufficient role');
+    reply.status(403).send({
+      error: 'Forbidden',
+      message: 'Insufficient role'
+    });
+    return true;
   }
 
   if (options?.requireStepUp && !request.user.stepUp) {
-    return reply.status(428).send({
+    reply.status(428).send({
       message: 'Step-up authentication required'
     });
+    return true;
   }
 }
 
 export async function requireAuthenticated(request: FastifyRequest, reply: FastifyReply) {
   if (!request.user) {
-    return reply.unauthorized('Authentication required');
+    reply.status(401).send({
+      error: 'Unauthorized',
+      message: 'Authentication required'
+    });
+    return true;
   }
 }
 
@@ -39,7 +52,7 @@ export async function requireSchoolContext(
 ) {
   const authError = await requireAuthenticated(request, reply);
   if (authError) {
-    return authError;
+    return true;
   }
 
   if ((options?.allowPlatformAdmin ?? true) && request.user!.roles.includes('platform_admin')) {
@@ -47,7 +60,11 @@ export async function requireSchoolContext(
   }
 
   if (!request.user!.schoolId) {
-    return reply.forbidden('School-scoped access required');
+    reply.status(403).send({
+      error: 'Forbidden',
+      message: 'School-scoped access required'
+    });
+    return true;
   }
 }
 
@@ -59,7 +76,7 @@ export async function requireResourceOwner(
 ) {
   const authError = await requireAuthenticated(request, reply);
   if (authError) {
-    return authError;
+    return true;
   }
 
   if (request.user!.id === ownerUserId) {
@@ -70,5 +87,9 @@ export async function requireResourceOwner(
     return;
   }
 
-  return reply.forbidden('You do not have access to this resource');
+  reply.status(403).send({
+    error: 'Forbidden',
+    message: 'You do not have access to this resource'
+  });
+  return true;
 }

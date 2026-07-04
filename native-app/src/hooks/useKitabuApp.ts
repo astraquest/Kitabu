@@ -58,7 +58,12 @@ import {
   updateAdminSchoolPilot,
 } from '../services/appDataService';
 import { askHomeworkHelper, generateQuizData } from '../services/aiService';
-import { getLibraryBooks, getLearningPodcasts } from '../services/contentService';
+import {
+  downloadBookForOffline,
+  getLibraryBooks,
+  getLearningPodcasts,
+  removeDownloadedBookFiles,
+} from '../services/contentService';
 import {
   completeSubStrandLearning,
   generateSubStrandQuiz,
@@ -79,7 +84,6 @@ import {
   markAllNotificationsRead,
   markNotificationRead,
 } from '../services/notificationService';
-import { getQuizBankQuestions } from '../services/quizBankService';
 import { markPresenceOffline, markPresenceOnline } from '../services/presenceService';
 import {
   getOnboardingDiagnosticStatus,
@@ -143,6 +147,7 @@ import {
   SchoolDiscount,
 } from '../types/app';
 
+const DEMO_STUDENT_EMAIL = 'student@kitabu.ai';
 const STORAGE_KEYS = {
   profile: 'kitabu_native_profile',
   optionalPhoneNumber: 'kitabu_optional_phone_number',
@@ -388,16 +393,6 @@ function mapParentChildToStudentProfile(child: ParentChildSummary): UserProfile 
   };
 }
 
-async function loadQuizBankFallback(grade: string, limit: number, subjectId?: string | null) {
-  try {
-    const questions = await getQuizBankQuestions({ grade, subjectId, limit });
-    return questions.length > 0 ? questions : INITIAL_QUIZ_QUESTIONS;
-  } catch (error) {
-    console.error('QuizBank fallback failed', error);
-    return INITIAL_QUIZ_QUESTIONS;
-  }
-}
-
 function downloadedBooksStorageKey(userId: string) {
   return `${STORAGE_KEYS.downloadedBooks}:${userId}`;
 }
@@ -462,6 +457,7 @@ export function useKitabuApp() {
   const [activeStrandIndex, setActiveStrandIndex] = useState(0);
   const [quizSource, setQuizSource] = useState<'subject' | 'quiz_me' | 'lesson'>('subject');
   const [brainTeaseCompleted, setBrainTeaseCompleted] = useState(false);
+  const [quizGenerationError, setQuizGenerationError] = useState<string | null>(null);
   const [generatedFlashcards, setGeneratedFlashcards] =
     useState<Flashcard[]>(INITIAL_FLASHCARDS);
   const [generatedQuizQuestions, setGeneratedQuizQuestions] =
@@ -745,9 +741,10 @@ export function useKitabuApp() {
             return;
           }
           const nextProfile = mapAuthSessionToProfile(nextSession);
+          const nextGrade = nextProfile.grade || DEFAULT_GRADE;
           setAuthSession(nextSession);
           setUserProfile(nextProfile);
-          setCurrentGrade(nextProfile.grade || DEFAULT_GRADE);
+          setCurrentGrade(nextGrade);
           setIsStudentPreview(false);
           setCurrentView(nextHomeView);
           const [plansPayload, status] = await Promise.all([getBillingPlans(), getBillingStatus()]);
@@ -763,7 +760,7 @@ export function useKitabuApp() {
             setCheckoutPhoneNumber(status.savedMpesaPhoneNumber || storedOptionalPhoneNumber);
           }
           await Promise.all([
-            refreshStudentContentState(nextSession),
+            refreshStudentContentState(nextSession, nextGrade),
             refreshTeacherData(nextSession),
           ]);
           await persistAuthSession(nextSession);
@@ -797,6 +794,8 @@ export function useKitabuApp() {
     return () => {
       mounted = false;
     };
+    // Bootstrap must run once from persisted state; subsequent refreshes are triggered by focused effects/actions.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -1030,6 +1029,9 @@ export function useKitabuApp() {
   const roles = authSession?.user.roles || [];
   const canOpenTeacherPortal = isTeacherRole(roles) || isAdminRole(roles);
   const canOpenAdminPortal = isAdminRole(roles);
+  const isDemoStudentAccount =
+    authSession?.user.email.trim().toLowerCase() === DEMO_STUDENT_EMAIL &&
+    authSession.user.roles.includes('student');
   const primaryHomeView = getPrimaryHomeView(roles);
   const resolvedHomeView = focusModeActive || isStudentPreview ? 'dashboard' : primaryHomeView;
   const hasPendingAccountOnboarding = Boolean(
@@ -1045,7 +1047,8 @@ export function useKitabuApp() {
   );
   const hasPendingProgressiveDiagnostic = Boolean(progressiveDiagnosticSubject);
   const hasActiveSubscription = Boolean(
-    billingStatus.subscription && new Date(billingStatus.subscription.periodEnd).getTime() > Date.now(),
+    isDemoStudentAccount ||
+      (billingStatus.subscription && new Date(billingStatus.subscription.periodEnd).getTime() > Date.now()),
   );
   const focusModeSecondsRemaining = Math.max(0, dailyLimitSeconds - activeSecondsUsed);
   const activeUserProfile =
@@ -1384,7 +1387,7 @@ export function useKitabuApp() {
         timedOut,
       });
       setWeeklyExam(current => current ? { ...current, exam: result.exam, attempt: result.attempt } : current);
-      await Promise.all([refreshDueReviews(), refreshStudentContentState(authSession!)]);
+      await Promise.all([refreshDueReviews(), refreshStudentContentState(authSession!, currentGrade)]);
       triggerHaptic('success');
     } catch (error) {
       setWeeklyExamError(error instanceof Error ? error.message : 'Unable to submit weekly exam');
@@ -1497,7 +1500,7 @@ export function useKitabuApp() {
     setProgressiveDiagnosticSubject(null);
   }
 
-  async function refreshStudentContentState(session: AuthSession) {
+  async function refreshStudentContentState(session: AuthSession, grade = currentGrade) {
     if (!session.user.roles.includes('student')) {
       setAssignments([]);
       setBooks([]);
@@ -1508,17 +1511,19 @@ export function useKitabuApp() {
     try {
       const [nextAssignments, nextBooks, nextPodcasts] = await Promise.all([
         getStudentAssignments(),
-        getLibraryBooks(),
+        getLibraryBooks(grade),
         getLearningPodcasts(),
       ]);
       const downloadedSnapshot = await loadDownloadedBooksSnapshot(session.user.id);
+      const downloadedGradeBooks = (downloadedSnapshot.books ?? []).filter(book => book.gradeLevel === grade);
       setAssignments(nextAssignments.length > 0 ? nextAssignments : INITIAL_ASSIGNMENTS);
-      setBooks(mergeRemoteAndCachedBooks(nextBooks, downloadedSnapshot.books ?? []));
+      setBooks(mergeRemoteAndCachedBooks(nextBooks, downloadedGradeBooks));
       setPodcasts(nextPodcasts);
     } catch {
       const downloadedSnapshot = await loadDownloadedBooksSnapshot(session.user.id);
+      const downloadedGradeBooks = (downloadedSnapshot.books ?? []).filter(book => book.gradeLevel === grade);
       setAssignments(INITIAL_ASSIGNMENTS);
-      setBooks(downloadedSnapshot.books ?? []);
+      setBooks(downloadedGradeBooks);
       setPodcasts([]);
     }
   }
@@ -1603,8 +1608,8 @@ export function useKitabuApp() {
     needKey?: OnboardingNeedKey;
     displayName?: string;
     age?: string;
-    children?: Array<{ name: string; age: string; grade: string }>;
-    parentChildren?: Array<{ name: string; age: string; grade: string }>;
+    children?: Array<{ name: string; age: string; grade: string; subjects?: string[] }>;
+    parentChildren?: Array<{ name: string; age: string; grade: string; subjects?: string[] }>;
     teachGrades?: string[];
     teacherGradeIds?: string[];
     subjects?: string[];
@@ -1989,7 +1994,7 @@ export function useKitabuApp() {
   }
 
   function openSubscriptionCheckout(intent: PendingSubscriptionIntent) {
-    if (focusModeActive) {
+    if (focusModeActive || isDemoStudentAccount) {
       return;
     }
 
@@ -2536,7 +2541,13 @@ export function useKitabuApp() {
     setIsLoading(true);
 
     try {
-      const responseText = await askHomeworkHelper(text, messages, 'chat', attachment);
+      const responseText = await askHomeworkHelper(text, messages, 'chat', attachment, {
+        grade: currentGrade,
+        subjectName: selectedSubject?.name,
+        strandTitle: selectedSubjectStrands[activeStrandIndex]?.title,
+        subStrandTitle: selectedSubStrand?.title,
+        curriculumStrands: selectedSubjectStrands,
+      });
       setMessages(prev => [...prev, { role: 'model', text: responseText }]);
     } catch (error) {
       console.error(error);
@@ -2607,16 +2618,34 @@ export function useKitabuApp() {
     }));
   }
 
-  function toggleDownload(bookId: string) {
-    setDownloadedBooks(prev => {
-      const next = new Set(prev);
-      if (next.has(bookId)) {
+  async function toggleDownload(bookId: string) {
+    if (downloadedBooks.has(bookId)) {
+      const cachedBook = downloadedBookCache.find(book => book.id === bookId);
+      await removeDownloadedBookFiles(cachedBook);
+      setDownloadedBooks(prev => {
+        const next = new Set(prev);
         next.delete(bookId);
-      } else {
-        next.add(bookId);
-      }
-      return next;
-    });
+        return next;
+      });
+      setDownloadedBookCache(prev => prev.filter(book => book.id !== bookId));
+      return;
+    }
+
+    const book = books.find(item => item.id === bookId);
+    if (!book) {
+      throw new Error('Book not found');
+    }
+
+    const downloadedBook = await downloadBookForOffline(book);
+    setDownloadedBooks(prev => new Set(prev).add(bookId));
+    setDownloadedBookCache(prev => [
+      downloadedBook,
+      ...prev.filter(item => item.id !== bookId),
+    ]);
+    setBooks(prev => mergeRemoteAndCachedBooks(
+      prev.map(item => (item.id === bookId ? downloadedBook : item)),
+      [downloadedBook],
+    ));
   }
 
   function generateQuizMe(config: QuizConfig, bypassSubscription = false) {
@@ -2630,6 +2659,7 @@ export function useKitabuApp() {
     }
 
     setIsLoading(true);
+    setQuizGenerationError(null);
     setQuizSource('quiz_me');
     setLessonQuizSubStrandId(null);
 
@@ -2655,27 +2685,32 @@ export function useKitabuApp() {
       config.format === 'flashcards' ? 'flashcards' : 'quiz',
       currentGrade,
     )
-      .then(async result => {
+      .then(result => {
         if (config.format === 'flashcards') {
-          setGeneratedFlashcards(result?.flashcards || INITIAL_FLASHCARDS);
+          if (!result.flashcards?.length) {
+            throw new Error('AI service did not return flashcards.');
+          }
+
+          setGeneratedFlashcards(result.flashcards);
           setBrainTeaseCompleted(false);
           navigateTo('brain_tease');
           return;
         }
 
-        setGeneratedQuizQuestions(result?.questions || await loadQuizBankFallback(currentGrade, config.questionCount));
-        navigateTo('take_quiz');
-      })
-      .catch(async error => {
-        console.error('Quiz generation failed', error);
-        if (config.format === 'flashcards') {
-          setGeneratedFlashcards(INITIAL_FLASHCARDS);
-          navigateTo('brain_tease');
-          return;
+        if (!result.questions?.length) {
+          throw new Error('AI service did not return quiz questions.');
         }
 
-        setGeneratedQuizQuestions(await loadQuizBankFallback(currentGrade, config.questionCount));
+        setGeneratedQuizQuestions(result.questions);
         navigateTo('take_quiz');
+      })
+      .catch(error => {
+        console.error('Quiz generation failed', error);
+        setQuizGenerationError(
+          error instanceof Error
+            ? error.message
+            : 'AI service did not generate quiz content. Please try again.',
+        );
       })
       .finally(() => {
         setIsLoading(false);
@@ -2696,6 +2731,7 @@ export function useKitabuApp() {
     }
 
     setIsLoading(true);
+    setQuizGenerationError(null);
     setLessonQuizSubStrandId(null);
 
     const currentStrand = selectedSubjectStrands[activeStrandIndex];
@@ -2712,15 +2748,21 @@ export function useKitabuApp() {
         'quiz',
         currentGrade,
       );
-      setGeneratedQuizQuestions(
-        result?.questions || await loadQuizBankFallback(currentGrade, 10, selectedSubject.id),
-      );
-    } catch (error) {
-      console.error('Quiz generation error', error);
-      setGeneratedQuizQuestions(await loadQuizBankFallback(currentGrade, 10, selectedSubject.id));
-    } finally {
+      if (!result.questions?.length) {
+        throw new Error('AI service did not return quiz questions.');
+      }
+
+      setGeneratedQuizQuestions(result.questions);
       setQuizSource('subject');
       navigateTo('take_quiz');
+    } catch (error) {
+      console.error('Quiz generation error', error);
+      setQuizGenerationError(
+        error instanceof Error
+          ? error.message
+          : 'AI service did not generate quiz questions. Please try again.',
+      );
+    } finally {
       setIsLoading(false);
     }
   }
@@ -2811,26 +2853,25 @@ export function useKitabuApp() {
     }
 
     setIsLoading(true);
+    setQuizGenerationError(null);
     try {
       const result = await generateSubStrandQuiz(selectedSubStrand.id, 10);
-      setGeneratedQuizQuestions(result.questions || INITIAL_QUIZ_QUESTIONS);
-    } catch (error) {
-      console.error('Sub-strand quiz generation failed', error);
-      const fallback = await generateQuizData(
-        selectedSubject?.name || 'General',
-        selectedSubjectStrands[activeStrandIndex]?.title || 'Current Strand',
-        selectedSubStrand.title,
-        10,
-        'quiz',
-        currentGrade,
-      );
-      setGeneratedQuizQuestions(
-        fallback?.questions || await loadQuizBankFallback(currentGrade, 10, selectedSubject?.id),
-      );
-    } finally {
+      if (!result.questions?.length) {
+        throw new Error('AI service did not return quiz questions.');
+      }
+
+      setGeneratedQuizQuestions(result.questions);
       setQuizSource('lesson');
       setLessonQuizSubStrandId(selectedSubStrand.id);
       navigateTo('take_quiz');
+    } catch (error) {
+      console.error('Sub-strand quiz generation failed', error);
+      setQuizGenerationError(
+        error instanceof Error
+          ? error.message
+          : 'AI service did not generate lesson quiz questions. Please try again.',
+      );
+    } finally {
       setIsLoading(false);
     }
   }
@@ -2886,7 +2927,7 @@ export function useKitabuApp() {
     });
 
     if (authSession) {
-      await refreshStudentContentState(authSession);
+      await refreshStudentContentState(authSession, currentGrade);
     }
 
     setSelectedAssignment(null);
@@ -2964,7 +3005,7 @@ export function useKitabuApp() {
     if (authSession) {
       await Promise.all([
         refreshTeacherData(authSession),
-        refreshStudentContentState(authSession),
+        refreshStudentContentState(authSession, currentGrade),
       ]);
     }
   }
@@ -3048,7 +3089,7 @@ export function useKitabuApp() {
     refreshNotifications().catch(() => undefined);
     refreshOnboardingDiagnosticState().catch(() => undefined);
     refreshWeeklyExam().catch(() => undefined);
-    refreshStudentContentState(authSession).catch(() => undefined);
+    refreshStudentContentState(authSession, currentGrade).catch(() => undefined);
     refreshTeacherData(authSession).catch(() => undefined);
     refreshAdminData().catch(() => undefined);
     refreshParentDashboard().catch(() => undefined);
@@ -3086,6 +3127,7 @@ export function useKitabuApp() {
     }
 
     loadCurriculumGrade(currentGrade).catch(() => undefined);
+    refreshStudentContentState(authSession, currentGrade).catch(() => undefined);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [authSession, currentGrade]);
 
@@ -3295,6 +3337,7 @@ export function useKitabuApp() {
       activeStrandIndex,
       quizSource,
       brainTeaseCompleted,
+      quizGenerationError,
       generatedFlashcards,
       generatedQuizQuestions,
       selectedSubjectStrands,

@@ -74,6 +74,56 @@ const WELCOME_SUBJECTS = [
   },
 ];
 
+function cleanModelMessageText(text: string) {
+  const withoutMarkdown = text
+    .replace(/\r\n/g, '\n')
+    .replace(/\*\*(.*?)\*\*/g, '$1')
+    .replace(/__(.*?)__/g, '$1')
+    .replace(/^\s{0,3}#{1,6}\s*/gm, '')
+    .replace(/`([^`]+)`/g, '$1')
+    .replace(/\[(.*?)\]\((.*?)\)/g, '$1')
+    .replace(/[ \t]+\n/g, '\n')
+    .trim();
+
+  const metadataLine = /^(question acknowledged|subject|grade level adaptation|grade level|student level|active subject|active strand|active sub-strand|curriculum scope)\b/i;
+
+  return withoutMarkdown
+    .split('\n')
+    .map(line => line.trim())
+    .filter(line => line.length > 0 && !metadataLine.test(line))
+    .join('\n');
+}
+
+function ChatMessageContent({ message }: { message: ChatMessage }) {
+  if (message.role === 'user') {
+    return <Text style={styles.messageText}>{message.text}</Text>;
+  }
+
+  const lines = cleanModelMessageText(message.text).split('\n').filter(Boolean);
+
+  return (
+    <View style={styles.formattedMessage}>
+      {lines.map((line, index) => {
+        const listMatch = line.match(/^(\d+[.)]|[-\u2022])\s+(.*)$/);
+        if (listMatch) {
+          return (
+            <View key={`${line}-${index}`} style={styles.messageListLine}>
+              <Text style={styles.messageListMarker}>{listMatch[1].replace(')', '.')}</Text>
+              <Text style={styles.messageParagraph}>{listMatch[2]}</Text>
+            </View>
+          );
+        }
+
+        return (
+          <Text key={`${line}-${index}`} style={styles.messageParagraph}>
+            {line}
+          </Text>
+        );
+      })}
+    </View>
+  );
+}
+
 export function ChatOverlayModal({
   isOpen,
   isLoading,
@@ -265,7 +315,7 @@ export function ChatOverlayModal({
                           ? styles.messageBubbleUser
                           : styles.messageBubbleModel,
                       ]}>
-                      <Text style={styles.messageText}>{message.text}</Text>
+                      <ChatMessageContent message={message} />
                     </View>
                   </View>
                 ))}
@@ -472,10 +522,11 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
+    minHeight: 0,
   },
   contentInner: {
     flexGrow: 1,
-    paddingBottom: 24,
+    paddingBottom: 112,
   },
   welcomeWrap: {
     flex: 1,
@@ -529,7 +580,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
   messageList: {
-    gap: 14,
+    gap: 12,
     padding: 16,
   },
   messageRow: {
@@ -537,9 +588,11 @@ const styles = StyleSheet.create({
   },
   messageRowUser: {
     alignSelf: 'flex-end',
+    maxWidth: '82%',
   },
   messageRowModel: {
     alignSelf: 'flex-start',
+    maxWidth: '92%',
   },
   attachmentCard: {
     alignItems: 'center',
@@ -562,7 +615,7 @@ const styles = StyleSheet.create({
     textDecorationLine: 'underline',
   },
   messageBubble: {
-    borderRadius: 15,
+    borderRadius: 18,
     paddingHorizontal: 14,
     paddingVertical: 12,
   },
@@ -571,15 +624,37 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 6,
   },
   messageBubbleModel: {
-    backgroundColor: 'rgba(255,255,255,0.1)',
-    borderColor: 'rgba(255,255,255,0.08)',
+    backgroundColor: 'rgba(255,255,255,0.13)',
+    borderColor: 'rgba(255,255,255,0.1)',
     borderTopLeftRadius: 6,
     borderWidth: 1,
+    paddingHorizontal: 15,
+    paddingVertical: 13,
   },
   messageText: {
     color: '#FFFFFF',
     fontSize: 14,
     lineHeight: 21,
+  },
+  formattedMessage: {
+    gap: 8,
+  },
+  messageParagraph: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    lineHeight: 21,
+  },
+  messageListLine: {
+    alignItems: 'flex-start',
+    flexDirection: 'row',
+    gap: 8,
+  },
+  messageListMarker: {
+    color: 'rgba(255,255,255,0.72)',
+    fontSize: 14,
+    fontWeight: '800',
+    lineHeight: 21,
+    minWidth: 18,
   },
   loadingBubble: {
     alignItems: 'center',
@@ -614,6 +689,7 @@ const styles = StyleSheet.create({
     gap: 8,
     padding: 16,
     position: 'relative',
+    zIndex: 2,
   },
   inputShell: {
     alignItems: 'flex-start',

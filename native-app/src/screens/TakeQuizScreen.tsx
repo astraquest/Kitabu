@@ -278,7 +278,10 @@ export function TakeQuizScreen({
     prompt += '\nCan you explain why the correct answer is right and, if I was wrong, why? Keep it brief and fun without markdown bolding.';
 
     try {
-      const response = await askHomeworkHelper(prompt, [], 'explanation');
+      const response = await askHomeworkHelper(prompt, [], 'explanation', undefined, {
+        grade: DEFAULT_GRADE,
+        subjectName,
+      });
       setExplanationModal({
         isOpen: true,
         isLoading: false,
@@ -490,7 +493,10 @@ export function TakeQuizScreen({
           </ScrollView>
         </View>
 
-        <View style={styles.quizBody}>
+        <ScrollView
+          style={styles.quizBody}
+          contentContainerStyle={styles.quizBodyContent}
+          showsVerticalScrollIndicator={false}>
           <Text style={styles.questionCount}>
             QUESTION {currentIndex + 1} OF {questions.length}
           </Text>
@@ -614,7 +620,7 @@ export function TakeQuizScreen({
               <Text style={styles.feedbackText}>{currentQuestion.explanation}</Text>
             </View>
           ) : null}
-        </View>
+        </ScrollView>
 
         <View style={styles.footer}>
           <Pressable
@@ -689,7 +695,7 @@ const styles = StyleSheet.create({
   heroBackdrop: {
     alignItems: 'center',
     paddingTop: 26,
-    paddingBottom: 78,
+    paddingBottom: 66,
   },
   heroBackButton: {
     position: 'absolute',
@@ -702,12 +708,12 @@ const styles = StyleSheet.create({
   },
   heroGrade: {
     color: 'rgba(255,255,255,0.75)',
-    fontSize: 38,
+    fontSize: 34,
     fontWeight: '900',
   },
   heroSubject: {
     color: 'rgba(255,255,255,0.42)',
-    fontSize: 28,
+    fontSize: 24,
     fontWeight: '500',
     marginTop: 2,
   },
@@ -753,9 +759,9 @@ const styles = StyleSheet.create({
   },
   quizCard: {
     flex: 1,
-    marginHorizontal: 14,
-    marginTop: -20,
-    marginBottom: 14,
+    marginHorizontal: 12,
+    marginTop: -18,
+    marginBottom: 12,
     backgroundColor: '#F6F7F8',
     borderRadius: 28,
     overflow: 'hidden',
@@ -766,30 +772,30 @@ const styles = StyleSheet.create({
     elevation: 4,
   },
   quizHeader: {
-    paddingHorizontal: 18,
-    paddingTop: 18,
-    paddingBottom: 16,
+    paddingHorizontal: 14,
+    paddingTop: 14,
+    paddingBottom: 12,
     borderBottomWidth: 1,
     borderBottomColor: '#E5E7EB',
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 14,
+    gap: 10,
   },
   simpleIconButton: {
-    width: 38,
-    height: 38,
-    borderRadius: 19,
+    width: 34,
+    height: 34,
+    borderRadius: 17,
     alignItems: 'center',
     justifyContent: 'center',
   },
   stepRow: {
-    gap: 10,
+    gap: 8,
     alignItems: 'center',
     paddingRight: 8,
   },
   stepChip: {
-    width: 54,
-    height: 54,
+    width: 46,
+    height: 46,
     borderRadius: 999,
     backgroundColor: '#D4D7DF',
     alignItems: 'center',
@@ -806,33 +812,36 @@ const styles = StyleSheet.create({
   },
   stepChipText: {
     color: '#374151',
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: '700',
   },
   stepChipTextActive: {
     color: '#FFFFFF',
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: '900',
   },
   quizBody: {
     flex: 1,
-    paddingHorizontal: 18,
-    paddingTop: 18,
-    gap: 16,
+  },
+  quizBodyContent: {
+    paddingHorizontal: 16,
+    paddingTop: 16,
+    paddingBottom: 14,
+    gap: 12,
   },
   questionCount: {
     color: '#6B7280',
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: '700',
-    letterSpacing: 1.1,
+    letterSpacing: 0.8,
     textTransform: 'uppercase',
   },
   questionText: {
     color: '#111827',
-    fontSize: 28,
-    lineHeight: 44,
+    fontSize: 23,
+    lineHeight: 33,
     fontWeight: '900',
-    marginBottom: 6,
+    marginBottom: 2,
   },
   optionCard: {
     alignItems: 'center',
@@ -841,10 +850,10 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#DADADA',
     flexDirection: 'row',
-    gap: 12,
-    minHeight: 68,
-    paddingHorizontal: 18,
-    paddingVertical: 18,
+    gap: 10,
+    minHeight: 58,
+    paddingHorizontal: 14,
+    paddingVertical: 14,
   },
   optionCardSelected: {
     borderColor: '#3B82F6',
@@ -861,8 +870,8 @@ const styles = StyleSheet.create({
   optionText: {
     color: '#111827',
     flex: 1,
-    fontSize: 18,
-    lineHeight: 30,
+    fontSize: 16,
+    lineHeight: 24,
     fontWeight: '500',
   },
   optionTextSelected: {
@@ -872,10 +881,10 @@ const styles = StyleSheet.create({
   optionMarker: {
     alignItems: 'center',
     backgroundColor: '#F1F5F9',
-    borderRadius: 12,
-    height: 38,
+    borderRadius: 10,
+    height: 34,
     justifyContent: 'center',
-    width: 38,
+    width: 34,
   },
   optionMarkerSelected: {
     backgroundColor: '#2563EB',
@@ -1029,41 +1038,41 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 18,
-    paddingVertical: 18,
-    gap: 14,
+    paddingHorizontal: 14,
+    paddingVertical: 14,
+    gap: 10,
   },
   footerSecondaryButton: {
-    minWidth: 120,
-    minHeight: 58,
+    minWidth: 108,
+    minHeight: 50,
     borderRadius: 16,
     backgroundColor: '#FFFFFF',
     borderWidth: 1,
     borderColor: '#DADADA',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 18,
+    paddingHorizontal: 14,
   },
   footerSecondaryText: {
     color: '#111827',
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: '500',
   },
   footerPrimaryButton: {
     flex: 1,
-    minHeight: 58,
+    minHeight: 50,
     borderRadius: 16,
     backgroundColor: '#8FE1AF',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 18,
+    paddingHorizontal: 14,
   },
   footerPrimaryDisabled: {
     backgroundColor: '#D1D5DB',
   },
   footerPrimaryText: {
     color: '#FFFFFF',
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: '800',
   },
   footerDisabled: {

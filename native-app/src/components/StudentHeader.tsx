@@ -2,13 +2,16 @@ import React, { useMemo } from 'react';
 import {
   Platform,
   Image,
+  Modal,
   Pressable,
+  ScrollView,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
-import { Bell, ChevronLeft } from 'lucide-react-native';
+import { Bell, Check, ChevronDown, ChevronLeft } from 'lucide-react-native';
 import { AvatarArt, isLocalAvatarKey } from './AvatarArt';
+import { SUPPORTED_GRADES } from '../constants/grades';
 
 const logoAsset = require('../assets/logo.png');
 
@@ -17,6 +20,8 @@ interface StudentHeaderProps {
   onOpenProfile: () => void;
   onOpenNotifications?: () => void;
   unreadNotificationCount?: number;
+  currentGrade?: string;
+  onSelectGrade?: (grade: string) => void;
   showPreviewExit?: boolean;
   onExitPreview?: () => void;
 }
@@ -45,10 +50,19 @@ export function StudentHeader({
   onOpenProfile,
   onOpenNotifications,
   unreadNotificationCount = 0,
+  currentGrade,
+  onSelectGrade,
   showPreviewExit = false,
   onExitPreview,
 }: StudentHeaderProps) {
   const avatarUri = useMemo(() => getAvatarUri(userAvatar), [userAvatar]);
+  const [gradeMenuOpen, setGradeMenuOpen] = React.useState(false);
+  const showGradeSelect = Boolean(currentGrade && onSelectGrade);
+
+  function selectGrade(grade: string) {
+    onSelectGrade?.(grade);
+    setGradeMenuOpen(false);
+  }
 
   return (
     <View style={styles.header}>
@@ -79,6 +93,72 @@ export function StudentHeader({
       </View>
 
       <View style={styles.actionRow}>
+        {showGradeSelect ? (
+          <>
+            <Pressable
+              accessibilityLabel="Select learning grade"
+              accessibilityRole="button"
+              accessibilityState={{ expanded: gradeMenuOpen }}
+              onPress={() => setGradeMenuOpen(open => !open)}
+              style={({ pressed }) => [
+                styles.gradeSelectButton,
+                gradeMenuOpen && styles.gradeSelectButtonActive,
+                pressed && styles.controlPressed,
+              ]}>
+              <Text style={styles.gradeSelectText}>{currentGrade}</Text>
+              <ChevronDown
+                color="#1D4ED8"
+                size={14}
+                strokeWidth={2.6}
+                style={gradeMenuOpen ? styles.chevronOpen : undefined}
+              />
+            </Pressable>
+            <Modal
+              animationType="fade"
+              onRequestClose={() => setGradeMenuOpen(false)}
+              transparent
+              visible={gradeMenuOpen}>
+              <Pressable
+                accessibilityLabel="Close grade menu"
+                style={styles.gradeMenuBackdrop}
+                onPress={() => setGradeMenuOpen(false)}>
+                <Pressable style={styles.gradeMenu} onPress={() => undefined}>
+                  <Text style={styles.gradeMenuLabel}>Learning level</Text>
+                  <ScrollView
+                    contentContainerStyle={styles.gradeMenuList}
+                    showsVerticalScrollIndicator={false}>
+                    {SUPPORTED_GRADES.map(grade => {
+                      const active = grade === currentGrade;
+
+                      return (
+                        <Pressable
+                          key={grade}
+                          accessibilityLabel={`Select ${grade}`}
+                          accessibilityRole="menuitem"
+                          accessibilityState={{ selected: active }}
+                          onPress={() => selectGrade(grade)}
+                          style={({ pressed }) => [
+                            styles.gradeOption,
+                            active && styles.gradeOptionActive,
+                            pressed && styles.gradeOptionPressed,
+                          ]}>
+                          <Text
+                            style={[
+                              styles.gradeOptionText,
+                              active && styles.gradeOptionTextActive,
+                            ]}>
+                            {grade}
+                          </Text>
+                          {active ? <Check color="#1D4ED8" size={16} strokeWidth={2.7} /> : null}
+                        </Pressable>
+                      );
+                    })}
+                  </ScrollView>
+                </Pressable>
+              </Pressable>
+            </Modal>
+          </>
+        ) : null}
         <Pressable
           accessibilityLabel="Notifications"
           accessibilityRole="button"
@@ -122,10 +202,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     borderBottomColor: '#F3F4F6',
     borderBottomWidth: 1,
+    elevation: 4,
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingHorizontal: 16,
     paddingVertical: 12,
+    zIndex: 10,
   },
   brandRow: {
     alignItems: 'center',
@@ -175,6 +257,86 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     gap: 8,
+  },
+  gradeSelectButton: {
+    alignItems: 'center',
+    backgroundColor: '#EFF6FF',
+    borderColor: '#BFDBFE',
+    borderRadius: 999,
+    borderWidth: 1,
+    flexDirection: 'row',
+    gap: 4,
+    height: 34,
+    justifyContent: 'center',
+    minWidth: 92,
+    paddingHorizontal: 10,
+  },
+  gradeSelectButtonActive: {
+    backgroundColor: '#DBEAFE',
+    borderColor: '#93C5FD',
+  },
+  gradeSelectText: {
+    color: '#1E3A8A',
+    fontSize: 12,
+    fontWeight: '900',
+  },
+  chevronOpen: {
+    transform: [{ rotate: '180deg' }],
+  },
+  gradeMenuBackdrop: {
+    flex: 1,
+    paddingTop: 58,
+  },
+  gradeMenu: {
+    alignSelf: 'flex-end',
+    backgroundColor: '#FFFFFF',
+    borderColor: '#E5E7EB',
+    borderRadius: 14,
+    borderWidth: 1,
+    elevation: 8,
+    marginRight: 92,
+    maxHeight: 330,
+    paddingHorizontal: 8,
+    paddingVertical: 8,
+    shadowColor: '#111827',
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.16,
+    shadowRadius: 18,
+    width: 156,
+  },
+  gradeMenuLabel: {
+    color: '#64748B',
+    fontSize: 10,
+    fontWeight: '900',
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    textTransform: 'uppercase',
+  },
+  gradeMenuList: {
+    gap: 2,
+  },
+  gradeOption: {
+    alignItems: 'center',
+    borderRadius: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    minHeight: 38,
+    paddingHorizontal: 10,
+  },
+  gradeOptionActive: {
+    backgroundColor: '#EFF6FF',
+  },
+  gradeOptionPressed: {
+    opacity: 0.82,
+  },
+  gradeOptionText: {
+    color: '#334155',
+    fontSize: 13,
+    fontWeight: '800',
+  },
+  gradeOptionTextActive: {
+    color: '#1D4ED8',
+    fontWeight: '900',
   },
   iconButton: {
     alignItems: 'center',

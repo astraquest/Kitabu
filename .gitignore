@@ -15,6 +15,8 @@ supabase/.temp/
 **/.env.*
 !**/.env.example
 
+apps/api/data/books/**
+
 *.log
 *.out.log
 *.err.log
@@ -23,6 +25,8 @@ supabase/.temp/
 *.png
 !native-app/src/assets/logo.png
 !native-app/src/assets/splashscreen.png
+!native-app/src/assets/good-news/
+!native-app/src/assets/good-news/*.png
 !native-app/ios/KitabuNativeApp/Images.xcassets/**/*.png
 *.xml
 *.db

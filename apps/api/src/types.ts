@@ -13,6 +13,8 @@ export interface AuthenticatedUser {
   roles: AppRole[];
   gender?: 'male' | 'female' | 'not_specified';
   grade?: string | null;
+  countryCode?: string | null;
+  curriculumCode?: string | null;
   onboardingCompleted?: boolean;
   termsAcceptedAt?: string | null;
   termsVersion?: string | null;

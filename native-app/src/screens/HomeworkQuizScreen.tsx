@@ -228,7 +228,10 @@ export function HomeworkQuizScreen({
       }
       prompt += `\nKeep it friendly and concise for a ${DEFAULT_GRADE} student.`;
 
-      const text = await askHomeworkHelper(prompt, [], 'explanation');
+      const text = await askHomeworkHelper(prompt, [], 'explanation', undefined, {
+        grade: assignment.gradeLevel || DEFAULT_GRADE,
+        subjectName: assignment.subject,
+      });
       setExplanationModal({ isOpen: true, isLoading: false, text });
     } catch (error) {
       console.error('Explanation request failed', error);

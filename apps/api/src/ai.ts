@@ -1,10 +1,18 @@
 import { appConfig } from './config.js';
+import { getFeatureModelProfile } from './aiFeatures.js';
+
+const CHAT_PROVIDER_TIMEOUT_MS = 15_000;
+const JSON_PROVIDER_TIMEOUT_MS = 75_000;
+const DEFAULT_PROVIDER_TIMEOUT_MS = 20_000;
+const CHAT_MAX_TOKENS = 256;
+const PRACTICE_JSON_MAX_TOKENS = 2500;
 
 export interface GenerateTextInput {
   prompt: string;
   systemInstruction?: string;
   responseMimeType?: string;
   feature?: string;
+  context?: Record<string, unknown>;
   attachment?: {
     mimeType: string;
     data: string;
@@ -23,6 +31,18 @@ export interface AiProviderResult {
   completionTokens: number;
   totalTokens: number;
   plan?: AiExecutionPlan;
+  attempts?: AiProviderAttempt[];
+}
+
+export interface AiProviderAttempt {
+  provider: AiProvider;
+  model: string;
+  status: 'completed' | 'failed';
+  latencyMs: number;
+  promptTokens: number;
+  completionTokens: number;
+  totalTokens: number;
+  errorMessage?: string;
 }
 
 export interface AudioTranscriptionInput {
@@ -70,6 +90,10 @@ function isPdfAttachment(attachment: GenerateTextInput['attachment']) {
 }
 
 function isCurriculumReasoningFeature(feature: string) {
+  if (getFeatureModelProfile(feature) === 'reasoning_document') {
+    return true;
+  }
+
   const normalizedFeature = feature.trim().toLowerCase();
   return [
     'curriculum_extraction',
@@ -78,13 +102,81 @@ function isCurriculumReasoningFeature(feature: string) {
   ].includes(normalizedFeature);
 }
 
+function isKitabuChatFeature(feature: string) {
+  return ['homework_helper_chat', 'voice_tutor_text'].includes(feature.trim().toLowerCase());
+}
+
+function isLowLatencyTextFeature(feature: string) {
+  const profile = getFeatureModelProfile(feature);
+  if (profile === 'instant_tutor' || profile === 'structured_fast') {
+    return true;
+  }
+
+  return ['homework_helper_chat', 'quiz_generation', 'flashcard_generation'].includes(
+    feature.trim().toLowerCase()
+  );
+}
+
+function isPracticeGenerationFeature(feature: string) {
+  const profile = getFeatureModelProfile(feature);
+  if (profile === 'structured_fast') {
+    return true;
+  }
+
+  return ['quiz_generation', 'flashcard_generation'].includes(feature.trim().toLowerCase());
+}
+
+function resolveProviderTimeoutMs(input: GenerateTextInput) {
+  if (isKitabuChatFeature(input.feature ?? 'general')) {
+    return CHAT_PROVIDER_TIMEOUT_MS;
+  }
+
+  if (input.responseMimeType === 'application/json') {
+    return JSON_PROVIDER_TIMEOUT_MS;
+  }
+
+  return DEFAULT_PROVIDER_TIMEOUT_MS;
+}
+
+async function fetchWithTimeout(url: string, init: RequestInit, timeoutMs: number) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+
+  try {
+    return await fetch(url, {
+      ...init,
+      signal: controller.signal
+    });
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
 export function resolveAiExecutionPlans(input: Pick<GenerateTextInput, 'feature' | 'attachment'>): AiExecutionPlan[] {
   const feature = input.feature ?? 'general';
+  const isReasoningFeature = isCurriculumReasoningFeature(feature);
+  const isLowLatencyFeature = isLowLatencyTextFeature(feature);
   const supportsTextFallbacks = !input.attachment || isPdfAttachment(input.attachment);
   const plans: AiExecutionPlan[] = [];
 
+  if (supportsTextFallbacks && !isReasoningFeature && appConfig.KITABU_NVIDIA_API_KEY) {
+    plans.push({
+      provider: 'nvidia',
+      model: appConfig.KITABU_NVIDIA_TEXT_FAST_MODEL
+    });
+  }
+
+  if (supportsTextFallbacks && !isReasoningFeature && isLowLatencyFeature && appConfig.KITABU_GROQ_API_KEY) {
+    plans.push({
+      provider: 'groq',
+      model: appConfig.KITABU_GROQ_TEXT_FAST_MODEL
+    });
+  }
+
+  const hasFastLowLatencyPlan = isLowLatencyFeature && plans.length > 0;
+
   if (appConfig.KITABU_OPENAI_API_KEY) {
-    if (isCurriculumReasoningFeature(feature)) {
+    if (isReasoningFeature) {
       plans.push({
         provider: 'openai',
         model: appConfig.KITABU_OPENAI_REASONING_MODEL,
@@ -98,21 +190,14 @@ export function resolveAiExecutionPlans(input: Pick<GenerateTextInput, 'feature'
     }
   }
 
-  if (supportsTextFallbacks && appConfig.KITABU_DEEPSEEK_API_KEY) {
+  if (supportsTextFallbacks && appConfig.KITABU_DEEPSEEK_API_KEY && !hasFastLowLatencyPlan) {
     plans.push({
       provider: 'deepseek',
       model: appConfig.KITABU_DEEPSEEK_TEXT_FALLBACK_MODEL
     });
   }
 
-  if (supportsTextFallbacks && appConfig.KITABU_NVIDIA_API_KEY) {
-    plans.push({
-      provider: 'nvidia',
-      model: appConfig.KITABU_NVIDIA_DEEPSEEK_FLASH_MODEL
-    });
-  }
-
-  if (supportsTextFallbacks && isCurriculumReasoningFeature(feature)) {
+  if (supportsTextFallbacks && isReasoningFeature) {
     if (appConfig.KITABU_NVIDIA_API_KEY) {
       plans.push(
         {
@@ -129,7 +214,7 @@ export function resolveAiExecutionPlans(input: Pick<GenerateTextInput, 'feature'
       });
     }
   } else if (supportsTextFallbacks) {
-    if (appConfig.KITABU_GROQ_API_KEY) {
+    if (!isLowLatencyFeature && appConfig.KITABU_GROQ_API_KEY) {
       plans.push({
         provider: 'groq',
         model: appConfig.KITABU_GROQ_TEXT_FAST_MODEL
@@ -138,7 +223,7 @@ export function resolveAiExecutionPlans(input: Pick<GenerateTextInput, 'feature'
 
   }
 
-  if (appConfig.KITABU_GEMINI_API_KEY) {
+  if (appConfig.KITABU_GEMINI_API_KEY && !hasFastLowLatencyPlan) {
     plans.push({
       provider: 'google',
       model: appConfig.KITABU_GEMINI_MODEL
@@ -322,32 +407,36 @@ async function generateTextWithOpenAi(input: GenerateTextInput, plan: AiExecutio
     }
   }
 
-  const response = await fetch('https://api.openai.com/v1/responses', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${appConfig.KITABU_OPENAI_API_KEY}`
-    },
-    body: JSON.stringify({
-      model: plan.model,
-      instructions,
-      input: [
-        {
-          role: 'user',
-          content
-        }
-      ],
-      reasoning: plan.reasoningEffort ? { effort: plan.reasoningEffort } : undefined,
-      text:
-        requiresJsonOutput
-          ? {
-              format: {
-                type: 'json_object'
+  const response = await fetchWithTimeout(
+    'https://api.openai.com/v1/responses',
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${appConfig.KITABU_OPENAI_API_KEY}`
+      },
+      body: JSON.stringify({
+        model: plan.model,
+        instructions,
+        input: [
+          {
+            role: 'user',
+            content
+          }
+        ],
+        reasoning: plan.reasoningEffort ? { effort: plan.reasoningEffort } : undefined,
+        text:
+          requiresJsonOutput
+            ? {
+                format: {
+                  type: 'json_object'
+                }
               }
-            }
-          : undefined
-    })
-  });
+            : undefined
+      })
+    },
+    resolveProviderTimeoutMs(input)
+  );
 
   if (!response.ok) {
     const body = await response.text();
@@ -404,7 +493,7 @@ async function generateTextWithGemini(input: GenerateTextInput, plan: AiExecutio
     });
   }
 
-  const response = await fetch(
+  const response = await fetchWithTimeout(
     `https://generativelanguage.googleapis.com/v1beta/models/${plan.model}:generateContent?key=${appConfig.KITABU_GEMINI_API_KEY}`,
     {
       method: 'POST',
@@ -427,7 +516,8 @@ async function generateTextWithGemini(input: GenerateTextInput, plan: AiExecutio
           ? { responseMimeType: input.responseMimeType }
           : undefined
       })
-    }
+    },
+    resolveProviderTimeoutMs(input)
   );
 
   if (!response.ok) {
@@ -594,30 +684,38 @@ async function generateTextWithOpenAiCompatibleChat(args: {
   apiKey: string | undefined;
   baseUrl: string;
   providerName: string;
+  requestOptions?: Record<string, unknown>;
+  useJsonResponseFormat?: boolean;
 }): Promise<AiProviderResult> {
   if (!args.apiKey) {
     throw new Error(`${args.providerName} API key is not configured`);
   }
 
   const input = buildTextFallbackInput(args.input, args.providerName);
+  const useJsonResponseFormat = args.useJsonResponseFormat ?? true;
 
-  const response = await fetch(`${args.baseUrl}/chat/completions`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${args.apiKey}`
+  const response = await fetchWithTimeout(
+    `${args.baseUrl}/chat/completions`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${args.apiKey}`
+      },
+      body: JSON.stringify({
+        model: args.plan.model,
+        messages: buildChatCompletionMessages(input),
+        ...args.requestOptions,
+        response_format:
+          useJsonResponseFormat && input.responseMimeType === 'application/json'
+            ? {
+                type: 'json_object'
+              }
+            : undefined
+      })
     },
-    body: JSON.stringify({
-      model: args.plan.model,
-      messages: buildChatCompletionMessages(input),
-      response_format:
-        input.responseMimeType === 'application/json'
-          ? {
-              type: 'json_object'
-            }
-          : undefined
-    })
-  });
+    resolveProviderTimeoutMs(input)
+  );
 
   if (!response.ok) {
     const body = await response.text();
@@ -668,12 +766,34 @@ async function generateTextWithDeepSeek(input: GenerateTextInput, plan: AiExecut
 }
 
 async function generateTextWithNvidia(input: GenerateTextInput, plan: AiExecutionPlan): Promise<AiProviderResult> {
+  const isChatRequest = isKitabuChatFeature(input.feature ?? 'general');
+  const isPracticeRequest = isPracticeGenerationFeature(input.feature ?? 'general');
+  const isDeepSeekModel = plan.model.startsWith('deepseek-ai/');
+
   return generateTextWithOpenAiCompatibleChat({
     input,
     plan,
     apiKey: appConfig.KITABU_NVIDIA_API_KEY,
     baseUrl: 'https://integrate.api.nvidia.com/v1',
-    providerName: 'NVIDIA'
+    providerName: 'NVIDIA',
+    useJsonResponseFormat: false,
+    requestOptions: {
+      temperature: isChatRequest ? 0.4 : isPracticeRequest ? 0.4 : 0.7,
+      top_p: 0.9,
+      max_tokens: isChatRequest
+        ? CHAT_MAX_TOKENS
+        : isPracticeRequest
+          ? PRACTICE_JSON_MAX_TOKENS
+          : 4096,
+      stream: false,
+      ...(isDeepSeekModel
+        ? {
+            chat_template_kwargs: {
+              thinking: false
+            }
+          }
+        : {})
+    }
   });
 }
 
@@ -702,20 +822,50 @@ export async function generateTextWithFallback(
   plans = resolveAiExecutionPlans(input)
 ): Promise<AiProviderResult> {
   const errors: Error[] = [];
+  const attempts: AiProviderAttempt[] = [];
 
   for (const plan of plans) {
+    const startedAt = Date.now();
     try {
       const result = await generateText(input, plan);
+      if (!result.text.trim()) {
+        throw new Error(`${plan.provider} returned an empty response`);
+      }
+
+      attempts.push({
+        provider: plan.provider,
+        model: plan.model,
+        status: 'completed',
+        latencyMs: Date.now() - startedAt,
+        promptTokens: result.promptTokens,
+        completionTokens: result.completionTokens,
+        totalTokens: result.totalTokens
+      });
+
       return {
         ...result,
-        plan
+        plan,
+        attempts
       };
     } catch (error) {
-      errors.push(error instanceof Error ? error : new Error(String(error)));
+      const normalizedError = error instanceof Error ? error : new Error(String(error));
+      attempts.push({
+        provider: plan.provider,
+        model: plan.model,
+        status: 'failed',
+        latencyMs: Date.now() - startedAt,
+        promptTokens: 0,
+        completionTokens: 0,
+        totalTokens: 0,
+        errorMessage: normalizedError.message.slice(0, 500)
+      });
+      errors.push(normalizedError);
     }
   }
 
-  throw new Error(`All AI providers failed: ${errors.map(error => error.message).join(' | ')}`);
+  const failure = new Error(`All AI providers failed: ${errors.map(error => error.message).join(' | ')}`);
+  (failure as Error & { attempts?: AiProviderAttempt[] }).attempts = attempts;
+  throw failure;
 }
 
 export async function transcribeAudioWithOpenAi(

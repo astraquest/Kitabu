@@ -224,6 +224,18 @@ export interface Book {
   gradeLevel?: string | null;
   subjectId?: string | null;
   subjectName?: string | null;
+  country?: string | null;
+  curriculum?: string | null;
+  version?: string | null;
+  manifestUrl?: string | null;
+  pdfUrl?: string | null;
+  coverImageUrl?: string | null;
+  localPdfUri?: string | null;
+  localCoverUri?: string | null;
+  pageCount?: number | null;
+  wordCount?: number | null;
+  checksum?: string | null;
+  downloadedAt?: string | null;
   title: string;
   author: string;
   description?: string;
@@ -251,8 +263,13 @@ export interface UserProfile {
 }
 
 export interface ContentPage {
+  pageId?: string;
   title: string;
   content: string;
+  unitIds?: string[];
+  outcomeIds?: string[];
+  imageRefs?: string[];
+  estimatedMinutes?: number;
 }
 
 export interface CurriculumItem {

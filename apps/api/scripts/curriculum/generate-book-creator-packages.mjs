@@ -15,7 +15,7 @@ const BOOK_ROOT = path.join(repoRoot, 'apps', 'api', 'data', 'books');
 const SNAPSHOT_ROOT = path.join(repoRoot, 'apps', 'api', 'data', 'book-creator', 'snapshots');
 const PROGRESS_PATH = path.join(repoRoot, 'apps', 'api', 'data', 'book-creator', 'progress.json');
 const LOG_PATH = path.join(repoRoot, 'apps', 'api', 'data', 'book-creator', 'events.jsonl');
-const GENERATOR_VERSION = 'learner-first-language-depth-renderers-2026-07-01-v10';
+const GENERATOR_VERSION = 'learner-first-reviewer-remediation-renderers-2026-07-04-v47';
 
 const CORE_SUBJECTS = [
   { db: 'Agriculture', slug: 'agriculture', title: 'Agriculture', color: '#15803D' },
@@ -184,6 +184,37 @@ function sourceSubjectsFor(grade, subject) {
   return base;
 }
 
+function agricultureSourceContaminationText(row) {
+  const outcomes = Array.isArray(row.outcomes)
+    ? row.outcomes.map(outcome => outcome?.text || outcome?.statement || String(outcome)).join(' ')
+    : '';
+  const inquiryQuestions = Array.isArray(row.inquiry_questions)
+    ? row.inquiry_questions.map(question => question?.text || question?.question || String(question)).join(' ')
+    : '';
+  const pages = Array.isArray(row.pages)
+    ? row.pages.map(page => page?.title || page?.content || String(page)).join(' ')
+    : '';
+  return normalizeText([
+    row.strand_title,
+    row.sub_strand_title,
+    row.description,
+    outcomes,
+    inquiryQuestions,
+    pages
+  ].filter(Boolean).join(' ')).toLowerCase();
+}
+
+function isAgricultureSourceContamination(row) {
+  const text = agricultureSourceContaminationText(row);
+  if (!text) return false;
+  return /\b(laundry|launder|loose[-\s]*colou?red|stains?\s+(?:on|from)\s+clothing|disinfect(?:ing|ion)?\s+(?:clothing|household articles?)|garments?|gaping seam|stitches?|crochet(?:ing)?|knit(?:ting)?|textiles?|fabric|yarn|household articles?)\b/i.test(text);
+}
+
+function filterCurriculumRowsForSubject(rows, subject) {
+  if (subject.title !== 'Agriculture') return rows;
+  return rows.filter(row => !isAgricultureSourceContamination(row));
+}
+
 async function queryCurriculum(client, grade, subject) {
   const legacyGrade = grade === 'Grade 11' ? 'Form 3' : grade === 'Grade 12' ? 'Form 4' : grade;
   const legacy = await client.query(
@@ -218,7 +249,7 @@ async function queryCurriculum(client, grade, subject) {
     [grade, sourceGradeCodes(grade), sourceSubjectsFor(grade, subject).map(value => value.toLowerCase())]
   );
 
-  return { legacy: legacy.rows, sourceDocuments: source.rows };
+  return { legacy: filterCurriculumRowsForSubject(legacy.rows, subject), sourceDocuments: source.rows };
 }
 
 function flattenOutcomes(rows) {

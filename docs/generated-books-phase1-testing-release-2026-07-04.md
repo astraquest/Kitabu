@@ -59,6 +59,38 @@ Recommended testing deploy sequence:
 5. Verify `/health`.
 6. Log in as `student@kitabu.ai` and confirm the library returns 280 generated books with 280 cover URLs.
 
+## Production Publication
+
+Phase 1 testing publication was completed on production on 2026-07-04.
+
+Code publication:
+
+- PR: `https://github.com/astraquest/Kitabu/pull/19`
+- Merged into `main`: `7bc0878`
+- Production was rebuilt with the `published-for-testing` generated-book visibility gate.
+
+Data publication:
+
+- Server path: `/opt/kitabu-ai/apps/api/data/books`
+- Rollback backup: `/opt/kitabu-ai-data-backups/books.backup-20260704-phase1-pre`
+- Active production data after sync:
+  - 280 manifests
+  - 280 PDFs
+  - 280 cover PNGs
+
+Production verification:
+
+- `https://app.kitabu.ai/health` returned OK.
+- Demo account `student@kitabu.ai` returned 280 generated books with 280 cover URLs.
+- A regular Kenya CBC student profile returned 7 Grade 6 books with 7 cover URLs.
+- The same regular student profile could switch to Grade 4 and returned 7 Grade 4 books with 7 cover URLs.
+
+Access behavior:
+
+- Normal authenticated users see `published-for-testing` books scoped to their country, curriculum, and selected grade.
+- Demo/staff/admin preview users can review the full cross-country generated-book set.
+- `published-for-testing` is not final academic acceptance.
+
 ## Phase 2 Resume Point
 
 Resume the paused adversarial review findings before any final promotion:

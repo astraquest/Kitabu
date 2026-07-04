@@ -124,7 +124,6 @@ const kitabuGrade6SchoolLabel = 'Choose Kitabu Demo School, Nairobi, 40 Grade 6 
 // Teachers pick their school before a grade is known, so the roster shows the school total.
 const kitabuTeacherSchoolLabel = 'Choose Kitabu Demo School, Nairobi, 120 learners';
 const kitabuGrade8SchoolLabel = 'Choose Kitabu Demo School, Nairobi, No Grade 8 learners yet';
-const otherGrade6SchoolLabel = 'Choose Other Demo School, Mombasa, 20 Grade 6 learners';
 const kisiiGrade6SchoolLabel = 'Choose Kisii Demo School, Kisii County, Kenya, 18 Grade 6 learners';
 const defaultOnboardingSubjectIds = SUBJECTS.slice(0, 5).map(subject => subject.id);
 const selectedFullIntroSubjectIds = SUBJECTS.filter(subject =>

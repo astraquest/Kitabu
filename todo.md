@@ -39,6 +39,10 @@ Each book must pass:
 
 Reason: the user changed the goal to create a stable manual-testing checkpoint before continuing content review. Review/remediation is paused. Current generated packages are `published-for-testing`, with content review status preserved. No package should be treated as final academic content, `ready-for-cover`, `library-ready`, or `published-library` until Phase 2 remediation and acceptance pass.
 
+Phase 1.5 clarification: generated book files are not expected to live in Git. They are ignored by `.gitignore`, server-local on production at `/opt/kitabu-ai/apps/api/data/books`, and mounted into the API at `/app/data/books`. The failed local full-corpus Git push did not remove or block the books from production; production testing depends on the server-local corpus plus the API `published-for-testing` visibility gate. Keep review paused, keep current covers/books published for testing, preserve the server corpus with backups before any sync, and resume Phase 2 enhancement after tester feedback.
+
+2026-07-04 targeted production correction: backed up production `KEN/CBC/G9/agriculture` to `/var/backups/kitabu/generated-books-G9-agriculture-pre-v47-20260704224657`, synced the locally regenerated v47 package, verified API health, confirmed 280 generated books remain visible with 280 covers, and confirmed the G9 Agriculture clothing/household-disinfection contamination scan returns 0 hits. The package remains `published-for-testing`, not final accepted content.
+
 ## Kenya Content Redo
 
 - [x] Kenya inventory: confirm grades, subjects, source markdown/snapshots, and existing package status.
@@ -110,7 +114,9 @@ Reason: the user changed the goal to create a stable manual-testing checkpoint b
 - [x] Snapshot Phase 1 state: library manifest snapshot and logical DB census written under `tmp/book-agent-notes`.
 - [x] Create tracked Phase 2 remediation backlog from the published testing baseline: `docs/generated-books-phase2-remediation-backlog.md`.
 - [x] Run Phase 2 production readiness audit and record production-confirmed blockers: `docs/generated-books-phase2-production-audit-2026-07-04.md`.
-- [x] Patch Kenya generator v47 to filter known clothing/laundry/textile source-contamination rows out of Agriculture regeneration; G9 Agriculture still needs targeted regeneration and production sync before the published testing package is fixed.
+- [x] Patch Kenya generator v47 and sync targeted `KEN/CBC/G9/agriculture` remediation to production with backup; contamination scan now returns 0 hits.
+- [x] Add repo-owned generated-package validation gate for contamination, visible-cover metadata, app-safe cover fields, and repeated openings before promotion.
+- [x] Expose the existing grade selector in the Library view so selected-grade book filtering is usable without returning to the dashboard.
 - [ ] Collect tester feedback by country, grade, subject, page number, and issue type.
 - [ ] Convert accepted feedback into country-specific remediation tasks before moving to final readiness.
 

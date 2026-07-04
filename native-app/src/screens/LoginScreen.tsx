@@ -290,6 +290,14 @@ export function LoginScreen({
       });
       return;
     }
+    if (mode === 'signup' && !fullName.trim()) {
+      setProviderState({
+        isSubmitting: false,
+        message: null,
+        error: 'Enter your full name to create an account.',
+      });
+      return;
+    }
     if (mode === 'signup' && !isValidPersonName(fullName)) {
       setProviderState({
         isSubmitting: false,

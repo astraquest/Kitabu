@@ -310,12 +310,30 @@ export interface AdminUserRecord {
   lastActive: string;
   lastActiveAt: string | null;
   watchTimeSeconds: number;
+  hasActiveSubscription: boolean;
+  activeSubscriptionPeriodEnd: string | null;
+  activeSubscriptionPriceKshCents: number;
 }
 
 export interface FeatureFlagRecord {
   key: string;
   enabled: boolean;
   description: string;
+}
+
+export interface OnboardingSelectionEventInput {
+  anonymousSessionId: string;
+  userId?: string | null;
+  schoolId?: string | null;
+  stepKey: string;
+  optionKey: string;
+  optionLabel: string;
+  role?: string | null;
+  county?: string | null;
+  grade?: string | null;
+  countryCode?: string | null;
+  curriculumCode?: string | null;
+  metadata?: Record<string, unknown>;
 }
 
 export interface UserNotificationRecord {
@@ -1054,7 +1072,10 @@ export async function createAdminManagedUser(
     createdAt: user.created_at.toISOString(),
     lastActive: formatActivityLabel(user.updated_at),
     lastActiveAt: user.updated_at.toISOString(),
-    watchTimeSeconds: Number(user.watch_time_seconds || 0)
+    watchTimeSeconds: Number(user.watch_time_seconds || 0),
+    hasActiveSubscription: false,
+    activeSubscriptionPeriodEnd: null,
+    activeSubscriptionPriceKshCents: 0
   };
 }
 
@@ -2865,7 +2886,11 @@ export async function getAdminAiAnalytics(user: AuthenticatedUser) {
   );
 
   const topFeatures = await db.query(
-     `SELECT feature, COALESCE(SUM(estimated_cost_ksh_cents), 0)::bigint AS spend_ksh_cents
+     `SELECT
+       feature,
+       COALESCE(SUM(total_tokens), 0)::bigint AS total_tokens,
+       COALESCE(SUM(estimated_cost_ksh_cents), 0)::bigint AS spend_ksh_cents,
+       COUNT(DISTINCT user_id)::int AS active_ai_users
      FROM ai_usage_events
      ${aiUsageScopedWhere}
      GROUP BY feature
@@ -2919,12 +2944,215 @@ export async function getAdminAiAnalytics(user: AuthenticatedUser) {
     scopedParams
   );
 
+  const modelBreakdown = await db.query(
+    `SELECT
+       COALESCE(NULLIF(model, ''), 'unknown') AS model,
+       COALESCE(NULLIF(provider, ''), 'unknown') AS provider,
+       COUNT(*)::int AS events,
+       COUNT(DISTINCT user_id)::int AS active_ai_users,
+       COALESCE(SUM(total_tokens), 0)::bigint AS total_tokens,
+       COALESCE(SUM(estimated_cost_ksh_cents), 0)::bigint AS spend_ksh_cents,
+       CASE
+         WHEN SUM(SUM(total_tokens)) OVER () = 0 THEN 0
+         ELSE ROUND((SUM(total_tokens)::numeric / SUM(SUM(total_tokens)) OVER ()) * 100, 1)
+       END AS token_share
+     FROM ai_usage_events
+     ${aiUsageScopedWhere}
+     GROUP BY provider, model
+     ORDER BY total_tokens DESC
+     LIMIT 10`,
+    scopedParams
+  );
+
+  const costTrend = await db.query(
+    `SELECT
+       date_trunc('day', created_at)::date AS period,
+       COALESCE(SUM(total_tokens), 0)::bigint AS total_tokens,
+       COALESCE(SUM(estimated_cost_ksh_cents), 0)::bigint AS spend_ksh_cents
+     FROM ai_usage_events
+     ${schoolScoped ? "WHERE school_id = $1 AND created_at >= NOW() - INTERVAL '30 days'" : "WHERE created_at >= NOW() - INTERVAL '30 days'"}
+     GROUP BY period
+     ORDER BY period ASC`,
+    scopedParams
+  );
+
   return {
     topUsers: topUsers.rows,
     topFeatures: topFeatures.rows,
     blockedEvents: Number(blockedEvents.rows[0]?.total ?? 0),
     costBySchool: schoolScoped ? costBySchool.rows.filter(row => row.id === user.schoolId) : costBySchool.rows,
-    marginByUser: marginByUser.rows
+    marginByUser: marginByUser.rows,
+    modelBreakdown: modelBreakdown.rows,
+    costTrend: costTrend.rows
+  };
+}
+
+export async function createOnboardingSelectionEvent(
+  client: MaybeClient,
+  input: OnboardingSelectionEventInput
+) {
+  await q(
+    client,
+    `INSERT INTO onboarding_selection_events (
+      anonymous_session_id, user_id, school_id, step_key, option_key, option_label,
+      role, county, grade_level, country_code, curriculum_code, metadata
+    ) VALUES (
+      $1, $2, $3, $4, $5, $6,
+      $7, $8, $9, $10, $11, $12::jsonb
+    )`,
+    [
+      input.anonymousSessionId,
+      input.userId ?? null,
+      input.schoolId ?? null,
+      input.stepKey,
+      input.optionKey,
+      input.optionLabel,
+      input.role ?? null,
+      input.county ?? null,
+      input.grade ?? null,
+      input.countryCode ?? null,
+      input.curriculumCode ?? null,
+      JSON.stringify(input.metadata ?? {})
+    ]
+  );
+}
+
+export async function getAdminOnboardingAnalytics(user: AuthenticatedUser) {
+  const schoolScoped = !user.roles.includes('platform_admin');
+  const params: unknown[] = [];
+  const clauses: string[] = [];
+
+  if (schoolScoped) {
+    params.push(user.schoolId);
+    clauses.push(`school_id = $${params.length}`);
+  }
+
+  const where = clauses.length ? `WHERE ${clauses.join(' AND ')}` : '';
+
+  const summary = await db.query<{
+    total_events: string;
+    sessions: string;
+    identified_users: string;
+    first_event_at: Date | null;
+    last_event_at: Date | null;
+  }>(
+    `SELECT
+       COUNT(*)::text AS total_events,
+       COUNT(DISTINCT anonymous_session_id)::text AS sessions,
+       COUNT(DISTINCT user_id)::text AS identified_users,
+       MIN(created_at) AS first_event_at,
+       MAX(created_at) AS last_event_at
+     FROM onboarding_selection_events
+     ${where}`,
+    params
+  );
+
+  const funnel = await db.query<{
+    step_key: string;
+    events: string;
+    sessions: string;
+    users: string;
+    first_event_at: Date | null;
+    last_event_at: Date | null;
+  }>(
+    `SELECT
+       step_key,
+       COUNT(*)::text AS events,
+       COUNT(DISTINCT anonymous_session_id)::text AS sessions,
+       COUNT(DISTINCT user_id)::text AS users,
+       MIN(created_at) AS first_event_at,
+       MAX(created_at) AS last_event_at
+     FROM onboarding_selection_events
+     ${where}
+     GROUP BY step_key
+     ORDER BY MIN(created_at) ASC, COUNT(DISTINCT anonymous_session_id) DESC`,
+    params
+  );
+
+  const topOptions = await db.query<{
+    step_key: string;
+    option_key: string;
+    option_label: string;
+    events: string;
+    sessions: string;
+    users: string;
+    last_selected_at: Date | null;
+  }>(
+    `SELECT
+       step_key,
+       option_key,
+       MAX(option_label) AS option_label,
+       COUNT(*)::text AS events,
+       COUNT(DISTINCT anonymous_session_id)::text AS sessions,
+       COUNT(DISTINCT user_id)::text AS users,
+       MAX(created_at) AS last_selected_at
+     FROM onboarding_selection_events
+     ${where}
+     GROUP BY step_key, option_key
+     ORDER BY COUNT(DISTINCT anonymous_session_id) DESC, COUNT(*) DESC, MAX(created_at) DESC
+     LIMIT 60`,
+    params
+  );
+
+  const rankingQuery = async (column: string) => {
+    const result = await db.query<{
+      key: string;
+      events: string;
+      sessions: string;
+      users: string;
+    }>(
+      `SELECT
+         ${column} AS key,
+         COUNT(*)::text AS events,
+         COUNT(DISTINCT anonymous_session_id)::text AS sessions,
+         COUNT(DISTINCT user_id)::text AS users
+       FROM onboarding_selection_events
+       ${where ? `${where} AND ${column} IS NOT NULL AND ${column} <> ''` : `WHERE ${column} IS NOT NULL AND ${column} <> ''`}
+       GROUP BY ${column}
+       ORDER BY COUNT(DISTINCT anonymous_session_id) DESC, COUNT(*) DESC
+       LIMIT 15`,
+      params
+    );
+    return result.rows.map(row => ({
+      key: row.key,
+      events: Number(row.events || 0),
+      sessions: Number(row.sessions || 0),
+      users: Number(row.users || 0)
+    }));
+  };
+
+  const summaryRow = summary.rows[0];
+
+  return {
+    summary: {
+      totalEvents: Number(summaryRow?.total_events || 0),
+      sessions: Number(summaryRow?.sessions || 0),
+      identifiedUsers: Number(summaryRow?.identified_users || 0),
+      firstEventAt: summaryRow?.first_event_at?.toISOString() ?? null,
+      lastEventAt: summaryRow?.last_event_at?.toISOString() ?? null
+    },
+    funnel: funnel.rows.map(row => ({
+      stepKey: row.step_key,
+      events: Number(row.events || 0),
+      sessions: Number(row.sessions || 0),
+      users: Number(row.users || 0),
+      firstEventAt: row.first_event_at?.toISOString() ?? null,
+      lastEventAt: row.last_event_at?.toISOString() ?? null
+    })),
+    topOptions: topOptions.rows.map(row => ({
+      stepKey: row.step_key,
+      optionKey: row.option_key,
+      optionLabel: row.option_label,
+      events: Number(row.events || 0),
+      sessions: Number(row.sessions || 0),
+      users: Number(row.users || 0),
+      lastSelectedAt: row.last_selected_at?.toISOString() ?? null
+    })),
+    topRoles: await rankingQuery('role'),
+    topGrades: await rankingQuery('grade_level'),
+    topCounties: await rankingQuery('county'),
+    topCountries: await rankingQuery('country_code'),
+    topCurricula: await rankingQuery('curriculum_code')
   };
 }
 
@@ -4527,6 +4755,9 @@ export async function listAdminUsers(user: AuthenticatedUser): Promise<AdminUser
     presence_status: string;
     presence_last_seen_at: Date | null;
     watch_time_seconds: string;
+    has_active_subscription: boolean;
+    active_subscription_period_end: Date | null;
+    active_subscription_price_ksh_cents: string;
   }>(
     `SELECT
        u.id,
@@ -4548,7 +4779,10 @@ export async function listAdminUsers(user: AuthenticatedUser): Promise<AdminUser
        ) AS last_activity,
        u.presence_status,
        u.presence_last_seen_at,
-       u.watch_time_seconds::text AS watch_time_seconds
+       u.watch_time_seconds::text AS watch_time_seconds,
+       BOOL_OR(active_subscription.id IS NOT NULL) AS has_active_subscription,
+       MAX(active_subscription.period_end) AS active_subscription_period_end,
+       COALESCE(MAX(active_subscription.price_ksh_cents), 0)::text AS active_subscription_price_ksh_cents
       FROM users u
       JOIN user_roles ur ON ur.user_id = u.id
       LEFT JOIN schools s ON s.id = u.school_id
@@ -4556,6 +4790,11 @@ export async function listAdminUsers(user: AuthenticatedUser): Promise<AdminUser
       LEFT JOIN user_curriculum_progress ucp ON ucp.user_id = u.id
       LEFT JOIN weekly_exam_attempts wa ON wa.user_id = u.id
       LEFT JOIN ai_usage_events aue ON aue.user_id = u.id
+      LEFT JOIN subscriptions active_subscription
+        ON active_subscription.user_id = u.id
+       AND active_subscription.status = 'active'
+       AND NOW() >= active_subscription.period_start
+       AND NOW() < active_subscription.period_end
       WHERE ($1::boolean = FALSE OR u.school_id = $2)
       GROUP BY u.id, s.name
       ORDER BY u.full_name ASC`,
@@ -4581,6 +4820,47 @@ export async function listAdminUsers(user: AuthenticatedUser): Promise<AdminUser
     createdAt: row.created_at.toISOString(),
     lastActive: formatActivityLabel(row.last_activity),
     lastActiveAt: row.last_activity ? row.last_activity.toISOString() : null,
-    watchTimeSeconds: Number(row.watch_time_seconds || 0)
+    watchTimeSeconds: Number(row.watch_time_seconds || 0),
+    hasActiveSubscription: row.has_active_subscription,
+    activeSubscriptionPeriodEnd: row.active_subscription_period_end
+      ? row.active_subscription_period_end.toISOString()
+      : null,
+    activeSubscriptionPriceKshCents: Number(row.active_subscription_price_ksh_cents || 0)
   }));
+}
+
+export interface SchoolOnboardingRequestInput {
+  schoolName: string;
+  county: string;
+  town: string | null;
+  schoolLevel: 'junior' | 'senior' | 'junior_and_senior';
+  boardingType: 'day' | 'boarding' | 'day_and_boarding';
+  studentCount: number;
+  contactPhone: string;
+  source: string;
+}
+
+export async function createSchoolOnboardingRequest(client: MaybeClient, input: SchoolOnboardingRequestInput) {
+  const result = await q<{ id: string; created_at: Date }>(
+    client,
+    `INSERT INTO school_onboarding_requests (
+      school_name, county, town, school_level, boarding_type, student_count, contact_phone, source
+     ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+     RETURNING id, created_at`,
+    [
+      input.schoolName,
+      input.county,
+      input.town,
+      input.schoolLevel,
+      input.boardingType,
+      input.studentCount,
+      input.contactPhone,
+      input.source
+    ]
+  );
+  return result.rows[0];
+}
+
+export async function markSchoolOnboardingEmailDelivered(client: MaybeClient, id: string) {
+  await q(client, `UPDATE school_onboarding_requests SET email_delivered = TRUE WHERE id = $1`, [id]);
 }

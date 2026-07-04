@@ -130,6 +130,7 @@ const configSchema = z.object({
   KITABU_SMTP_PASS: z.string().optional(),
   KITABU_SMTP_TIMEOUT_MS: z.coerce.number().int().positive().default(8000),
   KITABU_MAIL_FROM: z.string().default('Kitabu AI <noreply@kitabu.ai>'),
+  KITABU_SCHOOL_LEADS_EMAIL: z.string().default('hello@kitabu.ai'),
   KITABU_TERMS_VERSION: z.string().default('2026-06'),
   KITABU_PRIVACY_VERSION: z.string().default('2026-06'),
   KITABU_TERMS_OF_SERVICE_URL: z.string().url().default('https://kitabu.ai/terms'),

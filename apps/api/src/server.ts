@@ -54,6 +54,7 @@ import {
   createSelfServiceUser,
   createAiUsageEvent,
   createAuditLog,
+  createOnboardingSelectionEvent,
   createSubjectEngagementEvent,
   ensureWeeklyExam,
   createDiagnosticSession,
@@ -97,6 +98,7 @@ import {
   getActiveSubscription,
   getActiveBannerAnnouncement,
   getAdminAiAnalytics,
+  getAdminOnboardingAnalytics,
   getAdminSubjectEngagementAnalytics,
   getAiGenerationCacheEntry,
   listAdminUsers,
@@ -162,6 +164,8 @@ import {
   upsertPushToken,
   upsertBillingProfile,
   upsertTotpSecret,
+  createSchoolOnboardingRequest,
+  markSchoolOnboardingEmailDelivered,
   withTransaction
 } from './repositories.js';
 import type { WeeklyExamQuestionRecord, WeeklyExamRecord } from './repositories.js';
@@ -359,6 +363,19 @@ const onboardingSchema = z.object({
   gender: z.enum(['male', 'female', 'not_specified']),
   grade: z.string().trim().min(2).max(40),
   mpesaPhoneNumber: z.string().trim().min(9).max(20).nullable().optional()
+});
+
+const onboardingSelectionEventSchema = z.object({
+  sessionId: z.string().trim().min(8).max(160),
+  stepKey: z.string().trim().min(1).max(80),
+  optionKey: z.string().trim().min(1).max(160),
+  optionLabel: z.string().trim().min(1).max(240),
+  role: z.string().trim().max(40).nullable().optional(),
+  county: z.string().trim().max(120).nullable().optional(),
+  grade: z.string().trim().max(40).nullable().optional(),
+  countryCode: z.string().trim().max(10).nullable().optional(),
+  curriculumCode: z.string().trim().max(120).nullable().optional(),
+  metadata: z.record(z.string(), z.unknown()).optional()
 });
 
 const teacherAssignmentSchema = z.object({
@@ -744,6 +761,8 @@ function parseOriginList(value: string) {
 function getAllowedCorsOrigins() {
   const origins = new Set([
     appConfig.KITABU_ADMIN_WEB_ORIGIN,
+    'https://kitabu.ai',
+    'https://www.kitabu.ai',
     ...parseOriginList(appConfig.KITABU_WEB_APP_ORIGINS)
   ]);
 
@@ -1337,7 +1356,8 @@ export function buildServer(options: BuildServerOptions = {}) {
       '/auth/refresh',
       '/auth/email-verification/resend',
       '/auth/email-verification/confirm',
-      '/me/account'
+      '/me/account',
+      '/onboarding/selection-events'
     ]);
     if (
       request.user &&
@@ -2761,6 +2781,92 @@ Requirements:
       user
     };
   }
+
+  const schoolOnboardingSchema = z.object({
+    schoolName: z.string().trim().min(2).max(200),
+    county: z.string().trim().min(2).max(60),
+    town: z.string().trim().max(120).optional(),
+    schoolLevel: z.enum(['junior', 'senior', 'junior_and_senior']),
+    boardingType: z.enum(['day', 'boarding', 'day_and_boarding']),
+    studentCount: z.coerce.number().int().min(1).max(100000),
+    contactPhone: z.string().trim().min(7).max(20),
+    source: z.string().trim().max(60).optional()
+  });
+
+  // Public lead-capture endpoint for the marketing site (kitabu.ai/schools/demo).
+  app.post(
+    '/public/school-onboarding',
+    { config: { rateLimit: { max: 5, timeWindow: '1 minute' } } },
+    async (request, reply) => {
+      const body = schoolOnboardingSchema.parse(request.body);
+
+      const record = await withTransaction(async client => {
+        const created = await createSchoolOnboardingRequest(client, {
+          schoolName: body.schoolName,
+          county: body.county,
+          town: body.town?.length ? body.town : null,
+          schoolLevel: body.schoolLevel,
+          boardingType: body.boardingType,
+          studentCount: body.studentCount,
+          contactPhone: body.contactPhone,
+          source: body.source?.length ? body.source : 'website'
+        });
+        await createAuditLog(client, null, null, 'school.onboarding.requested', {
+          requestId: created.id,
+          county: body.county,
+          studentCount: body.studentCount
+        });
+        return created;
+      });
+
+      const levelLabel = {
+        junior: 'Junior school',
+        senior: 'Senior school',
+        junior_and_senior: 'Junior & senior school'
+      }[body.schoolLevel];
+      const boardingLabel = {
+        day: 'Day',
+        boarding: 'Boarding',
+        day_and_boarding: 'Day & boarding'
+      }[body.boardingType];
+      const detailPairs: Array<[string, string]> = [
+        ['School', body.schoolName],
+        ['Location', body.town?.length ? `${body.town}, ${body.county} County` : `${body.county} County`],
+        ['Level', levelLabel],
+        ['Type', boardingLabel],
+        ['Students', String(body.studentCount)],
+        ['Phone / WhatsApp', body.contactPhone],
+        ['Request ID', record.id]
+      ];
+      const emailDelivered = await sendTransactionalEmail({
+        to: appConfig.KITABU_SCHOOL_LEADS_EMAIL,
+        subject: `New school onboarding request: ${body.schoolName} (${body.county})`,
+        text: detailPairs.map(([label, value]) => `${label}: ${value}`).join('\n'),
+        html: `
+          <div style="font-family:Segoe UI,Arial,sans-serif;line-height:1.6;color:#0f172a">
+            <h2 style="margin:0 0 16px">New school onboarding request</h2>
+            <table style="border-collapse:collapse">
+              ${detailPairs
+                .map(
+                  ([label, value]) =>
+                    `<tr><td style="padding:4px 16px 4px 0;font-weight:700">${escapeHtml(label)}</td><td style="padding:4px 0">${escapeHtml(value)}</td></tr>`
+                )
+                .join('')}
+            </table>
+            <p style="margin-top:20px">Same-day follow-up SLA: call the school today.</p>
+          </div>
+        `
+      });
+      if (emailDelivered) {
+        await withTransaction(client => markSchoolOnboardingEmailDelivered(client, record.id));
+      } else {
+        request.log.warn({ requestId: record.id }, 'school onboarding email delivery failed');
+      }
+
+      reply.code(201);
+      return { ok: true as const, requestId: record.id };
+    }
+  );
 
   app.post('/auth/login', { config: { rateLimit: { max: 10, timeWindow: '1 minute' } } }, async (request, reply) => {
     const body = loginSchema.parse(request.body);
@@ -5190,6 +5296,30 @@ Return valid JSON with this shape:
     return { status: body.status };
   });
 
+  app.post('/onboarding/selection-events', async (request, reply) => {
+    const body = onboardingSelectionEventSchema.parse(request.body);
+    const currentUser = request.user ?? null;
+
+    await withTransaction(async client => {
+      await createOnboardingSelectionEvent(client, {
+        anonymousSessionId: body.sessionId,
+        userId: currentUser?.id ?? null,
+        schoolId: currentUser?.schoolId ?? null,
+        stepKey: body.stepKey,
+        optionKey: body.optionKey,
+        optionLabel: body.optionLabel,
+        role: body.role || currentUser?.roles[0] || null,
+        county: body.county || null,
+        grade: body.grade || currentUser?.grade || null,
+        countryCode: body.countryCode || currentUser?.countryCode || null,
+        curriculumCode: body.curriculumCode || currentUser?.curriculumCode || null,
+        metadata: body.metadata ?? {}
+      });
+    });
+
+    return reply.status(202).send({ accepted: true });
+  });
+
   app.post('/me/onboarding', async (request, reply) => {
     const authError = await requireAuthenticated(request, reply);
     if (authError) {
@@ -6100,6 +6230,28 @@ Return valid JSON with this shape:
     }
     const query = subjectEngagementQuerySchema.parse(request.query);
     return getAdminSubjectEngagementAnalytics(request.user!, query);
+  });
+
+  app.get('/admin/analytics/onboarding', {
+    config: {
+      rateLimit: {
+        max: appConfig.KITABU_ADMIN_ANALYTICS_RATE_LIMIT_MAX,
+        timeWindow: appConfig.KITABU_ADMIN_ANALYTICS_RATE_LIMIT_WINDOW
+      }
+    }
+  }, async (request, reply) => {
+    const needsStepUp = request.user?.roles.includes('platform_admin') && !request.user.roles.includes('school_admin');
+    const precondition = await requireRoles(request, reply, ['school_admin', 'platform_admin'], {
+      requireStepUp: needsStepUp
+    });
+    if (precondition) {
+      return precondition;
+    }
+    const schoolContextError = await requireSchoolContext(request, reply, { allowPlatformAdmin: true });
+    if (schoolContextError) {
+      return;
+    }
+    return getAdminOnboardingAnalytics(request.user!);
   });
 
   app.get('/admin/analytics/billing', {

@@ -25,6 +25,7 @@ const ndovuElephantMascot = require('../assets/mascot/ndovu-elephant.png');
 
 interface SubscriptionCheckoutModalProps {
   isOpen: boolean;
+  presentation?: 'native' | 'inline';
   plans: BillingPlan[];
   selectedPlanCode: BillingPlanCode | null;
   phoneNumber: string;
@@ -126,7 +127,9 @@ function getDiscountLabel(plan: BillingPlan) {
     return plan.discountLabel.toUpperCase();
   }
   if (plan.originalPriceKsh && plan.originalPriceKsh > plan.priceKsh) {
-    const percent = Math.round((1 - plan.priceKsh / plan.originalPriceKsh) * 100);
+    const percent = Math.round(
+      (1 - plan.priceKsh / plan.originalPriceKsh) * 100,
+    );
     return `${percent}% OFF`;
   }
   return null;
@@ -147,6 +150,7 @@ function getPlanPresentation(plan: BillingPlan) {
 
 export function SubscriptionCheckoutModal({
   isOpen,
+  presentation = 'native',
   plans,
   selectedPlanCode,
   phoneNumber,
@@ -163,7 +167,8 @@ export function SubscriptionCheckoutModal({
   const { height, width } = useWindowDimensions();
   const compact = height < 760 || width < 390;
   const [hasPackageFocus, setHasPackageFocus] = useState(false);
-  const [focusedPlanCode, setFocusedPlanCode] = useState<BillingPlanCode | null>(null);
+  const [focusedPlanCode, setFocusedPlanCode] =
+    useState<BillingPlanCode | null>(null);
   const focusProgress = useRef(new Animated.Value(0)).current;
   const wiggle = useRef(new Animated.Value(0)).current;
   const cardSizeStyle = useMemo(
@@ -173,16 +178,16 @@ export function SubscriptionCheckoutModal({
     }),
     [height, width],
   );
-  const visiblePlans = useMemo(
-    () => {
-      const plansByCode = new Map(plans.map(plan => [plan.code, plan]));
+  const visiblePlans = useMemo(() => {
+    const plansByCode = new Map(plans.map(plan => [plan.code, plan]));
 
-      return PUBLIC_PLAN_CODES.map(planCode => plansByCode.get(planCode) ?? PUBLIC_PLAN_FALLBACKS[planCode]).sort(
-        (left, right) => (PLAN_ORDER[left.code] ?? 99) - (PLAN_ORDER[right.code] ?? 99),
-      );
-    },
-    [plans],
-  );
+    return PUBLIC_PLAN_CODES.map(
+      planCode => plansByCode.get(planCode) ?? PUBLIC_PLAN_FALLBACKS[planCode],
+    ).sort(
+      (left, right) =>
+        (PLAN_ORDER[left.code] ?? 99) - (PLAN_ORDER[right.code] ?? 99),
+    );
+  }, [plans]);
   const effectiveSelectedPlanCode = focusedPlanCode ?? selectedPlanCode;
   const featuredPlan =
     visiblePlans.find(plan => plan.code === effectiveSelectedPlanCode) ??
@@ -197,12 +202,10 @@ export function SubscriptionCheckoutModal({
   const packageStep = packageCardWidth + PACKAGE_GAP;
 
   useEffect(() => {
-    if (!isOpen) {
-      setHasPackageFocus(false);
-      setFocusedPlanCode(null);
-      focusProgress.setValue(0);
-      wiggle.setValue(0);
-    }
+    setHasPackageFocus(false);
+    setFocusedPlanCode(null);
+    focusProgress.setValue(0);
+    wiggle.setValue(0);
   }, [focusProgress, isOpen, wiggle]);
 
   useEffect(() => {
@@ -254,190 +257,264 @@ export function SubscriptionCheckoutModal({
   }, [effectiveSelectedPlanCode, focusProgress, hasPackageFocus, wiggle]);
 
   function handleSelectPlan(planCode: BillingPlanCode) {
+    if (hasPackageFocus && planCode === effectiveSelectedPlanCode) {
+      setHasPackageFocus(false);
+      focusProgress.setValue(0);
+      wiggle.setValue(0);
+      return;
+    }
+
     setFocusedPlanCode(planCode);
     setHasPackageFocus(true);
     onSelectPlan(planCode);
   }
 
-  return (
-    <Modal visible={isOpen} transparent animationType="fade" onRequestClose={onClose}>
-      <View style={styles.backdrop}>
-        <Pressable style={styles.scrim} onPress={onClose} />
-        <LinearGradient
-          colors={['#FFF7ED', '#FFFFFF', '#FFEDD5']}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 1 }}
-          style={[
-            styles.card,
-            compact ? styles.cardCompact : styles.cardRegular,
-            cardSizeStyle,
-          ]}>
-          <ScrollView
-            contentContainerStyle={[
-              styles.content,
-              compact && styles.contentCompact,
-            ]}
-            showsVerticalScrollIndicator={false}
-            keyboardShouldPersistTaps="handled">
-            <Pressable
-              accessibilityRole="button"
-              accessibilityLabel="Close payment modal"
-              onPress={onClose}
-              style={styles.closeButton}>
-              <X color="#64748B" size={28} strokeWidth={2.2} />
-            </Pressable>
+  const checkoutContent = (
+    <View style={styles.backdrop}>
+      <Pressable style={styles.scrim} onPress={onClose} />
+      <LinearGradient
+        colors={['#FFF7ED', '#FFFFFF', '#FFEDD5']}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+        style={[
+          styles.card,
+          compact ? styles.cardCompact : styles.cardRegular,
+          cardSizeStyle,
+        ]}
+      >
+        <ScrollView
+          contentContainerStyle={[
+            styles.content,
+            compact && styles.contentCompact,
+          ]}
+          showsVerticalScrollIndicator={false}
+          keyboardShouldPersistTaps="handled"
+        >
+          <Pressable
+            accessibilityRole="button"
+            accessibilityLabel="Close payment modal"
+            onPress={onClose}
+            style={styles.closeButton}
+          >
+            <X color="#64748B" size={28} strokeWidth={2.2} />
+          </Pressable>
 
-            <Text style={[styles.title, compact && styles.titleCompact]}>
-              Become Top of Your Class in Just 3 Months
-            </Text>
-            <Text style={[styles.subtitle, compact && styles.subtitleCompact]}>
-              Join thousands of students already improving their grades.
-            </Text>
+          <Text style={[styles.title, compact && styles.titleCompact]}>
+            Become Top of Your Class in Just 3 Months
+          </Text>
+          <Text style={[styles.subtitle, compact && styles.subtitleCompact]}>
+            Join thousands of students already improving their grades.
+          </Text>
 
-            <View style={styles.offerBadge}>
-              <Text style={styles.offerBadgeText}>LIMITED TIME OFFER</Text>
-            </View>
+          <View style={styles.offerBadge}>
+            <Text style={styles.offerBadgeText}>LIMITED TIME OFFER</Text>
+          </View>
 
-            <View style={styles.packageRail}>
-              {visiblePlans.map(plan => {
-                const active = plan.code === featuredPlan?.code;
-                const packageTheme = getPlanPresentation(plan);
-                const discountLabel = getDiscountLabel(plan);
-                const popular = plan.code === 'monthly' || plan.isPopular;
-                const rowIndex = PLAN_ORDER[plan.code] ?? 2;
-                const rowOffset = (rowIndex - 2) * packageStep;
-                const translateX = focusProgress.interpolate({
-                  inputRange: [0, 1],
-                  outputRange: [rowOffset, 0],
-                });
-                const scale = focusProgress.interpolate({
-                  inputRange: [0, 1],
-                  outputRange: [1, active ? 1.08 : 0.72],
-                });
-                const opacity = focusProgress.interpolate({
-                  inputRange: [0, 1],
-                  outputRange: [1, active ? 1 : 0],
-                });
-                const rotate = active
-                  ? wiggle.interpolate({
-                      inputRange: [-1, 0, 1],
-                      outputRange: ['-2.4deg', '0deg', '2.4deg'],
-                    })
-                  : '0deg';
-                return (
-                  <Animated.View
-                    key={plan.code}
-                    pointerEvents={hasPackageFocus && !active ? 'none' : 'auto'}
-                    style={[
-                      styles.packageCardSlot,
-                      active && styles.packageCardSlotActive,
-                      {
-                        width: packageCardWidth,
-                        marginLeft: -packageCardWidth / 2,
-                        opacity,
-                        transform: [{ translateX }, { scale }, { rotate }],
-                      },
-                    ]}>
-                    <Image
-                      accessibilityIgnoresInvertColors
-                      accessibilityLabel={`${packageTheme.name} mascot`}
-                      source={packageTheme.mascot}
-                      style={styles.packageMascot}
-                      resizeMode="contain"
-                    />
-                    {popular ? (
-                      <View style={[styles.packagePopularPill, { backgroundColor: packageTheme.accent }]}>
-                        <Text style={styles.packagePopularText}>MOST POPULAR</Text>
-                      </View>
-                    ) : null}
-                    <Pressable
-                      accessibilityRole="button"
-                      accessibilityLabel={`Select ${packageTheme.name} package`}
-                      accessibilityState={{ selected: active }}
-                      onPress={() => handleSelectPlan(plan.code)}
+          <View style={styles.packageRail}>
+            {visiblePlans.map(plan => {
+              const active = plan.code === featuredPlan?.code;
+              const packageTheme = getPlanPresentation(plan);
+              const discountLabel = getDiscountLabel(plan);
+              const popular = plan.code === 'monthly' || plan.isPopular;
+              const rowIndex = PLAN_ORDER[plan.code] ?? 2;
+              const rowOffset = (rowIndex - 2) * packageStep;
+              const translateX = focusProgress.interpolate({
+                inputRange: [0, 1],
+                outputRange: [rowOffset, 0],
+              });
+              const scale = focusProgress.interpolate({
+                inputRange: [0, 1],
+                outputRange: [1, active ? 1.08 : 0.72],
+              });
+              const opacity = focusProgress.interpolate({
+                inputRange: [0, 1],
+                outputRange: [1, active ? 1 : 0],
+              });
+              const rotate = active
+                ? wiggle.interpolate({
+                    inputRange: [-1, 0, 1],
+                    outputRange: ['-2.4deg', '0deg', '2.4deg'],
+                  })
+                : '0deg';
+              return (
+                <Animated.View
+                  key={plan.code}
+                  pointerEvents={hasPackageFocus && !active ? 'none' : 'auto'}
+                  style={[
+                    styles.packageCardSlot,
+                    active && styles.packageCardSlotActive,
+                    {
+                      width: packageCardWidth,
+                      marginLeft: -packageCardWidth / 2,
+                      opacity,
+                      transform: [{ translateX }, { scale }, { rotate }],
+                    },
+                  ]}
+                >
+                  <Image
+                    accessibilityIgnoresInvertColors
+                    accessibilityLabel={`${packageTheme.name} mascot`}
+                    source={packageTheme.mascot}
+                    style={styles.packageMascot}
+                    resizeMode="contain"
+                  />
+                  {popular ? (
+                    <View
                       style={[
-                        styles.packageCard,
-                        {
-                          backgroundColor: packageTheme.soft,
-                          borderColor: active ? packageTheme.accent : packageTheme.border,
-                        },
-                        active && styles.packageCardActive,
-                        active && { shadowColor: packageTheme.accent },
-                      ]}>
-                      <Text style={styles.packageName}>{packageTheme.name}</Text>
-                      <Text style={[styles.packagePrice, { color: packageTheme.accent }]}>
-                        KSH {plan.priceKsh.toLocaleString()}
+                        styles.packagePopularPill,
+                        { backgroundColor: packageTheme.accent },
+                      ]}
+                    >
+                      <Text style={styles.packagePopularText}>
+                        MOST POPULAR
                       </Text>
-                      <Text style={styles.packageCycle}>{packageTheme.cycle}</Text>
-                      {discountLabel ? (
-                        <Text style={[styles.packageDiscount, { color: packageTheme.accent }]}>
-                          {discountLabel}
-                        </Text>
-                      ) : null}
-                    </Pressable>
-                  </Animated.View>
-                );
-              })}
+                    </View>
+                  ) : null}
+                  <Pressable
+                    accessibilityRole="button"
+                    accessibilityLabel={`Select ${packageTheme.name} package`}
+                    accessibilityState={{ selected: active }}
+                    onPress={() => handleSelectPlan(plan.code)}
+                    style={[
+                      styles.packageCard,
+                      {
+                        backgroundColor: packageTheme.soft,
+                        borderColor: active
+                          ? packageTheme.accent
+                          : packageTheme.border,
+                      },
+                      active && styles.packageCardActive,
+                      active && { shadowColor: packageTheme.accent },
+                    ]}
+                  >
+                    <Text style={styles.packageName}>{packageTheme.name}</Text>
+                    <Text
+                      style={[
+                        styles.packagePrice,
+                        { color: packageTheme.accent },
+                      ]}
+                    >
+                      KSH {plan.priceKsh.toLocaleString()}
+                    </Text>
+                    <Text style={styles.packageCycle}>
+                      {packageTheme.cycle}
+                    </Text>
+                    {discountLabel ? (
+                      <Text
+                        style={[
+                          styles.packageDiscount,
+                          { color: packageTheme.accent },
+                        ]}
+                      >
+                        {discountLabel}
+                      </Text>
+                    ) : null}
+                  </Pressable>
+                </Animated.View>
+              );
+            })}
+          </View>
+
+          {hasPackageFocus && featuredPlan ? (
+            <View style={styles.selectionHint}>
+              <Text style={styles.selectionHintText}>
+                {getPlanPresentation(featuredPlan).name} selected
+              </Text>
             </View>
+          ) : null}
 
-            {hasPackageFocus && featuredPlan ? (
-              <View style={styles.selectionHint}>
-                <Text style={styles.selectionHintText}>{getPlanPresentation(featuredPlan).name} selected</Text>
-              </View>
-            ) : null}
+          <View style={styles.promiseRow}>
+            <ShieldCheck
+              color="#16A34A"
+              fill="#16A34A"
+              size={22}
+              strokeWidth={2.3}
+            />
+            <Text style={styles.promiseText}>
+              Cancel anytime. No commitments.
+            </Text>
+          </View>
 
-            <View style={styles.promiseRow}>
-              <ShieldCheck color="#16A34A" fill="#16A34A" size={22} strokeWidth={2.3} />
-              <Text style={styles.promiseText}>Cancel anytime. No commitments.</Text>
-            </View>
-
-            <View style={styles.phoneInputWrap}>
-              <Phone color="#64748B" size={23} strokeWidth={2.1} />
-              <View style={styles.phoneDivider} />
-              <TextInput
-                value={phoneNumber}
-                onChangeText={onChangePhoneNumber}
-                keyboardType="phone-pad"
-                autoCapitalize="none"
-                placeholder="2547XXXXXXXX"
-                placeholderTextColor="#94A3B8"
-                style={styles.phoneInput}
-              />
-            </View>
-            {maskedSavedPhoneNumber ? (
-              <Pressable style={styles.savedPhoneButton} onPress={onUseSavedPhone}>
-                <Text style={styles.savedPhoneButtonText}>Use saved number {maskedSavedPhoneNumber}</Text>
-              </Pressable>
-            ) : null}
-
-            {error ? <Text style={styles.errorText}>{error}</Text> : null}
-            {statusLabel ? <Text style={styles.statusText}>{statusLabel}</Text> : null}
-
+          <View style={styles.phoneInputWrap}>
+            <Phone color="#64748B" size={23} strokeWidth={2.1} />
+            <View style={styles.phoneDivider} />
+            <TextInput
+              value={phoneNumber}
+              onChangeText={onChangePhoneNumber}
+              keyboardType="phone-pad"
+              autoCapitalize="none"
+              placeholder="2547XXXXXXXX"
+              placeholderTextColor="#94A3B8"
+              style={styles.phoneInput}
+            />
+          </View>
+          {maskedSavedPhoneNumber ? (
             <Pressable
-              onPress={() => featuredPlan && onContinue(featuredPlan.code)}
-              disabled={!featuredPlan || isSubmitting}
-              style={[styles.continueButton, (!featuredPlan || isSubmitting) && styles.continueButtonDisabled]}>
-              {isSubmitting ? (
-                <ActivityIndicator color="#FFFFFF" />
-              ) : (
-                <>
-                  <LockKeyhole color="#FFFFFF" size={22} strokeWidth={2.4} />
-                  <Text style={styles.continueButtonText}>
-                    Continue to Pay - KSH {featuredPlan?.priceKsh.toLocaleString() ?? '--'}
-                  </Text>
-                </>
-              )}
+              style={styles.savedPhoneButton}
+              onPress={onUseSavedPhone}
+            >
+              <Text style={styles.savedPhoneButtonText}>
+                Use saved number {maskedSavedPhoneNumber}
+              </Text>
             </Pressable>
+          ) : null}
 
-            <Text style={styles.footerText}>Secure &amp; encrypted payment</Text>
-          </ScrollView>
-        </LinearGradient>
-      </View>
+          {error ? <Text style={styles.errorText}>{error}</Text> : null}
+          {statusLabel ? (
+            <Text style={styles.statusText}>{statusLabel}</Text>
+          ) : null}
+
+          <Pressable
+            onPress={() => featuredPlan && onContinue(featuredPlan.code)}
+            disabled={!featuredPlan || isSubmitting}
+            style={[
+              styles.continueButton,
+              (!featuredPlan || isSubmitting) && styles.continueButtonDisabled,
+            ]}
+          >
+            {isSubmitting ? (
+              <ActivityIndicator color="#FFFFFF" />
+            ) : (
+              <>
+                <LockKeyhole color="#FFFFFF" size={22} strokeWidth={2.4} />
+                <Text style={styles.continueButtonText}>
+                  Continue to Pay - KSH{' '}
+                  {featuredPlan?.priceKsh.toLocaleString() ?? '--'}
+                </Text>
+              </>
+            )}
+          </Pressable>
+
+          <Text style={styles.footerText}>Secure &amp; encrypted payment</Text>
+        </ScrollView>
+      </LinearGradient>
+    </View>
+  );
+
+  if (presentation === 'inline') {
+    return isOpen ? (
+      <View style={styles.inlineHost}>{checkoutContent}</View>
+    ) : null;
+  }
+
+  return (
+    <Modal
+      visible={isOpen}
+      transparent
+      animationType="fade"
+      onRequestClose={onClose}
+    >
+      {checkoutContent}
     </Modal>
   );
 }
 
 const styles = StyleSheet.create({
+  inlineHost: {
+    ...StyleSheet.absoluteFillObject,
+    elevation: 50,
+    zIndex: 50,
+  },
   backdrop: {
     flex: 1,
     backgroundColor: 'rgba(2,6,23,0.88)',

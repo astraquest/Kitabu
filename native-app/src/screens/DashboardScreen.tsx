@@ -10,10 +10,7 @@ interface DashboardScreenProps {
   banner: DashboardBanner | null;
   homeworkNotificationCount: number;
   subjects: Subject[];
-  allSubjects: Subject[];
-  selectedSubjectIds: string[];
   onOpenSubject: (subject: Subject) => void;
-  onSaveSubjectSelection: (subjectIds: string[]) => void;
   onOpenFeature: (
     view:
       | 'homework_list'
@@ -38,10 +35,7 @@ export function DashboardScreen({
   banner,
   homeworkNotificationCount,
   subjects,
-  allSubjects,
-  selectedSubjectIds,
   onOpenSubject,
-  onSaveSubjectSelection,
   onOpenFeature,
   onBannerAction,
 }: DashboardScreenProps) {
@@ -57,10 +51,7 @@ export function DashboardScreen({
       />
       <SubjectGrid
         subjects={subjects}
-        allSubjects={allSubjects}
-        selectedSubjectIds={selectedSubjectIds}
         onOpenSubject={onOpenSubject}
-        onSaveSubjectSelection={onSaveSubjectSelection}
         onOpenGameZone={() => onOpenFeature('game_zone')}
       />
     </ScrollView>

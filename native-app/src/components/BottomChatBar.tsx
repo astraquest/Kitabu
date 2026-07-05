@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
+  Keyboard,
   Pressable,
   StyleSheet,
   Text,
@@ -24,6 +25,21 @@ export function BottomChatBar({
   onOpenLive,
 }: BottomChatBarProps) {
   const [input, setInput] = useState('');
+  const [keyboardHeight, setKeyboardHeight] = useState(0);
+
+  useEffect(() => {
+    const showSubscription = Keyboard.addListener('keyboardDidShow', event => {
+      setKeyboardHeight(event.endCoordinates.height);
+    });
+    const hideSubscription = Keyboard.addListener('keyboardDidHide', () => {
+      setKeyboardHeight(0);
+    });
+
+    return () => {
+      showSubscription.remove();
+      hideSubscription.remove();
+    };
+  }, []);
 
   function handleSubmit() {
     if (!input.trim() || isLoading) {
@@ -32,10 +48,13 @@ export function BottomChatBar({
 
     onSendMessage(input.trim());
     setInput('');
+    Keyboard.dismiss();
   }
 
   return (
-    <View style={styles.wrap}>
+    <View
+      style={[styles.wrap, keyboardHeight > 0 && { bottom: keyboardHeight }]}
+    >
       <View style={styles.inner}>
         <Text style={styles.label}>Ask AI Tutor</Text>
 
@@ -44,7 +63,8 @@ export function BottomChatBar({
             <Pressable
               accessibilityLabel="bottom-chat-add-attachment"
               onPress={onAddAttachment || onOpen}
-              style={styles.plusButton}>
+              style={styles.plusButton}
+            >
               <View style={styles.plusBadge}>
                 <Plus color="#2563EB" size={15} strokeWidth={2.8} />
               </View>
@@ -53,9 +73,10 @@ export function BottomChatBar({
             <TextInput
               value={input}
               onChangeText={setInput}
-              onFocus={onOpen}
+              onSubmitEditing={handleSubmit}
               placeholder="Ask AI Anything"
               placeholderTextColor="#6B7280"
+              returnKeyType="send"
               accessibilityLabel="bottom-chat-input"
               style={styles.input}
             />
@@ -69,7 +90,8 @@ export function BottomChatBar({
               style={({ pressed }) => [
                 styles.sendButton,
                 pressed && styles.buttonPressed,
-              ]}>
+              ]}
+            >
               <Send color="#FFFFFF" size={20} strokeWidth={2.4} />
             </Pressable>
           ) : (
@@ -79,7 +101,8 @@ export function BottomChatBar({
               style={({ pressed }) => [
                 styles.micButton,
                 pressed && styles.buttonPressed,
-              ]}>
+              ]}
+            >
               <Mic color="#4B5563" size={20} strokeWidth={2.4} />
             </Pressable>
           )}
@@ -91,20 +114,21 @@ export function BottomChatBar({
 
 const styles = StyleSheet.create({
   wrap: {
-    backgroundColor: '#FFFFFF',
-    borderTopColor: '#E5E7EB',
-    borderTopWidth: 1,
-    bottom: 0,
-    left: 0,
-    paddingBottom: 18,
-    paddingHorizontal: 16,
-    paddingTop: 12,
+    backgroundColor: 'rgba(255,255,255,0.96)',
+    borderColor: 'rgba(203,213,225,0.9)',
+    borderRadius: 10,
+    borderWidth: 1,
+    bottom: 12,
+    left: 12,
+    paddingBottom: 10,
+    paddingHorizontal: 10,
+    paddingTop: 9,
     position: 'absolute',
-    right: 0,
+    right: 12,
     shadowColor: '#000000',
-    shadowOffset: { width: 0, height: -4 },
-    shadowOpacity: 0.06,
-    shadowRadius: 20,
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.1,
+    shadowRadius: 18,
   },
   inner: {
     alignSelf: 'center',
@@ -129,7 +153,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F9FAFB',
     borderColor: '#D1D5DB',
-    borderRadius: 14,
+    borderRadius: 7,
     borderWidth: 1,
     flex: 1,
     flexDirection: 'row',
@@ -160,7 +184,7 @@ const styles = StyleSheet.create({
   sendButton: {
     alignItems: 'center',
     backgroundColor: '#2563EB',
-    borderRadius: 14,
+    borderRadius: 7,
     height: 50,
     justifyContent: 'center',
     width: 50,
@@ -169,7 +193,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#FFFFFF',
     borderColor: '#E5E7EB',
-    borderRadius: 14,
+    borderRadius: 7,
     borderWidth: 1,
     height: 50,
     justifyContent: 'center',

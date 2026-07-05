@@ -1,6 +1,8 @@
 import { AppNotification } from '../types/app';
 import { apiRequest } from './apiClient';
 
+export type PushTokenPlatform = 'ios' | 'android' | 'web';
+
 export async function getNotifications(options: { unreadOnly?: boolean } = {}) {
   const query = new URLSearchParams();
   query.set('limit', '50');
@@ -23,5 +25,16 @@ export async function markNotificationRead(notificationId: string) {
 export async function markAllNotificationsRead() {
   await apiRequest<{ updated: boolean }>('/notifications/read-all', {
     method: 'POST',
+  });
+}
+
+export async function registerPushToken(input: {
+  platform: PushTokenPlatform;
+  token: string;
+  deviceId?: string | null;
+}) {
+  return apiRequest<{ registered: boolean }>('/notifications/push-token', {
+    method: 'POST',
+    body: JSON.stringify(input),
   });
 }

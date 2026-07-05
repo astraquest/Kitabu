@@ -289,41 +289,13 @@ export function BookshelfScreen({
                 const isDownloaded = downloadedBooks.has(book.id);
 
                 return (
-                  <Pressable
+                  <ShelfBookSpine
                     key={book.id}
+                    book={book}
+                    isDownloaded={isDownloaded}
+                    isSpotlightMode={isSpotlightMode}
                     onPress={() => handlePreviewBook(book)}
-                    style={[
-                      styles.bookSpine,
-                      getHeightStyle(book.height),
-                      { backgroundColor: book.spineColor },
-                      isSpotlightMode && styles.bookSpineDark,
-                    ]}>
-                    {book.spinePattern === 'banded' ? (
-                      <View style={styles.bandedStripe} />
-                    ) : null}
-
-                    {book.spinePattern === 'striped' ? (
-                      <View style={styles.stripedOverlay}>
-                        {Array.from({ length: 7 }).map((_, stripeIndex) => (
-                          <View key={stripeIndex} style={styles.diagonalStripe} />
-                        ))}
-                      </View>
-                    ) : null}
-
-                    <View style={styles.rotatedLabelWrap}>
-                      <Text
-                        numberOfLines={2}
-                        style={[styles.bookSpineTitle, { color: book.textColor }]}>
-                        {getBookSpineLabel(book)}
-                      </Text>
-                    </View>
-
-                    {isDownloaded ? (
-                      <View style={styles.downloadBadge}>
-                        <Check size={8} color={book.textColor} strokeWidth={3} />
-                      </View>
-                    ) : null}
-                  </Pressable>
+                  />
                 );
               })}
 
@@ -576,6 +548,74 @@ export function BookshelfScreen({
   );
 }
 
+function ShelfBookSpine({
+  book,
+  isDownloaded,
+  isSpotlightMode,
+  onPress,
+}: {
+  book: Book;
+  isDownloaded: boolean;
+  isSpotlightMode: boolean;
+  onPress: () => void;
+}) {
+  const spineTheme = getBookSpineTheme(book);
+  const label = getBookSpineLabel(book);
+
+  return (
+    <Pressable
+      onPress={onPress}
+      style={[
+        styles.bookSpine,
+        getHeightStyle(book.height),
+        { backgroundColor: spineTheme.base },
+        isSpotlightMode && styles.bookSpineDark,
+      ]}>
+      <LinearGradient
+        colors={[spineTheme.top, spineTheme.base, spineTheme.bottom]}
+        locations={[0, 0.48, 1]}
+        style={styles.spineGradient}
+      />
+      <View style={[styles.spineAccentRail, { backgroundColor: spineTheme.accent }]} />
+      <View style={styles.spinePattern}>
+        {Array.from({ length: 6 }).map((_, stripeIndex) => (
+          <View
+            key={stripeIndex}
+            style={[
+              styles.spinePatternDash,
+              { backgroundColor: withAlpha(spineTheme.accent, stripeIndex % 2 === 0 ? 0.42 : 0.22) },
+            ]}
+          />
+        ))}
+      </View>
+
+      <View style={styles.spineBadge}>
+        <Text style={[styles.spineBadgeText, { color: spineTheme.base }]}>KQ</Text>
+      </View>
+
+      <View style={[styles.rotatedLabelWrap, { borderColor: withAlpha(spineTheme.accent, 0.55) }]}>
+        <Text
+          numberOfLines={2}
+          adjustsFontSizeToFit
+          minimumFontScale={0.78}
+          style={[styles.bookSpineTitle, { color: spineTheme.text }]}>
+          {label}
+        </Text>
+      </View>
+
+      <View style={[styles.spineGradePill, { backgroundColor: spineTheme.accent }]}>
+        <Text style={styles.spineGradeText}>{getGradeShortLabel(book.gradeLevel)}</Text>
+      </View>
+
+      {isDownloaded ? (
+        <View style={styles.downloadBadge}>
+          <Check size={8} color={spineTheme.text} strokeWidth={3} />
+        </View>
+      ) : null}
+    </Pressable>
+  );
+}
+
 function getHeightStyle(height: string) {
   switch (height) {
     case 'h-40':
@@ -592,7 +632,86 @@ function getHeightStyle(height: string) {
 }
 
 function getBookSpineLabel(book: Book) {
-  return book.subjectName?.trim() ?? '';
+  const subject = book.subjectName?.trim() ?? '';
+  const normalized = subject.toLowerCase();
+  if (normalized === 'science and technology') {
+    return 'SCIENCE\n& TECH';
+  }
+  if (normalized === 'social studies') {
+    return 'SOCIAL\nSTUDIES';
+  }
+  if (normalized === 'creative arts') {
+    return 'CREATIVE\nARTS';
+  }
+  return subject.toUpperCase();
+}
+
+function getGradeShortLabel(grade: string | null | undefined) {
+  const match = grade?.match(/\d+/);
+  return match ? `G${match[0]}` : 'KQ';
+}
+
+function getBookSpineTheme(book: Book) {
+  const subject = book.subjectName?.trim().toLowerCase() ?? '';
+  const themes: Record<string, { base: string; top: string; bottom: string; accent: string; text: string }> = {
+    agriculture: {
+      base: '#14532D',
+      top: '#22C55E',
+      bottom: '#052E16',
+      accent: '#FACC15',
+      text: '#FFFFFF',
+    },
+    'creative arts': {
+      base: '#BE185D',
+      top: '#F472B6',
+      bottom: '#831843',
+      accent: '#FDE047',
+      text: '#FFFFFF',
+    },
+    english: {
+      base: '#1D4ED8',
+      top: '#60A5FA',
+      bottom: '#1E3A8A',
+      accent: '#FBBF24',
+      text: '#FFFFFF',
+    },
+    kiswahili: {
+      base: '#C2410C',
+      top: '#FB923C',
+      bottom: '#7C2D12',
+      accent: '#FFFFFF',
+      text: '#FFFFFF',
+    },
+    mathematics: {
+      base: '#047857',
+      top: '#34D399',
+      bottom: '#064E3B',
+      accent: '#A7F3D0',
+      text: '#FFFFFF',
+    },
+    'science and technology': {
+      base: '#6D28D9',
+      top: '#A78BFA',
+      bottom: '#4C1D95',
+      accent: '#67E8F9',
+      text: '#FFFFFF',
+    },
+    'social studies': {
+      base: '#BE123C',
+      top: '#FB7185',
+      bottom: '#881337',
+      accent: '#FED7AA',
+      text: '#FFFFFF',
+    },
+  };
+
+  return themes[subject] ?? {
+    base: book.spineColor || '#0F766E',
+    top: withAlpha(book.spineColor || '#0F766E', 0.72),
+    bottom: '#0F172A',
+    accent: '#FACC15',
+    text: book.textColor || '#FFFFFF',
+  };
 }
 
 function withAlpha(hex: string, alpha: number) {
@@ -728,7 +847,7 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
   bookSpine: {
-    width: 42,
+    width: 46,
     borderRadius: 4,
     overflow: 'hidden',
     justifyContent: 'center',
@@ -746,8 +865,55 @@ const styles = StyleSheet.create({
   bookSpineDark: {
     opacity: 0.9,
   },
+  spineGradient: {
+    ...StyleSheet.absoluteFillObject,
+  },
+  spineAccentRail: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    width: 5,
+  },
+  spinePattern: {
+    ...StyleSheet.absoluteFillObject,
+    justifyContent: 'space-evenly',
+    opacity: 0.8,
+  },
+  spinePatternDash: {
+    height: 3,
+    marginLeft: 12,
+    marginRight: 7,
+    borderRadius: 999,
+  },
+  spineBadge: {
+    position: 'absolute',
+    top: 5,
+    left: 8,
+    right: 5,
+    height: 18,
+    borderRadius: 4,
+    backgroundColor: '#FFFFFF',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  spineBadgeText: {
+    fontSize: 9,
+    lineHeight: 11,
+    fontWeight: '900',
+    letterSpacing: 0,
+  },
+  shelfCoverImage: {
+    ...StyleSheet.absoluteFillObject,
+  },
+  shelfCoverImageStyle: {
+    borderRadius: 4,
+  },
+  shelfCoverScrim: {
+    ...StyleSheet.absoluteFillObject,
+  },
   bookPlaceholder: {
-    width: 42,
+    width: 46,
     borderRadius: 4,
     borderWidth: 2,
     borderStyle: 'dashed',
@@ -791,16 +957,46 @@ const styles = StyleSheet.create({
   },
   rotatedLabelWrap: {
     position: 'absolute',
-    width: 120,
+    width: 108,
+    minHeight: 26,
+    borderRadius: 5,
+    borderWidth: 1,
+    backgroundColor: 'rgba(255,255,255,0.17)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 5,
+    paddingVertical: 3,
     transform: [{ rotate: '-90deg' }],
   },
+  rotatedLabelCoverWrap: {
+    backgroundColor: 'rgba(15,23,42,0.4)',
+    borderRadius: 999,
+    paddingVertical: 3,
+  },
   bookSpineTitle: {
-    fontSize: 9,
-    fontWeight: '800',
+    fontSize: 10,
+    lineHeight: 11,
+    fontWeight: '900',
     textAlign: 'center',
     textTransform: 'uppercase',
-    letterSpacing: 1.5,
-    paddingHorizontal: 6,
+    letterSpacing: 0,
+  },
+  spineGradePill: {
+    position: 'absolute',
+    right: 5,
+    bottom: 5,
+    minWidth: 24,
+    height: 16,
+    borderRadius: 4,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  spineGradeText: {
+    color: '#0F172A',
+    fontSize: 9,
+    lineHeight: 11,
+    fontWeight: '900',
+    letterSpacing: 0,
   },
   downloadBadge: {
     position: 'absolute',

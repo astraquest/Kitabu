@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import { Bell, Check, ChevronDown, ChevronLeft } from 'lucide-react-native';
 import { AvatarArt, isLocalAvatarKey } from './AvatarArt';
+import { CountryFlagIcon, resolveCountryCode } from './CountryFlagIcon';
 import { SUPPORTED_GRADES } from '../constants/grades';
 
 const logoAsset = require('../assets/logo.png');
@@ -27,6 +28,7 @@ function displayGradeLabel(grade: string) {
 
 interface StudentHeaderProps {
   userAvatar?: string;
+  userCountry?: string | null;
   onOpenProfile: () => void;
   onOpenNotifications?: () => void;
   unreadNotificationCount?: number;
@@ -43,20 +45,23 @@ function getAvatarUri(seed?: string) {
 
   if (seed.startsWith('avatar-seed-')) {
     const normalizedSeed = seed.replace(/^avatar-seed-/, '');
-    return `https://api.dicebear.com/7.x/adventurer/png?seed=${encodeURIComponent(normalizedSeed)}`;
+    return `https://api.dicebear.com/7.x/adventurer/png?seed=${encodeURIComponent(
+      normalizedSeed,
+    )}`;
   }
 
   if (seed.startsWith('http://') || seed.startsWith('https://')) {
-    return seed
-      .replace('/svg?seed=', '/png?seed=')
-      .replace('/svg/', '/png/');
+    return seed.replace('/svg?seed=', '/png?seed=').replace('/svg/', '/png/');
   }
 
-  return `https://api.dicebear.com/7.x/adventurer/png?seed=${encodeURIComponent(seed)}`;
+  return `https://api.dicebear.com/7.x/adventurer/png?seed=${encodeURIComponent(
+    seed,
+  )}`;
 }
 
 export function StudentHeader({
   userAvatar,
+  userCountry,
   onOpenProfile,
   onOpenNotifications,
   unreadNotificationCount = 0,
@@ -68,6 +73,7 @@ export function StudentHeader({
   const avatarUri = useMemo(() => getAvatarUri(userAvatar), [userAvatar]);
   const [gradeMenuOpen, setGradeMenuOpen] = React.useState(false);
   const showGradeSelect = Boolean(currentGrade && onSelectGrade);
+  const countryCode = resolveCountryCode(userCountry);
 
   function selectGrade(grade: string) {
     onSelectGrade?.(grade);
@@ -85,12 +91,17 @@ export function StudentHeader({
             style={({ pressed }) => [
               styles.previewBackButton,
               pressed && styles.controlPressed,
-            ]}>
+            ]}
+          >
             <ChevronLeft color="#1D4ED8" size={18} strokeWidth={2.5} />
           </Pressable>
         ) : null}
         <View style={styles.logoBadge} accessible={false}>
-          <Image source={logoAsset} style={styles.logoImage} resizeMode="contain" />
+          <Image
+            source={logoAsset}
+            style={styles.logoImage}
+            resizeMode="contain"
+          />
         </View>
         <View>
           <Text style={styles.brandText}>
@@ -114,11 +125,19 @@ export function StudentHeader({
                 styles.gradeSelectButton,
                 gradeMenuOpen && styles.gradeSelectButtonActive,
                 pressed && styles.controlPressed,
-              ]}>
-              <Text style={styles.gradeSelectText}>{displayGradeLabel(currentGrade)}</Text>
+              ]}
+            >
+              <CountryFlagIcon
+                countryCode={countryCode}
+                width={18}
+                height={12}
+              />
+              <Text style={styles.gradeSelectText}>
+                {displayGradeLabel(currentGrade)}
+              </Text>
               <ChevronDown
                 color="#1D4ED8"
-                size={14}
+                size={13}
                 strokeWidth={2.6}
                 style={gradeMenuOpen ? styles.chevronOpen : undefined}
               />
@@ -127,23 +146,28 @@ export function StudentHeader({
               animationType="fade"
               onRequestClose={() => setGradeMenuOpen(false)}
               transparent
-              visible={gradeMenuOpen}>
+              visible={gradeMenuOpen}
+            >
               <Pressable
                 accessibilityLabel="Close grade menu"
                 style={styles.gradeMenuBackdrop}
-                onPress={() => setGradeMenuOpen(false)}>
+                onPress={() => setGradeMenuOpen(false)}
+              >
                 <Pressable style={styles.gradeMenu} onPress={() => undefined}>
                   <Text style={styles.gradeMenuLabel}>Learning level</Text>
                   <ScrollView
                     contentContainerStyle={styles.gradeMenuList}
-                    showsVerticalScrollIndicator={false}>
+                    showsVerticalScrollIndicator={false}
+                  >
                     {SUPPORTED_GRADES.map(grade => {
                       const active = grade === currentGrade;
 
                       return (
                         <Pressable
                           key={grade}
-                          accessibilityLabel={`Select ${displayGradeLabel(grade)}`}
+                          accessibilityLabel={`Select ${displayGradeLabel(
+                            grade,
+                          )}`}
                           accessibilityRole="menuitem"
                           accessibilityState={{ selected: active }}
                           onPress={() => selectGrade(grade)}
@@ -151,15 +175,23 @@ export function StudentHeader({
                             styles.gradeOption,
                             active && styles.gradeOptionActive,
                             pressed && styles.gradeOptionPressed,
-                          ]}>
+                          ]}
+                        >
                           <Text
                             style={[
                               styles.gradeOptionText,
                               active && styles.gradeOptionTextActive,
-                            ]}>
+                            ]}
+                          >
                             {displayGradeLabel(grade)}
                           </Text>
-                          {active ? <Check color="#1D4ED8" size={16} strokeWidth={2.7} /> : null}
+                          {active ? (
+                            <Check
+                              color="#1D4ED8"
+                              size={16}
+                              strokeWidth={2.7}
+                            />
+                          ) : null}
                         </Pressable>
                       );
                     })}
@@ -176,7 +208,8 @@ export function StudentHeader({
           style={({ pressed }) => [
             styles.iconButton,
             pressed && styles.controlPressed,
-          ]}>
+          ]}
+        >
           <Bell color="#4B5563" size={19} strokeWidth={2.25} />
           {unreadNotificationCount > 0 ? (
             <View style={styles.notificationBadge}>
@@ -194,7 +227,8 @@ export function StudentHeader({
           style={({ pressed }) => [
             styles.avatarButton,
             pressed && styles.controlPressed,
-          ]}>
+          ]}
+        >
           {userAvatar && isLocalAvatarKey(userAvatar) ? (
             <AvatarArt avatarKey={userAvatar} size={36} />
           ) : (
@@ -233,20 +267,13 @@ const styles = StyleSheet.create({
   },
   logoBadge: {
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',
-    borderRadius: 12,
-    elevation: 2,
-    height: 32,
+    height: 38,
     justifyContent: 'center',
-    shadowColor: '#111827',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.12,
-    shadowRadius: 3,
-    width: 32,
+    width: 38,
   },
   logoImage: {
-    width: 24,
-    height: 24,
+    width: 34,
+    height: 34,
   },
   brandText: {
     color: '#111827',
@@ -261,7 +288,7 @@ const styles = StyleSheet.create({
     marginTop: Platform.OS === 'android' ? -1 : 0,
   },
   brandAccent: {
-    color: '#6D28D9',
+    color: '#DC2626',
   },
   actionRow: {
     alignItems: 'center',
@@ -272,14 +299,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#EFF6FF',
     borderColor: '#BFDBFE',
-    borderRadius: 999,
+    borderRadius: 9,
     borderWidth: 1,
     flexDirection: 'row',
-    gap: 4,
-    height: 34,
+    gap: 5,
+    height: 32,
     justifyContent: 'center',
-    minWidth: 92,
-    paddingHorizontal: 10,
+    minWidth: 101,
+    paddingHorizontal: 8,
   },
   gradeSelectButtonActive: {
     backgroundColor: '#DBEAFE',
@@ -287,7 +314,7 @@ const styles = StyleSheet.create({
   },
   gradeSelectText: {
     color: '#1E3A8A',
-    fontSize: 12,
+    fontSize: 11,
     fontWeight: '900',
   },
   chevronOpen: {

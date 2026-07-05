@@ -15,7 +15,7 @@ const BOOK_ROOT = path.join(repoRoot, 'apps', 'api', 'data', 'books');
 const SNAPSHOT_ROOT = path.join(repoRoot, 'apps', 'api', 'data', 'book-creator', 'snapshots');
 const PROGRESS_PATH = path.join(repoRoot, 'apps', 'api', 'data', 'book-creator', 'progress.json');
 const LOG_PATH = path.join(repoRoot, 'apps', 'api', 'data', 'book-creator', 'events.jsonl');
-const GENERATOR_VERSION = 'learner-first-language-depth-renderers-2026-07-01-v10';
+const GENERATOR_VERSION = 'learner-first-reviewer-remediation-renderers-2026-07-04-v47';
 
 const CORE_SUBJECTS = [
   { db: 'Agriculture', slug: 'agriculture', title: 'Agriculture', color: '#15803D' },
@@ -184,6 +184,37 @@ function sourceSubjectsFor(grade, subject) {
   return base;
 }
 
+function agricultureSourceContaminationText(row) {
+  const outcomes = Array.isArray(row.outcomes)
+    ? row.outcomes.map(outcome => outcome?.text || outcome?.statement || String(outcome)).join(' ')
+    : '';
+  const inquiryQuestions = Array.isArray(row.inquiry_questions)
+    ? row.inquiry_questions.map(question => question?.text || question?.question || String(question)).join(' ')
+    : '';
+  const pages = Array.isArray(row.pages)
+    ? row.pages.map(page => page?.title || page?.content || String(page)).join(' ')
+    : '';
+  return normalizeText([
+    row.strand_title,
+    row.sub_strand_title,
+    row.description,
+    outcomes,
+    inquiryQuestions,
+    pages
+  ].filter(Boolean).join(' ')).toLowerCase();
+}
+
+function isAgricultureSourceContamination(row) {
+  const text = agricultureSourceContaminationText(row);
+  if (!text) return false;
+  return /\b(laundry|launder|loose[-\s]*colou?red|stains?\s+(?:on|from)\s+clothing|disinfect(?:ing|ion)?\s+(?:clothing|household articles?)|garments?|gaping seam|stitches?|crochet(?:ing)?|knit(?:ting)?|textiles?|fabric|yarn|household articles?)\b/i.test(text);
+}
+
+function filterCurriculumRowsForSubject(rows, subject) {
+  if (subject.title !== 'Agriculture') return rows;
+  return rows.filter(row => !isAgricultureSourceContamination(row));
+}
+
 async function queryCurriculum(client, grade, subject) {
   const legacyGrade = grade === 'Grade 11' ? 'Form 3' : grade === 'Grade 12' ? 'Form 4' : grade;
   const legacy = await client.query(
@@ -218,7 +249,7 @@ async function queryCurriculum(client, grade, subject) {
     [grade, sourceGradeCodes(grade), sourceSubjectsFor(grade, subject).map(value => value.toLowerCase())]
   );
 
-  return { legacy: legacy.rows, sourceDocuments: source.rows };
+  return { legacy: filterCurriculumRowsForSubject(legacy.rows, subject), sourceDocuments: source.rows };
 }
 
 function flattenOutcomes(rows) {
@@ -2137,11 +2168,6 @@ function buildPages(snapshot, grade, subject, bookPlan) {
   };
 
   add(
-    pageTitleFor(subject.title, null, 'titlePage'),
-    openingText(subject.title, grade, title, MASCOTS[subject.title]),
-    { pageType: 'front-matter', difficulty: 'support' }
-  );
-  add(
     pageTitleFor(subject.title, null, 'howToUse'),
     howToUseText(subject.title, grade),
     { pageType: 'front-matter', difficulty: 'support' }
@@ -2491,8 +2517,6 @@ function sourceRefsFor(manifest) {
 function appSafeManifest(manifest) {
   const {
     sourceDocuments,
-    coverImage,
-    assets,
     ...safe
   } = manifest;
   return {
@@ -2512,6 +2536,59 @@ function appSafeManifest(manifest) {
   };
 }
 
+function isPublishedForTestingManifest(manifest) {
+  const statuses = [manifest?.status, manifest?.publicationStatus]
+    .filter(Boolean)
+    .map(value => String(value).toLowerCase());
+  return statuses.includes('published-for-testing') || statuses.includes('phase1-testing-published');
+}
+
+async function existingFileInPackage(outDir, relativePath) {
+  if (!relativePath || path.isAbsolute(relativePath) || relativePath.includes('..')) return false;
+  return fileExists(path.join(outDir, relativePath));
+}
+
+async function publishedTestingMetadataForRegeneration(outDir, previousManifest) {
+  if (!isPublishedForTestingManifest(previousManifest)) return {};
+
+  const preserved = {
+    status: previousManifest.status || 'published-for-testing',
+    publicationStatus: previousManifest.publicationStatus || 'published-for-testing'
+  };
+
+  for (const field of ['testingRelease', 'reviewStatus']) {
+    if (previousManifest[field] !== undefined) {
+      preserved[field] = previousManifest[field];
+    }
+  }
+
+  const previousAssets = Array.isArray(previousManifest.assets) ? previousManifest.assets : [];
+  const coverAssets = [];
+  for (const asset of previousAssets) {
+    if (!asset || asset.kind !== 'cover') continue;
+    if (await existingFileInPackage(outDir, asset.path)) {
+      coverAssets.push(asset);
+    }
+  }
+
+  const coverImage = previousManifest.coverImage?.path && await existingFileInPackage(outDir, previousManifest.coverImage.path)
+    ? previousManifest.coverImage
+    : coverAssets[0];
+
+  if (coverImage || coverAssets.length) {
+    preserved.coverImage = coverImage;
+    if (coverAssets.length) {
+      preserved.assets = coverAssets;
+    }
+    preserved.coverStatus = previousManifest.coverStatus || 'phase1-testing-cover-attached';
+    if (previousManifest.coverAssetStatus !== undefined) {
+      preserved.coverAssetStatus = previousManifest.coverAssetStatus;
+    }
+  }
+
+  return preserved;
+}
+
 async function buildBook(client, grade, subject, options) {
   const progress = await loadProgress();
   const key = jobKey(grade, subject);
@@ -2527,6 +2604,8 @@ async function buildBook(client, grade, subject, options) {
   snapshot.inputHash = hash;
   const bookId = `kitabu-quest-grade-${gradeNumber(grade)}-${subject.slug}`;
   const outDir = path.join(BOOK_ROOT, 'KEN', 'CBC', gradeCode(grade), subject.slug);
+  const previousManifest = await readJsonIfExists(path.join(outDir, 'manifest.json'));
+  const publishedTestingMetadata = await publishedTestingMetadataForRegeneration(outDir, previousManifest);
   const snapshotPath = path.join(SNAPSHOT_ROOT, 'KEN', 'CBC', gradeCode(grade), `${bookId}-${hash.slice(0, 12)}.json`);
 
   await writeJsonAtomic(snapshotPath, snapshot);
@@ -2595,7 +2674,8 @@ async function buildBook(client, grade, subject, options) {
       sourceUrl: doc.source_url,
       objectKey: doc.object_key,
       metadata: doc.metadata
-    }))
+    })),
+    ...publishedTestingMetadata
   };
 
   await fs.mkdir(outDir, { recursive: true });

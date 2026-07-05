@@ -3,7 +3,9 @@ import { appConfig } from './config.js';
 import {
   createNotificationDelivery,
   createUserNotification,
-  isFeatureFlagEnabled
+  isFeatureFlagEnabled,
+  listEnabledPushTokens,
+  setPushTokenEnabled
 } from './repositories.js';
 
 type NotificationClient = PoolClient;
@@ -15,9 +17,32 @@ export interface NotifyUserInput {
   body: string;
   metadata?: Record<string, unknown>;
   forceInApp?: boolean;
+  forcePush?: boolean;
+  pushTitle?: string;
+  pushBody?: string;
   smsPhoneNumber?: string | null;
   smsBody?: string;
 }
+
+type PushStatus = 'sent' | 'skipped' | 'failed';
+
+interface ExpoPushTicket {
+  status?: 'ok' | 'error';
+  id?: string;
+  message?: string;
+  details?: {
+    error?: string;
+  };
+}
+
+interface ExpoPushResponse {
+  data?: ExpoPushTicket | ExpoPushTicket[];
+  errors?: Array<{ message?: string }>;
+}
+
+const EXPO_PUSH_SEND_URL = 'https://exp.host/--/api/v2/push/send';
+const EXPO_PUSH_BATCH_SIZE = 100;
+const REMINDER_CHANNEL_ID = 'daily-study-reminders';
 
 export function isSmsConfigured() {
   return (
@@ -75,6 +100,140 @@ export async function sendSmsMessage(args: {
   };
 }
 
+function chunk<T>(items: T[], size: number) {
+  const chunks: T[][] = [];
+  for (let index = 0; index < items.length; index += size) {
+    chunks.push(items.slice(index, index + size));
+  }
+  return chunks;
+}
+
+function normalizeExpoTickets(payload: ExpoPushResponse): ExpoPushTicket[] {
+  if (Array.isArray(payload.data)) {
+    return payload.data;
+  }
+  if (payload.data) {
+    return [payload.data];
+  }
+  return [];
+}
+
+function expoTicketError(ticket: ExpoPushTicket) {
+  return ticket.details?.error || ticket.message || 'Expo push delivery failed';
+}
+
+async function sendExpoPushMessages(
+  messages: Array<Record<string, unknown>>
+): Promise<ExpoPushTicket[]> {
+  const response = await fetch(EXPO_PUSH_SEND_URL, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(messages)
+  });
+
+  const payload = (await response.json().catch(() => ({}))) as ExpoPushResponse;
+  if (!response.ok) {
+    const message =
+      payload.errors?.map(error => error.message).filter(Boolean).join('; ') ||
+      `Expo Push Service failed: ${response.status}`;
+    throw new Error(message);
+  }
+
+  return normalizeExpoTickets(payload);
+}
+
+async function sendPushNotifications(
+  client: NotificationClient,
+  input: NotifyUserInput,
+  notificationId: string | null
+): Promise<{ pushStatus: PushStatus; pushSent: number; pushFailed: number }> {
+  const pushEnabled = input.forcePush || (await isFeatureFlagEnabled('notifications.push'));
+  if (!pushEnabled) {
+    return { pushStatus: 'skipped', pushSent: 0, pushFailed: 0 };
+  }
+
+  const tokens = await listEnabledPushTokens(client, input.userId);
+  if (tokens.length === 0) {
+    return { pushStatus: 'skipped', pushSent: 0, pushFailed: 0 };
+  }
+
+  const deliverables = tokens.map(token => ({
+    token,
+    message: {
+      to: token.token,
+      title: input.pushTitle ?? input.title,
+      body: input.pushBody ?? input.body,
+      sound: 'default',
+      channelId: REMINDER_CHANNEL_ID,
+      data: {
+        notificationId,
+        type: input.type,
+        ...(input.metadata ?? {})
+      }
+    }
+  }));
+
+  let pushSent = 0;
+  let pushFailed = 0;
+
+  try {
+    for (const batch of chunk(deliverables, EXPO_PUSH_BATCH_SIZE)) {
+      const tickets = await sendExpoPushMessages(batch.map(item => item.message));
+
+      await Promise.all(
+        batch.map(async (item, index) => {
+          const ticket = tickets[index];
+          if (ticket?.status === 'ok') {
+            pushSent += 1;
+            await createNotificationDelivery(client, {
+              notificationId,
+              userId: input.userId,
+              channel: 'push',
+              provider: 'expo',
+              status: 'sent',
+              providerMessageId: ticket.id ?? null
+            });
+            return;
+          }
+
+          pushFailed += 1;
+          const errorMessage = ticket ? expoTicketError(ticket) : 'Expo Push Service did not return a ticket';
+          if (ticket?.details?.error === 'DeviceNotRegistered') {
+            await setPushTokenEnabled(client, item.token.token, false);
+          }
+          await createNotificationDelivery(client, {
+            notificationId,
+            userId: input.userId,
+            channel: 'push',
+            provider: 'expo',
+            status: 'failed',
+            errorMessage
+          });
+        })
+      );
+    }
+  } catch (error) {
+    pushFailed += tokens.length - pushSent;
+    await createNotificationDelivery(client, {
+      notificationId,
+      userId: input.userId,
+      channel: 'push',
+      provider: 'expo',
+      status: 'failed',
+      errorMessage: error instanceof Error ? error.message : 'Expo push delivery failed'
+    });
+  }
+
+  return {
+    pushStatus: pushSent > 0 ? 'sent' : pushFailed > 0 ? 'failed' : 'skipped',
+    pushSent,
+    pushFailed
+  };
+}
+
 export async function notifyUser(client: NotificationClient, input: NotifyUserInput) {
   const inAppEnabled = input.forceInApp || (await isFeatureFlagEnabled('notifications.in_app'));
   const notificationId = inAppEnabled
@@ -86,13 +245,14 @@ export async function notifyUser(client: NotificationClient, input: NotifyUserIn
         metadata: input.metadata
       })
     : null;
+  const pushResult = await sendPushNotifications(client, input, notificationId);
 
   const smsEnabled =
     Boolean(input.smsPhoneNumber && input.smsBody) &&
     (await isFeatureFlagEnabled('payments.mpesa_sms'));
 
   if (!smsEnabled) {
-    return { notificationId, smsStatus: 'skipped' as const };
+    return { notificationId, smsStatus: 'skipped' as const, ...pushResult };
   }
 
   if (!isSmsConfigured()) {
@@ -104,7 +264,7 @@ export async function notifyUser(client: NotificationClient, input: NotifyUserIn
       status: 'skipped',
       errorMessage: 'SMS provider is not configured'
     });
-    return { notificationId, smsStatus: 'skipped' as const };
+    return { notificationId, smsStatus: 'skipped' as const, ...pushResult };
   }
 
   try {
@@ -120,7 +280,7 @@ export async function notifyUser(client: NotificationClient, input: NotifyUserIn
       status: 'sent',
       providerMessageId: sms.providerMessageId
     });
-    return { notificationId, smsStatus: 'sent' as const };
+    return { notificationId, smsStatus: 'sent' as const, ...pushResult };
   } catch (error) {
     await createNotificationDelivery(client, {
       notificationId,
@@ -130,6 +290,6 @@ export async function notifyUser(client: NotificationClient, input: NotifyUserIn
       status: 'failed',
       errorMessage: error instanceof Error ? error.message : 'SMS delivery failed'
     });
-    return { notificationId, smsStatus: 'failed' as const };
+    return { notificationId, smsStatus: 'failed' as const, ...pushResult };
   }
 }

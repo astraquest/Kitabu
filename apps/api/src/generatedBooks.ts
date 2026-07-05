@@ -104,14 +104,31 @@ function pageForUser(user: AuthenticatedUser, page: BookPage) {
   return sanitized as BookPage;
 }
 
+function isLegacyCoverDeferredTitlePage(page: BookPage) {
+  const title = page.title.trim().toLowerCase();
+  const content = page.content.toLowerCase();
+  const pageType = String((page as BookPage & Record<string, unknown>).pageType ?? '').toLowerCase();
+  const hasLegacyDeferredCoverCopy =
+    content.includes('cover artwork is intentionally deferred') ||
+    content.includes('michoro ya jalada imeahirishwa');
+  return hasLegacyDeferredCoverCopy && (pageType === 'front-matter' || title === 'title page' || title === 'ukurasa wa kichwa');
+}
+
+function visiblePagesForUser(user: AuthenticatedUser, pages: BookPage[]) {
+  return pages
+    .map(page => pageForUser(user, page))
+    .filter(page => !isLegacyCoverDeferredTitlePage(page));
+}
+
 function pagesPayloadForUser(user: AuthenticatedUser, payload: BookPage[] | ({ pages?: BookPage[] } & Record<string, unknown>)) {
   if (Array.isArray(payload)) {
-    return payload.map(page => pageForUser(user, page));
+    return visiblePagesForUser(user, payload);
   }
   const sanitized = isGeneratedBookAdmin(user)
     ? { ...payload }
     : { ...(manifestForUser(user, payload as unknown as BookManifest) as unknown as Record<string, unknown>) };
-  sanitized.pages = (payload.pages ?? []).map(page => pageForUser(user, page));
+  sanitized.pages = visiblePagesForUser(user, payload.pages ?? []);
+  sanitized.pageCount = sanitized.pages.length;
   return sanitized;
 }
 
@@ -145,6 +162,14 @@ export type GeneratedBookAsset = {
   fileName: string;
   contentType: string;
   sizeBytes: number;
+};
+
+type ResolvedCoverImage = {
+  path: string;
+  mimeType: string;
+  sizeBytes: number;
+  version: string;
+  sha256?: string;
 };
 
 function gradeToCode(grade: string | null | undefined) {
@@ -202,6 +227,29 @@ function ensureInsideBooksRoot(filePath: string) {
 
 async function readJson<T>(filePath: string): Promise<T> {
   return JSON.parse(await fs.readFile(filePath, 'utf8')) as T;
+}
+
+async function resolveCoverImage(packageDir: string, manifest: BookManifest): Promise<ResolvedCoverImage | null> {
+  const relativePath = manifest.coverImage?.path ?? 'assets/cover.png';
+  const coverPath = ensureInsideBooksRoot(path.join(packageDir, relativePath));
+  const coverStat = await fs.stat(coverPath).catch(() => null);
+  if (!coverStat?.isFile()) {
+    return null;
+  }
+
+  const version = manifest.coverImage?.sha256 ?? `${coverStat.size}-${Math.trunc(coverStat.mtimeMs)}`;
+  return {
+    path: relativePath,
+    mimeType: manifest.coverImage?.mimeType ?? 'image/png',
+    sizeBytes: manifest.coverImage?.sizeBytes ?? coverStat.size,
+    version,
+    sha256: manifest.coverImage?.sha256
+  };
+}
+
+function bookAssetUrl(bookId: string, format: 'pdf' | 'markdown' | 'pages' | 'source-map' | 'cover', version?: string) {
+  const base = `/app/library/books/${encodeURIComponent(bookId)}/download?format=${format}`;
+  return version ? `${base}&v=${encodeURIComponent(version)}` : base;
 }
 
 async function listSubjectManifestPaths(filters: { gradeCode?: string; country?: string; curriculum?: string }) {
@@ -263,14 +311,15 @@ async function loadBook(manifestPath: string, user: AuthenticatedUser): Promise<
     if (!pages.length) {
       return null;
     }
-    const visiblePages = pages.map(page => pageForUser(user, page));
+    const visiblePages = visiblePagesForUser(user, pages);
+    if (!visiblePages.length) {
+      return null;
+    }
     await fs.access(path.join(packageDir, 'source-map.json'));
     const pdfName = manifest.downloads?.pdf ?? `${manifest.bookId}.pdf`;
     const pdfPath = path.join(packageDir, pdfName);
     await fs.access(pdfPath);
-    const hasCoverImage = manifest.coverImage?.path
-      ? Boolean((await fs.stat(path.join(packageDir, manifest.coverImage.path)).catch(() => null))?.isFile())
-      : false;
+    const coverImage = await resolveCoverImage(packageDir, manifest);
 
     return {
       id: manifest.bookId,
@@ -291,11 +340,9 @@ async function loadBook(manifestPath: string, user: AuthenticatedUser): Promise<
       wordCount: manifest.wordCount ?? 0,
       version: manifest.version ?? null,
       manifestUrl: `/app/library/books/${encodeURIComponent(manifest.bookId)}/manifest`,
-      pdfUrl: `/app/library/books/${encodeURIComponent(manifest.bookId)}/download?format=pdf`,
-      coverImageUrl: hasCoverImage && manifest.coverImage?.path
-        ? `/app/library/books/${encodeURIComponent(manifest.bookId)}/download?format=cover`
-        : null,
-      checksum: manifest.packageChecksum ?? manifest.coverImage?.sha256 ?? null,
+      pdfUrl: bookAssetUrl(manifest.bookId, 'pdf'),
+      coverImageUrl: coverImage ? bookAssetUrl(manifest.bookId, 'cover', coverImage.version) : null,
+      checksum: manifest.packageChecksum ?? coverImage?.sha256 ?? coverImage?.version ?? null,
       pages: visiblePages
     };
   } catch {
@@ -369,31 +416,43 @@ export async function readGeneratedBookManifestForUser(user: AuthenticatedUser, 
   if (!pagesStat?.isFile() || !sourceMapStat?.isFile()) {
     return null;
   }
-  const coverPath = found.manifest.coverImage?.path
-    ? ensureInsideBooksRoot(path.join(found.packageDir, found.manifest.coverImage.path))
-    : null;
-  const coverStat = coverPath ? await fs.stat(coverPath).catch(() => null) : null;
+  const pagesPayload = await readJson<BookPage[] | ({ pages?: BookPage[] } & Record<string, unknown>)>(pagesPath);
+  const safePagesPayload = pagesPayloadForUser(user, pagesPayload);
+  const safePageCount = Array.isArray(safePagesPayload)
+    ? safePagesPayload.length
+    : safePagesPayload.pages?.length ?? 0;
+  const safePagesSizeBytes = Buffer.byteLength(`${JSON.stringify(safePagesPayload, null, 2)}\n`, 'utf8');
+  const coverImage = await resolveCoverImage(found.packageDir, found.manifest);
   const safeManifest = manifestForUser(user, found.manifest);
   return {
     ...safeManifest,
+    coverImage: safeManifest.coverImage ?? (coverImage
+      ? {
+          path: coverImage.path,
+          mimeType: coverImage.mimeType,
+          sizeBytes: coverImage.sizeBytes,
+          sha256: coverImage.sha256
+        }
+      : null),
+    pageCount: safePageCount,
     package: {
       pagesJson: {
         url: `/app/library/books/${encodeURIComponent(bookId)}/download?format=pages`,
-        sizeBytes: pagesStat.size
+        sizeBytes: safePagesSizeBytes
       },
       sourceMap: isGeneratedBookAdmin(user)
         ? {
-            url: `/app/library/books/${encodeURIComponent(bookId)}/download?format=source-map`,
+            url: bookAssetUrl(bookId, 'source-map'),
             sizeBytes: sourceMapStat.size
           }
         : null,
       pdf: {
-        url: `/app/library/books/${encodeURIComponent(bookId)}/download?format=pdf`
+        url: bookAssetUrl(bookId, 'pdf')
       },
-      cover: coverStat?.isFile()
+      cover: coverImage
         ? {
-            url: `/app/library/books/${encodeURIComponent(bookId)}/download?format=cover`,
-            sizeBytes: coverStat.size
+            url: bookAssetUrl(bookId, 'cover', coverImage.version),
+            sizeBytes: coverImage.sizeBytes
           }
         : null
       }

@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   ActivityIndicator,
+  Animated,
   Image,
+  KeyboardAvoidingView,
   Modal,
+  Platform,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -16,10 +19,8 @@ import {
   ChevronRight,
   ChevronDown,
   Check,
-  Clock3,
   GraduationCap,
-  Search,
-  Settings,
+  Pencil,
   ShieldCheck,
   User,
   X,
@@ -28,13 +29,8 @@ import {
 import { SchoolData, Subject, UserProfile } from '../types/app';
 import type { BillingStatus } from '../types/app';
 import { SUPPORTED_GRADES } from '../constants/grades';
-import {
-  AvatarArt,
-  isLocalAvatarKey,
-  LOCAL_AVATAR_OPTIONS,
-  type LocalAvatarKey,
-} from './AvatarArt';
-import { SubjectSelector } from './SubjectGrid';
+import { AvatarArt, isLocalAvatarKey } from './AvatarArt';
+import { CountryFlagIcon } from './CountryFlagIcon';
 
 interface ProfileModalProps {
   isOpen: boolean;
@@ -45,8 +41,6 @@ interface ProfileModalProps {
   onDeleteAccount: () => Promise<void>;
   showTeacherPortalButton: boolean;
   showAdminPortalButton: boolean;
-  canResendVerification: boolean;
-  onResendVerification: () => Promise<string>;
   billingStatus: BillingStatus;
   onManageSubscription: () => void;
   focusModeActive: boolean;
@@ -63,6 +57,7 @@ interface ProfileModalProps {
   allSubjects: Subject[];
   selectedSubjectIds: string[];
   onToggleSubject: (subjectId: string) => void;
+  subscriptionCheckoutOverlay?: React.ReactNode;
 }
 
 const GENDER_OPTIONS: UserProfile['gender'][] = [
@@ -73,6 +68,262 @@ const GENDER_OPTIONS: UserProfile['gender'][] = [
 
 type EditableField = 'grade' | 'gender' | 'school';
 
+const MAX_PROFILE_SUBJECTS = 5;
+const SUBJECT_CARD_TONES = [
+  ['#D9E9FF', '#BBD6FF'],
+  ['#D8F8E5', '#B9ECCF'],
+  ['#FFE0EF', '#F9BFD7'],
+  ['#F0DFFF', '#DCC2FB'],
+  ['#D9F7E6', '#B8E9CE'],
+  ['#FFECCF', '#FFD59C'],
+  ['#FFE3D3', '#FFC5A6'],
+  ['#E1E6FF', '#C4CCFA'],
+] as const;
+
+const SUBJECT_ORDER = [
+  'science',
+  'agriculture',
+  'english',
+  'creative_arts',
+  'math',
+  'ai_education',
+  'kiswahili',
+  'social',
+];
+
+type ProfileCountryOption = {
+  code: string;
+  name: string;
+};
+
+const PROFILE_COUNTRIES: readonly ProfileCountryOption[] = [
+  { code: 'KE', name: 'Kenya' },
+  { code: 'UG', name: 'Uganda' },
+  { code: 'TZ', name: 'Tanzania' },
+  { code: 'RW', name: 'Rwanda' },
+  { code: 'ET', name: 'Ethiopia' },
+];
+
+const KENYAN_COUNTIES = [
+  'Baringo',
+  'Bomet',
+  'Bungoma',
+  'Busia',
+  'Elgeyo-Marakwet',
+  'Embu',
+  'Garissa',
+  'Homa Bay',
+  'Isiolo',
+  'Kajiado',
+  'Kakamega',
+  'Kericho',
+  'Kiambu',
+  'Kilifi',
+  'Kirinyaga',
+  'Kisii',
+  'Kisumu',
+  'Kitui',
+  'Kwale',
+  'Laikipia',
+  'Lamu',
+  'Machakos',
+  'Makueni',
+  'Mandera',
+  'Marsabit',
+  'Meru',
+  'Migori',
+  'Mombasa',
+  "Murang'a",
+  'Nairobi City',
+  'Nakuru',
+  'Nandi',
+  'Narok',
+  'Nyandarua',
+  'Nyamira',
+  'Nyeri',
+  'Samburu',
+  'Siaya',
+  'Taita-Taveta',
+  'Tana River',
+  'Tharaka-Nithi',
+  'Trans-Nzoia',
+  'Turkana',
+  'Uasin Gishu',
+  'Vihiga',
+  'Wajir',
+  'West Pokot',
+] as const;
+
+const UGANDA_DISTRICTS = [
+  'Kampala',
+  'Wakiso',
+  'Mukono',
+  'Mpigi',
+  'Buikwe',
+  'Luwero',
+  'Nakaseke',
+  'Nakasongola',
+  'Kayunga',
+  'Mityana',
+  'Mubende',
+  'Kiboga',
+  'Jinja',
+  'Iganga',
+  'Kamuli',
+  'Mayuge',
+  'Bugiri',
+  'Busia',
+  'Tororo',
+  'Namutumba',
+  'Kaliro',
+  'Mbale',
+  'Sironko',
+  'Kapchorwa',
+  'Budaka',
+  'Pallisa',
+  'Bududa',
+  'Manafwa',
+  'Soroti',
+  'Kumi',
+  'Katakwi',
+  'Bukedea',
+  'Serere',
+  'Lira',
+  'Dokolo',
+  'Apac',
+  'Oyam',
+  'Kole',
+  'Gulu',
+  'Amuru',
+  'Nwoya',
+  'Kitgum',
+  'Pader',
+  'Agago',
+  'Lamwo',
+  'Arua',
+  'Nebbi',
+  'Zombo',
+  'Adjumani',
+  'Moyo',
+  'Yumbe',
+  'Koboko',
+  'Maracha',
+  'Masaka',
+  'Kalangala',
+  'Rakai',
+  'Lyantonde',
+  'Sembabule',
+  'Mbarara',
+  'Bushenyi',
+  'Ntungamo',
+  'Kabale',
+  'Kisoro',
+  'Rukungiri',
+  'Kanungu',
+  'Ibanda',
+  'Isingiro',
+  'Kiruhura',
+  'Hoima',
+  'Masindi',
+  'Kibaale',
+  'Buliisa',
+  'Kabarole',
+  'Kasese',
+  'Kamwenge',
+  'Kyenjojo',
+  'Bundibugyo',
+  'Moroto',
+  'Kotido',
+  'Kaabong',
+  'Nakapiripirit',
+] as const;
+
+const TANZANIA_REGIONS = [
+  'Arusha',
+  'Dar es Salaam',
+  'Dodoma',
+  'Geita',
+  'Iringa',
+  'Kagera',
+  'Katavi',
+  'Kigoma',
+  'Kilimanjaro',
+  'Lindi',
+  'Manyara',
+  'Mara',
+  'Mbeya',
+  'Morogoro',
+  'Mtwara',
+  'Mwanza',
+  'Njombe',
+  'Pemba North',
+  'Pemba South',
+  'Pwani (Coast)',
+  'Rukwa',
+  'Ruvuma',
+  'Shinyanga',
+  'Simiyu',
+  'Singida',
+  'Songwe',
+  'Tabora',
+  'Tanga',
+  'Zanzibar North (Unguja North)',
+  'Zanzibar South (Unguja South)',
+  'Zanzibar West (Mjini Magharibi)',
+] as const;
+
+const RWANDA_PROVINCES = [
+  'Kigali City',
+  'Northern Province',
+  'Southern Province',
+  'Eastern Province',
+  'Western Province',
+] as const;
+
+const ETHIOPIA_STATES = [
+  'Addis Ababa (Chartered City)',
+  'Dire Dawa (Chartered City)',
+  'Afar',
+  'Amhara',
+  'Benishangul-Gumuz',
+  'Central Ethiopia',
+  'Gambela',
+  'Harari',
+  'Oromia',
+  'Sidama',
+  'Somali',
+  'South Ethiopia',
+  'South West Ethiopia Peoples',
+  'Tigray',
+] as const;
+
+const PROFILE_REGION_META: Record<
+  string,
+  { label: string; emptyLabel: string; options: readonly string[] }
+> = {
+  KE: {
+    label: 'County',
+    emptyLabel: 'Select county',
+    options: KENYAN_COUNTIES,
+  },
+  UG: {
+    label: 'District',
+    emptyLabel: 'Select district',
+    options: UGANDA_DISTRICTS,
+  },
+  TZ: {
+    label: 'Region',
+    emptyLabel: 'Select region',
+    options: TANZANIA_REGIONS,
+  },
+  RW: {
+    label: 'Province',
+    emptyLabel: 'Select province',
+    options: RWANDA_PROVINCES,
+  },
+  ET: { label: 'State', emptyLabel: 'Select state', options: ETHIOPIA_STATES },
+};
+
 function getAvatarUri(value?: string) {
   if (!value) {
     return null;
@@ -80,14 +331,70 @@ function getAvatarUri(value?: string) {
 
   if (value.startsWith('avatar-seed-')) {
     const normalizedSeed = value.replace(/^avatar-seed-/, '');
-    return `https://api.dicebear.com/7.x/adventurer/png?seed=${encodeURIComponent(normalizedSeed)}`;
+    return `https://api.dicebear.com/7.x/adventurer/png?seed=${encodeURIComponent(
+      normalizedSeed,
+    )}`;
   }
 
   if (value.startsWith('http://') || value.startsWith('https://')) {
     return value.replace('/svg?seed=', '/png?seed=').replace('/svg/', '/png/');
   }
 
-  return `https://api.dicebear.com/7.x/adventurer/png?seed=${encodeURIComponent(value)}`;
+  return `https://api.dicebear.com/7.x/adventurer/png?seed=${encodeURIComponent(
+    value,
+  )}`;
+}
+
+function normalizeRegionName(value: string) {
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/,/g, ' ')
+    .replace(
+      /\b(county|region|province|district|state|kenya|uganda|tanzania|rwanda|ethiopia)\b/g,
+      '',
+    )
+    .replace(/\s+city$/, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function regionMatchesLocation(region: string, location: string) {
+  return normalizeRegionName(region) === normalizeRegionName(location);
+}
+
+function getProfileCountry(value?: string) {
+  const normalized = value?.trim().toLowerCase();
+  return (
+    PROFILE_COUNTRIES.find(
+      country =>
+        country.name.toLowerCase() === normalized ||
+        country.code.toLowerCase() === normalized,
+    ) ?? PROFILE_COUNTRIES[0]
+  );
+}
+
+function compareProfileLabels(left: string, right: string) {
+  return left.localeCompare(right, undefined, { sensitivity: 'base' });
+}
+
+function getSchoolRegionOptions(countryCode: string, schools: SchoolData[]) {
+  const regionMeta = PROFILE_REGION_META[countryCode] ?? PROFILE_REGION_META.KE;
+  const schoolLocations = Array.from(
+    new Set(schools.map(school => school.location.trim()).filter(Boolean)),
+  );
+
+  if (countryCode !== 'KE') {
+    return [...regionMeta.options].sort(compareProfileLabels);
+  }
+
+  const officialOptions = [...regionMeta.options];
+  const extraOptions = schoolLocations.filter(
+    location =>
+      !officialOptions.some(option => regionMatchesLocation(option, location)),
+  );
+
+  return [...officialOptions, ...extraOptions].sort(compareProfileLabels);
 }
 
 export function ProfileModal({
@@ -99,8 +406,6 @@ export function ProfileModal({
   onDeleteAccount,
   showTeacherPortalButton,
   showAdminPortalButton,
-  canResendVerification,
-  onResendVerification,
   billingStatus,
   onManageSubscription,
   focusModeActive,
@@ -117,20 +422,18 @@ export function ProfileModal({
   allSubjects,
   selectedSubjectIds,
   onToggleSubject,
+  subscriptionCheckoutOverlay,
 }: ProfileModalProps) {
-  const [isEditing, setIsEditing] = useState(false);
-  const [formData, setFormData] = useState<UserProfile>(user);
+  const [editCardVisible, setEditCardVisible] = useState(false);
+  const [accountToolsOpen, setAccountToolsOpen] = useState(false);
+  const [lockModalVisible, setLockModalVisible] = useState(false);
+  const [countryPickerOpen, setCountryPickerOpen] = useState(false);
+  const [regionPickerOpen, setRegionPickerOpen] = useState(false);
   const [schoolPickerOpen, setSchoolPickerOpen] = useState(false);
   const [schoolQuery, setSchoolQuery] = useState('');
-  const [verificationState, setVerificationState] = useState<{
-    isSending: boolean;
-    message: string | null;
-    error: string | null;
-  }>({
-    isSending: false,
-    message: null,
-    error: null,
-  });
+  const [formData, setFormData] = useState<UserProfile>(user);
+  const editCardProgress = useRef(new Animated.Value(0)).current;
+  const lockModalProgress = useRef(new Animated.Value(0)).current;
   const [deleteState, setDeleteState] = useState<{
     isOpen: boolean;
     isSubmitting: boolean;
@@ -143,21 +446,63 @@ export function ProfileModal({
     error: null,
   });
   const avatarUri = getAvatarUri(formData.avatar);
-  const filteredSchools = schools.filter(school =>
-    school.name.toLowerCase().includes(schoolQuery.trim().toLowerCase()),
+  const orderedSubjects = useMemo(
+    () => orderProfileSubjects(allSubjects),
+    [allSubjects],
+  );
+  const selectedSubjectCount = selectedSubjectIds.length;
+  const selectedCountry = useMemo(
+    () => getProfileCountry(formData.country),
+    [formData.country],
+  );
+  const regionMeta =
+    PROFILE_REGION_META[selectedCountry.code] ?? PROFILE_REGION_META.KE;
+  const schoolSummary = formData.school?.trim();
+  const genderSummary =
+    formData.gender && formData.gender !== 'Not Specified'
+      ? formData.gender
+      : '';
+  const gradeSummary = formData.grade?.trim();
+  const countrySummary = formData.country?.trim();
+  const regionSummary = formData.county?.trim();
+  const emailSummary = formData.email?.trim();
+  const phoneSummary = formData.phone?.trim();
+  const hasHeroDetails = Boolean(
+    genderSummary || gradeSummary || countrySummary,
+  );
+  const hasHeroContacts = Boolean(emailSummary || phoneSummary);
+  const regionOptions = useMemo(
+    () => getSchoolRegionOptions(selectedCountry.code, schools),
+    [schools, selectedCountry.code],
+  );
+  const filteredSchools = useMemo(
+    () =>
+      formData.county
+        ? schools
+            .filter(
+              school =>
+                regionMatchesLocation(formData.county || '', school.location) &&
+                school.name
+                  .toLowerCase()
+                  .includes(schoolQuery.trim().toLowerCase()),
+            )
+            .sort((left, right) => compareProfileLabels(left.name, right.name))
+        : [],
+    [formData.county, schoolQuery, schools],
   );
 
   useEffect(() => {
     if (isOpen) {
       setFormData(user);
-      setIsEditing(false);
+      setEditCardVisible(false);
+      setAccountToolsOpen(false);
+      setLockModalVisible(false);
+      setCountryPickerOpen(false);
+      setRegionPickerOpen(false);
       setSchoolPickerOpen(false);
       setSchoolQuery('');
-      setVerificationState({
-        isSending: false,
-        message: null,
-        error: null,
-      });
+      editCardProgress.setValue(0);
+      lockModalProgress.setValue(0);
       setDeleteState({
         isOpen: false,
         isSubmitting: false,
@@ -165,44 +510,81 @@ export function ProfileModal({
         error: null,
       });
     }
-  }, [isOpen, user]);
+  }, [editCardProgress, isOpen, lockModalProgress, user]);
+
+  function openEditCard() {
+    setFormData(user);
+    setCountryPickerOpen(false);
+    setRegionPickerOpen(false);
+    setSchoolPickerOpen(false);
+    setSchoolQuery('');
+    editCardProgress.setValue(0);
+    setEditCardVisible(true);
+    Animated.timing(editCardProgress, {
+      toValue: 1,
+      duration: 240,
+      useNativeDriver: true,
+    }).start();
+  }
+
+  function closeEditCard({ reset = true }: { reset?: boolean } = {}) {
+    Animated.timing(editCardProgress, {
+      toValue: 0,
+      duration: 190,
+      useNativeDriver: true,
+    }).start(({ finished }) => {
+      if (finished) {
+        if (reset) {
+          setFormData(user);
+        }
+        setEditCardVisible(false);
+      }
+    });
+  }
+
+  function saveEditCard() {
+    onSave(formData);
+    closeEditCard({ reset: false });
+  }
+
+  function openLockModal() {
+    lockModalProgress.setValue(0);
+    setLockModalVisible(true);
+    Animated.timing(lockModalProgress, {
+      toValue: 1,
+      duration: 220,
+      useNativeDriver: true,
+    }).start();
+  }
+
+  function closeLockModal() {
+    Animated.timing(lockModalProgress, {
+      toValue: 0,
+      duration: 180,
+      useNativeDriver: true,
+    }).start(({ finished }) => {
+      if (finished) {
+        setLockModalVisible(false);
+      }
+    });
+  }
+
+  function handleLockPhoneAction() {
+    if (focusModeSetupRequired) {
+      closeLockModal();
+      onOpenFocusModeSettings();
+      return;
+    }
+
+    onStartFocusMode();
+    closeLockModal();
+  }
 
   function handleChange(field: keyof UserProfile, value: string) {
     setFormData(prev => ({
       ...prev,
       [field]: value,
     }));
-  }
-
-  function handleAvatarChange(nextAvatar: LocalAvatarKey) {
-    setFormData(prev => ({
-      ...prev,
-      avatar: nextAvatar,
-      gender: nextAvatar === 'avatar-afro-girl' ? 'female' : prev.gender,
-    }));
-  }
-
-  async function handleResendVerification() {
-    setVerificationState({
-      isSending: true,
-      message: null,
-      error: null,
-    });
-
-    try {
-      const message = await onResendVerification();
-      setVerificationState({
-        isSending: false,
-        message,
-        error: null,
-      });
-    } catch (error) {
-      setVerificationState({
-        isSending: false,
-        message: null,
-        error: error instanceof Error ? error.message : 'Could not send verification email.',
-      });
-    }
   }
 
   async function handleDeleteAccount() {
@@ -219,19 +601,59 @@ export function ProfileModal({
         isOpen: true,
         isSubmitting: false,
         confirmationText: deleteState.confirmationText,
-        error: error instanceof Error ? error.message : 'Could not delete account.',
+        error:
+          error instanceof Error ? error.message : 'Could not delete account.',
       });
     }
   }
 
-  function renderSelectField(label: string, field: EditableField, options: string[]) {
+  function selectCountry(country: ProfileCountryOption) {
+    setFormData(prev => ({
+      ...prev,
+      country: country.name,
+      county: '',
+      school: '',
+    }));
+    setCountryPickerOpen(false);
+    setRegionPickerOpen(false);
+    setSchoolPickerOpen(false);
+    setSchoolQuery('');
+  }
+
+  function selectRegion(region: string) {
+    setFormData(prev => ({
+      ...prev,
+      county: region,
+      school: '',
+    }));
+    setRegionPickerOpen(false);
+    setSchoolPickerOpen(true);
+    setSchoolQuery('');
+  }
+
+  function selectSchool(school: SchoolData) {
+    setFormData(prev => ({
+      ...prev,
+      school: school.name,
+      county: school.location || prev.county,
+    }));
+    setSchoolPickerOpen(false);
+    setSchoolQuery('');
+  }
+
+  function renderSelectField(
+    label: string,
+    field: EditableField,
+    options: string[],
+  ) {
     return (
       <View style={styles.detailBlock}>
         <Text style={styles.detailLabel}>{label}</Text>
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.optionRail}>
+          contentContainerStyle={styles.optionRail}
+        >
           {options.map(option => {
             const isSelected = (formData[field] || '') === option;
 
@@ -243,12 +665,14 @@ export function ProfileModal({
                   styles.optionChip,
                   isSelected && styles.optionChipActive,
                   pressed && styles.optionChipPressed,
-                ]}>
+                ]}
+              >
                 <Text
                   style={[
                     styles.optionChipText,
                     isSelected && styles.optionChipTextActive,
-                  ]}>
+                  ]}
+                >
                   {option}
                 </Text>
               </Pressable>
@@ -259,32 +683,233 @@ export function ProfileModal({
     );
   }
 
+  const lockModalTranslateY = lockModalProgress.interpolate({
+    inputRange: [0, 1],
+    outputRange: [28, 0],
+  });
+  const lockModalScale = lockModalProgress.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0.96, 1],
+  });
+  const editCardTranslateY = editCardProgress.interpolate({
+    inputRange: [0, 1],
+    outputRange: [-46, 0],
+  });
+  const editCardScale = editCardProgress.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0.9, 1],
+  });
+
   return (
     <Modal
       animationType="fade"
       transparent
       visible={isOpen}
-      onRequestClose={onClose}>
+      onRequestClose={onClose}
+    >
       <View style={styles.overlay}>
         <Pressable style={styles.backdrop} onPress={onClose} />
 
         <View style={styles.card}>
-          <LinearGradient
-            colors={['#3B82F6', '#8B5CF6', '#4F46E5']}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 0 }}
-            style={styles.headerGradient}>
-            <Pressable onPress={onClose} style={styles.closeButton}>
-              <X color="#FFFFFF" size={20} strokeWidth={2.5} />
-            </Pressable>
-          </LinearGradient>
+          <View style={styles.sheetHeader}>
+            <LinearGradient
+              colors={['#F97316', '#F59E0B', '#16A34A']}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+              style={styles.headerAccent}
+            />
+            <View style={styles.sheetTitleRow}>
+              <View style={styles.sheetTitleIcon}>
+                <User color="#0F172A" size={20} strokeWidth={2.5} />
+              </View>
+              <Text style={styles.sheetTitle}>Account Profile</Text>
+              <Pressable onPress={onClose} style={styles.closeButton}>
+                <X color="#334155" size={19} strokeWidth={2.6} />
+              </Pressable>
+            </View>
+            <LinearGradient
+              colors={['#F97316', '#F59E0B', '#16A34A']}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+              style={styles.accountHero}
+            >
+              <View style={styles.heroMainRow}>
+                <Pressable
+                  onPress={openEditCard}
+                  style={styles.compactAvatarPressable}
+                >
+                  {formData.avatar && isLocalAvatarKey(formData.avatar) ? (
+                    <AvatarArt avatarKey={formData.avatar} size={62} />
+                  ) : avatarUri ? (
+                    <Image
+                      source={{ uri: avatarUri }}
+                      style={styles.avatarImage}
+                    />
+                  ) : (
+                    <View style={styles.avatarFallback}>
+                      <User color="#94A3B8" size={28} strokeWidth={2.1} />
+                    </View>
+                  )}
+                  <View style={styles.cameraBadge}>
+                    <Camera color="#FFFFFF" size={11} strokeWidth={2.5} />
+                  </View>
+                </Pressable>
+                <View style={styles.headerCopy}>
+                  <Pressable onPress={openEditCard}>
+                    <Text style={styles.nameText} numberOfLines={1}>
+                      {formData.name}
+                    </Text>
+                  </Pressable>
+                  {schoolSummary || regionSummary ? (
+                    <View style={styles.heroSchoolRow}>
+                      {schoolSummary ? (
+                        <Text style={styles.heroSchoolText} numberOfLines={1}>
+                          {schoolSummary}
+                        </Text>
+                      ) : null}
+                      {regionSummary ? (
+                        <Text style={styles.heroLocationText} numberOfLines={1}>
+                          {regionSummary}
+                        </Text>
+                      ) : null}
+                    </View>
+                  ) : null}
+                  {hasHeroDetails ? (
+                    <View style={styles.heroDetailRow}>
+                      {genderSummary ? (
+                        <Text style={styles.heroDetailPill} numberOfLines={1}>
+                          {genderSummary}
+                        </Text>
+                      ) : null}
+                      {gradeSummary ? (
+                        <Text style={styles.heroDetailPill} numberOfLines={1}>
+                          {gradeSummary}
+                        </Text>
+                      ) : null}
+                      {countrySummary ? (
+                        <Text style={styles.heroDetailPill} numberOfLines={1}>
+                          {countrySummary}
+                        </Text>
+                      ) : null}
+                    </View>
+                  ) : null}
+                </View>
+              </View>
+              {hasHeroContacts ? (
+                <View style={styles.heroContactRow}>
+                  {emailSummary ? (
+                    <Text
+                      style={[
+                        styles.heroContactText,
+                        styles.heroContactTextLeft,
+                        !phoneSummary && styles.heroContactTextOnly,
+                      ]}
+                      numberOfLines={1}
+                      adjustsFontSizeToFit
+                      minimumFontScale={0.62}
+                    >
+                      {emailSummary}
+                    </Text>
+                  ) : null}
+                  {phoneSummary ? (
+                    <Text
+                      style={[
+                        styles.heroContactText,
+                        styles.heroContactTextRight,
+                        !emailSummary && styles.heroContactTextOnly,
+                      ]}
+                      numberOfLines={1}
+                      adjustsFontSizeToFit
+                      minimumFontScale={0.62}
+                    >
+                      {phoneSummary}
+                    </Text>
+                  ) : null}
+                </View>
+              ) : null}
+              <Pressable
+                onPress={openEditCard}
+                accessibilityLabel="Edit profile"
+                style={styles.heroEditIconButton}
+              >
+                <Pencil color="#FFFFFF" size={16} strokeWidth={2.5} />
+              </Pressable>
+            </LinearGradient>
+            <View style={styles.profileQuickActions}>
+              <Pressable
+                accessibilityLabel="Manage subscription"
+                onPress={onManageSubscription}
+                style={({ pressed }) => [
+                  styles.subscriptionQuickGroup,
+                  billingStatus.subscription
+                    ? styles.subscriptionQuickButtonActive
+                    : styles.subscriptionQuickButtonInactive,
+                  pressed && styles.optionChipPressed,
+                ]}
+              >
+                <View style={styles.subscriptionRowCopy}>
+                  <Text
+                    style={[
+                      styles.subscriptionQuickTitle,
+                      billingStatus.subscription
+                        ? styles.subscriptionQuickTitleActive
+                        : styles.subscriptionQuickTitleInactive,
+                    ]}
+                    numberOfLines={1}
+                    adjustsFontSizeToFit
+                    minimumFontScale={0.72}
+                  >
+                    {billingStatus.subscription
+                      ? 'Subscription Active'
+                      : 'Subscription Inactive'}
+                  </Text>
+                  <Text style={styles.subscriptionQuickMeta} numberOfLines={1}>
+                    {billingStatus.subscription
+                      ? `until ${formatShortDate(
+                          billingStatus.subscription.periodEnd,
+                        )}`
+                      : 'No active plan'}
+                  </Text>
+                </View>
+                <View
+                  accessibilityLabel="Subscription status action"
+                  style={[
+                    styles.subscriptionQuickCtaButton,
+                    billingStatus.subscription
+                      ? styles.subscriptionQuickCtaActive
+                      : styles.subscriptionQuickCtaInactive,
+                  ]}
+                >
+                  <Text
+                    style={[
+                      styles.subscriptionQuickCta,
+                      billingStatus.subscription
+                        ? styles.subscriptionQuickCtaTextActive
+                        : styles.subscriptionQuickCtaTextInactive,
+                    ]}
+                    numberOfLines={1}
+                    adjustsFontSizeToFit
+                    minimumFontScale={0.82}
+                  >
+                    {billingStatus.subscription ? 'Upgrade' : 'Pay Now'}
+                  </Text>
+                </View>
+              </Pressable>
+              <FocusModeProfileCard
+                active={focusModeActive}
+                isStarting={isStartingFocusMode}
+                onOpen={openLockModal}
+              />
+            </View>
+          </View>
 
-          {!isEditing && (showTeacherPortalButton || showAdminPortalButton) ? (
+          {showTeacherPortalButton || showAdminPortalButton ? (
             <View style={styles.portalRow}>
               {showTeacherPortalButton ? (
                 <Pressable
                   onPress={onOpenTeacher}
-                  style={[styles.portalButton, styles.teacherPortalButton]}>
+                  style={[styles.portalButton, styles.teacherPortalButton]}
+                >
                   <GraduationCap color="#2563EB" size={14} strokeWidth={2.4} />
                   <Text style={styles.teacherPortalText}>Teachers Portal</Text>
                 </Pressable>
@@ -293,7 +918,8 @@ export function ProfileModal({
               {showAdminPortalButton ? (
                 <Pressable
                   onPress={onOpenAdmin}
-                  style={[styles.portalButton, styles.adminPortalButton]}>
+                  style={[styles.portalButton, styles.adminPortalButton]}
+                >
                   <Text style={styles.adminPortalText}>Admin</Text>
                   <ChevronRight color="#7C3AED" size={14} strokeWidth={2.5} />
                 </Pressable>
@@ -301,315 +927,531 @@ export function ProfileModal({
             </View>
           ) : null}
 
-          <View pointerEvents="box-none" style={styles.avatarWrap}>
-            <Pressable onPress={() => setIsEditing(true)} style={styles.avatarPressable}>
-              {formData.avatar && isLocalAvatarKey(formData.avatar) ? (
-                <AvatarArt avatarKey={formData.avatar} size={100} />
-              ) : avatarUri ? (
-                <Image source={{ uri: avatarUri }} style={styles.avatarImage} />
-              ) : (
-                <View style={styles.avatarFallback}>
-                  <User color="#94A3B8" size={40} strokeWidth={2.1} />
-                </View>
-              )}
-              <View style={styles.cameraBadge}>
-                <Camera color="#FFFFFF" size={14} strokeWidth={2.4} />
-              </View>
-            </Pressable>
-          </View>
-
           <ScrollView
             showsVerticalScrollIndicator={false}
-            contentContainerStyle={styles.body}>
-            <View style={styles.identityBlock}>
-              {isEditing ? (
-                <TextInput
-                  value={formData.name}
-                  onChangeText={text => handleChange('name', text)}
-                  placeholder="Your Name"
-                  placeholderTextColor="#CBD5E1"
-                  style={styles.nameInput}
-                />
-              ) : (
-                <Pressable onPress={() => setIsEditing(true)}>
-                  <Text style={styles.nameText}>{formData.name}</Text>
-                </Pressable>
-              )}
-              <Text style={styles.roleText}>{formData.role || 'Student Account'}</Text>
-            </View>
+            contentContainerStyle={styles.body}
+          >
+            <ProfileSubjectTab
+              subjects={orderedSubjects}
+              selectedSubjectIds={selectedSubjectIds}
+              selectedCount={selectedSubjectCount}
+              onToggleSubject={onToggleSubject}
+            />
 
-            {canResendVerification ? (
-              <View style={styles.verificationCard}>
-                <View style={styles.verificationCopy}>
-                  <Text style={styles.verificationTitle}>Verify your email</Text>
-                  <Text style={styles.verificationBody}>
-                    Confirm your email address to secure account recovery and verification flows.
+            <View
+              style={[
+                styles.footerSpacer,
+                styles.subjectsFooterSpacer,
+                accountToolsOpen && styles.subjectsFooterSpacerExpanded,
+              ]}
+            />
+          </ScrollView>
+
+          <View style={styles.footer}>
+            <Pressable
+              onPress={onSignOut}
+              style={({ pressed }) => [
+                styles.secondaryFooterButton,
+                pressed && styles.footerButtonPressed,
+              ]}
+            >
+              <Text style={styles.secondaryFooterButtonText}>Sign Out</Text>
+            </Pressable>
+            <Pressable
+              onPress={() => setAccountToolsOpen(open => !open)}
+              style={({ pressed }) => [
+                styles.footerManageAccountToggle,
+                pressed && styles.optionChipPressed,
+              ]}
+            >
+              <Text style={styles.footerManageAccountText}>
+                Advanced account options
+              </Text>
+              <ChevronDown
+                color="#94A3B8"
+                size={15}
+                strokeWidth={2.4}
+                style={accountToolsOpen ? styles.chevronOpen : undefined}
+              />
+            </Pressable>
+            {accountToolsOpen ? (
+              <View style={styles.accountDeletionPanel}>
+                <View style={styles.accountDeletionCopyWrap}>
+                  <Text style={styles.accountDeletionTitle}>
+                    Delete account
+                  </Text>
+                  <Text style={styles.accountDeletionCopy}>
+                    Requires typed confirmation.
                   </Text>
                 </View>
                 <Pressable
-                  onPress={handleResendVerification}
-                  disabled={verificationState.isSending}
+                  onPress={() =>
+                    setDeleteState({
+                      isOpen: true,
+                      isSubmitting: false,
+                      confirmationText: '',
+                      error: null,
+                    })
+                  }
                   style={({ pressed }) => [
-                    styles.verificationButton,
-                    pressed && styles.optionChipPressed,
-                    verificationState.isSending && styles.verificationButtonDisabled,
-                  ]}>
-                  {verificationState.isSending ? (
-                    <ActivityIndicator color="#FFFFFF" />
-                  ) : (
-                    <Text style={styles.verificationButtonText}>Resend email</Text>
-                  )}
+                    styles.accountDeletionButton,
+                    pressed && styles.footerButtonPressed,
+                  ]}
+                >
+                  <Text style={styles.accountDeletionButtonText}>Request</Text>
                 </Pressable>
-                {verificationState.message ? (
-                  <Text style={styles.verificationSuccess}>{verificationState.message}</Text>
-                ) : null}
-                {verificationState.error ? (
-                  <Text style={styles.verificationError}>{verificationState.error}</Text>
-                ) : null}
               </View>
             ) : null}
+          </View>
+        </View>
+        {subscriptionCheckoutOverlay}
+      </View>
 
-            <View style={styles.verificationCard}>
-              <View style={styles.verificationCopy}>
-                <Text style={styles.verificationTitle}>Subscription</Text>
-                <Text style={styles.verificationBody}>
-                  {billingStatus.subscription
-                    ? `${billingStatus.subscription.name} active until ${new Date(billingStatus.subscription.periodEnd).toLocaleDateString()}`
-                    : 'No active subscription. Premium learning actions will prompt an M-Pesa checkout.'}
-                </Text>
-                {billingStatus.maskedMpesaPhoneNumber ? (
-                  <Text style={styles.verificationBody}>
-                    Saved M-Pesa number: {billingStatus.maskedMpesaPhoneNumber}
-                  </Text>
-                ) : null}
-              </View>
-              <Pressable
-                onPress={onManageSubscription}
-                style={({ pressed }) => [
-                  styles.verificationButton,
-                  pressed && styles.optionChipPressed,
-                ]}>
-                <Text style={styles.verificationButtonText}>
-                  {billingStatus.subscription ? 'Change plan' : 'Subscribe now'}
-                </Text>
-              </Pressable>
-            </View>
-
-            <FocusModeProfileCard
-              active={focusModeActive}
-              setupRequired={focusModeSetupRequired}
-              error={focusModeError}
-              secondsRemaining={focusModeSecondsRemaining}
-              limitSeconds={dailyLimitSeconds}
-              isStarting={isStartingFocusMode}
-              onStart={onStartFocusMode}
-              onOpenSettings={onOpenFocusModeSettings}
+      <Modal
+        animationType="none"
+        transparent
+        visible={editCardVisible}
+        onRequestClose={() => closeEditCard()}
+      >
+        <KeyboardAvoidingView
+          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+          keyboardVerticalOffset={12}
+          style={styles.editKeyboardAvoider}
+        >
+          <View style={styles.editOverlay}>
+            <Pressable
+              style={styles.editCardBackdrop}
+              onPress={() => closeEditCard()}
             />
-
-            <View style={styles.accountSection}>
-              <SubjectSelector
-                allSubjects={allSubjects}
-                selectedSubjectIds={selectedSubjectIds}
-                onToggleSubject={onToggleSubject}
-              />
-            </View>
-
-            {isEditing ? (
-              <View style={styles.avatarOptionsSection}>
-                <Text style={styles.avatarOptionsLabel}>Choose Avatar</Text>
-                <View style={styles.avatarOptionsGrid}>
-                  {LOCAL_AVATAR_OPTIONS.map(option => {
-                    const isSelected = formData.avatar === option.key;
-
-                    return (
-                      <Pressable
-                        key={option.key}
-                        onPress={() => handleAvatarChange(option.key)}
-                        style={[
-                          styles.avatarOption,
-                          isSelected && styles.avatarOptionSelected,
-                        ]}>
-                        <AvatarArt avatarKey={option.key} size={60} />
-                        <Text style={styles.avatarOptionLabel}>{option.label}</Text>
-                      </Pressable>
-                    );
-                  })}
+            <Animated.View
+              style={[
+                styles.editGlassCard,
+                {
+                  opacity: editCardProgress,
+                  transform: [
+                    { translateY: editCardTranslateY },
+                    { scale: editCardScale },
+                  ],
+                },
+              ]}
+            >
+              <ScrollView
+                contentContainerStyle={styles.editCardScrollContent}
+                keyboardShouldPersistTaps="handled"
+                showsVerticalScrollIndicator={false}
+              >
+                <View style={styles.editCardHeader}>
+                  <View>
+                    <Text style={styles.editCardTitle}>Edit profile</Text>
+                  </View>
+                  <Pressable
+                    onPress={() => closeEditCard()}
+                    style={styles.editCardClose}
+                  >
+                    <X color="#475569" size={17} strokeWidth={2.5} />
+                  </Pressable>
                 </View>
-              </View>
-            ) : null}
 
-            {isEditing ? (
-              <>
-                {renderSelectField('Grade', 'grade', [...SUPPORTED_GRADES])}
-                {renderSelectField('Gender', 'gender', GENDER_OPTIONS)}
-                <View style={styles.detailBlock}>
+                <View style={styles.editFieldGroup}>
+                  <Text style={styles.detailLabel}>Name</Text>
+                  <TextInput
+                    value={formData.name}
+                    onChangeText={text => handleChange('name', text)}
+                    placeholder="Student name"
+                    placeholderTextColor="#94A3B8"
+                    style={styles.editTextField}
+                  />
+                </View>
+
+                <View style={styles.editLocationRow}>
+                  <View
+                    style={[styles.editFieldGroup, styles.editLocationField]}
+                  >
+                    <Text style={styles.detailLabel}>Country</Text>
+                    <Pressable
+                      accessibilityLabel="Country selector"
+                      accessibilityRole="button"
+                      onPress={() => setCountryPickerOpen(open => !open)}
+                      style={[
+                        styles.schoolSelectShell,
+                        countryPickerOpen && styles.schoolSelectShellActive,
+                      ]}
+                    >
+                      <View style={styles.countrySelectValue}>
+                        <CountryFlagIcon
+                          countryCode={selectedCountry.code}
+                          accessibilityLabel={`${selectedCountry.name} flag`}
+                          width={20}
+                          height={14}
+                        />
+                        <Text
+                          style={styles.countrySelectText}
+                          numberOfLines={1}
+                        >
+                          {selectedCountry.name}
+                        </Text>
+                      </View>
+                      <ChevronDown
+                        color="#64748B"
+                        size={17}
+                        strokeWidth={2.5}
+                        style={
+                          countryPickerOpen ? styles.chevronOpen : undefined
+                        }
+                      />
+                    </Pressable>
+                    {countryPickerOpen ? (
+                      <View style={styles.schoolDropdown}>
+                        {PROFILE_COUNTRIES.map(country => {
+                          const selected =
+                            selectedCountry.code === country.code;
+                          return (
+                            <Pressable
+                              accessibilityLabel={`Select ${country.name}`}
+                              accessibilityRole="radio"
+                              accessibilityState={{ checked: selected }}
+                              key={country.code}
+                              onPress={() => selectCountry(country)}
+                              style={[
+                                styles.schoolOption,
+                                selected && styles.schoolOptionActive,
+                              ]}
+                            >
+                              <View style={styles.countryOptionContent}>
+                                <CountryFlagIcon
+                                  countryCode={country.code}
+                                  accessibilityLabel={`${country.name} flag`}
+                                  width={20}
+                                  height={14}
+                                />
+                                <Text style={styles.countryOptionText}>
+                                  {country.name}
+                                </Text>
+                              </View>
+                              {selected ? (
+                                <Check
+                                  color="#2563EB"
+                                  size={17}
+                                  strokeWidth={3}
+                                />
+                              ) : null}
+                            </Pressable>
+                          );
+                        })}
+                      </View>
+                    ) : null}
+                  </View>
+
+                  <View
+                    style={[styles.editFieldGroup, styles.editLocationField]}
+                  >
+                    <Text style={styles.detailLabel}>{regionMeta.label}</Text>
+                    <Pressable
+                      accessibilityLabel={`${regionMeta.label} selector`}
+                      accessibilityRole="button"
+                      onPress={() => setRegionPickerOpen(open => !open)}
+                      style={[
+                        styles.schoolSelectShell,
+                        regionPickerOpen && styles.schoolSelectShellActive,
+                      ]}
+                    >
+                      <Text
+                        numberOfLines={1}
+                        style={[
+                          styles.schoolSelectValue,
+                          !formData.county && styles.dropdownPlaceholder,
+                        ]}
+                      >
+                        {formData.county || regionMeta.emptyLabel}
+                      </Text>
+                      <ChevronDown
+                        color="#64748B"
+                        size={17}
+                        strokeWidth={2.5}
+                        style={
+                          regionPickerOpen ? styles.chevronOpen : undefined
+                        }
+                      />
+                    </Pressable>
+                    {regionPickerOpen ? (
+                      <View style={styles.schoolDropdown}>
+                        <ScrollView
+                          keyboardShouldPersistTaps="handled"
+                          nestedScrollEnabled
+                          style={styles.regionOptionList}
+                        >
+                          {regionOptions.map(region => {
+                            const selected = formData.county === region;
+                            return (
+                              <Pressable
+                                accessibilityLabel={`Select ${region}`}
+                                accessibilityRole="radio"
+                                accessibilityState={{ checked: selected }}
+                                key={region}
+                                onPress={() => selectRegion(region)}
+                                style={[
+                                  styles.schoolOption,
+                                  selected && styles.schoolOptionActive,
+                                ]}
+                              >
+                                <Text style={styles.schoolOptionName}>
+                                  {region}
+                                </Text>
+                                {selected ? (
+                                  <Check
+                                    color="#2563EB"
+                                    size={17}
+                                    strokeWidth={3}
+                                  />
+                                ) : null}
+                              </Pressable>
+                            );
+                          })}
+                          {regionOptions.length === 0 ? (
+                            <Text style={styles.schoolEmptyText}>
+                              No {regionMeta.label.toLowerCase()} options yet.
+                            </Text>
+                          ) : null}
+                        </ScrollView>
+                      </View>
+                    ) : null}
+                  </View>
+                </View>
+
+                <View style={styles.editFieldGroup}>
                   <Text style={styles.detailLabel}>School</Text>
                   <Pressable
+                    accessibilityLabel="School selector"
+                    accessibilityRole="button"
+                    disabled={!formData.county}
                     onPress={() => setSchoolPickerOpen(open => !open)}
-                    style={({ pressed }) => [
+                    style={[
                       styles.schoolSelectShell,
                       schoolPickerOpen && styles.schoolSelectShellActive,
-                      pressed && styles.optionChipPressed,
-                    ]}>
-                    <Text style={styles.schoolSelectValue}>
-                      {formData.school || 'Select your school'}
+                      !formData.county && styles.inputDisabled,
+                    ]}
+                  >
+                    <Text
+                      numberOfLines={1}
+                      style={[
+                        styles.schoolSelectValue,
+                        !formData.school && styles.dropdownPlaceholder,
+                      ]}
+                    >
+                      {formData.school ||
+                        (formData.county
+                          ? 'Select school'
+                          : `Select ${regionMeta.label.toLowerCase()} first`)}
                     </Text>
                     <ChevronDown
                       color="#64748B"
-                      size={18}
-                      strokeWidth={2.2}
+                      size={17}
+                      strokeWidth={2.5}
                       style={schoolPickerOpen ? styles.chevronOpen : undefined}
                     />
                   </Pressable>
                   {schoolPickerOpen ? (
                     <View style={styles.schoolDropdown}>
                       <View style={styles.schoolSearchRow}>
-                        <Search color="#94A3B8" size={16} strokeWidth={2.3} />
                         <TextInput
-                          value={schoolQuery}
+                          autoCapitalize="words"
+                          autoCorrect={false}
+                          editable={Boolean(formData.county)}
                           onChangeText={setSchoolQuery}
-                          placeholder="Type to find a school"
+                          placeholder="Search school"
                           placeholderTextColor="#94A3B8"
                           style={styles.schoolSearchInput}
+                          value={schoolQuery}
                         />
                       </View>
                       <ScrollView
+                        keyboardShouldPersistTaps="handled"
                         nestedScrollEnabled
-                        showsVerticalScrollIndicator={false}
-                        style={styles.schoolResultsList}>
-                        {filteredSchools.length ? (
-                          filteredSchools.map(school => {
-                            const isSelected = formData.school === school.name;
-                            return (
-                              <Pressable
-                                key={school.id}
-                                onPress={() => {
-                                  handleChange('school', school.name);
-                                  setSchoolQuery('');
-                                  setSchoolPickerOpen(false);
-                                }}
-                                style={({ pressed }) => [
-                                  styles.schoolOption,
-                                  isSelected && styles.schoolOptionActive,
-                                  pressed && styles.optionChipPressed,
-                                ]}>
-                                <View style={styles.schoolOptionTextWrap}>
-                                  <Text style={styles.schoolOptionName}>{school.name}</Text>
-                                  <Text style={styles.schoolOptionMeta}>{school.location}</Text>
-                                </View>
-                                {isSelected ? (
-                                  <Check color="#2563EB" size={16} strokeWidth={2.6} />
-                                ) : null}
-                              </Pressable>
-                            );
-                          })
-                        ) : (
-                          <Text style={styles.schoolEmptyText}>No matching schools.</Text>
-                        )}
+                        style={styles.schoolResultsList}
+                      >
+                        {filteredSchools.map(school => {
+                          const selected = formData.school === school.name;
+                          return (
+                            <Pressable
+                              accessibilityLabel={`Choose ${school.name}`}
+                              accessibilityRole="radio"
+                              accessibilityState={{ checked: selected }}
+                              key={school.id}
+                              onPress={() => selectSchool(school)}
+                              style={[
+                                styles.schoolOption,
+                                selected && styles.schoolOptionActive,
+                              ]}
+                            >
+                              <Text style={styles.schoolOptionName}>
+                                {school.name}
+                              </Text>
+                              {selected ? (
+                                <Check
+                                  color="#2563EB"
+                                  size={17}
+                                  strokeWidth={3}
+                                />
+                              ) : null}
+                            </Pressable>
+                          );
+                        })}
+                        {filteredSchools.length === 0 ? (
+                          <Text style={styles.schoolEmptyText}>
+                            {formData.county
+                              ? 'No matching schools in this location.'
+                              : `Select ${regionMeta.label.toLowerCase()} first.`}
+                          </Text>
+                        ) : null}
                       </ScrollView>
                     </View>
                   ) : null}
                 </View>
 
-                <View style={styles.detailBlock}>
+                {renderSelectField('Gender', 'gender', GENDER_OPTIONS)}
+                {renderSelectField('Grade', 'grade', [...SUPPORTED_GRADES])}
+
+                <View style={styles.editFieldGroup}>
                   <Text style={styles.detailLabel}>Email</Text>
                   <TextInput
                     value={formData.email || ''}
                     onChangeText={text => handleChange('email', text)}
                     placeholder="student@school.edu"
                     placeholderTextColor="#94A3B8"
-                    style={styles.textField}
+                    style={styles.editTextField}
                     keyboardType="email-address"
+                    autoCapitalize="none"
                   />
                 </View>
 
-                <View style={styles.detailBlock}>
+                <View style={styles.editFieldGroup}>
                   <Text style={styles.detailLabel}>Phone</Text>
                   <TextInput
                     value={formData.phone || ''}
                     onChangeText={text => handleChange('phone', text)}
                     placeholder="+254..."
                     placeholderTextColor="#94A3B8"
-                    style={styles.textField}
+                    style={styles.editTextField}
                     keyboardType="phone-pad"
                   />
                 </View>
-              </>
-            ) : (
-              <View style={styles.readOnlyList}>
-                {[
-                  { label: 'Grade', value: formData.grade || 'N/A' },
-                  { label: 'Gender', value: formData.gender || 'N/A' },
-                  { label: 'School', value: formData.school || 'N/A' },
-                  { label: 'Email', value: formData.email || 'N/A' },
-                  { label: 'Phone', value: formData.phone || 'N/A' },
-                ].map(item => (
+
+                <View style={styles.editCardActions}>
                   <Pressable
-                    key={item.label}
-                    onPress={() => setIsEditing(true)}
-                    style={styles.readOnlyRow}>
-                    <View style={styles.readOnlyTextWrap}>
-                      <Text style={styles.readOnlyLabel}>{item.label}</Text>
-                      <Text style={styles.readOnlyValue}>{item.value}</Text>
-                    </View>
-                  </Pressable>
-                ))}
-                <View style={styles.accountDeletionPanel}>
-                  <Text style={styles.accountDeletionTitle}>Account deletion</Text>
-                  <Text style={styles.accountDeletionCopy}>
-                    Request deletion only if you want this account and its data removed from our servers.
-                    Requests are fulfilled in 30 days.
-                  </Text>
-                  <Pressable
-                    onPress={() =>
-                      setDeleteState({
-                        isOpen: true,
-                        isSubmitting: false,
-                        confirmationText: '',
-                        error: null,
-                      })
-                    }
+                    onPress={() => closeEditCard()}
                     style={({ pressed }) => [
-                      styles.accountDeletionButton,
+                      styles.editCardSecondary,
                       pressed && styles.footerButtonPressed,
-                    ]}>
-                    <Text style={styles.accountDeletionButtonText}>Request Account Deletion</Text>
+                    ]}
+                  >
+                    <Text style={styles.editCardSecondaryText}>Cancel</Text>
+                  </Pressable>
+                  <Pressable
+                    onPress={saveEditCard}
+                    style={({ pressed }) => [
+                      styles.editCardPrimary,
+                      pressed && styles.footerButtonPressed,
+                    ]}
+                  >
+                    <Text style={styles.editCardPrimaryText}>Save</Text>
                   </Pressable>
                 </View>
-              </View>
-            )}
-
-            <View style={styles.footerSpacer} />
-          </ScrollView>
-
-          <View style={styles.footer}>
-            {isEditing ? (
-              <Pressable
-                onPress={() => {
-                  onSave(formData);
-                  setIsEditing(false);
-                  setSchoolPickerOpen(false);
-                  setSchoolQuery('');
-                }}
-                style={({ pressed }) => [
-                  styles.primaryFooterButton,
-                  pressed && styles.footerButtonPressed,
-                ]}>
-                <Text style={styles.primaryFooterButtonText}>Save Changes</Text>
-              </Pressable>
-            ) : (
-              <Pressable
-                onPress={onSignOut}
-                style={({ pressed }) => [
-                  styles.secondaryFooterButton,
-                  pressed && styles.footerButtonPressed,
-                ]}>
-                <Text style={styles.secondaryFooterButtonText}>Sign Out</Text>
-              </Pressable>
-            )}
+              </ScrollView>
+            </Animated.View>
           </View>
+        </KeyboardAvoidingView>
+      </Modal>
+
+      <Modal
+        animationType="none"
+        transparent
+        visible={lockModalVisible}
+        onRequestClose={closeLockModal}
+      >
+        <View style={styles.overlay}>
+          <Pressable
+            style={styles.lockModalBackdrop}
+            onPress={closeLockModal}
+          />
+          <Animated.View
+            style={[
+              styles.lockDialog,
+              {
+                opacity: lockModalProgress,
+                transform: [
+                  { translateY: lockModalTranslateY },
+                  { scale: lockModalScale },
+                ],
+              },
+            ]}
+          >
+            <View style={styles.lockDialogHeader}>
+              <View style={styles.lockDialogIcon}>
+                <ShieldCheck color="#0F766E" size={20} strokeWidth={2.6} />
+              </View>
+              <View style={styles.lockDialogTitleWrap}>
+                <Text style={styles.lockDialogTitle}>
+                  {focusModeActive
+                    ? 'Phone locked'
+                    : focusModeSetupRequired
+                    ? 'Set up phone lock'
+                    : 'Enter PIN'}
+                </Text>
+                <Text style={styles.lockDialogMeta}>
+                  {focusModeActive
+                    ? `${formatDuration(focusModeSecondsRemaining)} remaining`
+                    : focusModeSetupRequired
+                    ? 'Required before locking'
+                    : `${formatDuration(dailyLimitSeconds)} focus session`}
+                </Text>
+              </View>
+              <Pressable
+                onPress={closeLockModal}
+                style={styles.lockDialogClose}
+              >
+                <X color="#475569" size={17} strokeWidth={2.5} />
+              </Pressable>
+            </View>
+            <Text style={styles.lockDialogCopy}>
+              {focusModeSetupRequired
+                ? 'Turn on Android App Pinning and set a phone PIN. Once locked, the student cannot use any other app except Kitabu until the phone is unlocked by the parent PIN.'
+                : 'Confirm the parent PIN to lock this phone to Kitabu.'}
+            </Text>
+            {focusModeError ? (
+              <Text style={styles.focusError}>{focusModeError}</Text>
+            ) : null}
+            <View style={styles.lockDialogActions}>
+              <Pressable
+                onPress={closeLockModal}
+                style={({ pressed }) => [
+                  styles.lockDialogSecondary,
+                  pressed && styles.footerButtonPressed,
+                ]}
+              >
+                <Text style={styles.lockDialogSecondaryText}>Cancel</Text>
+              </Pressable>
+              <Pressable
+                onPress={handleLockPhoneAction}
+                disabled={focusModeActive || isStartingFocusMode}
+                style={({ pressed }) => [
+                  styles.lockDialogPrimary,
+                  pressed && styles.footerButtonPressed,
+                  (focusModeActive || isStartingFocusMode) &&
+                    styles.footerButtonDisabled,
+                ]}
+              >
+                {isStartingFocusMode ? (
+                  <ActivityIndicator color="#FFFFFF" size="small" />
+                ) : (
+                  <Text style={styles.lockDialogPrimaryText}>
+                    {focusModeSetupRequired ? 'Open Settings' : 'Enter PIN'}
+                  </Text>
+                )}
+              </Pressable>
+            </View>
+          </Animated.View>
         </View>
-      </View>
+      </Modal>
 
       <Modal
         animationType="fade"
@@ -622,7 +1464,8 @@ export function ProfileModal({
             confirmationText: '',
             error: null,
           })
-        }>
+        }
+      >
         <View style={styles.overlay}>
           <Pressable
             style={styles.backdrop}
@@ -638,8 +1481,9 @@ export function ProfileModal({
           <View style={styles.deleteDialog}>
             <Text style={styles.deleteDialogTitle}>Delete account?</Text>
             <Text style={styles.deleteDialogCopy}>
-              This creates an account deletion request. You will be signed out now, and all account data
-              will be deleted from our servers in 30 days.
+              This creates an account deletion request. You will be signed out
+              now, and all account data will be deleted from our servers in 30
+              days.
             </Text>
             <Text style={styles.deleteDialogCopy}>
               Type DELETE MY ACCOUNT to continue.
@@ -677,19 +1521,25 @@ export function ProfileModal({
                   styles.secondaryFooterButton,
                   styles.footerActionButton,
                   pressed && styles.footerButtonPressed,
-                ]}>
+                ]}
+              >
                 <Text style={styles.secondaryFooterButtonText}>Cancel</Text>
               </Pressable>
               <Pressable
                 onPress={handleDeleteAccount}
-                disabled={deleteState.isSubmitting || deleteState.confirmationText !== 'DELETE MY ACCOUNT'}
+                disabled={
+                  deleteState.isSubmitting ||
+                  deleteState.confirmationText !== 'DELETE MY ACCOUNT'
+                }
                 style={({ pressed }) => [
                   styles.dangerFooterButton,
                   styles.footerActionButton,
                   pressed && styles.footerButtonPressed,
-                  (deleteState.isSubmitting || deleteState.confirmationText !== 'DELETE MY ACCOUNT') &&
+                  (deleteState.isSubmitting ||
+                    deleteState.confirmationText !== 'DELETE MY ACCOUNT') &&
                     styles.footerButtonDisabled,
-                ]}>
+                ]}
+              >
                 {deleteState.isSubmitting ? (
                   <ActivityIndicator color="#FFFFFF" />
                 ) : (
@@ -704,88 +1554,185 @@ export function ProfileModal({
   );
 }
 
+function ProfileSubjectTab({
+  subjects,
+  selectedSubjectIds,
+  selectedCount,
+  onToggleSubject,
+}: {
+  subjects: Subject[];
+  selectedSubjectIds: string[];
+  selectedCount: number;
+  onToggleSubject: (subjectId: string) => void;
+}) {
+  const hasReachedLimit = selectedCount >= MAX_PROFILE_SUBJECTS;
+  const [swapCandidate, setSwapCandidate] = useState<Subject | null>(null);
+  const selectedSubjects = subjects.filter(subject =>
+    selectedSubjectIds.includes(subject.id),
+  );
+
+  useEffect(() => {
+    if (
+      !hasReachedLimit ||
+      (swapCandidate && selectedSubjectIds.includes(swapCandidate.id))
+    ) {
+      setSwapCandidate(null);
+    }
+  }, [hasReachedLimit, selectedSubjectIds, swapCandidate]);
+
+  function handleSubjectPress(subject: Subject, selected: boolean) {
+    if (selected || !hasReachedLimit) {
+      onToggleSubject(subject.id);
+      return;
+    }
+
+    setSwapCandidate(subject);
+  }
+
+  function handleSwapSubject(replacedSubjectId: string) {
+    if (!swapCandidate) {
+      return;
+    }
+
+    onToggleSubject(replacedSubjectId);
+    onToggleSubject(swapCandidate.id);
+    setSwapCandidate(null);
+  }
+
+  return (
+    <View style={styles.subjectTab}>
+      <View style={styles.subjectTabHeader}>
+        <View style={styles.subjectTabTitleWrap}>
+          <Text style={styles.subjectTabTitle}>Your Subjects</Text>
+          <Text
+            style={styles.subjectTabSubtitle}
+            numberOfLines={1}
+            adjustsFontSizeToFit
+            minimumFontScale={0.78}
+          >
+            Select what subjects appear on your learning dashboard.
+          </Text>
+        </View>
+        <Text style={styles.subjectCountPill}>
+          {selectedCount}/{MAX_PROFILE_SUBJECTS} selected
+        </Text>
+      </View>
+
+      <View style={styles.profileSubjectGrid}>
+        {subjects.map((subject, index) => {
+          const selected = selectedSubjectIds.includes(subject.id);
+          const requiresSwap = !selected && hasReachedLimit;
+          const tone = SUBJECT_CARD_TONES[index % SUBJECT_CARD_TONES.length];
+
+          return (
+            <Pressable
+              key={subject.id}
+              onPress={() => handleSubjectPress(subject, selected)}
+              style={({ pressed }) => [
+                styles.profileSubjectCard,
+                {
+                  backgroundColor: tone[0],
+                  borderColor: selected ? '#22C55E' : tone[1],
+                },
+                selected && styles.profileSubjectCardSelected,
+                requiresSwap && styles.profileSubjectCardSwapTarget,
+                pressed && styles.optionChipPressed,
+              ]}
+            >
+              <Text style={styles.profileSubjectName} numberOfLines={1}>
+                {subject.name}
+              </Text>
+              {selected ? (
+                <View style={styles.profileSubjectCheck}>
+                  <Check color="#16A34A" size={13} strokeWidth={3} />
+                </View>
+              ) : null}
+            </Pressable>
+          );
+        })}
+      </View>
+
+      {swapCandidate ? (
+        <View style={styles.subjectSwapPanel}>
+          <View style={styles.subjectSwapHeader}>
+            <Text style={styles.subjectSwapTitle}>
+              Swap {swapCandidate.name} with which subject?
+            </Text>
+            <Pressable
+              onPress={() => setSwapCandidate(null)}
+              style={({ pressed }) => [
+                styles.subjectSwapCancel,
+                pressed && styles.optionChipPressed,
+              ]}
+            >
+              <Text style={styles.subjectSwapCancelText}>Cancel</Text>
+            </Pressable>
+          </View>
+          <View style={styles.subjectSwapOptions}>
+            {selectedSubjects.map(subject => (
+              <Pressable
+                key={subject.id}
+                onPress={() => handleSwapSubject(subject.id)}
+                style={({ pressed }) => [
+                  styles.subjectSwapOption,
+                  pressed && styles.optionChipPressed,
+                ]}
+              >
+                <Text style={styles.subjectSwapOptionText}>{subject.name}</Text>
+              </Pressable>
+            ))}
+          </View>
+        </View>
+      ) : null}
+
+      <View style={styles.subjectConfirmation}>
+        <Text style={styles.subjectConfirmationText}>
+          {hasReachedLimit
+            ? `Perfect. You've selected ${MAX_PROFILE_SUBJECTS} subjects.`
+            : `Choose ${MAX_PROFILE_SUBJECTS - selectedCount} more subject${
+                MAX_PROFILE_SUBJECTS - selectedCount === 1 ? '' : 's'
+              }.`}
+        </Text>
+      </View>
+    </View>
+  );
+}
+
 function FocusModeProfileCard({
   active,
-  setupRequired,
-  error,
-  secondsRemaining,
-  limitSeconds,
   isStarting,
-  onStart,
-  onOpenSettings,
+  onOpen,
 }: {
   active: boolean;
-  setupRequired: boolean;
-  error: string | null;
-  secondsRemaining: number;
-  limitSeconds: number;
   isStarting: boolean;
-  onStart: () => void;
-  onOpenSettings: () => void;
+  onOpen: () => void;
 }) {
   return (
-    <View style={styles.focusCard}>
-      <View style={styles.focusHeader}>
-        <View style={styles.focusIcon}>
-          <ShieldCheck color="#0F766E" size={21} strokeWidth={2.5} />
-        </View>
-        <View style={styles.focusTitleWrap}>
-          <Text style={styles.focusTitle}>Focus Mode</Text>
-          <Text style={styles.focusMeta}>Default session: {formatDuration(limitSeconds)}</Text>
-        </View>
-      </View>
-      <Text style={styles.focusBody}>
-        Focus Mode keeps KITABU on screen while your child learns.
+    <Pressable
+      disabled={isStarting}
+      onPress={onOpen}
+      accessibilityRole="button"
+      accessibilityState={{ busy: isStarting, selected: active }}
+      style={({ pressed }) => [
+        styles.lockPhoneButton,
+        active && styles.lockPhoneButtonActive,
+        pressed && styles.optionChipPressed,
+      ]}
+    >
+      {isStarting ? (
+        <ActivityIndicator color="#FFFFFF" size="small" />
+      ) : (
+        <ShieldCheck color="#FFFFFF" size={16} strokeWidth={2.5} />
+      )}
+      <Text
+        style={styles.lockPhoneButtonText}
+        numberOfLines={1}
+        adjustsFontSizeToFit
+        minimumFontScale={0.82}
+      >
+        Lock Phone
       </Text>
-      <Text style={styles.focusBody}>
-        To leave Focus Mode, Android will ask for your phone PIN.
-      </Text>
-      <Text style={styles.focusBody}>KITABU does not create a separate PIN.</Text>
-
-      {active ? (
-        <View style={styles.focusStatusRow}>
-          <Clock3 color="#0F766E" size={16} strokeWidth={2.4} />
-          <Text style={styles.focusStatusText}>
-            Active - {formatDuration(secondsRemaining)} remaining
-          </Text>
-        </View>
-      ) : null}
-
-      {setupRequired ? (
-        <View style={styles.focusSetupBox}>
-          <Text style={styles.focusSetupTitle}>
-            Turn on App Pinning to keep KITABU on screen.
-          </Text>
-          <Text style={styles.focusSetupText}>
-            After turning it on, Android will ask for your phone PIN when someone tries to leave KITABU.
-          </Text>
-          <Text style={styles.focusSetupText}>
-            If the phone does not have a PIN, set one in Android security settings first.
-          </Text>
-          <Pressable onPress={onOpenSettings} style={styles.focusSettingsButton}>
-            <Settings color="#0F766E" size={17} strokeWidth={2.4} />
-            <Text style={styles.focusSettingsButtonText}>Open Settings</Text>
-          </Pressable>
-        </View>
-      ) : null}
-
-      {error ? <Text style={styles.focusError}>{error}</Text> : null}
-
-      <Pressable
-        disabled={active || isStarting}
-        onPress={onStart}
-        style={({ pressed }) => [
-          styles.focusStartButton,
-          pressed && styles.footerButtonPressed,
-          (active || isStarting) && styles.footerButtonDisabled,
-        ]}>
-        {isStarting ? (
-          <ActivityIndicator color="#FFFFFF" />
-        ) : (
-          <Text style={styles.focusStartButtonText}>Start Focus Mode</Text>
-        )}
-      </Pressable>
-    </View>
+    </Pressable>
   );
 }
 
@@ -799,6 +1746,23 @@ function formatDuration(totalSeconds: number) {
     return `${hours}h`;
   }
   return `${Math.max(1, minutes)}m`;
+}
+
+function formatShortDate(value: string) {
+  return new Date(value).toLocaleDateString('en-US', {
+    day: 'numeric',
+    month: 'numeric',
+    year: 'numeric',
+  });
+}
+
+function orderProfileSubjects(items: Subject[]) {
+  const orderMap = new Map(SUBJECT_ORDER.map((id, index) => [id, index]));
+  return [...items].sort((left, right) => {
+    const leftOrder = orderMap.get(left.id) ?? 99;
+    const rightOrder = orderMap.get(right.id) ?? 99;
+    return leftOrder - rightOrder;
+  });
 }
 
 const styles = StyleSheet.create({
@@ -818,30 +1782,158 @@ const styles = StyleSheet.create({
   },
   card: {
     backgroundColor: '#FFFFFF',
-    borderRadius: 28,
-    maxHeight: '92%',
+    borderRadius: 24,
+    elevation: 10,
+    maxHeight: '90%',
     overflow: 'hidden',
+    shadowColor: '#020617',
+    shadowOffset: { width: 0, height: 18 },
+    shadowOpacity: 0.18,
+    shadowRadius: 30,
     width: '100%',
+  },
+  sheetHeader: {
+    backgroundColor: '#FFFFFF',
+    borderBottomColor: '#EEF2F7',
+    borderBottomWidth: 1,
+    gap: 10,
+    paddingBottom: 12,
+    paddingHorizontal: 20,
+    paddingTop: 16,
+    position: 'relative',
+  },
+  headerAccent: {
+    height: 5,
+    left: 0,
+    position: 'absolute',
+    right: 0,
+    top: 0,
   },
   headerGradient: {
     height: 128,
   },
+  sheetTitleRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 10,
+  },
+  sheetTitleIcon: {
+    alignItems: 'center',
+    backgroundColor: '#F8FAFC',
+    borderColor: '#EEF2F7',
+    borderRadius: 999,
+    borderWidth: 1,
+    height: 34,
+    justifyContent: 'center',
+    width: 34,
+  },
+  sheetTitle: {
+    color: '#0F172A',
+    flex: 1,
+    fontSize: 20,
+    fontWeight: '900',
+  },
+  accountHero: {
+    alignItems: 'stretch',
+    borderRadius: 18,
+    gap: 8,
+    minHeight: 122,
+    overflow: 'hidden',
+    padding: 12,
+    position: 'relative',
+  },
+  heroMainRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 12,
+    minWidth: 0,
+  },
+  profileQuickActions: {
+    flexDirection: 'row',
+    gap: 8,
+  },
+  subscriptionQuickGroup: {
+    alignItems: 'center',
+    borderRadius: 12,
+    borderWidth: 1,
+    flex: 1,
+    flexDirection: 'row',
+    gap: 6,
+    justifyContent: 'space-between',
+    minHeight: 44,
+    minWidth: 0,
+    paddingHorizontal: 9,
+    paddingVertical: 7,
+  },
+  subscriptionQuickButtonActive: {
+    backgroundColor: '#F0FDF4',
+    borderColor: '#BBF7D0',
+  },
+  subscriptionQuickButtonInactive: {
+    backgroundColor: '#FEF2F2',
+    borderColor: '#FECACA',
+  },
+  subscriptionQuickTitle: {
+    fontSize: 12,
+    fontWeight: '900',
+    lineHeight: 14,
+    textAlign: 'center',
+  },
+  subscriptionQuickTitleActive: {
+    color: '#15803D',
+  },
+  subscriptionQuickTitleInactive: {
+    color: '#B91C1C',
+  },
+  subscriptionQuickMeta: {
+    color: '#64748B',
+    fontSize: 11,
+    fontWeight: '700',
+    marginTop: 1,
+    textAlign: 'center',
+  },
+  subscriptionQuickCta: {
+    fontSize: 11,
+    fontWeight: '900',
+  },
+  subscriptionQuickCtaButton: {
+    alignItems: 'center',
+    borderRadius: 12,
+    justifyContent: 'center',
+    minHeight: 44,
+    minWidth: 62,
+    paddingHorizontal: 8,
+  },
+  subscriptionQuickCtaActive: {
+    backgroundColor: '#FFF7ED',
+    borderColor: '#FED7AA',
+    borderWidth: 1,
+  },
+  subscriptionQuickCtaInactive: {
+    backgroundColor: '#FEE2E2',
+    borderColor: '#FECACA',
+    borderWidth: 1,
+  },
+  subscriptionQuickCtaTextActive: {
+    color: '#EA580C',
+  },
+  subscriptionQuickCtaTextInactive: {
+    color: '#B91C1C',
+  },
   closeButton: {
     alignItems: 'center',
-    alignSelf: 'flex-end',
-    backgroundColor: 'rgba(255,255,255,0.18)',
+    backgroundColor: '#F8FAFC',
     borderRadius: 999,
-    height: 36,
+    height: 34,
     justifyContent: 'center',
-    marginRight: 16,
-    marginTop: 16,
-    width: 36,
+    width: 34,
   },
   portalRow: {
     flexDirection: 'row',
+    gap: 8,
     justifyContent: 'space-between',
-    marginTop: -6,
-    paddingHorizontal: 16,
+    paddingHorizontal: 20,
+    paddingTop: 12,
     zIndex: 10,
   },
   portalButton: {
@@ -850,15 +1942,17 @@ const styles = StyleSheet.create({
     borderColor: '#F3F4F6',
     borderRadius: 14,
     borderWidth: 1,
-    elevation: 4,
+    elevation: 1,
+    flex: 1,
     flexDirection: 'row',
     gap: 6,
+    justifyContent: 'center',
     paddingHorizontal: 12,
-    paddingVertical: 10,
+    paddingVertical: 9,
     shadowColor: '#111827',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.08,
-    shadowRadius: 10,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.04,
+    shadowRadius: 6,
   },
   teacherPortalButton: {},
   adminPortalButton: {},
@@ -879,6 +1973,52 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: -30,
     zIndex: 11,
+  },
+  compactAvatarPressable: {
+    alignItems: 'center',
+    backgroundColor: '#EFF6FF',
+    borderColor: '#FFFFFF',
+    borderRadius: 999,
+    borderWidth: 3,
+    elevation: 2,
+    height: 66,
+    justifyContent: 'center',
+    position: 'relative',
+    shadowColor: '#2563EB',
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.14,
+    shadowRadius: 14,
+    width: 66,
+  },
+  headerCopy: {
+    flex: 1,
+    gap: 4,
+    minWidth: 0,
+  },
+  identityMetaRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 6,
+  },
+  rolePill: {
+    backgroundColor: 'rgba(255,255,255,0.22)',
+    borderRadius: 999,
+    color: '#FFFFFF',
+    fontSize: 11,
+    fontWeight: '900',
+    paddingHorizontal: 9,
+    paddingVertical: 5,
+    textTransform: 'capitalize',
+  },
+  gradePill: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 999,
+    color: '#3730A3',
+    fontSize: 11,
+    fontWeight: '900',
+    paddingHorizontal: 9,
+    paddingVertical: 5,
   },
   avatarPressable: {
     alignItems: 'center',
@@ -913,27 +2053,26 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#2563EB',
     borderRadius: 999,
-    bottom: 2,
-    height: 30,
+    bottom: -1,
+    height: 22,
     justifyContent: 'center',
     position: 'absolute',
-    right: 2,
-    width: 30,
+    right: -1,
+    width: 22,
   },
   body: {
-    paddingHorizontal: 24,
-    paddingTop: 14,
+    paddingHorizontal: 20,
+    paddingTop: 10,
   },
   identityBlock: {
     alignItems: 'center',
     marginBottom: 20,
   },
   nameText: {
-    color: '#111827',
-    fontSize: 28,
-    fontWeight: '700',
-    marginBottom: 4,
-    textAlign: 'center',
+    color: '#FFFFFF',
+    fontSize: 20,
+    fontWeight: '900',
+    letterSpacing: 0,
   },
   nameInput: {
     borderBottomColor: '#DBEAFE',
@@ -945,9 +2084,117 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     width: '100%',
   },
+  compactNameInput: {
+    borderBottomColor: 'rgba(255,255,255,0.55)',
+    borderBottomWidth: 1,
+    color: '#FFFFFF',
+    fontSize: 18,
+    fontWeight: '900',
+    paddingBottom: 4,
+    paddingHorizontal: 0,
+    paddingTop: 0,
+  },
   roleText: {
     color: '#6B7280',
     fontSize: 14,
+  },
+  heroSchoolRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 8,
+    justifyContent: 'space-between',
+    minWidth: 0,
+    width: '100%',
+  },
+  heroSchoolText: {
+    color: 'rgba(255,255,255,0.82)',
+    flex: 1,
+    fontSize: 12,
+    fontWeight: '800',
+    minWidth: 0,
+  },
+  heroLocationText: {
+    color: 'rgba(255,255,255,0.78)',
+    flexShrink: 0,
+    fontSize: 11,
+    fontWeight: '800',
+    lineHeight: 14,
+    marginLeft: 'auto',
+    maxWidth: 96,
+    minWidth: 0,
+    textAlign: 'right',
+  },
+  heroDetailRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 6,
+    marginTop: 2,
+  },
+  heroDetailPill: {
+    backgroundColor: 'rgba(255,255,255,0.18)',
+    borderColor: 'rgba(255,255,255,0.26)',
+    borderRadius: 999,
+    borderWidth: 1,
+    color: '#FFFFFF',
+    fontSize: 11,
+    fontWeight: '900',
+    maxWidth: 112,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    textTransform: 'capitalize',
+  },
+  heroContactRow: {
+    alignSelf: 'stretch',
+    flexDirection: 'row',
+    gap: 8,
+    justifyContent: 'space-between',
+    minWidth: 0,
+    paddingRight: 44,
+  },
+  heroContactText: {
+    color: 'rgba(255,255,255,0.76)',
+    flex: 1,
+    fontSize: 11,
+    fontWeight: '700',
+    lineHeight: 13,
+    minWidth: 0,
+  },
+  heroContactTextLeft: {
+    flex: 1.6,
+    textAlign: 'left',
+  },
+  heroContactTextRight: {
+    flex: 1,
+    textAlign: 'right',
+  },
+  heroContactTextOnly: {
+    flex: 0,
+    maxWidth: '100%',
+  },
+  heroEditIconButton: {
+    alignItems: 'center',
+    backgroundColor: 'rgba(15,23,42,0.18)',
+    borderColor: 'rgba(255,255,255,0.35)',
+    borderRadius: 999,
+    borderWidth: 1,
+    bottom: 10,
+    height: 34,
+    justifyContent: 'center',
+    position: 'absolute',
+    right: 10,
+    width: 34,
+  },
+  noticeCard: {
+    alignItems: 'center',
+    backgroundColor: '#FFFBEB',
+    borderColor: '#FDE68A',
+    borderRadius: 16,
+    borderWidth: 1,
+    flexDirection: 'row',
+    gap: 12,
+    justifyContent: 'space-between',
+    marginBottom: 12,
+    padding: 12,
   },
   verificationCard: {
     borderRadius: 20,
@@ -959,24 +2206,26 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   verificationCopy: {
+    flex: 1,
     gap: 4,
   },
   verificationTitle: {
-    color: '#1E1B4B',
+    color: '#0F172A',
     fontSize: 15,
     fontWeight: '800',
   },
   verificationBody: {
-    color: '#4338CA',
-    fontSize: 13,
-    lineHeight: 19,
+    color: '#64748B',
+    fontSize: 12,
+    lineHeight: 17,
   },
   verificationButton: {
-    minHeight: 44,
-    borderRadius: 14,
     backgroundColor: '#312E81',
     alignItems: 'center',
+    borderRadius: 999,
     justifyContent: 'center',
+    minHeight: 36,
+    paddingHorizontal: 14,
   },
   verificationButtonDisabled: {
     opacity: 0.75,
@@ -996,14 +2245,62 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '700',
   },
-  focusCard: {
-    backgroundColor: '#ECFDF5',
-    borderColor: '#99F6E4',
-    borderRadius: 20,
+  subscriptionCard: {
+    alignItems: 'center',
+    backgroundColor: '#F8FAFF',
+    borderColor: '#DBEAFE',
+    borderRadius: 18,
     borderWidth: 1,
-    gap: 8,
-    marginBottom: 20,
-    padding: 16,
+    flexDirection: 'row',
+    gap: 12,
+    marginBottom: 12,
+    padding: 14,
+  },
+  subscriptionStatusDot: {
+    backgroundColor: '#10B981',
+    borderColor: '#D1FAE5',
+    borderRadius: 999,
+    borderWidth: 5,
+    height: 22,
+    width: 22,
+  },
+  subscriptionCopy: {
+    flex: 1,
+    gap: 3,
+    minWidth: 0,
+  },
+  sectionRowTitle: {
+    color: '#0F172A',
+    fontSize: 15,
+    fontWeight: '900',
+  },
+  sectionRowMeta: {
+    color: '#475569',
+    fontSize: 12,
+    fontWeight: '700',
+    lineHeight: 17,
+  },
+  inlineActionButton: {
+    alignItems: 'center',
+    backgroundColor: '#111827',
+    borderRadius: 999,
+    justifyContent: 'center',
+    minHeight: 34,
+    paddingHorizontal: 13,
+  },
+  inlineActionButtonText: {
+    color: '#FFFFFF',
+    fontSize: 11,
+    fontWeight: '900',
+  },
+  focusCard: {
+    backgroundColor: '#F0FDFA',
+    borderColor: '#A7F3D0',
+    borderRadius: 18,
+    borderWidth: 1,
+    gap: 10,
+    marginBottom: 14,
+    padding: 14,
   },
   focusHeader: {
     alignItems: 'center',
@@ -1013,10 +2310,10 @@ const styles = StyleSheet.create({
   focusIcon: {
     alignItems: 'center',
     backgroundColor: '#CCFBF1',
-    borderRadius: 16,
-    height: 42,
+    borderRadius: 14,
+    height: 40,
     justifyContent: 'center',
-    width: 42,
+    width: 40,
   },
   focusTitleWrap: {
     flex: 1,
@@ -1068,24 +2365,55 @@ const styles = StyleSheet.create({
     fontWeight: '900',
   },
   focusSetupText: {
-    color: '#475569',
-    fontSize: 13,
-    lineHeight: 19,
+    color: '#0F766E',
+    fontSize: 12,
+    fontWeight: '800',
+    lineHeight: 17,
   },
   focusSettingsButton: {
     alignItems: 'center',
     alignSelf: 'flex-start',
     backgroundColor: '#CCFBF1',
-    borderRadius: 8,
+    borderRadius: 999,
     flexDirection: 'row',
-    gap: 7,
-    paddingHorizontal: 12,
-    paddingVertical: 9,
+    gap: 5,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
   },
   focusSettingsButtonText: {
     color: '#0F766E',
-    fontSize: 13,
+    fontSize: 11,
     fontWeight: '900',
+  },
+  focusSwitch: {
+    alignItems: 'center',
+    backgroundColor: '#CBD5E1',
+    borderRadius: 999,
+    height: 30,
+    justifyContent: 'center',
+    paddingHorizontal: 3,
+    width: 52,
+  },
+  focusSwitchActive: {
+    alignItems: 'flex-end',
+    backgroundColor: '#10B981',
+  },
+  focusSwitchDisabled: {
+    opacity: 0.6,
+  },
+  focusSwitchThumb: {
+    alignSelf: 'flex-start',
+    backgroundColor: '#FFFFFF',
+    borderRadius: 999,
+    height: 24,
+    shadowColor: '#020617',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.18,
+    shadowRadius: 4,
+    width: 24,
+  },
+  focusSwitchThumbActive: {
+    alignSelf: 'flex-end',
   },
   focusError: {
     color: '#B91C1C',
@@ -1097,16 +2425,163 @@ const styles = StyleSheet.create({
     backgroundColor: '#0F766E',
     borderRadius: 14,
     justifyContent: 'center',
-    marginTop: 4,
-    minHeight: 46,
+    minHeight: 42,
   },
   focusStartButtonText: {
     color: '#FFFFFF',
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: '900',
   },
   accountSection: {
-    marginBottom: 20,
+    marginBottom: 14,
+  },
+  subjectTab: {
+    gap: 12,
+  },
+  subjectTabHeader: {
+    alignItems: 'flex-start',
+    flexDirection: 'row',
+    gap: 12,
+    justifyContent: 'space-between',
+    marginTop: 2,
+  },
+  subjectTabTitleWrap: {
+    flex: 1,
+    gap: 6,
+  },
+  subjectTabTitle: {
+    color: '#0F172A',
+    fontSize: 22,
+    fontWeight: '900',
+  },
+  subjectTabSubtitle: {
+    color: '#64748B',
+    flexShrink: 1,
+    fontSize: 11,
+    fontWeight: '700',
+    lineHeight: 14,
+  },
+  subjectCountPill: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#E2E8F0',
+    borderRadius: 999,
+    borderWidth: 1,
+    color: '#0F172A',
+    fontSize: 12,
+    fontWeight: '900',
+    paddingHorizontal: 10,
+    paddingVertical: 7,
+  },
+  profileSubjectGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+  },
+  profileSubjectCard: {
+    alignItems: 'center',
+    borderRadius: 9,
+    borderWidth: 2,
+    justifyContent: 'center',
+    minHeight: 48,
+    paddingHorizontal: 9,
+    paddingVertical: 8,
+    position: 'relative',
+    width: '48.6%',
+  },
+  profileSubjectCardSelected: {
+    shadowColor: '#16A34A',
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.1,
+    shadowRadius: 14,
+  },
+  profileSubjectCardSwapTarget: {
+    opacity: 0.82,
+  },
+  profileSubjectCheck: {
+    alignItems: 'center',
+    backgroundColor: '#F0FDF4',
+    borderColor: '#22C55E',
+    borderRadius: 999,
+    borderWidth: 1.5,
+    height: 22,
+    justifyContent: 'center',
+    position: 'absolute',
+    right: 6,
+    top: 6,
+    width: 22,
+  },
+  profileSubjectName: {
+    color: '#111827',
+    fontSize: 13,
+    fontWeight: '900',
+    lineHeight: 16,
+    paddingHorizontal: 8,
+    textAlign: 'center',
+  },
+  subjectConfirmation: {
+    backgroundColor: '#F0FDF4',
+    borderColor: '#BBF7D0',
+    borderRadius: 12,
+    borderWidth: 1,
+    paddingHorizontal: 14,
+    paddingVertical: 11,
+  },
+  subjectSwapPanel: {
+    backgroundColor: '#FFF7ED',
+    borderColor: '#FED7AA',
+    borderRadius: 12,
+    borderWidth: 1,
+    gap: 10,
+    padding: 12,
+  },
+  subjectSwapHeader: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 10,
+    justifyContent: 'space-between',
+  },
+  subjectSwapTitle: {
+    color: '#7C2D12',
+    flex: 1,
+    fontSize: 13,
+    fontWeight: '900',
+    lineHeight: 17,
+  },
+  subjectSwapCancel: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#FDBA74',
+    borderRadius: 999,
+    borderWidth: 1,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+  },
+  subjectSwapCancelText: {
+    color: '#EA580C',
+    fontSize: 11,
+    fontWeight: '900',
+  },
+  subjectSwapOptions: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 7,
+  },
+  subjectSwapOption: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#FDBA74',
+    borderRadius: 999,
+    borderWidth: 1,
+    paddingHorizontal: 10,
+    paddingVertical: 7,
+  },
+  subjectSwapOptionText: {
+    color: '#9A3412',
+    fontSize: 12,
+    fontWeight: '900',
+  },
+  subjectConfirmationText: {
+    color: '#15803D',
+    fontSize: 13,
+    fontWeight: '900',
   },
   avatarOptionsSection: {
     marginBottom: 20,
@@ -1190,8 +2665,8 @@ const styles = StyleSheet.create({
   },
   schoolSelectShell: {
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',
-    borderColor: '#E2E8F0',
+    backgroundColor: 'rgba(255,255,255,0.68)',
+    borderColor: 'rgba(251,146,60,0.28)',
     borderRadius: 18,
     borderWidth: 1,
     flexDirection: 'row',
@@ -1200,8 +2675,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
   schoolSelectShellActive: {
-    borderColor: '#93C5FD',
-    shadowColor: '#2563EB',
+    borderColor: '#16A34A',
+    shadowColor: '#16A34A',
     shadowOffset: { width: 0, height: 8 },
     shadowOpacity: 0.08,
     shadowRadius: 18,
@@ -1213,12 +2688,47 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     paddingRight: 12,
   },
+  countrySelectValue: {
+    alignItems: 'center',
+    flex: 1,
+    flexDirection: 'row',
+    gap: 8,
+    minWidth: 0,
+    paddingRight: 12,
+  },
+  countrySelectText: {
+    color: '#0F172A',
+    flex: 1,
+    fontSize: 14,
+    fontWeight: '800',
+    minWidth: 0,
+  },
+  countryOptionContent: {
+    alignItems: 'center',
+    flex: 1,
+    flexDirection: 'row',
+    gap: 8,
+    minWidth: 0,
+  },
+  countryOptionText: {
+    color: '#0F172A',
+    flex: 1,
+    fontSize: 14,
+    fontWeight: '800',
+  },
+  dropdownPlaceholder: {
+    color: '#94A3B8',
+  },
+  inputDisabled: {
+    backgroundColor: '#F1F5F9',
+    opacity: 0.72,
+  },
   chevronOpen: {
     transform: [{ rotate: '180deg' }],
   },
   schoolDropdown: {
-    backgroundColor: '#F8FAFC',
-    borderColor: '#E2E8F0',
+    backgroundColor: 'rgba(255,251,235,0.96)',
+    borderColor: 'rgba(251,146,60,0.3)',
     borderRadius: 20,
     borderWidth: 1,
     marginTop: 10,
@@ -1226,8 +2736,8 @@ const styles = StyleSheet.create({
   },
   schoolSearchRow: {
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',
-    borderColor: '#E2E8F0',
+    backgroundColor: 'rgba(255,255,255,0.72)',
+    borderColor: 'rgba(251,146,60,0.28)',
     borderRadius: 14,
     borderWidth: 1,
     flexDirection: 'row',
@@ -1245,6 +2755,9 @@ const styles = StyleSheet.create({
     marginTop: 10,
     maxHeight: 180,
   },
+  regionOptionList: {
+    maxHeight: 190,
+  },
   schoolOption: {
     alignItems: 'center',
     borderRadius: 14,
@@ -1254,7 +2767,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
   },
   schoolOptionActive: {
-    backgroundColor: '#EFF6FF',
+    backgroundColor: 'rgba(220,252,231,0.82)',
   },
   schoolOptionTextWrap: {
     flex: 1,
@@ -1287,60 +2800,66 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
     paddingVertical: 12,
   },
-  readOnlyList: {
-    marginBottom: 10,
+  subscriptionRowCopy: {
+    alignItems: 'center',
+    flex: 1,
+    minWidth: 0,
   },
-  readOnlyRow: {
-    borderBottomColor: '#F3F4F6',
-    borderBottomWidth: 1,
-    paddingVertical: 14,
-  },
-  readOnlyTextWrap: {
+  lockPhoneButton: {
+    alignItems: 'center',
+    backgroundColor: '#EF4444',
+    borderRadius: 11,
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    gap: 5,
+    justifyContent: 'center',
+    minHeight: 44,
+    paddingHorizontal: 10,
+    width: 116,
   },
-  readOnlyLabel: {
-    color: '#6B7280',
-    fontSize: 14,
-    fontWeight: '500',
+  lockPhoneButtonActive: {
+    backgroundColor: '#DC2626',
   },
-  readOnlyValue: {
-    color: '#111827',
-    flexShrink: 1,
-    fontSize: 14,
-    fontWeight: '700',
-    marginLeft: 12,
-    textAlign: 'right',
-    textTransform: 'capitalize',
+  lockPhoneButtonText: {
+    color: '#FFFFFF',
+    fontSize: 13,
+    fontWeight: '900',
+    minWidth: 0,
   },
   accountDeletionPanel: {
-    backgroundColor: '#FFFBEB',
-    borderColor: '#FDE68A',
+    alignItems: 'center',
+    backgroundColor: '#FEF2F2',
+    borderColor: '#FECACA',
     borderRadius: 16,
     borderWidth: 1,
+    flexDirection: 'row',
     gap: 8,
-    marginTop: 18,
-    padding: 14,
+    justifyContent: 'space-between',
+    marginTop: 8,
+    padding: 12,
+  },
+  accountDeletionCopyWrap: {
+    flex: 1,
+    gap: 3,
   },
   accountDeletionTitle: {
-    color: '#78350F',
+    color: '#991B1B',
     fontSize: 14,
     fontWeight: '900',
   },
   accountDeletionCopy: {
-    color: '#92400E',
-    fontSize: 13,
-    lineHeight: 19,
+    color: '#B91C1C',
+    fontSize: 12,
+    fontWeight: '700',
+    lineHeight: 17,
   },
   accountDeletionButton: {
-    alignSelf: 'flex-start',
+    alignSelf: 'center',
     backgroundColor: '#FEF2F2',
     borderColor: '#FECACA',
-    borderRadius: 12,
+    borderRadius: 999,
     borderWidth: 1,
-    marginTop: 4,
-    paddingHorizontal: 12,
-    paddingVertical: 10,
+    paddingHorizontal: 14,
+    paddingVertical: 9,
   },
   accountDeletionButtonText: {
     color: '#B91C1C',
@@ -1348,7 +2867,13 @@ const styles = StyleSheet.create({
     fontWeight: '900',
   },
   footerSpacer: {
-    height: 88,
+    height: 76,
+  },
+  subjectsFooterSpacer: {
+    height: 122,
+  },
+  subjectsFooterSpacerExpanded: {
+    height: 188,
   },
   footer: {
     backgroundColor: '#FFFFFF',
@@ -1356,7 +2881,9 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     bottom: 0,
     left: 0,
-    padding: 24,
+    paddingBottom: 18,
+    paddingHorizontal: 20,
+    paddingTop: 14,
     position: 'absolute',
     right: 0,
   },
@@ -1368,9 +2895,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   primaryFooterButton: {
-    backgroundColor: '#2563EB',
-    borderRadius: 18,
-    paddingVertical: 15,
+    backgroundColor: '#16A34A',
+    borderRadius: 16,
+    paddingVertical: 14,
   },
   primaryFooterButtonText: {
     color: '#FFFFFF',
@@ -1380,14 +2907,28 @@ const styles = StyleSheet.create({
   },
   secondaryFooterButton: {
     backgroundColor: '#FEF2F2',
-    borderRadius: 18,
-    paddingVertical: 15,
+    borderRadius: 16,
+    paddingVertical: 14,
   },
   secondaryFooterButtonText: {
     color: '#EF4444',
     fontSize: 16,
     fontWeight: '800',
     textAlign: 'center',
+  },
+  footerManageAccountToggle: {
+    alignItems: 'center',
+    alignSelf: 'center',
+    flexDirection: 'row',
+    gap: 5,
+    marginTop: 9,
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+  },
+  footerManageAccountText: {
+    color: '#94A3B8',
+    fontSize: 12,
+    fontWeight: '800',
   },
   dangerFooterButton: {
     backgroundColor: '#B91C1C',
@@ -1406,6 +2947,228 @@ const styles = StyleSheet.create({
   },
   footerButtonDisabled: {
     opacity: 0.7,
+  },
+  editKeyboardAvoider: {
+    flex: 1,
+  },
+  editOverlay: {
+    alignItems: 'center',
+    backgroundColor: 'rgba(255,247,237,0.56)',
+    flex: 1,
+    justifyContent: 'center',
+    padding: 16,
+  },
+  editCardBackdrop: {
+    backgroundColor: 'rgba(67,43,22,0.22)',
+    bottom: 0,
+    left: 0,
+    position: 'absolute',
+    right: 0,
+    top: 0,
+  },
+  editGlassCard: {
+    backgroundColor: 'rgba(255,251,235,0.9)',
+    borderColor: 'rgba(251,146,60,0.42)',
+    borderRadius: 24,
+    borderWidth: 1,
+    elevation: 18,
+    gap: 12,
+    height: '90%',
+    padding: 16,
+    shadowColor: '#9A3412',
+    shadowOffset: { width: 0, height: 22 },
+    shadowOpacity: 0.2,
+    shadowRadius: 34,
+    width: '100%',
+  },
+  editCardScrollContent: {
+    gap: 12,
+    paddingBottom: 2,
+  },
+  editCardHeader: {
+    alignItems: 'center',
+    backgroundColor: 'rgba(255,255,255,0.38)',
+    borderColor: 'rgba(22,163,74,0.18)',
+    borderRadius: 18,
+    borderWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+  },
+  editCardTitle: {
+    color: '#0F172A',
+    fontSize: 18,
+    fontWeight: '900',
+  },
+  editCardSubtitle: {
+    color: '#64748B',
+    fontSize: 12,
+    fontWeight: '700',
+    marginTop: 2,
+  },
+  editCardClose: {
+    alignItems: 'center',
+    backgroundColor: 'rgba(255,255,255,0.72)',
+    borderColor: 'rgba(251,146,60,0.24)',
+    borderWidth: 1,
+    borderRadius: 999,
+    height: 32,
+    justifyContent: 'center',
+    width: 32,
+  },
+  editFieldGroup: {
+    gap: 7,
+  },
+  editLocationRow: {
+    flexDirection: 'row',
+    gap: 10,
+  },
+  editLocationField: {
+    flex: 1,
+    minWidth: 0,
+  },
+  editTextField: {
+    backgroundColor: 'rgba(255,255,255,0.74)',
+    borderColor: 'rgba(251,146,60,0.28)',
+    borderRadius: 14,
+    borderWidth: 1,
+    color: '#0F172A',
+    fontSize: 14,
+    fontWeight: '800',
+    minHeight: 44,
+    paddingHorizontal: 13,
+    paddingVertical: 10,
+  },
+  editCardActions: {
+    flexDirection: 'row',
+    gap: 10,
+    paddingTop: 2,
+  },
+  editCardSecondary: {
+    alignItems: 'center',
+    backgroundColor: 'rgba(255,255,255,0.68)',
+    borderColor: 'rgba(251,146,60,0.28)',
+    borderRadius: 14,
+    borderWidth: 1,
+    flex: 1,
+    justifyContent: 'center',
+    minHeight: 42,
+  },
+  editCardSecondaryText: {
+    color: '#475569',
+    fontSize: 13,
+    fontWeight: '900',
+  },
+  editCardPrimary: {
+    alignItems: 'center',
+    backgroundColor: '#168A4A',
+    borderRadius: 14,
+    flex: 1,
+    justifyContent: 'center',
+    minHeight: 42,
+  },
+  editCardPrimaryText: {
+    color: '#FFFFFF',
+    fontSize: 13,
+    fontWeight: '900',
+  },
+  lockModalBackdrop: {
+    backgroundColor: 'rgba(15,23,42,0.38)',
+    bottom: 0,
+    left: 0,
+    position: 'absolute',
+    right: 0,
+    top: 0,
+  },
+  lockDialog: {
+    backgroundColor: 'rgba(255,255,255,0.92)',
+    borderColor: 'rgba(255,255,255,0.74)',
+    borderRadius: 24,
+    borderWidth: 1,
+    elevation: 14,
+    gap: 14,
+    maxWidth: 360,
+    padding: 18,
+    shadowColor: '#020617',
+    shadowOffset: { width: 0, height: 18 },
+    shadowOpacity: 0.18,
+    shadowRadius: 30,
+    width: '100%',
+  },
+  lockDialogHeader: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 10,
+  },
+  lockDialogIcon: {
+    alignItems: 'center',
+    backgroundColor: 'rgba(204,251,241,0.86)',
+    borderRadius: 14,
+    height: 42,
+    justifyContent: 'center',
+    width: 42,
+  },
+  lockDialogTitleWrap: {
+    flex: 1,
+    minWidth: 0,
+  },
+  lockDialogTitle: {
+    color: '#0F172A',
+    fontSize: 18,
+    fontWeight: '900',
+  },
+  lockDialogMeta: {
+    color: '#0F766E',
+    fontSize: 12,
+    fontWeight: '900',
+    marginTop: 2,
+  },
+  lockDialogClose: {
+    alignItems: 'center',
+    backgroundColor: 'rgba(241,245,249,0.78)',
+    borderRadius: 999,
+    height: 32,
+    justifyContent: 'center',
+    width: 32,
+  },
+  lockDialogCopy: {
+    color: '#334155',
+    fontSize: 13,
+    fontWeight: '700',
+    lineHeight: 19,
+  },
+  lockDialogActions: {
+    flexDirection: 'row',
+    gap: 10,
+  },
+  lockDialogSecondary: {
+    alignItems: 'center',
+    backgroundColor: '#F8FAFC',
+    borderColor: '#E2E8F0',
+    borderRadius: 14,
+    borderWidth: 1,
+    flex: 1,
+    minHeight: 42,
+    justifyContent: 'center',
+  },
+  lockDialogSecondaryText: {
+    color: '#475569',
+    fontSize: 13,
+    fontWeight: '900',
+  },
+  lockDialogPrimary: {
+    alignItems: 'center',
+    backgroundColor: '#0F766E',
+    borderRadius: 14,
+    flex: 1,
+    justifyContent: 'center',
+    minHeight: 42,
+  },
+  lockDialogPrimaryText: {
+    color: '#FFFFFF',
+    fontSize: 13,
+    fontWeight: '900',
   },
   deleteDialog: {
     backgroundColor: '#FFFFFF',

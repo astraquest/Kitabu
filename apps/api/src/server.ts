@@ -4930,7 +4930,8 @@ Return valid JSON with this shape:
 
     const params = z.object({ bookId: z.string().min(1) }).parse(request.params);
     const query = z.object({
-      format: z.enum(['pdf', 'markdown', 'pages', 'source-map', 'cover']).default('pdf')
+      format: z.enum(['pdf', 'markdown', 'pages', 'source-map', 'cover']).default('pdf'),
+      v: z.string().optional()
     }).parse(request.query);
     const asset = await openGeneratedBookAssetForUser(request.user!, params.bookId, query.format);
     if (!asset) {

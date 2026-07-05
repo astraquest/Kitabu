@@ -256,6 +256,8 @@ export interface UserProfile {
   gender: 'male' | 'female' | 'Not Specified';
   avatar?: string;
   school?: string;
+  country?: string;
+  county?: string;
   phone?: string;
   dateJoined?: string;
   lastSeen?: string;

@@ -527,6 +527,8 @@ export const INITIAL_USER_PROFILE: UserProfile = {
   email: '',
   avatar: 'avatar-afro-boy',
   school: '',
+  country: 'Kenya',
+  county: '',
   phone: '',
   dateJoined: '',
   points: 0,

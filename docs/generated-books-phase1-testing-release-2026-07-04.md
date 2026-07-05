@@ -50,6 +50,8 @@ Generated books are intentionally server-local:
 
 For a testing deploy, the server must receive or already contain the current `apps/api/data/books` tree. A normal code deploy alone will not ship the generated book package files or cover PNGs.
 
+The failed local generated-corpus Git push does not mean production lost the books. The generated package files are intentionally ignored by Git and are already available on the production server at `/opt/kitabu-ai/apps/api/data/books`, mounted into the API container at `/app/data/books`. Production availability depends on that server-local data directory plus the API visibility gate, not on committing the corpus to GitHub.
+
 Recommended testing deploy sequence:
 
 1. Back up the server `apps/api/data/books` directory.
@@ -90,6 +92,19 @@ Access behavior:
 - Normal authenticated users see `published-for-testing` books scoped to their country, curriculum, and selected grade.
 - Demo/staff/admin preview users can review the full cross-country generated-book set.
 - `published-for-testing` is not final academic acceptance.
+
+Phase 1.5 operating plan:
+
+- Keep content review paused while the current covered/readable books are published for manual testing.
+- Treat the production server-local corpus as the testing baseline and avoid replacing it without a backup.
+- Collect tester feedback against the exact production package version.
+- Resume Phase 2 enhancement after the testing checkpoint, then promote accepted books only after review and remediation.
+
+Targeted post-baseline correction:
+
+- `KEN/CBC/G9/agriculture` was regenerated with generator v47 and synced to production after backing up the previous package at `/var/backups/kitabu/generated-books-G9-agriculture-pre-v47-20260704224657`.
+- The correction removed invalid clothing/household-disinfection contamination from the Agriculture book while preserving `published-for-testing` status and cover metadata.
+- Post-sync production verification still showed 280 visible generated books and 280 cover assets.
 
 Feedback intake:
 

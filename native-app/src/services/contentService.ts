@@ -58,7 +58,16 @@ function safeFilePart(value: string) {
   return value.replace(/[^a-z0-9._-]+/gi, '-').replace(/^-+|-+$/g, '');
 }
 
-async function downloadOptionalAsset(bookId: string, pathOrUrl: string | null | undefined, extension: string) {
+function bookAssetCacheKey(book: Pick<Book, 'checksum' | 'coverImageUrl' | 'pdfUrl'>, assetUrl: string | null | undefined) {
+  return safeFilePart(book.checksum || assetUrl || 'latest').slice(0, 80);
+}
+
+async function downloadOptionalAsset(
+  bookId: string,
+  pathOrUrl: string | null | undefined,
+  extension: string,
+  cacheKey?: string | null,
+) {
   const baseUrl = getKitabuApiBaseUrl();
   const documentDirectory = FileSystem.documentDirectory;
   if (!baseUrl || !documentDirectory || !pathOrUrl) {
@@ -66,7 +75,8 @@ async function downloadOptionalAsset(bookId: string, pathOrUrl: string | null | 
   }
 
   const dir = `${documentDirectory}kitabu-books/${safeFilePart(bookId)}/`;
-  const target = `${dir}${safeFilePart(bookId)}.${extension}`;
+  const suffix = cacheKey?.trim() ? `-${safeFilePart(cacheKey)}` : '';
+  const target = `${dir}${safeFilePart(bookId)}${suffix}.${extension}`;
   try {
     await FileSystem.makeDirectoryAsync(dir, { intermediates: true });
     const sourceUrl = pathOrUrl.startsWith('http') ? pathOrUrl : `${baseUrl}${pathOrUrl}`;
@@ -80,7 +90,8 @@ async function downloadOptionalAsset(bookId: string, pathOrUrl: string | null | 
 }
 
 export async function getBookCoverPreviewUri(book: Book) {
-  if (book.localCoverUri) {
+  const coverCacheKey = bookAssetCacheKey(book, book.coverImageUrl);
+  if (book.localCoverUri?.includes(coverCacheKey)) {
     return book.localCoverUri;
   }
 
@@ -111,7 +122,7 @@ export async function getBookCoverPreviewUri(book: Book) {
     }
   }
 
-  return downloadOptionalAsset(book.id, book.coverImageUrl, 'png');
+  return downloadOptionalAsset(book.id, book.coverImageUrl, 'png', coverCacheKey);
 }
 
 export async function downloadBookForOffline(book: Book): Promise<Book> {
@@ -142,8 +153,21 @@ export async function downloadBookForOffline(book: Book): Promise<Book> {
   }
 
   const [localPdfUri, localCoverUri] = await Promise.all([
-    downloadOptionalAsset(book.id, manifest.package?.pdf?.url ?? book.pdfUrl, 'pdf'),
-    downloadOptionalAsset(book.id, manifest.package?.cover?.url ?? book.coverImageUrl, 'png'),
+    downloadOptionalAsset(
+      book.id,
+      manifest.package?.pdf?.url ?? book.pdfUrl,
+      'pdf',
+      bookAssetCacheKey(book, manifest.package?.pdf?.url ?? book.pdfUrl),
+    ),
+    downloadOptionalAsset(
+      book.id,
+      manifest.package?.cover?.url ?? book.coverImageUrl,
+      'png',
+      bookAssetCacheKey(
+        { ...book, checksum: manifest.packageChecksum ?? manifest.coverImage?.sha256 ?? book.checksum ?? null },
+        manifest.package?.cover?.url ?? book.coverImageUrl,
+      ),
+    ),
   ]);
 
   return {

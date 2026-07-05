@@ -87,6 +87,10 @@ import {
   markAllNotificationsRead,
   markNotificationRead,
 } from '../services/notificationService';
+import {
+  addPushNotificationListeners,
+  registerPushNotificationsIfGranted,
+} from '../services/pushNotifications';
 import { markPresenceOffline, markPresenceOnline } from '../services/presenceService';
 import {
   getOnboardingDiagnosticStatus,
@@ -187,10 +191,14 @@ type OnboardingSignupInput = {
   signupMethod?: OnboardingSignupMethod;
   gender?: GenderOption;
   grade?: string;
+  country?: string;
+  countryCode?: string;
   county?: string;
   school?: string;
   schoolId?: string | null;
   mpesaPhoneNumber?: string;
+  mascot?: OnboardingMascotKey;
+  mascotKey?: OnboardingMascotKey;
 };
 
 interface FocusModeSnapshot {
@@ -205,6 +213,11 @@ interface FocusModeSnapshot {
 interface DownloadedBooksSnapshot {
   ids: string[];
   books: Book[];
+}
+
+interface OnboardingPreferencesSnapshot {
+  mascot?: OnboardingMascotKey;
+  mascotKey?: OnboardingMascotKey;
 }
 
 interface RouteSnapshot {
@@ -368,6 +381,8 @@ function mapAuthSessionToProfile(session: AuthSession): UserProfile {
       : user.email.includes('admin')
         ? 'avatar-afro-girl'
         : 'avatar-afro-boy',
+    country: INITIAL_USER_PROFILE.country,
+    county: INITIAL_USER_PROFILE.county,
   };
 }
 
@@ -406,6 +421,37 @@ function mapParentChildToStudentProfile(child: ParentChildSummary): UserProfile 
 
 function downloadedBooksStorageKey(userId: string) {
   return `${STORAGE_KEYS.downloadedBooks}:${userId}`;
+}
+
+function mergeStoredProfileEdits(
+  authProfile: UserProfile,
+  storedProfile: UserProfile,
+): UserProfile {
+  return {
+    ...authProfile,
+    avatar: storedProfile.avatar || authProfile.avatar,
+    school: storedProfile.school || authProfile.school,
+    country: storedProfile.country || authProfile.country,
+    county: storedProfile.county || authProfile.county,
+    phone: storedProfile.phone || authProfile.phone,
+    points: storedProfile.points ?? authProfile.points,
+  };
+}
+
+function isOnboardingMascotKey(value: unknown): value is OnboardingMascotKey {
+  return value === 'lion' || value === 'rabbit' || value === 'elephant';
+}
+
+function getDefaultMascotKeyForRoles(roles: AuthRole[]): OnboardingMascotKey {
+  if (isTeacherRole(roles)) {
+    return 'lion';
+  }
+
+  if (isParentRole(roles)) {
+    return 'elephant';
+  }
+
+  return 'rabbit';
 }
 
 async function loadDownloadedBooksSnapshot(userId: string): Promise<DownloadedBooksSnapshot> {
@@ -498,6 +544,8 @@ export function useKitabuApp() {
   );
   const [books, setBooks] = useState<Book[]>(INITIAL_BOOKS);
   const [podcasts, setPodcasts] = useState<Podcast[]>(INITIAL_PODCASTS);
+  const [onboardingMascotKey, setOnboardingMascotKey] =
+    useState<OnboardingMascotKey | null>(null);
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
   const [previewBookId, setPreviewBookId] = useState<string | null>(null);
   const [readingProgress, setReadingProgress] = useState<Record<string, number>>(
@@ -709,6 +757,7 @@ export function useKitabuApp() {
         storedOptionalPhoneNumber,
         storedTryOneBobOfferSeenAt,
         storedFocusMode,
+        storedOnboardingPreferences,
         storedSession,
       ] = await Promise.all([
         loadJson(STORAGE_KEYS.profile, INITIAL_USER_PROFILE),
@@ -722,6 +771,7 @@ export function useKitabuApp() {
           sessionExpired: false,
           studentProfile: null,
         }),
+        loadJson<OnboardingPreferencesSnapshot>(STORAGE_KEYS.onboardingPreferences, {}),
         loadStoredAuthSession(),
       ]);
 
@@ -731,6 +781,9 @@ export function useKitabuApp() {
 
       setOptionalPhoneNumber(storedOptionalPhoneNumber);
       setTryOneBobOfferSeenAt(storedTryOneBobOfferSeenAt);
+      const storedMascotKey =
+        storedOnboardingPreferences.mascotKey ?? storedOnboardingPreferences.mascot;
+      setOnboardingMascotKey(isOnboardingMascotKey(storedMascotKey) ? storedMascotKey : null);
       const storedFocusLimit =
         storedFocusMode.dailyLimitSeconds || DEFAULT_FOCUS_MODE_LIMIT_SECONDS;
       const storedActiveSeconds = Math.min(
@@ -757,7 +810,10 @@ export function useKitabuApp() {
           if (!mounted) {
             return;
           }
-          const nextProfile = mapAuthSessionToProfile(nextSession);
+          const nextProfile = mergeStoredProfileEdits(
+            mapAuthSessionToProfile(nextSession),
+            storedProfile,
+          );
           const nextGrade = nextProfile.grade || DEFAULT_GRADE;
           setAuthSession(nextSession);
           setUserProfile(nextProfile);
@@ -1073,6 +1129,7 @@ export function useKitabuApp() {
   const focusModeSecondsRemaining = Math.max(0, dailyLimitSeconds - activeSecondsUsed);
   const activeUserProfile =
     focusModeActive && focusModeStudentProfile ? focusModeStudentProfile : userProfile;
+  const activeMascotKey = onboardingMascotKey ?? getDefaultMascotKeyForRoles(roles);
 
   useEffect(() => {
     if (!authSession || isStudentPreview) {
@@ -1270,6 +1327,10 @@ export function useKitabuApp() {
         throw new Error('Focus Mode is available on Android phones with App Pinning support.');
       }
 
+      await focusModeBridge.confirmDeviceCredential(
+        'Enter PIN',
+        'Confirm the parent PIN to lock this phone to Kitabu.',
+      );
       await focusModeBridge.startScreenPinning();
       const selectedChild =
         parentChildren.find(child => child.id === selectedParentChildId) ?? parentChildren[0] ?? null;
@@ -1710,6 +1771,9 @@ export function useKitabuApp() {
       const resolvedSignupPhone = signupPhone ?? phone;
       const nextSession = await completeAccountOnboarding(accountOnboardingInput);
       setAuthSession(nextSession);
+      if (isOnboardingMascotKey(resolvedMascotKey)) {
+        setOnboardingMascotKey(resolvedMascotKey);
+      }
       const nextProfile = mapAuthSessionToProfile(nextSession);
       const selectedSchool = input.schoolId
         ? schoolsList.find(school => school.id === input.schoolId)
@@ -1717,6 +1781,8 @@ export function useKitabuApp() {
       setUserProfile({
         ...nextProfile,
         school: selectedSchool?.name || input.school || nextProfile.school,
+        country: countryCode === 'KE' ? 'Kenya' : nextProfile.country,
+        county: input.county || nextProfile.county,
       });
       setCurrentGrade(input.grade);
       if (selectedSubjectIds?.length) {
@@ -2022,7 +2088,7 @@ export function useKitabuApp() {
   }
 
   function openSubscriptionCheckout(intent: PendingSubscriptionIntent) {
-    if (focusModeActive || isDemoStudentAccount) {
+    if (focusModeActive) {
       return;
     }
 
@@ -2292,6 +2358,7 @@ export function useKitabuApp() {
       const signupPhoneValue = input?.signupPhone ?? input?.phone ?? '';
       const method: OnboardingSignupMethod =
         input?.signupMethod ?? (signupPhoneValue ? 'phone' : 'email');
+      const resolvedMascotKey = input?.mascotKey ?? input?.mascot;
 
       if (!role) {
         throw new Error('Choose an account role before creating an account.');
@@ -2353,6 +2420,20 @@ export function useKitabuApp() {
         });
       }
       completeProviderAuthentication(session);
+      if (input?.country || input?.countryCode || input?.county) {
+        setUserProfile(current => ({
+          ...current,
+          country: input.country || (input.countryCode === 'KE' ? 'Kenya' : current.country),
+          county: input.county || current.county,
+        }));
+      }
+      if (isOnboardingMascotKey(resolvedMascotKey)) {
+        setOnboardingMascotKey(resolvedMascotKey);
+        saveJson<OnboardingPreferencesSnapshot>(STORAGE_KEYS.onboardingPreferences, {
+          mascot: resolvedMascotKey,
+          mascotKey: resolvedMascotKey,
+        }).catch(() => undefined);
+      }
       triggerHaptic('success');
     } catch (error) {
       const message =
@@ -3115,6 +3196,7 @@ export function useKitabuApp() {
     refreshDashboardBanner().catch(() => undefined);
     refreshDueReviews().catch(() => undefined);
     refreshNotifications().catch(() => undefined);
+    registerPushNotificationsIfGranted().catch(() => undefined);
     refreshOnboardingDiagnosticState().catch(() => undefined);
     refreshWeeklyExam().catch(() => undefined);
     refreshStudentContentState(authSession, currentGrade).catch(() => undefined);
@@ -3123,6 +3205,23 @@ export function useKitabuApp() {
     refreshParentDashboard().catch(() => undefined);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [authSession]);
+
+  useEffect(() => {
+    if (!authSession) {
+      return undefined;
+    }
+
+    return addPushNotificationListeners({
+      onReceived: () => {
+        refreshNotifications().catch(() => undefined);
+      },
+      onResponse: () => {
+        refreshNotifications().catch(() => undefined);
+        setNotificationsOpen(true);
+      },
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [authSession?.user.id]);
 
   useEffect(() => {
     if (currentView === 'weekly_exam' && authSession?.user.roles.includes('student')) {
@@ -3412,6 +3511,7 @@ export function useKitabuApp() {
       unreadNotificationCount: notifications.filter(item => item.status === 'unread').length,
       userProfile,
       activeUserProfile,
+      activeMascotKey,
       assignments,
       teacherStudents,
       teacherAssignments,

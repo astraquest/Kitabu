@@ -14,6 +14,7 @@
     "download:source-files": "node scripts/curriculum/download-missing-source-files.mjs",
     "export:source-markdown": "node scripts/curriculum/export-source-markdown.mjs",
     "audit:ethiopia-coverage": "node scripts/curriculum/audit-ethiopia-coverage.mjs",
+    "validate:book-package": "node scripts/curriculum/validate-book-package.mjs",
     "verify:source-markdown": "node scripts/curriculum/verify-source-markdown.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "migrate": "node scripts/apply-migrations.mjs"

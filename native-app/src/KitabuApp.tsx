@@ -74,7 +74,8 @@ const PREVIEW_DIAGNOSTIC_QUESTIONS: PreviewDiagnosticQuestion[] = [
     subjectId: 'english',
     subjectName: 'English',
     subStrandKey: 'grammar',
-    prompt: 'Which word is a noun in this sentence: The teacher opened the book?',
+    prompt:
+      'Which word is a noun in this sentence: The teacher opened the book?',
     options: ['opened', 'teacher', 'the', 'quickly'],
     correctAnswer: 'teacher',
     difficulty: 1,
@@ -103,23 +104,41 @@ function getOnboardingPreviewRole(): PublicSignupRole | null {
     return null;
   }
 
-  const location = (globalThis as {
-    location?: { hash?: string; pathname?: string; search?: string };
-  }).location;
+  const location = (
+    globalThis as {
+      location?: { hash?: string; pathname?: string; search?: string };
+    }
+  ).location;
   const params = new URLSearchParams(location?.search ?? '');
   const role = params.get('previewOnboarding');
 
-  if (role !== 'student' && role !== 'teacher' && role !== 'parent' && role !== 'other') {
+  if (
+    role !== 'student' &&
+    role !== 'teacher' &&
+    role !== 'parent' &&
+    role !== 'other'
+  ) {
     return null;
   }
 
   try {
     params.delete('previewOnboarding');
     const nextSearch = params.toString();
-    const nextUrl = `${location?.pathname ?? '/'}${nextSearch ? `?${nextSearch}` : ''}${location?.hash ?? ''}`;
-    const history = (globalThis as {
-      history?: { replaceState?: (data: unknown, unused: string, url?: string | URL | null) => void; state?: unknown };
-    }).history;
+    const nextUrl = `${location?.pathname ?? '/'}${
+      nextSearch ? `?${nextSearch}` : ''
+    }${location?.hash ?? ''}`;
+    const history = (
+      globalThis as {
+        history?: {
+          replaceState?: (
+            data: unknown,
+            unused: string,
+            url?: string | URL | null,
+          ) => void;
+          state?: unknown;
+        };
+      }
+    ).history;
     history?.replaceState?.(history.state ?? null, '', nextUrl);
   } catch {
     // URL cleanup is best-effort; the preview should still render if history is unavailable.
@@ -131,7 +150,11 @@ function getOnboardingPreviewRole(): PublicSignupRole | null {
 function AppSafeArea({ children }: { children: React.ReactNode }) {
   return (
     <SafeAreaView edges={['left', 'right', 'bottom']} style={styles.safeArea}>
-      <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
+      <StatusBar
+        translucent
+        backgroundColor="transparent"
+        barStyle="dark-content"
+      />
       {children}
     </SafeAreaView>
   );
@@ -142,6 +165,8 @@ export function KitabuApp() {
   const [onboardingPreviewRole] = React.useState(getOnboardingPreviewRole);
   const usesStudentHeader = shouldUseStudentHeader(state.currentView);
   const usesStandaloneScreen = shouldUseStandaloneScreen(state.currentView);
+  const canSwitchHeaderGrade =
+    state.currentView === 'dashboard' || state.currentView === 'bookshelf_view';
   const showDiagnosticPreview = shouldShowDiagnosticPreview();
   const activeUserProfile = state.activeUserProfile;
 
@@ -175,7 +200,11 @@ export function KitabuApp() {
     return (
       <AppSafeArea>
         <View style={styles.bootstrapWrap}>
-          <Image source={splashImage} style={styles.bootstrapSplash} resizeMode="cover" />
+          <Image
+            source={splashImage}
+            style={styles.bootstrapSplash}
+            resizeMode="cover"
+          />
         </View>
       </AppSafeArea>
     );
@@ -230,13 +259,18 @@ export function KitabuApp() {
           onAcceptedTermsChange={actions.setAcceptedTerms}
           onOptionalPhoneNumberChange={actions.setOptionalPhoneNumber}
           onAuthenticated={actions.completeProviderAuthentication}
-          onSubmit={state.authMode === 'login' ? actions.signIn : actions.signUp}
+          onSubmit={
+            state.authMode === 'login' ? actions.signIn : actions.signUp
+          }
         />
       </AppSafeArea>
     );
   }
 
-  if (!state.authSession.user.emailVerified && !state.authSession.user.phoneVerified) {
+  if (
+    !state.authSession.user.emailVerified &&
+    !state.authSession.user.phoneVerified
+  ) {
     return (
       <AppSafeArea>
         <EmailVerificationScreen
@@ -256,8 +290,8 @@ export function KitabuApp() {
             state.authSession.user.roles.includes('teacher')
               ? 'teacher'
               : state.authSession.user.roles.includes('parent')
-                ? 'parent'
-                : 'student'
+              ? 'parent'
+              : 'student'
           }
           schools={state.schoolsList}
           isSubmitting={state.isSubmittingOnboarding}
@@ -273,7 +307,11 @@ export function KitabuApp() {
     return (
       <AppSafeArea>
         <View style={styles.bootstrapWrap}>
-          <Image source={splashImage} style={styles.bootstrapSplash} resizeMode="cover" />
+          <Image
+            source={splashImage}
+            style={styles.bootstrapSplash}
+            resizeMode="cover"
+          />
         </View>
       </AppSafeArea>
     );
@@ -287,7 +325,10 @@ export function KitabuApp() {
     );
   }
 
-  if (state.hasPendingProgressiveDiagnostic && state.progressiveDiagnosticSubject) {
+  if (
+    state.hasPendingProgressiveDiagnostic &&
+    state.progressiveDiagnosticSubject
+  ) {
     return (
       <AppSafeArea>
         <DiagnosticScreen
@@ -318,6 +359,7 @@ export function KitabuApp() {
         {usesStudentHeader ? (
           <StudentHeader
             userAvatar={activeUserProfile.avatar}
+            userCountry={activeUserProfile.country}
             onOpenProfile={() => {
               if (!state.focusModeActive) {
                 actions.setProfileOpen(true);
@@ -325,8 +367,10 @@ export function KitabuApp() {
             }}
             onOpenNotifications={() => actions.setNotificationsOpen(true)}
             unreadNotificationCount={state.unreadNotificationCount}
-            currentGrade={state.currentView === 'dashboard' ? state.currentGrade : undefined}
-            onSelectGrade={state.currentView === 'dashboard' ? actions.setCurrentGrade : undefined}
+            currentGrade={canSwitchHeaderGrade ? state.currentGrade : undefined}
+            onSelectGrade={
+              canSwitchHeaderGrade ? actions.setCurrentGrade : undefined
+            }
             showPreviewExit={state.isStudentPreview && !state.focusModeActive}
             onExitPreview={actions.exitStudentPreview}
           />
@@ -360,15 +404,12 @@ export function KitabuApp() {
           onDeleteAccount={actions.deleteAccount}
           showTeacherPortalButton={state.canOpenTeacherPortal}
           showAdminPortalButton={state.canOpenAdminPortal}
-          canResendVerification={state.canResendVerification}
-          onResendVerification={actions.resendVerificationEmail}
           billingStatus={state.billingStatus}
           onManageSubscription={() => {
             if (state.focusModeActive) {
               return;
             }
-            actions.setProfileOpen(false);
-            actions.openSubscriptionCheckout({
+            const checkoutIntent = {
               kind: 'manage_subscription',
               snapshot: {
                 view: state.currentView,
@@ -384,7 +425,9 @@ export function KitabuApp() {
                 brainTeaseCompleted: state.brainTeaseCompleted,
                 liveAudioReturnView: state.primaryHomeView,
               },
-            });
+            } as const;
+
+            actions.openSubscriptionCheckout(checkoutIntent);
           }}
           focusModeActive={state.focusModeActive}
           focusModeSetupRequired={state.focusModeSetupRequired}
@@ -401,10 +444,36 @@ export function KitabuApp() {
               actions.setCurrentGrade(updatedUser.grade);
             }
           }}
-          schools={state.schoolsList}
           allSubjects={state.subjects}
+          schools={state.schoolsList}
           selectedSubjectIds={state.dashboardSubjectIds}
           onToggleSubject={actions.toggleDashboardSubject}
+          subscriptionCheckoutOverlay={
+            state.profileOpen ? (
+              <SubscriptionCheckoutModal
+                isOpen={state.isCheckoutOpen}
+                presentation="inline"
+                plans={state.billingPlans}
+                selectedPlanCode={state.selectedPlanCode}
+                phoneNumber={state.checkoutPhoneNumber}
+                maskedSavedPhoneNumber={
+                  state.billingStatus.maskedMpesaPhoneNumber
+                }
+                isSubmitting={state.isSubmittingCheckout}
+                statusLabel={state.checkoutStatusLabel}
+                error={state.checkoutError}
+                onClose={actions.closeSubscriptionCheckout}
+                onSelectPlan={actions.setSelectedPlanCode}
+                onChangePhoneNumber={actions.setCheckoutPhoneNumber}
+                onUseSavedPhone={() =>
+                  actions.setCheckoutPhoneNumber(
+                    state.billingStatus.savedMpesaPhoneNumber || '',
+                  )
+                }
+                onContinue={actions.submitSubscriptionCheckout}
+              />
+            ) : null
+          }
         />
 
         <NotificationsModal
@@ -434,7 +503,7 @@ export function KitabuApp() {
         />
 
         <SubscriptionCheckoutModal
-          isOpen={state.isCheckoutOpen}
+          isOpen={state.isCheckoutOpen && !state.profileOpen}
           plans={state.billingPlans}
           selectedPlanCode={state.selectedPlanCode}
           phoneNumber={state.checkoutPhoneNumber}
@@ -446,7 +515,9 @@ export function KitabuApp() {
           onSelectPlan={actions.setSelectedPlanCode}
           onChangePhoneNumber={actions.setCheckoutPhoneNumber}
           onUseSavedPhone={() =>
-            actions.setCheckoutPhoneNumber(state.billingStatus.savedMpesaPhoneNumber || '')
+            actions.setCheckoutPhoneNumber(
+              state.billingStatus.savedMpesaPhoneNumber || '',
+            )
           }
           onContinue={actions.submitSubscriptionCheckout}
         />
@@ -455,7 +526,9 @@ export function KitabuApp() {
           isOpen={state.isTryOneBobOpen}
           isSubmitting={state.isSubmittingCheckout}
           phoneNumber={
-            state.checkoutPhoneNumber || state.billingStatus.maskedMpesaPhoneNumber || 'your number'
+            state.checkoutPhoneNumber ||
+            state.billingStatus.maskedMpesaPhoneNumber ||
+            'your number'
           }
           onClose={actions.dismissTryOneBobOffer}
           onAccept={actions.acceptTryOneBobOffer}
@@ -491,9 +564,12 @@ function FocusModeTimeUpScreen({
           Learning time is finished. Please return the phone to your parent.
         </Text>
         <Text style={styles.timeUpCopy}>
-          To continue, Android will ask for the phone PIN, pattern, password, fingerprint, or face unlock.
+          To continue, Android will ask for the phone PIN, pattern, password,
+          fingerprint, or face unlock.
         </Text>
-        <Text style={styles.timeUpSmall}>KITABU does not create a separate PIN.</Text>
+        <Text style={styles.timeUpSmall}>
+          KITABU does not create a separate PIN.
+        </Text>
         {error ? <Text style={styles.timeUpError}>{error}</Text> : null}
         <Pressable
           disabled={isUnlocking}
@@ -502,7 +578,8 @@ function FocusModeTimeUpScreen({
             styles.timeUpButton,
             pressed && styles.timeUpButtonPressed,
             isUnlocking && styles.timeUpButtonDisabled,
-          ]}>
+          ]}
+        >
           {isUnlocking ? (
             <ActivityIndicator color="#FFFFFF" />
           ) : (
@@ -515,13 +592,23 @@ function FocusModeTimeUpScreen({
 }
 
 function shouldUseStudentHeader(view: string) {
-  return ['dashboard', 'subject', 'bookshelf_view', 'podcasts_view', 'game_zone'].includes(
-    view,
-  );
+  return [
+    'dashboard',
+    'subject',
+    'bookshelf_view',
+    'podcasts_view',
+    'game_zone',
+  ].includes(view);
 }
 
 function shouldUseStandaloneScreen(view: string) {
-  return ['teachers_portal', 'admin_portal', 'parent_dashboard', 'weekly_exam', 'review_session'].includes(view);
+  return [
+    'teachers_portal',
+    'admin_portal',
+    'parent_dashboard',
+    'weekly_exam',
+    'review_session',
+  ].includes(view);
 }
 
 function renderScreen(
@@ -539,7 +626,9 @@ function renderScreen(
           isBrainTeaseComplete={state.brainTeaseCompleted}
           isLoading={state.isLoading}
           onPrevStrand={() =>
-            actions.setActiveStrandIndex(Math.max(0, state.activeStrandIndex - 1))
+            actions.setActiveStrandIndex(
+              Math.max(0, state.activeStrandIndex - 1),
+            )
           }
           onNextStrand={() =>
             actions.setActiveStrandIndex(
@@ -560,13 +649,13 @@ function renderScreen(
           homeworkNotificationCount={
             state.pendingAssignments.length +
             state.dueReviews.length +
-            (state.weeklyExam && state.weeklyExam.attempt?.status !== 'completed' ? 1 : 0)
+            (state.weeklyExam &&
+            state.weeklyExam.attempt?.status !== 'completed'
+              ? 1
+              : 0)
           }
           subjects={state.dashboardSubjects}
-          allSubjects={state.subjects}
-          selectedSubjectIds={state.dashboardSubjectIds}
           onOpenSubject={actions.openSubject}
-          onSaveSubjectSelection={actions.saveDashboardSubjects}
           onOpenFeature={actions.openFeature}
           onBannerAction={actions.openBannerAction}
         />
@@ -640,7 +729,9 @@ function renderScreen(
           onOpenBook={actions.openBook}
           onBack={actions.goHome}
           onSetPreviewBookId={actions.setPreviewBookId}
-          onToggleSpotlight={() => actions.setIsSpotlightMode(!state.isSpotlightMode)}
+          onToggleSpotlight={() =>
+            actions.setIsSpotlightMode(!state.isSpotlightMode)
+          }
           onToggleDownload={actions.toggleDownload}
           user={state.activeUserProfile}
         />
@@ -666,7 +757,9 @@ function renderScreen(
           onOpenBook={actions.openBook}
           onBack={actions.goHome}
           onSetPreviewBookId={actions.setPreviewBookId}
-          onToggleSpotlight={() => actions.setIsSpotlightMode(!state.isSpotlightMode)}
+          onToggleSpotlight={() =>
+            actions.setIsSpotlightMode(!state.isSpotlightMode)
+          }
           onToggleDownload={actions.toggleDownload}
           user={state.activeUserProfile}
         />
@@ -692,6 +785,7 @@ function renderScreen(
           selectedSubStrand={state.selectedSubStrand}
           selectedAssignment={state.selectedAssignment}
           userProfile={state.activeUserProfile}
+          mascotKey={state.activeMascotKey}
         />
       );
     case 'brain_tease':
@@ -724,7 +818,10 @@ function renderScreen(
           onFinish={
             state.quizSource === 'lesson' && state.lessonQuizSubStrandId
               ? async result => {
-                  await actions.completeSubStrand(state.lessonQuizSubStrandId!, result.percentage);
+                  await actions.completeSubStrand(
+                    state.lessonQuizSubStrandId!,
+                    result.percentage,
+                  );
                 }
               : undefined
           }
@@ -764,7 +861,12 @@ function renderScreen(
         />
       );
     case 'podcasts_view':
-      return <PodcastsScreen podcasts={state.podcasts} onBack={actions.goHome} />;
+      return (
+        <PodcastsScreen
+          mascotKey={state.activeMascotKey}
+          onBack={actions.goHome}
+        />
+      );
     case 'teachers_portal':
       return (
         <TeacherPortalScreen
@@ -858,18 +960,18 @@ function renderScreen(
     case 'dashboard':
     default:
       return (
-      <DashboardScreen
+        <DashboardScreen
           banner={state.dashboardBanner}
           homeworkNotificationCount={
             state.pendingAssignments.length +
             state.dueReviews.length +
-            (state.weeklyExam && state.weeklyExam.attempt?.status !== 'completed' ? 1 : 0)
+            (state.weeklyExam &&
+            state.weeklyExam.attempt?.status !== 'completed'
+              ? 1
+              : 0)
           }
           subjects={state.dashboardSubjects}
-          allSubjects={state.subjects}
-          selectedSubjectIds={state.dashboardSubjectIds}
           onOpenSubject={actions.openSubject}
-          onSaveSubjectSelection={actions.saveDashboardSubjects}
           onOpenFeature={actions.openFeature}
           onBannerAction={actions.openBannerAction}
         />
@@ -897,7 +999,7 @@ function getTitle(view: string, subjectName?: string) {
     game_zone: 'Game Zone',
     crazy_balloon: 'Crazy Balloon',
     quiz_battle: 'Quiz Battle',
-    podcasts_view: 'Podcasts',
+    podcasts_view: 'Kitabu Podcasts',
     teachers_portal: 'Teacher Portal',
     admin_portal: 'Admin Portal',
   };

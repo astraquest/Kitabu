@@ -28,6 +28,13 @@ Read-only census source: `/opt/kitabu-ai/apps/api/data/books`, checked through t
 
 Production services were healthy during the audit: `kitabu-api` was healthy, and Postgres, Redis, Caddy, and worker were running on `kitabu-prod-1`.
 
+Post-audit corrections now part of the Phase 1.5 baseline:
+
+- `KEN/CBC/G9/agriculture` was regenerated with generator v47 and synced to production after backup `/var/backups/kitabu/generated-books-G9-agriculture-pre-v47-20260704224657`.
+- The clothing/household-disinfection contamination scan for that package now returns 0 hits.
+- PR #25 preserves `published-for-testing` status and cover metadata during future regeneration.
+- PR #26 adds language artifact promotion gates so raw titles, scaffold labels, raw curriculum fragments, and Kiswahili heading-casing issues block promotion.
+
 ## Local Corpus Caveat
 
 The ignored local corpus in `C:/Users/NDIZIFLIX/Desktop/APPS/KITABU/kitabu-ai/apps/api/data/books` is stale against production for Phase 2 acceptance purposes. Local census showed 280 packages, but only 20 manifests with `status: published-for-testing`, 36,806 pages, and 4,453,973 words.
@@ -72,12 +79,10 @@ Decision: STEM remains blocked from `ready-for-cover` until senior subject routi
 Production scan scope: Kenya Agriculture G4-G9 and senior Creative Arts/Social Studies aggregate source-map samples.
 
 - G4-G8 Agriculture no longer hit the exact stale local textile/laundry/sewing blocker strings checked in production.
-- G9 Agriculture still contains `Disinfecting Clothing and Household Articles` across 16 pages, including:
-  - `KEN/CBC/G9/agriculture`, `kitabu-quest-grade-9-agriculture-p052`, `Disinfecting Clothing and Household Articles: Lesson Opener`.
-  - `KEN/CBC/G9/agriculture`, `kitabu-quest-grade-9-agriculture-p053`, `Disinfecting Clothing and Household Articles: Learn`.
+- G9 Agriculture had contained `Disinfecting Clothing and Household Articles` across 16 pages in this audit snapshot, but that finding has since been remediated in production by the v47 targeted package sync noted above.
 - Senior Creative Arts and Social Studies aggregate packages still need component-source review. Front matter maps to all component source documents, and the production audit did not prove page-level component precision for instructional pages.
 
-Decision: practical/humanities packages remain blocked from `ready-for-cover` until G9 Agriculture contamination is fixed and senior aggregate component-source mapping is reviewed.
+Decision: practical/humanities packages remain blocked from `ready-for-cover` until senior aggregate component-source mapping is reviewed and the corrected G9 Agriculture package is included in the next adversarial acceptance pass.
 
 ### Uganda
 
@@ -124,6 +129,6 @@ Candidate areas from local agents:
    - split or explicitly approve senior Biology/Chemistry/Physics/General Science handling,
    - decide whether G7-G9 should be titled Integrated Science instead of Science and Technology.
 3. Patch Kenya language title and scaffold generation from the production-confirmed examples.
-4. Patch G9 Agriculture source filtering for clothing/household disinfection contamination.
+4. Revalidate the v47 G9 Agriculture correction during the next Kenya adversarial acceptance pass.
 5. Run production-snapshot audits for Rwanda and Tanzania before patching, because current detailed findings came from stale local files.
 6. Keep all packages `published-for-testing` until blockers and high-severity accepted findings are fixed and re-reviewed.

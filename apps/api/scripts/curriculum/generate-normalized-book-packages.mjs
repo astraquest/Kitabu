@@ -2780,7 +2780,6 @@ function buildPages(snapshot, context, grade, subject, bookPlan) {
     : subject.title === 'Kinyarwanda'
       ? `Koresha uru rutonde ugende umutwe ku wundi. Buri mutwe ufite intangiriro, isomo, urugero, igikorwa kiyobowe, imyitozo n'isuzuma.\n\n${topics.map((topic, i) => `${i + 1}. ${topic.unitTitle}`).join('\n')}\n\nNurangiza buri mutwe, subira ku bipimo byo gutsinda ukosore igisubizo kimwe.`
       : `Use this table to move through the book one topic at a time. Each topic has a lesson opener, clear teaching, a model or example, guided work, practice, and checks for understanding.\n\n${topics.map((topic, i) => `${i + 1}. ${topic.unitTitle}`).join('\n')}\n\nAs you finish each topic, return to the success criteria and correct one answer before moving on.`;
-  add(localizedPageTitle(subject.title, '', 'title'), titlePageText, { pageType: 'front-matter', difficulty: 'support', estimatedMinutes: 3 });
   add(localizedPageTitle(subject.title, '', 'howTo'), howToText, { pageType: 'front-matter', difficulty: 'support' });
   add(localizedPageTitle(subject.title, '', 'skills'), skillsText, { pageType: 'front-matter', difficulty: 'support' });
   add(localizedPageTitle(subject.title, '', 'toc'), tocText, { pageType: 'front-matter', difficulty: 'support' });

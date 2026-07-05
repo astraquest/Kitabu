@@ -1,5 +1,10 @@
+import Constants from 'expo-constants';
 import { Platform } from 'react-native';
 import * as Notifications from 'expo-notifications';
+
+import { registerPushToken } from './notificationService';
+import type { PushTokenPlatform } from './notificationService';
+import { getKitabuDeviceId } from './requestHelpers';
 
 /**
  * Push notification permission handling for the onboarding Reminder (S16) opt-in.
@@ -16,7 +21,44 @@ export interface PushPermissionResult {
   granted: boolean;
 }
 
+export interface PushRegistrationResult extends PushPermissionResult {
+  registered: boolean;
+  token?: string;
+  errorMessage?: string;
+}
+
 const REMINDER_CHANNEL_ID = 'daily-study-reminders';
+
+if (Platform.OS !== 'web') {
+  Notifications.setNotificationHandler({
+    handleNotification: async () => ({
+      shouldShowBanner: true,
+      shouldShowList: true,
+      shouldPlaySound: true,
+      shouldSetBadge: true,
+    }),
+  });
+}
+
+function getPushPlatform(): PushTokenPlatform | null {
+  if (Platform.OS === 'ios' || Platform.OS === 'android' || Platform.OS === 'web') {
+    return Platform.OS;
+  }
+
+  return null;
+}
+
+function getExpoProjectId() {
+  const constants = Constants as typeof Constants & {
+    easConfig?: { projectId?: string | null };
+  };
+  const extra = (Constants.expoConfig?.extra ?? {}) as {
+    eas?: { projectId?: string | null };
+    kitabuExpoProjectId?: string | null;
+  };
+
+  return extra.kitabuExpoProjectId || extra.eas?.projectId || constants.easConfig?.projectId || '';
+}
 
 /**
  * Ensures the Android notification channel used for study reminders exists.
@@ -81,4 +123,93 @@ export async function requestPushPermission(): Promise<PushPermissionResult> {
     console.warn('[pushNotifications] Permission request failed', permissionError);
     return { status: 'error', granted: false };
   }
+}
+
+async function registerGrantedPushNotifications(): Promise<PushRegistrationResult> {
+  const platform = getPushPlatform();
+  if (!platform || platform === 'web') {
+    return { status: 'unsupported', granted: false, registered: false };
+  }
+
+  try {
+    await ensureAndroidReminderChannel();
+
+    const projectId = getExpoProjectId();
+    const pushToken = projectId
+      ? await Notifications.getExpoPushTokenAsync({ projectId })
+      : await Notifications.getExpoPushTokenAsync();
+
+    await registerPushToken({
+      platform,
+      token: pushToken.data,
+      deviceId: await getKitabuDeviceId(),
+    });
+
+    return {
+      status: 'granted',
+      granted: true,
+      registered: true,
+      token: pushToken.data,
+    };
+  } catch (registrationError) {
+    const errorMessage =
+      registrationError instanceof Error ? registrationError.message : 'Push token registration failed';
+    if (!/sign in again|authentication required/i.test(errorMessage)) {
+      console.warn('[pushNotifications] Push token registration failed', registrationError);
+    }
+    return {
+      status: 'error',
+      granted: true,
+      registered: false,
+      errorMessage,
+    };
+  }
+}
+
+export async function registerPushNotificationsIfGranted(): Promise<PushRegistrationResult> {
+  if (Platform.OS === 'web') {
+    return { status: 'unsupported', granted: false, registered: false };
+  }
+
+  try {
+    const permission = await Notifications.getPermissionsAsync();
+    if (permission.status !== 'granted') {
+      return { status: 'denied', granted: false, registered: false };
+    }
+  } catch (permissionError) {
+    console.warn('[pushNotifications] Permission check failed', permissionError);
+    return { status: 'error', granted: false, registered: false };
+  }
+
+  return registerGrantedPushNotifications();
+}
+
+export async function requestAndRegisterPushNotifications(): Promise<PushRegistrationResult> {
+  const permission = await requestPushPermission();
+  if (!permission.granted) {
+    return { ...permission, registered: false };
+  }
+
+  return registerGrantedPushNotifications();
+}
+
+export function addPushNotificationListeners(input: {
+  onReceived?: (notification: Notifications.Notification) => void;
+  onResponse?: (response: Notifications.NotificationResponse) => void;
+}) {
+  if (Platform.OS === 'web') {
+    return () => undefined;
+  }
+
+  const received = Notifications.addNotificationReceivedListener(notification => {
+    input.onReceived?.(notification);
+  });
+  const response = Notifications.addNotificationResponseReceivedListener(notificationResponse => {
+    input.onResponse?.(notificationResponse);
+  });
+
+  return () => {
+    received.remove();
+    response.remove();
+  };
 }

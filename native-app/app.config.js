@@ -40,6 +40,25 @@ const googleRedirectUri =
   process.env.KITABU_GOOGLE_REDIRECT_URI ||
   process.env.EXPO_PUBLIC_KITABU_GOOGLE_REDIRECT_URI ||
   '';
+const expoProjectId =
+  process.env.KITABU_EXPO_PROJECT_ID ||
+  process.env.EXPO_PUBLIC_EAS_PROJECT_ID ||
+  process.env.EAS_PROJECT_ID ||
+  '';
+
+const extra = {
+  kitabuApiBaseUrl: process.env.KITABU_API_BASE_URL || process.env.EXPO_PUBLIC_KITABU_API_BASE_URL || '',
+  kitabuRuntimeEnv: process.env.KITABU_APP_ENV || process.env.EXPO_PUBLIC_KITABU_APP_ENV || '',
+  googleWebClientId,
+  googleAndroidClientId,
+  googleIosClientId,
+  googleRedirectUri,
+};
+
+if (expoProjectId) {
+  extra.kitabuExpoProjectId = expoProjectId;
+  extra.eas = { projectId: expoProjectId };
+}
 
 module.exports = {
   expo: {
@@ -63,13 +82,6 @@ module.exports = {
     ios: {
       bundleIdentifier: 'ai.kitabunative.app',
     },
-    extra: {
-      kitabuApiBaseUrl: process.env.KITABU_API_BASE_URL || process.env.EXPO_PUBLIC_KITABU_API_BASE_URL || '',
-      kitabuRuntimeEnv: process.env.KITABU_APP_ENV || process.env.EXPO_PUBLIC_KITABU_APP_ENV || '',
-      googleWebClientId,
-      googleAndroidClientId,
-      googleIosClientId,
-      googleRedirectUri,
-    },
+    extra,
   },
 };

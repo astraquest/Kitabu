@@ -45,7 +45,7 @@ import { SUBJECTS } from '../data/mockData';
 import { requestPhoneAuthCode } from '../services/authService';
 import { triggerHaptic } from '../services/haptics';
 import { postOnboardingSelectionEvent } from '../services/onboardingAnalyticsService';
-import { requestPushPermission } from '../services/pushNotifications';
+import { requestAndRegisterPushNotifications } from '../services/pushNotifications';
 import { AvatarArt } from '../components/AvatarArt';
 import { GoogleLogo } from '../components/GoogleLogo';
 import {
@@ -4482,7 +4482,7 @@ export function StudentOnboardingScreen({
       // The primary "Remind me 🔔" action requests OS push permission so we can
       // send daily study reminders. We advance regardless of the user's choice;
       // reminderEnabled records whether the OS actually granted permission.
-      const permission = await requestPushPermission();
+      const permission = await requestAndRegisterPushNotifications();
       setReminderEnabled(permission.granted);
       if (includeIntroChoices) {
         setIntroStep('loading');

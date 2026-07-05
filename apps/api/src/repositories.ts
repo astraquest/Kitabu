@@ -349,6 +349,17 @@ export interface UserNotificationRecord {
   created_at: Date;
 }
 
+export interface UserPushTokenRecord {
+  id: string;
+  user_id: string;
+  platform: 'ios' | 'android' | 'web';
+  token: string;
+  device_id: string | null;
+  enabled: boolean;
+  created_at: Date;
+  updated_at: Date;
+}
+
 export interface DiagnosticSessionRecord {
   id: string;
   user_id: string;
@@ -1825,6 +1836,34 @@ export async function upsertPushToken(
        enabled = TRUE,
        updated_at = NOW()`,
     [input.userId, input.platform, input.token, input.deviceId ?? null]
+  );
+}
+
+export async function listEnabledPushTokens(
+  client: MaybeClient,
+  userId: string
+): Promise<UserPushTokenRecord[]> {
+  const result = await q<UserPushTokenRecord>(
+    client,
+    `SELECT id, user_id, platform, token, device_id, enabled, created_at, updated_at
+     FROM user_push_tokens
+     WHERE user_id = $1
+       AND enabled = TRUE
+     ORDER BY updated_at DESC`,
+    [userId]
+  );
+
+  return result.rows;
+}
+
+export async function setPushTokenEnabled(client: MaybeClient, token: string, enabled: boolean) {
+  await q(
+    client,
+    `UPDATE user_push_tokens
+     SET enabled = $2,
+         updated_at = NOW()
+     WHERE token = $1`,
+    [token, enabled]
   );
 }
 

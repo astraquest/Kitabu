@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import {
   Image,
+  KeyboardAvoidingView,
   Modal,
+  Platform,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -209,6 +211,10 @@ export function ChatOverlayModal({
       transparent
       visible={isOpen}
       onRequestClose={onClose}>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        keyboardVerticalOffset={0}
+        style={styles.keyboardAvoider}>
       <View style={styles.overlay}>
         <Pressable style={styles.backdrop} onPress={onClose} />
 
@@ -415,6 +421,7 @@ export function ChatOverlayModal({
           </View>
         </View>
       </View>
+      </KeyboardAvoidingView>
     </Modal>
   );
 }
@@ -443,6 +450,9 @@ function AttachmentAction({
 }
 
 const styles = StyleSheet.create({
+  keyboardAvoider: {
+    flex: 1,
+  },
   overlay: {
     flex: 1,
     justifyContent: 'center',
@@ -695,7 +705,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     backgroundColor: 'rgba(255,255,255,0.08)',
     borderColor: 'rgba(255,255,255,0.08)',
-    borderRadius: 14,
+    borderRadius: 7,
     borderWidth: 1,
     flex: 1,
     flexDirection: 'row',
@@ -739,7 +749,7 @@ const styles = StyleSheet.create({
   primaryActionButton: {
     alignItems: 'center',
     backgroundColor: '#2563EB',
-    borderRadius: 11,
+    borderRadius: 7,
     height: 52,
     justifyContent: 'center',
     width: 52,
@@ -747,7 +757,7 @@ const styles = StyleSheet.create({
   liveActionButton: {
     alignItems: 'center',
     backgroundColor: 'rgba(245,158,11,0.9)',
-    borderRadius: 11,
+    borderRadius: 7,
     height: 52,
     justifyContent: 'center',
     width: 52,

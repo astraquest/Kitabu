@@ -97,3 +97,17 @@ http://agentrobin.kitabu.ai {
 http://sherehe.kitabu.ai {
 	reverse_proxy 127.0.0.1:4108
 }
+
+# BEGIN MUFASA
+http://mufasa.kitabu.ai {
+	encode zstd gzip
+
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy no-referrer
+		Permissions-Policy "camera=(), microphone=(), geolocation=()"
+	}
+
+	reverse_proxy 127.0.0.1:8787
+}
+# END MUFASA

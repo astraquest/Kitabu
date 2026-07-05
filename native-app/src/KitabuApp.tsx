@@ -35,6 +35,7 @@ import { IntroCarouselScreen } from './screens/IntroCarouselScreen';
 import { LetsLearnContentScreen } from './screens/LetsLearnContentScreen';
 import { LetsLearnListScreen } from './screens/LetsLearnListScreen';
 import { LiveAudioTutorScreen } from './screens/LiveAudioTutorScreen';
+import { ManyangaScreen } from './screens/ManyangaScreen';
 import { PodcastsScreen } from './screens/PodcastsScreen';
 import { ParentDashboardScreen } from './screens/ParentDashboardScreen';
 import { QuizBattleScreen } from './screens/QuizBattleScreen';
@@ -860,6 +861,13 @@ function renderScreen(
           onBack={() => actions.openFeature('game_zone')}
         />
       );
+    case 'manyanga':
+      return (
+        <ManyangaScreen
+          onAddPoints={actions.addPoints}
+          onBack={() => actions.openFeature('game_zone')}
+        />
+      );
     case 'podcasts_view':
       return (
         <PodcastsScreen
@@ -999,6 +1007,7 @@ function getTitle(view: string, subjectName?: string) {
     game_zone: 'Game Zone',
     crazy_balloon: 'Crazy Balloon',
     quiz_battle: 'Quiz Battle',
+    manyanga: 'Manyanga!',
     podcasts_view: 'Kitabu Podcasts',
     teachers_portal: 'Teacher Portal',
     admin_portal: 'Admin Portal',

@@ -3065,6 +3065,11 @@ export function useKitabuApp() {
       return;
     }
 
+    if (gameId === 'manyanga') {
+      navigateTo('manyanga');
+      return;
+    }
+
     setShowComingSoon(true);
     setTimeout(() => setShowComingSoon(false), 2500);
   }

@@ -115,6 +115,10 @@ Phase 1.5 clarification: generated book files are not expected to live in Git. T
 - [x] Create tracked Phase 2 remediation backlog from the published testing baseline: `docs/generated-books-phase2-remediation-backlog.md`.
 - [x] Run Phase 2 production readiness audit and record production-confirmed blockers: `docs/generated-books-phase2-production-audit-2026-07-04.md`.
 - [x] Patch Kenya generator v47 and sync targeted `KEN/CBC/G9/agriculture` remediation to production with backup; contamination scan now returns 0 hits.
+- [x] Add repo-owned generated-package validation gate for contamination, visible-cover metadata, app-safe cover fields, and repeated openings before promotion.
+- [x] Expose the existing grade selector in the Library view so selected-grade book filtering is usable without returning to the dashboard.
+- [x] Add language artifact promotion gates for raw English/Kiswahili titles, raw TOC/curriculum fragments, and Kiswahili heading casing issues.
+- [x] Tighten follow-up language gates for Rwanda-style subjects, learner-facing scaffold labels, and raw numbered language titles; patch Kenya generator v48 so future English/Kiswahili regeneration avoids those artifacts.
 - [ ] Collect tester feedback by country, grade, subject, page number, and issue type.
 - [ ] Convert accepted feedback into country-specific remediation tasks before moving to final readiness.
 

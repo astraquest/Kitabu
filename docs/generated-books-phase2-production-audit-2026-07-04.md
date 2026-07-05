@@ -23,8 +23,8 @@ Read-only census source: `/opt/kitabu-ai/apps/api/data/books`, checked through t
 | Packages with `pages.json` | 280 |
 | Packages with `source-map.json` | 280 |
 | Packages with `book-plan.json` | 280 |
-| Manifest page total | 45,619 |
-| Manifest word total | 5,772,933 |
+| Manifest page total | 45,576 |
+| Manifest word total | 5,765,296 |
 
 Production services were healthy during the audit: `kitabu-api` was healthy, and Postgres, Redis, Caddy, and worker were running on `kitabu-prod-1`.
 
@@ -32,8 +32,9 @@ Post-audit corrections now part of the Phase 1.5 baseline:
 
 - `KEN/CBC/G9/agriculture` was regenerated with generator v47 and synced to production after backup `/var/backups/kitabu/generated-books-G9-agriculture-pre-v47-20260704224657`.
 - The clothing/household-disinfection contamination scan for that package now returns 0 hits.
-- PR #25 preserves `published-for-testing` status and cover metadata during future regeneration.
-- PR #26 adds language artifact promotion gates so raw titles, scaffold labels, raw curriculum fragments, and Kiswahili heading-casing issues block promotion.
+- PR #25 preserves `published-for-testing` status and cover metadata during future Kenya regeneration.
+- PR #26 added language artifact promotion gates. The current follow-up branch tightens those gates for all configured language subjects before any promotion beyond `published-for-testing`.
+- Latest production recheck still shows 280 generated packages, 280 attached covers, 0 missing pages/source maps/PDFs/covers, and healthy API/database/Redis services.
 
 ## Local Corpus Caveat
 

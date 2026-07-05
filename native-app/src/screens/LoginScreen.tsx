@@ -298,6 +298,14 @@ export function LoginScreen({
       });
       return;
     }
+    if (mode === 'signup' && !isValidPersonName(fullName)) {
+      setProviderState({
+        isSubmitting: false,
+        message: null,
+        error: 'Enter a full name without numbers to create an account.',
+      });
+      return;
+    }
     onSubmit();
   }
 

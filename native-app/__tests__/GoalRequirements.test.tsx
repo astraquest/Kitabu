@@ -726,6 +726,7 @@ test('onboarding full intro captures profile details before account setup', asyn
   expect(createAudioPlayer).toHaveBeenCalledWith(expect.anything(), {
     downloadFirst: false,
   });
+  expect(createAudioPlayer).toHaveBeenCalledWith(expect.anything(), { downloadFirst: false });
   expect(
     renderer!.root.findByProps({ accessibilityLabel: 'Choose Jabali voice' })
       .props.accessibilityState,

@@ -26,6 +26,8 @@ import { mapCrazyBalloonRenderState } from '../renderers/crazy-balloon/mapCrazyB
 import { useCrazyBalloonEffects } from '../runtime/effects/GameEffectsController';
 
 const ONLINE_PLAYERS: Array<{ id: string; name: string; avatar: string; rank: number }> = [];
+const MAX_RESCUES = 3;
+const RESCUE_DURATION_SEC = 5;
 
 type GameView =
   | 'menu'
@@ -163,18 +165,18 @@ export function CrazyBalloonScreen({
           <Pressable onPress={onBack} style={styles.backButton}>
             <ArrowLeft size={24} color="#475569" />
           </Pressable>
-          {livesUsed > 0 && (view === 'playing' || view === 'rescue_quiz') ? (
+          {view === 'playing' || view === 'rescue_quiz' ? (
             <View style={styles.lifeRowInline}>
-              <View
-                style={[
-                  styles.lifeDot,
-                  styles.lifeAvailable,
-                  livesUsed >= 1 && styles.lifeUsed,
-                ]}
-              />
-              <View
-                style={[styles.lifeDot, livesUsed >= 2 && styles.lifeUsed]}
-              />
+              {[0, 1, 2].map(index => (
+                <View
+                  key={index}
+                  style={[
+                    styles.lifeDot,
+                    styles.lifeAvailable,
+                    index < livesUsed && styles.lifeUsed,
+                  ]}
+                />
+              ))}
             </View>
           ) : null}
         </View>
@@ -256,19 +258,12 @@ export function CrazyBalloonScreen({
         </View>
       ) : null}
 
-      {livesUsed > 0 && (view === 'playing' || view === 'rescue_quiz') ? (
-        <View style={styles.lifeRow}>
-          <View style={[styles.lifeDot, livesUsed >= 1 && styles.lifeUsed]} />
-          <View style={[styles.lifeDot, livesUsed >= 2 && styles.lifeUsed]} />
-        </View>
-      ) : null}
-
       {view === 'menu' ? (
         <View style={styles.overlay}>
           <View style={styles.menuCard}>
             <Text style={styles.menuTitle}>Crazy Balloon</Text>
             <Text style={styles.menuBody}>
-              Pop clean balloons as fast as you can. Warning balloons test your focus with a quick rescue question.
+              Pop balloons fast. Some hide monsters; answer a rescue question in 5 seconds to escape. You get 3 rescues.
             </Text>
             <Pressable
               onPress={startSingle}
@@ -372,11 +367,15 @@ export function CrazyBalloonScreen({
               <View
                 style={[
                   styles.quizMeterFill,
-                  { width: `${(quizData.timeLeft / 5) * 100}%` },
+                  { width: `${(quizData.timeLeft / RESCUE_DURATION_SEC) * 100}%` },
+                  quizData.timeLeft <= 2 && styles.quizMeterUrgent,
                 ]}
               />
             </View>
-            <Text style={styles.quizTag}>Warning Balloon</Text>
+            <Text style={styles.quizTag}>Monster attack</Text>
+            <Text style={styles.quizCount}>
+              Rescue {Math.min(livesUsed + 1, MAX_RESCUES)} of {MAX_RESCUES}
+            </Text>
             <Text style={styles.quizQuestion}>{quizData.q}</Text>
             <View style={styles.quizOptions}>
               {quizData.options.map((option, optionIndex) => (
@@ -410,7 +409,7 @@ export function CrazyBalloonScreen({
           <View style={styles.resultCard}>
             <Text style={styles.resultBadge}>Focus</Text>
             <Text style={styles.resultTitle}>Game Over</Text>
-            <Text style={styles.resultDetail}>The warning balloon ended the run.</Text>
+            <Text style={styles.resultDetail}>The monster caught you.</Text>
             <Text style={styles.resultScore}>{score}</Text>
             <Pressable onPress={startSingle} style={styles.primaryButton}>
               <RotateCcw size={18} color="#FFFFFF" />
@@ -586,14 +585,6 @@ const styles = StyleSheet.create({
     borderLeftColor: 'transparent',
     borderRightColor: 'transparent',
     borderTopColor: '#FFFFFF',
-  },
-  lifeRow: {
-    position: 'absolute',
-    top: 56,
-    left: 24,
-    flexDirection: 'row',
-    gap: 6,
-    zIndex: 13,
   },
   lifeRowInline: { flexDirection: 'row', gap: 6 },
   lifeDot: {
@@ -785,10 +776,17 @@ const styles = StyleSheet.create({
     borderRadius: 999,
     backgroundColor: '#22C55E',
   },
+  quizMeterUrgent: { backgroundColor: '#F59E0B' },
   quizTag: {
     color: '#B91C1C',
     fontSize: 11,
     fontWeight: '800',
+    textTransform: 'uppercase',
+  },
+  quizCount: {
+    color: '#64748B',
+    fontSize: 12,
+    fontWeight: '900',
     textTransform: 'uppercase',
   },
   quizQuestion: {

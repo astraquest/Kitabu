@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-eth-enc-grade-9-geography",
+  "title": "KITABU QUEST Grade 9 Geography",
+  "country": "ETH",
+  "curriculum": "ENC",
+  "grade": "Grade 9",
+  "subject": "Geography",
+  "subjectSlug": "geography",
+  "subjectColor": "#0E7490",
+  "version": "draft-2026-07-03",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-03-v28",
+  "status": "published-for-testing",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "phase1-testing-cover-attached",
+  "generatedAt": "2026-07-03T22:33:45Z",
+  "sourceSnapshotHash": "edbc18a7c6968ef814e2a3cbc4619d7b02f64a301c671d81c9326e1bd8b27771",
+  "bookPlanHash": "8bb6c791dcb553a8d73ce9b275bc2372ee5bf9b5a20d1d56d9f5b2814ec8a69f",
+  "pageCount": 133,
+  "wordCount": 13524,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 9,
+    "outcomeCount": 9,
+    "generatedFallbackTopicCount": 0,
+    "normalizedSourceTopicCount": 9,
+    "sourceDerivationStatus": "normalized-source-derived",
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "ETH",
+    "subject": "Geography",
+    "species": "Lion of Judah-inspired lion",
+    "role": "maps, landscapes, and cultural context guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "secondary learners studying Ethiopian maps, landscapes, and community environments with a culturally framed Lion of Judah-inspired lion mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Ethiopia ENC Grade 9 Geography. Scene: secondary learners studying Ethiopian maps, landscapes, and community environments with a culturally framed Lion of Judah-inspired lion mascot. Include a friendly Lion of Judah-inspired lion mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "phase1-testing-cover-ready",
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 67770,
+      "sha256": "fef2cf511b4feadeba69d5b55b87d7d9814ea0a72c91a58b2ea2a5ced842887f",
+      "kind": "cover",
+      "altText": "KITABU QUEST Grade 9 Geography cover",
+      "generation": "cover-not-started"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-eth-enc-grade-9-geography.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-eth-enc-grade-9-geography.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "coverageCaveat": "Configured generation currently covers English for Grades 4-10 plus reviewed-candidate drafts for selected verified ANRSEB textbook subjects. Official framework coverage is broader; see apps/api/data/curriculum/expected-matrix/ETH/ENC.json and generated audit apps/api/data/book-creator/ethiopia-coverage-gaps.json before treating Ethiopia as complete.",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication. Configured generation currently covers English for Grades 4-10 plus reviewed-candidate drafts for selected verified ANRSEB textbook subjects. Official framework coverage is broader; see apps/api/data/curriculum/expected-matrix/ETH/ENC.json and generated audit apps/api/data/book-creator/ethiopia-coverage-gaps.json before treating Ethiopia as complete."
+  },
+  "sourceDocuments": [
+    {
+      "id": "c1b640f7-cf39-422f-be86-9e7d3f550573",
+      "subject": "Geography",
+      "officialTitle": "Ethiopia Grade 9 Geography Student Textbook",
+      "countryCode": "ETH",
+      "curriculumCode": "ENC",
+      "gradeCode": "GRADE_9",
+      "gradeLocalLevel": "Grade 9",
+      "localLevel": "Grade 9",
+      "extractionStatus": "normalized",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "regional_official_anrseb",
+      "sourceUrl": "https://www.anrseb.gov.et/wp-content/uploads/New_Text_Books/Grade9/G9-Geography-STB-2023-ANRSEB.pdf",
+      "objectKey": "data/curriculum/source-files/ETH/706f1ac45bdfb3b856ebda29f8b0cb710ea91073357fbc2e771fcbf1146a0e8d.pdf",
+      "metadata": {
+        "type": "regional_official_subject_textbook_candidate",
+        "gradeCode": "GRADE_9",
+        "byteLength": 22223780,
+        "reviewNote": "Direct regional .gov.et textbook PDF candidate. Human review is required before any generated content can be marked ready.",
+        "verifiedAt": "2026-07-03T22:02:15.608Z",
+        "contentType": "application/pdf",
+        "documentUrl": "https://www.anrseb.gov.et/wp-content/uploads/New_Text_Books/Grade9/G9-Geography-STB-2023-ANRSEB.pdf",
+        "importBatch": "ethiopia-anrseb-source-candidates-2026-07-04-v1",
+        "markdownPath": "data/curriculum/markdown/ETH/ENC/GRADE_9/geography/c1b640f7-cf39-422f-be86-9e7d3f550573.md",
+        "normalizedAt": "2026-07-03T22:31:11.658Z",
+        "normalizedBy": "ethiopia-textbook-unit-normalizer-2026-07-04-v1",
+        "sourcePageUrl": "https://anrseb.gov.et/downloads/textbooks/",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "provenanceTier": "regional_official_anrseb",
+        "reviewRequired": true,
+        "markdownChecksum": "d55b781d1cad97767c8eb125fac05117904f34a547160dae459995ebc75a57f3",
+        "markdownPageCount": 237,
+        "expectedByteLength": 22223780,
+        "federalMoeOfficial": false,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/ETH/ENC/GRADE_9/geography/c1b640f7-cf39-422f-be86-9e7d3f550573.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "d55b781d1cad97767c8eb125fac05117904f34a547160dae459995ebc75a57f3",
+          "pageCount": 237,
+          "generatedAt": "2026-07-03T22:15:34.572Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/ETH/ENC/GRADE_9/geography/c1b640f7-cf39-422f-be86-9e7d3f550573.json",
+          "sourceChecksum": "0a243441b997c65e50ced12bb5fda7826521ca6b9b979dea63f565050148f783"
+        },
+        "verificationMethod": "http_pdf_header_check",
+        "markdownGeneratedAt": "2026-07-03T22:15:34.572Z",
+        "normalizedUnitCount": 12
+      }
+    }
+  ],
+  "packageChecksum": "d46f2bb99ce94de10b680bc85f82c69689e6b0e6c759398eb95e069fcdf523de",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 67770,
+    "sha256": "fef2cf511b4feadeba69d5b55b87d7d9814ea0a72c91a58b2ea2a5ced842887f"
+  },
+  "publicationStatus": "published-for-testing",
+  "testingRelease": {
+    "id": "phase1-testing-release-2026-07-04",
+    "publishedAt": "2026-07-04T13:27:56Z",
+    "scope": "manual testing snapshot",
+    "contentReviewPaused": true,
+    "phase2Required": true,
+    "contentStatusPreserved": "content-draft-review-needed",
+    "note": "Published for app testing only. Content review and enhancement remain open."
+  },
+  "reviewStatus": "phase2-content-enhancement-required"
+}

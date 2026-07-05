@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-tza-tie-basic-form-iii-computer-science",
+  "title": "KITABU QUEST Form III Computer Science",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Form III",
+  "subject": "Computer Science",
+  "subjectSlug": "computer-science",
+  "subjectColor": "#4338CA",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v13",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:48:31Z",
+  "sourceSnapshotHash": "a8814c479032826695a1f8fd6d3e516eac610932fd004006037ff9e37ab432d7",
+  "bookPlanHash": "f29268cff7940412d892f82c9df3769dca09680ad5ea7a14ee2fa474c6476288",
+  "pageCount": 85,
+  "wordCount": 8336,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 8,
+    "outcomeCount": 8,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "TZA",
+    "subject": "Computer Science",
+    "species": "giraffe",
+    "role": "digital skills guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "students using computers safely with a giraffe mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Tanzania TIE-BASIC Form III Computer Science. Scene: students using computers safely with a giraffe mascot. Include a friendly giraffe mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 85830,
+    "sha256": "71d8655f4111c35c85c4bcf9afa122a962976fe8b99dc9dbe1e70d2e4ca8b1f8"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 85830,
+      "sha256": "71d8655f4111c35c85c4bcf9afa122a962976fe8b99dc9dbe1e70d2e4ca8b1f8",
+      "kind": "cover",
+      "altText": "KITABU QUEST Form III Computer Science cover with giraffe",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-tza-tie-basic-form-iii-computer-science.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-tza-tie-basic-form-iii-computer-science.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "0f187d51-8aa9-4391-8184-f5b3b1cef92f",
+      "subject": "Computer Science",
+      "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form III Computer Science",
+      "countryCode": "TZA",
+      "curriculumCode": "TIE-BASIC",
+      "gradeCode": "FORM_III",
+      "gradeLocalLevel": "Form III",
+      "localLevel": "Form III",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+      "objectKey": "data/curriculum/source-files/TZA/3704692c1cf5dcc8c4e32a77e6b0669e1ef23414eee79c8297ba6c685f954cee.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "FORM_III",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727193276-COMPUTER%20SCIENCE%20SYLABUS%20I%20TO%20IV%20%2812_07_2023%29.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/computer-science/0f187d51-8aa9-4391-8184-f5b3b1cef92f.md",
+        "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "tie.go.tz"
+        ],
+        "markdownChecksum": "364ec6452c9da4f5604defd35322d04115be0d9e096ef25edb78f5c4c72fa165",
+        "markdownPageCount": 40,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/computer-science/0f187d51-8aa9-4391-8184-f5b3b1cef92f.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "364ec6452c9da4f5604defd35322d04115be0d9e096ef25edb78f5c4c72fa165",
+          "pageCount": 40,
+          "generatedAt": "2026-06-29T17:39:55.996Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "a6169f241747b4661b053759507e6dd9572e38235c36f9764226d5cf8f2ea6ef"
+        },
+        "markdownGeneratedAt": "2026-06-29T17:39:55.996Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

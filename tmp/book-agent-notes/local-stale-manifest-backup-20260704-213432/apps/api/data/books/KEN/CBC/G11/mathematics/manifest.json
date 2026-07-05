@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-grade-11-mathematics",
+  "title": "KITABU QUEST Grade 11 Mathematics",
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 11",
+  "subject": "Mathematics",
+  "subjectSlug": "mathematics",
+  "subjectColor": "#047857",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "learner-first-language-depth-renderers-2026-07-01-v10",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-reviewed-draft",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T12:13:06Z",
+  "sourceSnapshotHash": "b76cb2ac8f2bf55825f5bbb0827f11358dd62cade8f3baf8c8b88fb3fc563837",
+  "bookPlanHash": "7ad9e163718a75f2734cfba96098e2883443c1905dc026b9244eb4cf25c38dbf",
+  "pageCount": 242,
+  "wordCount": 49405,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "ageBand": "senior-secondary",
+    "coversDeferred": true,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "topicCount": 31,
+    "outcomeCount": 88,
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "KEN",
+    "subject": "Mathematics",
+    "species": "lion",
+    "role": "problem-solving guide",
+    "sourceRationale": "User-approved Mathematics mascot; confidence, strength, and Kenya wildlife association."
+  },
+  "cover": {
+    "scene": "learners solving real-life problems with blocks, measuring tools, maps, and a friendly lion mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Kenya CBC Grade 11 Mathematics. Scene: learners solving real-life problems with blocks, measuring tools, maps, and a friendly lion mascot. Include a friendly lion mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "assets": [],
+  "downloads": {
+    "markdown": "kitabu-quest-grade-11-mathematics.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-grade-11-mathematics.pdf"
+  },
+  "sourceDocuments": [
+    {
+      "id": "b3873f6e-7655-4430-90b0-8cdc20f4a8cb",
+      "subject": "Core Mathematics",
+      "officialTitle": "Competency Based Curriculum Grade 11 Core Mathematics",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_11",
+      "gradeLocalLevel": "Grade 11",
+      "localLevel": "Grade 11",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/10-EFHm5J8wzO8h_zzEstrBKDMeOdrrGY/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_11",
+        "documentUrl": "https://drive.google.com/file/d/10-EFHm5J8wzO8h_zzEstrBKDMeOdrrGY/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_11/core-mathematics/b3873f6e-7655-4430-90b0-8cdc20f4a8cb.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-eleven/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "069469f9c63917d4f10aafb697b64bd613dec80e33ab6ecfb1fd0c2d4156ebce",
+        "markdownPageCount": 64,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_11/core-mathematics/b3873f6e-7655-4430-90b0-8cdc20f4a8cb.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "069469f9c63917d4f10aafb697b64bd613dec80e33ab6ecfb1fd0c2d4156ebce",
+          "pageCount": 64,
+          "generatedAt": "2026-06-29T16:35:06.690Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "4cf5698bfd79d4ce7d9e397546da8a836464c858ecf2d2a77d6fd4f8a4c351a8"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:06.690Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    },
+    {
+      "id": "2ad194c7-ee86-402c-9efe-ed831a109db3",
+      "subject": "Essential Mathematics",
+      "officialTitle": "Competency Based Curriculum Grade 11 Essential Mathematics",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_11",
+      "gradeLocalLevel": "Grade 11",
+      "localLevel": "Grade 11",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/12E5lUfgjalNpY_YFZvSpBWjepoPmB2Oq/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_11",
+        "documentUrl": "https://drive.google.com/file/d/12E5lUfgjalNpY_YFZvSpBWjepoPmB2Oq/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_11/essential-mathematics/2ad194c7-ee86-402c-9efe-ed831a109db3.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-eleven/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "f0cfa2db7896e8594c7522f96c668ea3a48e70d4a58dbba4b0defa7e109ac667",
+        "markdownPageCount": 42,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_11/essential-mathematics/2ad194c7-ee86-402c-9efe-ed831a109db3.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "f0cfa2db7896e8594c7522f96c668ea3a48e70d4a58dbba4b0defa7e109ac667",
+          "pageCount": 42,
+          "generatedAt": "2026-06-29T16:35:06.760Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "94d7f2981bc1f6c216217d8d1ed7fec249e119a5a8e6ca6c6c9d4a099b55112c"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:06.760Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    }
+  ]
+}

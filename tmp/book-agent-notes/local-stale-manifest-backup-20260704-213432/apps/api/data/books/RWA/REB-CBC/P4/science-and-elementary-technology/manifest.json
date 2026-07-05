@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-rwa-reb-cbc-p4-science-and-elementary-technology",
+  "title": "KITABU QUEST P4 Science and Elementary Technology",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "P4",
+  "subject": "Science and Elementary Technology",
+  "subjectSlug": "science-and-elementary-technology",
+  "subjectColor": "#7C3AED",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v17",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T06:36:03Z",
+  "sourceSnapshotHash": "8a57772b0c9ff41e4f12d5f5ab8ad4e2ab1282e39f7311f71f93c2b57fd28683",
+  "bookPlanHash": "25334c0042ea1c7f32561403f7d24ab4cd3805543bd3db750e9f367df249e6d4",
+  "pageCount": 119,
+  "wordCount": 11811,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 12,
+    "outcomeCount": 68,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "RWA",
+    "subject": "Science and Elementary Technology",
+    "species": "chameleon",
+    "role": "curiosity and observation guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners doing a simple science and technology investigation with a chameleon mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Rwanda REB-CBC P4 Science and Elementary Technology. Scene: learners doing a simple science and technology investigation with a chameleon mascot. Include a friendly chameleon mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 97977,
+    "sha256": "3ea47280670f98b399d408101f60351ce94dfae3180709f62500ecb76a06eceb"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 97977,
+      "sha256": "3ea47280670f98b399d408101f60351ce94dfae3180709f62500ecb76a06eceb",
+      "kind": "cover",
+      "altText": "KITABU QUEST P4 Science and Elementary Technology cover with chameleon",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-rwa-reb-cbc-p4-science-and-elementary-technology.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-rwa-reb-cbc-p4-science-and-elementary-technology.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "d0b6d0c3-9b76-4ed2-ade9-086e860f1580",
+      "subject": "Science and Elementary Technology",
+      "officialTitle": "Rwanda Competence Based Curriculum P4 Science and Elementary Technology",
+      "countryCode": "RWA",
+      "curriculumCode": "REB-CBC",
+      "gradeCode": "P4",
+      "gradeLocalLevel": "P4",
+      "localLevel": "P4",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://elearning.reb.rw/pluginfile.php/177314/mod_folder/content/0/SET-Syllabus-P4-P6.pdf?forcedownload=1",
+      "objectKey": "data/curriculum/source-files/RWA/5d556fb489c12a3d1604c7fc32fe20cfbe61770c486942e628425c428e133efa.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "P4",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://elearning.reb.rw/pluginfile.php/177314/mod_folder/content/0/SET-Syllabus-P4-P6.pdf?forcedownload=1",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/P4/science-and-elementary-technology/d0b6d0c3-9b76-4ed2-ade9-086e860f1580.md",
+        "sourcePageUrl": "https://elearning.reb.rw/mod/folder/view.php?id=14427",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "reb.gov.rw",
+          "reb.rw",
+          "elearning.reb.rw"
+        ],
+        "markdownChecksum": "e4bd5c3ad774f5b3a00149a7d1c897af192446afd18cde162543bafc898c950a",
+        "markdownPageCount": 137,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/RWA/REB-CBC/P4/science-and-elementary-technology/d0b6d0c3-9b76-4ed2-ade9-086e860f1580.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "e4bd5c3ad774f5b3a00149a7d1c897af192446afd18cde162543bafc898c950a",
+          "pageCount": 137,
+          "generatedAt": "2026-07-01T01:12:41.133Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/P4/science-and-elementary-technology/d0b6d0c3-9b76-4ed2-ade9-086e860f1580.json",
+          "sourceChecksum": "0b8687f6cf8364de82f2a4a6a973bb79b4b182e14675cd0d39745a8962e4e8e5"
+        },
+        "markdownGeneratedAt": "2026-07-01T01:12:41.133Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-grade-7-social-studies",
+  "title": "KITABU QUEST Grade 7 Social Studies",
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 7",
+  "subject": "Social Studies",
+  "subjectSlug": "social-studies",
+  "subjectColor": "#BE123C",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "learner-first-language-depth-renderers-2026-07-01-v10",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-reviewed-draft",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T13:18:53Z",
+  "sourceSnapshotHash": "68fa1773dced8c27f65188d35fb9e5b6a011a20944a795a27676f388cf964f98",
+  "bookPlanHash": "8a2dad521ad672710acf32e0e82f6a08eb0478a8a02aa55a5d104f527d209375",
+  "pageCount": 188,
+  "wordCount": 25367,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "ageBand": "junior-secondary",
+    "coversDeferred": true,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "topicCount": 23,
+    "outcomeCount": 71,
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "KEN",
+    "subject": "Social Studies",
+    "species": "giraffe",
+    "role": "maps and community guide",
+    "sourceRationale": "Iconic Kenyan wildlife and landscape association for maps, parks, and environment topics."
+  },
+  "cover": {
+    "scene": "learners visiting a historical site with maps, cultural artifacts, and a friendly giraffe mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Kenya CBC Grade 7 Social Studies. Scene: learners visiting a historical site with maps, cultural artifacts, and a friendly giraffe mascot. Include a friendly giraffe mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "assets": [],
+  "downloads": {
+    "markdown": "kitabu-quest-grade-7-social-studies.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-grade-7-social-studies.pdf"
+  },
+  "sourceDocuments": [
+    {
+      "id": "20d51c76-dc3b-4003-b8e0-9229b8dd35b8",
+      "subject": "Social Studies",
+      "officialTitle": "Competency Based Curriculum Grade 7 Social Studies",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_7",
+      "gradeLocalLevel": "Grade 7",
+      "localLevel": "Grade 7",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/1nr9z0Z11ue76h2odpYQJNeUU4jFJWbbB/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_7",
+        "documentUrl": "https://drive.google.com/file/d/1nr9z0Z11ue76h2odpYQJNeUU4jFJWbbB/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_7/social-studies/20d51c76-dc3b-4003-b8e0-9229b8dd35b8.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-seven-designs/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "5e9e80f9a01af044e2d02b7c04bb8b3c95ec72b90cef08f7dcf212b880bf9a88",
+        "markdownPageCount": 69,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_7/social-studies/20d51c76-dc3b-4003-b8e0-9229b8dd35b8.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "5e9e80f9a01af044e2d02b7c04bb8b3c95ec72b90cef08f7dcf212b880bf9a88",
+          "pageCount": 69,
+          "generatedAt": "2026-06-29T16:35:09.391Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "95cbb480e705aa11d3d99975977b68a9940974c50b3276f9f6ded5b1c2f443d5"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:09.391Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    }
+  ]
+}

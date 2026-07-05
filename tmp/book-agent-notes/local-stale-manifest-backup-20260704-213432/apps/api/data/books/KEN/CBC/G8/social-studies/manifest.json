@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-grade-8-social-studies",
+  "title": "KITABU QUEST Grade 8 Social Studies",
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 8",
+  "subject": "Social Studies",
+  "subjectSlug": "social-studies",
+  "subjectColor": "#BE123C",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "learner-first-language-depth-renderers-2026-07-01-v10",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-reviewed-draft",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T13:19:21Z",
+  "sourceSnapshotHash": "bf05ebf1178147309366d670199361db05bff626032973ba95a6c0ca3b89819d",
+  "bookPlanHash": "eacb3184d040def8ee55f9e1f35d7817332babfbd6ea1a6f032a40c9cb28b0f8",
+  "pageCount": 206,
+  "wordCount": 29080,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "ageBand": "junior-secondary",
+    "coversDeferred": true,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "topicCount": 26,
+    "outcomeCount": 72,
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "KEN",
+    "subject": "Social Studies",
+    "species": "giraffe",
+    "role": "maps and community guide",
+    "sourceRationale": "Iconic Kenyan wildlife and landscape association for maps, parks, and environment topics."
+  },
+  "cover": {
+    "scene": "learners visiting a historical site with maps, cultural artifacts, and a friendly giraffe mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Kenya CBC Grade 8 Social Studies. Scene: learners visiting a historical site with maps, cultural artifacts, and a friendly giraffe mascot. Include a friendly giraffe mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "assets": [],
+  "downloads": {
+    "markdown": "kitabu-quest-grade-8-social-studies.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-grade-8-social-studies.pdf"
+  },
+  "sourceDocuments": [
+    {
+      "id": "f840d82c-dfa1-4444-9540-fdaf3f7f0d8c",
+      "subject": "Social Studies",
+      "officialTitle": "Competency Based Curriculum Grade 8 Social Studies",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_8",
+      "gradeLocalLevel": "Grade 8",
+      "localLevel": "Grade 8",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/1yx30v28nVLKYSByRB9G2Omalh76-ZL6h/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_8",
+        "documentUrl": "https://drive.google.com/file/d/1yx30v28nVLKYSByRB9G2Omalh76-ZL6h/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_8/social-studies/f840d82c-dfa1-4444-9540-fdaf3f7f0d8c.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-eight-designs/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "6310a5a406bcff2c5935a5d1d2a0e034c7b4b18658e473dc9c38e1a9e7feb7bb",
+        "markdownPageCount": 69,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_8/social-studies/f840d82c-dfa1-4444-9540-fdaf3f7f0d8c.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "6310a5a406bcff2c5935a5d1d2a0e034c7b4b18658e473dc9c38e1a9e7feb7bb",
+          "pageCount": 69,
+          "generatedAt": "2026-06-29T16:35:09.725Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "8df3002ecefa9eca25ffb13a7596786a646a836aabff9b1b7a228af9c5309900"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:09.725Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    }
+  ]
+}

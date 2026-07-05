@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-eth-enc-grade-7-general-science",
+  "title": "KITABU QUEST Grade 7 General Science",
+  "country": "ETH",
+  "curriculum": "ENC",
+  "grade": "Grade 7",
+  "subject": "General Science",
+  "subjectSlug": "general-science",
+  "subjectColor": "#7C3AED",
+  "version": "draft-2026-07-03",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-03-v28",
+  "status": "published-for-testing",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "phase1-testing-cover-attached",
+  "generatedAt": "2026-07-03T23:45:37Z",
+  "sourceSnapshotHash": "ec4585d7293b07310ea43c51dfe3955bf414e8309b42737b9b164d58f740a0c4",
+  "bookPlanHash": "f95deecf7a2cef6b0210933ce7d77f85aa13bd1d091e3cfa46ec569ccc370504",
+  "pageCount": 313,
+  "wordCount": 41624,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 102,
+    "outcomeCount": 102,
+    "generatedFallbackTopicCount": 0,
+    "normalizedSourceTopicCount": 102,
+    "sourceDerivationStatus": "normalized-source-derived",
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "ETH",
+    "subject": "General Science",
+    "species": "Ethiopian wolf",
+    "role": "science observation and evidence guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "middle-school learners observing living systems, materials, force, energy, and local environments with an Ethiopian wolf mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Ethiopia ENC Grade 7 General Science. Scene: middle-school learners observing living systems, materials, force, energy, and local environments with an Ethiopian wolf mascot. Include a friendly Ethiopian wolf mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "phase1-testing-cover-ready",
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 61454,
+      "sha256": "9d733bfd2b952005addf6bfa57d23150b17e7c349e94a199b0f303dc06c2030a",
+      "kind": "cover",
+      "altText": "KITABU QUEST Grade 7 General Science cover",
+      "generation": "cover-not-started"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-eth-enc-grade-7-general-science.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-eth-enc-grade-7-general-science.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "coverageCaveat": "Configured generation currently covers English for Grades 4-10 plus reviewed-candidate drafts for selected verified ANRSEB textbook subjects. Official framework coverage is broader; see apps/api/data/curriculum/expected-matrix/ETH/ENC.json and generated audit apps/api/data/book-creator/ethiopia-coverage-gaps.json before treating Ethiopia as complete.",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication. Configured generation currently covers English for Grades 4-10 plus reviewed-candidate drafts for selected verified ANRSEB textbook subjects. Official framework coverage is broader; see apps/api/data/curriculum/expected-matrix/ETH/ENC.json and generated audit apps/api/data/book-creator/ethiopia-coverage-gaps.json before treating Ethiopia as complete."
+  },
+  "sourceDocuments": [
+    {
+      "id": "44855679-aa62-42e4-bad8-a382a46c3591",
+      "subject": "General Science",
+      "officialTitle": "Ethiopia Grade 7 General Science Student Textbook",
+      "countryCode": "ETH",
+      "curriculumCode": "ENC",
+      "gradeCode": "GRADE_7",
+      "gradeLocalLevel": "Grade 7",
+      "localLevel": "Grade 7",
+      "extractionStatus": "normalized",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "regional_official_anrseb",
+      "sourceUrl": "https://www.anrseb.gov.et/wp-content/uploads/New_Text_Books/Grade7/Grade%207_General%20Science_Textbook.pdf",
+      "objectKey": "data/curriculum/source-files/ETH/6786de99621e5844099cc065471e6832dfe4a9799f22beb00df358a13d7c27f4.pdf",
+      "metadata": {
+        "type": "regional_official_subject_textbook_candidate",
+        "gradeCode": "GRADE_7",
+        "byteLength": 17571919,
+        "reviewNote": "Direct regional .gov.et textbook PDF candidate. Human review is required before any generated content can be marked ready.",
+        "verifiedAt": "2026-07-03T22:58:11.635Z",
+        "contentType": "application/pdf",
+        "documentUrl": "https://www.anrseb.gov.et/wp-content/uploads/New_Text_Books/Grade7/Grade%207_General%20Science_Textbook.pdf",
+        "importBatch": "ethiopia-anrseb-source-candidates-2026-07-04-v1",
+        "markdownPath": "data/curriculum/markdown/ETH/ENC/GRADE_7/general-science/44855679-aa62-42e4-bad8-a382a46c3591.md",
+        "normalizedAt": "2026-07-03T23:42:22.669Z",
+        "normalizedBy": "ethiopia-textbook-unit-normalizer-2026-07-04-v1",
+        "sourcePageUrl": "https://anrseb.gov.et/downloads/textbooks/",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "provenanceTier": "regional_official_anrseb",
+        "reviewRequired": true,
+        "markdownChecksum": "be1814cce565fb944e1aa2aa968d094c6ad77bd7b53dd515a97e92c4a687f785",
+        "markdownPageCount": 207,
+        "expectedByteLength": 17571919,
+        "federalMoeOfficial": false,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/ETH/ENC/GRADE_7/general-science/44855679-aa62-42e4-bad8-a382a46c3591.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "be1814cce565fb944e1aa2aa968d094c6ad77bd7b53dd515a97e92c4a687f785",
+          "pageCount": 207,
+          "generatedAt": "2026-07-03T23:30:55.262Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/ETH/ENC/GRADE_7/general-science/44855679-aa62-42e4-bad8-a382a46c3591.json",
+          "sourceChecksum": "f9ed9d005b2adacd1c91862ba73562e683e873b74cb87c03a48eb734962b9585"
+        },
+        "verificationMethod": "http_pdf_header_check",
+        "markdownGeneratedAt": "2026-07-03T23:30:55.262Z",
+        "normalizedUnitCount": 104
+      }
+    }
+  ],
+  "packageChecksum": "cc35d5c659369271c597649f4948b9e2570aca0c01737756ff6b292b9c1c5bad",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 61454,
+    "sha256": "9d733bfd2b952005addf6bfa57d23150b17e7c349e94a199b0f303dc06c2030a"
+  },
+  "publicationStatus": "published-for-testing",
+  "testingRelease": {
+    "id": "phase1-testing-release-2026-07-04",
+    "publishedAt": "2026-07-04T13:27:56Z",
+    "scope": "manual testing snapshot",
+    "contentReviewPaused": true,
+    "phase2Required": true,
+    "contentStatusPreserved": "content-draft-review-needed",
+    "note": "Published for app testing only. Content review and enhancement remain open."
+  },
+  "reviewStatus": "phase2-content-enhancement-required"
+}

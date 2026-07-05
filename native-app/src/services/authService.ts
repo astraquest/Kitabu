@@ -147,6 +147,8 @@ export async function completeAccountOnboarding(input: {
   mpesaPhoneNumber?: string | null;
   school?: string;
   county?: string;
+  countryCode?: string | null;
+  curriculumCode?: string | null;
 }): Promise<AuthSession> {
   const session = await loadStoredAuthSession();
   if (!session?.accessToken) {

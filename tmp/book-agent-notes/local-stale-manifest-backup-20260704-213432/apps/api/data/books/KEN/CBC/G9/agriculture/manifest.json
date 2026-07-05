@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-grade-9-agriculture",
+  "title": "KITABU QUEST Grade 9 Agriculture",
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 9",
+  "subject": "Agriculture",
+  "subjectSlug": "agriculture",
+  "subjectColor": "#15803D",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "learner-first-language-depth-renderers-2026-07-01-v10",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-reviewed-draft",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T12:59:48Z",
+  "sourceSnapshotHash": "7f4d5c204ee3118a8d0a3b1bfe497d89633082a5acbea53b0d3b7d3b10cbec50",
+  "bookPlanHash": "809aa392457fc6a238fe2d6b0c6d8ca03dc16df5aa9b5b05392147f3d52c19d7",
+  "pageCount": 83,
+  "wordCount": 10002,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "ageBand": "junior-secondary",
+    "coversDeferred": true,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "topicCount": 9,
+    "outcomeCount": 20,
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "KEN",
+    "subject": "Agriculture",
+    "species": "honeybee",
+    "role": "farming teamwork guide",
+    "sourceRationale": "Pollination, farming systems, teamwork, food production, environmental care."
+  },
+  "cover": {
+    "scene": "learners working in a school garden with seedlings, compost, watering cans, and a friendly honeybee mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Kenya CBC Grade 9 Agriculture. Scene: learners working in a school garden with seedlings, compost, watering cans, and a friendly honeybee mascot. Include a friendly honeybee mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "assets": [],
+  "downloads": {
+    "markdown": "kitabu-quest-grade-9-agriculture.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-grade-9-agriculture.pdf"
+  },
+  "sourceDocuments": [
+    {
+      "id": "fa977ddd-3536-4b23-bc11-286f5301c6cf",
+      "subject": "Agriculture",
+      "officialTitle": "Competency Based Curriculum Grade 9 Agriculture",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_9",
+      "gradeLocalLevel": "Grade 9",
+      "localLevel": "Grade 9",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/14lKcmhXxEMYRHLISkK8j-ZzcCmLE59hf/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_9",
+        "documentUrl": "https://drive.google.com/file/d/14lKcmhXxEMYRHLISkK8j-ZzcCmLE59hf/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_9/agriculture/fa977ddd-3536-4b23-bc11-286f5301c6cf.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-nine-designs/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "9d876102507e8973394db769f7724f4db97b85c32730a41dcdbdedba6046ad65",
+        "markdownPageCount": 36,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_9/agriculture/fa977ddd-3536-4b23-bc11-286f5301c6cf.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "9d876102507e8973394db769f7724f4db97b85c32730a41dcdbdedba6046ad65",
+          "pageCount": 36,
+          "generatedAt": "2026-06-29T16:35:09.758Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "37c9818cc6033661c2a087b90bdb4e4f3572f64e3369946f39cdb48d31600e3f"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:09.758Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    }
+  ]
+}

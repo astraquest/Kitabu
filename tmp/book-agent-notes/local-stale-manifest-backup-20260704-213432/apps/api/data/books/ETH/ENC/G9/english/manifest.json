@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-eth-enc-grade-9-english",
+  "title": "KITABU QUEST Grade 9 English",
+  "country": "ETH",
+  "curriculum": "ENC",
+  "grade": "Grade 9",
+  "subject": "English",
+  "subjectSlug": "english",
+  "subjectColor": "#2563EB",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v22",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T07:22:09Z",
+  "sourceSnapshotHash": "0441ee709ca9f46b323aeae3f18b2dbc978fc5194a4b45b902508aaf9450ccb8",
+  "bookPlanHash": "21a6711c5a48a4b05133c821ed774dda5d930c903d8349d0bf8e7f38c32cd2de",
+  "pageCount": 111,
+  "wordCount": 13209,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 8,
+    "outcomeCount": 8,
+    "generatedFallbackTopicCount": 8,
+    "normalizedSourceTopicCount": 0,
+    "sourceDerivationStatus": "generated-outline-fallback-review-required",
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "ETH",
+    "subject": "English",
+    "species": "gelada",
+    "role": "communication and reading guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners reading and discussing stories in an Ethiopian school library with a friendly gelada mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Ethiopia ENC Grade 9 English. Scene: learners reading and discussing stories in an Ethiopian school library with a friendly gelada mascot. Include a friendly gelada mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 90877,
+    "sha256": "497b5d5d5768480d87446996ba15795acae651c9a953851864bd32a894002da0"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 90877,
+      "sha256": "497b5d5d5768480d87446996ba15795acae651c9a953851864bd32a894002da0",
+      "kind": "cover",
+      "altText": "KITABU QUEST Grade 9 English cover with gelada",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-eth-enc-grade-9-english.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-eth-enc-grade-9-english.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from fallback teaching outlines because source extraction did not provide enough clean learner-facing curriculum units. Replace with normalized source-derived topics and review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "9245c293-0458-4431-b315-b77d01ca2036",
+      "subject": "English",
+      "officialTitle": "Ethiopian National Curriculum Grade 9 English",
+      "countryCode": "ETH",
+      "curriculumCode": "ENC",
+      "gradeCode": "GRADE_9",
+      "gradeLocalLevel": "Grade 9",
+      "localLevel": "Grade 9",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://learn-english.moe.gov.et/storage/English%20Textbook/15.%20English%20Grade%209%20TextbookFinal_June%2030.pdf",
+      "objectKey": "data/curriculum/source-files/ETH/5a39eb33ba923bc0ae38efa77a4acc8021d7a0bc2618921e21cfb4ff80ab24d6.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_9",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://learn-english.moe.gov.et/storage/English%20Textbook/15.%20English%20Grade%209%20TextbookFinal_June%2030.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/ETH/ENC/GRADE_9/english/9245c293-0458-4431-b315-b77d01ca2036.md",
+        "sourcePageUrl": "https://www.moe.gov.et/",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "moe.gov.et",
+          "learn-english.moe.gov.et"
+        ],
+        "markdownChecksum": "11b09823bd8c34c9af12a91488ef5a9775e23da1df7ec2bfedba5259821f1ef1",
+        "markdownPageCount": 235,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/ETH/ENC/GRADE_9/english/9245c293-0458-4431-b315-b77d01ca2036.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "11b09823bd8c34c9af12a91488ef5a9775e23da1df7ec2bfedba5259821f1ef1",
+          "pageCount": 235,
+          "generatedAt": "2026-07-01T06:11:31.831Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/ETH/ENC/GRADE_9/english/9245c293-0458-4431-b315-b77d01ca2036.json",
+          "sourceChecksum": "2fac3b9a7fc7345fb2d0576d7947eb0fcae6a58316ef041987c48848eebe4824"
+        },
+        "markdownGeneratedAt": "2026-07-01T06:11:31.831Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

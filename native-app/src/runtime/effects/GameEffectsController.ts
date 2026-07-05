@@ -29,6 +29,9 @@ export function useCrazyBalloonEffects(events: CrazyBalloonEvent[]) {
       case 'rescue_started':
         setEffect('danger_flash');
         break;
+      case 'rescued':
+        setEffect('victory_flash');
+        break;
       case 'match_result':
         setEffect(latest.result === 'win' ? 'victory_flash' : 'defeat_flash');
         break;

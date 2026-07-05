@@ -11,6 +11,7 @@ import {
 const COLORS = ['#FF5252', '#448AFF', '#69F0AE', '#FFD740', '#E040FB', '#FF6E40'];
 const MAX_BOTTOM_PCT = 116;
 const SPAWN_CHANCE_PER_TICK = 0.2;
+const MAX_RESCUES = 3;
 const RESCUE_DURATION_SEC = 5;
 
 function shuffleOptions(question: CrazyBalloonQuestion, rng: SeededRandom): CrazyBalloonQuestion {
@@ -124,8 +125,8 @@ export function createCrazyBalloonEngine(rng: SeededRandom): GameEngine<CrazyBal
 
           const remaining = state.balloons.filter(item => item.id !== input.id);
           if (balloon.isMonster) {
-            if (state.livesUsed >= 2) {
-              emit({ type: 'monster_attack' });
+            emit({ type: 'monster_attack' });
+            if (state.livesUsed >= MAX_RESCUES) {
               return finishRun({ ...state, balloons: remaining }, 'loss');
             }
 
@@ -150,10 +151,12 @@ export function createCrazyBalloonEngine(rng: SeededRandom): GameEngine<CrazyBal
           }
 
           if (input.answer === state.rescueQuestion.answer) {
+            const livesUsed = state.livesUsed + 1;
+            emit({ type: 'rescued', rescuesUsed: livesUsed });
             return {
               ...state,
               status: 'playing',
-              livesUsed: state.livesUsed + 1,
+              livesUsed,
               rescueQuestion: null,
               rescueTimeLeftSec: 0,
             };

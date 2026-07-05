@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-grade-5-mathematics",
+  "title": "KITABU QUEST Grade 5 Mathematics",
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 5",
+  "subject": "Mathematics",
+  "subjectSlug": "mathematics",
+  "subjectColor": "#047857",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "learner-first-language-depth-renderers-2026-07-01-v10",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-reviewed-draft",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T12:25:01Z",
+  "sourceSnapshotHash": "6428a70f9739bf19a280b5a734544dc1e4fe7496c5729a9dbd5331b9c1bc787c",
+  "bookPlanHash": "a7479a38bcf75efe42d319042c694ea219647e863608449a14e0172b66ac03cf",
+  "pageCount": 248,
+  "wordCount": 47303,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "ageBand": "upper-primary",
+    "coversDeferred": true,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "topicCount": 31,
+    "outcomeCount": 92,
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "KEN",
+    "subject": "Mathematics",
+    "species": "lion",
+    "role": "problem-solving guide",
+    "sourceRationale": "User-approved Mathematics mascot; confidence, strength, and Kenya wildlife association."
+  },
+  "cover": {
+    "scene": "learners solving real-life problems with blocks, measuring tools, maps, and a friendly lion mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Kenya CBC Grade 5 Mathematics. Scene: learners solving real-life problems with blocks, measuring tools, maps, and a friendly lion mascot. Include a friendly lion mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "assets": [],
+  "downloads": {
+    "markdown": "kitabu-quest-grade-5-mathematics.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-grade-5-mathematics.pdf"
+  },
+  "sourceDocuments": [
+    {
+      "id": "6f97be5a-66fe-4f15-8bf0-a0338437b33a",
+      "subject": "Mathematics",
+      "officialTitle": "Competency Based Curriculum Grade 5 Mathematics",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_5",
+      "gradeLocalLevel": "Grade 5",
+      "localLevel": "Grade 5",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/1ShOUex4qEQosDCvkKdaXIRvteOILPHTP/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_5",
+        "documentUrl": "https://drive.google.com/file/d/1ShOUex4qEQosDCvkKdaXIRvteOILPHTP/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_5/mathematics/6f97be5a-66fe-4f15-8bf0-a0338437b33a.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-five-designs/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "0b71f33db274264632fde7a80fd5aa2dcd141ecc9d0404cf353839cabbd81aae",
+        "markdownPageCount": 69,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_5/mathematics/6f97be5a-66fe-4f15-8bf0-a0338437b33a.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "0b71f33db274264632fde7a80fd5aa2dcd141ecc9d0404cf353839cabbd81aae",
+          "pageCount": 69,
+          "generatedAt": "2026-06-29T16:35:08.656Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "733a5807a6e09f750aff3af2c795462679fb8681ee4a0be88baec132971506e8"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:08.656Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    }
+  ]
+}

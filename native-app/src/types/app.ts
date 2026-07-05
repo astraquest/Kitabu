@@ -63,6 +63,8 @@ export interface AuthUser {
   roles: AuthRole[];
   gender?: GenderOption;
   grade?: string | null;
+  countryCode?: string | null;
+  curriculumCode?: string | null;
   onboardingCompleted?: boolean;
 }
 

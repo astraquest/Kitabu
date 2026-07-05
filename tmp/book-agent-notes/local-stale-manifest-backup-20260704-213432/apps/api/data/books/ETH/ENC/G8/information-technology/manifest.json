@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-eth-enc-grade-8-information-technology",
+  "title": "KITABU QUEST Grade 8 Information Technology",
+  "country": "ETH",
+  "curriculum": "ENC",
+  "grade": "Grade 8",
+  "subject": "Information Technology",
+  "subjectSlug": "information-technology",
+  "subjectColor": "#4338CA",
+  "version": "draft-2026-07-03",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-03-v28",
+  "status": "published-for-testing",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "phase1-testing-cover-attached",
+  "generatedAt": "2026-07-03T21:53:23Z",
+  "sourceSnapshotHash": "eeba9b8c9cdcd0a15ba947a7be700efdf738d5bcd717c9bd378160511a645496",
+  "bookPlanHash": "360f71d462e0e6f510a7b95c3a31d54a49114b190ef9eca4c5b887fef4eea3e5",
+  "pageCount": 247,
+  "wordCount": 25440,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 30,
+    "outcomeCount": 30,
+    "generatedFallbackTopicCount": 0,
+    "normalizedSourceTopicCount": 30,
+    "sourceDerivationStatus": "normalized-source-derived",
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "ETH",
+    "subject": "Information Technology",
+    "species": "gelada",
+    "role": "digital skills and safe computing guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners using computers safely in an Ethiopian school ICT lab with a friendly gelada mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Ethiopia ENC Grade 8 Information Technology. Scene: learners using computers safely in an Ethiopian school ICT lab with a friendly gelada mascot. Include a friendly gelada mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "phase1-testing-cover-ready",
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 64016,
+      "sha256": "c0701400f8f08f28ac82d527659c1451255a76ac3c76f4fc87435986b2cd7727",
+      "kind": "cover",
+      "altText": "KITABU QUEST Grade 8 Information Technology cover",
+      "generation": "cover-not-started"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-eth-enc-grade-8-information-technology.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-eth-enc-grade-8-information-technology.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "coverageCaveat": "Configured generation currently covers English for Grades 4-10 plus reviewed-candidate drafts for selected verified ANRSEB textbook subjects. Official framework coverage is broader; see apps/api/data/curriculum/expected-matrix/ETH/ENC.json and generated audit apps/api/data/book-creator/ethiopia-coverage-gaps.json before treating Ethiopia as complete.",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication. Configured generation currently covers English for Grades 4-10 plus reviewed-candidate drafts for selected verified ANRSEB textbook subjects. Official framework coverage is broader; see apps/api/data/curriculum/expected-matrix/ETH/ENC.json and generated audit apps/api/data/book-creator/ethiopia-coverage-gaps.json before treating Ethiopia as complete."
+  },
+  "sourceDocuments": [
+    {
+      "id": "2ccba9f2-bf2e-44ca-a6e7-f7cab700f502",
+      "subject": "Information Technology",
+      "officialTitle": "Ethiopia Grade 8 Information Technology Textbook",
+      "countryCode": "ETH",
+      "curriculumCode": "ENC",
+      "gradeCode": "GRADE_8",
+      "gradeLocalLevel": "Grade 8",
+      "localLevel": "Grade 8",
+      "extractionStatus": "normalized",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "regional_official_anrseb",
+      "sourceUrl": "https://www.anrseb.gov.et/wp-content/uploads/New_Text_Books/Grade8/Grade%208_Information%20Technology_Textbook.pdf",
+      "objectKey": "data/curriculum/source-files/ETH/1c95aa6f82f3414fe50d82a2fd701bd2eebbab8ad006fdfc4aa029bff4278569.pdf",
+      "metadata": {
+        "type": "regional_official_subject_textbook_candidate",
+        "gradeCode": "GRADE_8",
+        "byteLength": 10971589,
+        "reviewNote": "Direct regional .gov.et textbook PDF candidate. Human review is required before any generated content can be marked ready.",
+        "verifiedAt": "2026-07-03T21:43:53.277Z",
+        "contentType": "application/pdf",
+        "documentUrl": "https://www.anrseb.gov.et/wp-content/uploads/New_Text_Books/Grade8/Grade%208_Information%20Technology_Textbook.pdf",
+        "importBatch": "ethiopia-anrseb-source-candidates-2026-07-04-v1",
+        "markdownPath": "data/curriculum/markdown/ETH/ENC/GRADE_8/information-technology/2ccba9f2-bf2e-44ca-a6e7-f7cab700f502.md",
+        "normalizedAt": "2026-07-03T21:50:51.362Z",
+        "normalizedBy": "ethiopia-textbook-unit-normalizer-2026-07-04-v1",
+        "sourcePageUrl": "https://anrseb.gov.et/downloads/textbooks/",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "provenanceTier": "regional_official_anrseb",
+        "reviewRequired": true,
+        "markdownChecksum": "4a12223f2629676b40b760c78337135aaee92aad1e8d1234871f862e9bae8324",
+        "markdownPageCount": 115,
+        "expectedByteLength": 10971589,
+        "federalMoeOfficial": false,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/ETH/ENC/GRADE_8/information-technology/2ccba9f2-bf2e-44ca-a6e7-f7cab700f502.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "4a12223f2629676b40b760c78337135aaee92aad1e8d1234871f862e9bae8324",
+          "pageCount": 115,
+          "generatedAt": "2026-07-03T21:47:36.997Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/ETH/ENC/GRADE_8/information-technology/2ccba9f2-bf2e-44ca-a6e7-f7cab700f502.json",
+          "sourceChecksum": "cad261935c9834f40a580f5e766295da86af86e495e7d07ffb8c0935d5dc77eb"
+        },
+        "verificationMethod": "http_pdf_header_check",
+        "markdownGeneratedAt": "2026-07-03T21:47:36.997Z",
+        "normalizedUnitCount": 33
+      }
+    }
+  ],
+  "packageChecksum": "fb1493f610ad63f7c6e441b550be638081f137806c19902e205a0eb42d21c252",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 64016,
+    "sha256": "c0701400f8f08f28ac82d527659c1451255a76ac3c76f4fc87435986b2cd7727"
+  },
+  "publicationStatus": "published-for-testing",
+  "testingRelease": {
+    "id": "phase1-testing-release-2026-07-04",
+    "publishedAt": "2026-07-04T13:27:56Z",
+    "scope": "manual testing snapshot",
+    "contentReviewPaused": true,
+    "phase2Required": true,
+    "contentStatusPreserved": "content-draft-review-needed",
+    "note": "Published for app testing only. Content review and enhancement remain open."
+  },
+  "reviewStatus": "phase2-content-enhancement-required"
+}

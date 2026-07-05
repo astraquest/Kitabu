@@ -1,7 +1,20 @@
 import React from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import {
+  Image,
+  ImageSourcePropType,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { ChevronLeft, Crown, Flame, Trophy } from 'lucide-react-native';
+
+const quizBattleIcon = require('../assets/game-icons/quiz-battle.png');
+const crazyBalloonIcon = require('../assets/game-icons/crazy-balloon.png');
+const chessMasterIcon = require('../assets/game-icons/chess-master.png');
+const manyangaIcon = require('../assets/game-icons/manyanga.png');
 
 interface GameZoneScreenProps {
   totalPoints: number;
@@ -15,7 +28,7 @@ interface GameCard {
   id: 'crazy-balloon' | 'quiz-battle' | 'chess-master' | 'manyanga';
   title: string;
   description: string;
-  emoji: string;
+  icon: ImageSourcePropType;
   gradient: [string, string];
 }
 
@@ -24,28 +37,28 @@ const GAMES: GameCard[] = [
     id: 'quiz-battle',
     title: 'Quiz Battle',
     description: 'Challenge other students in head-to-head quiz battles',
-    emoji: '⚔️',
+    icon: quizBattleIcon,
     gradient: ['#7C3AED', '#4F46E5'],
   },
   {
     id: 'crazy-balloon',
     title: 'Crazy Balloon',
-    description: 'Pop fast-moving balloons before they escape the screen',
-    emoji: '🎈',
+    description: 'Pop balloons, dodge hidden monsters, and answer rescue questions fast',
+    icon: crazyBalloonIcon,
     gradient: ['#4E9A4C', '#2F6B3A'],
   },
   {
     id: 'chess-master',
     title: 'Chess Master',
     description: 'Master the royal game of chess with tactical puzzles and strategic battles',
-    emoji: '♟️',
+    icon: chessMasterIcon,
     gradient: ['#2E6FB5', '#2C7A7B'],
   },
   {
     id: 'manyanga',
     title: 'Manyanga!',
     description: 'Race matatus through Nairobi streets in this adrenaline-packed bus racing game',
-    emoji: '🚐',
+    icon: manyangaIcon,
     gradient: ['#C0574D', '#8B3A2F'],
   },
 ];
@@ -108,7 +121,7 @@ export function GameZoneScreen({
                 end={{ x: 1, y: 1 }}
                 style={styles.gameCard}>
                 <View style={styles.iconTile}>
-                  <Text style={styles.iconEmoji}>{game.emoji}</Text>
+                  <Image source={game.icon} style={styles.gameIcon} resizeMode="cover" />
                 </View>
                 <View style={styles.cardBody}>
                   <Text style={styles.gameTitle}>{game.title}</Text>
@@ -252,9 +265,11 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(255,255,255,0.35)',
     alignItems: 'center',
     justifyContent: 'center',
+    overflow: 'hidden',
   },
-  iconEmoji: {
-    fontSize: 38,
+  gameIcon: {
+    width: '100%',
+    height: '100%',
   },
   cardBody: {
     flex: 1,

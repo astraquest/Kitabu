@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-rwa-reb-cbc-s2-chemistry",
+  "title": "KITABU QUEST S2 Chemistry",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "S2",
+  "subject": "Chemistry",
+  "subjectSlug": "chemistry",
+  "subjectColor": "#7C3AED",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v17",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T06:44:00Z",
+  "sourceSnapshotHash": "d6c849ee164bba1376b4f93e2d07c1b9b8e5143cfe9565fb21b46f9f91df83bb",
+  "bookPlanHash": "343bc48ccbdbe0a0b75e0b6a1c24f4e8e170263bd99a97fca444ab4a24e30690",
+  "pageCount": 85,
+  "wordCount": 8297,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 9,
+    "outcomeCount": 10,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "RWA",
+    "subject": "Chemistry",
+    "species": "chameleon",
+    "role": "science observation guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners carrying out a safe chemistry observation with a chameleon mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Rwanda REB-CBC S2 Chemistry. Scene: learners carrying out a safe chemistry observation with a chameleon mascot. Include a friendly chameleon mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 89472,
+    "sha256": "38aef77c4a32f71222d19ee788a599c4ad81ba9a43db40f65831b8cdf4831f62"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 89472,
+      "sha256": "38aef77c4a32f71222d19ee788a599c4ad81ba9a43db40f65831b8cdf4831f62",
+      "kind": "cover",
+      "altText": "KITABU QUEST S2 Chemistry cover with chameleon",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-rwa-reb-cbc-s2-chemistry.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-rwa-reb-cbc-s2-chemistry.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "3bca3899-cfd5-4fce-9f30-2e0dd02af7c1",
+      "subject": "Chemistry",
+      "officialTitle": "Rwanda Competence Based Curriculum S2 Chemistry",
+      "countryCode": "RWA",
+      "curriculumCode": "REB-CBC",
+      "gradeCode": "S2",
+      "gradeLocalLevel": "S2",
+      "localLevel": "S2",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://elearning.reb.rw/pluginfile.php/55389/mod_resource/content/1/O-Level_competency-based__chemistry_syllabus__-October___2015%20%281%29.pdf",
+      "objectKey": "data/curriculum/source-files/RWA/406fd9d40dfe5691b50372e74c2ad08b8dae3220ec0b79f2f19e07562098addc.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "S2",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://elearning.reb.rw/pluginfile.php/55389/mod_resource/content/1/O-Level_competency-based__chemistry_syllabus__-October___2015%20%281%29.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S2/chemistry/3bca3899-cfd5-4fce-9f30-2e0dd02af7c1.md",
+        "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "reb.gov.rw",
+          "reb.rw",
+          "elearning.reb.rw"
+        ],
+        "markdownChecksum": "06f7b45a476447b1b571a9b70479fe7db24f8eaf1563e8f9f746e25390587d54",
+        "markdownPageCount": 93,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/RWA/REB-CBC/S2/chemistry/3bca3899-cfd5-4fce-9f30-2e0dd02af7c1.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "06f7b45a476447b1b571a9b70479fe7db24f8eaf1563e8f9f746e25390587d54",
+          "pageCount": 93,
+          "generatedAt": "2026-07-01T01:17:18.827Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S2/chemistry/3bca3899-cfd5-4fce-9f30-2e0dd02af7c1.json",
+          "sourceChecksum": "f57dfd8b41744da3ab49b7329d82a9a4043b2e76a45ad5e071541ece875d0c17"
+        },
+        "markdownGeneratedAt": "2026-07-01T01:17:18.827Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

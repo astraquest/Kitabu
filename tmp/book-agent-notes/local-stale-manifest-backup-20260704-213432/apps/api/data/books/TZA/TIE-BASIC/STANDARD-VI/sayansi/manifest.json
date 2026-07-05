@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-tza-tie-basic-standard-vi-sayansi",
+  "title": "KITABU QUEST Standard VI Sayansi",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Standard VI",
+  "subject": "Sayansi",
+  "subjectSlug": "sayansi",
+  "subjectColor": "#7C3AED",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v13",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:42:20Z",
+  "sourceSnapshotHash": "16423fd8f80def1d35d31a44e62ce3c00aeffcf14ba43c0b9717c8c508de387c",
+  "bookPlanHash": "469ab063fb595b6b9bdf54e9a539e7e5425b4fc34b067935fa361db914ea1eb3",
+  "pageCount": 85,
+  "wordCount": 8217,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 8,
+    "outcomeCount": 8,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "TZA",
+    "subject": "Sayansi",
+    "species": "chameleon",
+    "role": "science observation guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners observing plants and simple experiments with a chameleon mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Tanzania TIE-BASIC Standard VI Sayansi. Scene: learners observing plants and simple experiments with a chameleon mascot. Include a friendly chameleon mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 89934,
+    "sha256": "da29b9a7b6e928978a0ec8218c437d4a969f10ae00d6bc99916d804d98b54bdf"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 89934,
+      "sha256": "da29b9a7b6e928978a0ec8218c437d4a969f10ae00d6bc99916d804d98b54bdf",
+      "kind": "cover",
+      "altText": "KITABU QUEST Standard VI Sayansi cover with chameleon",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-tza-tie-basic-standard-vi-sayansi.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-tza-tie-basic-standard-vi-sayansi.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "54cc5be7-18c5-4232-acf5-dc65f6a7f9c2",
+      "subject": "Sayansi",
+      "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard VI Sayansi",
+      "countryCode": "TZA",
+      "curriculumCode": "TIE-BASIC",
+      "gradeCode": "STANDARD_VI",
+      "gradeLocalLevel": "Standard VI",
+      "localLevel": "Standard VI",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727175605-Muhtasari%20wa%20Somo%20la%20Sayansi%20Shule%20ya%20Msingi%20Darasa%20la%20III%20-%20VI.pdf",
+      "objectKey": "data/curriculum/source-files/TZA/dd6e7c5b8dd262c89a5f7b2e2d00f285eceae767cb0741f852eb6004a4574772.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "STANDARD_VI",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727175605-Muhtasari%20wa%20Somo%20la%20Sayansi%20Shule%20ya%20Msingi%20Darasa%20la%20III%20-%20VI.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/sayansi/54cc5be7-18c5-4232-acf5-dc65f6a7f9c2.md",
+        "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "tie.go.tz"
+        ],
+        "markdownChecksum": "ff710b80ecdef0688e45bce22d1d7f9f1ff179edbce247cd3371eb057cc38644",
+        "markdownPageCount": 61,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/sayansi/54cc5be7-18c5-4232-acf5-dc65f6a7f9c2.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "ff710b80ecdef0688e45bce22d1d7f9f1ff179edbce247cd3371eb057cc38644",
+          "pageCount": 61,
+          "generatedAt": "2026-06-29T16:49:00.245Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "6be17e54b886b1dc8acf6371919e353b3015c2afc9c0ea49624b2e34559911d8"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:49:00.245Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

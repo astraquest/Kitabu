@@ -65,7 +65,143 @@ export const SUBJECTS: Subject[] = [
   },
 ];
 
-export const INITIAL_CURRICULUM_DATA: Record<string, LearningStrand[]> = {};
+const GRADE_6_CURRICULUM_SEEDS: Record<string, {
+  strandTitle: string;
+  subTitle: string;
+  subStrandTitle: string;
+  type: 'knowledge' | 'skill' | 'competence';
+  outcome: string;
+  inquiryQuestion: string;
+  lessonContent: string;
+}> = {
+  math: {
+    strandTitle: 'Numbers',
+    subTitle: 'Build fluency with whole numbers, fractions, and decimals.',
+    subStrandTitle: 'Fractions and Decimals',
+    type: 'skill',
+    outcome: 'Compare, order, and convert fractions and decimals in practical Grade 6 situations.',
+    inquiryQuestion: 'How can fractions and decimals describe the same amount?',
+    lessonContent: 'Use fraction models and place value tables to compare common fractions and decimals. Convert one form to the other, then explain which value is greater and why.',
+  },
+  english: {
+    strandTitle: 'Listening and Speaking',
+    subTitle: 'Develop confident communication and active listening.',
+    subStrandTitle: 'Active Listening',
+    type: 'skill',
+    outcome: 'Listen to spoken information, identify key ideas, and respond using clear Grade 6 language.',
+    inquiryQuestion: 'What makes a listener understand and remember important details?',
+    lessonContent: 'Practise listening for the speaker, topic, key points, and supporting details. Use short notes to ask a follow-up question or retell the message accurately.',
+  },
+  science: {
+    strandTitle: 'Living Things and Their Environment',
+    subTitle: 'Explore how organisms survive and interact.',
+    subStrandTitle: 'Body Systems',
+    type: 'knowledge',
+    outcome: 'Describe how selected body systems work together to keep human beings healthy.',
+    inquiryQuestion: 'Why do body systems need to work together?',
+    lessonContent: 'Study how the respiratory and circulatory systems exchange and transport oxygen. Connect each organ to its role, then explain one healthy habit that supports the system.',
+  },
+  kiswahili: {
+    strandTitle: 'Kusikiliza na Kuzungumza',
+    subTitle: 'Kuimarisha mawasiliano bora kwa Kiswahili.',
+    subStrandTitle: 'Mazungumzo ya Heshima',
+    type: 'skill',
+    outcome: 'Kutumia msamiati na matamshi sahihi kushiriki mazungumzo mafupi kwa heshima.',
+    inquiryQuestion: 'Ni maneno gani hufanya mazungumzo yawe ya heshima?',
+    lessonContent: 'Jifunze salamu, maneno ya heshima, na jinsi ya kuuliza au kujibu swali kwa utulivu. Fanya mazoezi ya mazungumzo mafupi na mwenzako.',
+  },
+  social: {
+    strandTitle: 'Citizenship',
+    subTitle: 'Understand rights, responsibilities, and national identity.',
+    subStrandTitle: 'Kenyan Citizenship',
+    type: 'knowledge',
+    outcome: 'Identify ways Kenyan citizens show responsibility at home, school, and in the community.',
+    inquiryQuestion: 'How do responsible citizens help their community?',
+    lessonContent: 'Review examples of citizen responsibilities such as respecting others, caring for public property, and following rules. Match each responsibility to a real school or community situation.',
+  },
+  agriculture: {
+    strandTitle: 'Crop Production',
+    subTitle: 'Learn practical ways to grow and care for crops.',
+    subStrandTitle: 'Kitchen Garden Care',
+    type: 'skill',
+    outcome: 'Describe simple practices for preparing, planting, watering, and caring for a kitchen garden.',
+    inquiryQuestion: 'What helps vegetables grow well in a small garden?',
+    lessonContent: 'Explore soil preparation, seed spacing, watering, weeding, and safe pest control. Plan a small kitchen garden using locally available materials.',
+  },
+  creative_arts: {
+    strandTitle: 'Creating and Performing',
+    subTitle: 'Use art, music, and movement to communicate ideas.',
+    subStrandTitle: 'Pattern and Rhythm',
+    type: 'skill',
+    outcome: 'Create a simple visual or performance pattern that communicates an idea clearly.',
+    inquiryQuestion: 'How can repeated patterns make art or music more interesting?',
+    lessonContent: 'Study repeated shapes, colours, beats, and movements. Create a short pattern, perform or display it, then explain the idea behind the choices.',
+  },
+  ai_education: {
+    strandTitle: 'Responsible AI Use',
+    subTitle: 'Learn how to use AI tools safely and thoughtfully.',
+    subStrandTitle: 'Asking Better Questions',
+    type: 'competence',
+    outcome: 'Write a clear prompt that gives an AI tutor enough context to provide useful learning help.',
+    inquiryQuestion: 'What details help an AI tutor understand what I need?',
+    lessonContent: 'Compare vague and specific prompts. Include grade, subject, topic, what is confusing, and the kind of help needed before asking an AI tutor for support.',
+  },
+};
+
+function buildGrade6CurriculumData() {
+  return SUBJECTS.reduce<Record<string, LearningStrand[]>>((data, subject) => {
+    const seed = GRADE_6_CURRICULUM_SEEDS[subject.id];
+    if (!seed) {
+      return data;
+    }
+
+    data[`Grade 6-${subject.id}`] = [
+      {
+        id: `grade-6-${subject.id}-strand-1`,
+        title: seed.strandTitle,
+        subTitle: seed.subTitle,
+        number: '1',
+        subStrands: [
+          {
+            id: `grade-6-${subject.id}-sub-strand-1`,
+            title: seed.subStrandTitle,
+            number: '1.1',
+            type: seed.type,
+            description: seed.outcome,
+            pages: [
+              {
+                pageId: `grade-6-${subject.id}-lesson-1`,
+                title: seed.subStrandTitle,
+                content: seed.lessonContent,
+                estimatedMinutes: 8,
+              },
+            ],
+            isLocked: false,
+            isCompleted: false,
+            masteryScore: null,
+            outcomes: [
+              {
+                id: `grade-6-${subject.id}-outcome-1`,
+                text: seed.outcome,
+              },
+            ],
+            inquiryQuestions: [
+              {
+                id: `grade-6-${subject.id}-inquiry-1`,
+                text: seed.inquiryQuestion,
+              },
+            ],
+          },
+        ],
+      },
+    ];
+
+    return data;
+  }, {});
+}
+
+export const INITIAL_CURRICULUM_DATA: Record<string, LearningStrand[]> =
+  buildGrade6CurriculumData();
 export const FALLBACK_STRAND: LearningStrand = {
   id: 'strand-empty',
   title: 'No Curriculum Available',
@@ -175,72 +311,6 @@ export const INITIAL_ASSIGNMENTS: Assignment[] = [
         correctAnswer: 'Evidence shows that an answer is based on the text.',
         userAnswer: 'It proves the answer comes from what I read.',
         explanation: 'Evidence connects your answer to the passage.',
-      },
-    ],
-  },
-  {
-    id: 'sample-homework-kiswahili-insha',
-    title: 'Uandishi wa Insha Fupi',
-    subject: 'Kiswahili',
-    description: 'Jibu maswali kuhusu mpangilio wa insha na matumizi sahihi ya msamiati.',
-    gradeLevel: 'Grade 6',
-    dueDate: '2026-06-30',
-    status: 'pending',
-    questions: [
-      {
-        id: 1,
-        type: 'MCQ',
-        text: 'Sehemu ya kwanza ya insha huitwaje?',
-        options: ['Hitimisho', 'Mwili', 'Utangulizi', 'Marejeleo'],
-        correctAnswer: 'Utangulizi',
-        explanation: 'Utangulizi humwelekeza msomaji kwenye mada ya insha.',
-      },
-      {
-        id: 2,
-        type: 'TRUE_FALSE',
-        text: 'Hitimisho linapaswa kurudia wazo kuu kwa ufupi.',
-        correctAnswer: 'True',
-        explanation: 'Hitimisho hufunga insha kwa kusisitiza hoja muhimu.',
-      },
-      {
-        id: 3,
-        type: 'SHORT_ANSWER',
-        text: 'Taja sifa moja ya aya nzuri.',
-        correctAnswer: 'Aya nzuri huwa na wazo moja kuu na sentensi zinazoliunga mkono.',
-        explanation: 'Aya iliyo wazi husaidia msomaji kufuata hoja.',
-      },
-    ],
-  },
-  {
-    id: 'sample-homework-social-counties',
-    title: 'Kenya Counties and Resources',
-    subject: 'Social Studies',
-    description: 'Match counties with natural resources and explain how communities use them.',
-    gradeLevel: 'Grade 6',
-    dueDate: '2026-07-02',
-    status: 'pending',
-    questions: [
-      {
-        id: 1,
-        type: 'MCQ',
-        text: 'Which county is well known for tea farming in Kenya?',
-        options: ['Kericho', 'Mombasa', 'Turkana', 'Garissa'],
-        correctAnswer: 'Kericho',
-        explanation: 'Kericho has a cool, wet climate that supports tea farming.',
-      },
-      {
-        id: 2,
-        type: 'TRUE_FALSE',
-        text: 'Fishing is an important economic activity around Lake Victoria.',
-        correctAnswer: 'True',
-        explanation: 'Communities around Lake Victoria rely on fishing for income and food.',
-      },
-      {
-        id: 3,
-        type: 'SHORT_ANSWER',
-        text: 'Give one reason natural resources should be conserved.',
-        correctAnswer: 'Conservation keeps resources available for future use.',
-        explanation: 'Responsible use protects livelihoods and the environment.',
       },
     ],
   },

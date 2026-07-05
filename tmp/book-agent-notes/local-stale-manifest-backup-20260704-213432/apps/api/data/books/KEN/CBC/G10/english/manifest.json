@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-grade-10-english",
+  "title": "KITABU QUEST Grade 10 English",
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 10",
+  "subject": "English",
+  "subjectSlug": "english",
+  "subjectColor": "#2563EB",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "learner-first-language-depth-renderers-2026-07-01-v10",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-reviewed-draft",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T13:13:57Z",
+  "sourceSnapshotHash": "8502c20cd86e0807d98eb25f004b2c44ea1010da94c10ae82fd91a4d006ade11",
+  "bookPlanHash": "2193cf872bc378fbb306a186a4e4deeef3f53e5ffd4999c09a744b58396a38c5",
+  "pageCount": 343,
+  "wordCount": 65736,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "ageBand": "senior-secondary",
+    "coversDeferred": true,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "topicCount": 84,
+    "outcomeCount": 204,
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "KEN",
+    "subject": "English",
+    "species": "fox rabbit",
+    "role": "reading and storytelling guide",
+    "sourceRationale": "User-approved English mascot for clever reading and storytelling."
+  },
+  "cover": {
+    "scene": "learners in a reading club with storybooks, a word wall, and a friendly fox rabbit mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Kenya CBC Grade 10 English. Scene: learners in a reading club with storybooks, a word wall, and a friendly fox rabbit mascot. Include a friendly fox rabbit mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "assets": [],
+  "downloads": {
+    "markdown": "kitabu-quest-grade-10-english.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-grade-10-english.pdf"
+  },
+  "sourceDocuments": [
+    {
+      "id": "62967258-7d77-42bc-bdfa-2ee5c21f9238",
+      "subject": "English",
+      "officialTitle": "Competency Based Curriculum Grade 10 English",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_10",
+      "gradeLocalLevel": "Grade 10",
+      "localLevel": "Grade 10",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/1OFcHiuBagmwsfkqWe2aaDCaf_4JR4tt7/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_10",
+        "documentUrl": "https://drive.google.com/file/d/1OFcHiuBagmwsfkqWe2aaDCaf_4JR4tt7/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_10/english/62967258-7d77-42bc-bdfa-2ee5c21f9238.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-ten/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "db5c5287e0f4c37eae180ca11fdb7d9ace2203a0d6bf25c6064a51581ea5df35",
+        "markdownPageCount": 128,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_10/english/62967258-7d77-42bc-bdfa-2ee5c21f9238.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "db5c5287e0f4c37eae180ca11fdb7d9ace2203a0d6bf25c6064a51581ea5df35",
+          "pageCount": 128,
+          "generatedAt": "2026-06-29T16:35:06.014Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "1ea0c38c63a944acfe2d9ad2204a67968f08b48329a6e71d8454e0be2bd69e6f"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:06.014Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    }
+  ]
+}

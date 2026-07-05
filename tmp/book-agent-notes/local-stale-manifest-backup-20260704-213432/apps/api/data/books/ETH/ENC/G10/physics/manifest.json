@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-eth-enc-grade-10-physics",
+  "title": "KITABU QUEST Grade 10 Physics",
+  "country": "ETH",
+  "curriculum": "ENC",
+  "grade": "Grade 10",
+  "subject": "Physics",
+  "subjectSlug": "physics",
+  "subjectColor": "#0E7490",
+  "version": "draft-2026-07-03",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-03-v28",
+  "status": "published-for-testing",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "phase1-testing-cover-attached",
+  "generatedAt": "2026-07-03T22:35:52Z",
+  "sourceSnapshotHash": "7a368b579d83f8e471f1a3f9cb2b791211af2c14ad96947d1070e3321f16e38e",
+  "bookPlanHash": "743413b2cba852f343c7ca6bae902abbbc1c1ed25c1bd68c66703aec75cb20b6",
+  "pageCount": 213,
+  "wordCount": 26633,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 55,
+    "outcomeCount": 55,
+    "generatedFallbackTopicCount": 0,
+    "normalizedSourceTopicCount": 55,
+    "sourceDerivationStatus": "normalized-source-derived",
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "ETH",
+    "subject": "Physics",
+    "species": "Ethiopian wolf",
+    "role": "measurement and systems guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "secondary learners exploring forces, energy, and measurement with simple apparatus and an Ethiopian wolf mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Ethiopia ENC Grade 10 Physics. Scene: secondary learners exploring forces, energy, and measurement with simple apparatus and an Ethiopian wolf mascot. Include a friendly Ethiopian wolf mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "phase1-testing-cover-ready",
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 59684,
+      "sha256": "50bcad36a4926b28f2e7c0b009df9bd2ffafd994f12ef9c2ff81ad49116726c3",
+      "kind": "cover",
+      "altText": "KITABU QUEST Grade 10 Physics cover",
+      "generation": "cover-not-started"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-eth-enc-grade-10-physics.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-eth-enc-grade-10-physics.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "coverageCaveat": "Configured generation currently covers English for Grades 4-10 plus reviewed-candidate drafts for selected verified ANRSEB textbook subjects. Official framework coverage is broader; see apps/api/data/curriculum/expected-matrix/ETH/ENC.json and generated audit apps/api/data/book-creator/ethiopia-coverage-gaps.json before treating Ethiopia as complete.",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication. Configured generation currently covers English for Grades 4-10 plus reviewed-candidate drafts for selected verified ANRSEB textbook subjects. Official framework coverage is broader; see apps/api/data/curriculum/expected-matrix/ETH/ENC.json and generated audit apps/api/data/book-creator/ethiopia-coverage-gaps.json before treating Ethiopia as complete."
+  },
+  "sourceDocuments": [
+    {
+      "id": "26dd15a9-b4ab-4cc9-8d29-4245eeafd482",
+      "subject": "Physics",
+      "officialTitle": "Ethiopia Grade 10 Physics Student Textbook",
+      "countryCode": "ETH",
+      "curriculumCode": "ENC",
+      "gradeCode": "GRADE_10",
+      "gradeLocalLevel": "Grade 10",
+      "localLevel": "Grade 10",
+      "extractionStatus": "normalized",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "regional_official_anrseb",
+      "sourceUrl": "https://www.anrseb.gov.et/wp-content/uploads/New_Text_Books/Grade10/G10-Physics-STB-2023-ANRSEB.pdf",
+      "objectKey": "data/curriculum/source-files/ETH/7f23b5e4d698f483707fdb1695fb0823fe7e8304954e1c78040ea651ed11d1ba.pdf",
+      "metadata": {
+        "type": "regional_official_subject_textbook_candidate",
+        "gradeCode": "GRADE_10",
+        "byteLength": 10467749,
+        "reviewNote": "Direct regional .gov.et textbook PDF candidate. Human review is required before any generated content can be marked ready.",
+        "verifiedAt": "2026-07-03T22:02:19.163Z",
+        "contentType": "application/pdf",
+        "documentUrl": "https://www.anrseb.gov.et/wp-content/uploads/New_Text_Books/Grade10/G10-Physics-STB-2023-ANRSEB.pdf",
+        "importBatch": "ethiopia-anrseb-source-candidates-2026-07-04-v1",
+        "markdownPath": "data/curriculum/markdown/ETH/ENC/GRADE_10/physics/26dd15a9-b4ab-4cc9-8d29-4245eeafd482.md",
+        "normalizedAt": "2026-07-03T22:31:06.849Z",
+        "normalizedBy": "ethiopia-textbook-unit-normalizer-2026-07-04-v1",
+        "sourcePageUrl": "https://anrseb.gov.et/downloads/textbooks/",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "provenanceTier": "regional_official_anrseb",
+        "reviewRequired": true,
+        "markdownChecksum": "00f3fa7a65cfd211a717f53357311c7f6ec005b190de85fd17f9b81c236961ca",
+        "markdownPageCount": 258,
+        "expectedByteLength": 10467749,
+        "federalMoeOfficial": false,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/ETH/ENC/GRADE_10/physics/26dd15a9-b4ab-4cc9-8d29-4245eeafd482.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "00f3fa7a65cfd211a717f53357311c7f6ec005b190de85fd17f9b81c236961ca",
+          "pageCount": 258,
+          "generatedAt": "2026-07-03T22:14:41.463Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/ETH/ENC/GRADE_10/physics/26dd15a9-b4ab-4cc9-8d29-4245eeafd482.json",
+          "sourceChecksum": "5ea94cccf16082e6d78ae0392c78caa4661fdf61bf70b9d136158efc327d0746"
+        },
+        "verificationMethod": "http_pdf_header_check",
+        "markdownGeneratedAt": "2026-07-03T22:14:41.463Z",
+        "normalizedUnitCount": 62
+      }
+    }
+  ],
+  "packageChecksum": "ce9a0586fe77bfe426a527284a48f56bf357800957844826763f0352b14210a0",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 59684,
+    "sha256": "50bcad36a4926b28f2e7c0b009df9bd2ffafd994f12ef9c2ff81ad49116726c3"
+  },
+  "publicationStatus": "published-for-testing",
+  "testingRelease": {
+    "id": "phase1-testing-release-2026-07-04",
+    "publishedAt": "2026-07-04T13:27:56Z",
+    "scope": "manual testing snapshot",
+    "contentReviewPaused": true,
+    "phase2Required": true,
+    "contentStatusPreserved": "content-draft-review-needed",
+    "note": "Published for app testing only. Content review and enhancement remain open."
+  },
+  "reviewStatus": "phase2-content-enhancement-required"
+}

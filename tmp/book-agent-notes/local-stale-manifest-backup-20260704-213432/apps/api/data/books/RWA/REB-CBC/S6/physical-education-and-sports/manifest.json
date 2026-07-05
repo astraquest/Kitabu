@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-rwa-reb-cbc-s6-physical-education-and-sports",
+  "title": "KITABU QUEST S6 Physical Education and Sports",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "S6",
+  "subject": "Physical Education and Sports",
+  "subjectSlug": "physical-education-and-sports",
+  "subjectColor": "#0E7490",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v5",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T04:17:13Z",
+  "sourceSnapshotHash": "bb85155ee6f1e92b7ead5e0d9511a7ec9b02a24e4c8984fed0822f7e325b53d8",
+  "bookPlanHash": "507e172d84cd0dda7be0a6770c32d63f59502af55a86c37c7d6ddcc8bb0c4073",
+  "pageCount": 115,
+  "wordCount": 11346,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 7,
+    "outcomeCount": 42,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "RWA",
+    "subject": "Physical Education and Sports",
+    "species": "impala",
+    "role": "movement and teamwork guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "students training safely on a sports field with an impala mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Rwanda REB-CBC S6 Physical Education and Sports. Scene: students training safely on a sports field with an impala mascot. Include a friendly impala mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "cover-not-started",
+  "assets": [],
+  "downloads": {
+    "markdown": "kitabu-quest-rwa-reb-cbc-s6-physical-education-and-sports.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-rwa-reb-cbc-s6-physical-education-and-sports.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "7ed55d6a-6a00-46a9-80ba-4586ae251df5",
+      "subject": "Physical Education and Sports",
+      "officialTitle": "Rwanda Competence Based Curriculum S6 Physical Education and Sports",
+      "countryCode": "RWA",
+      "curriculumCode": "REB-CBC",
+      "gradeCode": "S6",
+      "gradeLocalLevel": "S6",
+      "localLevel": "S6",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://elearning.reb.rw/pluginfile.php/15467/mod_resource/content/1/PES%20syllabus%20for%20A%20level.pdf",
+      "objectKey": "data/curriculum/source-files/RWA/50c62574074be9ca7ba60a3efc257483906d6fcb56ab5a122b3c90710b057dad.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "S6",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://elearning.reb.rw/pluginfile.php/15467/mod_resource/content/1/PES%20syllabus%20for%20A%20level.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S6/physical-education-and-sports/7ed55d6a-6a00-46a9-80ba-4586ae251df5.md",
+        "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "reb.gov.rw",
+          "reb.rw",
+          "elearning.reb.rw"
+        ],
+        "markdownChecksum": "00ad231387bae4a0c723342601441a6ebe0f723a014f97c290bba591db921695",
+        "markdownPageCount": 79,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/RWA/REB-CBC/S6/physical-education-and-sports/7ed55d6a-6a00-46a9-80ba-4586ae251df5.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "00ad231387bae4a0c723342601441a6ebe0f723a014f97c290bba591db921695",
+          "pageCount": 79,
+          "generatedAt": "2026-07-01T01:27:35.939Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S6/physical-education-and-sports/7ed55d6a-6a00-46a9-80ba-4586ae251df5.json",
+          "sourceChecksum": "422bda89b7ba54b80daf69dc26bb4ae1f9403fc7436054dd47a5318c0b299dca"
+        },
+        "markdownGeneratedAt": "2026-07-01T01:27:35.939Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

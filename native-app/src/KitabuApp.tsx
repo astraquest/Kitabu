@@ -175,6 +175,7 @@ export function KitabuApp() {
     return (
       <AppSafeArea>
         <DiagnosticScreen
+          mascotKey={state.activeMascotKey}
           previewQuestions={PREVIEW_DIAGNOSTIC_QUESTIONS}
           onComplete={() => undefined}
         />
@@ -321,7 +322,10 @@ export function KitabuApp() {
   if (state.hasPendingStudentDiagnostic) {
     return (
       <AppSafeArea>
-        <DiagnosticScreen onComplete={actions.completeDiagnosticOnboarding} />
+        <DiagnosticScreen
+          mascotKey={state.activeMascotKey}
+          onComplete={actions.completeDiagnosticOnboarding}
+        />
       </AppSafeArea>
     );
   }
@@ -333,6 +337,7 @@ export function KitabuApp() {
     return (
       <AppSafeArea>
         <DiagnosticScreen
+          mascotKey={state.activeMascotKey}
           mode="progressive"
           subjectId={state.progressiveDiagnosticSubject.id}
           subjectName={state.progressiveDiagnosticSubject.name}
@@ -494,13 +499,10 @@ export function KitabuApp() {
           selectedSubStrand={state.selectedSubStrand}
           selectedAssignment={state.selectedAssignment}
           userProfile={activeUserProfile}
-          startLiveAudio={state.startLiveAudio}
           attachmentPickerSignal={state.chatAttachmentPickerSignal}
           onClose={actions.closeChat}
           onSendMessage={actions.sendMessage}
           onStartLiveAudio={actions.openLiveTutorOverlay}
-          onCloseLiveAudio={() => actions.setStartLiveAudio(false)}
-          onOpenLiveScreen={() => actions.openFeature('live_audio')}
         />
 
         <SubscriptionCheckoutModal
@@ -649,7 +651,6 @@ function renderScreen(
           banner={state.dashboardBanner}
           homeworkNotificationCount={
             state.pendingAssignments.length +
-            state.dueReviews.length +
             (state.weeklyExam &&
             state.weeklyExam.attempt?.status !== 'completed'
               ? 1
@@ -665,11 +666,9 @@ function renderScreen(
       return (
         <HomeworkListScreen
           assignments={state.assignments}
-          dueReviews={state.dueReviews}
           weeklyExam={state.weeklyExam}
           onBack={actions.goHome}
           onStartAssignment={actions.startAssignment}
-          onStartReview={actions.startDueReview}
           onOpenWeeklyExam={() => actions.openFeature('weekly_exam')}
         />
       );
@@ -683,11 +682,9 @@ function renderScreen(
       ) : (
         <HomeworkListScreen
           assignments={state.assignments}
-          dueReviews={state.dueReviews}
           weeklyExam={state.weeklyExam}
           onBack={actions.goHome}
           onStartAssignment={actions.startAssignment}
-          onStartReview={actions.startDueReview}
           onOpenWeeklyExam={() => actions.openFeature('weekly_exam')}
         />
       );
@@ -772,6 +769,7 @@ function renderScreen(
           error={state.quizGenerationError}
           strandsBySubject={state.quizMeStrandsBySubject}
           subStrandsByStrand={state.quizMeSubStrandsByStrand}
+          mascotKey={state.activeMascotKey}
           onBack={actions.goHome}
           onGenerate={actions.generateQuizMe}
         />
@@ -787,6 +785,10 @@ function renderScreen(
           selectedAssignment={state.selectedAssignment}
           userProfile={state.activeUserProfile}
           mascotKey={state.activeMascotKey}
+          forceComingSoonFallback={state.liveAudioForceFallback}
+          quizQuestions={
+            state.quizSource === 'quiz_me' ? state.generatedQuizQuestions : []
+          }
         />
       );
     case 'brain_tease':
@@ -816,6 +818,7 @@ function renderScreen(
         <TakeQuizScreen
           subjectName={state.selectedSubject?.name || 'General'}
           questions={state.generatedQuizQuestions}
+          mascotKey={state.activeMascotKey}
           onFinish={
             state.quizSource === 'lesson' && state.lessonQuizSubStrandId
               ? async result => {
@@ -972,7 +975,6 @@ function renderScreen(
           banner={state.dashboardBanner}
           homeworkNotificationCount={
             state.pendingAssignments.length +
-            state.dueReviews.length +
             (state.weeklyExam &&
             state.weeklyExam.attempt?.status !== 'completed'
               ? 1

@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-grade-11-social-studies",
+  "title": "KITABU QUEST Grade 11 Social Studies",
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 11",
+  "subject": "Social Studies",
+  "subjectSlug": "social-studies",
+  "subjectColor": "#BE123C",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "learner-first-language-depth-renderers-2026-07-01-v10",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-reviewed-draft",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T13:21:07Z",
+  "sourceSnapshotHash": "2ab1a6f7b5a5f826fae5c33230a84bcb54cd21e63b78ee0323bff3ebb4bf9abc",
+  "bookPlanHash": "bc1ca5186d4affffd189f034b3fffc77718fe5bc6ebaac0a7ae020398e02e0f5",
+  "pageCount": 227,
+  "wordCount": 33020,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "ageBand": "senior-secondary",
+    "coversDeferred": true,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "topicCount": 29,
+    "outcomeCount": 84,
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "KEN",
+    "subject": "Social Studies",
+    "species": "giraffe",
+    "role": "maps and community guide",
+    "sourceRationale": "Iconic Kenyan wildlife and landscape association for maps, parks, and environment topics."
+  },
+  "cover": {
+    "scene": "learners visiting a historical site with maps, cultural artifacts, and a friendly giraffe mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Kenya CBC Grade 11 Social Studies. Scene: learners visiting a historical site with maps, cultural artifacts, and a friendly giraffe mascot. Include a friendly giraffe mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "assets": [],
+  "downloads": {
+    "markdown": "kitabu-quest-grade-11-social-studies.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-grade-11-social-studies.pdf"
+  },
+  "sourceDocuments": [
+    {
+      "id": "fe3f6da8-efa9-4466-9340-fa6f40ced6bc",
+      "subject": "Geography",
+      "officialTitle": "Competency Based Curriculum Grade 11 Geography",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_11",
+      "gradeLocalLevel": "Grade 11",
+      "localLevel": "Grade 11",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/1flRaApTl8ZYW4xFKnbRKatFzJpRuT6yi/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_11",
+        "documentUrl": "https://drive.google.com/file/d/1flRaApTl8ZYW4xFKnbRKatFzJpRuT6yi/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_11/geography/fe3f6da8-efa9-4466-9340-fa6f40ced6bc.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-eleven/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "d48593305ef697e0027a881bb0e49fb512c7c4b8f011acc93ee0771afb8c596c",
+        "markdownPageCount": 54,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_11/geography/fe3f6da8-efa9-4466-9340-fa6f40ced6bc.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "d48593305ef697e0027a881bb0e49fb512c7c4b8f011acc93ee0771afb8c596c",
+          "pageCount": 54,
+          "generatedAt": "2026-06-29T16:35:06.846Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "e4e04be5e9ca87d0100579448dbf6fb14caa3e70c80f83e67425a93a435cd4dd"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:06.846Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    },
+    {
+      "id": "22ea9801-e314-4374-894b-e755a30f6e3d",
+      "subject": "History and Citizenship",
+      "officialTitle": "Competency Based Curriculum Grade 11 History and Citizenship",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_11",
+      "gradeLocalLevel": "Grade 11",
+      "localLevel": "Grade 11",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/1vCrTIPSFiFy2G8Jho3_yQ5pxut1_SUVx/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_11",
+        "documentUrl": "https://drive.google.com/file/d/1vCrTIPSFiFy2G8Jho3_yQ5pxut1_SUVx/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_11/history-and-citizenship/22ea9801-e314-4374-894b-e755a30f6e3d.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-eleven/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "28bca5b3be12727deb73d362003df7f629447f71536e1cf97c5b0a011eba6216",
+        "markdownPageCount": 68,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_11/history-and-citizenship/22ea9801-e314-4374-894b-e755a30f6e3d.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "28bca5b3be12727deb73d362003df7f629447f71536e1cf97c5b0a011eba6216",
+          "pageCount": 68,
+          "generatedAt": "2026-06-29T16:35:06.899Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "5ab461147d2d3178126b7644558890de77aef461ed7fb5a910e94f89c455cdf7"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:06.899Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    }
+  ]
+}

@@ -1,10 +1,14 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
+  Animated,
+  Image,
+  ImageSourcePropType,
   Pressable,
   ScrollView,
   StyleSheet,
   Text,
   View,
+  ViewStyle,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import {
@@ -17,13 +21,54 @@ import {
   Sparkles,
 } from 'lucide-react-native';
 
-import { QuizConfig } from '../types/app';
+import { OnboardingMascotKey, QuizConfig } from '../types/app';
+
+const sunguraRabbitMascot = require('../assets/mascot/sungura-rabbit.png');
+const simbaLionMascot = require('../assets/mascot/simba-lion.png');
+const ndovuElephantMascot = require('../assets/mascot/ndovu-elephant.png');
+
+type QuizMascotTheme = {
+  source: ImageSourcePropType;
+  label: string;
+  accent: string;
+  soft: string;
+};
+
+const QUIZ_MASCOTS: Record<OnboardingMascotKey, QuizMascotTheme> = {
+  lion: {
+    source: simbaLionMascot,
+    label: 'Rafiki the Lion',
+    accent: '#D97706',
+    soft: '#FEF3C7',
+  },
+  rabbit: {
+    source: sunguraRabbitMascot,
+    label: 'Rafiki the Rabbit',
+    accent: '#0E9F6E',
+    soft: '#DCFCE7',
+  },
+  elephant: {
+    source: ndovuElephantMascot,
+    label: 'Rafiki the Elephant',
+    accent: '#2563EB',
+    soft: '#DBEAFE',
+  },
+};
+
+const quizBuildSteps = [
+  'Reading your topic',
+  'Picking questions',
+  'Balancing difficulty',
+  'Polishing QuizMe',
+];
+const quizBuildProgress = [22, 48, 74, 92];
 
 interface QuizMeScreenProps {
   isLoading: boolean;
   error?: string | null;
   strandsBySubject: Record<string, string[]>;
   subStrandsByStrand: Record<string, string[]>;
+  mascotKey?: OnboardingMascotKey;
   onBack: () => void;
   onGenerate: (config: QuizConfig) => void;
 }
@@ -36,11 +81,14 @@ export function QuizMeScreen({
   error,
   strandsBySubject,
   subStrandsByStrand,
+  mascotKey = 'rabbit',
   onBack,
   onGenerate,
 }: QuizMeScreenProps) {
   const [step, setStep] = useState<1 | 2>(1);
   const [openField, setOpenField] = useState<string | null>(null);
+  const [loadingStepIndex, setLoadingStepIndex] = useState(0);
+  const mascotMotion = useRef(new Animated.Value(0)).current;
   const [config, setConfig] = useState<QuizConfig>({
     subject: '',
     strand: '',
@@ -65,22 +113,140 @@ export function QuizMeScreen({
     () => subStrandsByStrand[config.strand] || [],
     [config.strand, subStrandsByStrand],
   );
+  const mascot = QUIZ_MASCOTS[mascotKey] ?? QUIZ_MASCOTS.rabbit;
+  const loadingProgress = quizBuildProgress[loadingStepIndex] ?? 92;
+  const mascotMotionStyle = useMemo<Animated.WithAnimatedObject<ViewStyle>>(
+    () => ({
+      transform: [
+        {
+          translateY: mascotMotion.interpolate({
+            inputRange: [0, 0.5, 1],
+            outputRange: [0, -8, 0],
+          }),
+        },
+      ],
+    }),
+    [mascotMotion],
+  );
+
+  useEffect(() => {
+    if (!isLoading) {
+      setLoadingStepIndex(0);
+      mascotMotion.stopAnimation();
+      mascotMotion.setValue(0);
+      return;
+    }
+
+    const stepTimer = setInterval(() => {
+      setLoadingStepIndex(current => Math.min(current + 1, quizBuildSteps.length - 1));
+    }, 1100);
+    const mascotLoop = Animated.loop(
+      Animated.sequence([
+        Animated.timing(mascotMotion, {
+          toValue: 1,
+          duration: 900,
+          useNativeDriver: true,
+        }),
+        Animated.timing(mascotMotion, {
+          toValue: 0,
+          duration: 900,
+          useNativeDriver: true,
+        }),
+      ]),
+    );
+    mascotLoop.start();
+
+    return () => {
+      clearInterval(stepTimer);
+      mascotLoop.stop();
+    };
+  }, [isLoading, mascotMotion]);
 
   if (isLoading) {
     return (
       <View style={styles.loadingWrap}>
-        <View style={styles.loadingOrbWrap}>
-          <View style={styles.loadingOrbPulse} />
-          <LinearGradient
-            colors={['#A855F7', '#EC4899']}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-            style={styles.loadingOrb}>
-            <Sparkles size={36} color="#FFFFFF" strokeWidth={2.2} />
-          </LinearGradient>
-        </View>
-        <Text style={styles.loadingTitle}>Generating your Quiz...</Text>
-        <Text style={styles.loadingBody}>Consulting the AI Tutor</Text>
+        <LinearGradient
+          colors={['#FFF7ED', '#EEF2FF']}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 1 }}
+          style={styles.loadingCard}>
+          <View style={styles.loadingBrandRow}>
+            <View style={styles.loadingBrandMark}>
+              <Text style={styles.loadingBrandMarkText}>K</Text>
+            </View>
+            <Text style={styles.loadingBrandText}>
+              KITABU<Text style={styles.loadingBrandAi}>.AI</Text>
+            </Text>
+          </View>
+
+          <View style={styles.loadingHeroRow}>
+            <View style={styles.loadingCopy}>
+              <View style={[styles.loadingPill, { borderColor: mascot.accent }]}>
+                <Sparkles size={14} color={mascot.accent} strokeWidth={2.4} />
+                <Text style={[styles.loadingPillText, { color: mascot.accent }]}>
+                  QuizMe
+                </Text>
+              </View>
+              <Text style={styles.loadingTitle}>Building your quiz</Text>
+              <Text style={styles.loadingBody}>{quizBuildSteps[loadingStepIndex]}</Text>
+            </View>
+
+            <Animated.View
+              accessibilityLabel={`${mascot.label} preparing quiz`}
+              style={[
+                styles.loadingMascotWrap,
+                { backgroundColor: mascot.soft, borderColor: `${mascot.accent}44` },
+                mascotMotionStyle,
+              ]}>
+              <Image source={mascot.source} style={styles.loadingMascot} />
+            </Animated.View>
+          </View>
+
+          <View
+            accessibilityLabel="Quiz generation progress"
+            accessibilityRole="progressbar"
+            accessibilityValue={{
+              min: 0,
+              max: 100,
+              now: loadingProgress,
+              text: `${loadingProgress}% complete`,
+            }}
+            style={styles.loadingProgressTrack}>
+            <View
+              style={[
+                styles.loadingProgressFill,
+                {
+                  width: `${loadingProgress}%`,
+                  backgroundColor: mascot.accent,
+                },
+              ]}
+            />
+          </View>
+
+          <View style={styles.loadingSteps}>
+            {quizBuildSteps.map((item, index) => {
+              const active = index <= loadingStepIndex;
+              return (
+                <View key={item} style={styles.loadingStep}>
+                  <View
+                    style={[
+                      styles.loadingStepDot,
+                      active && { backgroundColor: mascot.accent },
+                    ]}
+                  />
+                  <Text
+                    numberOfLines={1}
+                    style={[
+                      styles.loadingStepText,
+                      active && { color: '#111827' },
+                    ]}>
+                    {item}
+                  </Text>
+                </View>
+              );
+            })}
+          </View>
+        </LinearGradient>
       </View>
     );
   }
@@ -413,45 +579,133 @@ const styles = StyleSheet.create({
   },
   loadingWrap: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#F8FAFC',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 24,
+    paddingHorizontal: 18,
   },
-  loadingOrbWrap: {
-    marginBottom: 24,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  loadingOrbPulse: {
-    position: 'absolute',
-    width: 86,
-    height: 86,
-    borderRadius: 43,
-    backgroundColor: 'rgba(168,85,247,0.2)',
-  },
-  loadingOrb: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-    alignItems: 'center',
-    justifyContent: 'center',
-    shadowColor: '#A855F7',
-    shadowOpacity: 0.3,
-    shadowRadius: 12,
-    shadowOffset: { width: 0, height: 8 },
+  loadingCard: {
+    width: '100%',
+    maxWidth: 356,
+    borderRadius: 28,
+    borderWidth: 1,
+    borderColor: 'rgba(251,146,60,0.26)',
+    padding: 18,
+    shadowColor: '#1F2937',
+    shadowOpacity: 0.11,
+    shadowRadius: 18,
+    shadowOffset: { width: 0, height: 12 },
     elevation: 8,
+  },
+  loadingBrandRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 9,
+    marginBottom: 18,
+  },
+  loadingBrandMark: {
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF',
+    borderColor: 'rgba(37,99,235,0.16)',
+    borderRadius: 12,
+    borderWidth: 1,
+    height: 32,
+    justifyContent: 'center',
+    width: 32,
+  },
+  loadingBrandMarkText: {
+    color: '#2563EB',
+    fontSize: 15,
+    fontWeight: '900',
+  },
+  loadingBrandText: {
+    color: '#111827',
+    fontSize: 16,
+    fontWeight: '900',
+  },
+  loadingBrandAi: {
+    color: '#DC2626',
+  },
+  loadingHeroRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 14,
+    marginBottom: 18,
+  },
+  loadingCopy: {
+    flex: 1,
+    minWidth: 0,
+  },
+  loadingPill: {
+    alignSelf: 'flex-start',
+    backgroundColor: '#FFFFFF',
+    borderRadius: 999,
+    borderWidth: 1,
+    flexDirection: 'row',
+    gap: 6,
+    marginBottom: 10,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
   },
   loadingTitle: {
     color: '#111827',
-    fontSize: 22,
-    fontWeight: '800',
+    fontSize: 25,
+    fontWeight: '900',
+    lineHeight: 30,
     marginBottom: 6,
   },
   loadingBody: {
-    color: '#6B7280',
+    color: '#475569',
     fontSize: 14,
-    fontWeight: '600',
+    fontWeight: '800',
+  },
+  loadingPillText: {
+    fontSize: 12,
+    fontWeight: '900',
+  },
+  loadingMascotWrap: {
+    alignItems: 'center',
+    borderRadius: 24,
+    borderWidth: 1,
+    height: 104,
+    justifyContent: 'center',
+    width: 104,
+  },
+  loadingMascot: {
+    height: 88,
+    resizeMode: 'contain',
+    width: 88,
+  },
+  loadingProgressTrack: {
+    backgroundColor: 'rgba(15,23,42,0.1)',
+    borderRadius: 999,
+    height: 10,
+    overflow: 'hidden',
+  },
+  loadingProgressFill: {
+    borderRadius: 999,
+    height: '100%',
+  },
+  loadingSteps: {
+    gap: 9,
+    marginTop: 16,
+  },
+  loadingStep: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 8,
+  },
+  loadingStepDot: {
+    backgroundColor: '#CBD5E1',
+    borderRadius: 5,
+    height: 10,
+    width: 10,
+  },
+  loadingStepText: {
+    color: '#64748B',
+    flex: 1,
+    fontSize: 12,
+    fontWeight: '800',
   },
   backOverlay: {
     position: 'absolute',

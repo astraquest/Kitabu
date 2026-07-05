@@ -7,6 +7,7 @@ import type {
   PasswordResetTokenRecord
 } from './types.js';
 import type { BillingPlanCode } from './payments.js';
+import { resolveQuizBankSubjectIds } from './quizBank.js';
 
 type MaybeClient = PoolClient | typeof db;
 
@@ -449,11 +450,14 @@ export interface WeeklyExamQuestionRecord {
 
 export interface QuizBankQuestionRecord {
   id: string;
+  country_code: string;
+  curriculum_code: string;
   grade_level: string;
   subject_id: string;
   subject_name: string;
   strand_title: string;
   sub_strand_title: string;
+  learning_outcome: string;
   question_number: number;
   type: 'MCQ' | 'TRUE_FALSE' | 'SHORT_ANSWER' | 'ESSAY';
   prompt: string;
@@ -461,6 +465,8 @@ export interface QuizBankQuestionRecord {
   correct_answer: string;
   explanation: string;
   difficulty: number;
+  cognitive_level: 'recall' | 'understand' | 'apply' | 'analyze' | 'create';
+  feature_tags: string[];
 }
 
 export interface WeeklyExamRecord {
@@ -2434,6 +2440,8 @@ export async function updateUserOnboarding(
     gender: 'male' | 'female' | 'not_specified';
     grade: string;
     mpesaPhoneNumber?: string | null;
+    countryCode?: string | null;
+    curriculumCode?: string | null;
   }
 ) {
   await q(
@@ -2442,9 +2450,18 @@ export async function updateUserOnboarding(
      SET school_id = $2,
          gender = $3,
          grade_level = $4,
+         country_code = COALESCE($5, country_code),
+         curriculum_code = COALESCE($6, curriculum_code),
          onboarding_completed = TRUE
      WHERE id = $1`,
-    [input.userId, input.schoolId, input.gender, input.grade]
+    [
+      input.userId,
+      input.schoolId,
+      input.gender,
+      input.grade,
+      input.countryCode ?? null,
+      input.curriculumCode ?? null
+    ]
   );
 
   if (input.mpesaPhoneNumber) {
@@ -4126,22 +4143,16 @@ export async function listQuizBankQuestions(input: {
   subjectId?: string | null;
   limit?: number;
 }): Promise<QuizBankQuestionRecord[]> {
-  const subjectAliases: Record<string, string> = {
-    math: 'mathematics',
-    social: 'social_studies',
-    ai_education: 'computer_science',
-    computer: 'computer_science'
-  };
-  const subjectId = input.subjectId ? subjectAliases[input.subjectId] ?? input.subjectId : null;
-  const values: unknown[] = [input.gradeLevel, subjectId, input.limit ?? 100];
+  const subjectIds = resolveQuizBankSubjectIds(input.subjectId);
+  const values: unknown[] = [input.gradeLevel, subjectIds, input.limit ?? 100];
   const result = await db.query<QuizBankQuestionRecord>(
-    `SELECT id, grade_level, subject_id, subject_name, strand_title, sub_strand_title,
-            question_number, type, prompt, options, correct_answer, explanation, difficulty
+    `SELECT id, country_code, curriculum_code, grade_level, subject_id, subject_name,
+            strand_title, sub_strand_title, learning_outcome, question_number, type,
+            prompt, options, correct_answer, explanation, difficulty, cognitive_level, feature_tags
      FROM quiz_bank_questions
       WHERE grade_level = $1
-      ORDER BY
-        CASE WHEN $2::text IS NOT NULL AND subject_id = $2 THEN 0 ELSE 1 END,
-        question_number ASC
+        AND ($2::text[] IS NULL OR subject_id = ANY($2::text[]))
+      ORDER BY question_number ASC
       LIMIT $3`,
     values
   );

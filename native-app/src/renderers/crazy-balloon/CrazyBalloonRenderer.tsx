@@ -42,7 +42,7 @@ export function CrazyBalloonRenderer({
         <View style={styles.hintCard}>
           <Text style={styles.hintTitle}>Pop to Score</Text>
           <Text style={styles.hintBody}>
-            Tap clean balloons quickly. Warning balloons trigger a rescue question.
+            Some balloons hide monsters. If one jumps out, answer fast to escape.
           </Text>
         </View>
       ) : null}

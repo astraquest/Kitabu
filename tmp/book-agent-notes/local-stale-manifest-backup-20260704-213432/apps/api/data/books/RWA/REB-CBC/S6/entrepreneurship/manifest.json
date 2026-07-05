@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-rwa-reb-cbc-s6-entrepreneurship",
+  "title": "KITABU QUEST S6 Entrepreneurship",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "S6",
+  "subject": "Entrepreneurship",
+  "subjectSlug": "entrepreneurship",
+  "subjectColor": "#B45309",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v5",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T04:15:44Z",
+  "sourceSnapshotHash": "08c48901027c2b1d0dcfb09a951821c14111c9afac3c725224907c720c9deedb",
+  "bookPlanHash": "3c1eb54fb66b3d12609274982d1fc7af43e8cafc4659d650b33dddd4bb6725c7",
+  "pageCount": 199,
+  "wordCount": 22026,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 24,
+    "outcomeCount": 24,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "RWA",
+    "subject": "Entrepreneurship",
+    "species": "impala",
+    "role": "enterprise guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "students planning a small enterprise with an impala mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Rwanda REB-CBC S6 Entrepreneurship. Scene: students planning a small enterprise with an impala mascot. Include a friendly impala mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 85232,
+    "sha256": "3beab06f4a8ae5e728b16f06292c653b5a8f7a563bb9c837bdec580e4e86b00f"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 85232,
+      "sha256": "3beab06f4a8ae5e728b16f06292c653b5a8f7a563bb9c837bdec580e4e86b00f",
+      "kind": "cover",
+      "altText": "KITABU QUEST S6 Entrepreneurship cover with impala",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-rwa-reb-cbc-s6-entrepreneurship.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-rwa-reb-cbc-s6-entrepreneurship.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "ec3f808a-f37a-4d9c-97bd-79643a8987ab",
+      "subject": "Entrepreneurship",
+      "officialTitle": "Rwanda Competence Based Curriculum S6 Entrepreneurship",
+      "countryCode": "RWA",
+      "curriculumCode": "REB-CBC",
+      "gradeCode": "S6",
+      "gradeLocalLevel": "S6",
+      "localLevel": "S6",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://elearning.reb.rw/pluginfile.php/15476/mod_resource/content/1/Upper%20Secondary%20Entrepreneurship%20Syllabus%20%281%29.pdf?forcedownload=1",
+      "objectKey": "data/curriculum/source-files/RWA/ec547f0e4d05e4864011e98d5c0eafebf4f3b1ff0fa834e5ef10e7405eccf75d.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "S6",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://elearning.reb.rw/pluginfile.php/15476/mod_resource/content/1/Upper%20Secondary%20Entrepreneurship%20Syllabus%20%281%29.pdf?forcedownload=1",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S6/entrepreneurship/ec3f808a-f37a-4d9c-97bd-79643a8987ab.md",
+        "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "reb.gov.rw",
+          "reb.rw",
+          "elearning.reb.rw"
+        ],
+        "markdownChecksum": "c6d3457bfdbc64793a2ac5a19ab8b5b7a4132438fad3b4f07c247df47d56e25f",
+        "markdownPageCount": 111,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/RWA/REB-CBC/S6/entrepreneurship/ec3f808a-f37a-4d9c-97bd-79643a8987ab.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "c6d3457bfdbc64793a2ac5a19ab8b5b7a4132438fad3b4f07c247df47d56e25f",
+          "pageCount": 111,
+          "generatedAt": "2026-07-01T01:26:10.744Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S6/entrepreneurship/ec3f808a-f37a-4d9c-97bd-79643a8987ab.json",
+          "sourceChecksum": "00cc38d3e9956393f3429befd11a7f3f0bf6357db6fe34e5b4ff4b2a4cf88454"
+        },
+        "markdownGeneratedAt": "2026-07-01T01:26:10.744Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

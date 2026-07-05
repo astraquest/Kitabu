@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-rwa-reb-cbc-p6-english",
+  "title": "KITABU QUEST P6 English",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "P6",
+  "subject": "English",
+  "subjectSlug": "english",
+  "subjectColor": "#2563EB",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v17",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T06:39:09Z",
+  "sourceSnapshotHash": "e9a13280ef29363d1eba3c7bf17dbd6241341c6e9dc32a0bf90490c111dbce50",
+  "bookPlanHash": "d198a0e0d85cd07781c03df8020810da6d855714ddbc65888050816fbb6c5e13",
+  "pageCount": 111,
+  "wordCount": 11799,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 9,
+    "outcomeCount": 9,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "RWA",
+    "subject": "English",
+    "species": "hare",
+    "role": "reading and communication guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners reading and speaking in a Rwandan school library with a friendly hare mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Rwanda REB-CBC P6 English. Scene: learners reading and speaking in a Rwandan school library with a friendly hare mascot. Include a friendly hare mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 88756,
+    "sha256": "26064db47dd18d0546705242cdefb96fb2a5bb846f1840fb114443c3ed7d3ff2"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 88756,
+      "sha256": "26064db47dd18d0546705242cdefb96fb2a5bb846f1840fb114443c3ed7d3ff2",
+      "kind": "cover",
+      "altText": "KITABU QUEST P6 English cover with hare",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-rwa-reb-cbc-p6-english.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-rwa-reb-cbc-p6-english.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "fed3af5f-5c35-48d2-a463-41b2caebc83b",
+      "subject": "English",
+      "officialTitle": "Rwanda Competence Based Curriculum P6 English",
+      "countryCode": "RWA",
+      "curriculumCode": "REB-CBC",
+      "gradeCode": "P6",
+      "gradeLocalLevel": "P6",
+      "localLevel": "P6",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://elearning.reb.rw/pluginfile.php/177314/mod_folder/content/0/English-Syllabus-%20P4-P6-Final.pdf?forcedownload=1",
+      "objectKey": "data/curriculum/source-files/RWA/f39521efd7f8433051c8d1823bd88a3044e95949336b97a2306754661a491f7e.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "P6",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://elearning.reb.rw/pluginfile.php/177314/mod_folder/content/0/English-Syllabus-%20P4-P6-Final.pdf?forcedownload=1",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/P6/english/fed3af5f-5c35-48d2-a463-41b2caebc83b.md",
+        "sourcePageUrl": "https://elearning.reb.rw/mod/folder/view.php?id=14427",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "reb.gov.rw",
+          "reb.rw",
+          "elearning.reb.rw"
+        ],
+        "markdownChecksum": "394127ecfb31803c3e440c18928098327e3e3788fd4ff38af2cd8432e04281bd",
+        "markdownPageCount": 152,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/RWA/REB-CBC/P6/english/fed3af5f-5c35-48d2-a463-41b2caebc83b.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "394127ecfb31803c3e440c18928098327e3e3788fd4ff38af2cd8432e04281bd",
+          "pageCount": 152,
+          "generatedAt": "2026-07-01T01:14:19.116Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/P6/english/fed3af5f-5c35-48d2-a463-41b2caebc83b.json",
+          "sourceChecksum": "c7b14e6572be80e629d80a96b25071a561c202879dd1387f52c6a99e1ab69a50"
+        },
+        "markdownGeneratedAt": "2026-07-01T01:14:19.116Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-grade-4-kiswahili",
+  "title": "KITABU QUEST Grade 4 Kiswahili",
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 4",
+  "subject": "Kiswahili",
+  "subjectSlug": "kiswahili",
+  "subjectColor": "#C2410C",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "learner-first-language-depth-renderers-2026-07-01-v10",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-reviewed-draft",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T12:54:05Z",
+  "sourceSnapshotHash": "e60b9ff81e233d86d5daeae8691d8fa11def51ceb9f1cebd4b6e18b70a944b9f",
+  "bookPlanHash": "b695034eae1af07c30b326f71dcffcfe7fe78f5b34b4f454442db0966b5cc44d",
+  "pageCount": 126,
+  "wordCount": 15406,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "ageBand": "upper-primary",
+    "coversDeferred": true,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "topicCount": 13,
+    "outcomeCount": 34,
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "KEN",
+    "subject": "Kiswahili",
+    "species": "hare",
+    "role": "oral language and folktale guide",
+    "sourceRationale": "East African folktale association for methali, vitendawili, and stories."
+  },
+  "cover": {
+    "scene": "learners in a storytelling circle with books, proverbs cards, and a friendly hare mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Kenya CBC Grade 4 Kiswahili. Scene: learners in a storytelling circle with books, proverbs cards, and a friendly hare mascot. Include a friendly hare mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "assets": [],
+  "downloads": {
+    "markdown": "kitabu-quest-grade-4-kiswahili.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-grade-4-kiswahili.pdf"
+  },
+  "sourceDocuments": [
+    {
+      "id": "cc1acaf9-3b33-4dca-a018-bacffeeb9855",
+      "subject": "Kiswahili",
+      "officialTitle": "Competency Based Curriculum Grade 4 Kiswahili",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_4",
+      "gradeLocalLevel": "Grade 4",
+      "localLevel": "Grade 4",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/1MO1ddc7tFvcpKYy7Trr4VBhllBmwKntW/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "Google Drive file embedded on official KICD Grade Four Designs page.",
+        "gradeCode": "GRADE_4",
+        "documentUrl": "https://drive.google.com/file/d/1MO1ddc7tFvcpKYy7Trr4VBhllBmwKntW/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_4/kiswahili/cc1acaf9-3b33-4dca-a018-bacffeeb9855.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-four-designs/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "bb89aa2dbb19975e5e5c70831de1077eb851c913a5ea8fef038edff77571a96d",
+        "markdownPageCount": 130,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_4/kiswahili/cc1acaf9-3b33-4dca-a018-bacffeeb9855.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "bb89aa2dbb19975e5e5c70831de1077eb851c913a5ea8fef038edff77571a96d",
+          "pageCount": 130,
+          "generatedAt": "2026-06-29T16:35:08.287Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "b71f6aaa22afe103032c02d6e56cf015e3055d55666dfbcbf61aee8d8557687e"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:08.287Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    }
+  ]
+}

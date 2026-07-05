@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-tza-tie-basic-form-i-business-studies",
+  "title": "KITABU QUEST Form I Business Studies",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Form I",
+  "subject": "Business Studies",
+  "subjectSlug": "business-studies",
+  "subjectColor": "#B45309",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v13",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:44:50Z",
+  "sourceSnapshotHash": "517d87d2598964b66bdd7a5890dac69c0d2603343b1efd13f569f5b7784aa319",
+  "bookPlanHash": "9521f66439ac79b1555a2cc49b7ec49772df280d059b15a7af9265d3523f8005",
+  "pageCount": 85,
+  "wordCount": 8021,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 8,
+    "outcomeCount": 8,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "TZA",
+    "subject": "Business Studies",
+    "species": "zebra",
+    "role": "enterprise guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "students running a school business project with a zebra mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Tanzania TIE-BASIC Form I Business Studies. Scene: students running a school business project with a zebra mascot. Include a friendly zebra mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 83890,
+    "sha256": "ddd9c2e9130d94e391e0b47cae33c3a6bb9658cd6597d3957dade1f68334354b"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 83890,
+      "sha256": "ddd9c2e9130d94e391e0b47cae33c3a6bb9658cd6597d3957dade1f68334354b",
+      "kind": "cover",
+      "altText": "KITABU QUEST Form I Business Studies cover with zebra",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-tza-tie-basic-form-i-business-studies.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-tza-tie-basic-form-i-business-studies.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "f8cf4b6b-2f54-4a2f-a44a-75da510beafd",
+      "subject": "Business Studies",
+      "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form I Business Studies",
+      "countryCode": "TZA",
+      "curriculumCode": "TIE-BASIC",
+      "gradeCode": "FORM_I",
+      "gradeLocalLevel": "Form I",
+      "localLevel": "Form I",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+      "objectKey": "data/curriculum/source-files/TZA/023e195e19d2af88e2bdad9ea08f9d9ee258bb8ff92f289d85763f582d54615f.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "FORM_I",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727192697-BUSINESS%20STUDIES%20SYLLABUS%20FOR%20ORDINARY%20LEVEL%20SECONDARY%20EDUCATION.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/business-studies/f8cf4b6b-2f54-4a2f-a44a-75da510beafd.md",
+        "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "tie.go.tz"
+        ],
+        "markdownChecksum": "dd6074efacabc12d4c335e970d3d504b579b1a53c2c12abf90607155cfdfddaf",
+        "markdownPageCount": 51,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_I/business-studies/f8cf4b6b-2f54-4a2f-a44a-75da510beafd.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "dd6074efacabc12d4c335e970d3d504b579b1a53c2c12abf90607155cfdfddaf",
+          "pageCount": 51,
+          "generatedAt": "2026-06-29T16:44:04.410Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "302a9bb91147e4ce4294a839e3c3d7906b7868cc841ad2487b5fc7fb59129edf"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:44:04.410Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

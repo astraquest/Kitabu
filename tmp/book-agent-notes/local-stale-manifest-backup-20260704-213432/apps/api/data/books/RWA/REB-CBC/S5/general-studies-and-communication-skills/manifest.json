@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-rwa-reb-cbc-s5-general-studies-and-communication-skills",
+  "title": "KITABU QUEST S5 General Studies and Communication Skills",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "S5",
+  "subject": "General Studies and Communication Skills",
+  "subjectSlug": "general-studies-and-communication-skills",
+  "subjectColor": "#2563EB",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v5",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T04:13:53Z",
+  "sourceSnapshotHash": "bd3d07265c79b1c6e8dcfd3ef8aed24f4b418112ce144b6ad79679677b06e56b",
+  "bookPlanHash": "50ac5aaf7951106a6d96e4ee0e6ae2b72b2b53682ab74e5c4037efc8c94a0939",
+  "pageCount": 124,
+  "wordCount": 11692,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 14,
+    "outcomeCount": 19,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "RWA",
+    "subject": "General Studies and Communication Skills",
+    "species": "hare",
+    "role": "communication and citizenship guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "students discussing national, ethical, communication, and study-skills issues with a friendly hare mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Rwanda REB-CBC S5 General Studies and Communication Skills. Scene: students discussing national, ethical, communication, and study-skills issues with a friendly hare mascot. Include a friendly hare mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "cover-not-started",
+  "assets": [],
+  "downloads": {
+    "markdown": "kitabu-quest-rwa-reb-cbc-s5-general-studies-and-communication-skills.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-rwa-reb-cbc-s5-general-studies-and-communication-skills.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "ff0bc67d-8300-431f-8dfc-e274d7052b59",
+      "subject": "General Studies and Communication Skills",
+      "officialTitle": "Rwanda Competence Based Curriculum S5 General Studies and Communication Skills",
+      "countryCode": "RWA",
+      "curriculumCode": "REB-CBC",
+      "gradeCode": "S5",
+      "gradeLocalLevel": "S5",
+      "localLevel": "S5",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://elearning.reb.rw/pluginfile.php/50997/mod_resource/content/1/GENERAL_STUDIES_AND_COMMUNICATION_SKILLS_CURRICULUM_FOR_UPPER_SECONDARY.pdf",
+      "objectKey": "data/curriculum/source-files/RWA/edbea0716fcb5298734283567de3021343ebef7c67249fe644fd4a93be05cd6e.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "S5",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://elearning.reb.rw/pluginfile.php/50997/mod_resource/content/1/GENERAL_STUDIES_AND_COMMUNICATION_SKILLS_CURRICULUM_FOR_UPPER_SECONDARY.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S5/general-studies-and-communication-skills/ff0bc67d-8300-431f-8dfc-e274d7052b59.md",
+        "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "reb.gov.rw",
+          "reb.rw",
+          "elearning.reb.rw"
+        ],
+        "markdownChecksum": "99ff8cadb7c208eb445c6fd613f1c8c5ae526e7c2c030e09bba39dda18176447",
+        "markdownPageCount": 96,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/RWA/REB-CBC/S5/general-studies-and-communication-skills/ff0bc67d-8300-431f-8dfc-e274d7052b59.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "99ff8cadb7c208eb445c6fd613f1c8c5ae526e7c2c030e09bba39dda18176447",
+          "pageCount": 96,
+          "generatedAt": "2026-07-01T01:24:25.369Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S5/general-studies-and-communication-skills/ff0bc67d-8300-431f-8dfc-e274d7052b59.json",
+          "sourceChecksum": "cc801c04489de8cb267db40ff1f26535ce9fa8f5fcb65b382dc8a8b3670e8728"
+        },
+        "markdownGeneratedAt": "2026-07-01T01:24:25.369Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

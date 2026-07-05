@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-grade-8-mathematics",
+  "title": "KITABU QUEST Grade 8 Mathematics",
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 8",
+  "subject": "Mathematics",
+  "subjectSlug": "mathematics",
+  "subjectColor": "#047857",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "learner-first-language-depth-renderers-2026-07-01-v10",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-reviewed-draft",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T12:10:02Z",
+  "sourceSnapshotHash": "cbdf70d0b339b516652a979b2ab3910a1ab31cb7fa0df2f8baec299180f2fd69",
+  "bookPlanHash": "f29da942d3384d89b76b167faca862627d991ea6dc0add98d181c773b44a1e21",
+  "pageCount": 198,
+  "wordCount": 38730,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "ageBand": "junior-secondary",
+    "coversDeferred": true,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "topicCount": 23,
+    "outcomeCount": 84,
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "KEN",
+    "subject": "Mathematics",
+    "species": "lion",
+    "role": "problem-solving guide",
+    "sourceRationale": "User-approved Mathematics mascot; confidence, strength, and Kenya wildlife association."
+  },
+  "cover": {
+    "scene": "learners solving real-life problems with blocks, measuring tools, maps, and a friendly lion mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Kenya CBC Grade 8 Mathematics. Scene: learners solving real-life problems with blocks, measuring tools, maps, and a friendly lion mascot. Include a friendly lion mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "assets": [],
+  "downloads": {
+    "markdown": "kitabu-quest-grade-8-mathematics.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-grade-8-mathematics.pdf"
+  },
+  "sourceDocuments": [
+    {
+      "id": "1e1d74a1-50bb-41ef-bab4-df068555f975",
+      "subject": "Mathematics",
+      "officialTitle": "Competency Based Curriculum Grade 8 Mathematics",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_8",
+      "gradeLocalLevel": "Grade 8",
+      "localLevel": "Grade 8",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/1ttNvzuQbHUnABVcP-TAoix8-TVmehYph/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_8",
+        "documentUrl": "https://drive.google.com/file/d/1ttNvzuQbHUnABVcP-TAoix8-TVmehYph/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_8/mathematics/1e1d74a1-50bb-41ef-bab4-df068555f975.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-eight-designs/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "8f3483d0e26dd5bf81a3c849d78562d9ac5f2d4e35cc5bf6d02b3bc9fe1f2c0d",
+        "markdownPageCount": 64,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_8/mathematics/1e1d74a1-50bb-41ef-bab4-df068555f975.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "8f3483d0e26dd5bf81a3c849d78562d9ac5f2d4e35cc5bf6d02b3bc9fe1f2c0d",
+          "pageCount": 64,
+          "generatedAt": "2026-06-29T16:35:09.677Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "b83677a26d98590f4190d11211301eeb0bc76943fd79d01e4d15bef472fc20f9"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:09.677Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    }
+  ]
+}

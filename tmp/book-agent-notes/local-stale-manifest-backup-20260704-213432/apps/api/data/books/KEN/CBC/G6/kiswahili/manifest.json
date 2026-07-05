@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-grade-6-kiswahili",
+  "title": "KITABU QUEST Grade 6 Kiswahili",
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 6",
+  "subject": "Kiswahili",
+  "subjectSlug": "kiswahili",
+  "subjectColor": "#C2410C",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "learner-first-language-depth-renderers-2026-07-01-v10",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-reviewed-draft",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T11:35:28Z",
+  "sourceSnapshotHash": "30735241fa33b169ae85b3d53c6a913fc9728486e6963561bfbaf6f58fa0f58d",
+  "bookPlanHash": "47e3c688dca1aaba589c9df073064015ca884e3f76f0671dd01c67ea94ebdaf3",
+  "pageCount": 136,
+  "wordCount": 18729,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "ageBand": "upper-primary",
+    "coversDeferred": true,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "topicCount": 31,
+    "outcomeCount": 71,
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "KEN",
+    "subject": "Kiswahili",
+    "species": "hare",
+    "role": "oral language and folktale guide",
+    "sourceRationale": "East African folktale association for methali, vitendawili, and stories."
+  },
+  "cover": {
+    "scene": "learners in a storytelling circle with books, proverbs cards, and a friendly hare mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Kenya CBC Grade 6 Kiswahili. Scene: learners in a storytelling circle with books, proverbs cards, and a friendly hare mascot. Include a friendly hare mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "assets": [],
+  "downloads": {
+    "markdown": "kitabu-quest-grade-6-kiswahili.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-grade-6-kiswahili.pdf"
+  },
+  "sourceDocuments": [
+    {
+      "id": "c6c00db5-ebba-4ca4-b4a4-748fce276b02",
+      "subject": "Kiswahili",
+      "officialTitle": "Competency Based Curriculum Grade 6 Kiswahili",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_6",
+      "gradeLocalLevel": "Grade 6",
+      "localLevel": "Grade 6",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/1p4DSwvmGPzn3ZHCZhRTN88Zvju3XtgYf/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_6",
+        "documentUrl": "https://drive.google.com/file/d/1p4DSwvmGPzn3ZHCZhRTN88Zvju3XtgYf/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_6/kiswahili/c6c00db5-ebba-4ca4-b4a4-748fce276b02.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-six-designs/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "35fcf58bb812e41319a5244eda005889cda3b7fc65cfe6bf98997099c2edadcf",
+        "markdownPageCount": 134,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_6/kiswahili/c6c00db5-ebba-4ca4-b4a4-748fce276b02.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "35fcf58bb812e41319a5244eda005889cda3b7fc65cfe6bf98997099c2edadcf",
+          "pageCount": 134,
+          "generatedAt": "2026-06-29T16:35:08.909Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "db506373203a88db87a58fdd527f65fe6f42a9ceae00952d3da4b4487658816a"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:08.909Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    }
+  ]
+}

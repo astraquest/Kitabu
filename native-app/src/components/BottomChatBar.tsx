@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {
+  Dimensions,
   Keyboard,
   Pressable,
   StyleSheet,
   Text,
   TextInput,
+  useWindowDimensions,
   View,
 } from 'react-native';
+import type { KeyboardEvent } from 'react-native';
+import { SafeAreaInsetsContext } from 'react-native-safe-area-context';
 import { Mic, Plus, Send } from 'lucide-react-native';
 
 interface BottomChatBarProps {
@@ -25,21 +29,44 @@ export function BottomChatBar({
   onOpenLive,
 }: BottomChatBarProps) {
   const [input, setInput] = useState('');
-  const [keyboardHeight, setKeyboardHeight] = useState(0);
+  const [keyboardOffset, setKeyboardOffset] = useState(0);
+  const insets = useContext(SafeAreaInsetsContext);
+  const { height: windowHeight } = useWindowDimensions();
+  const bottomInset = insets?.bottom ?? 0;
 
   useEffect(() => {
-    const showSubscription = Keyboard.addListener('keyboardDidShow', event => {
-      setKeyboardHeight(event.endCoordinates.height);
-    });
-    const hideSubscription = Keyboard.addListener('keyboardDidHide', () => {
-      setKeyboardHeight(0);
-    });
+    function updateKeyboardOffset(event: KeyboardEvent) {
+      const screenHeight = Dimensions.get('screen').height;
+      const fullHeight = Math.max(windowHeight, screenHeight);
+      const screenY = event.endCoordinates.screenY;
+      const measuredHeight = Math.max(
+        0,
+        Number.isFinite(screenY) && screenY > 0 && screenY < fullHeight
+          ? fullHeight - screenY
+          : 0,
+      );
+      const keyboardHeight =
+        measuredHeight > 0 ? measuredHeight : event.endCoordinates.height;
+
+      setKeyboardOffset(Math.max(0, keyboardHeight - bottomInset));
+    }
+
+    function clearKeyboardOffset() {
+      setKeyboardOffset(0);
+    }
+
+    const subscriptions = [
+      Keyboard.addListener('keyboardWillChangeFrame', updateKeyboardOffset),
+      Keyboard.addListener('keyboardDidChangeFrame', updateKeyboardOffset),
+      Keyboard.addListener('keyboardDidShow', updateKeyboardOffset),
+      Keyboard.addListener('keyboardWillHide', clearKeyboardOffset),
+      Keyboard.addListener('keyboardDidHide', clearKeyboardOffset),
+    ];
 
     return () => {
-      showSubscription.remove();
-      hideSubscription.remove();
+      subscriptions.forEach(subscription => subscription.remove());
     };
-  }, []);
+  }, [bottomInset, windowHeight]);
 
   function handleSubmit() {
     if (!input.trim() || isLoading) {
@@ -52,9 +79,7 @@ export function BottomChatBar({
   }
 
   return (
-    <View
-      style={[styles.wrap, keyboardHeight > 0 && { bottom: keyboardHeight }]}
-    >
+    <View style={[styles.wrap, { bottom: keyboardOffset || 12 }]}>
       <View style={styles.inner}>
         <Text style={styles.label}>Ask AI Tutor</Text>
 

@@ -1,0 +1,224 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-grade-12-creative-arts",
+  "title": "KITABU QUEST Grade 12 Creative Arts",
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 12",
+  "subject": "Creative Arts",
+  "subjectSlug": "creative-arts",
+  "subjectColor": "#DB2777",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "learner-first-language-depth-renderers-2026-07-01-v10",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-reviewed-draft",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T13:26:47Z",
+  "sourceSnapshotHash": "604078f3a2a64cece1f38c0fd1bc32cd5a39ccbb6c68b147f466366b3e5ef771",
+  "bookPlanHash": "e793238c17c6bac01bbc4a05292f5665879e5daf195cfdb04f7cdad56aa35632",
+  "pageCount": 151,
+  "wordCount": 20100,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "ageBand": "senior-secondary",
+    "coversDeferred": true,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "topicCount": 19,
+    "outcomeCount": 53,
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "KEN",
+    "subject": "Creative Arts",
+    "species": "lilac-breasted roller",
+    "role": "creative colour guide",
+    "sourceRationale": "Colorful bird associated with Kenya and strong visual-arts fit."
+  },
+  "cover": {
+    "scene": "learners painting a mural and playing percussion instruments with a colorful bird mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Kenya CBC Grade 12 Creative Arts. Scene: learners painting a mural and playing percussion instruments with a colorful bird mascot. Include a friendly lilac-breasted roller mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "assets": [],
+  "downloads": {
+    "markdown": "kitabu-quest-grade-12-creative-arts.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-grade-12-creative-arts.pdf"
+  },
+  "sourceDocuments": [
+    {
+      "id": "be27bc32-afd2-42dd-8dfd-47d4bf9d96b6",
+      "subject": "Fine Arts",
+      "officialTitle": "Competency Based Curriculum Grade 12 Fine Arts",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_12",
+      "gradeLocalLevel": "Grade 12",
+      "localLevel": "Grade 12",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/1lQHo9l_ZdbsOl_a6OsO82OpoyA9o3DYb/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_12",
+        "documentUrl": "https://drive.google.com/file/d/1lQHo9l_ZdbsOl_a6OsO82OpoyA9o3DYb/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_12/fine-arts/be27bc32-afd2-42dd-8dfd-47d4bf9d96b6.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-twelve/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "e3ba2dd995882cdf9680bd1157db84686dd951254aa7d90de8a876099d293673",
+        "markdownPageCount": 44,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_12/fine-arts/be27bc32-afd2-42dd-8dfd-47d4bf9d96b6.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "e3ba2dd995882cdf9680bd1157db84686dd951254aa7d90de8a876099d293673",
+          "pageCount": 44,
+          "generatedAt": "2026-06-29T16:35:07.579Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "59f41062ea773f7edd2f3c78cc7d0acddd415c2fe4c5ecb7e0712176043d8ff5"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:07.579Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    },
+    {
+      "id": "4d660a0d-c4a5-4b11-938b-62fe8e017507",
+      "subject": "Music and Dance",
+      "officialTitle": "Competency Based Curriculum Grade 12 Music and Dance",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_12",
+      "gradeLocalLevel": "Grade 12",
+      "localLevel": "Grade 12",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/1_HKWsDxTc60lFusFbbuN5IufZiqEapZN/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_12",
+        "documentUrl": "https://drive.google.com/file/d/1_HKWsDxTc60lFusFbbuN5IufZiqEapZN/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_12/music-and-dance/4d660a0d-c4a5-4b11-938b-62fe8e017507.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-twelve/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "d1d6f5e96953ff6bfc04e646955f1b039afd610d625a0341de96ef2a7df0a54d",
+        "markdownPageCount": 64,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_12/music-and-dance/4d660a0d-c4a5-4b11-938b-62fe8e017507.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "d1d6f5e96953ff6bfc04e646955f1b039afd610d625a0341de96ef2a7df0a54d",
+          "pageCount": 64,
+          "generatedAt": "2026-06-29T16:35:07.907Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "debac83cca606bd98490c869d5006c71989b72999ba29307cc26d57593fc904f"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:07.907Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    },
+    {
+      "id": "f90fde9f-4618-4fef-a9ee-79f9fcd53924",
+      "subject": "Theatre and Film",
+      "officialTitle": "Competency Based Curriculum Grade 12 Theatre and Film",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_12",
+      "gradeLocalLevel": "Grade 12",
+      "localLevel": "Grade 12",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/1DShWBYhePIV9hvLrDXpYbr-PnesyVFEe/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_12",
+        "documentUrl": "https://drive.google.com/file/d/1DShWBYhePIV9hvLrDXpYbr-PnesyVFEe/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_12/theatre-and-film/f90fde9f-4618-4fef-a9ee-79f9fcd53924.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-twelve/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "80bc98a7c30ea10e86ad7d31a7f9e20a1eb158ff9725928e1b3341285165cf44",
+        "markdownPageCount": 43,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_12/theatre-and-film/f90fde9f-4618-4fef-a9ee-79f9fcd53924.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "80bc98a7c30ea10e86ad7d31a7f9e20a1eb158ff9725928e1b3341285165cf44",
+          "pageCount": 43,
+          "generatedAt": "2026-06-29T16:35:08.031Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "0d49b841cf75eb2c17c0bbc6810cd049b207b1f9ec5f3df7179512076b3113f4"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:08.031Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Keyboard, StyleSheet, View } from 'react-native';
+import { SafeAreaInsetsContext } from 'react-native-safe-area-context';
 import ReactTestRenderer from 'react-test-renderer';
 
 import { BottomChatBar } from '../src/components/BottomChatBar';
@@ -63,7 +64,10 @@ test('compact chat bar sits flush above the keyboard when typing', () => {
 
   ReactTestRenderer.act(() => {
     renderer = ReactTestRenderer.create(
-      <BottomChatBar isLoading={false} onSendMessage={jest.fn()} />,
+      <SafeAreaInsetsContext.Provider
+        value={{ top: 0, right: 0, bottom: 34, left: 0 }}>
+        <BottomChatBar isLoading={false} onSendMessage={jest.fn()} />
+      </SafeAreaInsetsContext.Provider>,
     );
   });
 
@@ -86,7 +90,7 @@ test('compact chat bar sits flush above the keyboard when typing', () => {
     listeners.keyboardDidShow?.({ endCoordinates: { height: 312 } });
   });
 
-  expect(getWrapBottom()).toBe(312);
+  expect(getWrapBottom()).toBe(278);
 
   ReactTestRenderer.act(() => {
     listeners.keyboardDidHide?.();

@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
+  Animated,
+  Easing,
   Pressable,
   StyleSheet,
   Text,
   View,
+  ViewStyle,
 } from 'react-native';
 import {
   ArrowLeft,
@@ -30,21 +33,82 @@ export function BrainTeaseScreen({
   const flashcards = cards;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [revealedCards, setRevealedCards] = useState<Record<number, boolean>>({});
+  const flipProgress = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
     setCurrentIndex(0);
     setRevealedCards({});
-  }, [cards]);
+    flipProgress.setValue(0);
+  }, [cards, flipProgress]);
+
+  useEffect(() => {
+    flipProgress.setValue(revealedCards[currentIndex] ? 1 : 0);
+  }, [currentIndex, flipProgress]);
+
+  const frontCardStyle = useMemo(
+    () =>
+      ({
+        transform: [
+          { perspective: 1000 },
+          {
+            rotateY: flipProgress.interpolate({
+              inputRange: [0, 1],
+              outputRange: ['0deg', '180deg'],
+            }),
+          },
+        ],
+      }) as unknown as Animated.WithAnimatedObject<ViewStyle>,
+    [flipProgress],
+  );
+  const backCardStyle = useMemo(
+    () =>
+      ({
+        transform: [
+          { perspective: 1000 },
+          {
+            rotateY: flipProgress.interpolate({
+              inputRange: [0, 1],
+              outputRange: ['180deg', '360deg'],
+            }),
+          },
+        ],
+      }) as unknown as Animated.WithAnimatedObject<ViewStyle>,
+    [flipProgress],
+  );
+  const shadowStyle = useMemo(
+    () =>
+      ({
+        transform: [
+          {
+            scale: flipProgress.interpolate({
+              inputRange: [0, 0.5, 1],
+              outputRange: [1, 0.96, 1],
+            }),
+          },
+        ],
+      }) as unknown as Animated.WithAnimatedObject<ViewStyle>,
+    [flipProgress],
+  );
 
   const currentCard = flashcards[currentIndex];
   const isRevealed = !!revealedCards[currentIndex];
   const progress = flashcards.length > 0 ? ((currentIndex + 1) / flashcards.length) * 100 : 0;
 
   function handleReveal() {
+    if (isRevealed) {
+      return;
+    }
+
     setRevealedCards(prev => ({
       ...prev,
       [currentIndex]: true,
     }));
+    Animated.timing(flipProgress, {
+      toValue: 1,
+      duration: 560,
+      easing: Easing.out(Easing.cubic),
+      useNativeDriver: true,
+    }).start();
   }
 
   function handleNext() {
@@ -53,7 +117,9 @@ export function BrainTeaseScreen({
       return;
     }
 
-    setCurrentIndex(prev => prev + 1);
+    const nextIndex = currentIndex + 1;
+    flipProgress.setValue(revealedCards[nextIndex] ? 1 : 0);
+    setCurrentIndex(nextIndex);
   }
 
   function handlePrevious() {
@@ -61,7 +127,9 @@ export function BrainTeaseScreen({
       return;
     }
 
-    setCurrentIndex(prev => prev - 1);
+    const nextIndex = currentIndex - 1;
+    flipProgress.setValue(revealedCards[nextIndex] ? 1 : 0);
+    setCurrentIndex(nextIndex);
   }
 
   if (flashcards.length === 0) {
@@ -111,7 +179,7 @@ export function BrainTeaseScreen({
           <View style={styles.progressCounter}>
             <Text style={styles.progressLabel}>Progress</Text>
             <Text style={styles.progressValue}>
-              {currentIndex}/{flashcards.length}
+              {currentIndex + 1}/{flashcards.length}
             </Text>
           </View>
         </View>
@@ -122,11 +190,24 @@ export function BrainTeaseScreen({
 
         <View style={styles.mainArea}>
           <View style={styles.cardWrap}>
-            <View style={[styles.flashCard, isRevealed && styles.flashCardAnswer]}>
-              <Text style={[styles.cardText, isRevealed && styles.cardTextAnswer]}>
-                {isRevealed ? currentCard.answer : currentCard.question}
-              </Text>
-            </View>
+            <Pressable
+              accessibilityRole="button"
+              accessibilityLabel={isRevealed ? 'Flashcard answer' : 'Reveal flashcard answer'}
+              disabled={isRevealed}
+              onPress={handleReveal}
+              style={styles.flipScene}>
+              <Animated.View style={[styles.flipShadow, shadowStyle]} />
+              <Animated.View style={[styles.flashCard, styles.flipFace, frontCardStyle]}>
+                <Text style={styles.cardSideLabel}>Question</Text>
+                <Text style={styles.cardText}>{currentCard.question}</Text>
+              </Animated.View>
+              <Animated.View style={[styles.flashCard, styles.flashCardAnswer, styles.flipFace, backCardStyle]}>
+                <Text style={styles.cardSideLabelAnswer}>Answer</Text>
+                <Text style={[styles.cardText, styles.cardTextAnswer]}>
+                  {currentCard.answer}
+                </Text>
+              </Animated.View>
+            </Pressable>
 
             <Text style={styles.cardCounterText}>
               {currentIndex + 1} of {flashcards.length}
@@ -280,10 +361,32 @@ const styles = StyleSheet.create({
   cardWrap: {
     alignItems: 'center',
     gap: 20,
+    width: '100%',
+  },
+  flipScene: {
+    height: 360,
+    width: '100%',
+  },
+  flipShadow: {
+    position: 'absolute',
+    left: 14,
+    right: 14,
+    bottom: -6,
+    height: 28,
+    borderRadius: 999,
+    backgroundColor: 'rgba(15,23,42,0.14)',
+  },
+  flipFace: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backfaceVisibility: 'hidden',
   },
   flashCard: {
     width: '100%',
-    minHeight: 360,
+    height: 360,
     borderRadius: 36,
     backgroundColor: '#F98A2E',
     borderWidth: 2,
@@ -308,6 +411,26 @@ const styles = StyleSheet.create({
     lineHeight: 40,
     fontWeight: '800',
     textAlign: 'center',
+  },
+  cardSideLabel: {
+    position: 'absolute',
+    top: 24,
+    left: 28,
+    color: 'rgba(255,255,255,0.72)',
+    fontSize: 12,
+    fontWeight: '900',
+    letterSpacing: 1.2,
+    textTransform: 'uppercase',
+  },
+  cardSideLabelAnswer: {
+    position: 'absolute',
+    top: 24,
+    left: 28,
+    color: 'rgba(255,255,255,0.72)',
+    fontSize: 12,
+    fontWeight: '900',
+    letterSpacing: 1.2,
+    textTransform: 'uppercase',
   },
   cardTextAnswer: {
     fontSize: 22,

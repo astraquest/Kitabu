@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-eth-enc-grade-9-history",
+  "title": "KITABU QUEST Grade 9 History",
+  "country": "ETH",
+  "curriculum": "ENC",
+  "grade": "Grade 9",
+  "subject": "History",
+  "subjectSlug": "history",
+  "subjectColor": "#BE123C",
+  "version": "draft-2026-07-03",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-03-v28",
+  "status": "published-for-testing",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "phase1-testing-cover-attached",
+  "generatedAt": "2026-07-03T22:34:00Z",
+  "sourceSnapshotHash": "2fe73c517d04e6d8385f5ba5518b6899deceb362f10040394bb9f54162e3be15",
+  "bookPlanHash": "4c7b0ff471aab8d8ee7bfbccf98eedac3a321a10481e4337bd8f95e385b958f9",
+  "pageCount": 213,
+  "wordCount": 24360,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 60,
+    "outcomeCount": 60,
+    "generatedFallbackTopicCount": 0,
+    "normalizedSourceTopicCount": 60,
+    "sourceDerivationStatus": "normalized-source-derived",
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "ETH",
+    "subject": "History",
+    "species": "Lion of Judah-inspired lion",
+    "role": "heritage and historical-source guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "secondary learners studying Ethiopian historical sources and heritage sites with a culturally framed Lion of Judah-inspired lion mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Ethiopia ENC Grade 9 History. Scene: secondary learners studying Ethiopian historical sources and heritage sites with a culturally framed Lion of Judah-inspired lion mascot. Include a friendly Lion of Judah-inspired lion mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "phase1-testing-cover-ready",
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 60930,
+      "sha256": "1ef6e26c681b3ee9cfd44c41e00bad02d4490c6574d367d917ec1cea8ecc6f02",
+      "kind": "cover",
+      "altText": "KITABU QUEST Grade 9 History cover",
+      "generation": "cover-not-started"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-eth-enc-grade-9-history.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-eth-enc-grade-9-history.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "coverageCaveat": "Configured generation currently covers English for Grades 4-10 plus reviewed-candidate drafts for selected verified ANRSEB textbook subjects. Official framework coverage is broader; see apps/api/data/curriculum/expected-matrix/ETH/ENC.json and generated audit apps/api/data/book-creator/ethiopia-coverage-gaps.json before treating Ethiopia as complete.",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication. Configured generation currently covers English for Grades 4-10 plus reviewed-candidate drafts for selected verified ANRSEB textbook subjects. Official framework coverage is broader; see apps/api/data/curriculum/expected-matrix/ETH/ENC.json and generated audit apps/api/data/book-creator/ethiopia-coverage-gaps.json before treating Ethiopia as complete."
+  },
+  "sourceDocuments": [
+    {
+      "id": "e1bc6cb4-beeb-4724-9127-8c88606780f0",
+      "subject": "History",
+      "officialTitle": "Ethiopia Grade 9 History Student Textbook",
+      "countryCode": "ETH",
+      "curriculumCode": "ENC",
+      "gradeCode": "GRADE_9",
+      "gradeLocalLevel": "Grade 9",
+      "localLevel": "Grade 9",
+      "extractionStatus": "normalized",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "regional_official_anrseb",
+      "sourceUrl": "https://www.anrseb.gov.et/wp-content/uploads/New_Text_Books/Grade9/G9-History-STB-2023-ANRSEB.pdf",
+      "objectKey": "data/curriculum/source-files/ETH/dab89fe49b971ab6930f7353b606bb35b6f227f7c02e9953a6bcd12c6f6191be.pdf",
+      "metadata": {
+        "type": "regional_official_subject_textbook_candidate",
+        "gradeCode": "GRADE_9",
+        "byteLength": 10131095,
+        "reviewNote": "Direct regional .gov.et textbook PDF candidate. Human review is required before any generated content can be marked ready.",
+        "verifiedAt": "2026-07-03T22:02:16.377Z",
+        "contentType": "application/pdf",
+        "documentUrl": "https://www.anrseb.gov.et/wp-content/uploads/New_Text_Books/Grade9/G9-History-STB-2023-ANRSEB.pdf",
+        "importBatch": "ethiopia-anrseb-source-candidates-2026-07-04-v1",
+        "markdownPath": "data/curriculum/markdown/ETH/ENC/GRADE_9/history/e1bc6cb4-beeb-4724-9127-8c88606780f0.md",
+        "normalizedAt": "2026-07-03T22:31:13.985Z",
+        "normalizedBy": "ethiopia-textbook-unit-normalizer-2026-07-04-v1",
+        "sourcePageUrl": "https://anrseb.gov.et/downloads/textbooks/",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "provenanceTier": "regional_official_anrseb",
+        "reviewRequired": true,
+        "markdownChecksum": "3dc5f12cf32afa30a4e0cb233135a8e011c0034fb86a2b8d225083e282019f0f",
+        "markdownPageCount": 219,
+        "expectedByteLength": 10131095,
+        "federalMoeOfficial": false,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/ETH/ENC/GRADE_9/history/e1bc6cb4-beeb-4724-9127-8c88606780f0.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "3dc5f12cf32afa30a4e0cb233135a8e011c0034fb86a2b8d225083e282019f0f",
+          "pageCount": 219,
+          "generatedAt": "2026-07-03T22:16:00.356Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/ETH/ENC/GRADE_9/history/e1bc6cb4-beeb-4724-9127-8c88606780f0.json",
+          "sourceChecksum": "3cf5b6d98df28afd1640e5cde6280783ea23f6f239811146c22dc483fe6df5a3"
+        },
+        "verificationMethod": "http_pdf_header_check",
+        "markdownGeneratedAt": "2026-07-03T22:16:00.356Z",
+        "normalizedUnitCount": 84
+      }
+    }
+  ],
+  "packageChecksum": "df825317e08a0076b81bb74f1607336fea3bc0d4a481b1b686c538353cfe056e",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 60930,
+    "sha256": "1ef6e26c681b3ee9cfd44c41e00bad02d4490c6574d367d917ec1cea8ecc6f02"
+  },
+  "publicationStatus": "published-for-testing",
+  "testingRelease": {
+    "id": "phase1-testing-release-2026-07-04",
+    "publishedAt": "2026-07-04T13:27:56Z",
+    "scope": "manual testing snapshot",
+    "contentReviewPaused": true,
+    "phase2Required": true,
+    "contentStatusPreserved": "content-draft-review-needed",
+    "note": "Published for app testing only. Content review and enhancement remain open."
+  },
+  "reviewStatus": "phase2-content-enhancement-required"
+}

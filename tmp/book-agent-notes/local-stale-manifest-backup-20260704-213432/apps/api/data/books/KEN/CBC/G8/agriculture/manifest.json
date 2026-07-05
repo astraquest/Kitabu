@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-grade-8-agriculture",
+  "title": "KITABU QUEST Grade 8 Agriculture",
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 8",
+  "subject": "Agriculture",
+  "subjectSlug": "agriculture",
+  "subjectColor": "#15803D",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "learner-first-language-depth-renderers-2026-07-01-v10",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-reviewed-draft",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T11:41:09Z",
+  "sourceSnapshotHash": "44533c2185b390cb5e4fda76fe4d18307117d00501e1e7e308171f382c806126",
+  "bookPlanHash": "fb4cf51076eb9976af77b24dc59701cd9c7faf1e866142a5bf9f7838f1d6e5d2",
+  "pageCount": 101,
+  "wordCount": 12277,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "ageBand": "junior-secondary",
+    "coversDeferred": true,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "topicCount": 12,
+    "outcomeCount": 24,
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "KEN",
+    "subject": "Agriculture",
+    "species": "honeybee",
+    "role": "farming teamwork guide",
+    "sourceRationale": "Pollination, farming systems, teamwork, food production, environmental care."
+  },
+  "cover": {
+    "scene": "learners working in a school garden with seedlings, compost, watering cans, and a friendly honeybee mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Kenya CBC Grade 8 Agriculture. Scene: learners working in a school garden with seedlings, compost, watering cans, and a friendly honeybee mascot. Include a friendly honeybee mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "assets": [],
+  "downloads": {
+    "markdown": "kitabu-quest-grade-8-agriculture.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-grade-8-agriculture.pdf"
+  },
+  "sourceDocuments": [
+    {
+      "id": "95cca7dc-94f9-41a5-9794-1bc4b1c65aad",
+      "subject": "Agriculture",
+      "officialTitle": "Competency Based Curriculum Grade 8 Agriculture",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_8",
+      "gradeLocalLevel": "Grade 8",
+      "localLevel": "Grade 8",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/1MzOFhLc8kbRwvjg03q7oeDrbbvux75Wy/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_8",
+        "documentUrl": "https://drive.google.com/file/d/1MzOFhLc8kbRwvjg03q7oeDrbbvux75Wy/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_8/agriculture/95cca7dc-94f9-41a5-9794-1bc4b1c65aad.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-eight-designs/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "b77458d3bd87d230fb588f81bf387a79629dfca2992156e12bb6b4efc4c16730",
+        "markdownPageCount": 34,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_8/agriculture/95cca7dc-94f9-41a5-9794-1bc4b1c65aad.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "b77458d3bd87d230fb588f81bf387a79629dfca2992156e12bb6b4efc4c16730",
+          "pageCount": 34,
+          "generatedAt": "2026-06-29T16:35:09.409Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "43ad0092584e8dcf2da24ec9d927d1fdf36d356e51df8bfda3d37b1123cf60ed"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:09.409Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    }
+  ]
+}

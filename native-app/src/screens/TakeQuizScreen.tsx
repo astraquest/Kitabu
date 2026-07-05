@@ -1,12 +1,13 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   ActivityIndicator,
+  Image,
+  ImageSourcePropType,
   Modal,
   Pressable,
   ScrollView,
   StyleSheet,
   Text,
-  TextInput,
   View,
 } from 'react-native';
 import {
@@ -16,10 +17,10 @@ import {
   Check,
   Eye,
   Frown,
+  Info,
   Mic,
   PartyPopper,
   RotateCcw,
-  Sparkles,
   Square,
   Trophy,
   X,
@@ -28,13 +29,46 @@ import {
 import { DEFAULT_GRADE } from '../constants/grades';
 import { askHomeworkHelper } from '../services/aiService';
 import { audioRecordingBridge } from '../services/nativeBridges';
-import { Question } from '../types/app';
+import { OnboardingMascotKey, Question } from '../types/app';
+
+const sunguraRabbitMascot = require('../assets/mascot/sungura-rabbit.png');
+const simbaLionMascot = require('../assets/mascot/simba-lion.png');
+const ndovuElephantMascot = require('../assets/mascot/ndovu-elephant.png');
+
+type QuizMascotTheme = {
+  source: ImageSourcePropType;
+  label: string;
+  accent: string;
+  soft: string;
+};
+
+const QUIZ_MASCOTS: Record<OnboardingMascotKey, QuizMascotTheme> = {
+  lion: {
+    source: simbaLionMascot,
+    label: 'Rafiki the Lion',
+    accent: '#D97706',
+    soft: '#FEF3C7',
+  },
+  rabbit: {
+    source: sunguraRabbitMascot,
+    label: 'Rafiki the Rabbit',
+    accent: '#0E9F6E',
+    soft: '#DCFCE7',
+  },
+  elephant: {
+    source: ndovuElephantMascot,
+    label: 'Rafiki the Elephant',
+    accent: '#2563EB',
+    soft: '#DBEAFE',
+  },
+};
 
 interface TakeQuizScreenProps {
   questions: Question[];
   subjectName: string;
   onClose: () => void;
   onFinish?: (result: { score: number; total: number; percentage: number }) => void;
+  mascotKey?: OnboardingMascotKey;
 }
 
 type ResultState = 'correct' | 'incorrect';
@@ -47,8 +81,11 @@ export function TakeQuizScreen({
   subjectName,
   onClose,
   onFinish,
+  mascotKey = 'rabbit',
 }: TakeQuizScreenProps) {
   const questions = useMemo(() => sourceQuestions, [sourceQuestions]);
+  const quizScrollRef = useRef<ScrollView | null>(null);
+  const mascot = QUIZ_MASCOTS[mascotKey] ?? QUIZ_MASCOTS.rabbit;
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<number, string>>({});
@@ -85,6 +122,18 @@ export function TakeQuizScreen({
     setRecordedAudioPath(null);
     setVoiceError(null);
   }, [currentIndex, viewMode]);
+
+  useEffect(() => {
+    if (!feedback) {
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      quizScrollRef.current?.scrollToEnd({ animated: true });
+    }, 140);
+
+    return () => clearTimeout(timer);
+  }, [feedback]);
 
   useEffect(() => {
     if (!isRecording || timeLeft <= 0) {
@@ -139,13 +188,29 @@ export function TakeQuizScreen({
           setIsTranscribing(false);
           setTimeLeft(10);
         })
-        .catch(() => {
+        .catch(error => {
           if (!active) {
             return;
           }
 
-          setVoiceError('Failed to transcribe audio. Please try again.');
+          console.error('Quiz audio transcription failed', {
+            questionIndex: currentIndex,
+            questionId: currentQuestion?.id,
+            error,
+          });
+          setResults(prev => ({
+            ...prev,
+            [currentIndex]: 'incorrect',
+          }));
+          setVoiceError(null);
           setIsTranscribing(false);
+          setRecordedAudioPath(null);
+          setFeedback(null);
+          if (currentIndex < questions.length - 1) {
+            setCurrentIndex(prev => (prev === currentIndex ? prev + 1 : prev));
+          } else {
+            setViewMode('score');
+          }
         });
     }, 1200);
 
@@ -153,7 +218,7 @@ export function TakeQuizScreen({
       active = false;
       clearTimeout(timer);
     };
-  }, [currentIndex, isTranscribing, recordedAudioPath]);
+  }, [currentIndex, currentQuestion?.id, isTranscribing, questions.length, recordedAudioPath]);
 
   if (!currentQuestion) {
     return (
@@ -288,11 +353,18 @@ export function TakeQuizScreen({
         text: response,
       });
     } catch (error) {
-      console.error('AI explanation request failed', error);
+      console.error('AI explanation request failed', {
+        questionIndex: currentIndex,
+        questionId: currentQuestion.id,
+        subjectName,
+        message: error instanceof Error ? error.message : String(error),
+        cause: error instanceof Error ? error.cause : undefined,
+        error,
+      });
       setExplanationModal({
         isOpen: true,
         isLoading: false,
-        text: 'I could not load the explanation right now. Please try again in a moment.',
+        text: 'I could not load more information right now. Try the next question and come back in a moment.',
       });
     }
   }
@@ -425,7 +497,7 @@ export function TakeQuizScreen({
                       <Pressable
                         onPress={() => handleAskAI(question.text, answer)}
                         style={styles.reviewAiButton}>
-                        <Sparkles size={14} color="#2563EB" />
+                        <Info size={14} color="#2563EB" />
                       </Pressable>
                     </View>
                     <Text style={styles.reviewExplanationText}>{question.explanation}</Text>
@@ -444,6 +516,9 @@ export function TakeQuizScreen({
     (!currentQuestion.options || currentQuestion.options.length === 0)
       ? ['True', 'False']
       : currentQuestion.options || [];
+  const hasCurrentAnswer = Boolean(answers[currentIndex]);
+  const canCheckCurrentAnswer =
+    hasCurrentAnswer && !isRecording && !isTranscribing && !isGrading;
 
   return (
     <View style={styles.screen}>
@@ -451,7 +526,6 @@ export function TakeQuizScreen({
         <Pressable onPress={onClose} style={styles.heroBackButton}>
           <ArrowLeft size={24} color="#9CA3AF" />
         </Pressable>
-        <Text style={styles.heroGrade}>8</Text>
         <Text style={styles.heroSubject}>{subjectName}</Text>
       </View>
 
@@ -494,6 +568,7 @@ export function TakeQuizScreen({
         </View>
 
         <ScrollView
+          ref={quizScrollRef}
           style={styles.quizBody}
           contentContainerStyle={styles.quizBodyContent}
           showsVerticalScrollIndicator={false}>
@@ -583,16 +658,6 @@ export function TakeQuizScreen({
                 </Pressable>
               )}
 
-              {!answers[currentIndex] ? (
-                <TextInput
-                  multiline
-                  placeholder="Or type your answer here..."
-                  placeholderTextColor="#9CA3AF"
-                  value={answers[currentIndex] || ''}
-                  onChangeText={setAnswer}
-                  style={styles.answerInput}
-                />
-              ) : null}
             </View>
           ) : null}
 
@@ -614,7 +679,7 @@ export function TakeQuizScreen({
                   {feedback === 'correct' ? 'Correct' : 'Needs another look'}
                 </Text>
                 <Pressable onPress={() => handleAskAI()} style={styles.feedbackAiButton}>
-                  <Sparkles size={14} color="#2563EB" />
+                  <Info size={15} color="#2563EB" />
                 </Pressable>
               </View>
               <Text style={styles.feedbackText}>{currentQuestion.explanation}</Text>
@@ -632,19 +697,20 @@ export function TakeQuizScreen({
 
           {!feedback ? (
             <Pressable
-              disabled={!answers[currentIndex] || isRecording || isTranscribing || isGrading}
+              disabled={!canCheckCurrentAnswer}
               onPress={checkAnswer}
               style={[
                 styles.footerPrimaryButton,
-                (!answers[currentIndex] || isRecording || isTranscribing || isGrading) &&
-                  styles.footerPrimaryDisabled,
+                canCheckCurrentAnswer
+                  ? styles.footerPrimaryReady
+                  : styles.footerPrimaryDisabled,
               ]}>
               <Text style={styles.footerPrimaryText}>
                 {isGrading ? 'Checking...' : 'Check Answer'}
               </Text>
             </Pressable>
           ) : (
-            <Pressable onPress={handleNext} style={styles.footerPrimaryButton}>
+            <Pressable onPress={handleNext} style={[styles.footerPrimaryButton, styles.footerPrimaryReady]}>
               <Text style={styles.footerPrimaryText}>
                 {currentIndex === questions.length - 1 ? 'Finish Quiz' : 'Next Question'}
               </Text>
@@ -665,10 +731,18 @@ export function TakeQuizScreen({
               <X size={18} color="#9CA3AF" />
             </Pressable>
             <View style={styles.modalHead}>
-              <View style={styles.modalBadge}>
-                <Sparkles size={18} color="#FFFFFF" />
+              <View
+                style={[
+                  styles.modalMascotBadge,
+                  { backgroundColor: mascot.soft, borderColor: `${mascot.accent}44` },
+                ]}>
+                <Image
+                  accessibilityLabel={`${mascot.label} more information mascot`}
+                  source={mascot.source}
+                  style={styles.modalMascot}
+                />
               </View>
-              <Text style={styles.modalTitle}>AI Tutor</Text>
+              <Text style={styles.modalTitle}>More information</Text>
             </View>
             <View style={styles.modalBody}>
               <Text style={styles.modalText}>
@@ -694,8 +768,8 @@ const styles = StyleSheet.create({
   },
   heroBackdrop: {
     alignItems: 'center',
-    paddingTop: 26,
-    paddingBottom: 66,
+    paddingTop: 34,
+    paddingBottom: 48,
   },
   heroBackButton: {
     position: 'absolute',
@@ -706,16 +780,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  heroGrade: {
-    color: 'rgba(255,255,255,0.75)',
-    fontSize: 34,
-    fontWeight: '900',
-  },
   heroSubject: {
     color: 'rgba(255,255,255,0.42)',
     fontSize: 24,
     fontWeight: '500',
-    marginTop: 2,
   },
   quizBackdrop: {
     flex: 1,
@@ -760,8 +828,8 @@ const styles = StyleSheet.create({
   quizCard: {
     flex: 1,
     marginHorizontal: 12,
-    marginTop: -18,
-    marginBottom: 12,
+    marginTop: -42,
+    marginBottom: 22,
     backgroundColor: '#F6F7F8',
     borderRadius: 28,
     overflow: 'hidden',
@@ -984,18 +1052,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  answerInput: {
-    minHeight: 118,
-    borderRadius: 18,
-    borderWidth: 1,
-    borderColor: '#DADADA',
-    backgroundColor: '#FFFFFF',
-    color: '#111827',
-    fontSize: 16,
-    lineHeight: 24,
-    padding: 16,
-    textAlignVertical: 'top',
-  },
   feedbackCard: {
     borderRadius: 18,
     padding: 14,
@@ -1062,13 +1118,23 @@ const styles = StyleSheet.create({
     flex: 1,
     minHeight: 50,
     borderRadius: 16,
-    backgroundColor: '#8FE1AF',
+    backgroundColor: '#22C55E',
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 14,
   },
+  footerPrimaryReady: {
+    backgroundColor: '#16A34A',
+    shadowColor: '#16A34A',
+    shadowOpacity: 0.18,
+    shadowRadius: 10,
+    shadowOffset: { width: 0, height: 6 },
+    elevation: 4,
+  },
   footerPrimaryDisabled: {
     backgroundColor: '#D1D5DB',
+    shadowOpacity: 0,
+    elevation: 0,
   },
   footerPrimaryText: {
     color: '#FFFFFF',
@@ -1328,13 +1394,19 @@ const styles = StyleSheet.create({
     gap: 10,
     marginBottom: 18,
   },
-  modalBadge: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: '#2563EB',
+  modalMascotBadge: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    borderWidth: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    overflow: 'hidden',
+  },
+  modalMascot: {
+    width: 36,
+    height: 36,
+    resizeMode: 'contain',
   },
   modalTitle: {
     color: '#111827',

@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-tza-tie-basic-form-iii-kiswahili",
+  "title": "KITABU QUEST Form III Kiswahili",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Form III",
+  "subject": "Kiswahili",
+  "subjectSlug": "kiswahili",
+  "subjectColor": "#C2410C",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v13",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:46:56Z",
+  "sourceSnapshotHash": "fd6f738c9d56c39d7c4c89b70efaa6327c033dbaa253e92cce3dfd960c078930",
+  "bookPlanHash": "b338347baff23c2ccb857c54cdc676dc60963b20132dad7a5c272e7ab6dba79e",
+  "pageCount": 111,
+  "wordCount": 9211,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 8,
+    "outcomeCount": 8,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "TZA",
+    "subject": "Kiswahili",
+    "species": "giraffe",
+    "role": "language and storytelling guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "students discussing Kiswahili texts with a giraffe mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Tanzania TIE-BASIC Form III Kiswahili. Scene: students discussing Kiswahili texts with a giraffe mascot. Include a friendly giraffe mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 81339,
+    "sha256": "113f3770db022ceb9d2db853edee35171032b130b07059e4ad8de1481392f685"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 81339,
+      "sha256": "113f3770db022ceb9d2db853edee35171032b130b07059e4ad8de1481392f685",
+      "kind": "cover",
+      "altText": "KITABU QUEST Form III Kiswahili cover with giraffe",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-tza-tie-basic-form-iii-kiswahili.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-tza-tie-basic-form-iii-kiswahili.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "8961392e-5a37-4c5a-8c7e-9a6100334ba4",
+      "subject": "Kiswahili",
+      "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form III Kiswahili",
+      "countryCode": "TZA",
+      "curriculumCode": "TIE-BASIC",
+      "gradeCode": "FORM_III",
+      "gradeLocalLevel": "Form III",
+      "localLevel": "Form III",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1741937359-MUHTASARI%20WA%20KISWAHILI%20KIDATO%20%20I-IV%20FINAL.pdf",
+      "objectKey": "data/curriculum/source-files/TZA/831e9ce0948d4e9ff6c64bce41dd75f5ef948c8cac946024b5b6c60ce0f8b1f2.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "FORM_III",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1741937359-MUHTASARI%20WA%20KISWAHILI%20KIDATO%20%20I-IV%20FINAL.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/kiswahili/8961392e-5a37-4c5a-8c7e-9a6100334ba4.md",
+        "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "tie.go.tz"
+        ],
+        "markdownChecksum": "8091f96d959c9a1b21a255405028b6357498c598244b55500a18e19d9340774e",
+        "markdownPageCount": 56,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_III/kiswahili/8961392e-5a37-4c5a-8c7e-9a6100334ba4.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "8091f96d959c9a1b21a255405028b6357498c598244b55500a18e19d9340774e",
+          "pageCount": 56,
+          "generatedAt": "2026-06-29T16:46:13.626Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "882332bb296bc6934a773e885b84696f2d50e48c4e411b04196d15c11677110b"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:46:13.626Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

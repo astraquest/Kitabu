@@ -17,14 +17,17 @@ import ReactTestRenderer, { act } from 'react-test-renderer';
 import { SubjectGrid, SubjectSelector } from '../src/components/SubjectGrid';
 import { StudentHeader } from '../src/components/StudentHeader';
 import { SubscriptionCheckoutModal } from '../src/components/SubscriptionCheckoutModal';
-import { INITIAL_ASSIGNMENTS, SUBJECTS } from '../src/data/mockData';
+import {
+  INITIAL_ASSIGNMENTS,
+  INITIAL_CURRICULUM_DATA,
+  SUBJECTS,
+} from '../src/data/mockData';
 import { HomeworkListScreen } from '../src/screens/HomeworkListScreen';
 import { LoginScreen } from '../src/screens/LoginScreen';
 import { StudentOnboardingScreen } from '../src/screens/StudentOnboardingScreen';
 import { TryForOneBobModal } from '../src/components/TryForOneBobModal';
 import type {
   BillingPlan,
-  DueReview,
   SchoolData,
   WeeklyExamPayload,
 } from '../src/types/app';
@@ -92,15 +95,6 @@ const plans: BillingPlan[] = [
     isPopular: true,
   },
 ];
-
-const dueReview: DueReview = {
-  id: 'review-1',
-  subjectId: 'math',
-  subStrandKey: 'number-operations',
-  nextReviewDate: '2026-06-19',
-  intervalDays: 7,
-  masteryScore: 0.82,
-};
 
 const weeklyExam: WeeklyExamPayload = {
   exam: {
@@ -231,16 +225,26 @@ async function selectCounty(
 }
 
 test('mock homework includes sample assignments for testing', () => {
-  expect(INITIAL_ASSIGNMENTS).toHaveLength(5);
+  expect(INITIAL_ASSIGNMENTS).toHaveLength(3);
   expect(
     INITIAL_ASSIGNMENTS.filter(item => item.status === 'pending'),
-  ).toHaveLength(4);
+  ).toHaveLength(2);
   expect(
     INITIAL_ASSIGNMENTS.filter(item => item.status === 'completed'),
   ).toHaveLength(1);
   expect(INITIAL_ASSIGNMENTS.every(item => item.questions.length >= 3)).toBe(
     true,
   );
+});
+
+test('Grade 6 Kenya subjects include test curriculum strands', () => {
+  SUBJECTS.forEach(subject => {
+    const strands = INITIAL_CURRICULUM_DATA[`Grade 6-${subject.id}`];
+    expect(strands).toBeDefined();
+    expect(strands.length).toBeGreaterThanOrEqual(1);
+    expect(strands[0].subStrands.length).toBeGreaterThanOrEqual(1);
+    expect(strands[0].subStrands[0].outcomes?.length).toBeGreaterThanOrEqual(1);
+  });
 });
 
 test('subject selector disables new selections after five subjects', async () => {
@@ -355,40 +359,6 @@ test('student dashboard grade selector is a header dropdown and updates selectio
   expect(onSelectGrade).toHaveBeenCalledWith('Grade 12');
 });
 
-test('homework list shows due reviews as pending homework items', async () => {
-  const onStartReview = jest.fn();
-  let renderer: ReactTestRenderer.ReactTestRenderer;
-
-  await act(() => {
-    renderer = ReactTestRenderer.create(
-      <HomeworkListScreen
-        assignments={[]}
-        dueReviews={[dueReview]}
-        weeklyExam={null}
-        onBack={jest.fn()}
-        onStartAssignment={jest.fn()}
-        onStartReview={onStartReview}
-        onOpenWeeklyExam={jest.fn()}
-      />,
-    );
-  });
-
-  const text = renderedText(renderer!.root);
-  expect(text).toContain('Pending (1)');
-  expect(text).toContain('Review Due');
-  expect(text).toContain('Number Operations');
-  expect(text).toContain('Start Review');
-
-  const reviewCard = renderer!.root.findAll(
-    node =>
-      typeof node.props.onPress === 'function' &&
-      node.findAllByProps({ children: 'Start Review' }).length > 0,
-  )[0];
-  await act(() => reviewCard.props.onPress());
-
-  expect(onStartReview).toHaveBeenCalledWith(dueReview);
-});
-
 test('homework list shows available weekly exam as a homework item', async () => {
   const onOpenWeeklyExam = jest.fn();
   let renderer: ReactTestRenderer.ReactTestRenderer;
@@ -397,11 +367,9 @@ test('homework list shows available weekly exam as a homework item', async () =>
     renderer = ReactTestRenderer.create(
       <HomeworkListScreen
         assignments={[]}
-        dueReviews={[]}
         weeklyExam={weeklyExam}
         onBack={jest.fn()}
         onStartAssignment={jest.fn()}
-        onStartReview={jest.fn()}
         onOpenWeeklyExam={onOpenWeeklyExam}
       />,
     );

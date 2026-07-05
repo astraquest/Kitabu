@@ -52,6 +52,7 @@ interface ChatLearningContext {
 const CHAT_AI_TIMEOUT_MS = 20_000;
 const QUIZ_AI_TIMEOUT_MS = 80_000;
 const DEFAULT_AI_TIMEOUT_MS = 25_000;
+const CHAT_RESPONSE_MAX_WORDS = 85;
 
 export interface SpeechSynthesisPayload {
   base64Audio: string;
@@ -117,19 +118,82 @@ function buildChatLearningContext(context?: ChatLearningContext) {
 }
 
 function cleanTutorResponse(text: string) {
-  const metadataLine = /^(question acknowledged|subject|grade level adaptation|grade level|student level|active subject|active strand|active sub-strand|curriculum scope)\b/i;
+  const metadataLine = /^(question acknowledged|subject|grade level adaptation|grade level|student level|active subject|active strand|active sub-strand|curriculum scope|follow-up question|follow-up question to get us started)\b/i;
 
   return text
     .replace(/\r\n/g, '\n')
     .replace(/\*\*(.*?)\*\*/g, '$1')
     .replace(/__(.*?)__/g, '$1')
     .replace(/^\s{0,3}#{1,6}\s*/gm, '')
+    .replace(/^\s*[-*]\s+/gm, '')
     .replace(/`([^`]+)`/g, '$1')
     .split('\n')
     .map(line => line.trim())
     .filter(line => line.length > 0 && !metadataLine.test(line))
     .join('\n')
     .trim();
+}
+
+function buildLocalChatReply(prompt: string) {
+  const normalized = prompt
+    .trim()
+    .toLowerCase()
+    .replace(/[!?.,]+/g, '')
+    .replace(/\s+/g, ' ');
+
+  if (/^(hi|hello|helo|hey|sasa|habari|mambo|niaje)$/.test(normalized)) {
+    return 'Hi! What are we working on today?';
+  }
+
+  if (/^(thanks|thank you|asante|asante sana)$/.test(normalized)) {
+    return 'You are welcome. Want to try one more together?';
+  }
+
+  return null;
+}
+
+function countWords(text: string) {
+  return text.split(/\s+/).filter(Boolean).length;
+}
+
+function addEngagementPrompt(text: string) {
+  if (!text || text.includes('?')) {
+    return text;
+  }
+
+  const prompted = `${text} Want to try the next step?`;
+  return countWords(prompted) <= CHAT_RESPONSE_MAX_WORDS ? prompted : text;
+}
+
+function compactChatTutorResponse(text: string) {
+  const cleaned = cleanTutorResponse(text).replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim();
+
+  if (countWords(cleaned) <= CHAT_RESPONSE_MAX_WORDS) {
+    return addEngagementPrompt(cleaned);
+  }
+
+  const sentences = cleaned.match(/[^.!?]+[.!?]+|[^.!?]+$/g) ?? [cleaned];
+  let compact = '';
+
+  for (const sentence of sentences) {
+    const next = `${compact}${compact ? ' ' : ''}${sentence.trim()}`.trim();
+    if (countWords(next) > CHAT_RESPONSE_MAX_WORDS) {
+      break;
+    }
+    compact = next;
+  }
+
+  if (!compact) {
+    compact = cleaned.split(/\s+/).slice(0, CHAT_RESPONSE_MAX_WORDS).join(' ');
+  }
+
+  compact = compact.replace(/[,:;]\s*$/, '.').trim();
+
+  if (!/[.!?]$/.test(compact)) {
+    compact += '.';
+  }
+
+  return addEngagementPrompt(compact);
 }
 
 async function fetchAiWithTimeout(path: string, init: RequestInit, timeoutMs: number) {
@@ -212,38 +276,48 @@ export async function askHomeworkHelper(
   attachment?: Attachment,
   learningContext?: ChatLearningContext,
 ): Promise<string> {
+  if (mode === 'chat' && !attachment) {
+    const localReply = buildLocalChatReply(prompt);
+    if (localReply) {
+      return localReply;
+    }
+  }
+
   const contextBlock = buildChatLearningContext(learningContext);
   const systemInstruction =
     mode === 'chat'
-      ? `You are Kitabu, a warm and concise AI tutor inside a student chat.
+      ? `You are Kitabu, a warm mastery-focused AI tutor inside a student chat.
 
 Learning context:
 ${contextBlock}
 
-Conversation style:
-1. Start with the answer, not labels or metadata.
-2. Never write headings such as "Question Acknowledged", "Subject", or "Grade Level".
-3. Do not use markdown headings, markdown bolding, tables, or code fences.
-4. Keep the response conversational: 2-4 short paragraphs, or up to 3 short bullets only when listing items.
-5. Ground answers in the student's grade, active subject, and curriculum scope when available.
-6. Use age-appropriate wording and a simple example for the student's grade level.
-7. Ask one short follow-up question only when it helps the student continue.
+Mastery tutoring rules:
+1. Keep every reply short: 1-3 short sentences, usually under 70 words.
+2. Sound conversational and encouraging, like a tutor chatting with one learner.
+3. Do not dump the full answer unless the learner has already tried, asks for a definition, or needs a safety-critical correction.
+4. Prefer one hint, one next step, or one worked micro-step. Then ask the learner to try or explain.
+5. Ask only one short question at the end. Never ask a questionnaire.
+6. If the learner only greets you or the request is unclear, greet them briefly and ask what they want to work on.
+7. If the learner made an attempt, name what is right, correct one misconception, and invite the next step.
+8. Ground help in the student's grade, active subject, and curriculum scope when available.
+9. Never write headings such as "Question Acknowledged", "Subject", "Grade Level", or "Follow-up Question".
+10. Do not use markdown headings, markdown bolding, tables, or code fences.
 
 If an attachment is provided:
 - Treat photos, images, PDFs, and documents as the student's homework context.
 - First identify the visible question, instructions, marks, tables, diagrams, or handwritten work.
 - If the file is unclear, say exactly what is missing and ask for a clearer photo or page.
-- Help the student solve or understand the attached work; do not merely summarize the file.
-- For documents with multiple questions, answer the specific question the student asks and offer to continue question by question.`
-      : `You are KITABU AI, an expert tutor. Provide a clear, step-by-step explanation of the concept.
+- Help the student solve or understand one part at a time; do not merely summarize the file.
+- For documents with multiple questions, handle the specific question the student asks and offer to continue question by question.`
+      : `You are KITABU AI, a concise mastery tutor.
 
 Methodology:
-1. Be direct and concise.
-2. Break the concept down into logical steps.
-3. Explain why the correct answer is right.
+1. Keep the explanation short: 2-4 short sentences or up to 3 small bullets.
+2. Focus on the one misconception or next step that matters most.
+3. Explain why the correct answer is right without repeating the whole question.
 4. Use simple, friendly language.
-5. Do not repeat the question.
-6. Do not use markdown bolding.`;
+5. End with one quick check or practice prompt when useful.
+6. Do not use markdown bolding, headings, or tables.`;
 
   try {
     const response = await generateText({
@@ -256,8 +330,14 @@ Methodology:
       timeoutMs: mode === 'chat' ? CHAT_AI_TIMEOUT_MS : DEFAULT_AI_TIMEOUT_MS,
     });
 
-    return response
-      ? cleanTutorResponse(response) || 'AI assistance is currently unavailable. Please try again later.'
+    const cleanedResponse = response
+      ? mode === 'chat'
+        ? compactChatTutorResponse(response)
+        : cleanTutorResponse(response)
+      : null;
+
+    return cleanedResponse
+      ? cleanedResponse || 'AI assistance is currently unavailable. Please try again later.'
       : 'AI assistance is currently unavailable. Please try again later.';
   } catch (error) {
     console.error('Error calling AI proxy:', error);
@@ -279,11 +359,11 @@ export async function askVoiceTutor(
 
 Rules:
 1. Sound natural when read aloud.
-2. Keep each reply concise, direct, and useful.
-3. Ask at most one short follow-up question when needed.
-4. Prefer short explanations over long lists.
+2. Keep each reply to 1-3 short spoken sentences.
+3. Give one hint, one next step, or one micro-explanation.
+4. Ask at most one short follow-up question.
 5. Avoid markdown, bullet points, headings, or meta commentary.
-6. If the student is stuck, give the next step first before expanding.
+6. If the student is stuck, guide them to try the next step before giving the final answer.
 7. End with one brief prompt that helps the student continue the conversation.`;
 
   try {
@@ -296,7 +376,9 @@ Rules:
       timeoutMs: CHAT_AI_TIMEOUT_MS,
     });
 
-    return response || 'I could not answer that just now. Please try again.';
+    return response
+      ? compactChatTutorResponse(response) || 'I could not answer that just now. Please try again.'
+      : 'I could not answer that just now. Please try again.';
   } catch (error) {
     console.error('Error calling voice tutor:', error);
     if (isAbortError(error)) {

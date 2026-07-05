@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-grade-6-science-and-technology",
+  "title": "KITABU QUEST Grade 6 Science and Technology",
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 6",
+  "subject": "Science and Technology",
+  "subjectSlug": "science-and-technology",
+  "subjectColor": "#7C3AED",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "learner-first-language-depth-renderers-2026-07-01-v10",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-reviewed-draft",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T11:36:26Z",
+  "sourceSnapshotHash": "ef7ed721124f14ebb739b8967b0bd4a711f837a2f44642f697dacc782f06e7c7",
+  "bookPlanHash": "4860293f06286ec6fcf155da80ad484d8b4ef01901cc80077d6181d79319782f",
+  "pageCount": 103,
+  "wordCount": 14243,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "ageBand": "upper-primary",
+    "coversDeferred": true,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "topicCount": 11,
+    "outcomeCount": 29,
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "KEN",
+    "subject": "Science and Technology",
+    "species": "chameleon",
+    "role": "curiosity and observation guide",
+    "sourceRationale": "Observation, adaptation, biology, and learner investigations."
+  },
+  "cover": {
+    "scene": "learners observing a chameleon and plants during a safe outdoor investigation",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Kenya CBC Grade 6 Science and Technology. Scene: learners observing a chameleon and plants during a safe outdoor investigation. Include a friendly chameleon mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "assets": [],
+  "downloads": {
+    "markdown": "kitabu-quest-grade-6-science-and-technology.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-grade-6-science-and-technology.pdf"
+  },
+  "sourceDocuments": [
+    {
+      "id": "59a8793a-e9c5-4ac1-a93c-aca5eabb1127",
+      "subject": "Science and Technology",
+      "officialTitle": "Competency Based Curriculum Grade 6 Science and Technology",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_6",
+      "gradeLocalLevel": "Grade 6",
+      "localLevel": "Grade 6",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/1Cqoxx-afRo1d3DdjdCY8l5STD1lXJhJI/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_6",
+        "documentUrl": "https://drive.google.com/file/d/1Cqoxx-afRo1d3DdjdCY8l5STD1lXJhJI/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_6/science-and-technology/59a8793a-e9c5-4ac1-a93c-aca5eabb1127.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-six-designs/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "7bcf8234fcfdbb7196764b389b56070505530c13e166ad8d1d9d328efd6dde94",
+        "markdownPageCount": 36,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_6/science-and-technology/59a8793a-e9c5-4ac1-a93c-aca5eabb1127.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "7bcf8234fcfdbb7196764b389b56070505530c13e166ad8d1d9d328efd6dde94",
+          "pageCount": 36,
+          "generatedAt": "2026-06-29T16:35:08.968Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "c4e8728abbe1fd5477d511917aefabb8fb69dccf3c03cf7a79ca051ed72fb118"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:08.968Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-uga-ncdc-s4-ict",
+  "title": "KITABU QUEST S4 ICT",
+  "country": "UGA",
+  "curriculum": "NCDC",
+  "grade": "S4",
+  "subject": "ICT",
+  "subjectSlug": "ict",
+  "subjectColor": "#4338CA",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v12",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:19:10Z",
+  "sourceSnapshotHash": "41e41561a5966a74d63f71f5c94e01a9ffd73498c4f985df590b5524407c0f2a",
+  "bookPlanHash": "d0a9f69a8c5e110ec8df2ad3682964df83ac95f4904d844624e3000ba86c6ae8",
+  "pageCount": 85,
+  "wordCount": 9104,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 6,
+    "outcomeCount": 6,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "UGA",
+    "subject": "ICT",
+    "species": "grey crowned crane",
+    "role": "digital skills guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners using tablets and safe digital tools with a grey crowned crane mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Uganda NCDC S4 ICT. Scene: learners using tablets and safe digital tools with a grey crowned crane mascot. Include a friendly grey crowned crane mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 86661,
+    "sha256": "052f43400db8bbd001a7615147b7588f5d0cbf3cfa74b6625faed6c5064878c1"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 86661,
+      "sha256": "052f43400db8bbd001a7615147b7588f5d0cbf3cfa74b6625faed6c5064878c1",
+      "kind": "cover",
+      "altText": "KITABU QUEST S4 ICT cover with grey crowned crane",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-uga-ncdc-s4-ict.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-uga-ncdc-s4-ict.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "601b6d72-600e-4f7d-9182-c4cf5431bfc9",
+      "subject": "ICT",
+      "officialTitle": "Uganda Curriculum S4 ICT",
+      "countryCode": "UGA",
+      "curriculumCode": "NCDC",
+      "gradeCode": "S4",
+      "gradeLocalLevel": "S4",
+      "localLevel": "S4",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/ICT_Syllabus.pdf",
+      "objectKey": "data/curriculum/source-files/UGA/a185a3b5d8bb197e5f935a7279e2d46de9853e294d36814c8610d3bb5445faea.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "S4",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/ICT_Syllabus.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/UGA/NCDC/S4/ict/601b6d72-600e-4f7d-9182-c4cf5431bfc9.md",
+        "sourcePageUrl": "https://ncdc.go.ug/wp-content/uploads/2024/03/Curriculum_Framework.pdf",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "ncdc.go.ug"
+        ],
+        "markdownChecksum": "9ff6fbdb8c8394216d6ab484c10571a8931db1828b6791bad76ebbb5167035cd",
+        "markdownPageCount": 40,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/UGA/NCDC/S4/ict/601b6d72-600e-4f7d-9182-c4cf5431bfc9.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "9ff6fbdb8c8394216d6ab484c10571a8931db1828b6791bad76ebbb5167035cd",
+          "pageCount": 40,
+          "generatedAt": "2026-06-29T18:47:29.013Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "b38b93df6700bb45d2f4341a712042dbe73f7bbd590daaa64b53de15070fb1cd"
+        },
+        "markdownGeneratedAt": "2026-06-29T18:47:29.013Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

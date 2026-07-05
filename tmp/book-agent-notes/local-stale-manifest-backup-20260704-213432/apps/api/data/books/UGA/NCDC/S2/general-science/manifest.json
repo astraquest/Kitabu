@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-uga-ncdc-s2-general-science",
+  "title": "KITABU QUEST S2 General Science",
+  "country": "UGA",
+  "curriculum": "NCDC",
+  "grade": "S2",
+  "subject": "General Science",
+  "subjectSlug": "general-science",
+  "subjectColor": "#7C3AED",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v12",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:14:37Z",
+  "sourceSnapshotHash": "c9be1a3d8bd757ca74cd7264cc8f1dba997ef5d3fe8071af47d69bbe825771fa",
+  "bookPlanHash": "88c3cc724591df1ab868a217567c3797e05e772a4a96f0a583375dfc23f43bf0",
+  "pageCount": 85,
+  "wordCount": 8464,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 7,
+    "outcomeCount": 7,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "UGA",
+    "subject": "General Science",
+    "species": "chameleon",
+    "role": "curiosity and observation guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners doing a safe science investigation outdoors with a chameleon mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Uganda NCDC S2 General Science. Scene: learners doing a safe science investigation outdoors with a chameleon mascot. Include a friendly chameleon mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 90090,
+    "sha256": "b832d06873fce4c6d328d5e275e08a3ad96ef5d5538aff981b6d0e2225d41915"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 90090,
+      "sha256": "b832d06873fce4c6d328d5e275e08a3ad96ef5d5538aff981b6d0e2225d41915",
+      "kind": "cover",
+      "altText": "KITABU QUEST S2 General Science cover with chameleon",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-uga-ncdc-s2-general-science.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-uga-ncdc-s2-general-science.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "a90b19ca-82ae-46bd-bbad-bae1dd3499ea",
+      "subject": "General Science",
+      "officialTitle": "Uganda Curriculum S2 General Science",
+      "countryCode": "UGA",
+      "curriculumCode": "NCDC",
+      "gradeCode": "S2",
+      "gradeLocalLevel": "S2",
+      "localLevel": "S2",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/GENERAL-SCIENCE-syllabus.pdf",
+      "objectKey": "data/curriculum/source-files/UGA/3648c8d2050d30f9e49bf85e3f57151f363ecd4c68bcdd3fa922b0d2c1810e8b.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "S2",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://ncdc.go.ug/wp-content/uploads/2024/02/GENERAL-SCIENCE-syllabus.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/UGA/NCDC/S2/general-science/a90b19ca-82ae-46bd-bbad-bae1dd3499ea.md",
+        "sourcePageUrl": "https://ncdc.go.ug/wp-content/uploads/2024/03/Curriculum_Framework.pdf",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "ncdc.go.ug"
+        ],
+        "markdownChecksum": "e723c0e690cb46657906a9cdbfc785eda09e56f911df9c5be3c74f4188299085",
+        "markdownPageCount": 60,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/UGA/NCDC/S2/general-science/a90b19ca-82ae-46bd-bbad-bae1dd3499ea.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "e723c0e690cb46657906a9cdbfc785eda09e56f911df9c5be3c74f4188299085",
+          "pageCount": 60,
+          "generatedAt": "2026-06-29T18:01:01.268Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "b88a1f5cbb016e53ce0e338a05af33d105032fc75ab8211b75b50a3953eaf4c3"
+        },
+        "markdownGeneratedAt": "2026-06-29T18:01:01.268Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

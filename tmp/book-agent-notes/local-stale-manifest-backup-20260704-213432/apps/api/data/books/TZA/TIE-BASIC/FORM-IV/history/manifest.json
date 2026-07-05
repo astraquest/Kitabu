@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-tza-tie-basic-form-iv-history",
+  "title": "KITABU QUEST Form IV History",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Form IV",
+  "subject": "History",
+  "subjectSlug": "history",
+  "subjectColor": "#BE123C",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v13",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:50:04Z",
+  "sourceSnapshotHash": "88c56ad083f1a46efb2a01521ef13e6e336b7994bb9b25c1e2e4d5c00bfae24b",
+  "bookPlanHash": "335ea5470bbdfbbdb3c25040c3ddb0b59cf96fb9e680af77aa7f4c371863aa43",
+  "pageCount": 85,
+  "wordCount": 8163,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 8,
+    "outcomeCount": 8,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "TZA",
+    "subject": "History",
+    "species": "lion",
+    "role": "heritage guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "students studying historical sources with a lion mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Tanzania TIE-BASIC Form IV History. Scene: students studying historical sources with a lion mascot. Include a friendly lion mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 82635,
+    "sha256": "c3752d3984681e6e154d419e8d04d7a9f299cae8e74dfe41fe6b41c4abff8098"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 82635,
+      "sha256": "c3752d3984681e6e154d419e8d04d7a9f299cae8e74dfe41fe6b41c4abff8098",
+      "kind": "cover",
+      "altText": "KITABU QUEST Form IV History cover with lion",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-tza-tie-basic-form-iv-history.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-tza-tie-basic-form-iv-history.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "db942a6a-9275-4eb4-815e-fe4ff36fbeb2",
+      "subject": "History",
+      "officialTitle": "Tanzania Basic and Secondary Education Curriculum Form IV History",
+      "countryCode": "TZA",
+      "curriculumCode": "TIE-BASIC",
+      "gradeCode": "FORM_IV",
+      "gradeLocalLevel": "Form IV",
+      "localLevel": "Form IV",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+      "objectKey": "data/curriculum/source-files/TZA/8809c90995f462e7e30624c84105fd8d3f2b5dc47a71aeb86384cf64d2be4999.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "FORM_IV",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727255952-HISTORY%20FOR%20FORM%20I-IV.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/history/db942a6a-9275-4eb4-815e-fe4ff36fbeb2.md",
+        "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-lower-secondary-academics",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "tie.go.tz"
+        ],
+        "markdownChecksum": "d5a67e7aa844ca464dd0fcfe14fe2bd2c3fd0bdf084f76f923fc5b8759bea89a",
+        "markdownPageCount": 32,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/TZA/TIE-BASIC/FORM_IV/history/db942a6a-9275-4eb4-815e-fe4ff36fbeb2.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "d5a67e7aa844ca464dd0fcfe14fe2bd2c3fd0bdf084f76f923fc5b8759bea89a",
+          "pageCount": 32,
+          "generatedAt": "2026-06-29T16:46:48.881Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "464511ca30241164b2f8885e994453ccfc4735c0a81579ebcd28062d664130a0"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:46:48.881Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

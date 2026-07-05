@@ -30,7 +30,6 @@ import {
   SubStrand,
   UserProfile,
 } from '../types/app';
-import { LiveAudioTutorScreen } from '../screens/LiveAudioTutorScreen';
 import { chatAttachmentBridge } from '../services/nativeBridges';
 
 const logoAsset = require('../assets/logo.png');
@@ -44,12 +43,10 @@ interface ChatOverlayModalProps {
   selectedSubStrand?: SubStrand | null;
   selectedAssignment?: Assignment | null;
   userProfile?: UserProfile;
-  startLiveAudio?: boolean;
   attachmentPickerSignal?: number;
   onClose: () => void;
   onSendMessage: (message: string, attachment?: Attachment) => void;
   onStartLiveAudio?: () => void;
-  onCloseLiveAudio?: () => void;
   onOpenLiveScreen?: () => void;
 }
 
@@ -135,12 +132,10 @@ export function ChatOverlayModal({
   selectedSubStrand,
   selectedAssignment,
   userProfile,
-  startLiveAudio,
   attachmentPickerSignal = 0,
   onClose,
   onSendMessage,
   onStartLiveAudio,
-  onCloseLiveAudio,
   onOpenLiveScreen,
 }: ChatOverlayModalProps) {
   const scrollRef = useRef<ScrollView>(null);
@@ -219,20 +214,6 @@ export function ChatOverlayModal({
         <Pressable style={styles.backdrop} onPress={onClose} />
 
         <View accessibilityLabel="chat-overlay-sheet" style={styles.sheet}>
-          {startLiveAudio ? (
-            <View style={styles.liveAudioLayer}>
-              <LiveAudioTutorScreen
-                onClose={onCloseLiveAudio || onClose}
-                initialMessages={messages}
-                currentGrade={currentGrade}
-                selectedSubject={selectedSubject}
-                selectedSubStrand={selectedSubStrand}
-                selectedAssignment={selectedAssignment}
-                userProfile={userProfile}
-              />
-            </View>
-          ) : null}
-
           <View style={styles.header}>
             <View style={styles.headerBrand}>
               <View style={styles.headerIconWrap}>
@@ -474,10 +455,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     height: '88%',
     overflow: 'hidden',
-  },
-  liveAudioLayer: {
-    ...StyleSheet.absoluteFillObject,
-    zIndex: 3,
   },
   header: {
     alignItems: 'center',

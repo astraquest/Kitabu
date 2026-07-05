@@ -42,6 +42,7 @@ describe('game-core contracts', () => {
       expect(next.rescueQuestion).not.toBeNull();
       expect(next.rescueTimeLeftSec).toBe(5);
       expect(events).toEqual([
+        { type: 'monster_attack' },
         expect.objectContaining({
           type: 'rescue_started',
         }),
@@ -68,6 +69,74 @@ describe('game-core contracts', () => {
       expect(next.status).toBe('gameover');
       expect(next.matchResult).toBe('loss');
       expect(events).toEqual([{ type: 'game_over', score: 30 }]);
+    });
+
+    it('allows exactly three successful monster rescues before game over', () => {
+      const engine = createCrazyBalloonEngine(new FixedSequenceRandom([0.1, 0.2, 0.3]));
+      const rescue = engine.create({
+        status: 'rescue_quiz',
+        mode: 'single',
+        livesUsed: 2,
+        rescueQuestion: {
+          prompt: 'Test',
+          options: ['A', 'B'],
+          answer: 'A',
+        },
+        rescueTimeLeftSec: 3,
+      });
+
+      const saved = engine.update(rescue, { type: 'answer_rescue', answer: 'A' }, 0);
+      const saveEvents = engine.collectEvents(saved);
+
+      expect(saved.status).toBe('playing');
+      expect(saved.livesUsed).toBe(3);
+      expect(saveEvents).toEqual([{ type: 'rescued', rescuesUsed: 3 }]);
+
+      const fourthMonster = engine.update(
+        {
+          ...saved,
+          balloons: [
+            {
+              id: 9,
+              leftPct: 40,
+              bottomPct: 30,
+              color: '#FF5252',
+              speedPctPerTick: 3,
+              isMonster: true,
+            },
+          ],
+        },
+        { type: 'pop_balloon', id: 9 },
+        0,
+      );
+      const finalEvents = engine.collectEvents(fourthMonster);
+
+      expect(fourthMonster.status).toBe('gameover');
+      expect(fourthMonster.matchResult).toBe('loss');
+      expect(finalEvents).toEqual([
+        { type: 'monster_attack' },
+        { type: 'game_over', score: 0 },
+      ]);
+    });
+
+    it('finishes the run when the monster rescue countdown expires', () => {
+      const engine = createCrazyBalloonEngine(new FixedSequenceRandom([0.1]));
+      const initial = engine.create({
+        status: 'rescue_quiz',
+        mode: 'single',
+        rescueQuestion: {
+          prompt: 'Test',
+          options: ['A', 'B'],
+          answer: 'A',
+        },
+        rescueTimeLeftSec: 5,
+      });
+
+      const next = engine.update(initial, { type: 'tick' }, 5100);
+      const events = engine.collectEvents(next);
+
+      expect(next.status).toBe('gameover');
+      expect(events).toEqual([{ type: 'game_over', score: 0 }]);
     });
   });
 

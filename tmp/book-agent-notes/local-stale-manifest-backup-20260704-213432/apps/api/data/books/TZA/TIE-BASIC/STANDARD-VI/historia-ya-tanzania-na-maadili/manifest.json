@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili",
+  "title": "KITABU QUEST Standard VI Historia ya Tanzania na Maadili",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Standard VI",
+  "subject": "Historia ya Tanzania na Maadili",
+  "subjectSlug": "historia-ya-tanzania-na-maadili",
+  "subjectColor": "#BE123C",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v13",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:42:40Z",
+  "sourceSnapshotHash": "b40411de97b882e6ad9d4ffff05afde1afd419e829da1ddb6121ad75762bacfa",
+  "bookPlanHash": "64659e05003569f1ebfaf9f99b5bdc6bbaba667ed3ac7d1a26707358d2f9f19e",
+  "pageCount": 85,
+  "wordCount": 8174,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 8,
+    "outcomeCount": 8,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "TZA",
+    "subject": "Historia ya Tanzania na Maadili",
+    "species": "lion",
+    "role": "heritage and values guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners visiting a Tanzanian historical site with a lion mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Tanzania TIE-BASIC Standard VI Historia ya Tanzania na Maadili. Scene: learners visiting a Tanzanian historical site with a lion mascot. Include a friendly lion mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 92297,
+    "sha256": "e675c334594ada3a1f6d0f87a9a774f2864c823821031c533dc3190539da697c"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 92297,
+      "sha256": "e675c334594ada3a1f6d0f87a9a774f2864c823821031c533dc3190539da697c",
+      "kind": "cover",
+      "altText": "KITABU QUEST Standard VI Historia ya Tanzania na Maadili cover with lion",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-tza-tie-basic-standard-vi-historia-ya-tanzania-na-maadili.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "6cfbac64-2c31-467f-98ec-685f47c23513",
+      "subject": "Historia ya Tanzania na Maadili",
+      "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard VI Historia ya Tanzania na Maadili",
+      "countryCode": "TZA",
+      "curriculumCode": "TIE-BASIC",
+      "gradeCode": "STANDARD_VI",
+      "gradeLocalLevel": "Standard VI",
+      "localLevel": "Standard VI",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727167960-Muhtasari%20historia%20ya%20Tanzania%20na%20Maadili%20Drs%20III%20-%20%20IV.pdf",
+      "objectKey": "data/curriculum/source-files/TZA/72817e19874b80319a958bc34cd8535806c77e8ee9d47fbd790e03c51fa13e82.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "STANDARD_VI",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727167960-Muhtasari%20historia%20ya%20Tanzania%20na%20Maadili%20Drs%20III%20-%20%20IV.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/historia-ya-tanzania-na-maadili/6cfbac64-2c31-467f-98ec-685f47c23513.md",
+        "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "tie.go.tz"
+        ],
+        "markdownChecksum": "e17692e907975246489a1eb52d487ebdb1c1e05b6d60f7c9b3fe71d9500d05aa",
+        "markdownPageCount": 49,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_VI/historia-ya-tanzania-na-maadili/6cfbac64-2c31-467f-98ec-685f47c23513.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "e17692e907975246489a1eb52d487ebdb1c1e05b6d60f7c9b3fe71d9500d05aa",
+          "pageCount": 49,
+          "generatedAt": "2026-06-29T16:48:41.901Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "c0ba90becc2263afe14d153d4c02a3c147c4609ec98814a4dfdf395e2bd71e33"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:48:41.901Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

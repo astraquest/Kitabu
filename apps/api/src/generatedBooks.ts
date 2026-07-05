@@ -194,18 +194,67 @@ function hasAllGeneratedBookAccess(user: AuthenticatedUser) {
 function normalizeCountryCode(countryCode: string | null | undefined) {
   const normalized = (countryCode || 'KEN').trim().toUpperCase();
   const aliases: Record<string, string> = {
+    KEN: 'KEN',
     KE: 'KEN',
     KENYA: 'KEN',
+    UGA: 'UGA',
     UG: 'UGA',
     UGANDA: 'UGA',
+    RWA: 'RWA',
     RW: 'RWA',
     RWANDA: 'RWA',
+    TZA: 'TZA',
     TZ: 'TZA',
     TANZANIA: 'TZA',
+    ETH: 'ETH',
     ET: 'ETH',
     ETHIOPIA: 'ETH'
   };
   return aliases[normalized] ?? normalized;
+}
+
+function normalizeOptionalCountryCode(countryCode: string | null | undefined) {
+  return countryCode?.trim() ? normalizeCountryCode(countryCode) : null;
+}
+
+function defaultCurriculumForCountry(countryCode: string) {
+  const defaults: Record<string, string> = {
+    ETH: 'ENC',
+    KEN: 'CBC',
+    RWA: 'REB-CBC',
+    TZA: 'TIE-BASIC',
+    UGA: 'NCDC'
+  };
+  return defaults[countryCode] ?? 'CBC';
+}
+
+function normalizeCurriculumCode(curriculumCode: string | null | undefined, countryCode = 'KEN') {
+  const normalized = curriculumCode?.trim().toUpperCase();
+  if (!normalized) {
+    return defaultCurriculumForCountry(countryCode);
+  }
+
+  if (normalized === 'CBC' || normalized.includes('KNEC') || normalized.includes('KENYA')) {
+    return 'CBC';
+  }
+  if (normalized === 'ENC' || normalized.includes('ETHIOPIA')) {
+    return 'ENC';
+  }
+  if (normalized === 'NCDC' || normalized.includes('UGANDA')) {
+    return 'NCDC';
+  }
+  if (normalized === 'REB' || normalized === 'REB-CBC' || normalized.includes('RWANDA')) {
+    return 'REB-CBC';
+  }
+  if (normalized === 'TIE' || normalized === 'TIE-BASIC' || normalized.includes('TANZANIA')) {
+    return 'TIE-BASIC';
+  }
+
+  return normalized;
+}
+
+function normalizeOptionalCurriculumCode(curriculumCode: string | null | undefined, countryCode: string) {
+  return curriculumCode?.trim() ? normalizeCurriculumCode(curriculumCode, countryCode) : null;
 }
 
 function userCountryCode(user: AuthenticatedUser) {
@@ -213,7 +262,7 @@ function userCountryCode(user: AuthenticatedUser) {
 }
 
 function userCurriculumCode(user: AuthenticatedUser) {
-  return (user.curriculumCode || 'CBC').toUpperCase();
+  return normalizeCurriculumCode(user.curriculumCode, userCountryCode(user));
 }
 
 function ensureInsideBooksRoot(filePath: string) {
@@ -352,9 +401,20 @@ async function loadBook(manifestPath: string, user: AuthenticatedUser): Promise<
 
 export async function listGeneratedBooksForUser(
   user: AuthenticatedUser,
-  filters: { grade?: string | null } = {}
+  filters: { grade?: string | null; country?: string | null; curriculum?: string | null } = {}
 ): Promise<GeneratedLibraryBook[]> {
   const allContentAccess = hasAllGeneratedBookAccess(user);
+  const selectedCountryCode = normalizeOptionalCountryCode(filters.country);
+  const effectiveCountry = allContentAccess
+    ? selectedCountryCode ?? undefined
+    : userCountryCode(user);
+  const selectedCurriculumCode = normalizeOptionalCurriculumCode(
+    filters.curriculum,
+    effectiveCountry ?? userCountryCode(user)
+  );
+  const effectiveCurriculum = allContentAccess
+    ? selectedCurriculumCode ?? undefined
+    : userCurriculumCode(user);
   const selectedGradeCode = gradeToCode(filters.grade);
   const gradeCodes = selectedGradeCode
     ? [selectedGradeCode]
@@ -366,8 +426,8 @@ export async function listGeneratedBooksForUser(
   for (const gradeCode of gradeCodes) {
     const manifestPaths = await listSubjectManifestPaths({
       gradeCode,
-      country: allContentAccess ? undefined : userCountryCode(user),
-      curriculum: allContentAccess ? undefined : userCurriculumCode(user)
+      country: effectiveCountry,
+      curriculum: effectiveCurriculum
     });
     for (const manifestPath of manifestPaths) {
       const book = await loadBook(manifestPath, user);

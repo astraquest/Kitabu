@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-tza-tie-basic-standard-iv-jiografia-na-mazingira",
+  "title": "KITABU QUEST Standard IV Jiografia na Mazingira",
+  "country": "TZA",
+  "curriculum": "TIE-BASIC",
+  "grade": "Standard IV",
+  "subject": "Jiografia na Mazingira",
+  "subjectSlug": "jiografia-na-mazingira",
+  "subjectColor": "#0E7490",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v13",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T05:39:57Z",
+  "sourceSnapshotHash": "76c4b43b009bd480c38153362ed25c8c2fce7e8b6181a60445dd476965d40d6e",
+  "bookPlanHash": "b319c45b1bf4153d995066174ce482fc7ab11e235a958886d2bb3774c946dcc7",
+  "pageCount": 85,
+  "wordCount": 8039,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 8,
+    "outcomeCount": 8,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "TZA",
+    "subject": "Jiografia na Mazingira",
+    "species": "giraffe",
+    "role": "maps and environment guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "learners studying maps and landscapes with a giraffe mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Tanzania TIE-BASIC Standard IV Jiografia na Mazingira. Scene: learners studying maps and landscapes with a giraffe mascot. Include a friendly giraffe mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "existing-cover-preserved-for-library-display",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 92548,
+    "sha256": "6c6df5d238e38c9a35fef321bad8422240e3538f42f254a8b6b684b0889eb656"
+  },
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 92548,
+      "sha256": "6c6df5d238e38c9a35fef321bad8422240e3538f42f254a8b6b684b0889eb656",
+      "kind": "cover",
+      "altText": "KITABU QUEST Standard IV Jiografia na Mazingira cover with giraffe",
+      "generation": "deterministic-cover-composition"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-tza-tie-basic-standard-iv-jiografia-na-mazingira.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-tza-tie-basic-standard-iv-jiografia-na-mazingira.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "a5d896fb-9874-4491-bddb-6955d5310a05",
+      "subject": "Jiografia na Mazingira",
+      "officialTitle": "Tanzania Basic and Secondary Education Curriculum Standard IV Jiografia na Mazingira",
+      "countryCode": "TZA",
+      "curriculumCode": "TIE-BASIC",
+      "gradeCode": "STANDARD_IV",
+      "gradeLocalLevel": "Standard IV",
+      "localLevel": "Standard IV",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://www.tie.go.tz/uploads/documents/sw-1727166774-JIOGRAFIA%20NA%20MAZINGIRA%20FINAL.pdf",
+      "objectKey": "data/curriculum/source-files/TZA/1b3d59e04eca15ddb476e5825bd0a832cd0ab9ac6071654c8bb38322729e16f1.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "STANDARD_IV",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://www.tie.go.tz/uploads/documents/sw-1727166774-JIOGRAFIA%20NA%20MAZINGIRA%20FINAL.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/jiografia-na-mazingira/a5d896fb-9874-4491-bddb-6955d5310a05.md",
+        "sourcePageUrl": "https://www.tie.go.tz/publications/syllabus-for-primary-education",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "tie.go.tz"
+        ],
+        "markdownChecksum": "fb59c49d502d4d072f5ea4034981015c6723038a6bb3742ef8ef912e985ff159",
+        "markdownPageCount": 36,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/TZA/TIE-BASIC/STANDARD_IV/jiografia-na-mazingira/a5d896fb-9874-4491-bddb-6955d5310a05.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "fb59c49d502d4d072f5ea4034981015c6723038a6bb3742ef8ef912e985ff159",
+          "pageCount": 36,
+          "generatedAt": "2026-06-29T16:47:59.323Z",
+          "sourceFormat": "pdf",
+          "sourceChecksum": "ef52c27dadccb0f4887123494d57c665976c4793afc5a7bd8f0ab1bdaa82fbcc"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:47:59.323Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

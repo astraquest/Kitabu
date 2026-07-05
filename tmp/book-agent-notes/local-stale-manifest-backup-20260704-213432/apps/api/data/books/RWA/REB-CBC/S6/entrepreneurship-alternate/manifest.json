@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-rwa-reb-cbc-s6-entrepreneurship-alternate",
+  "title": "KITABU QUEST S6 Entrepreneurship Alternate",
+  "country": "RWA",
+  "curriculum": "REB-CBC",
+  "grade": "S6",
+  "subject": "Entrepreneurship Alternate",
+  "subjectSlug": "entrepreneurship-alternate",
+  "subjectColor": "#92400E",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-01-v5",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T04:16:12Z",
+  "sourceSnapshotHash": "4bc979d524e24f88272401147e88671ef57f02098e0504f1abe347f771dc9014",
+  "bookPlanHash": "a15493246cc630e9a294829acb7ac7dcaafe3e1406095b04880264e514b46c20",
+  "pageCount": 199,
+  "wordCount": 22050,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 24,
+    "outcomeCount": 24,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "RWA",
+    "subject": "Entrepreneurship Alternate",
+    "species": "impala",
+    "role": "enterprise guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "students planning an alternate entrepreneurship project with an impala mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Rwanda REB-CBC S6 Entrepreneurship Alternate. Scene: students planning an alternate entrepreneurship project with an impala mascot. Include a friendly impala mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "cover-not-started",
+  "assets": [],
+  "downloads": {
+    "markdown": "kitabu-quest-rwa-reb-cbc-s6-entrepreneurship-alternate.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-rwa-reb-cbc-s6-entrepreneurship-alternate.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication."
+  },
+  "sourceDocuments": [
+    {
+      "id": "1b521743-cf0a-45ba-923f-1b3159c28293",
+      "subject": "Entrepreneurship Alternate",
+      "officialTitle": "Rwanda Competence Based Curriculum S6 Entrepreneurship Alternate",
+      "countryCode": "RWA",
+      "curriculumCode": "REB-CBC",
+      "gradeCode": "S6",
+      "gradeLocalLevel": "S6",
+      "localLevel": "S6",
+      "extractionStatus": "seeded",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://elearning.reb.rw/pluginfile.php/45761/mod_resource/content/1/Entrepreneurship%20Syllabus.pdf",
+      "objectKey": "data/curriculum/source-files/RWA/d021ca000940d5c5276c2f9e4a2ab89fb984eb5f044e90c0dca80f6291d594dd.pdf",
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "Alternate official REB e-learning resource; resolve duplicate during review.",
+        "gradeCode": "S6",
+        "reviewNote": "Extracted and seeded as draft content subject to curriculum review.",
+        "documentUrl": "https://elearning.reb.rw/pluginfile.php/45761/mod_resource/content/1/Entrepreneurship%20Syllabus.pdf",
+        "importBatch": "review-source-extract-v1",
+        "markdownPath": "data/curriculum/markdown/RWA/REB-CBC/S6/entrepreneurship-alternate/1b521743-cf0a-45ba-923f-1b3159c28293.md",
+        "sourcePageUrl": "https://elearning.reb.rw/course/section.php?id=5866",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "reviewRequired": true,
+        "officialDomains": [
+          "reb.gov.rw",
+          "reb.rw",
+          "elearning.reb.rw"
+        ],
+        "markdownChecksum": "a66685ecb527797aada3aeb22b7c0a0e280b784902931acdead0eab9376c5750",
+        "markdownPageCount": 114,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/RWA/REB-CBC/S6/entrepreneurship-alternate/1b521743-cf0a-45ba-923f-1b3159c28293.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "a66685ecb527797aada3aeb22b7c0a0e280b784902931acdead0eab9376c5750",
+          "pageCount": 114,
+          "generatedAt": "2026-07-01T01:26:25.421Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/RWA/REB-CBC/S6/entrepreneurship-alternate/1b521743-cf0a-45ba-923f-1b3159c28293.json",
+          "sourceChecksum": "986e82bdde4b61aff3f07f75076a161910fc003c86a829f4499d8b87277b67dc"
+        },
+        "markdownGeneratedAt": "2026-07-01T01:26:25.421Z",
+        "embeddedOnOfficialPage": false
+      }
+    }
+  ]
+}

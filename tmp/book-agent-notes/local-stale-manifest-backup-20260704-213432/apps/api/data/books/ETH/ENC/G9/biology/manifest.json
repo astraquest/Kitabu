@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-eth-enc-grade-9-biology",
+  "title": "KITABU QUEST Grade 9 Biology",
+  "country": "ETH",
+  "curriculum": "ENC",
+  "grade": "Grade 9",
+  "subject": "Biology",
+  "subjectSlug": "biology",
+  "subjectColor": "#15803D",
+  "version": "draft-2026-07-03",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-03-v28",
+  "status": "published-for-testing",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "phase1-testing-cover-attached",
+  "generatedAt": "2026-07-03T22:32:23Z",
+  "sourceSnapshotHash": "2002bb7c8e41a9e5d1823cd77b4b5745358d387fb74199667edce8b1693e49fb",
+  "bookPlanHash": "5e27e193ded3a90038bf87d560f229085806e347d3cb9af5a6a783916954857d",
+  "pageCount": 143,
+  "wordCount": 15001,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 5,
+    "outcomeCount": 5,
+    "generatedFallbackTopicCount": 0,
+    "normalizedSourceTopicCount": 5,
+    "sourceDerivationStatus": "normalized-source-derived",
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "ETH",
+    "subject": "Biology",
+    "species": "Ethiopian wolf",
+    "role": "life science and evidence guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "secondary learners observing living systems, habitats, and conservation examples with an Ethiopian wolf mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Ethiopia ENC Grade 9 Biology. Scene: secondary learners observing living systems, habitats, and conservation examples with an Ethiopian wolf mascot. Include a friendly Ethiopian wolf mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "phase1-testing-cover-ready",
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 59748,
+      "sha256": "56cb502f8d7c26c3507c29c15e080f36a83ca942e4f1757a4a091752ebddccc1",
+      "kind": "cover",
+      "altText": "KITABU QUEST Grade 9 Biology cover",
+      "generation": "cover-not-started"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-eth-enc-grade-9-biology.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-eth-enc-grade-9-biology.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "coverageCaveat": "Configured generation currently covers English for Grades 4-10 plus reviewed-candidate drafts for selected verified ANRSEB textbook subjects. Official framework coverage is broader; see apps/api/data/curriculum/expected-matrix/ETH/ENC.json and generated audit apps/api/data/book-creator/ethiopia-coverage-gaps.json before treating Ethiopia as complete.",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication. Configured generation currently covers English for Grades 4-10 plus reviewed-candidate drafts for selected verified ANRSEB textbook subjects. Official framework coverage is broader; see apps/api/data/curriculum/expected-matrix/ETH/ENC.json and generated audit apps/api/data/book-creator/ethiopia-coverage-gaps.json before treating Ethiopia as complete."
+  },
+  "sourceDocuments": [
+    {
+      "id": "35688e66-d4e3-4f7d-961a-cb3934d0e371",
+      "subject": "Biology",
+      "officialTitle": "Ethiopia Grade 9 Biology Student Textbook",
+      "countryCode": "ETH",
+      "curriculumCode": "ENC",
+      "gradeCode": "GRADE_9",
+      "gradeLocalLevel": "Grade 9",
+      "localLevel": "Grade 9",
+      "extractionStatus": "normalized",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "regional_official_anrseb",
+      "sourceUrl": "https://www.anrseb.gov.et/wp-content/uploads/New_Text_Books/Grade9/G9-Biology-STB-2023-ANRSEB.pdf",
+      "objectKey": "data/curriculum/source-files/ETH/7aea95e659e0415713eaaa4e0be8c1e458b9a0830ab7745dba655b6c3e9d136b.pdf",
+      "metadata": {
+        "type": "regional_official_subject_textbook_candidate",
+        "gradeCode": "GRADE_9",
+        "byteLength": 11466412,
+        "reviewNote": "Direct regional .gov.et textbook PDF candidate. Human review is required before any generated content can be marked ready.",
+        "verifiedAt": "2026-07-03T22:02:13.415Z",
+        "contentType": "application/pdf",
+        "documentUrl": "https://www.anrseb.gov.et/wp-content/uploads/New_Text_Books/Grade9/G9-Biology-STB-2023-ANRSEB.pdf",
+        "importBatch": "ethiopia-anrseb-source-candidates-2026-07-04-v1",
+        "markdownPath": "data/curriculum/markdown/ETH/ENC/GRADE_9/biology/35688e66-d4e3-4f7d-961a-cb3934d0e371.md",
+        "normalizedAt": "2026-07-03T22:31:07.585Z",
+        "normalizedBy": "ethiopia-textbook-unit-normalizer-2026-07-04-v1",
+        "sourcePageUrl": "https://anrseb.gov.et/downloads/textbooks/",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "provenanceTier": "regional_official_anrseb",
+        "reviewRequired": true,
+        "markdownChecksum": "c04d22f2a85e593f84eb9b4fcb1231f022c1f5198f9afb8c329dc8888c73de8d",
+        "markdownPageCount": 171,
+        "expectedByteLength": 11466412,
+        "federalMoeOfficial": false,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/ETH/ENC/GRADE_9/biology/35688e66-d4e3-4f7d-961a-cb3934d0e371.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "c04d22f2a85e593f84eb9b4fcb1231f022c1f5198f9afb8c329dc8888c73de8d",
+          "pageCount": 171,
+          "generatedAt": "2026-07-03T22:14:57.183Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/ETH/ENC/GRADE_9/biology/35688e66-d4e3-4f7d-961a-cb3934d0e371.json",
+          "sourceChecksum": "df05280166a77b62979f8d4c0a61466368dd552632b6e1c956beb523015daa50"
+        },
+        "verificationMethod": "http_pdf_header_check",
+        "markdownGeneratedAt": "2026-07-03T22:14:57.183Z",
+        "normalizedUnitCount": 6
+      }
+    }
+  ],
+  "packageChecksum": "8dc70e696d2eb029d69095b6048311ea03fd469fb3953c81a26c35af2e47503c",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 59748,
+    "sha256": "56cb502f8d7c26c3507c29c15e080f36a83ca942e4f1757a4a091752ebddccc1"
+  },
+  "publicationStatus": "published-for-testing",
+  "testingRelease": {
+    "id": "phase1-testing-release-2026-07-04",
+    "publishedAt": "2026-07-04T13:27:56Z",
+    "scope": "manual testing snapshot",
+    "contentReviewPaused": true,
+    "phase2Required": true,
+    "contentStatusPreserved": "content-draft-review-needed",
+    "note": "Published for app testing only. Content review and enhancement remain open."
+  },
+  "reviewStatus": "phase2-content-enhancement-required"
+}

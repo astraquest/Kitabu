@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-eth-enc-grade-9-mathematics",
+  "title": "KITABU QUEST Grade 9 Mathematics",
+  "country": "ETH",
+  "curriculum": "ENC",
+  "grade": "Grade 9",
+  "subject": "Mathematics",
+  "subjectSlug": "mathematics",
+  "subjectColor": "#047857",
+  "version": "draft-2026-07-04",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-04-v29",
+  "status": "published-for-testing",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "phase1-testing-cover-attached",
+  "generatedAt": "2026-07-04T00:24:46Z",
+  "sourceSnapshotHash": "d1e737aef1392b31424a75a1083b6eaf623cc61b257b8a393956e19c2383e59f",
+  "bookPlanHash": "fad29563eef7ccc656fc36572ea888d97aed2f08f5f4380ebfd5c500492f1429",
+  "pageCount": 214,
+  "wordCount": 27023,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 69,
+    "outcomeCount": 69,
+    "generatedFallbackTopicCount": 0,
+    "normalizedSourceTopicCount": 69,
+    "sourceDerivationStatus": "normalized-source-derived",
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "ETH",
+    "subject": "Mathematics",
+    "species": "horse",
+    "role": "problem-solving and proof guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "secondary learners solving mathematics with graphs, models, measuring tools, and Ethiopian community examples with a friendly horse mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Ethiopia ENC Grade 9 Mathematics. Scene: secondary learners solving mathematics with graphs, models, measuring tools, and Ethiopian community examples with a friendly horse mascot. Include a friendly horse mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "phase1-testing-cover-ready",
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 63178,
+      "sha256": "1792005ebd3cdb5bbfcb7dbe3c1e7740e03c17e232e1a28df1d68b478f85aa7d",
+      "kind": "cover",
+      "altText": "KITABU QUEST Grade 9 Mathematics cover",
+      "generation": "cover-not-started"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-eth-enc-grade-9-mathematics.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-eth-enc-grade-9-mathematics.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "coverageCaveat": "Configured generation currently covers English for Grades 4-10 plus reviewed-candidate drafts for selected verified ANRSEB textbook subjects. Official framework coverage is broader; see apps/api/data/curriculum/expected-matrix/ETH/ENC.json and generated audit apps/api/data/book-creator/ethiopia-coverage-gaps.json before treating Ethiopia as complete.",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication. Configured generation currently covers English for Grades 4-10 plus reviewed-candidate drafts for selected verified ANRSEB textbook subjects. Official framework coverage is broader; see apps/api/data/curriculum/expected-matrix/ETH/ENC.json and generated audit apps/api/data/book-creator/ethiopia-coverage-gaps.json before treating Ethiopia as complete."
+  },
+  "sourceDocuments": [
+    {
+      "id": "160c66a1-8b0d-45ca-a85d-21c5367a6b8c",
+      "subject": "Mathematics",
+      "officialTitle": "Ethiopia Grade 9 Mathematics Student Textbook",
+      "countryCode": "ETH",
+      "curriculumCode": "ENC",
+      "gradeCode": "GRADE_9",
+      "gradeLocalLevel": "Grade 9",
+      "localLevel": "Grade 9",
+      "extractionStatus": "normalized",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "regional_official_anrseb",
+      "sourceUrl": "https://www.anrseb.gov.et/wp-content/uploads/New_Text_Books/Grade9/G9-Maths-STB-2023-ANRSEB.pdf",
+      "objectKey": "data/curriculum/source-files/ETH/9cccd49a1bfd5379432889771c69b8b9110112ad273fba32f7b181d675399331.pdf",
+      "metadata": {
+        "type": "regional_official_subject_textbook_candidate",
+        "gradeCode": "GRADE_9",
+        "byteLength": 19070511,
+        "reviewNote": "Direct regional .gov.et textbook PDF candidate. Human review is required before any generated content can be marked ready.",
+        "verifiedAt": "2026-07-03T22:58:21.106Z",
+        "contentType": "application/pdf",
+        "documentUrl": "https://www.anrseb.gov.et/wp-content/uploads/New_Text_Books/Grade9/G9-Maths-STB-2023-ANRSEB.pdf",
+        "importBatch": "ethiopia-anrseb-source-candidates-2026-07-04-v1",
+        "markdownPath": "data/curriculum/markdown/ETH/ENC/GRADE_9/mathematics/160c66a1-8b0d-45ca-a85d-21c5367a6b8c.md",
+        "normalizedAt": "2026-07-03T22:46:05.429Z",
+        "normalizedBy": "ethiopia-textbook-unit-normalizer-2026-07-04-v1",
+        "sourcePageUrl": "https://anrseb.gov.et/downloads/textbooks/",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "provenanceTier": "regional_official_anrseb",
+        "reviewRequired": true,
+        "markdownChecksum": "de5d10c33643e2609feb1aa9229bd11837619056fc8c0b299630e7fc4c7373bb",
+        "markdownPageCount": 375,
+        "expectedByteLength": 19070511,
+        "federalMoeOfficial": false,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/ETH/ENC/GRADE_9/mathematics/160c66a1-8b0d-45ca-a85d-21c5367a6b8c.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "de5d10c33643e2609feb1aa9229bd11837619056fc8c0b299630e7fc4c7373bb",
+          "pageCount": 375,
+          "generatedAt": "2026-07-03T22:16:34.163Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/ETH/ENC/GRADE_9/mathematics/160c66a1-8b0d-45ca-a85d-21c5367a6b8c.json",
+          "sourceChecksum": "31cc17ee29f3a10b4c9a8bca67d21c9b5446112620c7595f7d6d5c3330cdb139"
+        },
+        "verificationMethod": "http_pdf_header_check",
+        "markdownGeneratedAt": "2026-07-03T22:16:34.163Z",
+        "normalizedUnitCount": 72
+      }
+    }
+  ],
+  "packageChecksum": "18eef2b63d4a3a206827cb0c77769cb0789bd8b2d4fa1a76bb76ca062fbd9c53",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 63178,
+    "sha256": "1792005ebd3cdb5bbfcb7dbe3c1e7740e03c17e232e1a28df1d68b478f85aa7d"
+  },
+  "publicationStatus": "published-for-testing",
+  "testingRelease": {
+    "id": "phase1-testing-release-2026-07-04",
+    "publishedAt": "2026-07-04T13:27:56Z",
+    "scope": "manual testing snapshot",
+    "contentReviewPaused": true,
+    "phase2Required": true,
+    "contentStatusPreserved": "content-draft-review-needed",
+    "note": "Published for app testing only. Content review and enhancement remain open."
+  },
+  "reviewStatus": "phase2-content-enhancement-required"
+}

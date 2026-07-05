@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-grade-10-social-studies",
+  "title": "KITABU QUEST Grade 10 Social Studies",
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 10",
+  "subject": "Social Studies",
+  "subjectSlug": "social-studies",
+  "subjectColor": "#BE123C",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "learner-first-language-depth-renderers-2026-07-01-v10",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-reviewed-draft",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T13:20:31Z",
+  "sourceSnapshotHash": "375704372ec122cf54dce38611a997cd21ce2ae12efa9cd5fbce037b63748142",
+  "bookPlanHash": "6fb85e9eaef8a3a03887760099dec2f28973d0eccb851b8869519d2854ea23ad",
+  "pageCount": 247,
+  "wordCount": 36099,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "ageBand": "senior-secondary",
+    "coversDeferred": true,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "topicCount": 32,
+    "outcomeCount": 91,
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "KEN",
+    "subject": "Social Studies",
+    "species": "giraffe",
+    "role": "maps and community guide",
+    "sourceRationale": "Iconic Kenyan wildlife and landscape association for maps, parks, and environment topics."
+  },
+  "cover": {
+    "scene": "learners visiting a historical site with maps, cultural artifacts, and a friendly giraffe mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Kenya CBC Grade 10 Social Studies. Scene: learners visiting a historical site with maps, cultural artifacts, and a friendly giraffe mascot. Include a friendly giraffe mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "assets": [],
+  "downloads": {
+    "markdown": "kitabu-quest-grade-10-social-studies.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-grade-10-social-studies.pdf"
+  },
+  "sourceDocuments": [
+    {
+      "id": "ba2d8ce8-fd00-4322-ba3f-02cdb0ae38c0",
+      "subject": "Geography",
+      "officialTitle": "Competency Based Curriculum Grade 10 Geography",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_10",
+      "gradeLocalLevel": "Grade 10",
+      "localLevel": "Grade 10",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/1NOeCbiPRSXjsU0t_1WL0rUAT1sRJBcWb/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_10",
+        "documentUrl": "https://drive.google.com/file/d/1NOeCbiPRSXjsU0t_1WL0rUAT1sRJBcWb/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_10/geography/ba2d8ce8-fd00-4322-ba3f-02cdb0ae38c0.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-ten/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "562ec264cc32b3c222bf4f3f0305d5604286f86a16a4110cd0d74becde2cbb1d",
+        "markdownPageCount": 57,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_10/geography/ba2d8ce8-fd00-4322-ba3f-02cdb0ae38c0.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "562ec264cc32b3c222bf4f3f0305d5604286f86a16a4110cd0d74becde2cbb1d",
+          "pageCount": 57,
+          "generatedAt": "2026-06-29T16:35:06.132Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "f2923f4aba37a4ea8e901a14a05bca79a424b288878a27bb1160fd318aa683b5"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:06.132Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    },
+    {
+      "id": "e4e32dda-56e1-4dfa-b66f-d9ed6c7af335",
+      "subject": "History and Citizenship",
+      "officialTitle": "Competency Based Curriculum Grade 10 History and Citizenship",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_10",
+      "gradeLocalLevel": "Grade 10",
+      "localLevel": "Grade 10",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/1OfTy7Q2i-MPypS0xoIP6et2R5LPBlmib/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_10",
+        "documentUrl": "https://drive.google.com/file/d/1OfTy7Q2i-MPypS0xoIP6et2R5LPBlmib/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_10/history-and-citizenship/e4e32dda-56e1-4dfa-b66f-d9ed6c7af335.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-ten/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "a0f217f992f3dd2f6735eb772d61aac9d17e7b1cd465f7d247ac48b45c3bfe13",
+        "markdownPageCount": 75,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_10/history-and-citizenship/e4e32dda-56e1-4dfa-b66f-d9ed6c7af335.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "a0f217f992f3dd2f6735eb772d61aac9d17e7b1cd465f7d247ac48b45c3bfe13",
+          "pageCount": 75,
+          "generatedAt": "2026-06-29T16:35:06.192Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "4d92fb1589ffd10ac50d9dd3e981360c4dd97eba9de9415cddcae8174a52bbf4"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:06.192Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    }
+  ]
+}

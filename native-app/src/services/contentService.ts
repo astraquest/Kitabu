@@ -5,8 +5,22 @@ import { getKitabuApiBaseUrl } from './runtimeConfig';
 import * as FileSystem from 'expo-file-system/legacy';
 import { Platform } from 'react-native';
 
-export async function getLibraryBooks(grade?: string | null) {
-  const query = grade?.trim() ? `?grade=${encodeURIComponent(grade.trim())}` : '';
+export async function getLibraryBooks(filters: {
+  grade?: string | null;
+  country?: string | null;
+  curriculum?: string | null;
+} = {}) {
+  const params: string[] = [];
+  const appendParam = (key: string, value?: string | null) => {
+    const trimmed = value?.trim();
+    if (trimmed) {
+      params.push(`${encodeURIComponent(key)}=${encodeURIComponent(trimmed)}`);
+    }
+  };
+  appendParam('grade', filters.grade);
+  appendParam('country', filters.country);
+  appendParam('curriculum', filters.curriculum);
+  const query = params.length > 0 ? `?${params.join('&')}` : '';
   const payload = await apiRequest<{ books: Book[] }>(`/app/library/books${query}`, {
     method: 'GET',
   });

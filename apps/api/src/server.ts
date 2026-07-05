@@ -367,7 +367,9 @@ const onboardingSchema = z.object({
   schoolId: z.string().uuid(),
   gender: z.enum(['male', 'female', 'not_specified']),
   grade: z.string().trim().min(2).max(40),
-  mpesaPhoneNumber: z.string().trim().min(9).max(20).nullable().optional()
+  mpesaPhoneNumber: z.string().trim().min(9).max(20).nullable().optional(),
+  countryCode: z.string().trim().min(2).max(10).nullable().optional(),
+  curriculumCode: z.string().trim().min(2).max(120).nullable().optional()
 });
 
 const onboardingSelectionEventSchema = z.object({
@@ -615,7 +617,9 @@ const checkoutParamsSchema = z.object({
 });
 
 const libraryBooksQuerySchema = z.object({
-  grade: z.string().trim().min(1).max(40).optional()
+  grade: z.string().trim().min(1).max(40).optional(),
+  country: z.string().trim().min(2).max(40).optional(),
+  curriculum: z.string().trim().min(2).max(120).optional()
 });
 
 const queryBoolean = z.preprocess(value => {
@@ -1763,17 +1767,22 @@ function serializeQuizBankQuestion(
   return {
     id: index + 1,
     bankId: question.id,
+    countryCode: question.country_code,
+    curriculumCode: question.curriculum_code,
     gradeLevel: question.grade_level,
     subjectId: question.subject_id,
     subjectName: question.subject_name,
     strand: question.strand_title,
     subStrand: question.sub_strand_title,
+    learningOutcome: question.learning_outcome,
     type: question.type,
     text: question.prompt,
     options: question.options,
     correctAnswer: question.correct_answer,
     explanation: question.explanation,
-    difficulty: question.difficulty
+    difficulty: question.difficulty,
+    cognitiveLevel: question.cognitive_level,
+    featureTags: question.feature_tags
   };
 }
 
@@ -4904,7 +4913,13 @@ Return valid JSON with this shape:
     }
 
     const query = libraryBooksQuerySchema.parse(request.query);
-    return { books: await listGeneratedBooksForUser(request.user!, { grade: query.grade }) };
+    return {
+      books: await listGeneratedBooksForUser(request.user!, {
+        grade: query.grade,
+        country: query.country,
+        curriculum: query.curriculum
+      })
+    };
   });
 
   app.get('/app/library/books/:bookId/manifest', async (request, reply) => {
@@ -5348,7 +5363,9 @@ Return valid JSON with this shape:
         schoolId: body.schoolId,
         gender: body.gender,
         grade: body.grade,
-        mpesaPhoneNumber: normalizedPhone
+        mpesaPhoneNumber: normalizedPhone,
+        countryCode: body.countryCode,
+        curriculumCode: body.curriculumCode
       });
       await createAuditLog(client, request.user!.id, body.schoolId, 'auth.onboarding.completed', {
         grade: body.grade

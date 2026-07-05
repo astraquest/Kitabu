@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-eth-enc-grade-10-information-technology",
+  "title": "KITABU QUEST Grade 10 Information Technology",
+  "country": "ETH",
+  "curriculum": "ENC",
+  "grade": "Grade 10",
+  "subject": "Information Technology",
+  "subjectSlug": "information-technology",
+  "subjectColor": "#4338CA",
+  "version": "draft-2026-07-04",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-04-v29",
+  "status": "published-for-testing",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "phase1-testing-cover-attached",
+  "generatedAt": "2026-07-04T00:28:52Z",
+  "sourceSnapshotHash": "3a594aa6c83f5f4e18fa13086e31ab9eea711a9e0044399fd0b42c0848423d3c",
+  "bookPlanHash": "dd3d0cf7ba801ea5b59bf94ee653d17de0576274fb6b1950d4cf31b726e63f4d",
+  "pageCount": 80,
+  "wordCount": 9169,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 6,
+    "outcomeCount": 10,
+    "generatedFallbackTopicCount": 0,
+    "normalizedSourceTopicCount": 6,
+    "sourceDerivationStatus": "normalized-source-derived",
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "ETH",
+    "subject": "Information Technology",
+    "species": "Ethiopian wolf",
+    "role": "digital skills and safe computing guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "secondary learners using computers safely in an Ethiopian school ICT lab with an Ethiopian wolf mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Ethiopia ENC Grade 10 Information Technology. Scene: secondary learners using computers safely in an Ethiopian school ICT lab with an Ethiopian wolf mascot. Include a friendly Ethiopian wolf mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "phase1-testing-cover-ready",
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 66118,
+      "sha256": "e492fee0eb18d6bfab4dbdc725724332fac5ce3014df8f93c52016195229b2ef",
+      "kind": "cover",
+      "altText": "KITABU QUEST Grade 10 Information Technology cover",
+      "generation": "cover-not-started"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-eth-enc-grade-10-information-technology.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-eth-enc-grade-10-information-technology.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "coverageCaveat": "Configured generation currently covers English for Grades 4-10 plus reviewed-candidate drafts for selected verified ANRSEB textbook subjects. Official framework coverage is broader; see apps/api/data/curriculum/expected-matrix/ETH/ENC.json and generated audit apps/api/data/book-creator/ethiopia-coverage-gaps.json before treating Ethiopia as complete.",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication. Configured generation currently covers English for Grades 4-10 plus reviewed-candidate drafts for selected verified ANRSEB textbook subjects. Official framework coverage is broader; see apps/api/data/curriculum/expected-matrix/ETH/ENC.json and generated audit apps/api/data/book-creator/ethiopia-coverage-gaps.json before treating Ethiopia as complete."
+  },
+  "sourceDocuments": [
+    {
+      "id": "4f82fd1c-6601-406e-897e-90588b2822cf",
+      "subject": "Information Technology",
+      "officialTitle": "Ethiopia Grade 10 Information Technology Student Textbook",
+      "countryCode": "ETH",
+      "curriculumCode": "ENC",
+      "gradeCode": "GRADE_10",
+      "gradeLocalLevel": "Grade 10",
+      "localLevel": "Grade 10",
+      "extractionStatus": "normalized",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "regional_official_anrseb",
+      "sourceUrl": "https://www.anrseb.gov.et/wp-content/uploads/New_Text_Books/Grade10/G10-IT-STB-2023-ANRSEB.pdf",
+      "objectKey": "data/curriculum/source-files/ETH/be5309a9a28bc202be7b39e5945c54ca9a2b93a6dc264d8acb32f12ff0f5c683.pdf",
+      "metadata": {
+        "type": "regional_official_subject_textbook_candidate",
+        "gradeCode": "GRADE_10",
+        "byteLength": 13062611,
+        "reviewNote": "Direct regional .gov.et textbook PDF candidate. Human review is required before any generated content can be marked ready.",
+        "verifiedAt": "2026-07-03T22:58:26.329Z",
+        "contentType": "application/pdf",
+        "documentUrl": "https://www.anrseb.gov.et/wp-content/uploads/New_Text_Books/Grade10/G10-IT-STB-2023-ANRSEB.pdf",
+        "importBatch": "ethiopia-anrseb-source-candidates-2026-07-04-v1",
+        "markdownPath": "data/curriculum/markdown/ETH/ENC/GRADE_10/information-technology/4f82fd1c-6601-406e-897e-90588b2822cf.md",
+        "normalizedAt": "2026-07-03T22:45:55.699Z",
+        "normalizedBy": "ethiopia-textbook-unit-normalizer-2026-07-04-v1",
+        "sourcePageUrl": "https://anrseb.gov.et/downloads/textbooks/",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "provenanceTier": "regional_official_anrseb",
+        "reviewRequired": true,
+        "markdownChecksum": "e3d1a0a24fc14b26c02902c7449758ebc5eb9e341841f3e04a5c248be22538a8",
+        "markdownPageCount": 234,
+        "expectedByteLength": 13062611,
+        "federalMoeOfficial": false,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/ETH/ENC/GRADE_10/information-technology/4f82fd1c-6601-406e-897e-90588b2822cf.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "e3d1a0a24fc14b26c02902c7449758ebc5eb9e341841f3e04a5c248be22538a8",
+          "pageCount": 234,
+          "generatedAt": "2026-07-03T22:14:32.598Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/ETH/ENC/GRADE_10/information-technology/4f82fd1c-6601-406e-897e-90588b2822cf.json",
+          "sourceChecksum": "4f660f689322790619df54d8454dd5aa1fa2908f4d9f4b4de51d601db2174e43"
+        },
+        "verificationMethod": "http_pdf_header_check",
+        "markdownGeneratedAt": "2026-07-03T22:14:32.598Z",
+        "normalizedUnitCount": 6
+      }
+    }
+  ],
+  "packageChecksum": "b5e26b2ed366789c4a779a72c3f611d8dcaae087dd1241aea6254d94b5ccfc47",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 66118,
+    "sha256": "e492fee0eb18d6bfab4dbdc725724332fac5ce3014df8f93c52016195229b2ef"
+  },
+  "publicationStatus": "published-for-testing",
+  "testingRelease": {
+    "id": "phase1-testing-release-2026-07-04",
+    "publishedAt": "2026-07-04T13:27:56Z",
+    "scope": "manual testing snapshot",
+    "contentReviewPaused": true,
+    "phase2Required": true,
+    "contentStatusPreserved": "content-draft-review-needed",
+    "note": "Published for app testing only. Content review and enhancement remain open."
+  },
+  "reviewStatus": "phase2-content-enhancement-required"
+}

@@ -33,6 +33,7 @@ import {
   Assignment,
   ChatMessage,
   OnboardingMascotKey,
+  Question,
   SubStrand,
   Subject,
   UserProfile,
@@ -51,6 +52,8 @@ interface LiveAudioTutorScreenProps {
   selectedAssignment?: Assignment | null;
   userProfile?: UserProfile;
   mascotKey?: OnboardingMascotKey;
+  forceComingSoonFallback?: boolean;
+  quizQuestions?: Question[];
 }
 
 type SessionStatus =
@@ -103,6 +106,7 @@ function buildContextSummary(args: {
   selectedSubStrand?: SubStrand | null;
   selectedAssignment?: Assignment | null;
   userProfile?: UserProfile;
+  quizQuestions?: Question[];
 }) {
   const baseLines = [
     args.currentGrade ? `Grade: ${args.currentGrade}` : null,
@@ -116,7 +120,14 @@ function buildContextSummary(args: {
     args.userProfile?.name ? `Student: ${args.userProfile.name}` : null,
   ].filter(Boolean);
 
-  if (!args.selectedAssignment) {
+  const quizPreview = args.quizQuestions?.length
+    ? args.quizQuestions
+        .slice(0, 5)
+        .map((question, index) => `${index + 1}. ${question.text}`)
+        .join('\n')
+    : '';
+
+  if (!args.selectedAssignment && !quizPreview) {
     return baseLines.join('\n');
   }
 
@@ -128,6 +139,7 @@ function buildContextSummary(args: {
   return [
     ...baseLines,
     questionPreview ? `Homework questions:\n${questionPreview}` : null,
+    quizPreview ? `Live audio quiz questions:\n${quizPreview}` : null,
   ]
     .filter(Boolean)
     .join('\n');
@@ -142,8 +154,12 @@ export function LiveAudioTutorScreen({
   selectedAssignment,
   userProfile,
   mascotKey = 'rabbit',
+  forceComingSoonFallback = false,
+  quizQuestions = [],
 }: LiveAudioTutorScreenProps) {
-  const [status, setStatus] = useState<SessionStatus>('ready');
+  const [status, setStatus] = useState<SessionStatus>(
+    forceComingSoonFallback ? 'error' : 'ready',
+  );
   const [isMicOn, setIsMicOn] = useState(false);
   const [volumeLevel, setVolumeLevel] = useState(0.08);
   const [recordedAudioPath, setRecordedAudioPath] = useState<string | null>(
@@ -154,6 +170,7 @@ export function LiveAudioTutorScreen({
   const [visibleResponseText, setVisibleResponseText] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [history, setHistory] = useState<ChatMessage[]>(initialMessages);
+  const [hasIntroducedQuiz, setHasIntroducedQuiz] = useState(false);
   const [turnCount, setTurnCount] = useState(0);
   const transcriptScrollRef = useRef<ScrollView | null>(null);
   const liveStreamSessionRef = useRef<LiveVoiceStreamSession | null>(null);
@@ -272,6 +289,7 @@ export function LiveAudioTutorScreen({
         selectedSubStrand,
         selectedAssignment,
         userProfile,
+        quizQuestions,
       }),
     [
       currentGrade,
@@ -279,11 +297,13 @@ export function LiveAudioTutorScreen({
       selectedSubStrand,
       selectedSubject,
       userProfile,
+      quizQuestions,
     ],
   );
   const mascotTheme =
     LIVE_AUDIO_MASCOTS[mascotKey] ?? LIVE_AUDIO_MASCOTS.rabbit;
   const isComingSoonFallback = status === 'error';
+  const firstQuizQuestion = quizQuestions[0]?.text?.trim() ?? '';
   const mascotDanceStyle = useMemo(
     () =>
       ({
@@ -333,9 +353,12 @@ export function LiveAudioTutorScreen({
     if (status === 'speaking') {
       return 'Speaking the tutor response.';
     }
+    if (firstQuizQuestion) {
+      return 'Answer out loud, then tap Start talking.';
+    }
 
     return starterPrompts[turnCount % starterPrompts.length];
-  }, [error, status, turnCount]);
+  }, [error, firstQuizQuestion, status, turnCount]);
 
   useEffect(() => {
     return () => {
@@ -346,6 +369,49 @@ export function LiveAudioTutorScreen({
       speechPlaybackBridge.stop().catch(() => undefined);
     };
   }, []);
+
+  useEffect(() => {
+    if (forceComingSoonFallback) {
+      setStatus('error');
+      setError('Live Audio Quiz is coming soon.');
+      setIsMicOn(false);
+    }
+  }, [forceComingSoonFallback]);
+
+  useEffect(() => {
+    if (
+      forceComingSoonFallback ||
+      hasIntroducedQuiz ||
+      !firstQuizQuestion ||
+      status !== 'ready'
+    ) {
+      return;
+    }
+
+    const intro = `Question 1. ${firstQuizQuestion}`;
+    setHasIntroducedQuiz(true);
+    setResponseText(intro);
+    setVisibleResponseText(intro);
+    setHistory(current =>
+      current.some(message => message.role === 'model' && message.text === intro)
+        ? current
+        : [...current, { role: 'model', text: intro }],
+    );
+    setStatus('speaking');
+    speechPlaybackBridge
+      .speakQueued(intro)
+      .catch(error => {
+        console.error('Live audio quiz prompt playback failed', error);
+      })
+      .finally(() => {
+        setStatus(current => (current === 'speaking' ? 'ready' : current));
+      });
+  }, [
+    firstQuizQuestion,
+    forceComingSoonFallback,
+    hasIntroducedQuiz,
+    status,
+  ]);
 
   useEffect(() => {
     scrollTranscriptToEnd();

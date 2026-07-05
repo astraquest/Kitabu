@@ -193,6 +193,7 @@ type OnboardingSignupInput = {
   grade?: string;
   country?: string;
   countryCode?: string;
+  curriculumCode?: string;
   county?: string;
   school?: string;
   schoolId?: string | null;
@@ -345,6 +346,120 @@ function getFocusModeErrorMessage(error: unknown) {
   return error instanceof Error ? error.message : 'Unable to start Focus Mode.';
 }
 
+type BookScope = {
+  countryCode: string;
+  curriculumCode: string;
+};
+
+const BOOK_COUNTRY_CODE_ALIASES: Record<string, string> = {
+  ET: 'ETH',
+  ETH: 'ETH',
+  ETHIOPIA: 'ETH',
+  KE: 'KEN',
+  KEN: 'KEN',
+  KENYA: 'KEN',
+  RW: 'RWA',
+  RWA: 'RWA',
+  RWANDA: 'RWA',
+  TZ: 'TZA',
+  TZA: 'TZA',
+  TANZANIA: 'TZA',
+  UG: 'UGA',
+  UGA: 'UGA',
+  UGANDA: 'UGA',
+};
+
+const BOOK_COUNTRY_NAME_BY_CODE: Record<string, string> = {
+  ETH: 'Ethiopia',
+  KEN: 'Kenya',
+  RWA: 'Rwanda',
+  TZA: 'Tanzania',
+  UGA: 'Uganda',
+};
+
+const BOOK_CURRICULUM_BY_COUNTRY: Record<string, string> = {
+  ETH: 'ENC',
+  KEN: 'CBC',
+  RWA: 'REB-CBC',
+  TZA: 'TIE-BASIC',
+  UGA: 'NCDC',
+};
+
+const CURRICULUM_SUBJECT_ID_ALIASES: Record<string, string> = {
+  mathematics: 'math',
+  social_studies: 'social',
+};
+
+function normalizeBookCountryCode(country?: string | null) {
+  const normalized = country?.trim().toUpperCase();
+  return normalized ? BOOK_COUNTRY_CODE_ALIASES[normalized] ?? normalized : 'KEN';
+}
+
+function countryNameForBookCode(countryCode?: string | null) {
+  return BOOK_COUNTRY_NAME_BY_CODE[normalizeBookCountryCode(countryCode)] ?? 'Kenya';
+}
+
+function normalizeBookCurriculumCode(curriculum?: string | null, countryCode = 'KEN') {
+  const normalized = curriculum?.trim().toUpperCase();
+  if (!normalized) {
+    return BOOK_CURRICULUM_BY_COUNTRY[countryCode] ?? 'CBC';
+  }
+  if (normalized === 'CBC' || normalized.includes('KNEC') || normalized.includes('KENYA')) {
+    return 'CBC';
+  }
+  if (normalized === 'ENC' || normalized.includes('ETHIOPIA')) {
+    return 'ENC';
+  }
+  if (normalized === 'NCDC' || normalized.includes('UGANDA')) {
+    return 'NCDC';
+  }
+  if (normalized === 'REB' || normalized === 'REB-CBC' || normalized.includes('RWANDA')) {
+    return 'REB-CBC';
+  }
+  if (normalized === 'TIE' || normalized === 'TIE-BASIC' || normalized.includes('TANZANIA')) {
+    return 'TIE-BASIC';
+  }
+  return normalized;
+}
+
+function normalizeBookGrade(grade?: string | null) {
+  return grade?.trim().toLowerCase().replace(/\s+/g, '') ?? '';
+}
+
+function getBookScope(session: AuthSession | null, profile: UserProfile): BookScope {
+  const countryCode = normalizeBookCountryCode(profile.country || session?.user.countryCode);
+  const sessionCountryCode = normalizeBookCountryCode(session?.user.countryCode);
+  const curriculum = countryCode === sessionCountryCode ? session?.user.curriculumCode : null;
+  return {
+    countryCode,
+    curriculumCode: normalizeBookCurriculumCode(curriculum, countryCode),
+  };
+}
+
+function bookMatchesScope(book: Book, grade: string | null | undefined, scope: BookScope) {
+  const expectedGrade = normalizeBookGrade(grade);
+  const bookGrade = normalizeBookGrade(book.gradeLevel);
+  if (expectedGrade && bookGrade && bookGrade !== expectedGrade) {
+    return false;
+  }
+
+  const bookCountry = normalizeBookCountryCode(book.country);
+  if (book.country && bookCountry !== scope.countryCode) {
+    return false;
+  }
+
+  const bookCurriculum = normalizeBookCurriculumCode(book.curriculum, bookCountry);
+  if (book.curriculum && bookCurriculum !== scope.curriculumCode) {
+    return false;
+  }
+
+  return true;
+}
+
+function filterBooksForScope(books: Book[], grade: string | null | undefined, scope: BookScope) {
+  return books.filter(book => bookMatchesScope(book, grade, scope));
+}
+
 function mapAuthSessionToProfile(session: AuthSession): UserProfile {
   const { user } = session;
   const isAdmin = isAdminRole(user.roles);
@@ -381,7 +496,7 @@ function mapAuthSessionToProfile(session: AuthSession): UserProfile {
       : user.email.includes('admin')
         ? 'avatar-afro-girl'
         : 'avatar-afro-boy',
-    country: INITIAL_USER_PROFILE.country,
+    country: countryNameForBookCode(user.countryCode),
     county: INITIAL_USER_PROFILE.county,
   };
 }
@@ -394,16 +509,47 @@ function mergeCurriculumBundles(
   const next = { ...previous };
 
   Object.keys(next).forEach(key => {
-    if (key.startsWith(`${grade}-`)) {
+    if (key.startsWith(`${grade}-`) && !INITIAL_CURRICULUM_DATA[key]) {
       delete next[key];
     }
   });
 
+  Object.entries(INITIAL_CURRICULUM_DATA).forEach(([key, strands]) => {
+    if (key.startsWith(`${grade}-`) && !hasUsableCurriculum(next[key])) {
+      next[key] = strands;
+    }
+  });
+
   bundles.forEach(bundle => {
-    next[`${grade}-${bundle.subjectId}`] = bundle.strands;
+    const key = curriculumDataKey(grade, normalizeCurriculumSubjectId(bundle.subjectId));
+    const fallbackStrands = INITIAL_CURRICULUM_DATA[key];
+    next[key] = hasUsableCurriculum(bundle.strands)
+      ? bundle.strands
+      : fallbackStrands ?? bundle.strands;
   });
 
   return next;
+}
+
+function curriculumDataKey(grade: string, subjectId: string) {
+  return `${grade}-${subjectId}`;
+}
+
+function normalizeCurriculumSubjectId(subjectId: string) {
+  return CURRICULUM_SUBJECT_ID_ALIASES[subjectId] ?? subjectId;
+}
+
+function hasUsableCurriculum(strands?: LearningStrand[]) {
+  return Boolean(
+    strands?.some(strand =>
+      strand.subStrands.some(
+        subStrand =>
+          (subStrand.outcomes?.length ?? 0) > 0 ||
+          subStrand.description ||
+          subStrand.pages.length > 0,
+      ),
+    ),
+  );
 }
 
 function mapParentChildToStudentProfile(child: ParentChildSummary): UserProfile {
@@ -461,11 +607,18 @@ async function loadDownloadedBooksSnapshot(userId: string): Promise<DownloadedBo
   });
 }
 
-function mergeRemoteAndCachedBooks(remoteBooks: Book[], cachedBooks: Book[]) {
-  const remoteIds = new Set(remoteBooks.map(book => book.id));
+function mergeRemoteAndCachedBooks(
+  remoteBooks: Book[],
+  cachedBooks: Book[],
+  grade?: string | null,
+  scope?: BookScope,
+) {
+  const scopedRemoteBooks = scope ? filterBooksForScope(remoteBooks, grade, scope) : remoteBooks;
+  const scopedCachedBooks = scope ? filterBooksForScope(cachedBooks, grade, scope) : cachedBooks;
+  const remoteIds = new Set(scopedRemoteBooks.map(book => book.id));
   return [
-    ...remoteBooks,
-    ...cachedBooks.filter(book => !remoteIds.has(book.id)),
+    ...scopedRemoteBooks,
+    ...scopedCachedBooks.filter(book => !remoteIds.has(book.id)),
   ];
 }
 
@@ -490,11 +643,11 @@ export function useKitabuApp() {
   const [currentView, setCurrentView] = useState<ViewState>('dashboard');
   const [liveAudioReturnView, setLiveAudioReturnView] =
     useState<ViewState>('dashboard');
+  const [liveAudioForceFallback, setLiveAudioForceFallback] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
   const [chatAttachmentPickerSignal, setChatAttachmentPickerSignal] = useState(0);
-  const [startLiveAudio, setStartLiveAudio] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [currentGrade, setCurrentGrade] = useState(DEFAULT_GRADE);
@@ -915,12 +1068,16 @@ export function useKitabuApp() {
           return;
         }
 
+        const scope = getBookScope(authSession, userProfile);
         const ids = new Set(snapshot.ids ?? []);
         const cachedBooks = (snapshot.books ?? []).filter(book => ids.has(book.id));
+        const scopedCachedBooks = filterBooksForScope(cachedBooks, currentGrade, scope);
         setDownloadedBooks(ids);
         setDownloadedBookCache(cachedBooks);
         setBooks(current =>
-          current.length > 0 ? mergeRemoteAndCachedBooks(current, cachedBooks) : cachedBooks,
+          current.length > 0
+            ? mergeRemoteAndCachedBooks(current, scopedCachedBooks, currentGrade, scope)
+            : scopedCachedBooks,
         );
         setDownloadedBooksLoadedForUserId(userId);
       })
@@ -936,7 +1093,13 @@ export function useKitabuApp() {
     return () => {
       mounted = false;
     };
-  }, [authSession?.user.id]);
+  }, [
+    authSession,
+    authSession?.user.countryCode,
+    authSession?.user.curriculumCode,
+    currentGrade,
+    userProfile.country,
+  ]);
 
   useEffect(() => {
     const userId = authSession?.user.id;
@@ -1030,7 +1193,6 @@ export function useKitabuApp() {
     setProfileOpen(false);
     setNotificationsOpen(false);
     setChatOpen(false);
-    setStartLiveAudio(false);
     setMessages([]);
     setIsCheckoutOpen(false);
     setIsTryOneBobOpen(false);
@@ -1068,7 +1230,7 @@ export function useKitabuApp() {
       return [];
     }
 
-    return curriculumData[`${currentGrade}-${selectedSubject.id}`] || [];
+    return curriculumData[curriculumDataKey(currentGrade, selectedSubject.id)] || [];
   }, [curriculumData, currentGrade, selectedSubject]);
 
   const hasStudied = useMemo(
@@ -1082,7 +1244,7 @@ export function useKitabuApp() {
     const bySubject: Record<string, string[]> = {};
 
     SUBJECTS.forEach(subject => {
-      const strands = curriculumData[`${currentGrade}-${subject.id}`] || [];
+      const strands = curriculumData[curriculumDataKey(currentGrade, subject.id)] || [];
       bySubject[subject.name] = strands.map(strand => strand.title);
     });
 
@@ -1347,7 +1509,6 @@ export function useKitabuApp() {
       setProfileOpen(false);
       setNotificationsOpen(false);
       setChatOpen(false);
-      setStartLiveAudio(false);
       setMessages([]);
       setIsCheckoutOpen(false);
       setIsTryOneBobOpen(false);
@@ -1585,20 +1746,36 @@ export function useKitabuApp() {
       return;
     }
 
+    const scope = getBookScope(session, userProfile);
+
     try {
       const [nextAssignments, nextBooks, nextPodcasts] = await Promise.all([
         getStudentAssignments(),
-        getLibraryBooks(grade),
+        getLibraryBooks({
+          grade,
+          country: scope.countryCode,
+          curriculum: scope.curriculumCode,
+        }),
         getLearningPodcasts(),
       ]);
       const downloadedSnapshot = await loadDownloadedBooksSnapshot(session.user.id);
-      const downloadedGradeBooks = (downloadedSnapshot.books ?? []).filter(book => book.gradeLevel === grade);
+      const downloadedIds = new Set(downloadedSnapshot.ids ?? []);
+      const downloadedGradeBooks = filterBooksForScope(
+        (downloadedSnapshot.books ?? []).filter(book => downloadedIds.has(book.id)),
+        grade,
+        scope,
+      );
       setAssignments(nextAssignments.length > 0 ? nextAssignments : INITIAL_ASSIGNMENTS);
-      setBooks(mergeRemoteAndCachedBooks(nextBooks, downloadedGradeBooks));
+      setBooks(mergeRemoteAndCachedBooks(nextBooks, downloadedGradeBooks, grade, scope));
       setPodcasts(nextPodcasts);
     } catch {
       const downloadedSnapshot = await loadDownloadedBooksSnapshot(session.user.id);
-      const downloadedGradeBooks = (downloadedSnapshot.books ?? []).filter(book => book.gradeLevel === grade);
+      const downloadedIds = new Set(downloadedSnapshot.ids ?? []);
+      const downloadedGradeBooks = filterBooksForScope(
+        (downloadedSnapshot.books ?? []).filter(book => downloadedIds.has(book.id)),
+        grade,
+        scope,
+      );
       setAssignments(INITIAL_ASSIGNMENTS);
       setBooks(downloadedGradeBooks);
       setPodcasts([]);
@@ -1703,6 +1880,7 @@ export function useKitabuApp() {
     teacherGradeIds?: string[];
     subjects?: string[];
     county?: string;
+    country?: string;
     school?: string;
     goal?: OnboardingGoalKey;
     goalKey?: OnboardingGoalKey;
@@ -1769,7 +1947,17 @@ export function useKitabuApp() {
       const resolvedInterestKeys = interestKeys ?? input.interests;
       const resolvedSignupEmail = signupEmail ?? email;
       const resolvedSignupPhone = signupPhone ?? phone;
-      const nextSession = await completeAccountOnboarding(accountOnboardingInput);
+      const normalizedCountryCode = countryCode
+        ? normalizeBookCountryCode(countryCode)
+        : undefined;
+      const normalizedCurriculumCode = countryCode || curriculumCode
+        ? normalizeBookCurriculumCode(curriculumCode, normalizedCountryCode ?? 'KEN')
+        : undefined;
+      const nextSession = await completeAccountOnboarding({
+        ...accountOnboardingInput,
+        countryCode: normalizedCountryCode,
+        curriculumCode: normalizedCurriculumCode,
+      });
       setAuthSession(nextSession);
       if (isOnboardingMascotKey(resolvedMascotKey)) {
         setOnboardingMascotKey(resolvedMascotKey);
@@ -1781,7 +1969,7 @@ export function useKitabuApp() {
       setUserProfile({
         ...nextProfile,
         school: selectedSchool?.name || input.school || nextProfile.school,
-        country: countryCode === 'KE' ? 'Kenya' : nextProfile.country,
+        country: countryNameForBookCode(normalizedCountryCode || nextSession.user.countryCode || input.country),
         county: input.county || nextProfile.county,
       });
       setCurrentGrade(input.grade);
@@ -1886,7 +2074,11 @@ export function useKitabuApp() {
     const payload = await getCurriculumForGrade(grade, subjectId);
     setCurriculumData(prev => {
       const next = { ...prev };
-      next[`${grade}-${subjectId}`] = payload.subjects[0]?.strands ?? [];
+      const key = curriculumDataKey(grade, subjectId);
+      const remoteStrands = payload.subjects[0]?.strands ?? [];
+      next[key] = hasUsableCurriculum(remoteStrands)
+        ? remoteStrands
+        : INITIAL_CURRICULUM_DATA[key] ?? [];
       return next;
     });
     setLoadedCurriculumGrades(prev => ({
@@ -1896,6 +2088,16 @@ export function useKitabuApp() {
   }
 
   const restoreRoute = useCallback((snapshot: RouteSnapshot) => {
+    const scope = getBookScope(authSession, userProfile);
+    const scopedSelectedBook = snapshot.selectedBookId
+      ? books.find(book => book.id === snapshot.selectedBookId && bookMatchesScope(book, snapshot.currentGrade, scope)) || null
+      : null;
+    const scopedPreviewBookId =
+      snapshot.previewBookId &&
+      books.some(book => book.id === snapshot.previewBookId && bookMatchesScope(book, snapshot.currentGrade, scope))
+        ? snapshot.previewBookId
+        : null;
+
     setCurrentGrade(snapshot.currentGrade);
     setAdminSelectedGrade(snapshot.adminSelectedGrade);
     setActiveStrandIndex(snapshot.activeStrandIndex);
@@ -1912,12 +2114,8 @@ export function useKitabuApp() {
         ? assignments.find(assignment => assignment.id === snapshot.selectedAssignmentId) || null
         : null,
     );
-    setSelectedBook(
-      snapshot.selectedBookId
-        ? books.find(book => book.id === snapshot.selectedBookId) || null
-        : null,
-    );
-    setPreviewBookId(snapshot.previewBookId);
+    setSelectedBook(scopedSelectedBook);
+    setPreviewBookId(scopedPreviewBookId);
     setSelectedSubStrand(() => {
       if (!snapshot.selectedSubStrandId || !snapshot.selectedSubjectId) {
         return null;
@@ -1937,7 +2135,7 @@ export function useKitabuApp() {
       return null;
     });
     setCurrentView(snapshot.view);
-  }, [assignments, books, curriculumData]);
+  }, [assignments, authSession, books, curriculumData, userProfile]);
 
   function pushHistory(nextView: ViewState) {
     const nextSnapshot = getRouteSnapshot(nextView);
@@ -1969,6 +2167,10 @@ export function useKitabuApp() {
 
     if (nextView === 'live_audio' && currentView !== 'live_audio') {
       setLiveAudioReturnView(currentView);
+      setChatOpen(false);
+    }
+    if (nextView !== 'live_audio') {
+      setLiveAudioForceFallback(false);
     }
 
     pushHistory(nextView);
@@ -2067,6 +2269,12 @@ export function useKitabuApp() {
   }
 
   function openFeature(view: ViewState) {
+    if (view === 'live_audio') {
+      setLiveAudioForceFallback(false);
+      setChatOpen(false);
+      setMessages([]);
+    }
+
     navigateTo(view);
   }
 
@@ -2410,6 +2618,9 @@ export function useKitabuApp() {
         });
       }
       if (input?.gender && input.grade) {
+        const normalizedCountryCode = input.countryCode
+          ? normalizeBookCountryCode(input.countryCode)
+          : undefined;
         session = await completeAccountOnboarding({
           gender: input.gender,
           grade: input.grade,
@@ -2417,13 +2628,18 @@ export function useKitabuApp() {
           mpesaPhoneNumber: input.mpesaPhoneNumber || null,
           school: input.school,
           county: input.county,
+          countryCode: normalizedCountryCode,
+          curriculumCode:
+            input.countryCode || input.curriculumCode
+              ? normalizeBookCurriculumCode(input.curriculumCode, normalizedCountryCode ?? 'KEN')
+              : undefined,
         });
       }
       completeProviderAuthentication(session);
       if (input?.country || input?.countryCode || input?.county) {
         setUserProfile(current => ({
           ...current,
-          country: input.country || (input.countryCode === 'KE' ? 'Kenya' : current.country),
+          country: input.country || countryNameForBookCode(input.countryCode || current.country),
           county: input.county || current.county,
         }));
       }
@@ -2638,8 +2854,6 @@ export function useKitabuApp() {
       setChatOpen(true);
     }
 
-    setStartLiveAudio(false);
-
     const userMessage: ChatMessage = {
       role: 'user',
       text,
@@ -2674,19 +2888,19 @@ export function useKitabuApp() {
 
   function closeChat() {
     setChatOpen(false);
-    setStartLiveAudio(false);
     setMessages([]);
   }
 
   function openChatAttachmentPicker() {
     setChatOpen(true);
-    setStartLiveAudio(false);
     setChatAttachmentPickerSignal(signal => signal + 1);
   }
 
   function openLiveTutorOverlay() {
-    setStartLiveAudio(true);
-    setChatOpen(true);
+    setLiveAudioForceFallback(false);
+    setChatOpen(false);
+    setMessages([]);
+    navigateTo('live_audio');
   }
 
   function goHome() {
@@ -2702,10 +2916,19 @@ export function useKitabuApp() {
   }
 
   function closeLiveAudio() {
-    navigateTo(liveAudioReturnView);
+    setLiveAudioForceFallback(false);
+    setChatOpen(false);
+    setMessages([]);
+    navigateTo('dashboard');
   }
 
   function openBook(book: Book, startPage = 1) {
+    const scope = getBookScope(authSession, userProfile);
+    if (!bookMatchesScope(book, currentGrade, scope)) {
+      setPreviewBookId(null);
+      return;
+    }
+
     setSelectedBook(book);
     setInitialPage(startPage);
     setPreviewBookId(null);
@@ -2746,6 +2969,7 @@ export function useKitabuApp() {
     }
 
     const downloadedBook = await downloadBookForOffline(book);
+    const scope = getBookScope(authSession, userProfile);
     setDownloadedBooks(prev => new Set(prev).add(bookId));
     setDownloadedBookCache(prev => [
       downloadedBook,
@@ -2754,6 +2978,8 @@ export function useKitabuApp() {
     setBooks(prev => mergeRemoteAndCachedBooks(
       prev.map(item => (item.id === bookId ? downloadedBook : item)),
       [downloadedBook],
+      currentGrade,
+      scope,
     ));
   }
 
@@ -2773,16 +2999,41 @@ export function useKitabuApp() {
     setLessonQuizSubStrandId(null);
 
     if (config.format === 'audio') {
-      setMessages(prev => [
-        ...prev,
-        {
-          role: 'model',
-          text: `Starting Live Audio Quiz on ${config.subject}. Get ready!`,
-        },
-      ]);
-      setLiveAudioReturnView('quiz_me_config');
-      navigateTo('live_audio');
-      setIsLoading(false);
+      generateQuizData(
+        config.subject,
+        config.strand,
+        config.subStrand,
+        config.questionCount,
+        'quiz',
+        currentGrade,
+      )
+        .then(result => {
+          if (!result.questions?.length) {
+            throw new Error('AI service did not return live audio quiz questions.');
+          }
+
+          setGeneratedQuizQuestions(result.questions);
+          setMessages([
+            {
+              role: 'model',
+              text: `Question 1. ${result.questions[0].text}`,
+            },
+          ]);
+          setLiveAudioForceFallback(false);
+          setLiveAudioReturnView('quiz_me_config');
+          navigateTo('live_audio');
+        })
+        .catch(error => {
+          console.error('Live audio quiz generation failed', error);
+          setGeneratedQuizQuestions([]);
+          setMessages([]);
+          setLiveAudioForceFallback(true);
+          setLiveAudioReturnView('quiz_me_config');
+          navigateTo('live_audio');
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
       return;
     }
 
@@ -2885,7 +3136,11 @@ export function useKitabuApp() {
       return;
     }
 
-    await loadCurriculumGrade(currentGrade, true);
+    try {
+      await loadCurriculumGrade(currentGrade, true);
+    } catch (error) {
+      console.warn('Unable to refresh curriculum before opening lessons', error);
+    }
 
     navigateTo('lets_learn_list');
   }
@@ -3261,7 +3516,7 @@ export function useKitabuApp() {
     loadCurriculumGrade(currentGrade).catch(() => undefined);
     refreshStudentContentState(authSession, currentGrade).catch(() => undefined);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [authSession, currentGrade]);
+  }, [authSession, currentGrade, userProfile.country]);
 
   useEffect(() => {
     if (!authSession || adminSelectedGrade === currentGrade) {
@@ -3362,7 +3617,6 @@ export function useKitabuApp() {
 
       if (chatOpen) {
         setChatOpen(false);
-        setStartLiveAudio(false);
         setMessages([]);
         return true;
       }
@@ -3465,7 +3719,6 @@ export function useKitabuApp() {
       notificationsOpen,
       chatOpen,
       chatAttachmentPickerSignal,
-      startLiveAudio,
       messages,
       isLoading,
       currentGrade,
@@ -3478,6 +3731,7 @@ export function useKitabuApp() {
       previewBookId,
       activeStrandIndex,
       quizSource,
+      liveAudioForceFallback,
       brainTeaseCompleted,
       quizGenerationError,
       generatedFlashcards,
@@ -3590,7 +3844,6 @@ export function useKitabuApp() {
         setParentDashboardError(null);
       },
       setChatOpen,
-      setStartLiveAudio,
       setMessages,
       closeSubscriptionCheckout,
       dismissTryOneBobOffer,

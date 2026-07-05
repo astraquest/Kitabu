@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-eth-enc-grade-10-chemistry",
+  "title": "KITABU QUEST Grade 10 Chemistry",
+  "country": "ETH",
+  "curriculum": "ENC",
+  "grade": "Grade 10",
+  "subject": "Chemistry",
+  "subjectSlug": "chemistry",
+  "subjectColor": "#7C3AED",
+  "version": "draft-2026-07-03",
+  "generatorVersion": "normalized-learner-first-quality-gated-renderers-2026-07-03-v28",
+  "status": "published-for-testing",
+  "contentStatus": "content-draft-review-needed",
+  "coverStatus": "phase1-testing-cover-attached",
+  "generatedAt": "2026-07-03T22:35:33Z",
+  "sourceSnapshotHash": "d2b6d8be6b642dc0900361da65091332bea87c234040dd3e0b3cea3e7cc9f5c9",
+  "bookPlanHash": "d24c71d3df8d9cc6e82cb5eb3dbeada3ed308bf099363a20324406f10b39756a",
+  "pageCount": 143,
+  "wordCount": 15018,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "voice": "simple, conversational, age-appropriate, evidence-based, and anti-fluff",
+    "coversDeferred": true,
+    "topicCount": 6,
+    "outcomeCount": 10,
+    "generatedFallbackTopicCount": 0,
+    "normalizedSourceTopicCount": 6,
+    "sourceDerivationStatus": "normalized-source-derived",
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "ETH",
+    "subject": "Chemistry",
+    "species": "Ethiopian wolf",
+    "role": "science observation and safety guide",
+    "sourceRationale": "Assigned from the Book Creator mascot registry for country and subject fit."
+  },
+  "cover": {
+    "scene": "secondary learners carrying out a safe chemistry investigation with an Ethiopian wolf mascot",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Ethiopia ENC Grade 10 Chemistry. Scene: secondary learners carrying out a safe chemistry investigation with an Ethiopian wolf mascot. Include a friendly Ethiopian wolf mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "coverAssetStatus": "phase1-testing-cover-ready",
+  "assets": [
+    {
+      "path": "assets/cover.png",
+      "mimeType": "image/png",
+      "sizeBytes": 62024,
+      "sha256": "48f4f00d05e97a08c9616d976450cc31b41191bed6935b9d5eaf02a4e311b6fc",
+      "kind": "cover",
+      "altText": "KITABU QUEST Grade 10 Chemistry cover",
+      "generation": "cover-not-started"
+    }
+  ],
+  "downloads": {
+    "markdown": "kitabu-quest-eth-enc-grade-10-chemistry.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-eth-enc-grade-10-chemistry.pdf"
+  },
+  "sourceQuality": {
+    "status": "draft-source-review-needed",
+    "reviewStatus": "review_needed",
+    "coverageCaveat": "Configured generation currently covers English for Grades 4-10 plus reviewed-candidate drafts for selected verified ANRSEB textbook subjects. Official framework coverage is broader; see apps/api/data/curriculum/expected-matrix/ETH/ENC.json and generated audit apps/api/data/book-creator/ethiopia-coverage-gaps.json before treating Ethiopia as complete.",
+    "notes": "Generated from normalized extracted curriculum rows. Review source extraction before publication. Configured generation currently covers English for Grades 4-10 plus reviewed-candidate drafts for selected verified ANRSEB textbook subjects. Official framework coverage is broader; see apps/api/data/curriculum/expected-matrix/ETH/ENC.json and generated audit apps/api/data/book-creator/ethiopia-coverage-gaps.json before treating Ethiopia as complete."
+  },
+  "sourceDocuments": [
+    {
+      "id": "e262911c-3ab7-4aa9-9099-b2ef0170eed7",
+      "subject": "Chemistry",
+      "officialTitle": "Ethiopia Grade 10 Chemistry Student Textbook",
+      "countryCode": "ETH",
+      "curriculumCode": "ENC",
+      "gradeCode": "GRADE_10",
+      "gradeLocalLevel": "Grade 10",
+      "localLevel": "Grade 10",
+      "extractionStatus": "normalized",
+      "reviewStatus": "review_needed",
+      "sourceUrlStatus": "regional_official_anrseb",
+      "sourceUrl": "https://www.anrseb.gov.et/wp-content/uploads/New_Text_Books/Grade10/G10-Chemistry-STB-2023-ANRSEB.pdf",
+      "objectKey": "data/curriculum/source-files/ETH/07f6259101812f16758be1a1a5f877033549c344df4782c451c3167ab9109e4a.pdf",
+      "metadata": {
+        "type": "regional_official_subject_textbook_candidate",
+        "gradeCode": "GRADE_10",
+        "byteLength": 7083013,
+        "reviewNote": "Direct regional .gov.et textbook PDF candidate. Human review is required before any generated content can be marked ready.",
+        "verifiedAt": "2026-07-03T22:02:18.459Z",
+        "contentType": "application/pdf",
+        "documentUrl": "https://www.anrseb.gov.et/wp-content/uploads/New_Text_Books/Grade10/G10-Chemistry-STB-2023-ANRSEB.pdf",
+        "importBatch": "ethiopia-anrseb-source-candidates-2026-07-04-v1",
+        "markdownPath": "data/curriculum/markdown/ETH/ENC/GRADE_10/chemistry/e262911c-3ab7-4aa9-9099-b2ef0170eed7.md",
+        "normalizedAt": "2026-07-03T22:31:01.055Z",
+        "normalizedBy": "ethiopia-textbook-unit-normalizer-2026-07-04-v1",
+        "sourcePageUrl": "https://anrseb.gov.et/downloads/textbooks/",
+        "markdownParser": "source-pdf-markdown-extractor@1",
+        "provenanceTier": "regional_official_anrseb",
+        "reviewRequired": true,
+        "markdownChecksum": "e9c45275eaf9f389b2331544cd5b3a59f8157750938386cf90d95aca756effb7",
+        "markdownPageCount": 306,
+        "expectedByteLength": 7083013,
+        "federalMoeOfficial": false,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/ETH/ENC/GRADE_10/chemistry/e262911c-3ab7-4aa9-9099-b2ef0170eed7.md",
+          "parser": "source-pdf-markdown-extractor@1",
+          "checksum": "e9c45275eaf9f389b2331544cd5b3a59f8157750938386cf90d95aca756effb7",
+          "pageCount": 306,
+          "generatedAt": "2026-07-03T22:13:33.463Z",
+          "sourceFormat": "pdf-text-cache",
+          "textCachePath": "data/curriculum/text-cache/ETH/ENC/GRADE_10/chemistry/e262911c-3ab7-4aa9-9099-b2ef0170eed7.json",
+          "sourceChecksum": "4cc51eda8e1116bef5e6e9a1ab411a48250027193174db55ecc8ab0504da8819"
+        },
+        "verificationMethod": "http_pdf_header_check",
+        "markdownGeneratedAt": "2026-07-03T22:13:33.463Z",
+        "normalizedUnitCount": 6
+      }
+    }
+  ],
+  "packageChecksum": "2268854215c63c4ed3fb187cdfe8865d1831bc730ad0c0f071314c6f0189b445",
+  "coverImage": {
+    "path": "assets/cover.png",
+    "mimeType": "image/png",
+    "sizeBytes": 62024,
+    "sha256": "48f4f00d05e97a08c9616d976450cc31b41191bed6935b9d5eaf02a4e311b6fc"
+  },
+  "publicationStatus": "published-for-testing",
+  "testingRelease": {
+    "id": "phase1-testing-release-2026-07-04",
+    "publishedAt": "2026-07-04T13:27:56Z",
+    "scope": "manual testing snapshot",
+    "contentReviewPaused": true,
+    "phase2Required": true,
+    "contentStatusPreserved": "content-draft-review-needed",
+    "note": "Published for app testing only. Content review and enhancement remain open."
+  },
+  "reviewStatus": "phase2-content-enhancement-required"
+}

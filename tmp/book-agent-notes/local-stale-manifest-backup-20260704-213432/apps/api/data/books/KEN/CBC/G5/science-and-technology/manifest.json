@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "bookId": "kitabu-quest-grade-5-science-and-technology",
+  "title": "KITABU QUEST Grade 5 Science and Technology",
+  "country": "KEN",
+  "curriculum": "CBC",
+  "grade": "Grade 5",
+  "subject": "Science and Technology",
+  "subjectSlug": "science-and-technology",
+  "subjectColor": "#7C3AED",
+  "version": "draft-2026-07-01",
+  "generatorVersion": "learner-first-language-depth-renderers-2026-07-01-v10",
+  "status": "content-draft-review-needed",
+  "contentStatus": "content-reviewed-draft",
+  "coverStatus": "deferred-until-all-content-ready",
+  "generatedAt": "2026-07-01T12:38:13Z",
+  "sourceSnapshotHash": "62fd456cfc549cac235b6785cae9adc578e979d29d6e2bc5ae91f5117c46fafe",
+  "bookPlanHash": "272016900a4835eb42424a04a053aea071e06f7e918feb141b7b8c80980735a9",
+  "pageCount": 104,
+  "wordCount": 15743,
+  "contentQuality": {
+    "strategy": "learner-first-topic-cluster",
+    "ageBand": "upper-primary",
+    "coversDeferred": true,
+    "antiFluffChecks": [
+      "No generic filler introductions.",
+      "Every page must explain, model, guide practice, assess, review, or support vocabulary.",
+      "Every outcome must be covered by explanation, activity/example, and practice."
+    ],
+    "topicCount": 12,
+    "outcomeCount": 27,
+    "localContextRequired": true,
+    "sourceMapRequired": true
+  },
+  "mascot": {
+    "country": "KEN",
+    "subject": "Science and Technology",
+    "species": "chameleon",
+    "role": "curiosity and observation guide",
+    "sourceRationale": "Observation, adaptation, biology, and learner investigations."
+  },
+  "cover": {
+    "scene": "learners observing a chameleon and plants during a safe outdoor investigation",
+    "prompt": "Create vibrant realistic school textbook cover artwork for Kenya CBC Grade 5 Science and Technology. Scene: learners observing a chameleon and plants during a safe outdoor investigation. Include a friendly chameleon mascot near the title area, looking inviting and helpful. Show learners in a subject-relevant setting, bright commercial learner-book style, no readable text, no logos, portrait 4:5."
+  },
+  "assets": [],
+  "downloads": {
+    "markdown": "kitabu-quest-grade-5-science-and-technology.md",
+    "bookPlan": "book-plan.json",
+    "pagesJson": "pages.json",
+    "sourceMap": "source-map.json",
+    "pdf": "kitabu-quest-grade-5-science-and-technology.pdf"
+  },
+  "sourceDocuments": [
+    {
+      "id": "45dbac21-ba49-4731-9692-d328f36c9ebb",
+      "subject": "Science and Technology",
+      "officialTitle": "Competency Based Curriculum Grade 5 Science and Technology",
+      "countryCode": "KEN",
+      "curriculumCode": "CBC",
+      "gradeCode": "GRADE_5",
+      "gradeLocalLevel": "Grade 5",
+      "localLevel": "Grade 5",
+      "extractionStatus": "extracted",
+      "reviewStatus": "reviewed",
+      "sourceUrlStatus": "official",
+      "sourceUrl": "https://drive.google.com/file/d/1CituzlfluxqVvjExx7xHiV_j_ZDXwpja/preview",
+      "objectKey": null,
+      "metadata": {
+        "type": "official_subject_document",
+        "notes": "",
+        "gradeCode": "GRADE_5",
+        "documentUrl": "https://drive.google.com/file/d/1CituzlfluxqVvjExx7xHiV_j_ZDXwpja/preview",
+        "markdownPath": "data/curriculum/markdown/KEN/CBC/GRADE_5/science-and-technology/45dbac21-ba49-4731-9692-d328f36c9ebb.md",
+        "sourceReview": {
+          "status": "provenance_and_extraction_reviewed",
+          "evidence": [
+            "KICD official page embedding confirmed by metadata.embeddedOnOfficialPage=true",
+            "metadata.officialDomains includes kicd.ac.ke",
+            "metadata.fullSourceMarkdown contains parser, checksum, sourceChecksum, and pageCount",
+            "source_url is a Google Drive preview URL embedded from KICD; direct file download is owner-blocked"
+          ],
+          "reviewedAt": "2026-07-01T07:30:08.456Z",
+          "reviewedBy": "codex",
+          "reviewScope": "source provenance and extracted markdown cache only; not content approval, KICD approval, ready-for-cover, or publication",
+          "objectArchiveStatus": "not_archived_download_blocked",
+          "officialPreviewDownloadBlocked": true
+        },
+        "sourcePageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-five-designs/",
+        "downloadStatus": "official_preview_download_blocked",
+        "markdownParser": "kicd-drive-text-cache@1",
+        "officialDomains": [
+          "kicd.ac.ke"
+        ],
+        "markdownChecksum": "97b94b7fe14f02cbadacf7eb8348c42a1aea46e2d16af58af17c45cf22d44b8c",
+        "markdownPageCount": 36,
+        "fullSourceMarkdown": {
+          "path": "data/curriculum/markdown/KEN/CBC/GRADE_5/science-and-technology/45dbac21-ba49-4731-9692-d328f36c9ebb.md",
+          "parser": "kicd-drive-text-cache@1",
+          "checksum": "97b94b7fe14f02cbadacf7eb8348c42a1aea46e2d16af58af17c45cf22d44b8c",
+          "pageCount": 36,
+          "generatedAt": "2026-06-29T16:35:08.673Z",
+          "sourceFormat": "kicd-extracted-text-json",
+          "sourceChecksum": "0d344a5637d491479434c90bd37946aac611665cffb8054669a7c9686c9b4c9b"
+        },
+        "markdownGeneratedAt": "2026-06-29T16:35:08.673Z",
+        "objectArchiveStatus": "not_archived_download_blocked",
+        "embeddedOnOfficialPage": true
+      }
+    }
+  ]
+}

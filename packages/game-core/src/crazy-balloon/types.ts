@@ -44,6 +44,7 @@ export type CrazyBalloonInput =
 export type CrazyBalloonEvent =
   | { type: 'score_changed'; score: number }
   | { type: 'rescue_started'; question: CrazyBalloonQuestion }
+  | { type: 'rescued'; rescuesUsed: number }
   | { type: 'monster_attack' }
   | { type: 'game_over'; score: number }
   | { type: 'match_result'; result: 'win' | 'loss'; score: number; opponentScore: number };

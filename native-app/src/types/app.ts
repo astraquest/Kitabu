@@ -16,6 +16,7 @@ export type BaseViewState =
   | 'game_zone'
   | 'crazy_balloon'
   | 'quiz_battle'
+  | 'manyanga'
   | 'admin_portal'
   | 'teachers_portal'
   | 'parent_dashboard'

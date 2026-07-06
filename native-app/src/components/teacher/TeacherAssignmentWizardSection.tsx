@@ -49,8 +49,6 @@ interface TeacherAssignmentWizardSectionProps {
   onPublish: () => void;
 }
 
-const WAND = '*';
-
 export function TeacherAssignmentWizardSection({
   styles,
   step,
@@ -90,30 +88,38 @@ export function TeacherAssignmentWizardSection({
 }: TeacherAssignmentWizardSectionProps) {
   return (
     <View style={styles.wizardRoot}>
+      <View style={styles.modalGrabber} />
       <View style={styles.wizardHead}>
-        <Pressable onPress={closeWizard} disabled={isGenerating || isSending}>
-          <Text style={styles.cancelText}>Cancel</Text>
+        <Pressable
+          onPress={closeWizard}
+          disabled={isGenerating || isSending}
+          style={styles.modalCloseButton}>
+          <Text style={styles.cancelText}>Close</Text>
         </Pressable>
-        <Text style={styles.detailTitle}>New Assignment</Text>
+
+        <View style={styles.wizardHeaderCenter}>
+          <Text style={styles.wizardHeaderTitle}>Set Assignment</Text>
+        </View>
+
         {step === 2 ? (
-          <Pressable onPress={() => onSetStep(1)} disabled={isGenerating || isSending}>
+          <Pressable
+            onPress={() => onSetStep(1)}
+            disabled={isGenerating || isSending}
+            style={styles.regenerateButton}>
             <Text style={styles.actionText}>Regenerate</Text>
           </Pressable>
         ) : (
-          <View style={styles.spacer} />
+          <View style={styles.modalCloseButtonGhost} />
         )}
       </View>
 
-      <ScrollView contentContainerStyle={styles.wizardContent}>
+      <ScrollView
+        keyboardShouldPersistTaps="handled"
+        style={styles.wizardScroll}
+        contentContainerStyle={styles.wizardContent}>
         {step === 1 ? (
           <View style={styles.wizardInner}>
-            <View style={styles.center}>
-              <Text style={styles.emoji}>{WAND}</Text>
-              <Text style={styles.wizardTitle}>Assignment Wizard</Text>
-              <Text style={styles.rowMeta}>Configure your topic and let AI do the rest.</Text>
-            </View>
-
-            <View style={styles.card}>
+            <View style={styles.wizardCard}>
               <View style={styles.twoCol}>
                 <View style={styles.flexField}>
                   <TeacherInlineSelect
@@ -194,7 +200,7 @@ export function TeacherAssignmentWizardSection({
         ) : (
           <View style={styles.editorStack}>
             {draft ? (
-              <View style={styles.card}>
+              <View style={styles.wizardCard}>
                 <Text style={styles.metricLabel}>Title & Description</Text>
                 <TextInput
                   value={draft.title}
@@ -242,7 +248,7 @@ export function TeacherAssignmentWizardSection({
                       </View>
                     ))}
                     <Pressable onPress={() => onAddOption(index)} style={styles.addOptionButton}>
-                      <Plus size={14} color="#1D4ED8" />
+                      <Plus size={14} color="#F97316" />
                       <Text style={styles.addOptionText}>Add Option</Text>
                     </Pressable>
                   </View>
@@ -264,7 +270,10 @@ export function TeacherAssignmentWizardSection({
 
       {step === 2 ? (
         <View style={styles.publishBar}>
-          <Pressable onPress={onPublish} disabled={isSending} style={[styles.generate, isSending && styles.generateDisabled]}>
+          <Pressable
+            onPress={onPublish}
+            disabled={isSending}
+            style={[styles.generate, styles.publishButton, isSending && styles.generateDisabled]}>
             {isSending ? (
               <>
                 <TeacherSpinner />

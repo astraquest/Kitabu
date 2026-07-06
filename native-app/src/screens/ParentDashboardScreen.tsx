@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import {
   ActivityIndicator,
   Platform,
@@ -46,6 +46,11 @@ import Svg, {
 } from 'react-native-svg';
 
 import { ParentChildAssignment, ParentChildSummary } from '../types/app';
+import {
+  getParentTeacherMessages,
+  sendParentTeacherMessage,
+} from '../services/parentService';
+import { TeacherParentMessage } from '../services/teacherService';
 
 interface ParentDashboardScreenProps {
   children: ParentChildSummary[];
@@ -73,7 +78,7 @@ interface ParentDashboardScreenProps {
   onSignOut: () => void;
 }
 
-type DashboardTab = 'home' | 'report';
+type DashboardTab = 'home' | 'report' | 'messages';
 
 export function ParentDashboardScreen({
   children,
@@ -102,6 +107,12 @@ export function ParentDashboardScreen({
 }: ParentDashboardScreenProps) {
   const [confirmRemoveId, setConfirmRemoveId] = useState<string | null>(null);
   const [activeView, setActiveView] = useState<DashboardTab>('home');
+  const [teacherMessages, setTeacherMessages] = useState<TeacherParentMessage[]>([]);
+  const [selectedTeacherId, setSelectedTeacherId] = useState<string | null>(null);
+  const [messageDraft, setMessageDraft] = useState('');
+  const [isLoadingMessages, setIsLoadingMessages] = useState(false);
+  const [isSendingMessage, setIsSendingMessage] = useState(false);
+  const [messageError, setMessageError] = useState<string | null>(null);
   const selectedChild = useMemo(
     () => children.find(child => child.id === selectedChildId) ?? children[0] ?? null,
     [children, selectedChildId],
@@ -111,6 +122,61 @@ export function ParentDashboardScreen({
   const selectedChildFirstName = getFirstName(selectedChild?.name || 'your child');
   const parentFirstName = getFirstName(parentName || 'Parent');
   const score = selectedChild ? getOverallScore(selectedChild) : 0;
+  const teacherThreads = useMemo(() => {
+    const byTeacher = new Map<string, TeacherParentMessage>();
+    teacherMessages.forEach(message => {
+      if (!byTeacher.has(message.teacher_user_id)) {
+        byTeacher.set(message.teacher_user_id, message);
+      }
+    });
+    return Array.from(byTeacher.values());
+  }, [teacherMessages]);
+  const activeTeacherId = selectedTeacherId || teacherThreads[0]?.teacher_user_id || null;
+  const activeThreadMessages = teacherMessages.filter(
+    message => !activeTeacherId || message.teacher_user_id === activeTeacherId,
+  );
+
+  async function loadParentMessages() {
+    setIsLoadingMessages(true);
+    setMessageError(null);
+    try {
+      const messages = await getParentTeacherMessages();
+      setTeacherMessages(messages);
+      if (!selectedTeacherId && messages[0]) {
+        setSelectedTeacherId(messages[0].teacher_user_id);
+      }
+    } catch (requestError) {
+      console.error('Error loading parent messages:', requestError);
+      setMessageError('Could not load teacher messages right now.');
+    } finally {
+      setIsLoadingMessages(false);
+    }
+  }
+
+  useEffect(() => {
+    if (activeView === 'messages') {
+      loadParentMessages();
+    }
+  }, [activeView]);
+
+  async function sendParentMessage() {
+    const body = messageDraft.trim();
+    if (!body || !activeTeacherId) {
+      return;
+    }
+    setIsSendingMessage(true);
+    setMessageError(null);
+    try {
+      await sendParentTeacherMessage({ teacherUserId: activeTeacherId, body });
+      setMessageDraft('');
+      await loadParentMessages();
+    } catch (requestError) {
+      console.error('Error sending parent message:', requestError);
+      setMessageError('Could not send this message. Please try again.');
+    } finally {
+      setIsSendingMessage(false);
+    }
+  }
 
   return (
     <View style={styles.screen}>
@@ -216,6 +282,20 @@ export function ParentDashboardScreen({
             />
           ) : activeView === 'report' ? (
             <WeeklyReport child={selectedChild} onBack={() => setActiveView('home')} />
+          ) : activeView === 'messages' ? (
+            <ParentMessagesView
+              activeTeacherId={activeTeacherId}
+              draft={messageDraft}
+              error={messageError}
+              isLoading={isLoadingMessages}
+              isSending={isSendingMessage}
+              messages={activeThreadMessages}
+              teachers={teacherThreads}
+              onBack={() => setActiveView('home')}
+              onChangeDraft={setMessageDraft}
+              onSelectTeacher={setSelectedTeacherId}
+              onSend={sendParentMessage}
+            />
           ) : (
             <>
               <HeroCard child={selectedChild} score={score} />
@@ -223,6 +303,7 @@ export function ParentDashboardScreen({
               <QuickActions
                 isStartingFocusMode={isStartingFocusMode}
                 onLockPhone={onStartFocusMode}
+                onMessages={() => setActiveView('messages')}
                 onViewReport={() => setActiveView('report')}
               />
 
@@ -258,6 +339,7 @@ export function ParentDashboardScreen({
           isStartingFocusMode={isStartingFocusMode}
           onHome={() => setActiveView('home')}
           onReports={() => setActiveView('report')}
+          onMessages={() => setActiveView('messages')}
           onLock={onStartFocusMode}
         />
       </View>
@@ -464,10 +546,12 @@ function HeroStudentArt() {
 function QuickActions({
   isStartingFocusMode,
   onLockPhone,
+  onMessages,
   onViewReport,
 }: {
   isStartingFocusMode: boolean;
   onLockPhone: () => void;
+  onMessages: () => void;
   onViewReport: () => void;
 }) {
   return (
@@ -492,6 +576,7 @@ function QuickActions({
         colors={['#FBF9FF', '#F4F0FF']}
         icon={<MessageSquareText color="#8057E6" size={36} strokeWidth={2.4} />}
         label={'Message\nTeacher'}
+        onPress={onMessages}
       />
       <QuickAction
         borderColor="#F4D2B7"
@@ -1040,17 +1125,156 @@ function ReportList({
   );
 }
 
+function ParentMessagesView({
+  activeTeacherId,
+  draft,
+  error,
+  isLoading,
+  isSending,
+  messages,
+  teachers,
+  onBack,
+  onChangeDraft,
+  onSelectTeacher,
+  onSend,
+}: {
+  activeTeacherId: string | null;
+  draft: string;
+  error: string | null;
+  isLoading: boolean;
+  isSending: boolean;
+  messages: TeacherParentMessage[];
+  teachers: TeacherParentMessage[];
+  onBack: () => void;
+  onChangeDraft: (value: string) => void;
+  onSelectTeacher: (teacherId: string) => void;
+  onSend: () => void;
+}) {
+  const selectedTeacher = teachers.find(teacher => teacher.teacher_user_id === activeTeacherId);
+  return (
+    <View style={styles.parentMessagesWrap}>
+      <View style={styles.reportTopRow}>
+        <View>
+          <Text style={styles.reportEyebrow}>Messages</Text>
+          <Text style={styles.reportTitle}>Teacher chat</Text>
+        </View>
+        <Pressable onPress={onBack} style={styles.reportBackButton}>
+          <Text style={styles.reportBackText}>Back</Text>
+        </Pressable>
+      </View>
+
+      <View style={styles.parentMessagePanel}>
+        <View style={styles.parentMessageHeader}>
+          <View>
+            <Text style={styles.parentMessageTitle}>
+              {selectedTeacher ? selectedTeacher.sender_name : 'Teacher messages'}
+            </Text>
+            <Text style={styles.parentMessageMeta}>
+              {isLoading ? 'Loading...' : `${messages.length} saved messages`}
+            </Text>
+          </View>
+        </View>
+
+        <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.parentTeacherTabs}>
+          {teachers.length === 0 ? (
+            <View style={styles.parentTeacherEmptyChip}>
+              <Text style={styles.parentTeacherEmptyText}>No active teacher chats</Text>
+            </View>
+          ) : (
+            teachers.map(thread => {
+              const active = thread.teacher_user_id === activeTeacherId;
+              return (
+                <Pressable
+                  key={thread.teacher_user_id}
+                  onPress={() => onSelectTeacher(thread.teacher_user_id)}
+                  style={[styles.parentTeacherChip, active && styles.parentTeacherChipActive]}>
+                  <Text
+                    style={[
+                      styles.parentTeacherChipText,
+                      active && styles.parentTeacherChipTextActive,
+                    ]}>
+                    {thread.sender_name}
+                  </Text>
+                </Pressable>
+              );
+            })
+          )}
+        </ScrollView>
+
+        {error ? <Text style={styles.parentMessageError}>{error}</Text> : null}
+
+        <View style={styles.parentMessageThread}>
+          {messages.length === 0 ? (
+            <View style={styles.parentMessageEmpty}>
+              <Text style={styles.parentMessageTitle}>No messages yet</Text>
+              <Text style={styles.parentMessageMeta}>
+                Teacher conversations will appear here after a teacher sends the first message.
+              </Text>
+            </View>
+          ) : (
+            messages.map(message => {
+              const fromParent = message.sender_user_id === message.parent_user_id;
+              return (
+                <View
+                  key={message.id}
+                  style={[
+                    styles.parentMessageBubble,
+                    fromParent ? styles.parentMessageBubbleMine : styles.parentMessageBubbleTeacher,
+                  ]}>
+                  <Text style={styles.parentMessageSender}>{message.sender_name}</Text>
+                  <Text style={styles.parentMessageBody}>{message.body}</Text>
+                  <Text style={styles.parentMessageTime}>
+                    {new Date(message.created_at).toLocaleString()}
+                  </Text>
+                </View>
+              );
+            })
+          )}
+        </View>
+
+        <View style={styles.parentMessageComposer}>
+          <TextInput
+            editable={Boolean(activeTeacherId) && !isSending}
+            multiline
+            onChangeText={onChangeDraft}
+            placeholder={
+              activeTeacherId
+                ? 'Reply to the teacher...'
+                : 'A teacher must start the conversation first.'
+            }
+            placeholderTextColor="#8A94A6"
+            style={styles.parentMessageInput}
+            value={draft}
+          />
+          <Pressable
+            disabled={!activeTeacherId || draft.trim().length === 0 || isSending}
+            onPress={onSend}
+            style={[
+              styles.parentMessageSendButton,
+              (!activeTeacherId || draft.trim().length === 0 || isSending) &&
+                styles.parentMessageSendButtonDisabled,
+            ]}>
+            <Text style={styles.parentMessageSendText}>{isSending ? 'Sending...' : 'Send'}</Text>
+          </Pressable>
+        </View>
+      </View>
+    </View>
+  );
+}
+
 function BottomNavigation({
   activeView,
   isStartingFocusMode,
   onHome,
   onLock,
+  onMessages,
   onReports,
 }: {
   activeView: DashboardTab;
   isStartingFocusMode: boolean;
   onHome: () => void;
   onLock: () => void;
+  onMessages: () => void;
   onReports: () => void;
 }) {
   return (
@@ -1058,7 +1282,12 @@ function BottomNavigation({
       <NavItem active={activeView === 'home'} icon={<Home />} label="Home" onPress={onHome} />
       <NavItem active={activeView === 'report'} icon={<BarChart3 />} label="Reports" onPress={onReports} />
       <NavItem icon={<LockKeyhole />} isLoading={isStartingFocusMode} label="Lock" onPress={onLock} />
-      <NavItem icon={<MessageCircle />} label="Messages" />
+      <NavItem
+        active={activeView === 'messages'}
+        icon={<MessageCircle />}
+        label="Messages"
+        onPress={onMessages}
+      />
     </View>
   );
 }
@@ -2113,6 +2342,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: 44,
   },
+  reportBackText: {
+    color: '#FF4B10',
+    fontSize: 11,
+    fontWeight: '900',
+  },
   reportSummary: {
     borderColor: '#FFD7BC',
     borderRadius: 16,
@@ -2228,6 +2462,168 @@ const styles = StyleSheet.create({
   },
   reportDotFocus: {
     backgroundColor: '#FF7A16',
+  },
+  parentMessagesWrap: {
+    gap: 14,
+  },
+  parentMessagePanel: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#E1E7EF',
+    borderRadius: 18,
+    borderWidth: 1,
+    overflow: 'hidden',
+  },
+  parentMessageHeader: {
+    borderBottomColor: '#EEF2F7',
+    borderBottomWidth: 1,
+    padding: 16,
+  },
+  parentMessageTitle: {
+    color: '#111827',
+    fontSize: 17,
+    fontWeight: '900',
+    lineHeight: 22,
+  },
+  parentMessageMeta: {
+    color: '#667085',
+    fontSize: 12,
+    fontWeight: '700',
+    lineHeight: 17,
+    marginTop: 3,
+  },
+  parentTeacherTabs: {
+    paddingHorizontal: 14,
+    paddingVertical: 12,
+  },
+  parentTeacherChip: {
+    backgroundColor: '#F8FAFC',
+    borderColor: '#DCE3EC',
+    borderRadius: 999,
+    borderWidth: 1,
+    marginRight: 8,
+    minHeight: 36,
+    paddingHorizontal: 13,
+    paddingVertical: 9,
+  },
+  parentTeacherChipActive: {
+    backgroundColor: '#FF6B1A',
+    borderColor: '#FF6B1A',
+  },
+  parentTeacherChipText: {
+    color: '#111827',
+    fontSize: 12,
+    fontWeight: '900',
+  },
+  parentTeacherChipTextActive: {
+    color: '#FFFFFF',
+  },
+  parentTeacherEmptyChip: {
+    backgroundColor: '#F8FAFC',
+    borderColor: '#E1E7EF',
+    borderRadius: 999,
+    borderWidth: 1,
+    paddingHorizontal: 13,
+    paddingVertical: 9,
+  },
+  parentTeacherEmptyText: {
+    color: '#667085',
+    fontSize: 12,
+    fontWeight: '800',
+  },
+  parentMessageError: {
+    color: '#DC2626',
+    fontSize: 12,
+    fontWeight: '800',
+    paddingBottom: 10,
+    paddingHorizontal: 16,
+  },
+  parentMessageThread: {
+    borderTopColor: '#EEF2F7',
+    borderTopWidth: 1,
+    gap: 10,
+    padding: 14,
+  },
+  parentMessageEmpty: {
+    backgroundColor: '#F8FAFC',
+    borderColor: '#E1E7EF',
+    borderRadius: 14,
+    borderWidth: 1,
+    padding: 14,
+  },
+  parentMessageBubble: {
+    borderRadius: 15,
+    maxWidth: '88%',
+    paddingHorizontal: 13,
+    paddingVertical: 10,
+  },
+  parentMessageBubbleMine: {
+    alignSelf: 'flex-end',
+    backgroundColor: '#EAFBF0',
+    borderColor: '#BFEBCD',
+    borderWidth: 1,
+  },
+  parentMessageBubbleTeacher: {
+    alignSelf: 'flex-start',
+    backgroundColor: '#FFF4EC',
+    borderColor: '#FFDCC6',
+    borderWidth: 1,
+  },
+  parentMessageSender: {
+    color: '#667085',
+    fontSize: 10,
+    fontWeight: '900',
+    marginBottom: 4,
+    textTransform: 'uppercase',
+  },
+  parentMessageBody: {
+    color: '#111827',
+    fontSize: 13,
+    fontWeight: '700',
+    lineHeight: 18,
+  },
+  parentMessageTime: {
+    color: '#667085',
+    fontSize: 10,
+    fontWeight: '700',
+    marginTop: 7,
+  },
+  parentMessageComposer: {
+    borderTopColor: '#EEF2F7',
+    borderTopWidth: 1,
+    padding: 14,
+  },
+  parentMessageInput: {
+    backgroundColor: '#F8FAFC',
+    borderColor: '#DCE3EC',
+    borderRadius: 14,
+    borderWidth: 1,
+    color: '#111827',
+    fontSize: 13,
+    fontWeight: '700',
+    lineHeight: 18,
+    minHeight: 82,
+    paddingHorizontal: 13,
+    paddingVertical: 12,
+    textAlignVertical: 'top',
+  },
+  parentMessageSendButton: {
+    alignItems: 'center',
+    alignSelf: 'flex-end',
+    backgroundColor: '#138A43',
+    borderRadius: 999,
+    justifyContent: 'center',
+    marginTop: 10,
+    minHeight: 42,
+    minWidth: 104,
+    paddingHorizontal: 18,
+  },
+  parentMessageSendButtonDisabled: {
+    opacity: 0.55,
+  },
+  parentMessageSendText: {
+    color: '#FFFFFF',
+    fontSize: 13,
+    fontWeight: '900',
   },
   bottomNav: {
     backgroundColor: '#FFFFFF',

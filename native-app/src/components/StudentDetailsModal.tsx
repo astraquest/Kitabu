@@ -1,18 +1,27 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Animated, Image, Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import Svg, { Defs, LinearGradient as SvgLinearGradient, Path, Stop, SvgUri } from 'react-native-svg';
-import { AlertCircle, Award, BookOpen, Calculator, Frown, Globe, Meh, Star, TrendingUp, User, X } from 'lucide-react-native';
+import { Activity, AlertCircle, Award, BookOpen, Calculator, CheckCircle2, ClipboardList, Frown, Globe, Heart, Meh, Star, Target, TrendingUp, User, X } from 'lucide-react-native';
 
 import { DEFAULT_GRADE } from '../constants/grades';
 import { UserProfile } from '../types/app';
+import {
+  buildRemedialReport,
+  generateRemedialReport,
+  remedialAssignmentDraft,
+  RemedialAssignmentPayload,
+  RemedialReport,
+} from './studentRemedialLogic';
 
 interface StudentDetailsModalProps {
   user: UserProfile;
   onClose: () => void;
   assessmentScore?: number;
+  onCreateRemedialAssignment?: (assignment: RemedialAssignmentPayload) => void;
 }
 
-type ActiveTab = 'performance' | 'profile';
+type ActiveTab = 'performance' | 'remedial' | 'profile';
+type RemedialStatus = 'idle' | 'running' | 'complete';
 
 const RECENT_ACTIVITY = [
   { id: 1, title: 'Algebra Quiz', time: 'Today, 9:30 AM', score: 92, icon: Calculator },
@@ -65,10 +74,16 @@ function getAvatarUri(value?: string) {
   return `https://api.dicebear.com/7.x/adventurer/png?seed=${encodeURIComponent(value)}`;
 }
 
-export function StudentDetailsModal({ user, onClose, assessmentScore }: StudentDetailsModalProps) {
+export function StudentDetailsModal({
+  user,
+  onClose,
+  assessmentScore,
+  onCreateRemedialAssignment,
+}: StudentDetailsModalProps) {
   const [activeTab, setActiveTab] = useState<ActiveTab>('performance');
   const [showAllActivities, setShowAllActivities] = useState(false);
-  const [isRemedial, setIsRemedial] = useState(false);
+  const [remedialStatus, setRemedialStatus] = useState<RemedialStatus>('idle');
+  const [remedialReport, setRemedialReport] = useState<RemedialReport | null>(null);
   const progress = useRef(new Animated.Value(0)).current;
   const bars = useRef(WEEKLY_STATS.map(() => new Animated.Value(0))).current;
 
@@ -76,6 +91,7 @@ export function StudentDetailsModal({ user, onClose, assessmentScore }: StudentD
   const analysis = getPerformanceAnalysis(score);
   const displayedActivities = showAllActivities ? RECENT_ACTIVITY : RECENT_ACTIVITY.slice(0, 3);
   const avatarUri = getAvatarUri(user.avatar);
+  const report = remedialReport ?? buildRemedialReport(user);
   const details = useMemo(() => ({
     school: user.school || 'ABC High School',
     grade: user.grade || DEFAULT_GRADE,
@@ -98,8 +114,21 @@ export function StudentDetailsModal({ user, onClose, assessmentScore }: StudentD
   useEffect(() => {
     setActiveTab('performance');
     setShowAllActivities(false);
-    setIsRemedial(false);
-  }, [user.name, user.email, user.avatar, assessmentScore]);
+    setRemedialStatus('idle');
+    setRemedialReport(null);
+  }, [user.id, user.name, user.email, user.avatar, assessmentScore]);
+
+  async function runRemedialAnalysis() {
+    setActiveTab('remedial');
+    setRemedialStatus('running');
+    const result = await generateRemedialReport(user);
+    setRemedialReport(result);
+    setRemedialStatus('complete');
+  }
+
+  function createRemedialAssignment() {
+    onCreateRemedialAssignment?.(remedialAssignmentDraft(user, report));
+  }
 
   const gaugeOffset = progress.interpolate({
     inputRange: [0, 100],
@@ -114,8 +143,20 @@ export function StudentDetailsModal({ user, onClose, assessmentScore }: StudentD
         <View style={s.modal}>
           <View style={s.header}>
             <View>
-              <Text style={s.headerTitle}>{activeTab === 'performance' ? 'Performance' : 'Student Profile'}</Text>
-              <Text style={s.headerSub}>{activeTab === 'performance' ? 'Academic Analysis' : 'Personal Details'}</Text>
+              <Text style={s.headerTitle}>
+                {activeTab === 'performance'
+                  ? 'Performance'
+                  : activeTab === 'remedial'
+                    ? 'Remedial Report'
+                    : 'Student Profile'}
+              </Text>
+              <Text style={s.headerSub}>
+                {activeTab === 'performance'
+                  ? 'Academic Analysis'
+                  : activeTab === 'remedial'
+                    ? `${user.name} - ${details.grade} - ${report.periodLabel}`
+                    : 'Personal Details'}
+              </Text>
             </View>
             <Pressable onPress={onClose} style={s.closeButton}>
               <X size={18} color="#9CA3AF" />
@@ -194,6 +235,117 @@ export function StudentDetailsModal({ user, onClose, assessmentScore }: StudentD
                   </View>
                 </View>
               </>
+            ) : activeTab === 'remedial' ? (
+              remedialStatus === 'complete' ? (
+                <View style={s.remedialStack}>
+                  <View style={s.remedialStats}>
+                    <RemedialStat
+                      color="#2563EB"
+                      icon={<Award size={18} color="#2563EB" />}
+                      label="Mastery"
+                      value={`${report.mastery}%`}
+                    />
+                    <RemedialStat
+                      color="#EF4444"
+                      icon={<X size={18} color="#EF4444" />}
+                      label="Wrong"
+                      value={String(report.wrongAnswers)}
+                    />
+                    <RemedialStat
+                      color="#F97316"
+                      icon={<AlertCircle size={18} color="#F97316" />}
+                      label="Priority Gaps"
+                      value={String(report.priorityGaps)}
+                    />
+                  </View>
+                  <Text style={s.remedialSource}>{report.sourceLabel} - {report.periodLabel}</Text>
+
+                  <View style={s.remedialReportCard}>
+                    <View style={s.remedialCardIcon}>
+                      <ClipboardList size={22} color="#2563EB" />
+                    </View>
+                    <View style={s.flex}>
+                      <Text style={s.remedialCardTitle}>Diagnosis</Text>
+                      <Text style={s.remedialBody}>{report.diagnosis}</Text>
+                    </View>
+                  </View>
+
+                  <View style={s.card}>
+                    <Text style={s.cardTitle}>Priority Gaps</Text>
+                    <View style={s.gapList}>
+                      {report.topAreas.map((area, index) => (
+                        <View key={`${area.subject}-${area.subStrand}`} style={s.gapRow}>
+                          <View style={[s.gapRank, index === 0 ? s.gapRankHigh : index === 1 ? s.gapRankWarn : s.gapRankOk]}>
+                            <Text style={s.gapRankText}>{index + 1}</Text>
+                          </View>
+                          <View style={s.flex}>
+                            <Text style={s.gapTitle}>{area.subStrand}</Text>
+                            <Text style={s.gapMeta}>{area.subject}</Text>
+                            <View style={s.gapTrack}>
+                              <View style={[s.gapFill, { width: `${Math.max(38, Math.min(88, area.wrong * 16))}%` }]} />
+                            </View>
+                          </View>
+                          <Text style={s.gapMissed}>{area.wrong} missed</Text>
+                        </View>
+                      ))}
+                    </View>
+                  </View>
+
+                  <View style={s.remedialReportCard}>
+                    <View style={[s.remedialCardIcon, s.remedialActionIcon]}>
+                      <Target size={22} color="#0D9488" />
+                    </View>
+                    <View style={s.flex}>
+                      <Text style={s.remedialCardTitle}>Recommended Action</Text>
+                      <Text style={s.remedialBody}>
+                        <Text style={s.remedialStrong}>{report.actionTitle}</Text>
+                        {report.actionNote}
+                      </Text>
+                    </View>
+                  </View>
+
+                  <Pressable
+                    disabled={!onCreateRemedialAssignment}
+                    onPress={createRemedialAssignment}
+                    style={[s.assignmentButton, !onCreateRemedialAssignment && s.assignmentButtonDisabled]}>
+                    <ClipboardList size={18} color="#FFFFFF" />
+                    <Text style={s.assignmentButtonText}>Set Assignment</Text>
+                  </Pressable>
+                </View>
+              ) : (
+                <View style={[s.remedialRunCard, remedialStatus === 'running' && s.remedialRunCardActive]}>
+                  <View style={s.remedialRunIcon}>
+                    <Activity size={34} color="#2563EB" />
+                  </View>
+                  <Text style={s.remedialRunTitle}>Remedial</Text>
+                  <Text style={s.remedialRunCopy}>
+                    Scan this week's wrong answers across quizzes and assignments to build a focused remedial report.
+                  </Text>
+                  <Pressable
+                    disabled={remedialStatus === 'running'}
+                    onPress={runRemedialAnalysis}
+                    style={[s.runAnalysisButton, remedialStatus === 'running' && s.runAnalysisButtonDisabled]}>
+                    <Activity size={20} color="#FFFFFF" />
+                    <Text style={s.runAnalysisText}>
+                      {remedialStatus === 'running' ? 'Analyzing...' : 'Run Analysis'}
+                    </Text>
+                  </Pressable>
+                  <View style={s.remedialChipRow}>
+                    <View style={s.remedialChip}>
+                      <ClipboardList size={16} color="#2563EB" />
+                      <Text style={s.remedialChipText}>All quizzes</Text>
+                    </View>
+                    <View style={s.remedialChip}>
+                      <CheckCircle2 size={16} color="#2563EB" />
+                      <Text style={s.remedialChipText}>Assignments</Text>
+                    </View>
+                    <View style={s.remedialChip}>
+                      <Target size={16} color="#2563EB" />
+                      <Text style={s.remedialChipText}>Learning gaps</Text>
+                    </View>
+                  </View>
+                </View>
+              )
             ) : (
               <View style={s.profileStack}>
                 <View style={s.profileHero}>
@@ -261,9 +413,9 @@ export function StudentDetailsModal({ user, onClose, assessmentScore }: StudentD
               <TrendingUp size={24} color={activeTab === 'performance' ? '#2563EB' : '#9CA3AF'} />
               <Text style={[s.bottomText, activeTab === 'performance' && s.bottomTextActive]}>Dashboard</Text>
             </Pressable>
-            <Pressable onPress={() => setIsRemedial(v => !v)} style={s.bottomItem}>
-              <AlertCircle size={24} color={isRemedial ? '#DC2626' : '#9CA3AF'} />
-              <Text style={[s.bottomText, isRemedial && s.remedialText]}>Remedial</Text>
+            <Pressable onPress={() => setActiveTab('remedial')} style={s.bottomItem}>
+              <Heart size={24} color={activeTab === 'remedial' ? '#0D9488' : '#9CA3AF'} />
+              <Text style={[s.bottomText, activeTab === 'remedial' && s.remedialText]}>Remedial</Text>
             </Pressable>
             <Pressable onPress={() => setActiveTab('profile')} style={s.bottomItem}>
               <User size={24} color={activeTab === 'profile' ? '#2563EB' : '#9CA3AF'} />
@@ -273,6 +425,26 @@ export function StudentDetailsModal({ user, onClose, assessmentScore }: StudentD
         </View>
       </View>
     </Modal>
+  );
+}
+
+function RemedialStat({
+  color,
+  icon,
+  label,
+  value,
+}: {
+  color: string;
+  icon: React.ReactNode;
+  label: string;
+  value: string;
+}) {
+  return (
+    <View style={s.remedialStat}>
+      {icon}
+      <Text style={[s.remedialStatValue, { color }]}>{value}</Text>
+      <Text style={s.remedialStatLabel}>{label}</Text>
+    </View>
   );
 }
 
@@ -329,6 +501,237 @@ const s = StyleSheet.create({
   contactGroup: { gap: 14, marginTop: 16 },
   contactLabel: { color: '#9CA3AF', fontSize: 10, fontWeight: '800', textTransform: 'uppercase', marginBottom: 4 },
   contactValue: { color: '#1F2937', fontSize: 14, fontWeight: '500' },
+  flex: { flex: 1 },
+  remedialStack: { gap: 16 },
+  remedialRunCard: {
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF',
+    borderColor: '#E5E7EB',
+    borderRadius: 24,
+    borderWidth: 1,
+    gap: 18,
+    minHeight: 420,
+    paddingHorizontal: 24,
+    paddingVertical: 38,
+  },
+  remedialRunCardActive: {
+    borderColor: '#BFDBFE',
+  },
+  remedialRunIcon: {
+    alignItems: 'center',
+    backgroundColor: '#F8FAFC',
+    borderColor: '#E5E7EB',
+    borderRadius: 22,
+    borderWidth: 1,
+    height: 84,
+    justifyContent: 'center',
+    shadowColor: '#2563EB',
+    shadowOffset: { width: 0, height: 16 },
+    shadowOpacity: 0.08,
+    shadowRadius: 24,
+    width: 84,
+  },
+  remedialRunTitle: {
+    color: '#111827',
+    fontSize: 28,
+    fontWeight: '900',
+  },
+  remedialRunCopy: {
+    color: '#4B5563',
+    fontSize: 16,
+    fontWeight: '800',
+    lineHeight: 23,
+    maxWidth: 300,
+    textAlign: 'center',
+  },
+  runAnalysisButton: {
+    alignItems: 'center',
+    backgroundColor: '#2563EB',
+    borderRadius: 18,
+    flexDirection: 'row',
+    gap: 10,
+    justifyContent: 'center',
+    minHeight: 58,
+    minWidth: 230,
+    paddingHorizontal: 22,
+    shadowColor: '#2563EB',
+    shadowOffset: { width: 0, height: 16 },
+    shadowOpacity: 0.24,
+    shadowRadius: 28,
+  },
+  runAnalysisButtonDisabled: {
+    backgroundColor: '#60A5FA',
+  },
+  runAnalysisText: {
+    color: '#FFFFFF',
+    fontSize: 17,
+    fontWeight: '900',
+  },
+  remedialChipRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 10,
+    justifyContent: 'center',
+    marginTop: 18,
+  },
+  remedialChip: {
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF',
+    borderColor: '#E5E7EB',
+    borderRadius: 14,
+    borderWidth: 1,
+    flexDirection: 'row',
+    gap: 7,
+    paddingHorizontal: 11,
+    paddingVertical: 10,
+  },
+  remedialChipText: {
+    color: '#111827',
+    fontSize: 12,
+    fontWeight: '900',
+  },
+  remedialStats: {
+    flexDirection: 'row',
+    gap: 10,
+  },
+  remedialStat: {
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF',
+    borderColor: '#F3F4F6',
+    borderRadius: 18,
+    borderWidth: 1,
+    flex: 1,
+    gap: 5,
+    paddingHorizontal: 8,
+    paddingVertical: 14,
+  },
+  remedialStatValue: {
+    fontSize: 19,
+    fontWeight: '900',
+  },
+  remedialStatLabel: {
+    color: '#6B7280',
+    fontSize: 10,
+    fontWeight: '900',
+    textAlign: 'center',
+    textTransform: 'uppercase',
+  },
+  remedialSource: {
+    color: '#6B7280',
+    fontSize: 11,
+    fontWeight: '800',
+    textAlign: 'center',
+  },
+  remedialReportCard: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#F3F4F6',
+    borderRadius: 22,
+    borderWidth: 1,
+    flexDirection: 'row',
+    gap: 13,
+    padding: 18,
+  },
+  remedialCardIcon: {
+    alignItems: 'center',
+    backgroundColor: '#EFF6FF',
+    borderRadius: 16,
+    height: 44,
+    justifyContent: 'center',
+    width: 44,
+  },
+  remedialActionIcon: {
+    backgroundColor: '#ECFDF5',
+  },
+  remedialCardTitle: {
+    color: '#111827',
+    fontSize: 15,
+    fontWeight: '900',
+    marginBottom: 6,
+  },
+  remedialBody: {
+    color: '#4B5563',
+    fontSize: 13,
+    fontWeight: '700',
+    lineHeight: 19,
+  },
+  remedialStrong: {
+    color: '#111827',
+    fontWeight: '900',
+  },
+  gapList: {
+    gap: 14,
+    marginTop: 16,
+  },
+  gapRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 11,
+  },
+  gapRank: {
+    alignItems: 'center',
+    borderRadius: 14,
+    height: 32,
+    justifyContent: 'center',
+    width: 32,
+  },
+  gapRankHigh: { backgroundColor: '#FEE2E2' },
+  gapRankWarn: { backgroundColor: '#FFEDD5' },
+  gapRankOk: { backgroundColor: '#DCFCE7' },
+  gapRankText: {
+    color: '#111827',
+    fontSize: 13,
+    fontWeight: '900',
+  },
+  gapTitle: {
+    color: '#111827',
+    fontSize: 13,
+    fontWeight: '900',
+  },
+  gapMeta: {
+    color: '#6B7280',
+    fontSize: 11,
+    fontWeight: '800',
+    marginTop: 2,
+  },
+  gapTrack: {
+    backgroundColor: '#EEF2F7',
+    borderRadius: 999,
+    height: 6,
+    marginTop: 7,
+    overflow: 'hidden',
+  },
+  gapFill: {
+    backgroundColor: '#2563EB',
+    borderRadius: 999,
+    height: '100%',
+  },
+  gapMissed: {
+    color: '#6B7280',
+    fontSize: 11,
+    fontWeight: '900',
+  },
+  assignmentButton: {
+    alignItems: 'center',
+    backgroundColor: '#2563EB',
+    borderRadius: 18,
+    flexDirection: 'row',
+    gap: 9,
+    justifyContent: 'center',
+    minHeight: 54,
+    shadowColor: '#2563EB',
+    shadowOffset: { width: 0, height: 14 },
+    shadowOpacity: 0.22,
+    shadowRadius: 22,
+  },
+  assignmentButtonDisabled: {
+    backgroundColor: '#9CA3AF',
+    shadowOpacity: 0,
+  },
+  assignmentButtonText: {
+    color: '#FFFFFF',
+    fontSize: 15,
+    fontWeight: '900',
+  },
   bottomBar: { backgroundColor: '#FFFFFF', borderTopWidth: 1, borderTopColor: '#F3F4F6', paddingHorizontal: 18, paddingVertical: 14, flexDirection: 'row' },
   bottomItem: { flex: 1, alignItems: 'center', gap: 6 },
   bottomText: { color: '#9CA3AF', fontSize: 10, fontWeight: '800' },

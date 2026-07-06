@@ -35,6 +35,7 @@ import {
   type LocalAvatarKey,
 } from './AvatarArt';
 import { SubjectSelector } from './SubjectGrid';
+import { prioritizeSchoolsByEnrollment } from '../utils/locationOptionPriority';
 
 interface ProfileModalProps {
   isOpen: boolean;
@@ -143,8 +144,11 @@ export function ProfileModal({
     error: null,
   });
   const avatarUri = getAvatarUri(formData.avatar);
-  const filteredSchools = schools.filter(school =>
-    school.name.toLowerCase().includes(schoolQuery.trim().toLowerCase()),
+  const filteredSchools = prioritizeSchoolsByEnrollment(
+    schools.filter(school =>
+      school.name.toLowerCase().includes(schoolQuery.trim().toLowerCase()),
+    ),
+    formData.grade,
   );
 
   useEffect(() => {

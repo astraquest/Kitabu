@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Image, ImageSourcePropType, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { ChevronLeft } from 'lucide-react-native';
 
 interface GameZoneScreenProps {
@@ -8,14 +8,17 @@ interface GameZoneScreenProps {
   onPlayGame: (gameId: 'crazy-balloon' | 'quiz-battle') => void;
 }
 
+const crazyBalloonIcon = require('../assets/game-icons/crazy-balloon.png');
+
 const GAMES = [
   {
     id: 'crazy-balloon' as const,
     title: 'Crazy Balloon',
-    description: 'Pop fast-moving balloons before they escape the screen.',
+    description: 'Pop balloons, dodge hidden monsters, and answer rescue questions fast.',
     gradientTop: '#F472B6',
     gradientBottom: '#E11D48',
-    badge: 'Arcade',
+    badge: 'Rescue Arcade',
+    icon: crazyBalloonIcon as ImageSourcePropType,
   },
   {
     id: 'quiz-battle' as const,
@@ -71,8 +74,17 @@ export function GameZoneScreen({ totalPoints, onBack, onPlayGame }: GameZoneScre
               <Text style={styles.badge}>{game.badge}</Text>
               <Text style={styles.launchText}>Launch</Text>
             </View>
-            <Text style={styles.gameTitle}>{game.title}</Text>
-            <Text style={styles.gameDescription}>{game.description}</Text>
+            <View style={styles.gameBody}>
+              {game.icon ? (
+                <View style={styles.gameIconFrame}>
+                  <Image source={game.icon} style={styles.gameIcon} resizeMode="cover" />
+                </View>
+              ) : null}
+              <View style={styles.gameCopy}>
+                <Text style={styles.gameTitle}>{game.title}</Text>
+                <Text style={styles.gameDescription}>{game.description}</Text>
+              </View>
+            </View>
           </Pressable>
         ))}
       </View>
@@ -172,6 +184,28 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
+  gameBody: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 14,
+  },
+  gameIconFrame: {
+    width: 78,
+    height: 78,
+    borderRadius: 22,
+    backgroundColor: 'rgba(255,255,255,0.2)',
+    borderColor: 'rgba(255,255,255,0.34)',
+    borderWidth: 1,
+    overflow: 'hidden',
+  },
+  gameIcon: {
+    width: '100%',
+    height: '100%',
+  },
+  gameCopy: {
+    flex: 1,
+    gap: 6,
+  },
   badge: {
     color: '#FFFFFF',
     backgroundColor: 'rgba(255,255,255,0.16)',
@@ -194,6 +228,5 @@ const styles = StyleSheet.create({
   gameDescription: {
     color: '#F8FAFC',
     lineHeight: 21,
-    maxWidth: '78%',
   },
 });

@@ -1,0 +1,76 @@
+{
+  "countryCode": "KEN",
+  "countryName": "Kenya",
+  "curriculumCode": "CBC",
+  "curriculumName": "CBC / KNEC",
+  "questionCountPerSubject": 100,
+  "questionFilePattern": "questions/<gradeCode>/<subjectId>.json",
+  "featureTags": ["quiz_me", "take_quiz", "quiz_battle", "homework", "flashcards", "games"],
+  "difficultyScale": [1, 2, 3, 4, 5],
+  "cognitiveLevels": ["recall", "understand", "apply", "analyze", "create"],
+  "gradeBands": [
+    {
+      "id": "upper",
+      "label": "Upper Primary",
+      "grades": ["Grade 4", "Grade 5", "Grade 6"],
+      "subjects": [
+        { "id": "english", "name": "English" },
+        { "id": "mathematics", "name": "Mathematics", "aliases": ["math"] },
+        { "id": "kiswahili", "name": "Kiswahili" },
+        { "id": "science_technology", "name": "Science & Technology", "aliases": ["science"] },
+        { "id": "social_studies", "name": "Social Studies", "aliases": ["social"] },
+        { "id": "religious_education", "name": "Religious Education" },
+        { "id": "creative_arts", "name": "Creative Arts" },
+        { "id": "agriculture_nutrition", "name": "Agriculture & Nutrition", "aliases": ["agriculture"] }
+      ]
+    },
+    {
+      "id": "junior",
+      "label": "Junior Secondary",
+      "grades": ["Grade 7", "Grade 8", "Grade 9"],
+      "subjects": [
+        { "id": "english", "name": "English" },
+        { "id": "mathematics", "name": "Mathematics", "aliases": ["math"] },
+        { "id": "kiswahili", "name": "Kiswahili" },
+        { "id": "integrated_science", "name": "Integrated Science", "aliases": ["science"] },
+        { "id": "pre_technical_studies", "name": "Pre-Technical Studies" },
+        { "id": "social_studies", "name": "Social Studies", "aliases": ["social"] },
+        { "id": "business_studies", "name": "Business Studies" },
+        { "id": "agriculture", "name": "Agriculture" },
+        { "id": "creative_arts_sports", "name": "Creative Arts & Sports", "aliases": ["creative_arts"] },
+        { "id": "life_skills", "name": "Life Skills" },
+        { "id": "religious_education", "name": "Religious Education" }
+      ]
+    },
+    {
+      "id": "senior",
+      "label": "Senior School",
+      "grades": ["Grade 10", "Grade 11", "Grade 12"],
+      "subjects": [
+        { "id": "english", "name": "English" },
+        { "id": "mathematics", "name": "Mathematics", "aliases": ["math"] },
+        { "id": "kiswahili", "name": "Kiswahili" },
+        { "id": "biology", "name": "Biology" },
+        { "id": "chemistry", "name": "Chemistry" },
+        { "id": "physics", "name": "Physics" },
+        { "id": "computer_studies", "name": "Computer Studies", "aliases": ["computer", "ai_education", "computer_science"] },
+        { "id": "agriculture", "name": "Agriculture" },
+        { "id": "home_science", "name": "Home Science" },
+        { "id": "drawing_design", "name": "Drawing & Design" },
+        { "id": "general_science", "name": "General Science", "aliases": ["science"] },
+        { "id": "history_citizenship", "name": "History & Citizenship" },
+        { "id": "geography", "name": "Geography" },
+        { "id": "business_education", "name": "Business Education", "aliases": ["business_studies"] },
+        { "id": "cre_ire_hre", "name": "CRE / IRE / HRE", "aliases": ["religious_education"] },
+        { "id": "french", "name": "French" },
+        { "id": "german", "name": "German" },
+        { "id": "arabic", "name": "Arabic" },
+        { "id": "mandarin", "name": "Mandarin" },
+        { "id": "visual_arts", "name": "Visual Arts" },
+        { "id": "performing_arts", "name": "Performing Arts" },
+        { "id": "music", "name": "Music" },
+        { "id": "sports_science", "name": "Sports Science" }
+      ]
+    }
+  ]
+}

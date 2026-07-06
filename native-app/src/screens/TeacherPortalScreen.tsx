@@ -15,32 +15,21 @@ import {
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import {
-  Bell,
   CalendarCheck2,
-  AlertTriangle,
-  ClipboardCheck,
   ClipboardList,
   CheckCircle2,
   ChevronDown,
   ChevronLeft,
   ChevronRight,
-  FileBarChart,
-  Home,
   MessageSquareText,
-  Sparkles,
-  Star,
-  Target,
+  Pencil,
   UserRound,
   Users,
+  X,
 } from 'lucide-react-native';
 import Svg, {
   Circle,
-  Defs,
-  Ellipse,
-  G,
-  LinearGradient as SvgLinearGradient,
   Path,
-  Stop,
 } from 'react-native-svg';
 
 import { TeacherAssignmentDetailSection } from '../components/teacher/TeacherAssignmentDetailSection';
@@ -49,16 +38,39 @@ import { TeacherAssignmentWizardSection } from '../components/teacher/TeacherAss
 import { TeacherStudentsSection } from '../components/teacher/TeacherStudentsSection';
 import { TeacherSubmissionReviewSection } from '../components/teacher/TeacherSubmissionReviewSection';
 import { StudentDetailsModal } from '../components/StudentDetailsModal';
-import { DEFAULT_GRADE, SUPPORTED_GRADES } from '../constants/grades';
-import { generateAssignmentJson } from '../services/aiService';
+import { studentPerformanceToModalUser } from '../components/studentDetailsAdapters';
+import { RemedialAssignmentPayload } from '../components/studentRemedialLogic';
+import { DEFAULT_GRADE, SUPPORTED_GRADES, TEACHER_ALL_GRADES_FILTER } from '../constants/grades';
+import {
+  COUNTRY_OPTIONS,
+  CountryOption,
+  REGIONS_BY_COUNTRY,
+  countryCodeForName,
+  countryNameForCode,
+} from '../constants/locations';
+import { generateAssignmentJson, generateLessonPlanIdeas } from '../services/aiService';
+import {
+  getTeacherParentMessages,
+  getTeacherParents,
+  saveTeacherLessonPlan,
+  sendTeacherParentMessage,
+  TeacherParentContact,
+  TeacherParentMessage,
+} from '../services/teacherService';
 import {
   Assignment,
   Question,
+  SchoolData,
   StudentPerformance,
   StudentSubmission,
   SubmittedAssignment,
   UserProfile,
 } from '../types/app';
+import {
+  locationsMatch,
+  prioritizeLocationsBySchoolCount,
+  prioritizeSchoolsByEnrollment,
+} from '../utils/locationOptionPriority';
 
 interface TeacherPortalScreenProps {
   teacherName?: string;
@@ -66,25 +78,21 @@ interface TeacherPortalScreenProps {
   students: StudentPerformance[];
   assignments: SubmittedAssignment[];
   submissionsByAssignment: Record<string, StudentSubmission[]>;
+  schoolsList?: SchoolData[];
+  userProfile?: UserProfile;
+  onSaveProfile?: (profile: UserProfile) => void;
   onPublishAssignment: (assignment: Omit<Assignment, 'id' | 'status'>) => Promise<void>;
 }
 
 type Tab = 'students' | 'assignments';
-type PortalView =
-  | 'dashboard'
-  | 'students'
-  | 'assignments'
-  | 'reports'
-  | 'lessonPlan'
-  | 'messages'
-  | 'classList'
-  | 'profile';
+type PortalView = 'students' | 'assignments' | 'lessonPlan' | 'messages' | 'profile';
 type WizardStep = 1 | 2;
 type SlideDirection = 'right' | 'bottom';
 
 const SCREEN = Dimensions.get('window');
 const TEACHER_DEFAULT_GRADE = 'Grade 10';
 const TEACHER_SUBJECTS = ['Mathematics', 'English', 'Science', 'Kiswahili', 'Social Studies'];
+type TeacherCountryCode = CountryOption['code'];
 
 const SUBJECT_STRANDS: Record<string, string[]> = {
   Math: ['Numbers & Operations', 'Algebra', 'Geometry', 'Data Handling'],
@@ -148,6 +156,25 @@ function SlideOverlay({
   );
 }
 
+function FloatingAssignmentModal({
+  visible,
+  onRequestClose,
+  children,
+}: {
+  visible: boolean;
+  onRequestClose: () => void;
+  children: React.ReactNode;
+}) {
+  return (
+    <Modal transparent visible={visible} animationType="fade" onRequestClose={onRequestClose}>
+      <View style={s.floatingModalOverlay}>
+        <Pressable style={s.floatingModalBackdrop} onPress={onRequestClose} />
+        <View style={s.assignmentModalCard}>{children}</View>
+      </View>
+    </Modal>
+  );
+}
+
 function buildAnswerKey(question?: Question) {
   if (!question?.correctAnswer) {
     return 'Answer key unavailable';
@@ -171,14 +198,16 @@ export function TeacherPortalScreen({
   students,
   assignments,
   submissionsByAssignment,
+  schoolsList = [],
+  userProfile,
+  onSaveProfile,
   onPublishAssignment,
 }: TeacherPortalScreenProps) {
   const [tab, setTab] = useState<Tab>('students');
-  const [portalView, setPortalView] = useState<PortalView>('dashboard');
+  const [portalView, setPortalView] = useState<PortalView>('students');
   const [selectedGrade, setSelectedGrade] = useState(TEACHER_DEFAULT_GRADE);
-  const [gradeFilter, setGradeFilter] = useState(TEACHER_DEFAULT_GRADE);
+  const [gradeFilter, setGradeFilter] = useState(TEACHER_ALL_GRADES_FILTER);
   const [gradeMenuOpen, setGradeMenuOpen] = useState(false);
-  const [dashboardGradeMenuOpen, setDashboardGradeMenuOpen] = useState(false);
   const [sortBy, setSortBy] = useState<'name' | 'score'>('name');
   const [showRemedial, setShowRemedial] = useState(false);
   const [subjectFilter, setSubjectFilter] = useState('All');
@@ -201,14 +230,41 @@ export function TeacherPortalScreen({
   const [wizardSubStrandOpen, setWizardSubStrandOpen] = useState(false);
   const [isGenerating, setIsGenerating] = useState(false);
   const [isSending, setIsSending] = useState(false);
-  const [profileName, setProfileName] = useState(getTeacherDisplayName(teacherName));
-  const [profileEmail, setProfileEmail] = useState(teacherEmail || 'teacher@kitabu.ai');
-  const [taughtGrades, setTaughtGrades] = useState<string[]>([TEACHER_DEFAULT_GRADE, 'Grade 9']);
-  const [taughtSubjects, setTaughtSubjects] = useState<string[]>([
-    'Mathematics',
-    'Science',
-    'English',
-  ]);
+  const teacherProfile: UserProfile = userProfile ?? {
+    name: getTeacherDisplayName(teacherName),
+    email: teacherEmail || '',
+    gender: 'Not Specified',
+    role: 'Teacher Account',
+  };
+  const storedCountryCode = COUNTRY_OPTIONS.some(option => option.code === teacherProfile.countryCode)
+    ? (teacherProfile.countryCode as TeacherCountryCode)
+    : undefined;
+  const initialCountryCode = storedCountryCode || countryCodeForName(teacherProfile.country);
+  const initialRegionMeta = REGIONS_BY_COUNTRY[initialCountryCode] ?? REGIONS_BY_COUNTRY.KE;
+  const [profileName, setProfileName] = useState(
+    teacherProfile.name || getTeacherDisplayName(teacherName),
+  );
+  const [profileEmail, setProfileEmail] = useState(
+    teacherProfile.email || teacherEmail || 'teacher@kitabu.ai',
+  );
+  const [profilePhone, setProfilePhone] = useState(teacherProfile.phone || '');
+  const [profileSchool, setProfileSchool] = useState(teacherProfile.school || '');
+  const [profileCountryCode, setProfileCountryCode] = useState<TeacherCountryCode>(
+    initialCountryCode,
+  );
+  const [profileRegion, setProfileRegion] = useState(
+    teacherProfile.region || teacherProfile.county || initialRegionMeta.options[0] || '',
+  );
+  const [taughtGrades, setTaughtGrades] = useState<string[]>(
+    teacherProfile.taughtGrades?.length
+      ? teacherProfile.taughtGrades
+      : [TEACHER_DEFAULT_GRADE, 'Grade 9'],
+  );
+  const [taughtSubjects, setTaughtSubjects] = useState<string[]>(
+    teacherProfile.taughtSubjects?.length
+      ? teacherProfile.taughtSubjects
+      : ['Mathematics', 'Science', 'English'],
+  );
   const [draft, setDraft] = useState<{
     title: string;
     description: string;
@@ -233,7 +289,7 @@ export function TeacherPortalScreen({
     [selectedGrade, students],
   );
 
-  const dashboardGradeOptions = useMemo(() => {
+  const teacherGradeOptions = useMemo(() => {
     const selectedOptions = SUPPORTED_GRADES.filter(option => taughtGrades.includes(option));
     return selectedOptions.length > 0 ? selectedOptions : [TEACHER_DEFAULT_GRADE];
   }, [taughtGrades]);
@@ -254,10 +310,6 @@ export function TeacherPortalScreen({
     students.reduce((total, current) => total + current.assessmentScore, 0) /
       Math.max(1, students.length),
   );
-  const averageHomework = Math.round(
-    students.reduce((total, current) => total + current.homeworkCompletion, 0) /
-      Math.max(1, students.length),
-  );
   const remedialCount = students.filter(item => item.assessmentScore < 70).length;
   const openAssignmentCount = assignments.filter(item => item.submittedCount < item.totalStudents).length;
   const totalExpectedSubmissions = assignments.reduce(
@@ -268,12 +320,6 @@ export function TeacherPortalScreen({
   const submissionRate = Math.round(
     (totalSubmitted / Math.max(1, totalExpectedSubmissions)) * 100,
   );
-  const teacherDisplayName = getTeacherDisplayName(teacherName);
-  const dashboardSummary = buildTeacherDashboardSummary({
-    students: selectedClassStudents,
-    remedialCount: selectedClassStudents.filter(item => item.assessmentScore < 70).length,
-  });
-
   const activeSubmissionList = assignment
     ? submissionsByAssignment[assignment.id] || []
     : [];
@@ -283,17 +329,62 @@ export function TeacherPortalScreen({
       new Map((assignment?.questions || []).map(question => [question.id, question])),
     [assignment],
   );
+  const portalStyles = useMemo(() => createTeacherPortalStyles(), []);
+  const saveTeacherProfile = (patch: Partial<UserProfile>) => {
+    onSaveProfile?.({
+      ...teacherProfile,
+      name: profileName,
+      email: profileEmail,
+      phone: profilePhone,
+      school: profileSchool,
+      country: countryNameForCode(profileCountryCode),
+      countryCode: profileCountryCode,
+      region: profileRegion,
+      county: profileRegion,
+      regionLabel: (REGIONS_BY_COUNTRY[profileCountryCode] ?? REGIONS_BY_COUNTRY.KE).label,
+      taughtGrades,
+      taughtSubjects,
+      ...patch,
+    });
+  };
+  const saveTeacherPersonalDetails = (details: {
+    email: string;
+    name: string;
+    phone: string;
+    region: string;
+    school: string;
+  }) => {
+    setProfileName(details.name);
+    setProfileEmail(details.email);
+    setProfilePhone(details.phone);
+    setProfileRegion(details.region);
+    setProfileSchool(details.school);
+    onSaveProfile?.({
+      ...teacherProfile,
+      name: details.name,
+      email: details.email,
+      phone: details.phone,
+      school: details.school,
+      country: countryNameForCode(profileCountryCode),
+      countryCode: profileCountryCode,
+      region: details.region,
+      county: details.region,
+      regionLabel: (REGIONS_BY_COUNTRY[profileCountryCode] ?? REGIONS_BY_COUNTRY.KE).label,
+      taughtGrades,
+      taughtSubjects,
+    });
+  };
 
   useEffect(() => {
-    if (dashboardGradeOptions.includes(selectedGrade)) {
+    if (teacherGradeOptions.includes(selectedGrade)) {
       return;
     }
 
-    const nextGrade = dashboardGradeOptions[0] || TEACHER_DEFAULT_GRADE;
+    const nextGrade = teacherGradeOptions[0] || TEACHER_DEFAULT_GRADE;
     setSelectedGrade(nextGrade);
     setGradeFilter(nextGrade);
     setGrade(nextGrade);
-  }, [dashboardGradeOptions, selectedGrade]);
+  }, [teacherGradeOptions, selectedGrade]);
 
   async function handleGenerateAssignment() {
     setIsGenerating(true);
@@ -370,16 +461,21 @@ export function TeacherPortalScreen({
     setWizardOpen(false);
   }
 
+  function openRemedialAssignment(payload: RemedialAssignmentPayload) {
+    setGrade(payload.grade);
+    setSubject(payload.subject);
+    setStrand('');
+    setSubStrand('');
+    setTopic(payload.topic);
+    setDraft(payload.draft);
+    setStep(2);
+    setStudent(null);
+    setWizardOpen(true);
+  }
+
   function openPortalSection(section: Tab) {
     setTab(section);
     setPortalView(section);
-  }
-
-  function selectTeacherGrade(value: string) {
-    setSelectedGrade(value);
-    setGradeFilter(value);
-    setGrade(value);
-    setDashboardGradeMenuOpen(false);
   }
 
   function toggleTaughtGrade(value: string) {
@@ -402,149 +498,124 @@ export function TeacherPortalScreen({
     <View style={s.root}>
       <View style={s.teacherPhoneShell}>
         {Platform.OS === 'web' ? <StatusChrome /> : null}
-        {portalView === 'dashboard' ? (
-          <ScrollView
-            contentContainerStyle={s.teacherDashboardContent}
-            showsVerticalScrollIndicator={false}
-            style={s.teacherDashboardScroll}>
-            <View style={s.teacherTopBar}>
-              <BrandLogo />
-              <Pressable onPress={() => setPortalView('dashboard')} style={s.bellButton}>
-                <Bell color="#101014" size={28} strokeWidth={2.5} />
-                <View style={s.notificationDot} />
-              </Pressable>
-            </View>
-
-            <View style={s.teacherGreetingRow}>
-              <Text
-                adjustsFontSizeToFit
-                minimumFontScale={0.82}
-                numberOfLines={1}
-                style={s.teacherGreeting}>
-                Good afternoon, {teacherDisplayName} {'\uD83D\uDC4B'}
-              </Text>
-              <ClassSelector
-                grade={selectedGrade}
-                isOpen={dashboardGradeMenuOpen}
-                onSelectGrade={selectTeacherGrade}
-                onToggle={() => setDashboardGradeMenuOpen(open => !open)}
-                options={dashboardGradeOptions}
-                studentCount={dashboardSummary.studentCount}
-              />
-            </View>
-
-            <Text style={s.teacherSubtitle}>
-              Manage today's learning progress and support needs.
-            </Text>
-
-            <TeacherHeroCard grade={selectedGrade} mastery={dashboardSummary.mastery} />
-
-            <TeacherQuickActions
-              onAssignments={() => openPortalSection('assignments')}
-              onLessonPlan={() => setPortalView('lessonPlan')}
-              onMessages={() => setPortalView('messages')}
-              onReports={() => setPortalView('reports')}
-            />
-
-            <View style={s.teacherCardGrid}>
-              <ClassOverviewCard
-                activeToday={dashboardSummary.activeToday}
-                classActiveRate={dashboardSummary.classActiveRate}
-                needSupport={dashboardSummary.needSupport}
-                studentCount={dashboardSummary.studentCount}
-              />
-              <PriorityStudentsCard
-                onSelectStudent={priorityStudent =>
-                  setStudent(resolvePriorityStudent(priorityStudent, students))
-                }
-                rows={dashboardSummary.priorityStudents}
-              />
-              <TeacherAssignmentsCard
-                assignments={dashboardSummary.assignmentRows}
-                onCreateAssignment={() => setWizardOpen(true)}
-              />
-              <StudentGroupsCard onViewGroups={() => openPortalSection('students')} />
-            </View>
-
-            <AiTeachingNote onSendTask={() => setWizardOpen(true)} />
-          </ScrollView>
-        ) : portalView === 'profile' ? (
+        {portalView === 'profile' ? (
           <TeacherProfileView
+            countryCode={profileCountryCode}
             email={profileEmail}
             name={profileName}
+            phone={profilePhone}
+            region={profileRegion}
+            school={profileSchool}
+            schools={schoolsList}
             taughtGrades={taughtGrades}
             taughtSubjects={taughtSubjects}
-            onBack={() => setPortalView('dashboard')}
-            onChangeEmail={setProfileEmail}
-            onChangeName={setProfileName}
-            onToggleGrade={toggleTaughtGrade}
-            onToggleSubject={toggleTaughtSubject}
-          />
-        ) : portalView === 'classList' ? (
-          <SelectedClassListView
-            grade={selectedGrade}
-            students={selectedClassStudents}
-            onBack={() => setPortalView('dashboard')}
-            onSelectStudent={setStudent}
-          />
-        ) : portalView === 'reports' ? (
-          <TeacherReportsView
-            averageHomework={averageHomework}
-            averageScore={averageScore}
-            dashboardSummary={dashboardSummary}
-            grade={selectedGrade}
-            remedialCount={remedialCount}
-            onBack={() => setPortalView('dashboard')}
+            onBack={() => setPortalView(tab)}
+            onChangeCountry={value => {
+              const nextRegionMeta = REGIONS_BY_COUNTRY[value] ?? REGIONS_BY_COUNTRY.KE;
+              const nextRegion = nextRegionMeta.options[0] || '';
+              setProfileCountryCode(value);
+              setProfileRegion(nextRegion);
+              saveTeacherProfile({
+                country: countryNameForCode(value),
+                countryCode: value,
+                region: nextRegion,
+                county: nextRegion,
+                regionLabel: nextRegionMeta.label,
+              });
+            }}
+            onSavePersonalDetails={saveTeacherPersonalDetails}
+            onToggleGrade={value => {
+              toggleTaughtGrade(value);
+              const nextGrades = taughtGrades.includes(value)
+                ? taughtGrades.filter(item => item !== value)
+                : [...taughtGrades, value];
+              saveTeacherProfile({ taughtGrades: nextGrades });
+            }}
+            onToggleSubject={value => {
+              toggleTaughtSubject(value);
+              const nextSubjects = taughtSubjects.includes(value)
+                ? taughtSubjects.filter(item => item !== value)
+                : [...taughtSubjects, value];
+              saveTeacherProfile({ taughtSubjects: nextSubjects });
+            }}
           />
         ) : portalView === 'lessonPlan' ? (
           <TeacherLessonPlanView
             grade={selectedGrade}
-            grades={dashboardGradeOptions}
+            grades={teacherGradeOptions}
             subjects={taughtSubjects}
-            onBack={() => setPortalView('dashboard')}
+            onBack={() => setPortalView(tab)}
           />
         ) : portalView === 'messages' ? (
           <TeacherMessagesView
             grade={selectedGrade}
             students={selectedClassStudents}
-            onBack={() => setPortalView('dashboard')}
+            onBack={() => setPortalView(tab)}
           />
         ) : (
-          <View style={s.teacherListPortal}>
-            <View style={s.listPortalHeader}>
-              <Pressable onPress={() => setPortalView('dashboard')} style={s.back}>
-                <ChevronLeft size={24} color="#FF4B10" />
-                <Text style={s.backTextOrange}>Dashboard</Text>
+          <View style={portalStyles.teacherListPortal}>
+            <View style={portalStyles.listPortalHeader}>
+              <Pressable onPress={() => setPortalView(tab)} style={portalStyles.back}>
+                <ChevronLeft size={24} color={portalStyles.backIconColor} strokeWidth={2.7} />
+                <Text style={portalStyles.backText}>Back</Text>
               </Pressable>
-              <Text style={s.headerTitle}>
-                {tab === 'students' ? 'Students' : 'Assignments'}
-              </Text>
-              <View style={s.spacer} />
+              <View style={portalStyles.titleBlock}>
+                <Text
+                  adjustsFontSizeToFit
+                  minimumFontScale={0.78}
+                  numberOfLines={1}
+                  style={portalStyles.headerTitle}>
+                  Teacher's Portal
+                </Text>
+              </View>
+              <View style={portalStyles.portalActionGroup}>
+                <Pressable
+                  accessibilityLabel="Open lesson planner"
+                  onPress={() => setPortalView('lessonPlan')}
+                  style={portalStyles.portalIconButton}>
+                  <CalendarCheck2 color={portalStyles.portalActionIconColor} size={18} strokeWidth={2.7} />
+                </Pressable>
+                <Pressable
+                  accessibilityLabel="Open parent messages"
+                  onPress={() => setPortalView('messages')}
+                  style={portalStyles.portalIconButton}>
+                  <MessageSquareText color={portalStyles.portalActionIconColor} size={18} strokeWidth={2.7} />
+                </Pressable>
+                <Pressable
+                  accessibilityLabel="Open teacher profile"
+                  onPress={() => setPortalView('profile')}
+                  style={portalStyles.portalProfileButton}>
+                  <Text style={portalStyles.portalProfileInitials}>
+                    {getInitials(profileName || 'Teacher')}
+                  </Text>
+                </Pressable>
+              </View>
             </View>
 
-            <View style={s.segmented}>
+            <View style={portalStyles.segmented}>
               {(['students', 'assignments'] as const).map(value => (
                 <Pressable
                   key={value}
                   onPress={() => openPortalSection(value)}
-                  style={[s.seg, tab === value && s.segActive]}>
-                  <Text style={[s.segText, tab === value && s.segTextActive]}>
+                  style={[portalStyles.seg, tab === value && portalStyles.segActive]}>
+                  <Text style={[portalStyles.segText, tab === value && portalStyles.segTextActive]}>
                     {value === 'students' ? 'Students' : 'Assignments'}
                   </Text>
                 </Pressable>
               ))}
             </View>
 
-            <ScrollView contentContainerStyle={s.content}>
+            <ScrollView contentContainerStyle={portalStyles.content}>
               {tab === 'students' ? (
                 <TeacherStudentsSection
-                  styles={s}
+                  styles={portalStyles}
                   gradeFilter={gradeFilter}
                   gradeMenuOpen={gradeMenuOpen}
+                  subjectFilter={subjectFilter}
+                  subjectMenuOpen={subjectMenuOpen}
                   sortBy={sortBy}
                   showRemedial={showRemedial}
                   averageScore={averageScore}
-                  averageHomework={averageHomework}
                   remedialCount={remedialCount}
                   filteredStudents={filteredStudents}
                   onToggleGradeMenu={() => setGradeMenuOpen(open => !open)}
@@ -555,13 +626,17 @@ export function TeacherPortalScreen({
                     }
                     setGradeMenuOpen(false);
                   }}
+                  onToggleSubjectMenu={() => setSubjectMenuOpen(open => !open)}
+                  onSelectSubject={value => {
+                    setSubjectFilter(value);
+                    setSubjectMenuOpen(false);
+                  }}
                   onToggleSort={() => setSortBy(sortBy === 'name' ? 'score' : 'name')}
-                  onToggleRemedial={() => setShowRemedial(value => !value)}
                   onSelectStudent={setStudent}
                 />
               ) : (
                 <TeacherAssignmentsSection
-                  styles={s}
+                  styles={portalStyles}
                   subjectFilter={subjectFilter}
                   subjectMenuOpen={subjectMenuOpen}
                   assignmentSortBy={assignmentSortBy}
@@ -583,23 +658,13 @@ export function TeacherPortalScreen({
             </ScrollView>
           </View>
         )}
-
-        <TeacherBottomNavigation
-          activeView={portalView}
-          onClassList={() => setPortalView('classList')}
-          onHome={() => setPortalView('dashboard')}
-          onProfile={() => setPortalView('profile')}
-          onStudents={() => {
-            setTab('students');
-            setPortalView('students');
-          }}
-        />
       </View>
 
       {student ? (
         <StudentDetailsModal
-          user={buildTeacherStudentModalUser(student)}
+          user={studentPerformanceToModalUser(student)}
           assessmentScore={student.assessmentScore}
+          onCreateRemedialAssignment={openRemedialAssignment}
           onClose={() => setStudent(null)}
         />
       ) : null}
@@ -636,7 +701,7 @@ export function TeacherPortalScreen({
         ) : null}
       </SlideOverlay>
 
-      <SlideOverlay visible={wizardOpen} direction="bottom" onRequestClose={closeWizard}>
+      <FloatingAssignmentModal visible={wizardOpen} onRequestClose={closeWizard}>
         <TeacherAssignmentWizardSection
           styles={s}
           step={step}
@@ -735,7 +800,7 @@ export function TeacherPortalScreen({
           }
           onPublish={handlePublish}
         />
-      </SlideOverlay>
+      </FloatingAssignmentModal>
 
       {toast ? (
         <View style={s.toast}>
@@ -745,86 +810,6 @@ export function TeacherPortalScreen({
       ) : null}
     </View>
   );
-}
-
-interface TeacherDashboardSummary {
-  activeToday: number;
-  assignmentRows: { id: string; submitted: string; title: string }[];
-  classActiveRate: number;
-  mastery: number;
-  needSupport: number;
-  priorityStudents: { focus: string; id: string; name: string; priority: 'High' | 'Medium' }[];
-  studentCount: number;
-}
-
-function buildTeacherDashboardSummary({
-  students,
-  remedialCount,
-}: {
-  students: StudentPerformance[];
-  remedialCount: number;
-}): TeacherDashboardSummary {
-  const studentCount = Math.max(42, students.length);
-  const priorityFallback = [
-    { id: 'priority-alice', name: 'Alice Wambui', focus: 'Fractions', priority: 'High' as const },
-    { id: 'priority-brian', name: 'Brian Otieno', focus: 'Respiration', priority: 'Medium' as const },
-    { id: 'priority-mary', name: 'Mary Achieng', focus: 'Inference', priority: 'Medium' as const },
-  ];
-  const assignmentFallback = [
-    { id: 'teacher-weekend-assignment', title: 'Weekend Assignment', submitted: '28 submitted' },
-    { id: 'teacher-science-quiz', title: 'Science Quiz', submitted: '19 submitted' },
-  ];
-
-  return {
-    activeToday: 31,
-    assignmentRows: assignmentFallback,
-    classActiveRate: 74,
-    mastery: 78,
-    needSupport: Math.max(6, remedialCount),
-    priorityStudents: priorityFallback,
-    studentCount,
-  };
-}
-
-function resolvePriorityStudent(
-  priorityStudent: TeacherDashboardSummary['priorityStudents'][number],
-  students: StudentPerformance[],
-): StudentPerformance {
-  const matchingStudent = students.find(
-    student => student.name.toLowerCase() === priorityStudent.name.toLowerCase(),
-  );
-
-  if (matchingStudent) {
-    return matchingStudent;
-  }
-
-  const fallbackScore = priorityStudent.priority === 'High' ? 58 : 66;
-  return {
-    id: priorityStudent.id,
-    name: priorityStudent.name,
-    grade: 'Grade 10',
-    assessmentScore: fallbackScore,
-    homeworkCompletion: priorityStudent.priority === 'High' ? 52 : 68,
-    lastActive: 'today',
-    trend: priorityStudent.priority === 'High' ? 'Stable' : 'Improving',
-    avatar: priorityStudent.name,
-  };
-}
-
-function buildTeacherStudentModalUser(student: StudentPerformance): UserProfile {
-  return {
-    name: student.name,
-    role: 'Student',
-    grade: student.grade,
-    email: `${student.name.toLowerCase().replace(/[^a-z0-9]+/g, '.').replace(/^\.+|\.+$/g, '') || 'student'}@student.kitabu.ai`,
-    gender: 'Not Specified',
-    avatar: student.avatar,
-    school: 'Greenwood High',
-    phone: '',
-    dateJoined: '',
-    lastSeen: student.lastActive,
-    status: student.trend,
-  };
 }
 
 function StatusChrome() {
@@ -851,324 +836,134 @@ function StatusChrome() {
   );
 }
 
-function BrandLogo() {
-  return (
-    <View style={s.brandWrap}>
-      <Svg width={33} height={28} viewBox="0 0 48 42">
-        <Path
-          d="M4 6c9-3 16 0 20 6v26c-5-5-12-8-20-5V6z"
-          fill="none"
-          stroke="#FF4B10"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="3.5"
-        />
-        <Path
-          d="M44 6c-9-3-16 0-20 6v26c5-5 12-8 20-5V6z"
-          fill="none"
-          stroke="#FF4B10"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="3.5"
-        />
-        <Path d="M24 12c4-8 11-10 20-10" stroke="#FF4B10" strokeLinecap="round" strokeWidth="3.5" />
-      </Svg>
-      <Text style={s.brandText}>Kitabu</Text>
-      <View style={s.aiBadge}>
-        <Text style={s.aiBadgeText}>AI</Text>
-      </View>
-    </View>
-  );
-}
-
-function ClassSelector({
-  grade,
-  isOpen,
-  onSelectGrade,
-  onToggle,
-  options,
-  studentCount,
-}: {
-  grade: string;
-  isOpen: boolean;
-  onSelectGrade: (grade: string) => void;
-  onToggle: () => void;
-  options: readonly string[];
-  studentCount: number;
-}) {
-  return (
-    <View style={s.classSelectorWrap}>
-      <Pressable onPress={onToggle} style={s.classSelector}>
-        <LinearGradient colors={['#FF4B10', '#FF7A16']} style={s.classSelectorIcon}>
-          <Users color="#FFFFFF" size={13} strokeWidth={2.7} />
-        </LinearGradient>
-        <Text numberOfLines={1} style={s.classSelectorText}>
-          {grade} {'\u2022'} {studentCount} students
-        </Text>
-        <ChevronDown color="#101014" size={15} strokeWidth={2.7} />
-      </Pressable>
-      {isOpen ? (
-        <View style={s.classSelectorMenu}>
-          <LinearGradient
-            colors={['rgba(255,255,255,0.98)', 'rgba(255,248,244,0.95)']}
-            style={s.classSelectorMenuGlass}>
-            {options.map(option => (
-              <Pressable
-                key={option}
-                onPress={() => onSelectGrade(option)}
-                style={[s.classSelectorMenuItem, option === grade && s.classSelectorMenuItemActive]}>
-                <Text
-                  style={[
-                    s.classSelectorMenuText,
-                    option === grade && s.classSelectorMenuTextActive,
-                  ]}>
-                  {option}
-                </Text>
-              </Pressable>
-            ))}
-          </LinearGradient>
-        </View>
-      ) : null}
-    </View>
-  );
-}
-
-function TeacherHeroCard({ grade, mastery }: { grade: string; mastery: number }) {
-  return (
-    <LinearGradient
-      colors={['#FF4620', '#FF6818', '#FFA22B']}
-      end={{ x: 1, y: 1 }}
-      start={{ x: 0, y: 0 }}
-      style={s.teacherHero}>
-      <HeroTexture />
-      <View style={s.teacherHeroCopy}>
-        <Text style={s.teacherHeroTitle}>{grade} is on track</Text>
-        <View style={s.teacherHeroScoreRow}>
-          <Text style={s.teacherHeroScore}>{mastery}</Text>
-          <Text style={s.teacherHeroPercent}>%</Text>
-        </View>
-        <Text style={s.teacherHeroStatus}>Class mastery average</Text>
-        <View style={s.improvementPill}>
-          <View style={s.improvementIcon}>
-            <Text style={s.improvementArrow}>^</Text>
-          </View>
-          <Text style={s.improvementText}>+9% improvement this term</Text>
-        </View>
-      </View>
-      <TeacherHeroStudentsArt />
-    </LinearGradient>
-  );
-}
-
-function HeroTexture() {
-  return (
-    <Svg height="100%" preserveAspectRatio="none" style={s.textureLayer} viewBox="0 0 394 146" width="100%">
-      <Defs>
-        <SvgLinearGradient id="teacherHeroGlow" x1="0" x2="1" y1="0" y2="1">
-          <Stop offset="0" stopColor="#FFFFFF" stopOpacity="0.02" />
-          <Stop offset="1" stopColor="#FFFFFF" stopOpacity="0.35" />
-        </SvgLinearGradient>
-      </Defs>
-      <Path d="M150 102C205 54 260 42 393 70" fill="none" stroke="#FFFFFF" strokeOpacity="0.78" strokeWidth="1.2" />
-      <Path d="M0 124C92 76 162 68 238 100C296 124 342 115 394 96" fill="none" stroke="#FFFFFF" strokeOpacity="0.55" strokeWidth="1" />
-      <Path d="M220 126C260 67 310 42 394 24" fill="none" stroke="#FFFFFF" strokeOpacity="0.42" strokeWidth="1" />
-      {Array.from({ length: 14 }).map((_, index) => (
-        <Path
-          key={`teacher-hero-wave-${index}`}
-          d={`M210 ${138 - index * 4}C258 ${78 - index * 2} 317 ${45 - index} 404 ${42 + index * 4}`}
-          fill="none"
-          stroke="#FFFFFF"
-          strokeOpacity="0.15"
-          strokeWidth="0.8"
-        />
-      ))}
-      {Array.from({ length: 16 }).map((_, index) => (
-        <Path
-          key={`teacher-hero-left-wave-${index}`}
-          d={`M-20 ${122 - index * 3}C54 ${90 - index * 2} 132 ${87 - index * 3} 221 ${114 - index}`}
-          fill="none"
-          stroke="#FFFFFF"
-          strokeOpacity="0.11"
-          strokeWidth="0.7"
-        />
-      ))}
-      <Path d="M252 37l4 16 15 4-15 4-4 16-4-16-15-4 15-4 4-16z" fill="#FFFFFF" opacity="0.55" />
-      <Path d="M306 24l2 8 8 2-8 2-2 8-2-8-8-2 8-2 2-8z" fill="#FFFFFF" opacity="0.34" />
-      <Circle cx="356" cy="116" r="92" fill="url(#teacherHeroGlow)" opacity="0.55" />
-    </Svg>
-  );
-}
-
-function TeacherHeroStudentsArt() {
-  return (
-    <View pointerEvents="none" style={s.teacherHeroArt}>
-      <Svg width={232} height={150} viewBox="0 0 232 150">
-        <StudentFigure x={1} y={16} scale={0.8} skin="#8E4F30" hair="#1B0E0B" vest />
-        <StudentFigure x={56} y={20} scale={0.82} skin="#A3653D" hair="#1B0E0B" />
-        <StudentFigure x={105} y={18} scale={0.84} skin="#9B5C38" hair="#21120E" vest />
-        <StudentFigure x={159} y={13} scale={0.83} skin="#7E442A" hair="#14100E" vest />
-      </Svg>
-    </View>
-  );
-}
-
-function StudentFigure({
-  hair,
-  scale,
-  skin,
-  vest,
-  x,
-  y,
-}: {
-  hair: string;
-  scale: number;
-  skin: string;
-  vest?: boolean;
-  x: number;
-  y: number;
-}) {
-  return (
-    <G transform={`translate(${x} ${y}) scale(${scale})`}>
-      <Path d="M7 132c4-35 20-52 47-52s43 17 47 52H7z" fill={vest ? '#12233D' : '#F3F7FB'} />
-      <Path d="M22 132c3-29 14-46 32-46s29 17 32 46H22z" fill="#F8FBFF" />
-      <Path d="M45 93l9 15 9-15" fill="#FFFFFF" />
-      <Path d="M50 105l7 27H44l7-27z" fill="#15315F" />
-      <Path d="M56 106l22 26H66L51 110z" fill="#C8281A" opacity="0.85" />
-      <Ellipse cx="54" cy="59" rx="28" ry="32" fill={skin} />
-      <Circle cx="28" cy="62" r="6" fill={skin} />
-      <Circle cx="80" cy="62" r="6" fill={skin} />
-      <Path d="M43 69c7 6 16 6 23 0" stroke="#6F2E1A" strokeLinecap="round" strokeWidth="2.5" />
-      <Path d="M44 74c6 4 15 4 21 0" stroke="#FFFFFF" strokeLinecap="round" strokeWidth="2.8" />
-      <Circle cx="44" cy="57" r="2.7" fill="#101014" />
-      <Circle cx="64" cy="57" r="2.7" fill="#101014" />
-      <Path d="M37 50c5-3 9-3 13 0" stroke="#1A0F0C" strokeLinecap="round" strokeWidth="2.8" />
-      <Path d="M58 50c5-3 9-3 13 0" stroke="#1A0F0C" strokeLinecap="round" strokeWidth="2.8" />
-      <Path d="M54 58c-2 6-1 10 3 13" stroke="#7A3921" strokeLinecap="round" strokeWidth="2" />
-      <G fill={hair}>
-        <Circle cx="24" cy="45" r="13" />
-        <Circle cx="34" cy="29" r="13" />
-        <Circle cx="50" cy="21" r="13" />
-        <Circle cx="67" cy="24" r="13" />
-        <Circle cx="79" cy="39" r="13" />
-        <Circle cx="84" cy="55" r="11" />
-      </G>
-      <Path d="M24 52c7-20 24-29 45-20 9 4 15 12 18 25-9-11-18-17-28-17-13 9-25 12-38 10z" fill={hair} />
-      {vest ? <Path d="M11 132h18l10-39c-16 8-25 21-28 39zM97 132H79L69 93c16 8 25 21 28 39z" fill="#121A29" /> : null}
-    </G>
-  );
-}
-
-function TeacherQuickActions({
-  onAssignments,
-  onLessonPlan,
-  onMessages,
-  onReports,
-}: {
-  onAssignments: () => void;
-  onLessonPlan: () => void;
-  onMessages: () => void;
-  onReports: () => void;
-}) {
-  return (
-    <View style={s.quickRail}>
-      <QuickAction
-        borderColor="#CDE4FF"
-        colors={['#F4FAFF', '#EDF6FF']}
-        icon={<ClipboardCheck color="#087CE4" size={35} strokeWidth={2.5} />}
-        label="Assignments"
-        onPress={onAssignments}
-      />
-      <QuickAction
-        borderColor="#D8EED4"
-        colors={['#FAFFF7', '#F1FAEF']}
-        icon={<FileBarChart color="#22A83A" size={35} strokeWidth={2.5} />}
-        label="Reports"
-        onPress={onReports}
-      />
-      <QuickAction
-        borderColor="#E2D5FF"
-        colors={['#FBF9FF', '#F4F0FF']}
-        icon={<CalendarCheck2 color="#8057E6" size={35} strokeWidth={2.5} />}
-        label="Lesson Plan"
-        onPress={onLessonPlan}
-      />
-      <QuickAction
-        borderColor="#F4D2B7"
-        colors={['#FFFDF9', '#FFF5EC']}
-        icon={<MessageSquareText color="#FF7A00" size={35} strokeWidth={2.5} />}
-        label="Messages"
-        onPress={onMessages}
-      />
-    </View>
-  );
-}
-
 function TeacherProfileView({
+  countryCode,
   email,
   name,
+  phone,
+  region,
+  school,
+  schools,
   taughtGrades,
   taughtSubjects,
   onBack,
-  onChangeEmail,
-  onChangeName,
+  onChangeCountry,
+  onSavePersonalDetails,
   onToggleGrade,
   onToggleSubject,
 }: {
+  countryCode: TeacherCountryCode;
   email: string;
   name: string;
+  phone: string;
+  region: string;
+  school: string;
+  schools: SchoolData[];
   taughtGrades: string[];
   taughtSubjects: string[];
   onBack: () => void;
-  onChangeEmail: (value: string) => void;
-  onChangeName: (value: string) => void;
+  onChangeCountry: (value: TeacherCountryCode) => void;
+  onSavePersonalDetails: (details: {
+    email: string;
+    name: string;
+    phone: string;
+    region: string;
+    school: string;
+  }) => void;
   onToggleGrade: (value: string) => void;
   onToggleSubject: (value: string) => void;
 }) {
+  const [countryMenuOpen, setCountryMenuOpen] = useState(false);
+  const [editOpen, setEditOpen] = useState(false);
+  const countryConfig = COUNTRY_OPTIONS.find(option => option.code === countryCode) ?? COUNTRY_OPTIONS[0];
+  const regionMeta = REGIONS_BY_COUNTRY[countryConfig.code] ?? REGIONS_BY_COUNTRY.KE;
+  const prioritizedRegions = useMemo(
+    () => prioritizeLocationsBySchoolCount([...regionMeta.options], schools),
+    [regionMeta.options, schools],
+  );
   return (
     <View style={s.teacherListPortal}>
       <View style={s.listPortalHeader}>
         <Pressable onPress={onBack} style={s.back}>
           <ChevronLeft size={24} color="#FF4B10" />
-          <Text style={s.backTextOrange}>Dashboard</Text>
+          <Text style={s.backTextOrange}>Back</Text>
         </Pressable>
         <Text style={s.headerTitle}>Teacher Profile</Text>
-        <View style={s.spacer} />
+        <View style={s.profileCountryWrap}>
+          <Pressable
+            accessibilityLabel="Select country"
+            onPress={() => setCountryMenuOpen(open => !open)}
+            style={s.profileCountryButton}>
+            <Text style={s.profileCountryFlag}>{countryConfig.flag}</Text>
+            <ChevronDown size={13} color="#6B7280" />
+          </Pressable>
+          {countryMenuOpen ? (
+            <View style={s.profileCountryMenu}>
+              {COUNTRY_OPTIONS.map(option => (
+                <Pressable
+                  key={option.code}
+                onPress={() => {
+                  onChangeCountry(option.code);
+                  setCountryMenuOpen(false);
+                }}
+                  style={[
+                    s.profileCountryItem,
+                    countryCode === option.code && s.profileCountryItemActive,
+                  ]}>
+                  <Text style={s.profileCountryItemFlag}>{option.flag}</Text>
+                  <Text
+                    style={[
+                      s.profileCountryItemText,
+                      countryCode === option.code && s.profileCountryItemTextActive,
+                    ]}>
+                    {option.name}
+                  </Text>
+                </Pressable>
+              ))}
+            </View>
+          ) : null}
+        </View>
       </View>
       <ScrollView contentContainerStyle={s.content}>
         <View style={s.profileHero}>
-          <LinearGradient colors={['#FF4B10', '#FF7A16']} style={s.profileAvatar}>
-            <UserRound color="#FFFFFF" size={30} strokeWidth={2.7} />
-          </LinearGradient>
-          <View style={s.rowMain}>
-            <Text style={s.profileName}>{name || 'Teacher'}</Text>
-            <Text style={s.profileMeta}>{email}</Text>
+          <Pressable
+            accessibilityLabel="Edit teacher profile"
+            onPress={() => setEditOpen(true)}
+            style={s.profileEditButton}>
+            <Pencil color="#FF4B10" size={18} strokeWidth={2.6} />
+          </Pressable>
+          <View style={s.profileHeroTop}>
+            <LinearGradient colors={['#FF4B10', '#FF7A16']} style={s.profileAvatar}>
+              <UserRound color="#FFFFFF" size={30} strokeWidth={2.7} />
+            </LinearGradient>
+            <View style={s.rowMain}>
+              <Text style={s.profileName}>{name || 'Teacher'}</Text>
+              <Text style={s.profileMeta}>{region ? `${region} · ${countryConfig.name}` : countryConfig.name}</Text>
+            </View>
           </View>
-        </View>
 
-        <View style={s.card}>
-          <View style={s.cardHeader}>
-            <Text style={s.cardHeaderText}>Personal Details</Text>
+          <View style={s.profileSummaryGrid}>
+            <ProfileSummaryItem label="Email" value={email || 'Not added'} />
+            <ProfileSummaryItem label="Phone" value={phone || 'Not added'} />
+            <ProfileSummaryItem label={regionMeta.label} value={region || 'Not selected'} />
+            <ProfileSummaryItem label="School" value={school || 'Not selected'} />
           </View>
-          <View style={s.profileField}>
-            <Text style={s.profileLabel}>Full name</Text>
-            <TextInput
-              onChangeText={onChangeName}
-              placeholder="Teacher name"
-              style={s.profileInput}
-              value={name}
-            />
-          </View>
-          <View style={s.profileField}>
-            <Text style={s.profileLabel}>Email address</Text>
-            <TextInput
-              autoCapitalize="none"
-              keyboardType="email-address"
-              onChangeText={onChangeEmail}
-              placeholder="teacher@kitabu.ai"
-              style={s.profileInput}
-              value={email}
-            />
-          </View>
+          <TeacherProfileEditModal
+            email={email}
+            name={name}
+            phone={phone}
+            region={region}
+            regionLabel={regionMeta.label}
+            regions={prioritizedRegions}
+            school={school}
+            schools={schools}
+            visible={editOpen}
+            onClose={() => setEditOpen(false)}
+            onSave={details => {
+              onSavePersonalDetails(details);
+              setEditOpen(false);
+            }}
+          />
         </View>
 
         <ProfileToggleGroup
@@ -1185,6 +980,231 @@ function TeacherProfileView({
         />
       </ScrollView>
     </View>
+  );
+}
+
+function ProfileSummaryItem({ label, value }: { label: string; value: string }) {
+  return (
+    <View style={s.profileSummaryItem}>
+      <Text style={s.profileLabel}>{label}</Text>
+      <Text style={s.profileSummaryValue}>{value}</Text>
+    </View>
+  );
+}
+
+function TeacherProfileEditModal({
+  email,
+  name,
+  phone,
+  region,
+  regionLabel,
+  regions,
+  school,
+  schools,
+  visible,
+  onClose,
+  onSave,
+}: {
+  email: string;
+  name: string;
+  phone: string;
+  region: string;
+  regionLabel: string;
+  regions: string[];
+  school: string;
+  schools: SchoolData[];
+  visible: boolean;
+  onClose: () => void;
+  onSave: (details: {
+    email: string;
+    name: string;
+    phone: string;
+    region: string;
+    school: string;
+  }) => void;
+}) {
+  const [draftName, setDraftName] = useState(name);
+  const [draftEmail, setDraftEmail] = useState(email);
+  const [draftPhone, setDraftPhone] = useState(phone);
+  const [draftRegion, setDraftRegion] = useState(region);
+  const [draftSchool, setDraftSchool] = useState(school);
+  const [regionMenuOpen, setRegionMenuOpen] = useState(false);
+  const [schoolMenuOpen, setSchoolMenuOpen] = useState(false);
+  const prioritizedSchools = useMemo(
+    () =>
+      prioritizeSchoolsByEnrollment(
+        schools.filter(item => !draftRegion || locationsMatch(draftRegion, item.location)),
+      ),
+    [draftRegion, schools],
+  );
+
+  useEffect(() => {
+    if (!visible) return;
+    setDraftName(name);
+    setDraftEmail(email);
+    setDraftPhone(phone);
+    setDraftRegion(region);
+    setDraftSchool(school);
+    setRegionMenuOpen(false);
+    setSchoolMenuOpen(false);
+  }, [email, name, phone, region, school, visible]);
+
+  return (
+    <Modal animationType="fade" onRequestClose={onClose} transparent visible={visible}>
+      <View style={s.profileEditOverlay}>
+        <Pressable accessibilityLabel="Close edit profile" onPress={onClose} style={s.profileEditBackdrop} />
+        <View style={s.profileEditCard}>
+          <View style={s.profileEditHeader}>
+            <View>
+              <Text style={s.profileEditTitle}>Edit profile</Text>
+              <Text style={s.profileEditSubtitle}>Personal details</Text>
+            </View>
+            <Pressable accessibilityLabel="Close" onPress={onClose} style={s.profileEditClose}>
+              <X color="#6B7280" size={18} strokeWidth={2.5} />
+            </Pressable>
+          </View>
+
+          <ScrollView
+            contentContainerStyle={s.profileEditContent}
+            keyboardShouldPersistTaps="handled"
+            nestedScrollEnabled>
+            <View style={s.profileField}>
+              <Text style={s.profileLabel}>Full name</Text>
+              <TextInput
+                onChangeText={setDraftName}
+                placeholder="Teacher name"
+                style={s.profileInput}
+                value={draftName}
+              />
+            </View>
+            <View style={s.profileField}>
+              <Text style={s.profileLabel}>Email address</Text>
+              <TextInput
+                autoCapitalize="none"
+                keyboardType="email-address"
+                onChangeText={setDraftEmail}
+                placeholder="teacher@kitabu.ai"
+                style={s.profileInput}
+                value={draftEmail}
+              />
+            </View>
+            <View style={s.profileField}>
+              <Text style={s.profileLabel}>Phone number</Text>
+              <TextInput
+                keyboardType="phone-pad"
+                onChangeText={setDraftPhone}
+                placeholder="+254 700 000 000"
+                style={s.profileInput}
+                value={draftPhone}
+              />
+            </View>
+            <View style={[s.profileField, s.profileDropdownField]}>
+              <Text style={s.profileLabel}>{regionLabel}</Text>
+              <Pressable
+                onPress={() => {
+                  setRegionMenuOpen(open => !open);
+                  setSchoolMenuOpen(false);
+                }}
+                style={[s.profileInput, s.profileRegionSelect]}>
+                <Text style={s.profileRegionText}>{draftRegion || 'Select location'}</Text>
+                <ChevronDown size={15} color="#6B7280" />
+              </Pressable>
+              {regionMenuOpen ? (
+                <View style={s.profileRegionMenu}>
+                  <ScrollView nestedScrollEnabled style={s.profileRegionMenuScroll}>
+                    {regions.map(option => (
+                      <Pressable
+                        key={option}
+                        onPress={() => {
+                          setDraftRegion(option);
+                          setDraftSchool('');
+                          setRegionMenuOpen(false);
+                        }}
+                        style={[
+                          s.profileRegionItem,
+                          draftRegion === option && s.profileRegionItemActive,
+                        ]}>
+                        <Text
+                          style={[
+                            s.profileRegionItemText,
+                            draftRegion === option && s.profileRegionItemTextActive,
+                          ]}>
+                          {option}
+                        </Text>
+                      </Pressable>
+                    ))}
+                  </ScrollView>
+                </View>
+              ) : null}
+            </View>
+            <View style={[s.profileField, s.profileDropdownField]}>
+              <Text style={s.profileLabel}>School</Text>
+              <Pressable
+                onPress={() => {
+                  setSchoolMenuOpen(open => !open);
+                  setRegionMenuOpen(false);
+                }}
+                style={[s.profileInput, s.profileRegionSelect]}>
+                <Text style={s.profileRegionText}>{draftSchool || 'Select school'}</Text>
+                <ChevronDown size={15} color="#6B7280" />
+              </Pressable>
+              {schoolMenuOpen ? (
+                <View style={s.profileRegionMenu}>
+                  <ScrollView nestedScrollEnabled style={s.profileRegionMenuScroll}>
+                    {prioritizedSchools.length > 0 ? (
+                      prioritizedSchools.map(option => (
+                        <Pressable
+                          key={option.id}
+                          onPress={() => {
+                            setDraftSchool(option.name);
+                            setSchoolMenuOpen(false);
+                          }}
+                          style={[
+                            s.profileRegionItem,
+                            draftSchool === option.name && s.profileRegionItemActive,
+                          ]}>
+                          <Text
+                            style={[
+                              s.profileRegionItemText,
+                              draftSchool === option.name && s.profileRegionItemTextActive,
+                            ]}>
+                            {option.name}
+                          </Text>
+                          <Text style={s.profileSchoolMeta}>{option.location}</Text>
+                        </Pressable>
+                      ))
+                    ) : (
+                      <View style={s.profileRegionItem}>
+                        <Text style={s.profileRegionItemText}>No schools for this location</Text>
+                      </View>
+                    )}
+                  </ScrollView>
+                </View>
+              ) : null}
+            </View>
+          </ScrollView>
+
+          <View style={s.profileEditFooter}>
+            <Pressable onPress={onClose} style={s.profileEditCancel}>
+              <Text style={s.profileEditCancelText}>Cancel</Text>
+            </Pressable>
+            <Pressable
+              onPress={() =>
+                onSave({
+                  email: draftEmail.trim(),
+                  name: draftName.trim(),
+                  phone: draftPhone.trim(),
+                  region: draftRegion,
+                  school: draftSchool,
+                })
+              }
+              style={s.profileEditSave}>
+              <Text style={s.profileEditSaveText}>Save</Text>
+            </Pressable>
+          </View>
+        </View>
+      </View>
+    </Modal>
   );
 }
 
@@ -1224,114 +1244,6 @@ function ProfileToggleGroup({
   );
 }
 
-function SelectedClassListView({
-  grade,
-  students,
-  onBack,
-  onSelectStudent,
-}: {
-  grade: string;
-  students: StudentPerformance[];
-  onBack: () => void;
-  onSelectStudent: (student: StudentPerformance) => void;
-}) {
-  return (
-    <View style={s.teacherListPortal}>
-      <View style={s.listPortalHeader}>
-        <Pressable onPress={onBack} style={s.back}>
-          <ChevronLeft size={24} color="#FF4B10" />
-          <Text style={s.backTextOrange}>Dashboard</Text>
-        </Pressable>
-        <Text style={s.headerTitle}>{grade} List</Text>
-        <View style={s.spacer} />
-      </View>
-      <ScrollView contentContainerStyle={s.content}>
-        <View style={s.card}>
-          <View style={s.cardHeader}>
-            <Text style={s.cardHeaderText}>Selected Class Students</Text>
-            <Text style={s.cardHeaderMeta}>{students.length} learners</Text>
-          </View>
-          {students.length > 0 ? (
-            students.map(item => (
-              <Pressable key={item.id} onPress={() => onSelectStudent(item)} style={s.row}>
-                <View style={s.rowLead}>
-                  <View style={s.avatar}>
-                    <Text style={s.avatarText}>{getInitials(item.name)}</Text>
-                  </View>
-                  <View style={s.rowMain}>
-                    <Text style={s.rowTitle}>{item.name}</Text>
-                    <Text style={s.rowMeta}>
-                      {item.trend} | Last active {item.lastActive}
-                    </Text>
-                  </View>
-                </View>
-                <View style={s.rowEndTight}>
-                  <Text style={s.score}>{item.assessmentScore}%</Text>
-                  <ChevronRight size={16} color="#9CA3AF" />
-                </View>
-              </Pressable>
-            ))
-          ) : (
-            <View style={s.empty}>
-              <Text style={s.emptyText}>No students found for {grade}.</Text>
-            </View>
-          )}
-        </View>
-      </ScrollView>
-    </View>
-  );
-}
-
-function TeacherReportsView({
-  averageHomework,
-  averageScore,
-  dashboardSummary,
-  grade,
-  remedialCount,
-  onBack,
-}: {
-  averageHomework: number;
-  averageScore: number;
-  dashboardSummary: TeacherDashboardSummary;
-  grade: string;
-  remedialCount: number;
-  onBack: () => void;
-}) {
-  return (
-    <TeacherSimplePortalView title="Reports" onBack={onBack}>
-      <View style={s.grid}>
-        <View style={s.metric}>
-          <Text style={s.metricLabel}>{grade} Mastery</Text>
-          <Text style={s.metricValue}>{averageScore}%</Text>
-          <Text style={s.metricSubline}>Class mastery average</Text>
-        </View>
-        <View style={s.metric}>
-          <Text style={s.metricLabel}>Homework</Text>
-          <Text style={s.metricValue}>{averageHomework}%</Text>
-          <Text style={s.metricSubline}>Recent assignment completion</Text>
-        </View>
-      </View>
-      <View style={s.card}>
-        <View style={s.cardHeader}>
-          <Text style={s.cardHeaderText}>Support Snapshot</Text>
-          <Text style={s.cardHeaderMeta}>{remedialCount} need support</Text>
-        </View>
-        {dashboardSummary.priorityStudents.map(item => (
-          <View key={item.id} style={s.row}>
-            <View style={s.rowMain}>
-              <Text style={s.rowTitle}>{item.name}</Text>
-              <Text style={s.rowMeta}>{item.focus}</Text>
-            </View>
-            <Text style={[s.score, item.priority === 'High' ? s.badText : s.warnText]}>
-              {item.priority}
-            </Text>
-          </View>
-        ))}
-      </View>
-    </TeacherSimplePortalView>
-  );
-}
-
 function TeacherLessonPlanView({
   grade,
   grades,
@@ -1359,6 +1271,9 @@ function TeacherLessonPlanView({
   );
   const [ready, setReady] = useState(true);
   const [status, setStatus] = useState<'idle' | 'shared' | 'saved'>('idle');
+  const [aiIdeas, setAiIdeas] = useState('');
+  const [isGeneratingPlan, setIsGeneratingPlan] = useState(false);
+  const [isSavingPlan, setIsSavingPlan] = useState(false);
   const lessonMinutes = Number.parseInt(duration, 10) || 35;
   const flow = buildLessonFlow(lessonMinutes, style);
 
@@ -1372,19 +1287,66 @@ function TeacherLessonPlanView({
     setOutcome('');
     setReady(false);
     setStatus('idle');
+    setAiIdeas('');
     setOpenSelect(null);
   }
 
-  function generatePlan() {
-    setTopic(current => current.trim() || 'Linear equations and real-life problems');
-    setOutcome(
-      current =>
-        current.trim() ||
-        'Learners solve simple linear equations and explain each step using a real-life example.',
-    );
+  async function generatePlan() {
+    const nextTopic = topic.trim() || 'Linear equations and real-life problems';
+    const nextOutcome =
+      outcome.trim() ||
+      'Learners solve simple linear equations and explain each step using a real-life example.';
+    setTopic(nextTopic);
+    setOutcome(nextOutcome);
     setReady(true);
     setStatus('idle');
     setOpenSelect(null);
+    setIsGeneratingPlan(true);
+    try {
+      const ideas = await generateLessonPlanIdeas({
+        gradeLevel: selectedGrade,
+        subject: selectedSubject,
+        topic: nextTopic,
+        outcome: nextOutcome,
+        durationMinutes: lessonMinutes,
+        style,
+      });
+      setAiIdeas(ideas);
+    } catch (error) {
+      console.error('Error generating lesson plan ideas:', error);
+      Alert.alert('AI unavailable', 'Could not generate lesson ideas right now. Please try again.');
+    } finally {
+      setIsGeneratingPlan(false);
+    }
+  }
+
+  async function savePlan() {
+    if (!ready) {
+      await generatePlan();
+    }
+    setIsSavingPlan(true);
+    try {
+      await saveTeacherLessonPlan({
+        gradeLevel: selectedGrade,
+        subject: selectedSubject,
+        topic: topic.trim() || 'Untitled lesson',
+        outcome: outcome.trim() || 'Learning outcome not specified.',
+        durationMinutes: lessonMinutes,
+        style,
+        plan: {
+          flow,
+          materials:
+            'Board, chalk or marker, learner notebooks, 5 practice questions and one word problem.',
+          aiIdeas,
+        },
+      });
+      setStatus('saved');
+    } catch (error) {
+      console.error('Error saving lesson plan:', error);
+      Alert.alert('Save failed', 'Could not save this lesson plan. Please try again.');
+    } finally {
+      setIsSavingPlan(false);
+    }
   }
 
   return (
@@ -1392,7 +1354,7 @@ function TeacherLessonPlanView({
       <View style={s.listPortalHeader}>
         <Pressable onPress={onBack} style={s.back}>
           <ChevronLeft size={24} color="#FF4B10" />
-          <Text style={s.backTextOrange}>Dashboard</Text>
+          <Text style={s.backTextOrange}>Back</Text>
         </Pressable>
         <Text style={s.headerTitle}>Lesson Plan</Text>
         <View style={s.spacer} />
@@ -1522,8 +1484,13 @@ function TeacherLessonPlanView({
             <Pressable onPress={clearPlan} style={s.lessonClearButton}>
               <Text style={s.lessonClearText}>Clear</Text>
             </Pressable>
-            <Pressable onPress={generatePlan} style={s.lessonGenerateButton}>
-              <Text style={s.lessonGenerateText}>Generate Plan</Text>
+            <Pressable
+              disabled={isGeneratingPlan}
+              onPress={generatePlan}
+              style={[s.lessonGenerateButton, isGeneratingPlan && s.lessonButtonDisabled]}>
+              <Text style={s.lessonGenerateText}>
+                {isGeneratingPlan ? 'Thinking...' : 'Ask AI'}
+              </Text>
             </Pressable>
           </View>
         </View>
@@ -1564,6 +1531,12 @@ function TeacherLessonPlanView({
               </View>
             ))}
           </View>
+          {aiIdeas ? (
+            <View style={s.lessonPreviewCard}>
+              <Text style={s.lessonPreviewTitle}>AI Presentation Ideas</Text>
+              <Text style={s.lessonPreviewBody}>{aiIdeas}</Text>
+            </View>
+          ) : null}
           <View style={s.lessonActionRow}>
             <Pressable
               onPress={() => setStatus('shared')}
@@ -1571,9 +1544,16 @@ function TeacherLessonPlanView({
               <Text style={s.lessonShareText}>{status === 'shared' ? 'Shared' : 'Share'}</Text>
             </Pressable>
             <Pressable
-              onPress={() => setStatus('saved')}
-              style={[s.lessonSaveButton, status === 'saved' && s.lessonSaveButtonActive]}>
-              <Text style={s.lessonSaveText}>{status === 'saved' ? 'Saved' : 'Save Plan'}</Text>
+              disabled={isSavingPlan}
+              onPress={savePlan}
+              style={[
+                s.lessonSaveButton,
+                status === 'saved' && s.lessonSaveButtonActive,
+                isSavingPlan && s.lessonButtonDisabled,
+              ]}>
+              <Text style={s.lessonSaveText}>
+                {isSavingPlan ? 'Saving...' : status === 'saved' ? 'Saved' : 'Save Plan'}
+              </Text>
             </Pressable>
           </View>
         </View>
@@ -1676,26 +1656,171 @@ function TeacherMessagesView({
   onBack: () => void;
 }) {
   const supportCount = students.filter(item => item.assessmentScore < 70).length;
+  const [parents, setParents] = useState<TeacherParentContact[]>([]);
+  const [messages, setMessages] = useState<TeacherParentMessage[]>([]);
+  const [selectedParentId, setSelectedParentId] = useState<string>('all');
+  const [draft, setDraft] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSendingMessage, setIsSendingMessage] = useState(false);
+  const selectedParent = parents.find(parent => parent.id === selectedParentId);
+
+  async function loadMessages(parentId = selectedParentId) {
+    setIsLoading(true);
+    try {
+      const [nextParents, nextMessages] = await Promise.all([
+        getTeacherParents(grade),
+        getTeacherParentMessages({
+          gradeLevel: grade,
+          parentUserId: parentId === 'all' ? undefined : parentId,
+        }),
+      ]);
+      setParents(nextParents);
+      setMessages(nextMessages);
+      if (parentId !== 'all' && !nextParents.some(parent => parent.id === parentId)) {
+        setSelectedParentId('all');
+      }
+    } catch (error) {
+      console.error('Error loading teacher messages:', error);
+      Alert.alert('Messages unavailable', 'Could not load parent messages right now.');
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    loadMessages('all');
+  }, [grade]);
+
+  async function selectParent(parentId: string) {
+    setSelectedParentId(parentId);
+    await loadMessages(parentId);
+  }
+
+  async function sendMessage() {
+    const body = draft.trim();
+    if (!body) {
+      return;
+    }
+    setIsSendingMessage(true);
+    try {
+      await sendTeacherParentMessage({
+        gradeLevel: grade,
+        parentUserId: selectedParentId === 'all' ? null : selectedParentId,
+        body,
+      });
+      setDraft('');
+      await loadMessages(selectedParentId);
+    } catch (error) {
+      console.error('Error sending teacher message:', error);
+      Alert.alert('Message failed', 'Could not send this message. Please try again.');
+    } finally {
+      setIsSendingMessage(false);
+    }
+  }
+
   return (
     <TeacherSimplePortalView title="Messages" onBack={onBack}>
       <View style={s.card}>
         <View style={s.cardHeader}>
           <Text style={s.cardHeaderText}>{grade} Parent Messages</Text>
-          <Text style={s.cardHeaderMeta}>{students.length} learners</Text>
+          <Text style={s.cardHeaderMeta}>
+            {isLoading ? 'Loading...' : `${parents.length} parents`}
+          </Text>
         </View>
-        <View style={s.row}>
-          <View style={s.rowMain}>
-            <Text style={s.rowTitle}>Weekly progress update</Text>
-            <Text style={s.rowMeta}>Send summary to all parents in the selected class.</Text>
-          </View>
-          <ChevronRight size={16} color="#9CA3AF" />
+
+        <ScrollView horizontal showsHorizontalScrollIndicator={false} style={s.messageAudienceScroll}>
+          <Pressable
+            onPress={() => selectParent('all')}
+            style={[
+              s.messageAudienceChip,
+              selectedParentId === 'all' && s.messageAudienceChipActive,
+            ]}>
+            <Users
+              color={selectedParentId === 'all' ? '#FFFFFF' : '#0F172A'}
+              size={16}
+              strokeWidth={2.5}
+            />
+            <Text
+              style={[
+                s.messageAudienceText,
+                selectedParentId === 'all' && s.messageAudienceTextActive,
+              ]}>
+              All Parents
+            </Text>
+          </Pressable>
+          {parents.map(parent => (
+            <Pressable
+              key={parent.id}
+              onPress={() => selectParent(parent.id)}
+              style={[
+                s.messageAudienceChip,
+                selectedParentId === parent.id && s.messageAudienceChipActive,
+              ]}>
+              <Text
+                style={[
+                  s.messageAudienceText,
+                  selectedParentId === parent.id && s.messageAudienceTextActive,
+                ]}>
+                {parent.name}
+              </Text>
+            </Pressable>
+          ))}
+        </ScrollView>
+
+        <View style={s.messageComposer}>
+          <Text style={s.messageComposerLabel}>
+            {selectedParent ? `Message ${selectedParent.name}` : `Message all ${grade} parents`}
+          </Text>
+          <TextInput
+            multiline
+            onChangeText={setDraft}
+            placeholder={
+              supportCount > 0
+                ? `Example: ${supportCount} learners need revision support this week...`
+                : 'Write a class update, reminder, or individual note...'
+            }
+            placeholderTextColor="#8A94A6"
+            style={s.messageInput}
+            value={draft}
+          />
+          <Pressable
+            disabled={isSendingMessage || draft.trim().length === 0}
+            onPress={sendMessage}
+            style={[
+              s.messageSendButton,
+              (isSendingMessage || draft.trim().length === 0) && s.lessonButtonDisabled,
+            ]}>
+            <Text style={s.messageSendText}>{isSendingMessage ? 'Sending...' : 'Send'}</Text>
+          </Pressable>
         </View>
-        <View style={s.row}>
-          <View style={s.rowMain}>
-            <Text style={s.rowTitle}>Support follow-up</Text>
-            <Text style={s.rowMeta}>{supportCount} learners currently need extra support.</Text>
-          </View>
-          <ChevronRight size={16} color="#9CA3AF" />
+
+        <View style={s.messageThread}>
+          {messages.length === 0 ? (
+            <View style={s.messageEmptyState}>
+              <Text style={s.rowTitle}>No messages yet</Text>
+              <Text style={s.rowMeta}>
+                Messages sent here are saved and visible to the intended parent accounts.
+              </Text>
+            </View>
+          ) : (
+            messages.map(message => {
+              const fromTeacher = message.sender_user_id === message.teacher_user_id;
+              return (
+                <View
+                  key={message.id}
+                  style={[
+                    s.messageBubble,
+                    fromTeacher ? s.messageBubbleTeacher : s.messageBubbleParent,
+                  ]}>
+                  <Text style={s.messageBubbleSender}>{message.sender_name}</Text>
+                  <Text style={s.messageBubbleBody}>{message.body}</Text>
+                  <Text style={s.messageBubbleTime}>
+                    {new Date(message.created_at).toLocaleString()}
+                  </Text>
+                </View>
+              );
+            })
+          )}
         </View>
       </View>
     </TeacherSimplePortalView>
@@ -1716,318 +1841,13 @@ function TeacherSimplePortalView({
       <View style={s.listPortalHeader}>
         <Pressable onPress={onBack} style={s.back}>
           <ChevronLeft size={24} color="#FF4B10" />
-          <Text style={s.backTextOrange}>Dashboard</Text>
+          <Text style={s.backTextOrange}>Back</Text>
         </Pressable>
         <Text style={s.headerTitle}>{title}</Text>
         <View style={s.spacer} />
       </View>
       <ScrollView contentContainerStyle={s.content}>{children}</ScrollView>
     </View>
-  );
-}
-
-function QuickAction({
-  borderColor,
-  colors,
-  icon,
-  label,
-  onPress,
-}: {
-  borderColor: string;
-  colors: [string, string];
-  icon: React.ReactNode;
-  label: string;
-  onPress?: () => void;
-}) {
-  return (
-    <Pressable disabled={!onPress} onPress={onPress} style={s.quickAction}>
-      <LinearGradient colors={colors} style={[s.quickIconBox, { borderColor }]}>
-        {icon}
-      </LinearGradient>
-      <Text style={s.quickLabel}>{label}</Text>
-    </Pressable>
-  );
-}
-
-function TeacherDashboardCard({
-  accent,
-  borderColor,
-  children,
-  title,
-}: {
-  accent: string;
-  borderColor: string;
-  children: React.ReactNode;
-  title: string;
-}) {
-  return (
-    <View style={[s.teacherDashboardCard, { borderColor }]}>
-      <CardTexture accent={accent} />
-      <View style={s.teacherDashboardCardHeader}>
-        <View style={[s.teacherCardIconBadge, { backgroundColor: accent }]}>
-          {title === 'Class Overview' ? (
-            <Users color="#FFFFFF" size={19} strokeWidth={2.5} />
-          ) : title === 'Priority Students' ? (
-            <Target color="#FFFFFF" size={19} strokeWidth={2.5} />
-          ) : title === 'Assignments' ? (
-            <ClipboardList color="#FFFFFF" size={19} strokeWidth={2.5} />
-          ) : (
-            <Users color="#FFFFFF" size={18} strokeWidth={2.5} />
-          )}
-        </View>
-        <Text numberOfLines={1} style={[s.teacherCardTitle, { color: accent }]}>
-          {title}
-        </Text>
-      </View>
-      {children}
-    </View>
-  );
-}
-
-function ClassOverviewCard({
-  activeToday,
-  classActiveRate,
-  needSupport,
-  studentCount,
-}: {
-  activeToday: number;
-  classActiveRate: number;
-  needSupport: number;
-  studentCount: number;
-}) {
-  return (
-    <TeacherDashboardCard accent="#1388F2" borderColor="#9CC9FF" title="Class Overview">
-      <ClassMetric
-        icon={<Users color="#1388F2" size={22} strokeWidth={2.5} />}
-        iconTone="#E8F4FF"
-        label="Students"
-        value={String(studentCount)}
-      />
-      <ClassMetric
-        icon={<CheckCircle2 color="#FFFFFF" size={21} strokeWidth={2.8} />}
-        iconTone="#38C43B"
-        label="Active today"
-        value={String(activeToday)}
-      />
-      <ClassMetric
-        icon={<AlertTriangle color="#FFFFFF" size={20} strokeWidth={2.7} />}
-        iconTone="#FF4B2C"
-        label="Need support"
-        value={String(needSupport)}
-      />
-      <View style={s.teacherProgressBarTrack}>
-        <LinearGradient colors={['#0A7CFF', '#129AFF']} style={[s.teacherProgressBarFill, { width: `${classActiveRate}%` }]} />
-      </View>
-      <View style={s.classGoalRow}>
-        <Text style={s.classGoalText}>{classActiveRate}% of class active</Text>
-        <Text style={s.classGoalText}>Goal: 85%</Text>
-      </View>
-    </TeacherDashboardCard>
-  );
-}
-
-function ClassMetric({
-  icon,
-  iconTone,
-  label,
-  value,
-}: {
-  icon: React.ReactNode;
-  iconTone: string;
-  label: string;
-  value: string;
-}) {
-  return (
-    <View style={s.classMetricRow}>
-      <View style={[s.classMetricIcon, { backgroundColor: iconTone }]}>{icon}</View>
-      <View>
-        <Text style={s.classMetricValue}>{value}</Text>
-        <Text style={s.classMetricLabel}>{label}</Text>
-      </View>
-    </View>
-  );
-}
-
-function PriorityStudentsCard({
-  onSelectStudent,
-  rows,
-}: {
-  onSelectStudent: (student: TeacherDashboardSummary['priorityStudents'][number]) => void;
-  rows: TeacherDashboardSummary['priorityStudents'];
-}) {
-  return (
-    <TeacherDashboardCard accent="#F22626" borderColor="#FFB7B7" title="Priority Students">
-      <View style={s.priorityRows}>
-        {rows.map(row => (
-          <Pressable key={row.id} onPress={() => onSelectStudent(row)} style={s.priorityRow}>
-            <View style={s.priorityCopy}>
-              <Text numberOfLines={1} style={s.priorityName}>{row.name}</Text>
-              <Text style={s.priorityMeta}>{row.focus}</Text>
-            </View>
-            <View style={[s.priorityBadge, row.priority === 'High' ? s.priorityHigh : s.priorityMedium]}>
-              <Text style={[s.priorityText, row.priority === 'High' ? s.priorityHighText : s.priorityMediumText]}>
-                {row.priority}
-              </Text>
-            </View>
-          </Pressable>
-        ))}
-      </View>
-      <Pressable style={s.redActionButton}>
-        <LinearGradient colors={['#FA3228', '#EF1F27']} style={s.redActionGradient}>
-          <Text style={s.redActionText}>Open Support Plan</Text>
-        </LinearGradient>
-      </Pressable>
-    </TeacherDashboardCard>
-  );
-}
-
-function TeacherAssignmentsCard({
-  assignments,
-  onCreateAssignment,
-}: {
-  assignments: TeacherDashboardSummary['assignmentRows'];
-  onCreateAssignment: () => void;
-}) {
-  return (
-    <TeacherDashboardCard accent="#7446DD" borderColor="#D7C1FF" title="Assignments">
-      <View style={s.teacherAssignmentRows}>
-        {assignments.map(item => (
-          <View key={item.id} style={s.teacherAssignmentItem}>
-            <View style={s.teacherAssignmentIconBox}>
-              <ClipboardList color="#7446DD" size={18} strokeWidth={2.5} />
-            </View>
-            <View style={s.teacherAssignmentTextWrap}>
-              <Text numberOfLines={1} style={s.teacherAssignmentTitle}>{item.title}</Text>
-              <Text style={s.teacherAssignmentMeta}>{item.submitted}</Text>
-            </View>
-          </View>
-        ))}
-      </View>
-      <Pressable onPress={onCreateAssignment} style={s.teacherActionLink}>
-        <Text style={s.teacherActionLinkText}>Create assignment</Text>
-        <ChevronRight color="#7446DD" size={22} strokeWidth={2.7} />
-      </Pressable>
-    </TeacherDashboardCard>
-  );
-}
-
-function StudentGroupsCard({ onViewGroups }: { onViewGroups: () => void }) {
-  const groups = [
-    { color: '#16A34A', icon: <Star color="#16A34A" size={18} strokeWidth={2.4} />, label: 'Top performers', value: 12 },
-    { color: '#FF7A00', icon: <UserRound color="#FF7A00" size={18} strokeWidth={2.4} />, label: 'Needs remedial', value: 6 },
-    { color: '#55565D', icon: <UserRound color="#55565D" size={18} strokeWidth={2.4} />, label: 'Inactive learners', value: 4 },
-  ];
-
-  return (
-    <TeacherDashboardCard accent="#1FAA2B" borderColor="#9EDC8C" title="Student Groups">
-      <View style={s.groupRows}>
-        {groups.map(group => (
-          <Pressable key={group.label} style={s.groupRow}>
-            <View style={s.groupIconCell}>{group.icon}</View>
-            <Text numberOfLines={1} style={s.groupText}>{group.label}</Text>
-            <Text style={s.groupCount}>{group.value}</Text>
-            <ChevronRight color="#202125" size={17} strokeWidth={2.4} />
-          </Pressable>
-        ))}
-      </View>
-      <Pressable onPress={onViewGroups} style={s.groupViewButton}>
-        <Text style={s.groupViewText}>View all groups</Text>
-        <ChevronRight color="#11891E" size={21} strokeWidth={2.7} />
-      </Pressable>
-    </TeacherDashboardCard>
-  );
-}
-
-function AiTeachingNote({ onSendTask }: { onSendTask: () => void }) {
-  return (
-    <View style={s.aiNote}>
-      <CardTexture accent="#FF7A16" opacity={0.16} />
-      <View style={s.aiTitleRow}>
-        <LinearGradient colors={['#FF4B10', '#FF890C']} style={s.aiIcon}>
-          <Sparkles color="#FFFFFF" size={18} strokeWidth={2.7} />
-        </LinearGradient>
-        <Text style={s.aiTitle}>AI Teaching Note</Text>
-      </View>
-      <View style={s.aiCopyRow}>
-        <Text style={s.aiBody}>
-          6 learners struggled with fractions today.{'\n'}Send a 10-minute revision task?
-        </Text>
-        <Pressable onPress={onSendTask} style={s.sendTaskButton}>
-          <Text style={s.sendTaskText}>Send Task</Text>
-        </Pressable>
-      </View>
-    </View>
-  );
-}
-
-function CardTexture({ accent, opacity = 0.13 }: { accent: string; opacity?: number }) {
-  return (
-    <Svg height="100%" preserveAspectRatio="none" style={s.textureLayer} viewBox="0 0 188 180" width="100%">
-      {Array.from({ length: 8 }).map((_, index) => (
-        <Path
-          key={`teacher-card-curve-${index}`}
-          d={`M92 ${-14 + index * 5}C130 ${12 + index * 2} 161 ${24 + index * 6} 203 ${15 + index * 11}`}
-          fill="none"
-          stroke={accent}
-          strokeOpacity={opacity}
-          strokeWidth="0.8"
-        />
-      ))}
-      {Array.from({ length: 8 }).map((_, index) => (
-        <Path
-          key={`teacher-card-bottom-${index}`}
-          d={`M89 ${174 - index * 4}C126 ${144 - index * 2} 153 ${132 - index * 3} 202 ${138 - index * 5}`}
-          fill="none"
-          stroke={accent}
-          strokeOpacity={opacity * 0.7}
-          strokeWidth="0.75"
-        />
-      ))}
-    </Svg>
-  );
-}
-
-function TeacherBottomNavigation({
-  activeView,
-  onClassList,
-  onHome,
-  onProfile,
-  onStudents,
-}: {
-  activeView: PortalView;
-  onClassList: () => void;
-  onHome: () => void;
-  onProfile: () => void;
-  onStudents: () => void;
-}) {
-  return (
-    <View style={s.teacherBottomNav}>
-      <TeacherNavItem active={activeView === 'dashboard'} icon={<Home />} label="Home" onPress={onHome} />
-      <TeacherNavItem active={activeView === 'students'} icon={<Users />} label="Students" onPress={onStudents} />
-      <TeacherNavItem active={activeView === 'classList'} icon={<ClipboardList />} label="Class List" onPress={onClassList} />
-      <TeacherNavItem active={activeView === 'profile'} icon={<UserRound />} label="Profile" onPress={onProfile} />
-    </View>
-  );
-}
-
-function TeacherNavItem({
-  active,
-  icon,
-  label,
-  onPress,
-}: {
-  active?: boolean;
-  icon: React.ReactElement<{ color?: string; size?: number; strokeWidth?: number }>;
-  label: string;
-  onPress?: () => void;
-}) {
-  const color = active ? '#FF4B10' : '#5B5C61';
-  return (
-    <Pressable disabled={!onPress} onPress={onPress} style={s.teacherNavItem}>
-      <View style={[s.teacherNavIndicator, active && s.teacherNavIndicatorActive]} />
-      {React.cloneElement(icon, { color, size: 27, strokeWidth: active ? 3 : 2.6 })}
-      <Text style={[s.teacherNavLabel, active && s.teacherNavLabelActive]}>{label}</Text>
-    </Pressable>
   );
 }
 
@@ -2041,6 +1861,455 @@ function getTeacherDisplayName(name?: string) {
     return pieces[0];
   }
   return pieces.slice(0, 2).join(' ');
+}
+
+function createTeacherPortalStyles(): Record<string, any> {
+  const palette = {
+    background: '#F7F8F5',
+    header: '#FFFFFF',
+    text: '#07111F',
+    muted: '#667085',
+    surface: '#FFFFFF',
+    border: '#E5E8EE',
+    rowLine: '#EEF1F4',
+    orange: '#FF6B1A',
+    orangeSoft: '#FFF3EA',
+    green: '#138A43',
+    greenSoft: '#EBF9F0',
+    shadow: '#0B1726',
+  };
+
+  return {
+    ...s,
+    backIconColor: '#111827',
+    mutedIconColor: '#667085',
+    sortIconColor: '#111827',
+    chevronColor: '#7A8494',
+    filterIconSize: 19,
+    teacherListPortal: [
+      s.teacherListPortal,
+      {
+        backgroundColor: palette.background,
+      },
+    ],
+    listPortalHeader: [
+      s.listPortalHeader,
+      {
+        backgroundColor: palette.header,
+        borderBottomWidth: 0,
+        elevation: 0,
+        minHeight: 86,
+        paddingBottom: 18,
+        paddingHorizontal: 18,
+        paddingTop: 18,
+        shadowOpacity: 0,
+      },
+    ],
+    back: [s.back, { minWidth: 74 }],
+    backText: [
+      s.backText,
+      {
+        color: '#111827',
+        fontSize: 15,
+        fontWeight: '800',
+      },
+    ],
+    titleBlock: {
+      alignItems: 'center',
+      flex: 1,
+      minWidth: 0,
+      paddingHorizontal: 4,
+    },
+    headerTitle: [
+      s.headerTitle,
+      {
+        color: palette.text,
+        fontSize: 22,
+        fontWeight: '900',
+        letterSpacing: 0,
+        lineHeight: 27,
+      },
+    ],
+    portalNewButton: {
+      alignItems: 'center',
+      backgroundColor: palette.orange,
+      borderRadius: 18,
+      elevation: 5,
+      flexDirection: 'row',
+      gap: 4,
+      justifyContent: 'center',
+      minHeight: 44,
+      minWidth: 84,
+      paddingHorizontal: 14,
+      shadowColor: palette.orange,
+      shadowOffset: { width: 0, height: 8 },
+      shadowOpacity: 0.22,
+      shadowRadius: 14,
+    },
+    portalNewButtonText: {
+      color: '#FFFFFF',
+      fontSize: 15,
+      fontWeight: '900',
+    },
+    portalProfileButton: {
+      alignItems: 'center',
+      backgroundColor: '#FFFFFF',
+      borderColor: palette.orange,
+      borderRadius: 20,
+      borderWidth: 2,
+      elevation: 4,
+      height: 42,
+      justifyContent: 'center',
+      shadowColor: palette.shadow,
+      shadowOffset: { width: 0, height: 7 },
+      shadowOpacity: 0.1,
+      shadowRadius: 14,
+      width: 42,
+    },
+    portalProfileInitials: {
+      color: palette.green,
+      fontSize: 14,
+      fontWeight: '900',
+    },
+    portalActionGroup: {
+      alignItems: 'center',
+      flexDirection: 'row',
+      gap: 7,
+      justifyContent: 'flex-end',
+      minWidth: 128,
+    },
+    portalIconButton: {
+      alignItems: 'center',
+      backgroundColor: '#FFFFFF',
+      borderColor: '#E6EBF0',
+      borderRadius: 18,
+      borderWidth: 1,
+      elevation: 3,
+      height: 38,
+      justifyContent: 'center',
+      shadowColor: palette.shadow,
+      shadowOffset: { width: 0, height: 6 },
+      shadowOpacity: 0.08,
+      shadowRadius: 12,
+      width: 38,
+    },
+    portalActionIconColor: palette.orange,
+    segmented: [
+      s.segmented,
+      {
+        backgroundColor: '#F0F3F1',
+        borderColor: '#E4E9E5',
+        borderRadius: 18,
+        borderWidth: 1,
+        elevation: 2,
+        marginBottom: 18,
+        marginHorizontal: 22,
+        marginTop: 0,
+        padding: 5,
+        shadowColor: palette.shadow,
+        shadowOffset: { width: 0, height: 8 },
+        shadowOpacity: 0.08,
+        shadowRadius: 18,
+      },
+    ],
+    seg: [s.seg, { borderRadius: 14, minHeight: 50, paddingVertical: 13 }],
+    segActive: [
+      s.segActive,
+      {
+        backgroundColor: '#FFFFFF',
+        elevation: 3,
+        shadowColor: palette.shadow,
+        shadowOffset: { width: 0, height: 7 },
+        shadowOpacity: 0.1,
+        shadowRadius: 14,
+      },
+    ],
+    segText: [
+      s.segText,
+      {
+        color: palette.muted,
+        fontSize: 15,
+        fontWeight: '900',
+      },
+    ],
+    segTextActive: [
+      s.segTextActive,
+      {
+        color: palette.green,
+      },
+    ],
+    content: [
+      s.content,
+      {
+        gap: 18,
+        paddingBottom: 36,
+        paddingHorizontal: 16,
+        paddingTop: 0,
+      },
+    ],
+    filterRow: [
+      s.filterRow,
+      {
+        flexWrap: 'nowrap',
+        gap: 10,
+        justifyContent: 'space-between',
+        zIndex: 20,
+      },
+    ],
+    dropdownWrap: [s.dropdownWrap, { flexShrink: 1, zIndex: 30 }],
+    chip: [
+      s.chip,
+      {
+        backgroundColor: '#FFFFFF',
+        borderColor: palette.border,
+        borderRadius: 17,
+        borderWidth: 1,
+        elevation: 1,
+        minHeight: 44,
+        paddingHorizontal: 11,
+        paddingVertical: 10,
+        shadowColor: palette.shadow,
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.05,
+        shadowRadius: 9,
+      },
+    ],
+    chipText: [
+      s.chipText,
+      {
+        color: palette.text,
+        fontSize: 13,
+        fontWeight: '900',
+      },
+    ],
+    menu: [
+      s.menu,
+      {
+        backgroundColor: '#FFFFFF',
+        borderColor: palette.border,
+        borderRadius: 16,
+        shadowColor: palette.shadow,
+        shadowOffset: { width: 0, height: 12 },
+        shadowOpacity: 0.12,
+        shadowRadius: 20,
+        top: 50,
+      },
+    ],
+    menuItemActive: [s.menuItemActive, { backgroundColor: palette.orangeSoft }],
+    menuText: [s.menuText, { color: palette.muted, fontSize: 13, fontWeight: '800' }],
+    menuTextActive: [s.menuTextActive, { color: palette.orange }],
+    grid: [s.grid, { gap: 14 }],
+    metric: [
+      s.metric,
+      {
+        backgroundColor: '#FFFFFF',
+        borderColor: palette.border,
+        borderRadius: 18,
+        elevation: 2,
+        justifyContent: 'space-between',
+        minHeight: 130,
+        overflow: 'hidden',
+        paddingHorizontal: 15,
+        paddingVertical: 18,
+        position: 'relative',
+        shadowColor: palette.shadow,
+        shadowOffset: { width: 0, height: 9 },
+        shadowOpacity: 0.07,
+        shadowRadius: 18,
+      },
+    ],
+    metricTopStrip: {
+      height: '100%',
+      left: 0,
+      opacity: 0.58,
+      position: 'absolute',
+      right: 0,
+      top: 0,
+    },
+    metricTopStripGreen: { backgroundColor: '#F7FCF9' },
+    metricTopStripBlue: { backgroundColor: '#EFFAF3' },
+    metricDoodle: {
+      alignItems: 'center',
+      backgroundColor: '#DDF7E8',
+      borderRadius: 14,
+      height: 48,
+      justifyContent: 'center',
+      position: 'absolute',
+      right: 15,
+      top: 17,
+      width: 48,
+    },
+    metricDoodleColor: palette.green,
+    metricLabel: [
+      s.metricLabel,
+      {
+        color: palette.muted,
+        fontSize: 12,
+        fontWeight: '800',
+        letterSpacing: 0,
+        textTransform: 'none',
+      },
+    ],
+    metricValue: [
+      s.metricValue,
+      {
+        color: palette.text,
+        fontSize: 38,
+        fontWeight: '900',
+        lineHeight: 44,
+      },
+    ],
+    metricHint: [
+      s.metricHint,
+      {
+        color: palette.muted,
+        fontSize: 13,
+        fontWeight: '800',
+        marginBottom: 7,
+        marginLeft: 7,
+      },
+    ],
+    metricAccent: [
+      s.metricAccent,
+      {
+        color: palette.green,
+        fontSize: 14,
+        fontWeight: '900',
+        marginBottom: 8,
+        marginLeft: 6,
+      },
+    ],
+    card: [
+      s.card,
+      {
+        backgroundColor: '#FFFFFF',
+        borderColor: palette.border,
+        borderRadius: 18,
+        elevation: 2,
+        overflow: 'hidden',
+        shadowColor: palette.shadow,
+        shadowOffset: { width: 0, height: 9 },
+        shadowOpacity: 0.06,
+        shadowRadius: 18,
+      },
+    ],
+    cardHeader: [
+      s.cardHeader,
+      {
+        backgroundColor: '#FFFFFF',
+        borderColor: palette.rowLine,
+        minHeight: 58,
+        paddingHorizontal: 16,
+        paddingVertical: 15,
+      },
+    ],
+    cardHeaderText: [
+      s.cardHeaderText,
+      {
+        color: palette.text,
+        fontSize: 16,
+        fontWeight: '900',
+        letterSpacing: 0,
+        textTransform: 'none',
+      },
+    ],
+    cardHeaderMeta: [
+      s.cardHeaderMeta,
+      {
+        color: palette.muted,
+        fontSize: 12,
+        fontWeight: '800',
+      },
+    ],
+    row: [
+      s.row,
+      {
+        backgroundColor: '#FFFFFF',
+        borderColor: palette.rowLine,
+        minHeight: 91,
+        paddingHorizontal: 16,
+        paddingVertical: 15,
+      },
+    ],
+    rowLead: [s.rowLead, { gap: 14 }],
+    rowTitle: [
+      s.rowTitle,
+      {
+        color: palette.text,
+        fontSize: 16,
+        fontWeight: '900',
+        lineHeight: 21,
+      },
+    ],
+    rowMeta: [
+      s.rowMeta,
+      {
+        color: palette.muted,
+        fontSize: 13,
+        fontWeight: '700',
+        lineHeight: 18,
+      },
+    ],
+    rowEnd: [s.rowEnd, { gap: 10 }],
+    scoreWrap: [s.scoreWrap, { alignItems: 'center', minWidth: 52 }],
+    score: [
+      s.score,
+      {
+        fontSize: 18,
+        fontWeight: '900',
+        lineHeight: 22,
+      },
+    ],
+    rowTiny: [
+      s.rowTiny,
+      {
+        color: palette.muted,
+        fontSize: 11,
+        fontWeight: '800',
+        lineHeight: 14,
+        textTransform: 'uppercase',
+      },
+    ],
+    avatarLargeSize: 54,
+    avatarArtFallback: true,
+    avatar: [
+      s.avatar,
+      {
+        backgroundColor: '#EEF5F0',
+        borderColor: '#E2E8E4',
+        borderWidth: 1,
+      },
+    ],
+    avatarText: [s.avatarText, { color: palette.green, fontSize: 14, fontWeight: '900' }],
+    goodText: [s.goodText, { color: palette.green }],
+    warnText: [s.warnText, { color: '#D97706' }],
+    badText: [s.badText, { color: '#D9480F' }],
+    assignmentList: [s.assignmentList, { gap: 10 }],
+    assignmentCard: [
+      s.assignmentCard,
+      {
+        backgroundColor: palette.surface,
+        borderColor: palette.border,
+        borderRadius: 18,
+        shadowColor: palette.shadow,
+        shadowOffset: { width: 0, height: 8 },
+        shadowOpacity: 0.06,
+        shadowRadius: 16,
+      },
+    ],
+    assignmentTitle: [s.assignmentTitle, { color: palette.text }],
+    assignmentMeta: [s.assignmentMeta, { color: palette.muted }],
+    date: [s.date, { color: palette.muted }],
+    primary: [
+      s.primary,
+      {
+        backgroundColor: palette.orange,
+        borderRadius: 18,
+      },
+    ],
+    track: [s.track, { backgroundColor: '#E7ECE9' }],
+    fill: [s.fill, { backgroundColor: palette.green }],
+  };
 }
 
 function getInitials(name: string) {
@@ -2753,6 +3022,32 @@ const s = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F6F7F9',
   },
+  floatingModalOverlay: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(7,17,31,0.44)',
+    paddingHorizontal: 14,
+    paddingVertical: 28,
+  },
+  floatingModalBackdrop: {
+    ...StyleSheet.absoluteFillObject,
+  },
+  assignmentModalCard: {
+    width: '100%',
+    maxWidth: 398,
+    maxHeight: Math.min(SCREEN.height - 56, 760),
+    backgroundColor: '#FFFFFF',
+    borderRadius: 30,
+    overflow: 'hidden',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.88)',
+    shadowColor: '#07111F',
+    shadowOffset: { width: 0, height: 24 },
+    shadowOpacity: 0.24,
+    shadowRadius: 42,
+    elevation: 18,
+  },
   header: {
     backgroundColor: 'rgba(255,255,255,0.95)',
     borderBottomWidth: 1,
@@ -2766,7 +3061,21 @@ const s = StyleSheet.create({
   back: { flexDirection: 'row', alignItems: 'center', gap: 2 },
   backText: { color: '#1D4ED8', fontWeight: '800', fontSize: 16 },
   backTextOrange: { color: '#FF4B10', fontWeight: '800', fontSize: 16 },
-  headerTitle: { color: '#111827', fontWeight: '800', fontSize: 16 },
+  headerTitle: { color: '#111827', fontWeight: '900', fontSize: 18 },
+  portalNewButton: {
+    alignItems: 'center',
+    backgroundColor: '#EFF6FF',
+    borderRadius: 999,
+    flexDirection: 'row',
+    gap: 5,
+    minHeight: 40,
+    paddingHorizontal: 13,
+  },
+  portalNewText: {
+    color: '#1D4ED8',
+    fontSize: 16,
+    fontWeight: '900',
+  },
   spacer: { width: 56 },
   heroCard: {
     backgroundColor: '#0B2D4D',
@@ -3335,15 +3644,159 @@ const s = StyleSheet.create({
     fontSize: 13,
     fontWeight: '900',
   },
-  profileHero: {
+  lessonButtonDisabled: {
+    opacity: 0.58,
+  },
+  messageAudienceScroll: {
+    paddingHorizontal: 14,
+    paddingVertical: 13,
+  },
+  messageAudienceChip: {
     alignItems: 'center',
+    backgroundColor: '#F8FAFC',
+    borderColor: '#DCE3EC',
+    borderRadius: 999,
+    borderWidth: 1,
+    flexDirection: 'row',
+    gap: 7,
+    marginRight: 8,
+    minHeight: 38,
+    paddingHorizontal: 13,
+  },
+  messageAudienceChipActive: {
+    backgroundColor: '#FF6B1A',
+    borderColor: '#FF6B1A',
+  },
+  messageAudienceText: {
+    color: '#0F172A',
+    fontSize: 12,
+    fontWeight: '900',
+  },
+  messageAudienceTextActive: {
+    color: '#FFFFFF',
+  },
+  messageComposer: {
+    borderTopColor: '#EEF2F7',
+    borderTopWidth: 1,
+    padding: 14,
+  },
+  messageComposerLabel: {
+    color: '#475569',
+    fontSize: 11,
+    fontWeight: '900',
+    marginBottom: 8,
+    textTransform: 'uppercase',
+  },
+  messageInput: {
+    backgroundColor: '#F8FAFC',
+    borderColor: '#DCE3EC',
+    borderRadius: 13,
+    borderWidth: 1,
+    color: '#020617',
+    fontSize: 13,
+    fontWeight: '700',
+    lineHeight: 18,
+    minHeight: 86,
+    paddingHorizontal: 13,
+    paddingVertical: 12,
+    textAlignVertical: 'top',
+  },
+  messageSendButton: {
+    alignItems: 'center',
+    alignSelf: 'flex-end',
+    backgroundColor: '#138A43',
+    borderRadius: 999,
+    justifyContent: 'center',
+    marginTop: 10,
+    minHeight: 42,
+    minWidth: 104,
+    paddingHorizontal: 18,
+  },
+  messageSendText: {
+    color: '#FFFFFF',
+    fontSize: 13,
+    fontWeight: '900',
+  },
+  messageThread: {
+    borderTopColor: '#EEF2F7',
+    borderTopWidth: 1,
+    gap: 10,
+    padding: 14,
+  },
+  messageEmptyState: {
+    backgroundColor: '#F8FAFC',
+    borderColor: '#E3E8EF',
+    borderRadius: 13,
+    borderWidth: 1,
+    padding: 14,
+  },
+  messageBubble: {
+    borderRadius: 14,
+    maxWidth: '88%',
+    paddingHorizontal: 13,
+    paddingVertical: 10,
+  },
+  messageBubbleTeacher: {
+    alignSelf: 'flex-end',
+    backgroundColor: '#EAFBF0',
+    borderColor: '#BFEBCD',
+    borderWidth: 1,
+  },
+  messageBubbleParent: {
+    alignSelf: 'flex-start',
+    backgroundColor: '#FFF4EC',
+    borderColor: '#FFDCC6',
+    borderWidth: 1,
+  },
+  messageBubbleSender: {
+    color: '#475569',
+    fontSize: 10,
+    fontWeight: '900',
+    marginBottom: 4,
+    textTransform: 'uppercase',
+  },
+  messageBubbleBody: {
+    color: '#07111F',
+    fontSize: 13,
+    fontWeight: '700',
+    lineHeight: 18,
+  },
+  messageBubbleTime: {
+    color: '#64748B',
+    fontSize: 10,
+    fontWeight: '700',
+    marginTop: 7,
+  },
+  profileHero: {
     backgroundColor: '#FFFFFF',
     borderColor: '#FFE0D2',
     borderRadius: 18,
     borderWidth: 1,
+    gap: 4,
+    overflow: 'visible',
+    padding: 16,
+    zIndex: 12,
+  },
+  profileHeroTop: {
+    alignItems: 'center',
     flexDirection: 'row',
     gap: 12,
-    padding: 16,
+    marginBottom: 2,
+    paddingRight: 46,
+  },
+  profileEditButton: {
+    alignItems: 'center',
+    backgroundColor: '#FFF2EC',
+    borderColor: '#FFD1BC',
+    borderRadius: 19,
+    borderWidth: 1,
+    height: 38,
+    justifyContent: 'center',
+    position: 'absolute',
+    right: 16,
+    top: 16,
+    width: 38,
+    zIndex: 2,
   },
   profileAvatar: {
     alignItems: 'center',
@@ -3363,11 +3816,78 @@ const s = StyleSheet.create({
     fontWeight: '700',
     marginTop: 3,
   },
+  profileCountryWrap: {
+    alignItems: 'flex-end',
+    minWidth: 56,
+    position: 'relative',
+    zIndex: 50,
+  },
+  profileCountryButton: {
+    alignItems: 'center',
+    backgroundColor: 'transparent',
+    flexDirection: 'row',
+    gap: 3,
+    height: 36,
+    justifyContent: 'center',
+    width: 48,
+  },
+  profileCountryFlag: { fontSize: 21 },
+  profileCountryMenu: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#E5E7EB',
+    borderRadius: 16,
+    borderWidth: 1,
+    elevation: 10,
+    overflow: 'hidden',
+    position: 'absolute',
+    right: 0,
+    shadowColor: '#0F172A',
+    shadowOffset: { width: 0, height: 12 },
+    shadowOpacity: 0.14,
+    shadowRadius: 18,
+    top: 48,
+    width: 174,
+    zIndex: 60,
+  },
+  profileCountryItem: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 9,
+    paddingHorizontal: 12,
+    paddingVertical: 11,
+  },
+  profileCountryItemActive: { backgroundColor: '#FFF2EC' },
+  profileCountryItemFlag: { fontSize: 18 },
+  profileCountryItemText: {
+    color: '#374151',
+    fontSize: 13,
+    fontWeight: '800',
+  },
+  profileCountryItemTextActive: { color: '#FF4B10' },
   profileField: {
     borderTopColor: '#F3F4F6',
     borderTopWidth: 1,
-    paddingHorizontal: 16,
+    paddingHorizontal: 0,
     paddingVertical: 12,
+  },
+  profileHeroFields: {
+    marginTop: 8,
+  },
+  profileSummaryGrid: {
+    borderTopColor: '#F3F4F6',
+    borderTopWidth: 1,
+    gap: 10,
+    marginTop: 14,
+    paddingTop: 14,
+  },
+  profileSummaryItem: {
+    paddingVertical: 1,
+  },
+  profileSummaryValue: {
+    color: '#111827',
+    fontSize: 14,
+    fontWeight: '800',
+    lineHeight: 19,
   },
   profileLabel: {
     color: '#6B7280',
@@ -3387,6 +3907,151 @@ const s = StyleSheet.create({
     minHeight: 44,
     paddingHorizontal: 12,
     paddingVertical: 10,
+  },
+  profileInputShort: {
+    maxWidth: 190,
+    width: '52%',
+  },
+  profileDropdownField: {
+    overflow: 'visible',
+    zIndex: 10,
+  },
+  profileRegionSelect: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
+  },
+  profileRegionText: {
+    color: '#111827',
+    flexShrink: 1,
+    fontSize: 14,
+    fontWeight: '800',
+  },
+  profileRegionMenu: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#E5E7EB',
+    borderRadius: 14,
+    borderWidth: 1,
+    marginTop: 8,
+    maxHeight: 250,
+    overflow: 'hidden',
+    width: '100%',
+  },
+  profileRegionMenuScroll: { maxHeight: 248 },
+  profileRegionItem: {
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+  },
+  profileRegionItemActive: { backgroundColor: '#ECFDF3' },
+  profileRegionItemText: {
+    color: '#4B5563',
+    fontSize: 13,
+    fontWeight: '800',
+  },
+  profileRegionItemTextActive: { color: '#128A44' },
+  profileSchoolMeta: {
+    color: '#8A94A6',
+    fontSize: 11,
+    fontWeight: '700',
+    marginTop: 3,
+  },
+  profileEditOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 18,
+  },
+  profileEditBackdrop: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(15, 23, 42, 0.42)',
+  },
+  profileEditCard: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#FFE0D2',
+    borderRadius: 24,
+    borderWidth: 1,
+    elevation: 18,
+    maxHeight: '86%',
+    overflow: 'hidden',
+    shadowColor: '#0F172A',
+    shadowOffset: { width: 0, height: 22 },
+    shadowOpacity: 0.2,
+    shadowRadius: 30,
+    width: '100%',
+  },
+  profileEditHeader: {
+    alignItems: 'center',
+    borderBottomColor: '#F3F4F6',
+    borderBottomWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 18,
+    paddingVertical: 16,
+  },
+  profileEditTitle: {
+    color: '#111827',
+    fontSize: 19,
+    fontWeight: '900',
+  },
+  profileEditSubtitle: {
+    color: '#6B7280',
+    fontSize: 12,
+    fontWeight: '800',
+    marginTop: 3,
+  },
+  profileEditClose: {
+    alignItems: 'center',
+    backgroundColor: '#F9FAFB',
+    borderColor: '#E5E7EB',
+    borderRadius: 18,
+    borderWidth: 1,
+    height: 36,
+    justifyContent: 'center',
+    width: 36,
+  },
+  profileEditContent: {
+    paddingHorizontal: 18,
+    paddingVertical: 4,
+  },
+  profileEditFooter: {
+    borderTopColor: '#F3F4F6',
+    borderTopWidth: 1,
+    flexDirection: 'row',
+    gap: 10,
+    padding: 14,
+  },
+  profileEditCancel: {
+    alignItems: 'center',
+    backgroundColor: '#F9FAFB',
+    borderColor: '#E5E7EB',
+    borderRadius: 14,
+    borderWidth: 1,
+    flex: 1,
+    justifyContent: 'center',
+    minHeight: 46,
+  },
+  profileEditCancelText: {
+    color: '#374151',
+    fontSize: 14,
+    fontWeight: '900',
+  },
+  profileEditSave: {
+    alignItems: 'center',
+    backgroundColor: '#FF4B10',
+    borderRadius: 14,
+    flex: 1,
+    justifyContent: 'center',
+    minHeight: 46,
+    shadowColor: '#FF4B10',
+    shadowOffset: { width: 0, height: 10 },
+    shadowOpacity: 0.18,
+    shadowRadius: 16,
+  },
+  profileEditSaveText: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: '900',
   },
   profileChipGrid: {
     flexDirection: 'row',
@@ -3677,109 +4342,186 @@ const s = StyleSheet.create({
     fontWeight: '800',
     textTransform: 'uppercase',
   },
-  wizardRoot: { flex: 1, backgroundColor: '#F2F2F7' },
+  wizardRoot: {
+    backgroundColor: '#FFFFFF',
+    maxHeight: '100%',
+    position: 'relative',
+  },
+  modalGrabber: {
+    alignSelf: 'center',
+    width: 44,
+    height: 5,
+    borderRadius: 999,
+    backgroundColor: '#E7EBEA',
+    marginTop: 10,
+    marginBottom: 2,
+  },
   wizardHead: {
-    backgroundColor: '#FFF',
+    backgroundColor: '#FFFFFF',
     borderBottomWidth: 1,
-    borderColor: '#E5E7EB',
+    borderColor: '#EDF0EF',
     paddingHorizontal: 16,
-    paddingVertical: 14,
+    paddingTop: 10,
+    paddingBottom: 12,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  wizardContent: { padding: 16, paddingBottom: 120 },
-  wizardInner: { gap: 24, maxWidth: 440, alignSelf: 'center', width: '100%' },
-  cancelText: { color: '#6B7280', fontWeight: '500', fontSize: 14 },
-  actionText: { color: '#2563EB', fontWeight: '800', fontSize: 14 },
-  center: { alignItems: 'center', paddingVertical: 8 },
-  emoji: { fontSize: 36, marginBottom: 6 },
-  wizardTitle: { color: '#111827', fontWeight: '800', fontSize: 18 },
-  twoCol: { flexDirection: 'row', gap: 12, zIndex: 6 },
-  flexField: { flex: 1 },
-  field: { gap: 6, marginBottom: 14 },
-  input: {
-    backgroundColor: '#F9FAFB',
+  modalCloseButton: {
+    minWidth: 72,
+    minHeight: 38,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 999,
+    backgroundColor: '#F4F6F3',
+  },
+  modalCloseButtonGhost: { minWidth: 72, minHeight: 38 },
+  wizardHeaderCenter: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    minWidth: 0,
+    paddingHorizontal: 6,
+  },
+  wizardHeaderTitle: {
+    color: '#07111F',
+    fontSize: 17,
+    fontWeight: '900',
+    letterSpacing: 0,
+  },
+  regenerateButton: {
+    minWidth: 72,
+    minHeight: 38,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 999,
+    backgroundColor: '#FFF4EC',
+  },
+  wizardContent: { paddingHorizontal: 16, paddingTop: 16, paddingBottom: 18 },
+  wizardScroll: { maxHeight: Math.min(SCREEN.height - 230, 610) },
+  wizardInner: { gap: 16, maxWidth: 440, alignSelf: 'center', width: '100%' },
+  cancelText: { color: '#667085', fontWeight: '900', fontSize: 13 },
+  actionText: { color: '#F97316', fontWeight: '900', fontSize: 12 },
+  wizardTitle: { color: '#07111F', fontWeight: '900', fontSize: 21, letterSpacing: 0 },
+  wizardCard: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 24,
     borderWidth: 1,
-    borderColor: '#D1D5DB',
-    borderRadius: 14,
+    borderColor: '#E9EEE9',
+    padding: 15,
+    shadowColor: '#0F172A',
+    shadowOffset: { width: 0, height: 12 },
+    shadowOpacity: 0.08,
+    shadowRadius: 22,
+    elevation: 3,
+  },
+  twoCol: { flexDirection: 'row', gap: 10, zIndex: 8 },
+  flexField: { flex: 1 },
+  field: { gap: 7, marginBottom: 13 },
+  input: {
+    backgroundColor: '#FAFBF8',
+    borderWidth: 1,
+    borderColor: '#E1E7E1',
+    borderRadius: 16,
     paddingHorizontal: 14,
     paddingVertical: 12,
-    color: '#111827',
+    color: '#07111F',
     fontSize: 14,
-    fontWeight: '600',
+    fontWeight: '700',
   },
-  textArea: { minHeight: 128, textAlignVertical: 'top' },
-  selectWrap: { position: 'relative', zIndex: 6 },
+  textArea: { minHeight: 112, textAlignVertical: 'top' },
+  selectWrap: { position: 'relative', zIndex: 8 },
   selectField: {
     minHeight: 50,
-    backgroundColor: '#F9FAFB',
+    backgroundColor: '#FAFBF8',
     borderWidth: 1,
-    borderColor: '#D1D5DB',
-    borderRadius: 14,
+    borderColor: '#E1E7E1',
+    borderRadius: 16,
     paddingHorizontal: 14,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-  selectFieldText: { color: '#111827', fontSize: 14, fontWeight: '700', flexShrink: 1 },
+  selectFieldText: { color: '#07111F', fontSize: 14, fontWeight: '800', flexShrink: 1 },
   selectMenu: {
     position: 'absolute',
     top: 56,
     left: 0,
     right: 0,
-    backgroundColor: '#FFF',
-    borderRadius: 16,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 18,
     borderWidth: 1,
-    borderColor: '#E5E7EB',
+    borderColor: '#E3E9E3',
     overflow: 'hidden',
-    zIndex: 12,
+    zIndex: 20,
+    shadowColor: '#0F172A',
+    shadowOffset: { width: 0, height: 10 },
+    shadowOpacity: 0.12,
+    shadowRadius: 18,
+    elevation: 8,
   },
   generate: {
     minHeight: 56,
-    borderRadius: 16,
-    backgroundColor: '#2563EB',
+    borderRadius: 18,
+    backgroundColor: '#F97316',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     gap: 8,
+    shadowColor: '#F97316',
+    shadowOffset: { width: 0, height: 10 },
+    shadowOpacity: 0.24,
+    shadowRadius: 18,
+    elevation: 5,
   },
-  generateDisabled: { backgroundColor: '#D1D5DB' },
-  editorStack: { gap: 16, maxWidth: 440, alignSelf: 'center', width: '100%' },
+  publishButton: {
+    backgroundColor: '#128A44',
+    shadowColor: '#128A44',
+  },
+  generateDisabled: {
+    backgroundColor: '#D2D8D2',
+    shadowOpacity: 0,
+  },
+  editorStack: { gap: 14, maxWidth: 440, alignSelf: 'center', width: '100%' },
   titleInput: {
-    color: '#111827',
+    color: '#07111F',
     fontSize: 18,
-    fontWeight: '800',
+    fontWeight: '900',
     paddingVertical: 0,
     marginTop: 8,
   },
   descInput: {
-    color: '#374151',
+    color: '#4A5565',
     fontSize: 14,
-    fontWeight: '500',
+    fontWeight: '700',
     minHeight: 64,
     textAlignVertical: 'top',
     paddingVertical: 0,
     marginTop: 8,
   },
   questionCard: {
-    backgroundColor: '#FFF',
-    borderRadius: 20,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 22,
     borderWidth: 1,
-    borderColor: '#E5E7EB',
+    borderColor: '#E9EEE9',
     padding: 16,
     position: 'relative',
+    shadowColor: '#0F172A',
+    shadowOffset: { width: 0, height: 10 },
+    shadowOpacity: 0.06,
+    shadowRadius: 18,
+    elevation: 2,
   },
   typeBadge: {
     position: 'absolute',
     top: 16,
     right: 16,
-    backgroundColor: '#F3F4F6',
+    backgroundColor: '#FFF4EC',
     borderWidth: 1,
-    borderColor: '#E5E7EB',
+    borderColor: '#FED7AA',
     borderRadius: 8,
     overflow: 'hidden',
-    color: '#6B7280',
+    color: '#C2410C',
     fontSize: 10,
     fontWeight: '800',
     textTransform: 'uppercase',
@@ -3810,25 +4552,25 @@ const s = StyleSheet.create({
     textTransform: 'uppercase',
   },
   optionRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
-  optionDot: { width: 6, height: 6, borderRadius: 3, backgroundColor: '#2563EB' },
+  optionDot: { width: 6, height: 6, borderRadius: 3, backgroundColor: '#F97316' },
   optionInput: {
     flex: 1,
-    backgroundColor: '#F9FAFB',
+    backgroundColor: '#FAFBF8',
     borderWidth: 1,
-    borderColor: '#D1D5DB',
-    borderRadius: 8,
+    borderColor: '#E1E7E1',
+    borderRadius: 12,
     paddingHorizontal: 10,
     paddingVertical: 8,
-    color: '#111827',
+    color: '#07111F',
     fontSize: 12,
-    fontWeight: '600',
+    fontWeight: '700',
   },
   addOptionButton: { flexDirection: 'row', alignItems: 'center', gap: 6, paddingLeft: 12 },
-  addOptionText: { color: '#1D4ED8', fontSize: 11, fontWeight: '800' },
+  addOptionText: { color: '#F97316', fontSize: 11, fontWeight: '900' },
   answerKeyCard: {
-    backgroundColor: '#F0FDF4',
+    backgroundColor: '#ECF8EF',
     borderWidth: 1,
-    borderColor: '#BBF7D0',
+    borderColor: '#BDE7C8',
     borderRadius: 16,
     padding: 12,
   },
@@ -3841,14 +4583,11 @@ const s = StyleSheet.create({
   },
   answerKeyInput: { color: '#166534', fontSize: 14, fontWeight: '800', paddingVertical: 0 },
   publishBar: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: '#FFF',
+    backgroundColor: '#FFFFFF',
     borderTopWidth: 1,
-    borderColor: '#E5E7EB',
-    padding: 16,
+    borderColor: '#EDF0EF',
+    paddingHorizontal: 16,
+    paddingVertical: 14,
   },
   toast: {
     position: 'absolute',
@@ -3864,3 +4603,4 @@ const s = StyleSheet.create({
   },
   toastText: { color: '#FFF', fontSize: 13, fontWeight: '800' },
 });
+

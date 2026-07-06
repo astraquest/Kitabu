@@ -271,6 +271,48 @@ Methodology:
   }
 }
 
+export async function generateRemedialAnalysisText(prompt: string): Promise<string | null> {
+  return generateText({
+    prompt,
+    responseMimeType: 'application/json',
+    feature: 'remedial_analysis',
+    timeoutMs: DEFAULT_AI_TIMEOUT_MS,
+  });
+}
+
+export async function generateLessonPlanIdeas(input: {
+  gradeLevel: string;
+  subject: string;
+  topic: string;
+  outcome: string;
+  durationMinutes: number;
+  style: string;
+}): Promise<string> {
+  const prompt = `Create a practical teacher-facing lesson plan and presentation ideas.
+Grade: ${input.gradeLevel}
+Subject: ${input.subject}
+Topic: ${input.topic}
+Learning outcome: ${input.outcome}
+Duration: ${input.durationMinutes} minutes
+Style: ${input.style}
+
+Return concise plain text with:
+1. Hook
+2. Teaching approach
+3. Learner activity
+4. Questions to ask
+5. Common misconception and correction
+6. Exit ticket`;
+
+  const response = await generateText({
+    prompt,
+    feature: 'lesson_plan_generation',
+    timeoutMs: DEFAULT_AI_TIMEOUT_MS,
+  });
+
+  return response?.trim() || 'Could not generate lesson ideas right now.';
+}
+
 export async function askVoiceTutor(
   prompt: string,
   history: ChatMessage[] = [],

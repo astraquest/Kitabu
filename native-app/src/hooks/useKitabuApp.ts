@@ -17,6 +17,7 @@ import {
   SUBJECTS,
 } from '../data/mockData';
 import { DEFAULT_GRADE } from '../constants/grades';
+import { countryNameForCode } from '../constants/locations';
 import {
   getBillingPlans,
   getBillingStatus,
@@ -80,6 +81,7 @@ import {
   getStudentAssignments,
   getTeacherAssignments,
   getTeacherStudents,
+  saveTeacherScope,
   submitStudentAssignment as submitStudentAssignmentRequest,
 } from '../services/teacherService';
 import {
@@ -190,6 +192,10 @@ type OnboardingSignupInput = {
   county?: string;
   school?: string;
   schoolId?: string | null;
+  countryCode?: string;
+  subjects?: string[];
+  teachGrades?: string[];
+  teacherGradeIds?: string[];
   mpesaPhoneNumber?: string;
 };
 
@@ -368,6 +374,25 @@ function mapAuthSessionToProfile(session: AuthSession): UserProfile {
       : user.email.includes('admin')
         ? 'avatar-afro-girl'
         : 'avatar-afro-boy',
+  };
+}
+
+function mergeStoredProfileWithAuthSession(storedProfile: UserProfile, session: AuthSession) {
+  const authProfile = mapAuthSessionToProfile(session);
+  const sameAccount =
+    Boolean(storedProfile.email && authProfile.email) &&
+    storedProfile.email?.toLowerCase() === authProfile.email?.toLowerCase();
+
+  if (!sameAccount) {
+    return authProfile;
+  }
+
+  return {
+    ...authProfile,
+    ...storedProfile,
+    role: authProfile.role,
+    status: authProfile.status,
+    avatar: storedProfile.avatar || authProfile.avatar,
   };
 }
 
@@ -757,7 +782,7 @@ export function useKitabuApp() {
           if (!mounted) {
             return;
           }
-          const nextProfile = mapAuthSessionToProfile(nextSession);
+          const nextProfile = mergeStoredProfileWithAuthSession(storedProfile, nextSession);
           const nextGrade = nextProfile.grade || DEFAULT_GRADE;
           setAuthSession(nextSession);
           setUserProfile(nextProfile);
@@ -1717,6 +1742,12 @@ export function useKitabuApp() {
       setUserProfile({
         ...nextProfile,
         school: selectedSchool?.name || input.school || nextProfile.school,
+        country: countryNameForCode(countryCode),
+        countryCode,
+        county: input.county || selectedSchool?.location || nextProfile.county,
+        region: input.county || selectedSchool?.location || nextProfile.region,
+        taughtGrades: resolvedTeachGrades?.length ? resolvedTeachGrades : nextProfile.taughtGrades,
+        taughtSubjects: input.subjects?.length ? input.subjects : nextProfile.taughtSubjects,
       });
       setCurrentGrade(input.grade);
       if (selectedSubjectIds?.length) {
@@ -2353,6 +2384,23 @@ export function useKitabuApp() {
         });
       }
       completeProviderAuthentication(session);
+      if (input) {
+        const selectedSchool = input.schoolId
+          ? schoolsList.find(school => school.id === input.schoolId)
+          : null;
+        setUserProfile(current => ({
+          ...current,
+          school: selectedSchool?.name || input.school || current.school,
+          country: countryNameForCode(input.countryCode),
+          countryCode: input.countryCode,
+          county: input.county || selectedSchool?.location || current.county,
+          region: input.county || selectedSchool?.location || current.region,
+          taughtGrades: (input.teacherGradeIds || input.teachGrades)?.length
+            ? input.teacherGradeIds || input.teachGrades
+            : current.taughtGrades,
+          taughtSubjects: input.subjects?.length ? input.subjects : current.taughtSubjects,
+        }));
+      }
       triggerHaptic('success');
     } catch (error) {
       const message =
@@ -2973,6 +3021,26 @@ export function useKitabuApp() {
     }));
   }
 
+  function updateUserProfile(profileOrUpdater: UserProfile | ((current: UserProfile) => UserProfile)) {
+    let nextProfile: UserProfile | null = null;
+    setUserProfile(current => {
+      nextProfile =
+        typeof profileOrUpdater === 'function'
+          ? profileOrUpdater(current)
+          : profileOrUpdater;
+      return nextProfile;
+    });
+
+    if (authSession?.user.roles.includes('teacher') && nextProfile) {
+      void saveTeacherScope({
+        grades: nextProfile.taughtGrades ?? [],
+        subjects: nextProfile.taughtSubjects ?? [],
+      }).catch(() => {
+        // Profile edits should remain responsive; teacher data refresh will surface server issues.
+      });
+    }
+  }
+
   function playGame(gameId: string) {
     if (gameId === 'crazy-balloon' || gameId === 'crazy_balloon') {
       navigateTo('crazy_balloon');
@@ -3498,7 +3566,7 @@ export function useKitabuApp() {
       setIsSpotlightMode,
       setIsMuted,
       setSchoolsList,
-      setUserProfile,
+      setUserProfile: updateUserProfile,
       updateCurriculum,
       importCurriculum,
       navigateTo,

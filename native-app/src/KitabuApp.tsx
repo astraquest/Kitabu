@@ -775,6 +775,9 @@ function renderScreen(
           students={state.teacherStudents}
           assignments={state.teacherAssignments}
           submissionsByAssignment={state.submissionsByAssignment}
+          schoolsList={state.schoolsList}
+          userProfile={state.activeUserProfile}
+          onSaveProfile={actions.setUserProfile}
           onPublishAssignment={actions.publishTeacherAssignment}
         />
       );

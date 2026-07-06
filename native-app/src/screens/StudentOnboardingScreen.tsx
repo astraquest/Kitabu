@@ -49,6 +49,9 @@ import { requestPushPermission } from '../services/pushNotifications';
 import { AvatarArt } from '../components/AvatarArt';
 import { GoogleLogo } from '../components/GoogleLogo';
 import {
+  REGIONS_BY_COUNTRY as SHARED_REGIONS_BY_COUNTRY,
+} from '../constants/locations';
+import {
   GenderOption,
   OnboardingAchievementKey,
   OnboardingConcernKey,
@@ -154,28 +157,13 @@ const KENYAN_COUNTIES = [
   'West Pokot',
 ] as const;
 
-// Uganda is administered as districts; this is a representative list of the most
-// populated/known districts across all regions. Admins can add more later.
 const UGANDA_DISTRICTS = [
-  'Kampala', 'Wakiso', 'Mukono', 'Mpigi', 'Buikwe', 'Luwero', 'Nakaseke', 'Nakasongola',
-  'Kayunga', 'Mityana', 'Mubende', 'Kiboga', 'Jinja', 'Iganga', 'Kamuli', 'Mayuge',
-  'Bugiri', 'Busia', 'Tororo', 'Namutumba', 'Kaliro', 'Mbale', 'Sironko', 'Kapchorwa',
-  'Budaka', 'Pallisa', 'Bududa', 'Manafwa', 'Soroti', 'Kumi', 'Katakwi', 'Bukedea',
-  'Serere', 'Lira', 'Dokolo', 'Apac', 'Oyam', 'Kole', 'Gulu', 'Amuru', 'Nwoya',
-  'Kitgum', 'Pader', 'Agago', 'Lamwo', 'Arua', 'Nebbi', 'Zombo', 'Adjumani', 'Moyo',
-  'Yumbe', 'Koboko', 'Maracha', 'Masaka', 'Kalangala', 'Rakai', 'Lyantonde', 'Sembabule',
-  'Mbarara', 'Bushenyi', 'Ntungamo', 'Kabale', 'Kisoro', 'Rukungiri', 'Kanungu', 'Ibanda',
-  'Isingiro', 'Kiruhura', 'Hoima', 'Masindi', 'Kibaale', 'Buliisa', 'Kabarole', 'Kasese',
-  'Kamwenge', 'Kyenjojo', 'Bundibugyo', 'Moroto', 'Kotido', 'Kaabong', 'Nakapiripirit',
+  ...SHARED_REGIONS_BY_COUNTRY.UG.options,
 ] as const;
 
 // Tanzania is administered as regions (mikoa).
 const TANZANIA_REGIONS = [
-  'Arusha', 'Dar es Salaam', 'Dodoma', 'Geita', 'Iringa', 'Kagera', 'Katavi', 'Kigoma',
-  'Kilimanjaro', 'Lindi', 'Manyara', 'Mara', 'Mbeya', 'Morogoro', 'Mtwara', 'Mwanza',
-  'Njombe', 'Pemba North', 'Pemba South', 'Pwani (Coast)', 'Rukwa', 'Ruvuma', 'Shinyanga',
-  'Simiyu', 'Singida', 'Songwe', 'Tabora', 'Tanga', 'Zanzibar North (Unguja North)',
-  'Zanzibar South (Unguja South)', 'Zanzibar West (Mjini Magharibi)',
+  ...SHARED_REGIONS_BY_COUNTRY.TZ.options,
 ] as const;
 
 // Rwanda has four provinces plus Kigali City.
@@ -185,9 +173,7 @@ const RWANDA_PROVINCES = [
 
 // Ethiopia has regional states plus two federally chartered cities.
 const ETHIOPIA_STATES = [
-  'Addis Ababa (Chartered City)', 'Dire Dawa (Chartered City)', 'Afar', 'Amhara',
-  'Benishangul-Gumuz', 'Central Ethiopia', 'Gambela', 'Harari', 'Oromia', 'Sidama',
-  'Somali', 'South Ethiopia', 'South West Ethiopia Peoples', 'Tigray',
+  ...SHARED_REGIONS_BY_COUNTRY.ET.options,
 ] as const;
 
 // Per-country administrative region lists plus the local label used in the picker.
@@ -4045,7 +4031,7 @@ export function StudentOnboardingScreen({
             ...(selectedInterestKeys.length ? { interests: selectedInterestKeys } : {}),
             ...(selectedInterestKeys.length ? { interestKeys: selectedInterestKeys } : {}),
             reminderEnabled,
-            countryCode: 'KE',
+            countryCode,
             curriculumCode: 'CBC',
             ...(role === 'parent'
               ? {

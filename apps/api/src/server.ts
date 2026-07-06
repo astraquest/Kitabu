@@ -58,6 +58,9 @@ import {
   createSubjectEngagementEvent,
   ensureWeeklyExam,
   createDiagnosticSession,
+  createParentTeacherMessage,
+  createTeacherLessonPlan,
+  createTeacherParentMessages,
   createPaymentRequest,
   createPhoneVerificationCode,
   createEmptyCurriculumSubject,
@@ -118,6 +121,9 @@ import {
   linkParentStudentByPhone,
   linkUserAuthIdentity,
   listParentChildrenDashboard,
+  listParentTeacherMessages,
+  listTeacherParentMessages,
+  listTeacherParents,
   listAssignmentSubmissionsForTeacher,
   listLearningPodcastsForUser,
   listQuizBankQuestions,
@@ -147,6 +153,8 @@ import {
   revokeAllRefreshTokensForUser,
   revokeRefreshTokensForSession,
   replaceActiveSubscription,
+  replaceTeacherTeachingScopes,
+  replaceUserSubjectPreferences,
   unlinkParentStudent,
   completeDiagnosticSession,
   saveCurriculumSubStrandPages,
@@ -367,6 +375,7 @@ const onboardingSchema = z.object({
   schoolId: z.string().uuid(),
   gender: z.enum(['male', 'female', 'not_specified']),
   grade: z.string().trim().min(2).max(40),
+  subjects: z.array(z.string().trim().min(1).max(80)).max(20).optional(),
   mpesaPhoneNumber: z.string().trim().min(9).max(20).nullable().optional()
 });
 
@@ -398,6 +407,38 @@ const teacherAssignmentSchema = z.object({
     correctAnswer: z.union([z.string(), z.boolean()]).optional(),
     explanation: z.string().optional()
   })).min(1)
+});
+
+const teachingScopeSchema = z.object({
+  grades: z.array(z.string().trim().min(2).max(40)).max(20).default([]),
+  subjects: z.array(z.string().trim().min(1).max(80)).max(40).default([]),
+  subjectsByGrade: z.record(z.string(), z.array(z.string().trim().min(1).max(80))).optional()
+});
+
+const teacherParentMessageQuerySchema = z.object({
+  gradeLevel: z.string().trim().min(2).max(40).optional(),
+  parentUserId: z.string().uuid().optional()
+});
+
+const teacherParentMessageSchema = z.object({
+  gradeLevel: z.string().trim().min(2).max(40),
+  parentUserId: z.string().uuid().nullable().optional(),
+  body: z.string().trim().min(1).max(2000)
+});
+
+const parentTeacherMessageSchema = z.object({
+  teacherUserId: z.string().uuid(),
+  body: z.string().trim().min(1).max(2000)
+});
+
+const teacherLessonPlanSchema = z.object({
+  gradeLevel: z.string().trim().min(2).max(40),
+  subject: z.string().trim().min(1).max(80),
+  topic: z.string().trim().min(1).max(240),
+  outcome: z.string().trim().min(1).max(1000),
+  durationMinutes: z.number().int().min(10).max(240),
+  style: z.string().trim().min(1).max(80),
+  plan: z.unknown()
 });
 
 const assignmentParamsSchema = z.object({
@@ -1763,17 +1804,22 @@ function serializeQuizBankQuestion(
   return {
     id: index + 1,
     bankId: question.id,
+    countryCode: question.country_code,
+    curriculumCode: question.curriculum_code,
     gradeLevel: question.grade_level,
     subjectId: question.subject_id,
     subjectName: question.subject_name,
     strand: question.strand_title,
     subStrand: question.sub_strand_title,
+    learningOutcome: question.learning_outcome,
     type: question.type,
     text: question.prompt,
     options: question.options,
     correctAnswer: question.correct_answer,
     explanation: question.explanation,
-    difficulty: question.difficulty
+    difficulty: question.difficulty,
+    cognitiveLevel: question.cognitive_level,
+    featureTags: question.feature_tags
   };
 }
 
@@ -1927,6 +1973,8 @@ function buildDiagnosticResultSummary(answers: Awaited<ReturnType<typeof listDia
 
     const operationalAiFeatures = new Set([
       'assignment_generation',
+      'lesson_plan_generation',
+      'remedial_analysis',
       'curriculum_extraction',
       'curriculum_document_processing',
       'curriculum_import_processing'
@@ -5171,6 +5219,128 @@ Return valid JSON with this shape:
     return reply.status(201).send({ assignmentId });
   });
 
+  app.post('/teacher/teaching-scope', async (request, reply) => {
+    const precondition = await requireRoles(request, reply, ['teacher', 'school_admin', 'platform_admin']);
+    if (precondition) {
+      return precondition;
+    }
+
+    const body = teachingScopeSchema.parse(request.body);
+    const scopes = body.subjectsByGrade
+      ? Object.entries(body.subjectsByGrade).flatMap(([gradeLevel, subjects]) =>
+          subjects.map(subjectName => ({ gradeLevel, subjectName }))
+        )
+      : body.grades.flatMap(gradeLevel =>
+          body.subjects.map(subjectName => ({ gradeLevel, subjectName }))
+        );
+
+    await withTransaction(async client => {
+      await replaceTeacherTeachingScopes(client, request.user!.id, scopes);
+      await createAuditLog(client, request.user!.id, request.user!.schoolId, 'teacher.scope.updated', {
+        scopeCount: scopes.length
+      });
+    });
+
+    return { saved: true, scopeCount: scopes.length };
+  });
+
+  app.get('/teacher/parents', async (request, reply) => {
+    const precondition = await requireRoles(request, reply, ['teacher', 'school_admin', 'platform_admin']);
+    if (precondition) {
+      return precondition;
+    }
+
+    const query = teacherParentMessageQuerySchema.parse(request.query);
+    if (!query.gradeLevel) {
+      return reply.badRequest('gradeLevel is required');
+    }
+    const parents = await listTeacherParents(request.user!, query.gradeLevel);
+    return { parents };
+  });
+
+  app.get('/teacher/messages', async (request, reply) => {
+    const precondition = await requireRoles(request, reply, ['teacher', 'school_admin', 'platform_admin']);
+    if (precondition) {
+      return precondition;
+    }
+
+    const query = teacherParentMessageQuerySchema.parse(request.query);
+    const messages = await listTeacherParentMessages(request.user!, query);
+    return { messages };
+  });
+
+  app.post('/teacher/messages', async (request, reply) => {
+    const precondition = await requireRoles(request, reply, ['teacher', 'school_admin', 'platform_admin']);
+    if (precondition) {
+      return precondition;
+    }
+
+    const body = teacherParentMessageSchema.parse(request.body);
+    const sentCount = await withTransaction(async client => {
+      const count = await createTeacherParentMessages(client, request.user!, {
+        gradeLevel: body.gradeLevel,
+        parentUserId: body.parentUserId,
+        body: body.body
+      });
+      await createAuditLog(client, request.user!.id, request.user!.schoolId, 'teacher.parent_message.sent', {
+        gradeLevel: body.gradeLevel,
+        parentUserId: body.parentUserId,
+        sentCount: count
+      });
+      return count;
+    });
+
+    return reply.status(201).send({ sentCount });
+  });
+
+  app.post('/teacher/lesson-plans', async (request, reply) => {
+    const precondition = await requireRoles(request, reply, ['teacher', 'school_admin', 'platform_admin']);
+    if (precondition) {
+      return precondition;
+    }
+
+    const body = teacherLessonPlanSchema.parse(request.body);
+    const lessonPlanId = await withTransaction(async client => {
+      const id = await createTeacherLessonPlan(client, request.user!, body);
+      await createAuditLog(client, request.user!.id, request.user!.schoolId, 'teacher.lesson_plan.created', {
+        lessonPlanId: id,
+        gradeLevel: body.gradeLevel,
+        subject: body.subject
+      });
+      return id;
+    });
+
+    return reply.status(201).send({ lessonPlanId });
+  });
+
+  app.get('/parent/messages', async (request, reply) => {
+    const precondition = await requireRoles(request, reply, ['parent']);
+    if (precondition) {
+      return precondition;
+    }
+
+    const messages = await listParentTeacherMessages(request.user!);
+    return { messages };
+  });
+
+  app.post('/parent/messages', async (request, reply) => {
+    const precondition = await requireRoles(request, reply, ['parent']);
+    if (precondition) {
+      return precondition;
+    }
+
+    const body = parentTeacherMessageSchema.parse(request.body);
+    const messageId = await withTransaction(async client => {
+      const id = await createParentTeacherMessage(client, request.user!, body);
+      await createAuditLog(client, request.user!.id, request.user!.schoolId, 'parent.teacher_message.sent', {
+        teacherUserId: body.teacherUserId
+      });
+      return id;
+    });
+
+    return reply.status(201).send({ messageId });
+  });
+
   app.get('/admin/users', async (request, reply) => {
     const needsStepUp = request.user?.roles.includes('platform_admin') && !request.user.roles.includes('school_admin');
     const precondition = await requireRoles(request, reply, ['school_admin', 'platform_admin'], {
@@ -5347,6 +5517,7 @@ Return valid JSON with this shape:
         schoolId: body.schoolId,
         gender: body.gender,
         grade: body.grade,
+        subjects: body.subjects,
         mpesaPhoneNumber: normalizedPhone
       });
       await createAuditLog(client, request.user!.id, body.schoolId, 'auth.onboarding.completed', {

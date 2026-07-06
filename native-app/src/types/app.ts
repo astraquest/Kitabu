@@ -249,6 +249,7 @@ export interface Book {
 }
 
 export interface UserProfile {
+  id?: string;
   name: string;
   role?: string;
   grade?: string;
@@ -256,6 +257,13 @@ export interface UserProfile {
   gender: 'male' | 'female' | 'Not Specified';
   avatar?: string;
   school?: string;
+  country?: string;
+  countryCode?: string;
+  county?: string;
+  region?: string;
+  regionLabel?: string;
+  taughtGrades?: string[];
+  taughtSubjects?: string[];
   phone?: string;
   dateJoined?: string;
   lastSeen?: string;

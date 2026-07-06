@@ -7,6 +7,7 @@ import type {
   PasswordResetTokenRecord
 } from './types.js';
 import type { BillingPlanCode } from './payments.js';
+import { resolveQuizBankSubjectIds } from './quizBank.js';
 
 type MaybeClient = PoolClient | typeof db;
 
@@ -438,11 +439,14 @@ export interface WeeklyExamQuestionRecord {
 
 export interface QuizBankQuestionRecord {
   id: string;
+  country_code: string;
+  curriculum_code: string;
   grade_level: string;
   subject_id: string;
   subject_name: string;
   strand_title: string;
   sub_strand_title: string;
+  learning_outcome: string;
   question_number: number;
   type: 'MCQ' | 'TRUE_FALSE' | 'SHORT_ANSWER' | 'ESSAY';
   prompt: string;
@@ -450,6 +454,8 @@ export interface QuizBankQuestionRecord {
   correct_answer: string;
   explanation: string;
   difficulty: number;
+  cognitive_level: 'recall' | 'understand' | 'apply' | 'analyze' | 'create';
+  feature_tags: string[];
 }
 
 export interface WeeklyExamRecord {
@@ -2395,6 +2401,7 @@ export async function updateUserOnboarding(
     gender: 'male' | 'female' | 'not_specified';
     grade: string;
     mpesaPhoneNumber?: string | null;
+    subjects?: string[];
   }
 ) {
   await q(
@@ -2410,6 +2417,10 @@ export async function updateUserOnboarding(
 
   if (input.mpesaPhoneNumber) {
     await upsertBillingProfile(client, input.userId, input.mpesaPhoneNumber);
+  }
+
+  if (input.subjects) {
+    await replaceUserSubjectPreferences(client, input.userId, input.subjects);
   }
 }
 
@@ -4087,22 +4098,16 @@ export async function listQuizBankQuestions(input: {
   subjectId?: string | null;
   limit?: number;
 }): Promise<QuizBankQuestionRecord[]> {
-  const subjectAliases: Record<string, string> = {
-    math: 'mathematics',
-    social: 'social_studies',
-    ai_education: 'computer_science',
-    computer: 'computer_science'
-  };
-  const subjectId = input.subjectId ? subjectAliases[input.subjectId] ?? input.subjectId : null;
-  const values: unknown[] = [input.gradeLevel, subjectId, input.limit ?? 100];
+  const subjectIds = resolveQuizBankSubjectIds(input.subjectId);
+  const values: unknown[] = [input.gradeLevel, subjectIds, input.limit ?? 100];
   const result = await db.query<QuizBankQuestionRecord>(
-    `SELECT id, grade_level, subject_id, subject_name, strand_title, sub_strand_title,
-            question_number, type, prompt, options, correct_answer, explanation, difficulty
+    `SELECT id, country_code, curriculum_code, grade_level, subject_id, subject_name,
+            strand_title, sub_strand_title, learning_outcome, question_number, type,
+            prompt, options, correct_answer, explanation, difficulty, cognitive_level, feature_tags
      FROM quiz_bank_questions
       WHERE grade_level = $1
-      ORDER BY
-        CASE WHEN $2::text IS NOT NULL AND subject_id = $2 THEN 0 ELSE 1 END,
-        question_number ASC
+        AND ($2::text[] IS NULL OR subject_id = ANY($2::text[]))
+      ORDER BY question_number ASC
       LIMIT $3`,
     values
   );
@@ -4321,9 +4326,28 @@ export async function listTeacherStudents(user: AuthenticatedUser): Promise<Teac
      LEFT JOIN user_curriculum_progress ucp ON ucp.user_id = u.id
       WHERE ($1::boolean = TRUE OR u.school_id = $2)
         AND ($3::boolean = FALSE OR $4::text IS NULL OR u.grade_level = $4)
+        AND (
+          $3::boolean = FALSE
+          OR NOT EXISTS (
+            SELECT 1 FROM teacher_teaching_scopes tts
+            WHERE tts.teacher_user_id = $5
+          )
+          OR EXISTS (
+            SELECT 1
+            FROM teacher_teaching_scopes tts
+            LEFT JOIN user_subject_preferences usp
+              ON usp.user_id = u.id
+             AND LOWER(usp.subject_name) = LOWER(tts.subject_name)
+            WHERE tts.teacher_user_id = $5
+              AND tts.grade_level = u.grade_level
+              AND (usp.user_id IS NOT NULL OR NOT EXISTS (
+                SELECT 1 FROM user_subject_preferences existing WHERE existing.user_id = u.id
+              ))
+          )
+        )
       GROUP BY u.id, u.full_name, u.grade_level, s.name, s.location
       ORDER BY u.full_name ASC`,
-    [platformWide, user.schoolId, teacherScoped, user.grade ?? null]
+    [platformWide, user.schoolId, teacherScoped, user.grade ?? null, user.id]
   );
 
   return result.rows.map(row => {
@@ -4340,6 +4364,50 @@ export async function listTeacherStudents(user: AuthenticatedUser): Promise<Teac
       trend: assessmentScore >= 80 ? 'Excellent' : assessmentScore >= 60 ? 'Improving' : 'Stable'
     };
   });
+}
+
+export async function replaceUserSubjectPreferences(
+  client: MaybeClient,
+  userId: string,
+  subjects: string[]
+) {
+  const normalizedSubjects = Array.from(
+    new Set(subjects.map(subject => subject.trim()).filter(Boolean))
+  );
+  await q(client, `DELETE FROM user_subject_preferences WHERE user_id = $1`, [userId]);
+  for (const subject of normalizedSubjects) {
+    await q(
+      client,
+      `INSERT INTO user_subject_preferences (user_id, subject_name)
+       VALUES ($1, $2)
+       ON CONFLICT (user_id, subject_name) DO NOTHING`,
+      [userId, subject]
+    );
+  }
+}
+
+export async function replaceTeacherTeachingScopes(
+  client: MaybeClient,
+  teacherUserId: string,
+  scopes: Array<{ gradeLevel: string; subjectName: string }>
+) {
+  const normalizedScopes = scopes
+    .map(scope => ({
+      gradeLevel: scope.gradeLevel.trim(),
+      subjectName: scope.subjectName.trim()
+    }))
+    .filter(scope => scope.gradeLevel && scope.subjectName);
+
+  await q(client, `DELETE FROM teacher_teaching_scopes WHERE teacher_user_id = $1`, [teacherUserId]);
+  for (const scope of normalizedScopes) {
+    await q(
+      client,
+      `INSERT INTO teacher_teaching_scopes (teacher_user_id, grade_level, subject_name)
+       VALUES ($1, $2, $3)
+       ON CONFLICT (teacher_user_id, grade_level, subject_name) DO NOTHING`,
+      [teacherUserId, scope.gradeLevel, scope.subjectName]
+    );
+  }
 }
 
 export async function listTeacherAssignments(user: AuthenticatedUser): Promise<TeacherAssignmentRecord[]> {
@@ -4459,6 +4527,32 @@ export async function createTeacherAssignment(
     throw new Error('Teacher must belong to a school');
   }
 
+  const teacherScoped =
+    user.roles.includes('teacher') &&
+    !user.roles.includes('school_admin') &&
+    !user.roles.includes('platform_admin');
+  if (teacherScoped) {
+    const scopeResult = await q<{ has_scopes: boolean; matches_scope: boolean }>(
+      client,
+      `SELECT
+         EXISTS (
+           SELECT 1 FROM teacher_teaching_scopes
+           WHERE teacher_user_id = $1
+         ) AS has_scopes,
+         EXISTS (
+           SELECT 1 FROM teacher_teaching_scopes
+           WHERE teacher_user_id = $1
+             AND grade_level = $2
+             AND LOWER(subject_name) = LOWER($3)
+         ) AS matches_scope`,
+      [user.id, input.gradeLevel, input.subject]
+    );
+    const scope = scopeResult.rows[0];
+    if (scope?.has_scopes && !scope.matches_scope) {
+      throw new Error('Teacher is not assigned to this grade and subject');
+    }
+  }
+
   const assignmentResult = await q<{ id: string }>(
     client,
     `INSERT INTO assignments (
@@ -4495,8 +4589,24 @@ export async function createTeacherAssignment(
      JOIN user_roles ur ON ur.user_id = u.id AND ur.role = 'student'
      WHERE u.school_id = $1
        AND ($2::text IS NULL OR u.grade_level = $2)
-       AND ($3::uuid IS NULL OR u.id = $3)`,
-    [user.schoolId, input.gradeLevel || null, input.targetStudentId || null]
+       AND ($3::uuid IS NULL OR u.id = $3)
+       AND (
+         $4::boolean = FALSE
+         OR NOT EXISTS (
+           SELECT 1 FROM teacher_teaching_scopes tts
+           WHERE tts.teacher_user_id = $5
+         )
+         OR EXISTS (
+           SELECT 1 FROM user_subject_preferences usp
+           WHERE usp.user_id = u.id
+             AND LOWER(usp.subject_name) = LOWER($6)
+         )
+         OR NOT EXISTS (
+           SELECT 1 FROM user_subject_preferences existing
+           WHERE existing.user_id = u.id
+         )
+       )`,
+    [user.schoolId, input.gradeLevel || null, input.targetStudentId || null, teacherScoped, user.id, input.subject]
   );
 
   if (input.targetStudentId && !studentRows.rows.length) {
@@ -4514,6 +4624,212 @@ export async function createTeacherAssignment(
   }
 
   return assignmentId;
+}
+
+export interface TeacherParentRecord {
+  id: string;
+  name: string;
+  email: string;
+  phone_number: string | null;
+  child_count: number;
+}
+
+export interface TeacherParentMessageRecord {
+  id: string;
+  teacher_user_id: string;
+  parent_user_id: string;
+  grade_level: string;
+  sender_user_id: string;
+  sender_name: string;
+  body: string;
+  created_at: Date;
+}
+
+export async function listTeacherParents(
+  user: AuthenticatedUser,
+  gradeLevel: string
+): Promise<TeacherParentRecord[]> {
+  if (!user.schoolId) return [];
+  const result = await db.query<TeacherParentRecord>(
+    `SELECT
+       parent.id,
+       parent.full_name AS name,
+       parent.email,
+       parent.phone_number,
+       COUNT(DISTINCT child.id)::int AS child_count
+     FROM parent_students ps
+     JOIN users child ON child.id = ps.student_user_id
+     JOIN users parent ON parent.id = ps.parent_user_id
+     JOIN user_roles parent_role ON parent_role.user_id = parent.id AND parent_role.role = 'parent'
+     WHERE child.school_id = $1
+       AND child.grade_level = $2
+     GROUP BY parent.id, parent.full_name, parent.email, parent.phone_number
+     ORDER BY parent.full_name ASC`,
+    [user.schoolId, gradeLevel]
+  );
+  return result.rows;
+}
+
+export async function listTeacherParentMessages(
+  user: AuthenticatedUser,
+  input: { gradeLevel?: string; parentUserId?: string }
+): Promise<TeacherParentMessageRecord[]> {
+  if (!user.schoolId) return [];
+  const result = await db.query<TeacherParentMessageRecord>(
+    `SELECT
+       m.id,
+       m.teacher_user_id,
+       m.parent_user_id,
+       m.grade_level,
+       m.sender_user_id,
+       sender.full_name AS sender_name,
+       m.body,
+       m.created_at
+     FROM teacher_parent_messages m
+     JOIN users sender ON sender.id = m.sender_user_id
+     WHERE m.school_id = $1
+       AND m.teacher_user_id = $2
+       AND ($3::text IS NULL OR m.grade_level = $3)
+       AND ($4::uuid IS NULL OR m.parent_user_id = $4)
+     ORDER BY m.created_at ASC`,
+    [user.schoolId, user.id, input.gradeLevel ?? null, input.parentUserId ?? null]
+  );
+  return result.rows;
+}
+
+export async function createTeacherParentMessages(
+  client: MaybeClient,
+  user: AuthenticatedUser,
+  input: { gradeLevel: string; body: string; parentUserId?: string | null }
+) {
+  if (!user.schoolId) throw new Error('Teacher must belong to a school');
+  const parents = input.parentUserId
+    ? await q<{ id: string }>(
+        client,
+        `SELECT parent.id
+         FROM parent_students ps
+         JOIN users child ON child.id = ps.student_user_id
+         JOIN users parent ON parent.id = ps.parent_user_id
+         JOIN user_roles parent_role ON parent_role.user_id = parent.id AND parent_role.role = 'parent'
+         WHERE child.school_id = $1
+           AND child.grade_level = $2
+           AND parent.id = $3
+         GROUP BY parent.id`,
+        [user.schoolId, input.gradeLevel, input.parentUserId]
+      )
+    : await q<{ id: string }>(
+        client,
+        `SELECT parent.id
+         FROM parent_students ps
+         JOIN users child ON child.id = ps.student_user_id
+         JOIN users parent ON parent.id = ps.parent_user_id
+         JOIN user_roles parent_role ON parent_role.user_id = parent.id AND parent_role.role = 'parent'
+         WHERE child.school_id = $1
+           AND child.grade_level = $2
+         GROUP BY parent.id`,
+        [user.schoolId, input.gradeLevel]
+      );
+
+  if (!parents.rows.length) return 0;
+  for (const parent of parents.rows) {
+    await q(
+      client,
+      `INSERT INTO teacher_parent_messages (
+         school_id, teacher_user_id, parent_user_id, grade_level, sender_user_id, body
+       )
+       VALUES ($1, $2, $3, $4, $5, $6)`,
+      [user.schoolId, user.id, parent.id, input.gradeLevel, user.id, input.body]
+    );
+  }
+  return parents.rows.length;
+}
+
+export async function listParentTeacherMessages(
+  user: AuthenticatedUser
+): Promise<TeacherParentMessageRecord[]> {
+  const result = await db.query<TeacherParentMessageRecord>(
+    `SELECT
+       m.id,
+       m.teacher_user_id,
+       m.parent_user_id,
+       m.grade_level,
+       m.sender_user_id,
+       sender.full_name AS sender_name,
+       m.body,
+       m.created_at
+     FROM teacher_parent_messages m
+     JOIN users sender ON sender.id = m.sender_user_id
+     WHERE m.parent_user_id = $1
+     ORDER BY m.created_at ASC`,
+    [user.id]
+  );
+  return result.rows;
+}
+
+export async function createParentTeacherMessage(
+  client: MaybeClient,
+  user: AuthenticatedUser,
+  input: { teacherUserId: string; body: string }
+) {
+  const thread = await q<{ school_id: string; grade_level: string }>(
+    client,
+    `SELECT school_id, grade_level
+     FROM teacher_parent_messages
+     WHERE parent_user_id = $1 AND teacher_user_id = $2
+     ORDER BY created_at DESC
+     LIMIT 1`,
+    [user.id, input.teacherUserId]
+  );
+  const existing = thread.rows[0];
+  if (!existing) {
+    throw new Error('No teacher conversation exists for this parent');
+  }
+  const result = await q<{ id: string }>(
+    client,
+    `INSERT INTO teacher_parent_messages (
+       school_id, teacher_user_id, parent_user_id, grade_level, sender_user_id, body
+     )
+     VALUES ($1, $2, $3, $4, $5, $6)
+     RETURNING id`,
+    [existing.school_id, input.teacherUserId, user.id, existing.grade_level, user.id, input.body]
+  );
+  return result.rows[0].id;
+}
+
+export async function createTeacherLessonPlan(
+  client: MaybeClient,
+  user: AuthenticatedUser,
+  input: {
+    gradeLevel: string;
+    subject: string;
+    topic: string;
+    outcome: string;
+    durationMinutes: number;
+    style: string;
+    plan: unknown;
+  }
+) {
+  if (!user.schoolId) throw new Error('Teacher must belong to a school');
+  const result = await q<{ id: string }>(
+    client,
+    `INSERT INTO teacher_lesson_plans (
+       school_id, teacher_user_id, grade_level, subject, topic, outcome, duration_minutes, style, plan
+     )
+     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9::jsonb)
+     RETURNING id`,
+    [
+      user.schoolId,
+      user.id,
+      input.gradeLevel,
+      input.subject,
+      input.topic,
+      input.outcome,
+      input.durationMinutes,
+      input.style,
+      JSON.stringify(input.plan)
+    ]
+  );
+  return result.rows[0].id;
 }
 
 export async function listStudentAssignments(user: AuthenticatedUser): Promise<StudentAssignmentRecord[]> {

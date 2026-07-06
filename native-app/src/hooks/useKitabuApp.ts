@@ -156,6 +156,7 @@ import {
 } from '../types/app';
 
 const DEMO_STUDENT_EMAIL = 'student@kitabu.ai';
+const DEMO_PARENT_EMAIL = 'parent@kitabu.ai';
 const ADMIN_LOGIN_EMAIL = 'admin@kitabu.ai';
 const STORAGE_KEYS = {
   profile: 'kitabu_native_profile',
@@ -206,6 +207,7 @@ interface FocusModeSnapshot {
   dailyLimitSeconds: number;
   sessionExpired: boolean;
   studentProfile: UserProfile | null;
+  setupCompleted: boolean;
 }
 
 interface DownloadedBooksSnapshot {
@@ -339,11 +341,24 @@ function isFocusModeBlockedView(view: ViewState) {
   return view === 'admin_portal' || view === 'teachers_portal' || view === 'parent_dashboard';
 }
 
-function getFocusModeErrorMessage(error: unknown) {
+function getFocusModeErrorCode(error: unknown) {
   const code = typeof error === 'object' && error !== null && 'code' in error
     ? String((error as { code?: string }).code)
     : '';
+  return code;
+}
 
+function isFocusModeSetupError(error: unknown) {
+  const code = getFocusModeErrorCode(error);
+  return (
+    code === 'screen_pinning_disabled' ||
+    code === 'screen_pinning_unsupported' ||
+    code === 'device_credential_unavailable'
+  );
+}
+
+function getFocusModeErrorMessage(error: unknown) {
+  const code = getFocusModeErrorCode(error);
   if (code === 'screen_pinning_disabled') {
     return 'Turn on App Pinning to keep KITABU on screen.';
   }
@@ -354,6 +369,10 @@ function getFocusModeErrorMessage(error: unknown) {
 
   if (code === 'device_credential_unavailable') {
     return 'Set up a phone PIN, pattern, or password in Android settings before starting Focus Mode.';
+  }
+
+  if (code === 'device_credential_cancelled') {
+    return 'Enter the parent PIN to start Focus Mode.';
   }
 
   return error instanceof Error ? error.message : 'Unable to start Focus Mode.';
@@ -607,6 +626,7 @@ export function useKitabuApp() {
   const [dailyLimitSeconds, setDailyLimitSeconds] = useState(DEFAULT_FOCUS_MODE_LIMIT_SECONDS);
   const [sessionExpired, setSessionExpired] = useState(false);
   const [focusModeSetupRequired, setFocusModeSetupRequired] = useState(false);
+  const [focusModeSetupCompleted, setFocusModeSetupCompleted] = useState(false);
   const [focusModeError, setFocusModeError] = useState<string | null>(null);
   const [isStartingFocusMode, setIsStartingFocusMode] = useState(false);
   const [isUnlockingFocusMode, setIsUnlockingFocusMode] = useState(false);
@@ -771,6 +791,7 @@ export function useKitabuApp() {
           dailyLimitSeconds: DEFAULT_FOCUS_MODE_LIMIT_SECONDS,
           sessionExpired: false,
           studentProfile: null,
+          setupCompleted: false,
         }),
         loadJson<OnboardingPreferencesSnapshot>(STORAGE_KEYS.onboardingPreferences, {}),
         loadStoredAuthSession(),
@@ -799,6 +820,7 @@ export function useKitabuApp() {
       setFocusModeStudentProfile(
         storedFocusMode.focusModeActive ? storedFocusMode.studentProfile ?? null : null,
       );
+      setFocusModeSetupCompleted(Boolean(storedFocusMode.setupCompleted));
       setSessionExpired(storedSessionExpired);
       setSessionStartedAt(
         storedFocusMode.focusModeActive && !storedSessionExpired ? Date.now() : null,
@@ -982,12 +1004,14 @@ export function useKitabuApp() {
         dailyLimitSeconds,
         sessionExpired,
         studentProfile: focusModeStudentProfile,
+        setupCompleted: focusModeSetupCompleted,
       }).catch(() => undefined);
     }
   }, [
     activeSecondsUsed,
     dailyLimitSeconds,
     focusModeActive,
+    focusModeSetupCompleted,
     focusModeStudentProfile,
     isReady,
     sessionExpired,
@@ -1245,10 +1269,13 @@ export function useKitabuApp() {
       return;
     }
 
+    const isDemoParent =
+      authSession.user.email.trim().toLowerCase() === DEMO_PARENT_EMAIL;
     setIsLoadingParentDashboard(true);
     try {
       const payload = await getParentDashboard();
-      const nextChildren = payload.children.length > 0 ? payload.children : INITIAL_PARENT_CHILDREN;
+      const nextChildren =
+        payload.children.length > 0 || !isDemoParent ? payload.children : INITIAL_PARENT_CHILDREN;
       setParentChildren(nextChildren);
       setSelectedParentChildId(current =>
         current && nextChildren.some(child => child.id === current)
@@ -1257,13 +1284,19 @@ export function useKitabuApp() {
       );
       setParentDashboardError(null);
     } catch {
-      setParentChildren(INITIAL_PARENT_CHILDREN);
-      setSelectedParentChildId(current =>
-        current && INITIAL_PARENT_CHILDREN.some(child => child.id === current)
-          ? current
-          : INITIAL_PARENT_CHILDREN[0]?.id ?? null,
-      );
-      setParentDashboardError(null);
+      if (isDemoParent) {
+        setParentChildren(INITIAL_PARENT_CHILDREN);
+        setSelectedParentChildId(current =>
+          current && INITIAL_PARENT_CHILDREN.some(child => child.id === current)
+            ? current
+            : INITIAL_PARENT_CHILDREN[0]?.id ?? null,
+        );
+        setParentDashboardError(null);
+      } else {
+        setParentChildren([]);
+        setSelectedParentChildId(null);
+        setParentDashboardError('Could not load linked children right now.');
+      }
     } finally {
       setIsLoadingParentDashboard(false);
     }
@@ -1322,13 +1355,23 @@ export function useKitabuApp() {
     try {
       const supported = await focusModeBridge.isScreenPinningSupported();
       if (!supported) {
-        throw new Error('Focus Mode is available on Android phones with App Pinning support.');
+        throw Object.assign(
+          new Error('Focus Mode is available on Android phones with App Pinning support.'),
+          { code: 'screen_pinning_unsupported' },
+        );
+      }
+
+      const shouldUseStudentPreview = !authSession?.user.roles.includes('student');
+      if (focusModeSetupCompleted && shouldUseStudentPreview) {
+        await focusModeBridge.confirmDeviceCredential(
+          'Start Focus Mode',
+          'Enter the parent PIN to lock this phone to KITABU.',
+        );
       }
 
       await focusModeBridge.startScreenPinning();
       const selectedChild =
         parentChildren.find(child => child.id === selectedParentChildId) ?? parentChildren[0] ?? null;
-      const shouldUseStudentPreview = !authSession?.user.roles.includes('student');
       const lockedStudentProfile =
         shouldUseStudentPreview && selectedChild ? mapParentChildToStudentProfile(selectedChild) : null;
       setFocusModeActive(true);
@@ -1337,6 +1380,7 @@ export function useKitabuApp() {
       setDailyLimitSeconds(DEFAULT_FOCUS_MODE_LIMIT_SECONDS);
       setSessionExpired(false);
       setFocusModeSetupRequired(false);
+      setFocusModeSetupCompleted(true);
       setFocusModeError(null);
       setProfileOpen(false);
       setNotificationsOpen(false);
@@ -1353,7 +1397,7 @@ export function useKitabuApp() {
       replaceWith('dashboard');
       triggerHaptic('success');
     } catch (error) {
-      setFocusModeSetupRequired(true);
+      setFocusModeSetupRequired(isFocusModeSetupError(error));
       setFocusModeError(getFocusModeErrorMessage(error));
       triggerHaptic('error');
     } finally {
@@ -3104,7 +3148,7 @@ export function useKitabuApp() {
     });
 
     if (authSession?.user.roles.includes('teacher') && nextProfile) {
-      void saveTeacherScope({
+      saveTeacherScope({
         grades: nextProfile.taughtGrades ?? [],
         subjects: nextProfile.taughtSubjects ?? [],
       }).catch(() => {
@@ -3552,6 +3596,7 @@ export function useKitabuApp() {
       sessionExpired,
       focusModeSecondsRemaining,
       focusModeSetupRequired,
+      focusModeSetupCompleted,
       focusModeError,
       isStartingFocusMode,
       isUnlockingFocusMode,

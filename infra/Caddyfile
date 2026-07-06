@@ -97,3 +97,7 @@ http://agentrobin.kitabu.ai {
 http://sherehe.kitabu.ai {
 	reverse_proxy 127.0.0.1:4108
 }
+
+http://storybrain.kitabu.ai {
+	reverse_proxy 127.0.0.1:4109
+}

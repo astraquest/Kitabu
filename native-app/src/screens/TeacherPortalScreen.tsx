@@ -1,9 +1,10 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   Alert,
   Animated,
   Dimensions,
   Easing,
+  Image,
   Modal,
   Platform,
   Pressable,
@@ -16,21 +17,17 @@ import {
 import { LinearGradient } from 'expo-linear-gradient';
 import {
   CalendarCheck2,
-  ClipboardList,
+  BarChart3,
   CheckCircle2,
   ChevronDown,
   ChevronLeft,
-  ChevronRight,
+  Home,
   MessageSquareText,
   Pencil,
   UserRound,
   Users,
   X,
 } from 'lucide-react-native';
-import Svg, {
-  Circle,
-  Path,
-} from 'react-native-svg';
 
 import { TeacherAssignmentDetailSection } from '../components/teacher/TeacherAssignmentDetailSection';
 import { TeacherAssignmentsSection } from '../components/teacher/TeacherAssignmentsSection';
@@ -81,6 +78,7 @@ interface TeacherPortalScreenProps {
   schoolsList?: SchoolData[];
   userProfile?: UserProfile;
   onSaveProfile?: (profile: UserProfile) => void;
+  onSignOut?: () => void | Promise<void>;
   onPublishAssignment: (assignment: Omit<Assignment, 'id' | 'status'>) => Promise<void>;
 }
 
@@ -90,6 +88,7 @@ type WizardStep = 1 | 2;
 type SlideDirection = 'right' | 'bottom';
 
 const SCREEN = Dimensions.get('window');
+const logoAsset = require('../assets/logo.png');
 const TEACHER_DEFAULT_GRADE = 'Grade 10';
 const TEACHER_SUBJECTS = ['Mathematics', 'English', 'Science', 'Kiswahili', 'Social Studies'];
 type TeacherCountryCode = CountryOption['code'];
@@ -204,12 +203,13 @@ export function TeacherPortalScreen({
   schoolsList = [],
   userProfile,
   onSaveProfile,
+  onSignOut,
   onPublishAssignment,
 }: TeacherPortalScreenProps) {
   const [tab, setTab] = useState<Tab>('students');
   const [portalView, setPortalView] = useState<PortalView>('students');
   const [selectedGrade, setSelectedGrade] = useState(TEACHER_DEFAULT_GRADE);
-  const [gradeFilter, setGradeFilter] = useState(TEACHER_ALL_GRADES_FILTER);
+  const [gradeFilter, setGradeFilter] = useState(TEACHER_DEFAULT_GRADE);
   const [gradeMenuOpen, setGradeMenuOpen] = useState(false);
   const [sortBy, setSortBy] = useState<'name' | 'score'>('name');
   const [showRemedial, setShowRemedial] = useState(false);
@@ -293,6 +293,14 @@ export function TeacherPortalScreen({
     [selectedGrade, students],
   );
 
+  const scopedStudents = useMemo(
+    () =>
+      gradeFilter === TEACHER_ALL_GRADES_FILTER
+        ? students
+        : students.filter(item => item.grade === gradeFilter),
+    [gradeFilter, students],
+  );
+
   const teacherGradeOptions = useMemo(() => {
     const selectedOptions = SUPPORTED_GRADES.filter(option => taughtGrades.includes(option));
     return selectedOptions.length > 0 ? selectedOptions : [TEACHER_DEFAULT_GRADE];
@@ -310,11 +318,11 @@ export function TeacherPortalScreen({
     [assignments, assignmentSortBy, subjectFilter],
   );
 
-  const averageScore = Math.round(
-    students.reduce((total, current) => total + current.assessmentScore, 0) /
-      Math.max(1, students.length),
+  const scopedAverageScore = Math.round(
+    scopedStudents.reduce((total, current) => total + current.assessmentScore, 0) /
+      Math.max(1, scopedStudents.length),
   );
-  const remedialCount = students.filter(item => item.assessmentScore < 70).length;
+  const scopedRemedialCount = scopedStudents.filter(item => item.assessmentScore < 70).length;
   const openAssignmentCount = assignments.filter(item => item.submittedCount < item.totalStudents).length;
   const totalExpectedSubmissions = assignments.reduce(
     (total, current) => total + current.totalStudents,
@@ -512,7 +520,6 @@ export function TeacherPortalScreen({
   return (
     <View style={s.root}>
       <View style={s.teacherPhoneShell}>
-        {Platform.OS === 'web' ? <StatusChrome /> : null}
         {portalView === 'profile' ? (
           <TeacherProfileView
             countryCode={profileCountryCode}
@@ -525,6 +532,7 @@ export function TeacherPortalScreen({
             taughtGrades={taughtGrades}
             taughtSubjects={taughtSubjects}
             onBack={() => setPortalView(tab)}
+            onSignOut={onSignOut}
             onChangeCountry={value => {
               const nextRegionMeta = REGIONS_BY_COUNTRY[value] ?? REGIONS_BY_COUNTRY.KE;
               const nextRegion = nextRegionMeta.options[0] || '';
@@ -570,10 +578,9 @@ export function TeacherPortalScreen({
         ) : (
           <View style={portalStyles.teacherListPortal}>
             <View style={portalStyles.listPortalHeader}>
-              <Pressable onPress={() => setPortalView(tab)} style={portalStyles.back}>
-                <ChevronLeft size={24} color={portalStyles.backIconColor} strokeWidth={2.7} />
-                <Text style={portalStyles.backText}>Back</Text>
-              </Pressable>
+              <View accessibilityLabel="Kitabu AI logo" style={portalStyles.headerLogoBadge}>
+                <Image source={logoAsset} style={portalStyles.headerLogoImage} resizeMode="contain" />
+              </View>
               <View style={portalStyles.titleBlock}>
                 <Text
                   adjustsFontSizeToFit
@@ -584,18 +591,6 @@ export function TeacherPortalScreen({
                 </Text>
               </View>
               <View style={portalStyles.portalActionGroup}>
-                <Pressable
-                  accessibilityLabel="Open lesson planner"
-                  onPress={() => setPortalView('lessonPlan')}
-                  style={portalStyles.portalIconButton}>
-                  <CalendarCheck2 color={portalStyles.portalActionIconColor} size={18} strokeWidth={2.7} />
-                </Pressable>
-                <Pressable
-                  accessibilityLabel="Open parent messages"
-                  onPress={() => setPortalView('messages')}
-                  style={portalStyles.portalIconButton}>
-                  <MessageSquareText color={portalStyles.portalActionIconColor} size={18} strokeWidth={2.7} />
-                </Pressable>
                 <Pressable
                   accessibilityLabel="Open teacher profile"
                   onPress={() => setPortalView('profile')}
@@ -630,8 +625,8 @@ export function TeacherPortalScreen({
                   subjectMenuOpen={subjectMenuOpen}
                   sortBy={sortBy}
                   showRemedial={showRemedial}
-                  averageScore={averageScore}
-                  remedialCount={remedialCount}
+                  averageScore={scopedAverageScore}
+                  remedialCount={scopedRemedialCount}
                   filteredStudents={filteredStudents}
                   onToggleGradeMenu={() => setGradeMenuOpen(open => !open)}
                   onSelectGrade={value => {
@@ -647,6 +642,7 @@ export function TeacherPortalScreen({
                     setSubjectMenuOpen(false);
                   }}
                   onToggleSort={() => setSortBy(sortBy === 'name' ? 'score' : 'name')}
+                  onToggleSupportFilter={() => setShowRemedial(current => !current)}
                   onSelectStudent={setStudent}
                 />
               ) : (
@@ -671,6 +667,113 @@ export function TeacherPortalScreen({
                 />
               )}
             </ScrollView>
+
+            <View style={portalStyles.bottomNav}>
+              <Pressable
+                accessibilityLabel="Open teacher home"
+                onPress={() => {
+                  setTab('students');
+                  setPortalView('students');
+                  setGradeFilter(selectedGrade);
+                  setShowRemedial(false);
+                  setSortBy('name');
+                }}
+                style={portalStyles.bottomNavItem}>
+                <Home
+                  color={
+                    tab === 'students' && !showRemedial && gradeFilter === selectedGrade
+                      ? portalStyles.bottomNavActiveColor
+                      : portalStyles.bottomNavIconColor
+                  }
+                  size={24}
+                  strokeWidth={2.5}
+                />
+                <Text
+                  style={[
+                    portalStyles.bottomNavLabel,
+                    tab === 'students' &&
+                      !showRemedial &&
+                      gradeFilter === selectedGrade &&
+                      portalStyles.bottomNavLabelActive,
+                  ]}>
+                  Home
+                </Text>
+              </Pressable>
+              <Pressable
+                accessibilityLabel="Open students"
+                onPress={() => {
+                  setTab('students');
+                  setPortalView('students');
+                  setGradeFilter(TEACHER_ALL_GRADES_FILTER);
+                  setShowRemedial(false);
+                  setSortBy('name');
+                }}
+                style={portalStyles.bottomNavItem}>
+                <Users
+                  color={
+                    tab === 'students' && !showRemedial && gradeFilter === TEACHER_ALL_GRADES_FILTER
+                      ? portalStyles.bottomNavActiveColor
+                      : portalStyles.bottomNavIconColor
+                  }
+                  size={24}
+                  strokeWidth={2.5}
+                />
+                <Text
+                  style={[
+                    portalStyles.bottomNavLabel,
+                    tab === 'students' &&
+                      !showRemedial &&
+                      gradeFilter === TEACHER_ALL_GRADES_FILTER &&
+                      portalStyles.bottomNavLabelActive,
+                  ]}>
+                  Students
+                </Text>
+              </Pressable>
+              <Pressable
+                accessibilityLabel="Open insights"
+                onPress={() => {
+                  setTab('students');
+                  setPortalView('students');
+                  setShowRemedial(true);
+                  setSortBy('score');
+                }}
+                style={portalStyles.bottomNavItem}>
+                <BarChart3
+                  color={showRemedial ? portalStyles.bottomNavActiveColor : portalStyles.bottomNavIconColor}
+                  size={24}
+                  strokeWidth={2.5}
+                />
+                <Text
+                  style={[
+                    portalStyles.bottomNavLabel,
+                    showRemedial && portalStyles.bottomNavLabelActive,
+                  ]}>
+                  Insights
+                </Text>
+              </Pressable>
+              <Pressable
+                accessibilityLabel="Open parent messages"
+                onPress={() => setPortalView('messages')}
+                style={portalStyles.bottomNavItem}>
+                <MessageSquareText
+                  color={portalStyles.bottomNavIconColor}
+                  size={24}
+                  strokeWidth={2.5}
+                />
+                <Text style={portalStyles.bottomNavLabel}>Messages</Text>
+              </Pressable>
+              <Pressable
+                accessibilityLabel="Open lesson planner"
+                onPress={() => setPortalView('lessonPlan')}
+                style={portalStyles.bottomNavItem}>
+                <CalendarCheck2
+                  color={portalStyles.bottomNavIconColor}
+                  size={24}
+                  strokeWidth={2.5}
+                />
+                <Text style={portalStyles.bottomNavLabel}>Lesson Plan</Text>
+              </Pressable>
+            </View>
           </View>
         )}
       </View>
@@ -827,30 +930,6 @@ export function TeacherPortalScreen({
   );
 }
 
-function StatusChrome() {
-  return (
-    <View style={s.statusChrome}>
-      <Text style={s.statusTime}>1:30</Text>
-      <View style={s.statusRight}>
-        <View style={s.signalBars}>
-          <View style={[s.signalBar, s.signalBarShort]} />
-          <View style={[s.signalBar, s.signalBarMedium]} />
-          <View style={[s.signalBar, s.signalBarTall]} />
-          <View style={[s.signalBar, s.signalBarFull]} />
-        </View>
-        <Svg width={21} height={16} viewBox="0 0 21 16">
-          <Path d="M2 6c5-5 12-5 17 0" stroke="#050505" strokeWidth="3" strokeLinecap="round" fill="none" />
-          <Path d="M6 10c3-3 7-3 10 0" stroke="#050505" strokeWidth="3" strokeLinecap="round" fill="none" />
-          <Circle cx="10.5" cy="14" r="2" fill="#050505" />
-        </Svg>
-        <View style={s.battery}>
-          <Text style={s.batteryText}>86</Text>
-        </View>
-      </View>
-    </View>
-  );
-}
-
 function TeacherProfileView({
   countryCode,
   email,
@@ -862,6 +941,7 @@ function TeacherProfileView({
   taughtGrades,
   taughtSubjects,
   onBack,
+  onSignOut,
   onChangeCountry,
   onSavePersonalDetails,
   onToggleGrade,
@@ -877,6 +957,7 @@ function TeacherProfileView({
   taughtGrades: string[];
   taughtSubjects: string[];
   onBack: () => void;
+  onSignOut?: () => void | Promise<void>;
   onChangeCountry: (value: TeacherCountryCode) => void;
   onSavePersonalDetails: (details: {
     email: string;
@@ -993,6 +1074,16 @@ function TeacherProfileView({
           title="Subjects taught"
           onToggle={onToggleSubject}
         />
+        {onSignOut ? (
+          <Pressable
+            accessibilityLabel="Sign out of teacher account"
+            onPress={() => {
+              onSignOut();
+            }}
+            style={s.profileSignOutButton}>
+            <Text style={s.profileSignOutText}>Sign Out</Text>
+          </Pressable>
+        ) : null}
       </ScrollView>
     </View>
   );
@@ -1679,7 +1770,7 @@ function TeacherMessagesView({
   const [isSendingMessage, setIsSendingMessage] = useState(false);
   const selectedParent = parents.find(parent => parent.id === selectedParentId);
 
-  async function loadMessages(parentId = selectedParentId) {
+  const loadMessages = useCallback(async (parentId: string) => {
     setIsLoading(true);
     try {
       const [nextParents, nextMessages] = await Promise.all([
@@ -1700,11 +1791,11 @@ function TeacherMessagesView({
     } finally {
       setIsLoading(false);
     }
-  }
+  }, [grade]);
 
   useEffect(() => {
     loadMessages('all');
-  }, [grade]);
+  }, [loadMessages]);
 
   async function selectParent(parentId: string) {
     setSelectedParentId(parentId);
@@ -1904,7 +1995,7 @@ function createTeacherPortalStyles(): Record<string, any> {
     teacherListPortal: [
       s.teacherListPortal,
       {
-        backgroundColor: palette.background,
+        backgroundColor: '#FFFFFF',
       },
     ],
     listPortalHeader: [
@@ -1913,13 +2004,26 @@ function createTeacherPortalStyles(): Record<string, any> {
         backgroundColor: palette.header,
         borderBottomWidth: 0,
         elevation: 0,
-        minHeight: 86,
-        paddingBottom: 18,
-        paddingHorizontal: 18,
-        paddingTop: 18,
+        justifyContent: 'space-between',
+        minHeight: 72,
+        paddingBottom: 12,
+        paddingHorizontal: 20,
+        paddingTop: 14,
+        position: 'relative',
         shadowOpacity: 0,
       },
     ],
+    headerLogoBadge: {
+      alignItems: 'center',
+      height: 42,
+      justifyContent: 'center',
+      width: 48,
+      zIndex: 2,
+    },
+    headerLogoImage: {
+      height: 34,
+      width: 34,
+    },
     back: [s.back, { minWidth: 74 }],
     backText: [
       s.backText,
@@ -1931,9 +2035,12 @@ function createTeacherPortalStyles(): Record<string, any> {
     ],
     titleBlock: {
       alignItems: 'center',
-      flex: 1,
+      left: 70,
       minWidth: 0,
       paddingHorizontal: 4,
+      position: 'absolute',
+      right: 70,
+      top: 21,
     },
     headerTitle: [
       s.headerTitle,
@@ -1989,9 +2096,9 @@ function createTeacherPortalStyles(): Record<string, any> {
     portalActionGroup: {
       alignItems: 'center',
       flexDirection: 'row',
-      gap: 7,
       justifyContent: 'flex-end',
-      minWidth: 128,
+      minWidth: 42,
+      zIndex: 2,
     },
     portalIconButton: {
       alignItems: 'center',
@@ -2012,13 +2119,13 @@ function createTeacherPortalStyles(): Record<string, any> {
     segmented: [
       s.segmented,
       {
-        backgroundColor: '#F0F3F1',
+        backgroundColor: '#F3F5F7',
         borderColor: '#E4E9E5',
-        borderRadius: 18,
+        borderRadius: 20,
         borderWidth: 1,
         elevation: 2,
         marginBottom: 18,
-        marginHorizontal: 22,
+        marginHorizontal: 20,
         marginTop: 0,
         padding: 5,
         shadowColor: palette.shadow,
@@ -2027,11 +2134,13 @@ function createTeacherPortalStyles(): Record<string, any> {
         shadowRadius: 18,
       },
     ],
-    seg: [s.seg, { borderRadius: 14, minHeight: 50, paddingVertical: 13 }],
+    seg: [s.seg, { borderRadius: 16, minHeight: 50, paddingVertical: 12 }],
     segActive: [
       s.segActive,
       {
         backgroundColor: '#FFFFFF',
+        borderBottomColor: palette.orange,
+        borderBottomWidth: 4,
         elevation: 3,
         shadowColor: palette.shadow,
         shadowOffset: { width: 0, height: 7 },
@@ -2057,7 +2166,7 @@ function createTeacherPortalStyles(): Record<string, any> {
       s.content,
       {
         gap: 18,
-        paddingBottom: 36,
+        paddingBottom: 104,
         paddingHorizontal: 16,
         paddingTop: 0,
       },
@@ -2066,12 +2175,12 @@ function createTeacherPortalStyles(): Record<string, any> {
       s.filterRow,
       {
         flexWrap: 'nowrap',
-        gap: 10,
+        gap: 8,
         justifyContent: 'space-between',
         zIndex: 20,
       },
     ],
-    dropdownWrap: [s.dropdownWrap, { flexShrink: 1, zIndex: 30 }],
+    dropdownWrap: [s.dropdownWrap, { flex: 1, minWidth: 0, zIndex: 30 }],
     chip: [
       s.chip,
       {
@@ -2080,9 +2189,12 @@ function createTeacherPortalStyles(): Record<string, any> {
         borderRadius: 17,
         borderWidth: 1,
         elevation: 1,
-        minHeight: 44,
-        paddingHorizontal: 11,
-        paddingVertical: 10,
+        flex: 1,
+        justifyContent: 'center',
+        minHeight: 50,
+        minWidth: 0,
+        paddingHorizontal: 9,
+        paddingVertical: 9,
         shadowColor: palette.shadow,
         shadowOffset: { width: 0, height: 4 },
         shadowOpacity: 0.05,
@@ -2093,7 +2205,8 @@ function createTeacherPortalStyles(): Record<string, any> {
       s.chipText,
       {
         color: palette.text,
-        fontSize: 13,
+        flexShrink: 1,
+        fontSize: 12,
         fontWeight: '900',
       },
     ],
@@ -2119,10 +2232,10 @@ function createTeacherPortalStyles(): Record<string, any> {
       {
         backgroundColor: '#FFFFFF',
         borderColor: palette.border,
-        borderRadius: 18,
+        borderRadius: 19,
         elevation: 2,
         justifyContent: 'space-between',
-        minHeight: 130,
+        minHeight: 138,
         overflow: 'hidden',
         paddingHorizontal: 15,
         paddingVertical: 18,
@@ -2168,7 +2281,7 @@ function createTeacherPortalStyles(): Record<string, any> {
     metricValue: [
       s.metricValue,
       {
-        color: palette.text,
+        color: palette.green,
         fontSize: 38,
         fontWeight: '900',
         lineHeight: 44,
@@ -2194,12 +2307,21 @@ function createTeacherPortalStyles(): Record<string, any> {
         marginLeft: 6,
       },
     ],
+    metricSubline: [
+      s.metricSubline,
+      {
+        color: palette.muted,
+        fontSize: 12,
+        fontWeight: '700',
+        lineHeight: 16,
+      },
+    ],
     card: [
       s.card,
       {
         backgroundColor: '#FFFFFF',
         borderColor: palette.border,
-        borderRadius: 18,
+        borderRadius: 20,
         elevation: 2,
         overflow: 'hidden',
         shadowColor: palette.shadow,
@@ -2231,11 +2353,17 @@ function createTeacherPortalStyles(): Record<string, any> {
     cardHeaderMeta: [
       s.cardHeaderMeta,
       {
-        color: palette.muted,
+        color: palette.orange,
         fontSize: 12,
         fontWeight: '800',
       },
     ],
+    supportToggle: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      minHeight: 28,
+      paddingLeft: 10,
+    },
     row: [
       s.row,
       {
@@ -2324,6 +2452,47 @@ function createTeacherPortalStyles(): Record<string, any> {
     ],
     track: [s.track, { backgroundColor: '#E7ECE9' }],
     fill: [s.fill, { backgroundColor: palette.green }],
+    bottomNav: {
+      alignItems: 'center',
+      backgroundColor: '#FFFFFF',
+      borderColor: '#E7EAEE',
+      borderTopWidth: 1,
+      bottom: 0,
+      elevation: 12,
+      flexDirection: 'row',
+      height: 82,
+      justifyContent: 'space-around',
+      left: 0,
+      paddingBottom: 8,
+      paddingHorizontal: 8,
+      paddingTop: 8,
+      position: 'absolute',
+      right: 0,
+      shadowColor: palette.shadow,
+      shadowOffset: { width: 0, height: -8 },
+      shadowOpacity: 0.06,
+      shadowRadius: 18,
+    },
+    bottomNavItem: {
+      alignItems: 'center',
+      flex: 1,
+      gap: 4,
+      justifyContent: 'center',
+      minHeight: 62,
+    },
+    bottomNavIconColor: '#667085',
+    bottomNavActiveColor: palette.orange,
+    bottomNavLabel: {
+      color: '#667085',
+      fontSize: 12,
+      fontWeight: '700',
+      lineHeight: 16,
+      textAlign: 'center',
+    },
+    bottomNavLabelActive: {
+      color: palette.orange,
+      fontWeight: '900',
+    },
   };
 }
 
@@ -2365,53 +2534,6 @@ const s = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 16,
     paddingVertical: 12,
-  },
-  statusChrome: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    height: 32,
-    justifyContent: 'space-between',
-    paddingHorizontal: 31,
-    paddingTop: 7,
-  },
-  statusTime: {
-    color: '#050505',
-    fontSize: 15,
-    fontWeight: '900',
-  },
-  statusRight: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: 9,
-  },
-  signalBars: {
-    alignItems: 'flex-end',
-    flexDirection: 'row',
-    gap: 3,
-    height: 22,
-  },
-  signalBar: {
-    backgroundColor: '#050505',
-    borderRadius: 2,
-    width: 4,
-  },
-  signalBarShort: { height: 8 },
-  signalBarMedium: { height: 12 },
-  signalBarTall: { height: 16 },
-  signalBarFull: { height: 20 },
-  battery: {
-    alignItems: 'center',
-    backgroundColor: '#111111',
-    borderRadius: 4,
-    height: 18,
-    justifyContent: 'center',
-    paddingHorizontal: 6,
-  },
-  batteryText: {
-    color: '#FFFFFF',
-    fontSize: 12,
-    fontWeight: '900',
-    lineHeight: 14,
   },
   teacherTopBar: {
     alignItems: 'center',
@@ -4065,6 +4187,22 @@ const s = StyleSheet.create({
   },
   profileEditSaveText: {
     color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: '900',
+  },
+  profileSignOutButton: {
+    alignItems: 'center',
+    backgroundColor: '#FFF1F0',
+    borderColor: '#FFD6D0',
+    borderRadius: 16,
+    borderWidth: 1,
+    justifyContent: 'center',
+    marginTop: 4,
+    minHeight: 52,
+    paddingHorizontal: 16,
+  },
+  profileSignOutText: {
+    color: '#DC2626',
     fontSize: 14,
     fontWeight: '900',
   },

@@ -24,6 +24,7 @@ const REQUIRED_FEATURE_IDS = [
   'curriculum_quiz_generation',
   'remedial_plan_generation',
   'parent_weekly_report_generation',
+  'parent_progress_assistant',
   'teacher_class_remediation_generation',
   'short_answer_grading'
 ] as const;
@@ -33,7 +34,8 @@ const NO_RESPONSE_CACHE_FEATURE_IDS = [
   'voice_tutor_text',
   'live_voice_tutor',
   'audio_transcription',
-  'speech_synthesis'
+  'speech_synthesis',
+  'parent_progress_assistant'
 ] as const;
 
 const DETERMINISTIC_CACHE_FEATURE_IDS = [

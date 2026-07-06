@@ -271,6 +271,49 @@ Methodology:
   }
 }
 
+export interface ParentAssistantContext {
+  childName: string;
+  grade: string;
+  overallScore?: number;
+  activeDays?: number;
+  lessonsCompleted?: number;
+  assignmentsCompleted?: number;
+  assessmentAverage?: number;
+  weeklyExamScore?: number | null;
+  pendingAssignments?: string[];
+  strengths?: string[];
+  focusAreas?: string[];
+}
+
+export async function askParentAssistant(
+  prompt: string,
+  history: ChatMessage[] = [],
+  context?: ParentAssistantContext,
+): Promise<string> {
+  try {
+    const response = await generateText({
+      prompt,
+      history,
+      feature: 'parent_progress_assistant',
+      context: context ? { ...context } : undefined,
+      timeoutMs: CHAT_AI_TIMEOUT_MS,
+    });
+
+    return response
+      ? cleanTutorResponse(response) || 'Rafiki is unavailable right now. Please try again shortly.'
+      : 'Rafiki is unavailable right now. Please try again shortly.';
+  } catch (error) {
+    console.error('Error calling parent assistant:', error);
+    if (isAbortError(error)) {
+      return 'Rafiki is taking too long to respond. Please try again with a shorter question.';
+    }
+    if (error instanceof Error) {
+      return error.message;
+    }
+    return 'Something went wrong. Please check your connection and try again.';
+  }
+}
+
 export async function generateRemedialAnalysisText(prompt: string): Promise<string | null> {
   return generateText({
     prompt,

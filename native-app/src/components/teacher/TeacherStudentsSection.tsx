@@ -30,6 +30,7 @@ interface TeacherStudentsSectionProps {
   onToggleSubjectMenu: () => void;
   onSelectSubject: (value: string) => void;
   onToggleSort: () => void;
+  onToggleSupportFilter: () => void;
   onSelectStudent: (student: StudentPerformance) => void;
 }
 
@@ -49,6 +50,7 @@ export function TeacherStudentsSection({
   onToggleSubjectMenu,
   onSelectSubject,
   onToggleSort,
+  onToggleSupportFilter,
   onSelectStudent,
 }: TeacherStudentsSectionProps) {
   const mutedIconColor = styles.mutedIconColor || '#6B7280';
@@ -61,7 +63,7 @@ export function TeacherStudentsSection({
         <View style={styles.dropdownWrap}>
           <Pressable onPress={onToggleGradeMenu} style={styles.chip}>
             <GraduationCap size={styles.filterIconSize || 18} color={sortIconColor} />
-            <Text style={styles.chipText}>
+            <Text adjustsFontSizeToFit minimumFontScale={0.82} numberOfLines={1} style={styles.chipText}>
               {gradeFilter === 'All' ? 'All Grades' : gradeFilter}
             </Text>
             <ChevronDown size={14} color={mutedIconColor} />
@@ -85,7 +87,7 @@ export function TeacherStudentsSection({
         <View style={styles.dropdownWrap}>
           <Pressable onPress={onToggleSubjectMenu} style={styles.chip}>
             <BookOpen size={styles.filterIconSize || 18} color={sortIconColor} />
-            <Text style={styles.chipText}>
+            <Text adjustsFontSizeToFit minimumFontScale={0.82} numberOfLines={1} style={styles.chipText}>
               {subjectFilter === 'All' ? 'All Subjects' : subjectFilter}
             </Text>
             <ChevronDown size={14} color={mutedIconColor} />
@@ -112,7 +114,9 @@ export function TeacherStudentsSection({
           ) : (
             <TrendingUp size={14} color={sortIconColor} />
           )}
-          <Text style={styles.chipText}>{sortBy === 'name' ? 'Name' : 'Score'}</Text>
+          <Text adjustsFontSizeToFit minimumFontScale={0.82} numberOfLines={1} style={styles.chipText}>
+            {sortBy === 'name' ? 'Name' : 'Score'}
+          </Text>
         </Pressable>
       </View>
 
@@ -131,6 +135,7 @@ export function TeacherStudentsSection({
             <Text style={styles.metricValue}>{averageScore}%</Text>
             <Text style={styles.metricAccent}>+2%</Text>
           </View>
+          <Text style={styles.metricSubline}>vs last 7 days</Text>
           {styles.metricRules ? (
             <View pointerEvents="none" style={styles.metricRules}>
               <View style={styles.metricRule} />
@@ -156,6 +161,7 @@ export function TeacherStudentsSection({
             </Text>
             <Text style={styles.metricHint}>Total</Text>
           </View>
+          <Text style={styles.metricSubline}>vs last 7 days</Text>
           {styles.metricRules ? (
             <View pointerEvents="none" style={styles.metricRules}>
               <View style={styles.metricRule} />
@@ -168,9 +174,13 @@ export function TeacherStudentsSection({
       <View style={styles.card}>
         <View style={styles.cardHeader}>
           <Text style={styles.cardHeaderText}>
-            {showRemedial ? 'Remedial List' : 'Student List'}
+            {showRemedial ? 'Students who need attention' : 'Student List'}
           </Text>
-          <Text style={styles.cardHeaderMeta}>Sorted by {sortBy}</Text>
+          <Pressable onPress={onToggleSupportFilter} style={styles.supportToggle}>
+            <Text style={styles.cardHeaderMeta}>
+              {showRemedial ? `${remedialCount} learners` : 'Needs support'}
+            </Text>
+          </Pressable>
         </View>
         {filteredStudents.length > 0 ? (
           filteredStudents.map(item => (

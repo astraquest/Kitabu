@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import {
   ActivityIndicator,
+  Image,
   Platform,
   Pressable,
   ScrollView,
@@ -9,43 +10,38 @@ import {
   TextInput,
   View,
 } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
 import {
   BarChart3,
   Bell,
   BookOpen,
-  BriefcaseBusiness,
   CheckCircle2,
   ChevronDown,
-  ChevronRight,
   ClipboardList,
   Clock3,
   FileBarChart,
-  HelpCircle,
   Home,
+  HelpCircle,
+  Lightbulb,
   Link2,
   LockKeyhole,
-  MessageCircle,
+  LogOut,
+  MessageCircleMore,
   MessageSquareText,
+  Pencil,
+  Send,
   Settings,
   Shield,
   ShieldCheck,
+  Sparkles,
   Target,
   Trash2,
+  Trophy,
   WalletCards,
 } from 'lucide-react-native';
-import Svg, {
-  Circle,
-  Defs,
-  Ellipse,
-  G,
-  LinearGradient as SvgLinearGradient,
-  Path,
-  Rect,
-  Stop,
-} from 'react-native-svg';
+import Svg, { Circle, Ellipse, G, Path } from 'react-native-svg';
 
-import { ParentChildAssignment, ParentChildSummary } from '../types/app';
+import { ChatMessage, OnboardingMascotKey, ParentChildAssignment, ParentChildSummary } from '../types/app';
+import { askParentAssistant, ParentAssistantContext } from '../services/aiService';
 import {
   getParentTeacherMessages,
   sendParentTeacherMessage,
@@ -56,6 +52,10 @@ interface ParentDashboardScreenProps {
   children: ParentChildSummary[];
   selectedChildId: string | null;
   parentName?: string;
+  parentEmail?: string | null;
+  parentPhone?: string | null;
+  parentRole?: string | null;
+  mascotKey: OnboardingMascotKey;
   linkIdentifier: string;
   linkMethod: 'email' | 'phone';
   isLoading: boolean;
@@ -63,6 +63,7 @@ interface ParentDashboardScreenProps {
   error: string | null;
   focusModeActive: boolean;
   focusModeSetupRequired: boolean;
+  focusModeSetupCompleted: boolean;
   focusModeError: string | null;
   focusModeSecondsRemaining: number;
   dailyLimitSeconds: number;
@@ -74,16 +75,34 @@ interface ParentDashboardScreenProps {
   onUnlinkChild: (childId: string) => void;
   onStartFocusMode: () => void;
   onOpenFocusModeSettings: () => void;
+  onOpenBilling?: () => void;
+  onSaveParentProfile?: (updates: { name: string; email: string; phone: string }) => void;
   onRefresh: () => void;
   onSignOut: () => void;
 }
 
-type DashboardTab = 'home' | 'report' | 'messages';
+type DashboardTab = 'home' | 'learning' | 'insights' | 'rafiki';
+type DashboardView = DashboardTab | 'messages';
+type GlanceRange = 'week' | 'month' | 'year';
+type GlanceComparisonTone = 'positive' | 'negative' | 'neutral';
+
+const ACCENT = '#F97316';
+const INK = '#111827';
+const MUTED = '#6B7280';
+const MASCOT_ART: Record<OnboardingMascotKey, ReturnType<typeof require>> = {
+  elephant: require('../assets/mascot/ndovu-elephant.png'),
+  lion: require('../assets/mascot/simba-lion.png'),
+  rabbit: require('../assets/mascot/sungura-rabbit.png'),
+};
 
 export function ParentDashboardScreen({
   children,
   selectedChildId,
   parentName,
+  parentEmail,
+  parentPhone,
+  parentRole,
+  mascotKey,
   linkIdentifier,
   linkMethod,
   isLoading,
@@ -91,6 +110,7 @@ export function ParentDashboardScreen({
   error,
   focusModeActive,
   focusModeSetupRequired,
+  focusModeSetupCompleted,
   focusModeError,
   focusModeSecondsRemaining,
   dailyLimitSeconds,
@@ -102,26 +122,37 @@ export function ParentDashboardScreen({
   onUnlinkChild,
   onStartFocusMode,
   onOpenFocusModeSettings,
+  onOpenBilling,
+  onSaveParentProfile,
   onRefresh,
   onSignOut,
 }: ParentDashboardScreenProps) {
+  const [activeView, setActiveView] = useState<DashboardView>('home');
+  const [glanceRange, setGlanceRange] = useState<GlanceRange>('week');
+  const [isAccountOpen, setIsAccountOpen] = useState(false);
+  const [isChildMenuOpen, setIsChildMenuOpen] = useState(false);
   const [confirmRemoveId, setConfirmRemoveId] = useState<string | null>(null);
-  const [activeView, setActiveView] = useState<DashboardTab>('home');
   const [teacherMessages, setTeacherMessages] = useState<TeacherParentMessage[]>([]);
   const [selectedTeacherId, setSelectedTeacherId] = useState<string | null>(null);
   const [messageDraft, setMessageDraft] = useState('');
   const [isLoadingMessages, setIsLoadingMessages] = useState(false);
   const [isSendingMessage, setIsSendingMessage] = useState(false);
   const [messageError, setMessageError] = useState<string | null>(null);
+  const [rafikiMessages, setRafikiMessages] = useState<ChatMessage[]>([]);
+  const [rafikiDraft, setRafikiDraft] = useState('');
+  const [isRafikiThinking, setIsRafikiThinking] = useState(false);
+
   const selectedChild = useMemo(
     () => children.find(child => child.id === selectedChildId) ?? children[0] ?? null,
     [children, selectedChildId],
   );
   const childCountLabel =
     children.length === 1 ? '1 linked child' : `${children.length} linked children`;
-  const selectedChildFirstName = getFirstName(selectedChild?.name || 'your child');
-  const parentFirstName = getFirstName(parentName || 'Parent');
+  const childFirstName = getFirstName(selectedChild?.name || 'your child');
+  const parentDisplayName = parentName?.trim() || 'Parent';
+  const parentFirstName = getFirstName(parentDisplayName);
   const score = selectedChild ? getOverallScore(selectedChild) : 0;
+
   const teacherThreads = useMemo(() => {
     const byTeacher = new Map<string, TeacherParentMessage>();
     teacherMessages.forEach(message => {
@@ -135,6 +166,17 @@ export function ParentDashboardScreen({
   const activeThreadMessages = teacherMessages.filter(
     message => !activeTeacherId || message.teacher_user_id === activeTeacherId,
   );
+  const latestTeacherNote = useMemo(() => {
+    const fromTeachers = teacherMessages.filter(
+      message => message.sender_user_id !== message.parent_user_id,
+    );
+    return fromTeachers.reduce<TeacherParentMessage | null>((latest, message) => {
+      if (!latest || new Date(message.created_at) > new Date(latest.created_at)) {
+        return message;
+      }
+      return latest;
+    }, null);
+  }, [teacherMessages]);
 
   async function loadParentMessages() {
     setIsLoadingMessages(true);
@@ -154,10 +196,11 @@ export function ParentDashboardScreen({
   }
 
   useEffect(() => {
-    if (activeView === 'messages') {
+    if (children.length > 0) {
       loadParentMessages();
     }
-  }, [activeView]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [children.length > 0]);
 
   async function sendParentMessage() {
     const body = messageDraft.trim();
@@ -178,92 +221,84 @@ export function ParentDashboardScreen({
     }
   }
 
+  async function sendRafikiMessage(text?: string) {
+    const body = (text ?? rafikiDraft).trim();
+    if (!body || isRafikiThinking || !selectedChild) {
+      return;
+    }
+    const history = rafikiMessages;
+    setRafikiMessages([...history, { role: 'user', text: body }]);
+    setRafikiDraft('');
+    setIsRafikiThinking(true);
+    const reply = await askParentAssistant(body, history, buildRafikiContext(selectedChild));
+    setRafikiMessages(previous => [...previous, { role: 'model', text: reply }]);
+    setIsRafikiThinking(false);
+  }
+
+  function switchTab(tab: DashboardTab) {
+    setActiveView(tab);
+    setIsAccountOpen(false);
+    setIsChildMenuOpen(false);
+    setConfirmRemoveId(null);
+  }
+
+  const showEmptyStates = children.length === 0;
+
   return (
     <View style={styles.screen}>
       <View style={styles.phoneShell}>
-        {Platform.OS === 'web' ? <StatusChrome /> : null}
         <ScrollView
           contentContainerStyle={styles.content}
           showsVerticalScrollIndicator={false}
           style={styles.scroll}>
-          <View style={styles.topBar}>
-            <BrandLogo />
-            <View style={styles.topActions}>
-              <Pressable
-                accessibilityLabel="Refresh dashboard"
-                onLongPress={onSignOut}
-                onPress={onRefresh}
-                style={styles.bellButton}>
-                {isLoading ? (
-                  <ActivityIndicator color="#FF4B10" size="small" />
-                ) : (
-                  <>
-                <Bell color="#101014" size={28} strokeWidth={2.5} />
-                <View style={styles.notificationDot} />
-                  </>
-                )}
-              </Pressable>
-            </View>
-          </View>
+          <DashboardHeader
+            childName={selectedChild?.name ?? null}
+            childrenCount={children.length}
+            isLoading={isLoading}
+            isChildMenuOpen={isChildMenuOpen}
+            parentFirstName={parentFirstName}
+            onRefresh={onRefresh}
+            onToggleAccount={() => {
+              setIsAccountOpen(open => !open);
+              setIsChildMenuOpen(false);
+              setConfirmRemoveId(null);
+            }}
+            onToggleChildMenu={() => {
+              setIsChildMenuOpen(open => !open);
+              setIsAccountOpen(false);
+              setConfirmRemoveId(null);
+            }}
+          />
 
-          <View style={styles.greetingRow}>
-            <Text adjustsFontSizeToFit minimumFontScale={0.82} numberOfLines={1} style={styles.greeting}>
-              Good afternoon, {parentFirstName} 👋
-            </Text>
-            {selectedChild ? (
-              <Pressable accessibilityLabel="Selected child" style={styles.childSelector}>
-                <MiniStudentAvatar />
-                <Text numberOfLines={1} style={styles.childSelectorText}>
-                  {selectedChild.name} - {selectedChild.grade}
-                </Text>
-                <ChevronDown color="#101014" size={18} strokeWidth={2.7} />
-              </Pressable>
-            ) : null}
-          </View>
-
-          <Text style={styles.subtitle}>Here is {selectedChildFirstName}'s learning update today.</Text>
-
-          {children.length > 1 && selectedChild ? (
-            <ScrollView
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              contentContainerStyle={styles.childTabs}>
-              {children.map(child => {
-                const active = child.id === selectedChild.id;
-                const pendingRemoval = confirmRemoveId === child.id;
-                return (
-                  <View key={child.id} style={[styles.childTab, active && styles.childTabActive]}>
-                    <Pressable onPress={() => onSelectChild(child.id)} style={styles.childTabMain}>
-                      <Text style={[styles.childTabName, active && styles.childTabNameActive]}>
-                        {child.name}
-                      </Text>
-                      <Text style={[styles.childTabMeta, active && styles.childTabMetaActive]}>
-                        {child.grade}
-                      </Text>
-                    </Pressable>
-                    {active ? (
-                      <Pressable
-                        onPress={() =>
-                          pendingRemoval ? onUnlinkChild(child.id) : setConfirmRemoveId(child.id)
-                        }
-                        style={styles.childRemoveButton}>
-                        <Trash2 color="#DC2626" size={14} strokeWidth={2.4} />
-                        <Text style={styles.childRemoveText}>{pendingRemoval ? 'Confirm' : 'Remove'}</Text>
-                      </Pressable>
-                    ) : null}
-                  </View>
-                );
-              })}
-            </ScrollView>
+          {isChildMenuOpen ? (
+            <ChildManagerPanel
+              childrenList={children}
+              confirmRemoveId={confirmRemoveId}
+              error={error}
+              isLinking={isLinking}
+              linkIdentifier={linkIdentifier}
+              linkMethod={linkMethod}
+              selectedChildId={selectedChild?.id ?? null}
+              onConfirmRemove={setConfirmRemoveId}
+              onLinkChild={onLinkChild}
+              onLinkIdentifierChange={onLinkIdentifierChange}
+              onLinkMethodChange={onLinkMethodChange}
+              onSelectChild={childId => {
+                onSelectChild(childId);
+                setIsChildMenuOpen(false);
+                setConfirmRemoveId(null);
+              }}
+              onUnlinkChild={onUnlinkChild}
+            />
           ) : null}
 
-          {isLoading && children.length === 0 ? (
+          {isLoading && showEmptyStates ? (
             <EmptyState
               title="Loading children"
               body="Fetching the latest learning statistics."
               isLoading
             />
-          ) : error && children.length === 0 ? (
+          ) : error && showEmptyStates ? (
             <EmptyState
               title="Dashboard unavailable"
               body={error}
@@ -280,8 +315,6 @@ export function ParentDashboardScreen({
               onLinkIdentifierChange={onLinkIdentifierChange}
               onLinkMethodChange={onLinkMethodChange}
             />
-          ) : activeView === 'report' ? (
-            <WeeklyReport child={selectedChild} onBack={() => setActiveView('home')} />
           ) : activeView === 'messages' ? (
             <ParentMessagesView
               activeTeacherId={activeTeacherId}
@@ -296,572 +329,1167 @@ export function ParentDashboardScreen({
               onSelectTeacher={setSelectedTeacherId}
               onSend={sendParentMessage}
             />
+          ) : activeView === 'learning' ? (
+            <LearningView child={selectedChild} />
+          ) : activeView === 'insights' ? (
+            <InsightsView child={selectedChild} />
+          ) : activeView === 'rafiki' ? (
+            <RafikiView
+              childFirstName={childFirstName}
+              draft={rafikiDraft}
+              focusArea={getFocusTopics(selectedChild)[0] ?? null}
+              isThinking={isRafikiThinking}
+              messages={rafikiMessages}
+              parentFirstName={parentFirstName}
+              onChangeDraft={setRafikiDraft}
+              onSend={sendRafikiMessage}
+            />
           ) : (
-            <>
-              <HeroCard child={selectedChild} score={score} />
+            <View style={styles.homeContent}>
+              <View>
+                <ThisWeekCard child={selectedChild} mascotKey={mascotKey} score={score} />
 
-              <QuickActions
-                isStartingFocusMode={isStartingFocusMode}
-                onLockPhone={onStartFocusMode}
-                onMessages={() => setActiveView('messages')}
-                onViewReport={() => setActiveView('report')}
-              />
-
-              {focusModeActive || focusModeSetupRequired || focusModeError ? (
-                <FocusModeNotice
-                  active={focusModeActive}
-                  setupRequired={focusModeSetupRequired}
-                  error={focusModeError}
-                  secondsRemaining={focusModeSecondsRemaining}
-                  limitSeconds={dailyLimitSeconds}
-                  isStarting={isStartingFocusMode}
-                  onStart={onStartFocusMode}
-                  onOpenSettings={onOpenFocusModeSettings}
+                <QuickActionsCard
+                  isStartingFocusMode={isStartingFocusMode}
+                  onLockPhone={onStartFocusMode}
+                  onMessages={() => setActiveView('messages')}
+                  onPayFees={onOpenBilling}
+                  onViewReport={() => setActiveView('insights')}
                 />
-              ) : null}
 
-              <View style={styles.cardGrid}>
-                <TodayLearningCard child={selectedChild} />
-                <RemedialFocusCard child={selectedChild} onViewReport={() => setActiveView('report')} />
-                <AssignmentsCard assignments={selectedChild.recent_assignments} onViewReport={() => setActiveView('report')} />
-                <ParentingTipsCard />
+                {focusModeActive || focusModeSetupRequired || focusModeError ? (
+                  <FocusModeNotice
+                    active={focusModeActive}
+                    setupRequired={focusModeSetupRequired}
+                    setupCompleted={focusModeSetupCompleted}
+                    error={focusModeError}
+                    secondsRemaining={focusModeSecondsRemaining}
+                    limitSeconds={dailyLimitSeconds}
+                    isStarting={isStartingFocusMode}
+                    onStart={onStartFocusMode}
+                    onOpenSettings={onOpenFocusModeSettings}
+                  />
+                ) : null}
               </View>
 
-              <TeacherNoteCard />
+              <View style={styles.homeSection}>
+                <View style={styles.glanceHeaderRow}>
+                  <SectionTitle title="Today at a glance" />
+                  <GlanceRangeTabs range={glanceRange} onChange={setGlanceRange} />
+                </View>
+                <GlanceCards child={selectedChild} range={glanceRange} />
+              </View>
 
-              <Text style={styles.footerCount}>{childCountLabel}</Text>
-            </>
+              <View style={styles.homeSection}>
+                <View style={styles.progressHeaderRow}>
+                  <SectionTitle title="Recent progress" />
+                  <Pressable onPress={() => setActiveView('insights')} style={styles.viewAllLink}>
+                    <Text style={styles.viewAllLinkText}>View all</Text>
+                  </Pressable>
+                </View>
+                <RecentProgress child={selectedChild} />
+              </View>
+
+              <View style={styles.homeFooter}>
+                <TeacherNoteCard
+                  note={latestTeacherNote}
+                  onReply={() => setActiveView('messages')}
+                />
+
+                <Text style={styles.footerCount}>{childCountLabel}</Text>
+              </View>
+            </View>
           )}
         </ScrollView>
 
-        <BottomNavigation
-          activeView={activeView}
-          isStartingFocusMode={isStartingFocusMode}
-          onHome={() => setActiveView('home')}
-          onReports={() => setActiveView('report')}
-          onMessages={() => setActiveView('messages')}
-          onLock={onStartFocusMode}
-        />
+        {isAccountOpen ? (
+          <View pointerEvents="box-none" style={styles.accountOverlayLayer}>
+            <Pressable
+              accessibilityLabel="Dismiss parent account profile"
+              onPress={() => setIsAccountOpen(false)}
+              style={styles.accountOverlayDismiss}
+            />
+            <View style={styles.accountOverlayCardWrap}>
+              <ParentAccountPanel
+                childrenCount={children.length}
+                parentEmail={parentEmail}
+                parentName={parentDisplayName}
+                parentPhone={parentPhone}
+                parentRole={parentRole}
+                onClose={() => setIsAccountOpen(false)}
+                onSaveProfile={onSaveParentProfile}
+                onSignOut={onSignOut}
+              />
+            </View>
+          </View>
+        ) : null}
+
+        <BottomNavigation activeView={activeView} onSelect={switchTab} />
       </View>
     </View>
   );
 }
 
-function StatusChrome() {
+function DashboardHeader({
+  childName,
+  childrenCount,
+  isLoading,
+  isChildMenuOpen,
+  parentFirstName,
+  onRefresh,
+  onToggleAccount,
+  onToggleChildMenu,
+}: {
+  childName: string | null;
+  childrenCount: number;
+  isLoading: boolean;
+  isChildMenuOpen: boolean;
+  parentFirstName: string;
+  onRefresh: () => void;
+  onToggleAccount: () => void;
+  onToggleChildMenu: () => void;
+}) {
+  const childLabel = childName ?? (childrenCount > 0 ? 'Select child' : 'Add child');
   return (
-    <View style={styles.statusChrome}>
-      <Text style={styles.statusTime}>1:30</Text>
-      <View style={styles.statusRight}>
-        <View style={styles.signalBars}>
-          <View style={[styles.signalBar, styles.signalBarShort]} />
-          <View style={[styles.signalBar, styles.signalBarMedium]} />
-          <View style={[styles.signalBar, styles.signalBarTall]} />
-          <View style={[styles.signalBar, styles.signalBarFull]} />
-        </View>
-        <Svg width={21} height={16} viewBox="0 0 21 16">
-          <Path d="M2 6c5-5 12-5 17 0" stroke="#050505" strokeWidth="3" strokeLinecap="round" fill="none" />
-          <Path d="M6 10c3-3 7-3 10 0" stroke="#050505" strokeWidth="3" strokeLinecap="round" fill="none" />
-          <Circle cx="10.5" cy="14" r="2" fill="#050505" />
-        </Svg>
-        <View style={styles.battery}>
-          <Text style={styles.batteryText}>86</Text>
-        </View>
-      </View>
+    <View style={styles.headerRow}>
+      <Pressable
+        accessibilityLabel="Open parent account profile"
+        onPress={onToggleAccount}
+        style={styles.accountAvatarButton}>
+        <ParentAvatar name={parentFirstName} size={44} />
+      </Pressable>
+
+      <Pressable
+        accessibilityLabel="Switch child"
+        onPress={onToggleChildMenu}
+        style={styles.headerChildIdentity}>
+          <View style={styles.headerTextWrap}>
+            <Text numberOfLines={1} style={styles.headerGreeting}>
+              {getTimeGreeting()}, {parentFirstName}
+            </Text>
+            <View style={styles.headerTitleRow}>
+              <Text numberOfLines={1} style={styles.headerTitle}>
+                {childLabel}
+              </Text>
+              <ChevronDown
+                color={INK}
+                size={18}
+                strokeWidth={2.6}
+                style={isChildMenuOpen ? styles.chevronFlipped : undefined}
+              />
+            </View>
+          </View>
+      </Pressable>
+
+      <Pressable
+        accessibilityLabel="Refresh dashboard"
+        onPress={onRefresh}
+        style={styles.bellButton}>
+        {isLoading ? (
+          <ActivityIndicator color={ACCENT} size="small" />
+        ) : (
+          <>
+            <Bell color={INK} size={26} strokeWidth={2.2} />
+            <View style={styles.notificationDot} />
+          </>
+        )}
+      </Pressable>
     </View>
   );
 }
 
-function BrandLogo() {
+function ParentAvatar({ name, size }: { name: string; size: number }) {
+  const initials = getInitials(name);
   return (
-    <View style={styles.brandWrap}>
-      <Svg width={33} height={28} viewBox="0 0 48 42">
-        <Path
-          d="M4 6c9-3 16 0 20 6v26c-5-5-12-8-20-5V6z"
-          fill="none"
-          stroke="#FF4B10"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="3.5"
-        />
-        <Path
-          d="M44 6c-9-3-16 0-20 6v26c5-5 12-8 20-5V6z"
-          fill="none"
-          stroke="#FF4B10"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="3.5"
-        />
-        <Path d="M24 12c4-8 11-10 20-10" stroke="#FF4B10" strokeLinecap="round" strokeWidth="3.5" />
-      </Svg>
-      <Text style={styles.brandText}>Kitabu</Text>
-      <View style={styles.aiBadge}>
-        <Text style={styles.aiBadgeText}>AI</Text>
-      </View>
+    <View style={[styles.parentAvatar, { borderRadius: size / 2, height: size, width: size }]}>
+      <Text style={styles.parentAvatarText}>{initials}</Text>
     </View>
   );
 }
 
-function MiniStudentAvatar() {
+function ChildAvatar({ size }: { size: number }) {
   return (
-    <LinearGradient colors={['#FFF1E9', '#FFE1D2']} style={styles.miniAvatar}>
-      <Svg width={42} height={42} viewBox="0 0 64 64">
-        <Circle cx="32" cy="31" r="18" fill="#7A4127" />
-        <Circle cx="21" cy="20" r="8" fill="#24140F" />
-        <Circle cx="30" cy="14" r="9" fill="#24140F" />
-        <Circle cx="40" cy="16" r="8" fill="#24140F" />
-        <Circle cx="46" cy="25" r="8" fill="#24140F" />
-        <Ellipse cx="32" cy="33" rx="15" ry="17" fill="#A3653D" />
+    <View style={[styles.childAvatar, { borderRadius: size / 2, height: size, width: size }]}>
+      <Svg height={size - 8} viewBox="0 0 64 64" width={size - 8}>
+        <Circle cx="32" cy="30" r="17" fill="#8A4B2D" />
+        <Circle cx="21" cy="20" r="8" fill="#241410" />
+        <Circle cx="31" cy="14" r="9" fill="#241410" />
+        <Circle cx="41" cy="17" r="8" fill="#241410" />
+        <Circle cx="46" cy="26" r="7" fill="#241410" />
+        <Ellipse cx="32" cy="33" rx="14" ry="16" fill="#A3653D" />
         <Circle cx="27" cy="32" r="1.8" fill="#111111" />
         <Circle cx="38" cy="32" r="1.8" fill="#111111" />
-        <Path d="M28 41c3 3 8 3 11 0" stroke="#fff" strokeWidth="2.3" strokeLinecap="round" />
-        <Path d="M17 64c2-12 8-18 15-18s13 6 15 18H17z" fill="#0F172A" />
-        <Path d="M25 48l7 8 7-8" fill="#FFFFFF" />
-        <Path d="M32 56l3 8h-6l3-8z" fill="#F97316" />
-      </Svg>
-    </LinearGradient>
-  );
-}
-
-function HeroCard({ child, score }: { child: ParentChildSummary; score: number }) {
-  const firstName = getFirstName(child.name);
-  const status = score >= 70 ? 'Meeting expectations' : 'Needs focused support';
-
-  return (
-    <LinearGradient
-      colors={['#FF4620', '#FF6A19', '#FFA22B']}
-      end={{ x: 1, y: 1 }}
-      start={{ x: 0, y: 0 }}
-      style={styles.heroCard}>
-      <HeroTexture />
-      <View style={styles.heroCopy}>
-        <Text style={styles.heroTitle}>{firstName} is on track</Text>
-        <View style={styles.heroScoreRow}>
-          <Text style={styles.heroScore}>{score}</Text>
-          <Text style={styles.heroPercent}>%</Text>
-        </View>
-        <Text style={styles.heroStatus}>{status}</Text>
-        <View style={styles.improvementPill}>
-          <View style={styles.improvementIcon}>
-            <Text style={styles.improvementArrow}>^</Text>
-          </View>
-          <Text style={styles.improvementText}>+6% improvement this term</Text>
-        </View>
-      </View>
-      <HeroStudentArt />
-    </LinearGradient>
-  );
-}
-
-function HeroTexture() {
-  return (
-    <Svg height="100%" preserveAspectRatio="none" style={styles.textureLayer} viewBox="0 0 394 138" width="100%">
-      <Defs>
-        <SvgLinearGradient id="heroGlow" x1="0" x2="1" y1="0" y2="1">
-          <Stop offset="0" stopColor="#FFFFFF" stopOpacity="0.02" />
-          <Stop offset="1" stopColor="#FFFFFF" stopOpacity="0.34" />
-        </SvgLinearGradient>
-      </Defs>
-      <Path d="M150 102C205 54 260 42 393 70" fill="none" stroke="#FFFFFF" strokeOpacity="0.78" strokeWidth="1.2" />
-      <Path d="M0 124C92 76 162 68 238 100C296 124 342 115 394 96" fill="none" stroke="#FFFFFF" strokeOpacity="0.55" strokeWidth="1" />
-      <Path d="M220 126C260 67 310 42 394 24" fill="none" stroke="#FFFFFF" strokeOpacity="0.42" strokeWidth="1" />
-      {Array.from({ length: 13 }).map((_, index) => (
-        <Path
-          key={`wave-${index}`}
-          d={`M218 ${132 - index * 4}C260 ${74 - index * 2} 316 ${45 - index} 402 ${42 + index * 4}`}
-          fill="none"
-          stroke="#FFFFFF"
-          strokeOpacity="0.16"
-          strokeWidth="0.8"
-        />
-      ))}
-      {Array.from({ length: 16 }).map((_, index) => (
-        <Path
-          key={`left-wave-${index}`}
-          d={`M-18 ${118 - index * 3}C54 ${90 - index * 2} 132 ${87 - index * 3} 221 ${114 - index}`}
-          fill="none"
-          stroke="#FFFFFF"
-          strokeOpacity="0.11"
-          strokeWidth="0.7"
-        />
-      ))}
-      <Path d="M244 42l4 16 15 4-15 4-4 16-4-16-15-4 15-4 4-16z" fill="#FFFFFF" opacity="0.5" />
-      <Path d="M307 23l2 8 8 2-8 2-2 8-2-8-8-2 8-2 2-8z" fill="#FFFFFF" opacity="0.34" />
-      <Circle cx="356" cy="116" r="92" fill="url(#heroGlow)" opacity="0.55" />
-    </Svg>
-  );
-}
-
-function HeroStudentArt() {
-  return (
-    <View pointerEvents="none" style={styles.heroStudent}>
-      <Svg width={166} height={150} viewBox="0 0 166 150">
-        <Defs>
-          <SvgLinearGradient id="skin" x1="0" x2="1" y1="0" y2="1">
-            <Stop offset="0" stopColor="#C47A47" />
-            <Stop offset="1" stopColor="#8E4F30" />
-          </SvgLinearGradient>
-          <SvgLinearGradient id="shirt" x1="0" x2="1" y1="0" y2="1">
-            <Stop offset="0" stopColor="#FFFFFF" />
-            <Stop offset="1" stopColor="#DCE8F3" />
-          </SvgLinearGradient>
-          <SvgLinearGradient id="bag" x1="0" x2="1" y1="0" y2="1">
-            <Stop offset="0" stopColor="#1F2937" />
-            <Stop offset="1" stopColor="#0B1220" />
-          </SvgLinearGradient>
-        </Defs>
-        <Path d="M24 150c8-42 32-62 65-62s55 21 63 62H24z" fill="url(#bag)" />
-        <Path d="M42 150c4-35 20-57 47-57s43 22 47 57H42z" fill="url(#shirt)" />
-        <Path d="M79 98l11 16 11-16" fill="#FFFFFF" />
-        <Path d="M84 110l8 40h-15l8-40z" fill="#15315F" />
-        <Path d="M89 111l27 39h-13L84 116z" fill="#C8281A" opacity="0.85" />
-        <Rect x="116" y="126" width="34" height="15" rx="3" fill="#F97316" />
-        <Rect x="120" y="130" width="25" height="3" rx="1.5" fill="#FFFFFF" opacity="0.55" />
-        <Path d="M60 93c6 13 16 20 29 20s23-7 29-20" fill="#E9F1F8" />
-        <Ellipse cx="88" cy="70" rx="34" ry="38" fill="url(#skin)" />
-        <Circle cx="54" cy="73" r="7" fill="#9B5C38" />
-        <Circle cx="122" cy="73" r="7" fill="#9B5C38" />
-        <Path d="M73 78c9 7 22 7 31 0" stroke="#6F2E1A" strokeLinecap="round" strokeWidth="3" />
-        <Path d="M74 83c8 6 20 6 29 0" stroke="#FFFFFF" strokeLinecap="round" strokeWidth="3" />
-        <Circle cx="76" cy="67" r="3.1" fill="#101014" />
-        <Circle cx="101" cy="67" r="3.1" fill="#101014" />
-        <Path d="M68 59c5-3 10-3 15 0" stroke="#1A0F0C" strokeLinecap="round" strokeWidth="3" />
-        <Path d="M94 59c5-3 10-3 15 0" stroke="#1A0F0C" strokeLinecap="round" strokeWidth="3" />
-        <Path d="M88 67c-2 7-1 12 4 15" stroke="#7A3921" strokeLinecap="round" strokeWidth="2.2" />
-        <G fill="#1B0E0B">
-          <Circle cx="50" cy="52" r="15" />
-          <Circle cx="60" cy="34" r="15" />
-          <Circle cx="78" cy="25" r="14" />
-          <Circle cx="97" cy="25" r="15" />
-          <Circle cx="116" cy="38" r="15" />
-          <Circle cx="126" cy="57" r="13" />
-          <Circle cx="44" cy="68" r="12" />
-        </G>
-        <Path d="M54 59c6-18 21-27 40-25 19 2 31 13 36 33-9-14-18-20-28-20-17 12-36 15-57 9z" fill="#24120E" />
-        <Path d="M42 150h13l9-44c-12 9-19 23-22 44zM134 150h-13l-9-44c12 9 19 23 22 44z" fill="#111827" />
+        <Path d="M28 40c3 3 8 3 11 0" stroke="#FFFFFF" strokeLinecap="round" strokeWidth="2.2" />
+        <Path d="M17 64c2-12 8-18 15-18s13 6 15 18H17z" fill="#F97316" />
       </Svg>
     </View>
   );
 }
 
-function QuickActions({
+function ParentAccountPanel({
+  childrenCount,
+  parentEmail,
+  parentName,
+  parentPhone,
+  parentRole,
+  onClose,
+  onSaveProfile,
+  onSignOut,
+}: {
+  childrenCount: number;
+  parentEmail?: string | null;
+  parentName: string;
+  parentPhone?: string | null;
+  parentRole?: string | null;
+  onClose: () => void;
+  onSaveProfile?: (updates: { name: string; email: string; phone: string }) => void;
+  onSignOut: () => void;
+}) {
+  const [isEditing, setIsEditing] = useState(false);
+  const [draftName, setDraftName] = useState(parentName);
+  const [draftEmail, setDraftEmail] = useState(parentEmail?.trim() || '');
+  const [draftPhone, setDraftPhone] = useState(parentPhone?.trim() || '');
+  const roleLabel = formatAccountRole(parentRole);
+  const childCountLabel = childrenCount === 1 ? '1 linked child' : `${childrenCount} linked children`;
+
+  useEffect(() => {
+    if (!isEditing) {
+      setDraftName(parentName);
+      setDraftEmail(parentEmail?.trim() || '');
+      setDraftPhone(parentPhone?.trim() || '');
+    }
+  }, [isEditing, parentEmail, parentName, parentPhone]);
+
+  function cancelEdit() {
+    setDraftName(parentName);
+    setDraftEmail(parentEmail?.trim() || '');
+    setDraftPhone(parentPhone?.trim() || '');
+    setIsEditing(false);
+  }
+
+  function saveEdit() {
+    const nextName = draftName.trim() || parentName;
+    onSaveProfile?.({
+      name: nextName,
+      email: draftEmail.trim(),
+      phone: draftPhone.trim(),
+    });
+    setIsEditing(false);
+  }
+
+  return (
+    <View style={styles.accountPanel}>
+      <View style={styles.accountPanelHeader}>
+        <Pressable
+          accessibilityLabel="Close parent account profile"
+          onPress={onClose}
+          style={styles.accountPanelAvatarButton}>
+          <ParentAvatar name={parentName} size={48} />
+        </Pressable>
+        <View style={styles.accountPanelHeaderText}>
+          <Text numberOfLines={1} style={styles.accountPanelName}>
+            {parentName}
+          </Text>
+          <Text style={styles.accountPanelRole}>{roleLabel}</Text>
+        </View>
+        <Pressable
+          accessibilityLabel="Edit parent profile"
+          onPress={() => setIsEditing(true)}
+          style={[styles.accountEditButton, isEditing && styles.accountEditButtonActive]}>
+          <Pencil color={isEditing ? ACCENT : MUTED} size={16} strokeWidth={2.4} />
+        </Pressable>
+      </View>
+
+      {isEditing ? (
+        <View style={styles.accountEditFields}>
+          <AccountEditField label="Name" value={draftName} onChangeText={setDraftName} />
+          <AccountEditField
+            autoCapitalize="none"
+            keyboardType="email-address"
+            label="Email"
+            value={draftEmail}
+            onChangeText={setDraftEmail}
+          />
+          <AccountEditField
+            keyboardType="phone-pad"
+            label="Phone"
+            value={draftPhone}
+            onChangeText={setDraftPhone}
+          />
+          <View style={styles.accountEditActions}>
+            <Pressable onPress={cancelEdit} style={styles.accountEditSecondary}>
+              <Text style={styles.accountEditSecondaryText}>Cancel</Text>
+            </Pressable>
+            <Pressable
+              disabled={!draftName.trim()}
+              onPress={saveEdit}
+              style={[styles.accountEditPrimary, !draftName.trim() && styles.accountEditPrimaryDisabled]}>
+              <Text style={styles.accountEditPrimaryText}>Save</Text>
+            </Pressable>
+          </View>
+        </View>
+      ) : (
+        <View style={styles.accountDetailGrid}>
+          <AccountDetail label="Email" value={parentEmail?.trim() || 'Not added'} />
+          <AccountDetail label="Phone" value={parentPhone?.trim() || 'Not added'} />
+          <AccountDetail label="Account type" value={roleLabel} />
+          <AccountDetail label="Children" value={childCountLabel} />
+        </View>
+      )}
+
+      <Pressable onPress={onSignOut} style={styles.accountSignOutButton}>
+        <LogOut color="#DC2626" size={17} strokeWidth={2.4} />
+        <Text style={styles.accountSignOutText}>Sign out</Text>
+      </Pressable>
+    </View>
+  );
+}
+
+function AccountEditField({
+  autoCapitalize = 'words',
+  keyboardType = 'default',
+  label,
+  value,
+  onChangeText,
+}: {
+  autoCapitalize?: 'none' | 'sentences' | 'words' | 'characters';
+  keyboardType?: 'default' | 'email-address' | 'phone-pad';
+  label: string;
+  value: string;
+  onChangeText: (value: string) => void;
+}) {
+  return (
+    <View style={styles.accountEditField}>
+      <Text style={styles.accountEditLabel}>{label}</Text>
+      <TextInput
+        autoCapitalize={autoCapitalize}
+        autoCorrect={false}
+        keyboardType={keyboardType}
+        onChangeText={onChangeText}
+        placeholder={label}
+        placeholderTextColor="#9CA3AF"
+        style={styles.accountEditInput}
+        value={value}
+      />
+    </View>
+  );
+}
+
+function AccountDetail({ label, value }: { label: string; value: string }) {
+  return (
+    <View style={styles.accountDetailRow}>
+      <Text style={styles.accountDetailLabel}>{label}</Text>
+      <Text numberOfLines={1} style={styles.accountDetailValue}>
+        {value}
+      </Text>
+    </View>
+  );
+}
+
+function ChildManagerPanel({
+  childrenList,
+  confirmRemoveId,
+  error,
+  isLinking,
+  linkIdentifier,
+  linkMethod,
+  selectedChildId,
+  onConfirmRemove,
+  onLinkChild,
+  onLinkIdentifierChange,
+  onLinkMethodChange,
+  onSelectChild,
+  onUnlinkChild,
+}: {
+  childrenList: ParentChildSummary[];
+  confirmRemoveId: string | null;
+  error: string | null;
+  isLinking: boolean;
+  linkIdentifier: string;
+  linkMethod: 'email' | 'phone';
+  selectedChildId: string | null;
+  onConfirmRemove: (childId: string | null) => void;
+  onLinkChild: () => void;
+  onLinkIdentifierChange: (value: string) => void;
+  onLinkMethodChange: (method: 'email' | 'phone') => void;
+  onSelectChild: (childId: string) => void;
+  onUnlinkChild: (childId: string) => void;
+}) {
+  return (
+    <View style={styles.childManager}>
+      {childrenList.map(child => {
+        const active = child.id === selectedChildId;
+        const pendingRemoval = confirmRemoveId === child.id;
+        return (
+          <View key={child.id} style={[styles.childManagerRow, active && styles.childManagerRowActive]}>
+            <Pressable onPress={() => onSelectChild(child.id)} style={styles.childManagerMain}>
+              <ChildAvatar size={38} />
+              <View style={styles.childManagerTextWrap}>
+                <Text numberOfLines={1} style={[styles.childManagerName, active && styles.childManagerNameActive]}>
+                  {child.name}
+                </Text>
+                <Text style={styles.childManagerMeta}>{child.grade}</Text>
+              </View>
+            </Pressable>
+            <Pressable
+              onPress={() =>
+                pendingRemoval ? onUnlinkChild(child.id) : onConfirmRemove(child.id)
+              }
+              style={styles.childRemoveButton}>
+              <Trash2 color="#DC2626" size={14} strokeWidth={2.4} />
+              <Text style={styles.childRemoveText}>{pendingRemoval ? 'Confirm' : 'Remove'}</Text>
+            </Pressable>
+          </View>
+        );
+      })}
+
+      <Text style={styles.childManagerLabel}>Add another child</Text>
+      <View style={styles.methodRow}>
+        {(['email', 'phone'] as const).map(method => (
+          <Pressable
+            key={method}
+            onPress={() => onLinkMethodChange(method)}
+            style={[styles.methodButton, linkMethod === method && styles.methodButtonActive]}>
+            <Text style={[styles.methodText, linkMethod === method && styles.methodTextActive]}>
+              {method === 'email' ? 'Email' : 'Phone'}
+            </Text>
+          </Pressable>
+        ))}
+      </View>
+      <View style={styles.linkRow}>
+        <TextInput
+          autoCapitalize="none"
+          autoCorrect={false}
+          keyboardType={linkMethod === 'email' ? 'email-address' : 'phone-pad'}
+          onChangeText={onLinkIdentifierChange}
+          placeholder={linkMethod === 'email' ? 'Student email' : 'Student phone'}
+          placeholderTextColor="#9CA3AF"
+          style={styles.input}
+          value={linkIdentifier}
+        />
+        <Pressable
+          disabled={isLinking || !linkIdentifier.trim()}
+          onPress={onLinkChild}
+          style={[styles.linkButton, (isLinking || !linkIdentifier.trim()) && styles.disabledButton]}>
+          {isLinking ? <ActivityIndicator color="#FFFFFF" /> : <Link2 color="#FFFFFF" size={19} strokeWidth={2.6} />}
+        </Pressable>
+      </View>
+      {error ? <Text style={styles.errorText}>{error}</Text> : null}
+    </View>
+  );
+}
+
+function SectionTitle({ title }: { title: string }) {
+  return <Text style={styles.sectionTitle}>{title}</Text>;
+}
+
+function ThisWeekCard({
+  child,
+  mascotKey,
+  score,
+}: {
+  child: ParentChildSummary;
+  mascotKey: OnboardingMascotKey;
+  score: number;
+}) {
+  const firstName = getFirstName(child.name);
+  const headline =
+    score >= 80
+      ? `${firstName} is thriving`
+      : score >= 70
+        ? `${firstName} is on track`
+      : score > 0
+        ? `${firstName} needs a boost`
+        : `${firstName} is getting started`;
+  const subline =
+    score >= 80
+      ? 'Strong average across tests and learning performance.'
+      : score >= 70
+        ? 'Steady performance across recent learning checks.'
+      : score > 0
+        ? 'Use this snapshot to spot where support is needed.'
+        : `Progress appears here as ${firstName} learns.`;
+
+  return (
+    <View style={styles.heroCard}>
+      <View style={styles.heroCopy}>
+        <Text style={styles.heroEyebrow}>Average Performance</Text>
+        <Text style={styles.heroTitle}>{headline}</Text>
+        <Text style={styles.heroSubtitle}>{subline}</Text>
+      </View>
+      <PerformanceRing mascotKey={mascotKey} score={score} />
+    </View>
+  );
+}
+
+function PerformanceRing({
+  mascotKey,
+  score,
+}: {
+  mascotKey: OnboardingMascotKey;
+  score: number;
+}) {
+  const radius = 34;
+  const circumference = 2 * Math.PI * radius;
+  const progress = Math.max(0, Math.min(100, score));
+  const dashOffset = circumference * (1 - progress / 100);
+  const ringColor = getPerformanceColor(score);
+
+  return (
+    <View style={styles.ringWrap}>
+      <Svg height={90} viewBox="0 0 90 90" width={90}>
+        <Circle cx="45" cy="45" fill="none" r={radius} stroke="#F5E3D3" strokeWidth="8" />
+        <G transform="rotate(-90 45 45)">
+          <Circle
+            cx="45"
+            cy="45"
+            fill="none"
+            r={radius}
+            stroke={ringColor}
+            strokeDasharray={`${circumference} ${circumference}`}
+            strokeDashoffset={dashOffset}
+            strokeLinecap="round"
+            strokeWidth="8"
+          />
+        </G>
+      </Svg>
+      <View style={styles.performanceMascotWrap}>
+        <Image
+          accessibilityLabel="Selected mascot reacting to performance"
+          resizeMode="contain"
+          source={MASCOT_ART[mascotKey]}
+          style={styles.performanceMascot}
+        />
+      </View>
+      <View style={styles.ringCenter}>
+        <Text
+          adjustsFontSizeToFit
+          minimumFontScale={0.68}
+          numberOfLines={1}
+          style={[styles.ringScore, { color: ringColor }]}>
+          {score}%
+        </Text>
+        <Text adjustsFontSizeToFit minimumFontScale={0.62} numberOfLines={2} style={styles.ringLabel}>
+          Average Performance
+        </Text>
+      </View>
+    </View>
+  );
+}
+
+function QuickActionsCard({
   isStartingFocusMode,
   onLockPhone,
   onMessages,
+  onPayFees,
   onViewReport,
 }: {
   isStartingFocusMode: boolean;
   onLockPhone: () => void;
   onMessages: () => void;
+  onPayFees?: () => void;
   onViewReport: () => void;
 }) {
   return (
-    <View style={styles.quickRail}>
+    <View style={styles.quickCard}>
       <QuickAction
-        borderColor="#CDE4FF"
-        colors={['#F4FAFF', '#EDF6FF']}
-        icon={<LockKeyhole color="#087CE4" size={36} strokeWidth={2.4} />}
-        isLoading={isStartingFocusMode}
-        label="Lock Phone"
-        onPress={onLockPhone}
+        icon={<WalletCards color={ACCENT} size={26} strokeWidth={2.3} />}
+        iconBackground="#FFEDD5"
+        label={'Pay\nsubscription'}
+        onPress={onPayFees}
       />
       <QuickAction
-        borderColor="#D8EED4"
-        colors={['#FAFFF7', '#F1FAEF']}
-        icon={<FileBarChart color="#22A83A" size={36} strokeWidth={2.4} />}
-        label="View Report"
+        icon={<FileBarChart color="#16A34A" size={26} strokeWidth={2.3} />}
+        iconBackground="#DCFCE7"
+        label={'View\nreport'}
         onPress={onViewReport}
       />
       <QuickAction
-        borderColor="#E2D5FF"
-        colors={['#FBF9FF', '#F4F0FF']}
-        icon={<MessageSquareText color="#8057E6" size={36} strokeWidth={2.4} />}
-        label={'Message\nTeacher'}
+        icon={<MessageSquareText color="#7C3AED" size={26} strokeWidth={2.3} />}
+        iconBackground="#EDE9FE"
+        label={'Message\nteacher'}
         onPress={onMessages}
       />
       <QuickAction
-        borderColor="#F4D2B7"
-        colors={['#FFFDF9', '#FFF5EC']}
-        icon={<WalletCards color="#FF7A00" size={36} strokeWidth={2.4} />}
-        label={'Pay Fees /\nSubscription'}
+        icon={<LockKeyhole color="#2563EB" size={26} strokeWidth={2.3} />}
+        iconBackground="#DBEAFE"
+        isLoading={isStartingFocusMode}
+        label={'Lock\nphone'}
+        onPress={onLockPhone}
       />
     </View>
   );
 }
 
 function QuickAction({
-  borderColor,
-  colors,
   icon,
+  iconBackground,
   isLoading,
   label,
   onPress,
 }: {
-  borderColor: string;
-  colors: [string, string];
   icon: React.ReactNode;
+  iconBackground: string;
   isLoading?: boolean;
   label: string;
   onPress?: () => void;
 }) {
   return (
     <Pressable disabled={!onPress} onPress={onPress} style={styles.quickAction}>
-      <LinearGradient colors={colors} style={[styles.quickIconBox, { borderColor }]}>
-        {isLoading ? <ActivityIndicator color="#FF4B10" /> : icon}
-      </LinearGradient>
+      <View style={[styles.quickIconBox, { backgroundColor: iconBackground }]}>
+        {isLoading ? <ActivityIndicator color={ACCENT} /> : icon}
+      </View>
       <Text style={styles.quickLabel}>{label}</Text>
     </Pressable>
   );
 }
 
-function TodayLearningCard({ child }: { child: ParentChildSummary }) {
-  const minutes = child.weekly_report.lessonsCompleted > 0 ? child.weekly_report.lessonsCompleted * 21 : 42;
-  const quizCompleted = child.recent_assignments.filter(assignment => assignment.status === 'completed').length;
-  const assignmentsDue = child.recent_assignments.filter(assignment => assignment.status !== 'completed').length || 2;
-  const goalProgress = Math.min(100, Math.round((minutes / 70) * 100));
-
+function GlanceRangeTabs({
+  range,
+  onChange,
+}: {
+  range: GlanceRange;
+  onChange: (range: GlanceRange) => void;
+}) {
+  const options: Array<{ key: GlanceRange; label: string }> = [
+    { key: 'week', label: 'This week' },
+    { key: 'month', label: 'This month' },
+    { key: 'year', label: 'Year so far' },
+  ];
   return (
-    <DashboardCard accent="#1388F2" borderColor="#9CC9FF" title="Today's Learning">
-      <LearningMetric
-        icon={<Clock3 color="#1388F2" size={24} strokeWidth={2.5} />}
-        iconTone="#1388F2"
-        label="Active learning"
-        value={`${minutes} min`}
-      />
-      <LearningMetric
-        icon={<CheckCircle2 color="#FFFFFF" size={22} strokeWidth={2.8} />}
-        iconTone="#3EC53C"
-        label="Quiz completed"
-        value={String(Math.max(1, quizCompleted))}
-      />
-      <LearningMetric
-        icon={<BriefcaseBusiness color="#FFFFFF" size={22} strokeWidth={2.7} />}
-        iconTone="#FF870B"
-        label="Assignments due"
-        value={String(assignmentsDue)}
-      />
-      <View style={styles.progressBarTrack}>
-        <LinearGradient colors={['#0A7CFF', '#129AFF']} style={[styles.progressBarFill, { width: `${goalProgress}%` }]} />
-      </View>
-      <View style={styles.goalRow}>
-        <Text style={styles.goalText}>{goalProgress}% of daily goal</Text>
-        <Text style={styles.goalText}>Goal: 70 min</Text>
-      </View>
-    </DashboardCard>
+    <View style={styles.rangeTabs}>
+      {options.map(option => {
+        const active = option.key === range;
+        return (
+          <Pressable
+            key={option.key}
+            onPress={() => onChange(option.key)}
+            style={[styles.rangeTab, active && styles.rangeTabActive]}>
+            <Text style={[styles.rangeTabText, active && styles.rangeTabTextActive]}>
+              {option.label}
+            </Text>
+          </Pressable>
+        );
+      })}
+    </View>
   );
 }
 
-function LearningMetric({
+function GlanceCards({ child, range }: { child: ParentChildSummary; range: GlanceRange }) {
+  const stats = getGlanceStats(child, range);
+  const comparisons = getGlanceComparisons(child, range);
+  return (
+    <View style={styles.glanceRow}>
+      <GlanceCard
+        comparison={comparisons.minutes}
+        label="Active learning"
+        value={`${stats.minutes} min`}
+      />
+      <GlanceCard
+        comparison={comparisons.topics}
+        label="Topics learned"
+        value={String(stats.topics)}
+      />
+      <GlanceCard
+        comparison={comparisons.assignments}
+        label="Assignments due"
+        value={String(stats.due)}
+      />
+    </View>
+  );
+}
+
+function GlanceCard({
+  comparison,
   icon,
-  iconTone,
+  iconBackground,
   label,
   value,
 }: {
-  icon: React.ReactNode;
-  iconTone: string;
+  comparison?: { text: string; tone: GlanceComparisonTone };
+  icon?: React.ReactNode;
+  iconBackground?: string;
   label: string;
   value: string;
 }) {
+  const textOnly = !icon;
   return (
-    <View style={styles.learningMetric}>
-      <View style={[styles.metricIcon, { backgroundColor: iconTone }]}>{icon}</View>
-      <View>
-        <Text style={styles.metricValue}>{value}</Text>
-        <Text style={styles.metricLabel}>{label}</Text>
+    <View style={[styles.glanceCard, textOnly && styles.glanceCardTextOnly]}>
+      {icon ? (
+        <View style={[styles.glanceIconBox, { backgroundColor: iconBackground }]}>{icon}</View>
+      ) : null}
+      <Text style={[styles.glanceValue, textOnly && styles.glanceValueTextOnly]}>{value}</Text>
+      <Text style={[styles.glanceLabel, textOnly && styles.glanceLabelTextOnly]}>{label}</Text>
+      {comparison ? (
+        <Text
+          numberOfLines={1}
+          style={[
+            styles.glanceComparison,
+            comparison.tone === 'positive' && styles.glanceComparisonPositive,
+            comparison.tone === 'negative' && styles.glanceComparisonNegative,
+          ]}>
+          {comparison.text}
+        </Text>
+      ) : null}
+    </View>
+  );
+}
+
+function RecentProgress({ child }: { child: ParentChildSummary }) {
+  const strengths = getStrengthRows(child).map((label, index) => ({
+    label,
+    status: getStrengthStatus(child, index),
+  }));
+  const focus = getFocusTopics(child);
+
+  return (
+    <View style={styles.progressRow}>
+      <View style={styles.progressCard}>
+        <View style={styles.progressCardHeader}>
+          <Text style={[styles.progressCardTitle, styles.progressCardTitleSuccess]}>Strengths</Text>
+          <View style={[styles.progressCardIcon, styles.progressCardIconSuccess]}>
+            <Trophy color="#16A34A" size={17} strokeWidth={2.4} />
+          </View>
+        </View>
+        {strengths.length > 0 ? (
+          strengths.map(item => (
+            <View key={item.label} style={styles.progressItemRow}>
+              <Text numberOfLines={1} style={styles.progressItemName}>
+                {item.label}
+              </Text>
+              <View style={[styles.progressBadge, styles.progressBadgeGreen]}>
+                <Text numberOfLines={1} style={styles.progressBadgeGreenText}>
+                  {item.status}
+                </Text>
+              </View>
+            </View>
+          ))
+        ) : (
+          <Text style={styles.progressEmptyText}>Strengths will appear as learning data grows.</Text>
+        )}
+      </View>
+      <View style={styles.progressCard}>
+        <View style={styles.progressCardHeader}>
+          <Text style={[styles.progressCardTitle, styles.progressCardTitleFocus]}>Needs focus</Text>
+          <View style={[styles.progressCardIcon, styles.progressCardIconFocus]}>
+            <Target color="#EA580C" size={17} strokeWidth={2.4} />
+          </View>
+        </View>
+        {focus.length > 0 ? (
+          focus.map(item => (
+            <View key={item} style={styles.progressItemRow}>
+              <Text numberOfLines={1} style={styles.progressItemName}>
+                {item}
+              </Text>
+              <View style={[styles.progressBadge, styles.progressBadgeOrange]}>
+                <Text numberOfLines={1} style={styles.progressBadgeOrangeText}>
+                  Work on this
+                </Text>
+              </View>
+            </View>
+          ))
+        ) : (
+          <Text style={styles.progressEmptyText}>No focus areas yet.</Text>
+        )}
       </View>
     </View>
   );
 }
 
-function RemedialFocusCard({
-  child,
-  onViewReport,
-}: {
-  child: ParentChildSummary;
-  onViewReport: () => void;
-}) {
-  const items = getRemedialItems(child);
-  return (
-    <DashboardCard accent="#F22626" borderColor="#FFB7B7" title="Remedial Focus">
-      <View style={styles.remedialRows}>
-        {items.map((item, index) => (
-          <View key={`${item}-${index}`} style={styles.remedialRow}>
-            <Text numberOfLines={1} style={styles.remedialName}>
-              {item}
-            </Text>
-            <View style={[styles.priorityBadge, index === 0 ? styles.priorityHigh : styles.priorityMedium]}>
-              <Text style={[styles.priorityText, index === 0 ? styles.priorityHighText : styles.priorityMediumText]}>
-                {index === 0 ? 'High Priority' : 'Medium'}
-              </Text>
-            </View>
-          </View>
-        ))}
-      </View>
-      <Pressable onPress={onViewReport} style={styles.remedialButton}>
-        <LinearGradient colors={['#FA3228', '#EF1F27']} style={styles.remedialButtonGradient}>
-          <Text style={styles.remedialButtonText}>View Remedial Plan</Text>
-        </LinearGradient>
-      </Pressable>
-    </DashboardCard>
-  );
-}
-
-function AssignmentsCard({
-  assignments,
-  onViewReport,
-}: {
-  assignments: ParentChildAssignment[];
-  onViewReport: () => void;
-}) {
-  const visibleAssignments = assignments.length > 0 ? assignments.slice(0, 2) : DEFAULT_ASSIGNMENTS;
-  return (
-    <DashboardCard accent="#7446DD" borderColor="#D7C1FF" title="Assignments">
-      <View style={styles.assignmentList}>
-        {visibleAssignments.map((assignment, index) => {
-          const isCompleted = assignment.status === 'completed';
-          const statusLabel = isCompleted ? 'Done' : index === 0 ? 'Not started' : 'In progress';
-          return (
-            <View key={assignment.id} style={styles.assignmentItem}>
-              <View style={styles.assignmentIconBox}>
-                <ClipboardList color="#7446DD" size={20} strokeWidth={2.5} />
-              </View>
-              <View style={styles.assignmentTextWrap}>
-                <Text numberOfLines={1} style={styles.assignmentTitle}>
-                  {assignment.title}
-                </Text>
-                <Text style={styles.assignmentDue}>{formatAssignmentDue(assignment, index)}</Text>
-              </View>
-              <View style={[styles.assignmentStatusPill, index === 0 ? styles.statusRed : styles.statusBlue]}>
-                <Text style={[styles.assignmentStatusText, index === 0 ? styles.statusRedText : styles.statusBlueText]}>
-                  {statusLabel}
-                </Text>
-              </View>
-            </View>
-          );
-        })}
-      </View>
-      <Pressable onPress={onViewReport} style={styles.viewAllButton}>
-        <Text style={styles.viewAllText}>View all assignments</Text>
-        <ChevronRight color="#7446DD" size={22} strokeWidth={2.7} />
-      </Pressable>
-    </DashboardCard>
-  );
-}
-
 function ParentingTipsCard() {
   const tips = [
-    { icon: <Target color="#1FAA2B" size={18} strokeWidth={2.5} />, label: 'Praise effort, not just marks' },
-    { icon: <HelpCircle color="#1FAA2B" size={18} strokeWidth={2.5} />, label: 'Ask what felt hard today' },
-    { icon: <BookOpen color="#1FAA2B" size={18} strokeWidth={2.5} />, label: 'Read together for 10 min' },
+    { icon: <Target color="#16A34A" size={17} strokeWidth={2.4} />, label: 'Praise effort, not just marks' },
+    { icon: <HelpCircle color="#16A34A" size={17} strokeWidth={2.4} />, label: 'Ask what felt hard today' },
+    { icon: <BookOpen color="#16A34A" size={17} strokeWidth={2.4} />, label: 'Read together for 10 min' },
+  ];
+  return (
+    <View style={styles.tipsCard}>
+      <Text style={styles.tipsTitle}>Parenting tips</Text>
+      {tips.map(tip => (
+        <View key={tip.label} style={styles.tipRow}>
+          <View style={styles.tipIcon}>{tip.icon}</View>
+          <Text numberOfLines={1} style={styles.tipText}>
+            {tip.label}
+          </Text>
+        </View>
+      ))}
+      <View style={styles.tipFooter}>
+        <Shield color={MUTED} size={15} strokeWidth={2.2} />
+        <Text style={styles.tipFooterText}>Small daily support builds confidence.</Text>
+      </View>
+    </View>
+  );
+}
+
+function TeacherNoteCard({
+  note,
+  onReply,
+}: {
+  note: TeacherParentMessage | null;
+  onReply: () => void;
+}) {
+  return (
+    <>
+      <SectionTitle title="Teacher note" />
+      <View style={styles.teacherNoteCard}>
+        <TeacherAvatar />
+        <View style={styles.teacherNoteBody}>
+          <Text style={styles.teacherNoteFrom}>{note ? `From ${note.sender_name}` : 'No teacher note yet'}</Text>
+          <Text numberOfLines={2} style={styles.teacherNoteText}>
+            {note ? note.body : 'Teacher messages will appear here once they reach out.'}
+          </Text>
+        </View>
+        <Pressable onPress={onReply} style={styles.replyButton}>
+          <Text style={styles.replyText}>{note ? 'Reply' : 'Open'}</Text>
+        </Pressable>
+      </View>
+    </>
+  );
+}
+
+function TeacherAvatar() {
+  return (
+    <View style={styles.teacherAvatar}>
+      <Svg height={52} viewBox="0 0 52 52" width={52}>
+        <Circle cx="26" cy="26" r="26" fill="#E8EBEF" />
+        <Path d="M9 52c3.2-11 9.3-16.5 17-16.5S39.8 41 43 52H9z" fill="#262B38" />
+        <Circle cx="26" cy="24" r="11.2" fill="#9A5A43" />
+        <Path
+          d="M13.8 25.5c0-11 5.4-18 12.3-18s12.4 7 12.4 18c-2.2-7-6-10.2-12.4-10.2S16 18.5 13.8 25.5z"
+          fill="#1D1110"
+        />
+        <Path d="M16.3 20.8c3-7.8 15.5-10 21 0-6-2.5-14.1-2.5-21 0z" fill="#251311" />
+        <Circle cx="22.2" cy="24.3" r="1.2" fill="#121212" />
+        <Circle cx="29.8" cy="24.3" r="1.2" fill="#121212" />
+        <Path d="M23.1 29.7c1.8 1.7 4.1 1.7 5.9 0" stroke="#FFFFFF" strokeLinecap="round" strokeWidth="1.6" />
+        <Path d="M20 38.5h12l-6 5.8-6-5.8z" fill="#FFFFFF" opacity="0.9" />
+      </Svg>
+    </View>
+  );
+}
+
+function LearningView({ child }: { child: ParentChildSummary }) {
+  const stats = getGlanceStats(child, 'week');
+  const assignments = child.recent_assignments;
+  const hasTrendActivity = child.weekly_trends.some(
+    item => item.lessonsCompleted > 0 || item.assignmentsCompleted > 0 || item.assessmentAverage > 0,
+  );
+  const maxActivity = Math.max(
+    1,
+    ...child.weekly_trends.map(item => item.lessonsCompleted + item.assignmentsCompleted),
+  );
+
+  return (
+    <View style={styles.subViewWrap}>
+      <Text style={styles.subViewTitle}>Learning activity</Text>
+      <Text style={styles.subViewSubtitle}>
+        What {getFirstName(child.name)} has been working on.
+      </Text>
+
+      <View style={styles.glanceRow}>
+        <GlanceCard
+          icon={<Clock3 color="#2563EB" size={22} strokeWidth={2.3} />}
+          iconBackground="#DBEAFE"
+          label="Active learning"
+          value={`${stats.minutes} min`}
+        />
+        <GlanceCard
+          icon={<Target color="#16A34A" size={22} strokeWidth={2.3} />}
+          iconBackground="#DCFCE7"
+          label="Topics learned"
+          value={String(stats.topics)}
+        />
+        <GlanceCard
+          icon={<CheckCircle2 color="#7C3AED" size={22} strokeWidth={2.3} />}
+          iconBackground="#EDE9FE"
+          label="Assignments due"
+          value={String(stats.due)}
+        />
+      </View>
+
+      <View style={styles.panelCard}>
+        <View style={styles.panelHeader}>
+          <ClipboardList color="#7C3AED" size={19} strokeWidth={2.4} />
+          <Text style={styles.panelTitle}>Assignments</Text>
+        </View>
+        {assignments.length === 0 ? (
+          <Text style={styles.panelBodyText}>No assignments yet.</Text>
+        ) : (
+          assignments.map(assignment => (
+            <AssignmentRow key={assignment.id} assignment={assignment} />
+          ))
+        )}
+      </View>
+
+      <View style={styles.panelCard}>
+        <View style={styles.panelHeader}>
+          <BarChart3 color={ACCENT} size={19} strokeWidth={2.4} />
+          <Text style={styles.panelTitle}>Six-week activity</Text>
+        </View>
+        {hasTrendActivity ? (
+          <View style={styles.trendChart}>
+            {child.weekly_trends.map(item => {
+              const total = item.lessonsCompleted + item.assignmentsCompleted;
+              return (
+                <View key={item.weekStart} style={styles.trendColumn}>
+                  <View style={styles.trendBarTrack}>
+                    <View
+                      style={[
+                        styles.trendBar,
+                        { height: `${Math.max(6, (total / maxActivity) * 100)}%` },
+                      ]}
+                    />
+                  </View>
+                  <Text style={styles.trendValue}>{total}</Text>
+                  <Text style={styles.trendLabel}>{item.weekStart.slice(5)}</Text>
+                </View>
+              );
+            })}
+          </View>
+        ) : (
+          <Text style={styles.panelBodyText}>
+            Weekly activity appears after lessons, assignments, or exams are completed.
+          </Text>
+        )}
+      </View>
+    </View>
+  );
+}
+
+function AssignmentRow({ assignment }: { assignment: ParentChildAssignment }) {
+  const isCompleted = assignment.status === 'completed';
+  return (
+    <View style={styles.assignmentRow}>
+      <View style={styles.assignmentIconBox}>
+        <ClipboardList color="#7C3AED" size={18} strokeWidth={2.4} />
+      </View>
+      <View style={styles.assignmentTextWrap}>
+        <Text numberOfLines={1} style={styles.assignmentTitle}>
+          {assignment.title}
+        </Text>
+        <Text style={styles.assignmentMeta}>
+          {assignment.subject}
+          {assignment.score !== null ? ` - ${assignment.score}%` : ''}
+        </Text>
+      </View>
+      <View
+        style={[
+          styles.assignmentStatusPill,
+          isCompleted ? styles.statusPillDone : styles.statusPillDue,
+        ]}>
+        <Text
+          style={[
+            styles.assignmentStatusText,
+            isCompleted ? styles.statusPillDoneText : styles.statusPillDueText,
+          ]}>
+          {isCompleted ? 'Done' : 'Due'}
+        </Text>
+      </View>
+    </View>
+  );
+}
+
+function InsightsView({ child }: { child: ParentChildSummary }) {
+  const report = child.weekly_report;
+  const hasTrendActivity = child.weekly_trends.some(
+    item => item.lessonsCompleted > 0 || item.assignmentsCompleted > 0 || item.assessmentAverage > 0,
+  );
+
+  return (
+    <View style={styles.subViewWrap}>
+      <Text style={styles.subViewTitle}>Insights</Text>
+      <Text style={styles.subViewSubtitle}>This week for {getFirstName(child.name)}</Text>
+
+      <View style={styles.summaryStrip}>
+        <Text style={styles.summaryStripText}>
+          {report.activeDays} active days - {report.lessonsCompleted} lessons - {report.assignmentsCompleted} assignments
+        </Text>
+      </View>
+
+      <View style={styles.reportStatsRow}>
+        <ReportStat
+          label="Assessment"
+          value={formatPercentStat(report.assessmentAverage, hasTrendActivity)}
+        />
+        <ReportStat
+          label="Weekly exam"
+          value={report.weeklyExamScore === null ? 'No data' : `${report.weeklyExamScore}%`}
+        />
+      </View>
+
+      <ReportList
+        title="Strengths"
+        items={report.strengths}
+        empty="Strengths will appear as learning data grows."
+        tone="success"
+      />
+      <ReportList
+        title="Focus next"
+        items={report.focusAreas}
+        empty="No urgent focus areas this week."
+        tone="focus"
+      />
+
+      <ParentingTipsCard />
+    </View>
+  );
+}
+
+function ReportStat({ label, value }: { label: string; value: string }) {
+  return (
+    <View style={styles.reportStat}>
+      <Text style={styles.reportStatValue}>{value}</Text>
+      <Text style={styles.reportStatLabel}>{label}</Text>
+    </View>
+  );
+}
+
+function ReportList({
+  empty,
+  items,
+  title,
+  tone,
+}: {
+  empty: string;
+  items: string[];
+  title: string;
+  tone: 'success' | 'focus';
+}) {
+  const renderedItems = items.length > 0 ? items : [empty];
+  return (
+    <View style={styles.panelCard}>
+      <View style={styles.panelHeader}>
+        {tone === 'success' ? (
+          <CheckCircle2 color="#16A34A" size={19} strokeWidth={2.4} />
+        ) : (
+          <Target color={ACCENT} size={19} strokeWidth={2.4} />
+        )}
+        <Text style={styles.panelTitle}>{title}</Text>
+      </View>
+      {renderedItems.map(item => (
+        <View key={item} style={styles.reportListRow}>
+          <View
+            style={[styles.reportDot, tone === 'success' ? styles.reportDotSuccess : styles.reportDotFocus]}
+          />
+          <Text style={styles.reportListText}>{item}</Text>
+        </View>
+      ))}
+    </View>
+  );
+}
+
+function RafikiView({
+  childFirstName,
+  draft,
+  focusArea,
+  isThinking,
+  messages,
+  parentFirstName,
+  onChangeDraft,
+  onSend,
+}: {
+  childFirstName: string;
+  draft: string;
+  focusArea: string | null;
+  isThinking: boolean;
+  messages: ChatMessage[];
+  parentFirstName: string;
+  onChangeDraft: (value: string) => void;
+  onSend: (text?: string) => void;
+}) {
+  const suggestions = [
+    `How is ${childFirstName} doing this week?`,
+    'What should we practice at home?',
+    ...(focusArea ? [`How can I help with ${focusArea}?`] : []),
   ];
 
   return (
-    <DashboardCard accent="#1FAA2B" borderColor="#9EDC8C" title="Parenting Tips">
-      <View style={styles.tipList}>
-        {tips.map(tip => (
-          <Pressable key={tip.label} style={styles.tipRow}>
-            <View style={styles.tipIcon}>{tip.icon}</View>
-            <Text numberOfLines={1} style={styles.tipText}>
-              {tip.label}
-            </Text>
-            <ChevronRight color="#202125" size={18} strokeWidth={2.4} />
-          </Pressable>
-        ))}
-      </View>
-      <View style={styles.tipFooter}>
-        <Shield color="#6B7280" size={17} strokeWidth={2.3} />
-        <Text style={styles.tipFooterText}>Small daily support builds confidence.</Text>
-      </View>
-    </DashboardCard>
-  );
-}
-
-function TeacherNoteCard() {
-  return (
-    <View style={styles.teacherNote}>
-      <CardTexture accent="#FF7A16" opacity={0.16} />
-      <View style={styles.teacherTitleRow}>
-        <View style={styles.teacherIcon}>
-          <Text style={styles.teacherIconText}>i</Text>
+    <View style={styles.subViewWrap}>
+      <View style={styles.rafikiHeaderRow}>
+        <View style={styles.rafikiBadge}>
+          <Sparkles color={ACCENT} size={20} strokeWidth={2.3} />
         </View>
-        <Text style={styles.teacherTitle}>Teacher Note</Text>
+        <View>
+          <Text style={styles.subViewTitle}>Ask Rafiki</Text>
+          <Text style={styles.subViewSubtitle}>
+            Questions about {childFirstName}'s learning, answered.
+          </Text>
+        </View>
       </View>
-      <Text style={styles.teacherFrom}>From Ms. Njeri</Text>
-      <View style={styles.teacherBodyRow}>
-        <Text style={styles.teacherBody}>
-          Alice is improving in English and Science.{'\n'}Please encourage fractions practice.
-        </Text>
-        <Pressable style={styles.replyButton}>
-          <Text style={styles.replyText}>Reply</Text>
+
+      <View style={styles.rafikiThread}>
+        <View style={[styles.rafikiBubble, styles.rafikiBubbleModel]}>
+          <Text style={styles.rafikiBubbleText}>
+            Hi {parentFirstName}! I'm Rafiki. Ask me anything about {childFirstName}'s learning
+            and how to help at home.
+          </Text>
+        </View>
+        {messages.map((message, index) => (
+          <View
+            key={`${message.role}-${index}`}
+            style={[
+              styles.rafikiBubble,
+              message.role === 'user' ? styles.rafikiBubbleUser : styles.rafikiBubbleModel,
+            ]}>
+            <Text
+              style={[
+                styles.rafikiBubbleText,
+                message.role === 'user' && styles.rafikiBubbleTextUser,
+              ]}>
+              {message.text}
+            </Text>
+          </View>
+        ))}
+        {isThinking ? (
+          <View style={[styles.rafikiBubble, styles.rafikiBubbleModel, styles.rafikiThinkingRow]}>
+            <ActivityIndicator color={ACCENT} size="small" />
+            <Text style={styles.rafikiThinkingText}>Rafiki is thinking...</Text>
+          </View>
+        ) : null}
+      </View>
+
+      {messages.length === 0 ? (
+        <View style={styles.rafikiSuggestions}>
+          {suggestions.map(suggestion => (
+            <Pressable
+              key={suggestion}
+              disabled={isThinking}
+              onPress={() => onSend(suggestion)}
+              style={styles.rafikiSuggestionChip}>
+              <Text style={styles.rafikiSuggestionText}>{suggestion}</Text>
+            </Pressable>
+          ))}
+        </View>
+      ) : null}
+
+      <View style={styles.rafikiComposer}>
+        <TextInput
+          editable={!isThinking}
+          multiline
+          onChangeText={onChangeDraft}
+          placeholder={`Ask about ${childFirstName}'s learning...`}
+          placeholderTextColor="#9CA3AF"
+          style={styles.rafikiInput}
+          value={draft}
+        />
+        <Pressable
+          disabled={draft.trim().length === 0 || isThinking}
+          onPress={() => onSend()}
+          style={[
+            styles.rafikiSendButton,
+            (draft.trim().length === 0 || isThinking) && styles.disabledButton,
+          ]}>
+          <Send color="#FFFFFF" size={19} strokeWidth={2.4} />
         </Pressable>
       </View>
     </View>
   );
 }
 
-function DashboardCard({
-  accent,
-  borderColor,
-  children,
-  title,
-}: {
-  accent: string;
-  borderColor: string;
-  children: React.ReactNode;
-  title: string;
-}) {
-  const isCompact = title === 'Assignments' || title === 'Parenting Tips';
-  return (
-    <View style={[styles.dashboardCard, isCompact && styles.dashboardCardCompact, { borderColor }]}>
-      <CardTexture accent={accent} />
-      <View style={styles.cardHeader}>
-        <View style={[styles.cardIconBadge, { backgroundColor: accent }]}>
-          {title === "Today's Learning" ? (
-            <BookOpen color="#FFFFFF" size={20} strokeWidth={2.5} />
-          ) : title === 'Remedial Focus' ? (
-            <Target color="#FFFFFF" size={20} strokeWidth={2.5} />
-          ) : title === 'Assignments' ? (
-            <ClipboardList color="#FFFFFF" size={20} strokeWidth={2.5} />
-          ) : (
-            <LockKeyhole color="#FFFFFF" size={19} strokeWidth={2.5} />
-          )}
-        </View>
-        <Text numberOfLines={1} style={[styles.cardTitle, { color: accent }]}>{title}</Text>
-      </View>
-      {children}
-    </View>
-  );
-}
-
-function CardTexture({ accent, opacity = 0.13 }: { accent: string; opacity?: number }) {
-  return (
-    <Svg height="100%" preserveAspectRatio="none" style={styles.textureLayer} viewBox="0 0 188 180" width="100%">
-      {Array.from({ length: 8 }).map((_, index) => (
-        <Path
-          key={`card-curve-${index}`}
-          d={`M92 ${-14 + index * 5}C130 ${12 + index * 2} 161 ${24 + index * 6} 203 ${15 + index * 11}`}
-          fill="none"
-          stroke={accent}
-          strokeOpacity={opacity}
-          strokeWidth="0.8"
-        />
-      ))}
-      {Array.from({ length: 8 }).map((_, index) => (
-        <Path
-          key={`card-bottom-${index}`}
-          d={`M89 ${174 - index * 4}C126 ${144 - index * 2} 153 ${132 - index * 3} 202 ${138 - index * 5}`}
-          fill="none"
-          stroke={accent}
-          strokeOpacity={opacity * 0.7}
-          strokeWidth="0.75"
-        />
-      ))}
-    </Svg>
-  );
-}
-
 function FocusModeNotice({
   active,
   setupRequired,
+  setupCompleted,
   error,
   secondsRemaining,
   limitSeconds,
@@ -871,6 +1499,7 @@ function FocusModeNotice({
 }: {
   active: boolean;
   setupRequired: boolean;
+  setupCompleted: boolean;
   error: string | null;
   secondsRemaining: number;
   limitSeconds: number;
@@ -878,6 +1507,8 @@ function FocusModeNotice({
   onStart: () => void;
   onOpenSettings: () => void;
 }) {
+  const showFirstTimeInstructions = !setupCompleted;
+  const startButtonLabel = setupCompleted && !setupRequired ? 'Enter PIN' : 'Start Focus Mode';
   return (
     <View style={styles.focusNotice}>
       <View style={styles.focusNoticeHeader}>
@@ -889,9 +1520,17 @@ function FocusModeNotice({
           <Text style={styles.focusNoticeMeta}>Default session: {formatDuration(limitSeconds)}</Text>
         </View>
       </View>
-      <Text style={styles.focusNoticeText}>Focus Mode keeps KITABU on screen while your child learns.</Text>
-      <Text style={styles.focusNoticeText}>To leave Focus Mode, Android will ask for your phone PIN.</Text>
-      <Text style={styles.focusNoticeText}>KITABU does not create a separate PIN.</Text>
+      {showFirstTimeInstructions ? (
+        <>
+          <Text style={styles.focusNoticeText}>Focus Mode keeps KITABU on screen while your child learns.</Text>
+          <Text style={styles.focusNoticeText}>To leave Focus Mode, Android will ask for your phone PIN.</Text>
+          <Text style={styles.focusNoticeText}>KITABU does not create a separate PIN.</Text>
+        </>
+      ) : (
+        <Text style={styles.focusNoticeText}>
+          Enter your parent PIN to start Focus Mode for this student.
+        </Text>
+      )}
 
       {active ? (
         <View style={styles.focusStatusRow}>
@@ -902,13 +1541,25 @@ function FocusModeNotice({
 
       {setupRequired ? (
         <View style={styles.focusSetupBox}>
-          <Text style={styles.focusSetupTitle}>Turn on App Pinning to keep KITABU on screen.</Text>
-          <Text style={styles.focusSetupText}>
-            After turning it on, Android will ask for your phone PIN when someone tries to leave KITABU.
+          <Text style={styles.focusSetupTitle}>
+            {showFirstTimeInstructions
+              ? 'Turn on App Pinning to keep KITABU on screen.'
+              : 'Focus Mode setup needs attention.'}
           </Text>
-          <Text style={styles.focusSetupText}>
-            If the phone does not have a PIN, set one in Android security settings first.
-          </Text>
+          {showFirstTimeInstructions ? (
+            <>
+              <Text style={styles.focusSetupText}>
+                After turning it on, Android will ask for your phone PIN when someone tries to leave KITABU.
+              </Text>
+              <Text style={styles.focusSetupText}>
+                If the phone does not have a PIN, set one in Android security settings first.
+              </Text>
+            </>
+          ) : (
+            <Text style={styles.focusSetupText}>
+              Check Android security settings, then enter your parent PIN again.
+            </Text>
+          )}
           <Pressable onPress={onOpenSettings} style={styles.settingsButton}>
             <Settings color="#0F8A4B" size={17} strokeWidth={2.4} />
             <Text style={styles.settingsButtonText}>Open Settings</Text>
@@ -922,7 +1573,7 @@ function FocusModeNotice({
         disabled={active || isStarting}
         onPress={onStart}
         style={[styles.focusButton, (active || isStarting) && styles.disabledButton]}>
-        {isStarting ? <ActivityIndicator color="#FFFFFF" /> : <Text style={styles.focusButtonText}>Start Focus Mode</Text>}
+        {isStarting ? <ActivityIndicator color="#FFFFFF" /> : <Text style={styles.focusButtonText}>{startButtonLabel}</Text>}
       </Pressable>
     </View>
   );
@@ -1001,7 +1652,7 @@ function EmptyState({
 }) {
   return (
     <View style={styles.emptyPanel}>
-      {isLoading ? <ActivityIndicator color="#FF4B10" /> : null}
+      {isLoading ? <ActivityIndicator color={ACCENT} /> : null}
       <Text style={styles.emptyTitle}>{title}</Text>
       <Text style={styles.emptyText}>{body}</Text>
       {actionLabel && onAction ? (
@@ -1009,118 +1660,6 @@ function EmptyState({
           <Text style={styles.retryButtonText}>{actionLabel}</Text>
         </Pressable>
       ) : null}
-    </View>
-  );
-}
-
-function WeeklyReport({ child, onBack }: { child: ParentChildSummary; onBack: () => void }) {
-  const report = child.weekly_report;
-  const hasTrendActivity = child.weekly_trends.some(
-    item => item.lessonsCompleted > 0 || item.assignmentsCompleted > 0 || item.assessmentAverage > 0,
-  );
-  const maxActivity = Math.max(
-    1,
-    ...child.weekly_trends.map(item => item.lessonsCompleted + item.assignmentsCompleted),
-  );
-
-  return (
-    <View style={styles.reportWrap}>
-      <View style={styles.reportTopRow}>
-        <View>
-          <Text style={styles.reportEyebrow}>Weekly report</Text>
-          <Text style={styles.reportTitle}>This week for {getFirstName(child.name)}</Text>
-        </View>
-        <Pressable onPress={onBack} style={styles.reportBackButton}>
-          <Home color="#FF4B10" size={20} strokeWidth={2.5} />
-        </Pressable>
-      </View>
-      <LinearGradient colors={['#FFF7EF', '#FFFFFF']} style={styles.reportSummary}>
-        <Text style={styles.reportSummaryText}>
-          {report.activeDays} active days - {report.lessonsCompleted} lessons - {report.assignmentsCompleted} assignments
-        </Text>
-      </LinearGradient>
-      <View style={styles.reportStatsRow}>
-        <ReportStat
-          label="Assessment"
-          value={formatPercentStat(report.assessmentAverage, hasTrendActivity)}
-        />
-        <ReportStat
-          label="Weekly exam"
-          value={report.weeklyExamScore === null ? 'No data' : `${report.weeklyExamScore}%`}
-        />
-      </View>
-      <View style={styles.reportPanel}>
-        <View style={styles.reportPanelHeader}>
-          <BarChart3 color="#FF4B10" size={20} strokeWidth={2.4} />
-          <Text style={styles.reportPanelTitle}>Six-week activity</Text>
-        </View>
-        {hasTrendActivity ? (
-          <View style={styles.trendChart}>
-            {child.weekly_trends.map(item => {
-              const total = item.lessonsCompleted + item.assignmentsCompleted;
-              return (
-                <View key={item.weekStart} style={styles.trendColumn}>
-                  <View style={styles.trendBarTrack}>
-                    <LinearGradient
-                      colors={['#FF4B10', '#FF8A1D']}
-                      style={[styles.trendBar, { height: `${Math.max(6, (total / maxActivity) * 100)}%` }]}
-                    />
-                  </View>
-                  <Text style={styles.trendValue}>{total}</Text>
-                  <Text style={styles.trendLabel}>{item.weekStart.slice(5)}</Text>
-                </View>
-              );
-            })}
-          </View>
-        ) : (
-          <Text style={styles.reportBodyText}>
-            Weekly activity appears after lessons, assignments, or exams are completed.
-          </Text>
-        )}
-      </View>
-      <ReportList title="Strengths" items={report.strengths} empty="Strengths will appear as learning data grows." tone="success" />
-      <ReportList title="Focus next" items={report.focusAreas} empty="No urgent focus areas this week." tone="focus" />
-    </View>
-  );
-}
-
-function ReportStat({ label, value }: { label: string; value: string }) {
-  return (
-    <View style={styles.reportStat}>
-      <Text style={styles.reportStatValue}>{value}</Text>
-      <Text style={styles.reportStatLabel}>{label}</Text>
-    </View>
-  );
-}
-
-function ReportList({
-  empty,
-  items,
-  title,
-  tone,
-}: {
-  empty: string;
-  items: string[];
-  title: string;
-  tone: 'success' | 'focus';
-}) {
-  const renderedItems = items.length > 0 ? items : [empty];
-  return (
-    <View style={styles.reportPanel}>
-      <View style={styles.reportPanelHeader}>
-        {tone === 'success' ? (
-          <CheckCircle2 color="#1FAA2B" size={20} strokeWidth={2.5} />
-        ) : (
-          <Target color="#FF7A16" size={20} strokeWidth={2.5} />
-        )}
-        <Text style={styles.reportPanelTitle}>{title}</Text>
-      </View>
-      {renderedItems.map(item => (
-        <View key={item} style={styles.reportListRow}>
-          <View style={[styles.reportDot, tone === 'success' ? styles.reportDotSuccess : styles.reportDotFocus]} />
-          <Text style={styles.reportListText}>{item}</Text>
-        </View>
-      ))}
     </View>
   );
 }
@@ -1152,111 +1691,96 @@ function ParentMessagesView({
 }) {
   const selectedTeacher = teachers.find(teacher => teacher.teacher_user_id === activeTeacherId);
   return (
-    <View style={styles.parentMessagesWrap}>
-      <View style={styles.reportTopRow}>
+    <View style={styles.subViewWrap}>
+      <View style={styles.messagesTopRow}>
         <View>
-          <Text style={styles.reportEyebrow}>Messages</Text>
-          <Text style={styles.reportTitle}>Teacher chat</Text>
+          <Text style={styles.subViewTitle}>Messages</Text>
+          <Text style={styles.subViewSubtitle}>
+            {selectedTeacher ? selectedTeacher.sender_name : 'Teacher chat'}
+            {isLoading ? ' - Loading...' : ''}
+          </Text>
         </View>
-        <Pressable onPress={onBack} style={styles.reportBackButton}>
-          <Text style={styles.reportBackText}>Back</Text>
+        <Pressable onPress={onBack} style={styles.backButton}>
+          <Text style={styles.backButtonText}>Back</Text>
         </Pressable>
       </View>
 
-      <View style={styles.parentMessagePanel}>
-        <View style={styles.parentMessageHeader}>
-          <View>
-            <Text style={styles.parentMessageTitle}>
-              {selectedTeacher ? selectedTeacher.sender_name : 'Teacher messages'}
-            </Text>
-            <Text style={styles.parentMessageMeta}>
-              {isLoading ? 'Loading...' : `${messages.length} saved messages`}
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.teacherTabs}>
+        {teachers.length === 0 ? (
+          <View style={styles.teacherEmptyChip}>
+            <Text style={styles.teacherEmptyText}>No active teacher chats</Text>
+          </View>
+        ) : (
+          teachers.map(thread => {
+            const active = thread.teacher_user_id === activeTeacherId;
+            return (
+              <Pressable
+                key={thread.teacher_user_id}
+                onPress={() => onSelectTeacher(thread.teacher_user_id)}
+                style={[styles.teacherChip, active && styles.teacherChipActive]}>
+                <Text style={[styles.teacherChipText, active && styles.teacherChipTextActive]}>
+                  {thread.sender_name}
+                </Text>
+              </Pressable>
+            );
+          })
+        )}
+      </ScrollView>
+
+      {error ? <Text style={styles.messageError}>{error}</Text> : null}
+
+      <View style={styles.messageThread}>
+        {messages.length === 0 ? (
+          <View style={styles.messageEmpty}>
+            <Text style={styles.messageEmptyTitle}>No messages yet</Text>
+            <Text style={styles.messageEmptyText}>
+              Teacher conversations will appear here after a teacher sends the first message.
             </Text>
           </View>
-        </View>
+        ) : (
+          messages.map(message => {
+            const fromParent = message.sender_user_id === message.parent_user_id;
+            return (
+              <View
+                key={message.id}
+                style={[
+                  styles.messageBubble,
+                  fromParent ? styles.messageBubbleMine : styles.messageBubbleTeacher,
+                ]}>
+                <Text style={styles.messageSender}>{message.sender_name}</Text>
+                <Text style={styles.messageBody}>{message.body}</Text>
+                <Text style={styles.messageTime}>
+                  {new Date(message.created_at).toLocaleString()}
+                </Text>
+              </View>
+            );
+          })
+        )}
+      </View>
 
-        <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.parentTeacherTabs}>
-          {teachers.length === 0 ? (
-            <View style={styles.parentTeacherEmptyChip}>
-              <Text style={styles.parentTeacherEmptyText}>No active teacher chats</Text>
-            </View>
-          ) : (
-            teachers.map(thread => {
-              const active = thread.teacher_user_id === activeTeacherId;
-              return (
-                <Pressable
-                  key={thread.teacher_user_id}
-                  onPress={() => onSelectTeacher(thread.teacher_user_id)}
-                  style={[styles.parentTeacherChip, active && styles.parentTeacherChipActive]}>
-                  <Text
-                    style={[
-                      styles.parentTeacherChipText,
-                      active && styles.parentTeacherChipTextActive,
-                    ]}>
-                    {thread.sender_name}
-                  </Text>
-                </Pressable>
-              );
-            })
-          )}
-        </ScrollView>
-
-        {error ? <Text style={styles.parentMessageError}>{error}</Text> : null}
-
-        <View style={styles.parentMessageThread}>
-          {messages.length === 0 ? (
-            <View style={styles.parentMessageEmpty}>
-              <Text style={styles.parentMessageTitle}>No messages yet</Text>
-              <Text style={styles.parentMessageMeta}>
-                Teacher conversations will appear here after a teacher sends the first message.
-              </Text>
-            </View>
-          ) : (
-            messages.map(message => {
-              const fromParent = message.sender_user_id === message.parent_user_id;
-              return (
-                <View
-                  key={message.id}
-                  style={[
-                    styles.parentMessageBubble,
-                    fromParent ? styles.parentMessageBubbleMine : styles.parentMessageBubbleTeacher,
-                  ]}>
-                  <Text style={styles.parentMessageSender}>{message.sender_name}</Text>
-                  <Text style={styles.parentMessageBody}>{message.body}</Text>
-                  <Text style={styles.parentMessageTime}>
-                    {new Date(message.created_at).toLocaleString()}
-                  </Text>
-                </View>
-              );
-            })
-          )}
-        </View>
-
-        <View style={styles.parentMessageComposer}>
-          <TextInput
-            editable={Boolean(activeTeacherId) && !isSending}
-            multiline
-            onChangeText={onChangeDraft}
-            placeholder={
-              activeTeacherId
-                ? 'Reply to the teacher...'
-                : 'A teacher must start the conversation first.'
-            }
-            placeholderTextColor="#8A94A6"
-            style={styles.parentMessageInput}
-            value={draft}
-          />
-          <Pressable
-            disabled={!activeTeacherId || draft.trim().length === 0 || isSending}
-            onPress={onSend}
-            style={[
-              styles.parentMessageSendButton,
-              (!activeTeacherId || draft.trim().length === 0 || isSending) &&
-                styles.parentMessageSendButtonDisabled,
-            ]}>
-            <Text style={styles.parentMessageSendText}>{isSending ? 'Sending...' : 'Send'}</Text>
-          </Pressable>
-        </View>
+      <View style={styles.messageComposer}>
+        <TextInput
+          editable={Boolean(activeTeacherId) && !isSending}
+          multiline
+          onChangeText={onChangeDraft}
+          placeholder={
+            activeTeacherId
+              ? 'Reply to the teacher...'
+              : 'A teacher must start the conversation first.'
+          }
+          placeholderTextColor="#9CA3AF"
+          style={styles.messageInput}
+          value={draft}
+        />
+        <Pressable
+          disabled={!activeTeacherId || draft.trim().length === 0 || isSending}
+          onPress={onSend}
+          style={[
+            styles.messageSendButton,
+            (!activeTeacherId || draft.trim().length === 0 || isSending) && styles.disabledButton,
+          ]}>
+          <Text style={styles.messageSendText}>{isSending ? 'Sending...' : 'Send'}</Text>
+        </Pressable>
       </View>
     </View>
   );
@@ -1264,29 +1788,36 @@ function ParentMessagesView({
 
 function BottomNavigation({
   activeView,
-  isStartingFocusMode,
-  onHome,
-  onLock,
-  onMessages,
-  onReports,
+  onSelect,
 }: {
-  activeView: DashboardTab;
-  isStartingFocusMode: boolean;
-  onHome: () => void;
-  onLock: () => void;
-  onMessages: () => void;
-  onReports: () => void;
+  activeView: DashboardView;
+  onSelect: (tab: DashboardTab) => void;
 }) {
   return (
     <View style={styles.bottomNav}>
-      <NavItem active={activeView === 'home'} icon={<Home />} label="Home" onPress={onHome} />
-      <NavItem active={activeView === 'report'} icon={<BarChart3 />} label="Reports" onPress={onReports} />
-      <NavItem icon={<LockKeyhole />} isLoading={isStartingFocusMode} label="Lock" onPress={onLock} />
       <NavItem
-        active={activeView === 'messages'}
-        icon={<MessageCircle />}
-        label="Messages"
-        onPress={onMessages}
+        active={activeView === 'home' || activeView === 'messages'}
+        icon={<Home />}
+        label="Home"
+        onPress={() => onSelect('home')}
+      />
+      <NavItem
+        active={activeView === 'learning'}
+        icon={<BookOpen />}
+        label="Learning"
+        onPress={() => onSelect('learning')}
+      />
+      <NavItem
+        active={activeView === 'insights'}
+        icon={<Lightbulb />}
+        label="Insights"
+        onPress={() => onSelect('insights')}
+      />
+      <NavItem
+        active={activeView === 'rafiki'}
+        icon={<MessageCircleMore />}
+        label="Ask Rafiki"
+        onPress={() => onSelect('rafiki')}
       />
     </View>
   );
@@ -1295,58 +1826,231 @@ function BottomNavigation({
 function NavItem({
   active,
   icon,
-  isLoading,
   label,
   onPress,
 }: {
   active?: boolean;
   icon: React.ReactElement<{ color?: string; size?: number; strokeWidth?: number }>;
-  isLoading?: boolean;
   label: string;
-  onPress?: () => void;
+  onPress: () => void;
 }) {
-  const color = active ? '#FF4B10' : '#5B5C61';
+  const color = active ? ACCENT : '#5B5C61';
   return (
-    <Pressable disabled={!onPress} onPress={onPress} style={styles.navItem}>
+    <Pressable onPress={onPress} style={styles.navItem}>
       <View style={[styles.navIndicator, active && styles.navIndicatorActive]} />
-      {isLoading ? (
-        <ActivityIndicator color={color} size="small" />
-      ) : (
-        React.cloneElement(icon, { color, size: 27, strokeWidth: active ? 3 : 2.6 })
-      )}
+      {React.cloneElement(icon, { color, size: 25, strokeWidth: active ? 2.7 : 2.3 })}
       <Text style={[styles.navLabel, active && styles.navLabelActive]}>{label}</Text>
     </Pressable>
   );
+}
+
+function getTimeGreeting(date = new Date()) {
+  const hours = date.getHours();
+  if (hours < 12) {
+    return 'Good morning';
+  }
+  if (hours < 17) {
+    return 'Good afternoon';
+  }
+  return 'Good evening';
 }
 
 function getFirstName(name: string) {
   return name.trim().split(/\s+/)[0] || 'Parent';
 }
 
+function getInitials(name: string) {
+  const parts = name.trim().split(/\s+/).filter(Boolean);
+  if (parts.length === 0) {
+    return 'P';
+  }
+  return parts.slice(0, 2).map(part => part[0]?.toUpperCase()).join('');
+}
+
+function formatAccountRole(value?: string | null) {
+  const normalized = value?.trim();
+  if (!normalized) {
+    return 'Parent';
+  }
+  return normalized
+    .replace(/_/g, ' ')
+    .split(/\s+/)
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(' ');
+}
+
 function getOverallScore(child: ParentChildSummary) {
+  const assignmentScores = child.recent_assignments
+    .map(assignment => assignment.score)
+    .filter((score): score is number => score !== null && score > 0);
+  const trendScores = child.weekly_trends.flatMap(item => [
+    item.assessmentAverage,
+    item.weeklyExamScore ?? 0,
+  ]);
   const candidates = [
     hasAssessmentData(child) ? child.assessment_average : 0,
-    hasHomeworkData(child) ? child.homework_completion : 0,
     hasMasteryData(child) ? child.mastery_average : 0,
     child.diagnostic.completed ? child.diagnostic.percentage ?? 0 : 0,
-  ].filter(value => value > 0);
+    ...assignmentScores,
+    ...trendScores,
+  ].filter(value => Number.isFinite(value) && value > 0);
 
   if (candidates.length === 0) {
     return 0;
   }
-  return Math.round(Math.max(...candidates));
+  const total = candidates.reduce((sum, value) => sum + value, 0);
+  return Math.round(total / candidates.length);
 }
 
-function getRemedialItems(child: ParentChildSummary) {
-  const focusAreas = child.weekly_report.focusAreas.map(area => {
-    const parts = area.split(':');
-    return (parts[1] || parts[0]).trim();
-  });
-  const assignmentAreas = child.recent_assignments
-    .filter(assignment => assignment.status !== 'completed')
-    .map(assignment => assignment.title.replace(/^Grade\s+\d+\s+/i, '').replace(/\s+Check$/i, '').trim());
-  const items = [...focusAreas, ...assignmentAreas].filter(Boolean);
-  return uniqueStrings([...items, 'Fractions', 'Respiration', 'Inference']).slice(0, 3);
+function getPerformanceColor(score: number) {
+  if (score >= 80) {
+    return '#16A34A';
+  }
+  if (score >= 65) {
+    return '#2563EB';
+  }
+  return ACCENT;
+}
+
+function getGlanceStats(child: ParentChildSummary, range: GlanceRange) {
+  const due = child.recent_assignments.filter(assignment => assignment.status !== 'completed').length;
+
+  if (range === 'week') {
+    const topics = child.weekly_report.lessonsCompleted;
+    return { minutes: estimateMinutes(topics), topics, due };
+  }
+
+  if (range === 'month') {
+    const recentWeeks = child.weekly_trends.slice(-4);
+    const topics = recentWeeks.reduce((total, item) => total + item.lessonsCompleted, 0);
+    return { minutes: estimateMinutes(topics), topics, due };
+  }
+
+  const trendTopics = child.weekly_trends.reduce((total, item) => total + item.lessonsCompleted, 0);
+  const topics = Math.max(child.completed_lessons, trendTopics);
+  return { minutes: estimateMinutes(topics), topics, due };
+}
+
+function getGlanceComparisons(child: ParentChildSummary, range: GlanceRange) {
+  const activity = getPeriodActivity(child, range);
+  return {
+    minutes: buildGlanceComparison(
+      estimateMinutes(activity.current.lessons),
+      estimateMinutes(activity.previous.lessons),
+    ),
+    topics: buildGlanceComparison(activity.current.lessons, activity.previous.lessons),
+    assignments: buildGlanceComparison(
+      activity.current.assignments,
+      activity.previous.assignments,
+    ),
+  };
+}
+
+function getPeriodActivity(child: ParentChildSummary, range: GlanceRange) {
+  if (range === 'week') {
+    const previousWeek = child.weekly_trends[child.weekly_trends.length - 1];
+    return {
+      current: {
+        assignments: child.weekly_report.assignmentsCompleted,
+        lessons: child.weekly_report.lessonsCompleted,
+      },
+      previous: {
+        assignments: previousWeek?.assignmentsCompleted ?? 0,
+        lessons: previousWeek?.lessonsCompleted ?? 0,
+      },
+    };
+  }
+
+  const weeksToCompare = range === 'month' ? 4 : 13;
+  const recentWeeks = child.weekly_trends.slice(-weeksToCompare);
+  const previousWeeks = child.weekly_trends.slice(-weeksToCompare * 2, -weeksToCompare);
+
+  return {
+    current: summarizeActivity(recentWeeks),
+    previous: summarizeActivity(previousWeeks),
+  };
+}
+
+function summarizeActivity(
+  weeks: ParentChildSummary['weekly_trends'],
+): { assignments: number; lessons: number } {
+  return weeks.reduce(
+    (total, item) => ({
+      assignments: total.assignments + item.assignmentsCompleted,
+      lessons: total.lessons + item.lessonsCompleted,
+    }),
+    { assignments: 0, lessons: 0 },
+  );
+}
+
+function buildGlanceComparison(current: number, previous: number) {
+  if (previous === 0 && current === 0) {
+    return { text: '0% vs last', tone: 'neutral' as const };
+  }
+
+  if (previous === 0) {
+    return { text: '+100% vs last', tone: 'positive' as const };
+  }
+
+  const percent = Math.round(((current - previous) / previous) * 100);
+  const sign = percent > 0 ? '+' : '';
+  const tone: GlanceComparisonTone =
+    percent > 0 ? 'positive' : percent < 0 ? 'negative' : 'neutral';
+  return { text: `${sign}${percent}% vs last`, tone };
+}
+
+function estimateMinutes(lessons: number) {
+  return lessons > 0 ? lessons * 21 : 0;
+}
+
+function splitReportArea(area: string) {
+  const parts = area.split(':');
+  return {
+    subject: parts[0].trim(),
+    topic: (parts[1] || parts[0]).trim(),
+  };
+}
+
+function getStrengthRows(child: ParentChildSummary) {
+  return uniqueStrings(
+    child.weekly_report.strengths.map(area => splitReportArea(area).subject).filter(Boolean),
+  ).slice(0, 3);
+}
+
+function getStrengthStatus(child: ParentChildSummary, index: number) {
+  const score = child.mastery_average || child.weekly_report.assessmentAverage || child.assessment_average;
+  if (score >= 80 && index === 0) {
+    return 'Excellent';
+  }
+  if (score >= 70) {
+    return 'Good';
+  }
+  return 'Improving';
+}
+
+function getFocusTopics(child: ParentChildSummary) {
+  return uniqueStrings(
+    child.weekly_report.focusAreas.map(area => splitReportArea(area).topic).filter(Boolean),
+  ).slice(0, 3);
+}
+
+function buildRafikiContext(child: ParentChildSummary): ParentAssistantContext {
+  return {
+    childName: getFirstName(child.name),
+    grade: child.grade,
+    overallScore: getOverallScore(child),
+    activeDays: child.weekly_report.activeDays,
+    lessonsCompleted: child.weekly_report.lessonsCompleted,
+    assignmentsCompleted: child.weekly_report.assignmentsCompleted,
+    assessmentAverage: child.weekly_report.assessmentAverage,
+    weeklyExamScore: child.weekly_report.weeklyExamScore,
+    pendingAssignments: child.recent_assignments
+      .filter(assignment => assignment.status !== 'completed')
+      .map(assignment => assignment.title)
+      .slice(0, 6),
+    strengths: child.weekly_report.strengths.slice(0, 6),
+    focusAreas: child.weekly_report.focusAreas.slice(0, 6),
+  };
 }
 
 function uniqueStrings(values: string[]) {
@@ -1355,10 +2059,6 @@ function uniqueStrings(values: string[]) {
 
 function hasAssessmentData(child: ParentChildSummary) {
   return child.recent_assignments.some(assignment => assignment.score !== null);
-}
-
-function hasHomeworkData(child: ParentChildSummary) {
-  return child.recent_assignments.length > 0;
 }
 
 function hasMasteryData(child: ParentChildSummary) {
@@ -1381,1285 +2081,759 @@ function formatDuration(totalSeconds: number) {
   return `${Math.max(1, minutes)}m`;
 }
 
-function formatAssignmentDue(assignment: ParentChildAssignment, index: number) {
-  if (assignment.dueAt) {
-    return index === 0 ? 'Due Monday' : 'Due Tomorrow';
-  }
-  return index === 0 ? 'Due Monday' : 'Due Tomorrow';
-}
-
-const DEFAULT_ASSIGNMENTS: ParentChildAssignment[] = [
-  {
-    id: 'default-weekend-assignment',
-    title: 'Weekend Assignment',
-    subject: 'English',
-    status: 'pending',
-    score: null,
-    dueAt: null,
-  },
-  {
-    id: 'default-science-quiz',
-    title: 'Science Quiz',
-    subject: 'Science',
-    status: 'pending',
-    score: null,
-    dueAt: null,
-  },
-];
-
 const styles = StyleSheet.create({
-  screen: {
-    alignItems: 'center',
-    backgroundColor: '#FFFFFF',
-    flex: 1,
-  },
-  phoneShell: {
-    backgroundColor: '#FFFFFF',
-    flex: 1,
-    maxWidth: 430,
-    width: '100%',
-  },
-  scroll: {
-    backgroundColor: '#FFFFFF',
-    flex: 1,
-  },
+  screen: { alignItems: 'center', backgroundColor: '#F6F7F9', flex: 1 },
+  phoneShell: { backgroundColor: '#F6F7F9', flex: 1, maxWidth: 430, width: '100%' },
+  scroll: { flex: 1 },
   content: {
-    paddingBottom: 18,
-    paddingHorizontal: 17,
+    flexGrow: 1,
+    paddingBottom: 10,
+    paddingHorizontal: 12,
+    paddingTop: Platform.OS === 'web' ? 10 : 14,
   },
-  statusChrome: {
+  headerRow: { alignItems: 'center', flexDirection: 'row', gap: 9, justifyContent: 'space-between' },
+  accountAvatarButton: { alignItems: 'center', height: 44, justifyContent: 'center', width: 44 },
+  headerChildIdentity: { alignItems: 'center', flex: 1, flexDirection: 'row', minWidth: 0 },
+  headerTextWrap: { flexShrink: 1 },
+  headerGreeting: { color: MUTED, fontSize: 12.5, fontWeight: '500' },
+  headerTitleRow: { alignItems: 'center', flexDirection: 'row', gap: 4 },
+  headerTitle: { color: INK, flexShrink: 1, fontSize: 17, fontWeight: '800' },
+  chevronFlipped: { transform: [{ rotate: '180deg' }] },
+  parentAvatar: {
     alignItems: 'center',
-    flexDirection: 'row',
-    height: 32,
-    justifyContent: 'space-between',
-    paddingHorizontal: 31,
-    paddingTop: 7,
-  },
-  statusTime: {
-    color: '#050505',
-    fontSize: 15,
-    fontWeight: '900',
-  },
-  statusRight: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: 9,
-  },
-  signalBars: {
-    alignItems: 'flex-end',
-    flexDirection: 'row',
-    gap: 3,
-    height: 22,
-  },
-  signalBar: {
-    backgroundColor: '#050505',
-    borderRadius: 2,
-    width: 4,
-  },
-  signalBarShort: {
-    height: 8,
-  },
-  signalBarMedium: {
-    height: 12,
-  },
-  signalBarTall: {
-    height: 16,
-  },
-  signalBarFull: {
-    height: 20,
-  },
-  battery: {
-    alignItems: 'center',
-    backgroundColor: '#111111',
-    borderRadius: 4,
-    height: 18,
+    backgroundColor: '#111827',
     justifyContent: 'center',
-    paddingHorizontal: 6,
   },
-  batteryText: {
-    color: '#FFFFFF',
-    fontSize: 12,
-    fontWeight: '900',
-    lineHeight: 14,
-  },
-  topBar: {
+  parentAvatarText: { color: '#FFFFFF', fontSize: 15, fontWeight: '900' },
+  childAvatar: {
     alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingTop: Platform.OS === 'web' ? 5 : 16,
-  },
-  brandWrap: {
-    alignItems: 'center',
-    flexDirection: 'row',
-  },
-  brandText: {
-    color: '#FF4B10',
-    fontSize: 29,
-    fontWeight: '900',
-    letterSpacing: 0,
-    marginLeft: 2,
-  },
-  aiBadge: {
-    alignItems: 'center',
-    borderColor: '#FF4B10',
-    borderRadius: 7,
-    borderWidth: 1.3,
-    height: 21,
+    backgroundColor: '#FFE8D8',
     justifyContent: 'center',
-    marginLeft: 8,
-    paddingHorizontal: 5,
-  },
-  aiBadgeText: {
-    color: '#FF4B10',
-    fontSize: 13,
-    fontWeight: '800',
-  },
-  topActions: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: 5,
+    overflow: 'hidden',
   },
   bellButton: {
     alignItems: 'center',
-    height: 42,
+    height: 44,
     justifyContent: 'center',
     position: 'relative',
-    width: 42,
+    width: 44,
   },
   notificationDot: {
-    backgroundColor: '#FF5A0A',
+    backgroundColor: ACCENT,
+    borderColor: '#F6F7F9',
     borderRadius: 5,
+    borderWidth: 1.5,
     height: 10,
     position: 'absolute',
-    right: 5,
-    top: 7,
+    right: 9,
+    top: 8,
     width: 10,
   },
-  greetingRow: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: 12,
-    justifyContent: 'space-between',
-    marginTop: 2,
-  },
-  greeting: {
-    color: '#25252B',
-    flex: 1,
-    fontSize: 17.5,
-    fontWeight: '900',
-    letterSpacing: 0,
-  },
-  childSelector: {
-    alignItems: 'center',
-    backgroundColor: '#FCFCFD',
-    borderColor: '#E3E3E8',
-    borderRadius: 24,
-    borderWidth: 1,
-    flexDirection: 'row',
-    gap: 8,
-    maxWidth: 166,
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-  },
-  childSelectorText: {
-    color: '#15151A',
-    flexShrink: 1,
-    fontSize: 12,
-    fontWeight: '900',
-  },
-  miniAvatar: {
-    alignItems: 'center',
-    borderRadius: 21,
-    height: 42,
-    justifyContent: 'center',
-    overflow: 'hidden',
-    width: 42,
-  },
-  subtitle: {
-    color: '#5C5D63',
-    fontSize: 16,
-    fontWeight: '500',
-    marginTop: 12,
-  },
-  childTabs: {
-    gap: 10,
-    paddingRight: 8,
-    paddingTop: 12,
-  },
-  childTab: {
-    alignItems: 'center',
+  childManager: {
     backgroundColor: '#FFFFFF',
-    borderColor: '#E6E6EA',
+    borderColor: '#E8E9ED',
     borderRadius: 18,
     borderWidth: 1,
+    marginTop: 12,
+    padding: 14,
+  },
+  childManagerRow: {
+    alignItems: 'center',
+    borderRadius: 12,
     flexDirection: 'row',
-    gap: 8,
-    padding: 7,
+    justifyContent: 'space-between',
+    paddingHorizontal: 8,
+    paddingVertical: 7,
   },
-  childTabActive: {
-    backgroundColor: '#FFF5EE',
-    borderColor: '#FFC8A6',
-  },
-  childTabMain: {
-    paddingHorizontal: 7,
-    paddingVertical: 4,
-  },
-  childTabName: {
-    color: '#202126',
-    fontSize: 13,
-    fontWeight: '900',
-  },
-  childTabNameActive: {
-    color: '#FF4B10',
-  },
-  childTabMeta: {
-    color: '#6B7280',
-    fontSize: 11,
-    fontWeight: '700',
-    marginTop: 1,
-  },
-  childTabMetaActive: {
-    color: '#C45820',
-  },
+  childManagerRowActive: { backgroundColor: '#FFF4EC' },
+  childManagerMain: { alignItems: 'center', flex: 1, flexDirection: 'row', gap: 10 },
+  childManagerTextWrap: { flexShrink: 1 },
+  childManagerName: { color: INK, fontSize: 14.5, fontWeight: '800' },
+  childManagerNameActive: { color: '#C2410C' },
+  childManagerMeta: { color: MUTED, fontSize: 12, fontWeight: '600' },
   childRemoveButton: {
     alignItems: 'center',
-    backgroundColor: '#FFE8E8',
+    backgroundColor: '#FEE2E2',
     borderRadius: 14,
     flexDirection: 'row',
     gap: 4,
-    paddingHorizontal: 8,
+    paddingHorizontal: 9,
     paddingVertical: 6,
   },
-  childRemoveText: {
-    color: '#DC2626',
-    fontSize: 11,
-    fontWeight: '900',
+  childRemoveText: { color: '#DC2626', fontSize: 11, fontWeight: '800' },
+  childManagerLabel: { color: INK, fontSize: 13.5, fontWeight: '800', marginBottom: 8, marginTop: 12 },
+  accountOverlayLayer: {
+    ...StyleSheet.absoluteFillObject,
+    zIndex: 30,
   },
-  heroCard: {
-    borderColor: '#FF4B10',
-    borderRadius: 19,
-    borderWidth: 1.4,
-    height: 140,
-    marginTop: 9,
-    overflow: 'hidden',
-    position: 'relative',
+  accountOverlayDismiss: {
+    ...StyleSheet.absoluteFillObject,
+    zIndex: 0,
   },
-  heroCopy: {
-    paddingLeft: 20,
-    paddingTop: 16,
-    width: '62%',
-    zIndex: 2,
+  accountOverlayCardWrap: {
+    left: 12,
+    position: 'absolute',
+    right: 12,
+    top: Platform.OS === 'web' ? 10 : 14,
+    zIndex: 1,
   },
-  heroTitle: {
-    color: '#FFFFFF',
-    fontSize: 19,
-    fontWeight: '900',
-    lineHeight: 24,
-    textShadowColor: 'rgba(0,0,0,0.12)',
-    textShadowOffset: { width: 0, height: 1 },
-    textShadowRadius: 1,
+  accountPanel: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#E8E9ED',
+    borderRadius: 18,
+    borderWidth: 1,
+    elevation: 8,
+    padding: 14,
+    shadowColor: '#0F172A',
+    shadowOffset: { width: 0, height: 16 },
+    shadowOpacity: 0.14,
+    shadowRadius: 24,
   },
-  heroScoreRow: {
-    alignItems: 'flex-start',
+  accountPanelHeader: { alignItems: 'center', flexDirection: 'row', gap: 11 },
+  accountPanelAvatarButton: { borderRadius: 24 },
+  accountPanelHeaderText: { flex: 1, minWidth: 0 },
+  accountPanelName: { color: INK, fontSize: 16, fontWeight: '900' },
+  accountPanelRole: { color: MUTED, fontSize: 12, fontWeight: '700', marginTop: 1 },
+  accountEditButton: {
+    alignItems: 'center',
+    borderColor: '#E5E7EB',
+    borderRadius: 16,
+    borderWidth: 1,
+    height: 32,
+    justifyContent: 'center',
+    width: 32,
+  },
+  accountEditButtonActive: { backgroundColor: '#FFF7ED', borderColor: '#FED7AA' },
+  accountDetailGrid: { gap: 8, marginTop: 12 },
+  accountDetailRow: {
+    alignItems: 'center',
+    backgroundColor: '#F8FAFC',
+    borderRadius: 12,
     flexDirection: 'row',
-    marginTop: 3,
+    justifyContent: 'space-between',
+    paddingHorizontal: 11,
+    paddingVertical: 8,
   },
-  heroScore: {
-    color: '#FFFFFF',
-    fontSize: 58,
-    fontWeight: '900',
-    letterSpacing: -1,
-    lineHeight: 66,
-    textShadowColor: 'rgba(0,0,0,0.14)',
-    textShadowOffset: { width: 0, height: 2 },
-    textShadowRadius: 2,
+  accountDetailLabel: { color: MUTED, fontSize: 11.5, fontWeight: '700' },
+  accountDetailValue: { color: INK, flexShrink: 1, fontSize: 12.5, fontWeight: '800', marginLeft: 12, textAlign: 'right' },
+  accountEditFields: { gap: 8, marginTop: 12 },
+  accountEditField: { gap: 4 },
+  accountEditLabel: { color: MUTED, fontSize: 11, fontWeight: '800' },
+  accountEditInput: {
+    backgroundColor: '#F8FAFC',
+    borderColor: '#E5E7EB',
+    borderRadius: 12,
+    borderWidth: 1,
+    color: INK,
+    fontSize: 13,
+    fontWeight: '700',
+    paddingHorizontal: 11,
+    paddingVertical: 8,
   },
-  heroPercent: {
-    color: '#FFFFFF',
-    fontSize: 31,
-    fontWeight: '900',
-    lineHeight: 44,
-    marginLeft: 3,
-    marginTop: 7,
-  },
-  heroStatus: {
-    color: '#FFFFFF',
-    fontSize: 17,
-    fontWeight: '900',
-    lineHeight: 22,
-    marginTop: -3,
-  },
-  improvementPill: {
+  accountEditActions: {
     alignItems: 'center',
     flexDirection: 'row',
     gap: 8,
-    marginTop: 9,
+    justifyContent: 'flex-end',
+    marginTop: 2,
   },
-  improvementIcon: {
-    alignItems: 'center',
-    backgroundColor: 'rgba(255,255,255,0.23)',
-    borderColor: 'rgba(255,255,255,0.28)',
+  accountEditSecondary: {
+    borderColor: '#E5E7EB',
     borderRadius: 14,
     borderWidth: 1,
-    height: 28,
-    justifyContent: 'center',
-    width: 28,
+    paddingHorizontal: 13,
+    paddingVertical: 7,
   },
-  improvementArrow: {
-    color: '#FFFFFF',
-    fontSize: 16,
-    fontWeight: '900',
-    lineHeight: 18,
+  accountEditSecondaryText: { color: MUTED, fontSize: 12.5, fontWeight: '800' },
+  accountEditPrimary: {
+    backgroundColor: ACCENT,
+    borderRadius: 14,
+    paddingHorizontal: 16,
+    paddingVertical: 8,
   },
-  improvementText: {
-    color: '#FFFFFF',
-    fontSize: 14,
-    fontWeight: '800',
+  accountEditPrimaryDisabled: { opacity: 0.45 },
+  accountEditPrimaryText: { color: '#FFFFFF', fontSize: 12.5, fontWeight: '900' },
+  accountSignOutButton: {
+    alignItems: 'center',
+    borderTopColor: '#F0F1F4',
+    borderTopWidth: 1,
+    flexDirection: 'row',
+    gap: 8,
+    marginTop: 12,
+    paddingTop: 12,
   },
-  textureLayer: {
-    ...StyleSheet.absoluteFillObject,
+  accountSignOutText: { color: '#DC2626', fontSize: 13.5, fontWeight: '800' },
+  homeContent: {
+    flexGrow: 1,
+    justifyContent: 'space-between',
+    paddingTop: 0,
   },
-  heroStudent: {
-    bottom: -4,
-    height: 150,
-    position: 'absolute',
-    right: 5,
-    width: 166,
-    zIndex: 1,
+  homeSection: {
+    marginTop: 0,
   },
-  quickRail: {
-    alignItems: 'flex-start',
-    backgroundColor: '#FFFFFF',
-    borderColor: '#E2E2E5',
-    borderRadius: 24,
-    borderWidth: 1,
+  homeFooter: {
+    marginTop: 0,
+  },
+  sectionTitle: { color: INK, fontSize: 14.5, fontWeight: '800', marginBottom: 5, marginTop: 8 },
+  heroCard: {
+    backgroundColor: '#FDEEE2',
+    borderRadius: 18,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 9,
-    paddingBottom: 8,
-    paddingHorizontal: 14,
-    paddingTop: 8,
+    marginTop: 10,
+    padding: 12,
   },
-  quickAction: {
+  heroCopy: { flex: 1, justifyContent: 'center', minWidth: 0, paddingRight: 10 },
+  heroEyebrow: { color: ACCENT, fontSize: 12, fontWeight: '800' },
+  heroTitle: { color: INK, fontSize: 18, fontWeight: '900', marginTop: 3 },
+  heroSubtitle: { color: '#8A8E98', fontSize: 12.5, fontWeight: '500', lineHeight: 17, marginTop: 4 },
+  ringWrap: {
     alignItems: 'center',
-    flex: 1,
-  },
-  quickIconBox: {
-    alignItems: 'center',
-    borderRadius: 17,
-    borderWidth: 1,
-    height: 50,
+    height: 96,
     justifyContent: 'center',
-    marginBottom: 6,
+    overflow: 'visible',
+    position: 'relative',
+    width: 102,
+  },
+  ringCenter: { alignItems: 'center', maxWidth: 58, position: 'absolute' },
+  ringScore: { color: ACCENT, fontSize: 21, fontWeight: '900', lineHeight: 24, textAlign: 'center', width: 58 },
+  ringLabel: {
+    color: '#7B808A',
+    fontSize: 8,
+    fontWeight: '700',
+    lineHeight: 9.5,
+    marginTop: 1,
+    textAlign: 'center',
     width: 58,
   },
-  quickLabel: {
-    color: '#111116',
-    fontSize: 12,
-    fontWeight: '900',
-    lineHeight: 15,
-    textAlign: 'center',
+  performanceMascotWrap: {
+    alignItems: 'center',
+    height: 44,
+    justifyContent: 'center',
+    position: 'absolute',
+    right: -5,
+    top: -5,
+    width: 44,
   },
-  cardGrid: {
+  performanceMascot: { height: 39, width: 39 },
+  quickCard: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#EEEFF2',
+    borderRadius: 16,
+    borderWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 7,
+    paddingHorizontal: 8,
+    paddingVertical: 8,
+  },
+  quickAction: { alignItems: 'center', flex: 1, gap: 4 },
+  quickIconBox: {
+    alignItems: 'center',
+    borderRadius: 12,
+    height: 38,
+    justifyContent: 'center',
+    width: 38,
+  },
+  quickLabel: { color: '#3F4249', fontSize: 11, fontWeight: '600', lineHeight: 13, textAlign: 'center' },
+  glanceHeaderRow: {
+    alignItems: 'center',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 7,
-    marginTop: 6,
+    gap: 6,
+    justifyContent: 'space-between',
   },
-  dashboardCard: {
+  rangeTabs: {
+    backgroundColor: '#EEEFF3',
+    borderRadius: 15,
+    flexDirection: 'row',
+    marginTop: 8,
+    padding: 2,
+  },
+  rangeTab: { borderRadius: 13, paddingHorizontal: 8, paddingVertical: 4 },
+  rangeTabActive: { backgroundColor: '#FFFFFF' },
+  rangeTabText: { color: MUTED, fontSize: 10.5, fontWeight: '600' },
+  rangeTabTextActive: { color: ACCENT, fontWeight: '800' },
+  glanceRow: { flexDirection: 'row', gap: 7 },
+  glanceCard: {
     backgroundColor: '#FFFFFF',
+    borderColor: '#EEEFF2',
+    borderRadius: 14,
+    borderWidth: 1,
+    flex: 1,
+    padding: 8,
+  },
+  glanceCardTextOnly: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    minHeight: 90,
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+  },
+  glanceIconBox: {
+    alignItems: 'center',
+    borderRadius: 10,
+    height: 30,
+    justifyContent: 'center',
+    marginBottom: 5,
+    width: 30,
+  },
+  glanceValue: { color: INK, fontSize: 16, fontWeight: '900' },
+  glanceLabel: { color: MUTED, fontSize: 10.5, fontWeight: '600', marginTop: 1 },
+  glanceValueTextOnly: { fontSize: 22, lineHeight: 26, textAlign: 'center' },
+  glanceLabelTextOnly: { fontSize: 11.5, lineHeight: 14, marginTop: 2, textAlign: 'center' },
+  glanceComparison: {
+    color: '#9CA3AF',
+    fontSize: 9.5,
+    fontWeight: '800',
+    lineHeight: 12,
+    marginTop: 4,
+    textAlign: 'center',
+  },
+  glanceComparisonPositive: { color: '#16A34A' },
+  glanceComparisonNegative: { color: '#DC2626' },
+  progressHeaderRow: { alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between' },
+  viewAllLink: { marginBottom: 5, marginTop: 8 },
+  viewAllLinkText: { color: '#2563EB', fontSize: 12, fontWeight: '700' },
+  progressRow: { flexDirection: 'row', gap: 12 },
+  progressCard: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#F1F2F5',
     borderRadius: 18,
     borderWidth: 1,
-    minHeight: 137,
-    overflow: 'hidden',
-    paddingBottom: 5,
-    paddingHorizontal: 8,
-    paddingTop: 6,
-    position: 'relative',
-    width: '48.8%',
-  },
-  dashboardCardCompact: {
-    minHeight: 122,
-  },
-  cardHeader: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: 6,
-    marginBottom: 4,
-    position: 'relative',
-    zIndex: 1,
-  },
-  cardIconBadge: {
-    alignItems: 'center',
-    borderRadius: 13,
-    height: 26,
-    justifyContent: 'center',
-    width: 26,
-  },
-  cardTitle: {
+    elevation: 2,
     flex: 1,
-    fontSize: 13,
-    fontWeight: '900',
-    lineHeight: 14,
+    minHeight: 106,
+    paddingBottom: 12,
+    paddingHorizontal: 14,
+    paddingTop: 13,
+    shadowColor: '#64748B',
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.06,
+    shadowRadius: 14,
   },
-  learningMetric: {
+  progressCardHeader: {
     alignItems: 'center',
-    flexDirection: 'row',
-    gap: 6,
-    marginBottom: 2,
-    position: 'relative',
-    zIndex: 1,
-  },
-  metricIcon: {
-    alignItems: 'center',
-    borderRadius: 13,
-    height: 25,
-    justifyContent: 'center',
-    width: 25,
-  },
-  metricValue: {
-    color: '#16161A',
-    fontSize: 15,
-    fontWeight: '900',
-    lineHeight: 17,
-  },
-  metricLabel: {
-    color: '#57585F',
-    fontSize: 9,
-    fontWeight: '500',
-    lineHeight: 14,
-  },
-  progressBarTrack: {
-    backgroundColor: '#E9EBEE',
-    borderRadius: 999,
-    height: 7,
-    marginTop: 2,
-    overflow: 'hidden',
-    position: 'relative',
-    zIndex: 1,
-  },
-  progressBarFill: {
-    borderRadius: 999,
-    height: '100%',
-  },
-  goalRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 5,
-    position: 'relative',
-    zIndex: 1,
+    marginBottom: 10,
   },
-  goalText: {
-    color: '#505158',
-    fontSize: 9.5,
-    fontWeight: '700',
-  },
-  remedialRows: {
-    gap: 6,
-    position: 'relative',
-    zIndex: 1,
-  },
-  remedialRow: {
+  progressCardTitle: { fontSize: 13.5, fontWeight: '900' },
+  progressCardTitleSuccess: { color: '#16A34A' },
+  progressCardTitleFocus: { color: '#EA580C' },
+  progressCardIcon: {
     alignItems: 'center',
-    backgroundColor: 'rgba(255,255,255,0.82)',
-    borderColor: '#F1D5D0',
-    borderRadius: 8,
-    borderWidth: 1,
+    borderRadius: 18,
+    height: 34,
+    justifyContent: 'center',
+    width: 34,
+  },
+  progressCardIconSuccess: { backgroundColor: '#EAFBF0' },
+  progressCardIconFocus: { backgroundColor: '#FFF1E8' },
+  progressItemRow: {
+    alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    minHeight: 20,
-    paddingHorizontal: 6,
+    minHeight: 27,
   },
-  remedialName: {
-    color: '#15151A',
-    flex: 1,
-    fontSize: 11,
-    fontWeight: '700',
-    paddingRight: 5,
-  },
-  priorityBadge: {
-    borderRadius: 8,
-    paddingHorizontal: 6,
-    paddingVertical: 3,
-  },
-  priorityHigh: {
-    backgroundColor: '#FFE5E4',
-  },
-  priorityMedium: {
-    backgroundColor: '#FFF1DF',
-  },
-  priorityText: {
-    fontSize: 9,
-    fontWeight: '800',
-  },
-  priorityHighText: {
-    color: '#F11E1E',
-  },
-  priorityMediumText: {
-    color: '#FF650D',
-  },
-  remedialButton: {
-    borderRadius: 9,
-    marginTop: 5,
-    overflow: 'hidden',
-    position: 'relative',
-    zIndex: 1,
-  },
-  remedialButtonGradient: {
+  progressItemName: { color: INK, flexShrink: 1, fontSize: 12.8, fontWeight: '700', marginRight: 6 },
+  progressBadge: {
     alignItems: 'center',
-    minHeight: 25,
-    justifyContent: 'center',
-  },
-  remedialButtonText: {
-    color: '#FFFFFF',
-    fontSize: 11.5,
-    fontWeight: '800',
-  },
-  assignmentList: {
-    gap: 5,
-    position: 'relative',
-    zIndex: 1,
-  },
-  assignmentItem: {
-    alignItems: 'center',
-    backgroundColor: 'rgba(255,255,255,0.82)',
-    borderColor: '#E5D9FF',
-    borderRadius: 9,
-    borderWidth: 1,
-    flexDirection: 'row',
-    gap: 6,
-    minHeight: 26,
-    padding: 4,
-  },
-  assignmentIconBox: {
-    alignItems: 'center',
-    backgroundColor: '#F0E8FF',
-    borderRadius: 10,
-    height: 24,
-    justifyContent: 'center',
-    width: 24,
-  },
-  assignmentTextWrap: {
-    flex: 1,
-  },
-  assignmentTitle: {
-    color: '#111116',
-    fontSize: 9.5,
-    fontWeight: '900',
-    lineHeight: 12,
-  },
-  assignmentDue: {
-    color: '#6B6C73',
-    fontSize: 8.5,
-    fontWeight: '500',
-    marginTop: 2,
-  },
-  assignmentStatusPill: {
-    borderRadius: 8,
+    borderRadius: 7,
+    minWidth: 67,
     paddingHorizontal: 6,
     paddingVertical: 4,
   },
-  statusRed: {
-    backgroundColor: '#FFEAE9',
-  },
-  statusBlue: {
-    backgroundColor: '#EAF3FF',
-  },
-  assignmentStatusText: {
-    fontSize: 9.5,
-    fontWeight: '800',
-  },
-  statusRedText: {
-    color: '#E91D1D',
-  },
-  statusBlueText: {
-    color: '#0C75F2',
-  },
-  viewAllButton: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    marginTop: 5,
-    position: 'relative',
-    zIndex: 1,
-  },
-  viewAllText: {
-    color: '#7446DD',
-    fontSize: 12,
-    fontWeight: '700',
-  },
-  tipList: {
-    backgroundColor: 'rgba(255,255,255,0.82)',
-    borderColor: '#D7EACF',
-    borderRadius: 9,
+  progressBadgeGreen: { backgroundColor: '#EAFBF0' },
+  progressBadgeGreenText: { color: '#16A34A', fontSize: 10, fontWeight: '900' },
+  progressBadgeOrange: { backgroundColor: '#FFF1E8' },
+  progressBadgeOrangeText: { color: '#EA580C', fontSize: 9.6, fontWeight: '900' },
+  progressEmptyText: { color: MUTED, fontSize: 12, fontWeight: '500', lineHeight: 17, marginTop: 2 },
+  tipsCard: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#EEEFF2',
+    borderRadius: 16,
     borderWidth: 1,
-    overflow: 'hidden',
-    position: 'relative',
-    zIndex: 1,
+    marginTop: 20,
+    padding: 16,
   },
-  tipRow: {
-    alignItems: 'center',
-    borderBottomColor: '#DDEBD8',
-    borderBottomWidth: 1,
-    flexDirection: 'row',
-    minHeight: 20,
-    paddingHorizontal: 8,
-  },
+  tipsTitle: { color: '#16A34A', fontSize: 14.5, fontWeight: '800', marginBottom: 4 },
+  tipRow: { alignItems: 'center', flexDirection: 'row', gap: 10, marginTop: 10 },
   tipIcon: {
-    width: 25,
+    alignItems: 'center',
+    backgroundColor: '#DCFCE7',
+    borderRadius: 12,
+    height: 30,
+    justifyContent: 'center',
+    width: 30,
   },
-  tipText: {
-    color: '#17171B',
-    flex: 1,
-    fontSize: 10,
-    fontWeight: '700',
-  },
+  tipText: { color: '#26282E', flex: 1, fontSize: 13.5, fontWeight: '600' },
   tipFooter: {
     alignItems: 'center',
+    borderTopColor: '#F0F1F4',
+    borderTopWidth: 1,
     flexDirection: 'row',
-    gap: 6,
-    marginTop: 3,
-    paddingHorizontal: 5,
-    position: 'relative',
-    zIndex: 1,
+    gap: 7,
+    marginTop: 14,
+    paddingTop: 11,
   },
-  tipFooterText: {
-    color: '#696A72',
-    flex: 1,
-    fontSize: 8.8,
-    fontWeight: '600',
-    lineHeight: 11,
-  },
-  teacherNote: {
+  tipFooterText: { color: MUTED, fontSize: 12, fontWeight: '500' },
+  teacherNoteCard: {
+    alignItems: 'center',
     backgroundColor: '#FFFFFF',
-    borderColor: '#FDBA7A',
+    borderColor: '#F1F2F5',
     borderRadius: 18,
     borderWidth: 1,
-    marginTop: 8,
-    minHeight: 76,
-    overflow: 'hidden',
-    padding: 7,
-    position: 'relative',
-  },
-  teacherTitleRow: {
-    alignItems: 'center',
+    elevation: 2,
     flexDirection: 'row',
-    gap: 7,
-    position: 'relative',
-    zIndex: 1,
-  },
-  teacherIcon: {
-    alignItems: 'center',
-    backgroundColor: '#FF7A16',
-    borderRadius: 14,
-    height: 26,
-    justifyContent: 'center',
-    width: 26,
-  },
-  teacherIconText: {
-    color: '#FFFFFF',
-    fontSize: 19,
-    fontWeight: '900',
-    lineHeight: 21,
-  },
-  teacherTitle: {
-    color: '#FF5A0A',
-    fontSize: 14,
-    fontWeight: '900',
-  },
-  teacherFrom: {
-    color: '#15151A',
-    fontSize: 11.5,
-    fontWeight: '600',
-    marginTop: 1,
-    position: 'relative',
-    zIndex: 1,
-  },
-  teacherBodyRow: {
-    alignItems: 'flex-end',
-    flexDirection: 'row',
-    gap: 8,
-    justifyContent: 'space-between',
-    marginTop: 0,
-    position: 'relative',
-    zIndex: 1,
-  },
-  teacherBody: {
-    color: '#15151A',
-    flex: 1,
-    fontSize: 10.8,
-    fontWeight: '500',
-    lineHeight: 13,
-  },
-  replyButton: {
-    alignItems: 'center',
-    borderColor: '#FF5A0A',
-    borderRadius: 12,
-    borderWidth: 1.2,
-    justifyContent: 'center',
-    minWidth: 64,
-    paddingHorizontal: 14,
-    paddingVertical: 5,
-  },
-  replyText: {
-    color: '#FF5A0A',
-    fontSize: 12.5,
-    fontWeight: '700',
-  },
-  footerCount: {
-    color: '#9CA3AF',
-    fontSize: 11,
-    fontWeight: '700',
-    marginTop: 8,
-    textAlign: 'center',
-  },
-  focusNotice: {
-    backgroundColor: '#F1FFF6',
-    borderColor: '#A8E4B5',
-    borderRadius: 18,
-    borderWidth: 1,
-    marginTop: 9,
-    padding: 14,
-  },
-  focusNoticeHeader: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: 10,
-  },
-  focusNoticeIcon: {
-    alignItems: 'center',
-    backgroundColor: '#DFF8E7',
-    borderRadius: 16,
-    height: 42,
-    justifyContent: 'center',
-    width: 42,
-  },
-  focusNoticeTitleWrap: {
-    flex: 1,
-  },
-  focusNoticeTitle: {
-    color: '#0F8A4B',
-    fontSize: 18,
-    fontWeight: '900',
-  },
-  focusNoticeMeta: {
-    color: '#0F8A4B',
-    fontSize: 12,
-    fontWeight: '800',
-    marginTop: 2,
-  },
-  focusNoticeText: {
-    color: '#164E2C',
-    fontSize: 13,
-    fontWeight: '700',
-    lineHeight: 19,
-    marginTop: 7,
-  },
-  focusStatusRow: {
-    alignItems: 'center',
-    backgroundColor: '#DDF8E7',
-    borderRadius: 9,
-    flexDirection: 'row',
-    gap: 7,
-    marginTop: 12,
-    paddingHorizontal: 10,
-    paddingVertical: 8,
-  },
-  focusStatusText: {
-    color: '#0F8A4B',
-    fontSize: 12,
-    fontWeight: '900',
-  },
-  focusSetupBox: {
-    backgroundColor: '#FFFFFF',
-    borderColor: '#BFECC8',
-    borderRadius: 12,
-    borderWidth: 1,
-    gap: 8,
-    marginTop: 12,
-    padding: 12,
-  },
-  focusSetupTitle: {
-    color: '#111116',
-    fontSize: 14,
-    fontWeight: '900',
-  },
-  focusSetupText: {
-    color: '#53545B',
-    fontSize: 13,
-    lineHeight: 19,
-  },
-  settingsButton: {
-    alignItems: 'center',
-    alignSelf: 'flex-start',
-    backgroundColor: '#E6F9EB',
-    borderRadius: 9,
-    flexDirection: 'row',
-    gap: 7,
-    paddingHorizontal: 12,
-    paddingVertical: 9,
-  },
-  settingsButtonText: {
-    color: '#0F8A4B',
-    fontSize: 13,
-    fontWeight: '900',
-  },
-  focusError: {
-    color: '#B91C1C',
-    fontSize: 12,
-    fontWeight: '800',
-    marginTop: 10,
-  },
-  focusButton: {
-    alignItems: 'center',
-    backgroundColor: '#15803D',
-    borderRadius: 12,
-    justifyContent: 'center',
-    marginTop: 14,
-    minHeight: 44,
-  },
-  focusButtonText: {
-    color: '#FFFFFF',
-    fontSize: 14,
-    fontWeight: '900',
-  },
-  disabledButton: {
-    opacity: 0.55,
-  },
-  emptyPanel: {
-    backgroundColor: '#FFFFFF',
-    borderColor: '#E2E2E5',
-    borderRadius: 20,
-    borderWidth: 1,
-    marginTop: 17,
-    padding: 18,
-  },
-  emptyTitle: {
-    color: '#17171B',
-    fontSize: 20,
-    fontWeight: '900',
-    marginTop: 4,
-  },
-  emptyText: {
-    color: '#5C5D63',
-    fontSize: 14,
-    lineHeight: 20,
-    marginTop: 8,
-  },
-  retryButton: {
-    alignItems: 'center',
-    backgroundColor: '#FF4B10',
-    borderRadius: 12,
-    marginTop: 14,
-    minHeight: 44,
-    justifyContent: 'center',
-  },
-  retryButtonText: {
-    color: '#FFFFFF',
-    fontSize: 14,
-    fontWeight: '900',
-  },
-  methodRow: {
-    flexDirection: 'row',
-    gap: 8,
-    marginTop: 16,
-  },
-  methodButton: {
-    alignItems: 'center',
-    borderColor: '#D7D7DC',
-    borderRadius: 12,
-    borderWidth: 1,
-    flex: 1,
-    paddingVertical: 10,
-  },
-  methodButtonActive: {
-    backgroundColor: '#FFF3EC',
-    borderColor: '#FF8A4B',
-  },
-  methodText: {
-    color: '#696A72',
-    fontSize: 13,
-    fontWeight: '900',
-  },
-  methodTextActive: {
-    color: '#FF4B10',
-  },
-  linkRow: {
-    flexDirection: 'row',
-    gap: 8,
-    marginTop: 10,
-  },
-  input: {
-    backgroundColor: '#FBFBFC',
-    borderColor: '#D9D9DE',
-    borderRadius: 14,
-    borderWidth: 1,
-    color: '#111116',
-    flex: 1,
-    fontSize: 15,
-    paddingHorizontal: 14,
+    gap: 12,
+    minHeight: 82,
+    paddingHorizontal: 16,
     paddingVertical: 12,
+    shadowColor: '#64748B',
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.06,
+    shadowRadius: 14,
   },
-  linkButton: {
+  teacherAvatar: {
     alignItems: 'center',
-    backgroundColor: '#8BA8FF',
-    borderRadius: 14,
+    backgroundColor: '#E8EBEF',
+    borderRadius: 26,
+    borderColor: '#FFFFFF',
+    borderWidth: 2,
+    height: 52,
     justifyContent: 'center',
+    overflow: 'hidden',
     width: 52,
   },
-  errorText: {
-    color: '#DC2626',
-    fontSize: 13,
-    fontWeight: '800',
-    marginTop: 10,
-  },
-  reportWrap: {
-    gap: 10,
-    marginTop: 17,
-  },
-  reportTopRow: {
+  teacherNoteBody: { flex: 1, minWidth: 0 },
+  teacherNoteFrom: { color: INK, fontSize: 13, fontWeight: '900' },
+  teacherNoteText: { color: MUTED, fontSize: 10.9, fontWeight: '500', lineHeight: 15.5, marginTop: 2 },
+  replyButton: {
     alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    borderColor: ACCENT,
+    borderRadius: 22,
+    borderWidth: 1.6,
+    minWidth: 74,
+    paddingHorizontal: 17,
+    paddingVertical: 8,
   },
-  reportEyebrow: {
-    color: '#FF4B10',
-    fontSize: 11,
-    fontWeight: '900',
-    textTransform: 'uppercase',
+  replyText: { color: ACCENT, fontSize: 13, fontWeight: '900' },
+  footerCount: { color: '#9CA3AF', fontSize: 10.5, fontWeight: '600', marginTop: 6, textAlign: 'center' },
+  subViewWrap: { marginTop: 16 },
+  subViewTitle: { color: INK, fontSize: 20, fontWeight: '900' },
+  subViewSubtitle: { color: MUTED, fontSize: 13.5, fontWeight: '500', marginBottom: 14, marginTop: 2 },
+  panelCard: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#EEEFF2',
+    borderRadius: 16,
+    borderWidth: 1,
+    marginTop: 12,
+    padding: 15,
   },
-  reportTitle: {
-    color: '#17171B',
-    fontSize: 24,
-    fontWeight: '900',
-    marginTop: 2,
-  },
-  reportBackButton: {
+  panelHeader: { alignItems: 'center', flexDirection: 'row', gap: 8, marginBottom: 8 },
+  panelTitle: { color: INK, fontSize: 14.5, fontWeight: '800' },
+  panelBodyText: { color: MUTED, fontSize: 13, fontWeight: '500', lineHeight: 19 },
+  assignmentRow: { alignItems: 'center', flexDirection: 'row', gap: 10, marginTop: 10 },
+  assignmentIconBox: {
     alignItems: 'center',
-    backgroundColor: '#FFF3EC',
-    borderRadius: 18,
+    backgroundColor: '#EDE9FE',
+    borderRadius: 11,
+    height: 36,
+    justifyContent: 'center',
+    width: 36,
+  },
+  assignmentTextWrap: { flex: 1 },
+  assignmentTitle: { color: '#26282E', fontSize: 13.5, fontWeight: '700' },
+  assignmentMeta: { color: MUTED, fontSize: 12, fontWeight: '500', marginTop: 1 },
+  assignmentStatusPill: { borderRadius: 10, paddingHorizontal: 9, paddingVertical: 4 },
+  statusPillDone: { backgroundColor: '#DCFCE7' },
+  statusPillDoneText: { color: '#15803D' },
+  statusPillDue: { backgroundColor: '#FEE2E2' },
+  statusPillDueText: { color: '#DC2626' },
+  assignmentStatusText: { fontSize: 11, fontWeight: '800' },
+  trendChart: { alignItems: 'flex-end', flexDirection: 'row', gap: 8, height: 132, marginTop: 6 },
+  trendColumn: { alignItems: 'center', flex: 1 },
+  trendBarTrack: {
+    backgroundColor: '#F3F4F6',
+    borderRadius: 7,
+    height: 88,
+    justifyContent: 'flex-end',
+    overflow: 'hidden',
+    width: 14,
+  },
+  trendBar: { backgroundColor: ACCENT, borderRadius: 7, width: '100%' },
+  trendValue: { color: INK, fontSize: 11.5, fontWeight: '800', marginTop: 5 },
+  trendLabel: { color: '#9CA3AF', fontSize: 10, fontWeight: '600', marginTop: 1 },
+  summaryStrip: { backgroundColor: '#FDEEE2', borderRadius: 14, padding: 14 },
+  summaryStripText: { color: '#7C2D12', fontSize: 13, fontWeight: '700' },
+  reportStatsRow: { flexDirection: 'row', gap: 10, marginTop: 12 },
+  reportStat: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#EEEFF2',
+    borderRadius: 16,
+    borderWidth: 1,
+    flex: 1,
+    padding: 14,
+  },
+  reportStatValue: { color: INK, fontSize: 19, fontWeight: '900' },
+  reportStatLabel: { color: MUTED, fontSize: 12, fontWeight: '600', marginTop: 3 },
+  reportListRow: { alignItems: 'center', flexDirection: 'row', gap: 9, marginTop: 8 },
+  reportDot: { borderRadius: 4, height: 8, width: 8 },
+  reportDotSuccess: { backgroundColor: '#16A34A' },
+  reportDotFocus: { backgroundColor: ACCENT },
+  reportListText: { color: '#26282E', flex: 1, fontSize: 13.5, fontWeight: '600' },
+  rafikiHeaderRow: { alignItems: 'center', flexDirection: 'row', gap: 12 },
+  rafikiBadge: {
+    alignItems: 'center',
+    backgroundColor: '#FFEDD5',
+    borderRadius: 22,
     height: 44,
     justifyContent: 'center',
     width: 44,
   },
-  reportBackText: {
-    color: '#FF4B10',
-    fontSize: 11,
-    fontWeight: '900',
+  rafikiThread: { marginTop: 4 },
+  rafikiBubble: {
+    borderRadius: 16,
+    marginTop: 10,
+    maxWidth: '88%',
+    paddingHorizontal: 14,
+    paddingVertical: 11,
   },
-  reportSummary: {
-    borderColor: '#FFD7BC',
+  rafikiBubbleModel: {
+    alignSelf: 'flex-start',
+    backgroundColor: '#FFFFFF',
+    borderColor: '#EEEFF2',
+    borderWidth: 1,
+  },
+  rafikiBubbleUser: { alignSelf: 'flex-end', backgroundColor: ACCENT },
+  rafikiBubbleText: { color: '#26282E', fontSize: 13.5, fontWeight: '500', lineHeight: 20 },
+  rafikiBubbleTextUser: { color: '#FFFFFF' },
+  rafikiThinkingRow: { alignItems: 'center', flexDirection: 'row', gap: 9 },
+  rafikiThinkingText: { color: MUTED, fontSize: 12.5, fontWeight: '600' },
+  rafikiSuggestions: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginTop: 14 },
+  rafikiSuggestionChip: {
+    backgroundColor: '#FFF4EC',
+    borderColor: '#FED7AA',
     borderRadius: 16,
     borderWidth: 1,
-    padding: 15,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
   },
-  reportSummaryText: {
-    color: '#303038',
+  rafikiSuggestionText: { color: '#C2410C', fontSize: 12.5, fontWeight: '700' },
+  rafikiComposer: { alignItems: 'flex-end', flexDirection: 'row', gap: 8, marginTop: 14 },
+  rafikiInput: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#E5E7EB',
+    borderRadius: 16,
+    borderWidth: 1,
+    color: INK,
+    flex: 1,
     fontSize: 14,
-    fontWeight: '800',
-  },
-  reportStatsRow: {
-    flexDirection: 'row',
-    gap: 9,
-  },
-  reportStat: {
-    backgroundColor: '#FFFFFF',
-    borderColor: '#E6E6EA',
-    borderRadius: 16,
-    borderWidth: 1,
-    flex: 1,
-    padding: 14,
-  },
-  reportStatValue: {
-    color: '#FF4B10',
-    fontSize: 25,
-    fontWeight: '900',
-  },
-  reportStatLabel: {
-    color: '#6B7280',
-    fontSize: 12,
-    fontWeight: '800',
-    marginTop: 3,
-  },
-  reportPanel: {
-    backgroundColor: '#FFFFFF',
-    borderColor: '#E6E6EA',
-    borderRadius: 16,
-    borderWidth: 1,
-    padding: 14,
-  },
-  reportPanelHeader: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: 8,
-    marginBottom: 12,
-  },
-  reportPanelTitle: {
-    color: '#17171B',
-    fontSize: 16,
-    fontWeight: '900',
-  },
-  reportBodyText: {
-    color: '#55565D',
-    fontSize: 13,
-    fontWeight: '600',
-    lineHeight: 19,
-  },
-  trendChart: {
-    alignItems: 'flex-end',
-    flexDirection: 'row',
-    gap: 8,
-    height: 136,
-    paddingTop: 8,
-  },
-  trendColumn: {
-    alignItems: 'center',
-    flex: 1,
-  },
-  trendBarTrack: {
-    backgroundColor: '#FFF0E7',
-    borderRadius: 8,
-    height: 90,
-    justifyContent: 'flex-end',
-    overflow: 'hidden',
-    width: 25,
-  },
-  trendBar: {
-    borderRadius: 8,
-    width: '100%',
-  },
-  trendValue: {
-    color: '#303038',
-    fontSize: 11,
-    fontWeight: '900',
-    marginTop: 4,
-  },
-  trendLabel: {
-    color: '#9CA3AF',
-    fontSize: 9,
-    marginTop: 2,
-  },
-  reportListRow: {
-    alignItems: 'flex-start',
-    flexDirection: 'row',
-    gap: 9,
-    marginTop: 9,
-  },
-  reportListText: {
-    color: '#4B4C53',
-    flex: 1,
-    fontSize: 13,
-    lineHeight: 19,
-  },
-  reportDot: {
-    borderRadius: 4,
-    height: 8,
-    marginTop: 6,
-    width: 8,
-  },
-  reportDotSuccess: {
-    backgroundColor: '#1FAA2B',
-  },
-  reportDotFocus: {
-    backgroundColor: '#FF7A16',
-  },
-  parentMessagesWrap: {
-    gap: 14,
-  },
-  parentMessagePanel: {
-    backgroundColor: '#FFFFFF',
-    borderColor: '#E1E7EF',
-    borderRadius: 18,
-    borderWidth: 1,
-    overflow: 'hidden',
-  },
-  parentMessageHeader: {
-    borderBottomColor: '#EEF2F7',
-    borderBottomWidth: 1,
-    padding: 16,
-  },
-  parentMessageTitle: {
-    color: '#111827',
-    fontSize: 17,
-    fontWeight: '900',
-    lineHeight: 22,
-  },
-  parentMessageMeta: {
-    color: '#667085',
-    fontSize: 12,
-    fontWeight: '700',
-    lineHeight: 17,
-    marginTop: 3,
-  },
-  parentTeacherTabs: {
+    maxHeight: 110,
+    minHeight: 48,
     paddingHorizontal: 14,
     paddingVertical: 12,
   },
-  parentTeacherChip: {
-    backgroundColor: '#F8FAFC',
-    borderColor: '#DCE3EC',
-    borderRadius: 999,
+  rafikiSendButton: {
+    alignItems: 'center',
+    backgroundColor: ACCENT,
+    borderRadius: 24,
+    height: 48,
+    justifyContent: 'center',
+    width: 48,
+  },
+  focusNotice: {
+    backgroundColor: '#F1FBF5',
+    borderColor: '#BBE7CD',
+    borderRadius: 16,
     borderWidth: 1,
+    marginTop: 16,
+    padding: 15,
+  },
+  focusNoticeHeader: { alignItems: 'center', flexDirection: 'row', gap: 10, marginBottom: 8 },
+  focusNoticeIcon: {
+    alignItems: 'center',
+    backgroundColor: '#D8F3E3',
+    borderRadius: 19,
+    height: 38,
+    justifyContent: 'center',
+    width: 38,
+  },
+  focusNoticeTitleWrap: { flex: 1 },
+  focusNoticeTitle: { color: '#14532D', fontSize: 15, fontWeight: '800' },
+  focusNoticeMeta: { color: '#4D7C63', fontSize: 12, fontWeight: '600' },
+  focusNoticeText: { color: '#31543F', fontSize: 12.5, fontWeight: '500', lineHeight: 19 },
+  focusStatusRow: { alignItems: 'center', flexDirection: 'row', gap: 7, marginTop: 9 },
+  focusStatusText: { color: '#0F8A4B', fontSize: 13, fontWeight: '800' },
+  focusSetupBox: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#CBEBD8',
+    borderRadius: 12,
+    borderWidth: 1,
+    marginTop: 10,
+    padding: 12,
+  },
+  focusSetupTitle: { color: '#14532D', fontSize: 13, fontWeight: '800' },
+  focusSetupText: { color: '#4D7C63', fontSize: 12, fontWeight: '500', lineHeight: 18, marginTop: 6 },
+  settingsButton: {
+    alignItems: 'center',
+    alignSelf: 'flex-start',
+    borderColor: '#0F8A4B',
+    borderRadius: 15,
+    borderWidth: 1.4,
+    flexDirection: 'row',
+    gap: 7,
+    marginTop: 10,
+    paddingHorizontal: 12,
+    paddingVertical: 7,
+  },
+  settingsButtonText: { color: '#0F8A4B', fontSize: 12.5, fontWeight: '800' },
+  focusError: { color: '#B91C1C', fontSize: 12.5, fontWeight: '600', marginTop: 9 },
+  focusButton: {
+    alignItems: 'center',
+    backgroundColor: '#0F8A4B',
+    borderRadius: 14,
+    marginTop: 12,
+    paddingVertical: 12,
+  },
+  focusButtonText: { color: '#FFFFFF', fontSize: 14, fontWeight: '800' },
+  emptyPanel: {
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF',
+    borderColor: '#EEEFF2',
+    borderRadius: 18,
+    borderWidth: 1,
+    gap: 10,
+    marginTop: 18,
+    padding: 22,
+  },
+  emptyTitle: { color: INK, fontSize: 17, fontWeight: '900', textAlign: 'center' },
+  emptyText: { color: MUTED, fontSize: 13.5, fontWeight: '500', lineHeight: 20, textAlign: 'center' },
+  retryButton: { backgroundColor: ACCENT, borderRadius: 14, paddingHorizontal: 20, paddingVertical: 10 },
+  retryButtonText: { color: '#FFFFFF', fontSize: 13.5, fontWeight: '800' },
+  methodRow: { flexDirection: 'row', gap: 8 },
+  methodButton: { backgroundColor: '#F1F2F5', borderRadius: 13, paddingHorizontal: 16, paddingVertical: 8 },
+  methodButtonActive: { backgroundColor: '#FFEDD5' },
+  methodText: { color: MUTED, fontSize: 13, fontWeight: '700' },
+  methodTextActive: { color: '#C2410C' },
+  linkRow: { alignItems: 'center', flexDirection: 'row', gap: 8, marginTop: 10, width: '100%' },
+  input: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#E5E7EB',
+    borderRadius: 13,
+    borderWidth: 1,
+    color: INK,
+    flex: 1,
+    fontSize: 14,
+    paddingHorizontal: 13,
+    paddingVertical: 11,
+  },
+  linkButton: {
+    alignItems: 'center',
+    backgroundColor: ACCENT,
+    borderRadius: 13,
+    height: 44,
+    justifyContent: 'center',
+    width: 48,
+  },
+  errorText: { color: '#B91C1C', fontSize: 12.5, fontWeight: '600', marginTop: 8 },
+  disabledButton: { opacity: 0.45 },
+  messagesTopRow: { alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between' },
+  backButton: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#E5E7EB',
+    borderRadius: 14,
+    borderWidth: 1,
+    paddingHorizontal: 14,
+    paddingVertical: 8,
+  },
+  backButtonText: { color: ACCENT, fontSize: 13, fontWeight: '800' },
+  teacherTabs: { flexGrow: 0, marginTop: 4 },
+  teacherEmptyChip: { backgroundColor: '#F1F2F5', borderRadius: 14, paddingHorizontal: 12, paddingVertical: 8 },
+  teacherEmptyText: { color: MUTED, fontSize: 12.5, fontWeight: '600' },
+  teacherChip: {
+    backgroundColor: '#F1F2F5',
+    borderRadius: 14,
     marginRight: 8,
-    minHeight: 36,
     paddingHorizontal: 13,
-    paddingVertical: 9,
+    paddingVertical: 8,
   },
-  parentTeacherChipActive: {
-    backgroundColor: '#FF6B1A',
-    borderColor: '#FF6B1A',
-  },
-  parentTeacherChipText: {
-    color: '#111827',
-    fontSize: 12,
-    fontWeight: '900',
-  },
-  parentTeacherChipTextActive: {
-    color: '#FFFFFF',
-  },
-  parentTeacherEmptyChip: {
-    backgroundColor: '#F8FAFC',
-    borderColor: '#E1E7EF',
-    borderRadius: 999,
+  teacherChipActive: { backgroundColor: '#FFEDD5' },
+  teacherChipText: { color: MUTED, fontSize: 12.5, fontWeight: '700' },
+  teacherChipTextActive: { color: '#C2410C' },
+  messageError: { color: '#B91C1C', fontSize: 12.5, fontWeight: '600', marginTop: 8 },
+  messageThread: { marginTop: 8 },
+  messageEmpty: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#EEEFF2',
+    borderRadius: 16,
     borderWidth: 1,
-    paddingHorizontal: 13,
-    paddingVertical: 9,
+    marginTop: 6,
+    padding: 16,
   },
-  parentTeacherEmptyText: {
-    color: '#667085',
-    fontSize: 12,
-    fontWeight: '800',
+  messageEmptyTitle: { color: INK, fontSize: 14.5, fontWeight: '800' },
+  messageEmptyText: { color: MUTED, fontSize: 12.5, fontWeight: '500', lineHeight: 18, marginTop: 4 },
+  messageBubble: {
+    borderRadius: 16,
+    marginTop: 10,
+    maxWidth: '88%',
+    paddingHorizontal: 14,
+    paddingVertical: 11,
   },
-  parentMessageError: {
-    color: '#DC2626',
-    fontSize: 12,
-    fontWeight: '800',
-    paddingBottom: 10,
+  messageBubbleMine: { alignSelf: 'flex-end', backgroundColor: '#FFEDD5' },
+  messageBubbleTeacher: {
+    alignSelf: 'flex-start',
+    backgroundColor: '#FFFFFF',
+    borderColor: '#EEEFF2',
+    borderWidth: 1,
+  },
+  messageSender: { color: '#9A3412', fontSize: 11.5, fontWeight: '800' },
+  messageBody: { color: '#26282E', fontSize: 13.5, fontWeight: '500', lineHeight: 20, marginTop: 3 },
+  messageTime: { color: '#9CA3AF', fontSize: 10.5, fontWeight: '600', marginTop: 6 },
+  messageComposer: { alignItems: 'flex-end', flexDirection: 'row', gap: 8, marginTop: 14 },
+  messageInput: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#E5E7EB',
+    borderRadius: 16,
+    borderWidth: 1,
+    color: INK,
+    flex: 1,
+    fontSize: 14,
+    maxHeight: 110,
+    minHeight: 48,
+    paddingHorizontal: 14,
+    paddingVertical: 12,
+  },
+  messageSendButton: {
+    alignItems: 'center',
+    backgroundColor: ACCENT,
+    borderRadius: 16,
+    justifyContent: 'center',
+    minHeight: 48,
     paddingHorizontal: 16,
   },
-  parentMessageThread: {
-    borderTopColor: '#EEF2F7',
-    borderTopWidth: 1,
-    gap: 10,
-    padding: 14,
-  },
-  parentMessageEmpty: {
-    backgroundColor: '#F8FAFC',
-    borderColor: '#E1E7EF',
-    borderRadius: 14,
-    borderWidth: 1,
-    padding: 14,
-  },
-  parentMessageBubble: {
-    borderRadius: 15,
-    maxWidth: '88%',
-    paddingHorizontal: 13,
-    paddingVertical: 10,
-  },
-  parentMessageBubbleMine: {
-    alignSelf: 'flex-end',
-    backgroundColor: '#EAFBF0',
-    borderColor: '#BFEBCD',
-    borderWidth: 1,
-  },
-  parentMessageBubbleTeacher: {
-    alignSelf: 'flex-start',
-    backgroundColor: '#FFF4EC',
-    borderColor: '#FFDCC6',
-    borderWidth: 1,
-  },
-  parentMessageSender: {
-    color: '#667085',
-    fontSize: 10,
-    fontWeight: '900',
-    marginBottom: 4,
-    textTransform: 'uppercase',
-  },
-  parentMessageBody: {
-    color: '#111827',
-    fontSize: 13,
-    fontWeight: '700',
-    lineHeight: 18,
-  },
-  parentMessageTime: {
-    color: '#667085',
-    fontSize: 10,
-    fontWeight: '700',
-    marginTop: 7,
-  },
-  parentMessageComposer: {
-    borderTopColor: '#EEF2F7',
-    borderTopWidth: 1,
-    padding: 14,
-  },
-  parentMessageInput: {
-    backgroundColor: '#F8FAFC',
-    borderColor: '#DCE3EC',
-    borderRadius: 14,
-    borderWidth: 1,
-    color: '#111827',
-    fontSize: 13,
-    fontWeight: '700',
-    lineHeight: 18,
-    minHeight: 82,
-    paddingHorizontal: 13,
-    paddingVertical: 12,
-    textAlignVertical: 'top',
-  },
-  parentMessageSendButton: {
-    alignItems: 'center',
-    alignSelf: 'flex-end',
-    backgroundColor: '#138A43',
-    borderRadius: 999,
-    justifyContent: 'center',
-    marginTop: 10,
-    minHeight: 42,
-    minWidth: 104,
-    paddingHorizontal: 18,
-  },
-  parentMessageSendButtonDisabled: {
-    opacity: 0.55,
-  },
-  parentMessageSendText: {
-    color: '#FFFFFF',
-    fontSize: 13,
-    fontWeight: '900',
-  },
+  messageSendText: { color: '#FFFFFF', fontSize: 13.5, fontWeight: '800' },
   bottomNav: {
+    alignSelf: 'center',
     backgroundColor: '#FFFFFF',
-    borderColor: '#DADCE2',
-    borderTopLeftRadius: 22,
-    borderTopRightRadius: 22,
-    borderWidth: 1,
+    borderTopColor: '#ECEDF0',
+    borderTopWidth: 1,
     flexDirection: 'row',
-    height: 73,
-    justifyContent: 'space-around',
-    paddingHorizontal: 10,
-    paddingTop: 8,
+    maxWidth: 430,
+    paddingBottom: Platform.OS === 'web' ? 10 : 20,
+    paddingTop: 4,
+    width: '100%',
   },
-  navItem: {
-    alignItems: 'center',
-    flex: 1,
-    justifyContent: 'flex-start',
-    position: 'relative',
-  },
+  navItem: { alignItems: 'center', flex: 1, gap: 3, paddingVertical: 6 },
   navIndicator: {
     backgroundColor: 'transparent',
-    borderRadius: 999,
-    height: 4,
-    marginBottom: 7,
-    width: 58,
+    borderRadius: 2,
+    height: 3,
+    marginBottom: 3,
+    width: 34,
   },
-  navIndicatorActive: {
-    backgroundColor: '#FF4B10',
-  },
-  navLabel: {
-    color: '#5B5C61',
-    fontSize: 11,
-    fontWeight: '600',
-    marginTop: 1,
-  },
-  navLabelActive: {
-    color: '#FF4B10',
-  },
+  navIndicatorActive: { backgroundColor: ACCENT },
+  navLabel: { color: '#5B5C61', fontSize: 11, fontWeight: '600' },
+  navLabelActive: { color: ACCENT, fontWeight: '800' },
 });

@@ -800,6 +800,7 @@ function renderScreen(
           schoolsList={state.schoolsList}
           userProfile={state.activeUserProfile}
           onSaveProfile={actions.setUserProfile}
+          onSignOut={actions.signOut}
           onPublishAssignment={actions.publishTeacherAssignment}
         />
       );
@@ -836,7 +837,15 @@ function renderScreen(
         <ParentDashboardScreen
           children={state.parentChildren}
           selectedChildId={state.selectedParentChildId}
-          parentName={state.authSession.user.fullName}
+          parentName={state.userProfile.name || state.authSession.user.fullName}
+          parentEmail={state.userProfile.email || state.authSession.user.email}
+          parentPhone={state.userProfile.phone || state.authSession.user.phoneNumber}
+          parentRole={
+            state.userProfile.role ||
+            state.authSession.user.roles.find(role => role === 'parent') ||
+            'Parent'
+          }
+          mascotKey={state.activeMascotKey}
           linkIdentifier={state.parentChildIdentifier}
           linkMethod={state.parentChildLinkMethod}
           isLoading={state.isLoadingParentDashboard}
@@ -844,6 +853,7 @@ function renderScreen(
           error={state.parentDashboardError}
           focusModeActive={state.focusModeActive}
           focusModeSetupRequired={state.focusModeSetupRequired}
+          focusModeSetupCompleted={state.focusModeSetupCompleted}
           focusModeError={state.focusModeError}
           focusModeSecondsRemaining={state.focusModeSecondsRemaining}
           dailyLimitSeconds={state.dailyLimitSeconds}
@@ -855,6 +865,15 @@ function renderScreen(
           onUnlinkChild={actions.removeParentChild}
           onStartFocusMode={actions.startFocusMode}
           onOpenFocusModeSettings={actions.openFocusModeSettings}
+          onOpenBilling={() => actions.openBannerAction('manage_subscription')}
+          onSaveParentProfile={updates =>
+            actions.setUserProfile(current => ({
+              ...current,
+              email: updates.email,
+              name: updates.name,
+              phone: updates.phone,
+            }))
+          }
           onRefresh={actions.refreshParentDashboard}
           onSignOut={actions.signOut}
         />

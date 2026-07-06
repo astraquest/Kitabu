@@ -122,9 +122,9 @@ export function ChessMasterScreen({ currentUserId, onBack }: ChessMasterScreenPr
   }
 
   useEffect(() => {
-    void refresh();
+    refresh().catch(() => undefined);
     const timer = setInterval(() => {
-      void refresh({ silent: true });
+      refresh({ silent: true }).catch(() => undefined);
     }, 8000);
     return () => clearInterval(timer);
     // selectedMatchId is intentionally excluded so polling does not reset the timer on selection.

@@ -6,7 +6,7 @@ import { TeacherPortalScreen } from '../src/screens/TeacherPortalScreen';
 
 const mountedRenderers: ReactTestRenderer.ReactTestRenderer[] = [];
 
-function renderTeacherPortal() {
+function renderTeacherPortal(options: { onSignOut?: jest.Mock } = {}) {
   let renderer: ReactTestRenderer.ReactTestRenderer;
   act(() => {
     renderer = ReactTestRenderer.create(
@@ -16,6 +16,7 @@ function renderTeacherPortal() {
         students={INITIAL_TEACHER_STUDENTS}
         assignments={INITIAL_SUBMITTED_ASSIGNMENTS}
         submissionsByAssignment={{}}
+        onSignOut={options.onSignOut}
         onPublishAssignment={jest.fn()}
       />,
     );
@@ -42,18 +43,6 @@ function pressableWithText(root: ReactTestRenderer.ReactTestInstance, text: stri
   const match = root.findAll(node => node.props.onPress && hasText(node, text))[0];
   if (!match) {
     throw new Error(`Could not find pressable with text: ${text}`);
-  }
-  return match;
-}
-
-function pressableContainingText(root: ReactTestRenderer.ReactTestInstance, text: string) {
-  const match = root.findAll(
-    node =>
-      node.props.onPress &&
-      node.findAll(child => textContent(child.props.children).includes(text)).length > 0,
-  )[0];
-  if (!match) {
-    throw new Error(`Could not find pressable containing text: ${text}`);
   }
   return match;
 }
@@ -96,7 +85,7 @@ describe('TeacherPortalScreen', () => {
     const renderer = renderTeacherPortal();
     const root = renderer.root;
 
-    act(() => pressableWithText(root, 'All Grades').props.onPress());
+    act(() => pressableWithText(root, 'Grade 10').props.onPress());
     act(() => pressableWithText(root, 'Grade 9').props.onPress());
     expect(hasText(root, 'Grade 9')).toBe(true);
     expect(hasText(root, 'Grade 10')).toBe(false);
@@ -118,6 +107,18 @@ describe('TeacherPortalScreen', () => {
 
     act(() => pressableWithText(root, 'Grade 9').props.onPress());
     expect(hasText(root, '1 selected')).toBe(true);
+  });
+
+  it('exposes sign out from the teacher profile', () => {
+    const onSignOut = jest.fn();
+    const renderer = renderTeacherPortal({ onSignOut });
+    const root = renderer.root;
+
+    act(() => pressableWithAccessibilityLabel(root, 'Open teacher profile').props.onPress());
+    expect(hasText(root, 'Sign Out')).toBe(true);
+
+    act(() => pressableWithAccessibilityLabel(root, 'Sign out of teacher account').props.onPress());
+    expect(onSignOut).toHaveBeenCalledTimes(1);
   });
 
   it('opens a functional lesson plan builder from quick actions', () => {

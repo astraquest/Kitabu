@@ -400,8 +400,8 @@ export function LiveAudioTutorScreen({
     setStatus('speaking');
     speechPlaybackBridge
       .speakQueued(intro)
-      .catch(error => {
-        console.error('Live audio quiz prompt playback failed', error);
+      .catch(playbackError => {
+        console.error('Live audio quiz prompt playback failed', playbackError);
       })
       .finally(() => {
         setStatus(current => (current === 'speaking' ? 'ready' : current));

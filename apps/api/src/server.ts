@@ -1999,7 +1999,13 @@ function buildDiagnosticResultSummary(answers: Awaited<ReturnType<typeof listDia
       'curriculum_document_processing',
       'curriculum_import_processing'
     ]);
-    return operationalAiFeatures.has(feature) && hasAnyRole(user, ['teacher', 'school_admin', 'platform_admin']);
+    if (operationalAiFeatures.has(feature) && hasAnyRole(user, ['teacher', 'school_admin', 'platform_admin'])) {
+      return true;
+    }
+
+    // Parents do not hold their own subscriptions (children do), so the parent
+    // progress assistant is gated by role plus the per-user AI rate limit instead.
+    return feature === 'parent_progress_assistant' && hasAnyRole(user, ['parent']);
   }
 
   function buildLessonGenerationPrompt(context: NonNullable<Awaited<ReturnType<typeof findCurriculumSubStrandContext>>>) {

@@ -76,6 +76,10 @@ function checksum(sql) {
   return createHash('sha256').update(sql).digest('hex');
 }
 
+function checksumSql(sql) {
+  return checksum(sql.replace(/\r\n/g, '\n'));
+}
+
 if (!process.env.KITABU_DATABASE_URL) {
   console.error('KITABU_DATABASE_URL is not set.');
   process.exit(1);
@@ -113,7 +117,7 @@ try {
     for (const file of sqlFiles) {
       const fullPath = path.join(sqlDir, file);
       const sql = readFileSync(fullPath, 'utf8');
-      await pool.query('INSERT INTO schema_migrations (filename, checksum) VALUES ($1, $2)', [file, checksum(sql)]);
+      await pool.query('INSERT INTO schema_migrations (filename, checksum) VALUES ($1, $2)', [file, checksumSql(sql)]);
       console.log(`Baselined ${file}`);
     }
 
@@ -122,11 +126,18 @@ try {
     for (const file of sqlFiles) {
       const fullPath = path.join(sqlDir, file);
       const sql = readFileSync(fullPath, 'utf8');
-      const sqlChecksum = checksum(sql);
+      const sqlChecksum = checksumSql(sql);
+      const rawChecksum = checksum(sql);
       const existing = await pool.query('SELECT checksum FROM schema_migrations WHERE filename = $1', [file]);
 
       if (existing.rowCount) {
         if (existing.rows[0].checksum !== sqlChecksum) {
+          if (existing.rows[0].checksum === rawChecksum) {
+            await pool.query('UPDATE schema_migrations SET checksum = $2 WHERE filename = $1', [file, sqlChecksum]);
+            console.log(`Normalized checksum for ${file}`);
+            continue;
+          }
+
           throw new Error(`${file} checksum changed after it was applied.`);
         }
 

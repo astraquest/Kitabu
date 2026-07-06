@@ -4,6 +4,8 @@ import ReactTestRenderer, { act } from 'react-test-renderer';
 import { INITIAL_SUBMITTED_ASSIGNMENTS, INITIAL_TEACHER_STUDENTS } from '../src/data/mockData';
 import { TeacherPortalScreen } from '../src/screens/TeacherPortalScreen';
 
+const mountedRenderers: ReactTestRenderer.ReactTestRenderer[] = [];
+
 function renderTeacherPortal() {
   let renderer: ReactTestRenderer.ReactTestRenderer;
   act(() => {
@@ -18,6 +20,7 @@ function renderTeacherPortal() {
       />,
     );
   });
+  mountedRenderers.push(renderer!);
   return renderer!;
 }
 
@@ -55,106 +58,83 @@ function pressableContainingText(root: ReactTestRenderer.ReactTestInstance, text
   return match;
 }
 
+function pressableWithAccessibilityLabel(root: ReactTestRenderer.ReactTestInstance, label: string) {
+  const match = root.findAll(node => node.props.onPress && node.props.accessibilityLabel === label)[0];
+  if (!match) {
+    throw new Error(`Could not find pressable with accessibility label: ${label}`);
+  }
+  return match;
+}
+
 describe('TeacherPortalScreen', () => {
+  afterEach(() => {
+    act(() => {
+      while (mountedRenderers.length > 0) {
+        mountedRenderers.pop()?.unmount();
+      }
+    });
+  });
+
   it('keeps teacher navigation inside the teacher portal', () => {
     const renderer = renderTeacherPortal();
     const root = renderer.root;
 
     expect(hasText(root, 'Assignments')).toBe(true);
-    expect(hasText(root, 'Reports')).toBe(true);
-    expect(hasText(root, 'Lesson Plan')).toBe(true);
-    expect(hasText(root, 'Messages')).toBe(true);
-
-    act(() => {
-      pressableWithText(root, 'Students').props.onPress();
-    });
     expect(hasText(root, 'Student List')).toBe(true);
 
-    act(() => {
-      pressableWithText(root, 'Home').props.onPress();
-    });
-    expect(hasText(root, 'Teacher Account')).toBe(false);
-    expect(hasText(root, 'Grade 10 is on track')).toBe(true);
+    act(() => pressableWithText(root, 'Assignments').props.onPress());
+    expect(hasText(root, 'Submission Rate')).toBe(true);
+    expect(hasText(root, 'Open Assignments')).toBe(true);
+
+    act(() => pressableWithText(root, 'Students').props.onPress());
+    expect(hasText(root, 'Class Average')).toBe(true);
+
+    expect(pressableWithAccessibilityLabel(root, 'Open parent messages')).toBeTruthy();
   });
 
   it('updates the active grade and exposes class list plus profile management', () => {
     const renderer = renderTeacherPortal();
     const root = renderer.root;
 
-    act(() => {
-      pressableContainingText(root, 'Grade 10').props.onPress();
-    });
-    act(() => {
-      pressableWithText(root, 'Grade 9').props.onPress();
-    });
-    expect(hasText(root, 'Grade 9 is on track')).toBe(true);
+    act(() => pressableWithText(root, 'All Grades').props.onPress());
+    act(() => pressableWithText(root, 'Grade 9').props.onPress());
+    expect(hasText(root, 'Grade 9')).toBe(true);
+    expect(hasText(root, 'Grade 10')).toBe(false);
 
-    act(() => {
-      pressableWithText(root, 'Class List').props.onPress();
-    });
-    expect(hasText(root, 'Grade 9 List')).toBe(true);
-
-    act(() => {
-      pressableWithText(root, 'Profile').props.onPress();
-    });
-    expect(hasText(root, 'Personal Details')).toBe(true);
+    act(() => pressableWithAccessibilityLabel(root, 'Open teacher profile').props.onPress());
+    expect(hasText(root, 'Teacher Profile')).toBe(true);
+    expect(hasText(root, 'Email')).toBe(true);
+    expect(hasText(root, 'Phone')).toBe(true);
     expect(hasText(root, 'Grades taught')).toBe(true);
     expect(hasText(root, 'Subjects taught')).toBe(true);
   });
 
-  it('limits the dashboard grade dropdown to profile-selected grades immediately', () => {
+  it('updates profile-selected grades immediately', () => {
     const renderer = renderTeacherPortal();
     const root = renderer.root;
 
-    act(() => {
-      pressableContainingText(root, 'Grade 10').props.onPress();
-    });
-    act(() => {
-      pressableWithText(root, 'Grade 9').props.onPress();
-    });
-    expect(hasText(root, 'Grade 9 is on track')).toBe(true);
+    act(() => pressableWithAccessibilityLabel(root, 'Open teacher profile').props.onPress());
+    expect(hasText(root, '2 selected')).toBe(true);
 
-    act(() => {
-      pressableWithText(root, 'Profile').props.onPress();
-    });
-    act(() => {
-      pressableWithText(root, 'Grade 9').props.onPress();
-    });
-    act(() => {
-      pressableWithText(root, 'Home').props.onPress();
-    });
-
-    expect(hasText(root, 'Grade 10 is on track')).toBe(true);
-
-    act(() => {
-      pressableContainingText(root, 'Grade 10').props.onPress();
-    });
-    expect(hasText(root, 'Grade 10')).toBe(true);
-    expect(hasText(root, 'Grade 9')).toBe(false);
+    act(() => pressableWithText(root, 'Grade 9').props.onPress());
+    expect(hasText(root, '1 selected')).toBe(true);
   });
 
   it('opens a functional lesson plan builder from quick actions', () => {
     const renderer = renderTeacherPortal();
     const root = renderer.root;
 
-    act(() => {
-      pressableWithText(root, 'Lesson Plan').props.onPress();
-    });
+    act(() => pressableWithAccessibilityLabel(root, 'Open lesson planner').props.onPress());
 
     expect(hasText(root, 'Create a clean lesson plan in minutes')).toBe(true);
     expect(hasText(root, 'Quick Setup')).toBe(true);
     expect(hasText(root, 'Lesson Preview')).toBe(true);
-    expect(hasText(root, 'Generate Plan')).toBe(true);
+    expect(hasText(root, 'Ask AI')).toBe(true);
     expect(hasText(root, 'Save Plan')).toBe(true);
 
     act(() => {
       pressableWithText(root, 'Clear').props.onPress();
     });
     expect(hasText(root, 'Draft')).toBe(true);
-
-    act(() => {
-      pressableWithText(root, 'Generate Plan').props.onPress();
-    });
-    expect(hasText(root, 'Ready')).toBe(true);
   });
 });

@@ -8,7 +8,15 @@ import {
   Text,
   View,
 } from 'react-native';
-import { Mic, MicOff, RotateCcw, Square, Volume2, X } from 'lucide-react-native';
+import type { ImageSourcePropType, ImageStyle } from 'react-native';
+import {
+  Mic,
+  MicOff,
+  RotateCcw,
+  Square,
+  Volume2,
+  X,
+} from 'lucide-react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 import { askVoiceTutor } from '../services/aiService';
@@ -17,8 +25,23 @@ import {
   isLiveVoiceStreamingSupported,
   type LiveVoiceStreamSession,
 } from '../services/liveVoiceStreamService';
-import { audioRecordingBridge, speechPlaybackBridge } from '../services/nativeBridges';
-import { Assignment, ChatMessage, SubStrand, Subject, UserProfile } from '../types/app';
+import {
+  audioRecordingBridge,
+  speechPlaybackBridge,
+} from '../services/nativeBridges';
+import {
+  Assignment,
+  ChatMessage,
+  OnboardingMascotKey,
+  Question,
+  SubStrand,
+  Subject,
+  UserProfile,
+} from '../types/app';
+
+const sunguraRabbitMascot = require('../assets/mascot/sungura-rabbit.png');
+const simbaLionMascot = require('../assets/mascot/simba-lion.png');
+const ndovuElephantMascot = require('../assets/mascot/ndovu-elephant.png');
 
 interface LiveAudioTutorScreenProps {
   onClose: () => void;
@@ -28,6 +51,9 @@ interface LiveAudioTutorScreenProps {
   selectedSubStrand?: SubStrand | null;
   selectedAssignment?: Assignment | null;
   userProfile?: UserProfile;
+  mascotKey?: OnboardingMascotKey;
+  forceComingSoonFallback?: boolean;
+  quizQuestions?: Question[];
 }
 
 type SessionStatus =
@@ -46,22 +72,62 @@ const starterPrompts = [
 
 const MAX_RECORDING_MS = 12_000;
 
+type LiveAudioMascotTheme = {
+  source: ImageSourcePropType;
+  label: string;
+  accent: string;
+  soft: string;
+};
+
+const LIVE_AUDIO_MASCOTS: Record<OnboardingMascotKey, LiveAudioMascotTheme> = {
+  lion: {
+    source: simbaLionMascot,
+    label: 'Rafiki the Lion',
+    accent: '#F59E0B',
+    soft: 'rgba(245,158,11,0.18)',
+  },
+  rabbit: {
+    source: sunguraRabbitMascot,
+    label: 'Rafiki the Rabbit',
+    accent: '#2DD4BF',
+    soft: 'rgba(45,212,191,0.18)',
+  },
+  elephant: {
+    source: ndovuElephantMascot,
+    label: 'Rafiki the Elephant',
+    accent: '#60A5FA',
+    soft: 'rgba(96,165,250,0.18)',
+  },
+};
+
 function buildContextSummary(args: {
   currentGrade?: string;
   selectedSubject?: Subject | null;
   selectedSubStrand?: SubStrand | null;
   selectedAssignment?: Assignment | null;
   userProfile?: UserProfile;
+  quizQuestions?: Question[];
 }) {
   const baseLines = [
     args.currentGrade ? `Grade: ${args.currentGrade}` : null,
     args.selectedSubject ? `Subject: ${args.selectedSubject.name}` : null,
-    args.selectedSubStrand ? `Lesson focus: ${args.selectedSubStrand.title}` : null,
-    args.selectedAssignment ? `Homework: ${args.selectedAssignment.title}` : null,
+    args.selectedSubStrand
+      ? `Lesson focus: ${args.selectedSubStrand.title}`
+      : null,
+    args.selectedAssignment
+      ? `Homework: ${args.selectedAssignment.title}`
+      : null,
     args.userProfile?.name ? `Student: ${args.userProfile.name}` : null,
   ].filter(Boolean);
 
-  if (!args.selectedAssignment) {
+  const quizPreview = args.quizQuestions?.length
+    ? args.quizQuestions
+        .slice(0, 5)
+        .map((question, index) => `${index + 1}. ${question.text}`)
+        .join('\n')
+    : '';
+
+  if (!args.selectedAssignment && !quizPreview) {
     return baseLines.join('\n');
   }
 
@@ -70,7 +136,11 @@ function buildContextSummary(args: {
     .map((question, index) => `${index + 1}. ${question.text}`)
     .join('\n');
 
-  return [...baseLines, questionPreview ? `Homework questions:\n${questionPreview}` : null]
+  return [
+    ...baseLines,
+    questionPreview ? `Homework questions:\n${questionPreview}` : null,
+    quizPreview ? `Live audio quiz questions:\n${quizPreview}` : null,
+  ]
     .filter(Boolean)
     .join('\n');
 }
@@ -83,16 +153,24 @@ export function LiveAudioTutorScreen({
   selectedSubStrand,
   selectedAssignment,
   userProfile,
+  mascotKey = 'rabbit',
+  forceComingSoonFallback = false,
+  quizQuestions = [],
 }: LiveAudioTutorScreenProps) {
-  const [status, setStatus] = useState<SessionStatus>('ready');
+  const [status, setStatus] = useState<SessionStatus>(
+    forceComingSoonFallback ? 'error' : 'ready',
+  );
   const [isMicOn, setIsMicOn] = useState(false);
   const [volumeLevel, setVolumeLevel] = useState(0.08);
-  const [recordedAudioPath, setRecordedAudioPath] = useState<string | null>(null);
+  const [recordedAudioPath, setRecordedAudioPath] = useState<string | null>(
+    null,
+  );
   const [transcript, setTranscript] = useState('');
   const [responseText, setResponseText] = useState('');
   const [visibleResponseText, setVisibleResponseText] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [history, setHistory] = useState<ChatMessage[]>(initialMessages);
+  const [hasIntroducedQuiz, setHasIntroducedQuiz] = useState(false);
   const [turnCount, setTurnCount] = useState(0);
   const transcriptScrollRef = useRef<ScrollView | null>(null);
   const liveStreamSessionRef = useRef<LiveVoiceStreamSession | null>(null);
@@ -102,8 +180,13 @@ export function LiveAudioTutorScreen({
   const scale = useRef(new Animated.Value(1)).current;
   const outerGlow = useRef(new Animated.Value(1)).current;
   const innerGlow = useRef(new Animated.Value(1)).current;
-  const recordingTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const responseStreamIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const mascotDance = useRef(new Animated.Value(0)).current;
+  const recordingTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(
+    null,
+  );
+  const responseStreamIntervalRef = useRef<ReturnType<
+    typeof setInterval
+  > | null>(null);
   const responseStreamResolveRef = useRef<(() => void) | null>(null);
 
   function clearRecordingTimeout() {
@@ -166,10 +249,14 @@ export function LiveAudioTutorScreen({
     setStatus('speaking');
     scrollTranscriptToEnd();
 
-    const sentenceMatch = queuedSpeechRef.current.match(/^([\s\S]*?[.!?])(\s+|$)/);
+    const sentenceMatch = queuedSpeechRef.current.match(
+      /^([\s\S]*?[.!?])(\s+|$)/,
+    );
     if (sentenceMatch?.[1]?.trim()) {
       const sentence = sentenceMatch[1].trim();
-      queuedSpeechRef.current = queuedSpeechRef.current.slice(sentenceMatch[0].length);
+      queuedSpeechRef.current = queuedSpeechRef.current.slice(
+        sentenceMatch[0].length,
+      );
       speechPlaybackBridge.speakQueued(sentence).catch(() => undefined);
     }
   }
@@ -202,8 +289,52 @@ export function LiveAudioTutorScreen({
         selectedSubStrand,
         selectedAssignment,
         userProfile,
+        quizQuestions,
       }),
-    [currentGrade, selectedAssignment, selectedSubStrand, selectedSubject, userProfile],
+    [
+      currentGrade,
+      selectedAssignment,
+      selectedSubStrand,
+      selectedSubject,
+      userProfile,
+      quizQuestions,
+    ],
+  );
+  const mascotTheme =
+    LIVE_AUDIO_MASCOTS[mascotKey] ?? LIVE_AUDIO_MASCOTS.rabbit;
+  const isComingSoonFallback = status === 'error';
+  const firstQuizQuestion = quizQuestions[0]?.text?.trim() ?? '';
+  const mascotDanceStyle = useMemo(
+    () =>
+      ({
+        transform: [
+          {
+            translateX: mascotDance.interpolate({
+              inputRange: [0, 0.25, 0.5, 0.75, 1],
+              outputRange: [0, -12, 8, -6, 0],
+            }),
+          },
+          {
+            translateY: mascotDance.interpolate({
+              inputRange: [0, 0.25, 0.5, 0.75, 1],
+              outputRange: [0, -12, 4, -8, 0],
+            }),
+          },
+          {
+            rotate: mascotDance.interpolate({
+              inputRange: [0, 0.25, 0.5, 0.75, 1],
+              outputRange: ['-4deg', '7deg', '-6deg', '5deg', '-4deg'],
+            }),
+          },
+          {
+            scale: mascotDance.interpolate({
+              inputRange: [0, 0.25, 0.5, 0.75, 1],
+              outputRange: [1, 1.06, 0.98, 1.04, 1],
+            }),
+          },
+        ],
+      } as Animated.WithAnimatedValue<ImageStyle>),
+    [mascotDance],
   );
 
   const prompt = useMemo(() => {
@@ -222,9 +353,12 @@ export function LiveAudioTutorScreen({
     if (status === 'speaking') {
       return 'Speaking the tutor response.';
     }
+    if (firstQuizQuestion) {
+      return 'Answer out loud, then tap Start talking.';
+    }
 
     return starterPrompts[turnCount % starterPrompts.length];
-  }, [error, status, turnCount]);
+  }, [error, firstQuizQuestion, status, turnCount]);
 
   useEffect(() => {
     return () => {
@@ -237,6 +371,49 @@ export function LiveAudioTutorScreen({
   }, []);
 
   useEffect(() => {
+    if (forceComingSoonFallback) {
+      setStatus('error');
+      setError('Live Audio Quiz is coming soon.');
+      setIsMicOn(false);
+    }
+  }, [forceComingSoonFallback]);
+
+  useEffect(() => {
+    if (
+      forceComingSoonFallback ||
+      hasIntroducedQuiz ||
+      !firstQuizQuestion ||
+      status !== 'ready'
+    ) {
+      return;
+    }
+
+    const intro = `Question 1. ${firstQuizQuestion}`;
+    setHasIntroducedQuiz(true);
+    setResponseText(intro);
+    setVisibleResponseText(intro);
+    setHistory(current =>
+      current.some(message => message.role === 'model' && message.text === intro)
+        ? current
+        : [...current, { role: 'model', text: intro }],
+    );
+    setStatus('speaking');
+    speechPlaybackBridge
+      .speakQueued(intro)
+      .catch(error => {
+        console.error('Live audio quiz prompt playback failed', error);
+      })
+      .finally(() => {
+        setStatus(current => (current === 'speaking' ? 'ready' : current));
+      });
+  }, [
+    firstQuizQuestion,
+    forceComingSoonFallback,
+    hasIntroducedQuiz,
+    status,
+  ]);
+
+  useEffect(() => {
     scrollTranscriptToEnd();
   }, [transcript, visibleResponseText, status]);
 
@@ -245,10 +422,10 @@ export function LiveAudioTutorScreen({
       status === 'recording'
         ? 0.72
         : status === 'speaking'
-          ? 0.46
-          : status === 'thinking' || status === 'transcribing'
-            ? 0.2
-            : 0.08;
+        ? 0.46
+        : status === 'thinking' || status === 'transcribing'
+        ? 0.2
+        : 0.08;
 
     setVolumeLevel(targetVolume);
   }, [status]);
@@ -273,6 +450,27 @@ export function LiveAudioTutorScreen({
     ]).start();
   }, [innerGlow, outerGlow, scale, volumeLevel]);
 
+  useEffect(() => {
+    if (!isComingSoonFallback) {
+      mascotDance.stopAnimation();
+      mascotDance.setValue(0);
+      return;
+    }
+
+    const danceLoop = Animated.loop(
+      Animated.timing(mascotDance, {
+        toValue: 1,
+        duration: 1200,
+        useNativeDriver: true,
+      }),
+    );
+    danceLoop.start();
+
+    return () => {
+      danceLoop.stop();
+    };
+  }, [isComingSoonFallback, mascotDance]);
+
   async function beginRecording() {
     setError(null);
     await speechPlaybackBridge.stop().catch(() => undefined);
@@ -295,7 +493,8 @@ export function LiveAudioTutorScreen({
             scrollTranscriptToEnd();
           },
           onTranscriptDone(text) {
-            streamedTranscriptRef.current = text || streamedTranscriptRef.current;
+            streamedTranscriptRef.current =
+              text || streamedTranscriptRef.current;
             setTranscript(streamedTranscriptRef.current);
             setStatus('thinking');
             scrollTranscriptToEnd();
@@ -332,7 +531,10 @@ export function LiveAudioTutorScreen({
     }
 
     const startedRecordingPath = await audioRecordingBridge.startRecording();
-    if (startedRecordingPath === null && audioRecordingBridge.state === 'expo_native') {
+    if (
+      startedRecordingPath === null &&
+      audioRecordingBridge.state === 'expo_native'
+    ) {
       setStatus('error');
       setError('Could not access the microphone. Please allow permissions.');
       setIsMicOn(false);
@@ -460,14 +662,14 @@ export function LiveAudioTutorScreen({
     status === 'error'
       ? 'Error'
       : status === 'ready'
-        ? 'Ready'
-        : status === 'recording'
-          ? 'Listening'
-          : status === 'transcribing'
-            ? 'Transcribing'
-            : status === 'thinking'
-              ? 'Thinking'
-              : 'Speaking';
+      ? 'Ready'
+      : status === 'recording'
+      ? 'Listening'
+      : status === 'transcribing'
+      ? 'Transcribing'
+      : status === 'thinking'
+      ? 'Thinking'
+      : 'Speaking';
 
   const displayedResponseText = visibleResponseText || responseText;
 
@@ -478,125 +680,168 @@ export function LiveAudioTutorScreen({
           <X size={20} color="rgba(255,255,255,0.9)" />
         </Pressable>
 
-        <Text
-          style={[styles.statusText, status === 'error' ? styles.statusError : styles.statusOk]}>
-          {statusLabel}
-        </Text>
-        <Text style={styles.promptText}>{prompt}</Text>
-
-        <View style={styles.orbWrap}>
-          <Animated.View style={[styles.outerGlowWrap, { transform: [{ scale: outerGlow }] }]}>
-            <LinearGradient
-              colors={['rgba(37,99,235,0.5)', 'rgba(14,165,233,0.45)']}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 1 }}
-              style={styles.outerGlow}
-            />
-          </Animated.View>
-          <Animated.View style={[styles.innerGlowWrap, { transform: [{ scale: innerGlow }] }]}>
-            <LinearGradient
-              colors={['rgba(45,212,191,0.34)', 'rgba(59,130,246,0.2)']}
-              start={{ x: 0.2, y: 0.2 }}
-              end={{ x: 0.8, y: 0.8 }}
-              style={styles.innerGlow}
-            />
-          </Animated.View>
-          <Animated.View style={[styles.coreOrbWrap, { transform: [{ scale }] }]}>
-            <LinearGradient
-              colors={
-                status === 'error'
-                  ? ['#dc2626', '#f97316']
-                  : ['#2563eb', '#0ea5e9', '#14b8a6']
-              }
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 1 }}
-              style={styles.coreOrb}
-            />
-            {status === 'transcribing' || status === 'thinking' ? (
-              <ActivityIndicator size="large" color="#FFFFFF" />
-            ) : isMicOn ? (
-              <Mic size={34} color="#FFFFFF" />
-            ) : status === 'speaking' ? (
-              <Volume2 size={34} color="#FFFFFF" />
-            ) : (
-              <MicOff size={34} color="rgba(255,255,255,0.85)" />
-            )}
-          </Animated.View>
-        </View>
-
-        <Pressable
-          onPress={() => {
-            handleMicToggle().catch(toggleError => {
-              console.error(toggleError);
-              setStatus('error');
-              setError('Voice mode failed. Please try again.');
-            });
-          }}
-          disabled={status === 'transcribing' || status === 'thinking'}
-          style={[
-            styles.actionButton,
-            isMicOn ? styles.actionButtonStop : styles.actionButtonStart,
-            (status === 'transcribing' || status === 'thinking') &&
-              styles.actionButtonDisabled,
-          ]}>
-          {isMicOn ? (
-            <Square size={18} color="#FFFFFF" fill="#FFFFFF" />
-          ) : (
-            <Mic size={18} color="#FFFFFF" />
-          )}
-          <Text style={styles.actionButtonText}>
-            {isMicOn ? 'Stop and send' : 'Start talking'}
-          </Text>
-        </Pressable>
-
-        <View style={styles.secondaryActions}>
-          <Pressable
-            onPress={() => {
-              replayLastResponse().catch(() => undefined);
-            }}
-            disabled={!responseText || speechPlaybackBridge.state !== 'expo_native'}
-            style={[
-              styles.secondaryButton,
-              (!responseText || speechPlaybackBridge.state !== 'expo_native') &&
-                styles.secondaryButtonDisabled,
-            ]}>
-            <RotateCcw size={16} color="#dbeafe" />
-            <Text style={styles.secondaryButtonText}>Replay answer</Text>
-          </Pressable>
-        </View>
-
-        <ScrollView
-          ref={transcriptScrollRef}
-          style={styles.transcriptPanel}
-          contentContainerStyle={styles.transcriptContent}
-          onContentSizeChange={scrollTranscriptToEnd}>
-          <View style={styles.contextCard}>
-            <Text style={styles.contextEyebrow}>Voice transcript</Text>
-
-            {transcript ? (
-              <View style={styles.transcriptTurn}>
-                <Text style={styles.messageEyebrow}>You said</Text>
-                <Text style={styles.transcriptText}>{transcript}</Text>
-              </View>
-            ) : null}
-
-            {displayedResponseText ? (
-              <View style={styles.transcriptTurn}>
-                <Text style={styles.messageEyebrow}>Tutor voice</Text>
-                <Text style={styles.transcriptText}>{displayedResponseText}</Text>
-              </View>
-            ) : null}
-
-            {status === 'transcribing' || status === 'thinking' ? (
-              <View style={styles.processingRow}>
-                <ActivityIndicator size="small" color="#67e8f9" />
-                <Text style={styles.processingText}>
-                  {status === 'transcribing' ? 'Preparing your words...' : 'Preparing voice reply...'}
-                </Text>
-              </View>
-            ) : null}
+        {isComingSoonFallback ? (
+          <View style={styles.comingSoonWrap}>
+            <View
+              style={[
+                styles.comingSoonHalo,
+                { backgroundColor: mascotTheme.soft },
+              ]}
+            >
+              <Animated.Image
+                accessibilityLabel={`${mascotTheme.label} dancing mascot`}
+                resizeMode="contain"
+                source={mascotTheme.source}
+                style={[styles.comingSoonMascot, mascotDanceStyle]}
+                testID="audio-coming-soon-mascot"
+              />
+            </View>
+            <Text
+              style={[styles.comingSoonTitle, { color: mascotTheme.accent }]}
+            >
+              Coming Soon
+            </Text>
           </View>
-        </ScrollView>
+        ) : (
+          <>
+            <Text style={[styles.statusText, styles.statusOk]}>
+              {statusLabel}
+            </Text>
+            <Text style={styles.promptText}>{prompt}</Text>
+
+            <View style={styles.orbWrap}>
+              <Animated.View
+                style={[
+                  styles.outerGlowWrap,
+                  { transform: [{ scale: outerGlow }] },
+                ]}
+              >
+                <LinearGradient
+                  colors={['rgba(37,99,235,0.5)', 'rgba(14,165,233,0.45)']}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 1 }}
+                  style={styles.outerGlow}
+                />
+              </Animated.View>
+              <Animated.View
+                style={[
+                  styles.innerGlowWrap,
+                  { transform: [{ scale: innerGlow }] },
+                ]}
+              >
+                <LinearGradient
+                  colors={['rgba(45,212,191,0.34)', 'rgba(59,130,246,0.2)']}
+                  start={{ x: 0.2, y: 0.2 }}
+                  end={{ x: 0.8, y: 0.8 }}
+                  style={styles.innerGlow}
+                />
+              </Animated.View>
+              <Animated.View
+                style={[styles.coreOrbWrap, { transform: [{ scale }] }]}
+              >
+                <LinearGradient
+                  colors={['#2563eb', '#0ea5e9', '#14b8a6']}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 1 }}
+                  style={styles.coreOrb}
+                />
+                {status === 'transcribing' || status === 'thinking' ? (
+                  <ActivityIndicator size="large" color="#FFFFFF" />
+                ) : isMicOn ? (
+                  <Mic size={34} color="#FFFFFF" />
+                ) : status === 'speaking' ? (
+                  <Volume2 size={34} color="#FFFFFF" />
+                ) : (
+                  <MicOff size={34} color="rgba(255,255,255,0.85)" />
+                )}
+              </Animated.View>
+            </View>
+
+            <Pressable
+              onPress={() => {
+                handleMicToggle().catch(toggleError => {
+                  console.error(toggleError);
+                  setStatus('error');
+                  setError('Voice mode failed. Please try again.');
+                });
+              }}
+              disabled={status === 'transcribing' || status === 'thinking'}
+              style={[
+                styles.actionButton,
+                isMicOn ? styles.actionButtonStop : styles.actionButtonStart,
+                (status === 'transcribing' || status === 'thinking') &&
+                  styles.actionButtonDisabled,
+              ]}
+            >
+              {isMicOn ? (
+                <Square size={18} color="#FFFFFF" fill="#FFFFFF" />
+              ) : (
+                <Mic size={18} color="#FFFFFF" />
+              )}
+              <Text style={styles.actionButtonText}>
+                {isMicOn ? 'Stop and send' : 'Start talking'}
+              </Text>
+            </Pressable>
+
+            <View style={styles.secondaryActions}>
+              <Pressable
+                onPress={() => {
+                  replayLastResponse().catch(() => undefined);
+                }}
+                disabled={
+                  !responseText || speechPlaybackBridge.state !== 'expo_native'
+                }
+                style={[
+                  styles.secondaryButton,
+                  (!responseText ||
+                    speechPlaybackBridge.state !== 'expo_native') &&
+                    styles.secondaryButtonDisabled,
+                ]}
+              >
+                <RotateCcw size={16} color="#dbeafe" />
+                <Text style={styles.secondaryButtonText}>Replay answer</Text>
+              </Pressable>
+            </View>
+
+            <ScrollView
+              ref={transcriptScrollRef}
+              style={styles.transcriptPanel}
+              contentContainerStyle={styles.transcriptContent}
+              onContentSizeChange={scrollTranscriptToEnd}
+            >
+              <View style={styles.contextCard}>
+                <Text style={styles.contextEyebrow}>Voice transcript</Text>
+
+                {transcript ? (
+                  <View style={styles.transcriptTurn}>
+                    <Text style={styles.messageEyebrow}>You said</Text>
+                    <Text style={styles.transcriptText}>{transcript}</Text>
+                  </View>
+                ) : null}
+
+                {displayedResponseText ? (
+                  <View style={styles.transcriptTurn}>
+                    <Text style={styles.messageEyebrow}>Tutor voice</Text>
+                    <Text style={styles.transcriptText}>
+                      {displayedResponseText}
+                    </Text>
+                  </View>
+                ) : null}
+
+                {status === 'transcribing' || status === 'thinking' ? (
+                  <View style={styles.processingRow}>
+                    <ActivityIndicator size="small" color="#67e8f9" />
+                    <Text style={styles.processingText}>
+                      {status === 'transcribing'
+                        ? 'Preparing your words...'
+                        : 'Preparing voice reply...'}
+                    </Text>
+                  </View>
+                ) : null}
+              </View>
+            </ScrollView>
+          </>
+        )}
       </View>
     </View>
   );
@@ -649,6 +894,30 @@ const styles = StyleSheet.create({
     fontSize: 17,
     lineHeight: 24,
     paddingHorizontal: 12,
+  },
+  comingSoonWrap: {
+    alignItems: 'center',
+    flex: 1,
+    justifyContent: 'center',
+    paddingBottom: 52,
+  },
+  comingSoonHalo: {
+    alignItems: 'center',
+    borderRadius: 999,
+    height: 220,
+    justifyContent: 'center',
+    marginBottom: 24,
+    width: 220,
+  },
+  comingSoonMascot: {
+    height: 150,
+    width: 150,
+  },
+  comingSoonTitle: {
+    fontSize: 28,
+    fontWeight: '900',
+    letterSpacing: 0,
+    textAlign: 'center',
   },
   orbWrap: {
     marginTop: 28,

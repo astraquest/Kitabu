@@ -254,6 +254,18 @@ export function SubscriptionCheckoutModal({
   }, [effectiveSelectedPlanCode, focusProgress, hasPackageFocus, wiggle]);
 
   function handleSelectPlan(planCode: BillingPlanCode) {
+    if (hasPackageFocus && focusedPlanCode === planCode) {
+      setHasPackageFocus(false);
+      setFocusedPlanCode(null);
+      Animated.timing(focusProgress, {
+        toValue: 0,
+        duration: 220,
+        easing: Easing.out(Easing.cubic),
+        useNativeDriver: true,
+      }).start();
+      return;
+    }
+
     setFocusedPlanCode(planCode);
     setHasPackageFocus(true);
     onSelectPlan(planCode);

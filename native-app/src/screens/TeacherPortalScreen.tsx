@@ -129,16 +129,19 @@ function SlideOverlay({
 
   useEffect(() => {
     if (!visible) {
-      return;
+      translate.stopAnimation();
+      return undefined;
     }
 
     translate.setValue(start);
-    Animated.timing(translate, {
+    const animation = Animated.timing(translate, {
       toValue: 0,
       duration: 300,
       easing: Easing.out(Easing.cubic),
       useNativeDriver: true,
-    }).start();
+    });
+    animation.start();
+    return () => animation.stop();
   }, [direction, start, translate, visible]);
 
   return (
@@ -270,6 +273,7 @@ export function TeacherPortalScreen({
     description: string;
     questions: Assignment['questions'];
   } | null>(null);
+  const toastTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const filteredStudents = useMemo(
     () =>
@@ -386,6 +390,14 @@ export function TeacherPortalScreen({
     setGrade(nextGrade);
   }, [teacherGradeOptions, selectedGrade]);
 
+  useEffect(() => {
+    return () => {
+      if (toastTimerRef.current) {
+        clearTimeout(toastTimerRef.current);
+      }
+    };
+  }, []);
+
   async function handleGenerateAssignment() {
     setIsGenerating(true);
     const result = await generateAssignmentJson(grade, subject, strand, subStrand, topic);
@@ -444,7 +456,10 @@ export function TeacherPortalScreen({
       setSubStrand('');
       setTab('assignments');
       setToast(true);
-      setTimeout(() => setToast(false), 3000);
+      if (toastTimerRef.current) {
+        clearTimeout(toastTimerRef.current);
+      }
+      toastTimerRef.current = setTimeout(() => setToast(false), 3000);
     } catch (error) {
       setIsSending(false);
       Alert.alert(

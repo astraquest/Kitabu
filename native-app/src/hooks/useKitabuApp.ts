@@ -213,6 +213,11 @@ interface DownloadedBooksSnapshot {
   books: Book[];
 }
 
+interface OnboardingPreferencesSnapshot {
+  mascot?: OnboardingMascotKey;
+  mascotKey?: OnboardingMascotKey;
+}
+
 interface RouteSnapshot {
   view: ViewState;
   currentGrade: string;
@@ -296,6 +301,22 @@ function isTeacherRole(roles: AuthRole[]) {
 
 function isParentRole(roles: AuthRole[]) {
   return hasRole(roles, 'parent');
+}
+
+function isOnboardingMascotKey(value: unknown): value is OnboardingMascotKey {
+  return value === 'lion' || value === 'rabbit' || value === 'elephant';
+}
+
+function getDefaultMascotKeyForRoles(roles: AuthRole[]): OnboardingMascotKey {
+  if (isTeacherRole(roles)) {
+    return 'lion';
+  }
+
+  if (isParentRole(roles)) {
+    return 'elephant';
+  }
+
+  return 'rabbit';
 }
 
 export function getPrimaryHomeView(roles: AuthRole[], email?: string | null): ViewState {
@@ -469,6 +490,7 @@ export function useKitabuApp() {
   const [currentView, setCurrentView] = useState<ViewState>('dashboard');
   const [liveAudioReturnView, setLiveAudioReturnView] =
     useState<ViewState>('dashboard');
+  const [liveAudioForceFallback, setLiveAudioForceFallback] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
@@ -523,6 +545,8 @@ export function useKitabuApp() {
   );
   const [books, setBooks] = useState<Book[]>(INITIAL_BOOKS);
   const [podcasts, setPodcasts] = useState<Podcast[]>(INITIAL_PODCASTS);
+  const [onboardingMascotKey, setOnboardingMascotKey] =
+    useState<OnboardingMascotKey | null>(null);
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
   const [previewBookId, setPreviewBookId] = useState<string | null>(null);
   const [readingProgress, setReadingProgress] = useState<Record<string, number>>(
@@ -734,6 +758,7 @@ export function useKitabuApp() {
         storedOptionalPhoneNumber,
         storedTryOneBobOfferSeenAt,
         storedFocusMode,
+        storedOnboardingPreferences,
         storedSession,
       ] = await Promise.all([
         loadJson(STORAGE_KEYS.profile, INITIAL_USER_PROFILE),
@@ -747,6 +772,7 @@ export function useKitabuApp() {
           sessionExpired: false,
           studentProfile: null,
         }),
+        loadJson<OnboardingPreferencesSnapshot>(STORAGE_KEYS.onboardingPreferences, {}),
         loadStoredAuthSession(),
       ]);
 
@@ -756,6 +782,9 @@ export function useKitabuApp() {
 
       setOptionalPhoneNumber(storedOptionalPhoneNumber);
       setTryOneBobOfferSeenAt(storedTryOneBobOfferSeenAt);
+      const storedMascotKey =
+        storedOnboardingPreferences.mascotKey ?? storedOnboardingPreferences.mascot;
+      setOnboardingMascotKey(isOnboardingMascotKey(storedMascotKey) ? storedMascotKey : null);
       const storedFocusLimit =
         storedFocusMode.dailyLimitSeconds || DEFAULT_FOCUS_MODE_LIMIT_SECONDS;
       const storedActiveSeconds = Math.min(
@@ -1098,6 +1127,7 @@ export function useKitabuApp() {
   const focusModeSecondsRemaining = Math.max(0, dailyLimitSeconds - activeSecondsUsed);
   const activeUserProfile =
     focusModeActive && focusModeStudentProfile ? focusModeStudentProfile : userProfile;
+  const activeMascotKey = onboardingMascotKey ?? getDefaultMascotKeyForRoles(roles);
 
   useEffect(() => {
     if (!authSession || isStudentPreview) {
@@ -1735,6 +1765,9 @@ export function useKitabuApp() {
       const resolvedSignupPhone = signupPhone ?? phone;
       const nextSession = await completeAccountOnboarding(accountOnboardingInput);
       setAuthSession(nextSession);
+      if (isOnboardingMascotKey(resolvedMascotKey)) {
+        setOnboardingMascotKey(resolvedMascotKey);
+      }
       const nextProfile = mapAuthSessionToProfile(nextSession);
       const selectedSchool = input.schoolId
         ? schoolsList.find(school => school.id === input.schoolId)
@@ -1935,6 +1968,9 @@ export function useKitabuApp() {
     if (nextView === 'live_audio' && currentView !== 'live_audio') {
       setLiveAudioReturnView(currentView);
     }
+    if (nextView !== 'live_audio') {
+      setLiveAudioForceFallback(false);
+    }
 
     pushHistory(nextView);
     setCurrentView(nextView);
@@ -2032,6 +2068,12 @@ export function useKitabuApp() {
   }
 
   function openFeature(view: ViewState) {
+    if (view === 'live_audio') {
+      setLiveAudioForceFallback(false);
+      setChatOpen(false);
+      setMessages([]);
+    }
+
     navigateTo(view);
   }
 
@@ -2652,8 +2694,10 @@ export function useKitabuApp() {
   }
 
   function openLiveTutorOverlay() {
-    setStartLiveAudio(true);
-    setChatOpen(true);
+    setLiveAudioForceFallback(false);
+    setChatOpen(false);
+    setMessages([]);
+    navigateTo('live_audio');
   }
 
   function goHome() {
@@ -2669,6 +2713,9 @@ export function useKitabuApp() {
   }
 
   function closeLiveAudio() {
+    setLiveAudioForceFallback(false);
+    setChatOpen(false);
+    setMessages([]);
     navigateTo(liveAudioReturnView);
   }
 
@@ -2740,16 +2787,41 @@ export function useKitabuApp() {
     setLessonQuizSubStrandId(null);
 
     if (config.format === 'audio') {
-      setMessages(prev => [
-        ...prev,
-        {
-          role: 'model',
-          text: `Starting Live Audio Quiz on ${config.subject}. Get ready!`,
-        },
-      ]);
-      setLiveAudioReturnView('quiz_me_config');
-      navigateTo('live_audio');
-      setIsLoading(false);
+      generateQuizData(
+        config.subject,
+        config.strand,
+        config.subStrand,
+        config.questionCount,
+        'quiz',
+        currentGrade,
+      )
+        .then(result => {
+          if (!result.questions?.length) {
+            throw new Error('AI service did not return live audio quiz questions.');
+          }
+
+          setGeneratedQuizQuestions(result.questions);
+          setMessages([
+            {
+              role: 'model',
+              text: `Question 1. ${result.questions[0].text}`,
+            },
+          ]);
+          setLiveAudioForceFallback(false);
+          setLiveAudioReturnView('quiz_me_config');
+          navigateTo('live_audio');
+        })
+        .catch(error => {
+          console.error('Live audio quiz generation failed', error);
+          setGeneratedQuizQuestions([]);
+          setMessages([]);
+          setLiveAudioForceFallback(true);
+          setLiveAudioReturnView('quiz_me_config');
+          navigateTo('live_audio');
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
       return;
     }
 
@@ -3049,6 +3121,16 @@ export function useKitabuApp() {
 
     if (gameId === 'quiz-battle' || gameId === 'quiz_battle') {
       navigateTo('quiz_battle');
+      return;
+    }
+
+    if (gameId === 'chess-master' || gameId === 'chess_master') {
+      navigateTo('chess_master');
+      return;
+    }
+
+    if (gameId === 'manyanga') {
+      navigateTo('manyanga');
       return;
     }
 
@@ -3480,6 +3562,7 @@ export function useKitabuApp() {
       unreadNotificationCount: notifications.filter(item => item.status === 'unread').length,
       userProfile,
       activeUserProfile,
+      activeMascotKey,
       assignments,
       teacherStudents,
       teacherAssignments,
@@ -3493,6 +3576,7 @@ export function useKitabuApp() {
       initialPage,
       isSpotlightMode,
       isMuted,
+      liveAudioForceFallback,
       downloadedBooks,
       showComingSoon,
       isStudentPreview,

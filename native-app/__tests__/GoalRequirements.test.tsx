@@ -223,8 +223,7 @@ test('subject selector disables new selections after five subjects', async () =>
   ).toBeGreaterThan(0);
 });
 
-test('dashboard subject grid opens plus selector and saves selected subjects', async () => {
-  const onSaveSubjectSelection = jest.fn();
+test('dashboard subject grid renders selected subjects without plus selector', async () => {
   let renderer: ReactTestRenderer.ReactTestRenderer;
 
   await act(() => {
@@ -234,33 +233,21 @@ test('dashboard subject grid opens plus selector and saves selected subjects', a
         allSubjects={SUBJECTS}
         selectedSubjectIds={SUBJECTS.slice(0, 5).map(subject => subject.id)}
         onOpenSubject={jest.fn()}
-        onSaveSubjectSelection={onSaveSubjectSelection}
+        onSaveSubjectSelection={jest.fn()}
         onOpenGameZone={jest.fn()}
       />,
     );
   });
 
-  let text = renderedText(renderer!.root);
+  const text = renderedText(renderer!.root);
   expect(text).not.toContain('My Subjects');
   expect(text).not.toContain('5/5 selected');
   expect(text).not.toContain('Agriculture');
   expect(text).not.toContain('Creative Arts');
-
-  const addButton = renderer!.root.findByProps({ accessibilityLabel: 'Choose dashboard subjects' });
-  await act(() => addButton.props.onPress());
-
-  text = renderedText(renderer!.root);
-  expect(text).toContain('Choose Subjects');
-  expect(text).toContain('5/5 selected');
-  expect(text).toContain('Agriculture');
-  expect(text).toContain('Creative Arts');
-
-  const saveButton = renderer!.root.findByProps({ accessibilityLabel: 'Save dashboard subjects' });
-  await act(() => saveButton.props.onPress());
-
-  expect(onSaveSubjectSelection).toHaveBeenCalledWith(
-    SUBJECTS.slice(0, 5).map(subject => subject.id),
-  );
+  expect(text).toContain('Game Zone');
+  expect(
+    renderer!.root.findAllByProps({ accessibilityLabel: 'Choose dashboard subjects' }),
+  ).toHaveLength(0);
 });
 
 test('student dashboard grade selector is a header dropdown and updates selection', async () => {
@@ -3375,6 +3362,14 @@ test('subscription modal centers the tapped package and updates checkout amount'
   expect(onSelectPlan).toHaveBeenCalledWith('annual');
   expect(text).toContain('Ndovu selected');
   expect(text).toContain('Continue to Pay - KSH 1,999');
+
+  await act(() => {
+    ndovuButton!.props.onPress();
+  });
+
+  const resetText = renderedText(renderer!.root);
+  expect(resetText).not.toContain('Ndovu selected');
+  expect(onSelectPlan).toHaveBeenCalledTimes(1);
 });
 
 test('try for one bob offer starts the KSh 1 checkout action', async () => {

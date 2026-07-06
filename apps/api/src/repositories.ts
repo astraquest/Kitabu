@@ -1,4 +1,5 @@
 import type { PoolClient, QueryResultRow } from 'pg';
+import { Chess } from 'chess.js';
 import { db } from './db.js';
 import type {
   AppRole,
@@ -4945,6 +4946,109 @@ export async function submitStudentAssignment(
 
 const PRESENCE_FRESH_SECONDS = 90;
 const MAX_PRESENCE_INTERVAL_SECONDS = 120;
+const CHESS_START_FEN = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
+
+export interface ChessOpponentRecord {
+  id: string;
+  name: string;
+  grade: string | null;
+  schoolName: string | null;
+  roles: AppRole[];
+  status: 'Online' | 'Offline';
+  lastSeenAt: string | null;
+}
+
+export interface ChessMatchRecord {
+  id: string;
+  status: 'active' | 'completed' | 'cancelled';
+  currentFen: string;
+  pgn: string;
+  turnUserId: string | null;
+  winnerUserId: string | null;
+  result: string | null;
+  createdAt: string;
+  updatedAt: string;
+  completedAt: string | null;
+  playerColor: 'white' | 'black';
+  opponent: {
+    id: string;
+    name: string;
+    grade: string | null;
+    schoolName: string | null;
+    status: 'Online' | 'Offline';
+  };
+}
+
+export interface ChessMoveRecord {
+  id: string;
+  matchId: string;
+  moveNumber: number;
+  userId: string;
+  from: string;
+  to: string;
+  promotion: string | null;
+  san: string;
+  fenAfter: string;
+  createdAt: string;
+}
+
+function mapChessStatus(status: string): 'active' | 'completed' | 'cancelled' {
+  return status === 'completed' || status === 'cancelled' ? status : 'active';
+}
+
+function mapChessRow(row: {
+  id: string;
+  challenger_user_id: string;
+  opponent_user_id: string;
+  challenger_color: string;
+  status: string;
+  current_fen: string;
+  pgn: string;
+  turn_user_id: string | null;
+  winner_user_id: string | null;
+  result: string | null;
+  created_at: Date;
+  updated_at: Date;
+  completed_at: Date | null;
+  opponent_name: string;
+  opponent_grade: string | null;
+  opponent_school_name: string | null;
+  opponent_presence_status: string;
+  opponent_presence_last_seen_at: Date | null;
+}, currentUserId: string): ChessMatchRecord {
+  const isChallenger = row.challenger_user_id === currentUserId;
+  const challengerColor = row.challenger_color === 'black' ? 'black' : 'white';
+  const playerColor = isChallenger
+    ? challengerColor
+    : challengerColor === 'white'
+      ? 'black'
+      : 'white';
+  const opponentOnline =
+    row.opponent_presence_status === 'online' &&
+    row.opponent_presence_last_seen_at &&
+    row.opponent_presence_last_seen_at >= new Date(Date.now() - PRESENCE_FRESH_SECONDS * 1000);
+
+  return {
+    id: row.id,
+    status: mapChessStatus(row.status),
+    currentFen: row.current_fen,
+    pgn: row.pgn,
+    turnUserId: row.turn_user_id,
+    winnerUserId: row.winner_user_id,
+    result: row.result,
+    createdAt: row.created_at.toISOString(),
+    updatedAt: row.updated_at.toISOString(),
+    completedAt: row.completed_at ? row.completed_at.toISOString() : null,
+    playerColor,
+    opponent: {
+      id: isChallenger ? row.opponent_user_id : row.challenger_user_id,
+      name: row.opponent_name,
+      grade: row.opponent_grade,
+      schoolName: row.opponent_school_name,
+      status: opponentOnline ? 'Online' : 'Offline'
+    }
+  };
+}
 
 export async function recordUserPresence(
   client: PoolClient,
@@ -5052,6 +5156,387 @@ export async function recordUserPresence(
       WHERE id = $1`,
     [user.id, elapsed]
   );
+}
+
+export async function listChessOnlineOpponents(user: AuthenticatedUser): Promise<ChessOpponentRecord[]> {
+  const result = await db.query<{
+    id: string;
+    full_name: string;
+    grade_level: string | null;
+    school_name: string | null;
+    roles: AppRole[];
+    presence_status: string;
+    presence_last_seen_at: Date | null;
+  }>(
+    `SELECT
+       u.id,
+       u.full_name,
+       u.grade_level,
+       s.name AS school_name,
+       ARRAY_AGG(DISTINCT ur.role) AS roles,
+       u.presence_status,
+       u.presence_last_seen_at
+      FROM users u
+      JOIN user_roles ur ON ur.user_id = u.id
+      LEFT JOIN schools s ON s.id = u.school_id
+      WHERE u.id <> $1
+        AND u.status = 'active'
+        AND u.presence_status = 'online'
+        AND u.presence_last_seen_at >= NOW() - ($2::int * INTERVAL '1 second')
+      GROUP BY u.id, s.name
+      ORDER BY u.presence_last_seen_at DESC, u.full_name ASC
+      LIMIT 50`,
+    [user.id, PRESENCE_FRESH_SECONDS]
+  );
+
+  return result.rows.map(row => ({
+    id: row.id,
+    name: row.full_name,
+    grade: row.grade_level,
+    schoolName: row.school_name,
+    roles: row.roles,
+    status: 'Online',
+    lastSeenAt: row.presence_last_seen_at ? row.presence_last_seen_at.toISOString() : null
+  }));
+}
+
+export async function createChessMatch(
+  client: MaybeClient,
+  user: AuthenticatedUser,
+  opponentUserId: string
+): Promise<ChessMatchRecord> {
+  if (opponentUserId === user.id) {
+    throw new Error('Choose another online user to duel.');
+  }
+
+  const opponent = await q<{
+    id: string;
+    full_name: string;
+    presence_status: string;
+    presence_last_seen_at: Date | null;
+  }>(
+    client,
+    `SELECT id, full_name, presence_status, presence_last_seen_at
+       FROM users
+      WHERE id = $1
+        AND status = 'active'`,
+    [opponentUserId]
+  );
+
+  const opponentRow = opponent.rows[0] ?? null;
+  const isOpponentOnline =
+    opponentRow?.presence_status === 'online' &&
+    opponentRow.presence_last_seen_at &&
+    opponentRow.presence_last_seen_at >= new Date(Date.now() - PRESENCE_FRESH_SECONDS * 1000);
+
+  if (!opponentRow || !isOpponentOnline) {
+    throw new Error('That player is no longer online.');
+  }
+
+  const inserted = await q<{ id: string }>(
+    client,
+    `INSERT INTO chess_matches (
+       challenger_user_id,
+       opponent_user_id,
+       challenger_color,
+       current_fen,
+       turn_user_id
+     )
+     VALUES ($1, $2, 'white', $3, $1)
+     RETURNING id`,
+    [user.id, opponentUserId, CHESS_START_FEN]
+  );
+
+  const match = await findChessMatchForUser(client, user, inserted.rows[0].id);
+  if (!match) {
+    throw new Error('Chess match could not be created.');
+  }
+  return match;
+}
+
+export async function listChessMatches(user: AuthenticatedUser): Promise<ChessMatchRecord[]> {
+  const result = await db.query<{
+    id: string;
+    challenger_user_id: string;
+    opponent_user_id: string;
+    challenger_color: string;
+    status: string;
+    current_fen: string;
+    pgn: string;
+    turn_user_id: string | null;
+    winner_user_id: string | null;
+    result: string | null;
+    created_at: Date;
+    updated_at: Date;
+    completed_at: Date | null;
+    opponent_name: string;
+    opponent_grade: string | null;
+    opponent_school_name: string | null;
+    opponent_presence_status: string;
+    opponent_presence_last_seen_at: Date | null;
+  }>(
+    `SELECT
+       m.*,
+       opponent.full_name AS opponent_name,
+       opponent.grade_level AS opponent_grade,
+       opponent_school.name AS opponent_school_name,
+       opponent.presence_status AS opponent_presence_status,
+       opponent.presence_last_seen_at AS opponent_presence_last_seen_at
+      FROM chess_matches m
+      JOIN users opponent
+        ON opponent.id = CASE
+          WHEN m.challenger_user_id = $1 THEN m.opponent_user_id
+          ELSE m.challenger_user_id
+        END
+      LEFT JOIN schools opponent_school ON opponent_school.id = opponent.school_id
+      WHERE $1 IN (m.challenger_user_id, m.opponent_user_id)
+      ORDER BY
+        CASE WHEN m.status = 'active' THEN 0 ELSE 1 END,
+        m.updated_at DESC
+      LIMIT 25`,
+    [user.id]
+  );
+
+  return result.rows.map(row => mapChessRow(row, user.id));
+}
+
+export async function findChessMatchForUser(
+  client: MaybeClient,
+  user: AuthenticatedUser,
+  matchId: string
+): Promise<ChessMatchRecord | null> {
+  const result = await q<{
+    id: string;
+    challenger_user_id: string;
+    opponent_user_id: string;
+    challenger_color: string;
+    status: string;
+    current_fen: string;
+    pgn: string;
+    turn_user_id: string | null;
+    winner_user_id: string | null;
+    result: string | null;
+    created_at: Date;
+    updated_at: Date;
+    completed_at: Date | null;
+    opponent_name: string;
+    opponent_grade: string | null;
+    opponent_school_name: string | null;
+    opponent_presence_status: string;
+    opponent_presence_last_seen_at: Date | null;
+  }>(
+    client,
+    `SELECT
+       m.*,
+       opponent.full_name AS opponent_name,
+       opponent.grade_level AS opponent_grade,
+       opponent_school.name AS opponent_school_name,
+       opponent.presence_status AS opponent_presence_status,
+       opponent.presence_last_seen_at AS opponent_presence_last_seen_at
+      FROM chess_matches m
+      JOIN users opponent
+        ON opponent.id = CASE
+          WHEN m.challenger_user_id = $2 THEN m.opponent_user_id
+          ELSE m.challenger_user_id
+        END
+      LEFT JOIN schools opponent_school ON opponent_school.id = opponent.school_id
+      WHERE m.id = $1
+        AND $2 IN (m.challenger_user_id, m.opponent_user_id)
+      LIMIT 1`,
+    [matchId, user.id]
+  );
+
+  const row = result.rows[0] ?? null;
+  return row ? mapChessRow(row, user.id) : null;
+}
+
+export async function listChessMoves(
+  user: AuthenticatedUser,
+  matchId: string
+): Promise<ChessMoveRecord[]> {
+  const match = await findChessMatchForUser(db, user, matchId);
+  if (!match) {
+    throw new Error('Chess match not found.');
+  }
+
+  const result = await db.query<{
+    id: string;
+    match_id: string;
+    move_number: number;
+    user_id: string;
+    from_square: string;
+    to_square: string;
+    promotion: string | null;
+    san: string;
+    fen_after: string;
+    created_at: Date;
+  }>(
+    `SELECT *
+       FROM chess_moves
+      WHERE match_id = $1
+      ORDER BY move_number ASC`,
+    [matchId]
+  );
+
+  return result.rows.map(row => ({
+    id: row.id,
+    matchId: row.match_id,
+    moveNumber: row.move_number,
+    userId: row.user_id,
+    from: row.from_square,
+    to: row.to_square,
+    promotion: row.promotion,
+    san: row.san,
+    fenAfter: row.fen_after,
+    createdAt: row.created_at.toISOString()
+  }));
+}
+
+export async function submitChessMove(
+  client: PoolClient,
+  user: AuthenticatedUser,
+  input: {
+    matchId: string;
+    from: string;
+    to: string;
+    promotion?: 'q' | 'r' | 'b' | 'n' | null;
+  }
+): Promise<{ match: ChessMatchRecord; move: ChessMoveRecord }> {
+  const locked = await q<{
+    id: string;
+    challenger_user_id: string;
+    opponent_user_id: string;
+    challenger_color: string;
+    status: string;
+    current_fen: string;
+  }>(
+    client,
+    `SELECT id, challenger_user_id, opponent_user_id, challenger_color, status, current_fen
+       FROM chess_matches
+      WHERE id = $1
+        AND $2 IN (challenger_user_id, opponent_user_id)
+      FOR UPDATE`,
+    [input.matchId, user.id]
+  );
+
+  const match = locked.rows[0] ?? null;
+  if (!match) {
+    throw new Error('Chess match not found.');
+  }
+  if (match.status !== 'active') {
+    throw new Error('This chess match is already complete.');
+  }
+
+  const whiteUserId =
+    match.challenger_color === 'white' ? match.challenger_user_id : match.opponent_user_id;
+  const blackUserId =
+    match.challenger_color === 'white' ? match.opponent_user_id : match.challenger_user_id;
+
+  const chess = new Chess(match.current_fen || CHESS_START_FEN);
+  const expectedUserId = chess.turn() === 'w' ? whiteUserId : blackUserId;
+  if (expectedUserId !== user.id) {
+    throw new Error('Wait for your turn before moving.');
+  }
+
+  const move = chess.move({
+    from: input.from,
+    to: input.to,
+    promotion: input.promotion || 'q'
+  });
+
+  if (!move) {
+    throw new Error('That chess move is not legal.');
+  }
+
+  const moveCount = await q<{ count: string }>(
+    client,
+    `SELECT COUNT(*)::text AS count FROM chess_moves WHERE match_id = $1`,
+    [match.id]
+  );
+  const moveNumber = Number(moveCount.rows[0]?.count || 0) + 1;
+  const fenAfter = chess.fen();
+
+  let status: 'active' | 'completed' = 'active';
+  let winnerUserId: string | null = null;
+  let result: string | null = null;
+  let completedAtSql = 'NULL';
+  let nextTurnUserId: string | null = chess.turn() === 'w' ? whiteUserId : blackUserId;
+
+  if (chess.isGameOver()) {
+    status = 'completed';
+    completedAtSql = 'NOW()';
+    nextTurnUserId = null;
+    if (chess.isCheckmate()) {
+      winnerUserId = user.id;
+      result = 'checkmate';
+    } else if (chess.isStalemate()) {
+      result = 'stalemate';
+    } else if (chess.isThreefoldRepetition()) {
+      result = 'threefold_repetition';
+    } else if (chess.isInsufficientMaterial()) {
+      result = 'insufficient_material';
+    } else if (chess.isDraw()) {
+      result = 'draw';
+    }
+  }
+
+  const insertedMove = await q<{
+    id: string;
+    match_id: string;
+    move_number: number;
+    user_id: string;
+    from_square: string;
+    to_square: string;
+    promotion: string | null;
+    san: string;
+    fen_after: string;
+    created_at: Date;
+  }>(
+    client,
+    `INSERT INTO chess_moves (
+       match_id, move_number, user_id, from_square, to_square, promotion, san, fen_after
+     )
+     VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+     RETURNING *`,
+    [match.id, moveNumber, user.id, input.from, input.to, input.promotion || null, move.san, fenAfter]
+  );
+
+  await q(
+    client,
+    `UPDATE chess_matches
+        SET current_fen = $2,
+            pgn = $3,
+            turn_user_id = $4,
+            winner_user_id = $5,
+            result = $6,
+            status = $7,
+            completed_at = ${completedAtSql},
+            updated_at = NOW()
+      WHERE id = $1`,
+    [match.id, fenAfter, chess.pgn(), nextTurnUserId, winnerUserId, result, status]
+  );
+
+  const updated = await findChessMatchForUser(client, user, match.id);
+  if (!updated) {
+    throw new Error('Chess match not found.');
+  }
+
+  const row = insertedMove.rows[0];
+  return {
+    match: updated,
+    move: {
+      id: row.id,
+      matchId: row.match_id,
+      moveNumber: row.move_number,
+      userId: row.user_id,
+      from: row.from_square,
+      to: row.to_square,
+      promotion: row.promotion,
+      san: row.san,
+      fenAfter: row.fen_after,
+      createdAt: row.created_at.toISOString()
+    }
+  };
 }
 
 export async function listAdminUsers(user: AuthenticatedUser): Promise<AdminUserRecord[]> {

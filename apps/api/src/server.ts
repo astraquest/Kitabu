@@ -8,7 +8,7 @@ import swaggerUi from '@fastify/swagger-ui';
 import { createHash, randomBytes, randomInt, timingSafeEqual } from 'node:crypto';
 import { z } from 'zod';
 import { appConfig } from './config.js';
-import { checkDatabaseHealth, checkRedisHealth, redis } from './db.js';
+import { checkDatabaseHealth, checkRedisHealth, redis, db } from './db.js';
 import {
   listGeneratedBooksForUser,
   openGeneratedBookAssetForUser,
@@ -105,6 +105,9 @@ import {
   getAdminSubjectEngagementAnalytics,
   getAiGenerationCacheEntry,
   listAdminUsers,
+  listChessMatches,
+  listChessMoves,
+  listChessOnlineOpponents,
   getSubscriptionAiSpendKshCents,
   getTotpSecret,
   getUserTotpStatus,
@@ -146,6 +149,8 @@ import {
   recordDiagnosticAnswer,
   recordAiGenerationAttempt,
   recordUserPresence,
+  createChessMatch,
+  findChessMatchForUser,
   recordPhoneVerificationFailure,
   replaceCurriculumSubject,
   requestSelfServiceAccountDeletion,
@@ -160,6 +165,7 @@ import {
   saveCurriculumSubStrandPages,
   setAiGenerationCacheEntry,
   submitStudentAssignment,
+  submitChessMove,
   startWeeklyExamAttempt,
   submitWeeklyExamAttempt,
   consumePhoneVerificationCode,
@@ -241,6 +247,20 @@ const refreshSchema = z.object({
 const presenceSchema = z.object({
   status: z.enum(['online', 'offline']),
   reason: z.string().trim().max(80).optional()
+});
+
+const chessMatchParamsSchema = z.object({
+  matchId: z.string().uuid()
+});
+
+const chessCreateMatchSchema = z.object({
+  opponentUserId: z.string().uuid()
+});
+
+const chessMoveSchema = z.object({
+  from: z.string().regex(/^[a-h][1-8]$/),
+  to: z.string().regex(/^[a-h][1-8]$/),
+  promotion: z.enum(['q', 'r', 'b', 'n']).optional()
 });
 
 const forgotPasswordSchema = z.object({
@@ -5470,6 +5490,118 @@ Return valid JSON with this shape:
     });
 
     return { status: body.status };
+  });
+
+  app.get('/games/chess/opponents', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return;
+    }
+
+    const opponents = await listChessOnlineOpponents(request.user!);
+    return { opponents };
+  });
+
+  app.get('/games/chess/matches', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return;
+    }
+
+    const matches = await listChessMatches(request.user!);
+    return { matches };
+  });
+
+  app.post('/games/chess/matches', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return;
+    }
+
+    const body = chessCreateMatchSchema.parse(request.body);
+
+    try {
+      const match = await withTransaction(async client => {
+        const created = await createChessMatch(client, request.user!, body.opponentUserId);
+        await notifyUser(client, {
+          userId: body.opponentUserId,
+          type: 'game.chess.challenge',
+          title: 'Chess duel started',
+          body: `${request.user!.fullName} started a Chess Master duel with you.`,
+          forceInApp: true,
+          metadata: {
+            matchId: created.id,
+            challengerUserId: request.user!.id
+          }
+        });
+        await createAuditLog(client, request.user!.id, request.user!.schoolId, 'game.chess.match.created', {
+          matchId: created.id,
+          opponentUserId: body.opponentUserId
+        });
+        return created;
+      });
+
+      return reply.status(201).send({ match });
+    } catch (error) {
+      return reply.badRequest(error instanceof Error ? error.message : 'Chess match could not be created.');
+    }
+  });
+
+  app.get('/games/chess/matches/:matchId', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return;
+    }
+
+    const params = chessMatchParamsSchema.parse(request.params);
+    const match = await findChessMatchForUser(db, request.user!, params.matchId);
+    return match ? { match } : reply.notFound('Chess match not found');
+  });
+
+  app.get('/games/chess/matches/:matchId/moves', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return;
+    }
+
+    const params = chessMatchParamsSchema.parse(request.params);
+    try {
+      const moves = await listChessMoves(request.user!, params.matchId);
+      return { moves };
+    } catch {
+      return reply.notFound('Chess match not found');
+    }
+  });
+
+  app.post('/games/chess/matches/:matchId/moves', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return;
+    }
+
+    const params = chessMatchParamsSchema.parse(request.params);
+    const body = chessMoveSchema.parse(request.body);
+
+    try {
+      const result = await withTransaction(async client => {
+        const submitted = await submitChessMove(client, request.user!, {
+          matchId: params.matchId,
+          from: body.from,
+          to: body.to,
+          promotion: body.promotion
+        });
+        await createAuditLog(client, request.user!.id, request.user!.schoolId, 'game.chess.move.submitted', {
+          matchId: params.matchId,
+          san: submitted.move.san,
+          status: submitted.match.status
+        });
+        return submitted;
+      });
+
+      return { match: result.match, move: result.move };
+    } catch (error) {
+      return reply.badRequest(error instanceof Error ? error.message : 'Chess move could not be submitted.');
+    }
   });
 
   app.post('/onboarding/selection-events', async (request, reply) => {

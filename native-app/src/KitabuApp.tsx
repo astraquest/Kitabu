@@ -18,12 +18,13 @@ import { StudentHeader } from './components/StudentHeader';
 import { SubscriptionCheckoutModal } from './components/SubscriptionCheckoutModal';
 import { TryForOneBobModal } from './components/TryForOneBobModal';
 import { useKitabuApp } from './hooks/useKitabuApp';
-import { PublicSignupRole, SchoolData } from './types/app';
+import type { PublicSignupRole, SchoolData } from './types/app';
 import { LoginScreen } from './screens/LoginScreen';
 import { AdminPortalScreen } from './screens/AdminPortalScreen';
 import { BookReaderScreen } from './screens/BookReaderScreen';
 import { BookshelfScreen } from './screens/BookshelfScreen';
 import { BrainTeaseScreen } from './screens/BrainTeaseScreen';
+import { ChessMasterScreen } from './screens/ChessMasterScreen';
 import { CrazyBalloonScreen } from './screens/CrazyBalloonScreen';
 import { DashboardScreen } from './screens/DashboardScreen';
 import { EmailVerificationScreen } from './screens/EmailVerificationScreen';
@@ -35,6 +36,7 @@ import { IntroCarouselScreen } from './screens/IntroCarouselScreen';
 import { LetsLearnContentScreen } from './screens/LetsLearnContentScreen';
 import { LetsLearnListScreen } from './screens/LetsLearnListScreen';
 import { LiveAudioTutorScreen } from './screens/LiveAudioTutorScreen';
+import { ManyangaScreen } from './screens/ManyangaScreen';
 import { PodcastsScreen } from './screens/PodcastsScreen';
 import { ParentDashboardScreen } from './screens/ParentDashboardScreen';
 import { QuizBattleScreen } from './screens/QuizBattleScreen';
@@ -320,6 +322,7 @@ export function KitabuApp() {
         {usesStudentHeader ? (
           <StudentHeader
             userAvatar={activeUserProfile.avatar}
+            userCountry={activeUserProfile.country}
             onOpenProfile={() => {
               if (!state.focusModeActive) {
                 actions.setProfileOpen(true);
@@ -565,10 +568,7 @@ function renderScreen(
             (state.weeklyExam && state.weeklyExam.attempt?.status !== 'completed' ? 1 : 0)
           }
           subjects={state.dashboardSubjects}
-          allSubjects={state.subjects}
-          selectedSubjectIds={state.dashboardSubjectIds}
           onOpenSubject={actions.openSubject}
-          onSaveSubjectSelection={actions.saveDashboardSubjects}
           onOpenFeature={actions.openFeature}
           onBannerAction={actions.openBannerAction}
         />
@@ -694,6 +694,9 @@ function renderScreen(
           selectedSubStrand={state.selectedSubStrand}
           selectedAssignment={state.selectedAssignment}
           userProfile={state.activeUserProfile}
+          mascotKey={state.activeMascotKey}
+          forceComingSoonFallback={state.liveAudioForceFallback}
+          quizQuestions={state.quizSource === 'quiz_me' ? state.generatedQuizQuestions : []}
         />
       );
     case 'brain_tease':
@@ -765,8 +768,27 @@ function renderScreen(
           onBack={() => actions.openFeature('game_zone')}
         />
       );
+    case 'chess_master':
+      return (
+        <ChessMasterScreen
+          currentUserId={state.authSession.user.id}
+          onBack={() => actions.openFeature('game_zone')}
+        />
+      );
+    case 'manyanga':
+      return (
+        <ManyangaScreen
+          onAddPoints={actions.addPoints}
+          onBack={() => actions.openFeature('game_zone')}
+        />
+      );
     case 'podcasts_view':
-      return <PodcastsScreen podcasts={state.podcasts} onBack={actions.goHome} />;
+      return (
+        <PodcastsScreen
+          mascotKey={state.activeMascotKey}
+          onBack={actions.goHome}
+        />
+      );
     case 'teachers_portal':
       return (
         <TeacherPortalScreen
@@ -871,10 +893,7 @@ function renderScreen(
             (state.weeklyExam && state.weeklyExam.attempt?.status !== 'completed' ? 1 : 0)
           }
           subjects={state.dashboardSubjects}
-          allSubjects={state.subjects}
-          selectedSubjectIds={state.dashboardSubjectIds}
           onOpenSubject={actions.openSubject}
-          onSaveSubjectSelection={actions.saveDashboardSubjects}
           onOpenFeature={actions.openFeature}
           onBannerAction={actions.openBannerAction}
         />
@@ -902,6 +921,8 @@ function getTitle(view: string, subjectName?: string) {
     game_zone: 'Game Zone',
     crazy_balloon: 'Crazy Balloon',
     quiz_battle: 'Quiz Battle',
+    chess_master: 'Chess Master',
+    manyanga: 'Manyanga!',
     podcasts_view: 'Podcasts',
     teachers_portal: 'Teacher Portal',
     admin_portal: 'Admin Portal',

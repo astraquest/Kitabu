@@ -52,6 +52,8 @@ const defaultProps = {
   onToggleSubject: jest.fn(),
 };
 
+const mountedRenderers: ReactTestRenderer.ReactTestRenderer[] = [];
+
 function renderProfileModal(
   props: Partial<React.ComponentProps<typeof ProfileModal>> = {},
 ) {
@@ -59,6 +61,7 @@ function renderProfileModal(
   ReactTestRenderer.act(() => {
     renderer = ReactTestRenderer.create(<ProfileModal {...defaultProps} {...props} />);
   });
+  mountedRenderers.push(renderer!);
   return renderer!.root;
 }
 
@@ -88,32 +91,42 @@ beforeEach(() => {
   jest.clearAllMocks();
 });
 
-test('shows Focus Mode controls in the student profile', () => {
+afterEach(() => {
+  ReactTestRenderer.act(() => {
+    while (mountedRenderers.length > 0) {
+      mountedRenderers.pop()?.unmount();
+    }
+  });
+});
+
+test('shows Lock Phone controls in the student profile', () => {
   const onStartFocusMode = jest.fn();
   const onOpenFocusModeSettings = jest.fn();
   const root = renderProfileModal({ onStartFocusMode, onOpenFocusModeSettings });
 
-  expect(hasText(root, 'Focus Mode')).toBe(true);
-  expect(hasText(root, 'Focus Mode keeps KITABU on screen while your child learns.')).toBe(true);
-  expect(hasText(root, 'To leave Focus Mode, Android will ask for your phone PIN.')).toBe(true);
-  expect(hasText(root, 'KITABU does not create a separate PIN.')).toBe(true);
+  expect(hasText(root, 'Lock Phone')).toBe(true);
 
-  ReactTestRenderer.act(() => pressableWithText(root, 'Start Focus Mode').props.onPress());
-  expect(onStartFocusMode).toHaveBeenCalledTimes(1);
+  ReactTestRenderer.act(() => pressableWithText(root, 'Lock Phone').props.onPress());
+  expect(hasText(root, 'Set up phone lock')).toBe(true);
+  expect(hasTextContaining(root, 'Turn on Android App Pinning')).toBe(true);
 
   ReactTestRenderer.act(() => pressableWithText(root, 'Open Settings').props.onPress());
   expect(onOpenFocusModeSettings).toHaveBeenCalledTimes(1);
+  expect(onStartFocusMode).not.toHaveBeenCalled();
 });
 
 test('requires typed confirmation before requesting account deletion', async () => {
   const onDeleteAccount = jest.fn(() => Promise.resolve());
   const root = renderProfileModal({ onDeleteAccount });
 
-  ReactTestRenderer.act(() =>
-    pressableWithText(root, 'Request Account Deletion').props.onPress(),
-  );
+  ReactTestRenderer.act(() => pressableWithText(root, 'Advanced account options').props.onPress());
+  expect(hasText(root, 'Delete account')).toBe(true);
+  expect(hasText(root, 'Requires typed confirmation.')).toBe(true);
 
-  expect(hasTextContaining(root, 'Requests are fulfilled in 30 days.')).toBe(true);
+  ReactTestRenderer.act(() => pressableWithText(root, 'Request').props.onPress());
+
+  expect(hasText(root, 'Delete account?')).toBe(true);
+  expect(hasTextContaining(root, 'deleted from our servers in 30')).toBe(true);
   expect(hasText(root, 'Type DELETE MY ACCOUNT to continue.')).toBe(true);
 
   const deleteButton = pressableWithText(root, 'Delete');

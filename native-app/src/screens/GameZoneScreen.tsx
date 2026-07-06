@@ -1,16 +1,58 @@
 import React from 'react';
 import { Image, ImageSourcePropType, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
-import { ChevronLeft } from 'lucide-react-native';
+import { ChevronLeft, Crown, Flame, Trophy } from 'lucide-react-native';
 
 interface GameZoneScreenProps {
   totalPoints: number;
+  rank?: number;
+  playersOnline?: number;
   onBack: () => void;
-  onPlayGame: (gameId: 'crazy-balloon' | 'quiz-battle') => void;
+  onPlayGame: (gameId: 'crazy-balloon' | 'quiz-battle' | 'storypot' | 'chess-master' | 'manyanga') => void;
 }
 
 const crazyBalloonIcon = require('../assets/game-icons/crazy-balloon.png');
+const quizBattleIcon = require('../assets/game-icons/quiz-battle.png');
+const storyPotIcon = require('../assets/game-icons/storypot.png');
+const chessMasterIcon = require('../assets/game-icons/chess-master.png');
+const manyangaIcon = require('../assets/game-icons/manyanga.png');
 
 const GAMES = [
+  {
+    id: 'quiz-battle' as const,
+    title: 'Quiz Battle',
+    description: 'Challenge other students in head-to-head quiz battles.',
+    gradientTop: '#8B5CF6',
+    gradientBottom: '#4F46E5',
+    badge: 'PvP',
+    icon: quizBattleIcon as ImageSourcePropType,
+  },
+  {
+    id: 'storypot' as const,
+    title: 'StoryPot',
+    description: 'Create amazing stories with AI and compete to be the best storyteller.',
+    gradientTop: '#22C55E',
+    gradientBottom: '#166534',
+    badge: 'Creative',
+    icon: storyPotIcon as ImageSourcePropType,
+  },
+  {
+    id: 'chess-master' as const,
+    title: 'Chess Master',
+    description: 'Challenge online users in live two-player chess duels.',
+    gradientTop: '#38BDF8',
+    gradientBottom: '#0F766E',
+    badge: '2 Player',
+    icon: chessMasterIcon as ImageSourcePropType,
+  },
+  {
+    id: 'manyanga' as const,
+    title: 'Manyanga!',
+    description: 'Race matatus through Nairobi streets in this adrenaline-packed bus racing game.',
+    gradientTop: '#FB923C',
+    gradientBottom: '#B91C1C',
+    badge: 'Racing',
+    icon: manyangaIcon as ImageSourcePropType,
+  },
   {
     id: 'crazy-balloon' as const,
     title: 'Crazy Balloon',
@@ -20,213 +62,262 @@ const GAMES = [
     badge: 'Rescue Arcade',
     icon: crazyBalloonIcon as ImageSourcePropType,
   },
-  {
-    id: 'quiz-battle' as const,
-    title: 'Quiz Battle',
-    description: 'Challenge other students in head-to-head quiz battles.',
-    gradientTop: '#8B5CF6',
-    gradientBottom: '#4F46E5',
-    badge: 'PvP',
-  },
 ];
 
-export function GameZoneScreen({ totalPoints, onBack, onPlayGame }: GameZoneScreenProps) {
+export function GameZoneScreen({
+  totalPoints,
+  rank = 1,
+  playersOnline = 1,
+  onBack,
+  onPlayGame,
+}: GameZoneScreenProps) {
   return (
-    <ScrollView contentContainerStyle={styles.content}>
-      <View style={styles.topRow}>
-        <Pressable onPress={onBack} style={styles.backButton}>
-          <ChevronLeft color="#1D4ED8" size={22} strokeWidth={2.4} />
-        </Pressable>
-      </View>
+    <View style={styles.screen}>
       <View style={styles.header}>
-        <View style={styles.headerCopy}>
-          <Text style={styles.eyebrow}>Live Arcade</Text>
-          <Text style={styles.title}>Game Zone</Text>
+        <Pressable onPress={onBack} style={styles.backButton}>
+          <ChevronLeft color="#9A3412" size={24} strokeWidth={2.6} />
+        </Pressable>
+
+        <View style={styles.headerCenter}>
+          <View style={styles.titleRow}>
+            <Flame color="#EA580C" size={22} strokeWidth={2.4} />
+            <Text style={styles.title}>Game Zone</Text>
+          </View>
+          <View style={styles.onlineRow}>
+            <View style={styles.onlineDot} />
+            <Text style={styles.onlineText}>
+              {playersOnline} {playersOnline === 1 ? 'player' : 'players'} online
+            </Text>
+          </View>
         </View>
-        <View style={styles.pointsCard}>
-          <Text style={styles.pointsValue}>{totalPoints}</Text>
-          <Text style={styles.pointsLabel}>points</Text>
+
+        <View style={styles.statsCard}>
+          <View style={styles.statsRow}>
+            <View style={styles.statItem}>
+              <Trophy color="#C65A26" size={16} strokeWidth={2.4} />
+              <Text style={styles.statValue}>{totalPoints}</Text>
+            </View>
+            <View style={styles.statDivider} />
+            <View style={styles.statItem}>
+              <Crown color="#C65A26" size={16} strokeWidth={2.4} />
+              <Text style={styles.statValue}>#{rank}</Text>
+            </View>
+          </View>
+          <Text style={styles.statsLabel}>Points & Rank</Text>
         </View>
       </View>
 
-      <View style={styles.list}>
-        {GAMES.map(game => (
-          <Pressable
-            key={game.id}
-            onPress={() => onPlayGame(game.id)}
-            style={[
-              styles.gameCard,
-              { backgroundColor: game.gradientBottom, borderColor: game.gradientTop },
-            ]}>
-            <View
+      <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
+        <Text style={styles.sectionTitle}>Available Games ({GAMES.length})</Text>
+
+        <View style={styles.list}>
+          {GAMES.map(game => (
+            <Pressable
+              key={game.id}
+              onPress={() => onPlayGame(game.id)}
               style={[
-                styles.decorCircleLarge,
-                { backgroundColor: `${game.gradientTop}44` },
-              ]}
-            />
-            <View
-              style={[
-                styles.decorCircleSmall,
-                { backgroundColor: `${game.gradientTop}66` },
-              ]}
-            />
-            <View style={styles.cardTopRow}>
-              <Text style={styles.badge}>{game.badge}</Text>
-              <Text style={styles.launchText}>Launch</Text>
-            </View>
-            <View style={styles.gameBody}>
-              {game.icon ? (
+                styles.gameCard,
+                { backgroundColor: game.gradientBottom, borderColor: game.gradientTop },
+              ]}>
+              <View style={[styles.decorCircleLarge, { backgroundColor: `${game.gradientTop}3D` }]} />
+              <View style={[styles.decorCircleSmall, { backgroundColor: `${game.gradientTop}66` }]} />
+              <View style={styles.onlineGameDot} />
+              <View style={styles.gameBody}>
                 <View style={styles.gameIconFrame}>
                   <Image source={game.icon} style={styles.gameIcon} resizeMode="cover" />
                 </View>
-              ) : null}
-              <View style={styles.gameCopy}>
-                <Text style={styles.gameTitle}>{game.title}</Text>
-                <Text style={styles.gameDescription}>{game.description}</Text>
+                <View style={styles.gameCopy}>
+                  <Text style={styles.gameTitle}>{game.title}</Text>
+                  <Text style={styles.gameDescription}>{game.description}</Text>
+                  <Text style={styles.badge}>{game.badge}</Text>
+                </View>
               </View>
-            </View>
-          </Pressable>
-        ))}
-      </View>
-    </ScrollView>
+            </Pressable>
+          ))}
+        </View>
+      </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  content: {
-    padding: 20,
-    paddingBottom: 36,
-    gap: 18,
+  screen: {
+    flex: 1,
+    backgroundColor: '#F8FAFC',
   },
-  topRow: {
-    alignItems: 'flex-start',
+  header: {
+    alignItems: 'center',
+    backgroundColor: '#FFF7ED',
+    borderBottomColor: '#FFEDD5',
+    borderBottomWidth: 1,
+    flexDirection: 'row',
+    gap: 12,
+    padding: 18,
   },
   backButton: {
     alignItems: 'center',
     borderRadius: 999,
-    height: 36,
+    height: 40,
     justifyContent: 'center',
-    width: 36,
+    width: 40,
   },
-  header: {
-    backgroundColor: '#FFF7ED',
-    borderRadius: 28,
-    padding: 18,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    gap: 14,
-  },
-  headerCopy: {
+  headerCenter: {
+    alignItems: 'center',
     flex: 1,
-    gap: 4,
+    gap: 6,
   },
-  eyebrow: {
-    color: '#EA580C',
-    fontSize: 11,
-    fontWeight: '800',
-    letterSpacing: 1.1,
-    textTransform: 'uppercase',
+  titleRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 8,
   },
   title: {
+    color: '#C65A26',
+    fontSize: 26,
+    fontWeight: '900',
+  },
+  onlineRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 6,
+  },
+  onlineDot: {
+    backgroundColor: '#86EFAC',
+    borderRadius: 6,
+    height: 12,
+    width: 12,
+  },
+  onlineText: {
+    color: '#7C2D12',
+    fontSize: 17,
+    fontWeight: '800',
+  },
+  statsCard: {
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF',
+    borderColor: '#FED7AA',
+    borderRadius: 24,
+    borderWidth: 1,
+    paddingHorizontal: 16,
+    paddingVertical: 14,
+    shadowColor: '#9A3412',
+    shadowOpacity: 0.08,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 8 },
+  },
+  statsRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 8,
+  },
+  statItem: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 4,
+  },
+  statValue: {
+    color: '#9A3412',
+    fontSize: 18,
+    fontWeight: '900',
+  },
+  statDivider: {
+    backgroundColor: '#FDBA74',
+    height: 20,
+    width: 1,
+  },
+  statsLabel: {
+    color: '#9A3412',
+    fontSize: 13,
+    fontWeight: '700',
+    marginTop: 2,
+  },
+  content: {
+    gap: 18,
+    padding: 22,
+    paddingBottom: 36,
+  },
+  sectionTitle: {
     color: '#0F172A',
     fontSize: 28,
-    fontWeight: '800',
-  },
-  pointsCard: {
-    minWidth: 92,
-    backgroundColor: '#FFFFFF',
-    borderRadius: 22,
-    paddingVertical: 14,
-    paddingHorizontal: 16,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  pointsValue: {
-    color: '#EA580C',
-    fontSize: 24,
-    fontWeight: '800',
-  },
-  pointsLabel: {
-    color: '#9A3412',
-    fontSize: 11,
-    fontWeight: '800',
-    textTransform: 'uppercase',
+    fontWeight: '900',
   },
   list: {
-    gap: 14,
+    gap: 18,
   },
   gameCard: {
-    overflow: 'hidden',
     borderRadius: 28,
-    padding: 18,
-    minHeight: 148,
-    justifyContent: 'space-between',
     borderWidth: 1,
+    justifyContent: 'center',
+    minHeight: 150,
+    overflow: 'hidden',
+    padding: 18,
+    shadowColor: '#0F172A',
+    shadowOffset: { width: 0, height: 12 },
+    shadowOpacity: 0.12,
+    shadowRadius: 18,
   },
   decorCircleLarge: {
-    position: 'absolute',
-    width: 140,
-    height: 140,
     borderRadius: 70,
-    top: -30,
+    height: 140,
+    position: 'absolute',
     right: -20,
+    top: -30,
+    width: 140,
   },
   decorCircleSmall: {
-    position: 'absolute',
-    width: 80,
-    height: 80,
     borderRadius: 40,
     bottom: -10,
+    height: 80,
     left: -10,
+    position: 'absolute',
+    width: 80,
   },
-  cardTopRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+  onlineGameDot: {
+    backgroundColor: '#86EFAC',
+    borderRadius: 7,
+    height: 14,
+    position: 'absolute',
+    right: 26,
+    top: 24,
+    width: 14,
   },
   gameBody: {
     alignItems: 'center',
     flexDirection: 'row',
-    gap: 14,
+    gap: 18,
   },
   gameIconFrame: {
-    width: 78,
-    height: 78,
     borderRadius: 22,
-    backgroundColor: 'rgba(255,255,255,0.2)',
     borderColor: 'rgba(255,255,255,0.34)',
     borderWidth: 1,
+    height: 78,
     overflow: 'hidden',
+    width: 78,
   },
   gameIcon: {
-    width: '100%',
     height: '100%',
+    width: '100%',
   },
   gameCopy: {
     flex: 1,
-    gap: 6,
+    gap: 5,
   },
   badge: {
     color: '#FFFFFF',
-    backgroundColor: 'rgba(255,255,255,0.16)',
-    overflow: 'hidden',
-    borderRadius: 999,
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-    fontSize: 11,
+    fontSize: 12,
     fontWeight: '800',
-  },
-  launchText: {
-    color: '#FFFFFF',
-    fontWeight: '800',
+    opacity: 0.85,
+    textTransform: 'uppercase',
   },
   gameTitle: {
     color: '#FFFFFF',
-    fontSize: 24,
+    fontSize: 25,
     fontWeight: '900',
   },
   gameDescription: {
     color: '#F8FAFC',
+    fontSize: 15,
+    fontWeight: '700',
     lineHeight: 21,
   },
 });

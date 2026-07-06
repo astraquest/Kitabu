@@ -30,6 +30,7 @@ jobs:
       - run: npm ci
       - run: npm run check
       - run: npm run build
+      - run: npm run validate:quiz-bank -w apps/api
       - run: npm run test:api
 
   deploy:
@@ -106,6 +107,8 @@ jobs:
           docker compose up -d postgres redis
           docker compose build api worker
           docker compose run --rm api node scripts/apply-migrations.mjs
+          docker compose run --rm api node scripts/quiz-bank/validate-quiz-bank.mjs
+          docker compose run --rm api node scripts/quiz-bank/import-quiz-bank.mjs
           docker compose run --rm api node scripts/verify-production-readiness.mjs
           docker compose up -d --force-recreate api worker caddy
           docker exec kitabu-caddy grep -q 'resetPasswordPath' /etc/caddy/Caddyfile

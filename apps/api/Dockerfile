@@ -22,6 +22,7 @@ COPY --from=build /app/apps/api/dist /app/dist
 COPY --from=build /app/apps/api/scripts /app/scripts
 COPY --from=build /app/apps/api/sql /app/sql
 COPY --from=build /app/apps/api/certs /app/certs
+COPY --from=build /app/apps/api/data/quiz-bank /app/data/quiz-bank
 RUN mkdir -p /app/data/books
 COPY --from=build /app/apps/api/package.json /app/package.json
 EXPOSE 4000

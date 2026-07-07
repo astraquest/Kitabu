@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "kitabu-web",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "native-app", "run", "web"],
+      "port": 8081
+    }
+  ]
+}

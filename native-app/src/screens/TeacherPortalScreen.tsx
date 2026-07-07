@@ -10,6 +10,7 @@ import {
   Pressable,
   ScrollView,
   StyleSheet,
+  StatusBar,
   Text,
   TextInput,
   View,
@@ -86,8 +87,13 @@ type Tab = 'students' | 'assignments';
 type PortalView = 'students' | 'assignments' | 'lessonPlan' | 'messages' | 'profile';
 type WizardStep = 1 | 2;
 type SlideDirection = 'right' | 'bottom';
+type TeacherBottomNavItem = 'home' | 'students' | 'insights' | 'messages' | 'lessonPlan' | null;
+type MessageAudienceMode = 'grade' | 'parent';
+type MessageDropdownOption = { value: string; label: string; meta?: string };
 
 const SCREEN = Dimensions.get('window');
+const TEACHER_TOP_INSET =
+  Platform.OS === 'web' ? 10 : Math.max(StatusBar.currentHeight ?? 0, 22);
 const logoAsset = require('../assets/logo.png');
 const TEACHER_DEFAULT_GRADE = 'Grade 10';
 const TEACHER_SUBJECTS = ['Mathematics', 'English', 'Science', 'Kiswahili', 'Social Studies'];
@@ -286,11 +292,6 @@ export function TeacherPortalScreen({
             : b.assessmentScore - a.assessmentScore,
         ),
     [students, gradeFilter, showRemedial, sortBy],
-  );
-
-  const selectedClassStudents = useMemo(
-    () => students.filter(item => item.grade === selectedGrade),
-    [selectedGrade, students],
   );
 
   const scopedStudents = useMemo(
@@ -501,6 +502,141 @@ export function TeacherPortalScreen({
     setPortalView(section);
   }
 
+  function openTeacherHome() {
+    setTab('students');
+    setPortalView('students');
+    setGradeFilter(selectedGrade);
+    setShowRemedial(false);
+    setSortBy('name');
+  }
+
+  function openTeacherStudents() {
+    setTab('students');
+    setPortalView('students');
+    setGradeFilter(TEACHER_ALL_GRADES_FILTER);
+    setShowRemedial(false);
+    setSortBy('name');
+  }
+
+  function openTeacherInsights() {
+    setTab('students');
+    setPortalView('students');
+    setShowRemedial(true);
+    setSortBy('score');
+  }
+
+  function renderBottomNav(activeItem: TeacherBottomNavItem) {
+    return (
+      <View style={portalStyles.bottomNav}>
+        <Pressable
+          accessibilityLabel="Open teacher home"
+          onPress={openTeacherHome}
+          style={portalStyles.bottomNavItem}>
+          <Home
+            color={
+              activeItem === 'home'
+                ? portalStyles.bottomNavActiveColor
+                : portalStyles.bottomNavIconColor
+            }
+            size={24}
+            strokeWidth={2.5}
+          />
+          <Text
+            style={[
+              portalStyles.bottomNavLabel,
+              activeItem === 'home' && portalStyles.bottomNavLabelActive,
+            ]}>
+            Home
+          </Text>
+        </Pressable>
+        <Pressable
+          accessibilityLabel="Open students"
+          onPress={openTeacherStudents}
+          style={portalStyles.bottomNavItem}>
+          <Users
+            color={
+              activeItem === 'students'
+                ? portalStyles.bottomNavActiveColor
+                : portalStyles.bottomNavIconColor
+            }
+            size={24}
+            strokeWidth={2.5}
+          />
+          <Text
+            style={[
+              portalStyles.bottomNavLabel,
+              activeItem === 'students' && portalStyles.bottomNavLabelActive,
+            ]}>
+            Students
+          </Text>
+        </Pressable>
+        <Pressable
+          accessibilityLabel="Open insights"
+          onPress={openTeacherInsights}
+          style={portalStyles.bottomNavItem}>
+          <BarChart3
+            color={
+              activeItem === 'insights'
+                ? portalStyles.bottomNavActiveColor
+                : portalStyles.bottomNavIconColor
+            }
+            size={24}
+            strokeWidth={2.5}
+          />
+          <Text
+            style={[
+              portalStyles.bottomNavLabel,
+              activeItem === 'insights' && portalStyles.bottomNavLabelActive,
+            ]}>
+            Insights
+          </Text>
+        </Pressable>
+        <Pressable
+          accessibilityLabel="Open parent messages"
+          onPress={() => setPortalView('messages')}
+          style={portalStyles.bottomNavItem}>
+          <MessageSquareText
+            color={
+              activeItem === 'messages'
+                ? portalStyles.bottomNavActiveColor
+                : portalStyles.bottomNavIconColor
+            }
+            size={24}
+            strokeWidth={2.5}
+          />
+          <Text
+            style={[
+              portalStyles.bottomNavLabel,
+              activeItem === 'messages' && portalStyles.bottomNavLabelActive,
+            ]}>
+            Messages
+          </Text>
+        </Pressable>
+        <Pressable
+          accessibilityLabel="Open lesson planner"
+          onPress={() => setPortalView('lessonPlan')}
+          style={portalStyles.bottomNavItem}>
+          <CalendarCheck2
+            color={
+              activeItem === 'lessonPlan'
+                ? portalStyles.bottomNavActiveColor
+                : portalStyles.bottomNavIconColor
+            }
+            size={24}
+            strokeWidth={2.5}
+          />
+          <Text
+            style={[
+              portalStyles.bottomNavLabel,
+              activeItem === 'lessonPlan' && portalStyles.bottomNavLabelActive,
+            ]}>
+            Lesson Plan
+          </Text>
+        </Pressable>
+      </View>
+    );
+  }
+
   function toggleTaughtGrade(value: string) {
     setTaughtGrades(current =>
       current.includes(value)
@@ -572,7 +708,9 @@ export function TeacherPortalScreen({
         ) : portalView === 'messages' ? (
           <TeacherMessagesView
             grade={selectedGrade}
-            students={selectedClassStudents}
+            grades={teacherGradeOptions}
+            students={students}
+            bottomNav={renderBottomNav('messages')}
             onBack={() => setPortalView(tab)}
           />
         ) : (
@@ -668,112 +806,15 @@ export function TeacherPortalScreen({
               )}
             </ScrollView>
 
-            <View style={portalStyles.bottomNav}>
-              <Pressable
-                accessibilityLabel="Open teacher home"
-                onPress={() => {
-                  setTab('students');
-                  setPortalView('students');
-                  setGradeFilter(selectedGrade);
-                  setShowRemedial(false);
-                  setSortBy('name');
-                }}
-                style={portalStyles.bottomNavItem}>
-                <Home
-                  color={
-                    tab === 'students' && !showRemedial && gradeFilter === selectedGrade
-                      ? portalStyles.bottomNavActiveColor
-                      : portalStyles.bottomNavIconColor
-                  }
-                  size={24}
-                  strokeWidth={2.5}
-                />
-                <Text
-                  style={[
-                    portalStyles.bottomNavLabel,
-                    tab === 'students' &&
-                      !showRemedial &&
-                      gradeFilter === selectedGrade &&
-                      portalStyles.bottomNavLabelActive,
-                  ]}>
-                  Home
-                </Text>
-              </Pressable>
-              <Pressable
-                accessibilityLabel="Open students"
-                onPress={() => {
-                  setTab('students');
-                  setPortalView('students');
-                  setGradeFilter(TEACHER_ALL_GRADES_FILTER);
-                  setShowRemedial(false);
-                  setSortBy('name');
-                }}
-                style={portalStyles.bottomNavItem}>
-                <Users
-                  color={
-                    tab === 'students' && !showRemedial && gradeFilter === TEACHER_ALL_GRADES_FILTER
-                      ? portalStyles.bottomNavActiveColor
-                      : portalStyles.bottomNavIconColor
-                  }
-                  size={24}
-                  strokeWidth={2.5}
-                />
-                <Text
-                  style={[
-                    portalStyles.bottomNavLabel,
-                    tab === 'students' &&
-                      !showRemedial &&
-                      gradeFilter === TEACHER_ALL_GRADES_FILTER &&
-                      portalStyles.bottomNavLabelActive,
-                  ]}>
-                  Students
-                </Text>
-              </Pressable>
-              <Pressable
-                accessibilityLabel="Open insights"
-                onPress={() => {
-                  setTab('students');
-                  setPortalView('students');
-                  setShowRemedial(true);
-                  setSortBy('score');
-                }}
-                style={portalStyles.bottomNavItem}>
-                <BarChart3
-                  color={showRemedial ? portalStyles.bottomNavActiveColor : portalStyles.bottomNavIconColor}
-                  size={24}
-                  strokeWidth={2.5}
-                />
-                <Text
-                  style={[
-                    portalStyles.bottomNavLabel,
-                    showRemedial && portalStyles.bottomNavLabelActive,
-                  ]}>
-                  Insights
-                </Text>
-              </Pressable>
-              <Pressable
-                accessibilityLabel="Open parent messages"
-                onPress={() => setPortalView('messages')}
-                style={portalStyles.bottomNavItem}>
-                <MessageSquareText
-                  color={portalStyles.bottomNavIconColor}
-                  size={24}
-                  strokeWidth={2.5}
-                />
-                <Text style={portalStyles.bottomNavLabel}>Messages</Text>
-              </Pressable>
-              <Pressable
-                accessibilityLabel="Open lesson planner"
-                onPress={() => setPortalView('lessonPlan')}
-                style={portalStyles.bottomNavItem}>
-                <CalendarCheck2
-                  color={portalStyles.bottomNavIconColor}
-                  size={24}
-                  strokeWidth={2.5}
-                />
-                <Text style={portalStyles.bottomNavLabel}>Lesson Plan</Text>
-              </Pressable>
-            </View>
+            {renderBottomNav(
+              showRemedial
+                ? 'insights'
+                : tab === 'students' && gradeFilter === TEACHER_ALL_GRADES_FILTER
+                  ? 'students'
+                  : tab === 'students' && gradeFilter === selectedGrade
+                    ? 'home'
+                    : null,
+            )}
           </View>
         )}
       </View>
@@ -1375,15 +1416,18 @@ function TeacherLessonPlanView({
   const [openSelect, setOpenSelect] = useState<'grade' | 'subject' | 'duration' | 'style' | null>(
     null,
   );
-  const [ready, setReady] = useState(true);
+  const [ready, setReady] = useState(false);
+  const [showPreview, setShowPreview] = useState(false);
   const [status, setStatus] = useState<'idle' | 'shared' | 'saved'>('idle');
   const [aiIdeas, setAiIdeas] = useState('');
   const [isGeneratingPlan, setIsGeneratingPlan] = useState(false);
   const [isSavingPlan, setIsSavingPlan] = useState(false);
+  const generationRequestRef = useRef(0);
   const lessonMinutes = Number.parseInt(duration, 10) || 35;
   const flow = buildLessonFlow(lessonMinutes, style);
 
   function clearPlan() {
+    generationRequestRef.current += 1;
     setSelectedGrade(gradeOptions[0] || grade);
     setSelectedSubject(subjectOptions[0] || 'Mathematics');
     setDuration('35 minutes');
@@ -1392,9 +1436,19 @@ function TeacherLessonPlanView({
     setTopic('');
     setOutcome('');
     setReady(false);
+    setShowPreview(false);
     setStatus('idle');
     setAiIdeas('');
+    setIsGeneratingPlan(false);
     setOpenSelect(null);
+  }
+
+  function markSetupEdited() {
+    generationRequestRef.current += 1;
+    setReady(false);
+    setShowPreview(false);
+    setStatus('idle');
+    setIsGeneratingPlan(false);
   }
 
   async function generatePlan() {
@@ -1404,10 +1458,14 @@ function TeacherLessonPlanView({
       'Learners solve simple linear equations and explain each step using a real-life example.';
     setTopic(nextTopic);
     setOutcome(nextOutcome);
-    setReady(true);
     setStatus('idle');
+    setReady(true);
+    setShowPreview(true);
+    setAiIdeas('');
     setOpenSelect(null);
     setIsGeneratingPlan(true);
+    const requestId = generationRequestRef.current + 1;
+    generationRequestRef.current = requestId;
     try {
       const ideas = await generateLessonPlanIdeas({
         gradeLevel: selectedGrade,
@@ -1417,18 +1475,31 @@ function TeacherLessonPlanView({
         durationMinutes: lessonMinutes,
         style,
       });
-      setAiIdeas(ideas);
+      if (generationRequestRef.current === requestId) {
+        setAiIdeas(ideas);
+      }
+      return true;
     } catch (error) {
       console.error('Error generating lesson plan ideas:', error);
-      Alert.alert('AI unavailable', 'Could not generate lesson ideas right now. Please try again.');
+      if (generationRequestRef.current === requestId) {
+        setAiIdeas(
+          'AI presentation ideas could not be generated right now. Use the structured lesson preview below and try Ask AI again when the connection is stable.',
+        );
+      }
+      return true;
     } finally {
-      setIsGeneratingPlan(false);
+      if (generationRequestRef.current === requestId) {
+        setIsGeneratingPlan(false);
+      }
     }
   }
 
   async function savePlan() {
     if (!ready) {
-      await generatePlan();
+      const generated = await generatePlan();
+      if (!generated) {
+        return;
+      }
     }
     setIsSavingPlan(true);
     try {
@@ -1481,188 +1552,207 @@ function TeacherLessonPlanView({
           </View>
         </View>
 
-        <View style={s.lessonPanel}>
-          <View style={s.lessonPanelHeader}>
-            <Text style={s.lessonPanelTitle}>Quick Setup</Text>
-            <View style={s.lessonStepPill}>
-              <Text style={s.lessonStepText}>Step 1 of 2</Text>
-            </View>
-          </View>
-          <View style={s.lessonFormGrid}>
-            <LessonSelect
-              label="Grade"
-              open={openSelect === 'grade'}
-              options={gradeOptions}
-              value={selectedGrade}
-              zIndex={24}
-              onSelect={value => {
-                setSelectedGrade(value);
-                setOpenSelect(null);
-              }}
-              onToggle={() => setOpenSelect(openSelect === 'grade' ? null : 'grade')}
-            />
-            <LessonSelect
-              label="Subject"
-              open={openSelect === 'subject'}
-              options={subjectOptions}
-              value={selectedSubject}
-              zIndex={23}
-              onSelect={value => {
-                setSelectedSubject(value);
-                setOpenSelect(null);
-              }}
-              onToggle={() => setOpenSelect(openSelect === 'subject' ? null : 'subject')}
-            />
-            <LessonSelect
-              label="Duration"
-              open={openSelect === 'duration'}
-              options={['25 minutes', '35 minutes', '45 minutes', '60 minutes']}
-              value={duration}
-              zIndex={22}
-              onSelect={value => {
-                setDuration(value);
-                setOpenSelect(null);
-              }}
-              onToggle={() => setOpenSelect(openSelect === 'duration' ? null : 'duration')}
-            />
-            <LessonSelect
-              label="Style"
-              open={openSelect === 'style'}
-              options={['Revision', 'Activity', 'Remedial', 'Homework']}
-              value={style}
-              zIndex={21}
-              onSelect={value => {
-                setStyle(value);
-                setTemplate(value);
-                setOpenSelect(null);
-              }}
-              onToggle={() => setOpenSelect(openSelect === 'style' ? null : 'style')}
-            />
-          </View>
-          <View style={s.lessonInputBlock}>
-            <Text style={s.lessonFieldLabel}>Topic</Text>
-            <TextInput
-              onChangeText={value => {
-                setTopic(value);
-                setReady(false);
-              }}
-              placeholder="What are learners covering?"
-              placeholderTextColor="#8A94A6"
-              style={s.lessonTextInput}
-              value={topic}
-            />
-          </View>
-          <View style={s.lessonInputBlock}>
-            <Text style={s.lessonFieldLabel}>Learning Outcome</Text>
-            <TextInput
-              multiline
-              onChangeText={value => {
-                setOutcome(value);
-                setReady(false);
-              }}
-              placeholder="What should learners demonstrate by the end?"
-              placeholderTextColor="#8A94A6"
-              style={[s.lessonTextInput, s.lessonOutcomeInput]}
-              value={outcome}
-            />
-          </View>
-          <Text style={[s.lessonFieldLabel, s.lessonTemplateLabel]}>Templates</Text>
-          <View style={s.lessonTemplateRow}>
-            {['Revision', 'Activity', 'Remedial', 'Homework'].map(item => {
-              const active = template === item;
-              return (
-                <Pressable
-                  key={item}
-                  onPress={() => {
-                    setTemplate(item);
-                    setStyle(item);
-                    setReady(false);
-                  }}
-                  style={[s.lessonTemplateChip, active && s.lessonTemplateChipActive]}>
-                  <Text style={[s.lessonTemplateText, active && s.lessonTemplateTextActive]}>
-                    {item}
-                  </Text>
-                </Pressable>
-              );
-            })}
-          </View>
-          <View style={s.lessonActionRow}>
-            <Pressable onPress={clearPlan} style={s.lessonClearButton}>
-              <Text style={s.lessonClearText}>Clear</Text>
-            </Pressable>
-            <Pressable
-              disabled={isGeneratingPlan}
-              onPress={generatePlan}
-              style={[s.lessonGenerateButton, isGeneratingPlan && s.lessonButtonDisabled]}>
-              <Text style={s.lessonGenerateText}>
-                {isGeneratingPlan ? 'Thinking...' : 'Ask AI'}
-              </Text>
-            </Pressable>
-          </View>
-        </View>
-
-        <View style={s.lessonPanel}>
-          <View style={s.lessonPanelHeader}>
-            <Text style={s.lessonPanelTitle}>Lesson Preview</Text>
-            <View style={[s.lessonStepPill, ready ? s.lessonReadyPreviewPill : s.lessonDraftPill]}>
-              <Text style={s.lessonStepText}>{ready ? 'Ready' : 'Draft'}</Text>
-            </View>
-          </View>
-          <View style={s.lessonPreviewCard}>
-            <Text style={s.lessonPreviewTitle}>
-              {selectedSubject}. {topic.trim() || 'Untitled lesson'}
-            </Text>
-            <Text style={s.lessonPreviewBody}>
-              {outcome.trim() || 'Add an outcome, then generate a lesson plan preview.'}
-            </Text>
-          </View>
-          <View style={s.lessonPreviewCard}>
-            <Text style={s.lessonPreviewTitle}>Materials</Text>
-            <Text style={s.lessonPreviewBody}>
-              Board, chalk or marker, learner notebooks, 5 practice questions and one word
-              problem.
-            </Text>
-          </View>
-          <View style={s.lessonFlowCard}>
-            <Text style={s.lessonPreviewTitle}>Lesson Flow</Text>
-            {flow.map(item => (
-              <View key={item.title} style={s.lessonFlowRow}>
-                <View style={s.lessonTimePill}>
-                  <Text style={s.lessonTimeText}>{item.minutes}m</Text>
-                </View>
-                <View style={s.rowMain}>
-                  <Text style={s.lessonFlowTitle}>{item.title}</Text>
-                  <Text style={s.lessonFlowBody}>{item.body}</Text>
-                </View>
+        {!showPreview ? (
+          <View style={s.lessonPanel}>
+            <View style={s.lessonPanelHeader}>
+              <Text style={s.lessonPanelTitle}>Quick Setup</Text>
+              <View style={s.lessonStepPill}>
+                <Text style={s.lessonStepText}>Step 1 of 2</Text>
               </View>
-            ))}
-          </View>
-          {aiIdeas ? (
-            <View style={s.lessonPreviewCard}>
-              <Text style={s.lessonPreviewTitle}>AI Presentation Ideas</Text>
-              <Text style={s.lessonPreviewBody}>{aiIdeas}</Text>
             </View>
-          ) : null}
-          <View style={s.lessonActionRow}>
-            <Pressable
-              onPress={() => setStatus('shared')}
-              style={[s.lessonShareButton, status === 'shared' && s.lessonShareButtonActive]}>
-              <Text style={s.lessonShareText}>{status === 'shared' ? 'Shared' : 'Share'}</Text>
-            </Pressable>
-            <Pressable
-              disabled={isSavingPlan}
-              onPress={savePlan}
-              style={[
-                s.lessonSaveButton,
-                status === 'saved' && s.lessonSaveButtonActive,
-                isSavingPlan && s.lessonButtonDisabled,
-              ]}>
-              <Text style={s.lessonSaveText}>
-                {isSavingPlan ? 'Saving...' : status === 'saved' ? 'Saved' : 'Save Plan'}
-              </Text>
-            </Pressable>
+            <View style={s.lessonFormGrid}>
+              <LessonSelect
+                label="Grade"
+                open={openSelect === 'grade'}
+                options={gradeOptions}
+                value={selectedGrade}
+                zIndex={24}
+                onSelect={value => {
+                  setSelectedGrade(value);
+                  markSetupEdited();
+                  setOpenSelect(null);
+                }}
+                onToggle={() => setOpenSelect(openSelect === 'grade' ? null : 'grade')}
+              />
+              <LessonSelect
+                label="Subject"
+                open={openSelect === 'subject'}
+                options={subjectOptions}
+                value={selectedSubject}
+                zIndex={23}
+                onSelect={value => {
+                  setSelectedSubject(value);
+                  markSetupEdited();
+                  setOpenSelect(null);
+                }}
+                onToggle={() => setOpenSelect(openSelect === 'subject' ? null : 'subject')}
+              />
+              <LessonSelect
+                label="Duration"
+                open={openSelect === 'duration'}
+                options={['25 minutes', '35 minutes', '45 minutes', '60 minutes']}
+                value={duration}
+                zIndex={22}
+                onSelect={value => {
+                  setDuration(value);
+                  markSetupEdited();
+                  setOpenSelect(null);
+                }}
+                onToggle={() => setOpenSelect(openSelect === 'duration' ? null : 'duration')}
+              />
+              <LessonSelect
+                label="Style"
+                open={openSelect === 'style'}
+                options={['Revision', 'Activity', 'Remedial', 'Homework']}
+                value={style}
+                zIndex={21}
+                onSelect={value => {
+                  setStyle(value);
+                  setTemplate(value);
+                  markSetupEdited();
+                  setOpenSelect(null);
+                }}
+                onToggle={() => setOpenSelect(openSelect === 'style' ? null : 'style')}
+              />
+            </View>
+            <View style={s.lessonInputBlock}>
+              <Text style={s.lessonFieldLabel}>Topic</Text>
+              <TextInput
+                onChangeText={value => {
+                  setTopic(value);
+                  markSetupEdited();
+                }}
+                placeholder="What are learners covering?"
+                placeholderTextColor="#8A94A6"
+                style={s.lessonTextInput}
+                value={topic}
+              />
+            </View>
+            <View style={s.lessonInputBlock}>
+              <Text style={s.lessonFieldLabel}>Learning Outcome</Text>
+              <TextInput
+                multiline
+                onChangeText={value => {
+                  setOutcome(value);
+                  markSetupEdited();
+                }}
+                placeholder="What should learners demonstrate by the end?"
+                placeholderTextColor="#8A94A6"
+                style={[s.lessonTextInput, s.lessonOutcomeInput]}
+                value={outcome}
+              />
+            </View>
+            <Text style={[s.lessonFieldLabel, s.lessonTemplateLabel]}>Templates</Text>
+            <View style={s.lessonTemplateRow}>
+              {['Revision', 'Activity', 'Remedial', 'Homework'].map(item => {
+                const active = template === item;
+                return (
+                  <Pressable
+                    key={item}
+                    onPress={() => {
+                      setTemplate(item);
+                      setStyle(item);
+                      markSetupEdited();
+                    }}
+                    style={[s.lessonTemplateChip, active && s.lessonTemplateChipActive]}>
+                    <Text style={[s.lessonTemplateText, active && s.lessonTemplateTextActive]}>
+                      {item}
+                    </Text>
+                  </Pressable>
+                );
+              })}
+            </View>
+            <View style={s.lessonActionRow}>
+              <Pressable onPress={clearPlan} style={s.lessonClearButton}>
+                <Text style={s.lessonClearText}>Clear</Text>
+              </Pressable>
+              <Pressable
+                disabled={isGeneratingPlan}
+                onPress={generatePlan}
+                style={[s.lessonGenerateButton, isGeneratingPlan && s.lessonButtonDisabled]}>
+                <Text style={s.lessonGenerateText}>
+                  {isGeneratingPlan ? 'Thinking...' : 'Ask AI'}
+                </Text>
+              </Pressable>
+            </View>
           </View>
-        </View>
+        ) : null}
+
+        {showPreview ? (
+          <View style={s.lessonPanel}>
+            <View style={s.lessonPanelHeader}>
+              <Text style={s.lessonPanelTitle}>Lesson Preview</Text>
+              <View style={[s.lessonStepPill, ready ? s.lessonReadyPreviewPill : s.lessonDraftPill]}>
+                <Text style={s.lessonStepText}>{ready ? 'Ready' : 'Draft'}</Text>
+              </View>
+            </View>
+            <View style={s.lessonPreviewCard}>
+              <Text style={s.lessonPreviewTitle}>
+                {selectedSubject}. {topic.trim() || 'Untitled lesson'}
+              </Text>
+              <Text style={s.lessonPreviewBody}>
+                {outcome.trim() || 'Add an outcome, then generate a lesson plan preview.'}
+              </Text>
+            </View>
+            <View style={s.lessonPreviewCard}>
+              <Text style={s.lessonPreviewTitle}>Materials</Text>
+              <Text style={s.lessonPreviewBody}>
+                Board, chalk or marker, learner notebooks, 5 practice questions and one word
+                problem.
+              </Text>
+            </View>
+            <View style={s.lessonFlowCard}>
+              <Text style={s.lessonPreviewTitle}>Lesson Flow</Text>
+              {flow.map(item => (
+                <View key={item.title} style={s.lessonFlowRow}>
+                  <View style={s.lessonTimePill}>
+                    <Text style={s.lessonTimeText}>{item.minutes}m</Text>
+                  </View>
+                  <View style={s.rowMain}>
+                    <Text style={s.lessonFlowTitle}>{item.title}</Text>
+                    <Text style={s.lessonFlowBody}>{item.body}</Text>
+                  </View>
+                </View>
+              ))}
+            </View>
+            {aiIdeas || isGeneratingPlan ? (
+              <View style={s.lessonPreviewCard}>
+                <Text style={s.lessonPreviewTitle}>AI Presentation Ideas</Text>
+                <Text style={s.lessonPreviewBody}>
+                  {aiIdeas || 'Preparing AI presentation ideas...'}
+                </Text>
+              </View>
+            ) : null}
+            <View style={s.lessonActionRow}>
+              <Pressable onPress={() => setShowPreview(false)} style={s.lessonEditButton}>
+                <Text style={s.lessonEditText}>Edit Setup</Text>
+              </Pressable>
+              <Pressable
+                onPress={() => setStatus('shared')}
+                style={[s.lessonShareButton, status === 'shared' && s.lessonShareButtonActive]}>
+                <Text style={s.lessonShareText}>{status === 'shared' ? 'Shared' : 'Share'}</Text>
+              </Pressable>
+              <Pressable
+                disabled={isSavingPlan || isGeneratingPlan}
+                onPress={savePlan}
+                style={[
+                  s.lessonSaveButton,
+                  status === 'saved' && s.lessonSaveButtonActive,
+                  (isSavingPlan || isGeneratingPlan) && s.lessonButtonDisabled,
+                ]}>
+                <Text style={s.lessonSaveText}>
+                  {isGeneratingPlan
+                    ? 'Preparing...'
+                    : isSavingPlan
+                      ? 'Saving...'
+                      : status === 'saved'
+                        ? 'Saved'
+                        : 'Save Plan'}
+                </Text>
+              </Pressable>
+            </View>
+          </View>
+        ) : null}
       </ScrollView>
     </View>
   );
@@ -1754,68 +1844,108 @@ function buildLessonFlow(minutes: number, style: string) {
 
 function TeacherMessagesView({
   grade,
+  grades,
   students,
+  bottomNav,
   onBack,
 }: {
   grade: string;
+  grades: string[];
   students: StudentPerformance[];
+  bottomNav?: React.ReactNode;
   onBack: () => void;
 }) {
-  const supportCount = students.filter(item => item.assessmentScore < 70).length;
+  const [selectedGrade, setSelectedGrade] = useState(grade);
+  const gradeOptions = grades.length > 0 ? grades : [grade];
+  const gradeStudentCount = students.filter(item => item.grade === selectedGrade).length;
+  const supportCount = students.filter(
+    item => item.grade === selectedGrade && item.assessmentScore < 70,
+  ).length;
   const [parents, setParents] = useState<TeacherParentContact[]>([]);
   const [messages, setMessages] = useState<TeacherParentMessage[]>([]);
-  const [selectedParentId, setSelectedParentId] = useState<string>('all');
+  const [audienceMode, setAudienceMode] = useState<MessageAudienceMode>('grade');
+  const [selectedParentId, setSelectedParentId] = useState('');
+  const [gradeMenuOpen, setGradeMenuOpen] = useState(false);
+  const [parentMenuOpen, setParentMenuOpen] = useState(false);
   const [draft, setDraft] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isSendingMessage, setIsSendingMessage] = useState(false);
   const selectedParent = parents.find(parent => parent.id === selectedParentId);
+  const canSend = draft.trim().length > 0 && (audienceMode === 'grade' || Boolean(selectedParent));
+  const gradeDropdownOptions = gradeOptions.map(item => ({ value: item, label: item }));
+  const parentDropdownOptions = parents.map(parent => ({
+    value: parent.id,
+    label: parent.name,
+    meta: `${parent.child_count} ${parent.child_count === 1 ? 'child' : 'children'} linked`,
+  }));
+  const parentCountLabel = `${parents.length} ${parents.length === 1 ? 'parent' : 'parents'}`;
 
-  const loadMessages = useCallback(async (parentId: string) => {
+  const loadMessages = useCallback(async () => {
     setIsLoading(true);
     try {
-      const [nextParents, nextMessages] = await Promise.all([
-        getTeacherParents(grade),
-        getTeacherParentMessages({
-          gradeLevel: grade,
-          parentUserId: parentId === 'all' ? undefined : parentId,
-        }),
-      ]);
+      const nextParents = await getTeacherParents(selectedGrade);
+      const validParent = nextParents.find(parent => parent.id === selectedParentId);
+      const nextParentId = audienceMode === 'parent' && validParent ? validParent.id : '';
+      if (nextParentId !== selectedParentId) {
+        setSelectedParentId(nextParentId);
+      }
+      if (audienceMode === 'parent' && !nextParentId) {
+        setParents(nextParents);
+        setMessages([]);
+        return;
+      }
+      const nextMessages = await getTeacherParentMessages({
+        gradeLevel: selectedGrade,
+        parentUserId: audienceMode === 'parent' && nextParentId ? nextParentId : undefined,
+      });
       setParents(nextParents);
       setMessages(nextMessages);
-      if (parentId !== 'all' && !nextParents.some(parent => parent.id === parentId)) {
-        setSelectedParentId('all');
-      }
     } catch (error) {
       console.error('Error loading teacher messages:', error);
       Alert.alert('Messages unavailable', 'Could not load parent messages right now.');
     } finally {
       setIsLoading(false);
     }
-  }, [grade]);
+  }, [audienceMode, selectedGrade, selectedParentId]);
 
   useEffect(() => {
-    loadMessages('all');
+    loadMessages();
   }, [loadMessages]);
 
-  async function selectParent(parentId: string) {
+  function selectGrade(value: string) {
+    setSelectedGrade(value);
+    setAudienceMode('grade');
+    setSelectedParentId('');
+    setGradeMenuOpen(false);
+    setParentMenuOpen(false);
+  }
+
+  function selectAllParents() {
+    setAudienceMode('grade');
+    setSelectedParentId('');
+    setParentMenuOpen(false);
+  }
+
+  function selectParent(parentId: string) {
+    setAudienceMode('parent');
     setSelectedParentId(parentId);
-    await loadMessages(parentId);
+    setParentMenuOpen(false);
   }
 
   async function sendMessage() {
     const body = draft.trim();
-    if (!body) {
+    if (!body || (audienceMode === 'parent' && !selectedParent)) {
       return;
     }
     setIsSendingMessage(true);
     try {
       await sendTeacherParentMessage({
-        gradeLevel: grade,
-        parentUserId: selectedParentId === 'all' ? null : selectedParentId,
+        gradeLevel: selectedGrade,
+        parentUserId: audienceMode === 'parent' ? selectedParentId : null,
         body,
       });
       setDraft('');
-      await loadMessages(selectedParentId);
+      await loadMessages();
     } catch (error) {
       console.error('Error sending teacher message:', error);
       Alert.alert('Message failed', 'Could not send this message. Please try again.');
@@ -1825,134 +1955,242 @@ function TeacherMessagesView({
   }
 
   return (
-    <TeacherSimplePortalView title="Messages" onBack={onBack}>
-      <View style={s.card}>
-        <View style={s.cardHeader}>
-          <Text style={s.cardHeaderText}>{grade} Parent Messages</Text>
-          <Text style={s.cardHeaderMeta}>
-            {isLoading ? 'Loading...' : `${parents.length} parents`}
-          </Text>
-        </View>
-
-        <ScrollView horizontal showsHorizontalScrollIndicator={false} style={s.messageAudienceScroll}>
-          <Pressable
-            onPress={() => selectParent('all')}
-            style={[
-              s.messageAudienceChip,
-              selectedParentId === 'all' && s.messageAudienceChipActive,
-            ]}>
-            <Users
-              color={selectedParentId === 'all' ? '#FFFFFF' : '#0F172A'}
-              size={16}
-              strokeWidth={2.5}
-            />
-            <Text
-              style={[
-                s.messageAudienceText,
-                selectedParentId === 'all' && s.messageAudienceTextActive,
-              ]}>
-              All Parents
-            </Text>
-          </Pressable>
-          {parents.map(parent => (
-            <Pressable
-              key={parent.id}
-              onPress={() => selectParent(parent.id)}
-              style={[
-                s.messageAudienceChip,
-                selectedParentId === parent.id && s.messageAudienceChipActive,
-              ]}>
-              <Text
-                style={[
-                  s.messageAudienceText,
-                  selectedParentId === parent.id && s.messageAudienceTextActive,
-                ]}>
-                {parent.name}
-              </Text>
-            </Pressable>
-          ))}
-        </ScrollView>
-
-        <View style={s.messageComposer}>
-          <Text style={s.messageComposerLabel}>
-            {selectedParent ? `Message ${selectedParent.name}` : `Message all ${grade} parents`}
-          </Text>
-          <TextInput
-            multiline
-            onChangeText={setDraft}
-            placeholder={
-              supportCount > 0
-                ? `Example: ${supportCount} learners need revision support this week...`
-                : 'Write a class update, reminder, or individual note...'
-            }
-            placeholderTextColor="#8A94A6"
-            style={s.messageInput}
-            value={draft}
-          />
-          <Pressable
-            disabled={isSendingMessage || draft.trim().length === 0}
-            onPress={sendMessage}
-            style={[
-              s.messageSendButton,
-              (isSendingMessage || draft.trim().length === 0) && s.lessonButtonDisabled,
-            ]}>
-            <Text style={s.messageSendText}>{isSendingMessage ? 'Sending...' : 'Send'}</Text>
-          </Pressable>
-        </View>
-
-        <View style={s.messageThread}>
-          {messages.length === 0 ? (
-            <View style={s.messageEmptyState}>
-              <Text style={s.rowTitle}>No messages yet</Text>
-              <Text style={s.rowMeta}>
-                Messages sent here are saved and visible to the intended parent accounts.
-              </Text>
-            </View>
-          ) : (
-            messages.map(message => {
-              const fromTeacher = message.sender_user_id === message.teacher_user_id;
-              return (
-                <View
-                  key={message.id}
-                  style={[
-                    s.messageBubble,
-                    fromTeacher ? s.messageBubbleTeacher : s.messageBubbleParent,
-                  ]}>
-                  <Text style={s.messageBubbleSender}>{message.sender_name}</Text>
-                  <Text style={s.messageBubbleBody}>{message.body}</Text>
-                  <Text style={s.messageBubbleTime}>
-                    {new Date(message.created_at).toLocaleString()}
-                  </Text>
-                </View>
-              );
-            })
-          )}
-        </View>
-      </View>
-    </TeacherSimplePortalView>
-  );
-}
-
-function TeacherSimplePortalView({
-  children,
-  title,
-  onBack,
-}: {
-  children: React.ReactNode;
-  title: string;
-  onBack: () => void;
-}) {
-  return (
     <View style={s.teacherListPortal}>
       <View style={s.listPortalHeader}>
         <Pressable onPress={onBack} style={s.back}>
           <ChevronLeft size={24} color="#FF4B10" />
           <Text style={s.backTextOrange}>Back</Text>
         </Pressable>
-        <Text style={s.headerTitle}>{title}</Text>
+        <Text style={s.headerTitle}>Messages</Text>
         <View style={s.spacer} />
       </View>
-      <ScrollView contentContainerStyle={s.content}>{children}</ScrollView>
+      <ScrollView contentContainerStyle={s.teacherMessagesContent}>
+        <View style={s.messageControlCard}>
+          <View style={s.cardHeader}>
+            <View>
+              <Text style={s.cardHeaderText}>Parent Messaging</Text>
+              <Text style={s.messageHeaderSubline}>
+                {isLoading
+                  ? 'Loading recipients...'
+                  : `${parentCountLabel} in ${selectedGrade}`}
+              </Text>
+            </View>
+            <Text style={s.cardHeaderMeta}>
+              {audienceMode === 'parent' && selectedParent
+                ? 'Parent selected'
+                : `${gradeStudentCount} learners`}
+            </Text>
+          </View>
+
+          <View style={s.messageSetupBlock}>
+            <MessageDropdown
+              label="Grade"
+              open={gradeMenuOpen}
+              options={gradeDropdownOptions}
+              value={selectedGrade}
+              onSelect={selectGrade}
+              onToggle={() => {
+                setGradeMenuOpen(open => !open);
+                setParentMenuOpen(false);
+              }}
+            />
+
+            <Text style={s.messageComposerLabel}>Send to</Text>
+            <View style={s.messageAudienceModeRow}>
+              <Pressable
+                accessibilityLabel={`Send to all parents in ${selectedGrade}`}
+                onPress={selectAllParents}
+                style={[
+                  s.messageAudienceModeButton,
+                  audienceMode === 'grade' && s.messageAudienceModeButtonActive,
+                ]}>
+                <Users
+                  color={audienceMode === 'grade' ? '#FFFFFF' : '#0F172A'}
+                  size={17}
+                  strokeWidth={2.5}
+                />
+                <Text
+                  style={[
+                    s.messageAudienceModeText,
+                    audienceMode === 'grade' && s.messageAudienceModeTextActive,
+                  ]}>
+                  All {selectedGrade} parents
+                </Text>
+              </Pressable>
+            </View>
+
+            <MessageDropdown
+              active={audienceMode === 'parent'}
+              emptyText={parents.length > 0 ? 'Choose a parent' : 'No parents found for this grade'}
+              label="Select parent"
+              open={parentMenuOpen}
+              options={parentDropdownOptions}
+              value={audienceMode === 'parent' ? selectedParentId : ''}
+              onSelect={selectParent}
+              onToggle={() => {
+                if (parents.length > 0) {
+                  setParentMenuOpen(open => !open);
+                  setGradeMenuOpen(false);
+                }
+              }}
+            />
+
+            <View style={s.messageRecipientSummary}>
+              <Text style={s.messageRecipientSummaryText}>
+                {audienceMode === 'parent'
+                  ? selectedParent
+                    ? `This note will go only to ${selectedParent.name}.`
+                    : 'Choose a parent to send an individual note.'
+                  : `This note will go to all parent accounts linked to ${selectedGrade}.`}
+              </Text>
+            </View>
+          </View>
+
+          <View style={s.messageComposer}>
+            <Text style={s.messageComposerLabel}>
+              {audienceMode === 'parent' && selectedParent
+                ? `Message ${selectedParent.name}`
+                : `Message all ${selectedGrade} parents`}
+            </Text>
+            <TextInput
+              multiline
+              onChangeText={setDraft}
+              placeholder={
+                supportCount > 0
+                  ? `Example: ${supportCount} learners need revision support this week...`
+                  : 'Write a class update, reminder, or individual note...'
+              }
+              placeholderTextColor="#8A94A6"
+              style={s.messageInput}
+              value={draft}
+            />
+            <Pressable
+              disabled={isSendingMessage || !canSend}
+              onPress={sendMessage}
+              style={[
+                s.messageSendButton,
+                (isSendingMessage || !canSend) && s.lessonButtonDisabled,
+              ]}>
+              <Text style={s.messageSendText}>
+                {isSendingMessage
+                  ? 'Sending...'
+                  : audienceMode === 'parent'
+                    ? 'Send to Parent'
+                    : 'Send to Grade'}
+              </Text>
+            </Pressable>
+          </View>
+
+          <View style={s.messageThread}>
+            {messages.length === 0 ? (
+              <View style={s.messageEmptyState}>
+                <Text style={s.rowTitle}>No messages yet</Text>
+                <Text style={s.rowMeta}>
+                  Messages sent here are saved and visible to the intended parent accounts.
+                </Text>
+              </View>
+            ) : (
+              messages.map(message => {
+                const fromTeacher = message.sender_user_id === message.teacher_user_id;
+                return (
+                  <View
+                    key={message.id}
+                    style={[
+                      s.messageBubble,
+                      fromTeacher ? s.messageBubbleTeacher : s.messageBubbleParent,
+                    ]}>
+                    <Text style={s.messageBubbleSender}>{message.sender_name}</Text>
+                    <Text style={s.messageBubbleBody}>{message.body}</Text>
+                    <Text style={s.messageBubbleTime}>
+                      {new Date(message.created_at).toLocaleString()}
+                    </Text>
+                  </View>
+                );
+              })
+            )}
+          </View>
+        </View>
+      </ScrollView>
+      {bottomNav}
+    </View>
+  );
+}
+
+function MessageDropdown({
+  active = false,
+  emptyText = 'No options available',
+  label,
+  open,
+  options,
+  value,
+  onSelect,
+  onToggle,
+}: {
+  active?: boolean;
+  emptyText?: string;
+  label: string;
+  open: boolean;
+  options: MessageDropdownOption[];
+  value: string;
+  onSelect: (value: string) => void;
+  onToggle: () => void;
+}) {
+  const selectedOption = options.find(option => option.value === value);
+  const disabled = options.length === 0;
+
+  return (
+    <View style={s.messageDropdownWrap}>
+      <Text style={s.messageComposerLabel}>{label}</Text>
+      <Pressable
+        accessibilityLabel={`${label} dropdown`}
+        disabled={disabled}
+        onPress={onToggle}
+        style={[
+          s.messageDropdownButton,
+          active && s.messageDropdownButtonActive,
+          disabled && s.lessonButtonDisabled,
+        ]}>
+        <View style={s.rowMain}>
+          <Text numberOfLines={1} style={s.messageDropdownValue}>
+            {selectedOption?.label || emptyText}
+          </Text>
+          {selectedOption?.meta ? (
+            <Text numberOfLines={1} style={s.messageDropdownMeta}>
+              {selectedOption.meta}
+            </Text>
+          ) : null}
+        </View>
+        <ChevronDown color="#111827" size={17} strokeWidth={2.6} />
+      </Pressable>
+      {open && !disabled ? (
+        <ScrollView nestedScrollEnabled style={s.messageDropdownMenu}>
+          {options.map(option => {
+            const optionActive = option.value === value;
+            return (
+              <Pressable
+                key={option.value}
+                onPress={() => onSelect(option.value)}
+                style={[s.messageDropdownOption, optionActive && s.messageDropdownOptionActive]}>
+                <View style={s.rowMain}>
+                  <Text
+                    numberOfLines={1}
+                    style={[
+                      s.messageDropdownOptionText,
+                      optionActive && s.messageDropdownOptionTextActive,
+                    ]}>
+                    {option.label}
+                  </Text>
+                  {option.meta ? (
+                    <Text numberOfLines={1} style={s.messageDropdownOptionMeta}>
+                      {option.meta}
+                    </Text>
+                  ) : null}
+                </View>
+              </Pressable>
+            );
+          })}
+        </ScrollView>
+      ) : null}
     </View>
   );
 }
@@ -2511,6 +2749,7 @@ const s = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     flex: 1,
     maxWidth: 430,
+    paddingTop: TEACHER_TOP_INSET,
     width: '100%',
   },
   teacherDashboardScroll: {
@@ -3158,6 +3397,7 @@ const s = StyleSheet.create({
   overlayFill: {
     flex: 1,
     backgroundColor: '#F6F7F9',
+    paddingTop: TEACHER_TOP_INSET,
   },
   floatingModalOverlay: {
     flex: 1,
@@ -3173,7 +3413,7 @@ const s = StyleSheet.create({
   assignmentModalCard: {
     width: '100%',
     maxWidth: 398,
-    maxHeight: Math.min(SCREEN.height - 56, 760),
+    maxHeight: Math.min(SCREEN.height - TEACHER_TOP_INSET - 44, 760),
     backgroundColor: '#FFFFFF',
     borderRadius: 30,
     overflow: 'hidden',
@@ -3327,7 +3567,7 @@ const s = StyleSheet.create({
   segActive: { backgroundColor: '#FFF' },
   segText: { color: '#6B7280', fontWeight: '800', fontSize: 12 },
   segTextActive: { color: '#111827' },
-  content: { padding: 16, paddingTop: 8, paddingBottom: 32, gap: 14 },
+  content: { padding: 16, paddingTop: 14, paddingBottom: 32, gap: 14 },
   filterRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, alignItems: 'center' },
   dropdownWrap: { position: 'relative' },
   chip: {
@@ -3671,6 +3911,21 @@ const s = StyleSheet.create({
     fontSize: 13,
     fontWeight: '900',
   },
+  lessonEditButton: {
+    alignItems: 'center',
+    backgroundColor: '#F1F3F6',
+    borderColor: '#E0E4EA',
+    borderRadius: 11,
+    borderWidth: 1,
+    flex: 1,
+    justifyContent: 'center',
+    minHeight: 44,
+  },
+  lessonEditText: {
+    color: '#020617',
+    fontSize: 12,
+    fontWeight: '900',
+  },
   lessonGenerateButton: {
     alignItems: 'center',
     backgroundColor: '#FF4B2B',
@@ -3811,6 +4066,146 @@ const s = StyleSheet.create({
   },
   messageAudienceTextActive: {
     color: '#FFFFFF',
+  },
+  teacherMessagesContent: {
+    gap: 14,
+    padding: 16,
+    paddingBottom: 104,
+    paddingTop: 10,
+  },
+  messageControlCard: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#DCE3EC',
+    borderRadius: 18,
+    borderWidth: 1,
+    overflow: 'visible',
+    shadowColor: '#0F172A',
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.06,
+    shadowRadius: 18,
+  },
+  messageHeaderSubline: {
+    color: '#667085',
+    fontSize: 11.5,
+    fontWeight: '800',
+    marginTop: 2,
+  },
+  messageSetupBlock: {
+    gap: 11,
+    padding: 14,
+    position: 'relative',
+    zIndex: 4,
+  },
+  messageAudienceModeRow: {
+    flexDirection: 'row',
+    gap: 9,
+  },
+  messageAudienceModeButton: {
+    alignItems: 'center',
+    backgroundColor: '#F8FAFC',
+    borderColor: '#DCE3EC',
+    borderRadius: 14,
+    borderWidth: 1,
+    flex: 1,
+    flexDirection: 'row',
+    gap: 7,
+    justifyContent: 'center',
+    minHeight: 45,
+    paddingHorizontal: 10,
+  },
+  messageAudienceModeButtonActive: {
+    backgroundColor: '#FF6B1A',
+    borderColor: '#FF6B1A',
+  },
+  messageAudienceModeText: {
+    color: '#0F172A',
+    flexShrink: 1,
+    fontSize: 11.5,
+    fontWeight: '900',
+    textAlign: 'center',
+  },
+  messageAudienceModeTextActive: {
+    color: '#FFFFFF',
+  },
+  messageRecipientSummary: {
+    backgroundColor: '#FFF7ED',
+    borderColor: '#FED7AA',
+    borderRadius: 13,
+    borderWidth: 1,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+  },
+  messageRecipientSummaryText: {
+    color: '#9A3412',
+    fontSize: 11.5,
+    fontWeight: '800',
+    lineHeight: 16,
+  },
+  messageDropdownWrap: {
+    gap: 7,
+    position: 'relative',
+    zIndex: 5,
+  },
+  messageDropdownButton: {
+    alignItems: 'center',
+    backgroundColor: '#F8FAFC',
+    borderColor: '#DCE3EC',
+    borderRadius: 14,
+    borderWidth: 1,
+    flexDirection: 'row',
+    gap: 9,
+    justifyContent: 'space-between',
+    minHeight: 50,
+    paddingHorizontal: 12,
+    paddingVertical: 9,
+  },
+  messageDropdownButtonActive: {
+    backgroundColor: '#FFF3EA',
+    borderColor: '#FF6B1A',
+  },
+  messageDropdownValue: {
+    color: '#020617',
+    fontSize: 13.5,
+    fontWeight: '900',
+  },
+  messageDropdownMeta: {
+    color: '#667085',
+    fontSize: 10.5,
+    fontWeight: '700',
+    marginTop: 2,
+  },
+  messageDropdownMenu: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#DCE3EC',
+    borderRadius: 14,
+    borderWidth: 1,
+    marginTop: 1,
+    maxHeight: 178,
+    overflow: 'hidden',
+  },
+  messageDropdownOption: {
+    borderBottomColor: '#EEF2F7',
+    borderBottomWidth: 1,
+    minHeight: 45,
+    paddingHorizontal: 12,
+    paddingVertical: 9,
+  },
+  messageDropdownOptionActive: {
+    backgroundColor: '#FFF3EA',
+  },
+  messageDropdownOptionText: {
+    color: '#0F172A',
+    fontSize: 12.5,
+    fontWeight: '900',
+  },
+  messageDropdownOptionTextActive: {
+    color: '#FF6B1A',
+  },
+  messageDropdownOptionMeta: {
+    color: '#667085',
+    fontSize: 10.5,
+    fontWeight: '700',
+    marginTop: 2,
   },
   messageComposer: {
     borderTopColor: '#EEF2F7',
@@ -4550,9 +4945,9 @@ const s = StyleSheet.create({
     borderRadius: 999,
     backgroundColor: '#FFF4EC',
   },
-  wizardContent: { paddingHorizontal: 16, paddingTop: 16, paddingBottom: 18 },
-  wizardScroll: { maxHeight: Math.min(SCREEN.height - 230, 610) },
-  wizardInner: { gap: 16, maxWidth: 440, alignSelf: 'center', width: '100%' },
+  wizardContent: { paddingHorizontal: 16, paddingTop: 14, paddingBottom: 18 },
+  wizardScroll: { maxHeight: Math.min(SCREEN.height - TEACHER_TOP_INSET - 178, 640) },
+  wizardInner: { gap: 12, maxWidth: 440, alignSelf: 'center', width: '100%' },
   cancelText: { color: '#667085', fontWeight: '900', fontSize: 13 },
   actionText: { color: '#F97316', fontWeight: '900', fontSize: 12 },
   wizardTitle: { color: '#07111F', fontWeight: '900', fontSize: 21, letterSpacing: 0 },
@@ -4561,6 +4956,7 @@ const s = StyleSheet.create({
     borderRadius: 24,
     borderWidth: 1,
     borderColor: '#E9EEE9',
+    gap: 10,
     padding: 15,
     shadowColor: '#0F172A',
     shadowOffset: { width: 0, height: 12 },
@@ -4570,7 +4966,7 @@ const s = StyleSheet.create({
   },
   twoCol: { flexDirection: 'row', gap: 10, zIndex: 8 },
   flexField: { flex: 1 },
-  field: { gap: 7, marginBottom: 13 },
+  field: { gap: 7, marginBottom: 10 },
   input: {
     backgroundColor: '#FAFBF8',
     borderWidth: 1,
@@ -4582,8 +4978,8 @@ const s = StyleSheet.create({
     fontSize: 14,
     fontWeight: '700',
   },
-  textArea: { minHeight: 112, textAlignVertical: 'top' },
-  selectWrap: { position: 'relative', zIndex: 8 },
+  textArea: { minHeight: 96, textAlignVertical: 'top' },
+  selectWrap: { position: 'relative', zIndex: 1 },
   selectField: {
     minHeight: 50,
     backgroundColor: '#FAFBF8',
@@ -4597,22 +4993,20 @@ const s = StyleSheet.create({
   },
   selectFieldText: { color: '#07111F', fontSize: 14, fontWeight: '800', flexShrink: 1 },
   selectMenu: {
-    position: 'absolute',
-    top: 56,
-    left: 0,
-    right: 0,
     backgroundColor: '#FFFFFF',
     borderRadius: 18,
     borderWidth: 1,
     borderColor: '#E3E9E3',
     overflow: 'hidden',
-    zIndex: 20,
+    marginTop: 8,
+    maxHeight: 190,
     shadowColor: '#0F172A',
     shadowOffset: { width: 0, height: 10 },
     shadowOpacity: 0.12,
     shadowRadius: 18,
     elevation: 8,
   },
+  selectMenuScroll: { maxHeight: 190 },
   generate: {
     minHeight: 56,
     borderRadius: 18,

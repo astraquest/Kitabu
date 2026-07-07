@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pressable, Text, View } from 'react-native';
+import { Pressable, ScrollView, Text, View } from 'react-native';
 import { ChevronDown } from 'lucide-react-native';
 
 interface TeacherInlineSelectProps {
@@ -31,16 +31,21 @@ export function TeacherInlineSelect({
         </Pressable>
         {open ? (
           <View style={styles.selectMenu}>
-            {options.map(option => (
-              <Pressable
-                key={option}
-                onPress={() => onSelect(option)}
-                style={[styles.menuItem, value === option && styles.menuItemActive]}>
-                <Text style={[styles.menuText, value === option && styles.menuTextActive]}>
-                  {option}
-                </Text>
-              </Pressable>
-            ))}
+            <ScrollView
+              nestedScrollEnabled
+              keyboardShouldPersistTaps="handled"
+              style={styles.selectMenuScroll}>
+              {options.map(option => (
+                <Pressable
+                  key={option}
+                  onPress={() => onSelect(option)}
+                  style={[styles.menuItem, value === option && styles.menuItemActive]}>
+                  <Text style={[styles.menuText, value === option && styles.menuTextActive]}>
+                    {option}
+                  </Text>
+                </Pressable>
+              ))}
+            </ScrollView>
           </View>
         ) : null}
       </View>

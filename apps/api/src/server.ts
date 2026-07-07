@@ -435,19 +435,24 @@ const teachingScopeSchema = z.object({
   subjectsByGrade: z.record(z.string(), z.array(z.string().trim().min(1).max(80))).optional()
 });
 
+const databaseUuidString = z
+  .string()
+  .trim()
+  .regex(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i, 'Invalid UUID');
+
 const teacherParentMessageQuerySchema = z.object({
   gradeLevel: z.string().trim().min(2).max(40).optional(),
-  parentUserId: z.string().uuid().optional()
+  parentUserId: databaseUuidString.optional()
 });
 
 const teacherParentMessageSchema = z.object({
   gradeLevel: z.string().trim().min(2).max(40),
-  parentUserId: z.string().uuid().nullable().optional(),
+  parentUserId: databaseUuidString.nullable().optional(),
   body: z.string().trim().min(1).max(2000)
 });
 
 const parentTeacherMessageSchema = z.object({
-  teacherUserId: z.string().uuid(),
+  teacherUserId: databaseUuidString,
   body: z.string().trim().min(1).max(2000)
 });
 

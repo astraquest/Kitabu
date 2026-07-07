@@ -2,7 +2,25 @@ import React from 'react';
 import ReactTestRenderer, { act } from 'react-test-renderer';
 
 import { INITIAL_SUBMITTED_ASSIGNMENTS, INITIAL_TEACHER_STUDENTS } from '../src/data/mockData';
+import { generateLessonPlanIdeas } from '../src/services/aiService';
+import {
+  getTeacherParentMessages,
+  getTeacherParents,
+  sendTeacherParentMessage,
+} from '../src/services/teacherService';
 import { TeacherPortalScreen } from '../src/screens/TeacherPortalScreen';
+
+jest.mock('../src/services/aiService', () => ({
+  generateAssignmentJson: jest.fn(),
+  generateLessonPlanIdeas: jest.fn(),
+}));
+
+jest.mock('../src/services/teacherService', () => ({
+  getTeacherParentMessages: jest.fn(),
+  getTeacherParents: jest.fn(),
+  saveTeacherLessonPlan: jest.fn(),
+  sendTeacherParentMessage: jest.fn(),
+}));
 
 const mountedRenderers: ReactTestRenderer.ReactTestRenderer[] = [];
 
@@ -55,7 +73,41 @@ function pressableWithAccessibilityLabel(root: ReactTestRenderer.ReactTestInstan
   return match;
 }
 
+function multilineInput(root: ReactTestRenderer.ReactTestInstance) {
+  const match = root.findAll(node => node.props.onChangeText && node.props.multiline)[0];
+  if (!match) {
+    throw new Error('Could not find multiline input');
+  }
+  return match;
+}
+
 describe('TeacherPortalScreen', () => {
+  beforeEach(() => {
+    (generateLessonPlanIdeas as jest.Mock).mockReset();
+    (generateLessonPlanIdeas as jest.Mock).mockResolvedValue(
+      'Hook: Begin with a real-life equation. Learner activity: solve in pairs.',
+    );
+    (getTeacherParents as jest.Mock).mockReset();
+    (getTeacherParents as jest.Mock).mockResolvedValue([
+      {
+        id: 'parent-1',
+        name: 'Mary Otieno',
+        email: 'mary@example.com',
+        child_count: 1,
+      },
+      {
+        id: 'parent-2',
+        name: 'Peter Kamau',
+        email: 'peter@example.com',
+        child_count: 2,
+      },
+    ]);
+    (getTeacherParentMessages as jest.Mock).mockReset();
+    (getTeacherParentMessages as jest.Mock).mockResolvedValue([]);
+    (sendTeacherParentMessage as jest.Mock).mockReset();
+    (sendTeacherParentMessage as jest.Mock).mockResolvedValue({ sentCount: 1 });
+  });
+
   afterEach(() => {
     act(() => {
       while (mountedRenderers.length > 0) {
@@ -121,7 +173,51 @@ describe('TeacherPortalScreen', () => {
     expect(onSignOut).toHaveBeenCalledTimes(1);
   });
 
-  it('opens a functional lesson plan builder from quick actions', () => {
+  it('keeps bottom nav on messages and supports grade-wide or single-parent sending', async () => {
+    const renderer = renderTeacherPortal();
+    const root = renderer.root;
+
+    await act(async () => {
+      pressableWithAccessibilityLabel(root, 'Open parent messages').props.onPress();
+    });
+
+    expect(hasText(root, 'Parent Messaging')).toBe(true);
+    expect(hasText(root, 'Home')).toBe(true);
+    expect(hasText(root, 'Students')).toBe(true);
+    expect(hasText(root, 'Insights')).toBe(true);
+    expect(hasText(root, 'Messages')).toBe(true);
+    expect(hasText(root, 'Lesson Plan')).toBe(true);
+    expect(hasText(root, 'All Grade 10 parents')).toBe(true);
+    expect(hasText(root, 'Select parent')).toBe(true);
+    expect(hasText(root, 'One parent')).toBe(false);
+    expect(getTeacherParents).toHaveBeenCalledWith('Grade 10');
+
+    act(() => multilineInput(root).props.onChangeText('Grade 10 reminder'));
+    await act(async () => {
+      await pressableWithText(root, 'Send to Grade').props.onPress();
+    });
+    expect(sendTeacherParentMessage).toHaveBeenCalledWith({
+      body: 'Grade 10 reminder',
+      gradeLevel: 'Grade 10',
+      parentUserId: null,
+    });
+
+    act(() => pressableWithAccessibilityLabel(root, 'Select parent dropdown').props.onPress());
+    act(() => pressableWithText(root, 'Peter Kamau').props.onPress());
+    expect(hasText(root, 'Message Peter Kamau')).toBe(true);
+
+    act(() => multilineInput(root).props.onChangeText('Individual parent note'));
+    await act(async () => {
+      await pressableWithText(root, 'Send to Parent').props.onPress();
+    });
+    expect(sendTeacherParentMessage).toHaveBeenLastCalledWith({
+      body: 'Individual parent note',
+      gradeLevel: 'Grade 10',
+      parentUserId: 'parent-2',
+    });
+  });
+
+  it('generates lesson preview only after Ask AI', async () => {
     const renderer = renderTeacherPortal();
     const root = renderer.root;
 
@@ -129,13 +225,23 @@ describe('TeacherPortalScreen', () => {
 
     expect(hasText(root, 'Create a clean lesson plan in minutes')).toBe(true);
     expect(hasText(root, 'Quick Setup')).toBe(true);
-    expect(hasText(root, 'Lesson Preview')).toBe(true);
+    expect(hasText(root, 'Lesson Preview')).toBe(false);
     expect(hasText(root, 'Ask AI')).toBe(true);
+    expect(hasText(root, 'Save Plan')).toBe(false);
+
+    await act(async () => {
+      await pressableWithText(root, 'Ask AI').props.onPress();
+    });
+
+    expect(generateLessonPlanIdeas).toHaveBeenCalledTimes(1);
+    expect(hasText(root, 'Quick Setup')).toBe(false);
+    expect(hasText(root, 'Lesson Preview')).toBe(true);
+    expect(hasText(root, 'AI Presentation Ideas')).toBe(true);
+    expect(hasText(root, 'Edit Setup')).toBe(true);
     expect(hasText(root, 'Save Plan')).toBe(true);
 
-    act(() => {
-      pressableWithText(root, 'Clear').props.onPress();
-    });
-    expect(hasText(root, 'Draft')).toBe(true);
+    act(() => pressableWithText(root, 'Edit Setup').props.onPress());
+    expect(hasText(root, 'Quick Setup')).toBe(true);
+    expect(hasText(root, 'Lesson Preview')).toBe(false);
   });
 });

@@ -66,13 +66,22 @@ http://storypod.kitabu.ai {
 	reverse_proxy 127.0.0.1:4102
 }
 
-http://ndiziflix.kitabu.ai {
-	@backend path /api/* /health
-	handle @backend {
-		reverse_proxy 127.0.0.1:4104
+http://ndiziflix.kitabu.ai, http://138.201.244.183 {
+	encode gzip zstd
+
+	request_body {
+		max_size 8MB
 	}
-	handle {
-		reverse_proxy 127.0.0.1:4103
+
+	header {
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Permissions-Policy "camera=(), microphone=(), geolocation=()"
+	}
+
+	reverse_proxy 127.0.0.1:4300 {
+		header_up X-Forwarded-Proto {scheme}
+		header_up X-Forwarded-Host {host}
 	}
 }
 

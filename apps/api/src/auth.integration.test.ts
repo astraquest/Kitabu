@@ -194,6 +194,10 @@ test('phone signup requires OTP and rejects duplicate signup', async () => {
   });
   assert.equal(deletion.statusCode, 200);
   assert.equal(deletion.json().deletionRequested, true);
+  const deletedUserStatus = await db.query<{ status: string }>('SELECT status FROM users WHERE id = $1', [
+    session.user.id
+  ]);
+  assert.equal(deletedUserStatus.rows[0]?.status, 'pending_deletion');
 
   const refreshAfterDeletionRequest = await app.inject({
     method: 'POST',
@@ -335,6 +339,269 @@ test('unverified email sessions cannot access product routes', async () => {
   assert.equal(protectedRoute.statusCode, 403);
 
   await db.query('DELETE FROM users WHERE id = $1', [userId]);
+});
+
+test('authenticated users can report generated content for safety review', async () => {
+  const suffix = Date.now().toString();
+  const email = `content-report-${suffix}@example.com`;
+  const created = await db.query<{ id: string }>(
+    `WITH user_row AS (
+       INSERT INTO users (
+         email, password_hash, full_name, status, email_verified, email_verified_at,
+         gender, grade_level, onboarding_completed, terms_accepted_at, terms_version, privacy_version
+       )
+       VALUES ($1, 'test-hash', 'Content Report Tester', 'active', TRUE, NOW(), 'not_specified', NULL, TRUE, NOW(), 'test', 'test')
+       RETURNING id
+     ), role_row AS (
+       INSERT INTO user_roles (user_id, role)
+       SELECT id, 'student'::user_role FROM user_row
+       RETURNING user_id
+     )
+     SELECT id FROM user_row`,
+    [email]
+  );
+  const userId = created.rows[0].id;
+  let reportId: string | null = null;
+
+  try {
+    const accessToken = await signAccessToken({
+      sub: userId,
+      schoolId: null,
+      email,
+      phoneNumber: null,
+      phoneVerified: false,
+      fullName: 'Content Report Tester',
+      emailVerified: true,
+      roles: ['student'],
+      gender: 'not_specified',
+      grade: null,
+      onboardingCompleted: true,
+      stepUp: false,
+      mustRotatePassword: false,
+      isBreakGlass: false
+    });
+
+    const response = await app.inject({
+      method: 'POST',
+      url: '/content-reports',
+      headers: { authorization: `Bearer ${accessToken}` },
+      payload: {
+        source: 'chat_tutor',
+        reason: 'unsafe_ai_content',
+        contentText: 'Generated answer that a learner reported as unsafe.',
+        context: {
+          grade: 'Grade 6',
+          subject: 'Integrated Science',
+          screen: 'integration-test'
+        }
+      }
+    });
+    assert.equal(response.statusCode, 201);
+    const body = response.json() as { reportId: string };
+    reportId = body.reportId;
+    assert.match(reportId, /^[0-9a-f-]{36}$/i);
+
+    const report = await db.query<{
+      reporter_user_id: string;
+      source: string;
+      content_role: string;
+      reason: string;
+      content_text: string;
+      context: { grade?: string; subject?: string; screen?: string };
+      status: string;
+    }>(
+      `SELECT reporter_user_id, source, content_role, reason, content_text, context, status
+       FROM content_reports
+       WHERE id = $1`,
+      [reportId]
+    );
+    assert.equal(report.rows.length, 1);
+    assert.equal(report.rows[0].reporter_user_id, userId);
+    assert.equal(report.rows[0].source, 'chat_tutor');
+    assert.equal(report.rows[0].content_role, 'model');
+    assert.equal(report.rows[0].reason, 'unsafe_ai_content');
+    assert.equal(report.rows[0].content_text, 'Generated answer that a learner reported as unsafe.');
+    assert.equal(report.rows[0].context.grade, 'Grade 6');
+    assert.equal(report.rows[0].context.subject, 'Integrated Science');
+    assert.equal(report.rows[0].status, 'open');
+
+    const audit = await db.query<{ count: number }>(
+      `SELECT COUNT(*)::int AS count
+       FROM audit_logs
+       WHERE action = 'content.report.created'
+         AND target_type = 'content_report'
+         AND target_id = $1`,
+      [reportId]
+    );
+    assert.equal(audit.rows[0].count, 1);
+  } finally {
+    if (reportId) {
+      await db.query('DELETE FROM audit_logs WHERE target_id = $1', [reportId]);
+      await db.query('DELETE FROM content_reports WHERE id = $1', [reportId]);
+    }
+    await db.query('DELETE FROM users WHERE id = $1', [userId]);
+  }
+});
+
+test('teacher-parent message reports notify admins without moderating all messages', async () => {
+  const suffix = Date.now().toString();
+  const schoolSlug = `report-school-${suffix}`;
+  let reportId: string | null = null;
+  let messageId: string | null = null;
+  let schoolId: string | null = null;
+  let teacherId: string | null = null;
+  let parentId: string | null = null;
+  let adminId: string | null = null;
+
+  try {
+    const school = await db.query<{ id: string }>(
+      `INSERT INTO schools (name, slug, assigned_plan_id)
+       VALUES ($1, $2, '30000000-0000-0000-0000-000000000099')
+       RETURNING id`,
+      ['Report Test School', schoolSlug]
+    );
+    schoolId = school.rows[0].id;
+
+    const users = await db.query<{
+      teacher_id: string;
+      parent_id: string;
+      admin_id: string;
+    }>(
+      `WITH teacher_row AS (
+         INSERT INTO users (
+           school_id, email, password_hash, full_name, status, email_verified, email_verified_at,
+           gender, grade_level, onboarding_completed, terms_accepted_at, terms_version, privacy_version
+         )
+         VALUES ($1, $2, 'test-hash', 'Report Test Teacher', 'active', TRUE, NOW(), 'not_specified', NULL, TRUE, NOW(), 'test', 'test')
+         RETURNING id
+       ), parent_row AS (
+         INSERT INTO users (
+           school_id, email, password_hash, full_name, status, email_verified, email_verified_at,
+           gender, grade_level, onboarding_completed, terms_accepted_at, terms_version, privacy_version
+         )
+         VALUES ($1, $3, 'test-hash', 'Report Test Parent', 'active', TRUE, NOW(), 'not_specified', NULL, TRUE, NOW(), 'test', 'test')
+         RETURNING id
+       ), admin_row AS (
+         INSERT INTO users (
+           school_id, email, password_hash, full_name, status, email_verified, email_verified_at,
+           gender, grade_level, onboarding_completed, terms_accepted_at, terms_version, privacy_version
+         )
+         VALUES ($1, $4, 'test-hash', 'Report Test Admin', 'active', TRUE, NOW(), 'not_specified', NULL, TRUE, NOW(), 'test', 'test')
+         RETURNING id
+       ), role_rows AS (
+         INSERT INTO user_roles (user_id, role)
+         SELECT id, 'teacher'::user_role FROM teacher_row
+         UNION ALL
+         SELECT id, 'parent'::user_role FROM parent_row
+         UNION ALL
+         SELECT id, 'school_admin'::user_role FROM admin_row
+       )
+       SELECT
+         (SELECT id FROM teacher_row) AS teacher_id,
+         (SELECT id FROM parent_row) AS parent_id,
+         (SELECT id FROM admin_row) AS admin_id`,
+      [
+        schoolId,
+        `report-teacher-${suffix}@example.com`,
+        `report-parent-${suffix}@example.com`,
+        `report-admin-${suffix}@example.com`
+      ]
+    );
+    teacherId = users.rows[0].teacher_id;
+    parentId = users.rows[0].parent_id;
+    adminId = users.rows[0].admin_id;
+
+    const message = await db.query<{ id: string }>(
+      `INSERT INTO teacher_parent_messages (
+         school_id, teacher_user_id, parent_user_id, grade_level, sender_user_id, body
+       )
+       VALUES ($1, $2, $3, 'Grade 6', $2, 'Please review this homework note.')
+       RETURNING id`,
+      [schoolId, teacherId, parentId]
+    );
+    messageId = message.rows[0].id;
+
+    const accessToken = await signAccessToken({
+      sub: parentId,
+      schoolId,
+      email: `report-parent-${suffix}@example.com`,
+      phoneNumber: null,
+      phoneVerified: false,
+      fullName: 'Report Test Parent',
+      emailVerified: true,
+      roles: ['parent'],
+      gender: 'not_specified',
+      grade: null,
+      onboardingCompleted: true,
+      stepUp: false,
+      mustRotatePassword: false,
+      isBreakGlass: false
+    });
+
+    const response = await app.inject({
+      method: 'POST',
+      url: `/teacher-parent-messages/${messageId}/report`,
+      headers: { authorization: `Bearer ${accessToken}` },
+      payload: { reason: 'abuse' }
+    });
+    assert.equal(response.statusCode, 201);
+    const body = response.json() as { reportId: string; notifiedAdminCount: number; message: string };
+    reportId = body.reportId;
+    assert.match(reportId, /^[0-9a-f-]{36}$/i);
+    assert.ok(body.notifiedAdminCount >= 1);
+    assert.equal(body.message, 'Thanks. An admin has been alerted.');
+
+    const report = await db.query<{
+      reporter_user_id: string;
+      school_id: string;
+      source: string;
+      content_role: string;
+      reason: string;
+      content_text: string;
+      context: { messageId?: string; teacherUserId?: string; parentUserId?: string };
+    }>(
+      `SELECT reporter_user_id, school_id, source, content_role, reason, content_text, context
+       FROM content_reports
+       WHERE id = $1`,
+      [reportId]
+    );
+    assert.equal(report.rows.length, 1);
+    assert.equal(report.rows[0].reporter_user_id, parentId);
+    assert.equal(report.rows[0].school_id, schoolId);
+    assert.equal(report.rows[0].source, 'teacher_parent_message');
+    assert.equal(report.rows[0].content_role, 'message');
+    assert.equal(report.rows[0].reason, 'abuse');
+    assert.equal(report.rows[0].content_text, 'Please review this homework note.');
+    assert.equal(report.rows[0].context.messageId, messageId);
+    assert.equal(report.rows[0].context.teacherUserId, teacherId);
+    assert.equal(report.rows[0].context.parentUserId, parentId);
+
+    const adminNotification = await db.query<{ count: number }>(
+      `SELECT COUNT(*)::int AS count
+       FROM user_notifications
+       WHERE user_id = $1
+         AND type = 'content.report.teacher_parent_message'
+         AND metadata->>'reportId' = $2`,
+      [adminId, reportId]
+    );
+    assert.equal(adminNotification.rows[0].count, 1);
+  } finally {
+    if (reportId) {
+      await db.query(`DELETE FROM user_notifications WHERE metadata->>'reportId' = $1`, [reportId]);
+      await db.query('DELETE FROM audit_logs WHERE target_id = $1', [reportId]);
+      await db.query('DELETE FROM content_reports WHERE id = $1', [reportId]);
+    }
+    if (messageId) {
+      await db.query('DELETE FROM teacher_parent_messages WHERE id = $1', [messageId]);
+    }
+    const userIds = [teacherId, parentId, adminId].filter(Boolean);
+    if (userIds.length > 0) {
+      await db.query('DELETE FROM users WHERE id = ANY($1::uuid[])', [userIds]);
+    }
+    if (schoolId) {
+      await db.query('DELETE FROM schools WHERE id = $1', [schoolId]);
+    }
+  }
 });
 
 test('email signup requires verification before product access and refreshes after confirmation', async () => {

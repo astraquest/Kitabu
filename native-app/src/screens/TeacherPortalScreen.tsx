@@ -22,6 +22,7 @@ import {
   CheckCircle2,
   ChevronDown,
   ChevronLeft,
+  Flag,
   Home,
   MessageSquareText,
   Pencil,
@@ -35,6 +36,7 @@ import { TeacherAssignmentsSection } from '../components/teacher/TeacherAssignme
 import { TeacherAssignmentWizardSection } from '../components/teacher/TeacherAssignmentWizardSection';
 import { TeacherStudentsSection } from '../components/teacher/TeacherStudentsSection';
 import { TeacherSubmissionReviewSection } from '../components/teacher/TeacherSubmissionReviewSection';
+import { ReportAiContentSheet } from '../components/ReportAiContentSheet';
 import { StudentDetailsModal } from '../components/StudentDetailsModal';
 import { studentPerformanceToModalUser } from '../components/studentDetailsAdapters';
 import { RemedialAssignmentPayload } from '../components/studentRemedialLogic';
@@ -50,6 +52,7 @@ import { generateAssignmentJson, generateLessonPlanIdeas } from '../services/aiS
 import {
   getTeacherParentMessages,
   getTeacherParents,
+  reportTeacherParentMessage,
   saveTeacherLessonPlan,
   sendTeacherParentMessage,
   TeacherParentContact,
@@ -1721,6 +1724,22 @@ function TeacherLessonPlanView({
                 <Text style={s.lessonPreviewBody}>
                   {aiIdeas || 'Preparing AI presentation ideas...'}
                 </Text>
+                {aiIdeas && !isGeneratingPlan ? (
+                  <ReportAiContentSheet
+                    accessibilityLabel="Report AI lesson ideas"
+                    buttonLabel="Report AI ideas"
+                    contentText={aiIdeas}
+                    context={{
+                      gradeLevel: selectedGrade,
+                      subject: selectedSubject,
+                      topic: topic.trim() || null,
+                      outcome: outcome.trim() || null,
+                      durationMinutes: lessonMinutes,
+                      style,
+                    }}
+                    source="teacher_lesson_plan_ideas"
+                  />
+                ) : null}
               </View>
             ) : null}
             <View style={s.lessonActionRow}>
@@ -1870,6 +1889,8 @@ function TeacherMessagesView({
   const [draft, setDraft] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isSendingMessage, setIsSendingMessage] = useState(false);
+  const [reportingMessageId, setReportingMessageId] = useState<string | null>(null);
+  const [reportedMessageIds, setReportedMessageIds] = useState<Record<string, boolean>>({});
   const selectedParent = parents.find(parent => parent.id === selectedParentId);
   const canSend = draft.trim().length > 0 && (audienceMode === 'grade' || Boolean(selectedParent));
   const gradeDropdownOptions = gradeOptions.map(item => ({ value: item, label: item }));
@@ -1951,6 +1972,23 @@ function TeacherMessagesView({
       Alert.alert('Message failed', 'Could not send this message. Please try again.');
     } finally {
       setIsSendingMessage(false);
+    }
+  }
+
+  async function reportMessage(message: TeacherParentMessage) {
+    if (reportingMessageId || reportedMessageIds[message.id]) {
+      return;
+    }
+
+    setReportingMessageId(message.id);
+    try {
+      await reportTeacherParentMessage(message.id);
+      setReportedMessageIds(current => ({ ...current, [message.id]: true }));
+    } catch (error) {
+      console.error('Error reporting teacher-parent message:', error);
+      Alert.alert('Report failed', 'Could not report this message. Please try again.');
+    } finally {
+      setReportingMessageId(null);
     }
   }
 
@@ -2101,9 +2139,38 @@ function TeacherMessagesView({
                     ]}>
                     <Text style={s.messageBubbleSender}>{message.sender_name}</Text>
                     <Text style={s.messageBubbleBody}>{message.body}</Text>
-                    <Text style={s.messageBubbleTime}>
-                      {new Date(message.created_at).toLocaleString()}
-                    </Text>
+                    <View style={s.messageBubbleMetaRow}>
+                      <Text style={s.messageBubbleTime}>
+                        {new Date(message.created_at).toLocaleString()}
+                      </Text>
+                      <Pressable
+                        accessibilityLabel={
+                          reportedMessageIds[message.id] ? 'Message reported' : 'Report message'
+                        }
+                        disabled={reportingMessageId === message.id || reportedMessageIds[message.id]}
+                        onPress={() => reportMessage(message)}
+                        style={[
+                          s.messageReportButton,
+                          reportedMessageIds[message.id] && s.messageReportButtonSubmitted,
+                        ]}>
+                        <Flag
+                          color={reportedMessageIds[message.id] ? '#16A34A' : '#64748B'}
+                          size={12}
+                          strokeWidth={2.4}
+                        />
+                        <Text
+                          style={[
+                            s.messageReportText,
+                            reportedMessageIds[message.id] && s.messageReportTextSubmitted,
+                          ]}>
+                          {reportedMessageIds[message.id]
+                            ? 'Reported'
+                            : reportingMessageId === message.id
+                              ? 'Reporting...'
+                              : 'Report'}
+                        </Text>
+                      </Pressable>
+                    </View>
                   </View>
                 );
               })
@@ -3964,6 +4031,37 @@ const s = StyleSheet.create({
     lineHeight: 16,
     marginTop: 8,
   },
+  lessonReportButton: {
+    alignItems: 'center',
+    alignSelf: 'flex-start',
+    borderColor: '#DCE3EC',
+    borderRadius: 999,
+    borderWidth: 1,
+    flexDirection: 'row',
+    gap: 5,
+    marginTop: 12,
+    paddingHorizontal: 10,
+    paddingVertical: 7,
+  },
+  lessonReportButtonSubmitted: {
+    backgroundColor: '#DCFCE7',
+    borderColor: '#BBF7D0',
+  },
+  lessonReportText: {
+    color: '#64748B',
+    fontSize: 11,
+    fontWeight: '900',
+  },
+  lessonReportTextSubmitted: {
+    color: '#16A34A',
+  },
+  lessonReportError: {
+    color: '#B91C1C',
+    fontSize: 11,
+    fontWeight: '700',
+    lineHeight: 16,
+    marginTop: 7,
+  },
   lessonFlowCard: {
     borderColor: '#DCE3EC',
     borderRadius: 11,
@@ -4297,7 +4395,36 @@ const s = StyleSheet.create({
     color: '#64748B',
     fontSize: 10,
     fontWeight: '700',
+  },
+  messageBubbleMetaRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 8,
+    justifyContent: 'space-between',
     marginTop: 7,
+  },
+  messageReportButton: {
+    alignItems: 'center',
+    backgroundColor: 'rgba(255,255,255,0.72)',
+    borderColor: 'rgba(148,163,184,0.36)',
+    borderRadius: 999,
+    borderWidth: 1,
+    flexDirection: 'row',
+    gap: 4,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+  },
+  messageReportButtonSubmitted: {
+    backgroundColor: '#DCFCE7',
+    borderColor: '#86EFAC',
+  },
+  messageReportText: {
+    color: '#64748B',
+    fontSize: 10,
+    fontWeight: '900',
+  },
+  messageReportTextSubmitted: {
+    color: '#15803D',
   },
   profileHero: {
     backgroundColor: '#FFFFFF',

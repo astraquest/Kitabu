@@ -46,7 +46,7 @@ module.exports = {
     name: 'Kitabu AI',
     slug: 'kitabu-ai',
     scheme: 'kitabu',
-    version: '0.0.1',
+    version: '1.2.3',
     assetBundlePatterns: ['**/*'],
     plugins: [
       [
@@ -58,7 +58,7 @@ module.exports = {
       ],
     ],
     android: {
-      package: 'com.kitabunativeapp',
+      package: 'ai.kitabu2.twa',
     },
     ios: {
       bundleIdentifier: 'ai.kitabunative.app',
@@ -66,6 +66,10 @@ module.exports = {
     extra: {
       kitabuApiBaseUrl: process.env.KITABU_API_BASE_URL || process.env.EXPO_PUBLIC_KITABU_API_BASE_URL || '',
       kitabuRuntimeEnv: process.env.KITABU_APP_ENV || process.env.EXPO_PUBLIC_KITABU_APP_ENV || '',
+      kitabuExternalPaymentsEnabled:
+        process.env.KITABU_ENABLE_EXTERNAL_PAYMENTS ||
+        process.env.EXPO_PUBLIC_KITABU_ENABLE_EXTERNAL_PAYMENTS ||
+        '',
       googleWebClientId,
       googleAndroidClientId,
       googleIosClientId,

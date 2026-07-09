@@ -19,6 +19,7 @@ import {
 } from 'lucide-react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
+import { ReportAiContentSheet } from '../components/ReportAiContentSheet';
 import { askVoiceTutor } from '../services/aiService';
 import {
   createLiveVoiceStreamSession,
@@ -825,6 +826,20 @@ export function LiveAudioTutorScreen({
                     <Text style={styles.transcriptText}>
                       {displayedResponseText}
                     </Text>
+                    <ReportAiContentSheet
+                      accessibilityLabel="Report voice tutor response"
+                      contentText={responseText || displayedResponseText}
+                      context={{
+                        currentGrade: currentGrade ?? null,
+                        selectedSubject: selectedSubject?.name ?? null,
+                        selectedSubStrand: selectedSubStrand?.title ?? null,
+                        selectedAssignment: selectedAssignment?.title ?? null,
+                        transcript: transcript || streamedTranscriptRef.current || null,
+                        turnCount,
+                      }}
+                      source="voice_tutor"
+                      tone="dark"
+                    />
                   </View>
                 ) : null}
 
@@ -1039,6 +1054,36 @@ const styles = StyleSheet.create({
     color: '#eff6ff',
     fontSize: 16,
     lineHeight: 24,
+  },
+  reportButton: {
+    alignItems: 'center',
+    alignSelf: 'flex-start',
+    borderColor: 'rgba(219,234,254,0.22)',
+    borderRadius: 999,
+    borderWidth: 1,
+    flexDirection: 'row',
+    gap: 5,
+    marginTop: 9,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+  },
+  reportButtonSubmitted: {
+    backgroundColor: 'rgba(34,197,94,0.12)',
+    borderColor: 'rgba(134,239,172,0.36)',
+  },
+  reportButtonText: {
+    color: '#dbeafe',
+    fontSize: 11,
+    fontWeight: '800',
+  },
+  reportButtonTextSubmitted: {
+    color: '#86EFAC',
+  },
+  reportStatusText: {
+    color: '#bae6fd',
+    fontSize: 12,
+    lineHeight: 17,
+    marginTop: 8,
   },
   processingRow: {
     flexDirection: 'row',

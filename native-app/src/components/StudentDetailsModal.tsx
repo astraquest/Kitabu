@@ -5,6 +5,7 @@ import { Activity, AlertCircle, Award, BookOpen, Calculator, CheckCircle2, Clipb
 
 import { DEFAULT_GRADE } from '../constants/grades';
 import { UserProfile } from '../types/app';
+import { ReportAiContentSheet } from './ReportAiContentSheet';
 import {
   buildRemedialReport,
   generateRemedialReport,
@@ -259,6 +260,23 @@ export function StudentDetailsModal({
                     />
                   </View>
                   <Text style={s.remedialSource}>{report.sourceLabel} - {report.periodLabel}</Text>
+                  <ReportAiContentSheet
+                    accessibilityLabel="Report remedial AI report"
+                    buttonLabel="Report AI report"
+                    contentText={[
+                      `Diagnosis: ${report.diagnosis}`,
+                      `Recommended action: ${report.actionTitle}${report.actionNote}`,
+                      `Priority gaps: ${report.topAreas.map(area => `${area.subject} - ${area.subStrand} (${area.wrong} missed)`).join('; ')}`,
+                    ].join('\n')}
+                    context={{
+                      studentId: user.id,
+                      studentName: user.name,
+                      grade: details.grade,
+                      sourceLabel: report.sourceLabel,
+                      periodLabel: report.periodLabel,
+                    }}
+                    source="student_remedial_report"
+                  />
 
                   <View style={s.remedialReportCard}>
                     <View style={s.remedialCardIcon}>

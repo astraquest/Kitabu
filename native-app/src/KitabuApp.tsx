@@ -132,7 +132,7 @@ function getOnboardingPreviewRole(): PublicSignupRole | null {
 
 function AppSafeArea({ children }: { children: React.ReactNode }) {
   return (
-    <SafeAreaView edges={['left', 'right', 'bottom']} style={styles.safeArea}>
+    <SafeAreaView edges={['top', 'left', 'right', 'bottom']} style={styles.safeArea}>
       <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
       {children}
     </SafeAreaView>
@@ -169,6 +169,7 @@ export function KitabuApp() {
           isSubmitting={false}
           includeIntroChoices
           collectSignupCredentials
+          externalPaymentsEnabled={state.externalPaymentsEnabled}
           onSubmit={() => undefined}
         />
       </AppSafeArea>
@@ -207,6 +208,7 @@ export function KitabuApp() {
             error={state.authError}
             includeIntroChoices
             collectSignupCredentials
+            externalPaymentsEnabled={state.externalPaymentsEnabled}
             onRoleChange={actions.setSignupRole}
             onSubmit={actions.signUp}
           />
@@ -267,6 +269,7 @@ export function KitabuApp() {
           isSubmitting={state.isSubmittingOnboarding}
           error={state.onboardingError}
           includeIntroChoices
+          externalPaymentsEnabled={state.externalPaymentsEnabled}
           onSubmit={actions.submitAccountOnboarding}
         />
       </AppSafeArea>
@@ -368,6 +371,7 @@ export function KitabuApp() {
           canResendVerification={state.canResendVerification}
           onResendVerification={actions.resendVerificationEmail}
           billingStatus={state.billingStatus}
+          externalPaymentsEnabled={state.externalPaymentsEnabled}
           onManageSubscription={() => {
             if (state.focusModeActive) {
               return;
@@ -438,33 +442,37 @@ export function KitabuApp() {
           onOpenLiveScreen={() => actions.openFeature('live_audio')}
         />
 
-        <SubscriptionCheckoutModal
-          isOpen={state.isCheckoutOpen}
-          plans={state.billingPlans}
-          selectedPlanCode={state.selectedPlanCode}
-          phoneNumber={state.checkoutPhoneNumber}
-          maskedSavedPhoneNumber={state.billingStatus.maskedMpesaPhoneNumber}
-          isSubmitting={state.isSubmittingCheckout}
-          statusLabel={state.checkoutStatusLabel}
-          error={state.checkoutError}
-          onClose={actions.closeSubscriptionCheckout}
-          onSelectPlan={actions.setSelectedPlanCode}
-          onChangePhoneNumber={actions.setCheckoutPhoneNumber}
-          onUseSavedPhone={() =>
-            actions.setCheckoutPhoneNumber(state.billingStatus.savedMpesaPhoneNumber || '')
-          }
-          onContinue={actions.submitSubscriptionCheckout}
-        />
+        {state.externalPaymentsEnabled ? (
+          <>
+            <SubscriptionCheckoutModal
+              isOpen={state.isCheckoutOpen}
+              plans={state.billingPlans}
+              selectedPlanCode={state.selectedPlanCode}
+              phoneNumber={state.checkoutPhoneNumber}
+              maskedSavedPhoneNumber={state.billingStatus.maskedMpesaPhoneNumber}
+              isSubmitting={state.isSubmittingCheckout}
+              statusLabel={state.checkoutStatusLabel}
+              error={state.checkoutError}
+              onClose={actions.closeSubscriptionCheckout}
+              onSelectPlan={actions.setSelectedPlanCode}
+              onChangePhoneNumber={actions.setCheckoutPhoneNumber}
+              onUseSavedPhone={() =>
+                actions.setCheckoutPhoneNumber(state.billingStatus.savedMpesaPhoneNumber || '')
+              }
+              onContinue={actions.submitSubscriptionCheckout}
+            />
 
-        <TryForOneBobModal
-          isOpen={state.isTryOneBobOpen}
-          isSubmitting={state.isSubmittingCheckout}
-          phoneNumber={
-            state.checkoutPhoneNumber || state.billingStatus.maskedMpesaPhoneNumber || 'your number'
-          }
-          onClose={actions.dismissTryOneBobOffer}
-          onAccept={actions.acceptTryOneBobOffer}
-        />
+            <TryForOneBobModal
+              isOpen={state.isTryOneBobOpen}
+              isSubmitting={state.isSubmittingCheckout}
+              phoneNumber={
+                state.checkoutPhoneNumber || state.billingStatus.maskedMpesaPhoneNumber || 'your number'
+              }
+              onClose={actions.dismissTryOneBobOffer}
+              onAccept={actions.acceptTryOneBobOffer}
+            />
+          </>
+        ) : null}
 
         {state.showComingSoon ? (
           <View pointerEvents="none" style={styles.comingSoonOverlay}>
@@ -866,6 +874,7 @@ function renderScreen(
           onStartFocusMode={actions.startFocusMode}
           onOpenFocusModeSettings={actions.openFocusModeSettings}
           onOpenBilling={() => actions.openBannerAction('manage_subscription')}
+          externalPaymentsEnabled={state.externalPaymentsEnabled}
           onSaveParentProfile={updates =>
             actions.setUserProfile(current => ({
               ...current,

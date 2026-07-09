@@ -6,6 +6,8 @@ import sensible from '@fastify/sensible';
 import swagger from '@fastify/swagger';
 import swaggerUi from '@fastify/swagger-ui';
 import { createHash, randomBytes, randomInt, timingSafeEqual } from 'node:crypto';
+import { readFile } from 'node:fs/promises';
+import { join } from 'node:path';
 import { z } from 'zod';
 import { appConfig } from './config.js';
 import { checkDatabaseHealth, checkRedisHealth, redis, db } from './db.js';
@@ -54,6 +56,7 @@ import {
   createSelfServiceUser,
   createAiUsageEvent,
   createAuditLog,
+  createContentReport,
   createOnboardingSelectionEvent,
   createSubjectEngagementEvent,
   ensureWeeklyExam,
@@ -123,6 +126,8 @@ import {
   linkParentStudentByEmail,
   linkParentStudentByPhone,
   linkUserAuthIdentity,
+  findTeacherParentMessageForReport,
+  listAdminNotificationRecipientsForSchool,
   listParentChildrenDashboard,
   listParentTeacherMessages,
   listTeacherParentMessages,
@@ -203,6 +208,26 @@ import {
   MpesaProviderError,
   type BillingPlanCode
 } from './payments.js';
+
+const LEGAL_PAGE_DIR = join(process.cwd(), 'legal');
+const LEGAL_PAGE_PATHS = {
+  '/privacy': join(LEGAL_PAGE_DIR, 'privacy', 'index.html'),
+  '/policy': join(LEGAL_PAGE_DIR, 'policy', 'index.html'),
+  '/terms': join(LEGAL_PAGE_DIR, 'terms', 'index.html'),
+  '/deletion': join(LEGAL_PAGE_DIR, 'deletion', 'index.html')
+} as const;
+const legalPageCache = new Map<string, string>();
+
+async function readLegalPage(route: keyof typeof LEGAL_PAGE_PATHS): Promise<string> {
+  const cached = legalPageCache.get(route);
+  if (cached) {
+    return cached;
+  }
+
+  const html = await readFile(LEGAL_PAGE_PATHS[route], 'utf8');
+  legalPageCache.set(route, html);
+  return html;
+}
 
 const loginSchema = z.object({
   email: z.string().email(),
@@ -304,6 +329,14 @@ const completeEmailVerificationSchema = z.object({
 
 const deleteAccountSchema = z.object({
   confirmationText: z.literal('DELETE MY ACCOUNT')
+});
+
+const contentReportSchema = z.object({
+  source: z.string().trim().min(2).max(80),
+  contentRole: z.enum(['model', 'user', 'message', 'attachment', 'other']).default('model'),
+  reason: z.enum(['unsafe_ai_content', 'inaccurate', 'privacy', 'abuse', 'other']).default('unsafe_ai_content'),
+  contentText: z.string().trim().min(1).max(8000),
+  context: z.record(z.string(), z.unknown()).optional()
 });
 
 const tokenQuerySchema = z.object({
@@ -454,6 +487,15 @@ const teacherParentMessageSchema = z.object({
 const parentTeacherMessageSchema = z.object({
   teacherUserId: databaseUuidString,
   body: z.string().trim().min(1).max(2000)
+});
+
+const teacherParentMessageReportParamsSchema = z.object({
+  messageId: databaseUuidString
+});
+
+const teacherParentMessageReportSchema = z.object({
+  reason: z.enum(['unsafe_ai_content', 'inaccurate', 'privacy', 'abuse', 'other']).default('abuse'),
+  note: z.string().trim().max(1000).optional()
 });
 
 const teacherLessonPlanSchema = z.object({
@@ -1428,7 +1470,10 @@ export function buildServer(options: BuildServerOptions = {}) {
       '/auth/email-verification/resend',
       '/auth/email-verification/confirm',
       '/me/account',
-      '/onboarding/selection-events'
+      '/onboarding/selection-events',
+      '/privacy',
+      '/policy',
+      '/deletion'
     ]);
     if (
       request.user &&
@@ -1479,6 +1524,63 @@ export function buildServer(options: BuildServerOptions = {}) {
         redis: redisHealth
       }
     };
+  });
+
+  app.get('/privacy', async (_request, reply) => {
+    return reply.type('text/html; charset=utf-8').send(await readLegalPage('/privacy'));
+  });
+
+  app.get('/policy', async (_request, reply) => {
+    return reply.type('text/html; charset=utf-8').send(await readLegalPage('/policy'));
+  });
+
+  app.get('/terms', async (_request, reply) => {
+    return reply.type('text/html; charset=utf-8').send(await readLegalPage('/terms'));
+  });
+
+  app.get('/deletion', async (_request, reply) => {
+    return reply.type('text/html; charset=utf-8').send(await readLegalPage('/deletion'));
+  });
+
+  app.post('/content-reports', {
+    config: {
+      rateLimit: {
+        max: 20,
+        timeWindow: '1 hour'
+      }
+    }
+  }, async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return;
+    }
+
+    const body = contentReportSchema.parse(request.body);
+    const currentUser = request.user!;
+    const reportId = await withTransaction(async client => {
+      const createdReportId = await createContentReport(client, {
+        reporterUserId: currentUser.id,
+        schoolId: currentUser.schoolId,
+        source: body.source,
+        contentRole: body.contentRole,
+        reason: body.reason,
+        contentText: body.contentText,
+        context: body.context ?? {}
+      });
+
+      await createAuditLog(client, currentUser.id, currentUser.schoolId, 'content.report.created', {
+        source: body.source,
+        reason: body.reason,
+        contentRole: body.contentRole
+      }, 'content_report', createdReportId);
+
+      return createdReportId;
+    });
+
+    return reply.status(201).send({
+      reportId,
+      message: 'Thanks. The Kitabu safety team will review this report.'
+    });
   });
 
   function buildAuthResponse(args: {
@@ -5370,6 +5472,92 @@ Return valid JSON with this shape:
     });
 
     return reply.status(201).send({ messageId });
+  });
+
+  app.post('/teacher-parent-messages/:messageId/report', {
+    config: {
+      rateLimit: {
+        max: 10,
+        timeWindow: '1 hour'
+      }
+    }
+  }, async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return;
+    }
+
+    const params = teacherParentMessageReportParamsSchema.parse(request.params);
+    const body = teacherParentMessageReportSchema.parse(request.body ?? {});
+    const currentUser = request.user!;
+
+    const result = await withTransaction(async client => {
+      const message = await findTeacherParentMessageForReport(client, currentUser, params.messageId);
+      if (!message) {
+        return null;
+      }
+
+      const reportId = await createContentReport(client, {
+        reporterUserId: currentUser.id,
+        schoolId: message.school_id,
+        source: 'teacher_parent_message',
+        contentRole: 'message',
+        reason: body.reason,
+        contentText: message.body,
+        context: {
+          messageId: message.id,
+          teacherUserId: message.teacher_user_id,
+          parentUserId: message.parent_user_id,
+          senderUserId: message.sender_user_id,
+          senderName: message.sender_name,
+          gradeLevel: message.grade_level,
+          note: body.note ?? null
+        }
+      });
+
+      await createAuditLog(client, currentUser.id, message.school_id, 'teacher_parent_message.reported', {
+        reportId,
+        messageId: message.id,
+        reason: body.reason,
+        teacherUserId: message.teacher_user_id,
+        parentUserId: message.parent_user_id
+      }, 'content_report', reportId);
+
+      const recipients = await listAdminNotificationRecipientsForSchool(client, message.school_id);
+      let notifiedAdminCount = 0;
+      for (const recipient of recipients) {
+        if (recipient.id === currentUser.id) {
+          continue;
+        }
+        await notifyUser(client, {
+          userId: recipient.id,
+          type: 'content.report.teacher_parent_message',
+          title: 'Teacher-parent message reported',
+          body: `${currentUser.fullName} reported a teacher-parent message from ${message.sender_name}.`,
+          metadata: {
+            reportId,
+            messageId: message.id,
+            schoolId: message.school_id,
+            gradeLevel: message.grade_level,
+            reason: body.reason
+          },
+          forceInApp: true
+        });
+        notifiedAdminCount += 1;
+      }
+
+      return { reportId, notifiedAdminCount };
+    });
+
+    if (!result) {
+      return reply.notFound('Message not found');
+    }
+
+    return reply.status(201).send({
+      reportId: result.reportId,
+      notifiedAdminCount: result.notifiedAdminCount,
+      message: 'Thanks. An admin has been alerted.'
+    });
   });
 
   app.get('/admin/users', async (request, reply) => {

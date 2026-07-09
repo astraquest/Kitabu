@@ -1115,10 +1115,10 @@ function sitemap() {
     { loc: 'https://kitabu.ai/', priority: '1.0' },
     ...pages.map(p => ({ loc: 'https://kitabu.ai' + p.url, priority: p.url === '/schools/demo' || p.url === '/pricing' || p.url === '/download' ? '0.9' : '0.8' })),
     ...articles.map(a => ({ loc: 'https://kitabu.ai' + a.url, priority: '0.7' })),
-    { loc: 'https://kitabu.ai/terms', priority: '0.4' },
-    { loc: 'https://kitabu.ai/policy', priority: '0.4' },
-    { loc: 'https://kitabu.ai/privacy', priority: '0.4' },
-    { loc: 'https://kitabu.ai/deletion', priority: '0.4' }
+    { loc: 'https://app.kitabu.ai/terms', priority: '0.4' },
+    { loc: 'https://app.kitabu.ai/policy', priority: '0.4' },
+    { loc: 'https://app.kitabu.ai/privacy', priority: '0.4' },
+    { loc: 'https://app.kitabu.ai/deletion', priority: '0.4' }
   ];
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u =>
     `  <url>\n    <loc>${u.loc}</loc>\n    <lastmod>2026-07-04</lastmod>\n    <priority>${u.priority}</priority>\n  </url>`).join('\n')}\n</urlset>\n`;

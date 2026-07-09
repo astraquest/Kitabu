@@ -23,6 +23,10 @@ COPY --from=build /app/apps/api/scripts /app/scripts
 COPY --from=build /app/apps/api/sql /app/sql
 COPY --from=build /app/apps/api/certs /app/certs
 COPY --from=build /app/apps/api/data/quiz-bank /app/data/quiz-bank
+COPY apps/web/privacy /app/legal/privacy
+COPY apps/web/policy /app/legal/policy
+COPY apps/web/terms /app/legal/terms
+COPY apps/web/deletion /app/legal/deletion
 RUN mkdir -p /app/data/books
 COPY --from=build /app/apps/api/package.json /app/package.json
 EXPOSE 4000

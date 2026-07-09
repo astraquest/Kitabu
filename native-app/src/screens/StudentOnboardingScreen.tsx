@@ -2006,6 +2006,7 @@ interface StudentOnboardingScreenProps {
   error?: string | null;
   includeIntroChoices?: boolean;
   collectSignupCredentials?: boolean;
+  externalPaymentsEnabled?: boolean;
   onRoleChange?: (role: PublicSignupRole) => void;
   onSubmit: (input: {
     gender: GenderOption;
@@ -2063,6 +2064,7 @@ export function StudentOnboardingScreen({
   error,
   includeIntroChoices = false,
   collectSignupCredentials = false,
+  externalPaymentsEnabled = true,
   onRoleChange,
   onSubmit,
 }: StudentOnboardingScreenProps) {
@@ -3265,7 +3267,7 @@ export function StudentOnboardingScreen({
     },
     [schools, countryCode, regionMeta],
   );
-  const hasMpesaInput = Boolean(mpesaPhoneNumber.trim());
+  const hasMpesaInput = externalPaymentsEnabled && Boolean(mpesaPhoneNumber.trim());
   const hasValidMpesaShortcut = useMemo(() => {
     if (!hasMpesaInput) {
       return false;
@@ -3277,12 +3279,16 @@ export function StudentOnboardingScreen({
       return false;
     }
   }, [hasMpesaInput, mpesaPhoneNumber]);
-  const paymentSummaryValue = hasValidMpesaShortcut
+  const paymentSummaryValue = !externalPaymentsEnabled
+    ? 'Managed'
+    : hasValidMpesaShortcut
     ? 'M-Pesa ready'
     : hasMpesaInput
       ? 'Check number'
       : 'Optional';
-  const reviewPaymentStatus = hasValidMpesaShortcut
+  const reviewPaymentStatus = !externalPaymentsEnabled
+    ? 'Managed account'
+    : hasValidMpesaShortcut
     ? 'M-Pesa ready'
     : hasMpesaInput
       ? 'Check number'
@@ -3299,16 +3305,21 @@ export function StudentOnboardingScreen({
         value: selectedSchoolName || 'Choose school',
         complete: hasSelectedSchool,
       },
-      {
-        label: content.paymentStatusPrefix,
-        value: paymentSummaryValue,
-        complete: step === 2 && hasValidMpesaShortcut,
-      },
+      ...(externalPaymentsEnabled
+        ? [
+            {
+              label: content.paymentStatusPrefix,
+              value: paymentSummaryValue,
+              complete: step === 2 && hasValidMpesaShortcut,
+            },
+          ]
+        : []),
     ],
     [
       content.gradeStatusPrefix,
       content.paymentStatusPrefix,
       content.schoolStatusPrefix,
+      externalPaymentsEnabled,
       grade,
       hasValidMpesaShortcut,
       paymentSummaryValue,
@@ -3987,7 +3998,9 @@ export function StudentOnboardingScreen({
                                   : step === 2
                                     ? 'Completes account setup without adding M-Pesa'
                                 : step === 1
-                                  ? 'Moves to the optional payment step'
+                                  ? externalPaymentsEnabled
+                                    ? 'Moves to the optional payment step'
+                                    : 'Completes account setup'
                                    : 'Moves to school selection';
 
   function submitPreparedOnboarding(
@@ -4564,6 +4577,11 @@ export function StudentOnboardingScreen({
     }
 
     if (step < 2) {
+      if (!externalPaymentsEnabled && !includeIntroChoices && step === 1) {
+        submitPreparedOnboarding(null);
+        return;
+      }
+
       Keyboard.dismiss();
       setFocusedField(null);
       triggerHaptic('impact');
@@ -4573,7 +4591,9 @@ export function StudentOnboardingScreen({
 
     let normalizedMpesaPhoneNumber: string | null = null;
     try {
-      normalizedMpesaPhoneNumber = normalizeOptionalMpesaPhoneNumber(mpesaPhoneNumber);
+      normalizedMpesaPhoneNumber = externalPaymentsEnabled
+        ? normalizeOptionalMpesaPhoneNumber(mpesaPhoneNumber)
+        : null;
     } catch (validationError) {
       triggerHaptic('error');
       setLocalError(validationError instanceof Error ? validationError.message : MPESA_PHONE_ERROR);
@@ -7897,7 +7917,7 @@ export function StudentOnboardingScreen({
               </>
             ) : null}
 
-            {introStep === 'setup' && step === 2 && !includeIntroChoices ? (
+            {externalPaymentsEnabled && introStep === 'setup' && step === 2 && !includeIntroChoices ? (
               <>
                 <Text style={[styles.stepKicker, { color: content.accent }]}>Payments</Text>
                 <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.72} style={[styles.stepTitle, compactLayout && styles.stepTitleCompact]}>

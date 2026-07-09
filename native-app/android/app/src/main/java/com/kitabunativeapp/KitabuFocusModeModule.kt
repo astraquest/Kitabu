@@ -56,7 +56,7 @@ class KitabuFocusModeModule(private val reactContext: ReactApplicationContext) :
 
   @ReactMethod
   fun startScreenPinning(promise: Promise) {
-    val activity = currentActivity
+    val activity = reactContext.currentActivity
     if (activity == null) {
       promise.reject("activity_unavailable", "KITABU must be in the foreground to start Focus Mode.")
       return
@@ -89,7 +89,7 @@ class KitabuFocusModeModule(private val reactContext: ReactApplicationContext) :
 
   @ReactMethod
   fun stopScreenPinning(promise: Promise) {
-    val activity = currentActivity
+    val activity = reactContext.currentActivity
     if (activity == null) {
       promise.reject("activity_unavailable", "KITABU must be in the foreground to stop Focus Mode.")
       return
@@ -125,7 +125,7 @@ class KitabuFocusModeModule(private val reactContext: ReactApplicationContext) :
 
   @ReactMethod
   fun confirmDeviceCredential(title: String, description: String, promise: Promise) {
-    val activity = currentActivity
+    val activity = reactContext.currentActivity
     if (activity == null) {
       promise.reject("activity_unavailable", "KITABU must be in the foreground to unlock parent controls.")
       return

@@ -96,6 +96,16 @@ export async function sendTeacherParentMessage(input: {
   });
 }
 
+export async function reportTeacherParentMessage(messageId: string) {
+  return apiRequest<{ reportId: string; notifiedAdminCount: number; message: string }>(
+    `/teacher-parent-messages/${messageId}/report`,
+    {
+      method: 'POST',
+      body: JSON.stringify({ reason: 'abuse' }),
+    },
+  );
+}
+
 export async function saveTeacherLessonPlan(input: {
   gradeLevel: string;
   subject: string;

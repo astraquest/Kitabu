@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { Info, Mic, RotateCcw, Square, X } from 'lucide-react-native';
 
+import { ReportAiContentSheet } from '../components/ReportAiContentSheet';
 import { DEFAULT_GRADE } from '../constants/grades';
 import { askHomeworkHelper } from '../services/aiService';
 import { audioRecordingBridge } from '../services/nativeBridges';
@@ -462,6 +463,16 @@ export function HomeworkQuizScreen({
 
       <ActivityExplanationModal
         modal={explanationModal}
+        reportContext={{
+          assignmentId: assignment.id,
+          assignmentTitle: assignment.title,
+          subject: assignment.subject,
+          gradeLevel: assignment.gradeLevel,
+          question: currentQuestion.text,
+          selectedAnswer: answers[currentQuestionIndex] ?? null,
+          correctAnswer: String(currentQuestion.correctAnswer ?? ''),
+          questionIndex: currentQuestionIndex,
+        }}
         onClose={() => setExplanationModal(null)}
       />
     </View>
@@ -471,9 +482,11 @@ export function HomeworkQuizScreen({
 function ActivityExplanationModal({
   modal,
   onClose,
+  reportContext,
 }: {
   modal: { isOpen: boolean; isLoading: boolean; text: string } | null;
   onClose: () => void;
+  reportContext: Record<string, unknown>;
 }) {
   if (!modal?.isOpen) {
     return null;
@@ -496,9 +509,18 @@ function ActivityExplanationModal({
             <Text style={styles.modalLoadingText}>Thinking...</Text>
           </View>
         ) : (
-          <ScrollView contentContainerStyle={styles.modalBody}>
-            <Text style={styles.modalText}>{modal.text}</Text>
-          </ScrollView>
+          <>
+            <ScrollView contentContainerStyle={styles.modalBody}>
+              <Text style={styles.modalText}>{modal.text}</Text>
+              <ReportAiContentSheet
+                accessibilityLabel="Report homework AI explanation"
+                buttonLabel="Report explanation"
+                contentText={modal.text}
+                context={reportContext}
+                source="homework_ai_explanation"
+              />
+            </ScrollView>
+          </>
         )}
       </View>
     </View>
@@ -872,4 +894,34 @@ const styles = StyleSheet.create({
   modalLoadingText: { color: '#64748B', fontWeight: '700' },
   modalBody: { padding: 18 },
   modalText: { color: '#334155', lineHeight: 22 },
+  modalReportButton: {
+    alignItems: 'center',
+    alignSelf: 'flex-start',
+    borderColor: '#E2E8F0',
+    borderRadius: 999,
+    borderWidth: 1,
+    flexDirection: 'row',
+    gap: 5,
+    marginTop: 14,
+    paddingHorizontal: 11,
+    paddingVertical: 7,
+  },
+  modalReportButtonSubmitted: {
+    backgroundColor: '#DCFCE7',
+    borderColor: '#BBF7D0',
+  },
+  modalReportText: {
+    color: '#64748B',
+    fontSize: 12,
+    fontWeight: '800',
+  },
+  modalReportTextSubmitted: {
+    color: '#16A34A',
+  },
+  modalReportError: {
+    color: '#B91C1C',
+    fontSize: 12,
+    lineHeight: 17,
+    marginTop: 8,
+  },
 });

@@ -12,9 +12,27 @@ function readProcessEnv(name: string) {
 }
 
 function readExpoExtra(name: string) {
-  const extra = Constants.expoConfig?.extra as Record<string, string | undefined> | undefined;
+  const extra = Constants.expoConfig?.extra as Record<string, string | boolean | undefined> | undefined;
   const value = extra?.[name];
+  if (typeof value === 'boolean') {
+    return value ? 'true' : 'false';
+  }
   return value?.trim() || undefined;
+}
+
+function parseBooleanFlag(value?: string) {
+  if (!value) {
+    return null;
+  }
+
+  if (/^(1|true|yes|on)$/i.test(value)) {
+    return true;
+  }
+  if (/^(0|false|no|off)$/i.test(value)) {
+    return false;
+  }
+
+  return null;
 }
 
 function normalizeBaseUrl(value: string) {
@@ -76,6 +94,19 @@ export function getKitabuRuntimeEnvironment() {
     readProcessEnv('KITABU_RUNTIME_ENV') ||
     (__DEV__ ? 'development' : 'production')
   );
+}
+
+export function areExternalPaymentsEnabled() {
+  const configured = parseBooleanFlag(
+    readProcessEnv('KITABU_ENABLE_EXTERNAL_PAYMENTS') ||
+      readProcessEnv('EXPO_PUBLIC_KITABU_ENABLE_EXTERNAL_PAYMENTS') ||
+      readExpoExtra('kitabuExternalPaymentsEnabled'),
+  );
+  if (configured !== null) {
+    return configured;
+  }
+
+  return true;
 }
 
 export function getKitabuApiBaseUrls() {

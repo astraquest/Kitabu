@@ -44,6 +44,7 @@ interface ProfileModalProps {
   canResendVerification?: boolean;
   onResendVerification?: () => Promise<string>;
   billingStatus: BillingStatus;
+  externalPaymentsEnabled?: boolean;
   onManageSubscription: () => void;
   focusModeActive: boolean;
   focusModeSetupRequired: boolean;
@@ -409,6 +410,7 @@ export function ProfileModal({
   showTeacherPortalButton,
   showAdminPortalButton,
   billingStatus,
+  externalPaymentsEnabled = true,
   onManageSubscription,
   focusModeActive,
   focusModeSetupRequired,
@@ -839,7 +841,7 @@ export function ProfileModal({
             </LinearGradient>
             <View style={styles.profileQuickActions}>
               <Pressable
-                accessibilityLabel="Manage subscription"
+                accessibilityLabel={externalPaymentsEnabled ? 'Manage subscription' : 'View subscription status'}
                 onPress={onManageSubscription}
                 style={({ pressed }) => [
                   styles.subscriptionQuickGroup,
@@ -893,7 +895,13 @@ export function ProfileModal({
                     adjustsFontSizeToFit
                     minimumFontScale={0.82}
                   >
-                    {billingStatus.subscription ? 'Upgrade' : 'Pay Now'}
+                    {billingStatus.subscription
+                      ? externalPaymentsEnabled
+                        ? 'Upgrade'
+                        : 'Active'
+                      : externalPaymentsEnabled
+                        ? 'Pay Now'
+                        : 'Managed'}
                   </Text>
                 </View>
               </Pressable>

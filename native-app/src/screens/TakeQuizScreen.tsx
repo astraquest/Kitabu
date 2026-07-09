@@ -25,6 +25,7 @@ import {
   X,
 } from 'lucide-react-native';
 
+import { ReportAiContentSheet } from '../components/ReportAiContentSheet';
 import { DEFAULT_GRADE } from '../constants/grades';
 import { askHomeworkHelper } from '../services/aiService';
 import { audioRecordingBridge } from '../services/nativeBridges';
@@ -401,6 +402,23 @@ export function TakeQuizScreen({
                   <View style={styles.reviewQuestionWrap}>
                     <Text style={styles.reviewQuestionIndex}>Question {idx + 1}</Text>
                     <Text style={styles.reviewQuestionText}>{question.text}</Text>
+                    <ReportAiContentSheet
+                      accessibilityLabel={`Report generated quiz question ${idx + 1}`}
+                      buttonLabel="Report question"
+                      contentText={[
+                        `Question: ${question.text}`,
+                        question.options?.length ? `Options: ${question.options.join(' | ')}` : null,
+                        `Correct answer: ${String(question.correctAnswer ?? '')}`,
+                        question.explanation ? `Explanation: ${question.explanation}` : null,
+                      ].filter(Boolean).join('\n')}
+                      context={{
+                        subjectName,
+                        questionId: question.id,
+                        questionIndex: idx,
+                        screen: 'take_quiz_review',
+                      }}
+                      source="generated_quiz_question"
+                    />
                   </View>
                 </View>
 
@@ -501,6 +519,23 @@ export function TakeQuizScreen({
             QUESTION {currentIndex + 1} OF {questions.length}
           </Text>
           <Text style={styles.questionText}>{currentQuestion.text}</Text>
+          <ReportAiContentSheet
+            accessibilityLabel="Report generated quiz question"
+            buttonLabel="Report question"
+            contentText={[
+              `Question: ${currentQuestion.text}`,
+              options.length ? `Options: ${options.join(' | ')}` : null,
+              `Correct answer: ${String(currentQuestion.correctAnswer ?? '')}`,
+              currentQuestion.explanation ? `Explanation: ${currentQuestion.explanation}` : null,
+            ].filter(Boolean).join('\n')}
+            context={{
+              subjectName,
+              questionId: currentQuestion.id,
+              questionIndex: currentIndex,
+              screen: 'take_quiz',
+            }}
+            source="generated_quiz_question"
+          />
 
           {(currentQuestion.type === 'MCQ' || currentQuestion.type === 'TRUE_FALSE') &&
             options.map((option, index) => {
@@ -676,9 +711,23 @@ export function TakeQuizScreen({
               </Text>
             </View>
             {!explanationModal?.isLoading ? (
-              <Pressable onPress={() => setExplanationModal(null)}>
-                <Text style={styles.modalDone}>Got it</Text>
-              </Pressable>
+              <View style={styles.modalActionRow}>
+                <ReportAiContentSheet
+                  accessibilityLabel="Report quiz AI explanation"
+                  contentText={explanationModal?.text ?? ''}
+                  context={{
+                    subjectName,
+                    question: currentQuestion.text,
+                    selectedAnswer: answers[currentIndex] ?? null,
+                    correctAnswer: String(currentQuestion.correctAnswer ?? ''),
+                    questionIndex: currentIndex,
+                  }}
+                  source="quiz_ai_explanation"
+                />
+                <Pressable onPress={() => setExplanationModal(null)}>
+                  <Text style={styles.modalDone}>Got it</Text>
+                </Pressable>
+              </View>
             ) : null}
           </View>
         </View>
@@ -1352,6 +1401,41 @@ const styles = StyleSheet.create({
     color: '#374151',
     fontSize: 14,
     lineHeight: 22,
+  },
+  modalActionRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
+  },
+  modalReportButton: {
+    alignItems: 'center',
+    borderColor: '#E5E7EB',
+    borderRadius: 999,
+    borderWidth: 1,
+    flexDirection: 'row',
+    gap: 5,
+    paddingHorizontal: 11,
+    paddingVertical: 7,
+  },
+  modalReportButtonSubmitted: {
+    backgroundColor: '#DCFCE7',
+    borderColor: '#BBF7D0',
+  },
+  modalReportText: {
+    color: '#64748B',
+    fontSize: 12,
+    fontWeight: '800',
+  },
+  modalReportTextSubmitted: {
+    color: '#16A34A',
+  },
+  modalReportError: {
+    color: '#B91C1C',
+    fontSize: 12,
+    lineHeight: 17,
+    marginTop: 9,
+    textAlign: 'center',
   },
   modalDone: {
     color: '#1D4ED8',

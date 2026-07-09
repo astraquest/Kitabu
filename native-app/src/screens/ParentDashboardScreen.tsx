@@ -19,6 +19,7 @@ import {
   ClipboardList,
   Clock3,
   FileBarChart,
+  Flag,
   Home,
   HelpCircle,
   Lightbulb,
@@ -40,13 +41,14 @@ import {
 } from 'lucide-react-native';
 import Svg, { Circle, Ellipse, G, Path } from 'react-native-svg';
 
+import { ReportAiContentSheet } from '../components/ReportAiContentSheet';
 import { ChatMessage, OnboardingMascotKey, ParentChildAssignment, ParentChildSummary } from '../types/app';
 import { askParentAssistant, ParentAssistantContext } from '../services/aiService';
 import {
   getParentTeacherMessages,
   sendParentTeacherMessage,
 } from '../services/parentService';
-import { TeacherParentMessage } from '../services/teacherService';
+import { reportTeacherParentMessage, TeacherParentMessage } from '../services/teacherService';
 
 interface ParentDashboardScreenProps {
   children: ParentChildSummary[];
@@ -76,6 +78,7 @@ interface ParentDashboardScreenProps {
   onStartFocusMode: () => void;
   onOpenFocusModeSettings: () => void;
   onOpenBilling?: () => void;
+  externalPaymentsEnabled?: boolean;
   onSaveParentProfile?: (updates: { name: string; email: string; phone: string }) => void;
   onRefresh: () => void;
   onSignOut: () => void;
@@ -123,6 +126,7 @@ export function ParentDashboardScreen({
   onStartFocusMode,
   onOpenFocusModeSettings,
   onOpenBilling,
+  externalPaymentsEnabled = true,
   onSaveParentProfile,
   onRefresh,
   onSignOut,
@@ -353,8 +357,9 @@ export function ParentDashboardScreen({
                   isStartingFocusMode={isStartingFocusMode}
                   onLockPhone={onStartFocusMode}
                   onMessages={() => setActiveView('messages')}
-                  onPayFees={onOpenBilling}
+                  onPayFees={externalPaymentsEnabled ? onOpenBilling : undefined}
                   onViewReport={() => setActiveView('insights')}
+                  showPaymentAction={externalPaymentsEnabled}
                 />
 
                 {focusModeActive || focusModeSetupRequired || focusModeError ? (
@@ -883,21 +888,25 @@ function QuickActionsCard({
   onMessages,
   onPayFees,
   onViewReport,
+  showPaymentAction,
 }: {
   isStartingFocusMode: boolean;
   onLockPhone: () => void;
   onMessages: () => void;
   onPayFees?: () => void;
   onViewReport: () => void;
+  showPaymentAction: boolean;
 }) {
   return (
     <View style={styles.quickCard}>
-      <QuickAction
-        icon={<WalletCards color={ACCENT} size={26} strokeWidth={2.3} />}
-        iconBackground="#FFEDD5"
-        label={'Pay\nsubscription'}
-        onPress={onPayFees}
-      />
+      {showPaymentAction ? (
+        <QuickAction
+          icon={<WalletCards color={ACCENT} size={26} strokeWidth={2.3} />}
+          iconBackground="#FFEDD5"
+          label={'Pay\nsubscription'}
+          onPress={onPayFees}
+        />
+      ) : null}
       <QuickAction
         icon={<FileBarChart color="#16A34A" size={26} strokeWidth={2.3} />}
         iconBackground="#DCFCE7"
@@ -1425,20 +1434,32 @@ function RafikiView({
           </Text>
         </View>
         {messages.map((message, index) => (
-          <View
-            key={`${message.role}-${index}`}
-            style={[
-              styles.rafikiBubble,
-              message.role === 'user' ? styles.rafikiBubbleUser : styles.rafikiBubbleModel,
-            ]}>
-            <Text
+            <View
+              key={`${message.role}-${index}`}
               style={[
-                styles.rafikiBubbleText,
-                message.role === 'user' && styles.rafikiBubbleTextUser,
+                styles.rafikiBubble,
+                message.role === 'user' ? styles.rafikiBubbleUser : styles.rafikiBubbleModel,
               ]}>
-              {message.text}
-            </Text>
-          </View>
+              <Text
+                style={[
+                  styles.rafikiBubbleText,
+                  message.role === 'user' && styles.rafikiBubbleTextUser,
+                ]}>
+                {message.text}
+              </Text>
+              {message.role === 'model' ? (
+                <ReportAiContentSheet
+                  accessibilityLabel="Report Rafiki response"
+                  contentText={message.text}
+                  context={{
+                    childFirstName,
+                    focusArea,
+                    messageIndex: index,
+                  }}
+                  source="parent_progress_assistant"
+                />
+              ) : null}
+            </View>
         ))}
         {isThinking ? (
           <View style={[styles.rafikiBubble, styles.rafikiBubbleModel, styles.rafikiThinkingRow]}>
@@ -1690,6 +1711,27 @@ function ParentMessagesView({
   onSend: () => void;
 }) {
   const selectedTeacher = teachers.find(teacher => teacher.teacher_user_id === activeTeacherId);
+  const [reportingMessageId, setReportingMessageId] = useState<string | null>(null);
+  const [reportedMessageIds, setReportedMessageIds] = useState<Record<string, boolean>>({});
+  const [reportError, setReportError] = useState<string | null>(null);
+
+  async function reportMessage(message: TeacherParentMessage) {
+    if (reportingMessageId || reportedMessageIds[message.id]) {
+      return;
+    }
+
+    setReportError(null);
+    setReportingMessageId(message.id);
+    try {
+      await reportTeacherParentMessage(message.id);
+      setReportedMessageIds(current => ({ ...current, [message.id]: true }));
+    } catch (error) {
+      setReportError(error instanceof Error ? error.message : 'Could not report this message.');
+    } finally {
+      setReportingMessageId(null);
+    }
+  }
+
   return (
     <View style={styles.subViewWrap}>
       <View style={styles.messagesTopRow}>
@@ -1749,14 +1791,42 @@ function ParentMessagesView({
                 ]}>
                 <Text style={styles.messageSender}>{message.sender_name}</Text>
                 <Text style={styles.messageBody}>{message.body}</Text>
-                <Text style={styles.messageTime}>
-                  {new Date(message.created_at).toLocaleString()}
-                </Text>
+                <View style={styles.messageMetaRow}>
+                  <Text style={styles.messageTime}>
+                    {new Date(message.created_at).toLocaleString()}
+                  </Text>
+                  <Pressable
+                    accessibilityLabel={reportedMessageIds[message.id] ? 'Message reported' : 'Report message'}
+                    disabled={reportingMessageId === message.id || reportedMessageIds[message.id]}
+                    onPress={() => reportMessage(message)}
+                    style={[
+                      styles.messageReportButton,
+                      reportedMessageIds[message.id] && styles.messageReportButtonSubmitted,
+                    ]}>
+                    <Flag
+                      color={reportedMessageIds[message.id] ? '#16A34A' : '#64748B'}
+                      size={12}
+                      strokeWidth={2.4}
+                    />
+                    <Text
+                      style={[
+                        styles.messageReportText,
+                        reportedMessageIds[message.id] && styles.messageReportTextSubmitted,
+                      ]}>
+                      {reportedMessageIds[message.id]
+                        ? 'Reported'
+                        : reportingMessageId === message.id
+                          ? 'Reporting...'
+                          : 'Report'}
+                    </Text>
+                  </Pressable>
+                </View>
               </View>
             );
           })
         )}
       </View>
+      {reportError ? <Text style={styles.messageReportError}>{reportError}</Text> : null}
 
       <View style={styles.messageComposer}>
         <TextInput
@@ -2609,6 +2679,36 @@ const styles = StyleSheet.create({
   rafikiBubbleUser: { alignSelf: 'flex-end', backgroundColor: ACCENT },
   rafikiBubbleText: { color: '#26282E', fontSize: 13.5, fontWeight: '500', lineHeight: 20 },
   rafikiBubbleTextUser: { color: '#FFFFFF' },
+  rafikiReportButton: {
+    alignItems: 'center',
+    alignSelf: 'flex-start',
+    borderColor: '#E5E7EB',
+    borderRadius: 999,
+    borderWidth: 1,
+    flexDirection: 'row',
+    gap: 4,
+    marginTop: 8,
+    paddingHorizontal: 9,
+    paddingVertical: 5,
+  },
+  rafikiReportButtonSubmitted: {
+    backgroundColor: '#DCFCE7',
+    borderColor: '#BBF7D0',
+  },
+  rafikiReportText: {
+    color: MUTED,
+    fontSize: 11,
+    fontWeight: '800',
+  },
+  rafikiReportTextSubmitted: {
+    color: '#16A34A',
+  },
+  rafikiReportError: {
+    color: '#B91C1C',
+    fontSize: 12,
+    lineHeight: 17,
+    marginTop: 6,
+  },
   rafikiThinkingRow: { alignItems: 'center', flexDirection: 'row', gap: 9 },
   rafikiThinkingText: { color: MUTED, fontSize: 12.5, fontWeight: '600' },
   rafikiSuggestions: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginTop: 14 },
@@ -2790,7 +2890,41 @@ const styles = StyleSheet.create({
   },
   messageSender: { color: '#9A3412', fontSize: 11.5, fontWeight: '800' },
   messageBody: { color: '#26282E', fontSize: 13.5, fontWeight: '500', lineHeight: 20, marginTop: 3 },
-  messageTime: { color: '#9CA3AF', fontSize: 10.5, fontWeight: '600', marginTop: 6 },
+  messageTime: { color: '#9CA3AF', fontSize: 10.5, fontWeight: '600' },
+  messageMetaRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 8,
+    justifyContent: 'space-between',
+    marginTop: 6,
+  },
+  messageReportButton: {
+    alignItems: 'center',
+    backgroundColor: 'rgba(255,255,255,0.78)',
+    borderColor: 'rgba(148,163,184,0.34)',
+    borderRadius: 999,
+    borderWidth: 1,
+    flexDirection: 'row',
+    gap: 4,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+  },
+  messageReportButtonSubmitted: {
+    backgroundColor: '#DCFCE7',
+    borderColor: '#86EFAC',
+  },
+  messageReportText: {
+    color: '#64748B',
+    fontSize: 10,
+    fontWeight: '900',
+  },
+  messageReportTextSubmitted: { color: '#15803D' },
+  messageReportError: {
+    color: '#B91C1C',
+    fontSize: 12,
+    fontWeight: '700',
+    marginTop: 8,
+  },
   messageComposer: { alignItems: 'flex-end', flexDirection: 'row', gap: 8, marginTop: 14 },
   messageInput: {
     backgroundColor: '#FFFFFF',

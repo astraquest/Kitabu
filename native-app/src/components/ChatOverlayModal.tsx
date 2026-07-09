@@ -29,6 +29,7 @@ import {
   UserProfile,
 } from '../types/app';
 import { LiveAudioTutorScreen } from '../screens/LiveAudioTutorScreen';
+import { ReportAiContentSheet } from './ReportAiContentSheet';
 import { chatAttachmentBridge } from '../services/nativeBridges';
 
 const logoAsset = require('../assets/logo.png');
@@ -283,42 +284,60 @@ export function ChatOverlayModal({
               </View>
             ) : (
               <View style={styles.messageList}>
-                {messages.map((message, index) => (
-                  <View
-                    key={`${message.role}-${index}-${message.text}`}
-                    accessibilityLabel={`chat-message-${message.role}-${index}`}
-                    style={[
-                      styles.messageRow,
-                      message.role === 'user'
-                        ? styles.messageRowUser
-                        : styles.messageRowModel,
-                    ]}>
-                    {message.attachment ? (
+                {messages.map((message, index) => {
+                  return (
+                    <View
+                      key={`${message.role}-${index}-${message.text}`}
+                      accessibilityLabel={`chat-message-${message.role}-${index}`}
+                      style={[
+                        styles.messageRow,
+                        message.role === 'user'
+                          ? styles.messageRowUser
+                          : styles.messageRowModel,
+                      ]}>
+                      {message.attachment ? (
+                        <View
+                          style={[
+                            styles.attachmentCard,
+                            message.role === 'user'
+                              ? styles.attachmentCardUser
+                              : styles.attachmentCardModel,
+                          ]}>
+                          <FileText color="#FFFFFF" size={18} strokeWidth={2.2} />
+                          <Text style={styles.attachmentLabel}>
+                            {message.attachment.name || 'File'}
+                          </Text>
+                        </View>
+                      ) : null}
+
                       <View
                         style={[
-                          styles.attachmentCard,
+                          styles.messageBubble,
                           message.role === 'user'
-                            ? styles.attachmentCardUser
-                            : styles.attachmentCardModel,
+                            ? styles.messageBubbleUser
+                            : styles.messageBubbleModel,
                         ]}>
-                        <FileText color="#FFFFFF" size={18} strokeWidth={2.2} />
-                        <Text style={styles.attachmentLabel}>
-                          {message.attachment.name || 'File'}
-                        </Text>
+                        <ChatMessageContent message={message} />
                       </View>
-                    ) : null}
 
-                    <View
-                      style={[
-                        styles.messageBubble,
-                        message.role === 'user'
-                          ? styles.messageBubbleUser
-                          : styles.messageBubbleModel,
-                      ]}>
-                      <ChatMessageContent message={message} />
+                      {message.role === 'model' ? (
+                        <ReportAiContentSheet
+                          accessibilityLabel="Report AI response"
+                          contentText={message.text}
+                          context={{
+                            currentGrade: currentGrade ?? null,
+                            selectedSubject: selectedSubject?.name ?? null,
+                            selectedSubStrand: selectedSubStrand?.title ?? null,
+                            selectedAssignment: selectedAssignment?.title ?? null,
+                            messageIndex: index,
+                          }}
+                          source="chat_tutor"
+                          tone="dark"
+                        />
+                      ) : null}
                     </View>
-                  </View>
-                ))}
+                  );
+                })}
 
                 {isLoading ? (
                   <View style={styles.messageRowModel}>
@@ -593,6 +612,37 @@ const styles = StyleSheet.create({
   messageRowModel: {
     alignSelf: 'flex-start',
     maxWidth: '92%',
+  },
+  reportButton: {
+    alignItems: 'center',
+    alignSelf: 'flex-start',
+    borderColor: 'rgba(255,255,255,0.12)',
+    borderRadius: 999,
+    borderWidth: 1,
+    flexDirection: 'row',
+    gap: 5,
+    marginTop: 5,
+    paddingHorizontal: 9,
+    paddingVertical: 5,
+  },
+  reportButtonSubmitted: {
+    backgroundColor: 'rgba(34,197,94,0.12)',
+    borderColor: 'rgba(134,239,172,0.32)',
+  },
+  reportButtonText: {
+    color: 'rgba(255,255,255,0.7)',
+    fontSize: 11,
+    fontWeight: '700',
+  },
+  reportButtonTextSubmitted: {
+    color: '#86EFAC',
+  },
+  reportError: {
+    alignSelf: 'flex-start',
+    color: '#FCA5A5',
+    fontSize: 12,
+    lineHeight: 17,
+    marginHorizontal: 4,
   },
   attachmentCard: {
     alignItems: 'center',

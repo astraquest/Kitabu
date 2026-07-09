@@ -1,4 +1,4 @@
-import { AppState, BackHandler, Linking } from 'react-native';
+import { Alert, AppState, BackHandler, Linking } from 'react-native';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import {
@@ -39,6 +39,7 @@ import {
   authenticateWithGoogleToken,
 } from '../services/authService';
 import { requestGoogleIdToken } from '../services/googleAuthService';
+import { areExternalPaymentsEnabled } from '../services/runtimeConfig';
 import {
   createAdminAnnouncement,
   createAdminDiscount,
@@ -489,6 +490,7 @@ function mergeRemoteAndCachedBooks(remoteBooks: Book[], cachedBooks: Book[]) {
 }
 
 export function useKitabuApp() {
+  const externalPaymentsEnabled = areExternalPaymentsEnabled();
   const [isReady, setIsReady] = useState(false);
   const [authSession, setAuthSession] = useState<AuthSession | null>(null);
   const [authEntryScreen, setAuthEntryScreen] = useState<'intro' | 'auth'>('intro');
@@ -1229,7 +1231,12 @@ export function useKitabuApp() {
     }
 
     try {
-      setDashboardBanner(await getDashboardBanner());
+      const banner = await getDashboardBanner();
+      setDashboardBanner(
+        !externalPaymentsEnabled && banner?.ctaTarget === 'manage_subscription'
+          ? null
+          : banner,
+      );
     } catch {
       setDashboardBanner(null);
     }
@@ -2143,6 +2150,15 @@ export function useKitabuApp() {
       return;
     }
 
+    if (!externalPaymentsEnabled) {
+      triggerHaptic('impact');
+      Alert.alert(
+        'Subscription required',
+        'Access is managed by your school, parent, guardian, or an approved billing channel. Ask them to activate or update your Kitabu AI access.',
+      );
+      return;
+    }
+
     setPendingSubscriptionIntent(intent);
     setCheckoutError(null);
     setCheckoutStatusLabel(null);
@@ -2157,6 +2173,9 @@ export function useKitabuApp() {
   }
 
   function canShowTryOneBobOffer() {
+    if (!externalPaymentsEnabled) {
+      return false;
+    }
     if (!authSession?.user.id) {
       return false;
     }
@@ -2243,6 +2262,12 @@ export function useKitabuApp() {
   }
 
   async function submitSubscriptionCheckout(planCodeOverride?: BillingPlanCode) {
+    if (!externalPaymentsEnabled) {
+      setCheckoutError('Subscription access is managed outside this app build.');
+      triggerHaptic('error');
+      return;
+    }
+
     const requestedPlanCode =
       typeof planCodeOverride === 'string' ? planCodeOverride : selectedPlanCode;
     if (!requestedPlanCode) {
@@ -3629,6 +3654,7 @@ export function useKitabuApp() {
       trialOfferPlan,
       billingStatus,
       hasActiveSubscription,
+      externalPaymentsEnabled,
       hasPendingAccountOnboarding,
       hasPendingStudentDiagnostic,
       hasPendingProgressiveDiagnostic,

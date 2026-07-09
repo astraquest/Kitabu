@@ -141,6 +141,16 @@ export interface BannerAnnouncementRecord {
   updated_at: Date;
 }
 
+export interface ContentReportInput {
+  reporterUserId: string;
+  schoolId: string | null;
+  source: string;
+  contentRole: 'model' | 'user' | 'message' | 'attachment' | 'other';
+  reason: 'unsafe_ai_content' | 'inaccurate' | 'privacy' | 'abuse' | 'other';
+  contentText: string;
+  context: Record<string, unknown>;
+}
+
 export interface CurriculumStrandInput {
   number?: string;
   title: string;
@@ -1364,6 +1374,28 @@ export async function createAuditLog(
      VALUES ($1, $2, $3, $4, $5, $6::jsonb)`,
     [actorUserId, schoolId, action, targetType ?? null, targetId ?? null, JSON.stringify(metadata)]
   );
+}
+
+export async function createContentReport(client: MaybeClient, input: ContentReportInput): Promise<string> {
+  const result = await q<{ id: string }>(
+    client,
+    `INSERT INTO content_reports (
+       reporter_user_id, school_id, source, content_role, reason, content_text, context
+     )
+     VALUES ($1, $2, $3, $4, $5, $6, $7::jsonb)
+     RETURNING id`,
+    [
+      input.reporterUserId,
+      input.schoolId,
+      input.source,
+      input.contentRole,
+      input.reason,
+      input.contentText,
+      JSON.stringify(input.context)
+    ]
+  );
+
+  return result.rows[0].id;
 }
 
 export async function listFeatureFlags(): Promise<FeatureFlagRecord[]> {
@@ -4637,6 +4669,7 @@ export interface TeacherParentRecord {
 
 export interface TeacherParentMessageRecord {
   id: string;
+  school_id?: string;
   teacher_user_id: string;
   parent_user_id: string;
   grade_level: string;
@@ -4644,6 +4677,11 @@ export interface TeacherParentMessageRecord {
   sender_name: string;
   body: string;
   created_at: Date;
+}
+
+export interface AdminNotificationRecipientRecord {
+  id: string;
+  full_name: string;
 }
 
 export async function listTeacherParents(
@@ -4795,6 +4833,62 @@ export async function createParentTeacherMessage(
     [existing.school_id, input.teacherUserId, user.id, existing.grade_level, user.id, input.body]
   );
   return result.rows[0].id;
+}
+
+export async function findTeacherParentMessageForReport(
+  client: MaybeClient,
+  user: AuthenticatedUser,
+  messageId: string
+): Promise<(TeacherParentMessageRecord & { school_id: string }) | null> {
+  const result = await q<TeacherParentMessageRecord & { school_id: string }>(
+    client,
+    `SELECT
+       m.id,
+       m.school_id,
+       m.teacher_user_id,
+       m.parent_user_id,
+       m.grade_level,
+       m.sender_user_id,
+       sender.full_name AS sender_name,
+       m.body,
+       m.created_at
+     FROM teacher_parent_messages m
+     JOIN users sender ON sender.id = m.sender_user_id
+     WHERE m.id = $1`,
+    [messageId]
+  );
+  const message = result.rows[0];
+  if (!message) {
+    return null;
+  }
+
+  const canReport =
+    message.teacher_user_id === user.id ||
+    message.parent_user_id === user.id ||
+    user.roles.includes('platform_admin') ||
+    (user.roles.includes('school_admin') && message.school_id === user.schoolId);
+
+  return canReport ? message : null;
+}
+
+export async function listAdminNotificationRecipientsForSchool(
+  client: MaybeClient,
+  schoolId: string
+): Promise<AdminNotificationRecipientRecord[]> {
+  const result = await q<AdminNotificationRecipientRecord>(
+    client,
+    `SELECT DISTINCT u.id, u.full_name
+     FROM users u
+     JOIN user_roles ur ON ur.user_id = u.id
+     WHERE u.status = 'active'
+       AND (
+         ur.role = 'platform_admin'
+         OR (ur.role = 'school_admin' AND u.school_id = $1)
+       )
+     ORDER BY u.full_name ASC`,
+    [schoolId]
+  );
+  return result.rows;
 }
 
 export async function createTeacherLessonPlan(

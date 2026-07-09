@@ -3,10 +3,10 @@ export type LegalSection = {
   paragraphs: string[];
 };
 
-export const TERMS_OF_SERVICE_URL = 'https://kitabu.ai/terms';
-export const PRIVACY_POLICY_URL = 'https://kitabu.ai/policy';
-export const TERMS_VERSION = '2026-06';
-export const PRIVACY_VERSION = '2026-06';
+export const TERMS_OF_SERVICE_URL = 'https://app.kitabu.ai/terms';
+export const PRIVACY_POLICY_URL = 'https://app.kitabu.ai/policy';
+export const TERMS_VERSION = '2026-07';
+export const PRIVACY_VERSION = '2026-07';
 
 export const PRIVACY_POLICY_SECTIONS: LegalSection[] = [
   {
@@ -19,8 +19,8 @@ export const PRIVACY_POLICY_SECTIONS: LegalSection[] = [
   {
     heading: 'Data We Collect',
     paragraphs: [
-      'Data you give us can include account details such as name, email address and phone number; parent or guardian details for learners under 18; learner details such as grade, level, country and subjects; questions, prompts, notes and materials you enter; generated responses; subscription and transaction records; and enquiries, feedback and support messages.',
-      'Payments are handled by third-party payment providers. We do not store full card or mobile-money numbers.',
+      'Data you give us can include account details such as name, email address and phone number; parent or guardian details for learners under 18; learner details such as grade, level, country and subjects; questions, prompts, notes and materials you enter; voice/audio recordings and transcripts when you use voice features; generated responses; in-app safety reports; subscription and transaction records; and enquiries, feedback and support messages.',
+      'Payments, including M-Pesa checkout where available, are handled by third-party payment providers and recorded by ASTRA QUEST AI for subscription, support, tax, accounting, fraud-prevention, and refund-review purposes. We do not store full card or mobile-money numbers.',
       'When you use the Platform we collect device and usage data such as IP address, device and app or browser type, settings, app activity, diagnostic data and crash data, including through cookies and similar technologies. We use this to run, secure and improve the Platform. You are responsible for the accuracy of the data you enter.',
     ],
   },
@@ -64,8 +64,8 @@ export const PRIVACY_POLICY_SECTIONS: LegalSection[] = [
   {
     heading: 'Account and Data Deletion',
     paragraphs: [
-      'You can delete your account and personal data at any time in the app, at kitabu.ai/deletion, or by emailing hello@kitabu.ai. For a child, the request should be made via the guardian.',
-      'After we verify your request, we delete or anonymise your data within a reasonable time, except data we must keep by law, for example tax or transaction records, which we keep only as long as required and then delete.',
+      'You can delete your account and personal data at any time in the app, at https://app.kitabu.ai/deletion, or by emailing hello@kitabu.ai. For a child, the request should be made via the guardian.',
+      'After we verify your request, we delete or anonymise account data within 30 days, except data we must keep by law, such as tax, accounting, transaction, fraud-prevention, security, or dispute records, which we keep only as long as required and then delete.',
     ],
   },
   {
@@ -80,6 +80,7 @@ export const PRIVACY_POLICY_SECTIONS: LegalSection[] = [
     heading: 'AI Features',
     paragraphs: [
       'KITABU AI uses artificial intelligence to generate learning support based on what you submit. This helps with learning and is not a decision that has legal or similarly significant effects on you.',
+      'If an AI answer or other generated content appears unsafe, inappropriate, harmful, or incorrect, you can report it inside the app. We use report details, the reported content, and relevant context to review and improve safety.',
       'We do not make decisions about you based solely on automated processing without a lawful basis under the Act.',
     ],
   },
@@ -95,7 +96,7 @@ export const PRIVACY_POLICY_SECTIONS: LegalSection[] = [
     heading: 'Complaints and Contact',
     paragraphs: [
       'If you have a concern, contact us first at hello@kitabu.ai. You also have the right to complain to the Office of the Data Protection Commissioner (ODPC), www.odpc.go.ke.',
-      'Data controller: ASTRA QUEST AI. Address: Ouru Towers, 4th Floor, Room 402, Kisii, Kenya. Email hello@kitabu.ai. Phone +254 716 175 485. Website www.kitabu.ai. Last updated: 27 June 2026.',
+      'Data controller: ASTRA QUEST AI. Address: Ouru Towers, 4th Floor, Room 402, Kisii, Kenya. Email hello@kitabu.ai. Phone +254 716 175 485. Website app.kitabu.ai. Last updated: 8 July 2026.',
     ],
   },
 ];
@@ -113,7 +114,7 @@ export const TERMS_OF_USE_SECTIONS: LegalSection[] = [
   {
     heading: 'Definitions',
     paragraphs: [
-      'User, Customer, You, and Your refer to natural and legal persons who access www.kitabu.ai or the KITABU AI applications, communicate with us through Platform contacts, and/or use our services, including persons who access or use the services on your behalf.',
+      'User, Customer, You, and Your refer to natural and legal persons who access app.kitabu.ai or the KITABU AI applications, communicate with us through Platform contacts, and/or use our services, including persons who access or use the services on your behalf.',
       'Platform Operator or Operator means ASTRA QUEST AI, which is responsible for setting up and maintaining the Platform and billing for the services provided.',
       'Subscriber means a legal or natural person who enters into a subscription agreement or other agreement with the Operator. Subscription means the monthly or annual subscription value paid for use of KITABU AI Platform services.',
       'Registered User means someone who self-registers on the Platform and has access to the closed part of the portal. Unregistered User means a person who accesses the open part of the Platform anonymously and without a username and password.',
@@ -163,7 +164,7 @@ export const TERMS_OF_USE_SECTIONS: LegalSection[] = [
     paragraphs: [
       'The Platform Operator commits to protecting personal data in accordance with Kenya\'s Data Protection Act, 2019 and its regulations. Collected data will not be transferred to third or unauthorised persons except as described in the Privacy Policy.',
       'The user is responsible for protecting their own data by ensuring the security of their username and password.',
-      'For more information on personal data protection, refer to the Privacy Policy available at kitabu.ai/policy.',
+      'For more information on personal data protection, refer to the Privacy Policy available at app.kitabu.ai/policy.',
     ],
   },
   {
@@ -181,7 +182,7 @@ export const TERMS_OF_USE_SECTIONS: LegalSection[] = [
     paragraphs: [
       'The subscription relationship for use of KITABU AI is concluded with the Platform Operator.',
       'KITABU AI offers monthly or annual subscriptions and additional credit packs. Detailed information on services is available on the Platform, where services are continuously updated and upgraded.',
-      'The subscription is concluded for one month or one year and automatically renews for successive equivalent periods unless the subscriber unsubscribes before the next scheduled payment date through profile settings by clicking Manage subscription.',
+      'The subscription is concluded for one month or one year and automatically renews for successive equivalent periods unless the subscriber unsubscribes before the next scheduled payment date through the account or billing management options available for that platform.',
       'After unsubscribing, KITABU AI remains available for the remaining time already paid for until the end of the then-current subscription period. Unsubscribing does not entitle the subscriber to a refund for fees already paid or unused portions of a subscription period.',
       'The Platform Operator may cease maintenance of the Platform for business reasons and cease providing services to users. In such cases, it may unilaterally terminate the subscription contract and notify the subscriber.',
     ],
@@ -200,7 +201,7 @@ export const TERMS_OF_USE_SECTIONS: LegalSection[] = [
     heading: 'No Refunds and No Guaranteed Results',
     paragraphs: [
       'All payments for subscriptions, credit packs, and other paid content are final. Once payment has been made it is non-refundable, and the subscriber is not entitled to any refund, credit, or set-off, including for unused subscription periods or credits, account suspension or termination due to breach, non-use, or dissatisfaction.',
-      'The only exception is a payment charged in error, such as a duplicate charge or charge taken after valid cancellation. If the Operator verifies an erroneous charge, it will refund the erroneous amount within 30 days after verification.',
+      'The only exception is a payment charged in error, such as a duplicate charge or charge taken after valid cancellation. If the Operator verifies an erroneous charge, it will refund the erroneous amount within 30 days after verification. For M-Pesa payment support, cancellation, or refund review, contact hello@kitabu.ai.',
       'KITABU AI is a learning-support tool only. The Platform Operator does not guarantee any particular learning result, grade, mark, examination performance, KCSE performance, or academic outcome. Progress depends on factors outside the Operator\'s control, including learner effort, engagement, consistency, and circumstances.',
     ],
   },
@@ -248,7 +249,7 @@ export const TERMS_OF_USE_SECTIONS: LegalSection[] = [
       'The user must not use the Platform or submit, generate, upload, share, or attempt to obtain content that is unlawful, harmful, threatening, abusive, harassing, defamatory, obscene, hateful, discriminatory, sexually explicit, exploitative of children, violent, self-harm promoting, terrorist, weapons-related, illegal drug-related, infringing, unauthorised personal data, malware-related, disruptive, unauthorised access-related, or intended to bypass safety, content, or usage controls.',
       'The user is solely responsible for prompts, questions, instructions, materials, and use of any output. To the maximum extent permitted by law, the Platform Operator is not liable for user-submitted content or AI-generated output.',
       'The Platform Operator may use automated systems and human review to monitor and moderate content, and may filter, block, remove, or restrict content, investigate suspected violations, suspend or terminate access, and report unlawful content or activity to relevant authorities.',
-      'Users may report inappropriate, harmful, unsafe, or objectionable content through the in-app reporting feature or by contacting hello@kitabu.ai.',
+      'Users may report inappropriate, harmful, unsafe, or objectionable content through the in-app reporting feature without leaving the app, or by contacting hello@kitabu.ai.',
     ],
   },
   {
@@ -264,7 +265,7 @@ export const TERMS_OF_USE_SECTIONS: LegalSection[] = [
   {
     heading: 'Contact',
     paragraphs: [
-      'Operator: ASTRA QUEST AI. Address: Ouru Towers, 4th Floor, Room 402, Kisii, Kenya. Email hello@kitabu.ai. Phone +254 716 175 485. Website www.kitabu.ai. Last modified: 27 June 2026.',
+      'Operator: ASTRA QUEST AI. Address: Ouru Towers, 4th Floor, Room 402, Kisii, Kenya. Email hello@kitabu.ai. Phone +254 716 175 485. Website app.kitabu.ai. Last modified: 8 July 2026.',
     ],
   },
 ];

@@ -106,15 +106,20 @@ jobs:
           docker compose config --quiet
           docker compose up -d postgres redis
           docker compose build api worker
-          docker compose run --rm api node scripts/apply-migrations.mjs
-          docker compose run --rm api node scripts/quiz-bank/validate-quiz-bank.mjs
-          docker compose run --rm api node scripts/quiz-bank/import-quiz-bank.mjs
-          docker compose run --rm api node scripts/verify-production-readiness.mjs
+          docker compose run --rm -T api node scripts/apply-migrations.mjs
+          docker compose run --rm -T api node scripts/quiz-bank/validate-quiz-bank.mjs
+          docker compose run --rm -T api node scripts/quiz-bank/import-quiz-bank.mjs
+          docker compose run --rm -T api node scripts/verify-production-readiness.mjs
           docker compose up -d --force-recreate api worker caddy
           docker exec kitabu-caddy grep -q 'resetPasswordPath' /etc/caddy/Caddyfile
           docker exec kitabu-caddy grep -q 'verifyEmailPath' /etc/caddy/Caddyfile
           docker exec kitabu-api grep -q 'Reset link unavailable' /app/dist/server.js
           docker exec kitabu-api grep -q 'Open Kitabu AI Login' /app/dist/server.js
+          docker exec kitabu-api test -s /app/legal/legal.css
+          docker exec kitabu-api test -s /app/legal/assets/kitabu-icon-bold-192.png
+          docker exec kitabu-api test -s /app/legal/assets/kitabu-favicon-bold.ico
+          docker exec kitabu-api test -s /app/legal/assets/fonts/bricolage-grotesque-latin.woff2
+          docker exec kitabu-api test -s /app/legal/assets/fonts/plus-jakarta-sans-latin.woff2
           docker compose exec -T caddy caddy reload --config /etc/caddy/Caddyfile
           healthy=0
           for attempt in $(seq 1 30); do
@@ -141,6 +146,12 @@ jobs:
           curl --fail --silent https://kitabu.ai/terms | grep -q 'General Terms and Conditions of Use'
           curl --fail --silent https://kitabu.ai/Terms | grep -q 'General Terms and Conditions of Use'
           curl --fail --silent https://kitabu.ai/TERMS | grep -q 'General Terms and Conditions of Use'
+          curl --fail --silent 'https://app.kitabu.ai/policy?deploy=${{ github.sha }}' | grep -q 'https://app.kitabu.ai/deletion'
+          curl --fail --silent 'https://app.kitabu.ai/legal.css?deploy=${{ github.sha }}' >/dev/null
+          curl --fail --silent 'https://app.kitabu.ai/assets/kitabu-icon-bold-192.png?deploy=${{ github.sha }}' >/dev/null
+          curl --fail --silent 'https://app.kitabu.ai/assets/kitabu-favicon-bold.ico?deploy=${{ github.sha }}' >/dev/null
+          curl --fail --silent 'https://app.kitabu.ai/assets/fonts/bricolage-grotesque-latin.woff2?deploy=${{ github.sha }}' >/dev/null
+          curl --fail --silent 'https://app.kitabu.ai/assets/fonts/plus-jakarta-sans-latin.woff2?deploy=${{ github.sha }}' >/dev/null
           curl --fail --silent https://admin.kitabu.ai/app.js | grep -q '/curriculum/import/pdf'
           curl --fail --silent https://admin.kitabu.ai/app.js | grep -q '/ai/generate-text'
           REMOTE

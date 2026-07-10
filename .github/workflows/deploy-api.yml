@@ -106,10 +106,10 @@ jobs:
           docker compose config --quiet
           docker compose up -d postgres redis
           docker compose build api worker
-          docker compose run --rm -T api node scripts/apply-migrations.mjs
-          docker compose run --rm -T api node scripts/quiz-bank/validate-quiz-bank.mjs
-          docker compose run --rm -T api node scripts/quiz-bank/import-quiz-bank.mjs
-          docker compose run --rm -T api node scripts/verify-production-readiness.mjs
+          docker compose run --rm -T api node scripts/apply-migrations.mjs </dev/null
+          docker compose run --rm -T api node scripts/quiz-bank/validate-quiz-bank.mjs </dev/null
+          docker compose run --rm -T api node scripts/quiz-bank/import-quiz-bank.mjs </dev/null
+          docker compose run --rm -T api node scripts/verify-production-readiness.mjs </dev/null
           docker compose up -d --force-recreate api worker caddy
           docker exec kitabu-caddy grep -q 'resetPasswordPath' /etc/caddy/Caddyfile
           docker exec kitabu-caddy grep -q 'verifyEmailPath' /etc/caddy/Caddyfile

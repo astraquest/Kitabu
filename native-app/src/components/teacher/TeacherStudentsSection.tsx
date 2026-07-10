@@ -22,8 +22,13 @@ interface TeacherStudentsSectionProps {
   subjectMenuOpen: boolean;
   sortBy: 'name' | 'score';
   showRemedial: boolean;
+  showMetrics?: boolean;
+  homeMode?: boolean;
+  needHelpStudents?: StudentPerformance[];
+  improvedStudents?: StudentPerformance[];
   averageScore: number;
   remedialCount: number;
+  classSize: number;
   filteredStudents: StudentPerformance[];
   onToggleGradeMenu: () => void;
   onSelectGrade: (value: string) => void;
@@ -42,8 +47,13 @@ export function TeacherStudentsSection({
   subjectMenuOpen,
   sortBy,
   showRemedial,
+  showMetrics = true,
+  homeMode = false,
+  needHelpStudents = [],
+  improvedStudents = [],
   averageScore,
   remedialCount,
+  classSize,
   filteredStudents,
   onToggleGradeMenu,
   onSelectGrade,
@@ -56,6 +66,50 @@ export function TeacherStudentsSection({
   const mutedIconColor = styles.mutedIconColor || '#6B7280';
   const sortIconColor = styles.sortIconColor || '#475569';
   const chevronColor = styles.chevronColor || '#9CA3AF';
+
+  const renderCompactRow = (item: StudentPerformance) => (
+    <Pressable
+      key={item.id}
+      onPress={() => onSelectStudent(item)}
+      style={styles.compactRow}>
+      <TeacherAvatarBadge
+        styles={styles}
+        name={item.name}
+        avatar={item.avatar}
+        size={styles.avatarCompactSize || 30}
+      />
+      <View style={styles.compactMain}>
+        <Text numberOfLines={1} style={styles.compactName}>
+          {item.name}
+        </Text>
+        <Text numberOfLines={1} style={styles.compactMeta}>
+          {item.grade} · {item.homeworkCompletion}% homework
+        </Text>
+      </View>
+      <View
+        style={[
+          styles.compactPill,
+          item.assessmentScore >= 80
+            ? styles.scorePillGood
+            : item.assessmentScore >= 60
+              ? styles.scorePillWarn
+              : styles.scorePillBad,
+        ]}>
+        <Text
+          style={[
+            styles.compactPillText,
+            item.assessmentScore >= 80
+              ? styles.goodText
+              : item.assessmentScore >= 60
+                ? styles.warnText
+                : styles.badText,
+          ]}>
+          {item.assessmentScore}%
+        </Text>
+      </View>
+      <ChevronRight size={14} color={chevronColor} />
+    </Pressable>
+  );
 
   return (
     <>
@@ -88,7 +142,7 @@ export function TeacherStudentsSection({
           <Pressable onPress={onToggleSubjectMenu} style={styles.chip}>
             <BookOpen size={styles.filterIconSize || 18} color={sortIconColor} />
             <Text adjustsFontSizeToFit minimumFontScale={0.82} numberOfLines={1} style={styles.chipText}>
-              {subjectFilter === 'All' ? 'All Subjects' : subjectFilter}
+              {subjectFilter === 'All' ? 'Subjects' : subjectFilter}
             </Text>
             <ChevronDown size={14} color={mutedIconColor} />
           </Pressable>
@@ -120,6 +174,7 @@ export function TeacherStudentsSection({
         </Pressable>
       </View>
 
+      {showMetrics ? (
       <View style={styles.grid}>
         <View style={styles.metric}>
           {styles.metricTopStrip ? (
@@ -133,9 +188,10 @@ export function TeacherStudentsSection({
           <Text style={styles.metricLabel}>Class Average</Text>
           <View style={styles.metricRow}>
             <Text style={styles.metricValue}>{averageScore}%</Text>
-            <Text style={styles.metricAccent}>+2%</Text>
           </View>
-          <Text style={styles.metricSubline}>vs last 7 days</Text>
+          <Text style={styles.metricSubline}>
+            across {classSize} student{classSize === 1 ? '' : 's'}
+          </Text>
           {styles.metricRules ? (
             <View pointerEvents="none" style={styles.metricRules}>
               <View style={styles.metricRule} />
@@ -161,7 +217,9 @@ export function TeacherStudentsSection({
             </Text>
             <Text style={styles.metricHint}>Total</Text>
           </View>
-          <Text style={styles.metricSubline}>vs last 7 days</Text>
+          <Text style={styles.metricSubline}>
+            {showRemedial ? 'scoring below 70%' : 'in your classes'}
+          </Text>
           {styles.metricRules ? (
             <View pointerEvents="none" style={styles.metricRules}>
               <View style={styles.metricRule} />
@@ -170,7 +228,35 @@ export function TeacherStudentsSection({
           ) : null}
         </View>
       </View>
+      ) : null}
 
+      {homeMode ? (
+        <>
+          <View style={styles.card}>
+            <View style={styles.cardHeader}>
+              <Text style={styles.cardHeaderText}>Needs urgent help</Text>
+              <Text style={styles.cardHeaderMeta}>Top {needHelpStudents.length}</Text>
+            </View>
+            {needHelpStudents.length > 0 ? (
+              needHelpStudents.map(renderCompactRow)
+            ) : (
+              <View style={styles.empty}>
+                <Text style={styles.emptyText}>No students in this class yet.</Text>
+              </View>
+            )}
+          </View>
+
+          {improvedStudents.length > 0 ? (
+            <View style={styles.card}>
+              <View style={styles.cardHeader}>
+                <Text style={styles.cardHeaderText}>Most improved</Text>
+                <Text style={styles.cardHeaderMeta}>Top {improvedStudents.length}</Text>
+              </View>
+              {improvedStudents.map(renderCompactRow)}
+            </View>
+          ) : null}
+        </>
+      ) : (
       <View style={styles.card}>
         <View style={styles.cardHeader}>
           <Text style={styles.cardHeaderText}>
@@ -193,24 +279,69 @@ export function TeacherStudentsSection({
                   size={styles.avatarLargeSize || 40}
                 />
                 <View style={styles.rowMain}>
-                  <Text style={styles.rowTitle}>{item.name}</Text>
-                  <Text style={styles.rowMeta}>{item.grade}</Text>
+                  <Text numberOfLines={1} style={styles.rowTitle}>
+                    {item.name}
+                  </Text>
+                  <View style={styles.rowTitleLine}>
+                    <Text style={styles.rowMeta}>{item.grade}</Text>
+                    <View
+                      style={[
+                        styles.trendChip,
+                        item.trend === 'Excellent'
+                          ? styles.trendChipExcellent
+                          : item.trend === 'Improving'
+                            ? styles.trendChipImproving
+                            : styles.trendChipStable,
+                      ]}>
+                      <Text
+                        style={[
+                          styles.trendChipText,
+                          item.trend === 'Excellent'
+                            ? styles.trendChipTextExcellent
+                            : item.trend === 'Improving'
+                              ? styles.trendChipTextImproving
+                              : styles.trendChipTextStable,
+                        ]}>
+                        {item.trend === 'Excellent' ? '★ Excellent' : item.trend === 'Improving' ? '↑ Improving' : '→ Stable'}
+                      </Text>
+                    </View>
+                  </View>
+                  <View style={styles.hwLine}>
+                    <View style={styles.hwTrack}>
+                      <View
+                        style={[
+                          styles.hwFill,
+                          { width: `${Math.max(0, Math.min(100, item.homeworkCompletion))}%` },
+                        ]}
+                      />
+                    </View>
+                    <Text style={styles.hwLabel}>{item.homeworkCompletion}% homework</Text>
+                  </View>
                 </View>
               </View>
               <View style={styles.rowEnd}>
-                {styles.scoreDivider ? <View style={styles.scoreDivider} /> : null}
                 <View style={styles.scoreWrap}>
-                  <Text
+                  <View
                     style={[
-                      styles.score,
+                      styles.scorePill,
                       item.assessmentScore >= 80
-                        ? styles.goodText
+                        ? styles.scorePillGood
                         : item.assessmentScore >= 60
-                          ? styles.warnText
-                          : styles.badText,
+                          ? styles.scorePillWarn
+                          : styles.scorePillBad,
                     ]}>
-                    {item.assessmentScore}%
-                  </Text>
+                    <Text
+                      style={[
+                        styles.scorePillText,
+                        item.assessmentScore >= 80
+                          ? styles.goodText
+                          : item.assessmentScore >= 60
+                            ? styles.warnText
+                            : styles.badText,
+                      ]}>
+                      {item.assessmentScore}%
+                    </Text>
+                  </View>
                   <Text style={styles.rowTiny}>Avg</Text>
                 </View>
                 <ChevronRight size={16} color={chevronColor} />
@@ -227,6 +358,7 @@ export function TeacherStudentsSection({
           </View>
         )}
       </View>
+      )}
     </>
   );
 }

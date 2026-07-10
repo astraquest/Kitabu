@@ -3,6 +3,7 @@ import { Pressable, Text, View } from 'react-native';
 import { ChevronDown, Clock, Filter, GraduationCap, Plus } from 'lucide-react-native';
 
 import { SubmittedAssignment } from '../../types/app';
+import { formatDueLabel, formatFriendlyDate } from '../../utils/friendlyDates';
 
 interface TeacherAssignmentsSectionProps {
   styles: Record<string, any>;
@@ -101,25 +102,45 @@ export function TeacherAssignmentsSection({
             const completionRate = Math.round(
               (item.submittedCount / Math.max(item.totalStudents, 1)) * 100,
             );
+            const due = formatDueLabel(item.dueDate);
+            const subjectKey = item.subject === 'Math' ? 'Mathematics' : item.subject;
 
             return (
               <Pressable
                 key={item.id}
                 onPress={() => onSelectAssignment(item)}
                 style={styles.assignmentCard}>
+                <View
+                  style={[
+                    styles.assignmentSpine,
+                    subjectKey === 'Mathematics'
+                      ? styles.spineBlue
+                      : subjectKey === 'Science'
+                        ? styles.spineGreen
+                        : subjectKey === 'Kiswahili'
+                          ? styles.spinePurple
+                          : subjectKey === 'Social Studies'
+                            ? styles.spineTeal
+                            : styles.spineOrange,
+                  ]}
+                />
                 <View style={styles.assignmentHead}>
                   <Text
                     style={[
                       styles.subjectPill,
-                      item.subject === 'Mathematics'
+                      subjectKey === 'Mathematics'
                         ? styles.subjectBlue
-                        : item.subject === 'Science'
+                        : subjectKey === 'Science'
                           ? styles.subjectGreen
-                          : styles.subjectOrange,
+                          : subjectKey === 'Kiswahili'
+                            ? styles.subjectPurple
+                            : subjectKey === 'Social Studies'
+                              ? styles.subjectTeal
+                              : styles.subjectOrange,
                     ]}>
-                    {item.subject}
+                    {subjectKey}
                   </Text>
-                  <Text style={styles.date}>{item.dateSent}</Text>
+                  <Text style={styles.date}>Sent {formatFriendlyDate(item.dateSent)}</Text>
                 </View>
 
                 <Text style={styles.assignmentTitle}>{item.title}</Text>
@@ -130,8 +151,11 @@ export function TeacherAssignmentsSection({
                     <Text style={styles.assignmentMeta}>{item.gradeLevel}</Text>
                   </View>
                   <View style={styles.assignmentInfo}>
-                    <Clock size={14} color="#6B7280" />
-                    <Text style={styles.assignmentMeta}>Due: {item.dueDate}</Text>
+                    <Clock size={14} color={due.overdue ? '#DC2626' : '#6B7280'} />
+                    <Text
+                      style={[styles.assignmentMeta, due.overdue && styles.assignmentMetaOverdue]}>
+                      {due.label}
+                    </Text>
                   </View>
                 </View>
 

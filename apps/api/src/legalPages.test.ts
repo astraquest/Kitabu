@@ -47,7 +47,7 @@ test('legal pages are public, hardened, and reference live local assets', async 
     assert.equal(response.headers['cross-origin-resource-policy'], 'same-origin');
     assert.match(response.headers['content-security-policy'] ?? '', /script-src 'none'/);
     assert.match(response.body, /href="\/legal\.css\?v=20260710"/);
-    assert.match(response.body, /src="\/assets\/kitabu-logo\.png\?v=20260710"/);
+    assert.match(response.body, /src="\/assets\/kitabu-icon-bold-192\.png\?v=20260710"/);
     assert.doesNotMatch(response.body, /href="\/"/);
     assert.doesNotMatch(response.body, /<script|\sstyle=|\son[a-z]+=/i);
   }
@@ -62,7 +62,7 @@ test('legal pages are public, hardened, and reference live local assets', async 
 test('legal assets are packaged with correct content types', async () => {
   const assets = [
     ['/legal.css?v=20260710', /^text\/css; charset=utf-8$/],
-    ['/assets/kitabu-logo.png?v=20260710', /^image\/png$/],
+    ['/assets/kitabu-icon-bold-192.png?v=20260710', /^image\/png$/],
     ['/assets/kitabu-favicon-bold.ico?v=20260710', /^image\/x-icon$/],
     ['/assets/fonts/bricolage-grotesque-latin.woff2?v=20260710', /^font\/woff2$/],
     ['/assets/fonts/plus-jakarta-sans-latin.woff2?v=20260710', /^font\/woff2$/]

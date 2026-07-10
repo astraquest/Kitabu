@@ -221,8 +221,8 @@ const LEGAL_ASSET_PATHS = {
     path: join(LEGAL_PAGE_DIR, 'legal.css'),
     contentType: 'text/css; charset=utf-8'
   },
-  '/assets/kitabu-logo.png': {
-    path: join(LEGAL_PAGE_DIR, 'assets', 'kitabu-logo.png'),
+  '/assets/kitabu-icon-bold-192.png': {
+    path: join(LEGAL_PAGE_DIR, 'assets', 'kitabu-icon-bold-192.png'),
     contentType: 'image/png'
   },
   '/assets/kitabu-favicon-bold.ico': {
@@ -1642,8 +1642,8 @@ export function buildServer(options: BuildServerOptions = {}) {
     return sendLegalAsset('/legal.css', reply);
   });
 
-  app.get('/assets/kitabu-logo.png', async (_request, reply) => {
-    return sendLegalAsset('/assets/kitabu-logo.png', reply);
+  app.get('/assets/kitabu-icon-bold-192.png', async (_request, reply) => {
+    return sendLegalAsset('/assets/kitabu-icon-bold-192.png', reply);
   });
 
   app.get('/assets/kitabu-favicon-bold.ico', async (_request, reply) => {

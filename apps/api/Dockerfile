@@ -28,7 +28,7 @@ COPY apps/web/policy /app/legal/policy
 COPY apps/web/terms /app/legal/terms
 COPY apps/web/deletion /app/legal/deletion
 COPY apps/web/legal.css /app/legal/legal.css
-COPY apps/web/assets/kitabu-logo.png /app/legal/assets/kitabu-logo.png
+COPY apps/web/assets/kitabu-icon-bold-192.png /app/legal/assets/kitabu-icon-bold-192.png
 COPY apps/web/assets/kitabu-favicon-bold.ico /app/legal/assets/kitabu-favicon-bold.ico
 COPY apps/web/assets/fonts/bricolage-grotesque-latin.woff2 /app/legal/assets/fonts/bricolage-grotesque-latin.woff2
 COPY apps/web/assets/fonts/plus-jakarta-sans-latin.woff2 /app/legal/assets/fonts/plus-jakarta-sans-latin.woff2

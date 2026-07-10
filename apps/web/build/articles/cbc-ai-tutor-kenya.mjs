@@ -17,5 +17,5 @@ export default [{
           <p>A good learning assistant should explain step by step, check understanding, keep the learner on the syllabus, and show progress to adults. It should feel like a guided study room, not open-ended browsing. That’s how Kitabu AI is built: every conversation is about schoolwork, and parents can see what happened. More on the safeguards on our <a href="/safety/">safety page</a>.</p>
           <h2>What parents should look for</h2>
           <p>Look for real curriculum alignment (<a href="/curriculum-alignment/">strand by strand</a>), practice questions after every explanation, plain-language progress updates, and payment that fits Kenyan families. The goal is not more screen time. The goal is useful study time that can be understood and measured — here’s <a href="/blog/is-my-child-really-revising">how to tell the difference</a>.</p>
-          <p>Ready to see it? <a href="/download/">Get early access to Kitabu AI</a> — free to start, from KSh 250/month.</p>`
+          <p>Ready to see it? <a href="/download/">Download Kitabu AI from Google Play</a> — free to start, from KSh 250/month.</p>`
 }];

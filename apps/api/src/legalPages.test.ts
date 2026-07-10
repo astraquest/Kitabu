@@ -48,7 +48,11 @@ test('legal pages are public, hardened, and reference live local assets', async 
     assert.match(response.headers['content-security-policy'] ?? '', /script-src 'none'/);
     assert.match(response.body, /href="\/legal\.css\?v=20260710"/);
     assert.match(response.body, /src="\/assets\/kitabu-icon-bold-192\.png\?v=20260710"/);
-    assert.doesNotMatch(response.body, /href="\/"/);
+    assert.match(
+      response.body,
+      /<a class="brand" href="https:\/\/kitabu\.ai\/" aria-label="Kitabu AI home">/
+    );
+    assert.doesNotMatch(response.body, /class="brand" href="\/policy"/);
     assert.doesNotMatch(response.body, /<script|\sstyle=|\son[a-z]+=/i);
   }
 

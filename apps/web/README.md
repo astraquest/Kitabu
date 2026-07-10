@@ -11,7 +11,7 @@ for caching/security). No framework, no build dependencies beyond Node.
 | `index.html` | Homepage — **hand-authored**, edit directly |
 | `build/build-pages.mjs` | Generator for **every other route** (persona pages, pricing, download, school demo form, authority pages, 7 SEO landings, blog posts, 404, sitemap.xml). Edit the page definitions in this file, then run `node apps/web/build/build-pages.mjs`. Never edit generated pages by hand — the next build overwrites them |
 | `build/articles/*.mjs` | **One module per blog post** (default-exports an array of article definitions; auto-loaded by the build, auto-added to the sitemap). All new posts go here, not in `build-pages.mjs`. Supports an optional `faq: [[q, a], …]` field that renders a "Common questions" accordion + FAQPage schema. After adding a post, also add its card to the homepage `#blog` grid (hand-authored). Content rules live in `growth-machine/seo-content-strategy.md` (repo root) — length, structure, fact pack, compliance |
-| `styles-20260704.css` | The entire design system (tokens, components, motion states). Date-stamped: cached immutable, so **rename with a new date** when you change it, and update `ASSET_CSS` in the build script + the homepage `<link>` |
+| `styles-20260710.css` | The entire design system (tokens, components, motion states). Date-stamped: cached immutable, so **rename with a new date** when you change it, and update `ASSET_CSS` in the build script + the homepage `<link>` |
 | `site-20260704.js` | All behaviour: scroll reveals, split-text, counters, FAQ accordion, sticky header/bar, analytics events, school onboarding form. Same date-stamp rule (`ASSET_JS`) |
 | `assets/fonts/*.woff2` | Self-hosted variable fonts (Bricolage Grotesque, Plus Jakarta Sans), latin subset, preloaded |
 | `legal.css` | Shared, script-free design system for `/terms`, `/policy`, `/privacy`, and `/deletion`. The API image copies this file plus its allowlisted logo, favicon, and fonts so the Play-facing `app.kitabu.ai` routes render without depending on the marketing host |
@@ -29,7 +29,8 @@ for caching/security). No framework, no build dependencies beyond Node.
 
 ## Copy & compliance rules (from the Kitabu Marketing Playbook — binding)
 
-- Grades: always "Grade 4–10 at launch, expanding to Senior School".
+- Current coverage: Grades 4–10. Describe any future subject expansion separately without implying the live app is unreleased.
+- Distribution: Android is live on Google Play. App Store availability is the only customer-facing surface that may say "Coming soon" until the iOS listing is live.
 - "CBC-aligned" only — never "KICD-approved".
 - Offline claim: downloaded books & saved lessons only; the live tutor needs a connection.
 - Holidays: "parent-led home revision, on your terms" — never "holiday classes/tuition".

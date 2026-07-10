@@ -12,7 +12,7 @@ export default [{
   faq: [
     ['How much does Kitabu AI cost?', 'KSh 250 per month, per learner — less than one revision book. You start with a free ≈15-minute diagnostic, no card needed. Weekly and annual options exist too, and you pay with M-Pesa only when you choose to continue.'],
     ['Is Kitabu AI legit and safe?', 'Yes. Kitabu AI is a real product built by Jambo AI Studio in Nairobi, founded by Samora Kibagendi. It is a guided, age-appropriate space built for schoolwork — every conversation is about learning, and parents can see what happened each week.'],
-    ['Which grades does Kitabu AI cover?', 'Grade 4 to Grade 10 at launch, expanding to Senior School. The lessons follow the CBC (now CBE) syllabus strand by strand, so the tutor teaches the way the child is actually assessed at school.'],
+    ['Which grades does Kitabu AI cover?', 'Grade 4 to Grade 10. The lessons follow the CBC (now CBE) syllabus strand by strand, so the tutor teaches the way the child is actually assessed at school.'],
     ['Does Kitabu AI work offline?', 'Downloaded books and saved lessons work offline, so a child can keep revising without data. The live tutor — asking a new question and getting a fresh explanation — needs an internet connection.'],
     ['How do I pay for Kitabu AI?', 'You pay with M-Pesa. The lead price is KSh 250 per month per learner, with weekly and annual options. You only pay after the free diagnostic, once you decide the app is right for your child.'],
     ['Does Kitabu AI replace the teacher?', 'No. It is a patient second explanation for home — it supports the classroom, it does not replace it. The teacher still teaches, sets work, and assesses. Kitabu helps a child practise until an idea becomes clear.']

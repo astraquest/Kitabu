@@ -12,17 +12,30 @@
 //   site-YYYYMMDD.js) so they can be cached immutable; bump the date when
 //   you change them and update ASSET_CSS/ASSET_JS below + index.html.
 // - Copy marked [VERBATIM] in the marketing playbook is final — do not edit.
-// - Compliance guardrails: grades are "4–10 at launch, expanding to Senior
-//   School"; offline = downloaded books & saved lessons only; holidays are
+// - Compliance guardrails: current coverage is Grades 4–10; offline =
+//   downloaded books & saved lessons only; holidays are
 //   "parent-led home revision"; never invent testimonials or school names.
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const WEB = join(dirname(fileURLToPath(import.meta.url)), '..');
-const ASSET_CSS = '/styles-20260704.css';
+const ASSET_CSS = '/styles-20260710.css';
 const ASSET_JS = '/site-20260704.js';
 const WA = (tag) => `https://wa.me/254716175485?text=I%27m%20interested%20in%20Kitabu%20AI%20%5B${tag}%5D`;
+const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=ai.kitabu2.twa&amp;pcampaignid=web_share';
+const BRAND_ICON_URL = '/assets/kitabu-icon-bold-192.png?v=20260710';
+
+const storeBadges = (source, centered = false) => `
+          <div class="store-badges${centered ? ' store-badges-centered' : ''}" aria-label="Get Kitabu AI">
+            <a class="store-badge store-badge-google" href="${PLAY_STORE_URL}" target="_blank" rel="noopener noreferrer" data-event="store_badge_clicked" data-event-source="${source}_google_play" aria-label="Get Kitabu AI on Google Play">
+              <img src="/assets/google-play-badge.png?v=20260710" alt="Get it on Google Play" width="646" height="250" />
+            </a>
+            <div class="store-badge store-badge-app" role="img" aria-label="Kitabu AI for iPhone and iPad is coming soon on the App Store">
+              <img src="/assets/app-store-badge.svg?v=20260710" alt="" width="135" height="40" />
+              <span class="store-badge-status">Coming soon</span>
+            </div>
+          </div>`;
 
 const ORG_SCHEMA = {
   '@context': 'https://schema.org',
@@ -81,7 +94,7 @@ const ctaSection = (heading, source, opts = {}) => `
           <h2 data-split>${heading}</h2>
           <div class="hero-actions" style="justify-content: center" data-reveal>
             <a class="button" href="${opts.href || '/download/'}" data-event="${opts.event || 'download_cta_clicked'}" data-event-source="${source}">${opts.label || 'Start Free →'}</a>
-            <a class="button button-quiet" href="${WA('site_' + source)}" data-event="download_cta_clicked" data-event-source="${source}_whatsapp">Get Early Access on WhatsApp →</a>
+            <a class="button button-quiet" href="${WA('site_' + source)}" data-event="download_cta_clicked" data-event-source="${source}_whatsapp">Questions? WhatsApp us →</a>
           </div>
           <p class="reassurance" data-reveal>Free to start · M-Pesa · Cancel anytime · English &amp; Kiswahili</p>
         </div>
@@ -90,7 +103,7 @@ const ctaSection = (heading, source, opts = {}) => `
 const header = () => `    <header class="site-header" id="top">
       <nav class="nav-shell" aria-label="Primary navigation">
         <a class="brand" href="/" aria-label="Kitabu AI home">
-          <span class="brand-icon" aria-hidden="true"><img src="/assets/kitabu-logo.png" alt="" width="34" height="34" /></span>
+          <span class="brand-icon" aria-hidden="true"><img src="${BRAND_ICON_URL}" alt="" width="34" height="34" /></span>
           <span>Kitabu AI</span>
         </a>
         <button class="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
@@ -115,7 +128,7 @@ const footer = () => `    <footer class="site-footer">
       <div class="container footer-grid">
         <div>
           <a class="brand footer-brand" href="/">
-            <span class="brand-icon" aria-hidden="true"><img src="/assets/kitabu-logo.png" alt="" width="34" height="34" /></span>
+            <span class="brand-icon" aria-hidden="true"><img src="${BRAND_ICON_URL}" alt="" width="34" height="34" /></span>
             <span>Kitabu AI</span>
           </a>
           <p class="footer-tagline">Kitabu AI — Mwalimu wa nyumbani. A personal tutor for every Kenyan child.</p>
@@ -152,7 +165,8 @@ const footer = () => `    <footer class="site-footer">
       </div>
       <div class="container footer-bottom">
         <p>© 2026 Kitabu AI · Jambo AI Studio, Nairobi</p>
-        <p>Grades 4–10 at launch, expanding to Senior School · CBC-aligned · English &amp; Kiswahili</p>
+        <p>Grades 4–10 · CBC-aligned · English &amp; Kiswahili</p>
+        <p class="store-legal">Google Play and the Google Play logo are trademarks of Google LLC. Apple and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries and regions. App Store is a service mark of Apple Inc.</p>
       </div>
     </footer>`;
 
@@ -630,17 +644,17 @@ pages.push({
   path: 'download/index.html',
   url: '/download',
   crumbName: 'Download',
-  title: 'Download Kitabu AI — Get Early Access Today | Kitabu AI',
-  desc: 'Kitabu AI is in launch preparation for the App Store and Google Play. Get early access on WhatsApp today and we’ll notify you the day the stores go live.',
+  title: 'Download Kitabu AI on Google Play | Kitabu AI',
+  desc: 'Kitabu AI is live on Google Play for Android. Download the official app and start learning today.',
   kicker: 'Download Kitabu AI',
-  h1: 'Get early access today.',
-  lede: 'We’re in launch preparation for the App Store and Google Play. Tap below to get early access on WhatsApp now — we’ll notify you the day the stores go live.',
+  h1: 'Kitabu AI is live on Google Play.',
+  lede: 'Download the official Android app and give your child a patient CBC tutor today. The App Store version is coming soon.',
   extraSchema: [{
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
     name: 'Kitabu AI',
     applicationCategory: 'EducationalApplication',
-    operatingSystem: 'Android, iOS',
+    operatingSystem: 'Android',
     url: 'https://kitabu.ai/download',
     description: 'A patient personal tutor for Kenyan learners in Grade 4–10, aligned to the CBC (CBE) syllabus, with a parent progress window and M-Pesa payment.',
     offers: { '@type': 'Offer', price: '250', priceCurrency: 'KES' }
@@ -648,18 +662,16 @@ pages.push({
   content: `
       <section class="section" style="padding-top: 24px">
         <div class="container">
-          <div class="hero-actions" data-reveal>
-            <a class="button" href="${WA('site_download_android')}" data-event="download_cta_clicked" data-event-source="download_android">Get Early Access on WhatsApp →</a>
-          </div>
-          <p class="form-note" data-reveal>Android and iOS. Official App Store and Google Play badges will appear here the day the listings are live.</p>
+${storeBadges('download', true)}
+          <p class="form-note center" data-reveal>Available now on Google Play for Android.</p>
           <div class="feature-rows" style="max-width: 760px; margin-top: 40px">
             <div class="feature-row" data-reveal>
               <span class="feature-icon" aria-hidden="true">1️⃣</span>
-              <div><h3>Message us on WhatsApp</h3><p>One tap. Tell us your child’s grade and we’ll send the early-access build with simple install steps.</p></div>
+              <div><h3>Download from Google Play</h3><p>Install the official Kitabu AI app securely from Google Play on your Android phone or tablet.</p></div>
             </div>
             <div class="feature-row" data-reveal>
               <span class="feature-icon" aria-hidden="true">2️⃣</span>
-              <div><h3>Take the free check-up</h3><p>A friendly ≈15-minute diagnostic finds your child’s real starting point. No card, no payment.</p></div>
+              <div><h3>Create your learner profile</h3><p>Choose the learner’s grade and subjects, then take a friendly diagnostic to find the right starting point.</p></div>
             </div>
             <div class="feature-row" data-reveal>
               <span class="feature-icon" aria-hidden="true">3️⃣</span>
@@ -668,7 +680,7 @@ pages.push({
           </div>
         </div>
       </section>
-${ctaSection('Your child’s best term starts today.', 'download_final', { href: WA('site_download_final'), label: 'Get Early Access on WhatsApp →' })}`
+${ctaSection('Your child’s best term starts today.', 'download_final', { href: PLAY_STORE_URL, label: 'Download on Google Play →', event: 'store_badge_clicked' })}`
 });
 
 /* ---- /about ---- */
@@ -685,23 +697,23 @@ pages.push({
       <section class="section" style="padding-top: 24px">
         <div class="container prose">
           <h2>What Kitabu AI is</h2>
-          <p>Kitabu AI is a personal tutor app for Kenyan learners in Grade 4–10 at launch, expanding to Senior School. It explains step by step, in English or Kiswahili, following the CBC (CBE) syllabus. Learners can ask anything, any time, as many times as they need — no judgment, no rushing.</p>
+          <p>Kitabu AI is a personal tutor app for Kenyan learners in Grades 4–10. It explains step by step, in English or Kiswahili, following the CBC (CBE) syllabus. Learners can ask anything, any time, as many times as they need — no judgment, no rushing.</p>
           <p>Parents get a daily dashboard and a simple Friday WhatsApp message showing what their child studied, what improved, and where they’re stuck. Teachers get less routine marking and a clear picture of who needs help. Schools get structured after-school revision support for their day scholars.</p>
           <h2>The facts</h2>
           <ul>
             <li><strong>Product:</strong> Kitabu AI — a personal tutor for East African students, plus a parent progress window and teacher tools.</li>
             <li><strong>Company:</strong> Jambo AI Studio, Nairobi, Kenya.</li>
             <li><strong>Founder:</strong> <a href="/about/founder/">Samora Kibagendi</a>.</li>
-            <li><strong>Coverage:</strong> Grade 4–10 at launch, expanding to Senior School.</li>
+            <li><strong>Coverage:</strong> Grades 4–10.</li>
             <li><strong>Languages:</strong> English &amp; Kiswahili.</li>
             <li><strong>Curriculum:</strong> CBC-aligned (Kenya). See <a href="/curriculum-alignment/">curriculum alignment</a>.</li>
             <li><strong>Price:</strong> from KSh 250/month per learner, paid with M-Pesa. See <a href="/pricing/">pricing</a>.</li>
             <li><strong>Offline:</strong> downloaded books &amp; saved lessons work offline; the live tutor needs a connection.</li>
-            <li><strong>Status:</strong> pre-launch — apps built for Android and iOS, store listings in preparation.</li>
+            <li><strong>Status:</strong> live on Google Play for Android; App Store version coming soon.</li>
           </ul>
           <h2>What we believe</h2>
           <p>Every child deserves a teacher who never gets tired of explaining. One teacher with 50 children cannot give every child the second, patient explanation they sometimes need — and no parent should discover a problem for the first time on a report card. Kitabu exists to close both gaps.</p>
-          <p class="article-meta">Last updated 4 July 2026</p>
+          <p class="article-meta">Last updated 10 July 2026</p>
         </div>
       </section>
 ${ctaSection('Meet your child’s mwalimu wa nyumbani.', 'about')}`
@@ -744,7 +756,7 @@ pages.push({
         <div class="container prose">
           <h2>How alignment works</h2>
           <p>Every lesson, explanation, and quiz in Kitabu is organised by learning area, strand, and sub-strand, mirroring the CBC (CBE) structure used in Kenyan classrooms. When your child asks a question, the tutor answers it "the CBC way" — using the terms, methods, and presentation their teacher expects, in English or Kiswahili.</p>
-          <h2>Coverage at launch</h2>
+          <h2>Current coverage</h2>
           <ul>
             <li><strong>Upper primary (Grades 4–6):</strong> Mathematics, English, Kiswahili, Science &amp; Technology, Social Studies, Agriculture &amp; Nutrition, Creative Arts, and Religious Education.</li>
             <li><strong>Junior school (Grades 7–9):</strong> Mathematics, English, Kiswahili, Integrated Science, Social Studies, Pre-Technical Studies, Agriculture &amp; Nutrition, Creative Arts &amp; Sports, and Religious Education.</li>
@@ -848,7 +860,7 @@ pages.push(landing({
           <h2>What it costs</h2>
           <p>KSh 250 per month, per learner — less than one revision book — paid with M-Pesa. It’s free to start with the diagnostic, no card needed. Full details on the <a href="/pricing/">pricing page</a>. If you’re wondering whether evening phone time is really turning into revision, read <a href="/blog/is-my-child-really-revising">how to know if your child is actually revising</a>.</p>`,
   faq: [
-    ['Which grades does the app cover?', 'Grade 4–10 at launch, expanding to Senior School — upper primary through junior school, in English and Kiswahili.'],
+    ['Which grades does the app cover?', 'Grades 4–10 — upper primary through junior school, in English and Kiswahili.'],
     ['Does it work without internet?', 'Downloaded books and saved lessons work offline. The live tutor needs a connection.'],
     ['Is it really CBC-aligned?', 'Yes — lessons, explanations, and quizzes follow the CBC (CBE) learning areas, strands, and sub-strands. We say "CBC-aligned," and we don’t claim approvals we don’t have.']
   ],

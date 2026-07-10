@@ -1725,8 +1725,8 @@ function ParentMessagesView({
     try {
       await reportTeacherParentMessage(message.id);
       setReportedMessageIds(current => ({ ...current, [message.id]: true }));
-    } catch (error) {
-      setReportError(error instanceof Error ? error.message : 'Could not report this message.');
+    } catch (reportFailure) {
+      setReportError(reportFailure instanceof Error ? reportFailure.message : 'Could not report this message.');
     } finally {
       setReportingMessageId(null);
     }

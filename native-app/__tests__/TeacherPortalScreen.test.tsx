@@ -121,7 +121,7 @@ describe('TeacherPortalScreen', () => {
     const root = renderer.root;
 
     expect(hasText(root, 'Assignments')).toBe(true);
-    expect(hasText(root, 'Student List')).toBe(true);
+    expect(hasText(root, 'Needs urgent help')).toBe(true);
 
     act(() => pressableWithText(root, 'Assignments').props.onPress());
     expect(hasText(root, 'Submission Rate')).toBe(true);
@@ -225,6 +225,9 @@ describe('TeacherPortalScreen', () => {
 
     expect(hasText(root, 'Create a clean lesson plan in minutes')).toBe(true);
     expect(hasText(root, 'Quick Setup')).toBe(true);
+    // Bottom nav stays sticky on the lesson planner, like the other portal tabs.
+    expect(pressableWithAccessibilityLabel(root, 'Open teacher home')).toBeTruthy();
+    expect(pressableWithAccessibilityLabel(root, 'Open parent messages')).toBeTruthy();
     expect(hasText(root, 'Lesson Preview')).toBe(false);
     expect(hasText(root, 'Ask AI')).toBe(true);
     expect(hasText(root, 'Save Plan')).toBe(false);

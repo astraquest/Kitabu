@@ -16,12 +16,14 @@ import {
   View,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import Svg, { Circle } from 'react-native-svg';
 import {
   CalendarCheck2,
   BarChart3,
   CheckCircle2,
   ChevronDown,
   ChevronLeft,
+  ChevronRight,
   Flag,
   Home,
   MessageSquareText,
@@ -103,7 +105,7 @@ const TEACHER_SUBJECTS = ['Mathematics', 'English', 'Science', 'Kiswahili', 'Soc
 type TeacherCountryCode = CountryOption['code'];
 
 const SUBJECT_STRANDS: Record<string, string[]> = {
-  Math: ['Numbers & Operations', 'Algebra', 'Geometry', 'Data Handling'],
+  Mathematics: ['Numbers & Operations', 'Algebra', 'Geometry', 'Data Handling'],
   English: ['Grammar', 'Reading Comprehension', 'Creative Writing', 'Oral Skills'],
   Science: ['Living Things', 'Matter & Energy', 'Earth & Space', 'Forces'],
   History: ['Ancient Civilizations', 'World Wars', 'Local History', 'Government'],
@@ -232,8 +234,9 @@ export function TeacherPortalScreen({
   const [toast, setToast] = useState(false);
   const [step, setStep] = useState<WizardStep>(1);
   const [topic, setTopic] = useState('');
-  const [subject, setSubject] = useState('Math');
+  const [subject, setSubject] = useState('Mathematics');
   const [grade, setGrade] = useState(DEFAULT_GRADE);
+  const [dueInDays, setDueInDays] = useState(7);
   const [strand, setStrand] = useState('');
   const [subStrand, setSubStrand] = useState('');
   const [wizardGradeOpen, setWizardGradeOpen] = useState(false);
@@ -303,6 +306,23 @@ export function TeacherPortalScreen({
         ? students
         : students.filter(item => item.grade === gradeFilter),
     [gradeFilter, students],
+  );
+
+  const homeNeedHelp = useMemo(
+    () =>
+      [...scopedStudents]
+        .sort((a, b) => a.assessmentScore - b.assessmentScore)
+        .slice(0, 5),
+    [scopedStudents],
+  );
+
+  const homeImproved = useMemo(
+    () =>
+      [...scopedStudents]
+        .filter(item => item.trend === 'Improving' || item.trend === 'Excellent')
+        .sort((a, b) => b.assessmentScore - a.assessmentScore)
+        .slice(0, 3),
+    [scopedStudents],
   );
 
   const teacherGradeOptions = useMemo(() => {
@@ -447,7 +467,7 @@ export function TeacherPortalScreen({
     }
 
     setIsSending(true);
-    const dueDate = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString();
+    const dueDate = new Date(Date.now() + dueInDays * 24 * 60 * 60 * 1000).toISOString();
 
     try {
       await onPublishAssignment({
@@ -466,6 +486,7 @@ export function TeacherPortalScreen({
       setTopic('');
       setStrand('');
       setSubStrand('');
+      setDueInDays(7);
       setTab('assignments');
       setToast(true);
       if (toastTimerRef.current) {
@@ -526,6 +547,157 @@ export function TeacherPortalScreen({
     setPortalView('students');
     setShowRemedial(true);
     setSortBy('score');
+  }
+
+  const isHomeState =
+    tab === 'students' &&
+    portalView === 'students' &&
+    !showRemedial &&
+    gradeFilter === selectedGrade;
+  const overdueAssignmentCount = assignments.filter(item => {
+    if (!item.dueDate) {
+      return false;
+    }
+    const due = new Date(item.dueDate).getTime();
+    return Number.isFinite(due) && due < Date.now() && item.submittedCount < item.totalStudents;
+  }).length;
+  const attentionItems = [
+    totalSubmitted > 0
+      ? {
+          key: 'review',
+          count: totalSubmitted,
+          tone: 'ink' as const,
+          text: `submission${totalSubmitted === 1 ? '' : 's'} in — tap to review learner work`,
+          onPress: () => openPortalSection('assignments'),
+        }
+      : null,
+    scopedRemedialCount > 0
+      ? {
+          key: 'support',
+          count: scopedRemedialCount,
+          tone: 'ink' as const,
+          text: `learner${scopedRemedialCount === 1 ? '' : 's'} need support — below 70% in ${selectedGrade}`,
+          onPress: openTeacherInsights,
+        }
+      : null,
+    overdueAssignmentCount > 0
+      ? {
+          key: 'overdue',
+          count: overdueAssignmentCount,
+          tone: 'red' as const,
+          text: `past due — some learners haven't submitted`,
+          onPress: () => openPortalSection('assignments'),
+        }
+      : null,
+  ].filter(Boolean) as Array<{
+    key: string;
+    count: number;
+    tone: 'ink' | 'red';
+    text: string;
+    onPress: () => void;
+  }>;
+
+  function renderHomeCockpit() {
+    const hour = new Date().getHours();
+    const greeting = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
+    const todayLabel = new Date().toLocaleDateString('en-KE', {
+      weekday: 'long',
+      day: 'numeric',
+      month: 'long',
+    });
+    const firstName = (profileName || 'Teacher').trim().split(/\s+/)[0];
+    const pulsePhrase =
+      scopedAverageScore >= 80
+        ? 'Cruising above target'
+        : scopedAverageScore >= 60
+          ? 'Holding steady'
+          : 'Needs a push';
+    const RING_RADIUS = 30;
+    const RING_CIRCUMFERENCE = 2 * Math.PI * RING_RADIUS;
+    const ringOffset =
+      RING_CIRCUMFERENCE * (1 - Math.max(0, Math.min(100, scopedAverageScore)) / 100);
+
+    return (
+      <View style={portalStyles.cockpit}>
+        <LinearGradient
+          colors={['#FF8A3D', '#FF5710']}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 1 }}
+          style={portalStyles.homeHero}>
+          <View pointerEvents="none" style={portalStyles.homeHeroBubbleLarge} />
+          <View pointerEvents="none" style={portalStyles.homeHeroBubbleSmall} />
+          <Text style={portalStyles.homeHeroDate}>{todayLabel}</Text>
+          <Text style={portalStyles.homeHeroTitle}>
+            {greeting}, {firstName} 👋
+          </Text>
+          <Text style={portalStyles.homeHeroSubline}>
+            {selectedGrade} · {scopedStudents.length} student{scopedStudents.length === 1 ? '' : 's'}
+          </Text>
+        </LinearGradient>
+
+        <View style={portalStyles.pulseCard}>
+          <View style={portalStyles.pulseRing}>
+            <Svg width={64} height={64} viewBox="0 0 74 74">
+              <Circle cx={37} cy={37} r={RING_RADIUS} stroke="#F1E6DE" strokeWidth={7} fill="none" />
+              <Circle
+                cx={37}
+                cy={37}
+                r={RING_RADIUS}
+                stroke="#FF5710"
+                strokeWidth={7}
+                strokeLinecap="round"
+                fill="none"
+                strokeDasharray={`${RING_CIRCUMFERENCE}`}
+                strokeDashoffset={ringOffset}
+                rotation={-90}
+                origin="37, 37"
+              />
+            </Svg>
+            <View style={portalStyles.pulseRingCenter}>
+              <Text style={portalStyles.pulseRingValue}>{scopedAverageScore}%</Text>
+            </View>
+          </View>
+          <View style={portalStyles.pulseMain}>
+            <Text style={portalStyles.pulseLabel}>Class Average</Text>
+            <Text style={portalStyles.pulsePhrase}>{pulsePhrase}</Text>
+          </View>
+          <View style={portalStyles.pulseSide}>
+            <Text style={portalStyles.pulseSideValue}>{scopedStudents.length}</Text>
+            <Text style={portalStyles.pulseSideLabel}>Active</Text>
+          </View>
+        </View>
+
+        <View style={portalStyles.attentionStrip}>
+          {attentionItems.length > 0 ? (
+            attentionItems.map((item, index) => (
+              <Pressable
+                key={item.key}
+                onPress={item.onPress}
+                style={[portalStyles.glassRow, index > 0 && portalStyles.glassRowDivider]}>
+                <Text
+                  style={[
+                    portalStyles.glassNum,
+                    item.tone === 'red' && portalStyles.glassNumRed,
+                  ]}>
+                  {item.count}
+                </Text>
+                <Text numberOfLines={2} style={portalStyles.glassText}>
+                  {item.text}
+                </Text>
+                <ChevronRight size={16} color="#C5BEB8" />
+              </Pressable>
+            ))
+          ) : (
+            <View style={portalStyles.glassRow}>
+              <CheckCircle2 size={22} color="#16A34A" />
+              <Text style={portalStyles.glassText}>
+                All caught up! Nothing needs your attention right now.
+              </Text>
+            </View>
+          )}
+        </View>
+      </View>
+    );
   }
 
   function renderBottomNav(activeItem: TeacherBottomNavItem) {
@@ -706,6 +878,7 @@ export function TeacherPortalScreen({
             grade={selectedGrade}
             grades={teacherGradeOptions}
             subjects={taughtSubjects}
+            bottomNav={renderBottomNav('lessonPlan')}
             onBack={() => setPortalView(tab)}
           />
         ) : portalView === 'messages' ? (
@@ -757,6 +930,21 @@ export function TeacherPortalScreen({
             </View>
 
             <ScrollView contentContainerStyle={portalStyles.content}>
+              {isHomeState ? renderHomeCockpit() : null}
+              {tab === 'students' && showRemedial ? (
+                <View style={portalStyles.insightsHeader}>
+                  <View style={portalStyles.insightsIconBadge}>
+                    <BarChart3 size={20} color="#B45309" strokeWidth={2.4} />
+                  </View>
+                  <View style={portalStyles.insightsHeaderMain}>
+                    <Text style={portalStyles.insightsTitle}>Class Insights</Text>
+                    <Text style={portalStyles.insightsSubline}>
+                      Learners scoring below 70% — tap one to see the root cause and set a remedial
+                      task.
+                    </Text>
+                  </View>
+                </View>
+              ) : null}
               {tab === 'students' ? (
                 <TeacherStudentsSection
                   styles={portalStyles}
@@ -766,8 +954,13 @@ export function TeacherPortalScreen({
                   subjectMenuOpen={subjectMenuOpen}
                   sortBy={sortBy}
                   showRemedial={showRemedial}
+                  showMetrics={!isHomeState}
+                  homeMode={isHomeState}
+                  needHelpStudents={homeNeedHelp}
+                  improvedStudents={homeImproved}
                   averageScore={scopedAverageScore}
                   remedialCount={scopedRemedialCount}
+                  classSize={scopedStudents.length}
                   filteredStudents={filteredStudents}
                   onToggleGradeMenu={() => setGradeMenuOpen(open => !open)}
                   onSelectGrade={value => {
@@ -880,8 +1073,10 @@ export function TeacherPortalScreen({
           wizardStrandOpen={wizardStrandOpen}
           wizardSubStrandOpen={wizardSubStrandOpen}
           draft={draft}
+          dueInDays={dueInDays}
           subjectStrands={SUBJECT_STRANDS}
           strandSubStrands={STRAND_SUBSTRANDS}
+          onSetDueInDays={setDueInDays}
           onSetStep={setStep}
           onSetGrade={value => {
             setGrade(value);
@@ -1398,11 +1593,13 @@ function TeacherLessonPlanView({
   grade,
   grades,
   subjects,
+  bottomNav,
   onBack,
 }: {
   grade: string;
   grades: readonly string[];
   subjects: string[];
+  bottomNav?: React.ReactNode;
   onBack: () => void;
 }) {
   const gradeOptions = grades.length > 0 ? grades : [grade];
@@ -1540,7 +1737,12 @@ function TeacherLessonPlanView({
         <View style={s.spacer} />
       </View>
       <ScrollView contentContainerStyle={s.lessonPlanContent}>
-        <View style={s.lessonHero}>
+        <LinearGradient
+          colors={['#FF8A3D', '#FF5710']}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 1 }}
+          style={s.lessonHero}>
+          <View pointerEvents="none" style={s.lessonHeroBubble} />
           <View style={s.lessonHeroTop}>
             <Text style={s.lessonHeroKicker}>{selectedGrade.toUpperCase()} TODAY</Text>
             <View style={s.lessonReadyPill}>
@@ -1553,7 +1755,7 @@ function TeacherLessonPlanView({
             <LessonStat value={flow.length} label="Sections" />
             <LessonStat value={ready ? 1 : 0} label="Export" />
           </View>
-        </View>
+        </LinearGradient>
 
         {!showPreview ? (
           <View style={s.lessonPanel}>
@@ -1773,6 +1975,7 @@ function TeacherLessonPlanView({
           </View>
         ) : null}
       </ScrollView>
+      {bottomNav}
     </View>
   );
 }
@@ -2010,13 +2213,15 @@ function TeacherMessagesView({
               <Text style={s.messageHeaderSubline}>
                 {isLoading
                   ? 'Loading recipients...'
-                  : `${parentCountLabel} in ${selectedGrade}`}
+                  : parents.length === 0
+                    ? `No parents linked to ${selectedGrade} yet`
+                    : `${parentCountLabel} reachable in ${selectedGrade}`}
               </Text>
             </View>
             <Text style={s.cardHeaderMeta}>
               {audienceMode === 'parent' && selectedParent
                 ? 'Parent selected'
-                : `${gradeStudentCount} learners`}
+                : `${gradeStudentCount} learner${gradeStudentCount === 1 ? '' : 's'}`}
             </Text>
           </View>
 
@@ -2141,7 +2346,12 @@ function TeacherMessagesView({
                     <Text style={s.messageBubbleBody}>{message.body}</Text>
                     <View style={s.messageBubbleMetaRow}>
                       <Text style={s.messageBubbleTime}>
-                        {new Date(message.created_at).toLocaleString()}
+                        {new Date(message.created_at).toLocaleString('en-KE', {
+                          day: 'numeric',
+                          month: 'short',
+                          hour: '2-digit',
+                          minute: '2-digit',
+                        })}
                       </Text>
                       <Pressable
                         accessibilityLabel={
@@ -2296,7 +2506,7 @@ function createTeacherPortalStyles(): Record<string, any> {
     mutedIconColor: '#667085',
     sortIconColor: '#111827',
     chevronColor: '#7A8494',
-    filterIconSize: 19,
+    filterIconSize: 16,
     teacherListPortal: [
       s.teacherListPortal,
       {
@@ -2310,10 +2520,10 @@ function createTeacherPortalStyles(): Record<string, any> {
         borderBottomWidth: 0,
         elevation: 0,
         justifyContent: 'space-between',
-        minHeight: 72,
-        paddingBottom: 12,
+        minHeight: 62,
+        paddingBottom: 8,
         paddingHorizontal: 20,
-        paddingTop: 14,
+        paddingTop: 10,
         position: 'relative',
         shadowOpacity: 0,
       },
@@ -2429,17 +2639,17 @@ function createTeacherPortalStyles(): Record<string, any> {
         borderRadius: 20,
         borderWidth: 1,
         elevation: 2,
-        marginBottom: 18,
+        marginBottom: 12,
         marginHorizontal: 20,
         marginTop: 0,
-        padding: 5,
+        padding: 4,
         shadowColor: palette.shadow,
         shadowOffset: { width: 0, height: 8 },
         shadowOpacity: 0.08,
         shadowRadius: 18,
       },
     ],
-    seg: [s.seg, { borderRadius: 16, minHeight: 50, paddingVertical: 12 }],
+    seg: [s.seg, { borderRadius: 16, minHeight: 44, paddingVertical: 10 }],
     segActive: [
       s.segActive,
       {
@@ -2495,10 +2705,11 @@ function createTeacherPortalStyles(): Record<string, any> {
         borderWidth: 1,
         elevation: 1,
         flex: 1,
+        gap: 5,
         justifyContent: 'center',
         minHeight: 50,
         minWidth: 0,
-        paddingHorizontal: 9,
+        paddingHorizontal: 8,
         paddingVertical: 9,
         shadowColor: palette.shadow,
         shadowOffset: { width: 0, height: 4 },
@@ -2739,14 +2950,32 @@ function createTeacherPortalStyles(): Record<string, any> {
         backgroundColor: palette.surface,
         borderColor: palette.border,
         borderRadius: 18,
+        overflow: 'hidden',
+        paddingLeft: 20,
+        position: 'relative',
         shadowColor: palette.shadow,
         shadowOffset: { width: 0, height: 8 },
         shadowOpacity: 0.06,
         shadowRadius: 16,
       },
     ],
+    assignmentSpine: {
+      bottom: 0,
+      left: 0,
+      position: 'absolute',
+      top: 0,
+      width: 5,
+    },
+    spineBlue: { backgroundColor: '#3B82F6' },
+    spineGreen: { backgroundColor: '#22C55E' },
+    spineOrange: { backgroundColor: '#FB923C' },
+    spinePurple: { backgroundColor: '#A855F7' },
+    spineTeal: { backgroundColor: '#14B8A6' },
+    subjectPurple: { backgroundColor: '#F3E8FF', color: '#7E22CE' },
+    subjectTeal: { backgroundColor: '#CCFBF1', color: '#0F766E' },
     assignmentTitle: [s.assignmentTitle, { color: palette.text }],
     assignmentMeta: [s.assignmentMeta, { color: palette.muted }],
+    assignmentMetaOverdue: { color: '#DC2626', fontWeight: '800' },
     date: [s.date, { color: palette.muted }],
     primary: [
       s.primary,
@@ -2797,6 +3026,319 @@ function createTeacherPortalStyles(): Record<string, any> {
     bottomNavLabelActive: {
       color: palette.orange,
       fontWeight: '900',
+    },
+    cockpit: {
+      position: 'relative',
+    },
+    homeHero: {
+      borderRadius: 22,
+      elevation: 6,
+      overflow: 'hidden',
+      paddingBottom: 30,
+      paddingHorizontal: 20,
+      paddingTop: 14,
+      position: 'relative',
+      shadowColor: palette.orange,
+      shadowOffset: { width: 0, height: 10 },
+      shadowOpacity: 0.28,
+      shadowRadius: 20,
+    },
+    homeHeroBubbleLarge: {
+      backgroundColor: 'rgba(255,255,255,0.14)',
+      borderRadius: 999,
+      height: 150,
+      position: 'absolute',
+      right: -46,
+      top: -58,
+      width: 150,
+    },
+    homeHeroBubbleSmall: {
+      backgroundColor: 'rgba(255,255,255,0.1)',
+      borderRadius: 999,
+      bottom: -34,
+      height: 90,
+      left: -26,
+      position: 'absolute',
+      width: 90,
+    },
+    homeHeroDate: {
+      color: 'rgba(255,255,255,0.85)',
+      fontSize: 12,
+      fontWeight: '800',
+      letterSpacing: 1.1,
+      marginBottom: 6,
+      textTransform: 'uppercase',
+    },
+    homeHeroTitle: {
+      color: '#FFFFFF',
+      fontSize: 22,
+      fontStyle: 'italic',
+      fontWeight: '900',
+      letterSpacing: -0.4,
+      lineHeight: 27,
+    },
+    homeHeroSubline: {
+      color: 'rgba(255,255,255,0.92)',
+      fontSize: 13,
+      fontWeight: '700',
+      marginTop: 4,
+    },
+    pulseCard: {
+      alignItems: 'center',
+      backgroundColor: '#FFFFFF',
+      borderColor: '#FFE7D6',
+      borderRadius: 20,
+      borderWidth: 1,
+      elevation: 7,
+      flexDirection: 'row',
+      gap: 14,
+      marginHorizontal: 10,
+      marginTop: -20,
+      paddingHorizontal: 16,
+      paddingVertical: 12,
+      shadowColor: '#B33A0D',
+      shadowOffset: { width: 0, height: 14 },
+      shadowOpacity: 0.2,
+      shadowRadius: 22,
+    },
+    attentionStrip: {
+      backgroundColor: '#FFFFFF',
+      borderColor: palette.border,
+      borderRadius: 18,
+      borderWidth: 1,
+      elevation: 2,
+      marginTop: 10,
+      paddingHorizontal: 15,
+      shadowColor: palette.shadow,
+      shadowOffset: { width: 0, height: 7 },
+      shadowOpacity: 0.06,
+      shadowRadius: 14,
+    },
+    glassRow: {
+      alignItems: 'center',
+      flexDirection: 'row',
+      gap: 12,
+      minHeight: 48,
+      paddingVertical: 9,
+    },
+    glassRowDivider: {
+      borderTopColor: 'rgba(33,29,27,0.09)',
+      borderTopWidth: 1,
+    },
+    glassNum: {
+      color: '#211D1B',
+      fontSize: 21,
+      fontStyle: 'italic',
+      fontVariant: ['tabular-nums'],
+      fontWeight: '900',
+      letterSpacing: -0.8,
+      minWidth: 42,
+    },
+    glassNumRed: {
+      color: '#E8112D',
+    },
+    glassText: {
+      color: '#4D4642',
+      flex: 1,
+      fontSize: 12,
+      fontWeight: '600',
+      lineHeight: 16,
+      minWidth: 0,
+    },
+    pulseRing: {
+      height: 64,
+      position: 'relative',
+      width: 64,
+    },
+    pulseRingCenter: {
+      alignItems: 'center',
+      bottom: 0,
+      justifyContent: 'center',
+      left: 0,
+      position: 'absolute',
+      right: 0,
+      top: 0,
+    },
+    pulseRingValue: {
+      color: '#211D1B',
+      fontSize: 15,
+      fontStyle: 'italic',
+      fontVariant: ['tabular-nums'],
+      fontWeight: '900',
+    },
+    pulseMain: {
+      flex: 1,
+      minWidth: 0,
+    },
+    pulseLabel: {
+      color: '#A09890',
+      fontSize: 10,
+      fontWeight: '800',
+      letterSpacing: 1.6,
+      textTransform: 'uppercase',
+    },
+    pulsePhrase: {
+      color: '#211D1B',
+      fontSize: 14,
+      fontWeight: '800',
+      marginTop: 2,
+    },
+    pulseSide: {
+      alignItems: 'flex-end',
+    },
+    pulseSideValue: {
+      color: '#211D1B',
+      fontSize: 21,
+      fontStyle: 'italic',
+      fontVariant: ['tabular-nums'],
+      fontWeight: '900',
+    },
+    pulseSideLabel: {
+      color: '#A09890',
+      fontSize: 9.5,
+      fontWeight: '800',
+      letterSpacing: 1.3,
+      textTransform: 'uppercase',
+    },
+    rowMain: [s.rowMain, { gap: 3 }],
+    rowTitleLine: {
+      alignItems: 'center',
+      flexDirection: 'row',
+      gap: 8,
+    },
+    rowTitleShrink: {
+      flexShrink: 1,
+    },
+    trendChip: {
+      borderRadius: 999,
+      paddingHorizontal: 8,
+      paddingVertical: 2,
+    },
+    trendChipExcellent: { backgroundColor: '#DCFCE7' },
+    trendChipImproving: { backgroundColor: '#DBEAFE' },
+    trendChipStable: { backgroundColor: '#F1F5F9' },
+    trendChipText: {
+      fontSize: 10.5,
+      fontWeight: '900',
+      lineHeight: 14,
+    },
+    trendChipTextExcellent: { color: '#15803D' },
+    trendChipTextImproving: { color: '#1D4ED8' },
+    trendChipTextStable: { color: '#64748B' },
+    hwLine: {
+      alignItems: 'center',
+      flexDirection: 'row',
+      gap: 8,
+      marginTop: 3,
+    },
+    hwTrack: {
+      backgroundColor: '#EDF1F5',
+      borderRadius: 999,
+      height: 5,
+      overflow: 'hidden',
+      width: 74,
+    },
+    hwFill: {
+      backgroundColor: palette.green,
+      borderRadius: 999,
+      height: '100%',
+    },
+    hwLabel: {
+      color: palette.muted,
+      fontSize: 11,
+      fontWeight: '700',
+    },
+    scorePill: {
+      alignItems: 'center',
+      borderRadius: 12,
+      justifyContent: 'center',
+      minWidth: 54,
+      paddingHorizontal: 9,
+      paddingVertical: 5,
+    },
+    scorePillGood: { backgroundColor: '#EAF9F0' },
+    scorePillWarn: { backgroundColor: '#FEF6E7' },
+    scorePillBad: { backgroundColor: '#FDEDE7' },
+    scorePillText: {
+      fontSize: 15,
+      fontWeight: '900',
+      lineHeight: 19,
+    },
+    avatarCompactSize: 30,
+    compactRow: {
+      alignItems: 'center',
+      borderTopColor: palette.rowLine,
+      borderTopWidth: 1,
+      flexDirection: 'row',
+      gap: 10,
+      minHeight: 46,
+      paddingHorizontal: 14,
+      paddingVertical: 8,
+    },
+    compactMain: {
+      flex: 1,
+      minWidth: 0,
+    },
+    compactName: {
+      color: palette.text,
+      fontSize: 13.5,
+      fontWeight: '800',
+      lineHeight: 17,
+    },
+    compactMeta: {
+      color: palette.muted,
+      fontSize: 11,
+      fontWeight: '600',
+      lineHeight: 15,
+      marginTop: 1,
+    },
+    compactPill: {
+      alignItems: 'center',
+      borderRadius: 9,
+      justifyContent: 'center',
+      minWidth: 44,
+      paddingHorizontal: 7,
+      paddingVertical: 3,
+    },
+    compactPillText: {
+      fontSize: 12.5,
+      fontWeight: '900',
+      lineHeight: 16,
+    },
+    insightsHeader: {
+      alignItems: 'center',
+      backgroundColor: '#FFF7E8',
+      borderColor: '#FDE9C3',
+      borderRadius: 20,
+      borderWidth: 1,
+      flexDirection: 'row',
+      gap: 13,
+      paddingHorizontal: 16,
+      paddingVertical: 15,
+    },
+    insightsIconBadge: {
+      alignItems: 'center',
+      backgroundColor: '#FEF3C7',
+      borderRadius: 13,
+      height: 42,
+      justifyContent: 'center',
+      width: 42,
+    },
+    insightsHeaderMain: {
+      flex: 1,
+      gap: 2,
+      minWidth: 0,
+    },
+    insightsTitle: {
+      color: '#07111F',
+      fontSize: 16,
+      fontWeight: '900',
+    },
+    insightsSubline: {
+      color: '#8A6A2A',
+      fontSize: 12.5,
+      fontWeight: '700',
+      lineHeight: 17,
     },
   };
 }
@@ -3730,13 +4272,28 @@ const s = StyleSheet.create({
   lessonPlanContent: {
     gap: 13,
     padding: 16,
-    paddingBottom: 96,
+    paddingBottom: 104,
   },
   lessonHero: {
-    backgroundColor: '#172235',
-    borderRadius: 14,
+    borderRadius: 24,
+    elevation: 6,
     minHeight: 188,
-    padding: 17,
+    overflow: 'hidden',
+    padding: 18,
+    position: 'relative',
+    shadowColor: '#FF6B1A',
+    shadowOffset: { width: 0, height: 10 },
+    shadowOpacity: 0.28,
+    shadowRadius: 20,
+  },
+  lessonHeroBubble: {
+    backgroundColor: 'rgba(255,255,255,0.13)',
+    borderRadius: 999,
+    height: 150,
+    position: 'absolute',
+    right: -46,
+    top: -58,
+    width: 150,
   },
   lessonHeroTop: {
     alignItems: 'center',
@@ -3745,13 +4302,15 @@ const s = StyleSheet.create({
     marginBottom: 8,
   },
   lessonHeroKicker: {
-    color: '#C9D8F2',
+    color: 'rgba(255,255,255,0.88)',
     fontSize: 11,
     fontWeight: '900',
+    letterSpacing: 1,
     textTransform: 'uppercase',
   },
   lessonReadyPill: {
-    borderColor: '#6C7789',
+    backgroundColor: 'rgba(255,255,255,0.16)',
+    borderColor: 'rgba(255,255,255,0.45)',
     borderRadius: 999,
     borderWidth: 1,
     paddingHorizontal: 12,
@@ -3776,9 +4335,9 @@ const s = StyleSheet.create({
     marginTop: 17,
   },
   lessonStatCard: {
-    backgroundColor: '#344052',
-    borderColor: '#5B6473',
-    borderRadius: 9,
+    backgroundColor: 'rgba(255,255,255,0.16)',
+    borderColor: 'rgba(255,255,255,0.32)',
+    borderRadius: 14,
     borderWidth: 1,
     flex: 1,
     minHeight: 64,
@@ -3801,9 +4360,13 @@ const s = StyleSheet.create({
   lessonPanel: {
     backgroundColor: '#FFFFFF',
     borderColor: '#DCE3EC',
-    borderRadius: 14,
+    borderRadius: 20,
     borderWidth: 1,
     overflow: 'visible',
+    shadowColor: '#0F172A',
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.05,
+    shadowRadius: 16,
   },
   lessonPanelHeader: {
     alignItems: 'center',
@@ -5262,6 +5825,43 @@ const s = StyleSheet.create({
     borderColor: '#EDF0EF',
     paddingHorizontal: 16,
     paddingVertical: 14,
+  },
+  dueDateHeader: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 7,
+  },
+  dueDateRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+  },
+  dueDateChip: {
+    backgroundColor: '#F4F6F5',
+    borderColor: '#E4E9E5',
+    borderRadius: 999,
+    borderWidth: 1,
+    minHeight: 38,
+    justifyContent: 'center',
+    paddingHorizontal: 14,
+    paddingVertical: 8,
+  },
+  dueDateChipActive: {
+    backgroundColor: '#FFF3EA',
+    borderColor: '#F97316',
+  },
+  dueDateChipText: {
+    color: '#475569',
+    fontSize: 13,
+    fontWeight: '800',
+  },
+  dueDateChipTextActive: {
+    color: '#EA580C',
+  },
+  dueDatePreview: {
+    color: '#667085',
+    fontSize: 12.5,
+    fontWeight: '700',
   },
   toast: {
     position: 'absolute',

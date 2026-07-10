@@ -1,6 +1,21 @@
 import React from 'react';
 import { Pressable, ScrollView, Text, TextInput, View } from 'react-native';
-import { Plus, Sparkles } from 'lucide-react-native';
+import { CalendarClock, Plus, Sparkles } from 'lucide-react-native';
+
+const DUE_DATE_CHOICES: Array<{ days: number; label: string }> = [
+  { days: 1, label: 'Tomorrow' },
+  { days: 3, label: 'In 3 days' },
+  { days: 7, label: 'In 1 week' },
+  { days: 14, label: 'In 2 weeks' },
+];
+
+function dueDatePreview(days: number) {
+  return new Date(Date.now() + days * 24 * 60 * 60 * 1000).toLocaleDateString('en-KE', {
+    weekday: 'short',
+    day: 'numeric',
+    month: 'short',
+  });
+}
 
 import { SUPPORTED_GRADES } from '../../constants/grades';
 import { Assignment } from '../../types/app';
@@ -27,8 +42,10 @@ interface TeacherAssignmentWizardSectionProps {
     description: string;
     questions: Assignment['questions'];
   } | null;
+  dueInDays: number;
   subjectStrands: Record<string, string[]>;
   strandSubStrands: Record<string, string[]>;
+  onSetDueInDays: (days: number) => void;
   onSetStep: (step: 1 | 2) => void;
   onSetGrade: (value: string) => void;
   onSetSubject: (value: string) => void;
@@ -65,8 +82,10 @@ export function TeacherAssignmentWizardSection({
   wizardStrandOpen,
   wizardSubStrandOpen,
   draft,
+  dueInDays,
   subjectStrands,
   strandSubStrands,
+  onSetDueInDays,
   onSetStep,
   onSetGrade,
   onSetSubject,
@@ -219,6 +238,32 @@ export function TeacherAssignmentWizardSection({
                 />
               </View>
             ) : null}
+
+            <View style={styles.wizardCard}>
+              <View style={styles.dueDateHeader}>
+                <CalendarClock size={16} color="#F97316" strokeWidth={2.4} />
+                <Text style={styles.metricLabel}>Due Date</Text>
+              </View>
+              <View style={styles.dueDateRow}>
+                {DUE_DATE_CHOICES.map(choice => {
+                  const active = dueInDays === choice.days;
+                  return (
+                    <Pressable
+                      key={choice.days}
+                      accessibilityLabel={`Set due date ${choice.label}`}
+                      onPress={() => onSetDueInDays(choice.days)}
+                      style={[styles.dueDateChip, active && styles.dueDateChipActive]}>
+                      <Text style={[styles.dueDateChipText, active && styles.dueDateChipTextActive]}>
+                        {choice.label}
+                      </Text>
+                    </Pressable>
+                  );
+                })}
+              </View>
+              <Text style={styles.dueDatePreview}>
+                Learners must submit by {dueDatePreview(dueInDays)}.
+              </Text>
+            </View>
 
             {draft?.questions.map((question, index) => (
               <View key={question.id} style={styles.questionCard}>

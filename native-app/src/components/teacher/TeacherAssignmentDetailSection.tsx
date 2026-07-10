@@ -20,6 +20,11 @@ export function TeacherAssignmentDetailSection({
   onBack,
   onSelectSubmission,
 }: TeacherAssignmentDetailSectionProps) {
+  const scores = activeSubmissionList.map(item => item.score);
+  const highestScore = scores.length > 0 ? Math.max(...scores) : null;
+  const lowestScore = scores.length > 0 ? Math.min(...scores) : null;
+  const pendingCount = Math.max(0, assignment.totalStudents - assignment.submittedCount);
+
   return (
     <View style={styles.detailRoot}>
       <View style={styles.detailHead}>
@@ -41,11 +46,15 @@ export function TeacherAssignmentDetailSection({
           </View>
           <View style={styles.detailMetric}>
             <Text style={styles.metricLabel}>Highest</Text>
-            <Text style={[styles.detailMetricValue, styles.goodText]}>98%</Text>
+            <Text style={[styles.detailMetricValue, styles.goodText]}>
+              {highestScore === null ? '—' : `${highestScore}%`}
+            </Text>
           </View>
           <View style={styles.detailMetric}>
             <Text style={styles.metricLabel}>Lowest</Text>
-            <Text style={[styles.detailMetricValue, styles.warnText]}>45%</Text>
+            <Text style={[styles.detailMetricValue, styles.warnText]}>
+              {lowestScore === null ? '—' : `${lowestScore}%`}
+            </Text>
           </View>
         </View>
 
@@ -80,18 +89,27 @@ export function TeacherAssignmentDetailSection({
             </Pressable>
           ))}
 
-          <View style={[styles.row, styles.pendingRow]}>
-            <View style={styles.rowLead}>
-              <View style={[styles.avatar, styles.pendingAvatar]}>
-                <Text style={styles.pendingAvatarText}>JD</Text>
-              </View>
-              <View style={styles.rowMain}>
-                <Text style={styles.rowTitle}>John Doe</Text>
-                <Text style={styles.rowMetaTiny}>Pending</Text>
+          {activeSubmissionList.length === 0 ? (
+            <View style={[styles.row, styles.pendingRow]}>
+              <Text style={styles.pendingText}>No submissions yet.</Text>
+            </View>
+          ) : null}
+
+          {pendingCount > 0 ? (
+            <View style={[styles.row, styles.pendingRow]}>
+              <View style={styles.rowLead}>
+                <View style={[styles.avatar, styles.pendingAvatar]}>
+                  <Text style={styles.pendingAvatarText}>{pendingCount}</Text>
+                </View>
+                <View style={styles.rowMain}>
+                  <Text style={styles.rowTitle}>
+                    {pendingCount} learner{pendingCount === 1 ? '' : 's'} pending
+                  </Text>
+                  <Text style={styles.rowMetaTiny}>Not submitted yet</Text>
+                </View>
               </View>
             </View>
-            <Text style={styles.pendingText}>No submission</Text>
-          </View>
+          ) : null}
         </View>
       </ScrollView>
     </View>

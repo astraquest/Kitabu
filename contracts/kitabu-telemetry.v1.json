@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentmufasa.com/contracts/kitabu-telemetry.v1.json",
+  "title": "Kitabu Telemetry v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract", "event_id", "ts", "type", "payload"],
+  "properties": {
+    "contract": { "const": "kitabu-telemetry/v1" },
+    "event_id": { "type": "string", "format": "uuid" },
+    "ts": { "type": "string", "format": "date-time" },
+    "type": { "enum": ["account.signup", "payment.succeeded", "payment.failed", "subscription.renewed", "subscription.lapsed", "usage.session", "error.client", "error.api", "health.state", "metrics.rollup"] },
+    "payload": { "type": "object" }
+  }
+}

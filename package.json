@@ -14,7 +14,7 @@
     "lint:native": "npm --prefix native-app run lint -- --max-warnings=0",
     "typecheck:native": "npm --prefix native-app run typecheck",
     "readiness:production": "npm run check:readiness -w apps/api",
-    "release:check": "npm run check && npm run build && npm run test:api && npm run typecheck:native && npm run lint:native && npm run test:native && npm run readiness:production",
+    "release:check": "npm run check && npm run build && npm run test:api && npm run check:mufasa-telemetry-contract -w apps/api && npm run typecheck:native && npm run lint:native && npm run test:native && npm run readiness:production",
     "deploy:build": "docker compose build api worker"
   },
   "overrides": {

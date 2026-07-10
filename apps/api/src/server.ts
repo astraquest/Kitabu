@@ -208,6 +208,7 @@ import {
   MpesaProviderError,
   type BillingPlanCode
 } from './payments.js';
+import { buildPaymentTelemetry, emitMufasaTelemetry } from './mufasaTelemetry.js';
 
 const LEGAL_PAGE_DIR = process.env.KITABU_LEGAL_PAGE_DIR?.trim() || join(process.cwd(), 'legal');
 const LEGAL_PAGE_PATHS = {
@@ -6807,6 +6808,27 @@ Return valid JSON with this shape:
         });
       }
     });
+
+    if (appConfig.KITABU_MUFASA_TELEMETRY_URL && appConfig.KITABU_MUFASA_TELEMETRY_HMAC_SECRET && appConfig.KITABU_MUFASA_PHONE_HMAC_SECRET) {
+      try {
+        const telemetry = buildPaymentTelemetry({
+          paymentRequestId: paymentRequest.id,
+          succeeded: callback.ResultCode === 0,
+          occurredAt: new Date().toISOString(),
+          accountId: paymentRequest.user_id,
+          phone: paymentRequest.phone_number,
+          amountKshCents: Number(paymentRequest.amount_ksh_cents),
+          method: 'mpesa',
+          providerEventId: typeof receiptNumber === 'string' ? receiptNumber : callback.CheckoutRequestID,
+          phoneHmacSecret: appConfig.KITABU_MUFASA_PHONE_HMAC_SECRET
+        });
+        await emitMufasaTelemetry(telemetry, { endpoint: appConfig.KITABU_MUFASA_TELEMETRY_URL, hmacSecret: appConfig.KITABU_MUFASA_TELEMETRY_HMAC_SECRET, timeoutMs: appConfig.KITABU_MUFASA_TELEMETRY_TIMEOUT_MS });
+      } catch (error) {
+        request.log.error({ paymentRequestId: paymentRequest.id, error: error instanceof Error ? error.message : 'unknown' }, 'MUFASA payment telemetry delivery failed');
+      }
+    } else {
+      request.log.warn({ paymentRequestId: paymentRequest.id }, 'MUFASA payment telemetry is not configured');
+    }
 
     return { accepted: true };
   });

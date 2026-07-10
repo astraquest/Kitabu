@@ -209,14 +209,50 @@ import {
   type BillingPlanCode
 } from './payments.js';
 
-const LEGAL_PAGE_DIR = join(process.cwd(), 'legal');
+const LEGAL_PAGE_DIR = process.env.KITABU_LEGAL_PAGE_DIR?.trim() || join(process.cwd(), 'legal');
 const LEGAL_PAGE_PATHS = {
   '/privacy': join(LEGAL_PAGE_DIR, 'privacy', 'index.html'),
   '/policy': join(LEGAL_PAGE_DIR, 'policy', 'index.html'),
   '/terms': join(LEGAL_PAGE_DIR, 'terms', 'index.html'),
   '/deletion': join(LEGAL_PAGE_DIR, 'deletion', 'index.html')
 } as const;
+const LEGAL_ASSET_PATHS = {
+  '/legal.css': {
+    path: join(LEGAL_PAGE_DIR, 'legal.css'),
+    contentType: 'text/css; charset=utf-8'
+  },
+  '/assets/kitabu-logo.png': {
+    path: join(LEGAL_PAGE_DIR, 'assets', 'kitabu-logo.png'),
+    contentType: 'image/png'
+  },
+  '/assets/kitabu-favicon-bold.ico': {
+    path: join(LEGAL_PAGE_DIR, 'assets', 'kitabu-favicon-bold.ico'),
+    contentType: 'image/x-icon'
+  },
+  '/assets/fonts/bricolage-grotesque-latin.woff2': {
+    path: join(LEGAL_PAGE_DIR, 'assets', 'fonts', 'bricolage-grotesque-latin.woff2'),
+    contentType: 'font/woff2'
+  },
+  '/assets/fonts/plus-jakarta-sans-latin.woff2': {
+    path: join(LEGAL_PAGE_DIR, 'assets', 'fonts', 'plus-jakarta-sans-latin.woff2'),
+    contentType: 'font/woff2'
+  }
+} as const;
 const legalPageCache = new Map<string, string>();
+const legalAssetCache = new Map<string, Buffer>();
+
+const LEGAL_CONTENT_SECURITY_POLICY = [
+  "default-src 'none'",
+  "base-uri 'none'",
+  "connect-src 'none'",
+  "font-src 'self'",
+  "form-action 'none'",
+  "frame-ancestors 'none'",
+  "img-src 'self'",
+  "object-src 'none'",
+  "script-src 'none'",
+  "style-src 'self'"
+].join('; ');
 
 async function readLegalPage(route: keyof typeof LEGAL_PAGE_PATHS): Promise<string> {
   const cached = legalPageCache.get(route);
@@ -227,6 +263,42 @@ async function readLegalPage(route: keyof typeof LEGAL_PAGE_PATHS): Promise<stri
   const html = await readFile(LEGAL_PAGE_PATHS[route], 'utf8');
   legalPageCache.set(route, html);
   return html;
+}
+
+async function readLegalAsset(route: keyof typeof LEGAL_ASSET_PATHS): Promise<Buffer> {
+  const cached = legalAssetCache.get(route);
+  if (cached) {
+    return cached;
+  }
+
+  const asset = await readFile(LEGAL_ASSET_PATHS[route].path);
+  legalAssetCache.set(route, asset);
+  return asset;
+}
+
+function applyLegalPageHeaders(reply: FastifyReply): FastifyReply {
+  return reply
+    .header('Cache-Control', 'public, max-age=0, must-revalidate')
+    .header('Content-Security-Policy', LEGAL_CONTENT_SECURITY_POLICY)
+    .header('Cross-Origin-Opener-Policy', 'same-origin')
+    .header('Cross-Origin-Resource-Policy', 'same-origin')
+    .header('Permissions-Policy', 'camera=(), geolocation=(), microphone=()')
+    .header('Referrer-Policy', 'no-referrer')
+    .header('X-Content-Type-Options', 'nosniff')
+    .header('X-Frame-Options', 'DENY');
+}
+
+async function sendLegalAsset(
+  route: keyof typeof LEGAL_ASSET_PATHS,
+  reply: FastifyReply
+): Promise<FastifyReply> {
+  const asset = LEGAL_ASSET_PATHS[route];
+  return reply
+    .header('Cache-Control', 'public, max-age=300, must-revalidate')
+    .header('Cross-Origin-Resource-Policy', 'same-origin')
+    .header('X-Content-Type-Options', 'nosniff')
+    .type(asset.contentType)
+    .send(await readLegalAsset(route));
 }
 
 const loginSchema = z.object({
@@ -1527,19 +1599,63 @@ export function buildServer(options: BuildServerOptions = {}) {
   });
 
   app.get('/privacy', async (_request, reply) => {
-    return reply.type('text/html; charset=utf-8').send(await readLegalPage('/privacy'));
+    return applyLegalPageHeaders(reply)
+      .type('text/html; charset=utf-8')
+      .send(await readLegalPage('/privacy'));
   });
 
   app.get('/policy', async (_request, reply) => {
-    return reply.type('text/html; charset=utf-8').send(await readLegalPage('/policy'));
+    return applyLegalPageHeaders(reply)
+      .type('text/html; charset=utf-8')
+      .send(await readLegalPage('/policy'));
   });
 
   app.get('/terms', async (_request, reply) => {
-    return reply.type('text/html; charset=utf-8').send(await readLegalPage('/terms'));
+    return applyLegalPageHeaders(reply)
+      .type('text/html; charset=utf-8')
+      .send(await readLegalPage('/terms'));
   });
 
   app.get('/deletion', async (_request, reply) => {
-    return reply.type('text/html; charset=utf-8').send(await readLegalPage('/deletion'));
+    return applyLegalPageHeaders(reply)
+      .type('text/html; charset=utf-8')
+      .send(await readLegalPage('/deletion'));
+  });
+
+  app.get('/privacy/', async (_request, reply) => {
+    return applyLegalPageHeaders(reply).code(308).header('Location', '/privacy').send();
+  });
+
+  app.get('/policy/', async (_request, reply) => {
+    return applyLegalPageHeaders(reply).code(308).header('Location', '/policy').send();
+  });
+
+  app.get('/terms/', async (_request, reply) => {
+    return applyLegalPageHeaders(reply).code(308).header('Location', '/terms').send();
+  });
+
+  app.get('/deletion/', async (_request, reply) => {
+    return applyLegalPageHeaders(reply).code(308).header('Location', '/deletion').send();
+  });
+
+  app.get('/legal.css', async (_request, reply) => {
+    return sendLegalAsset('/legal.css', reply);
+  });
+
+  app.get('/assets/kitabu-logo.png', async (_request, reply) => {
+    return sendLegalAsset('/assets/kitabu-logo.png', reply);
+  });
+
+  app.get('/assets/kitabu-favicon-bold.ico', async (_request, reply) => {
+    return sendLegalAsset('/assets/kitabu-favicon-bold.ico', reply);
+  });
+
+  app.get('/assets/fonts/bricolage-grotesque-latin.woff2', async (_request, reply) => {
+    return sendLegalAsset('/assets/fonts/bricolage-grotesque-latin.woff2', reply);
+  });
+
+  app.get('/assets/fonts/plus-jakarta-sans-latin.woff2', async (_request, reply) => {
+    return sendLegalAsset('/assets/fonts/plus-jakarta-sans-latin.woff2', reply);
   });
 
   app.post('/content-reports', {

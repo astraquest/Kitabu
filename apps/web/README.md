@@ -14,7 +14,8 @@ for caching/security). No framework, no build dependencies beyond Node.
 | `styles-20260704.css` | The entire design system (tokens, components, motion states). Date-stamped: cached immutable, so **rename with a new date** when you change it, and update `ASSET_CSS` in the build script + the homepage `<link>` |
 | `site-20260704.js` | All behaviour: scroll reveals, split-text, counters, FAQ accordion, sticky header/bar, analytics events, school onboarding form. Same date-stamp rule (`ASSET_JS`) |
 | `assets/fonts/*.woff2` | Self-hosted variable fonts (Bricolage Grotesque, Plus Jakarta Sans), latin subset, preloaded |
-| `styles.css` | Legacy stylesheet used **only** by `/terms`, `/policy`, `/privacy`, `/deletion` — keep until those pages are migrated |
+| `legal.css` | Shared, script-free design system for `/terms`, `/policy`, `/privacy`, and `/deletion`. The API image copies this file plus its allowlisted logo, favicon, and fonts so the Play-facing `app.kitabu.ai` routes render without depending on the marketing host |
+| `styles.css` | Unreferenced legacy stylesheet from the previous legal-page design |
 | `styles-20260619*.css`, `main.js` | Unreferenced legacy files from the previous site — safe to delete |
 
 ## Performance rules (Core Web Vitals budget: LCP < 2.5s on 3G, CLS < 0.1)

@@ -1,7 +1,22 @@
 import assert from 'node:assert/strict';
+import { generateKeyPairSync } from 'node:crypto';
 import { resolve } from 'node:path';
 import test from 'node:test';
 
+const testJwtKeys = generateKeyPairSync('rsa', { modulusLength: 2048 });
+
+process.env.KITABU_RUNTIME_ENV = 'test';
+process.env.KITABU_NODE_ENV = 'test';
+process.env.KITABU_DATABASE_URL ??= 'postgresql://kitabu:kitabu@127.0.0.1:5432/kitabu_test';
+process.env.KITABU_REDIS_URL ??= 'redis://127.0.0.1:6379';
+process.env.KITABU_JWT_ISSUER ??= 'kitabu-test';
+process.env.KITABU_JWT_AUDIENCE ??= 'kitabu-test';
+process.env.KITABU_JWT_PRIVATE_KEY = testJwtKeys.privateKey
+  .export({ format: 'pem', type: 'pkcs8' })
+  .toString();
+process.env.KITABU_JWT_PUBLIC_KEY = testJwtKeys.publicKey
+  .export({ format: 'pem', type: 'spki' })
+  .toString();
 process.env.KITABU_LEGAL_PAGE_DIR = resolve(process.cwd(), '../web');
 
 const [{ buildServer }, { db, redis }] = await Promise.all([

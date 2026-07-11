@@ -180,6 +180,7 @@ import {
   updateSchoolDiscount,
   updateAdminStudentProfile,
   setAdminStudentSubscriptionStatus,
+  assignSchoolsToSalesAgent,
   updateUserOnboarding,
   updateUserPassword,
   upsertPushToken,
@@ -479,7 +480,8 @@ const salesAgentCreateSchema = z.object({
   fullName: personNameSchema,
   email: z.string().email(),
   phoneNumber: z.string().trim().min(9).max(20).nullable().optional(),
-  county: z.string().trim().min(2).max(80).nullable().optional()
+  county: z.string().trim().min(2).max(80).nullable().optional(),
+  schoolIds: z.array(z.string().uuid()).max(100).default([])
 });
 
 const salesAgentParamsSchema = z.object({
@@ -5815,20 +5817,33 @@ Return valid JSON with this shape:
 
     const temporaryPassword = randomBytes(18).toString('base64url');
     const passwordHash = await hashPassword(temporaryPassword);
-    const user = await withTransaction(client => createAdminManagedUser(client, {
-      actorUserId: request.user!.id,
-      email: body.email,
-      phoneNumber,
-      county: body.county ?? null,
-      passwordHash,
-      fullName: body.fullName,
-      role: 'sales_agent',
-      termsAcceptedAt: new Date(),
-      termsVersion: appConfig.KITABU_TERMS_VERSION,
-      privacyVersion: appConfig.KITABU_PRIVACY_VERSION
-    }));
+    const result = await withTransaction(async client => {
+      const user = await createAdminManagedUser(client, {
+        actorUserId: request.user!.id,
+        email: body.email,
+        phoneNumber,
+        county: body.county ?? null,
+        passwordHash,
+        fullName: body.fullName,
+        role: 'sales_agent',
+        termsAcceptedAt: new Date(),
+        termsVersion: appConfig.KITABU_TERMS_VERSION,
+        privacyVersion: appConfig.KITABU_PRIVACY_VERSION
+      });
+      const assignedSchoolCount = await assignSchoolsToSalesAgent(client, user.id, body.schoolIds);
+      if (assignedSchoolCount !== body.schoolIds.length) {
+        throw new Error('One or more selected schools could not be assigned');
+      }
+      if (assignedSchoolCount) {
+        await createAuditLog(client, request.user!.id, request.user!.schoolId, 'admin.sales_agent.schools.assigned', {
+          agentUserId: user.id,
+          schoolIds: body.schoolIds
+        });
+      }
+      return { user, assignedSchoolCount };
+    });
 
-    return reply.status(201).send({ user, temporaryPassword });
+    return reply.status(201).send({ ...result, assignedSchoolIds: body.schoolIds, temporaryPassword });
   });
 
   app.post('/admin/sales-agents/:agentId/messages', async (request, reply) => {

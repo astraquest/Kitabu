@@ -7467,6 +7467,65 @@ tr:last-child td {
   place-items: center;
 }
 
+.sales-agent-school-picker {
+  min-width: 0;
+  margin: 0;
+  border: 1px solid #dfe7f3;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.sales-agent-school-picker legend {
+  padding: 0 6px;
+  color: #081632;
+  font-weight: 950;
+}
+
+.sales-agent-school-picker > p {
+  margin: 0 0 10px;
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.sales-agent-school-picker > div {
+  max-height: 190px;
+  overflow: auto;
+  display: grid;
+  gap: 7px;
+}
+
+.sales-agent-school-picker label {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  align-items: center;
+  gap: 9px;
+  border: 1px solid #e5ebf4;
+  border-radius: 9px;
+  padding: 9px 10px;
+  cursor: pointer;
+}
+
+.sales-agent-school-picker input {
+  accent-color: #075bea;
+}
+
+.sales-agent-school-picker strong,
+.sales-agent-school-picker small {
+  display: block;
+}
+
+.sales-agent-school-picker strong {
+  color: #081632;
+  font-size: 13px;
+}
+
+.sales-agent-school-picker small {
+  margin-top: 2px;
+  color: #64748b;
+  font-size: 11px;
+}
+
 .student-profile-form {
   display: contents;
 }
@@ -8283,6 +8342,104 @@ tr:last-child td {
   }
 
   .user-chevron svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .sales-page {
+    align-content: start;
+    gap: 14px;
+  }
+
+  .sales-spotlight-grid {
+    gap: 12px;
+  }
+
+  .sales-spotlight-card {
+    height: 126px;
+    gap: 7px;
+    padding: 12px 9px;
+  }
+
+  .sales-spotlight-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .sales-spotlight-icon svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  .sales-spotlight-copy strong {
+    margin-top: 5px;
+    font-size: 19px;
+  }
+
+  .sales-spotlight-copy small {
+    margin-top: 5px;
+    font-size: 11px;
+  }
+
+  .sales-search {
+    min-height: 42px;
+    grid-template-columns: 18px minmax(0, 1fr);
+    gap: 10px;
+    padding: 0 14px;
+  }
+
+  .sales-search svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .sales-search input {
+    min-height: 40px;
+    font-size: 14px;
+  }
+
+  .sales-list {
+    gap: 7px;
+  }
+
+  .sales-agent-row {
+    min-height: 60px;
+    gap: 10px;
+    padding: 7px 12px;
+  }
+
+  .sales-agent-main {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 11px;
+  }
+
+  .sales-agent-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+  }
+
+  .sales-agent-avatar::before {
+    width: 18px;
+    height: 18px;
+    top: 6px;
+  }
+
+  .sales-agent-avatar::after {
+    width: 32px;
+    height: 21px;
+  }
+
+  .sales-agent-main strong {
+    font-size: 14px;
+  }
+
+  .sales-agent-main small {
+    margin-top: 3px;
+    font-size: 12px;
+  }
+
+  .sales-agent-chevron svg {
     width: 18px;
     height: 18px;
   }

@@ -5792,6 +5792,18 @@ export async function updateAdminStudentProfile(
   );
 }
 
+export async function assignSchoolsToSalesAgent(client: MaybeClient, agentUserId: string, schoolIds: string[]) {
+  if (!schoolIds.length) return 0;
+  const result = await q(
+    client,
+    `UPDATE schools
+     SET sales_agent_user_id = $1, updated_at = NOW()
+     WHERE id = ANY($2::uuid[])`,
+    [agentUserId, schoolIds]
+  );
+  return result.rowCount ?? 0;
+}
+
 export async function setAdminStudentSubscriptionStatus(client: MaybeClient, userId: string, active: boolean) {
   if (!active) {
     const result = await q(client, `UPDATE subscriptions SET status = 'paused' WHERE user_id = $1 AND status = 'active'`, [userId]);

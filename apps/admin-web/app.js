@@ -1601,7 +1601,10 @@ function schoolManagementContent(school = null) {
           ${schoolTypeChip(draft.type)}
         </div>
       </div>
-      <button class="school-manage-close" type="button" data-close-modal aria-label="Close school management">${miniIcon("close")}</button>
+      <div class="school-manage-header-actions">
+        ${isNew ? "" : `<button class="school-manage-edit" type="button" data-edit-school aria-label="Edit school details" title="Edit school details">${miniIcon("pencil")}</button>`}
+        <button class="school-manage-close" type="button" data-close-modal aria-label="Close school management">${miniIcon("close")}</button>
+      </div>
     </header>
     <form class="school-manage-body" data-kind="school-editor" data-school-id="${escapeHtml(draft.id || "")}">
       <section class="school-manage-stats">
@@ -1653,13 +1656,37 @@ function schoolManagementContent(school = null) {
           </div>
         </section>
       </div>
+      ${isNew ? "" : `<label class="school-admin-confirmation" hidden>
+        <span>${miniIcon("lock")} Confirm with admin password</span>
+        <input name="adminPassword" type="password" minlength="8" autocomplete="current-password" placeholder="Enter your admin password" disabled />
+        <small>Your password is required to save changes to this school.</small>
+      </label>`}
       <p class="error-text"></p>
       <div class="school-manage-actions">
         <button type="button" class="ghost-button" data-close-modal>Cancel</button>
-        <button type="submit" class="primary-button school-save-button">${miniIcon("save")} ${isNew ? "Add School" : "Save Changes"}</button>
+        <button type="submit" class="primary-button school-save-button" ${isNew ? "" : "disabled"}>${miniIcon("save")} ${isNew ? "Add School" : "Save Changes"}</button>
       </div>
     </form>
   </section>`;
+}
+
+function setSchoolEditingState(form, isEditing) {
+  if (!form?.dataset.schoolId) return;
+  form.dataset.editing = String(isEditing);
+  form.classList.toggle("is-readonly", !isEditing);
+  form.querySelectorAll("input, select, textarea").forEach(control => {
+    control.disabled = !isEditing;
+  });
+  const confirmation = form.querySelector(".school-admin-confirmation");
+  if (confirmation) confirmation.hidden = !isEditing;
+  const saveButton = form.querySelector(".school-save-button");
+  if (saveButton) saveButton.disabled = !isEditing;
+  const editButton = modalRoot.querySelector("[data-edit-school]");
+  if (editButton) {
+    editButton.disabled = isEditing;
+    editButton.classList.toggle("is-active", isEditing);
+  }
+  if (isEditing) form.querySelector("input[name='name']")?.focus();
 }
 
 function showSchool(schoolId) {
@@ -1670,6 +1697,9 @@ function showSchool(schoolId) {
   modalRoot.classList.add("school-modal-root");
   modalRoot.hidden = false;
   modalRoot.innerHTML = schoolManagementContent(school);
+  const form = modalRoot.querySelector("[data-kind='school-editor']");
+  setSchoolEditingState(form, false);
+  modalRoot.querySelector("[data-edit-school]")?.addEventListener("click", () => setSchoolEditingState(form, true));
   modalRoot.querySelectorAll("[data-close-modal]").forEach(button => button.addEventListener("click", closeModal));
   modalRoot.addEventListener("click", onScrimClick, { once: true });
   bindModalForms();
@@ -4248,6 +4278,11 @@ function bindModalForms() {
           payload.planPricesKsh = planPricesKsh;
           payload.subscriptionPriceKsh = planPricesKsh[payload.assignedPlanCode];
           const schoolId = form.dataset.schoolId;
+          if (schoolId) {
+            const adminPassword = String(formData.adminPassword || "");
+            if (adminPassword.length < 8) throw new Error("Enter your admin password to save these changes.");
+            payload.adminPassword = adminPassword;
+          }
           if (submitButton) {
             form.dataset.submitting = "true";
             form.setAttribute("aria-busy", "true");
@@ -4350,6 +4385,8 @@ function bindModalForms() {
         if (shouldReload) await loadAll(true);
         else renderRoute();
       } catch (error) {
+        const passwordInput = form.querySelector("input[name='adminPassword']");
+        if (passwordInput) passwordInput.value = "";
         const errorEl = form.querySelector(".error-text");
         if (errorEl) errorEl.textContent = error.message;
       } finally {

@@ -7455,6 +7455,45 @@ tr:last-child td {
   place-items: center;
 }
 
+.school-manage-header-actions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.school-manage-edit {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(207, 218, 234, 0.8);
+  background: rgba(255, 255, 255, 0.68);
+  color: #075bea;
+  display: grid;
+  place-items: center;
+  transition: background-color 160ms ease, color 160ms ease, opacity 160ms ease;
+}
+
+.school-manage-edit:hover:not(:disabled) {
+  background: #075bea;
+  color: #fff;
+}
+
+.school-manage-edit.is-active {
+  opacity: 0.45;
+}
+
+.school-manage-edit svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 .school-manage-close svg,
 .school-manage-stat svg,
 .school-manage-info-row svg,
@@ -7475,6 +7514,52 @@ tr:last-child td {
   display: grid;
   gap: 18px;
   padding: 22px 28px 28px;
+}
+
+.school-manage-body.is-readonly input:disabled,
+.school-manage-body.is-readonly select:disabled {
+  color: #334155;
+  background: #f5f7fb;
+  border-color: #e0e7f1;
+  opacity: 1;
+  cursor: default;
+}
+
+.school-manage-body.is-readonly input[type="checkbox"]:disabled {
+  opacity: 0.65;
+}
+
+.school-admin-confirmation {
+  width: min(420px, 100%);
+  margin-left: auto;
+  display: grid;
+  gap: 7px;
+}
+
+.school-admin-confirmation[hidden] {
+  display: none;
+}
+
+.school-admin-confirmation > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #081632;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.school-admin-confirmation svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+.school-admin-confirmation small {
+  color: #64748b;
+  font-weight: 700;
 }
 
 .school-manage-stats {

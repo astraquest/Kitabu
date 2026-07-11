@@ -448,6 +448,10 @@ const schoolSchema = z.object({
   discountId: z.string().uuid().nullable().optional()
 });
 
+const schoolUpdateSchema = schoolSchema.extend({
+  adminPassword: z.string().min(8)
+});
+
 const schoolParamsSchema = z.object({
   schoolId: z.string().uuid()
 });
@@ -6235,14 +6239,21 @@ Return valid JSON with this shape:
     });
   });
 
-  app.patch('/admin/schools/:schoolId', async (request, reply) => {
+  app.patch('/admin/schools/:schoolId', { config: { rateLimit: { max: 5, timeWindow: '1 minute' } } }, async (request, reply) => {
     const precondition = await requireRoles(request, reply, ['platform_admin']);
     if (precondition) {
       return precondition;
     }
 
     const params = schoolParamsSchema.parse(request.params);
-    const body = schoolSchema.parse(request.body);
+    const body = schoolUpdateSchema.parse(request.body);
+    const admin = await findUserByEmail(request.user!.email);
+    if (!admin || !(await verifyPassword(body.adminPassword, admin.password_hash))) {
+      await withTransaction(client => createAuditLog(client, request.user!.id, request.user!.schoolId, 'admin.school.update_password_failed', {
+        schoolId: params.schoolId
+      }));
+      return reply.unauthorized('Admin password is incorrect');
+    }
     const { availablePlanCodes, assignedPlanCode } = normalizeSchoolPlanSelection(
       body.availablePlanCodes,
       body.assignedPlanCode

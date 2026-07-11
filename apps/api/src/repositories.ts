@@ -2991,6 +2991,26 @@ export async function getAdminAiAnalytics(user: AuthenticatedUser) {
     scopedParams
   );
 
+  const trackedUsers = await db.query(
+    `SELECT COUNT(DISTINCT user_id)::int AS total
+     FROM ai_usage_events
+     ${aiUsageScopedWhere}`,
+    scopedParams
+  );
+
+  const blockedEventRows = await db.query(
+    `SELECT a.id, a.created_at, a.feature, a.provider, a.model, a.prompt_version,
+            u.full_name AS user_name, u.email AS user_email, s.name AS school_name
+     FROM ai_usage_events a
+     JOIN users u ON u.id = a.user_id
+     LEFT JOIN schools s ON s.id = a.school_id
+     WHERE a.status = 'blocked'
+       ${schoolScoped ? 'AND a.school_id = $1' : ''}
+     ORDER BY a.created_at DESC
+     LIMIT 25`,
+    scopedParams
+  );
+
   const costBySchool = await db.query(
     `SELECT
        s.id,
@@ -3064,7 +3084,9 @@ export async function getAdminAiAnalytics(user: AuthenticatedUser) {
   return {
     topUsers: topUsers.rows,
     topFeatures: topFeatures.rows,
+    trackedUsers: Number(trackedUsers.rows[0]?.total ?? 0),
     blockedEvents: Number(blockedEvents.rows[0]?.total ?? 0),
+    blockedEventRows: blockedEventRows.rows,
     costBySchool: schoolScoped ? costBySchool.rows.filter(row => row.id === user.schoolId) : costBySchool.rows,
     marginByUser: marginByUser.rows,
     modelBreakdown: modelBreakdown.rows,

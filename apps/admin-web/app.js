@@ -2710,7 +2710,10 @@ function parentAdminDashboard() {
       ${parentBroadcastPanel()}
       <article class="teacher-panel parent-directory-panel">
         <div class="teacher-panel-head compact"><div><h2>Parent Directory</h2><p>${totalParents.toLocaleString("en-KE")} matching accounts</p></div></div>
-        ${searchBox("Search parents by name, email, phone or school...")}
+        <label class="search-box parent-search-box">
+          ${miniIcon("search")}
+          <input id="searchInput" value="${escapeHtml(state.search)}" placeholder="Search parents by name, email, phone or school..." />
+        </label>
         ${parentOverviewTable(rows)}
       </article>
     </section>

@@ -315,6 +315,7 @@ export interface AdminUserRecord {
   name: string;
   grade: string;
   school: string;
+  schoolId: string | null;
   email: string;
   phone: string | null;
   county: string | null;
@@ -328,6 +329,9 @@ export interface AdminUserRecord {
   hasActiveSubscription: boolean;
   activeSubscriptionPeriodEnd: string | null;
   activeSubscriptionPriceKshCents: number;
+  subscriptionPlanCode: string | null;
+  subscriptionPlanName: string | null;
+  subscriptionStatus: string | null;
 }
 
 export interface FeatureFlagRecord {
@@ -1078,6 +1082,7 @@ export async function createAdminManagedUser(
     name: user.full_name,
     grade: 'N/A',
     school: 'No School',
+    schoolId: null,
     email: user.email,
     phone: user.phone_number,
     county: user.county,
@@ -1095,7 +1100,10 @@ export async function createAdminManagedUser(
     watchTimeSeconds: Number(user.watch_time_seconds || 0),
     hasActiveSubscription: false,
     activeSubscriptionPeriodEnd: null,
-    activeSubscriptionPriceKshCents: 0
+    activeSubscriptionPriceKshCents: 0,
+    subscriptionPlanCode: null,
+    subscriptionPlanName: null,
+    subscriptionStatus: null
   };
 }
 
@@ -5673,6 +5681,7 @@ export async function listAdminUsers(user: AuthenticatedUser): Promise<AdminUser
     full_name: string;
     grade_level: string | null;
     school_name: string | null;
+    school_id: string | null;
     email: string;
     phone_number: string | null;
     county: string | null;
@@ -5686,12 +5695,16 @@ export async function listAdminUsers(user: AuthenticatedUser): Promise<AdminUser
     has_active_subscription: boolean;
     active_subscription_period_end: Date | null;
     active_subscription_price_ksh_cents: string;
+    subscription_plan_code: string | null;
+    subscription_plan_name: string | null;
+    subscription_status: string | null;
   }>(
     `SELECT
        u.id,
        u.full_name,
        u.grade_level,
        s.name AS school_name,
+       u.school_id,
        u.email,
        u.phone_number,
        u.county,
@@ -5710,7 +5723,10 @@ export async function listAdminUsers(user: AuthenticatedUser): Promise<AdminUser
        u.watch_time_seconds::text AS watch_time_seconds,
        BOOL_OR(active_subscription.id IS NOT NULL) AS has_active_subscription,
        MAX(active_subscription.period_end) AS active_subscription_period_end,
-       COALESCE(MAX(active_subscription.price_ksh_cents), 0)::text AS active_subscription_price_ksh_cents
+       COALESCE(MAX(active_subscription.price_ksh_cents), 0)::text AS active_subscription_price_ksh_cents,
+       (SELECT plan.code::text FROM subscriptions latest JOIN subscription_plans plan ON plan.id = latest.plan_id WHERE latest.user_id = u.id ORDER BY latest.created_at DESC LIMIT 1) AS subscription_plan_code,
+       (SELECT plan.name FROM subscriptions latest JOIN subscription_plans plan ON plan.id = latest.plan_id WHERE latest.user_id = u.id ORDER BY latest.created_at DESC LIMIT 1) AS subscription_plan_name,
+       (SELECT latest.status FROM subscriptions latest WHERE latest.user_id = u.id ORDER BY latest.created_at DESC LIMIT 1) AS subscription_status
       FROM users u
       JOIN user_roles ur ON ur.user_id = u.id
       LEFT JOIN schools s ON s.id = u.school_id
@@ -5734,6 +5750,7 @@ export async function listAdminUsers(user: AuthenticatedUser): Promise<AdminUser
     name: row.full_name,
     grade: row.grade_level || 'N/A',
     school: row.school_name || 'No School',
+    schoolId: row.school_id,
     email: row.email,
     phone: row.phone_number,
     county: row.county,
@@ -5753,8 +5770,48 @@ export async function listAdminUsers(user: AuthenticatedUser): Promise<AdminUser
     activeSubscriptionPeriodEnd: row.active_subscription_period_end
       ? row.active_subscription_period_end.toISOString()
       : null,
-    activeSubscriptionPriceKshCents: Number(row.active_subscription_price_ksh_cents || 0)
+    activeSubscriptionPriceKshCents: Number(row.active_subscription_price_ksh_cents || 0),
+    subscriptionPlanCode: row.subscription_plan_code,
+    subscriptionPlanName: row.subscription_plan_name,
+    subscriptionStatus: row.has_active_subscription ? 'active' : row.subscription_status
   }));
+}
+
+export async function updateAdminStudentProfile(
+  client: MaybeClient,
+  userId: string,
+  input: { fullName: string; grade: string | null; schoolId: string | null; email: string; phone: string | null; county: string | null }
+) {
+  await q(
+    client,
+    `UPDATE users
+     SET full_name = $2, grade_level = $3, school_id = $4, email = $5, phone_number = $6, county = $7, updated_at = NOW()
+     WHERE id = $1
+       AND EXISTS (SELECT 1 FROM user_roles WHERE user_id = $1 AND role = 'student')`,
+    [userId, input.fullName, input.grade, input.schoolId, input.email, input.phone, input.county]
+  );
+}
+
+export async function setAdminStudentSubscriptionStatus(client: MaybeClient, userId: string, active: boolean) {
+  if (!active) {
+    const result = await q(client, `UPDATE subscriptions SET status = 'paused' WHERE user_id = $1 AND status = 'active'`, [userId]);
+    return (result.rowCount ?? 0) > 0;
+  }
+  await q(client, `UPDATE subscriptions SET status = 'paused' WHERE user_id = $1 AND status = 'active'`, [userId]);
+  const result = await q(
+    client,
+    `UPDATE subscriptions
+     SET status = 'active',
+         period_start = NOW(),
+         period_end = NOW() + CASE billing_cycle
+           WHEN 'weekly' THEN INTERVAL '7 days'
+           WHEN 'monthly' THEN INTERVAL '1 month'
+           ELSE INTERVAL '1 year'
+         END
+     WHERE id = (SELECT id FROM subscriptions WHERE user_id = $1 ORDER BY created_at DESC LIMIT 1)`,
+    [userId]
+  );
+  return (result.rowCount ?? 0) > 0;
 }
 
 export interface SchoolOnboardingRequestInput {

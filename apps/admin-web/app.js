@@ -1272,6 +1272,13 @@ function normalizeUserRow(user, index) {
     id: user.id,
     name: user.name || user.fullName || user.email || "Student",
     email: user.email || "",
+    phone: user.phone || user.phoneNumber || "",
+    county: user.county || "",
+    schoolId: user.schoolId || user.school_id || null,
+    subscriptionPlanName: user.subscriptionPlanName || null,
+    subscriptionPlanCode: user.subscriptionPlanCode || null,
+    subscriptionStatus: user.hasActiveSubscription ? "active" : (user.subscriptionStatus || "inactive"),
+    subscriptionPeriodEnd: user.activeSubscriptionPeriodEnd || null,
     school: user.school || "Kitabu School",
     grade: user.grade || "Grade",
     status: normalizeUserStatus(user.status),
@@ -3374,6 +3381,57 @@ function showStudentModal(user, tab = "dashboard") {
       openRemedialAssignmentForm(user);
     });
   });
+  const profileForm = modalRoot.querySelector("[data-student-profile-form]");
+  modalRoot.querySelector("[data-edit-student-profile]")?.addEventListener("click", () => {
+    profileForm?.querySelectorAll("input, select").forEach(control => { control.disabled = false; });
+    const saveButton = profileForm?.querySelector("button[type='submit']");
+    if (saveButton) saveButton.disabled = false;
+    profileForm?.classList.add("is-editing");
+    profileForm?.querySelector("input[name='fullName']")?.focus();
+  });
+  profileForm?.addEventListener("submit", async event => {
+    event.preventDefault();
+    const data = Object.fromEntries(new FormData(profileForm).entries());
+    const error = profileForm.querySelector(".student-profile-error");
+    if (error) error.textContent = "";
+    try {
+      const response = await api(`/admin/users/${encodeURIComponent(user.id)}/profile`, { method: "PATCH", body: {
+        fullName: String(data.fullName || "").trim(),
+        grade: cleanSchoolFormValue(data.grade),
+        schoolId: cleanSchoolFormValue(data.schoolId),
+        email: String(data.email || "").trim(),
+        phone: cleanSchoolFormValue(data.phone),
+        county: cleanSchoolFormValue(data.county),
+        adminPassword: String(data.adminPassword || "")
+      }});
+      const index = state.data.users.findIndex(item => String(item.id) === String(user.id));
+      if (index >= 0) state.data.users[index] = { ...state.data.users[index], ...response.user };
+      showStudentModal(normalizeUserRow(response.user, Math.max(0, index)), "profile");
+    } catch (submitError) {
+      profileForm.querySelector("input[name='adminPassword']").value = "";
+      if (error) error.textContent = submitError.message;
+    }
+  });
+  const subscriptionForm = modalRoot.querySelector("[data-student-subscription-form]");
+  subscriptionForm?.addEventListener("submit", async event => {
+    event.preventDefault();
+    const submitter = event.submitter;
+    const error = subscriptionForm.querySelector(".student-subscription-error");
+    if (error) error.textContent = "";
+    try {
+      const passwordInput = subscriptionForm.querySelector("input[name='subscriptionAdminPassword']");
+      const response = await api(`/admin/users/${encodeURIComponent(user.id)}/subscription`, { method: "PATCH", body: {
+        active: submitter?.value === "activate",
+        adminPassword: passwordInput.value
+      }});
+      const index = state.data.users.findIndex(item => String(item.id) === String(user.id));
+      if (index >= 0) state.data.users[index] = { ...state.data.users[index], ...response.user };
+      showStudentModal(normalizeUserRow(response.user, Math.max(0, index)), "profile");
+    } catch (submitError) {
+      subscriptionForm.querySelector("input[name='subscriptionAdminPassword']").value = "";
+      if (error) error.textContent = submitError.message;
+    }
+  });
   modalRoot.addEventListener("click", onScrimClick, { once: true });
 }
 
@@ -3503,6 +3561,8 @@ function studentActivityRow(iconName, title, meta, score, tone) {
 
 function studentProfileContent(user) {
   const aiUsage = studentAiUsage(user);
+  const schoolChoices = [{ id: "", name: "No School" }, ...state.data.schools.map(school => ({ id: school.id, name: school.name }))];
+  const subscriptionActive = user.subscriptionStatus === "active";
   return `
     <section class="student-profile-hero">
       <div class="student-profile-banner"></div>
@@ -3510,19 +3570,41 @@ function studentProfileContent(user) {
       <h3>${escapeHtml(user.name)}</h3>
       <span>${escapeHtml(user.school)}</span>
     </section>
-    <section class="student-modal-card info-card">
-      <h3>${miniIcon("profile")} Academic Info</h3>
-      ${studentInfoRow("Grade", user.grade || "-")}
-      ${studentInfoRow("Date Joined", "Jan 2024")}
-      ${studentInfoRow("Last Active", user.status === "Online" ? "Just now" : "Today")}
-      ${studentInfoRow("Assignments", `${studentAssignmentCount(user)} Completed`)}
-      ${studentInfoRow("Tokens / KSh", `${aiUsage.totalTokens.toLocaleString("en-KE")} / ${moneyKesFromCents(aiUsage.spendKshCents)}`)}
-    </section>
-    <section class="student-modal-card contact-card">
-      <h3>Contact Details</h3>
-      ${studentInfoRow("Email", user.email || `${user.name.split(" ")[0].toLowerCase()}@example.com`)}
-      ${studentInfoRow("Phone", "+254 700 000 000")}
-    </section>`;
+    <form class="student-profile-form" data-student-profile-form>
+      <section class="student-modal-card info-card">
+        <h3>${miniIcon("profile")} Academic Info <button type="button" data-edit-student-profile aria-label="Edit student profile">${miniIcon("pencil")}</button></h3>
+        <label><span>Student Name</span><input name="fullName" value="${escapeHtml(user.name)}" disabled required /></label>
+        <label><span>Grade</span><input name="grade" value="${escapeHtml(user.grade === "N/A" ? "" : user.grade || "")}" disabled /></label>
+        <label><span>School</span><select name="schoolId" disabled>${schoolChoices.map(school => `<option value="${escapeHtml(school.id)}" ${String(school.id) === String(user.schoolId || "") ? "selected" : ""}>${escapeHtml(school.name)}</option>`).join("")}</select></label>
+        ${studentInfoRow("Date Joined", user.raw?.createdAt ? new Date(user.raw.createdAt).toLocaleDateString("en-KE", { month: "short", year: "numeric" }) : "-")}
+        ${studentInfoRow("Last Active", user.status === "Online" ? "Just now" : "Today")}
+        ${studentInfoRow("Assignments", `${studentAssignmentCount(user)} Completed`)}
+        ${studentInfoRow("Tokens / KSh", `${aiUsage.totalTokens.toLocaleString("en-KE")} / ${moneyKesFromCents(aiUsage.spendKshCents)}`)}
+      </section>
+      <section class="student-modal-card contact-card">
+        <h3>Contact Details</h3>
+        <label><span>Email</span><input name="email" type="email" value="${escapeHtml(user.email)}" disabled required /></label>
+        <label><span>Phone</span><input name="phone" value="${escapeHtml(user.phone)}" disabled /></label>
+        <label><span>County</span><input name="county" value="${escapeHtml(user.county)}" disabled /></label>
+        <div class="student-profile-confirmation">
+          <input name="adminPassword" type="password" minlength="8" autocomplete="current-password" placeholder="Admin password" disabled required />
+          <button class="primary-button" type="submit" disabled>${miniIcon("save")} Save changes</button>
+        </div>
+        <p class="error-text student-profile-error"></p>
+      </section>
+    </form>
+    <form class="student-modal-card student-subscription-card" data-student-subscription-form>
+      <h3>${miniIcon("wallet")} Subscription Package</h3>
+      ${studentInfoRow("Package", user.subscriptionPlanName || "No package assigned")}
+      ${studentInfoRow("Status", subscriptionActive ? "Active" : "Inactive")}
+      ${studentInfoRow("Valid Until", subscriptionActive && user.subscriptionPeriodEnd ? new Date(user.subscriptionPeriodEnd).toLocaleDateString("en-KE") : "-")}
+      <input name="subscriptionAdminPassword" type="password" minlength="8" autocomplete="current-password" placeholder="Admin password" required />
+      <div class="student-subscription-actions">
+        <button class="success-button" type="submit" value="activate" ${!user.subscriptionPlanCode || subscriptionActive ? "disabled" : ""}>Activate</button>
+        <button class="danger-button" type="submit" value="deactivate" ${!subscriptionActive ? "disabled" : ""}>Deactivate</button>
+      </div>
+      <p class="error-text student-subscription-error"></p>
+    </form>`;
 }
 
 function studentInfoRow(label, value) {

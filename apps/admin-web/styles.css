@@ -7455,6 +7455,99 @@ tr:last-child td {
   place-items: center;
 }
 
+.student-profile-form {
+  display: contents;
+}
+
+.student-profile-form label {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #edf1f6;
+}
+
+.student-profile-form label > span {
+  color: #95a1b6;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.student-profile-form input,
+.student-profile-form select,
+.student-subscription-card input {
+  width: 100%;
+  min-height: 38px;
+  border: 1px solid #d9e2ef;
+  border-radius: 8px;
+  background: #fff;
+  padding: 0 11px;
+  color: #0b1733;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.student-profile-form input:disabled,
+.student-profile-form select:disabled {
+  border-color: transparent;
+  background: transparent;
+  color: #111b32;
+  opacity: 1;
+}
+
+.student-profile-form h3 button {
+  margin-left: auto;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #d9e2ef;
+  border-radius: 50%;
+  background: #f7faff;
+  color: #075bea;
+  display: grid;
+  place-items: center;
+}
+
+.student-profile-form h3 button svg {
+  width: 15px;
+  height: 15px;
+}
+
+.student-profile-confirmation {
+  display: none;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.student-profile-form.is-editing .student-profile-confirmation {
+  display: grid;
+}
+
+.student-profile-confirmation .primary-button {
+  min-height: 40px;
+}
+
+.student-subscription-card {
+  display: grid;
+  gap: 10px;
+}
+
+.student-subscription-card > input {
+  margin-top: 4px;
+}
+
+.student-subscription-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.student-subscription-actions button {
+  min-height: 38px;
+}
+
 .school-manage-header-actions {
   position: relative;
   z-index: 1;

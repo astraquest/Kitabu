@@ -178,6 +178,8 @@ import {
   updateSchool,
   updateSchoolPilot,
   updateSchoolDiscount,
+  updateAdminStudentProfile,
+  setAdminStudentSubscriptionStatus,
   updateUserOnboarding,
   updateUserPassword,
   upsertPushToken,
@@ -455,6 +457,21 @@ const schoolUpdateSchema = schoolSchema.extend({
 
 const schoolParamsSchema = z.object({
   schoolId: z.string().uuid()
+});
+
+const adminStudentParamsSchema = z.object({ userId: z.string().uuid() });
+const adminStudentProfileSchema = z.object({
+  fullName: personNameSchema,
+  grade: z.string().trim().min(2).max(40).nullable(),
+  schoolId: z.string().uuid().nullable(),
+  email: z.string().email(),
+  phone: z.string().trim().max(20).nullable(),
+  county: z.string().trim().max(80).nullable(),
+  adminPassword: z.string().min(8)
+});
+const adminStudentSubscriptionSchema = z.object({
+  active: z.boolean(),
+  adminPassword: z.string().min(8)
 });
 
 const salesAgentCreateSchema = z.object({
@@ -5717,6 +5734,49 @@ Return valid JSON with this shape:
 
     const users = await listAdminUsers(request.user!);
     return { users };
+  });
+
+  app.patch('/admin/users/:userId/profile', { config: { rateLimit: { max: 5, timeWindow: '1 minute' } } }, async (request, reply) => {
+    const precondition = await requireRoles(request, reply, ['platform_admin']);
+    if (precondition) return precondition;
+    const params = adminStudentParamsSchema.parse(request.params);
+    const body = adminStudentProfileSchema.parse(request.body);
+    const admin = await findUserByEmail(request.user!.email);
+    if (!admin || !(await verifyPassword(body.adminPassword, admin.password_hash))) {
+      return reply.unauthorized('Admin password is incorrect');
+    }
+    const existingEmailUser = await findUserByEmail(body.email);
+    if (existingEmailUser && existingEmailUser.id !== params.userId) {
+      return reply.conflict('Another account already uses this email');
+    }
+    await withTransaction(async client => {
+      await updateAdminStudentProfile(client, params.userId, body);
+      await createAuditLog(client, request.user!.id, request.user!.schoolId, 'admin.student.profile.updated', { studentUserId: params.userId });
+    });
+    const users = await listAdminUsers(request.user!);
+    const user = users.find(item => item.id === params.userId);
+    return user ? { user } : reply.notFound('Student not found');
+  });
+
+  app.patch('/admin/users/:userId/subscription', { config: { rateLimit: { max: 5, timeWindow: '1 minute' } } }, async (request, reply) => {
+    const precondition = await requireRoles(request, reply, ['platform_admin']);
+    if (precondition) return precondition;
+    const params = adminStudentParamsSchema.parse(request.params);
+    const body = adminStudentSubscriptionSchema.parse(request.body);
+    const admin = await findUserByEmail(request.user!.email);
+    if (!admin || !(await verifyPassword(body.adminPassword, admin.password_hash))) {
+      return reply.unauthorized('Admin password is incorrect');
+    }
+    const changed = await withTransaction(async client => {
+      const subscriptionChanged = await setAdminStudentSubscriptionStatus(client, params.userId, body.active);
+      if (!subscriptionChanged) return false;
+      await createAuditLog(client, request.user!.id, request.user!.schoolId, body.active ? 'admin.student.subscription.activated' : 'admin.student.subscription.deactivated', { studentUserId: params.userId });
+      return true;
+    });
+    if (!changed) return reply.badRequest(body.active ? 'This learner has no subscription package to activate' : 'This learner has no active subscription');
+    const users = await listAdminUsers(request.user!);
+    const user = users.find(item => item.id === params.userId);
+    return user ? { user } : reply.notFound('Student not found');
   });
 
   app.post('/admin/sales-agents', async (request, reply) => {

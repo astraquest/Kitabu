@@ -8,7 +8,7 @@
   "scripts": {
     "dev:api": "npm run dev -w apps/api",
     "build": "npm run build -w apps/api",
-    "check": "npm run typecheck -w apps/api",
+    "check": "npm run typecheck -w apps/api && node scripts/check-admin-icons.mjs",
     "test:api": "npm test -w apps/api",
     "test:native": "npm --prefix native-app test -- --runInBand",
     "lint:native": "npm --prefix native-app run lint -- --max-warnings=0",

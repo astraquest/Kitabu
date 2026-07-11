@@ -3167,7 +3167,7 @@ function miniIcon(name) {
     target: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><path d="m15.5 8.5 2-2"/><path d="M15.5 6.5h2v2"/><path d="M12 12l3.5-3.5"/>',
     "arrow-right": '<path d="M5 12h14"/><path d="m13 6 6 6-6 6"/>'
   };
-  return `<svg viewBox="0 0 24 24" aria-hidden="true">${paths[name] || paths.grade}</svg>`;
+  return `<svg class="mini-icon" viewBox="0 0 24 24" aria-hidden="true">${paths[name] || paths.grade}</svg>`;
 }
 
 function selectControl(key, options, value) {

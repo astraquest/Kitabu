@@ -8,6 +8,7 @@ const REFRESH_MS = 30000;
 const grades = ["Grade 4", "Grade 5", "Grade 6", "Grade 7", "Grade 8", "Grade 9", "Grade 10", "Form 3", "Form 4"];
 const subjects = ["Mathematics", "English", "Science", "Kiswahili", "Social Studies", "Computer Science"];
 const timeRangeOptions = ["This Term", "This Month", "Last Month", "Last 3 Months", "Last 6 Months", "This Year", "Lifetime"];
+const defaultSchoolPlanPricesKsh = { weekly: 100, monthly: 500, annual: 1999 };
 const kenyaCounties = [
   "Baringo County", "Bomet County", "Bungoma County", "Busia County", "Elgeyo-Marakwet County", "Embu County",
   "Garissa County", "Homa Bay County", "Isiolo County", "Kajiado County", "Kakamega County", "Kericho County",
@@ -1319,6 +1320,13 @@ function normalizeSchoolRow(school, index = 0) {
   const scoreFromAssignments = schoolAverageScore(school.name);
   const averageScore = Number(school.averageScore ?? metadata.averageScore ?? scoreFromAssignments ?? 0);
   const location = school.location || metadata.county || "Unknown County";
+  const assignedPlanCode = school.pricing?.assignedPlanCode || school.assignedPlanCode || school.assigned_plan_code || "monthly";
+  const availablePlanCodes = school.pricing?.availablePlanCodes || school.availablePlanCodes || school.available_plan_codes || [assignedPlanCode];
+  const receivedPlanPrices = school.pricing?.planPricesKsh || school.planPricesKsh || school.plan_prices_ksh || {};
+  const planPricesKsh = { ...defaultSchoolPlanPricesKsh, ...receivedPlanPrices };
+  if (receivedPlanPrices[assignedPlanCode] === undefined && school.subscriptionPriceKsh !== undefined && school.subscriptionPriceKsh !== null) {
+    planPricesKsh[assignedPlanCode] = Number(school.subscriptionPriceKsh);
+  }
   return {
     id: school.id || `school-${index}`,
     name: school.name || "School",
@@ -1328,8 +1336,9 @@ function normalizeSchoolRow(school, index = 0) {
     phone: school.phone || "-",
     email: school.email || "-",
     salesAgentUserId: school.salesAgentUserId || school.sales_agent_user_id || "",
-    assignedPlanCode: school.pricing?.assignedPlanCode || school.assignedPlanCode || school.assigned_plan_code || "monthly",
-    availablePlanCodes: school.pricing?.availablePlanCodes || school.availablePlanCodes || school.available_plan_codes || [school.pricing?.assignedPlanCode || school.assignedPlanCode || school.assigned_plan_code || "monthly"],
+    assignedPlanCode,
+    availablePlanCodes,
+    planPricesKsh,
     subscriptionPriceKsh: Number(school.subscriptionPriceKsh ?? school.pricing?.effectivePriceKsh ?? school.pricing?.basePriceKsh ?? 0),
     discountId: school.pricing?.discount?.id || school.discountId || school.discount_id || "",
     code: school.code || metadata.code || school.slug || "-",
@@ -1358,13 +1367,16 @@ function schoolSalesAgentOptions(selectedAgentId = "") {
   ].join("");
 }
 
-function schoolPlanOptions(selectedPlans = ["monthly"]) {
+function schoolPlanOptions(selectedPlans = ["monthly"], planPricesKsh = defaultSchoolPlanPricesKsh) {
   const selected = new Set(Array.isArray(selectedPlans) && selectedPlans.length ? selectedPlans : ["monthly"]);
-  return `<div class="school-grade-options school-plan-options">
-    ${["weekly", "monthly", "annual"].map(plan => `<label>
-      <input type="checkbox" name="availablePlanCodes" value="${plan}" ${selected.has(plan) ? "checked" : ""} />
-      <span>${plan[0].toUpperCase()}${plan.slice(1)}</span>
-    </label>`).join("")}
+  return `<div class="school-plan-options">
+    ${["weekly", "monthly", "annual"].map(plan => `<div class="school-plan-option">
+      <label class="school-plan-check">
+        <input type="checkbox" name="availablePlanCodes" value="${plan}" ${selected.has(plan) ? "checked" : ""} />
+        <span>${plan[0].toUpperCase()}${plan.slice(1)}</span>
+      </label>
+      <label class="school-plan-price"><small>KSh</small><input type="number" name="planPriceKsh_${plan}" min="0" step="1" value="${Number(planPricesKsh[plan] ?? defaultSchoolPlanPricesKsh[plan])}" aria-label="${plan[0].toUpperCase()}${plan.slice(1)} amount (KSh)" /></label>
+    </div>`).join("")}
   </div>`;
 }
 
@@ -1567,7 +1579,7 @@ function schoolManagementContent(school = null) {
     salesAgentUserId: "",
     assignedPlanCode: "monthly",
     availablePlanCodes: ["monthly"],
-    subscriptionPriceKsh: 500,
+    planPricesKsh: { ...defaultSchoolPlanPricesKsh },
     learnerCount: 0,
     activeLearners: 0,
     engagement: 0,
@@ -1623,12 +1635,8 @@ function schoolManagementContent(school = null) {
           </label>
           <div class="school-available-grades school-available-plans">
             <h3>Subscription Plans</h3>
-            ${schoolPlanOptions(draft.availablePlanCodes || [draft.assignedPlanCode])}
+            ${schoolPlanOptions(draft.availablePlanCodes || [draft.assignedPlanCode], draft.planPricesKsh)}
           </div>
-          <label class="school-form-field">
-            <span>Primary Plan Price (KSh)</span>
-            <input name="subscriptionPriceKsh" type="number" min="0" step="1" value="${Number(draft.subscriptionPriceKsh || 0)}" />
-          </label>
           <label class="school-form-field">
             <span>Sales Agent</span>
             <select name="salesAgentUserId">${schoolSalesAgentOptions(draft.salesAgentUserId)}</select>
@@ -4225,16 +4233,25 @@ function bindModalForms() {
           const availableGrades = new FormData(form).getAll("availableGrades");
           const availablePlanCodes = new FormData(form).getAll("availablePlanCodes");
           if (!availablePlanCodes.length) throw new Error("Select at least one subscription plan.");
-          const subscriptionPriceKsh = Number(formData.subscriptionPriceKsh || 0);
+          const planPricesKsh = Object.fromEntries(availablePlanCodes.map(planCode => [
+            planCode,
+            String(formData[`planPriceKsh_${planCode}`] ?? "").trim() === ""
+              ? Number.NaN
+              : Number(formData[`planPriceKsh_${planCode}`])
+          ]));
+          if (Object.values(planPricesKsh).some(price => !Number.isInteger(price) || price < 0)) {
+            throw new Error("Enter a valid whole KSh amount for every selected plan.");
+          }
           payload.availableGrades = availableGrades;
           payload.availablePlanCodes = availablePlanCodes;
           payload.assignedPlanCode = availablePlanCodes.includes("monthly") ? "monthly" : availablePlanCodes[0];
-          payload.subscriptionPriceKsh = subscriptionPriceKsh;
+          payload.planPricesKsh = planPricesKsh;
+          payload.subscriptionPriceKsh = planPricesKsh[payload.assignedPlanCode];
           const schoolId = form.dataset.schoolId;
           const response = schoolId
             ? await api(`/admin/schools/${encodeURIComponent(schoolId)}`, { method: "PATCH", body: payload })
             : await api("/admin/schools", { method: "POST", body: payload });
-          upsertSchoolInState(response.school ? { ...response.school, availableGrades, availablePlanCodes, subscriptionPriceKsh } : response.school);
+          upsertSchoolInState(response.school ? { ...response.school, availableGrades, availablePlanCodes, planPricesKsh } : response.school);
           shouldClose = true;
         }
         if (form.dataset.kind === "sales-agent-create") {

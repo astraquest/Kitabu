@@ -113,4 +113,11 @@ test('uses a school override only for its primary plan', async () => {
     assignedPlanPriceKshCents: 45000,
     standardPlanPriceKshCents: 15000
   }), 15000);
+  assert.equal(schoolManagedPlanPriceKshCents({
+    planCode: 'weekly',
+    assignedPlanCode: 'monthly',
+    assignedPlanPriceKshCents: 45000,
+    standardPlanPriceKshCents: 15000,
+    planPricesKshCents: { weekly: 12500, monthly: 45000, annual: 180000 }
+  }), 12500);
 });

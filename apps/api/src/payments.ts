@@ -30,7 +30,13 @@ export function schoolManagedPlanPriceKshCents(input: {
   assignedPlanCode: BillingPlanCode;
   assignedPlanPriceKshCents: number;
   standardPlanPriceKshCents: number;
+  planPricesKshCents?: Record<string, number>;
 }) {
+  const configuredPrice = Number(input.planPricesKshCents?.[input.planCode]);
+  if (Number.isFinite(configuredPrice) && configuredPrice >= 0) {
+    return configuredPrice;
+  }
+
   return input.planCode === input.assignedPlanCode
     ? input.assignedPlanPriceKshCents
     : input.standardPlanPriceKshCents;

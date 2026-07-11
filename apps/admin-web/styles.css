@@ -7658,6 +7658,75 @@ tr:last-child td {
   accent-color: #075bea;
 }
 
+.school-plan-options {
+  display: grid;
+  gap: 9px;
+}
+
+.school-plan-option {
+  min-height: 48px;
+  border: 1px solid #d8e2f1;
+  border-radius: 8px;
+  background: #fff;
+  display: grid;
+  grid-template-columns: minmax(96px, 1fr) minmax(120px, 0.8fr);
+  align-items: center;
+  gap: 10px;
+  padding: 7px 8px 7px 10px;
+}
+
+.school-plan-check {
+  color: #081632;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.school-plan-check input {
+  width: 16px;
+  height: 16px;
+  accent-color: #075bea;
+}
+
+.school-plan-price {
+  min-height: 34px;
+  border: 1px solid #d8e2f1;
+  border-radius: 7px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  overflow: hidden;
+}
+
+.school-plan-price small {
+  align-self: stretch;
+  background: #f3f6fb;
+  color: #60708f;
+  display: grid;
+  place-items: center;
+  padding: 0 8px;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.school-plan-price input {
+  width: 100%;
+  height: 32px;
+  border: 0;
+  background: #fff;
+  color: #081632;
+  padding: 0 8px;
+  outline: none;
+  font: inherit;
+}
+
+.school-plan-price:focus-within {
+  border-color: #075bea;
+  box-shadow: 0 0 0 3px rgba(7, 91, 234, 0.12);
+}
+
 .school-grade-list {
   display: grid;
   gap: 12px;

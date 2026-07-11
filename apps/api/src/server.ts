@@ -209,7 +209,8 @@ import {
   normalizeSchoolPlanSelection,
   SCHOOL_BILLING_PLAN_CODES,
   schoolManagedPlanPriceKshCents,
-  type BillingPlanCode
+  type BillingPlanCode,
+  type SchoolBillingPlanCode
 } from './payments.js';
 import { buildPaymentTelemetry, emitMufasaTelemetry } from './mufasaTelemetry.js';
 
@@ -426,6 +427,11 @@ const mpesaCheckoutSchema = z.object({
 });
 
 const schoolPlanCodeSchema = z.enum(SCHOOL_BILLING_PLAN_CODES);
+const schoolPlanPricesSchema = z.object({
+  weekly: z.number().int().min(0).optional(),
+  monthly: z.number().int().min(0).optional(),
+  annual: z.number().int().min(0).optional()
+}).strict();
 
 const schoolSchema = z.object({
   name: z.string().trim().min(2).max(120),
@@ -436,6 +442,7 @@ const schoolSchema = z.object({
   salesAgentUserId: z.string().uuid().nullable().optional(),
   availableGrades: z.array(z.string().trim().min(2).max(40)).max(24).default([]),
   availablePlanCodes: z.array(schoolPlanCodeSchema).min(1).max(3),
+  planPricesKsh: schoolPlanPricesSchema.optional(),
   subscriptionPriceKsh: z.number().int().min(0).nullable().optional(),
   assignedPlanCode: schoolPlanCodeSchema.optional(),
   discountId: z.string().uuid().nullable().optional()
@@ -1970,6 +1977,12 @@ export function buildServer(options: BuildServerOptions = {}) {
       type: school.discount_type,
       amount: school.discount_amount
     });
+    const planPricesKsh = Object.fromEntries(
+      Object.entries(school.plan_prices_ksh_cents || {}).map(([code, priceKshCents]) => [
+        code,
+        Number(priceKshCents) / 100
+      ])
+    );
 
     return {
       id: school.id,
@@ -1982,6 +1995,7 @@ export function buildServer(options: BuildServerOptions = {}) {
       salesAgentUserId: school.sales_agent_user_id,
       availableGrades: school.available_grades,
       availablePlanCodes: school.available_plan_codes,
+      planPricesKsh,
       subscriptionPriceKsh: school.subscription_price_ksh_cents === null ? null : Number(school.subscription_price_ksh_cents) / 100,
       subscriptionPriceKshCents: school.subscription_price_ksh_cents === null ? null : Number(school.subscription_price_ksh_cents),
       totalStudents: school.total_students,
@@ -2002,6 +2016,7 @@ export function buildServer(options: BuildServerOptions = {}) {
       pricing: {
         assignedPlanCode: school.assigned_plan_code,
         availablePlanCodes: school.available_plan_codes,
+        planPricesKsh,
         assignedPlanName: school.assigned_plan_name,
         billingCycle: school.assigned_billing_cycle,
         basePriceKsh: basePriceKshCents / 100,
@@ -6182,6 +6197,14 @@ Return valid JSON with this shape:
     if (!assignedPlan || availablePlans.length !== availablePlanCodes.length) {
       return reply.badRequest('Assigned subscription package is invalid');
     }
+    const planPricesKshCents = Object.fromEntries(availablePlans.map(plan => {
+      const planCode = plan.code as SchoolBillingPlanCode;
+      const requestedPriceKsh = body.planPricesKsh?.[planCode];
+      const fallbackPriceKsh = planCode === assignedPlanCode && body.subscriptionPriceKsh !== null && body.subscriptionPriceKsh !== undefined
+        ? body.subscriptionPriceKsh
+        : Number(plan.price_ksh_cents) / 100;
+      return [planCode, Math.round((requestedPriceKsh ?? fallbackPriceKsh) * 100)];
+    }));
 
     const schoolId = await withTransaction(async client => {
       const createdSchoolId = await createSchool(client, {
@@ -6194,7 +6217,8 @@ Return valid JSON with this shape:
         salesAgentUserId: body.salesAgentUserId ?? null,
         availableGrades: body.availableGrades,
         availablePlanCodes,
-        subscriptionPriceKshCents: body.subscriptionPriceKsh === null || body.subscriptionPriceKsh === undefined ? null : body.subscriptionPriceKsh * 100,
+        planPricesKshCents,
+        subscriptionPriceKshCents: planPricesKshCents[assignedPlanCode],
         assignedPlanId: assignedPlan.id,
         discountId: body.discountId ?? null
       });
@@ -6228,6 +6252,14 @@ Return valid JSON with this shape:
     if (!assignedPlan || availablePlans.length !== availablePlanCodes.length) {
       return reply.badRequest('Assigned subscription package is invalid');
     }
+    const planPricesKshCents = Object.fromEntries(availablePlans.map(plan => {
+      const planCode = plan.code as SchoolBillingPlanCode;
+      const requestedPriceKsh = body.planPricesKsh?.[planCode];
+      const fallbackPriceKsh = planCode === assignedPlanCode && body.subscriptionPriceKsh !== null && body.subscriptionPriceKsh !== undefined
+        ? body.subscriptionPriceKsh
+        : Number(plan.price_ksh_cents) / 100;
+      return [planCode, Math.round((requestedPriceKsh ?? fallbackPriceKsh) * 100)];
+    }));
 
     await withTransaction(async client => {
       await updateSchool(client, params.schoolId, {
@@ -6240,7 +6272,8 @@ Return valid JSON with this shape:
         salesAgentUserId: body.salesAgentUserId ?? null,
         availableGrades: body.availableGrades,
         availablePlanCodes,
-        subscriptionPriceKshCents: body.subscriptionPriceKsh === null || body.subscriptionPriceKsh === undefined ? null : body.subscriptionPriceKsh * 100,
+        planPricesKshCents,
+        subscriptionPriceKshCents: planPricesKshCents[assignedPlanCode],
         assignedPlanId: assignedPlan.id,
         discountId: body.discountId ?? null
       });
@@ -6472,7 +6505,8 @@ Return valid JSON with this shape:
             planCode: plan.code,
             assignedPlanCode: schoolPricing.assigned_plan_code,
             assignedPlanPriceKshCents: Number(schoolPricing.assigned_plan_price_ksh_cents),
-            standardPlanPriceKshCents: Number(plan.price_ksh_cents)
+            standardPlanPriceKshCents: Number(plan.price_ksh_cents),
+            planPricesKshCents: schoolPricing.plan_prices_ksh_cents
           });
           return serializePlan({
             code: plan.code,
@@ -6605,7 +6639,8 @@ Return valid JSON with this shape:
         planCode: body.planCode,
         assignedPlanCode: schoolPricing.assigned_plan_code,
         assignedPlanPriceKshCents: Number(schoolPricing.assigned_plan_price_ksh_cents),
-        standardPlanPriceKshCents: Number(plan.price_ksh_cents)
+        standardPlanPriceKshCents: Number(plan.price_ksh_cents),
+        planPricesKshCents: schoolPricing.plan_prices_ksh_cents
       });
       amountKshCents = applyDiscount(originalPriceKshCents, {
         type: schoolPricing.discount_type,

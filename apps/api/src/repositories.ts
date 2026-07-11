@@ -5797,7 +5797,7 @@ export async function assignSchoolsToSalesAgent(client: MaybeClient, agentUserId
   const result = await q(
     client,
     `UPDATE schools
-     SET sales_agent_user_id = $1, updated_at = NOW()
+     SET sales_agent_user_id = $1
      WHERE id = ANY($2::uuid[])`,
     [agentUserId, schoolIds]
   );

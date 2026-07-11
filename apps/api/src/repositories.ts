@@ -5267,7 +5267,7 @@ export async function listChessOnlineOpponents(user: AuthenticatedUser): Promise
        u.full_name,
        u.grade_level,
        s.name AS school_name,
-       ARRAY_AGG(DISTINCT ur.role) AS roles,
+       ARRAY_AGG(DISTINCT ur.role::text) AS roles,
        u.presence_status,
        u.presence_last_seen_at
       FROM users u
@@ -5662,7 +5662,7 @@ export async function listAdminUsers(user: AuthenticatedUser): Promise<AdminUser
        u.email,
        u.phone_number,
        u.county,
-       ARRAY_AGG(DISTINCT ur.role) AS roles,
+       ARRAY_AGG(DISTINCT ur.role::text) AS roles,
        u.email_verified,
        u.created_at,
        GREATEST(

@@ -190,12 +190,12 @@ function renderNav() {
 }
 
 function isTeacherOnly() {
-  const roles = state.user?.roles || [];
+  const roles = roleValues(state.user);
   return roles.includes("teacher") && !roles.includes("school_admin") && !roles.includes("platform_admin");
 }
 
 function isParentOnly() {
-  const roles = state.user?.roles || [];
+  const roles = roleValues(state.user);
   return roles.includes("parent") && !roles.includes("school_admin") && !roles.includes("platform_admin") && !roles.includes("teacher");
 }
 
@@ -221,7 +221,7 @@ async function onLogin(event) {
   const password = document.getElementById("passwordInput").value;
   try {
     const payload = await api("/auth/login", { method: "POST", public: true, body: { email, password } });
-    const roles = payload.user?.roles || [];
+    const roles = roleValues(payload.user);
     if (!roles.includes("platform_admin") && !roles.includes("school_admin") && !roles.includes("teacher") && !roles.includes("parent")) {
       throw new Error("This account is not an admin, teacher, or parent account.");
     }
@@ -499,12 +499,27 @@ function percent(value) {
   return `${Math.round(Number(value || 0))}%`;
 }
 
+function roleValues(user) {
+  if (Array.isArray(user?.roles)) {
+    return user.roles.map(role => String(role).trim().toLowerCase()).filter(Boolean);
+  }
+
+  const rawRoles = user?.roles ?? user?.role;
+  if (rawRoles === undefined || rawRoles === null) return [];
+
+  return String(rawRoles)
+    .replace(/^\{(.*)\}$/, "$1")
+    .split(",")
+    .map(role => role.trim().replace(/^"|"$/g, "").toLowerCase())
+    .filter(Boolean);
+}
+
 function hasRole(user, role) {
-  return (user.roles || []).some(item => String(item).toLowerCase() === role);
+  return roleValues(user).includes(String(role).toLowerCase());
 }
 
 function isStudentRecord(user) {
-  if (Array.isArray(user.roles) && user.roles.length) return hasRole(user, "student");
+  if (roleValues(user).length) return hasRole(user, "student");
   return Boolean(user.grade && user.grade !== "N/A") || String(user.email || "").toLowerCase().includes("student");
 }
 
@@ -1755,7 +1770,7 @@ function upsertSalesAgentUser(user) {
     fullName: user.fullName || user.name || user.email || "Sales Agent",
     phone: user.phone || user.phoneNumber || "-",
     county: user.county || "",
-    roles: Array.isArray(user.roles) && user.roles.length ? user.roles : ["sales_agent"]
+    roles: roleValues(user).length ? roleValues(user) : ["sales_agent"]
   };
   const index = state.data.users.findIndex(item => String(item.id) === String(nextUser.id));
   if (index >= 0) state.data.users[index] = nextUser;
@@ -2561,7 +2576,7 @@ function parentPeriodControl(label) {
 }
 
 function isParentRecord(user) {
-  if (Array.isArray(user.roles) && user.roles.length) return hasRole(user, "parent");
+  if (roleValues(user).length) return hasRole(user, "parent");
   return String(user.email || "").toLowerCase().includes("parent");
 }
 
@@ -4313,7 +4328,7 @@ function showProfileModal() {
   openModal(user.fullName || "Admin", `
     <div class="kpi-stack">
       <div class="kpi-row"><strong>Email</strong><span>${escapeHtml(user.email || "-")}</span></div>
-      <div class="kpi-row"><strong>Roles</strong><span>${escapeHtml((user.roles || []).join(", ") || "-")}</span></div>
+      <div class="kpi-row"><strong>Roles</strong><span>${escapeHtml(roleValues(user).join(", ") || "-")}</span></div>
       <div class="kpi-row"><strong>API</strong><span>${escapeHtml(API_BASE)}</span></div>
     </div>
     <div class="button-row" style="margin-top:16px"><button class="danger-button" id="modalSignOut">Sign out</button></div>

@@ -149,6 +149,7 @@ function init() {
 
 function bindEvents() {
   loginForm.addEventListener("submit", onLogin);
+  document.addEventListener("click", handleParentInboxRead);
   document.getElementById("menuButton").addEventListener("click", () => document.querySelector(".sidebar").classList.toggle("open"));
   document.getElementById("profileButton").addEventListener("click", showProfileModal);
   document.getElementById("notificationButton").addEventListener("click", () => isParentOnly() ? openParentInboxModal() : openModal("Notifications", "<p class='visually-muted'>Notification center is connected to live account, payment, and learning updates.</p>", "small"));
@@ -2781,25 +2782,31 @@ function parentInboxContent() {
 
 function openParentInboxModal() {
   openModal("Message Inbox", parentInboxContent(), "large");
-  bindParentInboxActions();
 }
 
-function bindParentInboxActions() {
-  document.querySelectorAll("[data-parent-read-message]").forEach(button => button.addEventListener("click", async () => {
-    await api(`/notifications/${encodeURIComponent(button.dataset.parentReadMessage)}/read`, { method: "POST" });
-    const message = state.data.notifications.find(item => item.id === button.dataset.parentReadMessage);
-    if (message) message.readAt = new Date().toISOString();
-    renderRoute();
-    if (!modalRoot.hidden) openParentInboxModal();
-  }));
-  document.querySelectorAll("[data-parent-read-all]").forEach(button => button.addEventListener("click", async () => {
-    button.disabled = true;
-    await api("/notifications/read-all", { method: "POST" });
+async function handleParentInboxRead(event) {
+  const messageButton = event.target.closest("[data-parent-read-message]");
+  const allButton = event.target.closest("[data-parent-read-all]");
+  if (!messageButton && !allButton) return;
+  const button = messageButton || allButton;
+  button.disabled = true;
+  try {
     const readAt = new Date().toISOString();
-    state.data.notifications.forEach(message => { message.readAt = message.readAt || readAt; });
+    if (messageButton) {
+      const notificationId = messageButton.dataset.parentReadMessage;
+      await api(`/notifications/${encodeURIComponent(notificationId)}/read`, { method: "POST" });
+      const message = state.data.notifications.find(item => item.id === notificationId);
+      if (message) message.readAt = readAt;
+    } else {
+      await api("/notifications/read-all", { method: "POST" });
+      state.data.notifications.forEach(message => { message.readAt = message.readAt || readAt; });
+    }
     renderRoute();
     if (!modalRoot.hidden) openParentInboxModal();
-  }));
+  } catch (error) {
+    button.disabled = false;
+    setSync("Sync error", error.message || "Unable to update the inbox", "error");
+  }
 }
 
 function parentChildRows() {
@@ -3090,7 +3097,6 @@ function bindRouteEvents() {
   document.querySelectorAll("[data-message-parents]").forEach(button => button.addEventListener("click", () => openParentMessageModal()));
   document.querySelectorAll("[data-message-parent]").forEach(button => button.addEventListener("click", () => openParentMessageModal(button.dataset.messageParent)));
   document.querySelectorAll("[data-open-parent-inbox]").forEach(button => button.addEventListener("click", openParentInboxModal));
-  bindParentInboxActions();
   document.querySelectorAll("[data-download-parent-report]").forEach(button => button.addEventListener("click", () => window.print()));
   document.querySelectorAll("[data-phone-lock]").forEach(button => button.addEventListener("click", openPhoneLockModal));
   document.querySelectorAll("[data-parent-remedial]").forEach(button => button.addEventListener("click", () => openModal("Remedial Plan", "<p class='visually-muted'>Remedial focus is generated from the linked child dashboard, due reviews, assignments, and diagnostic scores.</p>", "small")));

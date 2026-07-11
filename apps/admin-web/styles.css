@@ -1672,6 +1672,18 @@ tr:last-child td {
   font-weight: 950;
 }
 
+.student-modal-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.student-modal-card h3 > svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+}
+
 .student-card-title-row button,
 .student-card-title-row span {
   border: 0;
@@ -7527,6 +7539,19 @@ tr:last-child td {
 
 .student-profile-confirmation .primary-button {
   min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.student-profile-confirmation .primary-button svg {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
 }
 
 .student-subscription-card {

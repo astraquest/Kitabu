@@ -1656,7 +1656,7 @@ function schoolManagementContent(school = null) {
       <p class="error-text"></p>
       <div class="school-manage-actions">
         <button type="button" class="ghost-button" data-close-modal>Cancel</button>
-        <button type="submit" class="primary-button">${miniIcon("save")} ${isNew ? "Add School" : "Save Changes"}</button>
+        <button type="submit" class="primary-button school-save-button">${miniIcon("save")} ${isNew ? "Add School" : "Save Changes"}</button>
       </div>
     </form>
   </section>`;
@@ -4142,12 +4142,12 @@ function openModal(title, body, size = "") {
 }
 
 function onScrimClick(event) {
-  if (event.target === modalRoot) closeModal();
+  if (event.target === modalRoot && !modalRoot.classList.contains("school-modal-saving")) closeModal();
   else modalRoot.addEventListener("click", onScrimClick, { once: true });
 }
 
 function closeModal() {
-  modalRoot.classList.remove("student-modal-root", "school-modal-root", "sales-modal-root");
+  modalRoot.classList.remove("student-modal-root", "school-modal-root", "sales-modal-root", "school-modal-saving", "school-modal-retracting");
   modalRoot.hidden = true;
   modalRoot.innerHTML = "";
 }
@@ -4248,10 +4248,30 @@ function bindModalForms() {
           payload.planPricesKsh = planPricesKsh;
           payload.subscriptionPriceKsh = planPricesKsh[payload.assignedPlanCode];
           const schoolId = form.dataset.schoolId;
+          if (submitButton) {
+            form.dataset.submitting = "true";
+            form.setAttribute("aria-busy", "true");
+            modalRoot.classList.add("school-modal-saving");
+            submitButton.disabled = true;
+            submitButton.setAttribute("aria-busy", "true");
+            submitButton.classList.add("is-loading");
+            submitButton.innerHTML = `<span class="school-save-spinner" aria-hidden="true"></span><span>${schoolId ? "Saving changes..." : "Adding school..."}</span>`;
+          }
           const response = schoolId
             ? await api(`/admin/schools/${encodeURIComponent(schoolId)}`, { method: "PATCH", body: payload })
             : await api("/admin/schools", { method: "POST", body: payload });
           upsertSchoolInState(response.school ? { ...response.school, availableGrades, availablePlanCodes, planPricesKsh } : response.school);
+          if (submitButton) {
+            submitButton.removeAttribute("aria-busy");
+            submitButton.classList.remove("is-loading");
+            submitButton.classList.add("is-success");
+            submitButton.innerHTML = `${miniIcon("check")} <span>${schoolId ? "Changes saved" : "School added"}</span>`;
+          }
+          form.removeAttribute("aria-busy");
+          modalRoot.classList.remove("school-modal-saving");
+          await new Promise(resolve => setTimeout(resolve, 650));
+          modalRoot.classList.add("school-modal-retracting");
+          await new Promise(resolve => setTimeout(resolve, 320));
           shouldClose = true;
         }
         if (form.dataset.kind === "sales-agent-create") {
@@ -4333,11 +4353,13 @@ function bindModalForms() {
         const errorEl = form.querySelector(".error-text");
         if (errorEl) errorEl.textContent = error.message;
       } finally {
-        if (!shouldClose && form.dataset.kind === "curriculum-editor" && submitButton) {
+        if (!shouldClose && form.dataset.submitting === "true" && submitButton) {
           form.dataset.submitting = "false";
+          form.removeAttribute("aria-busy");
+          modalRoot.classList.remove("school-modal-saving", "school-modal-retracting");
           submitButton.disabled = false;
           submitButton.removeAttribute("aria-busy");
-          submitButton.classList.remove("loading");
+          submitButton.classList.remove("loading", "is-loading", "is-success");
           submitButton.innerHTML = originalSubmitHtml;
         }
       }

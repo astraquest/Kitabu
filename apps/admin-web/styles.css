@@ -7658,6 +7658,32 @@ tr:last-child td {
   accent-color: #075bea;
 }
 
+.modal-root.school-modal-root {
+  transition: background-color 320ms ease, backdrop-filter 320ms ease;
+}
+
+.modal-root.school-modal-root .school-management-modal {
+  transform-origin: 50% 88%;
+  transition: opacity 280ms ease, transform 320ms cubic-bezier(0.4, 0, 0.2, 1), filter 280ms ease;
+}
+
+.modal-root.school-modal-saving .school-manage-close,
+.modal-root.school-modal-saving [data-close-modal] {
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+.modal-root.school-modal-retracting {
+  background: rgba(8, 15, 28, 0);
+  backdrop-filter: blur(0);
+}
+
+.modal-root.school-modal-retracting .school-management-modal {
+  opacity: 0;
+  transform: translateY(28px) scale(0.94);
+  filter: blur(3px);
+}
+
 .school-plan-options {
   display: grid;
   gap: 9px;
@@ -7780,6 +7806,36 @@ tr:last-child td {
 .school-manage-actions svg {
   width: 19px;
   height: 19px;
+}
+
+.school-save-button {
+  min-width: 150px;
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.school-save-button.is-loading,
+.school-save-button.is-success {
+  cursor: default;
+}
+
+.school-save-button.is-success {
+  background: #079047;
+  border-color: #079047;
+  color: #fff;
+  transform: scale(1.02);
+}
+
+.school-save-spinner {
+  width: 17px;
+  height: 17px;
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: schoolSaveSpin 700ms linear infinite;
+}
+
+@keyframes schoolSaveSpin {
+  to { transform: rotate(360deg); }
 }
 
 @media (max-width: 1100px) {

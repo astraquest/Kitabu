@@ -7563,6 +7563,31 @@ tr:last-child td {
   margin-top: 4px;
 }
 
+.student-subscription-plan-field {
+  display: grid;
+  gap: 6px;
+}
+
+.student-subscription-plan-field span {
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.student-subscription-plan-field select {
+  width: 100%;
+  min-height: 40px;
+  border: 1px solid #d9e2ef;
+  border-radius: 8px;
+  background: #fff;
+  padding: 0 11px;
+  color: #0b1733;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+}
+
 .student-subscription-actions {
   display: grid;
   grid-template-columns: 1fr 1fr;

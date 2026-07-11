@@ -3422,6 +3422,7 @@ function showStudentModal(user, tab = "dashboard") {
       const passwordInput = subscriptionForm.querySelector("input[name='subscriptionAdminPassword']");
       const response = await api(`/admin/users/${encodeURIComponent(user.id)}/subscription`, { method: "PATCH", body: {
         active: submitter?.value === "activate",
+        planCode: submitter?.value === "activate" ? subscriptionForm.querySelector("select[name='subscriptionPlanCode']").value : undefined,
         adminPassword: passwordInput.value
       }});
       const index = state.data.users.findIndex(item => String(item.id) === String(user.id));
@@ -3598,9 +3599,14 @@ function studentProfileContent(user) {
       ${studentInfoRow("Package", user.subscriptionPlanName || "No package assigned")}
       ${studentInfoRow("Status", subscriptionActive ? "Active" : "Inactive")}
       ${studentInfoRow("Valid Until", subscriptionActive && user.subscriptionPeriodEnd ? new Date(user.subscriptionPeriodEnd).toLocaleDateString("en-KE") : "-")}
+      <label class="student-subscription-plan-field"><span>Assign package</span><select name="subscriptionPlanCode" required>
+        <option value="weekly" ${user.subscriptionPlanCode === "weekly" ? "selected" : ""}>Weekly</option>
+        <option value="monthly" ${!user.subscriptionPlanCode || user.subscriptionPlanCode === "monthly" ? "selected" : ""}>Monthly</option>
+        <option value="annual" ${user.subscriptionPlanCode === "annual" ? "selected" : ""}>Annual</option>
+      </select></label>
       <input name="subscriptionAdminPassword" type="password" minlength="8" autocomplete="current-password" placeholder="Admin password" required />
       <div class="student-subscription-actions">
-        <button class="success-button" type="submit" value="activate" ${!user.subscriptionPlanCode || subscriptionActive ? "disabled" : ""}>Activate</button>
+        <button class="success-button" type="submit" value="activate">${user.subscriptionPlanCode ? "Change / Reactivate" : "Assign package"}</button>
         <button class="danger-button" type="submit" value="deactivate" ${!subscriptionActive ? "disabled" : ""}>Deactivate</button>
       </div>
       <p class="error-text student-subscription-error"></p>

@@ -471,6 +471,7 @@ const adminStudentProfileSchema = z.object({
 });
 const adminStudentSubscriptionSchema = z.object({
   active: z.boolean(),
+  planCode: schoolPlanCodeSchema.optional(),
   adminPassword: z.string().min(8)
 });
 
@@ -5767,13 +5768,25 @@ Return valid JSON with this shape:
     if (!admin || !(await verifyPassword(body.adminPassword, admin.password_hash))) {
       return reply.unauthorized('Admin password is incorrect');
     }
+    const selectedPlan = body.active && body.planCode ? (await listSubscriptionPlans([body.planCode]))[0] : null;
+    if (body.active && !selectedPlan) return reply.badRequest('Select a valid subscription package');
+    const subscriptionStart = new Date();
     const changed = await withTransaction(async client => {
-      const subscriptionChanged = await setAdminStudentSubscriptionStatus(client, params.userId, body.active);
+      const subscriptionChanged = selectedPlan
+        ? Boolean(await replaceActiveSubscription(client, {
+            userId: params.userId,
+            planId: selectedPlan.id,
+            billingCycle: selectedPlan.billing_cycle,
+            priceKshCents: Number(selectedPlan.price_ksh_cents),
+            periodStart: subscriptionStart,
+            periodEnd: getPlanPeriodEnd(subscriptionStart, selectedPlan.billing_cycle)
+          }))
+        : await setAdminStudentSubscriptionStatus(client, params.userId, false);
       if (!subscriptionChanged) return false;
       await createAuditLog(client, request.user!.id, request.user!.schoolId, body.active ? 'admin.student.subscription.activated' : 'admin.student.subscription.deactivated', { studentUserId: params.userId });
       return true;
     });
-    if (!changed) return reply.badRequest(body.active ? 'This learner has no subscription package to activate' : 'This learner has no active subscription');
+    if (!changed) return reply.badRequest(body.active ? 'Unable to assign this subscription package' : 'This learner has no active subscription');
     const users = await listAdminUsers(request.user!);
     const user = users.find(item => item.id === params.userId);
     return user ? { user } : reply.notFound('Student not found');

@@ -371,6 +371,10 @@ p { margin: 0 0 1em; }
 @media (max-width: 640px) {
   .hero-actions { flex-direction: column; }
   .hero-actions .button { width: 100%; }
+  .hero .hero-actions .button-quiet {
+    align-self: flex-start;
+    width: auto;
+  }
 }
 
 /* Official store artwork. Keep badges unmodified and label unavailable stores separately. */
@@ -432,28 +436,13 @@ a.store-badge:focus-visible { outline: 3px solid var(--sky-blue); outline-offset
   padding: 6px 13px;
 }
 
-/* Hero visual: photo backdrop + phone mockup */
+/* Hero visual: weekly parent update mockup */
 .hero-visual {
   position: relative;
   display: grid;
   justify-items: center;
   min-height: 480px;
 }
-.hero-photo {
-  position: absolute;
-  inset: 0;
-  border-radius: var(--radius-card);
-  overflow: hidden;
-  box-shadow: var(--shadow-card);
-}
-.hero-photo::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(160deg, rgba(31,127,77,.30), rgba(14,61,38,.42));
-  mix-blend-mode: multiply;
-}
-.hero-photo img { width: 100%; height: 100%; object-fit: cover; }
 
 .phone {
   position: relative;

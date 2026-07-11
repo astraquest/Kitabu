@@ -162,10 +162,14 @@ if (hasValue('KITABU_DATABASE_URL')) {
       SELECT
         (SELECT COUNT(*)::int FROM users u
          JOIN user_roles ur ON ur.user_id = u.id AND ur.role = 'student'
-         WHERE u.grade_level = ANY($1)) AS seeded_students,
+         WHERE u.email ~ '^(grade[0-9]+|form[34])\.student[1-5]@students\.kitabu\.ai$') AS seeded_students,
         (SELECT COUNT(*)::int FROM class_students cs
-         JOIN classes c ON c.id = cs.class_id
-         WHERE c.grade_level = ANY($1)) AS rostered_students,
+         JOIN users u ON u.id = cs.student_id
+         WHERE u.email ~ '^(grade[0-9]+|form[34])\.student[1-5]@students\.kitabu\.ai$') AS rostered_seeded_students,
+        (SELECT COUNT(*)::int FROM schools
+         WHERE slug IN ('kitabu-demo-school', 'kisii-demo-school', 'mombasa-demo-school', 'smoke-test-school')) AS demo_schools,
+        (SELECT COUNT(*)::int FROM assignments
+         WHERE description = 'Seeded assignment for production portal testing.') AS demo_assignments,
         (SELECT COUNT(*)::int FROM curriculum_strands
          WHERE grade_level = ANY($1)) AS curriculum_strands,
         (SELECT COUNT(*)::int FROM curriculum_sub_strands css
@@ -174,15 +178,25 @@ if (hasValue('KITABU_DATABASE_URL')) {
         (SELECT COUNT(*)::int FROM quiz_bank_questions) AS quiz_bank_questions
     `, [supportedGrades]);
     const row = result.rows[0];
-    const expected = {
-      seeded_students: 45,
-      rostered_students: 45,
+    const expectedExact = {
+      seeded_students: 0,
+      rostered_seeded_students: 0,
+      demo_schools: 0,
+      demo_assignments: 0
+    };
+    const expectedMinimum = {
       curriculum_strands: 162,
       curriculum_sub_strands: 810,
       quiz_bank_questions: 900
     };
 
-    for (const [key, minimum] of Object.entries(expected)) {
+    for (const [key, expected] of Object.entries(expectedExact)) {
+      if (Number(row[key] ?? 0) !== expected) {
+        failures.push(`${key} is ${row[key] ?? 0}, expected exactly ${expected}`);
+      }
+    }
+
+    for (const [key, minimum] of Object.entries(expectedMinimum)) {
       if (Number(row[key] ?? 0) < minimum) {
         failures.push(`${key} is ${row[key] ?? 0}, expected at least ${minimum}`);
       }

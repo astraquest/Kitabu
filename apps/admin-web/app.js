@@ -4272,6 +4272,7 @@ function bindModalForms() {
             subject: formData.subject,
             description: draft.description,
             gradeLevel: formData.grade,
+            schoolId: formData.schoolId || undefined,
             dueDate: toIsoDateTime(formData.dueDate),
             targetStudentId: formData.targetStudentId || undefined,
             questions: normalizeAssignmentQuestions(draft.questions)
@@ -4496,6 +4497,13 @@ function assignmentForm(options = {}) {
   const selectedSubject = subjects.includes(options.subject) ? options.subject : "Mathematics";
   const topic = options.topic || "";
   const draft = options.draft ? JSON.stringify(options.draft, null, 2) : "";
+  const availableSchools = state.data.schools.filter(school => school.id && school.name);
+  const schoolField = hasRole(state.user, "platform_admin") ? `<label class="wide">School
+    <select name="schoolId" required>
+      <option value="">Select school</option>
+      ${availableSchools.map(school => `<option value="${escapeHtml(school.id)}">${escapeHtml(school.name)}</option>`).join("")}
+    </select>
+  </label>` : "";
   const recipient = options.recipientName ? `<div class="assignment-recipient wide">
     <span>Recipient</span>
     <strong>${escapeHtml(options.recipientName)}</strong>
@@ -4503,6 +4511,7 @@ function assignmentForm(options = {}) {
   </div>` : "";
   return `<form data-kind="assignment" class="form-grid">
     ${recipient}
+    ${schoolField}
     <label>Grade ${selectField("grade", grades, selectedGrade)}</label>
     <label>Subject ${selectField("subject", subjects, selectedSubject)}</label>
     <label class="wide">Due Date <input name="dueDate" type="datetime-local" /></label>

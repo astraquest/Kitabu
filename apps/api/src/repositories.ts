@@ -7,6 +7,7 @@ import type {
   EmailVerificationTokenRecord,
   PasswordResetTokenRecord
 } from './types.js';
+import { resolveAssignmentSchoolId } from './assignmentTargeting.js';
 import type { BillingPlanCode } from './payments.js';
 import { resolveQuizBankSubjectIds } from './quizBank.js';
 
@@ -4607,6 +4608,7 @@ export async function createTeacherAssignment(
     subject: string;
     description: string;
     gradeLevel: string;
+    schoolId?: string;
     dueAt?: Date | null;
     targetStudentId?: string;
     questions: Array<{
@@ -4619,9 +4621,10 @@ export async function createTeacherAssignment(
     }>;
   }
 ) {
-  if (!user.schoolId) {
-    throw new Error('Teacher must belong to a school');
-  }
+  const targetSchoolId = resolveAssignmentSchoolId(user, input.schoolId);
+
+  const schoolResult = await q<{ id: string }>(client, `SELECT id FROM schools WHERE id = $1`, [targetSchoolId]);
+  if (!schoolResult.rows[0]) throw new Error('Selected school was not found');
 
   const teacherScoped =
     user.roles.includes('teacher') &&
@@ -4665,7 +4668,7 @@ export async function createTeacherAssignment(
      VALUES ($1, NULL, $2, $3, $4, $5, $6, $7, $8::jsonb)
      RETURNING id`,
     [
-      user.schoolId,
+      targetSchoolId,
       user.id,
       input.title,
       input.description,
@@ -4702,7 +4705,7 @@ export async function createTeacherAssignment(
            WHERE existing.user_id = u.id
          )
        )`,
-    [user.schoolId, input.gradeLevel || null, input.targetStudentId || null, teacherScoped, user.id, input.subject]
+    [targetSchoolId, input.gradeLevel || null, input.targetStudentId || null, teacherScoped, user.id, input.subject]
   );
 
   if (input.targetStudentId && !studentRows.rows.length) {

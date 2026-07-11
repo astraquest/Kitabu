@@ -556,13 +556,19 @@ const onboardingSelectionEventSchema = z.object({
   metadata: z.record(z.string(), z.unknown()).optional()
 });
 
+const databaseUuidString = z
+  .string()
+  .trim()
+  .regex(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i, 'Invalid UUID');
+
 const teacherAssignmentSchema = z.object({
   title: z.string().trim().min(2).max(160),
   subject: z.string().trim().min(2).max(80),
   description: z.string().trim().min(2).max(2000),
   gradeLevel: z.string().trim().min(2).max(40),
+  schoolId: databaseUuidString.optional(),
   dueDate: z.string().datetime().optional(),
-  targetStudentId: z.string().uuid().optional(),
+  targetStudentId: databaseUuidString.optional(),
   questions: z.array(z.object({
     id: z.number().int(),
     type: z.enum(['MCQ', 'TRUE_FALSE', 'SHORT_ANSWER', 'ESSAY']),
@@ -578,11 +584,6 @@ const teachingScopeSchema = z.object({
   subjects: z.array(z.string().trim().min(1).max(80)).max(40).default([]),
   subjectsByGrade: z.record(z.string(), z.array(z.string().trim().min(1).max(80))).optional()
 });
-
-const databaseUuidString = z
-  .string()
-  .trim()
-  .regex(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i, 'Invalid UUID');
 
 const teacherParentMessageQuerySchema = z.object({
   gradeLevel: z.string().trim().min(2).max(40).optional(),
@@ -5500,6 +5501,7 @@ Return valid JSON with this shape:
         subject: body.subject,
         description: body.description,
         gradeLevel: body.gradeLevel,
+        schoolId: body.schoolId,
         dueAt: body.dueDate ? new Date(body.dueDate) : null,
         targetStudentId: body.targetStudentId,
         questions: body.questions

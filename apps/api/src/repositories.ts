@@ -100,6 +100,7 @@ export interface SchoolRecord {
   slug: string;
   status: string;
   location: string;
+  school_type: 'day_school' | 'boarding_school' | 'day_and_boarding';
   principal: string | null;
   phone: string | null;
   email: string | null;
@@ -1951,6 +1952,7 @@ function mapSchoolRows(
     slug: string;
     status: string;
     location: string;
+    school_type: 'day_school' | 'boarding_school' | 'day_and_boarding';
     principal: string | null;
     phone: string | null;
     email: string | null;
@@ -1995,6 +1997,7 @@ export async function listSchools() {
       slug: string;
       status: string;
       location: string;
+      school_type: 'day_school' | 'boarding_school' | 'day_and_boarding';
       principal: string | null;
       phone: string | null;
       email: string | null;
@@ -2029,6 +2032,7 @@ export async function listSchools() {
          s.slug,
          s.status,
          s.location,
+         s.school_type,
          s.principal,
          s.phone,
          s.email,
@@ -2102,6 +2106,7 @@ export async function findSchoolPricingForUser(userId: string) {
     slug: string;
     status: string;
     location: string;
+    school_type: 'day_school' | 'boarding_school' | 'day_and_boarding';
     principal: string | null;
     phone: string | null;
     email: string | null;
@@ -2126,6 +2131,7 @@ export async function findSchoolPricingForUser(userId: string) {
        s.slug,
        s.status,
        s.location,
+       s.school_type,
        s.principal,
        s.phone,
        s.email,
@@ -2169,6 +2175,7 @@ export async function createSchool(
     name: string;
     slug: string;
     location: string;
+    schoolType: 'day_school' | 'boarding_school' | 'day_and_boarding';
     principal?: string | null;
     phone?: string | null;
     email?: string | null;
@@ -2183,13 +2190,14 @@ export async function createSchool(
 ) {
   const result = await q<{ id: string }>(
     client,
-    `INSERT INTO schools (name, slug, location, principal, phone, email, sales_agent_user_id, available_grades, available_plan_codes, plan_prices_ksh_cents, subscription_price_ksh_cents, assigned_plan_id, discount_id)
-     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)
+    `INSERT INTO schools (name, slug, location, school_type, principal, phone, email, sales_agent_user_id, available_grades, available_plan_codes, plan_prices_ksh_cents, subscription_price_ksh_cents, assigned_plan_id, discount_id)
+     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
      RETURNING id`,
     [
       input.name,
       input.slug,
       input.location,
+      input.schoolType,
       input.principal ?? null,
       input.phone ?? null,
       input.email ?? null,
@@ -2213,6 +2221,7 @@ export async function updateSchool(
     name: string;
     slug: string;
     location: string;
+    schoolType?: 'day_school' | 'boarding_school' | 'day_and_boarding';
     principal?: string | null;
     phone?: string | null;
     email?: string | null;
@@ -2232,23 +2241,25 @@ export async function updateSchool(
      SET name = $2,
          slug = $3,
          location = $4,
-         principal = $5,
-         phone = $6,
-         email = $7,
-         sales_agent_user_id = $8,
-         available_grades = $9,
-         available_plan_codes = $10,
-         plan_prices_ksh_cents = $11,
-         subscription_price_ksh_cents = $12,
-         assigned_plan_id = $13,
-         discount_id = $14,
-         status = COALESCE($15, status)
+         school_type = COALESCE($5, school_type),
+         principal = $6,
+         phone = $7,
+         email = $8,
+         sales_agent_user_id = $9,
+         available_grades = $10,
+         available_plan_codes = $11,
+         plan_prices_ksh_cents = $12,
+         subscription_price_ksh_cents = $13,
+         assigned_plan_id = $14,
+         discount_id = $15,
+         status = COALESCE($16, status)
      WHERE id = $1`,
     [
       schoolId,
       input.name,
       input.slug,
       input.location,
+      input.schoolType,
       input.principal ?? null,
       input.phone ?? null,
       input.email ?? null,

@@ -1304,6 +1304,14 @@ function schoolMetadata(name) {
   return metadata?.[1] || { type: "Day School", county: "", activeLearners: null, engagement: null, averageScore: null, code: "", crest: "school" };
 }
 
+function schoolTypeLabel(value) {
+  return {
+    day_school: "Day School",
+    boarding_school: "Boarding School",
+    day_and_boarding: "Day & Boarding"
+  }[String(value || "").toLowerCase()] || String(value || "Day School");
+}
+
 function normalizeSchoolRow(school, index = 0) {
   const metadata = schoolMetadata(school.name);
   const gradeCounts = school.gradeCounts || school.grade_counts || {};
@@ -1342,7 +1350,8 @@ function normalizeSchoolRow(school, index = 0) {
     subscriptionPriceKsh: Number(school.subscriptionPriceKsh ?? school.pricing?.effectivePriceKsh ?? school.pricing?.basePriceKsh ?? 0),
     discountId: school.pricing?.discount?.id || school.discountId || school.discount_id || "",
     code: school.code || metadata.code || school.slug || "-",
-    type: school.schoolType || school.type || metadata.type,
+    schoolType: school.schoolType || school.school_type || "day_school",
+    type: schoolTypeLabel(school.schoolType || school.school_type || school.type || metadata.type),
     crest: school.crest || metadata.crest,
     learnerCount,
     activeLearners,
@@ -1410,6 +1419,7 @@ function schoolPayloadFromForm(formData) {
   return {
     name: String(formData.name || "").trim(),
     location: county,
+    schoolType: String(formData.schoolType || "day_school"),
     principal: cleanSchoolFormValue(formData.principal),
     phone: cleanSchoolFormValue(formData.phone),
     email: cleanSchoolFormValue(formData.email),
@@ -1623,6 +1633,14 @@ function schoolManagementContent(school = null) {
           <label class="school-form-field">
             <span>County</span>
             <select name="county" required>${schoolCountyOptions(draft.county || countyFromLocation(draft.location))}</select>
+          </label>
+          <label class="school-form-field">
+            <span>School Type</span>
+            <select name="schoolType" required>
+              <option value="day_school" ${draft.type === "Day School" || draft.schoolType === "day_school" ? "selected" : ""}>Day School</option>
+              <option value="boarding_school" ${draft.type === "Boarding School" || draft.schoolType === "boarding_school" ? "selected" : ""}>Boarding School</option>
+              <option value="day_and_boarding" ${draft.type === "Day & Boarding" || draft.schoolType === "day_and_boarding" ? "selected" : ""}>Day &amp; Boarding</option>
+            </select>
           </label>
           <label class="school-form-field">
             <span>Principal</span>

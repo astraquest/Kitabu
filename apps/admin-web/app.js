@@ -52,6 +52,7 @@ const state = {
   selectedUsageFeature: "All Features",
   teacherPeriod: "This Week",
   parentPeriod: "This Week",
+  parentMessageScope: "All Parents",
   studentTrendRange: "Last 7 days",
   timeRange: "This Term",
   search: "",
@@ -71,7 +72,8 @@ const state = {
     curriculumGradeRequests: {},
     teacherStudents: [],
     teacherAssignments: [],
-    parentChildren: []
+    parentChildren: [],
+    notifications: []
   }
 };
 
@@ -149,7 +151,7 @@ function bindEvents() {
   loginForm.addEventListener("submit", onLogin);
   document.getElementById("menuButton").addEventListener("click", () => document.querySelector(".sidebar").classList.toggle("open"));
   document.getElementById("profileButton").addEventListener("click", showProfileModal);
-  document.getElementById("notificationButton").addEventListener("click", () => openModal("Notifications", "<p class='visually-muted'>Notification center is connected to live account, payment, and learning updates.</p>", "small"));
+  document.getElementById("notificationButton").addEventListener("click", () => isParentOnly() ? openParentInboxModal() : openModal("Notifications", "<p class='visually-muted'>Notification center is connected to live account, payment, and learning updates.</p>", "small"));
   document.addEventListener("visibilitychange", () => {
     if (!state.accessToken) return;
     if (document.hidden) {
@@ -384,8 +386,12 @@ async function loadTeacherData() {
 }
 
 async function loadParentData() {
-  const dashboard = await api("/parent/dashboard");
+  const [dashboard, notifications] = await Promise.all([
+    api("/parent/dashboard"),
+    api("/notifications?limit=50")
+  ]);
   state.data.parentChildren = dashboard.children || [];
+  state.data.notifications = notifications.notifications || [];
 }
 
 async function loadCurriculumGrade(grade = currentCurriculumGrade(), options = {}) {
@@ -2644,26 +2650,16 @@ function isParentRecord(user) {
 
 function parentAdminRows() {
   const parents = state.data.users.filter(isParentRecord);
-  const students = studentUsers();
   return parents.map((user, index) => {
-    const student = students[index % Math.max(students.length, 1)] || {};
-    const school = user.school && user.school !== "N/A" ? user.school : student.school || "No School";
-    const grade = user.grade && user.grade !== "N/A" ? user.grade : student.grade || "Unassigned";
-    const reportViews = Number(user.reportViews ?? 0);
+    const school = user.school && user.school !== "N/A" ? user.school : "No School";
     return {
       id: user.id || `parent-${index}`,
       name: user.name || user.fullName || user.email || "Parent",
       email: user.email || "-",
       phone: user.phone || user.phoneNumber || "-",
-      child: user.child || student.name || "No linked student",
-      grade,
       school,
       county: user.county || countyForSchoolName(school) || "",
-      lastActive: user.lastActive || "No activity",
-      reportViews,
-      phoneLockCount: Number(user.phoneLockCount ?? 0),
-      status: normalizeUserStatus(user.status),
-      risk: reportViews < 5 ? "unread" : "healthy"
+      status: normalizeUserStatus(user.status)
     };
   });
 }
@@ -2673,8 +2669,7 @@ function filteredParentAdminRows() {
   return parentAdminRows()
     .filter(row => state.selectedSchool === "All Schools" || row.school === state.selectedSchool)
     .filter(row => state.selectedCounty === "All Counties" || row.county === state.selectedCounty)
-    .filter(row => state.selectedGrade === "All Grades" || row.grade === state.selectedGrade)
-    .filter(row => !term || `${row.name} ${row.child} ${row.school} ${row.county} ${row.email} ${row.phone}`.toLowerCase().includes(term));
+    .filter(row => !term || `${row.name} ${row.school} ${row.county} ${row.email} ${row.phone}`.toLowerCase().includes(term));
 }
 
 function parentSchoolOptions() {
@@ -2687,166 +2682,121 @@ function parentCountyOptions() {
   return ["All Counties", ...counties];
 }
 
-function parentGradeOptions() {
-  const values = Array.from(new Set([...parentAdminRows().map(row => row.grade), ...grades].filter(Boolean))).sort();
-  return ["All Grades", ...values];
-}
-
 function parentAdminDashboard() {
   const rows = filteredParentAdminRows();
-  const highlights = parentAdminHighlights(rows);
+  const totalParents = rows.length;
+  const activeParents = rows.filter(row => row.status === "active").length;
+  const parentsWithPhone = rows.filter(row => row.phone && row.phone !== "-").length;
+  const schoolCount = new Set(rows.map(row => row.school).filter(school => school && school !== "No School")).size;
   return `<div class="parent-portal-page admin">
     <header class="parent-portal-header">
       <div>
         <h1>Parents' Portal</h1>
-        <p>Monitor parent engagement, child reports, communication and home learning support.</p>
+        <p>Manage parent accounts and send updates directly to their Kitabu inbox.</p>
       </div>
       <div class="parent-header-controls">
-        <div class="parent-segmented">${["Today", "This Week", "This Term"].map(parentPeriodControl).join("")}</div>
         ${selectControl("selectedSchool", parentSchoolOptions(), state.selectedSchool)}
         ${selectControl("selectedCounty", parentCountyOptions(), state.selectedCounty)}
-        ${selectControl("selectedGrade", parentGradeOptions(), state.selectedGrade)}
         <button class="parent-primary-button" type="button" data-message-parents>${miniIcon("chat")} Message Parents</button>
-        <button class="parent-outline-button" type="button" data-download-parent-report>${miniIcon("download")} Export Reports</button>
       </div>
     </header>
-    <section class="parent-metric-grid">
-      ${teacherMetricCard("blue", "students", "Total Parents", highlights.total.toLocaleString("en-KE"), `Across ${highlights.schools} schools`)}
-      ${teacherMetricCard("green", "star", "Most Engaged Parent", highlights.best?.name || "-", `${highlights.best?.reportViews || 0} report views`)}
-      ${teacherMetricCard("red", "students", "Least Engaged Group", highlights.lowGroup, `${highlights.lowOpenRate}% opened reports`)}
-      ${teacherMetricCard("orange", "bars", "Reports Viewed", highlights.reportViews.toLocaleString("en-KE"), state.parentPeriod)}
-      ${teacherMetricCard("purple", "lock", "Phone Lock Usage", highlights.phoneLocks.toLocaleString("en-KE"), "Focus sessions")}
+    <section class="parent-metric-grid parent-real-metrics">
+      ${teacherMetricCard("blue", "students", "Parent Accounts", totalParents.toLocaleString("en-KE"), "Current filtered directory")}
+      ${teacherMetricCard("green", "active", "Active Accounts", activeParents.toLocaleString("en-KE"), "Available for messaging")}
+      ${teacherMetricCard("orange", "phone", "Phone Contacts", parentsWithPhone.toLocaleString("en-KE"), "Registered phone numbers")}
+      ${teacherMetricCard("purple", "school", "Schools Represented", schoolCount.toLocaleString("en-KE"), "Linked parent accounts")}
     </section>
-    <section class="parent-admin-chart-grid">
-      <article class="teacher-panel parent-wide-panel">
-        <div class="teacher-panel-head"><h2>Parent Engagement Trend</h2><button type="button">More ${miniIcon("chevron")}</button></div>
-        ${parentLineChart()}
-      </article>
-      <article class="teacher-panel">
-        <div class="teacher-panel-head"><h2>Parent Activity by County</h2><button type="button">More ${miniIcon("chevron")}</button></div>
-        ${parentCountyBarChart(rows)}
-      </article>
-    </section>
-    <section class="teacher-panel parent-table-panel">
-      <div class="teacher-panel-head"><h2>Parents Overview</h2></div>
-      ${parentOverviewTable(rows)}
-    </section>
-    <section class="parent-admin-lower-grid">
+    <section class="parent-admin-clean-grid">
       ${parentBroadcastPanel()}
-      ${parentAdminAlerts(rows)}
-      ${parentUnreadReports(rows)}
-      ${parentPhoneAdoption(rows)}
+      <article class="teacher-panel parent-directory-panel">
+        <div class="teacher-panel-head compact"><div><h2>Parent Directory</h2><p>${totalParents.toLocaleString("en-KE")} matching accounts</p></div></div>
+        ${searchBox("Search parents by name, email, phone or school...")}
+        ${parentOverviewTable(rows)}
+      </article>
     </section>
   </div>`;
 }
 
-function parentAdminHighlights(rows) {
-  const source = rows.length ? rows : parentAdminRows();
-  const sorted = [...source].sort((left, right) => right.reportViews - left.reportViews);
-  const lowRows = source.filter(row => row.reportViews < 5);
-  return {
-    total: source.length,
-    schools: new Set(source.map(row => row.school).filter(Boolean)).size,
-    best: sorted[0] || null,
-    lowGroup: lowRows.length ? `${lowRows[0].grade} Parents` : "Grade 8 Parents",
-    lowOpenRate: lowRows.length ? 24 : 88,
-    reportViews: source.reduce((sum, row) => sum + row.reportViews, 0),
-    phoneLocks: source.reduce((sum, row) => sum + row.phoneLockCount, 0)
-  };
-}
-
-function parentLineChart(values = null) {
-  const labels = ["May 12-18", "May 19-25", "May 26-Jun 1", "Jun 2-8", "Jun 9-15", "Jun 16-22"];
-  const series = values || [
-    { label: "Report Views", color: "#106cff", values: [1180, 1460, 1710, 2190, 1900, 2360] },
-    { label: "Messages Opened", color: "#12ad57", values: [860, 1070, 1260, 1590, 1370, 1790] },
-    { label: "Phone Lock Sessions", color: "#8b5cf6", values: [240, 340, 470, 650, 540, 880] }
-  ];
-  const max = Math.max(...series.flatMap(row => row.values), 1) * 1.15;
-  const x = index => 54 + index * 118;
-  const y = value => 208 - (value / max) * 172;
-  return `<svg class="parent-line-chart" viewBox="0 0 720 270" role="img" aria-label="Parent engagement trend">
-    ${[0, 0.25, 0.5, 0.75, 1].map(step => `<line x1="48" y1="${208 - step * 172}" x2="688" y2="${208 - step * 172}"></line>`).join("")}
-    ${labels.map((label, index) => `<text x="${x(index)}" y="240" text-anchor="middle">${escapeHtml(label)}</text>`).join("")}
-    ${series.map(row => `<polyline points="${row.values.map((value, index) => `${x(index)},${y(value)}`).join(" ")}" style="stroke:${row.color}"></polyline>${row.values.map((value, index) => `<circle cx="${x(index)}" cy="${y(value)}" r="4" style="fill:${row.color}"></circle>`).join("")}`).join("")}
-    ${series.map((row, index) => `<g transform="translate(${210 + index * 150} 26)"><circle cx="0" cy="0" r="5" style="fill:${row.color}"></circle><text x="16" y="4">${escapeHtml(row.label)}</text></g>`).join("")}
-  </svg>`;
-}
-
-function parentCountyBarChart(rows) {
-  const counties = ["Nairobi County", "Kiambu County", "Kisii County", "Mombasa County", "Nakuru County"];
-  const counts = counties.map(county => ({
-    county: county.replace(" County", ""),
-    value: rows.filter(row => row.county === county).reduce((sum, row) => sum + Math.max(row.reportViews * 100, 120), 0) || [1820, 1410, 1020, 860, 610][counties.indexOf(county)]
-  }));
-  const max = Math.max(...counts.map(row => row.value), 1);
-  return `<svg class="parent-bar-chart" viewBox="0 0 560 250" role="img" aria-label="Parent activity by county">
-    ${[0, 0.25, 0.5, 0.75, 1].map(step => `<line x1="42" y1="${196 - step * 160}" x2="540" y2="${196 - step * 160}"></line>`).join("")}
-    ${counts.map((row, index) => {
-      const height = Math.max(12, (row.value / max) * 150);
-      const x = 76 + index * 98;
-      return `<text x="${x + 20}" y="${188 - height}" text-anchor="middle" class="parent-bar-value">${row.value.toLocaleString("en-KE")}</text><rect x="${x}" y="${196 - height}" width="40" height="${height}" rx="7"></rect><text x="${x + 20}" y="224" text-anchor="middle">${escapeHtml(row.county)}</text>`;
-    }).join("")}
-  </svg>`;
-}
-
 function parentOverviewTable(rows) {
-  const tableRows = (rows.length ? rows : parentAdminRows()).slice(0, 7);
+  const tableRows = rows.slice(0, 50);
   return `<div class="teacher-table-wrap parent-table-wrap"><table class="teacher-table parent-table">
-    <thead><tr><th>Parent</th><th>Child</th><th>School</th><th>County</th><th>Last Active</th><th>Report Views</th><th>Phone Lock</th><th>Action</th></tr></thead>
+    <thead><tr><th>Parent</th><th>Contact</th><th>School</th><th>County</th><th>Status</th><th>Action</th></tr></thead>
     <tbody>${tableRows.map(row => `<tr>
-      <td>${escapeHtml(row.name)}</td>
-      <td>${escapeHtml(row.child)} ${escapeHtml(row.grade)}</td>
+      <td><strong>${escapeHtml(row.name)}</strong><small>${escapeHtml(row.email)}</small></td>
+      <td>${escapeHtml(row.phone)}</td>
       <td>${escapeHtml(row.school)}</td>
-      <td>${escapeHtml(row.county)}</td>
-      <td>${escapeHtml(row.lastActive)}</td>
-      <td>${row.reportViews}</td>
-      <td><span class="${row.phoneLockCount ? "parent-ok" : "parent-risk"}">${row.phoneLockCount ? `Used ${row.phoneLockCount}x` : "Not used"}</span></td>
+      <td>${escapeHtml(row.county || "-")}</td>
+      <td><span class="status-pill ${escapeHtml(row.status)}">${escapeHtml(row.status)}</span></td>
       <td><button class="teacher-message-button" type="button" data-message-parent="${escapeHtml(row.id)}">${miniIcon("chat")} Message</button></td>
-    </tr>`).join("")}</tbody>
+    </tr>`).join("") || `<tr><td colspan="6"><div class="empty-state">No parent accounts match these filters.</div></td></tr>`}</tbody>
   </table></div>`;
 }
 
+function parentMessageRecipients() {
+  const rows = parentAdminRows();
+  if (state.parentMessageScope === "One School") {
+    return state.selectedSchool === "All Schools" ? [] : rows.filter(row => row.school === state.selectedSchool);
+  }
+  if (state.parentMessageScope === "Selected County") {
+    return state.selectedCounty === "All Counties" ? [] : rows.filter(row => row.county === state.selectedCounty);
+  }
+  return rows;
+}
+
 function parentBroadcastPanel() {
-  const scopes = [["One School", "school"], ["Selected County", "globe"], ["All Parents", "students"], ["Parents of At-Risk Students", "shield-star"]];
+  const scopes = [["All Parents", "students"], ["One School", "school"], ["Selected County", "globe"]];
+  const recipientCount = parentMessageRecipients().length;
   return `<article class="teacher-panel parent-broadcast">
     <div class="teacher-panel-head compact"><h2>${miniIcon("chat")} Message Broadcast</h2></div>
-    <p>Select Scope</p>
-    <div class="parent-broadcast-options">${scopes.map((scope, index) => `<button class="${index === 0 ? "active" : ""}" type="button" data-parent-broadcast-scope="${escapeHtml(scope[0])}">${miniIcon(scope[1])}<span>${escapeHtml(scope[0])}</span></button>`).join("")}</div>
+    <p>Select recipients</p>
+    <div class="parent-broadcast-options">${scopes.map(scope => `<button class="${state.parentMessageScope === scope[0] ? "active" : ""}" type="button" data-parent-broadcast-scope="${escapeHtml(scope[0])}">${miniIcon(scope[1])}<span>${escapeHtml(scope[0])}</span></button>`).join("")}</div>
+    <div class="parent-recipient-summary"><strong>${recipientCount.toLocaleString("en-KE")}</strong><span>parent${recipientCount === 1 ? "" : "s"} will receive this in the Kitabu message inbox</span></div>
     <textarea id="parentBroadcastText" placeholder="Write your message..."></textarea>
-    <button class="parent-primary-button" type="button" data-message-parents>${miniIcon("chat")} Send Message</button>
+    <button class="parent-primary-button" type="button" data-message-parents ${recipientCount ? "" : "disabled"}>${miniIcon("chat")} Review & Send</button>
   </article>`;
 }
 
-function parentAdminAlerts(rows) {
-  const low = rows.filter(row => row.reportViews < 5).slice(0, 3);
-  const alerts = low.map(row => ["orange", `${row.name} inactive`, "No recent report activity."]);
-  return `<article class="teacher-panel"><div class="teacher-panel-head compact"><h2>${miniIcon("bell")} Admin Alerts</h2></div>
-    <div class="teacher-alert-list">${alerts.length ? alerts.map(row => `<button class="teacher-alert-row ${row[0]}" type="button"><span>${miniIcon("profile")}</span><strong>${escapeHtml(row[1])}<small>${escapeHtml(row[2])}</small></strong>${miniIcon("chevron")}</button>`).join("") : `<div class="empty-state">No parent alerts.</div>`}</div>
-  </article>`;
+function parentInboxMessages() {
+  return (state.data.notifications || []).filter(notification => notification.type === "parent.admin_message");
 }
 
-function parentUnreadReports(rows) {
-  const unread = rows.filter(row => row.reportViews < 8).slice(0, 3);
-  return `<article class="teacher-panel"><div class="teacher-panel-head compact"><h2>${miniIcon("document")} Unread Risk Reports</h2></div>
-    <div class="parent-risk-list">${unread.map(row => `<button type="button" data-message-parent="${escapeHtml(row.id)}"><strong>${escapeHtml(row.child)}</strong><small>${escapeHtml(row.school)} - ${escapeHtml(row.grade)}</small><span>Report Unread</span></button>`).join("") || `<p class="visually-muted">No unread risk reports in this filter.</p>`}</div>
-    <button class="parent-link-row" type="button">View all unread reports ${miniIcon("chevron")}</button>
-  </article>`;
+function parentInboxContent() {
+  const messages = parentInboxMessages();
+  const unread = messages.filter(message => !message.readAt);
+  return `<section class="parent-inbox" aria-label="Admin message inbox">
+    <div class="parent-inbox-head">
+      <div><h2>${miniIcon("chat")} Messages from Kitabu</h2><p>${unread.length ? `${unread.length} unread message${unread.length === 1 ? "" : "s"}` : "You're all caught up"}</p></div>
+      ${unread.length ? `<button type="button" data-parent-read-all>Mark all read</button>` : ""}
+    </div>
+    <div class="parent-inbox-list">${messages.length ? messages.map(message => `<article class="parent-inbox-message ${message.readAt ? "" : "unread"}">
+      <span>${miniIcon(message.readAt ? "check" : "bell")}</span>
+      <div><strong>${escapeHtml(message.title || "Message from Kitabu AI")}</strong><p>${escapeHtml(message.body || "")}</p><time>${escapeHtml(new Date(message.createdAt).toLocaleString("en-KE"))}</time></div>
+      ${message.readAt ? `<b>Read</b>` : `<button type="button" data-parent-read-message="${escapeHtml(message.id)}">Mark read</button>`}
+    </article>`).join("") : `<div class="empty-state">Admin messages will appear here when Kitabu sends an update.</div>`}</div>
+  </section>`;
 }
 
-function parentPhoneAdoption(rows) {
-  const schools = Object.entries((rows.length ? rows : parentAdminRows()).reduce((acc, row) => {
-    acc[row.school] = acc[row.school] || { total: 0, locks: 0 };
-    acc[row.school].total += 1;
-    if (row.phoneLockCount > 0) acc[row.school].locks += 1;
-    return acc;
-  }, {})).slice(0, 4);
-  const rowsToRender = schools.map(([school, value]) => [school, Math.round((value.locks / value.total) * 100)]);
-  return `<article class="teacher-panel"><div class="teacher-panel-head compact"><h2>${miniIcon("lock")} Phone Lock Adoption</h2></div>
-    <p>Adoption by School</p>
-    <div class="parent-adoption-list">${rowsToRender.length ? rowsToRender.map(row => `<div><span>${escapeHtml(row[0])}<b>${row[1]}%</b></span><i><em style="width:${row[1]}%"></em></i></div>`).join("") : `<div class="empty-state">No phone-lock activity has been recorded.</div>`}</div>
-    <button class="parent-link-row" type="button">View full adoption report ${miniIcon("chevron")}</button>
-  </article>`;
+function openParentInboxModal() {
+  openModal("Message Inbox", parentInboxContent(), "large");
+  bindParentInboxActions();
+}
+
+function bindParentInboxActions() {
+  document.querySelectorAll("[data-parent-read-message]").forEach(button => button.addEventListener("click", async () => {
+    await api(`/notifications/${encodeURIComponent(button.dataset.parentReadMessage)}/read`, { method: "POST" });
+    const message = state.data.notifications.find(item => item.id === button.dataset.parentReadMessage);
+    if (message) message.readAt = new Date().toISOString();
+    renderRoute();
+    if (!modalRoot.hidden) openParentInboxModal();
+  }));
+  document.querySelectorAll("[data-parent-read-all]").forEach(button => button.addEventListener("click", async () => {
+    button.disabled = true;
+    await api("/notifications/read-all", { method: "POST" });
+    const readAt = new Date().toISOString();
+    state.data.notifications.forEach(message => { message.readAt = message.readAt || readAt; });
+    renderRoute();
+    if (!modalRoot.hidden) openParentInboxModal();
+  }));
 }
 
 function parentChildRows() {
@@ -2885,9 +2835,10 @@ function parentSubjectRows(child) {
 
 function parentScopedDashboard() {
   const child = selectedParentChild();
-  if (!child) return `<div class="parent-scoped-page"><main class="parent-scoped-content"><div class="empty-state">No student is linked to this parent account.</div></main></div>`;
+  if (!child) return `<div class="parent-scoped-page"><main class="parent-scoped-content"><div class="empty-state">No student is linked to this parent account.</div>${parentInboxContent()}</main></div>`;
   const parentName = state.user?.fullName || state.user?.name || "Jane";
   const firstName = firstNameOf({ name: child.name });
+  const unreadMessages = parentInboxMessages().filter(message => !message.readAt).length;
   return `<div class="parent-scoped-page">
     <header class="parent-scoped-topbar">
       <div class="parent-brand"><span>K</span><strong>Kitabu AI</strong></div>
@@ -2895,6 +2846,7 @@ function parentScopedDashboard() {
       <div class="parent-child-select"><span class="teacher-avatar ${child.tone}">${initialsFor(child.name)}</span><strong>${escapeHtml(child.name)}</strong><b>${escapeHtml(child.grade)}</b>${miniIcon("chevron")}</div>
       <div class="parent-segmented">${["This Week", "This Month", "This Term"].map(parentPeriodControl).join("")}</div>
       <button class="parent-outline-button" type="button" data-download-parent-report>${miniIcon("download")} Download Report</button>
+      <button class="parent-message-inbox-button" type="button" data-open-parent-inbox>${miniIcon("chat")} Messages${unreadMessages ? `<b>${unreadMessages}</b>` : ""}</button>
       <button class="parent-lock-button" type="button" data-phone-lock>${miniIcon("lock")} Lock Phone</button>
     </header>
     <main class="parent-scoped-content">
@@ -2905,6 +2857,7 @@ function parentScopedDashboard() {
         ${teacherMetricCard("red", "target", "Remedial Gaps", String(child.dueReviews), "Needs focus")}
         ${teacherMetricCard("orange", "calendar", "Assignments Due", String(child.assignmentsDue), "Current workload")}
       </section>
+      ${parentInboxContent()}
       <section class="parent-scoped-grid">
         <article class="teacher-panel"><div class="teacher-panel-head"><h2>Child Performance Trend</h2><button type="button">${escapeHtml(state.parentPeriod)} ${miniIcon("chevron")}</button></div>${parentChildPerformanceChart(child)}</article>
         <article class="teacher-panel"><div class="teacher-panel-head compact"><h2>Subject Breakdown</h2></div>${teacherSubjectDonut(child.subjects)}</article>
@@ -3125,14 +3078,16 @@ function bindRouteEvents() {
     button.classList.add("active");
   }));
   document.querySelectorAll("[data-parent-broadcast-scope]").forEach(button => button.addEventListener("click", () => {
-    document.querySelectorAll("[data-parent-broadcast-scope]").forEach(item => item.classList.remove("active"));
-    button.classList.add("active");
+    state.parentMessageScope = button.dataset.parentBroadcastScope;
+    renderRoute();
   }));
   document.querySelectorAll("[data-message-all-teachers]").forEach(button => button.addEventListener("click", openTeacherMessageModal));
   document.querySelectorAll("[data-message-teacher]").forEach(button => button.addEventListener("click", () => openTeacherMessageModal(button.dataset.messageTeacher)));
   document.querySelectorAll("[data-teacher-student]").forEach(button => button.addEventListener("click", () => showTeacherStudent(button.dataset.teacherStudent)));
   document.querySelectorAll("[data-message-parents]").forEach(button => button.addEventListener("click", () => openParentMessageModal()));
   document.querySelectorAll("[data-message-parent]").forEach(button => button.addEventListener("click", () => openParentMessageModal(button.dataset.messageParent)));
+  document.querySelectorAll("[data-open-parent-inbox]").forEach(button => button.addEventListener("click", openParentInboxModal));
+  bindParentInboxActions();
   document.querySelectorAll("[data-download-parent-report]").forEach(button => button.addEventListener("click", () => window.print()));
   document.querySelectorAll("[data-phone-lock]").forEach(button => button.addEventListener("click", openPhoneLockModal));
   document.querySelectorAll("[data-parent-remedial]").forEach(button => button.addEventListener("click", () => openModal("Remedial Plan", "<p class='visually-muted'>Remedial focus is generated from the linked child dashboard, due reviews, assignments, and diagnostic scores.</p>", "small")));
@@ -3958,9 +3913,11 @@ function openTeacherMessageModal(teacherId = "") {
 
 function openParentMessageModal(parentId = "") {
   const parent = parentAdminRows().find(row => String(row.id) === String(parentId));
+  const recipients = parent ? [parent] : parentMessageRecipients();
   const draft = document.getElementById("parentBroadcastText")?.value?.trim() || "";
   openModal(parent ? `Message ${parent.name}` : "Message Parents", `
-    <form class="kpi-stack" data-kind="parent-message" data-parent-id="${escapeHtml(parent?.id || "")}">
+    <form class="kpi-stack" data-kind="parent-message" data-parent-ids="${escapeHtml(recipients.map(row => row.id).filter(isUuid).join(","))}">
+      <div class="parent-message-audience"><strong>${recipients.length.toLocaleString("en-KE")}</strong><span>${parent ? escapeHtml(parent.email) : `${escapeHtml(state.parentMessageScope)} selected`}</span></div>
       <label class="school-form-field">
         <span>Subject</span>
         <input name="title" value="${escapeHtml(parent ? "Learner progress update" : "Parent broadcast")}" required />
@@ -3969,9 +3926,9 @@ function openParentMessageModal(parentId = "") {
         <span>Message</span>
         <textarea name="message" rows="5" required placeholder="Write a concise parent update...">${escapeHtml(draft)}</textarea>
       </label>
-      <p class="visually-muted">Messages are delivered to the parent's dashboard and phone number through the existing notification service.</p>
+      <p class="visually-muted">Every recipient receives this message in their Kitabu inbox. SMS is also attempted when a valid phone number and provider are available.</p>
       <div class="sales-message-status"></div>
-      <button class="primary-button" type="submit">${miniIcon("chat")} Send Message</button>
+      <button class="primary-button" type="submit" ${recipients.length ? "" : "disabled"}>${miniIcon("chat")} Send to ${recipients.length.toLocaleString("en-KE")} parent${recipients.length === 1 ? "" : "s"}</button>
       <p class="error-text"></p>
     </form>
   `, "small");
@@ -4329,17 +4286,18 @@ function bindModalForms() {
           const title = String(formData.title || "Parent broadcast").trim();
           const message = String(formData.message || "").trim();
           if (!title || !message) throw new Error("Add a subject and message.");
-          const parentId = form.dataset.parentId || "";
+          const parentIds = String(form.dataset.parentIds || "").split(",").filter(isUuid);
+          if (!parentIds.length) throw new Error("Choose a school or county with at least one parent, or select All Parents.");
           const response = state.accessToken && !isParentOnly()
             ? await api("/admin/parents/messages", { method: "POST", body: {
                 title,
                 message,
-                parentIds: isUuid(parentId) ? [parentId] : undefined
+                parentIds
               }})
             : { delivered: 0, phoneDelivered: 0, preview: true };
           const statusEl = form.querySelector(".sales-message-status");
           if (statusEl) {
-            statusEl.innerHTML = `<strong>Message sent</strong><span>Dashboard: ${Number(response.delivered || 0).toLocaleString("en-KE")} - Phone: ${Number(response.phoneDelivered || 0).toLocaleString("en-KE")}</span>`;
+            statusEl.innerHTML = `<strong>Message delivered</strong><span>Kitabu inbox: ${Number(response.delivered || 0).toLocaleString("en-KE")} · SMS: ${Number(response.phoneDelivered || 0).toLocaleString("en-KE")}</span>`;
           }
           form.reset();
           return;

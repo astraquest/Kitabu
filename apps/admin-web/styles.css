@@ -5988,6 +5988,37 @@ tr:last-child td {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.parent-metric-grid.parent-real-metrics {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.parent-admin-clean-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.34fr) minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+
+.parent-directory-panel {
+  min-width: 0;
+}
+
+.parent-directory-panel .search-box {
+  min-height: 42px;
+  margin-bottom: 12px;
+}
+
+.parent-table td strong,
+.parent-table td small {
+  display: block;
+}
+
+.parent-table td small {
+  margin-top: 3px;
+  color: #64748b;
+  font-size: 11px;
+}
+
 .parent-metric-grid .teacher-metric-card {
   min-height: 122px;
   border-radius: 8px;
@@ -6242,7 +6273,7 @@ tr:last-child td {
 
 .parent-broadcast-options {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 8px;
 }
 
@@ -6690,12 +6721,14 @@ tr:last-child td {
 
 @media (max-width: 1500px) {
   .parent-metric-grid,
-  .parent-metric-grid.scoped {
+  .parent-metric-grid.scoped,
+  .parent-metric-grid.parent-real-metrics {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .parent-admin-chart-grid,
   .parent-admin-lower-grid,
+  .parent-admin-clean-grid,
   .parent-scoped-grid {
     grid-template-columns: 1fr;
   }
@@ -6714,6 +6747,7 @@ tr:last-child td {
 
   .parent-metric-grid,
   .parent-metric-grid.scoped,
+  .parent-metric-grid.parent-real-metrics,
   .parent-broadcast-options {
     grid-template-columns: 1fr;
   }
@@ -6721,6 +6755,7 @@ tr:last-child td {
   .parent-child-select,
   .parent-primary-button,
   .parent-outline-button,
+  .parent-message-inbox-button,
   .parent-lock-button,
   .parent-segmented {
     width: 100%;
@@ -6825,6 +6860,168 @@ tr:last-child td {
   color: #fff;
   background: linear-gradient(180deg, #133d86 0%, #082a64 100%);
   box-shadow: 0 8px 16px rgba(8, 42, 100, 0.22), inset 0 1px 0 rgba(255,255,255,0.18);
+}
+
+.parent-recipient-summary,
+.parent-message-audience {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid #cfe0fa;
+  border-radius: 8px;
+  background: #f1f7ff;
+  color: #536384;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.parent-recipient-summary strong,
+.parent-message-audience strong {
+  color: #075bea;
+  font-size: 20px;
+  font-weight: 950;
+}
+
+.parent-message-inbox-button {
+  position: relative;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 14px;
+  border: 1px solid #c9d8ee;
+  border-radius: 7px;
+  background: #fff;
+  color: #07142f;
+  font-weight: 900;
+}
+
+.parent-message-inbox-button svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+}
+
+.parent-message-inbox-button b {
+  min-width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: #ef303f;
+  color: #fff;
+  font-size: 11px;
+}
+
+.parent-inbox {
+  padding: 18px;
+  border: 1px solid #dce5f1;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(12, 31, 65, 0.07);
+}
+
+.parent-inbox-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.parent-inbox-head h2,
+.parent-inbox-head p {
+  margin: 0;
+}
+
+.parent-inbox-head h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+}
+
+.parent-inbox-head h2 svg {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: #075bea;
+}
+
+.parent-inbox-head p {
+  margin-top: 4px;
+  color: #64748b;
+  font-size: 12px;
+}
+
+.parent-inbox-head button,
+.parent-inbox-message button {
+  border: 0;
+  background: transparent;
+  color: #075bea;
+  font-weight: 850;
+}
+
+.parent-inbox-list {
+  display: grid;
+  gap: 8px;
+}
+
+.parent-inbox-message {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: start;
+  padding: 12px;
+  border: 1px solid #e3eaf4;
+  border-radius: 9px;
+  background: #fafcff;
+}
+
+.parent-inbox-message.unread {
+  border-color: #9fc5ff;
+  background: #f0f7ff;
+}
+
+.parent-inbox-message > span {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  background: #e4efff;
+  color: #075bea;
+}
+
+.parent-inbox-message > span svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+}
+
+.parent-inbox-message strong,
+.parent-inbox-message p,
+.parent-inbox-message time {
+  display: block;
+  margin: 0;
+}
+
+.parent-inbox-message p {
+  margin-top: 4px;
+  color: #334155;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.parent-inbox-message time,
+.parent-inbox-message > b {
+  margin-top: 6px;
+  color: #8290a8;
+  font-size: 10px;
+  font-weight: 750;
 }
 
 .usage-agent-tabs {

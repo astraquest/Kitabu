@@ -496,7 +496,7 @@ const salesAgentMessageSchema = z.object({
 const parentMessageSchema = z.object({
   title: z.string().trim().min(2).max(120).optional(),
   message: z.string().trim().min(2).max(1000),
-  parentIds: z.array(z.string().uuid()).max(500).optional()
+  parentIds: z.array(z.string().regex(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i)).max(500).optional()
 });
 
 const schoolPilotSchema = z.object({

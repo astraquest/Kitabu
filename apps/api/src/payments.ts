@@ -8,6 +8,34 @@ export type BillingPlanCode =
   | 'admin_weekly'
   | 'trial_monthly_1bob';
 
+export const SCHOOL_BILLING_PLAN_CODES = ['weekly', 'monthly', 'annual'] as const;
+export type SchoolBillingPlanCode = (typeof SCHOOL_BILLING_PLAN_CODES)[number];
+
+export function normalizeSchoolPlanSelection(
+  availablePlanCodes: SchoolBillingPlanCode[],
+  requestedPrimaryPlanCode?: SchoolBillingPlanCode
+) {
+  const normalizedPlanCodes = Array.from(new Set(availablePlanCodes));
+  const assignedPlanCode = requestedPrimaryPlanCode && normalizedPlanCodes.includes(requestedPrimaryPlanCode)
+    ? requestedPrimaryPlanCode
+    : normalizedPlanCodes.includes('monthly')
+      ? 'monthly'
+      : normalizedPlanCodes[0];
+
+  return { availablePlanCodes: normalizedPlanCodes, assignedPlanCode };
+}
+
+export function schoolManagedPlanPriceKshCents(input: {
+  planCode: BillingPlanCode;
+  assignedPlanCode: BillingPlanCode;
+  assignedPlanPriceKshCents: number;
+  standardPlanPriceKshCents: number;
+}) {
+  return input.planCode === input.assignedPlanCode
+    ? input.assignedPlanPriceKshCents
+    : input.standardPlanPriceKshCents;
+}
+
 export interface DarajaStkPushRequest {
   amountKsh: number;
   phoneNumber: string;

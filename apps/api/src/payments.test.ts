@@ -81,3 +81,36 @@ test('includes Daraja OAuth status in provider errors', async () => {
     }
   );
 });
+
+test('normalizes multiple school plans and keeps monthly as the default primary plan', async () => {
+  const { normalizeSchoolPlanSelection } = await import('./payments.js');
+
+  assert.deepEqual(
+    normalizeSchoolPlanSelection(['weekly', 'monthly', 'annual', 'monthly']),
+    {
+      availablePlanCodes: ['weekly', 'monthly', 'annual'],
+      assignedPlanCode: 'monthly'
+    }
+  );
+  assert.equal(
+    normalizeSchoolPlanSelection(['weekly', 'annual'], 'annual').assignedPlanCode,
+    'annual'
+  );
+});
+
+test('uses a school override only for its primary plan', async () => {
+  const { schoolManagedPlanPriceKshCents } = await import('./payments.js');
+
+  assert.equal(schoolManagedPlanPriceKshCents({
+    planCode: 'monthly',
+    assignedPlanCode: 'monthly',
+    assignedPlanPriceKshCents: 45000,
+    standardPlanPriceKshCents: 50000
+  }), 45000);
+  assert.equal(schoolManagedPlanPriceKshCents({
+    planCode: 'weekly',
+    assignedPlanCode: 'monthly',
+    assignedPlanPriceKshCents: 45000,
+    standardPlanPriceKshCents: 15000
+  }), 15000);
+});

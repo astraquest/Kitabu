@@ -206,6 +206,9 @@ import {
   initiateStkPush,
   maskKenyanPhoneNumber,
   MpesaProviderError,
+  normalizeSchoolPlanSelection,
+  SCHOOL_BILLING_PLAN_CODES,
+  schoolManagedPlanPriceKshCents,
   type BillingPlanCode
 } from './payments.js';
 import { buildPaymentTelemetry, emitMufasaTelemetry } from './mufasaTelemetry.js';
@@ -422,6 +425,8 @@ const mpesaCheckoutSchema = z.object({
   returnTo: z.string().min(1).max(160).default('dashboard')
 });
 
+const schoolPlanCodeSchema = z.enum(SCHOOL_BILLING_PLAN_CODES);
+
 const schoolSchema = z.object({
   name: z.string().trim().min(2).max(120),
   location: z.string().trim().min(2).max(120),
@@ -430,8 +435,9 @@ const schoolSchema = z.object({
   email: z.string().trim().email().nullable().optional(),
   salesAgentUserId: z.string().uuid().nullable().optional(),
   availableGrades: z.array(z.string().trim().min(2).max(40)).max(24).default([]),
+  availablePlanCodes: z.array(schoolPlanCodeSchema).min(1).max(3),
   subscriptionPriceKsh: z.number().int().min(0).nullable().optional(),
-  assignedPlanCode: z.enum(['weekly', 'monthly', 'annual']),
+  assignedPlanCode: schoolPlanCodeSchema.optional(),
   discountId: z.string().uuid().nullable().optional()
 });
 
@@ -1975,6 +1981,7 @@ export function buildServer(options: BuildServerOptions = {}) {
       email: school.email,
       salesAgentUserId: school.sales_agent_user_id,
       availableGrades: school.available_grades,
+      availablePlanCodes: school.available_plan_codes,
       subscriptionPriceKsh: school.subscription_price_ksh_cents === null ? null : Number(school.subscription_price_ksh_cents) / 100,
       subscriptionPriceKshCents: school.subscription_price_ksh_cents === null ? null : Number(school.subscription_price_ksh_cents),
       totalStudents: school.total_students,
@@ -1994,6 +2001,7 @@ export function buildServer(options: BuildServerOptions = {}) {
       },
       pricing: {
         assignedPlanCode: school.assigned_plan_code,
+        availablePlanCodes: school.available_plan_codes,
         assignedPlanName: school.assigned_plan_name,
         billingCycle: school.assigned_billing_cycle,
         basePriceKsh: basePriceKshCents / 100,
@@ -6165,8 +6173,13 @@ Return valid JSON with this shape:
     }
 
     const body = schoolSchema.parse(request.body);
-    const assignedPlan = await findSubscriptionPlanByCode(body.assignedPlanCode);
-    if (!assignedPlan || assignedPlan.is_hidden) {
+    const { availablePlanCodes, assignedPlanCode } = normalizeSchoolPlanSelection(
+      body.availablePlanCodes,
+      body.assignedPlanCode
+    );
+    const availablePlans = await listSubscriptionPlans(availablePlanCodes);
+    const assignedPlan = availablePlans.find(plan => plan.code === assignedPlanCode);
+    if (!assignedPlan || availablePlans.length !== availablePlanCodes.length) {
       return reply.badRequest('Assigned subscription package is invalid');
     }
 
@@ -6180,12 +6193,14 @@ Return valid JSON with this shape:
         email: body.email,
         salesAgentUserId: body.salesAgentUserId ?? null,
         availableGrades: body.availableGrades,
+        availablePlanCodes,
         subscriptionPriceKshCents: body.subscriptionPriceKsh === null || body.subscriptionPriceKsh === undefined ? null : body.subscriptionPriceKsh * 100,
         assignedPlanId: assignedPlan.id,
         discountId: body.discountId ?? null
       });
       await createAuditLog(client, request.user!.id, createdSchoolId, 'admin.school.created', {
-        assignedPlanCode: body.assignedPlanCode
+        assignedPlanCode,
+        availablePlanCodes
       });
       return createdSchoolId;
     });
@@ -6204,8 +6219,13 @@ Return valid JSON with this shape:
 
     const params = schoolParamsSchema.parse(request.params);
     const body = schoolSchema.parse(request.body);
-    const assignedPlan = await findSubscriptionPlanByCode(body.assignedPlanCode);
-    if (!assignedPlan || assignedPlan.is_hidden) {
+    const { availablePlanCodes, assignedPlanCode } = normalizeSchoolPlanSelection(
+      body.availablePlanCodes,
+      body.assignedPlanCode
+    );
+    const availablePlans = await listSubscriptionPlans(availablePlanCodes);
+    const assignedPlan = availablePlans.find(plan => plan.code === assignedPlanCode);
+    if (!assignedPlan || availablePlans.length !== availablePlanCodes.length) {
       return reply.badRequest('Assigned subscription package is invalid');
     }
 
@@ -6219,12 +6239,14 @@ Return valid JSON with this shape:
         email: body.email,
         salesAgentUserId: body.salesAgentUserId ?? null,
         availableGrades: body.availableGrades,
+        availablePlanCodes,
         subscriptionPriceKshCents: body.subscriptionPriceKsh === null || body.subscriptionPriceKsh === undefined ? null : body.subscriptionPriceKsh * 100,
         assignedPlanId: assignedPlan.id,
         discountId: body.discountId ?? null
       });
       await createAuditLog(client, request.user!.id, params.schoolId, 'admin.school.updated', {
-        assignedPlanCode: body.assignedPlanCode
+        assignedPlanCode,
+        availablePlanCodes
       });
     });
 
@@ -6445,21 +6467,27 @@ Return valid JSON with this shape:
       !request.user!.roles.includes('school_admin');
 
     const plans = isSchoolManaged && schoolPricing
-      ? [
-          serializePlan({
-            code: schoolPricing.assigned_plan_code,
-            name: schoolPricing.assigned_plan_name,
-            billingCycle: schoolPricing.assigned_billing_cycle,
-            priceKshCents: applyDiscount(Number(schoolPricing.assigned_plan_price_ksh_cents), {
+      ? (await listSubscriptionPlans(schoolPricing.available_plan_codes)).map(plan => {
+          const originalPriceKshCents = schoolManagedPlanPriceKshCents({
+            planCode: plan.code,
+            assignedPlanCode: schoolPricing.assigned_plan_code,
+            assignedPlanPriceKshCents: Number(schoolPricing.assigned_plan_price_ksh_cents),
+            standardPlanPriceKshCents: Number(plan.price_ksh_cents)
+          });
+          return serializePlan({
+            code: plan.code,
+            name: plan.name,
+            billingCycle: plan.billing_cycle,
+            priceKshCents: applyDiscount(originalPriceKshCents, {
               type: schoolPricing.discount_type,
               amount: schoolPricing.discount_amount
             }),
-            originalPriceKshCents: Number(schoolPricing.assigned_plan_price_ksh_cents),
-            isPopular: schoolPricing.assigned_plan_code === 'monthly',
+            originalPriceKshCents,
+            isPopular: plan.code === 'monthly',
             isSchoolManaged: true,
             discountName: schoolPricing.discount_name
-          })
-        ]
+          });
+        })
       : (await listSubscriptionPlans(getAllowedPlanCodesForUser(request.user!))).map(plan =>
           serializePlan({
             code: plan.code,
@@ -6570,10 +6598,16 @@ Return valid JSON with this shape:
       }
       amountKshCents = 100;
     } else if (isSchoolManaged && schoolPricing) {
-      if (body.planCode !== schoolPricing.assigned_plan_code) {
-        return reply.forbidden('Your school account can only use the assigned subscription package');
+      if (!schoolPricing.available_plan_codes.includes(body.planCode)) {
+        return reply.forbidden('That plan is not available for your school account');
       }
-      amountKshCents = applyDiscount(Number(schoolPricing.assigned_plan_price_ksh_cents), {
+      const originalPriceKshCents = schoolManagedPlanPriceKshCents({
+        planCode: body.planCode,
+        assignedPlanCode: schoolPricing.assigned_plan_code,
+        assignedPlanPriceKshCents: Number(schoolPricing.assigned_plan_price_ksh_cents),
+        standardPlanPriceKshCents: Number(plan.price_ksh_cents)
+      });
+      amountKshCents = applyDiscount(originalPriceKshCents, {
         type: schoolPricing.discount_type,
         amount: schoolPricing.discount_amount
       });

@@ -105,6 +105,7 @@ export interface SchoolRecord {
   email: string | null;
   sales_agent_user_id: string | null;
   available_grades: string[];
+  available_plan_codes: BillingPlanCode[];
   subscription_price_ksh_cents: string | null;
   assigned_plan_id: string;
   assigned_plan_code: BillingPlanCode;
@@ -1954,6 +1955,7 @@ function mapSchoolRows(
     email: string | null;
     sales_agent_user_id: string | null;
     available_grades: string[];
+    available_plan_codes: BillingPlanCode[];
     subscription_price_ksh_cents: string | null;
     assigned_plan_id: string;
     assigned_plan_code: BillingPlanCode;
@@ -1996,6 +1998,7 @@ export async function listSchools() {
       email: string | null;
       sales_agent_user_id: string | null;
       available_grades: string[];
+      available_plan_codes: BillingPlanCode[];
       subscription_price_ksh_cents: string | null;
       assigned_plan_id: string;
       assigned_plan_code: BillingPlanCode;
@@ -2028,6 +2031,7 @@ export async function listSchools() {
          s.email,
          s.sales_agent_user_id,
          s.available_grades,
+         s.available_plan_codes,
          s.subscription_price_ksh_cents,
          s.pilot_status,
          s.pilot_start_date,
@@ -2099,6 +2103,7 @@ export async function findSchoolPricingForUser(userId: string) {
     email: string | null;
     sales_agent_user_id: string | null;
     available_grades: string[];
+    available_plan_codes: BillingPlanCode[];
     subscription_price_ksh_cents: string | null;
     assigned_plan_id: string;
     assigned_plan_code: BillingPlanCode;
@@ -2121,6 +2126,7 @@ export async function findSchoolPricingForUser(userId: string) {
        s.email,
        s.sales_agent_user_id,
        s.available_grades,
+       s.available_plan_codes,
        s.subscription_price_ksh_cents,
        ap.id AS assigned_plan_id,
        ap.code AS assigned_plan_code,
@@ -2162,6 +2168,7 @@ export async function createSchool(
     email?: string | null;
     salesAgentUserId?: string | null;
     availableGrades?: string[];
+    availablePlanCodes: BillingPlanCode[];
     subscriptionPriceKshCents?: number | null;
     assignedPlanId: string;
     discountId?: string | null;
@@ -2169,8 +2176,8 @@ export async function createSchool(
 ) {
   const result = await q<{ id: string }>(
     client,
-    `INSERT INTO schools (name, slug, location, principal, phone, email, sales_agent_user_id, available_grades, subscription_price_ksh_cents, assigned_plan_id, discount_id)
-     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
+    `INSERT INTO schools (name, slug, location, principal, phone, email, sales_agent_user_id, available_grades, available_plan_codes, subscription_price_ksh_cents, assigned_plan_id, discount_id)
+     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
      RETURNING id`,
     [
       input.name,
@@ -2181,6 +2188,7 @@ export async function createSchool(
       input.email ?? null,
       input.salesAgentUserId ?? null,
       input.availableGrades ?? [],
+      input.availablePlanCodes,
       input.subscriptionPriceKshCents ?? null,
       input.assignedPlanId,
       input.discountId ?? null
@@ -2202,6 +2210,7 @@ export async function updateSchool(
     email?: string | null;
     salesAgentUserId?: string | null;
     availableGrades?: string[];
+    availablePlanCodes: BillingPlanCode[];
     subscriptionPriceKshCents?: number | null;
     assignedPlanId: string;
     discountId?: string | null;
@@ -2219,10 +2228,11 @@ export async function updateSchool(
          email = $7,
          sales_agent_user_id = $8,
          available_grades = $9,
-         subscription_price_ksh_cents = $10,
-         assigned_plan_id = $11,
-         discount_id = $12,
-         status = COALESCE($13, status)
+         available_plan_codes = $10,
+         subscription_price_ksh_cents = $11,
+         assigned_plan_id = $12,
+         discount_id = $13,
+         status = COALESCE($14, status)
      WHERE id = $1`,
     [
       schoolId,
@@ -2234,6 +2244,7 @@ export async function updateSchool(
       input.email ?? null,
       input.salesAgentUserId ?? null,
       input.availableGrades ?? [],
+      input.availablePlanCodes,
       input.subscriptionPriceKshCents ?? null,
       input.assignedPlanId,
       input.discountId ?? null,

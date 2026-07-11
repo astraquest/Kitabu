@@ -243,7 +243,8 @@ async function onLogin(event) {
 }
 
 async function api(path, options = {}) {
-  const headers = { "Content-Type": "application/json", ...(options.headers || {}) };
+  const headers = { ...(options.headers || {}) };
+  if (options.body) headers["Content-Type"] = "application/json";
   if (!options.public && state.accessToken) headers.Authorization = `Bearer ${state.accessToken}`;
   const response = await fetch(`${API_BASE}${path}`, {
     method: options.method || "GET",

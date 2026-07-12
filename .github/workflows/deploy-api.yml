@@ -79,6 +79,8 @@ jobs:
             -e "ssh -i ~/.ssh/kitabu_deploy" \
             --exclude '.git' \
             --exclude 'node_modules' \
+            --include '.env.example' \
+            --include 'apps/api/.env.example' \
             --exclude '.env' \
             --exclude '.env.*' \
             --exclude 'apps/api/.env' \

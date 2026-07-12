@@ -154,6 +154,7 @@ jobs:
           curl --fail --silent 'https://app.kitabu.ai/assets/fonts/plus-jakarta-sans-latin.woff2?deploy=${{ github.sha }}' >/dev/null
           curl --fail --silent https://admin.kitabu.ai/app.js | grep -q '/curriculum/import/pdf'
           curl --fail --silent https://admin.kitabu.ai/app.js | grep -q '/ai/generate-text'
+          curl --fail --silent 'https://admin.kitabu.ai/favicon.svg?deploy=${{ github.sha }}' | grep -q '#ffb11b'
           REMOTE
       - name: Remove deploy SSH key from runner
         if: always()

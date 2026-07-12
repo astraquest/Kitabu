@@ -152,6 +152,8 @@ jobs:
           curl --fail --silent 'https://app.kitabu.ai/assets/kitabu-favicon-bold.ico?deploy=${{ github.sha }}' >/dev/null
           curl --fail --silent 'https://app.kitabu.ai/assets/fonts/bricolage-grotesque-latin.woff2?deploy=${{ github.sha }}' >/dev/null
           curl --fail --silent 'https://app.kitabu.ai/assets/fonts/plus-jakarta-sans-latin.woff2?deploy=${{ github.sha }}' >/dev/null
+          curl --fail --silent 'https://kitabu.ai/?deploy=${{ github.sha }}' | grep -q 'https://kitabu.ai/favicon.svg'
+          curl --fail --silent 'https://kitabu.ai/favicon.svg?deploy=${{ github.sha }}' | grep -q '#ffb11b'
           curl --fail --silent https://admin.kitabu.ai/app.js | grep -q '/curriculum/import/pdf'
           curl --fail --silent https://admin.kitabu.ai/app.js | grep -q '/ai/generate-text'
           curl --fail --silent 'https://admin.kitabu.ai/favicon.svg?deploy=${{ github.sha }}' | grep -q '#ffb11b'

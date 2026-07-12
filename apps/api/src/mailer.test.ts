@@ -1,6 +1,23 @@
 import assert from 'node:assert/strict';
+import { generateKeyPairSync } from 'node:crypto';
 import test from 'node:test';
-import { buildEmailVerificationEmail, buildPasswordResetEmail } from './mailer.js';
+
+const testJwtKeys = generateKeyPairSync('rsa', { modulusLength: 2048 });
+
+process.env.KITABU_RUNTIME_ENV = 'test';
+process.env.KITABU_NODE_ENV = 'test';
+process.env.KITABU_DATABASE_URL ??= 'postgresql://kitabu:kitabu@127.0.0.1:5432/kitabu_test';
+process.env.KITABU_REDIS_URL ??= 'redis://127.0.0.1:6379';
+process.env.KITABU_JWT_ISSUER ??= 'kitabu-test';
+process.env.KITABU_JWT_AUDIENCE ??= 'kitabu-test';
+process.env.KITABU_JWT_PRIVATE_KEY = testJwtKeys.privateKey
+  .export({ format: 'pem', type: 'pkcs8' })
+  .toString();
+process.env.KITABU_JWT_PUBLIC_KEY = testJwtKeys.publicKey
+  .export({ format: 'pem', type: 'spki' })
+  .toString();
+
+const { buildEmailVerificationEmail, buildPasswordResetEmail } = await import('./mailer.js');
 
 test('authentication emails remain transactional and free of marketing metadata', () => {
   const messages = [

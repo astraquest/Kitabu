@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@android:color/white" />
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="315"
+                android:endColor="#6B3FD8"
+                android:startColor="#15385F" />
+        </shape>
+    </item>
+    <item
+        android:gravity="center"
+        android:drawable="@drawable/launch_logo" />
+</layer-list>

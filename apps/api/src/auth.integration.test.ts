@@ -622,6 +622,19 @@ test('email signup requires verification before product access and refreshes aft
   const signupSession = signup.json();
   assert.equal(signupSession.user.emailVerified, false);
 
+  const onboarding = await app.inject({
+    method: 'POST',
+    url: '/me/onboarding',
+    headers: { authorization: `Bearer ${signupSession.accessToken}` },
+    payload: {
+      gender: 'not_specified',
+      grade: 'Grade 7',
+      schoolId: null
+    }
+  });
+  assert.equal(onboarding.statusCode, 200);
+  assert.equal(onboarding.json().user.emailVerified, false);
+
   const blocked = await app.inject({
     method: 'GET',
     url: '/parent/dashboard',

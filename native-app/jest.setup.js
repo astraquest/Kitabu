@@ -68,6 +68,15 @@ jest.mock('expo-auth-session', () => {
   };
 });
 
+jest.mock('@react-native-google-signin/google-signin', () => ({
+  GoogleSignin: {
+    configure: jest.fn(),
+    hasPlayServices: jest.fn(() => Promise.resolve(true)),
+    signIn: jest.fn(() => Promise.resolve({ type: 'cancelled', data: null })),
+  },
+  isSuccessResponse: jest.fn(response => response?.type === 'success'),
+}));
+
 jest.mock('expo-speech', () => ({
   speak: jest.fn(),
   stop: jest.fn(),

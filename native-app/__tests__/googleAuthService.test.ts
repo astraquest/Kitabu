@@ -57,24 +57,25 @@ describe('googleAuthService', () => {
     expect(getGoogleAndroidClientId()).toBe('native-android-client-id.apps.googleusercontent.com');
   });
 
-  test('uses the Android client ID for Android auth sessions', async () => {
+  test('uses native Google Sign-In on Android and returns its ID token', async () => {
     const { Platform } = require('react-native');
     Platform.OS = 'android';
     process.env.EXPO_PUBLIC_KITABU_GOOGLE_WEB_CLIENT_ID = 'web-client-id.apps.googleusercontent.com';
     process.env.EXPO_PUBLIC_KITABU_GOOGLE_ANDROID_CLIENT_ID = 'android-client-id.apps.googleusercontent.com';
-    const AuthSession = require('expo-auth-session');
-    AuthSession.__promptAsync.mockResolvedValue({
+    const { GoogleSignin } = require('@react-native-google-signin/google-signin');
+    GoogleSignin.signIn.mockResolvedValue({
       type: 'success',
-      params: { id_token: 'verified-google-id-token' },
+      data: { idToken: 'verified-google-id-token' },
     });
     const { requestGoogleIdToken } = require('../src/services/googleAuthService');
 
     await expect(requestGoogleIdToken()).resolves.toBe('verified-google-id-token');
-    expect(AuthSession.AuthRequest).toHaveBeenCalledWith(
-      expect.objectContaining({
-        clientId: 'android-client-id.apps.googleusercontent.com',
-      }),
-    );
+    expect(GoogleSignin.configure).toHaveBeenCalledWith({
+      webClientId: 'web-client-id.apps.googleusercontent.com',
+      offlineAccess: false,
+    });
+    expect(GoogleSignin.hasPlayServices).toHaveBeenCalledWith({ showPlayServicesUpdateDialog: true });
+    expect(GoogleSignin.signIn).toHaveBeenCalledTimes(1);
   });
 
   test('uses the iOS client ID for iOS auth sessions', async () => {

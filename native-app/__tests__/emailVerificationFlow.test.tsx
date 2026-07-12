@@ -32,6 +32,19 @@ describe('email verification deep links', () => {
 });
 
 describe('EmailVerificationScreen', () => {
+  it('tells users where Gmail may place verification mail', async () => {
+    let renderer!: ReactTestRenderer.ReactTestRenderer;
+    await act(async () => {
+      renderer = ReactTestRenderer.create(
+        <EmailVerificationScreen email="parent@example.com" onResend={jest.fn()} onSignOut={jest.fn()} />,
+      );
+    });
+
+    expect(renderer.root.findAllByProps({
+      children: 'Can’t see it? Check Primary, Updates, and Spam. Gmail may place automated verification messages in Updates.',
+    }).length).toBeGreaterThan(0);
+  });
+
   it('shows resend success feedback', async () => {
     const onResend = jest.fn(async () => 'Verification email sent.');
     let renderer!: ReactTestRenderer.ReactTestRenderer;

@@ -28,6 +28,7 @@ export interface UserRecord {
   full_name: string;
   password_hash: string;
   email_verified: boolean;
+  mascot_key: 'rabbit' | 'lion' | 'elephant';
   gender: 'male' | 'female' | 'not_specified';
   grade_level: string | null;
   country_code: string;
@@ -641,7 +642,7 @@ export async function withTransaction<T>(fn: (client: PoolClient) => Promise<T>)
 
 export async function findUserByEmail(email: string): Promise<(UserRecord & { roles: AppRole[] }) | null> {
   const userResult = await db.query<UserRecord>(
-    `SELECT id, school_id, status, email, phone_number, phone_verified, phone_verified_at, full_name, password_hash, email_verified, gender, grade_level,
+    `SELECT id, school_id, status, email, phone_number, phone_verified, phone_verified_at, full_name, password_hash, email_verified, mascot_key, gender, grade_level,
             country_code, curriculum_code,
             onboarding_completed, terms_accepted_at, terms_version, privacy_version,
             must_rotate_password, is_break_glass
@@ -667,7 +668,7 @@ export async function findUserByEmail(email: string): Promise<(UserRecord & { ro
 
 export async function findUserByPhone(phoneNumber: string): Promise<(UserRecord & { roles: AppRole[] }) | null> {
   const userResult = await db.query<UserRecord>(
-    `SELECT id, school_id, status, email, phone_number, phone_verified, phone_verified_at, full_name, password_hash, email_verified, gender, grade_level,
+    `SELECT id, school_id, status, email, phone_number, phone_verified, phone_verified_at, full_name, password_hash, email_verified, mascot_key, gender, grade_level,
             country_code, curriculum_code,
             onboarding_completed, terms_accepted_at, terms_version, privacy_version,
             must_rotate_password, is_break_glass
@@ -805,7 +806,7 @@ export async function findUserByAuthIdentity(
 
   const userResult = await db.query<UserRecord>(
     `SELECT id, school_id, status, email, phone_number, phone_verified, phone_verified_at,
-            full_name, password_hash, email_verified, gender, grade_level,
+            full_name, password_hash, email_verified, mascot_key, gender, grade_level,
             country_code, curriculum_code,
             onboarding_completed, terms_accepted_at, terms_version, privacy_version,
             must_rotate_password, is_break_glass
@@ -935,6 +936,7 @@ export async function createSelfServiceUser(input: {
   role: 'student' | 'teacher' | 'parent';
   gender?: 'male' | 'female' | 'not_specified';
   grade?: string | null;
+  mascotKey?: 'rabbit' | 'lion' | 'elephant';
   onboardingCompleted?: boolean;
   termsAcceptedAt: Date;
   termsVersion: string;
@@ -950,6 +952,7 @@ export async function createSelfServiceUser(input: {
       phone_verified_at: Date | null;
       full_name: string;
       email_verified: boolean;
+      mascot_key: 'rabbit' | 'lion' | 'elephant';
       gender: 'male' | 'female' | 'not_specified';
       grade_level: string | null;
       country_code: string;
@@ -964,10 +967,10 @@ export async function createSelfServiceUser(input: {
       client,
       `INSERT INTO users (
          school_id, email, phone_number, phone_verified, phone_verified_at, password_hash, full_name,
-         gender, grade_level, onboarding_completed, terms_accepted_at, terms_version, privacy_version
+         gender, grade_level, mascot_key, onboarding_completed, terms_accepted_at, terms_version, privacy_version
        )
-       VALUES ($1, $2, $3, $4, CASE WHEN $4::boolean THEN NOW() ELSE NULL END, $5, $6, $7, $8, $9, $10, $11, $12)
-       RETURNING id, school_id, email, phone_number, phone_verified, phone_verified_at, full_name, email_verified, gender, grade_level,
+       VALUES ($1, $2, $3, $4, CASE WHEN $4::boolean THEN NOW() ELSE NULL END, $5, $6, $7, $8, $9, $10, $11, $12, $13)
+       RETURNING id, school_id, email, phone_number, phone_verified, phone_verified_at, full_name, email_verified, mascot_key, gender, grade_level,
                  country_code, curriculum_code,
                  onboarding_completed, terms_accepted_at, terms_version, privacy_version,
                  must_rotate_password, is_break_glass`,
@@ -980,6 +983,7 @@ export async function createSelfServiceUser(input: {
         input.fullName,
         input.gender ?? 'not_specified',
         input.grade ?? null,
+        input.mascotKey ?? 'rabbit',
         input.onboardingCompleted ?? false,
         input.termsAcceptedAt,
         input.termsVersion,
@@ -1002,6 +1006,7 @@ export async function createSelfServiceUser(input: {
       phoneVerified: user.phone_verified,
       fullName: user.full_name,
       emailVerified: user.email_verified,
+      mascotKey: user.mascot_key,
       roles: [input.role] as AppRole[],
       gender: user.gender,
       grade: user.grade_level,

@@ -3,6 +3,10 @@ import Constants from 'expo-constants';
 import * as Crypto from 'expo-crypto';
 import * as WebBrowser from 'expo-web-browser';
 import { NativeModules, Platform } from 'react-native';
+import {
+  GoogleSignin,
+  isSuccessResponse,
+} from '@react-native-google-signin/google-signin';
 
 WebBrowser.maybeCompleteAuthSession();
 
@@ -91,9 +95,27 @@ function ensureConfigured() {
 }
 
 export async function requestGoogleIdToken() {
+  if (Platform.OS === 'android') {
+    const webClientId = getGoogleWebClientId();
+    if (!webClientId) {
+      throw new Error('Google sign-in is not configured for this app build.');
+    }
+
+    GoogleSignin.configure({ webClientId, offlineAccess: false });
+    await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
+    const response = await GoogleSignin.signIn();
+    if (!isSuccessResponse(response)) {
+      throw new Error('Google sign-in was cancelled.');
+    }
+    if (!response.data.idToken) {
+      throw new Error('Google did not return an ID token for this app configuration.');
+    }
+    return response.data.idToken;
+  }
+
   const clientId = ensureConfigured();
   if (!isGoogleAuthAvailableInCurrentRuntime()) {
-    throw new Error('Google sign-in requires a development build. Use email or phone sign-in in Expo Go.');
+    throw new Error('Google sign-in requires a development build. Use email sign-in in Expo Go.');
   }
   const discovery = await AuthSession.fetchDiscoveryAsync('https://accounts.google.com');
   const redirectUri = getGoogleRedirectUri() || AuthSession.makeRedirectUri({ scheme: 'kitabu' });

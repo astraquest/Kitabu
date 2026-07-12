@@ -195,6 +195,8 @@ type OnboardingSignupInput = {
   school?: string;
   schoolId?: string | null;
   countryCode?: string;
+  mascot?: OnboardingMascotKey;
+  mascotKey?: OnboardingMascotKey;
   subjects?: string[];
   teachGrades?: string[];
   teacherGradeIds?: string[];
@@ -2482,6 +2484,7 @@ export function useKitabuApp() {
           grade: input?.grade || null,
           mpesaPhoneNumber: input?.mpesaPhoneNumber || null,
           onboardingCompleted: false,
+          mascotKey: input?.mascotKey ?? input?.mascot,
         });
       }
       if (input?.gender && input.grade) {

@@ -1,4 +1,4 @@
-import { AuthSession, AuthState, GenderOption, PublicSignupRole } from '../types/app';
+import { AuthSession, AuthState, GenderOption, OnboardingMascotKey, PublicSignupRole } from '../types/app';
 import { apiJsonRequest } from './requestHelpers';
 import { loadSecureJson, saveSecureJson } from './storage';
 
@@ -58,6 +58,7 @@ export async function signupWithPassword(input: {
   grade?: string | null;
   mpesaPhoneNumber?: string | null;
   onboardingCompleted?: boolean;
+  mascotKey?: OnboardingMascotKey;
 }): Promise<AuthSession> {
   const payload = await postJson<LoginResponse>('/auth/signup', input);
   return persistLoginResponse(payload);

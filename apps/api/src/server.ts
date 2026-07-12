@@ -237,6 +237,18 @@ const LEGAL_ASSET_PATHS = {
     path: join(LEGAL_PAGE_DIR, 'assets', 'kitabu-favicon-bold.ico'),
     contentType: 'image/x-icon'
   },
+  '/assets/mascot/sungura-rabbit.png': {
+    path: join(LEGAL_PAGE_DIR, 'assets', 'mascot', 'sungura-rabbit.png'),
+    contentType: 'image/png'
+  },
+  '/assets/mascot/simba-lion.png': {
+    path: join(LEGAL_PAGE_DIR, 'assets', 'mascot', 'simba-lion.png'),
+    contentType: 'image/png'
+  },
+  '/assets/mascot/ndovu-elephant.png': {
+    path: join(LEGAL_PAGE_DIR, 'assets', 'mascot', 'ndovu-elephant.png'),
+    contentType: 'image/png'
+  },
   '/assets/fonts/bricolage-grotesque-latin.woff2': {
     path: join(LEGAL_PAGE_DIR, 'assets', 'fonts', 'bricolage-grotesque-latin.woff2'),
     contentType: 'font/woff2'
@@ -382,7 +394,8 @@ const signupSchema = z.object({
   gender: z.enum(['male', 'female', 'not_specified']).optional(),
   grade: z.string().trim().min(2).max(40).nullable().optional(),
   mpesaPhoneNumber: z.string().trim().min(9).max(20).nullable().optional(),
-  onboardingCompleted: z.boolean().optional()
+  onboardingCompleted: z.boolean().optional(),
+  mascotKey: z.enum(['rabbit', 'lion', 'elephant']).optional()
 });
 
 const totpSchema = z.object({
@@ -1581,6 +1594,7 @@ export function buildServer(options: BuildServerOptions = {}) {
       '/auth/refresh',
       '/auth/email-verification/resend',
       '/auth/email-verification/confirm',
+      '/me/onboarding',
       '/me/account',
       '/onboarding/selection-events',
       '/privacy',
@@ -1688,6 +1702,18 @@ export function buildServer(options: BuildServerOptions = {}) {
 
   app.get('/assets/kitabu-favicon-bold.ico', async (_request, reply) => {
     return sendLegalAsset('/assets/kitabu-favicon-bold.ico', reply);
+  });
+
+  app.get('/assets/mascot/sungura-rabbit.png', async (_request, reply) => {
+    return sendLegalAsset('/assets/mascot/sungura-rabbit.png', reply);
+  });
+
+  app.get('/assets/mascot/simba-lion.png', async (_request, reply) => {
+    return sendLegalAsset('/assets/mascot/simba-lion.png', reply);
+  });
+
+  app.get('/assets/mascot/ndovu-elephant.png', async (_request, reply) => {
+    return sendLegalAsset('/assets/mascot/ndovu-elephant.png', reply);
   });
 
   app.get('/assets/fonts/bricolage-grotesque-latin.woff2', async (_request, reply) => {
@@ -3530,6 +3556,7 @@ Requirements:
         role: body.role,
         gender: body.gender,
         grade: body.grade ?? null,
+        mascotKey: body.mascotKey,
         onboardingCompleted: body.onboardingCompleted ?? body.role !== 'student',
         termsAcceptedAt: new Date(),
         termsVersion: appConfig.KITABU_TERMS_VERSION,
@@ -3589,6 +3616,8 @@ Requirements:
     const delivered = await emailSender(
       buildEmailVerificationEmail({
         recipientEmail: user.email,
+        recipientName: user.fullName,
+        mascotKey: user.mascotKey,
         verificationUrl,
         ttlMinutes: appConfig.KITABU_EMAIL_VERIFICATION_TTL_MINUTES
       })
@@ -3628,6 +3657,8 @@ Requirements:
       const delivered = await emailSender(
         buildEmailVerificationEmail({
           recipientEmail: user.email,
+          recipientName: user.full_name,
+          mascotKey: user.mascot_key,
           verificationUrl,
           ttlMinutes: appConfig.KITABU_EMAIL_VERIFICATION_TTL_MINUTES
         })
@@ -3811,6 +3842,8 @@ Requirements:
       const delivered = await emailSender(
         buildPasswordResetEmail({
           recipientEmail: user.email,
+          recipientName: user.full_name,
+          mascotKey: user.mascot_key,
           resetUrl,
           ttlMinutes: appConfig.KITABU_PASSWORD_RESET_TTL_MINUTES
         })

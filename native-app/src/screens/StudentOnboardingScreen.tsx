@@ -48,6 +48,7 @@ import { postOnboardingSelectionEvent } from '../services/onboardingAnalyticsSer
 import { requestPushPermission } from '../services/pushNotifications';
 import { AvatarArt } from '../components/AvatarArt';
 import { GoogleLogo } from '../components/GoogleLogo';
+import { stableShuffledOptions } from '../utils/onboardingOptionOrder';
 import {
   REGIONS_BY_COUNTRY as SHARED_REGIONS_BY_COUNTRY,
 } from '../constants/locations';
@@ -2143,18 +2144,41 @@ export function StudentOnboardingScreen({
   const selectedMascotOption = MASCOT_OPTIONS.find(option => option.key === selectedMascotKey);
   const activeMascot = includeIntroChoices ? selectedMascotOption ?? content.mascot : content.mascot;
   const activeMascotColors = MASCOT_PICKER_COLORS[activeMascot.key];
-  const needOptions = swahiliIntro ? SWAHILI_NEED_OPTIONS[role] : NEED_OPTIONS[role];
+  const optionOrderCache = useRef(new Map<string, readonly unknown[]>());
+  const optionOrderKey = `${role}-${languageCode ?? 'en'}`;
+  const needOptions = stableShuffledOptions(
+    optionOrderCache.current,
+    `${optionOrderKey}-need`,
+    swahiliIntro ? SWAHILI_NEED_OPTIONS[role] : NEED_OPTIONS[role],
+  );
   const needStepCopy = swahiliIntro ? SWAHILI_NEED_STEP_COPY[role] : NEED_STEP_COPY[role];
   const nameStepCopy = swahiliIntro ? SWAHILI_NAME_STEP_COPY[role] : NAME_STEP_COPY[role];
   const ageStepCopy = AGE_STEP_COPY[languageCode];
   const schoolStepCopy = swahiliIntro ? SWAHILI_SCHOOL_STEP_COPY[role] : SCHOOL_STEP_COPY[role];
   const genderOptions = GENDER_OPTIONS[languageCode];
-  const goalOptions = swahiliIntro ? SWAHILI_GOAL_OPTIONS[role] : GOAL_OPTIONS[role];
+  const goalOptions = stableShuffledOptions(
+    optionOrderCache.current,
+    `${optionOrderKey}-goal`,
+    swahiliIntro ? SWAHILI_GOAL_OPTIONS[role] : GOAL_OPTIONS[role],
+  );
   const goalConfirmTime =
     GOAL_CONFIRM_TIME_COPY[selectedGoalKey ?? '']?.[languageCode ?? 'en'] ??
     (studentSwahiliIntro ? 'dakika 15' : '15 min');
-  const displayedConcernOptions = swahiliIntro ? SWAHILI_CONCERN_OPTIONS[role] : CONCERN_OPTIONS[role];
-  const achievementOptions = swahiliIntro ? SWAHILI_ACHIEVEMENT_OPTIONS[role] : ACHIEVEMENT_OPTIONS[role];
+  const displayedConcernOptions = stableShuffledOptions(
+    optionOrderCache.current,
+    `${optionOrderKey}-concern`,
+    swahiliIntro ? SWAHILI_CONCERN_OPTIONS[role] : CONCERN_OPTIONS[role],
+  );
+  const achievementOptions = stableShuffledOptions(
+    optionOrderCache.current,
+    `${optionOrderKey}-achievement`,
+    swahiliIntro ? SWAHILI_ACHIEVEMENT_OPTIONS[role] : ACHIEVEMENT_OPTIONS[role],
+  );
+  const interestOptions = stableShuffledOptions(
+    optionOrderCache.current,
+    `${optionOrderKey}-interest`,
+    INTEREST_OPTIONS,
+  );
   // Dynamic "Good news" lines tying the teacher's chosen challenge and success goal to Kitabu AI.
   const teacherChallengeSolution =
     role === 'teacher' && selectedConcernKey
@@ -7146,7 +7170,7 @@ export function StudentOnboardingScreen({
                     : "We'll create study content you'll actually enjoy."}
                 </Text>
                 <View style={[styles.roleGrid, styles.interestGrid]}>
-                  {INTEREST_OPTIONS.map(option => {
+                  {interestOptions.map(option => {
                     const selected = selectedInterestKeys.includes(option.key);
                     const interestLabel = swahiliIntro ? option.swLabel ?? option.label : option.label;
                     return (
@@ -8289,10 +8313,12 @@ export function StudentOnboardingScreen({
                         <Pressable
                           accessibilityLabel="Continue with phone number"
                           accessibilityRole="button"
+                          accessibilityState={{ disabled: true }}
+                          disabled
                           onPress={() => handleSignupMethodSelect('phone')}
-                          style={styles.signupPhoneButton}>
-                          <Phone color={content.accent} size={18} strokeWidth={2.5} />
-                          <Text style={[styles.signupPhoneText, { color: content.accent }]}>Continue with Phone Number</Text>
+                          style={[styles.signupPhoneButton, styles.signupPhoneButtonDisabled]}>
+                          <Phone color={ONBOARDING_COLORS.textMuted} size={18} strokeWidth={2.5} />
+                          <Text style={[styles.signupPhoneText, { color: ONBOARDING_COLORS.textMuted }]}>Continue with Phone Number — Coming Soon</Text>
                         </Pressable>
                         <Text style={styles.signupTermsText}>
                           By continuing, you agree to the Terms of Use and Privacy Policy.
@@ -10818,6 +10844,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     minHeight: 56,
     paddingHorizontal: 18,
+  },
+  signupPhoneButtonDisabled: {
+    backgroundColor: '#F1F5F9',
+    borderColor: '#CBD5E1',
+    opacity: 0.78,
   },
   signupPhoneText: {
     fontSize: 15,

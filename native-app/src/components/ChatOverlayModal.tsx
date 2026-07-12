@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import {
   Image,
+  KeyboardAvoidingView,
   Modal,
+  Platform,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -210,7 +212,9 @@ export function ChatOverlayModal({
       transparent
       visible={isOpen}
       onRequestClose={onClose}>
-      <View style={styles.overlay}>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        style={styles.overlay}>
         <Pressable style={styles.backdrop} onPress={onClose} />
 
         <View accessibilityLabel="chat-overlay-sheet" style={styles.sheet}>
@@ -433,7 +437,7 @@ export function ChatOverlayModal({
             ) : null}
           </View>
         </View>
-      </View>
+      </KeyboardAvoidingView>
     </Modal>
   );
 }

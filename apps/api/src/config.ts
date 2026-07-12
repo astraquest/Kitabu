@@ -134,6 +134,8 @@ const configSchema = z.object({
   KITABU_SMTP_PASS: z.string().optional(),
   KITABU_SMTP_TIMEOUT_MS: z.coerce.number().int().positive().default(8000),
   KITABU_MAIL_FROM: z.string().default('Kitabu AI <noreply@kitabu.ai>'),
+  KITABU_TRANSACTIONAL_MAIL_FROM: z.string().optional(),
+  KITABU_TRANSACTIONAL_REPLY_TO: z.string().default('hello@kitabu.ai'),
   KITABU_SCHOOL_LEADS_EMAIL: z.string().default('hello@kitabu.ai'),
   KITABU_TERMS_VERSION: z.string().default('2026-06'),
   KITABU_PRIVACY_VERSION: z.string().default('2026-06'),
@@ -194,5 +196,6 @@ appConfig.KITABU_AFRICASTALKING_SENDER_ID = trimOptional(appConfig.KITABU_AFRICA
 appConfig.KITABU_SMTP_HOST = trimOptional(appConfig.KITABU_SMTP_HOST);
 appConfig.KITABU_SMTP_USER = trimOptional(appConfig.KITABU_SMTP_USER);
 appConfig.KITABU_SMTP_PASS = trimOptional(appConfig.KITABU_SMTP_PASS);
+appConfig.KITABU_TRANSACTIONAL_MAIL_FROM = trimOptional(appConfig.KITABU_TRANSACTIONAL_MAIL_FROM);
 appConfig.KITABU_SENTRY_DSN = trimOptional(appConfig.KITABU_SENTRY_DSN);
 appConfig.KITABU_POSTHOG_KEY = trimOptional(appConfig.KITABU_POSTHOG_KEY);

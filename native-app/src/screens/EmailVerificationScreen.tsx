@@ -39,6 +39,9 @@ export function EmailVerificationScreen({
       <Text style={styles.copy}>
         We sent a verification link to {email}. Open it on this device to continue.
       </Text>
+      <Text style={styles.inboxHint}>
+        Can’t see it? Check Primary, Updates, and Spam. Gmail may place automated verification messages in Updates.
+      </Text>
       {message ? <Text style={styles.success}>{message}</Text> : null}
       {error ? <Text style={styles.error}>{error}</Text> : null}
       <Pressable
@@ -74,6 +77,7 @@ const styles = StyleSheet.create({
   },
   title: { color: '#0F172A', fontSize: 28, fontWeight: '800', textAlign: 'center' },
   copy: { color: '#475569', fontSize: 16, lineHeight: 24, textAlign: 'center', marginTop: 12, marginBottom: 22 },
+  inboxHint: { color: '#64748B', fontSize: 14, lineHeight: 20, textAlign: 'center', marginBottom: 22 },
   success: { color: '#166534', fontSize: 14, lineHeight: 20, textAlign: 'center', marginBottom: 14 },
   error: { color: '#B91C1C', fontSize: 14, lineHeight: 20, textAlign: 'center', marginBottom: 14 },
   primaryButton: {

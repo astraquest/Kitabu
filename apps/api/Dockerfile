@@ -30,6 +30,9 @@ COPY apps/web/deletion /app/legal/deletion
 COPY apps/web/legal.css /app/legal/legal.css
 COPY apps/web/assets/kitabu-icon-bold-192.png /app/legal/assets/kitabu-icon-bold-192.png
 COPY apps/web/assets/kitabu-favicon-bold.ico /app/legal/assets/kitabu-favicon-bold.ico
+COPY native-app/src/assets/mascot/sungura-rabbit.png /app/legal/assets/mascot/sungura-rabbit.png
+COPY native-app/src/assets/mascot/simba-lion.png /app/legal/assets/mascot/simba-lion.png
+COPY native-app/src/assets/mascot/ndovu-elephant.png /app/legal/assets/mascot/ndovu-elephant.png
 COPY apps/web/assets/fonts/bricolage-grotesque-latin.woff2 /app/legal/assets/fonts/bricolage-grotesque-latin.woff2
 COPY apps/web/assets/fonts/plus-jakarta-sans-latin.woff2 /app/legal/assets/fonts/plus-jakarta-sans-latin.woff2
 RUN mkdir -p /app/data/books

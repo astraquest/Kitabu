@@ -59,6 +59,7 @@ module.exports = {
     ],
     android: {
       package: 'ai.kitabu2.twa',
+      softwareKeyboardLayoutMode: 'resize',
     },
     ios: {
       bundleIdentifier: 'ai.kitabunative.app',

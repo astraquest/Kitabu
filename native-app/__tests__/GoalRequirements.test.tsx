@@ -1063,6 +1063,10 @@ test('onboarding full intro captures profile details before account setup', asyn
   expect(renderedText(renderer!.root)).toContain('Continue with Google');
   expect(renderedText(renderer!.root)).toContain('Continue with Email');
   expect(renderedText(renderer!.root)).toContain('Continue with Phone Number');
+  expect(
+    renderer!.root.findByProps({ accessibilityLabel: 'Continue with phone number' }).props.accessibilityState,
+  ).toEqual({ disabled: true });
+  expect(renderedText(renderer!.root)).toContain('Coming Soon');
   expect(renderer!.root.findAllByProps({ accessibilityLabel: 'Signup progress' })).toHaveLength(0);
 
   await act(() => {

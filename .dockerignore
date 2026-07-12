@@ -38,3 +38,16 @@ apps/api/data/books/
 **/.env
 **/.env.*
 !**/.env.example
+
+# The API serves the selected onboarding mascots in transactional emails.
+!native-app/
+native-app/*
+!native-app/src/
+native-app/src/*
+!native-app/src/assets/
+native-app/src/assets/*
+!native-app/src/assets/mascot/
+native-app/src/assets/mascot/*
+!native-app/src/assets/mascot/sungura-rabbit.png
+!native-app/src/assets/mascot/simba-lion.png
+!native-app/src/assets/mascot/ndovu-elephant.png

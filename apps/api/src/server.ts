@@ -29,6 +29,7 @@ import {
   usdMicrosToKshCents
 } from './ai.js';
 import {
+  buildFeatureUserPrompt,
   buildFeatureSystemInstruction,
   getFeatureCachePolicy,
   getFeatureSchemaVersion,
@@ -2402,6 +2403,7 @@ Requirements:
     const featureSystemInstruction = buildFeatureSystemInstruction(feature, args.body.context);
     const effectiveBody: GenerateTextBody = {
       ...args.body,
+      prompt: buildFeatureUserPrompt(feature, args.body.prompt),
       systemInstruction: featureSystemInstruction ?? args.body.systemInstruction
     };
     const promptVersion = resolvePromptVersion(feature);

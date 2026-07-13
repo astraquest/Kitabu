@@ -4,7 +4,7 @@ import { getFeatureModelProfile } from './aiFeatures.js';
 const CHAT_PROVIDER_TIMEOUT_MS = 15_000;
 const JSON_PROVIDER_TIMEOUT_MS = 75_000;
 const DEFAULT_PROVIDER_TIMEOUT_MS = 20_000;
-const CHAT_MAX_TOKENS = 256;
+const CHAT_MAX_TOKENS = 192;
 const PRACTICE_JSON_MAX_TOKENS = 2500;
 
 export interface GenerateTextInput {
@@ -778,7 +778,7 @@ async function generateTextWithNvidia(input: GenerateTextInput, plan: AiExecutio
     providerName: 'NVIDIA',
     useJsonResponseFormat: false,
     requestOptions: {
-      temperature: isChatRequest ? 0.4 : isPracticeRequest ? 0.4 : 0.7,
+      temperature: isChatRequest ? 0.2 : isPracticeRequest ? 0.4 : 0.7,
       top_p: 0.9,
       max_tokens: isChatRequest
         ? CHAT_MAX_TOKENS
@@ -817,6 +817,19 @@ export async function generateText(input: GenerateTextInput, plan: AiExecutionPl
   return generateTextWithGemini(input, plan);
 }
 
+export function needsTutorResponseRetry(input: GenerateTextInput, text: string) {
+  return input.feature === 'homework_helper_chat' && text.trim().length < 24;
+}
+
+function buildTutorResponseRetryInput(input: GenerateTextInput): GenerateTextInput {
+  return {
+    ...input,
+    prompt: `${input.prompt}
+
+FINAL CHECK: Return a learner-facing hint or explanation, not a bare answer. Use no labels or internal analysis.`
+  };
+}
+
 export async function generateTextWithFallback(
   input: GenerateTextInput,
   plans = resolveAiExecutionPlans(input)
@@ -827,9 +840,22 @@ export async function generateTextWithFallback(
   for (const plan of plans) {
     const startedAt = Date.now();
     try {
-      const result = await generateText(input, plan);
+      let result = await generateText(input, plan);
+      if (needsTutorResponseRetry(input, result.text) && Date.now() - startedAt < 4_000) {
+        const firstResult = result;
+        const retriedResult = await generateText(buildTutorResponseRetryInput(input), plan);
+        result = {
+          ...retriedResult,
+          promptTokens: firstResult.promptTokens + retriedResult.promptTokens,
+          completionTokens: firstResult.completionTokens + retriedResult.completionTokens,
+          totalTokens: firstResult.totalTokens + retriedResult.totalTokens
+        };
+      }
       if (!result.text.trim()) {
         throw new Error(`${plan.provider} returned an empty response`);
+      }
+      if (needsTutorResponseRetry(input, result.text)) {
+        throw new Error(`${plan.provider} returned an incomplete tutor response`);
       }
 
       attempts.push({

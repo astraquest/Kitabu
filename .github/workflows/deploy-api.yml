@@ -115,6 +115,10 @@ jobs:
           docker compose up -d --force-recreate api worker caddy
           docker exec kitabu-caddy grep -q 'resetPasswordPath' /etc/caddy/Caddyfile
           docker exec kitabu-caddy grep -q 'verifyEmailPath' /etc/caddy/Caddyfile
+          docker exec kitabu-caddy grep -q 'privacyPath' /etc/caddy/Caddyfile
+          docker exec kitabu-caddy grep -q 'policyPath' /etc/caddy/Caddyfile
+          docker exec kitabu-caddy grep -q 'termsPath' /etc/caddy/Caddyfile
+          docker exec kitabu-caddy grep -q 'deletionPath' /etc/caddy/Caddyfile
           docker exec kitabu-api grep -q 'Reset link unavailable' /app/dist/server.js
           docker exec kitabu-api grep -q 'Open Kitabu AI Login' /app/dist/server.js
           docker exec kitabu-api test -s /app/legal/legal.css
@@ -144,10 +148,25 @@ jobs:
           curl --fail --silent --location 'https://kitabu.ai/reset-password?token=abcdefghijklmnopqrstuvwxyz123456' | grep -q 'Reset your password'
           curl --silent --show-error 'https://app.kitabu.ai/verify-email?token=abcdefghijklmnopqrstuvwxyz123456' | grep -q 'Verification failed'
           curl --silent --show-error --location 'https://kitabu.ai/verify-email?token=abcdefghijklmnopqrstuvwxyz123456' | grep -q 'Verification failed'
-          curl --fail --silent https://kitabu.ai/deletion | grep -q 'Account Deletion Request'
-          curl --fail --silent https://kitabu.ai/terms | grep -q 'General Terms and Conditions of Use'
-          curl --fail --silent https://kitabu.ai/Terms | grep -q 'General Terms and Conditions of Use'
-          curl --fail --silent https://kitabu.ai/TERMS | grep -q 'General Terms and Conditions of Use'
+          assert_redirect() {
+            source_url="$1"
+            destination_url="$2"
+            actual="$(curl --silent --show-error --output /dev/null --write-out '%{http_code} %{redirect_url}' "$source_url")"
+            if [ "$actual" != "308 $destination_url" ]; then
+              echo "::error::$source_url returned '$actual'; expected '308 $destination_url'."
+              exit 1
+            fi
+          }
+          assert_redirect https://kitabu.ai/privacy https://app.kitabu.ai/privacy
+          assert_redirect https://kitabu.ai/policy https://app.kitabu.ai/policy
+          assert_redirect https://kitabu.ai/terms https://app.kitabu.ai/terms
+          assert_redirect https://kitabu.ai/Terms https://app.kitabu.ai/terms
+          assert_redirect https://kitabu.ai/TERMS https://app.kitabu.ai/terms
+          assert_redirect https://kitabu.ai/deletion https://app.kitabu.ai/deletion
+          curl --fail --silent --location https://kitabu.ai/privacy | grep -q 'Privacy & Cookie Policy'
+          curl --fail --silent --location https://kitabu.ai/policy | grep -q 'Privacy & Cookie Policy'
+          curl --fail --silent --location https://kitabu.ai/terms | grep -q 'General Terms and Conditions of Use'
+          curl --fail --silent --location https://kitabu.ai/deletion | grep -q 'Account Deletion Request'
           curl --fail --silent 'https://app.kitabu.ai/policy?deploy=${{ github.sha }}' | grep -q 'https://app.kitabu.ai/deletion'
           curl --fail --silent 'https://app.kitabu.ai/legal.css?deploy=${{ github.sha }}' >/dev/null
           curl --fail --silent 'https://app.kitabu.ai/assets/kitabu-icon-bold-192.png?deploy=${{ github.sha }}' >/dev/null

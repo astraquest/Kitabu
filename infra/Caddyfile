@@ -21,13 +21,22 @@ http://kitabu.ai, http://www.kitabu.ai {
 		path_regexp (?i)^/verify-email/?$
 	}
 	redir @verifyEmailPath https://app.kitabu.ai/verify-email?{query} 308
+	@privacyPath {
+		path_regexp (?i)^/privacy/?$
+	}
+	redir @privacyPath https://app.kitabu.ai/privacy 308
+	@policyPath {
+		path_regexp (?i)^/policy/?$
+	}
+	redir @policyPath https://app.kitabu.ai/policy 308
 	@termsPath {
 		path_regexp (?i)^/terms/?$
 	}
-	handle @termsPath {
-		rewrite * /terms/index.html
-		file_server
+	redir @termsPath https://app.kitabu.ai/terms 308
+	@deletionPath {
+		path_regexp (?i)^/deletion/?$
 	}
+	redir @deletionPath https://app.kitabu.ai/deletion 308
 	handle {
 		try_files {path} {path}.html {path}/index.html
 		file_server

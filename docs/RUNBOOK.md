@@ -26,6 +26,38 @@ After a release that changes the legal pages, verify `/policy`, `/privacy`, and 
 must not contain `/cdn-cgi/l/email-protection`. The privacy and deletion pages must also explain how a
 user can request deletion of specific personal data without deleting their account.
 
+The apex legal aliases are permanent canonical redirects:
+
+- `https://kitabu.ai/privacy` -> `https://app.kitabu.ai/privacy`
+- `https://kitabu.ai/policy` -> `https://app.kitabu.ai/policy`
+- `https://kitabu.ai/terms` -> `https://app.kitabu.ai/terms`
+- `https://kitabu.ai/deletion` -> `https://app.kitabu.ai/deletion`
+
+Require an exact `308` and `Location` value before following each redirect and validating the final
+page. This distinguishes a healthy canonical redirect from an edge or origin `404`.
+
+### Cloudflare Tunnel route safety
+
+`kitabu-prod-origin` is remotely managed. Cloudflare's live tunnel configuration overrides the
+server's `/etc/cloudflared/config.yml`, even when the connector starts with that file. DNS and tunnel
+ingress are separate controls: a valid proxied DNS record can still return Cloudflare's empty `404`
+when the hostname is absent from the remote ingress list.
+
+Treat every tunnel ingress update as a whole-list replacement:
+
+1. GET and back up the current remote configuration and version.
+2. Merge the requested route into the live list; never build a replacement from only the current app.
+3. Assert that no existing hostname/service pair disappeared and that the final rule remains
+   `http_status:404`.
+4. Refuse a stale write if the live version or route list changed after the read.
+5. PUT the complete merged list, wait for the connector to log the new version, and verify every
+   protected public hostname from outside the origin.
+6. Roll back to the captured configuration if any previously healthy route regresses.
+
+At minimum, protect the apex, `www`, `app`, `admin`, `origin-ndiziflix`, `mufasa`, `storybrain`,
+`firststeps`, `bafaservices`, and `endabasia`, plus every route already present in the live config.
+Never delete or recreate an existing DNS record merely to repair missing tunnel ingress.
+
 Use `.github/workflows/deploy-api.yml` or the manual Hetzner steps in `DEPLOY_HETZNER.md`.
 
 Production SSH access uses the local alias:

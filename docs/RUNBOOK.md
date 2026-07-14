@@ -19,6 +19,13 @@ Run migrations before deploying API code that depends on new tables or columns.
 
 ## Deployment
 
+### Legal-page acceptance
+
+After a release that changes the legal pages, verify `/policy`, `/privacy`, and `/deletion` return a
+`Cache-Control` header containing `no-transform`. Their live HTML must contain `hello@kitabu.ai` and
+must not contain `/cdn-cgi/l/email-protection`. The privacy and deletion pages must also explain how a
+user can request deletion of specific personal data without deleting their account.
+
 Use `.github/workflows/deploy-api.yml` or the manual Hetzner steps in `DEPLOY_HETZNER.md`.
 
 Production SSH access uses the local alias:

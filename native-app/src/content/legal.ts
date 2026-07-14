@@ -65,7 +65,8 @@ export const PRIVACY_POLICY_SECTIONS: LegalSection[] = [
     heading: 'Account and Data Deletion',
     paragraphs: [
       'You can delete your account and personal data at any time in the app, at https://app.kitabu.ai/deletion, or by emailing hello@kitabu.ai. For a child, the request should be made via the guardian.',
-      'After we verify your request, we delete or anonymise account data within 30 days, except data we must keep by law, such as tax, accounting, transaction, fraud-prevention, security, or dispute records, which we keep only as long as required and then delete.',
+      'You can also ask us to delete specific personal data without deleting your Kitabu AI account. Email hello@kitabu.ai from the address linked to your account, describe the data you want deleted, and include your account email or phone number. We may ask you to verify your identity.',
+      'After we verify your request, we delete or anonymise eligible data within 30 days, except data we must keep by law, such as tax, accounting, transaction, fraud-prevention, security, or dispute records, which we keep only as long as required and then delete.',
     ],
   },
   {

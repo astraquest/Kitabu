@@ -299,7 +299,7 @@ async function readLegalAsset(route: keyof typeof LEGAL_ASSET_PATHS): Promise<Bu
 
 function applyLegalPageHeaders(reply: FastifyReply): FastifyReply {
   return reply
-    .header('Cache-Control', 'public, max-age=0, must-revalidate')
+    .header('Cache-Control', 'public, max-age=0, must-revalidate, no-transform')
     .header('Content-Security-Policy', LEGAL_CONTENT_SECURITY_POLICY)
     .header('Cross-Origin-Opener-Policy', 'same-origin')
     .header('Cross-Origin-Resource-Policy', 'same-origin')

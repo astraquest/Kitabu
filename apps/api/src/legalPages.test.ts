@@ -40,6 +40,10 @@ test('legal pages are public, hardened, and reference live local assets', async 
 
     assert.equal(response.statusCode, 200, url);
     assert.match(response.headers['content-type'] ?? '', /^text\/html; charset=utf-8$/);
+    assert.equal(
+      response.headers['cache-control'],
+      'public, max-age=0, must-revalidate, no-transform'
+    );
     assert.equal(response.headers['x-frame-options'], 'DENY');
     assert.equal(response.headers['x-content-type-options'], 'nosniff');
     assert.equal(response.headers['referrer-policy'], 'no-referrer');
@@ -61,6 +65,12 @@ test('legal pages are public, hardened, and reference live local assets', async 
     policy.body,
     /href="https:\/\/app\.kitabu\.ai\/deletion">https:\/\/app\.kitabu\.ai\/deletion<\/a>/
   );
+  assert.match(policy.body, /mailto:hello@kitabu\.ai/);
+  assert.match(policy.body, /without deleting your Kitabu AI account/);
+
+  const deletion = await app.inject({ method: 'GET', url: '/deletion' });
+  assert.match(deletion.body, /mailto:hello@kitabu\.ai/);
+  assert.match(deletion.body, /Delete personal data without deleting your account/);
 });
 
 test('legal assets are packaged with correct content types', async () => {

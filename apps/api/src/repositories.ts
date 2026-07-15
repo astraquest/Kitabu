@@ -3768,6 +3768,300 @@ export async function markCurriculumSubStrandCompleted(
   );
 }
 
+export interface ProgressiveLessonProgressRecord {
+  lesson_key: string;
+  best_score: number;
+  status: 'in_progress' | 'completed' | 'needs_practice';
+  attempt_count: number;
+}
+
+export interface ProgressiveLessonAttemptRecord {
+  id: string;
+  client_attempt_id: string;
+  user_id: string;
+  grade_level: string;
+  subject_id: string;
+  lesson_key: string;
+  lesson_version: number;
+  status: 'in_progress' | 'completed' | 'needs_practice' | 'abandoned';
+  current_step_id: string | null;
+  checkpoint_score: string | null;
+}
+
+export async function listProgressiveLessonProgress(
+  userId: string,
+  gradeLevel: string,
+  subjectId: string
+) {
+  const result = await db.query<{
+    lesson_key: string;
+    best_score: string;
+    status: ProgressiveLessonProgressRecord['status'];
+    attempt_count: number;
+  }>(
+    `SELECT lesson_key, best_score::text AS best_score, status, attempt_count
+     FROM progressive_lesson_progress
+     WHERE user_id = $1 AND grade_level = $2 AND subject_id = $3`,
+    [userId, gradeLevel, subjectId]
+  );
+
+  return result.rows.map(row => ({
+    lesson_key: row.lesson_key,
+    best_score: Number(row.best_score),
+    status: row.status,
+    attempt_count: row.attempt_count
+  }));
+}
+
+export async function startProgressiveLessonAttempt(
+  client: MaybeClient,
+  input: {
+    clientAttemptId: string;
+    userId: string;
+    gradeLevel: string;
+    subjectId: string;
+    lessonKey: string;
+    lessonVersion: number;
+  }
+) {
+  const result = await q<ProgressiveLessonAttemptRecord>(
+    client,
+    `INSERT INTO progressive_lesson_attempts (
+       client_attempt_id, user_id, grade_level, subject_id, lesson_key, lesson_version
+     ) VALUES ($1, $2, $3, $4, $5, $6)
+     ON CONFLICT (client_attempt_id)
+     DO UPDATE SET last_activity_at = NOW()
+     RETURNING id, client_attempt_id, user_id, grade_level, subject_id, lesson_key,
+       lesson_version, status, current_step_id, checkpoint_score::text AS checkpoint_score`,
+    [
+      input.clientAttemptId,
+      input.userId,
+      input.gradeLevel,
+      input.subjectId,
+      input.lessonKey,
+      input.lessonVersion
+    ]
+  );
+
+  const attempt = result.rows[0];
+  if (!attempt || attempt.user_id !== input.userId) {
+    return null;
+  }
+  return attempt;
+}
+
+export async function findProgressiveLessonAttemptForUser(attemptId: string, userId: string) {
+  const result = await db.query<ProgressiveLessonAttemptRecord>(
+    `SELECT id, client_attempt_id, user_id, grade_level, subject_id, lesson_key,
+       lesson_version, status, current_step_id, checkpoint_score::text AS checkpoint_score
+     FROM progressive_lesson_attempts
+     WHERE id = $1 AND user_id = $2`,
+    [attemptId, userId]
+  );
+  return result.rows[0] ?? null;
+}
+
+export async function recordProgressiveStepAttempt(
+  client: MaybeClient,
+  input: {
+    clientEventId: string;
+    attemptId: string;
+    userId: string;
+    stepId: string;
+    phase: 'guided' | 'checkpoint';
+    response: string;
+    isCorrect: boolean;
+    misconceptionCode: string | null;
+    responseLatencyMs: number;
+  }
+) {
+  const existing = await q<{
+    attempt_number: number;
+    is_correct: boolean;
+  }>(
+    client,
+    `SELECT psa.attempt_number, psa.is_correct
+     FROM progressive_step_attempts psa
+     JOIN progressive_lesson_attempts pla ON pla.id = psa.attempt_id
+     WHERE psa.client_event_id = $1 AND pla.user_id = $2`,
+    [input.clientEventId, input.userId]
+  );
+  if (existing.rows[0]) {
+    return existing.rows[0];
+  }
+
+  const attempt = await q<{ id: string; status: string }>(
+    client,
+    `SELECT id, status
+     FROM progressive_lesson_attempts
+     WHERE id = $1 AND user_id = $2
+     FOR UPDATE`,
+    [input.attemptId, input.userId]
+  );
+  if (!attempt.rows[0] || attempt.rows[0].status !== 'in_progress') {
+    return null;
+  }
+
+  const count = await q<{ total: string }>(
+    client,
+    `SELECT COUNT(*)::text AS total
+     FROM progressive_step_attempts
+     WHERE attempt_id = $1 AND step_id = $2`,
+    [input.attemptId, input.stepId]
+  );
+  const attemptNumber = Number(count.rows[0]?.total ?? 0) + 1;
+
+  const inserted = await q<{ attempt_number: number; is_correct: boolean }>(
+    client,
+    `INSERT INTO progressive_step_attempts (
+       client_event_id, attempt_id, step_id, phase, attempt_number, response,
+       is_correct, misconception_code, response_latency_ms
+     ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+     RETURNING attempt_number, is_correct`,
+    [
+      input.clientEventId,
+      input.attemptId,
+      input.stepId,
+      input.phase,
+      attemptNumber,
+      input.response,
+      input.isCorrect,
+      input.misconceptionCode,
+      input.responseLatencyMs
+    ]
+  );
+
+  await q(
+    client,
+    `UPDATE progressive_lesson_attempts
+     SET current_step_id = $2, last_activity_at = NOW()
+     WHERE id = $1`,
+    [input.attemptId, input.stepId]
+  );
+
+  return inserted.rows[0] ?? null;
+}
+
+export async function awardLearningReward(
+  client: MaybeClient,
+  input: { userId: string; sourceType: string; sourceId: string; points: number }
+) {
+  const result = await q<{ points: number }>(
+    client,
+    `INSERT INTO learning_reward_ledger (user_id, source_type, source_id, points)
+     VALUES ($1, $2, $3, $4)
+     ON CONFLICT (user_id, source_type, source_id) DO NOTHING
+     RETURNING points`,
+    [input.userId, input.sourceType, input.sourceId, input.points]
+  );
+  return result.rows[0]?.points ?? 0;
+}
+
+export async function completeProgressiveLessonAttempt(
+  client: MaybeClient,
+  input: {
+    attemptId: string;
+    userId: string;
+    checkpointTotal: number;
+  }
+) {
+  const attemptResult = await q<ProgressiveLessonAttemptRecord>(
+    client,
+    `SELECT id, client_attempt_id, user_id, grade_level, subject_id, lesson_key,
+       lesson_version, status, current_step_id, checkpoint_score::text AS checkpoint_score
+     FROM progressive_lesson_attempts
+     WHERE id = $1 AND user_id = $2
+     FOR UPDATE`,
+    [input.attemptId, input.userId]
+  );
+  const attempt = attemptResult.rows[0];
+  if (!attempt) {
+    return null;
+  }
+
+  if (attempt.status === 'completed' || attempt.status === 'needs_practice') {
+    return {
+      attempt,
+      score: Number(attempt.checkpoint_score ?? 0),
+      passed: attempt.status === 'completed'
+    };
+  }
+
+  const checkpoint = await q<{ total: string; correct: string }>(
+    client,
+    `WITH first_attempts AS (
+       SELECT DISTINCT ON (step_id) step_id, is_correct
+       FROM progressive_step_attempts
+       WHERE attempt_id = $1 AND phase = 'checkpoint'
+       ORDER BY step_id, attempt_number ASC
+     )
+     SELECT COUNT(*)::text AS total,
+       COUNT(*) FILTER (WHERE is_correct)::text AS correct
+     FROM first_attempts`,
+    [input.attemptId]
+  );
+  const answered = Number(checkpoint.rows[0]?.total ?? 0);
+  const correct = Number(checkpoint.rows[0]?.correct ?? 0);
+  if (answered < input.checkpointTotal) {
+    return {
+      attempt,
+      score: null,
+      passed: false,
+      incomplete: true,
+      answered,
+      required: input.checkpointTotal
+    };
+  }
+
+  const score = input.checkpointTotal > 0
+    ? Math.round((correct / input.checkpointTotal) * 100)
+    : 0;
+  const passed = score === 100;
+  const status = passed ? 'completed' : 'needs_practice';
+  const completedAttempt = await q<ProgressiveLessonAttemptRecord>(
+    client,
+    `UPDATE progressive_lesson_attempts
+     SET status = $2,
+         checkpoint_score = $3,
+         completed_at = NOW(),
+         last_activity_at = NOW()
+     WHERE id = $1
+     RETURNING id, client_attempt_id, user_id, grade_level, subject_id, lesson_key,
+       lesson_version, status, current_step_id, checkpoint_score::text AS checkpoint_score`,
+    [input.attemptId, status, score]
+  );
+
+  await q(
+    client,
+    `INSERT INTO progressive_lesson_progress (
+       user_id, grade_level, subject_id, lesson_key, best_score, status,
+       attempt_count, last_attempt_at, completed_at, updated_at
+     ) VALUES ($1, $2, $3, $4, $5, $6, 1, NOW(), CASE WHEN $6 = 'completed' THEN NOW() ELSE NULL END, NOW())
+     ON CONFLICT (user_id, lesson_key)
+     DO UPDATE SET
+       best_score = GREATEST(progressive_lesson_progress.best_score, EXCLUDED.best_score),
+       status = CASE
+         WHEN progressive_lesson_progress.status = 'completed' OR EXCLUDED.status = 'completed' THEN 'completed'
+         ELSE 'needs_practice'
+       END,
+       attempt_count = progressive_lesson_progress.attempt_count + 1,
+       last_attempt_at = NOW(),
+       completed_at = CASE
+         WHEN progressive_lesson_progress.status = 'completed' THEN progressive_lesson_progress.completed_at
+         WHEN EXCLUDED.status = 'completed' THEN NOW()
+         ELSE NULL
+       END,
+       updated_at = NOW()`,
+    [attempt.user_id, attempt.grade_level, attempt.subject_id, attempt.lesson_key, score, status]
+  );
+
+  return {
+    attempt: completedAttempt.rows[0],
+    score,
+    passed
+  };
+}
+
 function formatActivityLabel(value: Date | null) {
   if (!value) {
     return 'Recently';

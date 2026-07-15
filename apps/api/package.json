@@ -7,7 +7,7 @@
     "dev": "tsx watch src/index.ts",
     "build": "tsc -p tsconfig.json",
     "start": "node dist/index.js",
-    "test": "tsx --test src/googleAuth.test.ts src/payments.test.ts src/mufasaTelemetry.test.ts src/aiFeatures.test.ts src/generatedBooks.test.ts src/quizBank.test.ts src/legalPages.test.ts src/assignmentTargeting.test.ts src/mailer.test.ts",
+    "test": "tsx --test src/googleAuth.test.ts src/payments.test.ts src/mufasaTelemetry.test.ts src/aiFeatures.test.ts src/generatedBooks.test.ts src/quizBank.test.ts src/progressiveLearning.test.ts src/legalPages.test.ts src/assignmentTargeting.test.ts src/mailer.test.ts",
     "test:integration": "tsx --test src/auth.integration.test.ts",
     "check:mpesa": "node scripts/check-mpesa.mjs",
     "check:readiness": "node scripts/verify-production-readiness.mjs",

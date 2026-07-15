@@ -34,7 +34,6 @@ import { HomeworkListScreen } from './screens/HomeworkListScreen';
 import { HomeworkQuizScreen } from './screens/HomeworkQuizScreen';
 import { IntroCarouselScreen } from './screens/IntroCarouselScreen';
 import { LetsLearnContentScreen } from './screens/LetsLearnContentScreen';
-import { LetsLearnListScreen } from './screens/LetsLearnListScreen';
 import { LiveAudioTutorScreen } from './screens/LiveAudioTutorScreen';
 import { ManyangaScreen } from './screens/ManyangaScreen';
 import { PodcastsScreen } from './screens/PodcastsScreen';
@@ -42,12 +41,13 @@ import { ParentDashboardScreen } from './screens/ParentDashboardScreen';
 import { QuizBattleScreen } from './screens/QuizBattleScreen';
 import { QuizMeScreen } from './screens/QuizMeScreen';
 import { ReviewSessionScreen } from './screens/ReviewSessionScreen';
-import { SubjectScreen } from './screens/SubjectScreen';
 import { StudentOnboardingScreen } from './screens/StudentOnboardingScreen';
 import { TakeQuizScreen } from './screens/TakeQuizScreen';
 import { TeacherPortalScreen } from './screens/TeacherPortalScreen';
 import { WeeklyExamScreen } from './screens/WeeklyExamScreen';
 import { PreviewDiagnosticQuestion } from './screens/DiagnosticScreen';
+import { SubjectLearningPathScreen } from './features/progressiveLearning/screens/SubjectLearningPathScreen';
+import { ProgressiveLessonScreen } from './features/progressiveLearning/screens/ProgressiveLessonScreen';
 
 const splashImage = require('./assets/splashscreen.png');
 
@@ -386,6 +386,8 @@ export function KitabuApp() {
                 selectedSubjectId: state.selectedSubject?.id || null,
                 selectedAssignmentId: state.selectedAssignment?.id || null,
                 selectedSubStrandId: state.selectedSubStrand?.id || null,
+                selectedProgressiveLessonKey: state.selectedProgressiveLessonKey,
+                selectedProgressiveLessonVersion: state.selectedProgressiveLessonVersion,
                 selectedBookId: state.selectedBook?.id || null,
                 previewBookId: state.previewBookId,
                 activeStrandIndex: state.activeStrandIndex,
@@ -544,27 +546,16 @@ function renderScreen(
   switch (state.currentView) {
     case 'subject':
       return state.selectedSubject ? (
-        <SubjectScreen
+        <SubjectLearningPathScreen
           subject={state.selectedSubject}
           strands={state.selectedSubjectStrands}
-          currentStrandIndex={state.activeStrandIndex}
-          hasStudied={state.hasStudied}
-          isBrainTeaseComplete={state.brainTeaseCompleted}
-          isLoading={state.isLoading}
-          onPrevStrand={() =>
-            actions.setActiveStrandIndex(Math.max(0, state.activeStrandIndex - 1))
-          }
-          onNextStrand={() =>
-            actions.setActiveStrandIndex(
-              Math.min(
-                state.selectedSubjectStrands.length - 1,
-                state.activeStrandIndex + 1,
-              ),
-            )
-          }
-          onStartLearning={actions.startLearning}
-          onStartBrainTease={actions.startSubjectBrainTease}
-          onTakeQuiz={actions.startSubjectQuiz}
+          grade={state.currentGrade}
+          path={state.subjectLearningPath}
+          mascotKey={state.activeMascotKey}
+          isLoading={state.isLoadingSubjectLearningPath}
+          error={state.subjectLearningPathError}
+          onRetry={actions.refreshSubjectLearningPath}
+          onOpenNode={actions.openLearningPathNode}
           onBack={actions.goHome}
         />
       ) : (
@@ -581,6 +572,30 @@ function renderScreen(
           onBannerAction={actions.openBannerAction}
         />
       );
+    case 'progressive_lesson':
+      return state.selectedProgressiveLessonKey && state.selectedProgressiveLessonVersion ? (
+        <ProgressiveLessonScreen
+          lessonKey={state.selectedProgressiveLessonKey}
+          lessonVersion={state.selectedProgressiveLessonVersion}
+          grade={state.currentGrade}
+          mascotKey={state.activeMascotKey}
+          onBack={() => actions.openFeature('subject')}
+          onComplete={actions.finishProgressiveLesson}
+        />
+      ) : state.selectedSubject ? (
+        <SubjectLearningPathScreen
+          subject={state.selectedSubject}
+          strands={state.selectedSubjectStrands}
+          grade={state.currentGrade}
+          path={state.subjectLearningPath}
+          mascotKey={state.activeMascotKey}
+          isLoading={state.isLoadingSubjectLearningPath}
+          error={state.subjectLearningPathError}
+          onRetry={actions.refreshSubjectLearningPath}
+          onOpenNode={actions.openLearningPathNode}
+          onBack={actions.goHome}
+        />
+      ) : null;
     case 'homework_list':
       return (
         <HomeworkListScreen
@@ -611,34 +626,29 @@ function renderScreen(
           onOpenWeeklyExam={() => actions.openFeature('weekly_exam')}
         />
       );
-    case 'lets_learn_list':
-      return (
-        <LetsLearnListScreen
-          strands={state.selectedSubjectStrands}
-          subjectName={state.selectedSubject?.name || 'Subject'}
-          grade={state.currentGrade}
-          onBack={() => actions.openFeature('subject')}
-          onSelectSubStrand={actions.selectSubStrand}
-        />
-      );
     case 'lets_learn_content':
       return state.selectedSubStrand ? (
         <LetsLearnContentScreen
           subStrand={state.selectedSubStrand}
-          onClose={() => actions.openFeature('lets_learn_list')}
+          onClose={() => actions.openFeature('subject')}
           onStartQuiz={() => {
             actions.startSelectedSubStrandQuiz();
           }}
         />
-      ) : (
-        <LetsLearnListScreen
+      ) : state.selectedSubject ? (
+        <SubjectLearningPathScreen
+          subject={state.selectedSubject}
           strands={state.selectedSubjectStrands}
-          subjectName={state.selectedSubject?.name || 'Subject'}
           grade={state.currentGrade}
-          onBack={() => actions.openFeature('subject')}
-          onSelectSubStrand={actions.selectSubStrand}
+          path={state.subjectLearningPath}
+          mascotKey={state.activeMascotKey}
+          isLoading={state.isLoadingSubjectLearningPath}
+          error={state.subjectLearningPathError}
+          onRetry={actions.refreshSubjectLearningPath}
+          onOpenNode={actions.openLearningPathNode}
+          onBack={actions.goHome}
         />
-      );
+      ) : null;
     case 'bookshelf_view':
       return (
         <BookshelfScreen
@@ -940,8 +950,8 @@ function getTitle(view: string, subjectName?: string) {
     homework_quiz: 'Homework Quiz',
     bookshelf_view: 'Bookshelf',
     reading_mode: 'Reader',
-    lets_learn_list: 'Curriculum',
     lets_learn_content: 'Lesson',
+    progressive_lesson: 'Learning Adventure',
     brain_tease: 'Brain Tease',
     take_quiz: 'Take Quiz',
     quiz_me_config: 'QuizMe',

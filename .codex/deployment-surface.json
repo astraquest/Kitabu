@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "project": "kitabu-ai",
+  "legal_pages": {
+    "terms": {
+      "url": "https://app.kitabu.ai/terms",
+      "statuses": [200],
+      "content_type_prefix": "text/html",
+      "marker": "General Terms and Conditions of Use"
+    },
+    "privacy": {
+      "url": "https://app.kitabu.ai/policy",
+      "statuses": [200],
+      "content_type_prefix": "text/html",
+      "marker": "Privacy & Cookie Policy"
+    },
+    "deletion": {
+      "url": "https://app.kitabu.ai/deletion",
+      "statuses": [200],
+      "content_type_prefix": "text/html",
+      "marker": "Account Deletion Request"
+    }
+  }
+}

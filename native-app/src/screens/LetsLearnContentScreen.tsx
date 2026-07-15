@@ -21,6 +21,10 @@ const FALLBACK_PAGE = {
   content: 'Content for this topic is currently being updated by your teacher.',
 };
 
+/**
+ * Legacy lesson reader for curriculum nodes that do not yet have a progressive
+ * lesson definition. New curriculum navigation belongs in SubjectLearningPathScreen.
+ */
 export function LetsLearnContentScreen({
   subStrand,
   onClose,

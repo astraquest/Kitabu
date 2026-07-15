@@ -1,0 +1,16 @@
+export const sceneTheme = {
+  ink: '#183153',
+  mutedInk: '#55708F',
+  blue: '#4F7CE8',
+  blueDark: '#315BC5',
+  teal: '#39A997',
+  tealSoft: '#DDF7F1',
+  yellow: '#F7C84B',
+  orange: '#F38B3A',
+  coral: '#ED6B6A',
+  cream: '#FFF8E8',
+  sky: '#EAF4FF',
+  white: '#FFFFFF',
+  border: '#CFE5E1',
+  shadow: '#C9D7E4',
+} as const;

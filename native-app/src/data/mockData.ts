@@ -58,6 +58,12 @@ export const SUBJECTS: Subject[] = [
     colorTo: '#7E22CE',
   },
   {
+    id: 'religious_education',
+    name: 'Religious Education',
+    colorFrom: '#7C3AED',
+    colorTo: '#4C1D95',
+  },
+  {
     id: 'ai_education',
     name: 'AI Education',
     colorFrom: '#0F172A',

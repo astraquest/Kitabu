@@ -144,6 +144,7 @@ import {
   listTeacherStudents,
   listWeeklyExamHistory,
   listCurriculumForGrade,
+  listProgressiveLessonProgress,
   markPaymentRequestFailed,
   markPaymentRequestInitiated,
   markPaymentRequestSuccessful,
@@ -158,6 +159,7 @@ import {
   createChessMatch,
   findChessMatchForUser,
   recordPhoneVerificationFailure,
+  recordProgressiveStepAttempt,
   replaceCurriculumSubject,
   requestSelfServiceAccountDeletion,
   revokeRefreshToken,
@@ -169,6 +171,7 @@ import {
   unlinkParentStudent,
   completeDiagnosticSession,
   saveCurriculumSubStrandPages,
+  startProgressiveLessonAttempt,
   setAiGenerationCacheEntry,
   submitStudentAssignment,
   submitChessMove,
@@ -189,6 +192,9 @@ import {
   upsertTotpSecret,
   createSchoolOnboardingRequest,
   markSchoolOnboardingEmailDelivered,
+  awardLearningReward,
+  completeProgressiveLessonAttempt,
+  findProgressiveLessonAttemptForUser,
   withTransaction
 } from './repositories.js';
 import type { WeeklyExamQuestionRecord, WeeklyExamRecord } from './repositories.js';
@@ -217,6 +223,13 @@ import {
   type SchoolBillingPlanCode
 } from './payments.js';
 import { buildPaymentTelemetry, emitMufasaTelemetry } from './mufasaTelemetry.js';
+import {
+  buildProgressiveLearningPath,
+  getProgressiveLessonDefinition,
+  gradeProgressiveLessonStep,
+  hasProgressiveLearningPath,
+  normalizeProgressiveSubjectId
+} from './progressiveLearning.js';
 
 const LEGAL_PAGE_DIR = process.env.KITABU_LEGAL_PAGE_DIR?.trim() || join(process.cwd(), 'legal');
 const LEGAL_PAGE_PATHS = {
@@ -1465,6 +1478,40 @@ const subStrandQuizSchema = z.object({
 const subStrandCompletionSchema = z.object({
   quizScore: z.number().min(0).max(100).optional(),
   durationSeconds: z.number().int().min(0).max(24 * 60 * 60).optional()
+});
+
+const progressivePathParamsSchema = z.object({
+  subjectId: z.string().trim().min(1).max(80)
+});
+
+const progressivePathQuerySchema = z.object({
+  grade: z.string().trim().min(1).max(40)
+});
+
+const progressiveLessonParamsSchema = z.object({
+  lessonKey: z.string().trim().regex(/^[a-z0-9-]+$/).max(120)
+});
+
+const progressiveAttemptParamsSchema = z.object({
+  attemptId: z.string().uuid()
+});
+
+const progressiveStepParamsSchema = z.object({
+  attemptId: z.string().uuid(),
+  stepId: z.string().trim().regex(/^[a-z0-9-]+$/).max(180)
+});
+
+const progressiveAttemptStartSchema = z.object({
+  clientAttemptId: z.string().uuid(),
+  lessonKey: z.string().trim().regex(/^[a-z0-9-]+$/).max(120),
+  lessonVersion: z.number().int().positive(),
+  grade: z.string().trim().min(1).max(40)
+});
+
+const progressiveStepCheckSchema = z.object({
+  clientEventId: z.string().uuid(),
+  response: z.string().trim().min(1).max(160),
+  responseLatencyMs: z.number().int().min(0).max(30 * 60 * 1000).default(0)
 });
 
 const quizBankQuerySchema = z.object({
@@ -4180,6 +4227,268 @@ Requirements:
       subjects: query.subjectId
         ? subjects.filter(subject => subject.subjectId === query.subjectId)
       : subjects
+    };
+  });
+
+  app.get('/learning-paths/:subjectId', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return;
+    }
+
+    const params = progressivePathParamsSchema.parse(request.params);
+    const query = progressivePathQuerySchema.parse(request.query);
+    const canonicalSubjectId = normalizeProgressiveSubjectId(params.subjectId);
+
+    if (hasProgressiveLearningPath(canonicalSubjectId, query.grade)) {
+      const progress = await listProgressiveLessonProgress(
+        request.user!.id,
+        query.grade,
+        canonicalSubjectId
+      );
+      return {
+        ...buildProgressiveLearningPath(canonicalSubjectId, progress, query.grade),
+        delivery: 'progressive' as const
+      };
+    }
+
+    const subjects = await listCurriculumForGrade(query.grade, request.user!.id);
+    const subject = subjects.find(candidate => candidate.subjectId === params.subjectId);
+    if (!subject) {
+      return reply.notFound('Subject curriculum not found');
+    }
+
+    const orderedSubStrands = subject.strands.flatMap(strand =>
+      strand.subStrands.map(subStrand => ({ strand, subStrand }))
+    );
+    const activeIndex = orderedSubStrands.findIndex(({ subStrand }) => !subStrand.isCompleted);
+    const nodes = orderedSubStrands.map(({ strand, subStrand }, position) => {
+      const status = activeIndex === -1 || position < activeIndex
+        ? 'completed' as const
+        : position === activeIndex
+          ? subStrand.needsRemediation
+            ? 'needs_practice' as const
+            : 'current' as const
+          : 'locked' as const;
+
+      return {
+        id: subStrand.id,
+        lessonKey: `legacy-${subStrand.id}`,
+        lessonVersion: 1,
+        title: subStrand.title,
+        objective: subStrand.description ?? subStrand.outcomes?.[0]?.text ?? 'Build confidence through guided learning.',
+        estimatedMinutes: 8,
+        position,
+        strandTitle: strand.title,
+        status,
+        bestScore: subStrand.masteryScore ?? null,
+        attemptCount: 0,
+        delivery: 'legacy' as const,
+        legacySubStrandId: subStrand.id
+      };
+    });
+    const completedCount = nodes.filter(node => node.status === 'completed').length;
+
+    return {
+      subjectId: subject.subjectId,
+      subjectName: subject.subjectName,
+      grade: query.grade,
+      title: 'Your learning path',
+      description: 'Move through each curriculum topic at your own pace.',
+      completedCount,
+      totalCount: nodes.length,
+      progressPercent: nodes.length > 0 ? Math.round((completedCount / nodes.length) * 100) : 0,
+      delivery: 'curriculum' as const,
+      nodes
+    };
+  });
+
+  app.get('/learning/lessons/:lessonKey', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return;
+    }
+
+    const params = progressiveLessonParamsSchema.parse(request.params);
+    const lesson = getProgressiveLessonDefinition(params.lessonKey);
+    if (!lesson) {
+      return reply.notFound('Progressive lesson not found');
+    }
+
+    reply.header('Cache-Control', 'private, max-age=300');
+    reply.header('ETag', `"${lesson.lessonKey}-v${lesson.lessonVersion}"`);
+    return { lesson };
+  });
+
+  app.post('/learning/lesson-attempts', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return;
+    }
+
+    const body = progressiveAttemptStartSchema.parse(request.body);
+    const lesson = getProgressiveLessonDefinition(body.lessonKey);
+    if (!lesson || lesson.lessonVersion !== body.lessonVersion || lesson.grade !== body.grade) {
+      return reply.conflict('The lesson version is no longer available. Refresh the learning path.');
+    }
+
+    const progress = await listProgressiveLessonProgress(request.user!.id, body.grade, lesson.subjectId);
+    const node = buildProgressiveLearningPath(lesson.subjectId, progress, body.grade).nodes.find(
+      candidate => candidate.lessonKey === body.lessonKey
+    );
+    if (!node) {
+      return reply.notFound('Lesson not found in this learning path');
+    }
+    if (node.status === 'locked') {
+      return reply.forbidden('Complete the previous lesson before starting this one.');
+    }
+
+    const attempt = await withTransaction(client =>
+      startProgressiveLessonAttempt(client, {
+        clientAttemptId: body.clientAttemptId,
+        userId: request.user!.id,
+        gradeLevel: body.grade,
+        subjectId: lesson.subjectId,
+        lessonKey: lesson.lessonKey,
+        lessonVersion: lesson.lessonVersion
+      })
+    );
+    if (!attempt) {
+      return reply.conflict('That lesson attempt belongs to another learner.');
+    }
+
+    return {
+      attemptId: attempt.id,
+      status: attempt.status,
+      currentStepId: attempt.current_step_id,
+      lesson
+    };
+  });
+
+  app.post('/learning/lesson-attempts/:attemptId/steps/:stepId/check', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return;
+    }
+
+    const params = progressiveStepParamsSchema.parse(request.params);
+    const body = progressiveStepCheckSchema.parse(request.body);
+    const attempt = await findProgressiveLessonAttemptForUser(params.attemptId, request.user!.id);
+    if (!attempt) {
+      return reply.notFound('Lesson attempt not found');
+    }
+
+    const grade = gradeProgressiveLessonStep(attempt.lesson_key, params.stepId, body.response);
+    if (!grade) {
+      return reply.notFound('Lesson step not found');
+    }
+
+    const recorded = await withTransaction(async client => {
+      const stepAttempt = await recordProgressiveStepAttempt(client, {
+        clientEventId: body.clientEventId,
+        attemptId: attempt.id,
+        userId: request.user!.id,
+        stepId: params.stepId,
+        phase: grade.phase,
+        response: body.response,
+        isCorrect: grade.isCorrect,
+        misconceptionCode: grade.misconceptionCode,
+        responseLatencyMs: body.responseLatencyMs
+      });
+      if (!stepAttempt) {
+        return null;
+      }
+
+      const xpAwarded = grade.isCorrect
+        ? await awardLearningReward(client, {
+            userId: request.user!.id,
+            sourceType: 'progressive_step',
+            sourceId: `${attempt.lesson_key}:${params.stepId}`,
+            points: 10
+          })
+        : 0;
+      return { stepAttempt, xpAwarded };
+    });
+    if (!recorded) {
+      return reply.conflict('This lesson attempt is already finished.');
+    }
+
+    return {
+      ...grade,
+      attemptNumber: recorded.stepAttempt.attempt_number,
+      xpAwarded: recorded.xpAwarded
+    };
+  });
+
+  app.post('/learning/lesson-attempts/:attemptId/complete', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return;
+    }
+
+    const params = progressiveAttemptParamsSchema.parse(request.params);
+    const attempt = await findProgressiveLessonAttemptForUser(params.attemptId, request.user!.id);
+    if (!attempt) {
+      return reply.notFound('Lesson attempt not found');
+    }
+    const lesson = getProgressiveLessonDefinition(attempt.lesson_key);
+    if (!lesson) {
+      return reply.notFound('Lesson definition not found');
+    }
+    const checkpointTotal = lesson.steps.filter(step => step.phase === 'checkpoint').length;
+
+    const completion = await withTransaction(async client => {
+      const result = await completeProgressiveLessonAttempt(client, {
+        attemptId: attempt.id,
+        userId: request.user!.id,
+        checkpointTotal
+      });
+      if (!result || ('incomplete' in result && result.incomplete)) {
+        return { result, xpAwarded: 0 };
+      }
+      const xpAwarded = result.passed
+        ? await awardLearningReward(client, {
+            userId: request.user!.id,
+            sourceType: 'progressive_lesson',
+            sourceId: attempt.lesson_key,
+            points: 75
+          })
+        : 0;
+      await createAuditLog(client, request.user!.id, request.user!.schoolId, 'learning.progressive_lesson.completed', {
+        lessonKey: attempt.lesson_key,
+        score: result.score,
+        passed: result.passed
+      });
+      return { result, xpAwarded };
+    });
+
+    if (!completion.result) {
+      return reply.notFound('Lesson attempt not found');
+    }
+    if ('incomplete' in completion.result && completion.result.incomplete) {
+      reply.status(409);
+      return {
+        message: 'Complete every checkpoint question before finishing the lesson.',
+        answered: completion.result.answered,
+        required: completion.result.required
+      };
+    }
+
+    const progress = await listProgressiveLessonProgress(
+      request.user!.id,
+      attempt.grade_level,
+      attempt.subject_id
+    );
+    const path = buildProgressiveLearningPath(attempt.subject_id, progress, attempt.grade_level);
+    const nextNode = path.nodes.find(node => node.status === 'current') ?? null;
+
+    return {
+      score: completion.result.score,
+      passed: completion.result.passed,
+      needsPractice: !completion.result.passed,
+      xpAwarded: completion.xpAwarded,
+      nextNode,
+      pathProgressPercent: path.progressPercent
     };
   });
 

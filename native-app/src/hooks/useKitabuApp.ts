@@ -77,6 +77,11 @@ import {
   importCurriculumPdf,
   saveCurriculumSubject,
 } from '../services/curriculumService';
+import { getSubjectLearningPath } from '../features/progressiveLearning/api/progressiveLearningService';
+import type {
+  LearningPathNode,
+  SubjectLearningPath,
+} from '../features/progressiveLearning/types';
 import {
   createTeacherAssignment as createTeacherAssignmentRequest,
   getStudentAssignments,
@@ -230,6 +235,8 @@ interface RouteSnapshot {
   selectedSubjectId: string | null;
   selectedAssignmentId: string | null;
   selectedSubStrandId: string | null;
+  selectedProgressiveLessonKey: string | null;
+  selectedProgressiveLessonVersion: number | null;
   selectedBookId: string | null;
   previewBookId: string | null;
   activeStrandIndex: number;
@@ -242,9 +249,14 @@ type PendingSubscriptionIntent =
   | { kind: 'manage_subscription'; snapshot: RouteSnapshot }
   | { kind: 'chat_message'; snapshot: RouteSnapshot; text: string; attachment?: Attachment }
   | { kind: 'start_assignment'; snapshot: RouteSnapshot; assignmentId: string }
-  | { kind: 'start_learning'; snapshot: RouteSnapshot }
   | { kind: 'start_subject_quiz'; snapshot: RouteSnapshot }
   | { kind: 'start_subject_brain_tease'; snapshot: RouteSnapshot }
+  | {
+      kind: 'start_progressive_lesson';
+      snapshot: RouteSnapshot;
+      lessonKey: string;
+      lessonVersion: number;
+    }
   | { kind: 'generate_quiz_me'; snapshot: RouteSnapshot; config: QuizConfig };
 
 type IncomingLink =
@@ -535,6 +547,12 @@ export function useKitabuApp() {
   const [selectedSubStrand, setSelectedSubStrand] = useState<SubStrand | null>(
     null,
   );
+  const [subjectLearningPath, setSubjectLearningPath] =
+    useState<SubjectLearningPath | null>(null);
+  const [subjectLearningPathError, setSubjectLearningPathError] = useState<string | null>(null);
+  const [isLoadingSubjectLearningPath, setIsLoadingSubjectLearningPath] = useState(false);
+  const [selectedProgressiveLessonKey, setSelectedProgressiveLessonKey] = useState<string | null>(null);
+  const [selectedProgressiveLessonVersion, setSelectedProgressiveLessonVersion] = useState<number | null>(null);
   const [activeStrandIndex, setActiveStrandIndex] = useState(0);
   const [quizSource, setQuizSource] = useState<'subject' | 'quiz_me' | 'lesson'>('subject');
   const [brainTeaseCompleted, setBrainTeaseCompleted] = useState(false);
@@ -646,6 +664,8 @@ export function useKitabuApp() {
     selectedSubjectId: selectedSubject?.id || null,
     selectedAssignmentId: selectedAssignment?.id || null,
     selectedSubStrandId: selectedSubStrand?.id || null,
+    selectedProgressiveLessonKey,
+    selectedProgressiveLessonVersion,
     selectedBookId: selectedBook?.id || null,
     previewBookId,
     activeStrandIndex,
@@ -663,6 +683,8 @@ export function useKitabuApp() {
     quizSource,
     selectedAssignment?.id,
     selectedBook?.id,
+    selectedProgressiveLessonKey,
+    selectedProgressiveLessonVersion,
     selectedSubject?.id,
     selectedSubStrand?.id,
   ]);
@@ -1963,6 +1985,8 @@ export function useKitabuApp() {
         ? assignments.find(assignment => assignment.id === snapshot.selectedAssignmentId) || null
         : null,
     );
+    setSelectedProgressiveLessonKey(snapshot.selectedProgressiveLessonKey);
+    setSelectedProgressiveLessonVersion(snapshot.selectedProgressiveLessonVersion);
     setSelectedBook(
       snapshot.selectedBookId
         ? books.find(book => book.id === snapshot.selectedBookId) || null
@@ -2071,6 +2095,29 @@ export function useKitabuApp() {
     restoreRoute(snapshot);
   }
 
+  async function refreshSubjectLearningPath(subjectOverride?: Subject) {
+    const subject = subjectOverride ?? selectedSubject;
+    if (!subject) {
+      return;
+    }
+
+    setIsLoadingSubjectLearningPath(true);
+    setSubjectLearningPathError(null);
+    try {
+      const path = await getSubjectLearningPath(currentGrade, subject.id);
+      setSubjectLearningPath(path);
+    } catch (error) {
+      setSubjectLearningPath(null);
+      setSubjectLearningPathError(
+        error instanceof Error
+          ? error.message
+          : 'Unable to refresh the live path. Your saved curriculum is still available.',
+      );
+    } finally {
+      setIsLoadingSubjectLearningPath(false);
+    }
+  }
+
   async function openSubject(subject: Subject) {
     await loadCurriculumGrade(currentGrade);
     if (
@@ -2092,6 +2139,48 @@ export function useKitabuApp() {
     setSelectedSubject(subject);
     setActiveStrandIndex(0);
     setBrainTeaseCompleted(false);
+    setSelectedProgressiveLessonKey(null);
+    setSelectedProgressiveLessonVersion(null);
+    setSubjectLearningPath(null);
+    setSubjectLearningPathError(null);
+    navigateTo('subject');
+    await refreshSubjectLearningPath(subject);
+  }
+
+  async function openLearningPathNode(node: LearningPathNode, bypassSubscription = false) {
+    if (node.status === 'locked') {
+      return;
+    }
+
+    if (node.delivery === 'legacy' && node.legacySubStrandId) {
+      const subStrand = selectedSubjectStrands
+        .flatMap(strand => strand.subStrands)
+        .find(candidate => candidate.id === node.legacySubStrandId);
+      if (subStrand) {
+        await selectSubStrand(subStrand);
+      }
+      return;
+    }
+
+    if (!bypassSubscription && !hasActiveSubscription) {
+      openSubscriptionCheckout({
+        kind: 'start_progressive_lesson',
+        snapshot: getRouteSnapshot('subject'),
+        lessonKey: node.lessonKey,
+        lessonVersion: node.lessonVersion,
+      });
+      return;
+    }
+
+    setSelectedProgressiveLessonKey(node.lessonKey);
+    setSelectedProgressiveLessonVersion(node.lessonVersion);
+    navigateTo('progressive_lesson');
+  }
+
+  async function finishProgressiveLesson() {
+    setSelectedProgressiveLessonKey(null);
+    setSelectedProgressiveLessonVersion(null);
+    await refreshSubjectLearningPath();
     navigateTo('subject');
   }
 
@@ -2242,11 +2331,6 @@ export function useKitabuApp() {
       return;
     }
 
-    if (intent.kind === 'start_learning') {
-      await startLearning(true);
-      return;
-    }
-
     if (intent.kind === 'start_subject_quiz') {
       await startSubjectQuiz(true);
       return;
@@ -2255,6 +2339,26 @@ export function useKitabuApp() {
     if (intent.kind === 'start_subject_brain_tease') {
       setQuizSource('subject');
       setCurrentView('brain_tease');
+      return;
+    }
+
+    if (intent.kind === 'start_progressive_lesson') {
+      await openLearningPathNode(
+        {
+          id: intent.lessonKey,
+          lessonKey: intent.lessonKey,
+          lessonVersion: intent.lessonVersion,
+          title: intent.lessonKey,
+          objective: '',
+          estimatedMinutes: 0,
+          position: 0,
+          status: 'current',
+          bestScore: null,
+          attemptCount: 0,
+          delivery: 'progressive',
+        },
+        true,
+      );
       return;
     }
 
@@ -2987,20 +3091,6 @@ export function useKitabuApp() {
     }
   }
 
-  async function startLearning(bypassSubscription = false) {
-    if (!bypassSubscription && !hasActiveSubscription) {
-      openSubscriptionCheckout({
-        kind: 'start_learning',
-        snapshot: getRouteSnapshot('subject'),
-      });
-      return;
-    }
-
-    await loadCurriculumGrade(currentGrade, true);
-
-    navigateTo('lets_learn_list');
-  }
-
   async function selectSubStrand(subStrand: SubStrand) {
     setIsLoading(true);
     try {
@@ -3064,7 +3154,7 @@ export function useKitabuApp() {
     setSelectedSubStrand(null);
     setBrainTeaseCompleted(false);
     setLessonQuizSubStrandId(null);
-    navigateTo('lets_learn_list');
+    navigateTo('subject');
   }
 
   async function startSelectedSubStrandQuiz() {
@@ -3275,6 +3365,8 @@ export function useKitabuApp() {
         selectedSubjectId: null,
         selectedAssignmentId: null,
         selectedSubStrandId: null,
+        selectedProgressiveLessonKey: null,
+        selectedProgressiveLessonVersion: null,
         selectedBookId: null,
         previewBookId: null,
         activeStrandIndex: 0,
@@ -3507,6 +3599,8 @@ export function useKitabuApp() {
           selectedSubjectId: selectedSubject?.id || null,
           selectedAssignmentId: selectedAssignment?.id || null,
           selectedSubStrandId: selectedSubStrand?.id || null,
+          selectedProgressiveLessonKey,
+          selectedProgressiveLessonVersion,
           selectedBookId: selectedBook?.id || null,
           previewBookId,
           activeStrandIndex,
@@ -3550,6 +3644,8 @@ export function useKitabuApp() {
     restoreRoute,
     sessionExpired,
     selectedAssignment?.id,
+    selectedProgressiveLessonKey,
+    selectedProgressiveLessonVersion,
     selectedBook?.id,
     selectedSubStrand?.id,
     selectedSubject?.id,
@@ -3592,6 +3688,11 @@ export function useKitabuApp() {
       progressiveDiagnosticSubject,
       selectedAssignment,
       selectedSubStrand,
+      subjectLearningPath,
+      subjectLearningPathError,
+      isLoadingSubjectLearningPath,
+      selectedProgressiveLessonKey,
+      selectedProgressiveLessonVersion,
       selectedBook,
       previewBookId,
       activeStrandIndex,
@@ -3731,6 +3832,9 @@ export function useKitabuApp() {
       goBack,
       goForward,
       openSubject,
+      refreshSubjectLearningPath,
+      openLearningPathNode,
+      finishProgressiveLesson,
       openFeature,
       openBannerAction,
       openSubscriptionCheckout,
@@ -3757,7 +3861,6 @@ export function useKitabuApp() {
       updateBookProgress,
       toggleDownload,
       generateQuizMe,
-      startLearning,
       startSelectedSubStrandQuiz,
       startSubjectQuiz,
       startSubjectBrainTease,

@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { Image, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import {
   Atom,
@@ -14,6 +14,7 @@ import {
 } from 'lucide-react-native';
 
 import { Subject } from '../types/app';
+import { getSubjectIconSource } from '../features/progressiveLearning/model/subjectIconAssets';
 
 const SUBJECT_ORDER = [
   'science',
@@ -63,6 +64,7 @@ export function SubjectGrid({
       <View style={styles.subjectGrid}>
         {orderedSubjects.map(subject => {
           const Icon = SUBJECT_ICONS[subject.id] || BookOpen;
+          const iconSource = getSubjectIconSource(subject.id) ?? getSubjectIconSource(subject.name);
 
           return (
             <Pressable
@@ -81,7 +83,16 @@ export function SubjectGrid({
                 <View style={styles.subjectGlow} />
 
                 <View style={styles.subjectInner}>
-                  <Icon color="#FFFFFF" size={iconSize} strokeWidth={2.15} />
+                  {iconSource ? (
+                    <Image
+                      accessibilityLabel={`${subject.name} subject icon`}
+                      resizeMode="contain"
+                      source={iconSource}
+                      style={{ height: iconSize + 10, width: iconSize + 10 }}
+                    />
+                  ) : (
+                    <Icon color="#FFFFFF" size={iconSize} strokeWidth={2.15} />
+                  )}
                   <Text style={styles.subjectName}>{subject.name}</Text>
                 </View>
               </LinearGradient>
@@ -153,6 +164,7 @@ export function SubjectSelector({
           const selected = isSelected(subject.id);
           const disabled = !selected && hasReachedLimit;
           const Icon = SUBJECT_ICONS[subject.id] || BookOpen;
+          const iconSource = getSubjectIconSource(subject.id) ?? getSubjectIconSource(subject.name);
 
           return (
             <Pressable
@@ -165,7 +177,16 @@ export function SubjectSelector({
                 disabled && styles.selectorChipDisabled,
                 pressed && styles.selectorChipPressed,
               ]}>
-              <Icon color={selected ? '#FFFFFF' : '#334155'} size={16} strokeWidth={2.2} />
+              {iconSource ? (
+                <Image
+                  accessibilityLabel={`${subject.name} subject icon`}
+                  resizeMode="contain"
+                  source={iconSource}
+                  style={styles.selectorSubjectIcon}
+                />
+              ) : (
+                <Icon color={selected ? '#FFFFFF' : '#334155'} size={16} strokeWidth={2.2} />
+              )}
               <Text
                 style={[
                   styles.selectorChipText,
@@ -221,6 +242,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: 8,
+  },
+  selectorSubjectIcon: {
+    height: 20,
+    width: 20,
   },
   subjectCard: {
     borderRadius: 14,

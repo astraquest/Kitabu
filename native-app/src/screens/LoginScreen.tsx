@@ -46,6 +46,7 @@ interface LoginScreenProps {
   password: string;
   fullName: string;
   signupRole: PublicSignupRole | null;
+  lastUsedRole?: DemoAccountRole | null;
   acceptedTerms: boolean;
   optionalPhoneNumber: string;
   error?: string | null;
@@ -58,12 +59,14 @@ interface LoginScreenProps {
   onAcceptedTermsChange: (value: boolean) => void;
   onOptionalPhoneNumberChange: (value: string) => void;
   onAuthenticated: (session: AuthSession) => void;
+  onDemoAccount: (role: DemoAccountRole) => void | Promise<void>;
   onSubmit: () => void;
 }
 
 type LegalSheet = 'terms' | 'privacy' | null;
+type DemoAccountRole = Extract<PublicSignupRole, 'student' | 'teacher' | 'parent'>;
 type RoleOption = {
-  role: PublicSignupRole;
+  role: DemoAccountRole;
   label: string;
   detail: string;
   avatar: LocalAvatarKey;
@@ -106,6 +109,7 @@ export function LoginScreen({
   password,
   fullName,
   signupRole,
+  lastUsedRole = null,
   acceptedTerms,
   optionalPhoneNumber,
   error,
@@ -118,6 +122,7 @@ export function LoginScreen({
   onAcceptedTermsChange,
   onOptionalPhoneNumberChange,
   onAuthenticated,
+  onDemoAccount,
   onSubmit,
 }: LoginScreenProps) {
   const [authStep, setAuthStep] = useState<'role' | 'details'>('role');
@@ -309,6 +314,14 @@ export function LoginScreen({
     onSubmit();
   }
 
+  async function handleDemoAccount() {
+    if (!selectedRole || isBusy) {
+      return;
+    }
+    setProviderState({ isSubmitting: false, message: null, error: null });
+    await onDemoAccount(selectedRole.role);
+  }
+
   function handleFullNameChange(value: string) {
     onFullNameChange(sanitizePersonName(value));
   }
@@ -386,6 +399,7 @@ export function LoginScreen({
                       key={option.role}
                       option={option}
                       active={signupRole === option.role}
+                      lastUsed={mode === 'login' && lastUsedRole === option.role}
                       onPress={() => selectRole(option.role)}
                     />
                   ))}
@@ -516,21 +530,40 @@ export function LoginScreen({
             {safeProviderError ? <Text style={styles.errorText}>{safeProviderError}</Text> : null}
             {providerState.message ? <Text style={styles.successText}>{providerState.message}</Text> : null}
 
-            <Pressable
-              accessibilityLabel={submitLabel}
-              disabled={isBusy}
-              onPress={handleEmailSubmit}
-              style={({ pressed }) => [
-                styles.submitButton,
-                pressed && styles.submitButtonPressed,
-                isBusy && styles.submitButtonDisabled,
-              ]}>
-              {isBusy ? (
-                <ActivityIndicator color="#FFFFFF" />
-              ) : (
-                <Text style={styles.submitButtonText}>{submitLabel}</Text>
-              )}
-            </Pressable>
+            <View style={mode === 'login' ? styles.loginActionRow : undefined}>
+              {mode === 'login' ? (
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel={`Use ${selectedRole?.label ?? 'selected'} demo account`}
+                  disabled={isBusy || !selectedRole}
+                  onPress={handleDemoAccount}
+                  style={({ pressed }) => [
+                    styles.demoAccountButton,
+                    styles.loginActionButton,
+                    pressed && styles.submitButtonPressed,
+                    (isBusy || !selectedRole) && styles.submitButtonDisabled,
+                  ]}>
+                  <Text style={styles.demoAccountButtonText}>Demo Account</Text>
+                </Pressable>
+              ) : null}
+
+              <Pressable
+                accessibilityLabel={submitLabel}
+                disabled={isBusy}
+                onPress={handleEmailSubmit}
+                style={({ pressed }) => [
+                  styles.submitButton,
+                  mode === 'login' && styles.loginActionButton,
+                  pressed && styles.submitButtonPressed,
+                  isBusy && styles.submitButtonDisabled,
+                ]}>
+                {isBusy ? (
+                  <ActivityIndicator color="#FFFFFF" />
+                ) : (
+                  <Text style={styles.submitButtonText}>{submitLabel}</Text>
+                )}
+              </Pressable>
+            </View>
           </View>
           )}
 
@@ -708,16 +741,18 @@ function FieldShell({
 function RoleChoice({
   option,
   active,
+  lastUsed,
   onPress,
 }: {
   option: RoleOption;
   active: boolean;
+  lastUsed: boolean;
   onPress: () => void;
 }) {
   return (
     <Pressable
       accessibilityRole="button"
-      accessibilityLabel={`Continue as ${option.label}`}
+      accessibilityLabel={`Continue as ${option.label}${lastUsed ? ', last used' : ''}`}
       accessibilityState={{ selected: active }}
       onPress={onPress}
       style={({ pressed }) => [
@@ -725,6 +760,13 @@ function RoleChoice({
         active && styles.roleCardActive,
         pressed && styles.roleCardPressed,
       ]}>
+      <View style={styles.lastUsedBadgeSlot}>
+        {lastUsed ? (
+          <View style={styles.lastUsedBadge}>
+            <Text style={styles.lastUsedBadgeText}>Last used</Text>
+          </View>
+        ) : null}
+      </View>
       <View style={[styles.roleAvatarFrame, active && styles.roleAvatarFrameActive]}>
         <AvatarArt avatarKey={option.avatar} size={46} />
       </View>
@@ -914,6 +956,26 @@ const styles = StyleSheet.create({
   roleCardPressed: {
     opacity: 0.9,
     transform: [{ scale: 0.99 }],
+  },
+  lastUsedBadgeSlot: {
+    alignItems: 'center',
+    height: 20,
+    justifyContent: 'center',
+    width: '100%',
+  },
+  lastUsedBadge: {
+    backgroundColor: '#FEF3C7',
+    borderColor: '#F59E0B',
+    borderRadius: 999,
+    borderWidth: 1,
+    paddingHorizontal: 7,
+    paddingVertical: 2,
+  },
+  lastUsedBadgeText: {
+    color: '#92400E',
+    fontSize: 9,
+    fontWeight: '900',
+    letterSpacing: 0.2,
   },
   roleAvatarFrame: {
     backgroundColor: 'rgba(255,255,255,0.18)',
@@ -1128,6 +1190,27 @@ const styles = StyleSheet.create({
   submitButtonText: {
     color: '#FFFFFF',
     fontSize: 15,
+    fontWeight: '800',
+  },
+  loginActionRow: {
+    flexDirection: 'row',
+    gap: 10,
+  },
+  loginActionButton: {
+    flex: 1,
+  },
+  demoAccountButton: {
+    alignItems: 'center',
+    backgroundColor: 'rgba(255,255,255,0.12)',
+    borderColor: 'rgba(255,255,255,0.48)',
+    borderRadius: 18,
+    borderWidth: 1,
+    justifyContent: 'center',
+    minHeight: 48,
+  },
+  demoAccountButtonText: {
+    color: '#FFFFFF',
+    fontSize: 14,
     fontWeight: '800',
   },
   dividerRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },

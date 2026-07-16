@@ -59,6 +59,7 @@ async function renderLogin(
       onAcceptedTermsChange={jest.fn()}
       onOptionalPhoneNumberChange={jest.fn()}
       onAuthenticated={onAuthenticated}
+      onDemoAccount={jest.fn()}
       onSubmit={jest.fn()}
       {...overrides}
     />);
@@ -106,6 +107,72 @@ test('shows Google before email and keeps phone as an optional saved field', asy
   });
 
   expect(onOptionalPhoneNumberChange).toHaveBeenCalledWith('0716000000');
+});
+
+test('marks only the previously authenticated role as last used on sign in', async () => {
+  const { renderer } = await renderLogin(jest.fn(), {
+    mode: 'login',
+    lastUsedRole: 'parent',
+  });
+
+  expect(renderer.root.findByProps({ children: 'Last used' })).toBeTruthy();
+  expect(renderer.root.findByProps({ accessibilityLabel: 'Continue as Parent, last used' })).toBeTruthy();
+  expect(renderer.root.findByProps({ accessibilityLabel: 'Continue as Student' })).toBeTruthy();
+  expect(renderer.root.findByProps({ accessibilityLabel: 'Continue as Teacher' })).toBeTruthy();
+});
+
+test('does not show the last-used badge while creating an account', async () => {
+  const { renderer } = await renderLogin(jest.fn(), {
+    mode: 'signup',
+    signupRole: null,
+    lastUsedRole: 'parent',
+  });
+
+  expect(renderer.root.findAllByProps({ children: 'Last used' })).toHaveLength(0);
+});
+
+test('shows safe, actionable guidance for an email or password login failure', async () => {
+  const message = 'Email or password is incorrect. Check your details or create an account.';
+  const { renderer } = await renderLogin(jest.fn(), { error: message });
+
+  await continueAsParent(renderer);
+
+  expect(renderer.root.findByProps({ children: message })).toBeTruthy();
+});
+
+test('tells a verified Google user to create a Kitabu account when none exists', async () => {
+  const message = 'No Kitabu account found. Create an account to continue with Google.';
+  (requestGoogleIdToken as jest.Mock).mockResolvedValue('google-id-token');
+  (authenticateWithGoogleToken as jest.Mock).mockRejectedValue(new Error(message));
+  const { renderer } = await renderLogin();
+
+  await continueAsParent(renderer);
+  await act(async () => {
+    await renderer.root.findByProps({ accessibilityLabel: 'Continue with Google' }).props.onPress();
+  });
+
+  expect(renderer.root.findByProps({ children: message })).toBeTruthy();
+});
+
+test.each([
+  ['Student', 'student'],
+  ['Parent', 'parent'],
+  ['Teacher', 'teacher'],
+] as const)('starts the selected %s demo account through the normal login callback', async (label, role) => {
+  const onDemoAccount = jest.fn();
+  const { renderer } = await renderLogin(jest.fn(), {
+    signupRole: role,
+    onDemoAccount,
+  });
+
+  await act(async () => {
+    renderer.root.findByProps({ accessibilityLabel: `Continue as ${label}` }).props.onPress();
+  });
+  await act(async () => {
+    await renderer.root.findByProps({ accessibilityLabel: `Use ${label} demo account` }).props.onPress();
+  });
+
+  expect(onDemoAccount).toHaveBeenCalledWith(role);
 });
 
 test('signup role choices start unselected', async () => {

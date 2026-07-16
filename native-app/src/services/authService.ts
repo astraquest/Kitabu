@@ -149,6 +149,7 @@ export async function completeAccountOnboarding(input: {
   school?: string;
   county?: string;
   subjects?: string[];
+  subjectIds?: string[];
 }): Promise<AuthSession> {
   const session = await loadStoredAuthSession();
   if (!session?.accessToken) {

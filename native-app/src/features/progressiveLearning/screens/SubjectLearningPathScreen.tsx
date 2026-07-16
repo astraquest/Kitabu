@@ -14,8 +14,6 @@ import { Asset } from 'expo-asset';
 import { LinearGradient } from 'expo-linear-gradient';
 import Svg, {
   Circle as SvgCircle,
-  Ellipse as SvgEllipse,
-  G as SvgGroup,
   Path as SvgPath,
 } from 'react-native-svg';
 import {
@@ -24,7 +22,6 @@ import {
   Check,
   ChevronRight,
   Clock3,
-  Flag,
   LockKeyhole,
   PencilLine,
   Play,
@@ -47,7 +44,7 @@ import type { LearningPathNode, SubjectLearningPath } from '../types';
 
 const AnimatedCircle = Animated.createAnimatedComponent(SvgCircle);
 const PROGRESS_RING_CIRCUMFERENCE = 188.5;
-const NEXT_LOCKED_TOPIC_COUNT = 2;
+const VISIBLE_TOPIC_COUNT = 5;
 
 interface SubjectLearningPathScreenProps {
   subject: Subject;
@@ -125,10 +122,6 @@ export function SubjectLearningPathScreen({
     return () => progress.stopAnimation();
   }, [progress, reduceMotion, resolvedPath.progressPercent]);
 
-  const progressWidth = progress.interpolate({
-    inputRange: [0, 100],
-    outputRange: ['0%', '100%'],
-  });
   const progressRingOffset = progress.interpolate({
     inputRange: [0, 100],
     outputRange: [PROGRESS_RING_CIRCUMFERENCE, 0],
@@ -143,16 +136,15 @@ export function SubjectLearningPathScreen({
   const currentNodeIndex = resolvedPath.nodes.findIndex(
     node => node.status === 'current' || node.status === 'needs_practice',
   );
+  const latestPossibleStart = Math.max(
+    0,
+    resolvedPath.nodes.length - VISIBLE_TOPIC_COUNT,
+  );
   const visibleStartIndex =
-    currentNodeIndex > 0
-      ? currentNodeIndex - 1
-      : currentNodeIndex === -1
-      ? Math.max(0, resolvedPath.nodes.length - 1)
-      : 0;
-  const visibleEndIndex =
     currentNodeIndex === -1
-      ? resolvedPath.nodes.length
-      : currentNodeIndex + NEXT_LOCKED_TOPIC_COUNT + 1;
+      ? latestPossibleStart
+      : Math.min(Math.max(0, currentNodeIndex - 1), latestPossibleStart);
+  const visibleEndIndex = visibleStartIndex + VISIBLE_TOPIC_COUNT;
   const visibleNodes = resolvedPath.nodes.slice(
     visibleStartIndex,
     visibleEndIndex,
@@ -192,45 +184,14 @@ export function SubjectLearningPathScreen({
             },
           ]}
         >
-          <LinearGradient
-            colors={['#FFFFFF', '#F4FCF8']}
-            style={styles.summaryCard}
-          >
-            <SavannaBackdrop />
-            <View style={styles.summaryTop}>
-              <View style={styles.summaryTextWrap}>
-                <Text style={styles.pathLabel}>YOUR LEARNING PATH</Text>
-                <Text style={styles.pathTitle}>{resolvedPath.title}</Text>
-                <Text numberOfLines={2} style={styles.pathDescription}>
-                  {resolvedPath.description}
-                </Text>
-              </View>
-              <ProgressRing
-                animatedOffset={progressRingOffset}
-                percentage={resolvedPath.progressPercent}
-              />
-            </View>
-            <View style={styles.progressTrackWrap}>
-              <View style={styles.progressTrack}>
-                <Animated.View
-                  style={[styles.progressFill, { width: progressWidth }]}
-                />
-              </View>
-              <Text style={styles.lessonCount}>
-                <Text style={styles.lessonCountStrong}>
-                  {resolvedPath.completedCount}
-                </Text>{' '}
-                of {resolvedPath.totalCount} lessons completed
-              </Text>
-            </View>
-          </LinearGradient>
-
           {currentNode ? (
             <AdventureBanner
+              animatedProgressOffset={progressRingOffset}
               chapterNumber={currentNode.position + 1}
               chapterTitle={currentNode.title}
               mascotKey={mascotKey}
               needsPractice={currentNode.status === 'needs_practice'}
+              percentage={resolvedPath.progressPercent}
             />
           ) : null}
 
@@ -341,52 +302,20 @@ function ProgressRing({
   );
 }
 
-function SavannaBackdrop() {
-  return (
-    <View pointerEvents="none" style={styles.savannaBackdrop}>
-      <Svg
-        height="100%"
-        width="100%"
-        viewBox="0 0 220 90"
-        preserveAspectRatio="xMidYMax meet"
-      >
-        <SvgPath
-          d="M0 77 C48 50 78 73 118 55 C152 39 184 61 220 45 L220 90 L0 90 Z"
-          fill="#DFF5E7"
-        />
-        <SvgPath
-          d="M0 84 C46 66 90 78 132 64 C171 51 192 70 220 59 L220 90 L0 90 Z"
-          fill="#CDEDD9"
-        />
-        <SvgGroup fill="#9FD3AE" opacity={0.72}>
-          <SvgPath d="M94 68 L101 31 L106 68 Z" />
-          <SvgEllipse cx="101" cy="28" rx="30" ry="8" />
-          <SvgEllipse cx="84" cy="34" rx="18" ry="6" />
-          <SvgEllipse cx="118" cy="35" rx="19" ry="6" />
-          <SvgPath d="M170 73 L174 43 L177 73 Z" />
-          <SvgEllipse cx="175" cy="41" rx="18" ry="5" />
-        </SvgGroup>
-        <SvgGroup fill="#78B98C" opacity={0.74}>
-          <SvgPath d="M146 73 L149 49 L153 49 L155 73 L151 73 L150 57 L149 73 Z" />
-          <SvgEllipse cx="151" cy="47" rx="5" ry="4" />
-          <SvgPath d="M185 76 L188 55 L192 55 L194 76 L190 76 L190 62 L188 76 Z" />
-          <SvgEllipse cx="190" cy="53" rx="5" ry="4" />
-        </SvgGroup>
-      </Svg>
-    </View>
-  );
-}
-
 function AdventureBanner({
+  animatedProgressOffset,
   chapterNumber,
   chapterTitle,
   mascotKey,
   needsPractice,
+  percentage,
 }: {
+  animatedProgressOffset: Animated.AnimatedInterpolation<number>;
   chapterNumber: number;
   chapterTitle: string;
   mascotKey: OnboardingMascotKey;
   needsPractice: boolean;
+  percentage: number;
 }) {
   const accessibilityMessage = needsPractice
     ? `Kitabu learning companion says: Let us practise ${chapterTitle} together.`
@@ -410,9 +339,10 @@ function AdventureBanner({
         </Text>
       </View>
       <AdventureChallengeTrail />
-      <View style={styles.flagWrap}>
-        <Flag color="#F97316" fill="#F97316" size={24} strokeWidth={1.8} />
-      </View>
+      <ProgressRing
+        animatedOffset={animatedProgressOffset}
+        percentage={percentage}
+      />
     </LinearGradient>
   );
 }
@@ -756,7 +686,7 @@ const styles = StyleSheet.create({
     borderRadius: 19,
     borderWidth: 1,
     flexDirection: 'row',
-    minHeight: 70,
+    minHeight: 77,
     paddingLeft: 82,
     paddingRight: 12,
     position: 'relative',
@@ -860,19 +790,6 @@ const styles = StyleSheet.create({
     letterSpacing: 1.1,
     textAlign: 'center',
   },
-  flagWrap: {
-    alignItems: 'center',
-    backgroundColor: '#FFF3E7',
-    borderRadius: 13,
-    height: 40,
-    justifyContent: 'center',
-    shadowColor: '#F97316',
-    shadowOffset: { height: 3, width: 0 },
-    shadowOpacity: 0.12,
-    shadowRadius: 7,
-    width: 40,
-    zIndex: 3,
-  },
   header: {
     alignItems: 'center',
     backgroundColor: '#F9FBFD',
@@ -883,13 +800,6 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
   headerText: { alignItems: 'center', flex: 1 },
-  lessonCount: {
-    color: '#475569',
-    fontSize: 11,
-    fontWeight: '700',
-    marginTop: 4,
-  },
-  lessonCountStrong: { color: '#0EA56B', fontSize: 15, fontWeight: '900' },
   lockedReason: {
     color: '#7C8BA1',
     fontSize: 11,
@@ -976,25 +886,7 @@ const styles = StyleSheet.create({
   },
   noticeText: { color: '#475569', fontSize: 11, lineHeight: 17, marginTop: 3 },
   noticeTitle: { color: '#0F766E', fontSize: 13, fontWeight: '900' },
-  pathDescription: {
-    color: '#53657F',
-    fontSize: 11,
-    lineHeight: 16,
-    marginTop: 3,
-  },
-  pathLabel: {
-    color: '#0B9470',
-    fontSize: 10,
-    fontWeight: '900',
-    letterSpacing: 1.2,
-  },
   pathList: { marginTop: 1 },
-  pathTitle: {
-    color: '#081A42',
-    fontSize: 20,
-    fontWeight: '900',
-    marginTop: 3,
-  },
   practicePill: {
     backgroundColor: '#FFF0E6',
     borderRadius: 999,
@@ -1005,11 +897,6 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
   },
   progressCaption: { color: '#53657F', fontSize: 9, fontWeight: '700' },
-  progressFill: {
-    backgroundColor: '#19B978',
-    borderRadius: 999,
-    height: '100%',
-  },
   progressNumber: { color: '#0B9470', fontSize: 17, fontWeight: '900' },
   progressRingLabel: {
     alignItems: 'center',
@@ -1020,15 +907,18 @@ const styles = StyleSheet.create({
     right: 0,
     top: 0,
   },
-  progressRingWrap: { height: 68, position: 'relative', width: 68 },
-  progressTrack: {
-    backgroundColor: '#E4EAF1',
-    borderRadius: 999,
-    height: 7,
-    overflow: 'hidden',
-    width: '70%',
+  progressRingWrap: {
+    backgroundColor: 'rgba(255,255,255,0.94)',
+    borderRadius: 34,
+    height: 68,
+    position: 'relative',
+    shadowColor: '#0F766E',
+    shadowOffset: { height: 3, width: 0 },
+    shadowOpacity: 0.1,
+    shadowRadius: 7,
+    width: 68,
+    zIndex: 3,
   },
-  progressTrackWrap: { marginTop: 4 },
   rail: { backgroundColor: '#CDD6E2', flex: 1, marginVertical: -1, width: 2 },
   railColumn: { alignItems: 'center', width: 34 },
   railComplete: { backgroundColor: '#31C87A' },
@@ -1050,14 +940,6 @@ const styles = StyleSheet.create({
     paddingVertical: 2,
   },
   reviewLinkText: { color: '#0EA56B', fontSize: 11, fontWeight: '900' },
-  savannaBackdrop: {
-    bottom: -2,
-    height: 82,
-    opacity: 0.72,
-    position: 'absolute',
-    right: -6,
-    width: '58%',
-  },
   scoreMeta: { color: '#0EA56B', fontSize: 11, fontWeight: '900' },
   scoreWrap: {
     alignItems: 'center',
@@ -1109,24 +991,6 @@ const styles = StyleSheet.create({
     fontSize: 21,
     fontWeight: '900',
     textAlign: 'center',
-  },
-  summaryCard: {
-    borderColor: '#D7E6DE',
-    borderRadius: 22,
-    borderWidth: 1,
-    minHeight: 131,
-    overflow: 'hidden',
-    padding: 11,
-    shadowColor: '#0F5132',
-    shadowOffset: { height: 7, width: 0 },
-    shadowOpacity: 0.08,
-    shadowRadius: 15,
-  },
-  summaryTextWrap: { flex: 1, paddingRight: 6, zIndex: 2 },
-  summaryTop: {
-    alignItems: 'flex-start',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
   },
   topicIcon: {
     alignItems: 'center',

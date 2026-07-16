@@ -174,8 +174,7 @@ export type LearningPathNode = {
   status: 'completed' | 'current' | 'locked' | 'needs_practice';
   bestScore: number | null;
   attemptCount: number;
-  delivery?: 'progressive' | 'legacy';
-  legacySubStrandId?: string;
+  delivery?: 'progressive';
 };
 
 export type SubjectLearningPath = {
@@ -187,7 +186,7 @@ export type SubjectLearningPath = {
   completedCount: number;
   totalCount: number;
   progressPercent: number;
-  delivery: 'progressive' | 'curriculum';
+  delivery: 'progressive';
   nodes: LearningPathNode[];
 };
 

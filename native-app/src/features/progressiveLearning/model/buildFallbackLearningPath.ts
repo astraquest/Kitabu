@@ -21,7 +21,7 @@ export function buildFallbackLearningPath(
 
     return {
       id: subStrand.id,
-      lessonKey: `legacy-${subStrand.id}`,
+      lessonKey: `curriculum-${subStrand.id}`,
       lessonVersion: 1,
       title: subStrand.title,
       objective:
@@ -34,8 +34,7 @@ export function buildFallbackLearningPath(
       status,
       bestScore: subStrand.masteryScore ?? null,
       attemptCount: 0,
-      delivery: 'legacy' as const,
-      legacySubStrandId: subStrand.id,
+      delivery: 'progressive' as const,
     };
   });
   const completedCount = nodes.filter(node => node.status === 'completed').length;
@@ -49,7 +48,7 @@ export function buildFallbackLearningPath(
     completedCount,
     totalCount: nodes.length,
     progressPercent: nodes.length ? Math.round((completedCount / nodes.length) * 100) : 0,
-    delivery: 'curriculum',
+    delivery: 'progressive',
     nodes,
   };
 }

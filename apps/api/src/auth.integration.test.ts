@@ -992,6 +992,18 @@ test('Google login cannot replace an existing Google identity on the same email 
 });
 
 test('Google signup requires role and accepted terms for a new identity', async () => {
+  const loginToken = `google-login-without-account-${Date.now()}-${'x'.repeat(100)}`;
+  const loginWithoutAccount = await app.inject({
+    method: 'POST',
+    url: '/auth/google',
+    payload: { idToken: loginToken }
+  });
+  assert.equal(loginWithoutAccount.statusCode, 400);
+  assert.equal(
+    loginWithoutAccount.json().message,
+    'No Kitabu account found. Create an account to continue with Google.'
+  );
+
   const missingRoleToken = `google-missing-role-${Date.now()}-${'x'.repeat(100)}`;
   const missingRole = await app.inject({
     method: 'POST',
@@ -1008,5 +1020,5 @@ test('Google signup requires role and accepted terms for a new identity', async 
     payload: { idToken: missingTermsToken, role: 'parent' }
   });
   assert.equal(missingTerms.statusCode, 400);
-  assert.match(missingTerms.json().message, /accept the Terms/);
+  assert.match(missingTerms.json().message, /accept the Terms/i);
 });

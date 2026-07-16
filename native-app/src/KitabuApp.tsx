@@ -33,7 +33,6 @@ import { GameZoneScreen } from './screens/GameZoneScreen';
 import { HomeworkListScreen } from './screens/HomeworkListScreen';
 import { HomeworkQuizScreen } from './screens/HomeworkQuizScreen';
 import { IntroCarouselScreen } from './screens/IntroCarouselScreen';
-import { LetsLearnContentScreen } from './screens/LetsLearnContentScreen';
 import { LiveAudioTutorScreen } from './screens/LiveAudioTutorScreen';
 import { ManyangaScreen } from './screens/ManyangaScreen';
 import { PodcastsScreen } from './screens/PodcastsScreen';
@@ -224,6 +223,7 @@ export function KitabuApp() {
           password={state.loginPassword}
           fullName={state.signupFullName}
           signupRole={state.signupRole}
+          lastUsedRole={state.lastUsedAuthRole}
           acceptedTerms={state.acceptedTerms}
           optionalPhoneNumber={state.optionalPhoneNumber}
           error={state.authError}
@@ -236,6 +236,7 @@ export function KitabuApp() {
           onAcceptedTermsChange={actions.setAcceptedTerms}
           onOptionalPhoneNumberChange={actions.setOptionalPhoneNumber}
           onAuthenticated={actions.completeProviderAuthentication}
+          onDemoAccount={actions.signInDemo}
           onSubmit={state.authMode === 'login' ? actions.signIn : actions.signUp}
         />
       </AppSafeArea>
@@ -376,7 +377,6 @@ export function KitabuApp() {
             if (state.focusModeActive) {
               return;
             }
-            actions.setProfileOpen(false);
             actions.openSubscriptionCheckout({
               kind: 'manage_subscription',
               snapshot: {
@@ -435,10 +435,13 @@ export function KitabuApp() {
           selectedSubStrand={state.selectedSubStrand}
           selectedAssignment={state.selectedAssignment}
           userProfile={activeUserProfile}
+          mascotKey={state.activeMascotKey}
+          suggestedSubjects={state.chatSuggestedSubjects}
           startLiveAudio={state.startLiveAudio}
           attachmentPickerSignal={state.chatAttachmentPickerSignal}
           onClose={actions.closeChat}
           onSendMessage={actions.sendMessage}
+          onSelectSuggestedSubject={actions.selectChatSuggestedSubject}
           onStartLiveAudio={actions.openLiveTutorOverlay}
           onCloseLiveAudio={() => actions.setStartLiveAudio(false)}
           onOpenLiveScreen={() => actions.openFeature('live_audio')}
@@ -448,7 +451,16 @@ export function KitabuApp() {
           <>
             <SubscriptionCheckoutModal
               isOpen={state.isCheckoutOpen}
-              plans={state.billingPlans}
+              plans={
+                state.trialOfferPlan
+                  ? [
+                      ...state.billingPlans.filter(
+                        plan => plan.code !== state.trialOfferPlan?.code,
+                      ),
+                      state.trialOfferPlan,
+                    ]
+                  : state.billingPlans
+              }
               selectedPlanCode={state.selectedPlanCode}
               phoneNumber={state.checkoutPhoneNumber}
               maskedSavedPhoneNumber={state.billingStatus.maskedMpesaPhoneNumber}
@@ -626,29 +638,6 @@ function renderScreen(
           onOpenWeeklyExam={() => actions.openFeature('weekly_exam')}
         />
       );
-    case 'lets_learn_content':
-      return state.selectedSubStrand ? (
-        <LetsLearnContentScreen
-          subStrand={state.selectedSubStrand}
-          onClose={() => actions.openFeature('subject')}
-          onStartQuiz={() => {
-            actions.startSelectedSubStrandQuiz();
-          }}
-        />
-      ) : state.selectedSubject ? (
-        <SubjectLearningPathScreen
-          subject={state.selectedSubject}
-          strands={state.selectedSubjectStrands}
-          grade={state.currentGrade}
-          path={state.subjectLearningPath}
-          mascotKey={state.activeMascotKey}
-          isLoading={state.isLoadingSubjectLearningPath}
-          error={state.subjectLearningPathError}
-          onRetry={actions.refreshSubjectLearningPath}
-          onOpenNode={actions.openLearningPathNode}
-          onBack={actions.goHome}
-        />
-      ) : null;
     case 'bookshelf_view':
       return (
         <BookshelfScreen
@@ -744,18 +733,7 @@ function renderScreen(
         <TakeQuizScreen
           subjectName={state.selectedSubject?.name || 'General'}
           questions={state.generatedQuizQuestions}
-          onFinish={
-            state.quizSource === 'lesson' && state.lessonQuizSubStrandId
-              ? async result => {
-                  await actions.completeSubStrand(state.lessonQuizSubStrandId!, result.percentage);
-                }
-              : undefined
-          }
           onClose={() => {
-            if (state.quizSource === 'lesson') {
-              actions.openFeature('lets_learn_content');
-              return;
-            }
             if (state.quizSource === 'quiz_me') {
               actions.openFeature('quiz_me_config');
               return;
@@ -950,7 +928,6 @@ function getTitle(view: string, subjectName?: string) {
     homework_quiz: 'Homework Quiz',
     bookshelf_view: 'Bookshelf',
     reading_mode: 'Reader',
-    lets_learn_content: 'Lesson',
     progressive_lesson: 'Learning Adventure',
     brain_tease: 'Brain Tease',
     take_quiz: 'Take Quiz',

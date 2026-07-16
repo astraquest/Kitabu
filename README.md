@@ -20,6 +20,7 @@ This repository is trimmed down to the production pieces still in use:
 
 Seeded test users are always normalized to:
 - `student@kitabu.ai` / `Password123!`
+- `parent@kitabu.ai` / `Password123!`
 - `teacher@kitabu.ai` / `Password123!`
 - `admin@kitabu.ai` / `Password123!`
 

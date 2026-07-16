@@ -5,7 +5,7 @@ import rateLimit from '@fastify/rate-limit';
 import sensible from '@fastify/sensible';
 import swagger from '@fastify/swagger';
 import swaggerUi from '@fastify/swagger-ui';
-import { createHash, randomBytes, randomInt, timingSafeEqual } from 'node:crypto';
+import { createHash, randomBytes, randomInt, randomUUID, timingSafeEqual } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { z } from 'zod';
@@ -59,6 +59,7 @@ import {
   createAuditLog,
   createContentReport,
   createOnboardingSelectionEvent,
+  createSubjectRecommendationEvents,
   createSubjectEngagementEvent,
   ensureWeeklyExam,
   createDiagnosticSession,
@@ -107,6 +108,7 @@ import {
   getAdminAiAnalytics,
   getAdminOnboardingAnalytics,
   getAdminSubjectEngagementAnalytics,
+  getLearnerSubjectRecommendationSignals,
   getAiGenerationCacheEntry,
   listAdminUsers,
   listChessMatches,
@@ -187,6 +189,7 @@ import {
   assignSchoolsToSalesAgent,
   updateUserOnboarding,
   updateUserPassword,
+  upsertLearnerSubjectDisplayPreferences,
   upsertPushToken,
   upsertBillingProfile,
   upsertTotpSecret,
@@ -197,6 +200,11 @@ import {
   findProgressiveLessonAttemptForUser,
   withTransaction
 } from './repositories.js';
+import {
+  buildSubjectRecommendations,
+  canonicalSubjectId,
+  subjectNameFromId
+} from './subjectRecommendations.js';
 import type { WeeklyExamQuestionRecord, WeeklyExamRecord } from './repositories.js';
 import { isSmsConfigured, notifyUser, sendSmsMessage } from './notifications.js';
 import {
@@ -225,11 +233,46 @@ import {
 import { buildPaymentTelemetry, emitMufasaTelemetry } from './mufasaTelemetry.js';
 import {
   buildProgressiveLearningPath,
-  getProgressiveLessonDefinition,
-  gradeProgressiveLessonStep,
+  getProgressiveLessonPrivateDefinition,
+  gradeProgressiveLessonDefinitionStep,
   hasProgressiveLearningPath,
-  normalizeProgressiveSubjectId
+  normalizeProgressiveSubjectId,
+  toProgressiveLessonPublic
 } from './progressiveLearning.js';
+import {
+  buildCurriculumCompatibilityLesson,
+  buildCurriculumCompatibilityPath
+} from './curriculumCompatibilityLesson.js';
+
+async function resolveProgressiveLesson(lessonKey: string) {
+  const authoredLesson = getProgressiveLessonPrivateDefinition(lessonKey);
+  if (authoredLesson) return authoredLesson;
+  if (!lessonKey.startsWith('curriculum-')) return null;
+
+  const subStrandId = lessonKey.slice('curriculum-'.length);
+  if (!subStrandId) return null;
+  const context = await findCurriculumSubStrandContext(subStrandId);
+  return context ? buildCurriculumCompatibilityLesson(context) : null;
+}
+
+async function resolveLearningPath(
+  userId: string,
+  grade: string,
+  requestedSubjectId: string
+) {
+  const canonicalSubjectId = normalizeProgressiveSubjectId(requestedSubjectId);
+  const progress = await listProgressiveLessonProgress(userId, grade, canonicalSubjectId);
+  if (hasProgressiveLearningPath(canonicalSubjectId, grade)) {
+    return buildProgressiveLearningPath(canonicalSubjectId, progress, grade);
+  }
+
+  const subjects = await listCurriculumForGrade(grade, userId);
+  const subject = subjects.find(candidate =>
+    candidate.subjectId === requestedSubjectId ||
+    normalizeProgressiveSubjectId(candidate.subjectId) === canonicalSubjectId
+  );
+  return subject ? buildCurriculumCompatibilityPath(subject, progress, grade) : null;
+}
 
 const LEGAL_PAGE_DIR = process.env.KITABU_LEGAL_PAGE_DIR?.trim() || join(process.cwd(), 'legal');
 const LEGAL_PAGE_PATHS = {
@@ -567,7 +610,31 @@ const onboardingSchema = z.object({
   gender: z.enum(['male', 'female', 'not_specified']),
   grade: z.string().trim().min(2).max(40),
   subjects: z.array(z.string().trim().min(1).max(80)).max(20).optional(),
+  subjectIds: z.array(z.string().trim().min(1).max(120)).max(20).optional(),
   mpesaPhoneNumber: z.string().trim().min(9).max(20).nullable().optional()
+});
+
+const subjectDisplayPreferencesSchema = z.object({
+  mode: z.enum(['automatic', 'manual']),
+  subjectIds: z.array(z.string().trim().min(1).max(120)).min(1).max(5)
+});
+
+const subjectRecommendationQuerySchema = z.object({
+  grade: z.string().trim().min(2).max(40).optional()
+});
+
+const subjectRecommendationEventsSchema = z.object({
+  grade: z.string().trim().min(2).max(40),
+  events: z.array(z.object({
+    recommendationId: z.string().uuid(),
+    surface: z.enum(['chat', 'dashboard']),
+    eventType: z.enum(['impression', 'selection']),
+    subjectId: z.string().trim().min(1).max(120),
+    subjectName: z.string().trim().min(1).max(120),
+    position: z.number().int().min(1).max(5),
+    reason: z.string().trim().min(1).max(80),
+    strategyVersion: z.string().trim().min(1).max(40)
+  })).min(1).max(10)
 });
 
 const onboardingSelectionEventSchema = z.object({
@@ -854,6 +921,11 @@ const TEST_ACCOUNT_EMAILS = new Set([
   'student@kitabu.ai',
   'teacher@kitabu.ai',
   'admin@kitabu.ai'
+]);
+const DEMO_ACCOUNT_EMAILS = new Set([
+  'student@kitabu.ai',
+  'parent@kitabu.ai',
+  'teacher@kitabu.ai'
 ]);
 const DEMO_STUDENT_EMAIL = 'student@kitabu.ai';
 
@@ -1987,6 +2059,10 @@ export function buildServer(options: BuildServerOptions = {}) {
 
   function isTestAccountUser(user: NonNullable<FastifyRequest['user']>) {
     return TEST_ACCOUNT_EMAILS.has(user.email.trim().toLowerCase());
+  }
+
+  function isDemoAccountUser(user: NonNullable<FastifyRequest['user']>) {
+    return DEMO_ACCOUNT_EMAILS.has(user.email.trim().toLowerCase());
   }
 
   function isDemoStudentUser(user: NonNullable<FastifyRequest['user']>) {
@@ -3308,7 +3384,7 @@ Requirements:
 
     if (!user || !(await verifyPassword(body.password, user.password_hash))) {
       await withTransaction(client => createAuditLog(client, null, null, 'auth.login.failed', { email: body.email }));
-      return reply.unauthorized('Invalid credentials');
+      return reply.unauthorized('Email or password is incorrect. Check your details or create an account.');
     }
 
     if (user.status !== 'active') {
@@ -3533,8 +3609,14 @@ Requirements:
     if (!user) {
       user = await findUserByEmail(identity.email);
       if (!user) {
-        if (!body.role || body.acceptedTerms !== true) {
-          return reply.badRequest('Choose an account role and accept the Terms and Privacy Policy to create an account.');
+        if (!body.role && body.acceptedTerms !== true) {
+          return reply.badRequest('No Kitabu account found. Create an account to continue with Google.');
+        }
+        if (!body.role) {
+          return reply.badRequest('Choose an account role to continue.');
+        }
+        if (body.acceptedTerms !== true) {
+          return reply.badRequest('Accept the Terms and Privacy Policy to continue.');
         }
         await createSelfServiceUser({
           schoolId: null,
@@ -4238,68 +4320,13 @@ Requirements:
 
     const params = progressivePathParamsSchema.parse(request.params);
     const query = progressivePathQuerySchema.parse(request.query);
-    const canonicalSubjectId = normalizeProgressiveSubjectId(params.subjectId);
-
-    if (hasProgressiveLearningPath(canonicalSubjectId, query.grade)) {
-      const progress = await listProgressiveLessonProgress(
-        request.user!.id,
-        query.grade,
-        canonicalSubjectId
-      );
-      return {
-        ...buildProgressiveLearningPath(canonicalSubjectId, progress, query.grade),
-        delivery: 'progressive' as const
-      };
-    }
-
-    const subjects = await listCurriculumForGrade(query.grade, request.user!.id);
-    const subject = subjects.find(candidate => candidate.subjectId === params.subjectId);
-    if (!subject) {
+    const path = await resolveLearningPath(request.user!.id, query.grade, params.subjectId);
+    if (!path) {
       return reply.notFound('Subject curriculum not found');
     }
-
-    const orderedSubStrands = subject.strands.flatMap(strand =>
-      strand.subStrands.map(subStrand => ({ strand, subStrand }))
-    );
-    const activeIndex = orderedSubStrands.findIndex(({ subStrand }) => !subStrand.isCompleted);
-    const nodes = orderedSubStrands.map(({ strand, subStrand }, position) => {
-      const status = activeIndex === -1 || position < activeIndex
-        ? 'completed' as const
-        : position === activeIndex
-          ? subStrand.needsRemediation
-            ? 'needs_practice' as const
-            : 'current' as const
-          : 'locked' as const;
-
-      return {
-        id: subStrand.id,
-        lessonKey: `legacy-${subStrand.id}`,
-        lessonVersion: 1,
-        title: subStrand.title,
-        objective: subStrand.description ?? subStrand.outcomes?.[0]?.text ?? 'Build confidence through guided learning.',
-        estimatedMinutes: 8,
-        position,
-        strandTitle: strand.title,
-        status,
-        bestScore: subStrand.masteryScore ?? null,
-        attemptCount: 0,
-        delivery: 'legacy' as const,
-        legacySubStrandId: subStrand.id
-      };
-    });
-    const completedCount = nodes.filter(node => node.status === 'completed').length;
-
     return {
-      subjectId: subject.subjectId,
-      subjectName: subject.subjectName,
-      grade: query.grade,
-      title: 'Your learning path',
-      description: 'Move through each curriculum topic at your own pace.',
-      completedCount,
-      totalCount: nodes.length,
-      progressPercent: nodes.length > 0 ? Math.round((completedCount / nodes.length) * 100) : 0,
-      delivery: 'curriculum' as const,
-      nodes
+      ...path,
+      delivery: 'progressive' as const
     };
   });
 
@@ -4310,10 +4337,11 @@ Requirements:
     }
 
     const params = progressiveLessonParamsSchema.parse(request.params);
-    const lesson = getProgressiveLessonDefinition(params.lessonKey);
-    if (!lesson) {
+    const privateLesson = await resolveProgressiveLesson(params.lessonKey);
+    if (!privateLesson) {
       return reply.notFound('Progressive lesson not found');
     }
+    const lesson = toProgressiveLessonPublic(privateLesson);
 
     reply.header('Cache-Control', 'private, max-age=300');
     reply.header('ETag', `"${lesson.lessonKey}-v${lesson.lessonVersion}"`);
@@ -4327,13 +4355,14 @@ Requirements:
     }
 
     const body = progressiveAttemptStartSchema.parse(request.body);
-    const lesson = getProgressiveLessonDefinition(body.lessonKey);
-    if (!lesson || lesson.lessonVersion !== body.lessonVersion || lesson.grade !== body.grade) {
+    const privateLesson = await resolveProgressiveLesson(body.lessonKey);
+    if (!privateLesson || privateLesson.lessonVersion !== body.lessonVersion || privateLesson.grade !== body.grade) {
       return reply.conflict('The lesson version is no longer available. Refresh the learning path.');
     }
+    const lesson = toProgressiveLessonPublic(privateLesson);
 
-    const progress = await listProgressiveLessonProgress(request.user!.id, body.grade, lesson.subjectId);
-    const node = buildProgressiveLearningPath(lesson.subjectId, progress, body.grade).nodes.find(
+    const path = await resolveLearningPath(request.user!.id, body.grade, lesson.subjectId);
+    const node = path?.nodes.find(
       candidate => candidate.lessonKey === body.lessonKey
     );
     if (!node) {
@@ -4378,7 +4407,10 @@ Requirements:
       return reply.notFound('Lesson attempt not found');
     }
 
-    const grade = gradeProgressiveLessonStep(attempt.lesson_key, params.stepId, body.response);
+    const lesson = await resolveProgressiveLesson(attempt.lesson_key);
+    const grade = lesson
+      ? gradeProgressiveLessonDefinitionStep(lesson, params.stepId, body.response)
+      : null;
     if (!grade) {
       return reply.notFound('Lesson step not found');
     }
@@ -4431,7 +4463,7 @@ Requirements:
     if (!attempt) {
       return reply.notFound('Lesson attempt not found');
     }
-    const lesson = getProgressiveLessonDefinition(attempt.lesson_key);
+    const lesson = await resolveProgressiveLesson(attempt.lesson_key);
     if (!lesson) {
       return reply.notFound('Lesson definition not found');
     }
@@ -4474,13 +4506,8 @@ Requirements:
       };
     }
 
-    const progress = await listProgressiveLessonProgress(
-      request.user!.id,
-      attempt.grade_level,
-      attempt.subject_id
-    );
-    const path = buildProgressiveLearningPath(attempt.subject_id, progress, attempt.grade_level);
-    const nextNode = path.nodes.find(node => node.status === 'current') ?? null;
+    const path = await resolveLearningPath(request.user!.id, attempt.grade_level, attempt.subject_id);
+    const nextNode = path?.nodes.find(node => node.status === 'current') ?? null;
 
     return {
       score: completion.result.score,
@@ -4488,7 +4515,7 @@ Requirements:
       needsPractice: !completion.result.passed,
       xpAwarded: completion.xpAwarded,
       nextNode,
-      pathProgressPercent: path.progressPercent
+      pathProgressPercent: path?.progressPercent ?? 0
     };
   });
 
@@ -4512,6 +4539,91 @@ Requirements:
     }));
 
     return { accepted: true };
+  });
+
+  app.get('/me/subject-recommendations', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return;
+    }
+    if (!request.user!.roles.includes('student')) {
+      return reply.forbidden('Subject recommendations are available to student accounts only');
+    }
+
+    const query = subjectRecommendationQuerySchema.parse(request.query);
+    const grade = query.grade ?? request.user!.grade ?? 'Unknown Grade';
+    const signals = await getLearnerSubjectRecommendationSignals(request.user!.id, grade);
+    const subjectsById = new Map(
+      signals.onboardingSubjectNames.map(subjectName => {
+        const subjectId = canonicalSubjectId(subjectName);
+        return [subjectId, { subjectId, subjectName }] as const;
+      })
+    );
+    for (const subjectId of signals.settings?.onboarding_subject_ids ?? []) {
+      if (!subjectsById.has(subjectId)) {
+        subjectsById.set(subjectId, { subjectId, subjectName: subjectNameFromId(subjectId) });
+      }
+    }
+
+    const recommendations = buildSubjectRecommendations({
+      userId: request.user!.id,
+      dateKey: new Date().toISOString().slice(0, 10),
+      onboardingSubjects: [...subjectsById.values()],
+      manualSubjectIds: signals.settings?.manual_subject_ids ?? [],
+      mode: signals.settings?.mode ?? 'automatic',
+      personalSelections: signals.personalSelections,
+      gradeSelections: signals.gradeSelections,
+      cohortUserCount: signals.cohortUserCount,
+      assignmentPerformance: signals.assignmentPerformance.map(item => ({
+        subjectId: canonicalSubjectId(item.subjectName),
+        averageScore: item.averageScore,
+        gradedCount: item.gradedCount
+      }))
+    });
+
+    return {
+      recommendationId: randomUUID(),
+      strategyVersion: 'subject-ranking-v1',
+      generatedAt: new Date().toISOString(),
+      ...recommendations
+    };
+  });
+
+  app.put('/me/subject-display-preferences', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return;
+    }
+    if (!request.user!.roles.includes('student')) {
+      return reply.forbidden('Subject preferences are available to student accounts only');
+    }
+
+    const body = subjectDisplayPreferencesSchema.parse(request.body);
+    await withTransaction(client => upsertLearnerSubjectDisplayPreferences(client, {
+      userId: request.user!.id,
+      mode: body.mode,
+      manualSubjectIds: body.subjectIds
+    }));
+    return { saved: true };
+  });
+
+  app.post('/me/subject-recommendation-events', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return;
+    }
+    if (!request.user!.roles.includes('student')) {
+      return reply.forbidden('Subject recommendation events are available to student accounts only');
+    }
+
+    const body = subjectRecommendationEventsSchema.parse(request.body);
+    await withTransaction(client => createSubjectRecommendationEvents(client, {
+      userId: request.user!.id,
+      schoolId: request.user!.schoolId,
+      grade: body.grade,
+      events: body.events
+    }));
+    return reply.status(202).send({ accepted: true });
   });
 
   app.put('/curriculum/subjects/:subjectId', async (request, reply) => {
@@ -6429,6 +6541,7 @@ Return valid JSON with this shape:
         gender: body.gender,
         grade: body.grade,
         subjects: body.subjects,
+        subjectIds: body.subjectIds,
         mpesaPhoneNumber: normalizedPhone
       });
       await createAuditLog(client, request.user!.id, body.schoolId, 'auth.onboarding.completed', {
@@ -6929,7 +7042,7 @@ Return valid JSON with this shape:
       return;
     }
 
-    if (isDemoStudentUser(request.user!)) {
+    if (isDemoAccountUser(request.user!)) {
       return {
         plans: [],
         school: null,
@@ -7003,7 +7116,7 @@ Return valid JSON with this shape:
       return;
     }
 
-    if (isDemoStudentUser(request.user!)) {
+    if (isDemoAccountUser(request.user!)) {
       return {
         subscription: serializeDemoStudentSubscription(),
         savedMpesaPhoneNumber: null,
@@ -7048,8 +7161,8 @@ Return valid JSON with this shape:
       return;
     }
 
-    if (isDemoStudentUser(request.user!)) {
-      return reply.forbidden('Demo student account already has full access and does not require payment');
+    if (isDemoAccountUser(request.user!)) {
+      return reply.forbidden('Demo accounts cannot start real payments');
     }
 
     await withTransaction(async client => {

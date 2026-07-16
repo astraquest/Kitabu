@@ -2,6 +2,7 @@ import { DEFAULT_GRADE } from '../constants/grades';
 import { Attachment, ChatMessage, LearningStrand, Question } from '../types/app';
 import { fetchKitabuApi } from './runtimeConfig';
 import { buildKitabuRequestHeaders, readJsonResponse } from './requestHelpers';
+import { sanitizeTutorResponseForDisplay } from './tutorResponseFormatting';
 
 interface GeneratedAssignment {
   title: string;
@@ -43,6 +44,7 @@ interface SpeechSynthesisRequest {
 
 interface ChatLearningContext {
   grade: string;
+  studentName?: string | null;
   subjectName?: string | null;
   strandTitle?: string | null;
   subStrandTitle?: string | null;
@@ -52,6 +54,22 @@ interface ChatLearningContext {
 const CHAT_AI_TIMEOUT_MS = 20_000;
 const QUIZ_AI_TIMEOUT_MS = 80_000;
 const DEFAULT_AI_TIMEOUT_MS = 25_000;
+
+const GREETING_RESPONSE_BUILDERS = [
+  (name: string) => `Hi, ${name}! What can I help you with today?`,
+  (name: string) => `Hello, ${name}! What would you like help with?`,
+  (name: string) => `Hey, ${name}! What are we working on today?`,
+  (name: string) => `Hi there, ${name}! What do you need a hand with?`,
+  (name: string) => `Good to see you, ${name}! What can we tackle together?`,
+];
+const SUBJECT_SELECTIONS = new Map([
+  ['social studies', 'Social Studies'],
+  ['english', 'English'],
+  ['mathematics', 'Mathematics'],
+  ['science', 'Science'],
+  ['kiswahili', 'Kiswahili'],
+]);
+let greetingResponseIndex = 0;
 
 export interface SpeechSynthesisPayload {
   base64Audio: string;
@@ -87,6 +105,10 @@ function buildChatLearningContext(context?: ChatLearningContext) {
 
   const lines = [`Student level: ${context.grade || DEFAULT_GRADE}.`];
 
+  if (context.studentName) {
+    lines.push(`Student name: ${getStudentFirstName(context.studentName)}.`);
+  }
+
   if (context.subjectName) {
     lines.push(`Active subject: ${context.subjectName}.`);
   }
@@ -116,20 +138,38 @@ function buildChatLearningContext(context?: ChatLearningContext) {
   return lines.join('\n');
 }
 
-function cleanTutorResponse(text: string) {
-  const metadataLine = /^(question acknowledged|subject|grade level adaptation|grade level|student level|active subject|active strand|active sub-strand|curriculum scope)\b/i;
+function getStudentFirstName(name?: string | null) {
+  const nameParts = name?.trim().split(/\s+/).filter(Boolean) ?? [];
+  const preferredPart =
+    nameParts[0]?.toLowerCase() === 'kitabu' &&
+    nameParts.some(part => part.toLowerCase() === 'demo')
+      ? nameParts[nameParts.length - 1]
+      : nameParts[0];
+  const firstName = preferredPart?.replace(/[^A-Za-zÀ-ÿ'-]/g, '');
+  return firstName || 'Learner';
+}
 
-  return text
-    .replace(/\r\n/g, '\n')
-    .replace(/\*\*(.*?)\*\*/g, '$1')
-    .replace(/__(.*?)__/g, '$1')
-    .replace(/^\s{0,3}#{1,6}\s*/gm, '')
-    .replace(/`([^`]+)`/g, '$1')
-    .split('\n')
-    .map(line => line.trim())
-    .filter(line => line.length > 0 && !metadataLine.test(line))
-    .join('\n')
-    .trim();
+function buildImmediateChatReply(prompt: string, context?: ChatLearningContext) {
+  const normalizedPrompt = prompt.trim().replace(/\s+/g, ' ');
+  const firstName = getStudentFirstName(context?.studentName);
+  const greetingOnly = /^(hi|hello|hey|howdy|hi there|good morning|good afternoon|good evening)[!,.? ]*$/i;
+
+  if (greetingOnly.test(normalizedPrompt)) {
+    const responseBuilder =
+      GREETING_RESPONSE_BUILDERS[greetingResponseIndex % GREETING_RESPONSE_BUILDERS.length];
+    greetingResponseIndex += 1;
+    return responseBuilder(firstName);
+  }
+
+  const subjectMatch = normalizedPrompt.match(/^i need help with (.+?)[!,.? ]*$/i);
+  const selectedSubject = subjectMatch
+    ? SUBJECT_SELECTIONS.get(subjectMatch[1].trim().toLowerCase())
+    : undefined;
+  if (selectedSubject) {
+    return `Sure, ${firstName}—what do you need help with in ${selectedSubject}?`;
+  }
+
+  return null;
 }
 
 async function fetchAiWithTimeout(path: string, init: RequestInit, timeoutMs: number) {
@@ -213,6 +253,13 @@ export async function askHomeworkHelper(
   learningContext?: ChatLearningContext,
 ): Promise<string> {
   const contextBlock = buildChatLearningContext(learningContext);
+  const immediateReply =
+    mode === 'chat' && !attachment
+      ? buildImmediateChatReply(prompt, learningContext)
+      : null;
+  if (immediateReply) {
+    return immediateReply;
+  }
   const systemInstruction =
     mode === 'chat'
       ? `You are Kitabu, a warm and concise AI tutor inside a student chat.
@@ -224,10 +271,30 @@ Conversation style:
 1. Start with the answer, not labels or metadata.
 2. Never write headings such as "Question Acknowledged", "Subject", or "Grade Level".
 3. Do not use markdown headings, markdown bolding, tables, or code fences.
-4. Keep the response conversational: 2-4 short paragraphs, or up to 3 short bullets only when listing items.
+4. Default to 1-3 short, conversational sentences. Expand only after the student gives an actual question or asks for a detailed explanation.
 5. Ground answers in the student's grade, active subject, and curriculum scope when available.
 6. Use age-appropriate wording and a simple example for the student's grade level.
 7. Ask one short follow-up question only when it helps the student continue.
+
+Silent reasoning rule:
+- Use the learning context, learner history, hints, misconception checks, and next-step planning internally to reason about the best response.
+- Never expose instructional scaffolding or internal-analysis labels in the response, including "Starter", "Hint", "Your Turn", "Clarifying Your Choice & Next Step", "Your Choice Analysis", "Focused Question to Strengthen Understanding", or instructions such as "Respond with your choice and brief reasoning".
+- Do not narrate how you analysed the student's choice. Respond naturally with the helpful explanation or question itself.
+- When the student asks to explain a topic, explain it directly instead of turning the response into an unsolicited quiz.
+
+Greeting rule:
+- When the message is only a greeting, reply with exactly one friendly sentence and do not start teaching, suggest a topic, give a hint, or ask an academic question.
+- Address the student by first name and naturally vary among these patterns:
+  1. "Hi, [name]! What can I help you with today?"
+  2. "Hello, [name]! What would you like help with?"
+  3. "Hey, [name]! What are we working on today?"
+  4. "Hi there, [name]! What do you need a hand with?"
+  5. "Good to see you, [name]! What can we tackle together?"
+
+Subject shortcut rule:
+- When the student selects a subject card or says only "I need help with [subject]", reply with exactly one sentence that includes the student's first name and invites them to say what they need help with in that subject.
+- Example: "Sure, Amina—what do you need help with in Mathematics?"
+- Do not choose a topic or begin a lesson until the student states what they need.
 
 If an attachment is provided:
 - Treat photos, images, PDFs, and documents as the student's homework context.
@@ -257,7 +324,7 @@ Methodology:
     });
 
     return response
-      ? cleanTutorResponse(response) || 'AI assistance is currently unavailable. Please try again later.'
+      ? sanitizeTutorResponseForDisplay(response) || 'AI assistance is currently unavailable. Please try again later.'
       : 'AI assistance is currently unavailable. Please try again later.';
   } catch (error) {
     console.error('Error calling AI proxy:', error);
@@ -300,7 +367,7 @@ export async function askParentAssistant(
     });
 
     return response
-      ? cleanTutorResponse(response) || 'Rafiki is unavailable right now. Please try again shortly.'
+      ? sanitizeTutorResponseForDisplay(response) || 'Rafiki is unavailable right now. Please try again shortly.'
       : 'Rafiki is unavailable right now. Please try again shortly.';
   } catch (error) {
     console.error('Error calling parent assistant:', error);

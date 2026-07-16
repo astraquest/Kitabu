@@ -141,8 +141,8 @@ test('fallback path converts existing curriculum into a unified lesson path', ()
     expect.objectContaining({
       title: 'Linear Equations',
       status: 'current',
-      delivery: 'legacy',
-      legacySubStrandId: 'sub-1',
+      delivery: 'progressive',
+      lessonKey: 'curriculum-sub-1',
     }),
   );
 });
@@ -223,6 +223,12 @@ test('subject page renders one learning path without the retired feature menu', 
     }),
   ).toBeTruthy();
   expect(
+    renderer.root.findByProps({ accessibilityLabel: '0% complete' }),
+  ).toBeTruthy();
+  expect(
+    renderer.root.findAllByProps({ children: 'YOUR LEARNING PATH' }),
+  ).toHaveLength(0);
+  expect(
     renderer.root.findAllByProps({ children: 'Brain Tease' }),
   ).toHaveLength(0);
   expect(
@@ -234,7 +240,7 @@ test('subject page renders one learning path without the retired feature menu', 
   renderer.unmount();
 });
 
-test('subject page limits the visible topic cards to one compact screen', async () => {
+test('subject page shows five gated curriculum topics', async () => {
   const compactPath: SubjectLearningPath = {
     ...path,
     totalCount: 6,
@@ -270,10 +276,10 @@ test('subject page limits the visible topic cards to one compact screen', async 
   });
 
   expect(
-    renderer.root.findAllByProps({ children: 'Compact topic 3' }).length,
+    renderer.root.findAllByProps({ children: 'Compact topic 5' }).length,
   ).toBeGreaterThan(0);
   expect(
-    renderer.root.findAllByProps({ children: 'Compact topic 4' }),
+    renderer.root.findAllByProps({ children: 'Compact topic 6' }),
   ).toHaveLength(0);
   renderer.unmount();
 });
@@ -331,7 +337,12 @@ test('subject page keeps the previous lesson reviewable and only the current les
     renderer.root.findAllByProps({ children: 'Review topic 4' }).length,
   ).toBeGreaterThan(0);
   expect(
-    renderer.root.findAllByProps({ children: 'Review topic 5' }),
+    renderer.root.findAllByProps({ children: 'Review topic 5' }).length,
+  ).toBeGreaterThan(0);
+  expect(
+    renderer.root.findAllByProps({
+      accessibilityLabel: 'Start lesson: Review topic 5',
+    }),
   ).toHaveLength(0);
   renderer.unmount();
 });

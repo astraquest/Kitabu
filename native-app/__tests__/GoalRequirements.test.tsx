@@ -42,6 +42,7 @@ const defaultLoginProps: React.ComponentProps<typeof LoginScreen> = {
   onAcceptedTermsChange: jest.fn(),
   onOptionalPhoneNumberChange: jest.fn(),
   onAuthenticated: jest.fn(),
+  onDemoAccount: jest.fn(),
   onSubmit: jest.fn(),
 };
 
@@ -3374,6 +3375,55 @@ test('subscription modal centers the tapped package and updates checkout amount'
   const resetText = renderedText(renderer!.root);
   expect(resetText).not.toContain('Ndovu selected');
   expect(onSelectPlan).toHaveBeenCalledTimes(1);
+});
+
+test('one bob offer opens the payment modal with the trial selected', async () => {
+  const onContinue = jest.fn();
+  const trialPlan: BillingPlan = {
+    code: 'trial_monthly_1bob',
+    name: '1 Bob Trial',
+    billingCycle: 'monthly',
+    priceKsh: 1,
+    priceKshCents: 100,
+    originalPriceKsh: 250,
+    originalPriceKshCents: 25000,
+    isPopular: false,
+  };
+  let renderer: ReactTestRenderer.ReactTestRenderer;
+
+  await act(() => {
+    renderer = ReactTestRenderer.create(
+      <SubscriptionCheckoutModal
+        isOpen
+        plans={[...plans, trialPlan]}
+        selectedPlanCode="trial_monthly_1bob"
+        phoneNumber="254700000000"
+        maskedSavedPhoneNumber={null}
+        isSubmitting={false}
+        statusLabel={null}
+        error={null}
+        onClose={jest.fn()}
+        onSelectPlan={jest.fn()}
+        onChangePhoneNumber={jest.fn()}
+        onUseSavedPhone={jest.fn()}
+        onContinue={onContinue}
+      />,
+    );
+  });
+
+  const text = renderedText(renderer!.root);
+  expect(text).toContain('Try Kitabu for Just 1 Bob');
+  expect(text).toContain('Continue to Pay - KSH 1');
+  expect(text).not.toContain('Sungura');
+  expect(text).not.toContain('Ndovu');
+
+  await act(() => {
+    renderer!.root
+      .findByProps({ accessibilityLabel: 'Continue to M-Pesa payment' })
+      .props.onPress();
+  });
+
+  expect(onContinue).toHaveBeenCalledWith('trial_monthly_1bob');
 });
 
 test('try for one bob offer starts the KSh 1 checkout action', async () => {

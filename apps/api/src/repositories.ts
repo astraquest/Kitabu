@@ -2482,6 +2482,7 @@ export async function updateUserOnboarding(
     grade: string;
     mpesaPhoneNumber?: string | null;
     subjects?: string[];
+    subjectIds?: string[];
   }
 ) {
   await q(
@@ -2501,6 +2502,15 @@ export async function updateUserOnboarding(
 
   if (input.subjects) {
     await replaceUserSubjectPreferences(client, input.userId, input.subjects);
+  }
+
+  if (input.subjectIds?.length) {
+    await upsertLearnerSubjectDisplayPreferences(client, {
+      userId: input.userId,
+      mode: 'automatic',
+      onboardingSubjectIds: input.subjectIds,
+      manualSubjectIds: []
+    });
   }
 }
 
@@ -3300,6 +3310,162 @@ export async function createSubjectEngagementEvent(
       JSON.stringify(input.metadata ?? {})
     ]
   );
+}
+
+export async function upsertLearnerSubjectDisplayPreferences(
+  client: MaybeClient,
+  input: {
+    userId: string;
+    mode?: 'automatic' | 'manual';
+    onboardingSubjectIds?: string[];
+    manualSubjectIds?: string[];
+  }
+) {
+  await q(
+    client,
+    `INSERT INTO learner_subject_display_preferences (
+       user_id, mode, onboarding_subject_ids, manual_subject_ids, updated_at
+     ) VALUES ($1, $2, $3::text[], $4::text[], NOW())
+     ON CONFLICT (user_id)
+     DO UPDATE SET
+       mode = COALESCE($5::text, learner_subject_display_preferences.mode),
+       onboarding_subject_ids = COALESCE($6::text[], learner_subject_display_preferences.onboarding_subject_ids),
+       manual_subject_ids = COALESCE($7::text[], learner_subject_display_preferences.manual_subject_ids),
+       updated_at = NOW()`,
+    [
+      input.userId,
+      input.mode ?? 'automatic',
+      input.onboardingSubjectIds ?? [],
+      input.manualSubjectIds ?? [],
+      input.mode ?? null,
+      input.onboardingSubjectIds ?? null,
+      input.manualSubjectIds ?? null
+    ]
+  );
+}
+
+export async function getLearnerSubjectRecommendationSignals(userId: string, grade: string) {
+  const [preferences, settings, personal, cohort, performance] = await Promise.all([
+    db.query<{ subject_name: string }>(
+      `SELECT subject_name
+       FROM user_subject_preferences
+       WHERE user_id = $1
+       ORDER BY created_at ASC, subject_name ASC`,
+      [userId]
+    ),
+    db.query<{
+      mode: 'automatic' | 'manual';
+      onboarding_subject_ids: string[];
+      manual_subject_ids: string[];
+    }>(
+      `SELECT mode, onboarding_subject_ids, manual_subject_ids
+       FROM learner_subject_display_preferences
+       WHERE user_id = $1`,
+      [userId]
+    ),
+    db.query<{ subject_id: string; weighted_selections: string }>(
+      `SELECT
+         subject_id,
+         SUM(EXP(-EXTRACT(EPOCH FROM (NOW() - created_at)) / (30 * 86400)))::text AS weighted_selections
+       FROM subject_recommendation_events
+       WHERE user_id = $1
+         AND event_type = 'selection'
+         AND created_at >= NOW() - INTERVAL '90 days'
+       GROUP BY subject_id`,
+      [userId]
+    ),
+    db.query<{ subject_id: string; selections: string; cohort_users: string }>(
+      `WITH recent AS (
+         SELECT subject_id, user_id
+         FROM subject_recommendation_events
+         WHERE grade_level = $1
+           AND event_type = 'selection'
+           AND created_at >= NOW() - INTERVAL '90 days'
+       ), cohort AS (
+         SELECT COUNT(DISTINCT user_id)::text AS cohort_users FROM recent
+       )
+       SELECT
+         recent.subject_id,
+         COUNT(*)::text AS selections,
+         cohort.cohort_users
+       FROM recent
+       CROSS JOIN cohort
+       GROUP BY recent.subject_id, cohort.cohort_users`,
+      [grade]
+    ),
+    db.query<{ subject_name: string; average_score: string; graded_count: string }>(
+      `SELECT
+         a.subject AS subject_name,
+         AVG(sub.score)::text AS average_score,
+         COUNT(sub.id)::text AS graded_count
+       FROM submissions sub
+       JOIN assignments a ON a.id = sub.assignment_id
+       WHERE sub.student_id = $1
+         AND sub.score IS NOT NULL
+         AND sub.submitted_at >= NOW() - INTERVAL '90 days'
+       GROUP BY a.subject`,
+      [userId]
+    )
+  ]);
+
+  return {
+    onboardingSubjectNames: preferences.rows.map(row => row.subject_name),
+    settings: settings.rows[0] ?? null,
+    personalSelections: Object.fromEntries(
+      personal.rows.map(row => [row.subject_id, Number(row.weighted_selections || 0)])
+    ),
+    gradeSelections: Object.fromEntries(
+      cohort.rows.map(row => [row.subject_id, Number(row.selections || 0)])
+    ),
+    cohortUserCount: Number(cohort.rows[0]?.cohort_users ?? 0),
+    assignmentPerformance: performance.rows.map(row => ({
+      subjectName: row.subject_name,
+      averageScore: Number(row.average_score || 0),
+      gradedCount: Number(row.graded_count || 0)
+    }))
+  };
+}
+
+export async function createSubjectRecommendationEvents(
+  client: MaybeClient,
+  input: {
+    userId: string;
+    schoolId: string | null;
+    grade: string;
+    events: Array<{
+      recommendationId: string;
+      surface: 'chat' | 'dashboard';
+      eventType: 'impression' | 'selection';
+      subjectId: string;
+      subjectName: string;
+      position: number;
+      reason: string;
+      strategyVersion: string;
+    }>;
+  }
+) {
+  for (const event of input.events) {
+    await q(
+      client,
+      `INSERT INTO subject_recommendation_events (
+         recommendation_id, user_id, school_id, grade_level, surface, event_type,
+         subject_id, subject_name, position, reason, strategy_version
+       ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)`,
+      [
+        event.recommendationId,
+        input.userId,
+        input.schoolId,
+        input.grade,
+        event.surface,
+        event.eventType,
+        event.subjectId,
+        event.subjectName,
+        event.position,
+        event.reason,
+        event.strategyVersion
+      ]
+    );
+  }
 }
 
 export async function getAdminSubjectEngagementAnalytics(

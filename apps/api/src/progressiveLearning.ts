@@ -3,6 +3,7 @@ import { grade5LessonSeeds } from './progressiveLearningGrade5.js';
 import { grade6LessonSeeds } from './progressiveLearningGrade6.js';
 import { grade7LessonSeeds } from './progressiveLearningGrade7.js';
 import { grade8LessonSeeds } from './progressiveLearningGrade8.js';
+import { grade10LessonSeeds, grade11LessonSeeds } from './progressiveLearningSenior.js';
 
 export type LearningObjectKind =
   | 'elephant'
@@ -147,7 +148,7 @@ export type ProgressiveLessonPublic = {
   steps: ProgressiveLessonStep[];
 };
 
-type ProgressiveLessonPrivate = ProgressiveLessonPublic & {
+export type ProgressiveLessonPrivate = ProgressiveLessonPublic & {
   answers: Record<
     string,
     {
@@ -215,7 +216,7 @@ export function serializeProgressiveChoiceAnswer(itemId: string) {
   return `choice:${itemId}`;
 }
 
-function createLesson(input: ProgressiveLessonSeed): ProgressiveLessonPrivate {
+export function createProgressiveLesson(input: ProgressiveLessonSeed): ProgressiveLessonPrivate {
   const answers: ProgressiveLessonPrivate['answers'] = {};
   const steps = input.steps.map((step, index) => {
     const id = `${input.key}-step-${index + 1}`;
@@ -253,7 +254,7 @@ function createLesson(input: ProgressiveLessonSeed): ProgressiveLessonPrivate {
 }
 
 const lessons: ProgressiveLessonPrivate[] = [
-  createLesson({
+  createProgressiveLesson({
     key: 'math-g7-equality-balance',
     title: 'Equality as balance',
     shortTitle: 'Equality as balance',
@@ -347,7 +348,7 @@ const lessons: ProgressiveLessonPrivate[] = [
       }
     ]
   }),
-  createLesson({
+  createProgressiveLesson({
     key: 'math-g7-forming-equations',
     title: 'Forming equations from stories',
     shortTitle: 'Forming equations',
@@ -434,7 +435,7 @@ const lessons: ProgressiveLessonPrivate[] = [
       }
     ]
   }),
-  createLesson({
+  createProgressiveLesson({
     key: 'math-g7-undo-add-subtract',
     title: 'Undoing addition and subtraction',
     shortTitle: 'Undo + and −',
@@ -498,7 +499,7 @@ const lessons: ProgressiveLessonPrivate[] = [
       }
     ]
   }),
-  createLesson({
+  createProgressiveLesson({
     key: 'math-g7-undo-multiply-divide',
     title: 'Undoing multiplication and division',
     shortTitle: 'Undo × and ÷',
@@ -562,7 +563,7 @@ const lessons: ProgressiveLessonPrivate[] = [
       }
     ]
   }),
-  createLesson({
+  createProgressiveLesson({
     key: 'math-g7-equations-in-life',
     title: 'Equations in everyday life',
     shortTitle: 'Real-life equations',
@@ -626,7 +627,7 @@ const lessons: ProgressiveLessonPrivate[] = [
       }
     ]
   }),
-  createLesson({
+  createProgressiveLesson({
     key: 'math-g7-linear-equations-review',
     title: 'Linear equations adventure',
     shortTitle: 'Adventure review',
@@ -693,11 +694,13 @@ const lessons: ProgressiveLessonPrivate[] = [
 ];
 
 const allLessons = [
-  ...grade4LessonSeeds.map(createLesson),
-  ...grade5LessonSeeds.map(createLesson),
-  ...grade6LessonSeeds.map(createLesson),
-  ...grade7LessonSeeds.map(createLesson),
-  ...grade8LessonSeeds.map(createLesson),
+  ...grade4LessonSeeds.map(createProgressiveLesson),
+  ...grade5LessonSeeds.map(createProgressiveLesson),
+  ...grade6LessonSeeds.map(createProgressiveLesson),
+  ...grade7LessonSeeds.map(createProgressiveLesson),
+  ...grade8LessonSeeds.map(createProgressiveLesson),
+  ...grade10LessonSeeds.map(createProgressiveLesson),
+  ...grade11LessonSeeds.map(createProgressiveLesson),
   ...lessons
 ];
 const lessonByKey = new Map(allLessons.map(lesson => [lesson.lessonKey, lesson]));
@@ -711,15 +714,23 @@ export function listProgressiveLessonDefinitions(filters?: { grade?: string; sub
 
 export function getProgressiveLessonDefinition(lessonKey: string) {
   const lesson = lessonByKey.get(lessonKey);
-  if (!lesson) {
-    return null;
-  }
+  return lesson ? toProgressiveLessonPublic(lesson) : null;
+}
+
+export function getProgressiveLessonPrivateDefinition(lessonKey: string) {
+  return lessonByKey.get(lessonKey) ?? null;
+}
+
+export function toProgressiveLessonPublic(lesson: ProgressiveLessonPrivate) {
   const { answers: _answers, ...publicLesson } = lesson;
   return publicLesson;
 }
 
-export function gradeProgressiveLessonStep(lessonKey: string, stepId: string, response: string) {
-  const lesson = lessonByKey.get(lessonKey);
+export function gradeProgressiveLessonDefinitionStep(
+  lesson: ProgressiveLessonPrivate,
+  stepId: string,
+  response: string
+) {
   const answer = lesson?.answers[stepId];
   const step = lesson?.steps.find(candidate => candidate.id === stepId);
   if (!lesson || !answer || !step) {
@@ -739,11 +750,18 @@ export function gradeProgressiveLessonStep(lessonKey: string, stepId: string, re
   };
 }
 
+export function gradeProgressiveLessonStep(lessonKey: string, stepId: string, response: string) {
+  const lesson = lessonByKey.get(lessonKey);
+  return lesson ? gradeProgressiveLessonDefinitionStep(lesson, stepId, response) : null;
+}
+
 export function normalizeProgressiveSubjectId(subjectId: string) {
   const aliases: Record<string, string> = {
     mathematics: 'math',
     science_technology: 'science',
+    general_science: 'science',
     social_studies: 'social',
+    history_citizenship: 'social',
     agriculture_nutrition: 'agriculture',
     creative_arts_sports: 'creative_arts',
     cre_ire_hre: 'religious_education'

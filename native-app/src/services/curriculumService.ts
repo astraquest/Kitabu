@@ -1,4 +1,4 @@
-import { CurriculumSubjectBundle, LearningStrand, Question } from '../types/app';
+import { CurriculumSubjectBundle, LearningStrand } from '../types/app';
 import { apiJsonRequest } from './requestHelpers';
 
 async function apiRequest<T>(path: string, options: RequestInit = {}): Promise<T> {
@@ -64,38 +64,4 @@ export async function importCurriculumPdf(input: {
       body: JSON.stringify(input),
     },
   );
-}
-
-export async function getSubStrandLesson(subStrandId: string) {
-  return apiRequest<{
-    subStrandId: string;
-    pages: Array<{ title: string; content: string }>;
-  }>(`/curriculum/sub-strands/${subStrandId}/lesson`, {
-    method: 'POST',
-  });
-}
-
-export async function generateSubStrandQuiz(subStrandId: string, questionCount = 10) {
-  return apiRequest<{
-    subStrandId: string;
-    questions: Question[];
-  }>(`/curriculum/sub-strands/${subStrandId}/quiz`, {
-    method: 'POST',
-    body: JSON.stringify({ questionCount }),
-  });
-}
-
-export async function completeSubStrandLearning(subStrandId: string, quizScore?: number, durationSeconds?: number) {
-  return apiRequest<{
-    completed: boolean;
-    needsRemediation: boolean;
-    masteryScore: number;
-    unlockThreshold: number;
-    subStrandId: string;
-    grade: string;
-    subjectId: string;
-  }>(`/curriculum/sub-strands/${subStrandId}/complete`, {
-    method: 'POST',
-    body: JSON.stringify({ quizScore, durationSeconds }),
-  });
 }

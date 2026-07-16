@@ -1,5 +1,5 @@
-import { Alert, AppState, BackHandler, Linking } from 'react-native';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { Alert, AppState, BackHandler, Linking, Platform } from 'react-native';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import {
   INITIAL_ASSIGNMENTS,
@@ -70,10 +70,7 @@ import {
   removeDownloadedBookFiles,
 } from '../services/contentService';
 import {
-  completeSubStrandLearning,
-  generateSubStrandQuiz,
   getCurriculumForGrade,
-  getSubStrandLesson,
   importCurriculumPdf,
   saveCurriculumSubject,
 } from '../services/curriculumService';
@@ -114,6 +111,13 @@ import {
 import { focusModeBridge } from '../services/nativeBridges';
 import { loadJson, saveJson } from '../services/storage';
 import { triggerHaptic } from '../services/haptics';
+import {
+  getSubjectRecommendations,
+  recordSubjectRecommendationEvents,
+  saveSubjectDisplayPreferences,
+  SubjectRecommendationItem,
+  SubjectRecommendationPayload,
+} from '../services/subjectRecommendationService';
 import {
   AdminPortalUser,
   AdminAiAnalytics,
@@ -163,21 +167,63 @@ import {
 
 const DEMO_STUDENT_EMAIL = 'student@kitabu.ai';
 const DEMO_PARENT_EMAIL = 'parent@kitabu.ai';
+const DEMO_TEACHER_EMAIL = 'teacher@kitabu.ai';
+const DEMO_ACCOUNT_PASSWORD = 'Password123!';
+const DEMO_ACCOUNT_EMAILS = {
+  student: DEMO_STUDENT_EMAIL,
+  parent: DEMO_PARENT_EMAIL,
+  teacher: DEMO_TEACHER_EMAIL,
+} as const;
+type LastUsedAuthRole = keyof typeof DEMO_ACCOUNT_EMAILS;
 const ADMIN_LOGIN_EMAIL = 'admin@kitabu.ai';
 const STORAGE_KEYS = {
   profile: 'kitabu_native_profile',
+  lastUsedAuthRole: 'kitabu_last_used_auth_role',
   optionalPhoneNumber: 'kitabu_optional_phone_number',
   tryOneBobOfferSeenAt: 'kitabu_try_one_bob_offer_seen_at',
   focusMode: 'kitabu_focus_mode',
   downloadedBooks: 'kitabu_downloaded_books',
   onboardingPreferences: 'kitabu_onboarding_preferences',
 };
+
+function isLastUsedAuthRole(value: unknown): value is LastUsedAuthRole {
+  return value === 'student' || value === 'teacher' || value === 'parent';
+}
+
+function resolveLastUsedAuthRole(roles: AuthRole[]): LastUsedAuthRole | null {
+  if (roles.includes('teacher')) return 'teacher';
+  if (roles.includes('parent')) return 'parent';
+  if (roles.includes('student')) return 'student';
+  return null;
+}
 const MAX_DASHBOARD_SUBJECTS = 5;
 const TRY_ONE_BOB_SUPPRESSION_MS = 90 * 24 * 60 * 60 * 1000;
+const PAYMENT_MODAL_TRANSITION_DELAY_MS = Platform.OS === 'ios' ? 350 : 80;
 const DEFAULT_FOCUS_MODE_LIMIT_SECONDS = 7200;
 const DEFAULT_DASHBOARD_SUBJECT_IDS = SUBJECTS.slice(0, MAX_DASHBOARD_SUBJECTS).map(
   subject => subject.id,
 );
+
+const SUBJECT_FALLBACK_COLORS: Array<[string, string]> = [
+  ['#2563EB', '#4338CA'],
+  ['#059669', '#0F766E'],
+  ['#D97706', '#C2410C'],
+  ['#DC2626', '#BE123C'],
+  ['#7C3AED', '#4C1D95'],
+];
+
+function subjectFromRecommendation(item: SubjectRecommendationItem, index: number): Subject {
+  const knownSubject = SUBJECTS.find(subject => subject.id === item.subjectId);
+  if (knownSubject) return knownSubject;
+
+  const colors = SUBJECT_FALLBACK_COLORS[index % SUBJECT_FALLBACK_COLORS.length];
+  return {
+    id: item.subjectId,
+    name: item.subjectName,
+    colorFrom: colors[0],
+    colorTo: colors[1],
+  };
+}
 
 type OnboardingSignupMethod = 'email' | 'phone' | 'google';
 
@@ -226,6 +272,7 @@ interface DownloadedBooksSnapshot {
 interface OnboardingPreferencesSnapshot {
   mascot?: OnboardingMascotKey;
   mascotKey?: OnboardingMascotKey;
+  selectedSubjectIds?: string[];
 }
 
 interface RouteSnapshot {
@@ -240,7 +287,7 @@ interface RouteSnapshot {
   selectedBookId: string | null;
   previewBookId: string | null;
   activeStrandIndex: number;
-  quizSource: 'subject' | 'quiz_me' | 'lesson';
+  quizSource: 'subject' | 'quiz_me';
   brainTeaseCompleted: boolean;
   liveAudioReturnView: ViewState;
 }
@@ -258,6 +305,11 @@ type PendingSubscriptionIntent =
       lessonVersion: number;
     }
   | { kind: 'generate_quiz_me'; snapshot: RouteSnapshot; config: QuizConfig };
+
+interface QueuedCheckoutLaunch {
+  intent: PendingSubscriptionIntent;
+  planCode: BillingPlanCode | null;
+}
 
 type IncomingLink =
   | { kind: 'email-verification-token'; token: string }
@@ -513,6 +565,7 @@ export function useKitabuApp() {
   const [loginPassword, setLoginPassword] = useState('');
   const [signupFullName, setSignupFullName] = useState('');
   const [signupRole, setSignupRole] = useState<PublicSignupRole | null>(null);
+  const [lastUsedAuthRole, setLastUsedAuthRole] = useState<LastUsedAuthRole | null>(null);
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [optionalPhoneNumber, setOptionalPhoneNumber] = useState('');
   const [authError, setAuthError] = useState<string | null>(null);
@@ -538,6 +591,9 @@ export function useKitabuApp() {
   const [dashboardSubjectIds, setDashboardSubjectIds] = useState<string[]>(
     DEFAULT_DASHBOARD_SUBJECT_IDS,
   );
+  const [subjectRecommendations, setSubjectRecommendations] =
+    useState<SubjectRecommendationPayload | null>(null);
+  const recordedRecommendationImpressions = useRef(new Set<string>());
   const [selectedSubject, setSelectedSubject] = useState<Subject | null>(null);
   const [progressiveDiagnosticSubject, setProgressiveDiagnosticSubject] =
     useState<Subject | null>(null);
@@ -554,7 +610,7 @@ export function useKitabuApp() {
   const [selectedProgressiveLessonKey, setSelectedProgressiveLessonKey] = useState<string | null>(null);
   const [selectedProgressiveLessonVersion, setSelectedProgressiveLessonVersion] = useState<number | null>(null);
   const [activeStrandIndex, setActiveStrandIndex] = useState(0);
-  const [quizSource, setQuizSource] = useState<'subject' | 'quiz_me' | 'lesson'>('subject');
+  const [quizSource, setQuizSource] = useState<'subject' | 'quiz_me'>('subject');
   const [brainTeaseCompleted, setBrainTeaseCompleted] = useState(false);
   const [quizGenerationError, setQuizGenerationError] = useState<string | null>(null);
   const [generatedFlashcards, setGeneratedFlashcards] =
@@ -623,7 +679,9 @@ export function useKitabuApp() {
   const [activePaymentRequestId, setActivePaymentRequestId] = useState<string | null>(null);
   const [pendingSubscriptionIntent, setPendingSubscriptionIntent] =
     useState<PendingSubscriptionIntent | null>(null);
-  const [lessonQuizSubStrandId, setLessonQuizSubStrandId] = useState<string | null>(null);
+  const [queuedCheckoutLaunch, setQueuedCheckoutLaunch] =
+    useState<QueuedCheckoutLaunch | null>(null);
+  const [queuedTryOneBobOffer, setQueuedTryOneBobOffer] = useState(false);
   const [navigationHistory, setNavigationHistory] = useState<RouteSnapshot[]>([]);
   const [navigationIndex, setNavigationIndex] = useState(-1);
   const [adminDiscounts, setAdminDiscounts] = useState<SchoolDiscount[]>([]);
@@ -805,6 +863,7 @@ export function useKitabuApp() {
         storedTryOneBobOfferSeenAt,
         storedFocusMode,
         storedOnboardingPreferences,
+        storedLastUsedAuthRole,
         storedSession,
       ] = await Promise.all([
         loadJson(STORAGE_KEYS.profile, INITIAL_USER_PROFILE),
@@ -820,6 +879,7 @@ export function useKitabuApp() {
           setupCompleted: false,
         }),
         loadJson<OnboardingPreferencesSnapshot>(STORAGE_KEYS.onboardingPreferences, {}),
+        loadJson<unknown>(STORAGE_KEYS.lastUsedAuthRole, null),
         loadStoredAuthSession(),
       ]);
 
@@ -828,10 +888,17 @@ export function useKitabuApp() {
       }
 
       setOptionalPhoneNumber(storedOptionalPhoneNumber);
+      setLastUsedAuthRole(isLastUsedAuthRole(storedLastUsedAuthRole) ? storedLastUsedAuthRole : null);
       setTryOneBobOfferSeenAt(storedTryOneBobOfferSeenAt);
       const storedMascotKey =
         storedOnboardingPreferences.mascotKey ?? storedOnboardingPreferences.mascot;
       setOnboardingMascotKey(isOnboardingMascotKey(storedMascotKey) ? storedMascotKey : null);
+      const storedSubjectIds = storedOnboardingPreferences.selectedSubjectIds
+        ?.filter(subjectId => typeof subjectId === 'string' && subjectId.length > 0)
+        .slice(0, MAX_DASHBOARD_SUBJECTS);
+      if (storedSubjectIds?.length) {
+        setDashboardSubjectIds(storedSubjectIds);
+      }
       const storedFocusLimit =
         storedFocusMode.dailyLimitSeconds || DEFAULT_FOCUS_MODE_LIMIT_SECONDS;
       const storedActiveSeconds = Math.min(
@@ -862,21 +929,32 @@ export function useKitabuApp() {
           const nextProfile = mergeStoredProfileWithAuthSession(storedProfile, nextSession);
           const nextGrade = nextProfile.grade || DEFAULT_GRADE;
           setAuthSession(nextSession);
+          rememberAuthenticatedRole(nextSession);
           setUserProfile(nextProfile);
           setCurrentGrade(nextGrade);
           setIsStudentPreview(false);
           setCurrentView(nextHomeView);
-          const [plansPayload, status] = await Promise.all([getBillingPlans(), getBillingStatus()]);
-          setBillingPlans(plansPayload.plans);
-          setTrialOfferPlan(plansPayload.trialOffer);
-          setBillingStatus(status);
-          setSelectedPlanCode(
-            plansPayload.plans.find(plan => plan.isPopular)?.code ||
-              plansPayload.plans[0]?.code ||
-              null,
-          );
-          if (status.savedMpesaPhoneNumber || storedOptionalPhoneNumber) {
-            setCheckoutPhoneNumber(status.savedMpesaPhoneNumber || storedOptionalPhoneNumber);
+          try {
+            const [plansPayload, status] = await Promise.all([
+              getBillingPlans(),
+              getBillingStatus(),
+            ]);
+            setBillingPlans(plansPayload.plans);
+            setTrialOfferPlan(plansPayload.trialOffer);
+            setBillingStatus(status);
+            setSelectedPlanCode(
+              plansPayload.plans.find(plan => plan.isPopular)?.code ||
+                plansPayload.plans[0]?.code ||
+                null,
+            );
+            if (status.savedMpesaPhoneNumber || storedOptionalPhoneNumber) {
+              setCheckoutPhoneNumber(status.savedMpesaPhoneNumber || storedOptionalPhoneNumber);
+            }
+          } catch {
+            // Billing availability must never invalidate an otherwise healthy user session.
+            setBillingPlans([]);
+            setTrialOfferPlan(null);
+            setSelectedPlanCode(null);
           }
           await Promise.all([
             refreshStudentContentState(nextSession, nextGrade),
@@ -1102,14 +1180,112 @@ export function useKitabuApp() {
     }
   }, [currentView, focusModeActive, replaceWith, sessionExpired]);
 
+  useEffect(() => {
+    if (
+      !queuedCheckoutLaunch ||
+      profileOpen ||
+      notificationsOpen ||
+      chatOpen ||
+      isTryOneBobOpen ||
+      isCheckoutOpen
+    ) {
+      return undefined;
+    }
+
+    const launch = queuedCheckoutLaunch;
+    const timer = setTimeout(() => {
+      setQueuedCheckoutLaunch(null);
+      activateSubscriptionCheckout(launch.intent, launch.planCode);
+    }, PAYMENT_MODAL_TRANSITION_DELAY_MS);
+
+    return () => clearTimeout(timer);
+    // Use the latest checkout state after the blocking native modal has fully dismissed.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    chatOpen,
+    isCheckoutOpen,
+    isTryOneBobOpen,
+    notificationsOpen,
+    profileOpen,
+    queuedCheckoutLaunch,
+  ]);
+
+  useEffect(() => {
+    if (!queuedTryOneBobOffer || isCheckoutOpen || isTryOneBobOpen) {
+      return undefined;
+    }
+
+    const timer = setTimeout(() => {
+      setQueuedTryOneBobOffer(false);
+      markTryOneBobOfferSeen();
+      setIsTryOneBobOpen(true);
+    }, PAYMENT_MODAL_TRANSITION_DELAY_MS);
+
+    return () => clearTimeout(timer);
+    // The offer is queued from a deliberate checkout dismissal; current account state is read at launch.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isCheckoutOpen, isTryOneBobOpen, queuedTryOneBobOffer]);
+
   const pendingAssignments = useMemo(
     () => assignments.filter(item => item.status === 'pending'),
     [assignments],
   );
-  const dashboardSubjects = useMemo(
-    () => SUBJECTS.filter(subject => dashboardSubjectIds.includes(subject.id)),
-    [dashboardSubjectIds],
+  const dashboardSubjects = useMemo(() => {
+    if (subjectRecommendations?.dashboard.length) {
+      return subjectRecommendations.dashboard.map(subjectFromRecommendation);
+    }
+
+    return dashboardSubjectIds
+      .map(subjectId => SUBJECTS.find(subject => subject.id === subjectId))
+      .filter((subject): subject is Subject => Boolean(subject));
+  }, [dashboardSubjectIds, subjectRecommendations]);
+  const chatSuggestedSubjects = useMemo(
+    () => subjectRecommendations?.chat.length
+      ? subjectRecommendations.chat.map(subjectFromRecommendation)
+      : dashboardSubjects.slice(0, 4),
+    [dashboardSubjects, subjectRecommendations],
   );
+  const availableSubjects = useMemo(() => {
+    const byId = new Map(SUBJECTS.map(subject => [subject.id, subject]));
+    [...dashboardSubjects, ...chatSuggestedSubjects].forEach(subject => byId.set(subject.id, subject));
+    return [...byId.values()];
+  }, [chatSuggestedSubjects, dashboardSubjects]);
+
+  useEffect(() => {
+    if (!subjectRecommendations || currentView !== 'dashboard') return;
+    const impressionKey = `${subjectRecommendations.recommendationId}:dashboard`;
+    if (recordedRecommendationImpressions.current.has(impressionKey)) return;
+    recordedRecommendationImpressions.current.add(impressionKey);
+
+    recordSubjectRecommendationEvents(
+      currentGrade,
+      subjectRecommendations.dashboard.map(item => ({
+        ...item,
+        recommendationId: subjectRecommendations.recommendationId,
+        strategyVersion: subjectRecommendations.strategyVersion,
+        surface: 'dashboard' as const,
+        eventType: 'impression' as const,
+      })),
+    ).catch(() => recordedRecommendationImpressions.current.delete(impressionKey));
+  }, [currentGrade, currentView, subjectRecommendations]);
+
+  useEffect(() => {
+    if (!chatOpen || !subjectRecommendations) return;
+    const impressionKey = `${subjectRecommendations.recommendationId}:chat`;
+    if (recordedRecommendationImpressions.current.has(impressionKey)) return;
+    recordedRecommendationImpressions.current.add(impressionKey);
+
+    recordSubjectRecommendationEvents(
+      currentGrade,
+      subjectRecommendations.chat.map(item => ({
+        ...item,
+        recommendationId: subjectRecommendations.recommendationId,
+        strategyVersion: subjectRecommendations.strategyVersion,
+        surface: 'chat' as const,
+        eventType: 'impression' as const,
+      })),
+    ).catch(() => recordedRecommendationImpressions.current.delete(impressionKey));
+  }, [chatOpen, currentGrade, subjectRecommendations]);
 
   const selectedSubjectStrands = useMemo(() => {
     if (!selectedSubject) {
@@ -1154,6 +1330,12 @@ export function useKitabuApp() {
   const isDemoStudentAccount =
     authSession?.user.email.trim().toLowerCase() === DEMO_STUDENT_EMAIL &&
     authSession.user.roles.includes('student');
+  const isDemoAccount = Boolean(
+    authSession &&
+      Object.values(DEMO_ACCOUNT_EMAILS).some(
+        email => email === authSession.user.email.trim().toLowerCase(),
+      ),
+  );
   const primaryHomeView = getPrimaryHomeView(roles, authSession?.user.email);
   const resolvedHomeView = focusModeActive || isStudentPreview ? 'dashboard' : primaryHomeView;
   const hasPendingAccountOnboarding = Boolean(
@@ -1655,16 +1837,23 @@ export function useKitabuApp() {
     }
 
     try {
-      const [nextAssignments, nextBooks, nextPodcasts] = await Promise.all([
+      const [nextAssignments, nextBooks, nextPodcasts, nextSubjectRecommendations] = await Promise.all([
         getStudentAssignments(),
         getLibraryBooks(grade),
         getLearningPodcasts(),
+        getSubjectRecommendations(grade).catch(() => null),
       ]);
       const downloadedSnapshot = await loadDownloadedBooksSnapshot(session.user.id);
       const downloadedGradeBooks = (downloadedSnapshot.books ?? []).filter(book => book.gradeLevel === grade);
       setAssignments(nextAssignments.length > 0 ? nextAssignments : INITIAL_ASSIGNMENTS);
       setBooks(mergeRemoteAndCachedBooks(nextBooks, downloadedGradeBooks));
       setPodcasts(nextPodcasts);
+      if (nextSubjectRecommendations) {
+        setSubjectRecommendations(nextSubjectRecommendations);
+        setDashboardSubjectIds(
+          nextSubjectRecommendations.dashboard.map(subject => subject.subjectId),
+        );
+      }
     } catch {
       const downloadedSnapshot = await loadDownloadedBooksSnapshot(session.user.id);
       const downloadedGradeBooks = (downloadedSnapshot.books ?? []).filter(book => book.gradeLevel === grade);
@@ -1838,7 +2027,10 @@ export function useKitabuApp() {
       const resolvedInterestKeys = interestKeys ?? input.interests;
       const resolvedSignupEmail = signupEmail ?? email;
       const resolvedSignupPhone = signupPhone ?? phone;
-      const nextSession = await completeAccountOnboarding(accountOnboardingInput);
+      const nextSession = await completeAccountOnboarding({
+        ...accountOnboardingInput,
+        subjectIds: selectedSubjectIds,
+      });
       setAuthSession(nextSession);
       if (isOnboardingMascotKey(resolvedMascotKey)) {
         setOnboardingMascotKey(resolvedMascotKey);
@@ -1899,6 +2091,7 @@ export function useKitabuApp() {
           children: resolvedChildren,
           teachGrades: resolvedTeachGrades,
           subjects: input.subjects,
+          selectedSubjectIds,
           county: input.county,
           school: input.school,
           goal: resolvedGoalKey,
@@ -1969,10 +2162,16 @@ export function useKitabuApp() {
   }
 
   const restoreRoute = useCallback((snapshot: RouteSnapshot) => {
+    const restoredView = (snapshot.view as string) === 'lets_learn_content'
+      ? 'subject'
+      : snapshot.view;
+    const restoredQuizSource = (snapshot.quizSource as string) === 'lesson'
+      ? 'subject'
+      : snapshot.quizSource;
     setCurrentGrade(snapshot.currentGrade);
     setAdminSelectedGrade(snapshot.adminSelectedGrade);
     setActiveStrandIndex(snapshot.activeStrandIndex);
-    setQuizSource(snapshot.quizSource);
+    setQuizSource(restoredQuizSource);
     setBrainTeaseCompleted(snapshot.brainTeaseCompleted);
     setLiveAudioReturnView(snapshot.liveAudioReturnView);
     setSelectedSubject(
@@ -2011,7 +2210,7 @@ export function useKitabuApp() {
 
       return null;
     });
-    setCurrentView(snapshot.view);
+    setCurrentView(restoredView);
   }, [assignments, books, curriculumData]);
 
   function pushHistory(nextView: ViewState) {
@@ -2118,7 +2317,27 @@ export function useKitabuApp() {
     }
   }
 
+  function recordRecommendedSubjectSelection(
+    surface: 'chat' | 'dashboard',
+    subject: Subject,
+  ) {
+    if (!subjectRecommendations) return;
+    const item = subjectRecommendations[surface].find(
+      recommendation => recommendation.subjectId === subject.id,
+    );
+    if (!item) return;
+
+    recordSubjectRecommendationEvents(currentGrade, [{
+      ...item,
+      recommendationId: subjectRecommendations.recommendationId,
+      strategyVersion: subjectRecommendations.strategyVersion,
+      surface,
+      eventType: 'selection',
+    }]).catch(() => undefined);
+  }
+
   async function openSubject(subject: Subject) {
+    recordRecommendedSubjectSelection('dashboard', subject);
     await loadCurriculumGrade(currentGrade);
     if (
       authSession?.user.roles.includes('student') &&
@@ -2152,16 +2371,6 @@ export function useKitabuApp() {
       return;
     }
 
-    if (node.delivery === 'legacy' && node.legacySubStrandId) {
-      const subStrand = selectedSubjectStrands
-        .flatMap(strand => strand.subStrands)
-        .find(candidate => candidate.id === node.legacySubStrandId);
-      if (subStrand) {
-        await selectSubStrand(subStrand);
-      }
-      return;
-    }
-
     if (!bypassSubscription && !hasActiveSubscription) {
       openSubscriptionCheckout({
         kind: 'start_progressive_lesson',
@@ -2185,27 +2394,28 @@ export function useKitabuApp() {
   }
 
   function toggleDashboardSubject(subjectId: string) {
-    setDashboardSubjectIds(current => {
-      if (current.includes(subjectId)) {
-        return current.length > 1 ? current.filter(id => id !== subjectId) : current;
-      }
+    const nextSubjectIds = dashboardSubjectIds.includes(subjectId)
+      ? dashboardSubjectIds.length > 1
+        ? dashboardSubjectIds.filter(id => id !== subjectId)
+        : dashboardSubjectIds
+      : dashboardSubjectIds.length >= MAX_DASHBOARD_SUBJECTS
+        ? dashboardSubjectIds
+        : [...dashboardSubjectIds, subjectId];
 
-      if (current.length >= MAX_DASHBOARD_SUBJECTS) {
-        return current;
-      }
-
-      return [...current, subjectId];
-    });
+    if (nextSubjectIds === dashboardSubjectIds) return;
+    setDashboardSubjectIds(nextSubjectIds);
+    setSubjectRecommendations(null);
+    saveSubjectDisplayPreferences(nextSubjectIds, 'manual').catch(() => undefined);
   }
 
   function saveDashboardSubjects(subjectIds: string[]) {
-    const validSubjectIds = new Set(SUBJECTS.map(subject => subject.id));
     const nextSubjectIds = subjectIds
-      .filter(subjectId => validSubjectIds.has(subjectId))
+      .filter((subjectId, index, items) => Boolean(subjectId) && items.indexOf(subjectId) === index)
       .slice(0, MAX_DASHBOARD_SUBJECTS);
 
     if (nextSubjectIds.length > 0) {
       setDashboardSubjectIds(nextSubjectIds);
+      setSubjectRecommendations(null);
     }
   }
 
@@ -2236,8 +2446,29 @@ export function useKitabuApp() {
     navigateTo(target as ViewState);
   }
 
-  function openSubscriptionCheckout(intent: PendingSubscriptionIntent) {
-    if (focusModeActive || isDemoStudentAccount) {
+  function activateSubscriptionCheckout(
+    intent: PendingSubscriptionIntent,
+    planCode: BillingPlanCode | null = null,
+  ) {
+    setPendingSubscriptionIntent(intent);
+    setCheckoutError(null);
+    setCheckoutStatusLabel(null);
+    setActivePaymentRequestId(null);
+    setQueuedTryOneBobOffer(false);
+    setIsTryOneBobOpen(false);
+    if (!checkoutPhoneNumber && (billingStatus.savedMpesaPhoneNumber || optionalPhoneNumber)) {
+      setCheckoutPhoneNumber(billingStatus.savedMpesaPhoneNumber || optionalPhoneNumber);
+    }
+    setSelectedPlanCode(planCode);
+    setIsCheckoutOpen(true);
+    triggerHaptic('impact');
+  }
+
+  function openSubscriptionCheckout(
+    intent: PendingSubscriptionIntent,
+    planCode: BillingPlanCode | null = null,
+  ) {
+    if (focusModeActive) {
       return;
     }
 
@@ -2250,17 +2481,22 @@ export function useKitabuApp() {
       return;
     }
 
-    setPendingSubscriptionIntent(intent);
-    setCheckoutError(null);
-    setCheckoutStatusLabel(null);
-    setActivePaymentRequestId(null);
+    const hasBlockingOverlay =
+      profileOpen || notificationsOpen || chatOpen || isTryOneBobOpen || isCheckoutOpen;
+
+    setProfileOpen(false);
+    setNotificationsOpen(false);
+    setChatOpen(false);
+    setStartLiveAudio(false);
     setIsTryOneBobOpen(false);
-    if (!checkoutPhoneNumber && (billingStatus.savedMpesaPhoneNumber || optionalPhoneNumber)) {
-      setCheckoutPhoneNumber(billingStatus.savedMpesaPhoneNumber || optionalPhoneNumber);
+    setQueuedTryOneBobOffer(false);
+
+    if (hasBlockingOverlay) {
+      setQueuedCheckoutLaunch({ intent, planCode });
+      return;
     }
-    setSelectedPlanCode(null);
-    setIsCheckoutOpen(true);
-    triggerHaptic('impact');
+
+    activateSubscriptionCheckout(intent, planCode);
   }
 
   function canShowTryOneBobOffer() {
@@ -2300,8 +2536,7 @@ export function useKitabuApp() {
     setCheckoutStatusLabel(null);
     setCheckoutError(null);
     if (shouldOfferTrial) {
-      markTryOneBobOfferSeen();
-      setIsTryOneBobOpen(true);
+      setQueuedTryOneBobOffer(true);
     }
   }
 
@@ -2374,6 +2609,14 @@ export function useKitabuApp() {
       return;
     }
 
+    if (isDemoAccount) {
+      setCheckoutError(
+        'Payments are disabled for demo accounts. Sign in with your own account to subscribe.',
+      );
+      triggerHaptic('error');
+      return;
+    }
+
     const requestedPlanCode =
       typeof planCodeOverride === 'string' ? planCodeOverride : selectedPlanCode;
     if (!requestedPlanCode) {
@@ -2420,12 +2663,18 @@ export function useKitabuApp() {
     }
   }
 
-  async function acceptTryOneBobOffer() {
+  function acceptTryOneBobOffer() {
     if (!trialOfferPlan) {
+      setIsTryOneBobOpen(false);
+      setCheckoutError('The 1 bob offer is unavailable right now.');
       return;
     }
 
-    await submitSubscriptionCheckout(trialOfferPlan.code);
+    const intent = pendingSubscriptionIntent ?? {
+      kind: 'manage_subscription' as const,
+      snapshot: getRouteSnapshot(currentView),
+    };
+    openSubscriptionCheckout(intent, trialOfferPlan.code);
   }
 
   function openAdminPortal() {
@@ -2499,6 +2748,7 @@ export function useKitabuApp() {
 
   function completeProviderAuthentication(session: AuthSession) {
     setAuthSession(session);
+    rememberAuthenticatedRole(session);
     setAuthEntryScreen('auth');
     const profile = mapAuthSessionToProfile(session);
     setUserProfile(profile);
@@ -2509,12 +2759,22 @@ export function useKitabuApp() {
     replaceWith(getPrimaryHomeView(session.user.roles, session.user.email));
   }
 
-  async function signIn() {
+  function rememberAuthenticatedRole(session: AuthSession) {
+    const role = resolveLastUsedAuthRole(session.user.roles);
+    if (!role) {
+      return;
+    }
+
+    setLastUsedAuthRole(role);
+    saveJson(STORAGE_KEYS.lastUsedAuthRole, role).catch(() => undefined);
+  }
+
+  async function authenticateWithPassword(email: string, password: string) {
     setIsAuthenticating(true);
     setAuthError(null);
 
     try {
-      const session = await loginWithPassword(loginEmail.trim(), loginPassword);
+      const session = await loginWithPassword(email.trim(), password);
       completeProviderAuthentication(session);
     } catch (error) {
       setAuthError(error instanceof Error ? error.message : 'Unable to sign in');
@@ -2522,6 +2782,18 @@ export function useKitabuApp() {
     } finally {
       setIsAuthenticating(false);
     }
+  }
+
+  async function signIn() {
+    await authenticateWithPassword(loginEmail, loginPassword);
+  }
+
+  async function signInDemo(role: keyof typeof DEMO_ACCOUNT_EMAILS) {
+    const email = DEMO_ACCOUNT_EMAILS[role];
+    setSignupRole(role);
+    setLoginEmail(email);
+    setLoginPassword(DEMO_ACCOUNT_PASSWORD);
+    await authenticateWithPassword(email, DEMO_ACCOUNT_PASSWORD);
   }
 
   async function signUp(input?: OnboardingSignupInput) {
@@ -2654,7 +2926,6 @@ export function useKitabuApp() {
     setIsTryOneBobOpen(false);
     setPendingSubscriptionIntent(null);
     setActivePaymentRequestId(null);
-    setLessonQuizSubStrandId(null);
     setIsStudentPreview(false);
     setFocusModeStudentProfile(null);
     setFocusModeActive(false);
@@ -2800,6 +3071,11 @@ export function useKitabuApp() {
     await Promise.all([refreshAdminData(), refreshDashboardBanner()]);
   }
 
+  function selectChatSuggestedSubject(subject: Subject) {
+    recordRecommendedSubjectSelection('chat', subject);
+    sendMessage(`I need help with ${subject.name}`).catch(() => undefined);
+  }
+
   async function sendMessage(
     text: string,
     attachment?: Attachment,
@@ -2837,6 +3113,7 @@ export function useKitabuApp() {
     try {
       const responseText = await askHomeworkHelper(text, messages, 'chat', attachment, {
         grade: currentGrade,
+        studentName: userProfile.name,
         subjectName: selectedSubject?.name,
         strandTitle: selectedSubjectStrands[activeStrandIndex]?.title,
         subStrandTitle: selectedSubStrand?.title,
@@ -2960,7 +3237,6 @@ export function useKitabuApp() {
     setIsLoading(true);
     setQuizGenerationError(null);
     setQuizSource('quiz_me');
-    setLessonQuizSubStrandId(null);
 
     if (config.format === 'audio') {
       generateQuizData(
@@ -3056,7 +3332,6 @@ export function useKitabuApp() {
 
     setIsLoading(true);
     setQuizGenerationError(null);
-    setLessonQuizSubStrandId(null);
 
     const currentStrand = selectedSubjectStrands[activeStrandIndex];
     const completedSubStrand = currentStrand?.subStrands.find(sub => sub.isCompleted);
@@ -3085,101 +3360,6 @@ export function useKitabuApp() {
         error instanceof Error
           ? error.message
           : 'AI service did not generate quiz questions. Please try again.',
-      );
-    } finally {
-      setIsLoading(false);
-    }
-  }
-
-  async function selectSubStrand(subStrand: SubStrand) {
-    setIsLoading(true);
-    try {
-      const lesson = await getSubStrandLesson(subStrand.id);
-      const nextSubStrand = {
-        ...subStrand,
-        pages: lesson.pages,
-      };
-
-      if (selectedSubject) {
-        setCurriculumData(prev => ({
-          ...prev,
-          [`${currentGrade}-${selectedSubject.id}`]: (prev[`${currentGrade}-${selectedSubject.id}`] || []).map(
-            strand => ({
-              ...strand,
-              subStrands: strand.subStrands.map(item =>
-                item.id === subStrand.id ? nextSubStrand : item,
-              ),
-            }),
-          ),
-        }));
-      }
-
-      setSelectedSubStrand(nextSubStrand);
-      navigateTo('lets_learn_content');
-    } catch (error) {
-      console.error('Lesson load failed', error);
-      const fallbackPages =
-        subStrand.pages.length > 0
-          ? subStrand.pages
-          : [
-              {
-                title: 'Lesson overview',
-                content: [
-                  'Learning outcomes:',
-                  ...(subStrand.outcomes ?? []).map(item => `- ${item.text}`),
-                  '',
-                  'Inquiry questions:',
-                  ...(subStrand.inquiryQuestions ?? []).map(item => `- ${item.text}`),
-                ]
-                  .join('\n')
-                  .trim(),
-              },
-            ];
-      setSelectedSubStrand({
-        ...subStrand,
-        pages: fallbackPages,
-      });
-      navigateTo('lets_learn_content');
-    } finally {
-      setIsLoading(false);
-    }
-  }
-
-  async function completeSubStrand(subStrandId: string, quizScore?: number) {
-    await completeSubStrandLearning(subStrandId, quizScore);
-    if (selectedSubject) {
-      await refreshCurriculumSubject(currentGrade, selectedSubject.id);
-    }
-    await refreshDueReviews();
-    setSelectedSubStrand(null);
-    setBrainTeaseCompleted(false);
-    setLessonQuizSubStrandId(null);
-    navigateTo('subject');
-  }
-
-  async function startSelectedSubStrandQuiz() {
-    if (!selectedSubStrand) {
-      return;
-    }
-
-    setIsLoading(true);
-    setQuizGenerationError(null);
-    try {
-      const result = await generateSubStrandQuiz(selectedSubStrand.id, 10);
-      if (!result.questions?.length) {
-        throw new Error('AI service did not return quiz questions.');
-      }
-
-      setGeneratedQuizQuestions(result.questions);
-      setQuizSource('lesson');
-      setLessonQuizSubStrandId(selectedSubStrand.id);
-      navigateTo('take_quiz');
-    } catch (error) {
-      console.error('Sub-strand quiz generation failed', error);
-      setQuizGenerationError(
-        error instanceof Error
-          ? error.message
-          : 'AI service did not generate lesson quiz questions. Please try again.',
       );
     } finally {
       setIsLoading(false);
@@ -3661,6 +3841,7 @@ export function useKitabuApp() {
       loginPassword,
       signupFullName,
       signupRole,
+      lastUsedAuthRole,
       acceptedTerms,
       optionalPhoneNumber,
       authError,
@@ -3744,6 +3925,7 @@ export function useKitabuApp() {
       pendingAssignments,
       dashboardSubjectIds,
       dashboardSubjects,
+      chatSuggestedSubjects,
       books,
       podcasts,
       readingProgress,
@@ -3776,7 +3958,6 @@ export function useKitabuApp() {
       adminAiAnalytics,
       adminBillingAnalytics,
       adminSubjectEngagement,
-      lessonQuizSubStrandId,
       canOpenTeacherPortal,
       canOpenAdminPortal,
       canResendVerification: Boolean(
@@ -3785,7 +3966,7 @@ export function useKitabuApp() {
       primaryHomeView,
       canGoBack,
       canGoForward,
-      subjects: SUBJECTS,
+      subjects: availableSubjects,
       quizMeStrandsBySubject,
       quizMeSubStrandsByStrand,
     },
@@ -3843,6 +4024,7 @@ export function useKitabuApp() {
       openStudentPreview,
       exitStudentPreview,
       signIn,
+      signInDemo,
       signUp,
       completeProviderAuthentication,
       deleteAccount,
@@ -3850,6 +4032,7 @@ export function useKitabuApp() {
       signOut,
       resendVerificationEmail,
       sendMessage,
+      selectChatSuggestedSubject,
       openChatAttachmentPicker,
       closeChat,
       openLiveTutorOverlay,
@@ -3861,11 +4044,8 @@ export function useKitabuApp() {
       updateBookProgress,
       toggleDownload,
       generateQuizMe,
-      startSelectedSubStrandQuiz,
       startSubjectQuiz,
       startSubjectBrainTease,
-      selectSubStrand,
-      completeSubStrand,
       startAssignment,
       submitAssignment,
       submitSubscriptionCheckout,

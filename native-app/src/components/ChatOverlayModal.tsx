@@ -29,12 +29,13 @@ import {
   Subject,
   SubStrand,
   UserProfile,
+  OnboardingMascotKey,
 } from '../types/app';
 import { LiveAudioTutorScreen } from '../screens/LiveAudioTutorScreen';
 import { ReportAiContentSheet } from './ReportAiContentSheet';
 import { chatAttachmentBridge } from '../services/nativeBridges';
-
-const logoAsset = require('../assets/logo.png');
+import { LEARNING_MASCOT_SOURCES } from '../features/progressiveLearning/components/LearningMascotReaction';
+import { sanitizeTutorResponseForDisplay } from '../services/tutorResponseFormatting';
 
 interface ChatOverlayModalProps {
   isOpen: boolean;
@@ -45,56 +46,26 @@ interface ChatOverlayModalProps {
   selectedSubStrand?: SubStrand | null;
   selectedAssignment?: Assignment | null;
   userProfile?: UserProfile;
+  mascotKey: OnboardingMascotKey;
+  suggestedSubjects: Subject[];
   startLiveAudio?: boolean;
   attachmentPickerSignal?: number;
   onClose: () => void;
   onSendMessage: (message: string, attachment?: Attachment) => void;
+  onSelectSuggestedSubject: (subject: Subject) => void;
   onStartLiveAudio?: () => void;
   onCloseLiveAudio?: () => void;
   onOpenLiveScreen?: () => void;
 }
 
-const WELCOME_SUBJECTS = [
-  {
-    label: 'Social Studies',
-    color: '#F97316',
-    query: 'I need help with Social Studies',
-  },
-  {
-    label: 'English',
-    color: '#22C55E',
-    query: 'I need help with English',
-  },
-  {
-    label: 'Mathematics',
-    color: '#2563EB',
-    query: 'I need help with Mathematics',
-  },
-  {
-    label: 'Science',
-    color: '#7C3AED',
-    query: 'I need help with Science',
-  },
-];
-
-function cleanModelMessageText(text: string) {
-  const withoutMarkdown = text
-    .replace(/\r\n/g, '\n')
-    .replace(/\*\*(.*?)\*\*/g, '$1')
-    .replace(/__(.*?)__/g, '$1')
-    .replace(/^\s{0,3}#{1,6}\s*/gm, '')
-    .replace(/`([^`]+)`/g, '$1')
-    .replace(/\[(.*?)\]\((.*?)\)/g, '$1')
-    .replace(/[ \t]+\n/g, '\n')
-    .trim();
-
-  const metadataLine = /^(question acknowledged|subject|grade level adaptation|grade level|student level|active subject|active strand|active sub-strand|curriculum scope)\b/i;
-
-  return withoutMarkdown
-    .split('\n')
-    .map(line => line.trim())
-    .filter(line => line.length > 0 && !metadataLine.test(line))
-    .join('\n');
+function getSavedStudentName(userProfile?: UserProfile) {
+  const nameParts = userProfile?.name.trim().split(/\s+/).filter(Boolean) ?? [];
+  const preferredPart =
+    nameParts[0]?.toLowerCase() === 'kitabu' &&
+    nameParts.some(part => part.toLowerCase() === 'demo')
+      ? nameParts[nameParts.length - 1]
+      : nameParts[0];
+  return preferredPart?.replace(/[^A-Za-zÀ-ÿ'-]/g, '') || 'Student';
 }
 
 function ChatMessageContent({ message }: { message: ChatMessage }) {
@@ -102,7 +73,7 @@ function ChatMessageContent({ message }: { message: ChatMessage }) {
     return <Text style={styles.messageText}>{message.text}</Text>;
   }
 
-  const lines = cleanModelMessageText(message.text).split('\n').filter(Boolean);
+  const lines = sanitizeTutorResponseForDisplay(message.text).split('\n').filter(Boolean);
 
   return (
     <View style={styles.formattedMessage}>
@@ -136,10 +107,13 @@ export function ChatOverlayModal({
   selectedSubStrand,
   selectedAssignment,
   userProfile,
+  mascotKey,
+  suggestedSubjects,
   startLiveAudio,
   attachmentPickerSignal = 0,
   onClose,
   onSendMessage,
+  onSelectSuggestedSubject,
   onStartLiveAudio,
   onCloseLiveAudio,
   onOpenLiveScreen,
@@ -150,6 +124,7 @@ export function ChatOverlayModal({
   const [attachmentMenuOpen, setAttachmentMenuOpen] = useState(false);
   const [attachmentError, setAttachmentError] = useState<string | null>(null);
   const isWelcomeView = messages.length === 0;
+  const studentName = getSavedStudentName(userProfile);
 
   useEffect(() => {
     if (isOpen) {
@@ -235,7 +210,12 @@ export function ChatOverlayModal({
           <View style={styles.header}>
             <View style={styles.headerBrand}>
               <View style={styles.headerIconWrap}>
-                <Image source={logoAsset} style={styles.headerLogo} resizeMode="contain" />
+                <Image
+                  accessibilityLabel={`${mascotKey} learning mascot`}
+                  source={LEARNING_MASCOT_SOURCES[mascotKey]}
+                  style={styles.headerMascot}
+                  resizeMode="contain"
+                />
               </View>
               <View>
                 <Text style={styles.headerTitle}>KITABU AI TUTOR</Text>
@@ -260,23 +240,20 @@ export function ChatOverlayModal({
             {isWelcomeView ? (
               <View style={styles.welcomeWrap}>
                 <View style={styles.welcomeCopy}>
-                  <Text style={styles.welcomeTitle}>Hi Student! 👋</Text>
-                  <Text style={styles.welcomeBody}>
-                    I&apos;m Kitabu, your AI learning companion.
-                  </Text>
+                  <Text style={styles.welcomeTitle}>Hi {studentName}! 👋</Text>
                   <Text style={styles.welcomeBody}>
                     What subject would you like to explore today?
                   </Text>
                 </View>
 
                 <View style={styles.subjectPromptGrid}>
-                  {WELCOME_SUBJECTS.map(item => (
+                  {suggestedSubjects.map(subject => (
                     <Pressable
-                      key={item.label}
-                      accessibilityLabel={`chat-prompt-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
-                      onPress={() => onSendMessage(item.query)}
-                      style={[styles.subjectPromptButton, { backgroundColor: item.color }]}>
-                      <Text style={styles.subjectPromptText}>{item.label}</Text>
+                      key={subject.id}
+                      accessibilityLabel={`chat-prompt-${subject.id}`}
+                      onPress={() => onSelectSuggestedSubject(subject)}
+                      style={[styles.subjectPromptButton, { backgroundColor: subject.colorFrom }]}>
+                      <Text style={styles.subjectPromptText}>{subject.name}</Text>
                     </Pressable>
                   ))}
                 </View>
@@ -328,6 +305,7 @@ export function ChatOverlayModal({
                         <ReportAiContentSheet
                           accessibilityLabel="Report AI response"
                           contentText={message.text}
+                          iconOnly
                           context={{
                             currentGrade: currentGrade ?? null,
                             selectedSubject: selectedSubject?.name ?? null,
@@ -468,9 +446,10 @@ function AttachmentAction({
 const styles = StyleSheet.create({
   overlay: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
+    paddingBottom: 10,
     paddingHorizontal: 16,
-    paddingVertical: 28,
+    paddingTop: 28,
   },
   backdrop: {
     backgroundColor: 'rgba(0,0,0,0.6)',
@@ -483,9 +462,9 @@ const styles = StyleSheet.create({
   sheet: {
     backgroundColor: 'rgba(17,24,39,0.96)',
     borderColor: 'rgba(255,255,255,0.08)',
-    borderRadius: 30,
+    borderRadius: 15,
     borderWidth: 1,
-    height: '88%',
+    maxHeight: '88%',
     overflow: 'hidden',
   },
   liveAudioLayer: {
@@ -514,9 +493,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: 40,
   },
-  headerLogo: {
-    height: 24,
-    width: 24,
+  headerMascot: {
+    height: 38,
+    width: 38,
   },
   headerTitle: {
     color: '#FFFFFF',
@@ -544,12 +523,12 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   content: {
-    flex: 1,
+    flexGrow: 0,
+    flexShrink: 1,
     minHeight: 0,
   },
   contentInner: {
-    flexGrow: 1,
-    paddingBottom: 112,
+    paddingBottom: 16,
   },
   welcomeWrap: {
     flex: 1,

@@ -104,9 +104,6 @@ export function IntroCarouselScreen({
           <Image source={logoAsset} style={styles.brandLogo} resizeMode="cover" />
           <Text style={styles.brandText}>KITABU AI</Text>
         </View>
-        <Pressable onPress={onSignIn} style={styles.signInButton}>
-          <Text style={styles.signInText}>Sign in</Text>
-        </Pressable>
       </View>
 
       <ScrollView
@@ -148,9 +145,26 @@ export function IntroCarouselScreen({
           ))}
         </View>
 
-        <Pressable onPress={handlePrimaryAction} style={styles.primaryButton}>
-          <Text style={styles.primaryText}>{ctaLabel}</Text>
-        </Pressable>
+        {isLast ? (
+          <View style={styles.finalActionRow}>
+            <Pressable
+              accessibilityRole="button"
+              onPress={handlePrimaryAction}
+              style={[styles.primaryButton, styles.finalActionButton]}>
+              <Text style={styles.primaryText}>{ctaLabel}</Text>
+            </Pressable>
+            <Pressable
+              accessibilityRole="button"
+              onPress={onSignIn}
+              style={[styles.signInButton, styles.finalActionButton]}>
+              <Text style={styles.signInText}>Sign in</Text>
+            </Pressable>
+          </View>
+        ) : (
+          <Pressable onPress={handlePrimaryAction} style={styles.primaryButton}>
+            <Text style={styles.primaryText}>{ctaLabel}</Text>
+          </Pressable>
+        )}
 
         <Text style={styles.helperText}>
           Avoid Surprises. Get Ready For Exams with Kitabu AI.
@@ -168,7 +182,7 @@ const styles = StyleSheet.create({
   topRow: {
     alignItems: 'center',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     paddingHorizontal: 20,
   },
   brandPill: {
@@ -192,13 +206,16 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
   },
   signInButton: {
-    backgroundColor: '#FFFFFF',
-    borderRadius: 999,
-    paddingHorizontal: 14,
-    paddingVertical: 10,
+    alignItems: 'center',
+    backgroundColor: '#0369A1',
+    borderColor: '#38BDF8',
+    borderRadius: 20,
+    borderWidth: 1,
+    justifyContent: 'center',
+    minHeight: 58,
   },
   signInText: {
-    color: '#0f172a',
+    color: '#FFFFFF',
     fontSize: 14,
     fontWeight: '800',
   },
@@ -289,6 +306,13 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 17,
     fontWeight: '900',
+  },
+  finalActionRow: {
+    flexDirection: 'row',
+    gap: 12,
+  },
+  finalActionButton: {
+    flex: 1,
   },
   helperText: {
     color: 'rgba(255,255,255,0.72)',

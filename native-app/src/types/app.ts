@@ -8,7 +8,6 @@ export type BaseViewState =
   | 'podcasts_view'
   | 'bookshelf_view'
   | 'reading_mode'
-  | 'lets_learn_content'
   | 'progressive_lesson'
   | 'brain_tease'
   | 'take_quiz'

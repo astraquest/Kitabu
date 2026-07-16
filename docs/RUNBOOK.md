@@ -146,3 +146,23 @@ point is `/var/backups/kitabu/kitabu-api-20260716-021501.sql.gz`; it is owned by
 application revision for code rollback is
 `3020a19524dafa8cde9c99056f385af8dc0f8a03`. Migration 050 is additive, so
 that revision remains schema-compatible if application rollback is required.
+
+The Grades 5-8 curriculum expansion is Git
+`5df1eceb4be54fecd8b4cc0293d6eb936349f920` (deployed 2026-07-16). GitHub
+deploy run `29488740036` and CI run `29488740022` passed. Independent
+acceptance verified the exact clean production revision; API image
+`sha256:83d184443b035c27edb43c5b398e3dcc5e4b06ed6b317cf887dd78758b30aadf`;
+fresh zero-restart API, worker, and Caddy containers; healthy PostgreSQL and
+Redis; and authenticated internal and public progressive-learning routes.
+
+The running API artifact reported 114 curriculum-first chapters and 570
+activities: three chapters for every published core subject in each of Grades
+5, 6, 7, and 8. It also verified both active interaction types and confirmed
+that public lesson payloads contain neither answers nor success coaching. The
+unchanged pre-release baseline passed all 42 protected routes, required legal
+pages, nonzero assets, and canonical legal redirects. The owner-only
+post-release recovery point
+`/var/backups/kitabu/kitabu-api-20260716-095733.sql.gz` passed `gzip -t`.
+The immediately previous application revision is
+`ea1342bad94104c45a1ab9f8dfdbf8f38e92a2ed`; this release adds no migration,
+so application rollback remains schema-compatible.

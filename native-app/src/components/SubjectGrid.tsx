@@ -56,7 +56,7 @@ export function SubjectGrid({
   onOpenSubject,
   onOpenGameZone,
 }: SubjectGridProps) {
-  const orderedSubjects = useMemo(() => orderSubjects(subjects), [subjects]);
+  const orderedSubjects = subjects;
   const { cardHeight, cardWidth, iconSize } = useSubjectGridSizing(orderedSubjects.length);
 
   return (

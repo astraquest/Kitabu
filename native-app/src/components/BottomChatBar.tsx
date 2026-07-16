@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Pressable,
   StyleSheet,
   Text,
-  TextInput,
   View,
 } from 'react-native';
-import { Mic, Plus, Send } from 'lucide-react-native';
+import { Mic, Plus } from 'lucide-react-native';
 
 interface BottomChatBarProps {
   isLoading: boolean;
@@ -17,23 +16,10 @@ interface BottomChatBarProps {
 }
 
 export function BottomChatBar({
-  isLoading,
-  onSendMessage,
   onOpen,
   onAddAttachment,
   onOpenLive,
 }: BottomChatBarProps) {
-  const [input, setInput] = useState('');
-
-  function handleSubmit() {
-    if (!input.trim() || isLoading) {
-      return;
-    }
-
-    onSendMessage(input.trim());
-    setInput('');
-  }
-
   return (
     <View style={styles.wrap}>
       <View style={styles.inner}>
@@ -50,39 +36,27 @@ export function BottomChatBar({
               </View>
             </Pressable>
 
-            <TextInput
-              value={input}
-              onChangeText={setInput}
-              onFocus={onOpen}
-              placeholder="Ask AI Anything"
-              placeholderTextColor="#6B7280"
+            <Pressable
               accessibilityLabel="bottom-chat-input"
-              style={styles.input}
-            />
+              accessibilityRole="button"
+              onPress={onOpen}
+              style={({ pressed }) => [
+                styles.input,
+                pressed && styles.inputPressed,
+              ]}>
+              <Text style={styles.inputPlaceholder}>Ask AI Anything</Text>
+            </Pressable>
           </View>
 
-          {input.trim() ? (
-            <Pressable
-              onPress={handleSubmit}
-              disabled={isLoading}
-              accessibilityLabel="bottom-chat-send"
-              style={({ pressed }) => [
-                styles.sendButton,
-                pressed && styles.buttonPressed,
-              ]}>
-              <Send color="#FFFFFF" size={20} strokeWidth={2.4} />
-            </Pressable>
-          ) : (
-            <Pressable
-              onPress={onOpenLive}
-              accessibilityLabel="bottom-chat-live"
-              style={({ pressed }) => [
-                styles.micButton,
-                pressed && styles.buttonPressed,
-              ]}>
-              <Mic color="#4B5563" size={20} strokeWidth={2.4} />
-            </Pressable>
-          )}
+          <Pressable
+            onPress={onOpenLive}
+            accessibilityLabel="bottom-chat-live"
+            style={({ pressed }) => [
+              styles.micButton,
+              pressed && styles.buttonPressed,
+            ]}>
+            <Mic color="#4B5563" size={20} strokeWidth={2.4} />
+          </Pressable>
         </View>
       </View>
     </View>
@@ -150,21 +124,18 @@ const styles = StyleSheet.create({
     width: 24,
   },
   input: {
-    color: '#111827',
+    alignSelf: 'stretch',
     flex: 1,
-    fontSize: 14,
-    fontWeight: '500',
+    justifyContent: 'center',
     paddingRight: 16,
     paddingVertical: 12,
   },
-  sendButton: {
-    alignItems: 'center',
-    backgroundColor: '#2563EB',
-    borderRadius: 14,
-    height: 50,
-    justifyContent: 'center',
-    width: 50,
+  inputPlaceholder: {
+    color: '#6B7280',
+    fontSize: 14,
+    fontWeight: '500',
   },
+  inputPressed: { opacity: 0.72 },
   micButton: {
     alignItems: 'center',
     backgroundColor: '#FFFFFF',

@@ -18,7 +18,7 @@ export type CurriculumChapterSource = {
   key: string;
   subjectId: string;
   subjectName: string;
-  grade: `Grade ${5 | 6 | 7 | 8}`;
+  grade: `Grade ${5 | 6 | 7 | 8 | 10 | 11}`;
   strand: string;
   subStrand: string;
   title: string;

@@ -39,7 +39,12 @@ interface SubscriptionCheckoutModalProps {
   onContinue: (planCode?: BillingPlanCode) => void;
 }
 
-const PLAN_ORDER: Record<string, number> = { weekly: 1, monthly: 2, annual: 3 };
+const PLAN_ORDER: Record<string, number> = {
+  weekly: 1,
+  monthly: 2,
+  trial_monthly_1bob: 2,
+  annual: 3,
+};
 const PUBLIC_PLAN_CODES: BillingPlanCode[] = ['weekly', 'monthly', 'annual'];
 const PACKAGE_GAP = 5;
 const PLAN_PRESENTATION: Record<
@@ -64,6 +69,14 @@ const PLAN_PRESENTATION: Record<
   monthly: {
     name: 'Simba',
     cycle: 'Per Month',
+    accent: '#16A34A',
+    border: '#86EFAC',
+    mascot: simbaLionMascot,
+    soft: '#F0FDF4',
+  },
+  trial_monthly_1bob: {
+    name: '1 Bob Trial',
+    cycle: 'First Month',
     accent: '#16A34A',
     border: '#86EFAC',
     mascot: simbaLionMascot,
@@ -176,12 +189,19 @@ export function SubscriptionCheckoutModal({
   const visiblePlans = useMemo(
     () => {
       const plansByCode = new Map(plans.map(plan => [plan.code, plan]));
+      const explicitlySelectedPlan = selectedPlanCode
+        ? plansByCode.get(selectedPlanCode)
+        : undefined;
+
+      if (explicitlySelectedPlan?.code === 'trial_monthly_1bob') {
+        return [explicitlySelectedPlan];
+      }
 
       return PUBLIC_PLAN_CODES.map(planCode => plansByCode.get(planCode) ?? PUBLIC_PLAN_FALLBACKS[planCode]).sort(
         (left, right) => (PLAN_ORDER[left.code] ?? 99) - (PLAN_ORDER[right.code] ?? 99),
       );
     },
-    [plans],
+    [plans, selectedPlanCode],
   );
   const effectiveSelectedPlanCode = focusedPlanCode ?? selectedPlanCode;
   const featuredPlan =
@@ -190,10 +210,14 @@ export function SubscriptionCheckoutModal({
     visiblePlans.find(plan => plan.code === 'monthly') ??
     visiblePlans[0] ??
     null;
+  const isTrialOffer = featuredPlan?.code === 'trial_monthly_1bob';
   const packageCardWidth = useMemo(() => {
     const availableWidth = Math.min(Math.round(width - 52), 338);
+    if (visiblePlans.length === 1) {
+      return Math.min(180, availableWidth);
+    }
     return Math.max(92, Math.floor((availableWidth - PACKAGE_GAP * 2) / 3));
-  }, [width]);
+  }, [visiblePlans.length, width]);
   const packageStep = packageCardWidth + PACKAGE_GAP;
 
   useEffect(() => {
@@ -300,14 +324,18 @@ export function SubscriptionCheckoutModal({
             </Pressable>
 
             <Text style={[styles.title, compact && styles.titleCompact]}>
-              Become Top of Your Class in Just 3 Months
+              {isTrialOffer ? 'Try Kitabu for Just 1 Bob' : 'Become Top of Your Class in Just 3 Months'}
             </Text>
             <Text style={[styles.subtitle, compact && styles.subtitleCompact]}>
-              Join thousands of students already improving their grades.
+              {isTrialOffer
+                ? 'Unlock your first month and continue learning right away.'
+                : 'Join thousands of students already improving their grades.'}
             </Text>
 
             <View style={styles.offerBadge}>
-              <Text style={styles.offerBadgeText}>LIMITED TIME OFFER</Text>
+              <Text style={styles.offerBadgeText}>
+                {isTrialOffer ? 'ONE-TIME INTRODUCTORY OFFER' : 'LIMITED TIME OFFER'}
+              </Text>
             </View>
 
             <View style={styles.packageRail}>
@@ -426,6 +454,8 @@ export function SubscriptionCheckoutModal({
             {statusLabel ? <Text style={styles.statusText}>{statusLabel}</Text> : null}
 
             <Pressable
+              accessibilityRole="button"
+              accessibilityLabel="Continue to M-Pesa payment"
               onPress={() => featuredPlan && onContinue(featuredPlan.code)}
               disabled={!featuredPlan || isSubmitting}
               style={[styles.continueButton, (!featuredPlan || isSubmitting) && styles.continueButtonDisabled]}>

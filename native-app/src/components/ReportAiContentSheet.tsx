@@ -39,6 +39,7 @@ interface ReportAiContentSheetProps {
   title?: string;
   accessibilityLabel?: string;
   tone?: ReportTone;
+  iconOnly?: boolean;
 }
 
 export function ReportAiContentSheet({
@@ -50,6 +51,7 @@ export function ReportAiContentSheet({
   title = 'Report AI content',
   accessibilityLabel = 'Report AI content',
   tone = 'light',
+  iconOnly = false,
 }: ReportAiContentSheetProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedReason, setSelectedReason] = useState<ReasonOption>(REASON_OPTIONS[0]);
@@ -60,13 +62,19 @@ export function ReportAiContentSheet({
   const trimmedContent = contentText.trim();
 
   const buttonStyles = useMemo(
-    () => [
-      styles.reportButton,
-      tone === 'dark' ? styles.reportButtonDark : styles.reportButtonLight,
-      isSubmitted && styles.reportButtonSubmitted,
-      (!trimmedContent || isSubmitting) && styles.reportButtonDisabled,
-    ],
-    [isSubmitted, isSubmitting, tone, trimmedContent],
+    () =>
+      iconOnly
+        ? [
+            styles.reportIconButton,
+            (!trimmedContent || isSubmitting) && styles.reportButtonDisabled,
+          ]
+        : [
+            styles.reportButton,
+            tone === 'dark' ? styles.reportButtonDark : styles.reportButtonLight,
+            isSubmitted && styles.reportButtonSubmitted,
+            (!trimmedContent || isSubmitting) && styles.reportButtonDisabled,
+          ],
+    [iconOnly, isSubmitted, isSubmitting, tone, trimmedContent],
   );
 
   async function submitReport() {
@@ -102,15 +110,21 @@ export function ReportAiContentSheet({
         disabled={!trimmedContent || isSubmitting || isSubmitted}
         onPress={() => setIsOpen(true)}
         style={buttonStyles}>
-        <Flag color={isSubmitted ? '#16A34A' : tone === 'dark' ? '#DBEAFE' : '#64748B'} size={13} strokeWidth={2.4} />
-        <Text
-          style={[
-            styles.reportButtonText,
-            tone === 'dark' && styles.reportButtonTextDark,
-            isSubmitted && styles.reportButtonTextSubmitted,
-          ]}>
-          {isSubmitted ? reportedLabel : buttonLabel}
-        </Text>
+        <Flag
+          color={isSubmitted ? '#16A34A' : tone === 'dark' ? '#DBEAFE' : '#64748B'}
+          size={iconOnly ? 16 : 13}
+          strokeWidth={2.4}
+        />
+        {!iconOnly ? (
+          <Text
+            style={[
+              styles.reportButtonText,
+              tone === 'dark' && styles.reportButtonTextDark,
+              isSubmitted && styles.reportButtonTextSubmitted,
+            ]}>
+            {isSubmitted ? reportedLabel : buttonLabel}
+          </Text>
+        ) : null}
       </Pressable>
 
       <Modal
@@ -188,6 +202,13 @@ export function ReportAiContentSheet({
 }
 
 const styles = StyleSheet.create({
+  reportIconButton: {
+    alignItems: 'center',
+    alignSelf: 'flex-start',
+    justifyContent: 'center',
+    marginTop: 4,
+    padding: 2,
+  },
   reportButton: {
     alignItems: 'center',
     borderRadius: 999,

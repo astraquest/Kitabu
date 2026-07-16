@@ -32,6 +32,15 @@ export type ConceptKind =
   | 'person'
   | 'animal'
   | 'force'
+  | 'money'
+  | 'laboratory'
+  | 'tools'
+  | 'fire'
+  | 'sport'
+  | 'goal'
+  | 'dialogue'
+  | 'molecule'
+  | 'geometry'
   | 'pattern'
   | 'blocks';
 
@@ -64,6 +73,110 @@ export function resolveConceptKind(
   context: Context = 'card',
 ): ConceptKind {
   const value = label.toLocaleLowerCase();
+
+  if (includesAny(value, ['fire', 'flame', 'extinguisher', 'fire triangle'])) {
+    return 'fire';
+  }
+  if (includesAny(value, ['atom', 'molecule', 'chemical element', 'elements and compounds', 'compound', 'particle'])) {
+    return 'molecule';
+  }
+  if (includesAny(value, ['geometry', 'compass tool', 'set square', 'angle', 'plane shape'])) {
+    return 'geometry';
+  }
+  if (
+    includesAny(value, [
+      'laboratory',
+      'lab ',
+      'experiment',
+      'investigation',
+      'test tube',
+      'beaker',
+      'fair test',
+      'observe safely',
+    ])
+  ) {
+    return 'laboratory';
+  }
+  if (
+    includesAny(value, [
+      'tool',
+      'workshop',
+      'hammer',
+      'ruler',
+      'maker',
+      'technical drawing',
+      'protective equipment',
+      'ppe',
+    ])
+  ) {
+    return 'tools';
+  }
+  if (
+    includesAny(value, [
+      'money',
+      'income',
+      'budget',
+      'saving',
+      'financial',
+      'price',
+      'cost',
+      'payment',
+      'business',
+      'enterprise',
+    ])
+  ) {
+    return 'money';
+  }
+  if (
+    includesAny(value, [
+      'football',
+      'volleyball',
+      'sport',
+      'ball',
+      'serve',
+      'dribble',
+      'athletics',
+      'fitness',
+      'relay',
+    ])
+  ) {
+    return 'sport';
+  }
+  if (
+    includesAny(value, [
+      'goal',
+      'milestone',
+      'personal growth',
+      'growth area',
+      'habit',
+      'self-esteem',
+      'strength',
+      'plan step',
+      'values path',
+      'community service',
+      'service hands',
+      'peace circle',
+      'responsible living',
+    ])
+  ) {
+    return 'goal';
+  }
+  if (
+    includesAny(value, [
+      'dialogue',
+      'conversation',
+      'listen',
+      'speaker',
+      'tone',
+      'mood',
+      'greeting',
+      'maamkuzi',
+      'mazungumzo',
+      'usikilizaji',
+    ])
+  ) {
+    return 'dialogue';
+  }
 
   if (
     includesAny(value, [
@@ -162,9 +275,7 @@ export function resolveConceptKind(
       'library',
       'bus stop',
       'move ',
-      'school',
-    ]) ||
-    context === 'community'
+    ])
   ) {
     return 'map';
   }
@@ -177,7 +288,7 @@ export function resolveConceptKind(
   if (includesAny(value, ['sun', 'light', 'dark', 'shadow'])) {
     return 'sun';
   }
-  if (includesAny(value, ['air', 'wind'])) {
+  if (/(^|\s)air($|\s|[,.])/.test(value) || value.includes('wind')) {
     return 'air';
   }
   if (
@@ -214,6 +325,8 @@ export function resolveConceptKind(
       'black',
       'tint',
       'artist',
+      'mural',
+      'craft',
       'bright',
       'muted',
     ]) ||
@@ -230,6 +343,9 @@ export function resolveConceptKind(
       'soft',
       'loud',
       'instrument',
+      'dance',
+      'stage',
+      'performance',
       'ta |',
       'ti-ti',
     ])
@@ -347,6 +463,7 @@ export function resolveConceptKind(
     return 'force';
   }
   if (context === 'nature') return 'plant';
+  if (context === 'community') return 'map';
   if (context === 'classroom') return 'book';
   if (context === 'home') return 'person';
   if (context === 'market') return 'food';
@@ -415,6 +532,24 @@ function ConceptArtwork({ kind, label }: { kind: ConceptKind; label: string }) {
       return <AnimalArtwork label={label} />;
     case 'force':
       return <ForceArtwork />;
+    case 'money':
+      return <MoneyArtwork />;
+    case 'laboratory':
+      return <LaboratoryArtwork />;
+    case 'tools':
+      return <ToolsArtwork />;
+    case 'fire':
+      return <FireArtwork />;
+    case 'sport':
+      return <SportArtwork />;
+    case 'goal':
+      return <GoalArtwork />;
+    case 'dialogue':
+      return <DialogueArtwork />;
+    case 'molecule':
+      return <MoleculeArtwork />;
+    case 'geometry':
+      return <GeometryArtwork />;
     case 'pattern':
       return <PatternArtwork />;
     case 'blocks':
@@ -748,6 +883,116 @@ function ForceArtwork() {
       <Path d="M25 22 L62 28 L55 45 H31Z" fill="#69B97B" stroke="#34764B" strokeWidth="2" />
       <Path d="M28 23 L17 13 M57 44 L70 58" stroke="#6F4D3A" strokeLinecap="round" strokeWidth="5" />
       <Path d="M6 33 H27 M6 33 L14 25 M6 33 L14 41" fill="none" stroke={sceneTheme.orange} strokeLinecap="round" strokeLinejoin="round" strokeWidth="5" />
+    </G>
+  );
+}
+
+function MoneyArtwork() {
+  return (
+    <G>
+      <Rect fill="#DDF7E7" height="36" rx="6" stroke="#3F9364" strokeWidth="3" width="62" x="9" y="14" />
+      <Circle cx="40" cy="32" fill="#FFFFFF" r="12" stroke="#65B984" strokeWidth="2" />
+      <Path d="M34 25 H45 M34 39 H45 M37 22 V42" stroke="#27734E" strokeLinecap="round" strokeWidth="3" />
+      <Circle cx="18" cy="23" fill={sceneTheme.yellow} r="3" />
+      <Circle cx="62" cy="42" fill={sceneTheme.yellow} r="3" />
+      <Path d="M16 56 H64" stroke={sceneTheme.orange} strokeDasharray="5 4" strokeLinecap="round" strokeWidth="3" />
+    </G>
+  );
+}
+
+function LaboratoryArtwork() {
+  return (
+    <G>
+      <Path d="M24 7 V27 L12 52 Q9 58 18 59 H62 Q71 58 68 52 L56 27 V7" fill="#FFFFFF" stroke="#526E8E" strokeLinejoin="round" strokeWidth="3" />
+      <Path d="M17 47 Q29 39 40 47 T63 46 L68 54 Q69 59 61 59 H19 Q11 59 13 54Z" fill="#8ED4F0" />
+      <Path d="M20 7 H60" stroke="#526E8E" strokeLinecap="round" strokeWidth="5" />
+      <Circle cx="31" cy="45" fill="#FFFFFF" opacity="0.8" r="4" />
+      <Circle cx="50" cy="50" fill={sceneTheme.yellow} r="3" />
+      <Path d="M34 21 H46" stroke={sceneTheme.coral} strokeDasharray="3 3" strokeWidth="3" />
+    </G>
+  );
+}
+
+function ToolsArtwork() {
+  return (
+    <G>
+      <Path d="M14 53 L47 20" stroke="#8A5B3F" strokeLinecap="round" strokeWidth="8" />
+      <Path d="M39 10 L62 25 L53 34 L30 18Z" fill="#7891A8" stroke="#405A75" strokeLinejoin="round" strokeWidth="2" />
+      <Path d="M17 13 L67 52" stroke={sceneTheme.orange} strokeLinecap="round" strokeWidth="5" />
+      <Path d="M19 15 L27 7 M27 22 L35 14 M35 29 L43 21 M43 36 L51 28 M51 43 L59 35" stroke="#FFFFFF" strokeWidth="2" />
+      <Circle cx="18" cy="53" fill={sceneTheme.teal} r="6" />
+    </G>
+  );
+}
+
+function FireArtwork() {
+  return (
+    <G>
+      <Path d="M42 4 C47 18 62 22 61 39 C60 55 49 61 39 61 C24 61 15 51 17 38 C19 27 28 22 30 10 C37 16 38 24 42 29 C45 22 46 14 42 4Z" fill={sceneTheme.coral} />
+      <Path d="M40 27 C45 35 51 39 49 48 C47 56 42 58 37 57 C29 56 27 50 29 44 C31 38 37 36 40 27Z" fill={sceneTheme.yellow} />
+      <Path d="M11 58 H69" stroke="#536C85" strokeLinecap="round" strokeWidth="4" />
+      <Path d="M13 12 L67 58" stroke="#FFFFFF" opacity="0.85" strokeLinecap="round" strokeWidth="5" />
+    </G>
+  );
+}
+
+function SportArtwork() {
+  return (
+    <G>
+      <Circle cx="39" cy="32" fill="#FFFFFF" r="25" stroke="#405A75" strokeWidth="3" />
+      <Path d="M39 18 L49 25 L45 37 H33 L29 25Z" fill={sceneTheme.blueDark} />
+      <Path d="M29 25 L18 22 M49 25 L60 21 M33 37 L27 49 M45 37 L52 49" fill="none" stroke="#405A75" strokeWidth="3" />
+      <Path d="M18 22 L15 35 L27 49 L39 55 L52 49 L64 35 L60 21 L49 11 L39 7 L29 12Z" fill="none" stroke="#8CA1B5" strokeWidth="2" />
+      <Path d="M5 58 H75" stroke={sceneTheme.teal} strokeDasharray="6 4" strokeLinecap="round" strokeWidth="3" />
+    </G>
+  );
+}
+
+function GoalArtwork() {
+  return (
+    <G>
+      <Circle cx="44" cy="28" fill="#FFFFFF" r="23" stroke={sceneTheme.coral} strokeWidth="5" />
+      <Circle cx="44" cy="28" fill="#FFE2DF" r="14" stroke={sceneTheme.coral} strokeWidth="3" />
+      <Circle cx="44" cy="28" fill={sceneTheme.coral} r="5" />
+      <Path d="M8 54 H66" stroke="#8AA1B8" strokeLinecap="round" strokeWidth="5" />
+      <Path d="M15 54 V45 H27 V36 H37" fill="none" stroke={sceneTheme.teal} strokeLinejoin="round" strokeWidth="6" />
+      <Path d="M39 28 L68 8 M68 8 L61 9 M68 8 L67 16" fill="none" stroke={sceneTheme.orange} strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" />
+    </G>
+  );
+}
+
+function DialogueArtwork() {
+  return (
+    <G>
+      <Path d="M6 10 Q6 5 12 5 H45 Q51 5 51 11 V29 Q51 35 45 35 H25 L15 44 L17 35 H12 Q6 35 6 29Z" fill="#DDE8FF" stroke={sceneTheme.blue} strokeWidth="2" />
+      <Path d="M30 30 H68 Q74 30 74 36 V51 Q74 57 68 57 H60 L63 63 L52 57 H30 Q24 57 24 51 V36 Q24 30 30 30Z" fill="#DDF7F1" stroke={sceneTheme.teal} strokeWidth="2" />
+      <Path d="M15 16 H41 M15 24 H34 M34 41 H64 M34 49 H55" stroke="#7891A8" strokeLinecap="round" strokeWidth="3" />
+    </G>
+  );
+}
+
+function MoleculeArtwork() {
+  return (
+    <G>
+      <Path d="M20 42 L39 22 L59 42 M39 22 L42 53" fill="none" stroke="#7891A8" strokeWidth="5" />
+      <Circle cx="20" cy="42" fill={sceneTheme.blue} r="11" stroke="#FFFFFF" strokeWidth="2" />
+      <Circle cx="39" cy="22" fill={sceneTheme.coral} r="13" stroke="#FFFFFF" strokeWidth="2" />
+      <Circle cx="59" cy="42" fill={sceneTheme.yellow} r="11" stroke="#FFFFFF" strokeWidth="2" />
+      <Circle cx="42" cy="53" fill={sceneTheme.teal} r="8" stroke="#FFFFFF" strokeWidth="2" />
+      <Circle cx="69" cy="12" fill="#DDE8FF" r="4" />
+      <Circle cx="12" cy="12" fill="#FFE2DF" r="3" />
+    </G>
+  );
+}
+
+function GeometryArtwork() {
+  return (
+    <G>
+      <Path d="M10 55 L34 10 L58 55Z" fill="#DDE8FF" stroke={sceneTheme.blue} strokeLinejoin="round" strokeWidth="3" />
+      <Path d="M34 10 V55 M10 55 H70" stroke="#7891A8" strokeDasharray="4 3" strokeWidth="2" />
+      <Circle cx="53" cy="31" fill="none" r="17" stroke={sceneTheme.coral} strokeWidth="3" />
+      <Path d="M53 31 L69 22 M53 31 L54 14" stroke={sceneTheme.coral} strokeWidth="2" />
+      <Path d="M11 49 H18 V56" fill="none" stroke={sceneTheme.orange} strokeWidth="3" />
     </G>
   );
 }

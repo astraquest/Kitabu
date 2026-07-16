@@ -130,7 +130,6 @@ const lesson: ProgressiveLesson = {
         caption: 'One elephant balances four zebras.',
       },
       hint: 'Count the zebras.',
-      successMessage: 'Correct.',
     },
   ],
 };

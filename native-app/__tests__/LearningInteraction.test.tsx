@@ -4,6 +4,7 @@ import ReactTestRenderer, { act } from 'react-test-renderer';
 import {
   LearningInteractionView,
   serializeBucketResponse,
+  serializeChoiceResponse,
   serializeSequenceResponse,
 } from '../src/features/progressiveLearning/components/LearningInteraction';
 import type { LearningInteraction } from '../src/features/progressiveLearning/types';
@@ -83,5 +84,39 @@ test('bucket sort requires every item, serializes independent of placement order
   act(() => renderer.root.findByProps({ accessibilityLabel: 'Reset interaction' }).props.onPress());
   expect(onResponseChange).toHaveBeenLastCalledWith(null);
   expect(renderer.root.findByProps({ accessibilityLabel: 'Select Share password' })).toBeTruthy();
+  act(() => renderer.unmount());
+});
+
+test('choice sprint spotlights one card, allows a change, and resets', () => {
+  const onResponseChange = jest.fn();
+  const interaction: LearningInteraction = {
+    kind: 'choice_sprint',
+    instruction: 'Spotlight the strongest answer.',
+    items: [
+      { id: 'a', label: 'First idea' },
+      { id: 'b', label: 'Better idea' },
+      { id: 'c', label: 'Third idea' },
+      { id: 'd', label: 'Fourth idea' },
+    ],
+  };
+  let renderer!: ReactTestRenderer.ReactTestRenderer;
+  act(() => {
+    renderer = ReactTestRenderer.create(
+      <LearningInteractionView
+        interaction={interaction}
+        onResponseChange={onResponseChange}
+        reduceMotion
+      />,
+    );
+  });
+
+  act(() => renderer.root.findByProps({ accessibilityLabel: 'Spotlight First idea' }).props.onPress());
+  expect(onResponseChange).toHaveBeenLastCalledWith(serializeChoiceResponse('a'));
+  act(() => renderer.root.findByProps({ accessibilityLabel: 'Spotlight Better idea' }).props.onPress());
+  expect(onResponseChange).toHaveBeenLastCalledWith(serializeChoiceResponse('b'));
+  expect(renderer.root.findByProps({ accessibilityLabel: 'Spotlight Better idea' }).props.accessibilityState.selected).toBe(true);
+
+  act(() => renderer.root.findByProps({ accessibilityLabel: 'Reset interaction' }).props.onPress());
+  expect(onResponseChange).toHaveBeenLastCalledWith(null);
   act(() => renderer.unmount());
 });

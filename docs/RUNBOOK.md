@@ -128,3 +128,21 @@ KITABU_AFRICASTALKING_SENDER_ID=
 ```
 
 If SMS is not configured, in-app notifications still persist and SMS delivery rows are marked `skipped`.
+
+## Progressive Learning Release Evidence
+
+The Grade 4 progressive-learning release is Git
+`ea1342bad94104c45a1ab9f8dfdbf8f38e92a2ed` (deployed 2026-07-15). GitHub
+deploy run `29432587990` and CI run `29432587967` both passed. Independent
+acceptance verified the exact clean production revision, the recreated API,
+worker, and Caddy containers, healthy PostgreSQL and Redis checks, migration
+`050_progressive_learning.sql`, all four progressive-learning tables, the
+compiled progressive lesson modules, and the authenticated learning-path route.
+
+The unchanged pre-release public-surface baseline passed all 42 protected
+routes plus Terms, Privacy, and Account Deletion. The post-release recovery
+point is `/var/backups/kitabu/kitabu-api-20260716-021501.sql.gz`; it is owned by
+`deploy:deploy`, mode `600`, and passed `gzip -t`. The immediately previous
+application revision for code rollback is
+`3020a19524dafa8cde9c99056f385af8dc0f8a03`. Migration 050 is additive, so
+that revision remains schema-compatible if application rollback is required.

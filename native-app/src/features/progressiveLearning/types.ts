@@ -130,6 +130,11 @@ export type LearningInteraction =
       instruction: string;
       buckets: Array<{ id: string; label: string }>;
       items: LearningInteractionItem[];
+    }
+  | {
+      kind: 'choice_sprint';
+      instruction: string;
+      items: LearningInteractionItem[];
     };
 
 export type ProgressiveLessonStep = {
@@ -141,7 +146,6 @@ export type ProgressiveLessonStep = {
   interaction?: LearningInteraction;
   visual: LearningVisualSpec;
   hint: string;
-  successMessage: string;
 };
 
 export type ProgressiveLesson = {

@@ -11,14 +11,24 @@ import {
   serializeProgressiveSequenceAnswer
 } from './progressiveLearning.js';
 
-test('publishes six complete Mathematics lessons without answer keys', () => {
-  const lessons = listProgressiveLessonDefinitions({ grade: 'Grade 7', subjectId: 'math' });
+test('keeps the six complete Mathematics pilot lessons without answer keys', () => {
+  const pilotKeys = new Set([
+    'math-g7-equality-balance',
+    'math-g7-forming-equations',
+    'math-g7-undo-add-subtract',
+    'math-g7-undo-multiply-divide',
+    'math-g7-equations-in-life',
+    'math-g7-linear-equations-review'
+  ]);
+  const lessons = listProgressiveLessonDefinitions({ grade: 'Grade 7', subjectId: 'math' })
+    .filter(lesson => pilotKeys.has(lesson.lessonKey));
   assert.equal(lessons.length, 6);
 
   for (const lesson of lessons) {
     assert.equal(lesson.steps.length, 5);
     assert.equal(lesson.steps.filter(step => step.phase === 'checkpoint').length, 3);
     assert.doesNotMatch(JSON.stringify(lesson), /"answer"\s*:/);
+    assert.doesNotMatch(JSON.stringify(lesson), /"successMessage"\s*:/);
   }
 });
 
@@ -59,7 +69,7 @@ test('locks lessons sequentially and preserves completed progress', () => {
   ], 'Grade 7');
   assert.equal(next.nodes[0].status, 'completed');
   assert.equal(next.nodes[1].status, 'current');
-  assert.equal(next.progressPercent, 17);
+  assert.equal(next.progressPercent, Math.round(100 / initial.nodes.length));
 });
 
 test('uses varied visual objects instead of relying on abstract cubes', () => {
@@ -117,10 +127,10 @@ test('publishes three substantive Grade 4 chapters for every supported app subje
       assert.equal(lesson.steps.filter(step => step.phase === 'checkpoint').length, 3);
       assert.ok(new Set(lesson.steps.map(step => step.visual.kind)).size >= 2, `${lesson.lessonKey} needs varied visuals`);
       assert.doesNotMatch(JSON.stringify(lesson), /"answer"\s*:/);
+      assert.doesNotMatch(JSON.stringify(lesson), /"successMessage"\s*:/);
 
       for (const step of lesson.steps) {
         assert.ok(step.hint.length >= 20);
-        assert.ok(step.successMessage.length >= 25);
         if (step.interaction) {
           assert.equal(step.options.length, 0);
           assert.ok(step.interaction.items.length >= 3);
@@ -131,6 +141,8 @@ test('publishes three substantive Grade 4 chapters for every supported app subje
             gradeProgressiveLessonStep(lesson.lessonKey, step.id, option)?.isCorrect
           );
           assert.equal(correctOptions.length, 1, `${step.id} must have exactly one gradeable answer`);
+          const feedback = gradeProgressiveLessonStep(lesson.lessonKey, step.id, correctOptions[0]);
+          assert.ok(feedback?.message && feedback.message.length >= 25);
         }
       }
     }

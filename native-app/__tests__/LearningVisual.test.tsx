@@ -4,7 +4,10 @@ import ReactTestRenderer, { act } from 'react-test-renderer';
 
 import { LearningVisual } from '../src/features/progressiveLearning/components/LearningVisual';
 import { ObjectIllustration } from '../src/features/progressiveLearning/components/scenes/ObjectIllustration';
-import { ConceptIllustration } from '../src/features/progressiveLearning/components/scenes/ConceptIllustration';
+import {
+  ConceptIllustration,
+  resolveConceptKind,
+} from '../src/features/progressiveLearning/components/scenes/ConceptIllustration';
 import type { LearningVisualSpec } from '../src/features/progressiveLearning/types';
 
 jest.setTimeout(15000);
@@ -206,6 +209,15 @@ test('concept vocabulary renders meaningful science, map, arts, and digital-safe
         { id: 'rhythm', label: 'four steady beats' },
         { id: 'privacy', label: 'keep password private' },
         { id: 'prompt', label: 'clear AI prompt' },
+        { id: 'money', label: 'balanced monthly budget' },
+        { id: 'lab', label: 'laboratory investigation' },
+        { id: 'tools', label: 'workshop hand tools' },
+        { id: 'fire', label: 'fire triangle' },
+        { id: 'sport', label: 'volleyball serve' },
+        { id: 'goal', label: 'personal growth goal' },
+        { id: 'dialogue', label: 'respectful conversation' },
+        { id: 'molecule', label: 'compound molecule' },
+        { id: 'geometry', label: 'plane geometry angle' },
       ],
       layout: 'grid',
       caption: 'Different ideas use different visual models.',
@@ -227,6 +239,15 @@ test('concept vocabulary renders meaningful science, map, arts, and digital-safe
     'concept-art-rhythm',
     'concept-art-shield',
     'concept-art-computer',
+    'concept-art-money',
+    'concept-art-laboratory',
+    'concept-art-tools',
+    'concept-art-fire',
+    'concept-art-sport',
+    'concept-art-goal',
+    'concept-art-dialogue',
+    'concept-art-molecule',
+    'concept-art-geometry',
   ].forEach(testID => {
     expect(renderer.root.findAllByProps({ testID }).length).toBeGreaterThan(0);
   });
@@ -234,6 +255,17 @@ test('concept vocabulary renders meaningful science, map, arts, and digital-safe
   await act(async () => {
     renderer.unmount();
   });
+});
+
+test('concept resolver keeps authored school scenes specific instead of matching broad words', () => {
+  expect(resolveConceptKind('school compost pit', 'garden')).toBe('plant');
+  expect(resolveConceptKind('school shamba', 'garden')).toBe('plant');
+  expect(resolveConceptKind('school enterprise fair', 'classroom')).toBe('money');
+  expect(resolveConceptKind('community mural', 'community')).toBe('paint');
+  expect(resolveConceptKind('dance stage', 'community')).toBe('rhythm');
+  expect(resolveConceptKind('peace circle', 'community')).toBe('goal');
+  expect(resolveConceptKind('elements of a map', 'card')).toBe('map');
+  expect(resolveConceptKind('chemical elements and compounds', 'card')).toBe('molecule');
 });
 
 test('scene motion follows live reduced-motion changes and removes its listener', async () => {

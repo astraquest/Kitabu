@@ -1,4 +1,8 @@
 import { grade4LessonSeeds } from './progressiveLearningGrade4.js';
+import { grade5LessonSeeds } from './progressiveLearningGrade5.js';
+import { grade6LessonSeeds } from './progressiveLearningGrade6.js';
+import { grade7LessonSeeds } from './progressiveLearningGrade7.js';
+import { grade8LessonSeeds } from './progressiveLearningGrade8.js';
 
 export type LearningObjectKind =
   | 'elephant'
@@ -110,6 +114,11 @@ export type LearningInteraction =
       instruction: string;
       buckets: Array<{ id: string; label: string }>;
       items: LearningInteractionItem[];
+    }
+  | {
+      kind: 'choice_sprint';
+      instruction: string;
+      items: LearningInteractionItem[];
     };
 
 export type ProgressiveLessonStep = {
@@ -121,7 +130,6 @@ export type ProgressiveLessonStep = {
   interaction?: LearningInteraction;
   visual: LearningVisualSpec;
   hint: string;
-  successMessage: string;
 };
 
 export type ProgressiveLessonPublic = {
@@ -146,6 +154,7 @@ type ProgressiveLessonPrivate = ProgressiveLessonPublic & {
       answer: string;
       misconception: string;
       incorrectMessage: string;
+      successMessage: string;
     }
   >;
 };
@@ -174,6 +183,7 @@ export type StepInput = Omit<ProgressiveLessonStep, 'id'> & {
   answer: string;
   misconception: string;
   incorrectMessage: string;
+  successMessage: string;
 };
 
 export type ProgressiveLessonSeed = {
@@ -201,6 +211,10 @@ export function serializeProgressiveClassifyAnswer(assignments: Record<string, s
     .join('|')}`;
 }
 
+export function serializeProgressiveChoiceAnswer(itemId: string) {
+  return `choice:${itemId}`;
+}
+
 function createLesson(input: ProgressiveLessonSeed): ProgressiveLessonPrivate {
   const answers: ProgressiveLessonPrivate['answers'] = {};
   const steps = input.steps.map((step, index) => {
@@ -208,9 +222,16 @@ function createLesson(input: ProgressiveLessonSeed): ProgressiveLessonPrivate {
     answers[id] = {
       answer: step.answer,
       misconception: step.misconception,
-      incorrectMessage: step.incorrectMessage
+      incorrectMessage: step.incorrectMessage,
+      successMessage: step.successMessage
     };
-    const { answer: _answer, misconception: _misconception, incorrectMessage: _incorrectMessage, ...publicStep } = step;
+    const {
+      answer: _answer,
+      misconception: _misconception,
+      incorrectMessage: _incorrectMessage,
+      successMessage: _successMessage,
+      ...publicStep
+    } = step;
     return { id, ...publicStep };
   });
 
@@ -671,7 +692,14 @@ const lessons: ProgressiveLessonPrivate[] = [
   })
 ];
 
-const allLessons = [...lessons, ...grade4LessonSeeds.map(createLesson)];
+const allLessons = [
+  ...grade4LessonSeeds.map(createLesson),
+  ...grade5LessonSeeds.map(createLesson),
+  ...grade6LessonSeeds.map(createLesson),
+  ...grade7LessonSeeds.map(createLesson),
+  ...grade8LessonSeeds.map(createLesson),
+  ...lessons
+];
 const lessonByKey = new Map(allLessons.map(lesson => [lesson.lessonKey, lesson]));
 
 export function listProgressiveLessonDefinitions(filters?: { grade?: string; subjectId?: string }) {
@@ -706,7 +734,7 @@ export function gradeProgressiveLessonStep(lessonKey: string, stepId: string, re
     isCorrect,
     phase: step.phase,
     misconceptionCode: isCorrect ? null : answer.misconception,
-    message: isCorrect ? step.successMessage : answer.incorrectMessage,
+    message: isCorrect ? answer.successMessage : answer.incorrectMessage,
     hint: step.hint
   };
 }
@@ -773,10 +801,10 @@ export function buildProgressiveLearningPath(
     subjectId: canonicalSubjectId,
     subjectName: firstLesson?.subjectName ?? canonicalSubjectId,
     grade,
-    title: grade === 'Grade 4' ? `${firstLesson?.subjectName ?? 'Subject'} Adventures` : 'Linear Equations',
-    description: grade === 'Grade 4'
-      ? 'Explore three Kenyan curriculum chapters through guided scenes, playful practice, and checkpoints.'
-      : 'Learn equations through balance, wildlife stories, and everyday Kenyan situations.',
+    title: `${firstLesson?.subjectName ?? 'Subject'} Adventures`,
+    description: grade === 'Grade 7' && canonicalSubjectId === 'math'
+      ? 'Start with three curriculum chapters, then continue through six playful equation adventures.'
+      : 'Explore three Kenyan curriculum chapters through guided scenes, playful practice, and checkpoints.',
     completedCount,
     totalCount: nodes.length,
     progressPercent: nodes.length > 0 ? Math.round((completedCount / nodes.length) * 100) : 0,

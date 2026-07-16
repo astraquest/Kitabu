@@ -18,6 +18,10 @@ export function serializeBucketResponse(assignments: BucketAssignments) {
     .join('|')}`;
 }
 
+export function serializeChoiceResponse(itemId: string) {
+  return `choice:${itemId}`;
+}
+
 type LearningInteractionProps = {
   interaction: LearningInteraction;
   disabled?: boolean;
@@ -35,12 +39,14 @@ export function LearningInteractionView({
   const [assignments, setAssignments] = useState<BucketAssignments>({});
   const [assignmentHistory, setAssignmentHistory] = useState<BucketAssignments[]>([]);
   const [selectedItemId, setSelectedItemId] = useState<string | null>(null);
+  const [choiceId, setChoiceId] = useState<string | null>(null);
 
   useEffect(() => {
     setSequence([]);
     setAssignments({});
     setAssignmentHistory([]);
     setSelectedItemId(null);
+    setChoiceId(null);
     onResponseChange(null);
   }, [interaction, onResponseChange]);
 
@@ -74,6 +80,9 @@ export function LearningInteractionView({
     setSelectedItemId(null);
     if (interaction.kind === 'sequence_builder') {
       emitSequence([]);
+    } else if (interaction.kind === 'choice_sprint') {
+      setChoiceId(null);
+      onResponseChange(null);
     } else {
       emitAssignments({});
     }
@@ -136,6 +145,50 @@ export function LearningInteractionView({
           disabled={disabled}
           onReset={reset}
           onUndo={() => emitSequence(sequence.slice(0, -1))}
+        />
+      </View>
+    );
+  }
+
+  if (interaction.kind === 'choice_sprint') {
+    return (
+      <View accessibilityLabel="Spotlight choice interaction" style={styles.container}>
+        <Text style={styles.instruction}>{interaction.instruction}</Text>
+        <View accessibilityLabel="Answer cards" style={styles.pool}>
+          {interaction.items.map(item => {
+            const selected = choiceId === item.id;
+            return (
+              <SquishPressable
+                accessibilityLabel={`Spotlight ${item.label}`}
+                accessibilityRole="button"
+                accessibilityState={{ selected, disabled }}
+                disabled={disabled}
+                key={item.id}
+                onPress={() => {
+                  setChoiceId(item.id);
+                  onResponseChange(serializeChoiceResponse(item.id));
+                }}
+                reduceMotion={reduceMotion}
+              >
+                <View style={[styles.poolBlock, selected && styles.choiceSelected]}>
+                  <Text style={styles.poolLabel}>{item.label}</Text>
+                  {item.detail ? <Text style={styles.poolDetail}>{item.detail}</Text> : null}
+                  {selected ? <Text style={styles.spotlightLabel}>SPOTLIGHTED</Text> : null}
+                </View>
+              </SquishPressable>
+            );
+          })}
+        </View>
+        {choiceId ? (
+          <Text accessibilityLiveRegion="polite" style={styles.readyText}>
+            Choice ready to check
+          </Text>
+        ) : null}
+        <InteractionActions
+          canUndo={Boolean(choiceId)}
+          disabled={disabled}
+          onReset={reset}
+          onUndo={reset}
         />
       </View>
     );
@@ -348,6 +401,14 @@ const styles = StyleSheet.create({
     gap: 12,
     padding: 13,
   },
+  choiceSelected: {
+    backgroundColor: '#FFF7D6',
+    borderColor: '#F2B84B',
+    shadowColor: '#D69316',
+    shadowOffset: { height: 3, width: 0 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+  },
   emptyText: { color: '#94A3B8', fontSize: 13, fontWeight: '700' },
   instruction: { color: '#334155', fontSize: 14, fontWeight: '800', lineHeight: 20 },
   itemTextWrap: { flex: 1 },
@@ -389,6 +450,7 @@ const styles = StyleSheet.create({
   },
   readyText: { color: '#0F766E', fontSize: 12, fontWeight: '900', padding: 8 },
   selectionHint: { color: '#1D4ED8', fontSize: 12, fontWeight: '900', textAlign: 'center' },
+  spotlightLabel: { color: '#9A6500', fontSize: 9, fontWeight: '900', marginTop: 4 },
   sequenceTray: {
     backgroundColor: '#EFF6FF',
     borderColor: '#BFDBFE',

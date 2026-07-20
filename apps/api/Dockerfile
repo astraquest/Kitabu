@@ -22,6 +22,7 @@ COPY --from=build /app/apps/api/dist /app/dist
 COPY --from=build /app/apps/api/scripts /app/scripts
 COPY --from=build /app/apps/api/sql /app/sql
 COPY --from=build /app/apps/api/certs /app/certs
+COPY --from=build /app/apps/api/media /app/media
 COPY --from=build /app/apps/api/data/quiz-bank /app/data/quiz-bank
 COPY apps/web/privacy /app/legal/privacy
 COPY apps/web/policy /app/legal/policy

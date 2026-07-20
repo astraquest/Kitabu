@@ -18,8 +18,8 @@ export const SUBJECTS: Subject[] = [
   {
     id: 'math',
     name: 'Mathematics',
-    colorFrom: '#9333EA',
-    colorTo: '#6D28D9',
+    colorFrom: '#F97316',
+    colorTo: '#15803D',
   },
   {
     id: 'english',
@@ -54,14 +54,14 @@ export const SUBJECTS: Subject[] = [
   {
     id: 'creative_arts',
     name: 'Creative Arts',
-    colorFrom: '#DB2777',
-    colorTo: '#7E22CE',
+    colorFrom: '#F97316',
+    colorTo: '#15803D',
   },
   {
     id: 'religious_education',
     name: 'Religious Education',
-    colorFrom: '#7C3AED',
-    colorTo: '#4C1D95',
+    colorFrom: '#15803D',
+    colorTo: '#15803D',
   },
   {
     id: 'ai_education',
@@ -303,7 +303,30 @@ export const INITIAL_SCHOOLS: SchoolData[] = [
 export const INITIAL_BOOKS: Book[] = [];
 export const INITIAL_FLASHCARDS: Flashcard[] = [];
 export const INITIAL_QUIZ_QUESTIONS: Question[] = [];
-export const INITIAL_PODCASTS: Podcast[] = [];
+export const INITIAL_PODCASTS: Podcast[] = [
+  {
+    id: '82000000-0000-0000-0000-000000000005',
+    title: 'Who Killed Tom Mboya?',
+    subject: 'History',
+    type: 'audio',
+    duration: '02:49',
+    views: 'New',
+    date: '2026-07-20',
+    author: 'Kitabu Learning',
+    url: '/media/podcasts/who-killed-tom-mboya.mp3',
+  },
+  {
+    id: '82000000-0000-0000-0000-000000000004',
+    title: 'How Plants Make Food',
+    subject: 'Science',
+    type: 'video',
+    duration: '01:00',
+    views: 'New',
+    date: '2026-07-20',
+    author: 'Kitabu Learning',
+    url: '/media/podcasts/photosynthesis-for-kids.mp4',
+  },
+];
 export const INITIAL_TEACHER_STUDENTS: StudentPerformance[] = [
   {
     id: 'student-amina-otieno',

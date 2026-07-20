@@ -123,6 +123,7 @@ const configSchema = z.object({
   KITABU_MPESA_ACCOUNT_REFERENCE: z.string().default('Kitabu AI'),
   KITABU_MPESA_TRANSACTION_DESC: z.string().default('Kitabu Subscription'),
   KITABU_MPESA_STK_TIMEOUT_MINUTES: z.coerce.number().int().positive().default(10),
+  KITABU_MPESA_PROVIDER_TIMEOUT_MS: z.coerce.number().int().min(1_000).max(30_000).default(10_000),
   KITABU_MUFASA_TELEMETRY_URL: z.string().url().optional(),
   KITABU_MUFASA_TELEMETRY_HMAC_SECRET: z.string().optional(),
   KITABU_MUFASA_PHONE_HMAC_SECRET: z.string().optional(),

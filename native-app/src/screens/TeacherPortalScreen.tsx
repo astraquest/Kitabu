@@ -24,10 +24,19 @@ import {
   ChevronDown,
   ChevronLeft,
   ChevronRight,
+  FileText,
   Flag,
+  GraduationCap,
   Home,
+  ImageIcon,
+  Inbox,
+  Info,
+  Link2,
   MessageSquareText,
+  MessageCircle,
+  Paperclip,
   Pencil,
+  Send,
   UserRound,
   Users,
   X,
@@ -700,6 +709,35 @@ export function TeacherPortalScreen({
     );
   }
 
+  function renderTopNav() {
+    return (
+      <View style={portalStyles.listPortalHeader}>
+        <View accessibilityLabel="Kitabu AI logo" style={portalStyles.headerLogoBadge}>
+          <Image source={logoAsset} style={portalStyles.headerLogoImage} resizeMode="contain" />
+        </View>
+        <View style={portalStyles.titleBlock}>
+          <Text
+            adjustsFontSizeToFit
+            minimumFontScale={0.78}
+            numberOfLines={1}
+            style={portalStyles.headerTitle}>
+            Teacher's Portal
+          </Text>
+        </View>
+        <View style={portalStyles.portalActionGroup}>
+          <Pressable
+            accessibilityLabel="Open teacher profile"
+            onPress={() => setPortalView('profile')}
+            style={portalStyles.portalProfileButton}>
+            <Text style={portalStyles.portalProfileInitials}>
+              {getInitials(profileName || 'Teacher')}
+            </Text>
+          </Pressable>
+        </View>
+      </View>
+    );
+  }
+
   function renderBottomNav(activeItem: TeacherBottomNavItem) {
     return (
       <View style={portalStyles.bottomNav}>
@@ -879,42 +917,18 @@ export function TeacherPortalScreen({
             grades={teacherGradeOptions}
             subjects={taughtSubjects}
             bottomNav={renderBottomNav('lessonPlan')}
-            onBack={() => setPortalView(tab)}
+            topNav={renderTopNav()}
           />
         ) : portalView === 'messages' ? (
           <TeacherMessagesView
             grade={selectedGrade}
             grades={teacherGradeOptions}
-            students={students}
             bottomNav={renderBottomNav('messages')}
-            onBack={() => setPortalView(tab)}
+            topNav={renderTopNav()}
           />
         ) : (
           <View style={portalStyles.teacherListPortal}>
-            <View style={portalStyles.listPortalHeader}>
-              <View accessibilityLabel="Kitabu AI logo" style={portalStyles.headerLogoBadge}>
-                <Image source={logoAsset} style={portalStyles.headerLogoImage} resizeMode="contain" />
-              </View>
-              <View style={portalStyles.titleBlock}>
-                <Text
-                  adjustsFontSizeToFit
-                  minimumFontScale={0.78}
-                  numberOfLines={1}
-                  style={portalStyles.headerTitle}>
-                  Teacher's Portal
-                </Text>
-              </View>
-              <View style={portalStyles.portalActionGroup}>
-                <Pressable
-                  accessibilityLabel="Open teacher profile"
-                  onPress={() => setPortalView('profile')}
-                  style={portalStyles.portalProfileButton}>
-                  <Text style={portalStyles.portalProfileInitials}>
-                    {getInitials(profileName || 'Teacher')}
-                  </Text>
-                </Pressable>
-              </View>
-            </View>
+            {renderTopNav()}
 
             <View style={portalStyles.segmented}>
               {(['students', 'assignments'] as const).map(value => (
@@ -1210,6 +1224,11 @@ function TeacherProfileView({
 }) {
   const [countryMenuOpen, setCountryMenuOpen] = useState(false);
   const [editOpen, setEditOpen] = useState(false);
+  const {
+    anchor: countryMenuAnchor,
+    anchorRef: countryMenuAnchorRef,
+    toggle: toggleCountryMenu,
+  } = useFloatingDropdownAnchor(countryMenuOpen, () => setCountryMenuOpen(open => !open));
   const countryConfig = COUNTRY_OPTIONS.find(option => option.code === countryCode) ?? COUNTRY_OPTIONS[0];
   const regionMeta = REGIONS_BY_COUNTRY[countryConfig.code] ?? REGIONS_BY_COUNTRY.KE;
   const prioritizedRegions = useMemo(
@@ -1227,20 +1246,25 @@ function TeacherProfileView({
         <View style={s.profileCountryWrap}>
           <Pressable
             accessibilityLabel="Select country"
-            onPress={() => setCountryMenuOpen(open => !open)}
+            onPress={toggleCountryMenu}
+            ref={countryMenuAnchorRef}
             style={s.profileCountryButton}>
             <Text style={s.profileCountryFlag}>{countryConfig.flag}</Text>
             <ChevronDown size={13} color="#6B7280" />
           </Pressable>
-          {countryMenuOpen ? (
-            <View style={s.profileCountryMenu}>
+          <FloatingDropdownModal
+            anchor={countryMenuAnchor}
+            label="Country"
+            onClose={toggleCountryMenu}
+            visible={countryMenuOpen}>
+            <View>
               {COUNTRY_OPTIONS.map(option => (
                 <Pressable
                   key={option.code}
-                onPress={() => {
-                  onChangeCountry(option.code);
-                  setCountryMenuOpen(false);
-                }}
+                  onPress={() => {
+                    onChangeCountry(option.code);
+                    setCountryMenuOpen(false);
+                  }}
                   style={[
                     s.profileCountryItem,
                     countryCode === option.code && s.profileCountryItemActive,
@@ -1256,7 +1280,7 @@ function TeacherProfileView({
                 </Pressable>
               ))}
             </View>
-          ) : null}
+          </FloatingDropdownModal>
         </View>
       </View>
       <ScrollView contentContainerStyle={s.content}>
@@ -1594,13 +1618,13 @@ function TeacherLessonPlanView({
   grades,
   subjects,
   bottomNav,
-  onBack,
+  topNav,
 }: {
   grade: string;
   grades: readonly string[];
   subjects: string[];
   bottomNav?: React.ReactNode;
-  onBack: () => void;
+  topNav?: React.ReactNode;
 }) {
   const gradeOptions = grades.length > 0 ? grades : [grade];
   const subjectOptions = subjects.length > 0 ? subjects : TEACHER_SUBJECTS.slice(0, 4);
@@ -1728,14 +1752,7 @@ function TeacherLessonPlanView({
 
   return (
     <View style={s.teacherListPortal}>
-      <View style={s.listPortalHeader}>
-        <Pressable onPress={onBack} style={s.back}>
-          <ChevronLeft size={24} color="#FF4B10" />
-          <Text style={s.backTextOrange}>Back</Text>
-        </Pressable>
-        <Text style={s.headerTitle}>Lesson Plan</Text>
-        <View style={s.spacer} />
-      </View>
+      {topNav}
       <ScrollView contentContainerStyle={s.lessonPlanContent}>
         <LinearGradient
           colors={['#FF8A3D', '#FF5710']}
@@ -1989,6 +2006,116 @@ function LessonStat({ label, value }: { label: string; value: number }) {
   );
 }
 
+type DropdownAnchor = { height: number; width: number; x: number; y: number };
+
+function useFloatingDropdownAnchor(open: boolean, onToggle: () => void) {
+  const anchorRef = useRef<View>(null);
+  const [anchor, setAnchor] = useState<DropdownAnchor>({
+    height: 44,
+    width: Math.min(320, SCREEN.width - 24),
+    x: 12,
+    y: 80,
+  });
+
+  const toggle = useCallback(() => {
+    if (open) {
+      onToggle();
+      return;
+    }
+
+    const anchorNode = anchorRef.current;
+    if (!anchorNode?.measureInWindow) {
+      onToggle();
+      return;
+    }
+
+    let didMeasure = false;
+    const fallbackTimer = setTimeout(() => {
+      if (!didMeasure) {
+        onToggle();
+      }
+    }, 50);
+
+    anchorNode.measureInWindow((x, y, width, height) => {
+      didMeasure = true;
+      clearTimeout(fallbackTimer);
+      setAnchor({ height, width, x, y });
+      onToggle();
+    });
+  }, [onToggle, open]);
+
+  return { anchor, anchorRef, toggle };
+}
+
+function FloatingDropdownModal({
+  anchor,
+  children,
+  label,
+  onClose,
+  visible,
+}: {
+  anchor: DropdownAnchor;
+  children: React.ReactNode;
+  label: string;
+  onClose: () => void;
+  visible: boolean;
+}) {
+  const title = label.toLowerCase().startsWith('select ') ? label : `Select ${label}`;
+  const windowSize = Dimensions.get('window');
+  const gutter = 12;
+  const menuWidth = Math.min(Math.max(anchor.width, 240), windowSize.width - gutter * 2);
+  const left = Math.max(
+    gutter,
+    Math.min(anchor.x, windowSize.width - menuWidth - gutter),
+  );
+  const belowTop = anchor.y + anchor.height + 6;
+  const spaceBelow = windowSize.height - belowTop - gutter;
+  const openAbove = spaceBelow < 220 && anchor.y > spaceBelow;
+  const availableHeight = openAbove ? anchor.y - gutter * 2 : spaceBelow;
+  const placementStyle = openAbove
+    ? {
+        bottom: windowSize.height - anchor.y + 6,
+        left,
+        maxHeight: Math.min(320, Math.max(150, availableHeight)),
+        width: menuWidth,
+      }
+    : {
+        left,
+        maxHeight: Math.min(320, Math.max(150, availableHeight)),
+        top: belowTop,
+        width: menuWidth,
+      };
+
+  return (
+    <Modal
+      animationType="fade"
+      onRequestClose={onClose}
+      statusBarTranslucent
+      transparent
+      visible={visible}>
+      <View style={s.dropdownModalBackdrop}>
+        <Pressable
+          accessibilityLabel={`Close ${label} dropdown`}
+          onPress={onClose}
+          style={StyleSheet.absoluteFillObject}
+        />
+        <View style={[s.dropdownModalCard, placementStyle]}>
+          <View style={s.dropdownModalHeader}>
+            <Text style={s.dropdownModalTitle}>{title}</Text>
+            <Pressable
+              accessibilityLabel={`Close ${label} dropdown`}
+              onPress={onClose}
+              style={s.dropdownModalClose}>
+              <X color="#5F6C83" size={19} strokeWidth={2.5} />
+            </Pressable>
+          </View>
+          <ScrollView style={s.dropdownModalOptions}>{children}</ScrollView>
+        </View>
+      </View>
+    </Modal>
+  );
+}
+
 function LessonSelect({
   label,
   open,
@@ -2006,17 +2133,23 @@ function LessonSelect({
   onSelect: (value: string) => void;
   onToggle: () => void;
 }) {
+  const { anchor, anchorRef, toggle } = useFloatingDropdownAnchor(open, onToggle);
+
   return (
     <View style={[s.lessonSelectWrap, { zIndex }]}>
       <Text style={s.lessonFieldLabel}>{label}</Text>
-      <Pressable onPress={onToggle} style={s.lessonSelectButton}>
+      <Pressable
+        accessibilityLabel={`${label} dropdown`}
+        onPress={toggle}
+        ref={anchorRef}
+        style={s.lessonSelectButton}>
         <Text numberOfLines={1} style={s.lessonSelectText}>
           {value}
         </Text>
         <ChevronDown color="#111827" size={16} strokeWidth={2.7} />
       </Pressable>
-      {open ? (
-        <View style={s.lessonSelectMenu}>
+      <FloatingDropdownModal anchor={anchor} label={label} onClose={toggle} visible={open}>
+        <View>
           {options.map(option => (
             <Pressable
               key={option}
@@ -2032,7 +2165,7 @@ function LessonSelect({
             </Pressable>
           ))}
         </View>
-      ) : null}
+      </FloatingDropdownModal>
     </View>
   );
 }
@@ -2067,22 +2200,16 @@ function buildLessonFlow(minutes: number, style: string) {
 function TeacherMessagesView({
   grade,
   grades,
-  students,
   bottomNav,
-  onBack,
+  topNav,
 }: {
   grade: string;
   grades: string[];
-  students: StudentPerformance[];
   bottomNav?: React.ReactNode;
-  onBack: () => void;
+  topNav?: React.ReactNode;
 }) {
   const [selectedGrade, setSelectedGrade] = useState(grade);
   const gradeOptions = grades.length > 0 ? grades : [grade];
-  const gradeStudentCount = students.filter(item => item.grade === selectedGrade).length;
-  const supportCount = students.filter(
-    item => item.grade === selectedGrade && item.assessmentScore < 70,
-  ).length;
   const [parents, setParents] = useState<TeacherParentContact[]>([]);
   const [messages, setMessages] = useState<TeacherParentMessage[]>([]);
   const [audienceMode, setAudienceMode] = useState<MessageAudienceMode>('grade');
@@ -2102,7 +2229,7 @@ function TeacherMessagesView({
     label: parent.name,
     meta: `${parent.child_count} ${parent.child_count === 1 ? 'child' : 'children'} linked`,
   }));
-  const parentCountLabel = `${parents.length} ${parents.length === 1 ? 'parent' : 'parents'}`;
+  const parentAccountLabel = `${parents.length} parent account${parents.length === 1 ? '' : 's'}`;
 
   const loadMessages = useCallback(async () => {
     setIsLoading(true);
@@ -2150,10 +2277,19 @@ function TeacherMessagesView({
     setParentMenuOpen(false);
   }
 
+  function selectOneParent() {
+    setAudienceMode('parent');
+    setGradeMenuOpen(false);
+  }
+
   function selectParent(parentId: string) {
     setAudienceMode('parent');
     setSelectedParentId(parentId);
     setParentMenuOpen(false);
+  }
+
+  function applyMessageTemplate() {
+    setDraft(`Hello ${selectedGrade} parents, this is a reminder that `);
   }
 
   async function sendMessage() {
@@ -2196,79 +2332,104 @@ function TeacherMessagesView({
   }
 
   return (
-    <View style={s.teacherListPortal}>
-      <View style={s.listPortalHeader}>
-        <Pressable onPress={onBack} style={s.back}>
-          <ChevronLeft size={24} color="#FF4B10" />
-          <Text style={s.backTextOrange}>Back</Text>
-        </Pressable>
-        <Text style={s.headerTitle}>Messages</Text>
-        <View style={s.spacer} />
-      </View>
-      <ScrollView contentContainerStyle={s.teacherMessagesContent}>
-        <View style={s.messageControlCard}>
-          <View style={s.cardHeader}>
-            <View>
-              <Text style={s.cardHeaderText}>Parent Messaging</Text>
-              <Text style={s.messageHeaderSubline}>
-                {isLoading
-                  ? 'Loading recipients...'
-                  : parents.length === 0
-                    ? `No parents linked to ${selectedGrade} yet`
-                    : `${parentCountLabel} reachable in ${selectedGrade}`}
-              </Text>
-            </View>
-            <Text style={s.cardHeaderMeta}>
-              {audienceMode === 'parent' && selectedParent
-                ? 'Parent selected'
-                : `${gradeStudentCount} learner${gradeStudentCount === 1 ? '' : 's'}`}
+    <View style={[s.teacherListPortal, s.messagesPage]}>
+      {topNav}
+
+      <ScrollView
+        contentContainerStyle={s.teacherMessagesContent}
+        keyboardShouldPersistTaps="handled">
+        <View style={s.messageSectionCard}>
+          <Text style={s.messageSectionTitle}>1. Select grade</Text>
+          <MessageDropdown
+            hideLabel
+            label="Grade"
+            leadingIcon={<GraduationCap color="#FF5A1F" size={24} strokeWidth={2.2} />}
+            open={gradeMenuOpen}
+            options={gradeDropdownOptions}
+            value={selectedGrade}
+            onSelect={selectGrade}
+            onToggle={() => {
+              setGradeMenuOpen(open => !open);
+              setParentMenuOpen(false);
+            }}
+          />
+
+          <View style={s.messageRecipientSummary}>
+            <Info color="#FF5A1F" size={19} strokeWidth={2.3} />
+            <Text style={s.messageRecipientSummaryText}>
+              {audienceMode === 'parent'
+                ? selectedParent
+                  ? `This message will go only to ${selectedParent.name}.`
+                  : 'Choose a parent below to send an individual note.'
+                : `This message will go to all parent accounts linked to ${selectedGrade}.`}
             </Text>
           </View>
+        </View>
 
-          <View style={s.messageSetupBlock}>
-            <MessageDropdown
-              label="Grade"
-              open={gradeMenuOpen}
-              options={gradeDropdownOptions}
-              value={selectedGrade}
-              onSelect={selectGrade}
-              onToggle={() => {
-                setGradeMenuOpen(open => !open);
-                setParentMenuOpen(false);
-              }}
-            />
-
-            <Text style={s.messageComposerLabel}>Send to</Text>
-            <View style={s.messageAudienceModeRow}>
-              <Pressable
-                accessibilityLabel={`Send to all parents in ${selectedGrade}`}
-                onPress={selectAllParents}
-                style={[
-                  s.messageAudienceModeButton,
-                  audienceMode === 'grade' && s.messageAudienceModeButtonActive,
-                ]}>
-                <Users
-                  color={audienceMode === 'grade' ? '#FFFFFF' : '#0F172A'}
-                  size={17}
-                  strokeWidth={2.5}
-                />
-                <Text
-                  style={[
-                    s.messageAudienceModeText,
-                    audienceMode === 'grade' && s.messageAudienceModeTextActive,
-                  ]}>
-                  All {selectedGrade} parents
+        <View style={s.messageSectionCard}>
+          <Text style={s.messageSectionTitle}>2. Who do you want to message?</Text>
+          <View style={s.messageAudienceCards}>
+            <Pressable
+              accessibilityLabel={`Send to all parents in ${selectedGrade}`}
+              onPress={selectAllParents}
+              style={[
+                s.messageAudienceCard,
+                audienceMode === 'grade' && s.messageAudienceCardActive,
+              ]}>
+              <Users
+                color={audienceMode === 'grade' ? '#FF5A1F' : '#5F6C83'}
+                size={25}
+                strokeWidth={2.2}
+              />
+              <View style={s.messageAudienceCardCopy}>
+                <Text style={s.messageAudienceCardTitle}>All {selectedGrade} parents</Text>
+                <Text style={s.messageAudienceCardMeta}>
+                  {isLoading ? 'Loading recipients...' : `Send to ${parentAccountLabel}`}
                 </Text>
-              </Pressable>
-            </View>
+              </View>
+              <View
+                style={[
+                  s.messageRadio,
+                  audienceMode === 'grade' && s.messageRadioActive,
+                ]}>
+                {audienceMode === 'grade' ? <View style={s.messageRadioDot} /> : null}
+              </View>
+            </Pressable>
 
+            <Pressable
+              accessibilityLabel="Send to one parent"
+              onPress={selectOneParent}
+              style={[
+                s.messageAudienceCard,
+                audienceMode === 'parent' && s.messageAudienceCardActive,
+              ]}>
+              <MessageCircle
+                color={audienceMode === 'parent' ? '#FF5A1F' : '#5F6C83'}
+                size={25}
+                strokeWidth={2.2}
+              />
+              <View style={s.messageAudienceCardCopy}>
+                <Text style={s.messageAudienceCardTitle}>One parent</Text>
+                <Text style={s.messageAudienceCardMeta}>Choose a specific parent</Text>
+              </View>
+              <View
+                style={[
+                  s.messageRadio,
+                  audienceMode === 'parent' && s.messageRadioActive,
+                ]}>
+                {audienceMode === 'parent' ? <View style={s.messageRadioDot} /> : null}
+              </View>
+            </Pressable>
+          </View>
+
+          {audienceMode === 'parent' ? (
             <MessageDropdown
-              active={audienceMode === 'parent'}
+              active
               emptyText={parents.length > 0 ? 'Choose a parent' : 'No parents found for this grade'}
               label="Select parent"
               open={parentMenuOpen}
               options={parentDropdownOptions}
-              value={audienceMode === 'parent' ? selectedParentId : ''}
+              value={selectedParentId}
               onSelect={selectParent}
               onToggle={() => {
                 if (parents.length > 0) {
@@ -2277,115 +2438,136 @@ function TeacherMessagesView({
                 }
               }}
             />
+          ) : null}
+        </View>
 
-            <View style={s.messageRecipientSummary}>
-              <Text style={s.messageRecipientSummaryText}>
-                {audienceMode === 'parent'
-                  ? selectedParent
-                    ? `This note will go only to ${selectedParent.name}.`
-                    : 'Choose a parent to send an individual note.'
-                  : `This note will go to all parent accounts linked to ${selectedGrade}.`}
-              </Text>
-            </View>
+        <View style={s.messageSectionCard}>
+          <View style={s.messageComposerHeading}>
+            <Text style={s.messageSectionTitle}>3. Write your message</Text>
+            <Pressable
+              accessibilityLabel="Use message template"
+              onPress={applyMessageTemplate}
+              style={s.messageTemplateButton}>
+              <FileText color="#209653" size={16} strokeWidth={2.4} />
+              <Text style={s.messageTemplateText}>Use template</Text>
+            </Pressable>
           </View>
 
-          <View style={s.messageComposer}>
-            <Text style={s.messageComposerLabel}>
-              {audienceMode === 'parent' && selectedParent
-                ? `Message ${selectedParent.name}`
-                : `Message all ${selectedGrade} parents`}
-            </Text>
+          <View style={s.messageInputShell}>
             <TextInput
+              maxLength={1000}
               multiline
               onChangeText={setDraft}
-              placeholder={
-                supportCount > 0
-                  ? `Example: ${supportCount} learners need revision support this week...`
-                  : 'Write a class update, reminder, or individual note...'
-              }
-              placeholderTextColor="#8A94A6"
+              placeholder="Write a class update, reminder, or individual note..."
+              placeholderTextColor="#7B879C"
               style={s.messageInput}
               value={draft}
             />
+            <Text style={s.messageCharacterCount}>{draft.length}/1000</Text>
+          </View>
+
+          <View style={s.messageComposerFooter}>
+            <View style={s.messageAttachmentRow}>
+              <View style={s.messageAttachmentChip}>
+                <Paperclip color="#738096" size={15} strokeWidth={2.2} />
+                <Text style={s.messageAttachmentText}>Attach file</Text>
+              </View>
+              <View style={s.messageAttachmentChip}>
+                <ImageIcon color="#738096" size={15} strokeWidth={2.2} />
+                <Text style={s.messageAttachmentText}>Add image</Text>
+              </View>
+              <View style={s.messageAttachmentChip}>
+                <Link2 color="#738096" size={15} strokeWidth={2.2} />
+                <Text style={s.messageAttachmentText}>Add link</Text>
+              </View>
+            </View>
+
             <Pressable
+              accessibilityLabel="Send message to selected recipients"
               disabled={isSendingMessage || !canSend}
               onPress={sendMessage}
               style={[
                 s.messageSendButton,
                 (isSendingMessage || !canSend) && s.lessonButtonDisabled,
               ]}>
+              <Send color="#FFFFFF" size={20} strokeWidth={2.3} />
               <Text style={s.messageSendText}>
-                {isSendingMessage
-                  ? 'Sending...'
-                  : audienceMode === 'parent'
-                    ? 'Send to Parent'
-                    : 'Send to Grade'}
+                {isSendingMessage ? 'Sending...' : 'Send Message'}
               </Text>
             </Pressable>
           </View>
+        </View>
 
-          <View style={s.messageThread}>
-            {messages.length === 0 ? (
-              <View style={s.messageEmptyState}>
-                <Text style={s.rowTitle}>No messages yet</Text>
-                <Text style={s.rowMeta}>
-                  Messages sent here are saved and visible to the intended parent accounts.
-                </Text>
+        <View style={s.messageHistoryCard}>
+          {isLoading ? (
+            <View style={s.messageEmptyState}>
+              <Inbox color="#2470C7" size={34} strokeWidth={2.1} />
+              <View style={s.messageEmptyCopy}>
+                <Text style={s.rowTitle}>Loading messages...</Text>
+                <Text style={s.rowMeta}>Checking your parent message history.</Text>
               </View>
-            ) : (
-              messages.map(message => {
-                const fromTeacher = message.sender_user_id === message.teacher_user_id;
-                return (
-                  <View
-                    key={message.id}
-                    style={[
-                      s.messageBubble,
-                      fromTeacher ? s.messageBubbleTeacher : s.messageBubbleParent,
-                    ]}>
-                    <Text style={s.messageBubbleSender}>{message.sender_name}</Text>
-                    <Text style={s.messageBubbleBody}>{message.body}</Text>
-                    <View style={s.messageBubbleMetaRow}>
-                      <Text style={s.messageBubbleTime}>
-                        {new Date(message.created_at).toLocaleString('en-KE', {
-                          day: 'numeric',
-                          month: 'short',
-                          hour: '2-digit',
-                          minute: '2-digit',
-                        })}
-                      </Text>
-                      <Pressable
-                        accessibilityLabel={
-                          reportedMessageIds[message.id] ? 'Message reported' : 'Report message'
-                        }
-                        disabled={reportingMessageId === message.id || reportedMessageIds[message.id]}
-                        onPress={() => reportMessage(message)}
+            </View>
+          ) : messages.length === 0 ? (
+            <View style={s.messageEmptyState}>
+              <Inbox color="#2470C7" size={34} strokeWidth={2.1} />
+              <View style={s.messageEmptyCopy}>
+                <Text style={s.rowTitle}>No messages yet</Text>
+                <Text style={s.rowMeta}>Messages you send will appear here for your records.</Text>
+              </View>
+            </View>
+          ) : (
+            messages.map(message => {
+              const fromTeacher = message.sender_user_id === message.teacher_user_id;
+              return (
+                <View
+                  key={message.id}
+                  style={[
+                    s.messageBubble,
+                    fromTeacher ? s.messageBubbleTeacher : s.messageBubbleParent,
+                  ]}>
+                  <Text style={s.messageBubbleSender}>{message.sender_name}</Text>
+                  <Text style={s.messageBubbleBody}>{message.body}</Text>
+                  <View style={s.messageBubbleMetaRow}>
+                    <Text style={s.messageBubbleTime}>
+                      {new Date(message.created_at).toLocaleString('en-KE', {
+                        day: 'numeric',
+                        month: 'short',
+                        hour: '2-digit',
+                        minute: '2-digit',
+                      })}
+                    </Text>
+                    <Pressable
+                      accessibilityLabel={
+                        reportedMessageIds[message.id] ? 'Message reported' : 'Report message'
+                      }
+                      disabled={reportingMessageId === message.id || reportedMessageIds[message.id]}
+                      onPress={() => reportMessage(message)}
+                      style={[
+                        s.messageReportButton,
+                        reportedMessageIds[message.id] && s.messageReportButtonSubmitted,
+                      ]}>
+                      <Flag
+                        color={reportedMessageIds[message.id] ? '#16A34A' : '#64748B'}
+                        size={12}
+                        strokeWidth={2.4}
+                      />
+                      <Text
                         style={[
-                          s.messageReportButton,
-                          reportedMessageIds[message.id] && s.messageReportButtonSubmitted,
+                          s.messageReportText,
+                          reportedMessageIds[message.id] && s.messageReportTextSubmitted,
                         ]}>
-                        <Flag
-                          color={reportedMessageIds[message.id] ? '#16A34A' : '#64748B'}
-                          size={12}
-                          strokeWidth={2.4}
-                        />
-                        <Text
-                          style={[
-                            s.messageReportText,
-                            reportedMessageIds[message.id] && s.messageReportTextSubmitted,
-                          ]}>
-                          {reportedMessageIds[message.id]
-                            ? 'Reported'
-                            : reportingMessageId === message.id
-                              ? 'Reporting...'
-                              : 'Report'}
-                        </Text>
-                      </Pressable>
-                    </View>
+                        {reportedMessageIds[message.id]
+                          ? 'Reported'
+                          : reportingMessageId === message.id
+                            ? 'Reporting...'
+                            : 'Report'}
+                      </Text>
+                    </Pressable>
                   </View>
-                );
-              })
-            )}
-          </View>
+                </View>
+              );
+            })
+          )}
         </View>
       </ScrollView>
       {bottomNav}
@@ -2396,7 +2578,9 @@ function TeacherMessagesView({
 function MessageDropdown({
   active = false,
   emptyText = 'No options available',
+  hideLabel = false,
   label,
+  leadingIcon,
   open,
   options,
   value,
@@ -2405,7 +2589,9 @@ function MessageDropdown({
 }: {
   active?: boolean;
   emptyText?: string;
+  hideLabel?: boolean;
   label: string;
+  leadingIcon?: React.ReactNode;
   open: boolean;
   options: MessageDropdownOption[];
   value: string;
@@ -2414,33 +2600,42 @@ function MessageDropdown({
 }) {
   const selectedOption = options.find(option => option.value === value);
   const disabled = options.length === 0;
+  const { anchor, anchorRef, toggle } = useFloatingDropdownAnchor(open, onToggle);
 
   return (
     <View style={s.messageDropdownWrap}>
-      <Text style={s.messageComposerLabel}>{label}</Text>
+      {!hideLabel ? <Text style={s.messageDropdownLabel}>{label}</Text> : null}
       <Pressable
         accessibilityLabel={`${label} dropdown`}
         disabled={disabled}
-        onPress={onToggle}
+        onPress={toggle}
+        ref={anchorRef}
         style={[
           s.messageDropdownButton,
           active && s.messageDropdownButtonActive,
           disabled && s.lessonButtonDisabled,
         ]}>
-        <View style={s.rowMain}>
-          <Text numberOfLines={1} style={s.messageDropdownValue}>
-            {selectedOption?.label || emptyText}
-          </Text>
-          {selectedOption?.meta ? (
-            <Text numberOfLines={1} style={s.messageDropdownMeta}>
-              {selectedOption.meta}
+        <View style={s.messageDropdownMain}>
+          {leadingIcon}
+          <View style={s.rowMain}>
+            <Text numberOfLines={1} style={s.messageDropdownValue}>
+              {selectedOption?.label || emptyText}
             </Text>
-          ) : null}
+            {selectedOption?.meta ? (
+              <Text numberOfLines={1} style={s.messageDropdownMeta}>
+                {selectedOption.meta}
+              </Text>
+            ) : null}
+          </View>
         </View>
-        <ChevronDown color="#111827" size={17} strokeWidth={2.6} />
+        <ChevronDown color="#5F6C83" size={18} strokeWidth={2.6} />
       </Pressable>
-      {open && !disabled ? (
-        <ScrollView nestedScrollEnabled style={s.messageDropdownMenu}>
+      <FloatingDropdownModal
+        anchor={anchor}
+        label={label}
+        onClose={toggle}
+        visible={open && !disabled}>
+        <View>
           {options.map(option => {
             const optionActive = option.value === value;
             return (
@@ -2466,8 +2661,8 @@ function MessageDropdown({
               </Pressable>
             );
           })}
-        </ScrollView>
-      ) : null}
+        </View>
+      </FloatingDropdownModal>
     </View>
   );
 }
@@ -2969,9 +3164,9 @@ function createTeacherPortalStyles(): Record<string, any> {
     spineBlue: { backgroundColor: '#3B82F6' },
     spineGreen: { backgroundColor: '#22C55E' },
     spineOrange: { backgroundColor: '#FB923C' },
-    spinePurple: { backgroundColor: '#A855F7' },
+    spinePurple: { backgroundColor: '#15803D' },
     spineTeal: { backgroundColor: '#14B8A6' },
-    subjectPurple: { backgroundColor: '#F3E8FF', color: '#7E22CE' },
+    subjectPurple: { backgroundColor: '#DCFCE7', color: '#15803D' },
     subjectTeal: { backgroundColor: '#CCFBF1', color: '#0F766E' },
     assignmentTitle: [s.assignmentTitle, { color: palette.text }],
     assignmentMeta: [s.assignmentMeta, { color: palette.muted }],
@@ -4437,21 +4632,47 @@ const s = StyleSheet.create({
     fontWeight: '900',
     marginRight: 8,
   },
-  lessonSelectMenu: {
+  dropdownModalBackdrop: {
+    backgroundColor: 'rgba(15, 23, 42, 0.16)',
+    flex: 1,
+  },
+  dropdownModalCard: {
     backgroundColor: '#FFFFFF',
-    borderColor: '#D4DDE9',
-    borderRadius: 12,
+    borderColor: '#D8E0EA',
+    borderRadius: 18,
     borderWidth: 1,
-    elevation: 16,
-    left: 0,
+    elevation: 18,
     overflow: 'hidden',
     position: 'absolute',
-    right: 0,
     shadowColor: '#172235',
-    shadowOffset: { width: 0, height: 10 },
-    shadowOpacity: 0.16,
-    shadowRadius: 18,
-    top: 68,
+    shadowOffset: { width: 0, height: 14 },
+    shadowOpacity: 0.2,
+    shadowRadius: 24,
+  },
+  dropdownModalHeader: {
+    alignItems: 'center',
+    borderBottomColor: '#EEF2F7',
+    borderBottomWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    minHeight: 54,
+    paddingHorizontal: 16,
+  },
+  dropdownModalTitle: {
+    color: '#07142B',
+    fontSize: 16,
+    fontWeight: '900',
+  },
+  dropdownModalClose: {
+    alignItems: 'center',
+    backgroundColor: '#F4F6F9',
+    borderRadius: 16,
+    height: 32,
+    justifyContent: 'center',
+    width: 32,
+  },
+  dropdownModalOptions: {
+    flexShrink: 1,
   },
   lessonSelectOption: {
     borderBottomColor: '#EEF2F7',
@@ -4729,104 +4950,146 @@ const s = StyleSheet.create({
     color: '#FFFFFF',
   },
   teacherMessagesContent: {
-    gap: 14,
-    padding: 16,
+    backgroundColor: '#FBFCFE',
+    gap: 12,
     paddingBottom: 104,
-    paddingTop: 10,
+    paddingHorizontal: 13,
+    paddingTop: 14,
   },
-  messageControlCard: {
+  messagesPage: {
+    backgroundColor: '#FBFCFE',
+  },
+  messageSectionCard: {
     backgroundColor: '#FFFFFF',
-    borderColor: '#DCE3EC',
-    borderRadius: 18,
+    borderColor: '#DEE5EE',
+    borderRadius: 17,
     borderWidth: 1,
-    overflow: 'visible',
-    shadowColor: '#0F172A',
-    shadowOffset: { width: 0, height: 8 },
-    shadowOpacity: 0.06,
-    shadowRadius: 18,
-  },
-  messageHeaderSubline: {
-    color: '#667085',
-    fontSize: 11.5,
-    fontWeight: '800',
-    marginTop: 2,
-  },
-  messageSetupBlock: {
-    gap: 11,
+    gap: 12,
     padding: 14,
-    position: 'relative',
-    zIndex: 4,
+    shadowColor: '#0F172A',
+    shadowOffset: { width: 0, height: 5 },
+    shadowOpacity: 0.04,
+    shadowRadius: 12,
   },
-  messageAudienceModeRow: {
+  messageSectionTitle: {
+    color: '#07142B',
+    fontSize: 15.5,
+    fontWeight: '900',
+    lineHeight: 21,
+  },
+  messageAudienceCards: {
     flexDirection: 'row',
     gap: 9,
   },
-  messageAudienceModeButton: {
+  messageAudienceCard: {
     alignItems: 'center',
-    backgroundColor: '#F8FAFC',
-    borderColor: '#DCE3EC',
+    backgroundColor: '#FFFFFF',
+    borderColor: '#D8E0EA',
     borderRadius: 14,
     borderWidth: 1,
     flex: 1,
-    flexDirection: 'row',
-    gap: 7,
-    justifyContent: 'center',
-    minHeight: 45,
+    gap: 8,
+    minHeight: 106,
     paddingHorizontal: 10,
+    paddingVertical: 12,
+    position: 'relative',
   },
-  messageAudienceModeButtonActive: {
-    backgroundColor: '#FF6B1A',
-    borderColor: '#FF6B1A',
+  messageAudienceCardActive: {
+    backgroundColor: '#FFF9F5',
+    borderColor: '#FF5A1F',
   },
-  messageAudienceModeText: {
-    color: '#0F172A',
-    flexShrink: 1,
+  messageAudienceCardCopy: {
+    alignItems: 'center',
+    minWidth: 0,
+  },
+  messageAudienceCardTitle: {
+    color: '#07142B',
     fontSize: 11.5,
     fontWeight: '900',
     textAlign: 'center',
   },
-  messageAudienceModeTextActive: {
-    color: '#FFFFFF',
+  messageAudienceCardMeta: {
+    color: '#6B7890',
+    fontSize: 9.5,
+    fontWeight: '600',
+    lineHeight: 13,
+    marginTop: 3,
+    textAlign: 'center',
+  },
+  messageRadio: {
+    alignItems: 'center',
+    borderColor: '#AAB5C7',
+    borderRadius: 10,
+    borderWidth: 2,
+    height: 20,
+    justifyContent: 'center',
+    position: 'absolute',
+    right: 8,
+    top: 8,
+    width: 20,
+  },
+  messageRadioActive: {
+    borderColor: '#FF5A1F',
+  },
+  messageRadioDot: {
+    backgroundColor: '#FF5A1F',
+    borderRadius: 5,
+    height: 10,
+    width: 10,
   },
   messageRecipientSummary: {
-    backgroundColor: '#FFF7ED',
-    borderColor: '#FED7AA',
-    borderRadius: 13,
-    borderWidth: 1,
+    alignItems: 'center',
+    backgroundColor: '#FFF5EF',
+    borderRadius: 12,
+    flexDirection: 'row',
+    gap: 8,
     paddingHorizontal: 12,
-    paddingVertical: 10,
+    paddingVertical: 11,
   },
   messageRecipientSummaryText: {
-    color: '#9A3412',
-    fontSize: 11.5,
-    fontWeight: '800',
+    color: '#7C3A24',
+    flex: 1,
+    fontSize: 10.5,
+    fontWeight: '700',
     lineHeight: 16,
   },
   messageDropdownWrap: {
-    gap: 7,
+    gap: 6,
     position: 'relative',
     zIndex: 5,
   },
+  messageDropdownLabel: {
+    color: '#07142B',
+    fontSize: 11.5,
+    fontWeight: '900',
+  },
   messageDropdownButton: {
     alignItems: 'center',
-    backgroundColor: '#F8FAFC',
-    borderColor: '#DCE3EC',
+    backgroundColor: '#FFFFFF',
+    borderColor: '#D8E0EA',
     borderRadius: 14,
     borderWidth: 1,
     flexDirection: 'row',
     gap: 9,
     justifyContent: 'space-between',
-    minHeight: 50,
-    paddingHorizontal: 12,
-    paddingVertical: 9,
+    minHeight: 56,
+    paddingHorizontal: 13,
+    paddingVertical: 10,
   },
   messageDropdownButtonActive: {
-    backgroundColor: '#FFF3EA',
-    borderColor: '#FF6B1A',
+    backgroundColor: '#FFF9F5',
+    borderColor: '#FF5A1F',
+  },
+  messageDropdownMain: {
+    alignItems: 'center',
+    flex: 1,
+    flexDirection: 'row',
+    gap: 10,
+    minWidth: 0,
   },
   messageDropdownValue: {
-    color: '#020617',
-    fontSize: 13.5,
+    color: '#07142B',
+    fontSize: 14,
     fontWeight: '900',
   },
   messageDropdownMeta: {
@@ -4834,15 +5097,6 @@ const s = StyleSheet.create({
     fontSize: 10.5,
     fontWeight: '700',
     marginTop: 2,
-  },
-  messageDropdownMenu: {
-    backgroundColor: '#FFFFFF',
-    borderColor: '#DCE3EC',
-    borderRadius: 14,
-    borderWidth: 1,
-    marginTop: 1,
-    maxHeight: 178,
-    overflow: 'hidden',
   },
   messageDropdownOption: {
     borderBottomColor: '#EEF2F7',
@@ -4868,60 +5122,109 @@ const s = StyleSheet.create({
     fontWeight: '700',
     marginTop: 2,
   },
-  messageComposer: {
-    borderTopColor: '#EEF2F7',
-    borderTopWidth: 1,
-    padding: 14,
+  messageComposerHeading: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
-  messageComposerLabel: {
-    color: '#475569',
-    fontSize: 11,
+  messageTemplateButton: {
+    alignItems: 'center',
+    backgroundColor: '#EEF9F1',
+    borderRadius: 10,
+    flexDirection: 'row',
+    gap: 6,
+    minHeight: 34,
+    paddingHorizontal: 10,
+  },
+  messageTemplateText: {
+    color: '#209653',
+    fontSize: 10.5,
     fontWeight: '900',
-    marginBottom: 8,
-    textTransform: 'uppercase',
+  },
+  messageInputShell: {
+    position: 'relative',
   },
   messageInput: {
-    backgroundColor: '#F8FAFC',
-    borderColor: '#DCE3EC',
+    backgroundColor: '#FFFFFF',
+    borderColor: '#D8E0EA',
     borderRadius: 13,
     borderWidth: 1,
-    color: '#020617',
-    fontSize: 13,
-    fontWeight: '700',
-    lineHeight: 18,
-    minHeight: 86,
+    color: '#07142B',
+    fontSize: 12.5,
+    fontWeight: '600',
+    lineHeight: 19,
+    minHeight: 124,
+    paddingBottom: 30,
     paddingHorizontal: 13,
     paddingVertical: 12,
     textAlignVertical: 'top',
   },
+  messageCharacterCount: {
+    bottom: 10,
+    color: '#718096',
+    fontSize: 10.5,
+    fontWeight: '700',
+    position: 'absolute',
+    right: 12,
+  },
+  messageComposerFooter: {
+    gap: 10,
+  },
+  messageAttachmentRow: {
+    flexDirection: 'row',
+    gap: 6,
+  },
+  messageAttachmentChip: {
+    alignItems: 'center',
+    backgroundColor: '#FAFBFC',
+    borderColor: '#E0E6EE',
+    borderRadius: 9,
+    borderWidth: 1,
+    flex: 1,
+    flexDirection: 'row',
+    gap: 5,
+    justifyContent: 'center',
+    minHeight: 35,
+    paddingHorizontal: 5,
+  },
+  messageAttachmentText: {
+    color: '#738096',
+    fontSize: 9.5,
+    fontWeight: '700',
+  },
   messageSendButton: {
     alignItems: 'center',
     alignSelf: 'flex-end',
-    backgroundColor: '#138A43',
+    backgroundColor: '#27A85B',
     borderRadius: 999,
+    flexDirection: 'row',
+    gap: 8,
     justifyContent: 'center',
-    marginTop: 10,
-    minHeight: 42,
-    minWidth: 104,
-    paddingHorizontal: 18,
+    minHeight: 46,
+    minWidth: 160,
+    paddingHorizontal: 20,
   },
   messageSendText: {
     color: '#FFFFFF',
-    fontSize: 13,
+    fontSize: 14,
     fontWeight: '900',
   },
-  messageThread: {
-    borderTopColor: '#EEF2F7',
-    borderTopWidth: 1,
+  messageHistoryCard: {
+    backgroundColor: '#F5FAFF',
+    borderColor: '#D9E9FA',
+    borderRadius: 16,
+    borderWidth: 1,
     gap: 10,
     padding: 14,
   },
   messageEmptyState: {
-    backgroundColor: '#F8FAFC',
-    borderColor: '#E3E8EF',
-    borderRadius: 13,
-    borderWidth: 1,
-    padding: 14,
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 12,
+  },
+  messageEmptyCopy: {
+    flex: 1,
+    minWidth: 0,
   },
   messageBubble: {
     borderRadius: 14,
@@ -5054,23 +5357,6 @@ const s = StyleSheet.create({
     width: 48,
   },
   profileCountryFlag: { fontSize: 21 },
-  profileCountryMenu: {
-    backgroundColor: '#FFFFFF',
-    borderColor: '#E5E7EB',
-    borderRadius: 16,
-    borderWidth: 1,
-    elevation: 10,
-    overflow: 'hidden',
-    position: 'absolute',
-    right: 0,
-    shadowColor: '#0F172A',
-    shadowOffset: { width: 0, height: 12 },
-    shadowOpacity: 0.14,
-    shadowRadius: 18,
-    top: 48,
-    width: 174,
-    zIndex: 60,
-  },
   profileCountryItem: {
     alignItems: 'center',
     flexDirection: 'row',

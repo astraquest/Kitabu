@@ -46,8 +46,8 @@ export function AvatarArt({ avatarKey, size = 72 }: AvatarArtProps) {
       <Svg width={size} height={size} viewBox="0 0 120 120">
         <Defs>
           <LinearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-            <Stop offset="0%" stopColor={isGirl ? '#7C3AED' : '#2563EB'} />
-            <Stop offset="100%" stopColor={isGirl ? '#EC4899' : '#06B6D4'} />
+            <Stop offset="0%" stopColor={isGirl ? '#F97316' : '#15803D'} />
+            <Stop offset="100%" stopColor={isGirl ? '#16A34A' : '#F97316'} />
           </LinearGradient>
           <LinearGradient id="shirt" x1="0%" y1="0%" x2="100%" y2="100%">
             <Stop offset="0%" stopColor={isGirl ? '#F97316' : '#10B981'} />

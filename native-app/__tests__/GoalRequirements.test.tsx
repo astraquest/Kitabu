@@ -303,7 +303,8 @@ test('homework list shows due reviews as pending homework items', async () => {
   });
 
   const text = renderedText(renderer!.root);
-  expect(text).toContain('Pending (1)');
+  expect(text).not.toContain('Pending (1)');
+  expect(text).not.toContain('Done');
   expect(text).toContain('Review Due');
   expect(text).toContain('Number Operations');
   expect(text).toContain('Start Review');
@@ -337,7 +338,8 @@ test('homework list shows available weekly exam as a homework item', async () =>
   });
 
   const text = renderedText(renderer!.root);
-  expect(text).toContain('Pending (1)');
+  expect(text).not.toContain('Pending (1)');
+  expect(text).not.toContain('Done');
   expect(text).toContain('Weekly Exam');
   expect(text).toContain('Grade 8 Weekly Challenge');
   expect(text).toContain('Start Exam');
@@ -350,6 +352,36 @@ test('homework list shows available weekly exam as a homework item', async () =>
   await act(() => examCard.props.onPress());
 
   expect(onOpenWeeklyExam).toHaveBeenCalledTimes(1);
+});
+
+test('homework list orders due assignments before submitted assignments', async () => {
+  let renderer: ReactTestRenderer.ReactTestRenderer;
+
+  await act(() => {
+    renderer = ReactTestRenderer.create(
+      <HomeworkListScreen
+        assignments={INITIAL_ASSIGNMENTS}
+        dueReviews={[]}
+        weeklyExam={null}
+        onBack={jest.fn()}
+        onStartAssignment={jest.fn()}
+        onStartReview={jest.fn()}
+        onOpenWeeklyExam={jest.fn()}
+      />,
+    );
+  });
+
+  const text = renderedText(renderer!.root);
+  expect(text).not.toContain('Pending (');
+  expect(text.indexOf('Fractions and Decimals Practice')).toBeLessThan(
+    text.indexOf('Cells and Body Systems'),
+  );
+  expect(text.indexOf('Cells and Body Systems')).toBeLessThan(
+    text.indexOf('Uandishi wa Insha Fupi'),
+  );
+  expect(text.indexOf('Uandishi wa Insha Fupi')).toBeLessThan(
+    text.indexOf('Reading Comprehension Check'),
+  );
 });
 
 test('sign-in page renders account-type cards before credentials', async () => {

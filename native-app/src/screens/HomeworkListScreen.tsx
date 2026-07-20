@@ -1,11 +1,5 @@
-import React, { useMemo, useState } from 'react';
-import {
-  Pressable,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import React, { useMemo } from 'react';
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import {
   Beaker,
   BookOpen,
@@ -32,6 +26,29 @@ interface HomeworkListScreenProps {
   onOpenWeeklyExam: () => void;
 }
 
+type HomeworkFeedItem =
+  | {
+      type: 'assignment';
+      id: string;
+      dueAt: number;
+      completed: boolean;
+      assignment: Assignment;
+    }
+  | {
+      type: 'review';
+      id: string;
+      dueAt: number;
+      completed: false;
+      review: DueReview;
+    }
+  | {
+      type: 'exam';
+      id: string;
+      dueAt: number;
+      completed: boolean;
+      weeklyExam: WeeklyExamPayload;
+    };
+
 export function HomeworkListScreen({
   assignments,
   dueReviews,
@@ -41,163 +58,180 @@ export function HomeworkListScreen({
   onStartReview,
   onOpenWeeklyExam,
 }: HomeworkListScreenProps) {
-  const [filter, setFilter] = useState<'all' | 'pending' | 'completed'>('all');
+  const homeworkItems = useMemo<HomeworkFeedItem[]>(() => {
+    const items: HomeworkFeedItem[] = [
+      ...assignments.map(assignment => ({
+        type: 'assignment' as const,
+        id: `assignment-${assignment.id}`,
+        dueAt: dueTime(assignment.dueDate),
+        completed: assignment.status === 'completed',
+        assignment,
+      })),
+      ...dueReviews.map(review => ({
+        type: 'review' as const,
+        id: `review-${review.id}`,
+        dueAt: dueTime(review.nextReviewDate),
+        completed: false as const,
+        review,
+      })),
+    ];
 
-  const pendingAssignmentCount = assignments.filter(item => item.status === 'pending').length;
-  const hasPendingWeeklyExam = Boolean(weeklyExam && weeklyExam.attempt?.status !== 'completed');
-  const pendingCount = pendingAssignmentCount + dueReviews.length + (hasPendingWeeklyExam ? 1 : 0);
-
-  const filteredAssignments = useMemo(() => {
-    return [...assignments]
-      .filter(item => (filter === 'all' ? true : item.status === filter))
-      .sort((left, right) => {
-        if (left.status === right.status) {
-          return new Date(left.dueDate).getTime() - new Date(right.dueDate).getTime();
-        }
-
-        return left.status === 'pending' ? -1 : 1;
+    if (weeklyExam) {
+      items.push({
+        type: 'exam',
+        id: `exam-${weeklyExam.exam.id}`,
+        dueAt: dueTime(weeklyExam.exam.closesAt),
+        completed: weeklyExam.attempt?.status === 'completed',
+        weeklyExam,
       });
-  }, [assignments, filter]);
-  const visibleReviews = filter === 'completed' ? [] : dueReviews;
-  const showWeeklyExam =
-    weeklyExam &&
-    ((filter === 'completed' && weeklyExam.attempt?.status === 'completed') ||
-      (filter !== 'completed' && weeklyExam.attempt?.status !== 'completed'));
+    }
+
+    return items.sort((left, right) => {
+      if (left.completed !== right.completed) {
+        return left.completed ? 1 : -1;
+      }
+
+      return left.completed
+        ? right.dueAt - left.dueAt
+        : left.dueAt - right.dueAt;
+    });
+  }, [assignments, dueReviews, weeklyExam]);
 
   return (
     <View style={styles.screen}>
       <View style={styles.header}>
         <View style={styles.headerRow}>
           <Pressable onPress={onBack} style={styles.backButton}>
-            <ChevronLeft color="#1D4ED8" size={22} strokeWidth={2.4} />
+            <ChevronLeft color="#0B1F4D" size={22} strokeWidth={2.4} />
           </Pressable>
           <Text style={styles.headerTitle}>Homework</Text>
           <View style={styles.headerSpacer} />
-        </View>
-
-        <View style={styles.filterBar}>
-          <FilterChip
-            label="All"
-            active={filter === 'all'}
-            onPress={() => setFilter('all')}
-          />
-          <FilterChip
-            label={`Pending (${pendingCount})`}
-            active={filter === 'pending'}
-            onPress={() => setFilter('pending')}
-          />
-          <FilterChip
-            label="Done"
-            active={filter === 'completed'}
-            onPress={() => setFilter('completed')}
-          />
         </View>
       </View>
 
       <ScrollView
         contentContainerStyle={styles.content}
-        showsVerticalScrollIndicator={false}>
-        {showWeeklyExam ? (
-          <WeeklyExamAssignmentCard
-            weeklyExam={weeklyExam}
-            onPress={onOpenWeeklyExam}
-          />
-        ) : null}
-
-        {visibleReviews.length > 0 ? (
-          visibleReviews.map(review => (
-            <ReviewAssignmentCard
-              key={review.id}
-              review={review}
-              onPress={() => onStartReview(review)}
-            />
-          ))
-        ) : null}
-
-        {filteredAssignments.length > 0 ? (
-          filteredAssignments.map(assignment => {
-            const config = getSubjectConfig(assignment.subject);
-            const isCompleted = assignment.status === 'completed';
-            const Icon = config.icon;
-
+        showsVerticalScrollIndicator={false}
+      >
+        {homeworkItems.map(item => {
+          if (item.type === 'exam') {
             return (
-              <Pressable
-                key={assignment.id}
-                onPress={() => onStartAssignment(assignment)}
-                style={({ pressed }) => [
-                  styles.assignmentCard,
-                  pressed && styles.assignmentCardPressed,
-                ]}>
-                {isCompleted ? <View style={styles.completedStrip} /> : null}
+              <WeeklyExamAssignmentCard
+                key={item.id}
+                weeklyExam={item.weeklyExam}
+                onPress={onOpenWeeklyExam}
+              />
+            );
+          }
 
-                <View style={styles.assignmentTopRow}>
-                  <View
-                    style={[
-                      styles.subjectBadge,
-                      { backgroundColor: config.bg, borderColor: config.border },
-                    ]}>
-                    <Icon color={config.color} size={16} strokeWidth={2.2} />
-                    <Text style={[styles.subjectBadgeText, { color: config.color }]}>
-                      {assignment.subject}
-                    </Text>
-                  </View>
+          if (item.type === 'review') {
+            return (
+              <ReviewAssignmentCard
+                key={item.id}
+                review={item.review}
+                onPress={() => onStartReview(item.review)}
+              />
+            );
+          }
 
-                  <View style={styles.statusWrap}>
-                    {isCompleted ? (
-                      <>
-                        <CheckCircle2 color="#15803D" size={14} strokeWidth={2.4} />
-                        <Text style={styles.completedText}>Completed</Text>
-                      </>
-                    ) : (
-                      <>
-                        <Clock color="#6B7280" size={14} strokeWidth={2.4} />
-                        <Text style={styles.pendingText}>Due {assignment.dueDate}</Text>
-                      </>
-                    )}
-                  </View>
-                </View>
+          const assignment = item.assignment;
+          const config = getSubjectConfig(assignment.subject);
+          const isCompleted = assignment.status === 'completed';
+          const Icon = config.icon;
 
-                <View>
+          return (
+            <Pressable
+              key={item.id}
+              onPress={() => onStartAssignment(assignment)}
+              style={({ pressed }) => [
+                styles.assignmentCard,
+                isCompleted && styles.assignmentCardCompleted,
+                pressed && styles.assignmentCardPressed,
+              ]}
+            >
+              {isCompleted ? <View style={styles.completedStrip} /> : null}
+
+              <View style={styles.assignmentTopRow}>
+                <View
+                  style={[
+                    styles.subjectBadge,
+                    { backgroundColor: config.bg, borderColor: config.border },
+                  ]}
+                >
+                  <Icon color={config.color} size={16} strokeWidth={2.2} />
                   <Text
-                    style={[
-                      styles.assignmentTitle,
-                      isCompleted && styles.assignmentTitleCompleted,
-                    ]}>
-                    {assignment.title}
+                    style={[styles.subjectBadgeText, { color: config.color }]}
+                  >
+                    {assignment.subject}
                   </Text>
-                  <Text style={styles.assignmentBody}>{assignment.description}</Text>
                 </View>
 
-                <View style={styles.assignmentFooter}>
-                  <Text style={styles.questionCount}>
-                    {assignment.questions.length} Questions
-                  </Text>
-
+                <View style={styles.statusWrap}>
                   {isCompleted ? (
-                    <View style={styles.scoreBadge}>
-                      <Text style={styles.scoreBadgeText}>
-                        Score: {assignment.score}%
-                      </Text>
-                    </View>
+                    <>
+                      <CheckCircle2
+                        color="#15803D"
+                        size={14}
+                        strokeWidth={2.4}
+                      />
+                      <Text style={styles.completedText}>Completed</Text>
+                    </>
                   ) : (
-                    <View style={styles.startWrap}>
-                      <Text style={styles.startText}>Start Assignment</Text>
-                      <ChevronRight color="#1D4ED8" size={16} strokeWidth={2.6} />
-                    </View>
+                    <>
+                      <Clock color="#6B7280" size={14} strokeWidth={2.4} />
+                      <Text style={styles.pendingText}>
+                        Due {assignment.dueDate}
+                      </Text>
+                    </>
                   )}
                 </View>
-              </Pressable>
-            );
-          })
-        ) : null}
+              </View>
 
-        {!showWeeklyExam && visibleReviews.length === 0 && filteredAssignments.length === 0 ? (
+              <View>
+                <Text
+                  style={[
+                    styles.assignmentTitle,
+                    isCompleted && styles.assignmentTitleCompleted,
+                  ]}
+                >
+                  {assignment.title}
+                </Text>
+                <Text style={styles.assignmentBody}>
+                  {assignment.description}
+                </Text>
+              </View>
+
+              <View style={styles.assignmentFooter}>
+                <Text style={styles.questionCount}>
+                  {assignment.questions.length} Questions
+                </Text>
+
+                {isCompleted ? (
+                  <View style={styles.scoreBadge}>
+                    <Text style={styles.scoreBadgeText}>
+                      Score: {assignment.score}%
+                    </Text>
+                  </View>
+                ) : (
+                  <View style={styles.startWrap}>
+                    <Text style={styles.startText}>Start Assignment</Text>
+                    <ChevronRight color="#FFFFFF" size={16} strokeWidth={2.6} />
+                  </View>
+                )}
+              </View>
+            </Pressable>
+          );
+        })}
+
+        {homeworkItems.length === 0 ? (
           <View style={styles.emptyState}>
             <View style={styles.emptyIconWrap}>
               <CheckCircle2 color="#9CA3AF" size={30} strokeWidth={2.2} />
             </View>
             <Text style={styles.emptyTitle}>All caught up!</Text>
-            <Text style={styles.emptyBody}>No homework found in this filter.</Text>
+            <Text style={styles.emptyBody}>
+              No homework has been assigned yet.
+            </Text>
           </View>
         ) : null}
       </ScrollView>
@@ -215,7 +249,8 @@ function WeeklyExamAssignmentCard({
   const status = weeklyExam.attempt?.status ?? 'pending';
   const isCompleted = status === 'completed';
   const isInProgress = status === 'in_progress';
-  const dueDate = weeklyExam.exam.closesAt.split('T')[0] || weeklyExam.exam.closesAt;
+  const dueDate =
+    weeklyExam.exam.closesAt.split('T')[0] || weeklyExam.exam.closesAt;
 
   return (
     <Pressable
@@ -223,9 +258,15 @@ function WeeklyExamAssignmentCard({
       style={({ pressed }) => [
         styles.assignmentCard,
         styles.examCard,
+        isCompleted && styles.assignmentCardCompleted,
         pressed && styles.assignmentCardPressed,
-      ]}>
-      {isCompleted ? <View style={styles.completedStrip} /> : <View style={styles.examStrip} />}
+      ]}
+    >
+      {isCompleted ? (
+        <View style={styles.completedStrip} />
+      ) : (
+        <View style={styles.examStrip} />
+      )}
 
       <View style={styles.assignmentTopRow}>
         <View style={styles.examBadge}>
@@ -242,7 +283,9 @@ function WeeklyExamAssignmentCard({
           ) : (
             <>
               <Clock color="#6B7280" size={14} strokeWidth={2.4} />
-              <Text style={styles.pendingText}>{isInProgress ? 'In progress' : `Due ${dueDate}`}</Text>
+              <Text style={styles.pendingText}>
+                {isInProgress ? 'In progress' : `Due ${dueDate}`}
+              </Text>
             </>
           )}
         </View>
@@ -253,7 +296,8 @@ function WeeklyExamAssignmentCard({
           style={[
             styles.assignmentTitle,
             isCompleted && styles.assignmentTitleCompleted,
-          ]}>
+          ]}
+        >
           {weeklyExam.exam.title}
         </Text>
         <Text style={styles.assignmentBody}>
@@ -274,8 +318,10 @@ function WeeklyExamAssignmentCard({
           </View>
         ) : (
           <View style={styles.startWrap}>
-            <Text style={styles.startText}>{isInProgress ? 'Continue Exam' : 'Start Exam'}</Text>
-            <ChevronRight color="#1D4ED8" size={16} strokeWidth={2.6} />
+            <Text style={styles.startText}>
+              {isInProgress ? 'Continue Exam' : 'Start Exam'}
+            </Text>
+            <ChevronRight color="#FFFFFF" size={16} strokeWidth={2.6} />
           </View>
         )}
       </View>
@@ -300,7 +346,8 @@ function ReviewAssignmentCard({
         styles.assignmentCard,
         styles.reviewCard,
         pressed && styles.assignmentCardPressed,
-      ]}>
+      ]}
+    >
       <View style={styles.reviewStrip} />
 
       <View style={styles.assignmentTopRow}>
@@ -318,7 +365,8 @@ function ReviewAssignmentCard({
       <View>
         <Text style={styles.assignmentTitle}>{title}</Text>
         <Text style={styles.assignmentBody}>
-          Spaced review for {subject}. Complete a quick self-check to keep your mastery schedule accurate.
+          Spaced review for {subject}. Complete a quick self-check to keep your
+          mastery schedule accurate.
         </Text>
       </View>
 
@@ -327,7 +375,7 @@ function ReviewAssignmentCard({
 
         <View style={styles.startWrap}>
           <Text style={styles.startText}>Start Review</Text>
-          <ChevronRight color="#1D4ED8" size={16} strokeWidth={2.6} />
+          <ChevronRight color="#FFFFFF" size={16} strokeWidth={2.6} />
         </View>
       </View>
     </Pressable>
@@ -342,28 +390,9 @@ function formatReviewLabel(value: string) {
     .join(' ');
 }
 
-function FilterChip({
-  label,
-  active,
-  onPress,
-}: {
-  label: string;
-  active: boolean;
-  onPress: () => void;
-}) {
-  return (
-    <Pressable
-      onPress={onPress}
-      style={({ pressed }) => [
-        styles.filterChip,
-        active && styles.filterChipActive,
-        pressed && styles.filterChipPressed,
-      ]}>
-      <Text style={[styles.filterChipText, active && styles.filterChipTextActive]}>
-        {label}
-      </Text>
-    </Pressable>
-  );
+function dueTime(value: string) {
+  const timestamp = Date.parse(value);
+  return Number.isNaN(timestamp) ? Number.MAX_SAFE_INTEGER : timestamp;
 }
 
 function getSubjectConfig(subject: string) {
@@ -389,9 +418,9 @@ function getSubjectConfig(subject: string) {
 
   if (normalized.includes('english')) {
     return {
-      color: '#BE185D',
-      bg: '#FCE7F3',
-      border: '#FBCFE8',
+      color: '#C2410C',
+      bg: '#FFEDD5',
+      border: '#FED7AA',
       icon: BookOpen,
     };
   }
@@ -407,9 +436,9 @@ function getSubjectConfig(subject: string) {
 
   if (normalized.includes('kiswahili')) {
     return {
-      color: '#6D28D9',
-      bg: '#F3E8FF',
-      border: '#DDD6FE',
+      color: '#15803D',
+      bg: '#DCFCE7',
+      border: '#BBF7D0',
       icon: Languages,
     };
   }
@@ -424,12 +453,12 @@ function getSubjectConfig(subject: string) {
 
 const styles = StyleSheet.create({
   screen: {
-    backgroundColor: '#F2F2F7',
+    backgroundColor: '#F9FBFD',
     flex: 1,
   },
   header: {
-    backgroundColor: 'rgba(255,255,255,0.92)',
-    borderBottomColor: 'rgba(229,231,235,0.8)',
+    backgroundColor: '#F9FBFD',
+    borderBottomColor: '#E3E8F1',
     borderBottomWidth: 1,
     paddingHorizontal: 16,
     paddingTop: 12,
@@ -439,52 +468,28 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 10,
   },
   backButton: {
     alignItems: 'center',
-    height: 36,
+    backgroundColor: '#FFFFFF',
+    borderColor: '#E3E8F1',
+    borderRadius: 15,
+    borderWidth: 1,
+    height: 42,
     justifyContent: 'center',
-    width: 36,
+    shadowColor: '#0F172A',
+    shadowOffset: { height: 5, width: 0 },
+    shadowOpacity: 0.09,
+    shadowRadius: 10,
+    width: 42,
   },
   headerSpacer: {
-    width: 36,
+    width: 42,
   },
   headerTitle: {
-    color: '#111827',
-    fontSize: 17,
-    fontWeight: '700',
-  },
-  filterBar: {
-    backgroundColor: 'rgba(118,118,128,0.15)',
-    borderRadius: 10,
-    flexDirection: 'row',
-    padding: 2,
-  },
-  filterChip: {
-    alignItems: 'center',
-    borderRadius: 8,
-    flex: 1,
-    justifyContent: 'center',
-    minHeight: 32,
-  },
-  filterChipActive: {
-    backgroundColor: '#FFFFFF',
-    shadowColor: '#000000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.06,
-    shadowRadius: 3,
-  },
-  filterChipPressed: {
-    opacity: 0.85,
-  },
-  filterChipText: {
-    color: '#6B7280',
-    fontSize: 12,
-    fontWeight: '700',
-  },
-  filterChipTextActive: {
-    color: '#111827',
+    color: '#0B1F4D',
+    fontSize: 21,
+    fontWeight: '900',
   },
   content: {
     gap: 14,
@@ -492,25 +497,34 @@ const styles = StyleSheet.create({
     paddingBottom: 28,
   },
   assignmentCard: {
-    backgroundColor: '#FFFFFF',
-    borderColor: '#E5E7EB',
-    borderRadius: 18,
-    borderWidth: 1,
+    backgroundColor: '#FFFBEC',
+    borderColor: '#E5D7B3',
+    borderRadius: 24,
+    borderWidth: 1.5,
+    elevation: 2,
     overflow: 'hidden',
     padding: 18,
+    shadowColor: '#8A6C2E',
+    shadowOffset: { height: 4, width: 0 },
+    shadowOpacity: 0.12,
+    shadowRadius: 8,
+  },
+  assignmentCardCompleted: {
+    backgroundColor: '#F2FBF5',
+    borderColor: '#BDE7CB',
   },
   reviewCard: {
-    borderColor: '#BFDBFE',
+    borderColor: '#BFD7FF',
   },
   examCard: {
-    borderColor: '#FCD34D',
+    borderColor: '#F4B84A',
   },
   assignmentCardPressed: {
     opacity: 0.92,
     transform: [{ scale: 0.992 }],
   },
   completedStrip: {
-    backgroundColor: '#22C55E',
+    backgroundColor: '#22A45D',
     bottom: 0,
     left: 0,
     position: 'absolute',
@@ -518,7 +532,7 @@ const styles = StyleSheet.create({
     width: 4,
   },
   reviewStrip: {
-    backgroundColor: '#2563EB',
+    backgroundColor: '#4F7CE8',
     bottom: 0,
     left: 0,
     position: 'absolute',
@@ -526,7 +540,7 @@ const styles = StyleSheet.create({
     width: 4,
   },
   examStrip: {
-    backgroundColor: '#F59E0B',
+    backgroundColor: '#FF8A24',
     bottom: 0,
     left: 0,
     position: 'absolute',
@@ -596,34 +610,34 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   completedText: {
-    color: '#15803D',
+    color: '#18864A',
     fontSize: 12,
     fontWeight: '700',
   },
   pendingText: {
-    color: '#6B7280',
+    color: '#65738D',
     fontSize: 12,
     fontWeight: '700',
   },
   assignmentTitle: {
-    color: '#111827',
+    color: '#0B1F4D',
     fontSize: 17,
     fontWeight: '800',
     lineHeight: 22,
     marginBottom: 6,
   },
   assignmentTitleCompleted: {
-    color: '#9CA3AF',
+    color: '#628071',
     textDecorationLine: 'line-through',
   },
   assignmentBody: {
-    color: '#4B5563',
+    color: '#5F6F89',
     fontSize: 13,
     lineHeight: 18,
   },
   assignmentFooter: {
     alignItems: 'center',
-    borderTopColor: '#F3F4F6',
+    borderTopColor: '#EEE4CC',
     borderTopWidth: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -631,7 +645,7 @@ const styles = StyleSheet.create({
     paddingTop: 12,
   },
   questionCount: {
-    color: '#6B7280',
+    color: '#65738D',
     fontSize: 12,
     fontWeight: '700',
   },
@@ -648,11 +662,15 @@ const styles = StyleSheet.create({
   },
   startWrap: {
     alignItems: 'center',
+    backgroundColor: '#FF6B1A',
+    borderRadius: 999,
     flexDirection: 'row',
     gap: 4,
+    paddingHorizontal: 11,
+    paddingVertical: 8,
   },
   startText: {
-    color: '#1D4ED8',
+    color: '#FFFFFF',
     fontSize: 12,
     fontWeight: '800',
   },
@@ -663,7 +681,7 @@ const styles = StyleSheet.create({
   },
   emptyIconWrap: {
     alignItems: 'center',
-    backgroundColor: '#E5E7EB',
+    backgroundColor: '#EAF5FF',
     borderRadius: 999,
     height: 64,
     justifyContent: 'center',
@@ -671,13 +689,13 @@ const styles = StyleSheet.create({
     width: 64,
   },
   emptyTitle: {
-    color: '#111827',
+    color: '#0B1F4D',
     fontSize: 20,
     fontWeight: '800',
     marginBottom: 4,
   },
   emptyBody: {
-    color: '#6B7280',
+    color: '#65738D',
     fontSize: 14,
     fontWeight: '500',
   },

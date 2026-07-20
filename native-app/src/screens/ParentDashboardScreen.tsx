@@ -914,8 +914,8 @@ function QuickActionsCard({
         onPress={onViewReport}
       />
       <QuickAction
-        icon={<MessageSquareText color="#7C3AED" size={26} strokeWidth={2.3} />}
-        iconBackground="#EDE9FE"
+        icon={<MessageSquareText color="#15803D" size={26} strokeWidth={2.3} />}
+        iconBackground="#DCFCE7"
         label={'Message\nteacher'}
         onPress={onMessages}
       />
@@ -1209,8 +1209,8 @@ function LearningView({ child }: { child: ParentChildSummary }) {
           value={String(stats.topics)}
         />
         <GlanceCard
-          icon={<CheckCircle2 color="#7C3AED" size={22} strokeWidth={2.3} />}
-          iconBackground="#EDE9FE"
+          icon={<CheckCircle2 color="#15803D" size={22} strokeWidth={2.3} />}
+          iconBackground="#DCFCE7"
           label="Assignments due"
           value={String(stats.due)}
         />
@@ -1218,7 +1218,7 @@ function LearningView({ child }: { child: ParentChildSummary }) {
 
       <View style={styles.panelCard}>
         <View style={styles.panelHeader}>
-          <ClipboardList color="#7C3AED" size={19} strokeWidth={2.4} />
+          <ClipboardList color="#15803D" size={19} strokeWidth={2.4} />
           <Text style={styles.panelTitle}>Assignments</Text>
         </View>
         {assignments.length === 0 ? (
@@ -1270,7 +1270,7 @@ function AssignmentRow({ assignment }: { assignment: ParentChildAssignment }) {
   return (
     <View style={styles.assignmentRow}>
       <View style={styles.assignmentIconBox}>
-        <ClipboardList color="#7C3AED" size={18} strokeWidth={2.4} />
+        <ClipboardList color="#15803D" size={18} strokeWidth={2.4} />
       </View>
       <View style={styles.assignmentTextWrap}>
         <Text numberOfLines={1} style={styles.assignmentTitle}>
@@ -2607,7 +2607,7 @@ const styles = StyleSheet.create({
   assignmentRow: { alignItems: 'center', flexDirection: 'row', gap: 10, marginTop: 10 },
   assignmentIconBox: {
     alignItems: 'center',
-    backgroundColor: '#EDE9FE',
+    backgroundColor: '#DCFCE7',
     borderRadius: 11,
     height: 36,
     justifyContent: 'center',

@@ -40,7 +40,12 @@ import {
 } from 'lucide-react-native';
 import { SafeAreaInsetsContext } from 'react-native-safe-area-context';
 
-import { DEFAULT_GRADE, SUPPORTED_GRADES } from '../constants/grades';
+import {
+  DEFAULT_GRADE,
+  LOWER_PRIMARY_GRADES,
+  LOWER_PRIMARY_SUBJECTS,
+  SUPPORTED_GRADES,
+} from '../constants/grades';
 import { SUBJECTS } from '../data/mockData';
 import { requestPhoneAuthCode } from '../services/authService';
 import { triggerHaptic } from '../services/haptics';
@@ -943,6 +948,10 @@ const GENDER_OPTIONS: Record<OnboardingLanguageCode, readonly GenderChoiceOption
 
 const TEACHER_GRADE_BANDS: Array<{ label: string; grades: readonly string[] }> = [
   {
+    label: 'Lower Primary (CBC)',
+    grades: LOWER_PRIMARY_GRADES,
+  },
+  {
     label: 'Upper Primary (CBC)',
     grades: ['Grade 4', 'Grade 5', 'Grade 6'],
   },
@@ -956,7 +965,10 @@ const TEACHER_GRADE_BANDS: Array<{ label: string; grades: readonly string[] }> =
   },
 ];
 
-const CBC_SUBJECTS_BY_GRADE_BAND: Record<'upper' | 'junior' | 'senior', readonly string[]> = {
+type CbcGradeBand = 'lower' | 'upper' | 'junior' | 'senior';
+
+const CBC_SUBJECTS_BY_GRADE_BAND: Record<CbcGradeBand, readonly string[]> = {
+  lower: LOWER_PRIMARY_SUBJECTS,
   upper: [
     'English',
     'Mathematics',
@@ -1007,13 +1019,18 @@ const CBC_SUBJECTS_BY_GRADE_BAND: Record<'upper' | 'junior' | 'senior', readonly
   ],
 };
 
-const CBC_CORE_SUBJECTS_BY_GRADE_BAND: Record<'upper' | 'junior' | 'senior', readonly string[]> = {
+const CBC_CORE_SUBJECTS_BY_GRADE_BAND: Record<CbcGradeBand, readonly string[]> = {
+  lower: ['English', 'Kiswahili', 'Mathematics'],
   upper: ['English', 'Mathematics', 'Kiswahili'],
   junior: ['English', 'Mathematics', 'Kiswahili'],
   senior: ['English', 'Mathematics', 'Kiswahili'],
 };
 
-const GRADE_BAND_LABELS: Record<'upper' | 'junior' | 'senior', Record<OnboardingLanguageCode, string>> = {
+const GRADE_BAND_LABELS: Record<CbcGradeBand, Record<OnboardingLanguageCode, string>> = {
+  lower: {
+    en: 'Lower Primary (CBC)',
+    sw: 'Shule ya Msingi - Chini (CBC)',
+  },
   upper: {
     en: 'Upper Primary (CBC)',
     sw: 'Shule ya Msingi - Juu (CBC)',
@@ -1035,9 +1052,14 @@ const ONBOARDING_SUBJECT_ID_ALIASES: Record<string, string> = {
   'Social Studies': 'social',
   Agriculture: 'agriculture',
   'Creative Arts': 'creative_arts',
+  Environmental: 'environmental',
+  CRE: 'cre',
+  IRE: 'ire',
+  'Hygiene and Nutrition': 'hygiene_nutrition',
+  'Creative Activities': 'creative_activities',
 };
 
-function gradeBandForGrade(gradeValue: string): 'upper' | 'junior' | 'senior' {
+function gradeBandForGrade(gradeValue: string): CbcGradeBand {
   const gradeNumber = Number(gradeValue.replace(/\D/g, ''));
 
   if (gradeNumber >= 10) {
@@ -1046,6 +1068,10 @@ function gradeBandForGrade(gradeValue: string): 'upper' | 'junior' | 'senior' {
 
   if (gradeNumber >= 7) {
     return 'junior';
+  }
+
+  if (gradeNumber <= 3) {
+    return 'lower';
   }
 
   return 'upper';

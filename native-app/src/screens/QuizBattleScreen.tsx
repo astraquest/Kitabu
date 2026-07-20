@@ -74,7 +74,7 @@ export function QuizBattleScreen({ onBack, onAddPoints }: QuizBattleScreenProps)
                   onPress={() => setOpponent(classmate)}
                   style={[styles.classmateRow, selected && styles.classmateRowSelected]}>
                   <View style={[styles.classmateAvatar, selected && styles.classmateAvatarSelected]}>
-                    <UserRound color={selected ? '#FFFFFF' : '#7C3AED'} size={20} />
+                    <UserRound color={selected ? '#FFFFFF' : '#15803D'} size={20} />
                   </View>
                   <View style={styles.classmateCopy}>
                     <Text style={styles.classmateName}>{classmate.name}</Text>
@@ -230,18 +230,18 @@ const styles = StyleSheet.create({
     width: 44,
   },
   headerCopy: { flex: 1 },
-  eyebrow: { color: '#7C3AED', fontSize: 12, fontWeight: '900', textTransform: 'uppercase' },
+  eyebrow: { color: '#15803D', fontSize: 12, fontWeight: '900', textTransform: 'uppercase' },
   title: { color: '#0F172A', fontSize: 25, fontWeight: '900', marginTop: 2 },
   lobbyCard: { backgroundColor: '#FFFFFF', borderColor: '#E2E8F0', borderRadius: 20, borderWidth: 1, padding: 16 },
   lobbyTitle: { color: '#0F172A', fontSize: 18, fontWeight: '900', marginBottom: 12 },
   classmateRow: { alignItems: 'center', borderColor: '#E2E8F0', borderRadius: 16, borderWidth: 1, flexDirection: 'row', gap: 12, minHeight: 62, padding: 12 },
-  classmateRowSelected: { backgroundColor: '#F3E8FF', borderColor: '#7C3AED' },
+  classmateRowSelected: { backgroundColor: '#DCFCE7', borderColor: '#15803D' },
   classmateAvatar: { alignItems: 'center', backgroundColor: '#F5F3FF', borderRadius: 18, height: 36, justifyContent: 'center', width: 36 },
-  classmateAvatarSelected: { backgroundColor: '#7C3AED' },
+  classmateAvatarSelected: { backgroundColor: '#15803D' },
   classmateCopy: { flex: 1 },
   classmateName: { color: '#0F172A', fontSize: 15, fontWeight: '900' },
   classmateMeta: { color: '#64748B', fontSize: 12, fontWeight: '700', marginTop: 2 },
-  challengeText: { color: '#7C3AED', fontSize: 12, fontWeight: '900' },
+  challengeText: { color: '#15803D', fontSize: 12, fontWeight: '900' },
   inviteCard: { alignItems: 'center', backgroundColor: '#F8FAFC', borderRadius: 18, gap: 10, padding: 20 },
   inviteTitle: { color: '#0F172A', fontSize: 18, fontWeight: '900' },
   inviteBody: { color: '#64748B', fontSize: 14, fontWeight: '700', textAlign: 'center' },
@@ -250,7 +250,7 @@ const styles = StyleSheet.create({
   scorePill: { alignItems: 'center', backgroundColor: '#FFFFFF', borderColor: '#E2E8F0', borderRadius: 16, borderWidth: 1, flex: 1, padding: 14 },
   scoreValue: { color: '#0F172A', fontSize: 26, fontWeight: '900' },
   scoreLabel: { color: '#64748B', fontSize: 12, fontWeight: '800', textTransform: 'uppercase' },
-  versus: { alignItems: 'center', backgroundColor: '#7C3AED', borderRadius: 20, height: 40, justifyContent: 'center', width: 40 },
+  versus: { alignItems: 'center', backgroundColor: '#F97316', borderRadius: 20, height: 40, justifyContent: 'center', width: 40 },
   questionCard: { backgroundColor: '#FFFFFF', borderColor: '#E2E8F0', borderRadius: 20, borderWidth: 1, padding: 18 },
   questionTop: { alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between' },
   questionMeta: { color: '#64748B', fontSize: 12, fontWeight: '900', textTransform: 'uppercase' },
@@ -258,14 +258,14 @@ const styles = StyleSheet.create({
   prompt: { color: '#0F172A', fontSize: 24, fontWeight: '900', lineHeight: 32, marginTop: 18 },
   options: { gap: 12, marginTop: 22 },
   option: { alignItems: 'center', backgroundColor: '#FFFFFF', borderColor: '#CBD5E1', borderRadius: 16, borderWidth: 1, flexDirection: 'row', gap: 12, minHeight: 62, padding: 13 },
-  optionSelected: { backgroundColor: '#EDE9FE', borderColor: '#7C3AED', borderWidth: 2 },
+  optionSelected: { backgroundColor: '#DCFCE7', borderColor: '#15803D', borderWidth: 2 },
   optionMarker: { alignItems: 'center', backgroundColor: '#F1F5F9', borderRadius: 10, height: 36, justifyContent: 'center', width: 36 },
-  optionMarkerSelected: { backgroundColor: '#7C3AED' },
+  optionMarkerSelected: { backgroundColor: '#15803D' },
   optionMarkerText: { color: '#475569', fontSize: 14, fontWeight: '900' },
   optionMarkerTextSelected: { color: '#FFFFFF' },
   optionText: { color: '#334155', flex: 1, fontSize: 16, fontWeight: '800', lineHeight: 22 },
-  optionTextSelected: { color: '#4C1D95' },
-  primaryButton: { alignItems: 'center', backgroundColor: '#7C3AED', borderRadius: 16, flexDirection: 'row', gap: 8, justifyContent: 'center', minHeight: 54 },
+  optionTextSelected: { color: '#14532D' },
+  primaryButton: { alignItems: 'center', backgroundColor: '#F97316', borderRadius: 16, flexDirection: 'row', gap: 8, justifyContent: 'center', minHeight: 54 },
   primaryButtonText: { color: '#FFFFFF', fontSize: 16, fontWeight: '900' },
   disabled: { opacity: 0.45 },
   resultHero: { alignItems: 'center', backgroundColor: '#0F172A', borderRadius: 20, padding: 24 },

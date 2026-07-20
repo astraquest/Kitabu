@@ -2577,16 +2577,20 @@ export async function markPaymentRequestInitiated(
   merchantRequestId: string,
   checkoutRequestId: string
 ) {
-  await q(
+  const result = await q<{ id: string }>(
     client,
     `UPDATE payment_requests
      SET status = 'initiated',
          merchant_request_id = $2,
          checkout_request_id = $3,
          updated_at = NOW()
-     WHERE id = $1`,
+     WHERE id = $1
+       AND status = 'pending'
+     RETURNING id`,
     [paymentRequestId, merchantRequestId, checkoutRequestId]
   );
+
+  return result.rowCount === 1;
 }
 
 export async function findPaymentRequestByIdForUser(paymentRequestId: string, userId: string) {
@@ -2615,6 +2619,24 @@ export async function findPaymentRequestByCheckoutRequestId(checkoutRequestId: s
   return result.rows[0] ?? null;
 }
 
+export async function findPaymentRequestByCheckoutRequestIdForUpdate(
+  client: MaybeClient,
+  checkoutRequestId: string
+) {
+  const result = await q<PaymentRequestRecord>(
+    client,
+    `SELECT id, user_id, plan_id, plan_code, status, amount_ksh_cents, phone_number, return_to,
+            merchant_request_id, checkout_request_id, mpesa_receipt_number, result_code, result_desc,
+            expires_at, completed_at, created_at
+     FROM payment_requests
+     WHERE checkout_request_id = $1
+     FOR UPDATE`,
+    [checkoutRequestId]
+  );
+
+  return result.rows[0] ?? null;
+}
+
 export async function markPaymentRequestSuccessful(
   client: MaybeClient,
   paymentRequestId: string,
@@ -2623,9 +2645,10 @@ export async function markPaymentRequestSuccessful(
     resultCode: number;
     resultDesc: string;
     rawCallback: Record<string, unknown>;
+    providerResponse: Record<string, unknown>;
   }
 ) {
-  await q(
+  const result = await q<{ id: string }>(
     client,
     `UPDATE payment_requests
      SET status = 'paid',
@@ -2633,11 +2656,24 @@ export async function markPaymentRequestSuccessful(
          result_code = $3,
          result_desc = $4,
          raw_callback = $5::jsonb,
+         provider_query_response = $6::jsonb,
+         provider_verified_at = NOW(),
          completed_at = NOW(),
          updated_at = NOW()
-     WHERE id = $1`,
-    [paymentRequestId, input.receiptNumber, input.resultCode, input.resultDesc, JSON.stringify(input.rawCallback)]
+     WHERE id = $1
+       AND status IN ('initiated', 'expired')
+     RETURNING id`,
+    [
+      paymentRequestId,
+      input.receiptNumber,
+      input.resultCode,
+      input.resultDesc,
+      JSON.stringify(input.rawCallback),
+      JSON.stringify(input.providerResponse)
+    ]
   );
+
+  return result.rowCount === 1;
 }
 
 export async function markPaymentRequestFailed(
@@ -2648,19 +2684,33 @@ export async function markPaymentRequestFailed(
     resultCode: number | null;
     resultDesc: string;
     rawCallback: Record<string, unknown>;
+    providerResponse?: Record<string, unknown>;
   }
 ) {
-  await q(
+  const result = await q<{ id: string }>(
     client,
     `UPDATE payment_requests
      SET status = $2,
          result_code = $3,
          result_desc = $4,
          raw_callback = $5::jsonb,
+         provider_query_response = COALESCE($6::jsonb, provider_query_response),
+         provider_verified_at = CASE WHEN $6::jsonb IS NULL THEN provider_verified_at ELSE NOW() END,
          updated_at = NOW()
-     WHERE id = $1`,
-    [paymentRequestId, input.status, input.resultCode, input.resultDesc, JSON.stringify(input.rawCallback)]
+     WHERE id = $1
+       AND status IN ('pending', 'initiated', 'expired')
+     RETURNING id`,
+    [
+      paymentRequestId,
+      input.status,
+      input.resultCode,
+      input.resultDesc,
+      JSON.stringify(input.rawCallback),
+      input.providerResponse ? JSON.stringify(input.providerResponse) : null
+    ]
   );
+
+  return result.rowCount === 1;
 }
 
 export async function expirePendingPaymentRequests(client: MaybeClient) {
@@ -3321,6 +3371,15 @@ export async function upsertLearnerSubjectDisplayPreferences(
     manualSubjectIds?: string[];
   }
 ) {
+  await q(
+    client,
+    `SELECT id
+     FROM users
+     WHERE id = $1
+     FOR UPDATE`,
+    [input.userId]
+  );
+
   await q(
     client,
     `INSERT INTO learner_subject_display_preferences (
@@ -4128,7 +4187,8 @@ export async function completeProgressiveLessonAttempt(
   input: {
     attemptId: string;
     userId: string;
-    checkpointTotal: number;
+    scoreAllSteps: boolean;
+    scoredQuestionTotal: number;
   }
 ) {
   const attemptResult = await q<ProgressiveLessonAttemptRecord>(
@@ -4157,30 +4217,30 @@ export async function completeProgressiveLessonAttempt(
     client,
     `WITH first_attempts AS (
        SELECT DISTINCT ON (step_id) step_id, is_correct
-       FROM progressive_step_attempts
-       WHERE attempt_id = $1 AND phase = 'checkpoint'
+     FROM progressive_step_attempts
+       WHERE attempt_id = $1 AND ($2::boolean OR phase = 'checkpoint')
        ORDER BY step_id, attempt_number ASC
      )
      SELECT COUNT(*)::text AS total,
        COUNT(*) FILTER (WHERE is_correct)::text AS correct
      FROM first_attempts`,
-    [input.attemptId]
+    [input.attemptId, input.scoreAllSteps]
   );
   const answered = Number(checkpoint.rows[0]?.total ?? 0);
   const correct = Number(checkpoint.rows[0]?.correct ?? 0);
-  if (answered < input.checkpointTotal) {
+  if (answered < input.scoredQuestionTotal) {
     return {
       attempt,
       score: null,
       passed: false,
       incomplete: true,
       answered,
-      required: input.checkpointTotal
+      required: input.scoredQuestionTotal
     };
   }
 
-  const score = input.checkpointTotal > 0
-    ? Math.round((correct / input.checkpointTotal) * 100)
+  const score = input.scoredQuestionTotal > 0
+    ? Math.round((correct / input.scoredQuestionTotal) * 100)
     : 0;
   const passed = score === 100;
   const status = passed ? 'completed' : 'needs_practice';

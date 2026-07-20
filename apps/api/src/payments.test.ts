@@ -82,6 +82,86 @@ test('includes Daraja OAuth status in provider errors', async () => {
   );
 });
 
+test('queries Daraja before accepting an STK result', async () => {
+  const calls: Array<{ url: string; init?: RequestInit }> = [];
+  (globalThis as { fetch?: typeof fetch }).fetch = (async (url: string | URL | Request, init?: RequestInit) => {
+    calls.push({ url: String(url), init });
+    if (String(url).includes('/oauth/')) {
+      return new Response(JSON.stringify({ access_token: 'access-token' }), { status: 200 });
+    }
+    return new Response(JSON.stringify({
+      MerchantRequestID: 'merchant-1',
+      CheckoutRequestID: 'checkout-1',
+      ResponseCode: '0',
+      ResponseDescription: 'The service request has been accepted successfully',
+      ResultCode: '0',
+      ResultDesc: 'The service request is processed successfully.'
+    }), { status: 200 });
+  }) as typeof fetch;
+
+  const { queryStkPushStatus } = await import('./payments.js');
+  const response = await queryStkPushStatus('checkout-1');
+
+  assert.equal(response.resultCode, 0);
+  assert.equal(calls.length, 2);
+  assert.match(calls[1].url, /\/mpesa\/stkpushquery\/v1\/query$/);
+  const queryBody = JSON.parse(String(calls[1].init?.body)) as { CheckoutRequestID: string };
+  assert.equal(queryBody.CheckoutRequestID, 'checkout-1');
+});
+
+test('verifies successful callback identity, amount, phone and receipt', async () => {
+  const { verifyMpesaCallback } = await import('./payments.js');
+  const verified = verifyMpesaCallback({
+    expectedMerchantRequestId: 'merchant-1',
+    expectedCheckoutRequestId: 'checkout-1',
+    expectedAmountKshCents: 25000,
+    expectedPhoneNumber: '254712345678',
+    callbackMerchantRequestId: 'merchant-1',
+    callbackCheckoutRequestId: 'checkout-1',
+    callbackResultCode: 0,
+    callbackResultDescription: 'Success',
+    callbackAmount: 250,
+    callbackPhoneNumber: 254712345678,
+    callbackReceiptNumber: 'tq123abc45',
+    providerResponse: {
+      merchantRequestId: 'merchant-1',
+      checkoutRequestId: 'checkout-1',
+      responseCode: '0',
+      responseDescription: 'Accepted',
+      resultCode: 0,
+      resultDescription: 'Processed successfully'
+    }
+  });
+
+  assert.equal(verified.receiptNumber, 'TQ123ABC45');
+  assert.equal(verified.resultDescription, 'Processed successfully');
+});
+
+test('rejects a successful callback whose amount does not match the stored checkout', async () => {
+  const { verifyMpesaCallback } = await import('./payments.js');
+  assert.throws(() => verifyMpesaCallback({
+    expectedMerchantRequestId: 'merchant-1',
+    expectedCheckoutRequestId: 'checkout-1',
+    expectedAmountKshCents: 25000,
+    expectedPhoneNumber: '254712345678',
+    callbackMerchantRequestId: 'merchant-1',
+    callbackCheckoutRequestId: 'checkout-1',
+    callbackResultCode: 0,
+    callbackResultDescription: 'Success',
+    callbackAmount: 1,
+    callbackPhoneNumber: 254712345678,
+    callbackReceiptNumber: 'TQ123ABC45',
+    providerResponse: {
+      merchantRequestId: 'merchant-1',
+      checkoutRequestId: 'checkout-1',
+      responseCode: '0',
+      responseDescription: 'Accepted',
+      resultCode: 0,
+      resultDescription: 'Processed successfully'
+    }
+  }), /amount did not match/);
+});
+
 test('normalizes multiple school plans and keeps monthly as the default primary plan', async () => {
   const { normalizeSchoolPlanSelection } = await import('./payments.js');
 

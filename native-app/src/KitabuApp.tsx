@@ -542,9 +542,25 @@ function FocusModeTimeUpScreen({
 }
 
 function shouldUseStudentHeader(view: string) {
-  return ['dashboard', 'subject', 'bookshelf_view', 'podcasts_view', 'game_zone'].includes(
-    view,
-  );
+  return [
+    'dashboard',
+    'subject',
+    'progressive_lesson',
+    'homework_list',
+    'homework_quiz',
+    'bookshelf_view',
+    'reading_mode',
+    'podcasts_view',
+    'quiz_me_config',
+    'brain_tease',
+    'take_quiz',
+    'live_audio',
+    'game_zone',
+    'crazy_balloon',
+    'quiz_battle',
+    'chess_master',
+    'manyanga',
+  ].includes(view);
 }
 
 function shouldUseStandaloneScreen(view: string) {
@@ -591,6 +607,11 @@ function renderScreen(
           lessonVersion={state.selectedProgressiveLessonVersion}
           grade={state.currentGrade}
           mascotKey={state.activeMascotKey}
+          subjectName={
+            state.selectedSubject?.name ??
+            state.subjectLearningPath?.subjectName ??
+            'Learning'
+          }
           onBack={() => actions.openFeature('subject')}
           onComplete={actions.finishProgressiveLesson}
         />
@@ -731,8 +752,10 @@ function renderScreen(
     case 'take_quiz':
       return (
         <TakeQuizScreen
-          subjectName={state.selectedSubject?.name || 'General'}
+          subjectName={state.activeQuizConfig?.subject || state.selectedSubject?.name || 'QuizMe'}
+          strandName={state.activeQuizConfig?.strand || state.selectedSubStrand?.title || 'General Review'}
           questions={state.generatedQuizQuestions}
+          mascotKey={state.activeMascotKey}
           onClose={() => {
             if (state.quizSource === 'quiz_me') {
               actions.openFeature('quiz_me_config');
@@ -782,6 +805,7 @@ function renderScreen(
       return (
         <PodcastsScreen
           mascotKey={state.activeMascotKey}
+          podcasts={state.podcasts}
           onBack={actions.goHome}
         />
       );

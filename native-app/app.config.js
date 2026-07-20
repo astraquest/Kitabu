@@ -50,6 +50,13 @@ module.exports = {
     assetBundlePatterns: ['**/*'],
     plugins: [
       [
+        'expo-video',
+        {
+          supportsBackgroundPlayback: false,
+          supportsPictureInPicture: false,
+        },
+      ],
+      [
         'expo-notifications',
         {
           // Used for the daily study reminder opt-in on the onboarding Reminder (S16) screen.

@@ -27,13 +27,16 @@ import {
 
 import { ReportAiContentSheet } from '../components/ReportAiContentSheet';
 import { DEFAULT_GRADE } from '../constants/grades';
+import { LearningMascotReaction } from '../features/progressiveLearning/components/LearningMascotReaction';
 import { askHomeworkHelper } from '../services/aiService';
 import { audioRecordingBridge } from '../services/nativeBridges';
-import { Question } from '../types/app';
+import { OnboardingMascotKey, Question } from '../types/app';
 
 interface TakeQuizScreenProps {
   questions: Question[];
   subjectName: string;
+  strandName: string;
+  mascotKey: OnboardingMascotKey;
   onClose: () => void;
   onFinish?: (result: { score: number; total: number; percentage: number }) => void;
 }
@@ -46,6 +49,8 @@ const AUDIO_TYPES = new Set(['SHORT_ANSWER', 'ESSAY']);
 export function TakeQuizScreen({
   questions: sourceQuestions,
   subjectName,
+  strandName,
+  mascotKey,
   onClose,
   onFinish,
 }: TakeQuizScreenProps) {
@@ -86,6 +91,23 @@ export function TakeQuizScreen({
     setRecordedAudioPath(null);
     setVoiceError(null);
   }, [currentIndex, viewMode]);
+
+  useEffect(() => {
+    if (!feedback || viewMode !== 'quiz') {
+      return undefined;
+    }
+
+    const timer = setTimeout(() => {
+      setFeedback(null);
+      if (currentIndex < questions.length - 1) {
+        setCurrentIndex(index => index + 1);
+        return;
+      }
+      setViewMode('score');
+    }, 2_000);
+
+    return () => clearTimeout(timer);
+  }, [currentIndex, feedback, questions.length, viewMode]);
 
   useEffect(() => {
     if (!isRecording || timeLeft <= 0) {
@@ -181,6 +203,17 @@ export function TakeQuizScreen({
   function setAnswer(value: string) {
     if (!feedback) {
       setAnswers(prev => ({ ...prev, [currentIndex]: value }));
+
+      if (currentQuestion.type === 'MCQ' || currentQuestion.type === 'TRUE_FALSE') {
+        const isCorrect =
+          value.trim().toLowerCase() ===
+          String(currentQuestion.correctAnswer).trim().toLowerCase();
+        setFeedback(isCorrect ? 'correct' : 'incorrect');
+        setResults(prev => ({
+          ...prev,
+          [currentIndex]: isCorrect ? 'correct' : 'incorrect',
+        }));
+      }
     }
   }
 
@@ -359,7 +392,7 @@ export function TakeQuizScreen({
           </Pressable>
 
           <Pressable onPress={() => setViewMode('review')} style={styles.resultsReviewButton}>
-            <Eye size={16} color="#2563EB" />
+            <Eye size={16} color="#F97316" />
             <Text style={styles.resultsReviewText}>Review Answers</Text>
           </Pressable>
         </View>
@@ -443,7 +476,7 @@ export function TakeQuizScreen({
                       <Pressable
                         onPress={() => handleAskAI(question.text, answer)}
                         style={styles.reviewAiButton}>
-                        <Sparkles size={14} color="#2563EB" />
+                        <Sparkles size={14} color="#F97316" />
                       </Pressable>
                     </View>
                     <Text style={styles.reviewExplanationText}>{question.explanation}</Text>
@@ -467,10 +500,10 @@ export function TakeQuizScreen({
     <View style={styles.screen}>
       <View style={styles.heroBackdrop}>
         <Pressable onPress={onClose} style={styles.heroBackButton}>
-          <ArrowLeft size={24} color="#9CA3AF" />
+          <ArrowLeft size={24} color="#FFFFFF" />
         </Pressable>
-        <Text style={styles.heroGrade}>8</Text>
-        <Text style={styles.heroSubject}>{subjectName}</Text>
+        <Text numberOfLines={1} style={styles.heroSubject}>{subjectName}</Text>
+        <Text numberOfLines={1} style={styles.heroStrand}>{strandName}</Text>
       </View>
 
       <View style={styles.quizCard}>
@@ -492,18 +525,18 @@ export function TakeQuizScreen({
                   key={idx}
                   style={[
                     styles.stepChip,
-                    isActive && styles.stepChipActive,
-                    !isActive && status === 'correct' && styles.stepChipCorrect,
-                    !isActive && status === 'incorrect' && styles.stepChipIncorrect,
+                    isActive && !status && styles.stepChipActive,
+                    status === 'correct' && styles.stepChipCorrect,
+                    status === 'incorrect' && styles.stepChipIncorrect,
                   ]}>
-                  {isActive ? (
-                    <Text style={styles.stepChipTextActive}>{idx + 1}</Text>
-                  ) : status === 'correct' ? (
+                  {status === 'correct' ? (
                     <Check size={18} color="#FFFFFF" />
                   ) : status === 'incorrect' ? (
                     <X size={18} color="#FFFFFF" />
                   ) : (
-                    <Text style={styles.stepChipText}>{idx + 1}</Text>
+                    <Text style={[styles.stepChipText, isActive && styles.stepChipTextActive]}>
+                      {idx + 1}
+                    </Text>
                   )}
                 </View>
               );
@@ -555,11 +588,19 @@ export function TakeQuizScreen({
                     feedback && correct && styles.optionCardCorrect,
                     feedback && selected && !correct && styles.optionCardIncorrect,
                   ]}>
-                  <View style={[styles.optionMarker, selected && !feedback && styles.optionMarkerSelected]}>
+                  <View
+                    style={[
+                      styles.optionMarker,
+                      selected && !feedback && styles.optionMarkerSelected,
+                      feedback && correct && styles.optionMarkerCorrect,
+                      feedback && selected && !correct && styles.optionMarkerIncorrect,
+                    ]}>
                     <Text
                       style={[
                         styles.optionMarkerText,
-                        selected && !feedback && styles.optionMarkerTextSelected,
+                        (selected && !feedback) || (feedback && (correct || selected))
+                          ? styles.optionMarkerTextSelected
+                          : undefined,
                       ]}>
                       {String.fromCharCode(65 + index)}
                     </Text>
@@ -604,7 +645,7 @@ export function TakeQuizScreen({
                 </View>
               ) : isTranscribing ? (
                 <View style={styles.recordState}>
-                  <ActivityIndicator size="large" color="#2563EB" />
+                  <ActivityIndicator size="large" color="#16A34A" />
                   <Text style={styles.transcribingText}>Transcribing...</Text>
                 </View>
               ) : (
@@ -639,20 +680,31 @@ export function TakeQuizScreen({
                   ? styles.feedbackCardGood
                   : styles.feedbackCardBad,
               ]}>
+              <LearningMascotReaction
+                mascotKey={mascotKey}
+                reaction={feedback === 'correct' ? 'correct' : 'encourage'}
+                message={
+                  feedback === 'correct'
+                    ? 'Great work! Let’s keep going.'
+                    : 'Nice try! Review the answer and keep learning.'
+                }
+                size={58}
+              />
               <View style={styles.feedbackTop}>
                 {feedback === 'correct' ? (
                   <Check size={18} color="#15803D" />
                 ) : (
-                  <AlertCircle size={18} color="#B45309" />
+                  <AlertCircle size={18} color="#B91C1C" />
                 )}
                 <Text style={styles.feedbackTitle}>
-                  {feedback === 'correct' ? 'Correct' : 'Needs another look'}
+                  {feedback === 'correct' ? 'Correct' : 'Incorrect'}
                 </Text>
                 <Pressable onPress={() => handleAskAI()} style={styles.feedbackAiButton}>
-                  <Sparkles size={14} color="#2563EB" />
+                  <Sparkles size={14} color="#F97316" />
                 </Pressable>
               </View>
               <Text style={styles.feedbackText}>{currentQuestion.explanation}</Text>
+              <Text style={styles.autoAdvanceText}>Next question in a moment…</Text>
             </View>
           ) : null}
         </ScrollView>
@@ -739,12 +791,13 @@ export function TakeQuizScreen({
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: '#1F4A93',
+    backgroundColor: '#F97316',
   },
   heroBackdrop: {
     alignItems: 'center',
-    paddingTop: 26,
-    paddingBottom: 66,
+    paddingHorizontal: 70,
+    paddingTop: 24,
+    paddingBottom: 64,
   },
   heroBackButton: {
     position: 'absolute',
@@ -755,20 +808,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  heroGrade: {
-    color: 'rgba(255,255,255,0.75)',
-    fontSize: 34,
-    fontWeight: '900',
-  },
   heroSubject: {
-    color: 'rgba(255,255,255,0.42)',
+    color: '#FFFFFF',
     fontSize: 24,
-    fontWeight: '500',
-    marginTop: 2,
+    fontWeight: '900',
+    textAlign: 'center',
+  },
+  heroStrand: {
+    color: '#FFEDD5',
+    fontSize: 14,
+    fontWeight: '700',
+    marginTop: 5,
+    textAlign: 'center',
   },
   quizBackdrop: {
     flex: 1,
-    backgroundColor: '#224891',
+    backgroundColor: '#F97316',
     padding: 18,
   },
   quizSheet: {
@@ -851,13 +906,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   stepChipActive: {
-    backgroundColor: '#3B82F6',
+    borderColor: '#F97316',
+    borderWidth: 2,
   },
   stepChipCorrect: {
-    backgroundColor: '#22C55E',
+    backgroundColor: '#16A34A',
   },
   stepChipIncorrect: {
-    backgroundColor: '#EF4444',
+    backgroundColor: '#DC2626',
   },
   stepChipText: {
     color: '#374151',
@@ -865,7 +921,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   stepChipTextActive: {
-    color: '#FFFFFF',
+    color: '#F97316',
     fontSize: 16,
     fontWeight: '900',
   },
@@ -905,8 +961,8 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
   },
   optionCardSelected: {
-    borderColor: '#3B82F6',
-    backgroundColor: '#EEF4FF',
+    borderColor: '#F97316',
+    backgroundColor: '#FFF7ED',
   },
   optionCardCorrect: {
     borderColor: '#86EFAC',
@@ -924,7 +980,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   optionTextSelected: {
-    color: '#1D4ED8',
+    color: '#C2410C',
     fontWeight: '700',
   },
   optionMarker: {
@@ -936,7 +992,13 @@ const styles = StyleSheet.create({
     width: 34,
   },
   optionMarkerSelected: {
-    backgroundColor: '#2563EB',
+    backgroundColor: '#F97316',
+  },
+  optionMarkerCorrect: {
+    backgroundColor: '#16A34A',
+  },
+  optionMarkerIncorrect: {
+    backgroundColor: '#DC2626',
   },
   optionMarkerText: {
     color: '#475569',
@@ -965,7 +1027,7 @@ const styles = StyleSheet.create({
   recordButton: {
     minHeight: 60,
     borderRadius: 18,
-    backgroundColor: '#2563EB',
+    backgroundColor: '#F97316',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -1047,6 +1109,7 @@ const styles = StyleSheet.create({
   },
   feedbackCard: {
     borderRadius: 18,
+    gap: 10,
     padding: 14,
     borderWidth: 1,
   },
@@ -1055,8 +1118,8 @@ const styles = StyleSheet.create({
     borderColor: '#BBF7D0',
   },
   feedbackCardBad: {
-    backgroundColor: '#FFF7ED',
-    borderColor: '#FED7AA',
+    backgroundColor: '#FEF2F2',
+    borderColor: '#FCA5A5',
   },
   feedbackTop: {
     flexDirection: 'row',
@@ -1082,6 +1145,12 @@ const styles = StyleSheet.create({
     color: '#374151',
     fontSize: 14,
     lineHeight: 22,
+  },
+  autoAdvanceText: {
+    color: '#6B7280',
+    fontSize: 11,
+    fontWeight: '700',
+    textAlign: 'right',
   },
   footer: {
     flexDirection: 'row',
@@ -1111,7 +1180,7 @@ const styles = StyleSheet.create({
     flex: 1,
     minHeight: 50,
     borderRadius: 16,
-    backgroundColor: '#8FE1AF',
+    backgroundColor: '#F97316',
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 14,
@@ -1181,7 +1250,7 @@ const styles = StyleSheet.create({
     maxWidth: 280,
     minHeight: 56,
     borderRadius: 18,
-    backgroundColor: '#111827',
+    backgroundColor: '#16A34A',
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 12,
@@ -1215,14 +1284,14 @@ const styles = StyleSheet.create({
     maxWidth: 280,
     minHeight: 56,
     borderRadius: 18,
-    backgroundColor: '#EFF6FF',
+    backgroundColor: '#FFF7ED',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     gap: 8,
   },
   resultsReviewText: {
-    color: '#2563EB',
+    color: '#C2410C',
     fontSize: 16,
     fontWeight: '800',
   },
@@ -1318,9 +1387,9 @@ const styles = StyleSheet.create({
   },
   reviewExplanationBox: {
     borderRadius: 16,
-    backgroundColor: '#EFF6FF',
+    backgroundColor: '#FFF7ED',
     borderWidth: 1,
-    borderColor: '#DBEAFE',
+    borderColor: '#FED7AA',
     padding: 14,
   },
   reviewExplanationTop: {
@@ -1330,7 +1399,7 @@ const styles = StyleSheet.create({
     marginBottom: 6,
   },
   reviewExplanationTitle: {
-    color: '#1D4ED8',
+    color: '#C2410C',
     fontSize: 12,
     fontWeight: '800',
   },
@@ -1343,7 +1412,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   reviewExplanationText: {
-    color: '#1E3A8A',
+    color: '#7C2D12',
     fontSize: 13,
     lineHeight: 20,
   },
@@ -1381,7 +1450,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
-    backgroundColor: '#2563EB',
+    backgroundColor: '#F97316',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -1438,7 +1507,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   modalDone: {
-    color: '#1D4ED8',
+    color: '#15803D',
     fontSize: 14,
     fontWeight: '800',
     textAlign: 'center',

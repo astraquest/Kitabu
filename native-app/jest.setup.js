@@ -95,6 +95,15 @@ jest.mock('expo-asset', () => ({
 }));
 
 jest.mock('expo-audio', () => ({
+  useAudioPlayer: jest.fn(() => ({
+    play: jest.fn(),
+    pause: jest.fn(),
+  })),
+  useAudioPlayerStatus: jest.fn(() => ({
+    currentTime: 0,
+    duration: 0,
+    playing: false,
+  })),
   createAudioPlayer: jest.fn(() => {
     const listeners = new Map();
     return {
@@ -111,7 +120,9 @@ jest.mock('expo-audio', () => ({
         });
       }),
       pause: jest.fn(),
+      seekTo: jest.fn(() => Promise.resolve()),
       remove: jest.fn(),
+      volume: 1,
     };
   }),
   requestRecordingPermissionsAsync: jest.fn(() => Promise.resolve({ granted: true })),
@@ -127,6 +138,27 @@ jest.mock('expo-audio', () => ({
       stop: jest.fn(() => Promise.resolve()),
     })),
   },
+}));
+
+jest.mock('expo-video', () => ({
+  VideoView: 'VideoView',
+  useVideoPlayer: jest.fn((_source, setup) => {
+    const player = {
+      allowsExternalPlayback: true,
+      loop: false,
+      play: jest.fn(),
+      showNowPlayingNotification: false,
+      staysActiveInBackground: false,
+    };
+    setup?.(player);
+    return player;
+  }),
+}));
+
+jest.mock('expo-screen-capture', () => ({
+  usePreventScreenCapture: jest.fn(),
+  enableAppSwitcherProtectionAsync: jest.fn(() => Promise.resolve()),
+  disableAppSwitcherProtectionAsync: jest.fn(() => Promise.resolve()),
 }));
 
 jest.mock('expo-document-picker', () => ({

@@ -57,6 +57,22 @@ export interface DarajaStkPushResponse {
   customerMessage: string;
 }
 
+export interface DarajaStkQueryResponse {
+  merchantRequestId: string;
+  checkoutRequestId: string;
+  responseCode: string;
+  responseDescription: string;
+  resultCode: number;
+  resultDescription: string;
+}
+
+export interface VerifiedMpesaCallback {
+  resultCode: number;
+  resultDescription: string;
+  receiptNumber: string | null;
+  providerResponse: DarajaStkQueryResponse;
+}
+
 export class MpesaProviderError extends Error {
   public readonly providerStatus?: number;
   public readonly providerResponse?: string;
@@ -89,6 +105,23 @@ async function readProviderResponse(response: Response) {
   } catch {
     return { rawResponse: responseText };
   }
+}
+
+function darajaTimestamp() {
+  return new Date().toISOString().replace(/[-:TZ.]/g, '').slice(0, 14);
+}
+
+function darajaPassword(timestamp: string) {
+  return Buffer.from(
+    `${appConfig.KITABU_MPESA_SHORTCODE}${appConfig.KITABU_MPESA_PASSKEY}${timestamp}`
+  ).toString('base64');
+}
+
+function providerFetchOptions(init: RequestInit = {}): RequestInit {
+  return {
+    ...init,
+    signal: AbortSignal.timeout(appConfig.KITABU_MPESA_PROVIDER_TIMEOUT_MS)
+  };
 }
 
 function requireDarajaConfig() {
@@ -143,11 +176,11 @@ async function getDarajaAccessToken() {
     `${appConfig.KITABU_MPESA_CONSUMER_KEY}:${appConfig.KITABU_MPESA_CONSUMER_SECRET}`
   ).toString('base64');
 
-  const response = await fetch(`${darajaBaseUrl}/oauth/v1/generate?grant_type=client_credentials`, {
+  const response = await fetch(`${darajaBaseUrl}/oauth/v1/generate?grant_type=client_credentials`, providerFetchOptions({
     headers: {
       Authorization: `Basic ${credentials}`
     }
-  });
+  }));
 
   const payload = (await readProviderResponse(response)) as { access_token?: string };
 
@@ -173,12 +206,10 @@ export async function initiateStkPush(input: DarajaStkPushRequest): Promise<Dara
   requireDarajaConfig();
 
   const accessToken = await getDarajaAccessToken();
-  const timestamp = new Date().toISOString().replace(/[-:TZ.]/g, '').slice(0, 14);
-  const password = Buffer.from(
-    `${appConfig.KITABU_MPESA_SHORTCODE}${appConfig.KITABU_MPESA_PASSKEY}${timestamp}`
-  ).toString('base64');
+  const timestamp = darajaTimestamp();
+  const password = darajaPassword(timestamp);
 
-  const response = await fetch(`${darajaBaseUrl}/mpesa/stkpush/v1/processrequest`, {
+  const response = await fetch(`${darajaBaseUrl}/mpesa/stkpush/v1/processrequest`, providerFetchOptions({
     method: 'POST',
     headers: {
       Authorization: `Bearer ${accessToken}`,
@@ -197,7 +228,7 @@ export async function initiateStkPush(input: DarajaStkPushRequest): Promise<Dara
       AccountReference: input.reference,
       TransactionDesc: input.description
     })
-  });
+  }));
 
   const payload = (await readProviderResponse(response)) as {
     MerchantRequestID?: string;
@@ -229,5 +260,138 @@ export async function initiateStkPush(input: DarajaStkPushRequest): Promise<Dara
     responseCode: payload.ResponseCode,
     responseDescription: payload.ResponseDescription ?? 'STK Push sent',
     customerMessage: payload.CustomerMessage ?? 'Check your phone to complete payment'
+  };
+}
+
+function parseProviderResultCode(value: unknown) {
+  const resultCode = typeof value === 'number' ? value : Number.parseInt(String(value), 10);
+  if (!Number.isInteger(resultCode)) {
+    throw new MpesaProviderError('M-Pesa query response did not include a valid result code');
+  }
+  return resultCode;
+}
+
+export async function queryStkPushStatus(checkoutRequestId: string): Promise<DarajaStkQueryResponse> {
+  requireDarajaConfig();
+
+  const normalizedCheckoutRequestId = checkoutRequestId.trim();
+  if (!normalizedCheckoutRequestId) {
+    throw new Error('Checkout request ID is required');
+  }
+
+  const accessToken = await getDarajaAccessToken();
+  const timestamp = darajaTimestamp();
+  const response = await fetch(`${darajaBaseUrl}/mpesa/stkpushquery/v1/query`, providerFetchOptions({
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      BusinessShortCode: appConfig.KITABU_MPESA_SHORTCODE,
+      Password: darajaPassword(timestamp),
+      Timestamp: timestamp,
+      CheckoutRequestID: normalizedCheckoutRequestId
+    })
+  }));
+
+  const payload = (await readProviderResponse(response)) as {
+    MerchantRequestID?: string;
+    CheckoutRequestID?: string;
+    ResponseCode?: string;
+    ResponseDescription?: string;
+    ResultCode?: string | number;
+    ResultDesc?: string;
+    errorMessage?: string;
+  };
+
+  if (!response.ok || payload.ResponseCode !== '0') {
+    const providerMessage = payload.errorMessage || payload.ResponseDescription || 'Unable to verify M-Pesa checkout';
+    throw new MpesaProviderError(providerMessage, {
+      providerStatus: response.status,
+      providerResponse: trimProviderResponse(JSON.stringify(payload))
+    });
+  }
+
+  if (!payload.MerchantRequestID || !payload.CheckoutRequestID) {
+    throw new MpesaProviderError('M-Pesa query response is incomplete', {
+      providerStatus: response.status,
+      providerResponse: trimProviderResponse(JSON.stringify(payload))
+    });
+  }
+
+  return {
+    merchantRequestId: payload.MerchantRequestID,
+    checkoutRequestId: payload.CheckoutRequestID,
+    responseCode: payload.ResponseCode,
+    responseDescription: payload.ResponseDescription ?? 'M-Pesa checkout verified',
+    resultCode: parseProviderResultCode(payload.ResultCode),
+    resultDescription: payload.ResultDesc ?? 'M-Pesa checkout status verified'
+  };
+}
+
+export function verifyMpesaCallback(input: {
+  expectedMerchantRequestId: string;
+  expectedCheckoutRequestId: string;
+  expectedAmountKshCents: number;
+  expectedPhoneNumber: string;
+  callbackMerchantRequestId?: string;
+  callbackCheckoutRequestId: string;
+  callbackResultCode: number;
+  callbackResultDescription: string;
+  callbackAmount?: string | number;
+  callbackPhoneNumber?: string | number;
+  callbackReceiptNumber?: string | number;
+  providerResponse: DarajaStkQueryResponse;
+}): VerifiedMpesaCallback {
+  const merchantRequestId = input.callbackMerchantRequestId?.trim();
+  if (
+    !merchantRequestId ||
+    merchantRequestId !== input.expectedMerchantRequestId ||
+    input.providerResponse.merchantRequestId !== input.expectedMerchantRequestId
+  ) {
+    throw new Error('M-Pesa merchant request ID did not match the stored checkout');
+  }
+
+  if (
+    input.callbackCheckoutRequestId !== input.expectedCheckoutRequestId ||
+    input.providerResponse.checkoutRequestId !== input.expectedCheckoutRequestId
+  ) {
+    throw new Error('M-Pesa checkout request ID did not match the stored checkout');
+  }
+
+  if (input.providerResponse.resultCode !== input.callbackResultCode) {
+    throw new Error('M-Pesa callback result did not match the provider query');
+  }
+
+  if (input.callbackResultCode !== 0) {
+    return {
+      resultCode: input.providerResponse.resultCode,
+      resultDescription: input.providerResponse.resultDescription || input.callbackResultDescription,
+      receiptNumber: null,
+      providerResponse: input.providerResponse
+    };
+  }
+
+  const amount = Number(input.callbackAmount);
+  if (!Number.isFinite(amount) || Math.round(amount * 100) !== input.expectedAmountKshCents) {
+    throw new Error('M-Pesa callback amount did not match the checkout amount');
+  }
+
+  const callbackPhoneNumber = formatKenyanPhoneNumber(String(input.callbackPhoneNumber ?? ''));
+  if (callbackPhoneNumber !== formatKenyanPhoneNumber(input.expectedPhoneNumber)) {
+    throw new Error('M-Pesa callback phone number did not match the checkout phone number');
+  }
+
+  const receiptNumber = String(input.callbackReceiptNumber ?? '').trim().toUpperCase();
+  if (!/^[A-Z0-9-]{6,40}$/.test(receiptNumber)) {
+    throw new Error('M-Pesa callback did not include a valid receipt number');
+  }
+
+  return {
+    resultCode: input.providerResponse.resultCode,
+    resultDescription: input.providerResponse.resultDescription || input.callbackResultDescription,
+    receiptNumber,
+    providerResponse: input.providerResponse
   };
 }

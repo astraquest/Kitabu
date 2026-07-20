@@ -11,13 +11,13 @@ interface ManyangaRendererProps {
 
 // Nganya liveries: [body, accent]. Index matches engine liveryIndex.
 const LIVERIES: Array<[string, string]> = [
-  ['#7C3AED', '#FDE047'],
+  ['#15803D', '#FDE047'],
   ['#DC2626', '#FFFFFF'],
   ['#16A34A', '#FACC15'],
-  ['#0EA5E9', '#F472B6'],
+  ['#16A34A', '#F97316'],
   ['#F97316', '#0F172A'],
 ];
-const PLAYER_LIVERY: [string, string] = ['#7C3AED', '#FDE047'];
+const PLAYER_LIVERY: [string, string] = ['#15803D', '#FDE047'];
 
 const MATATU_W = 118;
 const MATATU_H = 92;

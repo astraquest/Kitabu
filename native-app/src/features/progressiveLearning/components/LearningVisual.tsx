@@ -1,6 +1,10 @@
 import React from 'react';
 
 import type { LearningVisualSpec } from '../types';
+import {
+  ArithmeticChallengeScene,
+  type ArithmeticChallengeState,
+} from './scenes/ArithmeticChallengeScene';
 import { BalanceScene } from './scenes/BalanceScene';
 import { CardsScene } from './scenes/CardsScene';
 import { ClassifyScene } from './scenes/ClassifyScene';
@@ -15,8 +19,21 @@ import { StoryScene } from './scenes/StoryScene';
  * Routes lesson data to an original, concept-specific visual scene.
  * Keep this component exhaustive so adding a visual type always requires a renderer.
  */
-export function LearningVisual({ spec }: { spec: LearningVisualSpec }) {
+export function LearningVisual({
+  arithmeticChallenge,
+  spec,
+}: {
+  arithmeticChallenge?: ArithmeticChallengeState;
+  spec: LearningVisualSpec;
+}) {
   switch (spec.kind) {
+    case 'picture_word':
+    case 'picture_choice':
+      return null;
+    case 'arithmetic':
+      return arithmeticChallenge ? (
+        <ArithmeticChallengeScene {...arithmeticChallenge} spec={spec} />
+      ) : null;
     case 'balance':
       return <BalanceScene spec={spec} />;
     case 'groups':

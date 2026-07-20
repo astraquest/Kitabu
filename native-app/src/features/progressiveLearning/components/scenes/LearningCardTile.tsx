@@ -10,7 +10,7 @@ const ACCENTS = {
   green: { edge: '#2F9A78', soft: '#E2F7EF' },
   gold: { edge: '#D79A16', soft: '#FFF3C8' },
   coral: { edge: '#E36362', soft: '#FFE8E7' },
-  purple: { edge: '#7457D9', soft: '#EEE9FF' },
+  purple: { edge: '#15803D', soft: '#DCFCE7' },
   neutral: { edge: '#7890A8', soft: '#EDF3F7' },
 } as const;
 

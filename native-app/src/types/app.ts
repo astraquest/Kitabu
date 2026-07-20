@@ -119,7 +119,6 @@ export interface BillingPlansResponse {
 
 export interface MpesaCheckoutResponse {
   paymentRequestId: string;
-  checkoutRequestId: string;
   customerMessage: string;
   expiresAt: string;
   maskedMpesaPhoneNumber: string | null;
@@ -135,7 +134,6 @@ export interface MpesaCheckoutStatus {
   paymentRequestId: string;
   status: 'pending' | 'initiated' | 'paid' | 'failed' | 'cancelled' | 'expired';
   returnTo: string;
-  phoneNumber: string;
   maskedPhoneNumber: string | null;
   resultCode: number | null;
   resultDescription: string | null;

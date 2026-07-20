@@ -9,15 +9,20 @@ export function buildFallbackLearningPath(
   const orderedSubStrands = strands.flatMap(strand =>
     strand.subStrands.map(subStrand => ({ strand, subStrand })),
   );
-  const activeIndex = orderedSubStrands.findIndex(({ subStrand }) => !subStrand.isCompleted);
+  let previousAttempted = true;
   const nodes = orderedSubStrands.map(({ strand, subStrand }, position) => {
-    const status = activeIndex === -1 || position < activeIndex
+    const completed = subStrand.isCompleted;
+    const needsPractice = !completed && Boolean(subStrand.needsRemediation);
+    const attempted =
+      completed || needsPractice || typeof subStrand.masteryScore === 'number';
+    const status = completed
       ? ('completed' as const)
-      : position === activeIndex
-        ? subStrand.needsRemediation
-          ? ('needs_practice' as const)
-          : ('current' as const)
-        : ('locked' as const);
+      : needsPractice
+        ? ('needs_practice' as const)
+        : previousAttempted
+          ? ('current' as const)
+          : ('locked' as const);
+    previousAttempted = previousAttempted && attempted;
 
     return {
       id: subStrand.id,
@@ -33,7 +38,7 @@ export function buildFallbackLearningPath(
       strandTitle: strand.title,
       status,
       bestScore: subStrand.masteryScore ?? null,
-      attemptCount: 0,
+      attemptCount: attempted ? 1 : 0,
       delivery: 'progressive' as const,
     };
   });

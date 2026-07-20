@@ -12,20 +12,22 @@ export type CurriculumQuestionSource = {
   hint: string;
   misconception: string;
   cognitiveLevel: 'recall' | 'understand' | 'apply' | 'analyse';
+  visual?: LearningVisualSpec;
 };
 
 export type CurriculumChapterSource = {
   key: string;
+  lessonVersion?: number;
   subjectId: string;
   subjectName: string;
-  grade: `Grade ${5 | 6 | 7 | 8 | 10 | 11}`;
+  grade: `Grade ${1 | 2 | 3 | 5 | 6 | 7 | 8 | 10 | 11}`;
   strand: string;
   subStrand: string;
   title: string;
   shortTitle: string;
   objective: string;
   minutes: 9 | 10;
-  /** Immutable local evidence used to choose and review this chapter. */
+  /** Reviewable curriculum evidence used to choose and audit this chapter. */
   sourceRef: string;
   visual: {
     setting: Extract<LearningVisualSpec, { kind: 'scene' }>['setting'];
@@ -100,8 +102,10 @@ function validateChapter(chapter: CurriculumChapterSource) {
   if (chapter.visual.elements.length < 3) {
     throw new Error(`${chapter.key} needs at least three scene elements.`);
   }
-  if (!/^git:[0-9a-f]{40}:[^#]+(?:#.+)?$/i.test(chapter.sourceRef)) {
-    throw new Error(`${chapter.key} must pin curriculum evidence to an immutable Git object.`);
+  const isPinnedGitSource = /^git:[0-9a-f]{40}:[^#]+(?:#.+)?$/i.test(chapter.sourceRef);
+  const isOfficialKicdPdf = /^https:\/\/kicd\.ac\.ke\/wp-content\/uploads\/.+\.pdf(?:#.+)?$/i.test(chapter.sourceRef);
+  if (!isPinnedGitSource && !isOfficialKicdPdf) {
+    throw new Error(`${chapter.key} must reference a pinned Git source or an official KICD PDF.`);
   }
 
   chapter.questions.forEach((question, index) => {
@@ -123,6 +127,10 @@ function visualFor(
   index: number,
   openingKind: OpeningInteractionKind
 ): LearningVisualSpec {
+  if (question.visual) {
+    return question.visual;
+  }
+
   if (index === 0) {
     if (openingKind === 'choice_sprint') {
       return {
@@ -214,6 +222,11 @@ function visualFor(
 
 function stepsFor(chapter: CurriculumChapterSource): StepInput[] {
   const openingKind = openingInteractionKind(chapter);
+  const usesLowerPrimaryPresentation = [
+    'Grade 1',
+    'Grade 2',
+    'Grade 3',
+  ].includes(chapter.grade);
   return chapter.questions.map((question, index) => {
     const presentedQuestion: CurriculumQuestionSource = {
       ...question,
@@ -222,13 +235,19 @@ function stepsFor(chapter: CurriculumChapterSource): StepInput[] {
     const common = {
       phase: index < 2 ? 'guided' as const : 'checkpoint' as const,
       prompt: question.prompt,
-      supportText: index < 2 ? chapter.objective : undefined,
       visual: visualFor(chapter, presentedQuestion, index, openingKind),
       hint: question.hint,
       successMessage: `That reasoning works. ${question.explanation}`,
       misconception: question.misconception,
       incorrectMessage: `Try a different path. ${question.hint}`
     };
+
+    if (
+      usesLowerPrimaryPresentation ||
+      presentedQuestion.visual?.kind === 'arithmetic'
+    ) {
+      return { ...common, options: presentedQuestion.options, answer: question.answer };
+    }
 
     if (index !== 0) {
       return { ...common, options: presentedQuestion.options, answer: question.answer };
@@ -277,6 +296,7 @@ export function defineCurriculumChapters(chapters: CurriculumChapterSource[]): P
     keys.add(chapter.key);
     return {
       key: chapter.key,
+      version: chapter.lessonVersion,
       subjectId: chapter.subjectId,
       subjectName: chapter.subjectName,
       grade: chapter.grade,

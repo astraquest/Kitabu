@@ -131,20 +131,27 @@ export function buildCurriculumCompatibilityPath(
   const ordered = subject.strands.flatMap(strand =>
     strand.subStrands.map(subStrand => ({ strand, subStrand }))
   );
-  let previousCompleted = true;
+  let previousAttempted = true;
   const nodes: ProgressivePathNode[] = ordered.map(({ strand, subStrand }, position) => {
     const lessonKey = `curriculum-${subStrand.id}`;
     const lessonProgress = progressByLesson.get(lessonKey);
     const completed = lessonProgress?.status === 'completed' || subStrand.isCompleted;
     const needsPractice = lessonProgress?.status === 'needs_practice' || subStrand.needsRemediation;
+    const attempted = Boolean(
+      completed ||
+      needsPractice ||
+      (lessonProgress?.attempt_count ?? 0) > 0 ||
+      typeof lessonProgress?.best_score === 'number' ||
+      typeof subStrand.masteryScore === 'number',
+    );
     const status: ProgressivePathNode['status'] = completed
       ? 'completed'
       : needsPractice
         ? 'needs_practice'
-        : previousCompleted
+        : previousAttempted
           ? 'current'
           : 'locked';
-    previousCompleted = previousCompleted && completed;
+    previousAttempted = previousAttempted && attempted;
     return {
       id: subStrand.id,
       lessonKey,

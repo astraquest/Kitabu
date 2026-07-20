@@ -1,0 +1,45 @@
+INSERT INTO learning_podcasts (
+  id,
+  school_id,
+  grade_level,
+  title,
+  subject,
+  type,
+  duration,
+  views,
+  published_on,
+  author,
+  thumbnail_url,
+  media_url,
+  position,
+  is_active
+)
+VALUES (
+  '82000000-0000-0000-0000-000000000005'::uuid,
+  NULL,
+  NULL,
+  'Who Killed Tom Mboya?',
+  'History',
+  'audio',
+  '02:49',
+  'New',
+  CURRENT_DATE,
+  'Kitabu Learning',
+  NULL,
+  '/media/podcasts/who-killed-tom-mboya.mp3',
+  2,
+  TRUE
+)
+ON CONFLICT (id) DO UPDATE SET
+  school_id = EXCLUDED.school_id,
+  grade_level = EXCLUDED.grade_level,
+  title = EXCLUDED.title,
+  subject = EXCLUDED.subject,
+  type = EXCLUDED.type,
+  duration = EXCLUDED.duration,
+  author = EXCLUDED.author,
+  thumbnail_url = EXCLUDED.thumbnail_url,
+  media_url = EXCLUDED.media_url,
+  position = EXCLUDED.position,
+  is_active = EXCLUDED.is_active,
+  updated_at = NOW();

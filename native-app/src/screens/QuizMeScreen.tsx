@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import {
   Pressable,
   ScrollView,
@@ -41,6 +41,7 @@ export function QuizMeScreen({
 }: QuizMeScreenProps) {
   const [step, setStep] = useState<1 | 2>(1);
   const [openField, setOpenField] = useState<string | null>(null);
+  const [loadingProgress, setLoadingProgress] = useState(0);
   const [config, setConfig] = useState<QuizConfig>({
     subject: '',
     strand: '',
@@ -66,21 +67,69 @@ export function QuizMeScreen({
     [config.strand, subStrandsByStrand],
   );
 
+  useEffect(() => {
+    if (!isLoading) {
+      setLoadingProgress(0);
+      return;
+    }
+
+    setLoadingProgress(0);
+    const progressTimer = setInterval(() => {
+      setLoadingProgress(current => {
+        if (current >= 95) {
+          return current;
+        }
+        if (current < 30) {
+          return Math.min(95, current + 6);
+        }
+        if (current < 65) {
+          return Math.min(95, current + 4);
+        }
+        if (current < 85) {
+          return Math.min(95, current + 2);
+        }
+        return Math.min(95, current + 1);
+      });
+    }, 350);
+
+    return () => clearInterval(progressTimer);
+  }, [isLoading]);
+
   if (isLoading) {
     return (
       <View style={styles.loadingWrap}>
-        <View style={styles.loadingOrbWrap}>
-          <View style={styles.loadingOrbPulse} />
+        <View style={styles.loadingContent}>
           <LinearGradient
-            colors={['#A855F7', '#EC4899']}
+            colors={['#FFF7ED', '#FFFFFF', '#F0FDF4']}
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 1 }}
-            style={styles.loadingOrb}>
-            <Sparkles size={36} color="#FFFFFF" strokeWidth={2.2} />
+            style={styles.loadingCard}>
+            <Text style={styles.loadingEyebrow}>PERSONALIZED PRACTICE</Text>
+            <View style={styles.loadingOrbWrap}>
+              <View style={styles.loadingOrbPulse} />
+              <LinearGradient
+                colors={['#F97316', '#16A34A']}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+                style={styles.loadingOrb}>
+                <Sparkles size={36} color="#FFFFFF" strokeWidth={2.2} />
+              </LinearGradient>
+            </View>
+            <Text style={styles.loadingTitle}>Generating your Quiz...</Text>
+            <Text style={styles.loadingBody}>Preparing your questions</Text>
+            <Text accessibilityLiveRegion="polite" style={styles.loadingPercentage}>
+              {loadingProgress}%
+            </Text>
+            <View style={styles.loadingProgressTrack}>
+              <LinearGradient
+                colors={['#F97316', '#16A34A']}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 0 }}
+                style={[styles.loadingProgressFill, { width: `${loadingProgress}%` }]}
+              />
+            </View>
           </LinearGradient>
         </View>
-        <Text style={styles.loadingTitle}>Generating your Quiz...</Text>
-        <Text style={styles.loadingBody}>Consulting the AI Tutor</Text>
       </View>
     );
   }
@@ -238,7 +287,7 @@ export function QuizMeScreen({
                 title="Flashcards"
                 body="Learn concepts by flipping cards"
                 icon={<Brain size={24} color={config.format === 'flashcards' ? '#FFFFFF' : '#6B7280'} />}
-                color="#7C3AED"
+                color="#F97316"
                 mutedColor="#F3F4F6"
                 active={config.format === 'flashcards'}
                 onPress={() =>
@@ -250,7 +299,7 @@ export function QuizMeScreen({
                 title="Quiz Format"
                 body="Standard multiple choice quiz"
                 icon={<ClipboardList size={24} color={config.format === 'quiz' ? '#FFFFFF' : '#6B7280'} />}
-                color="#2563EB"
+                color="#16A34A"
                 mutedColor="#F3F4F6"
                 active={config.format === 'quiz'}
                 onPress={() =>
@@ -350,7 +399,7 @@ function Field({
                   ]}>
                   {label === 'Number of Questions' ? `${option} Questions` : option}
                 </Text>
-                {active ? <Check size={16} color="#7C3AED" strokeWidth={2.4} /> : null}
+                {active ? <Check size={16} color="#F97316" strokeWidth={2.4} /> : null}
               </Pressable>
             );
           })}
@@ -413,22 +462,46 @@ const styles = StyleSheet.create({
   },
   loadingWrap: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
-    alignItems: 'center',
+    backgroundColor: '#F8F9FA',
     justifyContent: 'center',
+    padding: 24,
+  },
+  loadingContent: {
+    alignSelf: 'center',
+    maxWidth: 430,
+    width: '100%',
+  },
+  loadingCard: {
+    alignItems: 'center',
+    borderColor: '#FED7AA',
+    borderRadius: 28,
+    borderWidth: 1,
     paddingHorizontal: 24,
+    paddingVertical: 30,
+    shadowColor: '#F97316',
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.08,
+    shadowRadius: 18,
+    elevation: 3,
+  },
+  loadingEyebrow: {
+    color: '#15803D',
+    fontSize: 11,
+    fontWeight: '900',
+    letterSpacing: 1.2,
+    marginBottom: 24,
   },
   loadingOrbWrap: {
-    marginBottom: 24,
     alignItems: 'center',
     justifyContent: 'center',
+    marginBottom: 24,
   },
   loadingOrbPulse: {
     position: 'absolute',
     width: 86,
     height: 86,
     borderRadius: 43,
-    backgroundColor: 'rgba(168,85,247,0.2)',
+    backgroundColor: 'rgba(249,115,22,0.18)',
   },
   loadingOrb: {
     width: 80,
@@ -436,7 +509,7 @@ const styles = StyleSheet.create({
     borderRadius: 40,
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: '#A855F7',
+    shadowColor: '#F97316',
     shadowOpacity: 0.3,
     shadowRadius: 12,
     shadowOffset: { width: 0, height: 8 },
@@ -452,6 +525,24 @@ const styles = StyleSheet.create({
     color: '#6B7280',
     fontSize: 14,
     fontWeight: '600',
+  },
+  loadingPercentage: {
+    color: '#15803D',
+    fontSize: 30,
+    fontWeight: '900',
+    marginTop: 20,
+  },
+  loadingProgressTrack: {
+    backgroundColor: '#E5E7EB',
+    borderRadius: 999,
+    height: 8,
+    marginTop: 12,
+    overflow: 'hidden',
+    width: '100%',
+  },
+  loadingProgressFill: {
+    borderRadius: 999,
+    height: '100%',
   },
   backOverlay: {
     position: 'absolute',
@@ -496,7 +587,7 @@ const styles = StyleSheet.create({
   brandTitle: {
     fontSize: 22,
     fontWeight: '900',
-    color: '#7C3AED',
+    color: '#F97316',
   },
   content: {
     padding: 24,
@@ -578,7 +669,7 @@ const styles = StyleSheet.create({
     opacity: 0.5,
   },
   selectBoxOpen: {
-    borderColor: '#7C3AED',
+    borderColor: '#F97316',
   },
   selectValue: {
     color: '#111827',
@@ -608,7 +699,7 @@ const styles = StyleSheet.create({
     borderTopColor: '#F3F4F6',
   },
   dropdownOptionActive: {
-    backgroundColor: '#F5F3FF',
+    backgroundColor: '#FFF7ED',
   },
   dropdownOptionText: {
     color: '#374151',
@@ -616,7 +707,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   dropdownOptionTextActive: {
-    color: '#7C3AED',
+    color: '#F97316',
   },
   nextButton: {
     marginTop: 8,
@@ -690,7 +781,7 @@ const styles = StyleSheet.create({
   generateButton: {
     minHeight: 58,
     borderRadius: 14,
-    backgroundColor: '#7C3AED',
+    backgroundColor: '#F97316',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',

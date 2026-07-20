@@ -1,0 +1,203 @@
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { Check, X } from 'lucide-react-native';
+
+import type { OnboardingMascotKey } from '../../../../types/app';
+import type { LearningVisualSpec } from '../../types';
+import { LearningMascotReaction } from '../LearningMascotReaction';
+import { SquishPressable } from '../SquishPressable';
+import { ObjectIllustration } from './ObjectIllustration';
+
+type PictureChoiceSpec = Extract<LearningVisualSpec, { kind: 'picture_choice' }>;
+
+type PictureChoiceChallengeSceneProps = {
+  choices: Array<{ label: string; value: string }>;
+  disabled: boolean;
+  mascotKey: OnboardingMascotKey;
+  onSelect: (value: string) => void;
+  prompt: string;
+  reduceMotion: boolean;
+  selectedAnswer: string | null;
+  spec: PictureChoiceSpec;
+  status: 'idle' | 'checking' | 'correct' | 'incorrect';
+};
+
+/** Reusable picture-led assessment for early learners. */
+export function PictureChoiceChallengeScene({
+  choices,
+  disabled,
+  mascotKey,
+  onSelect,
+  prompt,
+  reduceMotion,
+  selectedAnswer,
+  spec,
+  status,
+}: PictureChoiceChallengeSceneProps) {
+  const feedbackText =
+    status === 'correct'
+      ? 'Well done!'
+      : status === 'incorrect'
+        ? 'Look again and try another answer.'
+        : status === 'checking'
+          ? 'Checking...'
+          : null;
+
+  return (
+    <View
+      accessibilityLabel={`Picture challenge: ${prompt}. Picture of ${spec.caption}`}
+      style={styles.challenge}
+      testID="picture-choice-challenge"
+    >
+      <View style={styles.mascotPerch}>
+        <LearningMascotReaction
+          mascotKey={mascotKey}
+          reaction={
+            status === 'correct'
+              ? 'correct'
+              : status === 'incorrect'
+                ? 'encourage'
+                : status === 'checking'
+                  ? 'thinking'
+                  : 'idle'
+          }
+          size={88}
+        />
+      </View>
+
+      <Text accessibilityRole="header" style={styles.prompt}>
+        {prompt}
+      </Text>
+
+      <View
+        accessibilityLabel={`Picture of ${spec.caption}`}
+        accessibilityRole="image"
+        style={styles.pictureStage}
+      >
+        <ObjectIllustration kind={spec.object} size={150} />
+      </View>
+
+      <View
+        accessibilityLabel="Answer choices"
+        accessibilityRole="radiogroup"
+        style={styles.answerGrid}
+      >
+        {choices.map(choice => {
+          const selected = selectedAnswer === choice.value;
+          const correct = selected && status === 'correct';
+          const incorrect = selected && status === 'incorrect';
+
+          return (
+            <SquishPressable
+              accessibilityLabel={`Choose answer ${choice.label}`}
+              accessibilityRole="radio"
+              accessibilityState={{ checked: selected, disabled }}
+              containerStyle={styles.answerWrap}
+              disabled={disabled}
+              key={choice.value}
+              onPress={() => onSelect(choice.value)}
+              reduceMotion={reduceMotion}
+            >
+              <View
+                style={[
+                  styles.answer,
+                  selected && styles.answerSelected,
+                  correct && styles.answerCorrect,
+                  incorrect && styles.answerIncorrect,
+                ]}
+              >
+                <Text numberOfLines={2} style={styles.answerText}>
+                  {choice.label}
+                </Text>
+                {correct ? (
+                  <View style={[styles.resultBadge, styles.correctBadge]}>
+                    <Check color="#FFFFFF" size={14} strokeWidth={3.2} />
+                  </View>
+                ) : null}
+                {incorrect ? (
+                  <View style={[styles.resultBadge, styles.incorrectBadge]}>
+                    <X color="#FFFFFF" size={14} strokeWidth={3.2} />
+                  </View>
+                ) : null}
+              </View>
+            </SquishPressable>
+          );
+        })}
+      </View>
+
+      {feedbackText ? (
+        <Text
+          accessibilityLiveRegion="polite"
+          style={[
+            styles.feedback,
+            status === 'correct' && styles.feedbackCorrect,
+            status === 'incorrect' && styles.feedbackIncorrect,
+          ]}
+        >
+          {feedbackText}
+        </Text>
+      ) : null}
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  answer: {
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF',
+    borderColor: '#D8C99D',
+    borderRadius: 18,
+    borderWidth: 1.5,
+    elevation: 2,
+    justifyContent: 'center',
+    minHeight: 72,
+    paddingHorizontal: 12,
+    shadowColor: '#8A6C2E',
+    shadowOffset: { height: 3, width: 0 },
+    shadowOpacity: 0.15,
+    shadowRadius: 3,
+  },
+  answerCorrect: { backgroundColor: '#E4F8E7', borderColor: '#22A45D', borderWidth: 2.5 },
+  answerGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 10, marginTop: 16 },
+  answerIncorrect: { backgroundColor: '#FFF0EB', borderColor: '#F17863', borderWidth: 2.5 },
+  answerSelected: { backgroundColor: '#EDF3FF', borderColor: '#4F7CE8', borderWidth: 2.5 },
+  answerText: { color: '#082B4A', fontSize: 17, fontWeight: '900', textAlign: 'center' },
+  answerWrap: { flexBasis: '47%', flexGrow: 1, maxWidth: '49%' },
+  challenge: {
+    alignItems: 'center',
+    backgroundColor: '#FFFBEC',
+    borderColor: '#E5D7B3',
+    borderRadius: 28,
+    borderWidth: 1.5,
+    marginTop: 42,
+    paddingBottom: 20,
+    paddingHorizontal: 14,
+    paddingTop: 54,
+  },
+  correctBadge: { backgroundColor: '#22A45D' },
+  feedback: { color: '#526963', fontSize: 13, fontWeight: '900', marginTop: 14 },
+  feedbackCorrect: { color: '#18864A' },
+  feedbackIncorrect: { color: '#C34C3B' },
+  incorrectBadge: { backgroundColor: '#F17863' },
+  mascotPerch: { alignItems: 'center', left: 0, position: 'absolute', right: 0, top: -46, zIndex: 2 },
+  pictureStage: {
+    alignItems: 'center',
+    backgroundColor: '#EAF5FF',
+    borderRadius: 24,
+    height: 164,
+    justifyContent: 'center',
+    marginTop: 14,
+    width: '100%',
+  },
+  prompt: { color: '#082B4A', fontSize: 22, fontWeight: '900', lineHeight: 27, textAlign: 'center' },
+  resultBadge: {
+    alignItems: 'center',
+    borderRadius: 999,
+    height: 24,
+    justifyContent: 'center',
+    position: 'absolute',
+    right: 6,
+    top: 6,
+    width: 24,
+  },
+});

@@ -94,7 +94,7 @@ export function ReviewSessionScreen({
 
       <View style={styles.promptCard}>
         <View style={styles.promptHeader}>
-          <Target color="#7C3AED" size={20} />
+          <Target color="#15803D" size={20} />
           <Text style={styles.promptTitle}>Quick self-check</Text>
         </View>
         <Text style={styles.promptText}>
@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
   },
   statValue: { color: '#0F172A', fontSize: 17, fontWeight: '900' },
   statLabel: { color: '#64748B', fontSize: 12, marginTop: 4 },
-  promptCard: { backgroundColor: '#FFFFFF', borderColor: '#EDE9FE', borderRadius: 8, borderWidth: 1, padding: 16 },
+  promptCard: { backgroundColor: '#FFFFFF', borderColor: '#DCFCE7', borderRadius: 8, borderWidth: 1, padding: 16 },
   promptHeader: { alignItems: 'center', flexDirection: 'row', gap: 8 },
   promptTitle: { color: '#0F172A', fontSize: 16, fontWeight: '900' },
   promptText: { color: '#475569', fontSize: 14, lineHeight: 21, marginTop: 8 },

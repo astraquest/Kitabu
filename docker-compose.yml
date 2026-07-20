@@ -32,6 +32,7 @@ services:
       - ./apps/api/.env
     volumes:
       - ./apps/api/data/books:/app/data/books:ro
+      - ./apps/api/media/podcasts:/app/media/podcasts:ro
     depends_on:
       - postgres
       - redis

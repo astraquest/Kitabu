@@ -443,7 +443,7 @@ export function LoginScreen({
             </View>
 
             {mode === 'signup' ? (
-              <FieldShell label="Full Name" icon={<User color="#8B5CF6" size={16} />}>
+              <FieldShell label="Full Name" icon={<User color="#15803D" size={16} />}>
                 <TextInput
                   autoCapitalize="words"
                   onChangeText={handleFullNameChange}

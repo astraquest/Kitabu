@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { AccessibilityInfo, Animated, StyleSheet, Text, View } from 'react-native';
+import { AccessibilityInfo, Animated, StyleSheet, View } from 'react-native';
 
 import { sceneTheme } from './sceneTheme';
 
@@ -87,21 +87,11 @@ export function SceneFrame({
       <View accessibilityElementsHidden importantForAccessibility="no-hide-descendants">
         {children}
       </View>
-      <Text style={styles.caption}>{accessibilityLabel}</Text>
     </Animated.View>
   );
 }
 
 const styles = StyleSheet.create({
-  caption: {
-    color: sceneTheme.mutedInk,
-    fontSize: 12,
-    fontWeight: '700',
-    lineHeight: 17,
-    marginTop: 8,
-    paddingHorizontal: 10,
-    textAlign: 'center',
-  },
   frame: {
     borderColor: sceneTheme.border,
     borderRadius: 26,

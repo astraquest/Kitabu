@@ -667,7 +667,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  inviteButton: { backgroundColor: '#A855F7' },
+  inviteButton: { backgroundColor: '#F97316' },
   lobbyCard: {
     width: '100%',
     maxWidth: 380,
@@ -765,7 +765,7 @@ const styles = StyleSheet.create({
   lobbyMain: { flex: 1 },
   lobbyTitle: { color: '#0F172A', fontWeight: '800' },
   lobbyMeta: { color: '#64748B', fontSize: 12, fontWeight: '600' },
-  challengeText: { color: '#7C3AED', fontWeight: '800' },
+  challengeText: { color: '#15803D', fontWeight: '800' },
   quizCard: {
     width: '100%',
     maxWidth: 360,

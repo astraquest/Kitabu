@@ -57,7 +57,7 @@ export function QuickAccessGrid({
               ]}>
               <View style={styles.quickIconWrap}>
                 <Icon
-                  color={isActive ? '#6D28D9' : '#4B5563'}
+                  color={isActive ? '#15803D' : '#4B5563'}
                   size={20}
                   strokeWidth={isActive ? 2.5 : 2.25}
                 />
@@ -135,11 +135,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   quickLabelActive: {
-    color: '#6B21A8',
+    color: '#15803D',
     fontWeight: '800',
   },
   quickActionUnderline: {
-    backgroundColor: '#9333EA',
+    backgroundColor: '#F97316',
     borderTopLeftRadius: 999,
     borderTopRightRadius: 999,
     bottom: -14,

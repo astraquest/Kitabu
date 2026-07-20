@@ -13,6 +13,23 @@ export type LearningObjectKind =
   | 'banana'
   | 'basket'
   | 'seedling'
+  | 'chair'
+  | 'cat'
+  | 'sun'
+  | 'pen'
+  | 'hat'
+  | 'book'
+  | 'table'
+  | 'pencil'
+  | 'face'
+  | 'teeth'
+  | 'hand'
+  | 'foot'
+  | 'hair'
+  | 'leaf'
+  | 'flower'
+  | 'stem'
+  | 'roots'
   | 'mystery';
 
 export type LearningCard = {
@@ -24,6 +41,24 @@ export type LearningCard = {
 };
 
 export type LearningVisualSpec =
+  | {
+      kind: 'arithmetic';
+      leftOperand: number;
+      operator: '+' | '-' | '×' | '÷';
+      rightOperand: number;
+      caption: string;
+    }
+  | {
+      kind: 'picture_word';
+      object: Extract<LearningObjectKind, 'chair' | 'cat' | 'sun' | 'pen' | 'hat' | 'book' | 'table' | 'pencil'>;
+      wordPattern: string;
+      caption: string;
+    }
+  | {
+      kind: 'picture_choice';
+      object: LearningObjectKind;
+      caption: string;
+    }
   | {
       kind: 'balance';
       left: Array<{

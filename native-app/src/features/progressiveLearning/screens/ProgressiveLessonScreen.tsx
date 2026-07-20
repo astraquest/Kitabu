@@ -3,7 +3,6 @@ import {
   AccessibilityInfo,
   ActivityIndicator,
   Animated,
-  Easing,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -17,7 +16,6 @@ import {
   ChevronRight,
   CircleHelp,
   RotateCcw,
-  Sparkles,
   Trophy,
   X,
 } from 'lucide-react-native';
@@ -36,15 +34,30 @@ import type {
   ProgressiveStepResult,
 } from '../types';
 import { LearningMascotReaction } from '../components/LearningMascotReaction';
-import { LearningInteractionView } from '../components/LearningInteraction';
+import {
+  LowerPrimaryQuestionProgress,
+  type QuestionOutcome,
+} from '../components/LowerPrimaryQuestionProgress';
+import { LowerPrimaryChoiceChallengeScene } from '../components/scenes/LowerPrimaryChoiceChallengeScene';
+import { PictureChoiceChallengeScene } from '../components/scenes/PictureChoiceChallengeScene';
+import { PictureWordChallengeScene } from '../components/scenes/PictureWordChallengeScene';
+import {
+  LearningInteractionView,
+  serializeChoiceResponse,
+} from '../components/LearningInteraction';
 import { LearningVisual } from '../components/LearningVisual';
 import { SquishPressable } from '../components/SquishPressable';
+import { StandardAnswerGrid } from '../components/StandardAnswerGrid';
+import { SubjectPageHeader } from '../components/SubjectPageHeader';
+import { useFeedbackChimes } from '../hooks/useFeedbackChimes';
+import { getLearningPresentationMode } from '../model/learningPresentationPolicy';
 
 interface ProgressiveLessonScreenProps {
   lessonKey: string;
   lessonVersion: number;
   grade: string;
   mascotKey: OnboardingMascotKey;
+  subjectName: string;
   onBack: () => void;
   onComplete: () => void;
 }
@@ -54,6 +67,7 @@ export function ProgressiveLessonScreen({
   lessonVersion,
   grade,
   mascotKey,
+  subjectName,
   onBack,
   onComplete,
 }: ProgressiveLessonScreenProps) {
@@ -69,14 +83,19 @@ export function ProgressiveLessonScreen({
   const [completion, setCompletion] =
     useState<ProgressiveCompletionResult | null>(null);
   const [sessionXp, setSessionXp] = useState(0);
+  const [questionOutcomes, setQuestionOutcomes] = useState<QuestionOutcome[]>(
+    [],
+  );
   const [error, setError] = useState<string | null>(null);
   const [reduceMotion, setReduceMotion] = useState(false);
   const stepStartedAt = useRef(Date.now());
-  const progress = useRef(new Animated.Value(0)).current;
+  const submissionInFlightRef = useRef(false);
+  const autoAdvanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const continueLessonRef = useRef<() => Promise<void>>(async () => undefined);
   const shake = useRef(new Animated.Value(0)).current;
-  const xpScale = useRef(new Animated.Value(1)).current;
   const sceneEntrance = useRef(new Animated.Value(1)).current;
   const feedbackEntrance = useRef(new Animated.Value(1)).current;
+  const { playFeedbackChime, primeFeedbackChimes } = useFeedbackChimes();
 
   useEffect(() => {
     let mounted = true;
@@ -98,9 +117,12 @@ export function ProgressiveLessonScreen({
   useEffect(
     () => () => {
       shake.stopAnimation();
-      xpScale.stopAnimation();
+      if (autoAdvanceTimerRef.current) {
+        clearTimeout(autoAdvanceTimerRef.current);
+        autoAdvanceTimerRef.current = null;
+      }
     },
-    [shake, xpScale],
+    [shake],
   );
 
   useEffect(() => {
@@ -112,6 +134,7 @@ export function ProgressiveLessonScreen({
           return;
         }
         setLesson(result.lesson);
+        setQuestionOutcomes(result.lesson.steps.map(() => 'pending'));
         setAttemptId(result.attemptId);
         const resumeIndex = result.currentStepId
           ? Math.max(
@@ -139,22 +162,6 @@ export function ProgressiveLessonScreen({
   }, [clientAttemptId, grade, lessonKey, lessonVersion]);
 
   const step = lesson?.steps[currentIndex] ?? null;
-  const progressPercent = lesson
-    ? ((currentIndex + (feedback?.isCorrect ? 1 : 0)) / lesson.steps.length) *
-      100
-    : 0;
-
-  useEffect(() => {
-    progress.stopAnimation();
-    Animated.timing(progress, {
-      toValue: progressPercent,
-      duration: reduceMotion ? 0 : 620,
-      easing: Easing.out(Easing.cubic),
-      useNativeDriver: false,
-    }).start();
-    return () => progress.stopAnimation();
-  }, [progress, progressPercent, reduceMotion]);
-
   useEffect(() => {
     sceneEntrance.stopAnimation();
     if (reduceMotion) {
@@ -192,10 +199,6 @@ export function ProgressiveLessonScreen({
     return () => feedbackEntrance.stopAnimation();
   }, [feedback, feedbackEntrance, reduceMotion]);
 
-  const progressWidth = progress.interpolate({
-    inputRange: [0, 100],
-    outputRange: ['0%', '100%'],
-  });
   const mascotMessage = completion
     ? completion.passed
       ? 'You worked that idea out beautifully!'
@@ -205,6 +208,76 @@ export function ProgressiveLessonScreen({
     ? step.options.length === 4 &&
       step.options.every(option => option.length <= 22)
     : false;
+  const usesLowerPrimaryExperience =
+    getLearningPresentationMode(grade) === 'lower_primary';
+  const standardAnswerChoices = !usesLowerPrimaryExperience && step
+    ? step.interaction?.kind === 'choice_sprint'
+      ? step.interaction.items.map(item => ({
+          label: item.label,
+          value: serializeChoiceResponse(item.id),
+        }))
+      : step.interaction
+        ? []
+        : step.options.map(option => ({ label: option, value: option }))
+    : [];
+  const usesStandardAnswerGrid = standardAnswerChoices.length > 0;
+  const usesArithmeticChallenge = step?.visual.kind === 'arithmetic';
+  const lowerPrimaryChoices = step
+    ? step.options.length > 0
+      ? step.options.map(option => ({ label: option, value: option }))
+      : step.interaction?.kind === 'choice_sprint'
+        ? step.interaction.items.map(item => ({
+            label: item.label,
+            value: serializeChoiceResponse(item.id),
+          }))
+        : []
+    : [];
+  const usesLowerPrimaryChoiceChallenge = Boolean(
+    usesLowerPrimaryExperience &&
+    !usesArithmeticChallenge &&
+    step?.visual.kind !== 'picture_word' &&
+    step?.visual.kind !== 'picture_choice' &&
+    lowerPrimaryChoices.length > 0,
+  );
+  const usesPictureWordChallenge = Boolean(
+    usesLowerPrimaryExperience &&
+    step?.visual.kind === 'picture_word' &&
+    lowerPrimaryChoices.length > 0,
+  );
+  const usesPictureChoiceChallenge = Boolean(
+    usesLowerPrimaryExperience &&
+    step?.visual.kind === 'picture_choice' &&
+    lowerPrimaryChoices.length > 0,
+  );
+  const usesAutoGradedChallenge =
+    usesArithmeticChallenge ||
+    usesPictureWordChallenge ||
+    usesPictureChoiceChallenge ||
+    usesLowerPrimaryChoiceChallenge;
+  const visualRepeatsAnswers = Boolean(
+    usesStandardAnswerGrid &&
+      step &&
+      (step.visual.kind === 'cards'
+        ? step.visual.cards.length === standardAnswerChoices.length &&
+          step.visual.cards.every(card =>
+            standardAnswerChoices.some(choice => choice.label === card.label),
+          )
+        : step.visual.kind === 'classify'
+          ? step.visual.items.length === standardAnswerChoices.length &&
+            step.visual.items.every(item =>
+              standardAnswerChoices.some(choice => choice.label === item.label),
+            )
+          : false),
+  );
+  const hidesDuplicatedVisual = Boolean(
+    !usesLowerPrimaryExperience && (step?.interaction || visualRepeatsAnswers),
+  );
+  const usefulSupportText =
+    !usesAutoGradedChallenge &&
+    step?.supportText?.trim() &&
+    step.supportText.trim() !== lesson?.objective.trim()
+      ? step.supportText.trim()
+      : null;
   const sceneTranslateY = sceneEntrance.interpolate({
     inputRange: [0, 1],
     outputRange: [10, 0],
@@ -219,45 +292,50 @@ export function ProgressiveLessonScreen({
       : step.supportText || step.visual.caption
     : '';
 
-  async function submitAnswer() {
+  async function submitAnswer(responseOverride?: string) {
+    const response = responseOverride ?? selectedAnswer;
     if (
       !attemptId ||
       !step ||
-      !selectedAnswer ||
-      isChecking ||
+      !response ||
+      submissionInFlightRef.current ||
       feedback?.isCorrect
     ) {
       return;
     }
+    submissionInFlightRef.current = true;
     setIsChecking(true);
     setError(null);
     try {
       const result = await checkProgressiveLessonStep({
         attemptId,
         stepId: step.id,
-        response: selectedAnswer,
+        response,
         responseLatencyMs: Math.min(
           Date.now() - stepStartedAt.current,
           30 * 60 * 1000,
         ),
       });
+      setQuestionOutcomes(current =>
+        current.map((outcome, index) =>
+          index === currentIndex && outcome === 'pending'
+            ? result.isCorrect
+              ? 'correct'
+              : 'incorrect'
+            : outcome,
+        ),
+      );
       setFeedback(result);
       setSessionXp(value => value + result.xpAwarded);
       if (result.isCorrect) {
         setHintStage(0);
         triggerHaptic('success');
+        playFeedbackChime('correct');
         AccessibilityInfo.announceForAccessibility(
-          `Correct. ${result.message}`,
+          usesAutoGradedChallenge
+            ? `Correct. ${result.message} Moving on in 2 seconds.`
+            : `Correct. ${result.message}`,
         );
-        if (result.xpAwarded > 0 && !reduceMotion) {
-          xpScale.setValue(1.22);
-          Animated.spring(xpScale, {
-            toValue: 1,
-            damping: 12,
-            stiffness: 230,
-            useNativeDriver: true,
-          }).start();
-        }
       } else {
         if (result.attemptNumber >= 3) {
           setHintStage(2);
@@ -265,6 +343,7 @@ export function ProgressiveLessonScreen({
           setHintStage(stage => Math.max(stage, 1) as 0 | 1 | 2);
         }
         triggerHaptic('warning');
+        playFeedbackChime('error');
         AccessibilityInfo.announceForAccessibility(
           `Not yet. ${result.message}`,
         );
@@ -304,6 +383,7 @@ export function ProgressiveLessonScreen({
           : 'Unable to check that answer.',
       );
     } finally {
+      submissionInFlightRef.current = false;
       setIsChecking(false);
     }
   }
@@ -311,6 +391,10 @@ export function ProgressiveLessonScreen({
   async function continueLesson() {
     if (!lesson || !step || !feedback?.isCorrect || !attemptId) {
       return;
+    }
+    if (autoAdvanceTimerRef.current) {
+      clearTimeout(autoAdvanceTimerRef.current);
+      autoAdvanceTimerRef.current = null;
     }
     if (currentIndex < lesson.steps.length - 1) {
       setCurrentIndex(index => index + 1);
@@ -329,6 +413,7 @@ export function ProgressiveLessonScreen({
       setCompletion(result);
       setSessionXp(value => value + result.xpAwarded);
       triggerHaptic(result.passed ? 'success' : 'warning');
+      playFeedbackChime('completion');
     } catch (completeError) {
       triggerHaptic('error');
       setError(
@@ -340,6 +425,30 @@ export function ProgressiveLessonScreen({
       setIsChecking(false);
     }
   }
+
+  continueLessonRef.current = continueLesson;
+
+  useEffect(() => {
+    if (autoAdvanceTimerRef.current) {
+      clearTimeout(autoAdvanceTimerRef.current);
+      autoAdvanceTimerRef.current = null;
+    }
+    if (!usesAutoGradedChallenge || !feedback?.isCorrect || completion) {
+      return undefined;
+    }
+
+    autoAdvanceTimerRef.current = setTimeout(() => {
+      autoAdvanceTimerRef.current = null;
+      continueLessonRef.current().catch(() => undefined);
+    }, 2_000);
+
+    return () => {
+      if (autoAdvanceTimerRef.current) {
+        clearTimeout(autoAdvanceTimerRef.current);
+        autoAdvanceTimerRef.current = null;
+      }
+    };
+  }, [completion, feedback?.isCorrect, step?.id, usesAutoGradedChallenge]);
 
   function retryStep() {
     setSelectedAnswer(null);
@@ -386,6 +495,15 @@ export function ProgressiveLessonScreen({
   if (completion) {
     return (
       <ScrollView contentContainerStyle={styles.completionScreen}>
+        <SquishPressable
+          accessibilityLabel="Back to learning path"
+          containerStyle={styles.completionBackButton}
+          hitSlop={10}
+          onPress={onComplete}
+          reduceMotion={reduceMotion}
+        >
+          <ArrowLeft color="#0B1F4D" size={25} strokeWidth={2.4} />
+        </SquishPressable>
         <View style={styles.completionSparkles}>
           <Text style={styles.sparkleText}>✦</Text>
           <Text style={styles.sparkleText}>•</Text>
@@ -402,16 +520,16 @@ export function ProgressiveLessonScreen({
           size={44}
           strokeWidth={2.2}
         />
-        <Text style={styles.completionTitle}>
-          {completion.passed ? 'Lesson complete!' : 'Practice run complete'}
-        </Text>
-        <Text style={styles.completionSubtitle}>
-          {completion.passed
-            ? completion.nextNode
-              ? `Next up: ${completion.nextNode.title}`
-              : 'You finished this chapter. Your next adventure is ready.'
-            : 'Review the hints, then try again to unlock the next lesson.'}
-        </Text>
+        {completion.passed ? (
+          <>
+            <Text style={styles.completionTitle}>Lesson complete!</Text>
+            <Text style={styles.completionSubtitle}>
+              {completion.nextNode
+                ? `Next up: ${completion.nextNode.title}`
+                : 'You finished this chapter. Your next adventure is ready.'}
+            </Text>
+          </>
+        ) : null}
         <View style={styles.resultRow}>
           <View style={styles.resultCard}>
             <Text style={styles.resultValue}>{completion.score}%</Text>
@@ -450,104 +568,189 @@ export function ProgressiveLessonScreen({
 
   return (
     <View style={styles.screen}>
-      <View style={styles.header}>
-        <Pressable
-          accessibilityLabel="Back to learning path"
-          onPress={onBack}
-          style={styles.backButton}
-        >
-          <ArrowLeft color="#0F172A" size={22} />
-        </Pressable>
-        <View style={styles.headerCenter}>
-          <View style={styles.lessonTitleRow}>
-            <Text numberOfLines={1} style={styles.lessonTitle}>
-              {lesson.shortTitle || lesson.title}
-            </Text>
-            <Text style={styles.headerStepCount}>
-              {currentIndex + 1}/{lesson.steps.length}
-            </Text>
-          </View>
-          <View
-            accessibilityLabel={`Lesson progress: ${Math.round(
-              progressPercent,
-            )} percent`}
-            accessibilityRole="progressbar"
-            accessibilityValue={{
-              min: 0,
-              max: 100,
-              now: Math.round(progressPercent),
-            }}
-            style={styles.progressTrack}
-          >
-            <Animated.View
-              style={[styles.progressFill, { width: progressWidth }]}
-            />
-          </View>
-        </View>
-        <Animated.View
-          style={[styles.xpPill, { transform: [{ scale: xpScale }] }]}
-        >
-          <Sparkles color="#D97706" size={14} />
-          <Text style={styles.xpText}>{sessionXp} XP</Text>
-        </Animated.View>
-      </View>
+      <SubjectPageHeader
+        backAccessibilityLabel="Back to subject details"
+        grade={grade}
+        onBack={onBack}
+        subjectName={subjectName}
+      />
 
       <ScrollView
         contentContainerStyle={styles.content}
         showsVerticalScrollIndicator={false}
       >
-        <View style={styles.stepMetaRow}>
-          <Text
+        {!usesAutoGradedChallenge ? (
+          <>
+            <Text style={styles.prompt}>{step.prompt}</Text>
+            {usefulSupportText ? (
+              <Text style={styles.supportText}>{usefulSupportText}</Text>
+            ) : null}
+          </>
+        ) : null}
+        {hidesDuplicatedVisual ? null : (
+          <Animated.View
             style={[
-              styles.phasePill,
-              step.phase === 'checkpoint' && styles.checkpointPill,
+              styles.sceneStage,
+              {
+                opacity: sceneEntrance,
+                transform: [{ translateY: sceneTranslateY }],
+              },
             ]}
           >
-            {step.phase === 'checkpoint' ? 'CHECKPOINT' : 'GUIDED CHALLENGE'}
-          </Text>
-          <View style={styles.stageMarkers}>
-            {lesson.steps.map((lessonStep, index) => {
-              const markerComplete =
-                index < currentIndex ||
-                (index === currentIndex && Boolean(feedback?.isCorrect));
-              const markerCurrent =
-                index === currentIndex && !feedback?.isCorrect;
-              return (
-                <View
-                  key={lessonStep.id}
-                  style={[
-                    styles.stageMarker,
-                    markerComplete && styles.stageMarkerComplete,
-                    markerCurrent && styles.stageMarkerCurrent,
-                  ]}
-                />
-              );
-            })}
-          </View>
-        </View>
+          {usesPictureChoiceChallenge && step.visual.kind === 'picture_choice' ? (
+            <PictureChoiceChallengeScene
+              choices={lowerPrimaryChoices}
+              disabled={Boolean(feedback?.isCorrect) || isChecking}
+              mascotKey={mascotKey}
+              onSelect={answer => {
+                if (submissionInFlightRef.current || feedback?.isCorrect) {
+                  return;
+                }
+                setSelectedAnswer(answer);
+                setFeedback(null);
+                triggerHaptic('selection');
+                primeFeedbackChimes();
+                submitAnswer(answer).catch(() => undefined);
+              }}
+              prompt={step.prompt}
+              reduceMotion={reduceMotion}
+              selectedAnswer={selectedAnswer}
+              spec={step.visual}
+              status={
+                isChecking
+                  ? 'checking'
+                  : feedback
+                    ? feedback.isCorrect
+                      ? 'correct'
+                      : 'incorrect'
+                    : 'idle'
+              }
+            />
+          ) : usesPictureWordChallenge && step.visual.kind === 'picture_word' ? (
+            <PictureWordChallengeScene
+              choices={lowerPrimaryChoices}
+              disabled={Boolean(feedback?.isCorrect) || isChecking}
+              language={subjectName === 'Kiswahili' ? 'sw' : 'en'}
+              mascotKey={mascotKey}
+              onSelect={answer => {
+                if (submissionInFlightRef.current || feedback?.isCorrect) {
+                  return;
+                }
+                setSelectedAnswer(answer);
+                setFeedback(null);
+                triggerHaptic('selection');
+                primeFeedbackChimes();
+                submitAnswer(answer).catch(() => undefined);
+              }}
+              reduceMotion={reduceMotion}
+              selectedAnswer={selectedAnswer}
+              spec={step.visual}
+              status={
+                isChecking
+                  ? 'checking'
+                  : feedback
+                    ? feedback.isCorrect
+                      ? 'correct'
+                      : 'incorrect'
+                    : 'idle'
+              }
+            />
+          ) : usesLowerPrimaryChoiceChallenge ? (
+            <LowerPrimaryChoiceChallengeScene
+              choices={lowerPrimaryChoices}
+              disabled={Boolean(feedback?.isCorrect) || isChecking}
+              language={subjectName === 'Kiswahili' ? 'sw' : 'en'}
+              mascotKey={mascotKey}
+              onSelect={answer => {
+                if (submissionInFlightRef.current || feedback?.isCorrect) {
+                  return;
+                }
+                setSelectedAnswer(answer);
+                setFeedback(null);
+                triggerHaptic('selection');
+                primeFeedbackChimes();
+                submitAnswer(answer).catch(() => undefined);
+              }}
+              prompt={step.prompt}
+              reduceMotion={reduceMotion}
+              selectedAnswer={selectedAnswer}
+              status={
+                isChecking
+                  ? 'checking'
+                  : feedback
+                    ? feedback.isCorrect
+                      ? 'correct'
+                      : 'incorrect'
+                    : 'idle'
+              }
+            />
+          ) : (
+            <LearningVisual
+              arithmeticChallenge={
+                usesArithmeticChallenge
+                  ? {
+                      disabled: Boolean(feedback?.isCorrect) || isChecking,
+                      mascotKey,
+                      onSelect: answer => {
+                        if (
+                          submissionInFlightRef.current ||
+                          feedback?.isCorrect
+                        ) {
+                          return;
+                        }
+                        setSelectedAnswer(answer);
+                        setFeedback(null);
+                        triggerHaptic('selection');
+                        primeFeedbackChimes();
+                        submitAnswer(answer).catch(() => undefined);
+                      },
+                      options: step.options,
+                      questionIndex: currentIndex,
+                      reduceMotion,
+                      selectedAnswer,
+                      status: isChecking
+                        ? 'checking'
+                        : feedback
+                          ? feedback.isCorrect
+                            ? 'correct'
+                            : 'incorrect'
+                          : 'idle',
+                      totalQuestions: lesson.steps.length,
+                    }
+                  : undefined
+              }
+              spec={step.visual}
+            />
+          )}
+          </Animated.View>
+        )}
 
-        <Text style={styles.prompt}>{step.prompt}</Text>
-        {step.supportText ? (
-          <Text style={styles.supportText}>{step.supportText}</Text>
+        {usesStandardAnswerGrid ? (
+          <Animated.View style={{ transform: [{ translateX: shake }] }}>
+            <StandardAnswerGrid
+              choices={standardAnswerChoices}
+              disabled={Boolean(feedback?.isCorrect) || isChecking}
+              isCorrect={feedback ? feedback.isCorrect : undefined}
+              onSelect={answer => {
+                setSelectedAnswer(answer);
+                setFeedback(null);
+                triggerHaptic('selection');
+              }}
+              reduceMotion={reduceMotion}
+              selectedValue={selectedAnswer}
+            />
+          </Animated.View>
         ) : null}
-        <Animated.View
-          style={[
-            styles.sceneStage,
-            {
-              opacity: sceneEntrance,
-              transform: [{ translateY: sceneTranslateY }],
-            },
-          ]}
-        >
-          <View style={styles.sceneLabelRow}>
-            <Text style={styles.sceneLabel}>EXPLORE THE SCENE</Text>
-            <Text style={styles.scenePrompt}>What do you notice?</Text>
-          </View>
-          <LearningVisual spec={step.visual} />
-        </Animated.View>
+
+        {usesAutoGradedChallenge ? (
+          <LowerPrimaryQuestionProgress
+            outcomes={questionOutcomes}
+            reduceMotion={reduceMotion}
+          />
+        ) : null}
 
         <Animated.View style={{ transform: [{ translateX: shake }] }}>
-          {step.interaction ? (
+          {usesStandardAnswerGrid || usesAutoGradedChallenge ? null : step.interaction ? (
             <LearningInteractionView
               disabled={Boolean(feedback) || isChecking}
               interaction={step.interaction}
@@ -628,7 +831,7 @@ export function ProgressiveLessonScreen({
           )}
         </Animated.View>
 
-        {feedback ? (
+        {feedback && !usesAutoGradedChallenge ? (
           <Animated.View
             accessibilityLiveRegion="polite"
             style={[
@@ -691,7 +894,7 @@ export function ProgressiveLessonScreen({
           </Animated.View>
         ) : null}
 
-        {!feedback && hintStage > 0 ? (
+        {!usesAutoGradedChallenge && !feedback && hintStage > 0 ? (
           <View
             accessibilityLabel={`Keep this clue in mind: ${repairText}`}
             accessibilityLiveRegion="polite"
@@ -712,60 +915,58 @@ export function ProgressiveLessonScreen({
         ) : null}
       </ScrollView>
 
-      <View style={styles.bottomBar}>
-        <SquishPressable
-          accessibilityLabel={
-            feedback?.isCorrect ? 'Continue lesson' : 'Check answer'
-          }
-          disabled={
-            !selectedAnswer ||
-            isChecking ||
-            Boolean(feedback && !feedback.isCorrect)
-          }
-          reduceMotion={reduceMotion}
-          onPress={feedback?.isCorrect ? continueLesson : submitAnswer}
-        >
-          <View
-            style={[
-              styles.primaryButton,
-              (!selectedAnswer ||
-                isChecking ||
-                Boolean(feedback && !feedback.isCorrect)) &&
-                styles.primaryButtonDisabled,
-            ]}
+      {usesAutoGradedChallenge ? null : (
+        <View style={styles.bottomBar}>
+          <SquishPressable
+            accessibilityLabel={
+              feedback?.isCorrect ? 'Continue lesson' : 'Check answer'
+            }
+            disabled={
+              !selectedAnswer ||
+              isChecking ||
+              Boolean(feedback && !feedback.isCorrect)
+            }
+            reduceMotion={reduceMotion}
+            onPress={() => {
+              if (feedback?.isCorrect) {
+                continueLesson().catch(() => undefined);
+              } else {
+                submitAnswer().catch(() => undefined);
+              }
+            }}
           >
-            {isChecking ? (
-              <ActivityIndicator color="#FFFFFF" />
-            ) : (
-              <>
-                <Text style={styles.primaryButtonText}>
-                  {feedback?.isCorrect ? 'Continue' : 'Check'}
-                </Text>
-                {feedback?.isCorrect ? (
-                  <ChevronRight color="#FFFFFF" size={19} />
-                ) : (
-                  <CheckCircle2 color="#FFFFFF" size={18} />
-                )}
-              </>
-            )}
-          </View>
-        </SquishPressable>
-      </View>
+            <View
+              style={[
+                styles.primaryButton,
+                (!selectedAnswer ||
+                  isChecking ||
+                  Boolean(feedback && !feedback.isCorrect)) &&
+                  styles.primaryButtonDisabled,
+              ]}
+            >
+              {isChecking ? (
+                <ActivityIndicator color="#FFFFFF" />
+              ) : (
+                <>
+                  <Text style={styles.primaryButtonText}>
+                    {feedback?.isCorrect ? 'Continue' : 'Check'}
+                  </Text>
+                  {feedback?.isCorrect ? (
+                    <ChevronRight color="#FFFFFF" size={19} />
+                  ) : (
+                    <CheckCircle2 color="#FFFFFF" size={18} />
+                  )}
+                </>
+              )}
+            </View>
+          </SquishPressable>
+        </View>
+      )}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  backButton: {
-    alignItems: 'center',
-    backgroundColor: '#FFFFFF',
-    borderColor: '#E2E8F0',
-    borderRadius: 14,
-    borderWidth: 1,
-    height: 42,
-    justifyContent: 'center',
-    width: 42,
-  },
   bottomBar: {
     backgroundColor: '#FFFFFF',
     borderTopColor: '#E2E8F0',
@@ -796,7 +997,16 @@ const styles = StyleSheet.create({
     marginTop: 14,
     textAlign: 'center',
   },
-  checkpointPill: { backgroundColor: '#F3E8FF', color: '#7E22CE' },
+  completionBackButton: {
+    alignItems: 'center',
+    height: 44,
+    justifyContent: 'center',
+    left: 18,
+    position: 'absolute',
+    top: 18,
+    width: 44,
+    zIndex: 2,
+  },
   completionButtonWrap: { marginTop: 8, width: '100%' },
   completionScreen: {
     alignItems: 'center',
@@ -838,17 +1048,6 @@ const styles = StyleSheet.create({
   feedbackCard: { borderRadius: 20, borderWidth: 1, padding: 13 },
   feedbackCorrect: { backgroundColor: '#F0FDF4', borderColor: '#86EFAC' },
   feedbackIncorrect: { backgroundColor: '#FFF7ED', borderColor: '#FDBA74' },
-  header: {
-    alignItems: 'center',
-    backgroundColor: '#F9FAFB',
-    flexDirection: 'row',
-    gap: 10,
-    paddingBottom: 8,
-    paddingHorizontal: 16,
-    paddingTop: 10,
-  },
-  headerCenter: { flex: 1 },
-  headerStepCount: { color: '#64748B', fontSize: 11, fontWeight: '900' },
   helpButton: {
     alignItems: 'center',
     backgroundColor: '#EFF6FF',
@@ -883,8 +1082,6 @@ const styles = StyleSheet.create({
     lineHeight: 19,
   },
   hintTextWrap: { flex: 1 },
-  lessonTitle: { color: '#0F172A', flex: 1, fontSize: 14, fontWeight: '900' },
-  lessonTitleRow: { alignItems: 'center', flexDirection: 'row', gap: 8 },
   optionCard: {
     alignItems: 'center',
     backgroundColor: '#FFFFFF',
@@ -922,17 +1119,6 @@ const styles = StyleSheet.create({
   optionTextSelected: { color: '#1E3A8A' },
   optionsGrid: { flexDirection: 'row', flexWrap: 'wrap' },
   optionsWrap: { gap: 10 },
-  phasePill: {
-    backgroundColor: '#CCFBF1',
-    borderRadius: 999,
-    color: '#0F766E',
-    fontSize: 10,
-    fontWeight: '900',
-    letterSpacing: 0.7,
-    overflow: 'hidden',
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-  },
   practicePrimaryButton: { backgroundColor: '#F97316' },
   primaryButton: {
     alignItems: 'center',
@@ -946,18 +1132,6 @@ const styles = StyleSheet.create({
   },
   primaryButtonDisabled: { backgroundColor: '#CBD5E1' },
   primaryButtonText: { color: '#FFFFFF', fontSize: 16, fontWeight: '900' },
-  progressFill: {
-    backgroundColor: '#4EB6A5',
-    borderRadius: 999,
-    height: '100%',
-  },
-  progressTrack: {
-    backgroundColor: '#E2E8F0',
-    borderRadius: 999,
-    height: 6,
-    marginTop: 6,
-    overflow: 'hidden',
-  },
   prompt: {
     color: '#0F172A',
     fontSize: 22,
@@ -1005,59 +1179,15 @@ const styles = StyleSheet.create({
     minHeight: 46,
   },
   retryStepText: { color: '#475569', fontSize: 13, fontWeight: '900' },
-  sceneLabel: {
-    color: '#0F766E',
-    fontSize: 9,
-    fontWeight: '900',
-    letterSpacing: 0.8,
-  },
-  sceneLabelRow: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: 3,
-  },
-  scenePrompt: { color: '#64748B', fontSize: 10, fontWeight: '700' },
   sceneStage: { gap: 7 },
   screen: { backgroundColor: '#F9FAFB', flex: 1 },
   sparkleText: { color: '#F59E0B', fontSize: 24 },
-  stageMarker: {
-    backgroundColor: '#E2E8F0',
-    borderRadius: 999,
-    flex: 1,
-    height: 5,
-    maxWidth: 24,
-    minWidth: 8,
-  },
-  stageMarkerComplete: { backgroundColor: '#4EB6A5' },
-  stageMarkerCurrent: { backgroundColor: '#4F7CE8' },
-  stageMarkers: {
-    flexDirection: 'row',
-    gap: 4,
-    justifyContent: 'flex-end',
-    maxWidth: '48%',
-  },
-  stepMetaRow: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
   supportText: {
     color: '#64748B',
     fontSize: 14,
     lineHeight: 21,
     textAlign: 'center',
   },
-  xpPill: {
-    alignItems: 'center',
-    backgroundColor: '#FEF3C7',
-    borderRadius: 999,
-    flexDirection: 'row',
-    gap: 4,
-    paddingHorizontal: 9,
-    paddingVertical: 7,
-  },
   xpResultCard: { backgroundColor: '#FFF7ED', borderColor: '#FED7AA' },
-  xpText: { color: '#92400E', fontSize: 11, fontWeight: '900' },
   xpValue: { color: '#EA580C' },
 });

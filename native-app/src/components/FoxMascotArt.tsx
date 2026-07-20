@@ -49,7 +49,7 @@ export function FoxMascotArt({ mood = 'thinking', size = 150, style }: FoxMascot
         {isCelebrate ? (
           <G>
             <Rect x="29" y="20" width="8" height="16" rx="2" fill="#60A5FA" transform="rotate(-18 33 28)" />
-            <Rect x="176" y="34" width="8" height="16" rx="2" fill="#A78BFA" transform="rotate(28 180 42)" />
+            <Rect x="176" y="34" width="8" height="16" rx="2" fill="#4ADE80" transform="rotate(28 180 42)" />
             <Rect x="51" y="46" width="8" height="14" rx="2" fill="#34D399" transform="rotate(31 55 53)" />
             <Rect x="162" y="72" width="8" height="14" rx="2" fill="#FBBF24" transform="rotate(-32 166 79)" />
             <Path d="M34 82l5 10 10 5-10 5-5 10-5-10-10-5 10-5z" fill="#FDE68A" />

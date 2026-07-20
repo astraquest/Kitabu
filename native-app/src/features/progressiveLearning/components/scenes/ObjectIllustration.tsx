@@ -22,6 +22,23 @@ export const LEARNING_OBJECT_META: Record<
   banana: { label: 'banana', soft: '#FFF5AE' },
   basket: { label: 'basket', soft: '#FFE2C3' },
   seedling: { label: 'seedling', soft: '#E2F7E9' },
+  chair: { label: 'chair', soft: '#DDEEFF' },
+  cat: { label: 'cat', soft: '#FFE8C9' },
+  sun: { label: 'sun', soft: '#FFF3B8' },
+  pen: { label: 'pen', soft: '#DDEAFF' },
+  hat: { label: 'hat', soft: '#F2E4FF' },
+  book: { label: 'book', soft: '#FFE4D8' },
+  table: { label: 'table', soft: '#F4E5D0' },
+  pencil: { label: 'pencil', soft: '#FFF0B8' },
+  face: { label: 'face', soft: '#FFE5C9' },
+  teeth: { label: 'teeth', soft: '#E8F4FF' },
+  hand: { label: 'hand', soft: '#FFE5C9' },
+  foot: { label: 'foot', soft: '#FFE5C9' },
+  hair: { label: 'hair', soft: '#E8D7C5' },
+  leaf: { label: 'leaf', soft: '#DDF5E2' },
+  flower: { label: 'flower', soft: '#FFE3EE' },
+  stem: { label: 'stem', soft: '#DDF5E2' },
+  roots: { label: 'roots', soft: '#F2E2CD' },
   mystery: { label: 'mystery value', soft: '#E9E3FF' },
 };
 
@@ -464,10 +481,181 @@ function ObjectDrawing({ kind }: { kind: LearningObjectKind }) {
           />
         </G>
       );
+    case 'chair':
+      return (
+        <G>
+          <Rect fill="#3498E8" height="22" rx="5" width="34" x="15" y="9" />
+          <Rect fill="#2385D0" height="9" rx="4" width="40" x="12" y="35" />
+          <Path d="M17 43 L14 60 M47 43 L50 60" stroke="#6F91AD" strokeLinecap="round" strokeWidth="5" />
+          <Path d="M19 31 L19 36 M45 31 L45 36" stroke="#6F91AD" strokeLinecap="round" strokeWidth="4" />
+          <Circle cx="22" cy="20" fill="#BEE4FF" r="2" />
+          <Circle cx="42" cy="20" fill="#BEE4FF" r="2" />
+          <Path d="M14 60 H20 M46 60 H52" stroke="#237AC0" strokeLinecap="round" strokeWidth="3" />
+        </G>
+      );
+    case 'cat':
+      return (
+        <G>
+          <Ellipse cx="31" cy="43" fill="#F2A64A" rx="17" ry="14" />
+          <Circle cx="32" cy="25" fill="#F7B65D" r="15" />
+          <Polygon fill="#F7B65D" points="19,17 21,5 29,13" />
+          <Polygon fill="#F7B65D" points="35,13 44,5 45,18" />
+          <Polygon fill="#E88943" points="22,15 23,9 27,14" />
+          <Polygon fill="#E88943" points="38,14 43,9 43,16" />
+          <Path d="M46 43 C59 39 61 25 54 22" fill="none" stroke="#E58E3D" strokeLinecap="round" strokeWidth="5" />
+          <Eye cx={27} cy={24} />
+          <Eye cx={37} cy={24} />
+          <Polygon fill="#8B5737" points="29,30 35,30 32,34" />
+          <Path d="M32 34 Q28 38 25 35 M32 34 Q36 38 39 35" fill="none" stroke="#8B5737" strokeLinecap="round" strokeWidth="1.5" />
+          <Path d="M18 48 L14 59 M42 49 L47 59" stroke="#D97E35" strokeLinecap="round" strokeWidth="5" />
+        </G>
+      );
+    case 'sun':
+      return (
+        <G>
+          <Path d="M32 3 V11 M32 53 V61 M3 32 H11 M53 32 H61 M11 11 L17 17 M47 47 L53 53 M53 11 L47 17 M17 47 L11 53" stroke="#F4B72E" strokeLinecap="round" strokeWidth="4" />
+          <Circle cx="32" cy="32" fill="#FFD34E" r="19" />
+          <Circle cx="25" cy="29" fill="#6F5834" r="2" />
+          <Circle cx="39" cy="29" fill="#6F5834" r="2" />
+          <Path d="M24 38 Q32 45 40 38" fill="none" stroke="#6F5834" strokeLinecap="round" strokeWidth="2" />
+        </G>
+      );
+    case 'pen':
+      return (
+        <G>
+          <Path d="M17 49 L45 12 Q48 8 52 12 L55 15 Q58 18 54 22 L26 57Z" fill="#3D8BE8" />
+          <Path d="M17 49 L26 57 L13 61Z" fill="#F0C690" />
+          <Path d="M13 61 L17 55 L20 59Z" fill="#213B57" />
+          <Path d="M43 14 L54 23" stroke="#B9DAFF" strokeWidth="4" />
+          <Path d="M22 49 L49 16" stroke="#77B6F7" strokeLinecap="round" strokeWidth="3" />
+        </G>
+      );
+    case 'hat':
+      return (
+        <G>
+          <Ellipse cx="32" cy="49" fill="#7654C9" rx="27" ry="8" />
+          <Path d="M18 45 Q18 15 32 10 Q46 15 46 45Z" fill="#8A68DB" />
+          <Path d="M18 38 Q32 43 46 38 V47 Q32 52 18 47Z" fill="#F3A64A" />
+          <Path d="M24 18 Q32 13 40 19" fill="none" opacity={0.55} stroke="#C2AFF4" strokeLinecap="round" strokeWidth="4" />
+        </G>
+      );
+    case 'book':
+      return (
+        <G>
+          <Path d="M6 13 Q19 8 31 15 V55 Q19 48 6 53Z" fill="#FF7A59" />
+          <Path d="M58 13 Q45 8 33 15 V55 Q45 48 58 53Z" fill="#F05D45" />
+          <Path d="M10 17 Q20 13 29 18 V49 Q20 44 10 48Z" fill="#FFF9E8" />
+          <Path d="M54 17 Q44 13 35 18 V49 Q44 44 54 48Z" fill="#FFF9E8" />
+          <Path d="M32 15 V55" stroke="#B84538" strokeWidth="2" />
+          <Path d="M14 24 H25 M14 30 H25 M39 24 H50 M39 30 H50" stroke="#D8C8A8" strokeLinecap="round" strokeWidth="2" />
+        </G>
+      );
+    case 'table':
+      return (
+        <G>
+          <Rect fill="#C97A42" height="11" rx="4" width="52" x="6" y="22" />
+          <Path d="M14 32 L11 59 M50 32 L53 59" stroke="#8D512F" strokeLinecap="round" strokeWidth="6" />
+          <Path d="M9 28 H55" opacity={0.45} stroke="#F1B77A" strokeLinecap="round" strokeWidth="3" />
+          <Path d="M10 59 H17 M47 59 H54" stroke="#704025" strokeLinecap="round" strokeWidth="3" />
+        </G>
+      );
+    case 'pencil':
+      return (
+        <G>
+          <Path d="M14 48 L46 16 L54 24 L22 56Z" fill="#F6C842" />
+          <Path d="M14 48 L22 56 L9 61Z" fill="#EAC08C" />
+          <Path d="M9 61 L13 54 L17 58Z" fill="#24384C" />
+          <Path d="M46 16 L51 11 Q53 9 56 12 L58 14 Q60 17 57 19 L54 24Z" fill="#F58B9B" />
+          <Path d="M20 49 L49 20" stroke="#FFF0A0" strokeLinecap="round" strokeWidth="3" />
+          <Path d="M43 18 L55 30" stroke="#D99B2B" strokeWidth="2" />
+        </G>
+      );
+    case 'face':
+      return (
+        <G>
+          <Circle cx="32" cy="31" fill="#D9905B" r="23" />
+          <Circle cx="9" cy="32" fill="#D9905B" r="6" />
+          <Circle cx="55" cy="32" fill="#D9905B" r="6" />
+          <Eye cx={24} cy={27} />
+          <Eye cx={40} cy={27} />
+          <Path d="M32 30 L29 37 H35" fill="none" stroke="#8C5039" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+          <Path d="M23 42 Q32 50 41 42" fill="none" stroke="#8C5039" strokeLinecap="round" strokeWidth="2.5" />
+        </G>
+      );
+    case 'teeth':
+      return (
+        <G>
+          <Path d="M8 25 Q32 7 56 25 Q52 54 32 56 Q12 54 8 25Z" fill="#B94E55" />
+          <Path d="M13 27 Q32 17 51 27 Q48 43 32 45 Q16 43 13 27Z" fill="#FFFFFF" />
+          <Path d="M21 23 V43 M32 20 V45 M43 23 V43 M14 34 H50" stroke="#D4DFE8" strokeWidth="1.5" />
+        </G>
+      );
+    case 'hand':
+      return (
+        <G>
+          <Path d="M20 56 C13 49 12 40 16 35 L20 38 V15 C20 11 26 11 26 15 V31 V10 C26 6 32 6 32 10 V30 V9 C32 5 38 6 38 10 V31 V13 C38 9 44 10 44 14 V36 L49 30 C52 27 57 31 54 35 L45 49 C41 56 31 60 20 56Z" fill="#D9905B" />
+          <Path d="M22 39 Q32 45 43 39" fill="none" opacity={0.35} stroke="#8C5039" strokeLinecap="round" strokeWidth="2" />
+        </G>
+      );
+    case 'foot':
+      return (
+        <G>
+          <Path d="M23 8 C31 7 36 14 36 25 C36 34 48 37 52 44 C57 53 48 59 36 57 C22 55 13 48 14 38 C15 30 19 24 18 17 C17 12 19 9 23 8Z" fill="#D9905B" />
+          <Circle cx="41" cy="31" fill="#D9905B" r="5" />
+          <Circle cx="47" cy="34" fill="#D9905B" r="4.5" />
+          <Circle cx="52" cy="38" fill="#D9905B" r="4" />
+          <Circle cx="55" cy="43" fill="#D9905B" r="3.5" />
+        </G>
+      );
+    case 'hair':
+      return (
+        <G>
+          <Circle cx="32" cy="34" fill="#D9905B" r="20" />
+          <Path d="M12 31 C10 12 24 5 34 9 C46 4 57 16 52 33 C47 23 41 18 34 20 C27 15 19 21 12 31Z" fill="#3E2B24" />
+          <Path d="M17 21 Q22 10 29 18 M28 17 Q34 7 39 18 M39 18 Q47 10 49 25" fill="none" stroke="#6A4635" strokeLinecap="round" strokeWidth="4" />
+          <Eye cx={25} cy={35} />
+          <Eye cx={39} cy={35} />
+        </G>
+      );
+    case 'leaf':
+      return (
+        <G>
+          <Path d="M9 40 C12 15 32 5 55 13 C53 37 38 54 13 51Z" fill="#4CAF68" />
+          <Path d="M13 50 Q31 33 51 16 M25 39 L18 27 M35 31 L39 19" fill="none" stroke="#257E48" strokeLinecap="round" strokeWidth="2.5" />
+        </G>
+      );
+    case 'flower':
+      return (
+        <G>
+          <Path d="M32 35 V59" stroke="#3C9C59" strokeLinecap="round" strokeWidth="5" />
+          <Ellipse cx="23" cy="48" fill="#5DBE72" rx="10" ry="5" transform="rotate(28 23 48)" />
+          <Circle cx="32" cy="25" fill="#F3B839" r="7" />
+          <Circle cx="32" cy="12" fill="#F27BA0" r="9" />
+          <Circle cx="45" cy="25" fill="#F27BA0" r="9" />
+          <Circle cx="32" cy="38" fill="#F27BA0" r="9" />
+          <Circle cx="19" cy="25" fill="#F27BA0" r="9" />
+        </G>
+      );
+    case 'stem':
+      return (
+        <G>
+          <Path d="M32 7 V58" stroke="#369355" strokeLinecap="round" strokeWidth="7" />
+          <Path d="M31 27 C17 27 11 18 12 12 C24 11 31 17 31 27Z" fill="#66BC73" />
+          <Path d="M34 40 C47 40 54 31 52 25 C41 25 34 31 34 40Z" fill="#4AAA67" />
+        </G>
+      );
+    case 'roots':
+      return (
+        <G>
+          <Path d="M7 24 H57" stroke="#9A6A45" strokeLinecap="round" strokeWidth="5" />
+          <Path d="M32 5 V24" stroke="#3F9A59" strokeLinecap="round" strokeWidth="6" />
+          <Path d="M32 24 C31 36 25 46 20 59 M32 29 C38 39 42 49 45 59 M28 36 L17 43 M36 39 L48 46 M24 47 L29 57 M42 49 L37 58" fill="none" stroke="#9A6A45" strokeLinecap="round" strokeWidth="3" />
+        </G>
+      );
     case 'mystery':
       return (
         <G>
-          <Rect fill="#7457D9" height="48" rx="14" width="48" x="8" y="7" />
+          <Rect fill="#15803D" height="48" rx="14" width="48" x="8" y="7" />
           <Path
             d="M23 23 C24 12 43 12 43 25 C43 34 33 32 33 40"
             fill="none"

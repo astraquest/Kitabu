@@ -369,6 +369,6 @@ const styles = StyleSheet.create({
   },
   dotActive: {
     width: 36,
-    backgroundColor: '#9333EA',
+    backgroundColor: '#F97316',
   },
 });

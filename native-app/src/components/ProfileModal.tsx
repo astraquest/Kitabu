@@ -931,7 +931,7 @@ export function ProfileModal({
                   style={[styles.portalButton, styles.adminPortalButton]}
                 >
                   <Text style={styles.adminPortalText}>Admin</Text>
-                  <ChevronRight color="#7C3AED" size={14} strokeWidth={2.5} />
+                  <ChevronRight color="#15803D" size={14} strokeWidth={2.5} />
                 </Pressable>
               ) : null}
             </View>

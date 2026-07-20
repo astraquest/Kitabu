@@ -17,10 +17,8 @@ import Svg, {
   Path as SvgPath,
 } from 'react-native-svg';
 import {
-  ArrowLeft,
   Calculator,
   Check,
-  ChevronRight,
   Clock3,
   LockKeyhole,
   PencilLine,
@@ -37,9 +35,9 @@ import type {
   Subject,
 } from '../../../types/app';
 import { LEARNING_MASCOT_SOURCES } from '../components/LearningMascotReaction';
+import { SubjectPageHeader } from '../components/SubjectPageHeader';
 import { SquishPressable } from '../components/SquishPressable';
 import { buildFallbackLearningPath } from '../model/buildFallbackLearningPath';
-import { getSubjectIconSource } from '../model/subjectIconAssets';
 import type { LearningPathNode, SubjectLearningPath } from '../types';
 
 const AnimatedCircle = Animated.createAnimatedComponent(SvgCircle);
@@ -75,6 +73,21 @@ export function SubjectLearningPathScreen({
     () => path ?? buildFallbackLearningPath(subject, strands, grade),
     [grade, path, strands, subject],
   );
+  const displayedProgressPercent = useMemo(() => {
+    const practisedCount = resolvedPath.nodes.filter(
+      node =>
+        node.status === 'completed' ||
+        node.attemptCount > 0 ||
+        node.bestScore !== null,
+    ).length;
+    const practisedProgress = resolvedPath.totalCount
+      ? Math.round((practisedCount / resolvedPath.totalCount) * 100)
+      : 0;
+    return Math.min(
+      100,
+      Math.max(resolvedPath.progressPercent, practisedProgress),
+    );
+  }, [resolvedPath]);
   const progress = useRef(new Animated.Value(0)).current;
   const entrance = useRef(new Animated.Value(0)).current;
   const [reduceMotion, setReduceMotion] = useState(false);
@@ -115,12 +128,12 @@ export function SubjectLearningPathScreen({
 
   useEffect(() => {
     Animated.timing(progress, {
-      toValue: Math.max(0, Math.min(100, resolvedPath.progressPercent)),
+      toValue: Math.max(0, Math.min(100, displayedProgressPercent)),
       duration: reduceMotion ? 0 : 650,
       useNativeDriver: false,
     }).start();
     return () => progress.stopAnimation();
-  }, [progress, reduceMotion, resolvedPath.progressPercent]);
+  }, [displayedProgressPercent, progress, reduceMotion]);
 
   const progressRingOffset = progress.interpolate({
     inputRange: [0, 100],
@@ -130,12 +143,12 @@ export function SubjectLearningPathScreen({
     inputRange: [0, 1],
     outputRange: [10, 0],
   });
-  const currentNode = resolvedPath.nodes.find(
-    node => node.status === 'current' || node.status === 'needs_practice',
-  );
-  const currentNodeIndex = resolvedPath.nodes.findIndex(
-    node => node.status === 'current' || node.status === 'needs_practice',
-  );
+  const currentNode =
+    resolvedPath.nodes.find(node => node.status === 'current') ??
+    resolvedPath.nodes.find(node => node.status === 'needs_practice');
+  const currentNodeIndex = currentNode
+    ? resolvedPath.nodes.findIndex(node => node.id === currentNode.id)
+    : -1;
   const latestPossibleStart = Math.max(
     0,
     resolvedPath.nodes.length - VISIBLE_TOPIC_COUNT,
@@ -151,25 +164,12 @@ export function SubjectLearningPathScreen({
   );
   return (
     <View style={styles.screen}>
-      <View style={styles.header}>
-        <Pressable
-          accessibilityLabel="Back to dashboard"
-          onPress={onBack}
-          style={styles.backButton}
-        >
-          <ArrowLeft color="#0B1F4D" size={24} strokeWidth={2.5} />
-        </Pressable>
-        <View style={styles.headerText}>
-          <Text style={styles.eyebrow}>{grade.toUpperCase()}</Text>
-          <Text style={styles.subjectTitle}>{subject.name}</Text>
-        </View>
-        <LinearGradient
-          colors={['#EEF5FF', '#FFFFFF']}
-          style={styles.subjectBadge}
-        >
-          <SubjectBadgeIcon subjectName={subject.name} />
-        </LinearGradient>
-      </View>
+      <SubjectPageHeader
+        backAccessibilityLabel="Back to dashboard"
+        grade={grade}
+        onBack={onBack}
+        subjectName={subject.name}
+      />
 
       <ScrollView
         contentContainerStyle={styles.content}
@@ -191,7 +191,7 @@ export function SubjectLearningPathScreen({
               chapterTitle={currentNode.title}
               mascotKey={mascotKey}
               needsPractice={currentNode.status === 'needs_practice'}
-              percentage={resolvedPath.progressPercent}
+              percentage={displayedProgressPercent}
             />
           ) : null}
 
@@ -395,34 +395,6 @@ function MascotBannerArt({ mascotKey }: { mascotKey: OnboardingMascotKey }) {
   );
 }
 
-function SubjectBadgeIcon({ subjectName }: { subjectName: string }) {
-  const source = getSubjectIconSource(subjectName);
-  if (!source) {
-    return <Sparkles color="#7C3AED" size={23} strokeWidth={2.4} />;
-  }
-  if (Platform.OS === 'web') {
-    return React.createElement('img', {
-      alt: `${subjectName} subject icon`,
-      draggable: false,
-      src: Asset.fromModule(source as number).uri,
-      style: {
-        height: 45,
-        objectFit: 'contain',
-        pointerEvents: 'none',
-        width: 45,
-      },
-    });
-  }
-  return (
-    <Image
-      accessibilityLabel={`${subjectName} subject icon`}
-      resizeMode="contain"
-      source={source}
-      style={styles.subjectBadgeImage}
-    />
-  );
-}
-
 function PathNode({
   node,
   onOpen,
@@ -561,24 +533,6 @@ function PathNode({
               ) : null}
             </View>
 
-            {isCurrent ? (
-              <Text numberOfLines={2} style={styles.nodeObjective}>
-                {node.objective}
-              </Text>
-            ) : isComplete ? (
-              <Pressable
-                accessibilityLabel={`Review ${node.title}`}
-                onPress={onOpen}
-                style={styles.reviewLink}
-              >
-                <Text style={styles.reviewLinkText}>Review lesson</Text>
-                <ChevronRight color="#0EA56B" size={16} strokeWidth={2.8} />
-              </Pressable>
-            ) : (
-              <Text numberOfLines={1} style={styles.lockedReason}>
-                Complete the lesson above to unlock
-              </Text>
-            )}
           </View>
         </View>
 
@@ -627,7 +581,7 @@ function NodeTopicIcon({
     ? '#0EA56B'
     : isCurrent
     ? '#2563EB'
-    : '#7C3AED';
+    : '#15803D';
   const icon = position % 4;
   return (
     <View
@@ -725,20 +679,6 @@ const styles = StyleSheet.create({
     right: 20,
     zIndex: 1,
   },
-  backButton: {
-    alignItems: 'center',
-    backgroundColor: '#FFFFFF',
-    borderColor: '#E3E8F1',
-    borderRadius: 15,
-    borderWidth: 1,
-    height: 42,
-    justifyContent: 'center',
-    shadowColor: '#0F172A',
-    shadowOffset: { height: 5, width: 0 },
-    shadowOpacity: 0.09,
-    shadowRadius: 10,
-    width: 42,
-  },
   cardGlow: {
     backgroundColor: 'transparent',
     borderRadius: 70,
@@ -783,29 +723,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   emptyTitle: { color: '#0B1F4D', fontSize: 18, fontWeight: '900' },
-  eyebrow: {
-    color: '#0EA56B',
-    fontSize: 11,
-    fontWeight: '900',
-    letterSpacing: 1.1,
-    textAlign: 'center',
-  },
-  header: {
-    alignItems: 'center',
-    backgroundColor: '#F9FBFD',
-    flexDirection: 'row',
-    gap: 11,
-    paddingBottom: 9,
-    paddingHorizontal: 16,
-    paddingTop: 10,
-  },
-  headerText: { alignItems: 'center', flex: 1 },
-  lockedReason: {
-    color: '#7C8BA1',
-    fontSize: 11,
-    fontWeight: '700',
-    marginTop: 6,
-  },
   nodeCard: {
     backgroundColor: '#FFFFFF',
     borderColor: '#E2E8F0',
@@ -859,12 +776,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 4,
     marginTop: 4,
-  },
-  nodeObjective: {
-    color: '#475569',
-    fontSize: 11,
-    lineHeight: 16,
-    marginTop: 6,
   },
   nodeRow: { alignItems: 'stretch', flexDirection: 'row', gap: 9 },
   nodeTextLocked: { color: '#718198' },
@@ -931,15 +842,6 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   retryText: { color: '#0F766E', fontSize: 11, fontWeight: '900' },
-  reviewLink: {
-    alignItems: 'center',
-    alignSelf: 'flex-start',
-    flexDirection: 'row',
-    gap: 1,
-    marginTop: 5,
-    paddingVertical: 2,
-  },
-  reviewLinkText: { color: '#0EA56B', fontSize: 11, fontWeight: '900' },
   scoreMeta: { color: '#0EA56B', fontSize: 11, fontWeight: '900' },
   scoreWrap: {
     alignItems: 'center',
@@ -972,29 +874,9 @@ const styles = StyleSheet.create({
     marginTop: 3,
     textTransform: 'uppercase',
   },
-  subjectBadge: {
-    alignItems: 'center',
-    borderColor: '#D7E5FA',
-    borderRadius: 14,
-    borderWidth: 1,
-    height: 44,
-    justifyContent: 'center',
-    shadowColor: '#2563EB',
-    shadowOffset: { height: 4, width: 0 },
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
-    width: 44,
-  },
-  subjectBadgeImage: { height: 45, width: 45 },
-  subjectTitle: {
-    color: '#0B1F4D',
-    fontSize: 21,
-    fontWeight: '900',
-    textAlign: 'center',
-  },
   topicIcon: {
     alignItems: 'center',
-    backgroundColor: '#F3E8FF',
+    backgroundColor: '#DCFCE7',
     borderRadius: 17,
     height: 52,
     justifyContent: 'center',

@@ -209,7 +209,7 @@ const SUBJECT_FALLBACK_COLORS: Array<[string, string]> = [
   ['#059669', '#0F766E'],
   ['#D97706', '#C2410C'],
   ['#DC2626', '#BE123C'],
-  ['#7C3AED', '#4C1D95'],
+  ['#F97316', '#15803D'],
 ];
 
 function subjectFromRecommendation(item: SubjectRecommendationItem, index: number): Subject {
@@ -611,6 +611,7 @@ export function useKitabuApp() {
   const [selectedProgressiveLessonVersion, setSelectedProgressiveLessonVersion] = useState<number | null>(null);
   const [activeStrandIndex, setActiveStrandIndex] = useState(0);
   const [quizSource, setQuizSource] = useState<'subject' | 'quiz_me'>('subject');
+  const [activeQuizConfig, setActiveQuizConfig] = useState<QuizConfig | null>(null);
   const [brainTeaseCompleted, setBrainTeaseCompleted] = useState(false);
   const [quizGenerationError, setQuizGenerationError] = useState<string | null>(null);
   const [generatedFlashcards, setGeneratedFlashcards] =
@@ -1847,7 +1848,7 @@ export function useKitabuApp() {
       const downloadedGradeBooks = (downloadedSnapshot.books ?? []).filter(book => book.gradeLevel === grade);
       setAssignments(nextAssignments.length > 0 ? nextAssignments : INITIAL_ASSIGNMENTS);
       setBooks(mergeRemoteAndCachedBooks(nextBooks, downloadedGradeBooks));
-      setPodcasts(nextPodcasts);
+      setPodcasts(nextPodcasts.length > 0 ? nextPodcasts : INITIAL_PODCASTS);
       if (nextSubjectRecommendations) {
         setSubjectRecommendations(nextSubjectRecommendations);
         setDashboardSubjectIds(
@@ -1859,7 +1860,7 @@ export function useKitabuApp() {
       const downloadedGradeBooks = (downloadedSnapshot.books ?? []).filter(book => book.gradeLevel === grade);
       setAssignments(INITIAL_ASSIGNMENTS);
       setBooks(downloadedGradeBooks);
-      setPodcasts([]);
+      setPodcasts(INITIAL_PODCASTS);
     }
   }
 
@@ -3237,6 +3238,7 @@ export function useKitabuApp() {
     setIsLoading(true);
     setQuizGenerationError(null);
     setQuizSource('quiz_me');
+    setActiveQuizConfig(config);
 
     if (config.format === 'audio') {
       generateQuizData(
@@ -3337,6 +3339,13 @@ export function useKitabuApp() {
     const completedSubStrand = currentStrand?.subStrands.find(sub => sub.isCompleted);
     const topic = currentStrand ? currentStrand.title : selectedSubject.name;
     const subTopic = completedSubStrand ? completedSubStrand.title : 'General Review';
+    setActiveQuizConfig({
+      subject: selectedSubject.name,
+      strand: topic,
+      subStrand: subTopic,
+      questionCount: 10,
+      format: 'quiz',
+    });
 
     try {
       const result = await generateQuizData(
@@ -3878,6 +3887,7 @@ export function useKitabuApp() {
       previewBookId,
       activeStrandIndex,
       quizSource,
+      activeQuizConfig,
       brainTeaseCompleted,
       quizGenerationError,
       generatedFlashcards,

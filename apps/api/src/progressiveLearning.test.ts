@@ -8,7 +8,8 @@ import {
   hasProgressiveLearningPath,
   listProgressiveLessonDefinitions,
   serializeProgressiveClassifyAnswer,
-  serializeProgressiveSequenceAnswer
+  serializeProgressiveSequenceAnswer,
+  shouldScoreAllProgressiveLessonSteps
 } from './progressiveLearning.js';
 
 test('keeps the six complete Mathematics pilot lessons without answer keys', () => {
@@ -53,7 +54,15 @@ test('grades normalized answers on the server and returns authored remediation',
   assert.equal(incorrect?.misconceptionCode, 'EQUALITY_VISUAL_COUNT');
 });
 
-test('locks lessons sequentially and preserves completed progress', () => {
+test('scores every displayed question for lower-primary lessons only', () => {
+  assert.equal(shouldScoreAllProgressiveLessonSteps('Grade 1'), true);
+  assert.equal(shouldScoreAllProgressiveLessonSteps('Grade 2'), true);
+  assert.equal(shouldScoreAllProgressiveLessonSteps('Grade 3'), true);
+  assert.equal(shouldScoreAllProgressiveLessonSteps('Grade 4'), false);
+  assert.equal(shouldScoreAllProgressiveLessonSteps('Grade 7'), false);
+});
+
+test('unlocks the next lesson after the current lesson is attempted', () => {
   const initial = buildMathematicsLearningPath([], 'Grade 7');
   assert.equal(initial.grade, 'Grade 7');
   assert.equal(initial.nodes[0].status, 'current');
@@ -70,6 +79,18 @@ test('locks lessons sequentially and preserves completed progress', () => {
   assert.equal(next.nodes[0].status, 'completed');
   assert.equal(next.nodes[1].status, 'current');
   assert.equal(next.progressPercent, Math.round(100 / initial.nodes.length));
+
+  const afterPractice = buildMathematicsLearningPath([
+    {
+      lesson_key: initial.nodes[0].lessonKey,
+      best_score: 67,
+      status: 'needs_practice',
+      attempt_count: 1
+    }
+  ], 'Grade 7');
+  assert.equal(afterPractice.nodes[0].status, 'needs_practice');
+  assert.equal(afterPractice.nodes[1].status, 'current');
+  assert.ok(afterPractice.nodes.slice(2).every(node => node.status === 'locked'));
 });
 
 test('uses varied visual objects instead of relying on abstract cubes', () => {

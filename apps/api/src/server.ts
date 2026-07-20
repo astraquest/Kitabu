@@ -1,4 +1,5 @@
 import Fastify, { FastifyReply, FastifyRequest } from 'fastify';
+import cookie from '@fastify/cookie';
 import cors from '@fastify/cors';
 import helmet from '@fastify/helmet';
 import rateLimit from '@fastify/rate-limit';
@@ -6,7 +7,8 @@ import sensible from '@fastify/sensible';
 import swagger from '@fastify/swagger';
 import swaggerUi from '@fastify/swagger-ui';
 import { createHash, randomBytes, randomInt, randomUUID, timingSafeEqual } from 'node:crypto';
-import { readFile } from 'node:fs/promises';
+import { createReadStream } from 'node:fs';
+import { readFile, stat } from 'node:fs/promises';
 import { join } from 'node:path';
 import { z } from 'zod';
 import { appConfig } from './config.js';
@@ -48,6 +50,7 @@ import {
   verifyTotpToken
 } from './auth.js';
 import { registerLiveAudioStreamRoutes } from './liveAudioStream.js';
+import { getPodcastMediaFile, parsePodcastByteRange } from './podcastMedia.js';
 import {
   type CurriculumStrandInput,
   createAdminManagedUser,
@@ -84,6 +87,7 @@ import {
   findSchoolById,
   findSchoolPricingForUser,
   findPaymentRequestByCheckoutRequestId,
+  findPaymentRequestByCheckoutRequestIdForUpdate,
   findCurriculumSubStrandContext,
   findPaymentRequestByIdForUser,
   findActiveDiagnosticSession,
@@ -225,8 +229,10 @@ import {
   maskKenyanPhoneNumber,
   MpesaProviderError,
   normalizeSchoolPlanSelection,
+  queryStkPushStatus,
   SCHOOL_BILLING_PLAN_CODES,
   schoolManagedPlanPriceKshCents,
+  verifyMpesaCallback,
   type BillingPlanCode,
   type SchoolBillingPlanCode
 } from './payments.js';
@@ -237,6 +243,7 @@ import {
   gradeProgressiveLessonDefinitionStep,
   hasProgressiveLearningPath,
   normalizeProgressiveSubjectId,
+  shouldScoreAllProgressiveLessonSteps,
   toProgressiveLessonPublic
 } from './progressiveLearning.js';
 import {
@@ -264,7 +271,7 @@ async function resolveLearningPath(
   grade: string,
   requestedSubjectId: string
 ) {
-  const canonicalSubjectId = normalizeProgressiveSubjectId(requestedSubjectId);
+  const canonicalSubjectId = normalizeProgressiveSubjectId(requestedSubjectId, grade);
   const progress = await listProgressiveLessonProgress(userId, grade, canonicalSubjectId);
   if (hasProgressiveLearningPath(canonicalSubjectId, grade)) {
     return buildProgressiveLearningPath(canonicalSubjectId, progress, grade);
@@ -273,7 +280,7 @@ async function resolveLearningPath(
   const subjects = await listCurriculumForGrade(grade, userId);
   const subject = subjects.find(candidate =>
     candidate.subjectId === requestedSubjectId ||
-    normalizeProgressiveSubjectId(candidate.subjectId) === canonicalSubjectId
+    normalizeProgressiveSubjectId(candidate.subjectId, grade) === canonicalSubjectId
   );
   return subject ? buildCurriculumCompatibilityPath(subject, progress, grade) : null;
 }
@@ -419,7 +426,7 @@ const googleAuthSchema = z.object({
 });
 
 const refreshSchema = z.object({
-  refreshToken: z.string().min(10)
+  refreshToken: z.string().min(10).optional()
 });
 
 const presenceSchema = z.object({
@@ -1024,19 +1031,20 @@ const parentChildParamsSchema = z.object({
 const mpesaCallbackSchema = z.object({
   Body: z.object({
     stkCallback: z.object({
-      MerchantRequestID: z.string().optional(),
-      CheckoutRequestID: z.string(),
-      ResultCode: z.number(),
-      ResultDesc: z.string(),
+      MerchantRequestID: z.string().trim().min(1).max(120),
+      CheckoutRequestID: z.string().trim().min(1).max(120),
+      ResultCode: z.number().int(),
+      ResultDesc: z.string().trim().min(1).max(500),
       CallbackMetadata: z
         .object({
           Item: z
             .array(
               z.object({
-                Name: z.string(),
-                Value: z.union([z.string(), z.number()]).optional()
+                Name: z.string().trim().min(1).max(80),
+                Value: z.union([z.string().max(500), z.number()]).optional()
               })
             )
+            .max(20)
             .default([])
         })
         .optional()
@@ -1599,11 +1607,66 @@ const quizBankQuerySchema = z.object({
 export interface BuildServerOptions {
   googleTokenVerifier?: (idToken: string) => Promise<VerifiedGoogleIdentity>;
   emailSender?: typeof sendTransactionalEmail;
+  mpesaStatusQuery?: typeof queryStkPushStatus;
+}
+
+const ADMIN_REFRESH_COOKIE_NAME = 'kitabu_admin_refresh';
+const ADMIN_SESSION_HEADER = 'x-kitabu-admin-session';
+
+function requestHeaderValue(request: FastifyRequest, name: string) {
+  const value = request.headers[name];
+  return Array.isArray(value) ? value[0] : value;
+}
+
+function isAdminSessionHeaderPresent(request: FastifyRequest) {
+  return requestHeaderValue(request, ADMIN_SESSION_HEADER) === '1';
+}
+
+function isAllowedAdminOrigin(origin: string | undefined) {
+  if (!origin) {
+    return false;
+  }
+  if (origin === appConfig.KITABU_ADMIN_WEB_ORIGIN) {
+    return true;
+  }
+  if (appConfig.KITABU_NODE_ENV === 'production') {
+    return false;
+  }
+  try {
+    const parsed = new URL(origin);
+    return ['localhost', '127.0.0.1'].includes(parsed.hostname) && ['http:', 'https:'].includes(parsed.protocol);
+  } catch {
+    return false;
+  }
+}
+
+function isVerifiedAdminSessionRequest(request: FastifyRequest) {
+  return isAdminSessionHeaderPresent(request) && isAllowedAdminOrigin(requestHeaderValue(request, 'origin'));
+}
+
+function setAdminRefreshCookie(reply: FastifyReply, refreshToken: string) {
+  reply.setCookie(ADMIN_REFRESH_COOKIE_NAME, refreshToken, {
+    path: '/auth',
+    httpOnly: true,
+    secure: appConfig.KITABU_NODE_ENV === 'production',
+    sameSite: 'strict',
+    maxAge: appConfig.KITABU_REFRESH_TOKEN_TTL_DAYS * 24 * 60 * 60
+  });
+}
+
+function clearAdminRefreshCookie(reply: FastifyReply) {
+  reply.clearCookie(ADMIN_REFRESH_COOKIE_NAME, {
+    path: '/auth',
+    httpOnly: true,
+    secure: appConfig.KITABU_NODE_ENV === 'production',
+    sameSite: 'strict'
+  });
 }
 
 export function buildServer(options: BuildServerOptions = {}) {
   const googleTokenVerifier = options.googleTokenVerifier ?? verifyGoogleIdToken;
   const emailSender = options.emailSender ?? sendTransactionalEmail;
+  const mpesaStatusQuery = options.mpesaStatusQuery ?? queryStkPushStatus;
   const app = Fastify({
     logger: {
       level: appConfig.KITABU_NODE_ENV === 'production' ? 'info' : 'debug',
@@ -1635,8 +1698,10 @@ export function buildServer(options: BuildServerOptions = {}) {
   registerLiveAudioStreamRoutes(app);
 
   app.register(cors, {
-    origin: getAllowedCorsOrigins()
+    origin: getAllowedCorsOrigins(),
+    credentials: true
   });
+  app.register(cookie);
   app.register(helmet);
   app.register(sensible);
   app.register(rateLimit, {
@@ -1895,6 +1960,7 @@ export function buildServer(options: BuildServerOptions = {}) {
     refreshToken: string;
     totpEnabled: boolean;
     sessionId?: string | null;
+    exposeRefreshToken?: boolean;
   }) {
     if (!args.user) {
       throw new Error('User is required');
@@ -1944,7 +2010,7 @@ export function buildServer(options: BuildServerOptions = {}) {
     const enforceProductionBreakGlassPolicy = appConfig.KITABU_NODE_ENV === 'production';
     return {
       accessToken: args.accessToken,
-      refreshToken: args.refreshToken,
+      ...(args.exposeRefreshToken === false ? {} : { refreshToken: args.refreshToken }),
       user: {
         id: normalizedUser.id,
         schoolId: normalizedUser.schoolId,
@@ -3383,6 +3449,11 @@ Requirements:
   );
 
   app.post('/auth/login', { config: { rateLimit: { max: 10, timeWindow: '1 minute' } } }, async (request, reply) => {
+    const requestedAdminSession = isAdminSessionHeaderPresent(request);
+    if (requestedAdminSession && !isVerifiedAdminSessionRequest(request)) {
+      return reply.forbidden('Admin session origin is not allowed');
+    }
+
     const body = loginSchema.parse(request.body);
     const user = await findUserByEmail(body.email);
 
@@ -3439,7 +3510,17 @@ Requirements:
         isBreakGlass: user.is_break_glass
       });
 
-    return buildAuthResponse({ user, accessToken, refreshToken, totpEnabled, sessionId });
+    if (requestedAdminSession) {
+      setAdminRefreshCookie(reply, refreshToken);
+    }
+    return buildAuthResponse({
+      user,
+      accessToken,
+      refreshToken,
+      totpEnabled,
+      sessionId,
+      exposeRefreshToken: !requestedAdminSession
+    });
   });
 
   app.post('/auth/phone/request', { config: { rateLimit: { max: 5, timeWindow: '15 minutes' } } }, async (request, reply) => {
@@ -4064,8 +4145,20 @@ Requirements:
       }
     }
   }, async (request, reply) => {
-    const body = refreshSchema.parse(request.body);
-    const tokenHash = hashOpaqueToken(body.refreshToken);
+    const requestedAdminSession = isAdminSessionHeaderPresent(request);
+    if (requestedAdminSession && !isVerifiedAdminSessionRequest(request)) {
+      return reply.forbidden('Admin session origin is not allowed');
+    }
+
+    const body = refreshSchema.parse(request.body ?? {});
+    const refreshToken = requestedAdminSession
+      ? request.cookies[ADMIN_REFRESH_COOKIE_NAME]
+      : body.refreshToken;
+    if (!refreshToken) {
+      return reply.unauthorized('Refresh token is invalid');
+    }
+
+    const tokenHash = hashOpaqueToken(refreshToken);
     const currentToken = await findActiveRefreshToken(tokenHash);
     if (!currentToken || currentToken.revoked_at || currentToken.expires_at < new Date()) {
       return reply.unauthorized('Refresh token is invalid');
@@ -4133,13 +4226,41 @@ Requirements:
         isBreakGlass: user.isBreakGlass
       });
 
+    if (requestedAdminSession) {
+      setAdminRefreshCookie(reply, nextRefreshToken);
+    }
     return buildAuthResponse({
       user,
       accessToken,
       refreshToken: nextRefreshToken,
       totpEnabled: await getUserTotpStatus(user.id),
-      sessionId: currentToken.session_id
+      sessionId: currentToken.session_id,
+      exposeRefreshToken: !requestedAdminSession
     });
+  });
+
+  app.post('/auth/logout', {
+    config: {
+      rateLimit: {
+        max: appConfig.KITABU_REFRESH_RATE_LIMIT_MAX,
+        timeWindow: appConfig.KITABU_REFRESH_RATE_LIMIT_WINDOW
+      }
+    }
+  }, async (request, reply) => {
+    if (!isVerifiedAdminSessionRequest(request)) {
+      return reply.forbidden('Admin session origin is not allowed');
+    }
+
+    const refreshToken = request.cookies[ADMIN_REFRESH_COOKIE_NAME];
+    if (refreshToken) {
+      const tokenHash = hashOpaqueToken(refreshToken);
+      await withTransaction(async client => {
+        await revokeRefreshToken(client, tokenHash, null);
+        await createAuditLog(client, null, null, 'auth.admin.logout');
+      });
+    }
+    clearAdminRefreshCookie(reply);
+    return { signedOut: true };
   });
 
   app.post('/auth/password/rotate', async (request, reply) => {
@@ -4494,13 +4615,17 @@ Requirements:
     if (!lesson) {
       return reply.notFound('Lesson definition not found');
     }
-    const checkpointTotal = lesson.steps.filter(step => step.phase === 'checkpoint').length;
+    const scoreAllSteps = shouldScoreAllProgressiveLessonSteps(lesson.grade);
+    const scoredQuestionTotal = scoreAllSteps
+      ? lesson.steps.length
+      : lesson.steps.filter(step => step.phase === 'checkpoint').length;
 
     const completion = await withTransaction(async client => {
       const result = await completeProgressiveLessonAttempt(client, {
         attemptId: attempt.id,
         userId: request.user!.id,
-        checkpointTotal
+        scoreAllSteps,
+        scoredQuestionTotal
       });
       if (!result || ('incomplete' in result && result.incomplete)) {
         return { result, xpAwarded: 0 };
@@ -4527,7 +4652,7 @@ Requirements:
     if ('incomplete' in completion.result && completion.result.incomplete) {
       reply.status(409);
       return {
-        message: 'Complete every checkpoint question before finishing the lesson.',
+        message: 'Complete every scored question before finishing the lesson.',
         answered: completion.result.answered,
         required: completion.result.required
       };
@@ -5796,6 +5921,52 @@ Return valid JSON with this shape:
         url: podcast.media_url
       }))
     };
+  });
+
+  app.get('/media/podcasts/:fileName', async (request, reply) => {
+    const authError = await requireAuthenticated(request, reply);
+    if (authError) {
+      return;
+    }
+
+    const params = z.object({ fileName: z.string().min(1) }).parse(request.params);
+    const media = getPodcastMediaFile(params.fileName);
+    if (!media) {
+      return reply.notFound('Podcast media not found');
+    }
+
+    let mediaStat;
+    try {
+      mediaStat = await stat(media.path);
+    } catch {
+      return reply.notFound('Podcast media not found');
+    }
+
+    reply
+      .type(media.contentType)
+      .header('Accept-Ranges', 'bytes')
+      .header('Cache-Control', 'public, max-age=31536000, immutable');
+
+    const rangeHeader = request.headers.range;
+    if (!rangeHeader) {
+      reply.header('Content-Length', String(mediaStat.size));
+      return reply.send(createReadStream(media.path));
+    }
+
+    const range = parsePodcastByteRange(rangeHeader, mediaStat.size);
+    if (!range) {
+      return reply
+        .code(416)
+        .header('Content-Range', `bytes */${mediaStat.size}`)
+        .send();
+    }
+
+    const contentLength = range.end - range.start + 1;
+    reply
+      .code(206)
+      .header('Content-Length', String(contentLength))
+      .header('Content-Range', `bytes ${range.start}-${range.end}/${mediaStat.size}`);
+    return reply.send(createReadStream(media.path, range));
   });
 
   app.get('/homework/assignments', async (request, reply) => {
@@ -7293,7 +7464,6 @@ Return valid JSON with this shape:
 
       return {
         paymentRequestId,
-        checkoutRequestId: stkResponse.checkoutRequestId,
         customerMessage: stkResponse.customerMessage,
         expiresAt: expiresAt.toISOString(),
         maskedMpesaPhoneNumber: maskKenyanPhoneNumber(normalizedPhoneNumber)
@@ -7352,7 +7522,6 @@ Return valid JSON with this shape:
       paymentRequestId: paymentRequest.id,
       status: paymentRequest.status,
       returnTo: paymentRequest.return_to,
-      phoneNumber: paymentRequest.phone_number,
       maskedPhoneNumber: maskKenyanPhoneNumber(paymentRequest.phone_number),
       resultCode: paymentRequest.result_code,
       resultDescription: paymentRequest.result_desc,
@@ -7368,124 +7537,191 @@ Return valid JSON with this shape:
     };
   });
 
-  app.post('/billing/mpesa/callback', async (request, reply) => {
+  app.post('/billing/mpesa/callback', {
+    bodyLimit: 32 * 1024,
+    config: { rateLimit: { max: 120, timeWindow: '1 minute' } }
+  }, async (request, reply) => {
     const payload = mpesaCallbackSchema.parse(request.body);
     const callback = payload.Body.stkCallback;
     const items = callback.CallbackMetadata?.Item ?? [];
     const paymentRequest = await findPaymentRequestByCheckoutRequestId(callback.CheckoutRequestID);
 
     if (!paymentRequest) {
-      request.log.warn({ checkoutRequestId: callback.CheckoutRequestID }, 'M-Pesa callback did not match a payment request');
+      request.log.warn('M-Pesa callback did not match a payment request');
+      return reply.serviceUnavailable('Payment callback could not be matched yet');
+    }
+
+    if (['paid', 'failed', 'cancelled'].includes(paymentRequest.status)) {
       return { accepted: true };
     }
 
-    if (paymentRequest.status === 'paid') {
-      return { accepted: true };
+    if (!paymentRequest.merchant_request_id || !paymentRequest.checkout_request_id) {
+      request.log.warn({ paymentRequestId: paymentRequest.id }, 'M-Pesa callback arrived before checkout initiation was recorded');
+      return reply.serviceUnavailable('Payment callback could not be verified yet');
     }
 
-    const receiptNumber = getCallbackItemValue(items, 'MpesaReceiptNumber');
+    let providerResponse: Awaited<ReturnType<typeof queryStkPushStatus>>;
+    try {
+      providerResponse = await mpesaStatusQuery(callback.CheckoutRequestID);
+    } catch (error) {
+      const providerError = error instanceof MpesaProviderError ? error : null;
+      request.log.error({
+        err: error,
+        paymentRequestId: paymentRequest.id,
+        providerStatus: providerError?.providerStatus
+      }, 'M-Pesa callback provider verification failed');
+      return reply.serviceUnavailable('Payment callback verification is temporarily unavailable');
+    }
 
-    await withTransaction(async client => {
-      if (callback.ResultCode === 0) {
-        const plan = await findSubscriptionPlanByCode(paymentRequest.plan_code);
+    let verifiedCallback: ReturnType<typeof verifyMpesaCallback>;
+    try {
+      verifiedCallback = verifyMpesaCallback({
+        expectedMerchantRequestId: paymentRequest.merchant_request_id,
+        expectedCheckoutRequestId: paymentRequest.checkout_request_id,
+        expectedAmountKshCents: Number(paymentRequest.amount_ksh_cents),
+        expectedPhoneNumber: paymentRequest.phone_number,
+        callbackMerchantRequestId: callback.MerchantRequestID,
+        callbackCheckoutRequestId: callback.CheckoutRequestID,
+        callbackResultCode: callback.ResultCode,
+        callbackResultDescription: callback.ResultDesc,
+        callbackAmount: getCallbackItemValue(items, 'Amount'),
+        callbackPhoneNumber: getCallbackItemValue(items, 'PhoneNumber'),
+        callbackReceiptNumber: getCallbackItemValue(items, 'MpesaReceiptNumber'),
+        providerResponse
+      });
+    } catch (error) {
+      request.log.warn({
+        paymentRequestId: paymentRequest.id,
+        reason: error instanceof Error ? error.message : 'unknown verification error'
+      }, 'Rejected unverified M-Pesa callback');
+      return reply.badRequest('Payment callback could not be verified');
+    }
+
+    const providerEvidence = { ...verifiedCallback.providerResponse } as Record<string, unknown>;
+    const applyResult = await withTransaction(async client => {
+      const lockedPaymentRequest = await findPaymentRequestByCheckoutRequestIdForUpdate(
+        client,
+        callback.CheckoutRequestID
+      );
+      if (!lockedPaymentRequest || ['paid', 'failed', 'cancelled'].includes(lockedPaymentRequest.status)) {
+        return { applied: false, paymentRequest: lockedPaymentRequest ?? paymentRequest };
+      }
+
+      if (verifiedCallback.resultCode === 0) {
+        const plan = await findSubscriptionPlanByCode(lockedPaymentRequest.plan_code);
         if (!plan) {
           throw new Error('Subscription plan missing for successful payment');
         }
 
+        const transitioned = await markPaymentRequestSuccessful(client, lockedPaymentRequest.id, {
+          receiptNumber: verifiedCallback.receiptNumber,
+          resultCode: verifiedCallback.resultCode,
+          resultDesc: verifiedCallback.resultDescription,
+          rawCallback: payload as Record<string, unknown>,
+          providerResponse: providerEvidence
+        });
+        if (!transitioned) {
+          return { applied: false, paymentRequest: lockedPaymentRequest };
+        }
+
         const periodStart = new Date();
         const periodEnd = getPlanPeriodEnd(periodStart, plan.billing_cycle);
-
-        await markPaymentRequestSuccessful(client, paymentRequest.id, {
-          receiptNumber: typeof receiptNumber === 'string' ? receiptNumber : null,
-          resultCode: callback.ResultCode,
-          resultDesc: callback.ResultDesc,
-          rawCallback: payload as Record<string, unknown>
-        });
-
         await replaceActiveSubscription(client, {
-          userId: paymentRequest.user_id,
-          planId: paymentRequest.plan_id,
+          userId: lockedPaymentRequest.user_id,
+          planId: lockedPaymentRequest.plan_id,
           billingCycle: plan.billing_cycle,
-          priceKshCents: Number(paymentRequest.amount_ksh_cents),
+          priceKshCents: Number(lockedPaymentRequest.amount_ksh_cents),
           periodStart,
           periodEnd
         });
-
-        await createAuditLog(client, paymentRequest.user_id, null, 'billing.checkout.completed', {
-          paymentRequestId: paymentRequest.id,
-          planCode: paymentRequest.plan_code,
-          receiptNumber: typeof receiptNumber === 'string' ? receiptNumber : null
+        await createAuditLog(client, lockedPaymentRequest.user_id, null, 'billing.checkout.completed', {
+          paymentRequestId: lockedPaymentRequest.id,
+          planCode: lockedPaymentRequest.plan_code,
+          receiptNumber: verifiedCallback.receiptNumber,
+          providerVerified: true
         });
         await notifyUser(client, {
-          userId: paymentRequest.user_id,
+          userId: lockedPaymentRequest.user_id,
           type: 'billing.payment_succeeded',
           title: 'Payment received',
           body: `Your ${plan.name} subscription is active until ${periodEnd.toISOString().slice(0, 10)}.`,
-          smsPhoneNumber: paymentRequest.phone_number,
+          smsPhoneNumber: lockedPaymentRequest.phone_number,
           smsBody: `Kitabu AI: Payment received. Your ${plan.name} subscription is active until ${periodEnd.toISOString().slice(0, 10)}.`,
           metadata: {
-            paymentRequestId: paymentRequest.id,
-            planCode: paymentRequest.plan_code,
-            receiptNumber: typeof receiptNumber === 'string' ? receiptNumber : null,
+            paymentRequestId: lockedPaymentRequest.id,
+            planCode: lockedPaymentRequest.plan_code,
+            receiptNumber: verifiedCallback.receiptNumber,
             periodEnd: periodEnd.toISOString()
           }
         });
-      } else {
-        const failureStatus = callback.ResultCode === 1032 ? 'cancelled' : 'failed';
-        await markPaymentRequestFailed(client, paymentRequest.id, {
-          status: failureStatus,
-          resultCode: callback.ResultCode,
-          resultDesc: callback.ResultDesc,
-          rawCallback: payload as Record<string, unknown>
-        });
-        await createAuditLog(client, paymentRequest.user_id, null, 'billing.checkout.failed', {
-          paymentRequestId: paymentRequest.id,
-          planCode: paymentRequest.plan_code,
-          resultCode: callback.ResultCode,
-          resultDesc: callback.ResultDesc
-        });
-        await notifyUser(client, {
-          userId: paymentRequest.user_id,
-          type: failureStatus === 'cancelled' ? 'billing.payment_cancelled' : 'billing.payment_failed',
-          title: failureStatus === 'cancelled' ? 'Payment cancelled' : 'Payment failed',
-          body:
-            failureStatus === 'cancelled'
-              ? 'Your M-Pesa checkout was cancelled. You can try again when ready.'
-              : 'Your M-Pesa checkout did not complete. Please try again or use a different number.',
-          smsPhoneNumber: paymentRequest.phone_number,
-          smsBody:
-            failureStatus === 'cancelled'
-              ? 'Kitabu AI: Your M-Pesa checkout was cancelled. You can try again when ready.'
-              : 'Kitabu AI: Your M-Pesa checkout did not complete. Please try again or use a different number.',
-          metadata: {
-            paymentRequestId: paymentRequest.id,
-            planCode: paymentRequest.plan_code,
-            resultCode: callback.ResultCode,
-            resultDesc: callback.ResultDesc
-          }
-        });
+        return { applied: true, paymentRequest: lockedPaymentRequest };
       }
+
+      const failureStatus = verifiedCallback.resultCode === 1032 ? 'cancelled' : 'failed';
+      const transitioned = await markPaymentRequestFailed(client, lockedPaymentRequest.id, {
+        status: failureStatus,
+        resultCode: verifiedCallback.resultCode,
+        resultDesc: verifiedCallback.resultDescription,
+        rawCallback: payload as Record<string, unknown>,
+        providerResponse: providerEvidence
+      });
+      if (!transitioned) {
+        return { applied: false, paymentRequest: lockedPaymentRequest };
+      }
+
+      await createAuditLog(client, lockedPaymentRequest.user_id, null, 'billing.checkout.failed', {
+        paymentRequestId: lockedPaymentRequest.id,
+        planCode: lockedPaymentRequest.plan_code,
+        resultCode: verifiedCallback.resultCode,
+        resultDesc: verifiedCallback.resultDescription,
+        providerVerified: true
+      });
+      await notifyUser(client, {
+        userId: lockedPaymentRequest.user_id,
+        type: failureStatus === 'cancelled' ? 'billing.payment_cancelled' : 'billing.payment_failed',
+        title: failureStatus === 'cancelled' ? 'Payment cancelled' : 'Payment failed',
+        body:
+          failureStatus === 'cancelled'
+            ? 'Your M-Pesa checkout was cancelled. You can try again when ready.'
+            : 'Your M-Pesa checkout did not complete. Please try again or use a different number.',
+        smsPhoneNumber: lockedPaymentRequest.phone_number,
+        smsBody:
+          failureStatus === 'cancelled'
+            ? 'Kitabu AI: Your M-Pesa checkout was cancelled. You can try again when ready.'
+            : 'Kitabu AI: Your M-Pesa checkout did not complete. Please try again or use a different number.',
+        metadata: {
+          paymentRequestId: lockedPaymentRequest.id,
+          planCode: lockedPaymentRequest.plan_code,
+          resultCode: verifiedCallback.resultCode,
+          resultDesc: verifiedCallback.resultDescription
+        }
+      });
+      return { applied: true, paymentRequest: lockedPaymentRequest };
     });
+
+    if (!applyResult.applied) {
+      return { accepted: true };
+    }
 
     if (appConfig.KITABU_MUFASA_TELEMETRY_URL && appConfig.KITABU_MUFASA_TELEMETRY_HMAC_SECRET && appConfig.KITABU_MUFASA_PHONE_HMAC_SECRET) {
       try {
         const telemetry = buildPaymentTelemetry({
-          paymentRequestId: paymentRequest.id,
-          succeeded: callback.ResultCode === 0,
+          paymentRequestId: applyResult.paymentRequest.id,
+          succeeded: verifiedCallback.resultCode === 0,
           occurredAt: new Date().toISOString(),
-          accountId: paymentRequest.user_id,
-          phone: paymentRequest.phone_number,
-          amountKshCents: Number(paymentRequest.amount_ksh_cents),
+          accountId: applyResult.paymentRequest.user_id,
+          phone: applyResult.paymentRequest.phone_number,
+          amountKshCents: Number(applyResult.paymentRequest.amount_ksh_cents),
           method: 'mpesa',
-          providerEventId: typeof receiptNumber === 'string' ? receiptNumber : callback.CheckoutRequestID,
+          providerEventId: verifiedCallback.receiptNumber ?? callback.CheckoutRequestID,
           phoneHmacSecret: appConfig.KITABU_MUFASA_PHONE_HMAC_SECRET
         });
         await emitMufasaTelemetry(telemetry, { endpoint: appConfig.KITABU_MUFASA_TELEMETRY_URL, hmacSecret: appConfig.KITABU_MUFASA_TELEMETRY_HMAC_SECRET, timeoutMs: appConfig.KITABU_MUFASA_TELEMETRY_TIMEOUT_MS });
       } catch (error) {
-        request.log.error({ paymentRequestId: paymentRequest.id, error: error instanceof Error ? error.message : 'unknown' }, 'MUFASA payment telemetry delivery failed');
+        request.log.error({ paymentRequestId: applyResult.paymentRequest.id, error: error instanceof Error ? error.message : 'unknown' }, 'MUFASA payment telemetry delivery failed');
       }
     } else {
-      request.log.warn({ paymentRequestId: paymentRequest.id }, 'MUFASA payment telemetry is not configured');
+      request.log.warn({ paymentRequestId: applyResult.paymentRequest.id }, 'MUFASA payment telemetry is not configured');
     }
 
     return { accepted: true };

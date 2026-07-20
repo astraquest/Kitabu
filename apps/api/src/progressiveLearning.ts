@@ -1,3 +1,4 @@
+import { lowerPrimaryLessonSeeds } from './progressiveLearningLowerPrimary.js';
 import { grade4LessonSeeds } from './progressiveLearningGrade4.js';
 import { grade5LessonSeeds } from './progressiveLearningGrade5.js';
 import { grade6LessonSeeds } from './progressiveLearningGrade6.js';
@@ -28,6 +29,21 @@ export type LearningObjectKind =
   | 'drum'
   | 'paint'
   | 'robot'
+  | 'chair'
+  | 'cat'
+  | 'pen'
+  | 'hat'
+  | 'table'
+  | 'pencil'
+  | 'face'
+  | 'teeth'
+  | 'hand'
+  | 'foot'
+  | 'hair'
+  | 'leaf'
+  | 'flower'
+  | 'stem'
+  | 'roots'
   | 'mystery';
 
 export type LearningCard = {
@@ -39,6 +55,24 @@ export type LearningCard = {
 };
 
 export type LearningVisualSpec =
+  | {
+      kind: 'arithmetic';
+      leftOperand: number;
+      operator: '+' | '-' | '×' | '÷';
+      rightOperand: number;
+      caption: string;
+    }
+  | {
+      kind: 'picture_word';
+      object: Extract<LearningObjectKind, 'chair' | 'cat' | 'sun' | 'pen' | 'hat' | 'book' | 'table' | 'pencil'>;
+      wordPattern: string;
+      caption: string;
+    }
+  | {
+      kind: 'picture_choice';
+      object: LearningObjectKind;
+      caption: string;
+    }
   | {
       kind: 'balance';
       left: Array<{ object: LearningObjectKind; count: number; label?: string }>;
@@ -189,6 +223,7 @@ export type StepInput = Omit<ProgressiveLessonStep, 'id'> & {
 
 export type ProgressiveLessonSeed = {
   key: string;
+  version?: number;
   subjectId?: string;
   subjectName?: string;
   grade?: string;
@@ -238,7 +273,7 @@ export function createProgressiveLesson(input: ProgressiveLessonSeed): Progressi
 
   return {
     lessonKey: input.key,
-    lessonVersion: 1,
+    lessonVersion: input.version ?? 1,
     subjectId: input.subjectId ?? 'math',
     subjectName: input.subjectName ?? 'Mathematics',
     grade: input.grade ?? 'Grade 7',
@@ -694,6 +729,7 @@ const lessons: ProgressiveLessonPrivate[] = [
 ];
 
 const allLessons = [
+  ...lowerPrimaryLessonSeeds.map(createProgressiveLesson),
   ...grade4LessonSeeds.map(createProgressiveLesson),
   ...grade5LessonSeeds.map(createProgressiveLesson),
   ...grade6LessonSeeds.map(createProgressiveLesson),
@@ -708,7 +744,11 @@ const lessonByKey = new Map(allLessons.map(lesson => [lesson.lessonKey, lesson])
 export function listProgressiveLessonDefinitions(filters?: { grade?: string; subjectId?: string }) {
   return allLessons
     .filter(lesson => !filters?.grade || lesson.grade === filters.grade)
-    .filter(lesson => !filters?.subjectId || lesson.subjectId === normalizeProgressiveSubjectId(filters.subjectId))
+    .filter(
+      lesson =>
+        !filters?.subjectId ||
+        lesson.subjectId === normalizeProgressiveSubjectId(filters.subjectId, filters.grade)
+    )
     .map(({ answers: _answers, ...lesson }) => lesson);
 }
 
@@ -755,7 +795,7 @@ export function gradeProgressiveLessonStep(lessonKey: string, stepId: string, re
   return lesson ? gradeProgressiveLessonDefinitionStep(lesson, stepId, response) : null;
 }
 
-export function normalizeProgressiveSubjectId(subjectId: string) {
+export function normalizeProgressiveSubjectId(subjectId: string, grade?: string) {
   const aliases: Record<string, string> = {
     mathematics: 'math',
     science_technology: 'science',
@@ -766,12 +806,19 @@ export function normalizeProgressiveSubjectId(subjectId: string) {
     creative_arts_sports: 'creative_arts',
     cre_ire_hre: 'religious_education'
   };
-  return aliases[subjectId] ?? subjectId;
+  const canonicalSubjectId = aliases[subjectId] ?? subjectId;
+  return ['Grade 1', 'Grade 2', 'Grade 3'].includes(grade ?? '') && canonicalSubjectId === 'science'
+    ? 'environmental'
+    : canonicalSubjectId;
 }
 
 export function hasProgressiveLearningPath(subjectId: string, grade: string) {
-  const canonicalSubjectId = normalizeProgressiveSubjectId(subjectId);
+  const canonicalSubjectId = normalizeProgressiveSubjectId(subjectId, grade);
   return allLessons.some(lesson => lesson.subjectId === canonicalSubjectId && lesson.grade === grade);
+}
+
+export function shouldScoreAllProgressiveLessonSteps(grade: string) {
+  return grade === 'Grade 1' || grade === 'Grade 2' || grade === 'Grade 3';
 }
 
 export function buildProgressiveLearningPath(
@@ -779,26 +826,32 @@ export function buildProgressiveLearningPath(
   progress: ProgressiveLessonProgressRecord[],
   grade: string
 ) {
-  const canonicalSubjectId = normalizeProgressiveSubjectId(subjectId);
+  const canonicalSubjectId = normalizeProgressiveSubjectId(subjectId, grade);
   const pathLessons = allLessons.filter(
     lesson => lesson.subjectId === canonicalSubjectId && lesson.grade === grade
   );
   const progressByLesson = new Map(progress.map(item => [item.lesson_key, item]));
-  let previousCompleted = true;
+  let previousAttempted = true;
 
   const nodes: ProgressivePathNode[] = pathLessons.map((lesson, index) => {
     const lessonProgress = progressByLesson.get(lesson.lessonKey);
     const completed = lessonProgress?.status === 'completed';
     const needsPractice = lessonProgress?.status === 'needs_practice';
+    const attempted = Boolean(
+      completed ||
+      needsPractice ||
+      (lessonProgress?.attempt_count ?? 0) > 0 ||
+      typeof lessonProgress?.best_score === 'number',
+    );
     const status: ProgressivePathNode['status'] = completed
       ? 'completed'
       : needsPractice
         ? 'needs_practice'
-        : previousCompleted
+        : previousAttempted
           ? 'current'
           : 'locked';
 
-    previousCompleted = previousCompleted && completed;
+    previousAttempted = previousAttempted && attempted;
     return {
       id: lesson.lessonKey,
       lessonKey: lesson.lessonKey,

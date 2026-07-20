@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactTestRenderer, { act } from 'react-test-renderer';
+import { Modal } from 'react-native';
 
 import { INITIAL_SUBMITTED_ASSIGNMENTS, INITIAL_TEACHER_STUDENTS } from '../src/data/mockData';
 import { generateLessonPlanIdeas } from '../src/services/aiService';
@@ -161,6 +162,23 @@ describe('TeacherPortalScreen', () => {
     expect(hasText(root, '1 selected')).toBe(true);
   });
 
+  it('opens country selection as an anchored overlay above the profile', async () => {
+    const renderer = renderTeacherPortal();
+    const root = renderer.root;
+
+    act(() => pressableWithAccessibilityLabel(root, 'Open teacher profile').props.onPress());
+    await act(async () => {
+      pressableWithAccessibilityLabel(root, 'Select country').props.onPress();
+      await new Promise(resolve => setTimeout(resolve, 60));
+    });
+
+    expect(hasText(root, 'Select Country')).toBe(true);
+    expect(root.findAllByType(Modal).some(modal => modal.props.visible)).toBe(true);
+
+    act(() => pressableWithAccessibilityLabel(root, 'Close Country dropdown').props.onPress());
+    expect(root.findAllByType(Modal).some(modal => modal.props.visible)).toBe(false);
+  });
+
   it('exposes sign out from the teacher profile', () => {
     const onSignOut = jest.fn();
     const renderer = renderTeacherPortal({ onSignOut });
@@ -181,20 +199,31 @@ describe('TeacherPortalScreen', () => {
       pressableWithAccessibilityLabel(root, 'Open parent messages').props.onPress();
     });
 
-    expect(hasText(root, 'Parent Messaging')).toBe(true);
+    expect(hasText(root, 'Parent Messaging')).toBe(false);
+    expect(hasText(root, 'Message Grade 10 Parents')).toBe(false);
+    expect(hasText(root, "Teacher's Portal")).toBe(true);
+    expect(pressableWithAccessibilityLabel(root, 'Open teacher profile')).toBeTruthy();
     expect(hasText(root, 'Home')).toBe(true);
     expect(hasText(root, 'Students')).toBe(true);
     expect(hasText(root, 'Insights')).toBe(true);
     expect(hasText(root, 'Messages')).toBe(true);
     expect(hasText(root, 'Lesson Plan')).toBe(true);
     expect(hasText(root, 'All Grade 10 parents')).toBe(true);
-    expect(hasText(root, 'Select parent')).toBe(true);
-    expect(hasText(root, 'One parent')).toBe(false);
+    expect(hasText(root, 'One parent')).toBe(true);
+    expect(hasText(root, 'Select parent')).toBe(false);
+    const sectionTitles = root
+      .findAll(node => {
+        const text = textContent(node.props.children);
+        return text === '1. Select grade' || text === '2. Who do you want to message?';
+      })
+      .map(node => textContent(node.props.children))
+      .filter((title, index, titles) => index === 0 || title !== titles[index - 1]);
+    expect(sectionTitles).toEqual(['1. Select grade', '2. Who do you want to message?']);
     expect(getTeacherParents).toHaveBeenCalledWith('Grade 10');
 
     act(() => multilineInput(root).props.onChangeText('Grade 10 reminder'));
     await act(async () => {
-      await pressableWithText(root, 'Send to Grade').props.onPress();
+      await pressableWithAccessibilityLabel(root, 'Send message to selected recipients').props.onPress();
     });
     expect(sendTeacherParentMessage).toHaveBeenCalledWith({
       body: 'Grade 10 reminder',
@@ -202,13 +231,23 @@ describe('TeacherPortalScreen', () => {
       parentUserId: null,
     });
 
-    act(() => pressableWithAccessibilityLabel(root, 'Select parent dropdown').props.onPress());
+    await act(async () => {
+      pressableWithAccessibilityLabel(root, 'Send to one parent').props.onPress();
+      await Promise.resolve();
+    });
+    expect(hasText(root, 'Select parent')).toBe(true);
+    await act(async () => {
+      pressableWithAccessibilityLabel(root, 'Select parent dropdown').props.onPress();
+      await new Promise(resolve => setTimeout(resolve, 60));
+    });
+    expect(root.findAllByType(Modal).some(modal => modal.props.visible)).toBe(true);
     act(() => pressableWithText(root, 'Peter Kamau').props.onPress());
-    expect(hasText(root, 'Message Peter Kamau')).toBe(true);
+    expect(root.findAllByType(Modal).some(modal => modal.props.visible)).toBe(false);
+    expect(hasText(root, 'This message will go only to Peter Kamau.')).toBe(true);
 
     act(() => multilineInput(root).props.onChangeText('Individual parent note'));
     await act(async () => {
-      await pressableWithText(root, 'Send to Parent').props.onPress();
+      await pressableWithAccessibilityLabel(root, 'Send message to selected recipients').props.onPress();
     });
     expect(sendTeacherParentMessage).toHaveBeenLastCalledWith({
       body: 'Individual parent note',
@@ -226,6 +265,8 @@ describe('TeacherPortalScreen', () => {
     expect(hasText(root, 'Create a clean lesson plan in minutes')).toBe(true);
     expect(hasText(root, 'Quick Setup')).toBe(true);
     // Bottom nav stays sticky on the lesson planner, like the other portal tabs.
+    expect(hasText(root, "Teacher's Portal")).toBe(true);
+    expect(pressableWithAccessibilityLabel(root, 'Open teacher profile')).toBeTruthy();
     expect(pressableWithAccessibilityLabel(root, 'Open teacher home')).toBeTruthy();
     expect(pressableWithAccessibilityLabel(root, 'Open parent messages')).toBeTruthy();
     expect(hasText(root, 'Lesson Preview')).toBe(false);

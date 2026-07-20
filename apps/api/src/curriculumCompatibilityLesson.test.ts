@@ -77,4 +77,37 @@ test('builds progressive compatibility nodes without a legacy delivery branch', 
   assert.deepEqual(path.nodes.map(node => node.lessonKey), ['curriculum-topic-1', 'curriculum-topic-2']);
   assert.deepEqual(path.nodes.map(node => node.status), ['current', 'locked']);
   assert.doesNotMatch(JSON.stringify(path), /legacy/i);
+
+  const practisedPath = buildCurriculumCompatibilityPath({
+    subjectId: 'general_science',
+    subjectName: 'General Science',
+    strands: [{
+      title: 'Weather',
+      subStrands: [
+        {
+          id: 'topic-1',
+          title: 'Weather Instruments',
+          isCompleted: false,
+          needsRemediation: false,
+          masteryScore: null
+        },
+        {
+          id: 'topic-2',
+          title: 'Weather Records',
+          isCompleted: false,
+          needsRemediation: false,
+          masteryScore: null
+        }
+      ]
+    }]
+  }, [{
+    lesson_key: 'curriculum-topic-1',
+    best_score: 67,
+    status: 'needs_practice',
+    attempt_count: 1
+  }], 'Grade 9');
+  assert.deepEqual(
+    practisedPath.nodes.map(node => node.status),
+    ['needs_practice', 'current']
+  );
 });

@@ -103,8 +103,8 @@ android {
         applicationId "ai.kitabu2.twa"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 124
-        versionName "1.2.4"
+        versionCode 125
+        versionName "1.2.5"
         buildConfigField "String", "GOOGLE_WEB_CLIENT_ID", "\"${googleWebClientId.replace('\\', '\\\\').replace('"', '\\"')}\""
         buildConfigField "String", "GOOGLE_ANDROID_CLIENT_ID", "\"${googleAndroidClientId.replace('\\', '\\\\').replace('"', '\\"')}\""
     }

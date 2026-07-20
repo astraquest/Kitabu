@@ -148,6 +148,10 @@ jobs:
           curl --fail --silent --location 'https://kitabu.ai/reset-password?token=abcdefghijklmnopqrstuvwxyz123456' | grep -q 'Reset your password'
           curl --silent --show-error 'https://app.kitabu.ai/verify-email?token=abcdefghijklmnopqrstuvwxyz123456' | grep -q 'Verification failed'
           curl --silent --show-error --location 'https://kitabu.ai/verify-email?token=abcdefghijklmnopqrstuvwxyz123456' | grep -q 'Verification failed'
+          assetlinks="$(curl --fail --silent https://app.kitabu.ai/.well-known/assetlinks.json)"
+          printf '%s' "$assetlinks" | grep -q '"package_name":"ai.kitabu2.twa"'
+          printf '%s' "$assetlinks" | grep -q 'BD:54:41:50:8D:76:20:01:52:09:67:D1:42:9A:7B:4C:C9:5C:35:05:5D:EF:A2:27:F4:2C:71:D6:B8:F2:B1:26'
+          printf '%s' "$assetlinks" | grep -q 'delegate_permission/common.get_login_creds'
           assert_redirect() {
             source_url="$1"
             destination_url="$2"

@@ -113,7 +113,7 @@ const configSchema = z.object({
   KITABU_GOOGLE_CLIENT_IDS: z.string().default(''),
   KITABU_APP_DEEP_LINK_BASE: z.string().default('kitabu://auth'),
   KITABU_ANDROID_PACKAGE_NAME: z.string().default('ai.kitabu2.twa'),
-  KITABU_ANDROID_SHA256_CERT_FINGERPRINTS: z.string().default('61:1C:EA:97:7F:EF:42:47:B9:BE:7A:40:E8:F0:A6:5E:CB:4A:52:32:D7:85:FB:9D:10:4D:D1:15:71:15:6B:92'),
+  KITABU_ANDROID_SHA256_CERT_FINGERPRINTS: z.string().default('BD:54:41:50:8D:76:20:01:52:09:67:D1:42:9A:7B:4C:C9:5C:35:05:5D:EF:A2:27:F4:2C:71:D6:B8:F2:B1:26,61:1C:EA:97:7F:EF:42:47:B9:BE:7A:40:E8:F0:A6:5E:CB:4A:52:32:D7:85:FB:9D:10:4D:D1:15:71:15:6B:92'),
   KITABU_MPESA_ENV: z.enum(['sandbox', 'production']).default('sandbox'),
   KITABU_MPESA_CONSUMER_KEY: z.string().optional(),
   KITABU_MPESA_CONSUMER_SECRET: z.string().optional(),

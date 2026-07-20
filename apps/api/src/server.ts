@@ -244,6 +244,10 @@ import {
   buildCurriculumCompatibilityPath
 } from './curriculumCompatibilityLesson.js';
 
+const KITABU_PLAY_PACKAGE_NAME = 'ai.kitabu2.twa';
+const KITABU_PLAY_SHA256_CERT_FINGERPRINT =
+  'BD:54:41:50:8D:76:20:01:52:09:67:D1:42:9A:7B:4C:C9:5C:35:05:5D:EF:A2:27:F4:2C:71:D6:B8:F2:B1:26';
+
 async function resolveProgressiveLesson(lessonKey: string) {
   const authoredLesson = getProgressiveLessonPrivateDefinition(lessonKey);
   if (authoredLesson) return authoredLesson;
@@ -3935,21 +3939,44 @@ Requirements:
   });
 
   app.get('/.well-known/assetlinks.json', async (_request, reply) => {
-    const fingerprints = appConfig.KITABU_ANDROID_SHA256_CERT_FINGERPRINTS
+    const configuredFingerprints = appConfig.KITABU_ANDROID_SHA256_CERT_FINGERPRINTS
       .split(',')
       .map(value => value.trim())
       .filter(Boolean);
 
-    return reply.send([
-      {
+    const playFingerprints = new Set([KITABU_PLAY_SHA256_CERT_FINGERPRINT]);
+    if (appConfig.KITABU_ANDROID_PACKAGE_NAME === KITABU_PLAY_PACKAGE_NAME) {
+      configuredFingerprints.forEach(fingerprint => playFingerprints.add(fingerprint));
+    }
+
+    const statements = [];
+    if (
+      appConfig.KITABU_ANDROID_PACKAGE_NAME !== KITABU_PLAY_PACKAGE_NAME &&
+      configuredFingerprints.length > 0
+    ) {
+      statements.push({
         relation: ['delegate_permission/common.handle_all_urls'],
         target: {
           namespace: 'android_app',
           package_name: appConfig.KITABU_ANDROID_PACKAGE_NAME,
-          sha256_cert_fingerprints: fingerprints
+          sha256_cert_fingerprints: configuredFingerprints
         }
+      });
+    }
+
+    statements.push({
+      relation: [
+        'delegate_permission/common.handle_all_urls',
+        'delegate_permission/common.get_login_creds'
+      ],
+      target: {
+        namespace: 'android_app',
+        package_name: KITABU_PLAY_PACKAGE_NAME,
+        sha256_cert_fingerprints: [...playFingerprints]
       }
-    ]);
+    });
+
+    return reply.send(statements);
   });
 
   app.post('/auth/forgot-password', { config: { rateLimit: { max: 5, timeWindow: '15 minutes' } } }, async (request) => {

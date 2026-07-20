@@ -101,3 +101,27 @@ test('trailing-slash legal URLs redirect to their canonical route', async () => 
     assert.equal(response.headers.location, canonical);
   }
 });
+
+test('Digital Asset Links verifies the Play-signed Android app', async () => {
+  const response = await app.inject({ method: 'GET', url: '/.well-known/assetlinks.json' });
+
+  assert.equal(response.statusCode, 200);
+  assert.match(response.headers['content-type'] ?? '', /^application\/json; charset=utf-8$/);
+
+  const statements = response.json();
+  const playStatement = statements.find(
+    (statement: { target?: { package_name?: string } }) =>
+      statement.target?.package_name === 'ai.kitabu2.twa'
+  );
+
+  assert.ok(playStatement);
+  assert.deepEqual(playStatement.relation, [
+    'delegate_permission/common.handle_all_urls',
+    'delegate_permission/common.get_login_creds'
+  ]);
+  assert.ok(
+    playStatement.target.sha256_cert_fingerprints.includes(
+      'BD:54:41:50:8D:76:20:01:52:09:67:D1:42:9A:7B:4C:C9:5C:35:05:5D:EF:A2:27:F4:2C:71:D6:B8:F2:B1:26'
+    )
+  );
+});

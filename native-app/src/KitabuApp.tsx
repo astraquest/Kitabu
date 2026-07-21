@@ -4,7 +4,6 @@ import {
   Image,
   Pressable,
   StyleSheet,
-  StatusBar,
   Text,
   View,
 } from 'react-native';
@@ -27,7 +26,6 @@ import { BrainTeaseScreen } from './screens/BrainTeaseScreen';
 import { ChessMasterScreen } from './screens/ChessMasterScreen';
 import { CrazyBalloonScreen } from './screens/CrazyBalloonScreen';
 import { DashboardScreen } from './screens/DashboardScreen';
-import { EmailVerificationScreen } from './screens/EmailVerificationScreen';
 import { DiagnosticScreen } from './screens/DiagnosticScreen';
 import { GameZoneScreen } from './screens/GameZoneScreen';
 import { HomeworkListScreen } from './screens/HomeworkListScreen';
@@ -132,7 +130,6 @@ function getOnboardingPreviewRole(): PublicSignupRole | null {
 function AppSafeArea({ children }: { children: React.ReactNode }) {
   return (
     <SafeAreaView edges={['top', 'left', 'right', 'bottom']} style={styles.safeArea}>
-      <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
       {children}
     </SafeAreaView>
   );
@@ -238,18 +235,6 @@ export function KitabuApp() {
           onAuthenticated={actions.completeProviderAuthentication}
           onDemoAccount={actions.signInDemo}
           onSubmit={state.authMode === 'login' ? actions.signIn : actions.signUp}
-        />
-      </AppSafeArea>
-    );
-  }
-
-  if (!state.authSession.user.emailVerified && !state.authSession.user.phoneVerified) {
-    return (
-      <AppSafeArea>
-        <EmailVerificationScreen
-          email={state.authSession.user.email}
-          onResend={actions.resendVerificationEmail}
-          onSignOut={actions.signOut}
         />
       </AppSafeArea>
     );

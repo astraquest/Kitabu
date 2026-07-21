@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { buildServer } from './server.js';
 import { db, redis } from './db.js';
-import { hashOpaqueToken, signAccessToken } from './auth.js';
+import { signAccessToken } from './auth.js';
 
 const app = buildServer({
   emailSender: async () => false,
@@ -295,7 +295,7 @@ test('phone signup validation fails cleanly before issuing an OTP', async () => 
   );
 });
 
-test('unverified email sessions cannot access product routes', async () => {
+test('unverified email sessions can access product routes', async () => {
   const email = `unverified-${Date.now()}@example.com`;
   const created = await db.query<{ id: string }>(
     `WITH user_row AS (
@@ -336,7 +336,7 @@ test('unverified email sessions cannot access product routes', async () => {
     url: '/parent/dashboard',
     headers: { authorization: `Bearer ${accessToken}` }
   });
-  assert.equal(protectedRoute.statusCode, 403);
+  assert.equal(protectedRoute.statusCode, 200);
 
   await db.query('DELETE FROM users WHERE id = $1', [userId]);
 });
@@ -604,7 +604,7 @@ test('teacher-parent message reports notify admins without moderating all messag
   }
 });
 
-test('email signup requires verification before product access and refreshes after confirmation', async () => {
+test('email signup immediately creates an authenticated product session', async () => {
   const suffix = Date.now().toString();
   const email = `email-verification-parent-${suffix}@example.com`;
   const signup = await app.inject({
@@ -622,46 +622,12 @@ test('email signup requires verification before product access and refreshes aft
   const signupSession = signup.json();
   assert.equal(signupSession.user.emailVerified, false);
 
-  const onboarding = await app.inject({
-    method: 'POST',
-    url: '/me/onboarding',
-    headers: { authorization: `Bearer ${signupSession.accessToken}` },
-    payload: {
-      gender: 'not_specified',
-      grade: 'Grade 7',
-      schoolId: null
-    }
-  });
-  assert.equal(onboarding.statusCode, 200);
-  assert.equal(onboarding.json().user.emailVerified, false);
-
-  const blocked = await app.inject({
+  const protectedRoute = await app.inject({
     method: 'GET',
     url: '/parent/dashboard',
     headers: { authorization: `Bearer ${signupSession.accessToken}` }
   });
-  assert.equal(blocked.statusCode, 403);
-
-  const rawVerificationToken = `email-verification-token-${suffix}`;
-  await db.query(
-    `UPDATE email_verification_tokens
-     SET used_at = NOW()
-     WHERE user_id = $1 AND used_at IS NULL`,
-    [signupSession.user.id]
-  );
-  await db.query(
-    `INSERT INTO email_verification_tokens (user_id, token_hash, expires_at)
-     VALUES ($1, $2, NOW() + INTERVAL '15 minutes')`,
-    [signupSession.user.id, hashOpaqueToken(rawVerificationToken)]
-  );
-
-  const confirmed = await app.inject({
-    method: 'POST',
-    url: '/auth/email-verification/confirm',
-    payload: { token: rawVerificationToken }
-  });
-  assert.equal(confirmed.statusCode, 200);
-  assert.match(confirmed.json().message, /Email verified/);
+  assert.equal(protectedRoute.statusCode, 200);
 
   const refresh = await app.inject({
     method: 'POST',
@@ -670,14 +636,7 @@ test('email signup requires verification before product access and refreshes aft
   });
   assert.equal(refresh.statusCode, 200);
   const refreshedSession = refresh.json();
-  assert.equal(refreshedSession.user.emailVerified, true);
-
-  const protectedRoute = await app.inject({
-    method: 'GET',
-    url: '/parent/dashboard',
-    headers: { authorization: `Bearer ${refreshedSession.accessToken}` }
-  });
-  assert.equal(protectedRoute.statusCode, 200);
+  assert.equal(refreshedSession.user.emailVerified, false);
 
   const deletion = await app.inject({
     method: 'DELETE',
@@ -722,21 +681,44 @@ test('parent links multiple verified students by email and phone and sees real d
   const parentSession = verifyCode.json();
 
   const inserted = await db.query<{
+    school_id: string;
+    teacher_id: string;
     email_student_id: string;
     phone_student_id: string;
     assignment_id: string;
     strand_id: string;
     sub_strand_id: string;
   }>(
-    `WITH email_student AS (
+    `WITH school AS (
+       INSERT INTO schools (name, slug, status, assigned_plan_id)
+       VALUES (
+         'Parent Dashboard Test School',
+         'parent-dashboard-test-' || $4,
+         'active',
+         '30000000-0000-0000-0000-000000000099'
+       )
+       RETURNING id
+     ), teacher AS (
+       INSERT INTO users (
+         school_id, email, password_hash, full_name, status, email_verified, email_verified_at,
+         gender, onboarding_completed, terms_accepted_at, terms_version, privacy_version
+       )
+       SELECT id, $5, 'test-hash', 'Parent Dashboard Teacher', 'active', TRUE, NOW(),
+              'not_specified', TRUE, NOW(), 'test', 'test'
+       FROM school
+       RETURNING id
+     ), teacher_role AS (
+       INSERT INTO user_roles (user_id, role)
+       SELECT id, 'teacher'::user_role FROM teacher
+       RETURNING user_id
+     ), email_student AS (
        INSERT INTO users (
          school_id, email, password_hash, full_name, status, email_verified, email_verified_at,
          gender, grade_level, onboarding_completed, terms_accepted_at, terms_version, privacy_version
        )
-       VALUES (
-         '11111111-1111-4111-8111-111111111111', $1, 'test-hash', 'Email Linked Student',
-         'active', TRUE, NOW(), 'not_specified', 'Grade 8', TRUE, NOW(), 'test', 'test'
-       )
+       SELECT id, $1, 'test-hash', 'Email Linked Student',
+              'active', TRUE, NOW(), 'not_specified', 'Grade 8', TRUE, NOW(), 'test', 'test'
+       FROM school
        RETURNING id
      ), phone_student AS (
        INSERT INTO users (
@@ -744,10 +726,9 @@ test('parent links multiple verified students by email and phone and sees real d
          phone_number, phone_verified, phone_verified_at, gender, grade_level, onboarding_completed,
          terms_accepted_at, terms_version, privacy_version
        )
-       VALUES (
-         '11111111-1111-4111-8111-111111111111', $2, 'test-hash', 'Phone Linked Student',
-         'active', TRUE, NOW(), $3, TRUE, NOW(), 'not_specified', 'Grade 8', TRUE, NOW(), 'test', 'test'
-       )
+       SELECT id, $2, 'test-hash', 'Phone Linked Student',
+              'active', TRUE, NOW(), $3, TRUE, NOW(), 'not_specified', 'Grade 8', TRUE, NOW(), 'test', 'test'
+       FROM school
        RETURNING id
      ), roles AS (
        INSERT INTO user_roles (user_id, role)
@@ -767,15 +748,9 @@ test('parent links multiple verified students by email and phone and sees real d
        RETURNING id
      ), assignment AS (
        INSERT INTO assignments (school_id, teacher_id, title, description, due_at, grade_level, subject)
-       VALUES (
-         '11111111-1111-4111-8111-111111111111',
-         '20000000-0000-0000-0000-000000000002',
-         'Parent Dashboard Assignment',
-         'Regression coverage',
-         NOW() + INTERVAL '2 days',
-         'Grade 8',
-         'Mathematics'
-       )
+       SELECT school.id, teacher.id, 'Parent Dashboard Assignment', 'Regression coverage',
+              NOW() + INTERVAL '2 days', 'Grade 8', 'Mathematics'
+       FROM school, teacher
        RETURNING id
      ), submission AS (
        INSERT INTO submissions (assignment_id, student_id, score, submitted_at, status, answers)
@@ -804,12 +779,14 @@ test('parent links multiple verified students by email and phone and sees real d
        RETURNING user_id
      )
      SELECT
+       (SELECT id FROM school) AS school_id,
+       (SELECT id FROM teacher) AS teacher_id,
        (SELECT id FROM email_student) AS email_student_id,
        (SELECT id FROM phone_student) AS phone_student_id,
        (SELECT id FROM assignment) AS assignment_id,
        (SELECT id FROM strand) AS strand_id,
        (SELECT id FROM sub_strand) AS sub_strand_id`,
-    [emailStudentEmail, phoneStudentEmail, phoneStudentNumber, suffix]
+    [emailStudentEmail, phoneStudentEmail, phoneStudentNumber, suffix, `parent-teacher-${suffix}@example.com`]
   );
 
   const emailLink = await app.inject({
@@ -868,10 +845,16 @@ test('parent links multiple verified students by email and phone and sees real d
   assert.equal(afterUnlink.json().children.length, 1);
 
   await db.query('DELETE FROM users WHERE id = ANY($1::uuid[])', [
-    [parentSession.user.id, inserted.rows[0].email_student_id, inserted.rows[0].phone_student_id]
+    [
+      parentSession.user.id,
+      inserted.rows[0].teacher_id,
+      inserted.rows[0].email_student_id,
+      inserted.rows[0].phone_student_id
+    ]
   ]);
   await db.query('DELETE FROM assignments WHERE id = $1', [inserted.rows[0].assignment_id]);
   await db.query('DELETE FROM curriculum_strands WHERE id = $1', [inserted.rows[0].strand_id]);
+  await db.query('DELETE FROM schools WHERE id = $1', [inserted.rows[0].school_id]);
 });
 
 test('Google signup links a verified identity and supports subsequent login', async () => {

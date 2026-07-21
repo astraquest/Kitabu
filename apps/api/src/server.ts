@@ -1779,25 +1779,6 @@ export function buildServer(options: BuildServerOptions = {}) {
       return reply.unauthorized('Account is not active');
     }
 
-    const verificationExemptRoutes = new Set([
-      '/auth/refresh',
-      '/auth/email-verification/resend',
-      '/auth/email-verification/confirm',
-      '/me/onboarding',
-      '/me/account',
-      '/onboarding/selection-events',
-      '/privacy',
-      '/policy',
-      '/deletion'
-    ]);
-    if (
-      request.user &&
-      !request.user.emailVerified &&
-      !request.user.phoneVerified &&
-      !verificationExemptRoutes.has(request.routeOptions.url ?? '')
-    ) {
-      return reply.forbidden('Verify your email or phone number to continue');
-    }
   });
 
   app.addHook('onResponse', async (request, reply) => {
@@ -3815,38 +3796,6 @@ Requirements:
         mustRotatePassword: false,
         isBreakGlass: false
       });
-
-    const rawVerificationToken = randomBytes(32).toString('hex');
-    const verificationTokenHash = hashOpaqueToken(rawVerificationToken);
-    const verificationExpiresAt = new Date(Date.now() + appConfig.KITABU_EMAIL_VERIFICATION_TTL_MINUTES * 60 * 1000);
-    const verificationUrl = `${appConfig.KITABU_EMAIL_VERIFICATION_URL}?token=${encodeURIComponent(rawVerificationToken)}`;
-
-    await withTransaction(async client => {
-      await invalidateEmailVerificationTokensForUser(client, user.id);
-      await insertEmailVerificationToken(client, user.id, verificationTokenHash, verificationExpiresAt);
-      await createAuditLog(client, user.id, user.schoolId, 'auth.email_verification.requested', {
-        email: user.email
-      });
-    });
-
-    const delivered = await emailSender(
-      buildEmailVerificationEmail({
-        recipientEmail: user.email,
-        recipientName: user.fullName,
-        mascotKey: user.mascotKey,
-        verificationUrl,
-        ttlMinutes: appConfig.KITABU_EMAIL_VERIFICATION_TTL_MINUTES
-      })
-    );
-
-    if (!delivered) {
-      app.log.warn(
-        {
-          userId: user.id
-        },
-        'Verification email not sent because SMTP is not configured'
-      );
-    }
 
     return reply.status(201).send(buildAuthResponse({ user, accessToken, refreshToken, totpEnabled: false, sessionId }));
   });

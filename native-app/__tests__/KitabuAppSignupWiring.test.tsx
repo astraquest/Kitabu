@@ -49,6 +49,7 @@ function makeActions() {
     setAcceptedTerms: jest.fn(),
     setOptionalPhoneNumber: jest.fn(),
     completeProviderAuthentication: jest.fn(),
+    submitAccountOnboarding: jest.fn(),
   };
 }
 
@@ -123,6 +124,41 @@ describe('KitabuApp signup onboarding wiring', () => {
         role: 'student',
         includeIntroChoices: true,
         collectSignupCredentials: true,
+      }),
+    );
+  });
+
+  test('continues an unverified email signup into onboarding', async () => {
+    const actions = makeActions();
+    mockUseKitabuApp.mockReturnValue({
+      state: {
+        ...makeState('parent'),
+        authSession: {
+          accessToken: 'access-token',
+          refreshToken: 'refresh-token',
+          user: {
+            email: 'parent@example.com',
+            emailVerified: false,
+            phoneVerified: false,
+            roles: ['parent'],
+          },
+        },
+        hasPendingAccountOnboarding: true,
+        isSubmittingOnboarding: false,
+        onboardingError: null,
+        externalPaymentsEnabled: true,
+      },
+      actions,
+    });
+
+    await act(() => {
+      ReactTestRenderer.create(<KitabuApp />);
+    });
+
+    expect(mockStudentOnboardingScreen).toHaveBeenCalledWith(
+      expect.objectContaining({
+        role: 'parent',
+        onSubmit: actions.submitAccountOnboarding,
       }),
     );
   });

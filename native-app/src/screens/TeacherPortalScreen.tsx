@@ -10,7 +10,6 @@ import {
   Pressable,
   ScrollView,
   StyleSheet,
-  StatusBar,
   Text,
   TextInput,
   View,
@@ -106,8 +105,7 @@ type MessageAudienceMode = 'grade' | 'parent';
 type MessageDropdownOption = { value: string; label: string; meta?: string };
 
 const SCREEN = Dimensions.get('window');
-const TEACHER_TOP_INSET =
-  Platform.OS === 'web' ? 10 : Math.max(StatusBar.currentHeight ?? 0, 22);
+const TEACHER_TOP_INSET = Platform.OS === 'web' ? 10 : 22;
 const logoAsset = require('../assets/logo.png');
 const TEACHER_DEFAULT_GRADE = 'Grade 10';
 const TEACHER_SUBJECTS = ['Mathematics', 'English', 'Science', 'Kiswahili', 'Social Studies'];
@@ -2090,7 +2088,6 @@ function FloatingDropdownModal({
     <Modal
       animationType="fade"
       onRequestClose={onClose}
-      statusBarTranslucent
       transparent
       visible={visible}>
       <View style={s.dropdownModalBackdrop}>

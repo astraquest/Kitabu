@@ -3,6 +3,68 @@ apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
 
 import java.util.Properties
+import com.android.build.api.instrumentation.AsmClassVisitorFactory
+import com.android.build.api.instrumentation.ClassContext
+import com.android.build.api.instrumentation.ClassData
+import com.android.build.api.instrumentation.FramesComputationMode
+import com.android.build.api.instrumentation.InstrumentationParameters
+import com.android.build.api.instrumentation.InstrumentationScope
+import org.objectweb.asm.ClassVisitor
+import org.objectweb.asm.MethodVisitor
+import org.objectweb.asm.Opcodes
+
+abstract class RemoveDeprecatedSystemBarApisFactory implements AsmClassVisitorFactory<InstrumentationParameters.None> {
+    @Override
+    boolean isInstrumentable(ClassData classData) {
+        def className = classData.className
+        return className.startsWith("com.facebook.react.modules.statusbar.StatusBarModule") ||
+            className.startsWith("com.facebook.react.views.view.WindowUtilKt") ||
+            className.startsWith("expo.modules.imagepicker.ExpoCropImage")
+    }
+
+    @Override
+    ClassVisitor createClassVisitor(ClassContext classContext, ClassVisitor nextClassVisitor) {
+        return new ClassVisitor(Opcodes.ASM9, nextClassVisitor) {
+            @Override
+            MethodVisitor visitMethod(int access, String name, String descriptor, String signature, String[] exceptions) {
+                def nextMethodVisitor = super.visitMethod(access, name, descriptor, signature, exceptions)
+                return new MethodVisitor(Opcodes.ASM9, nextMethodVisitor) {
+                    @Override
+                    void visitMethodInsn(int opcode, String owner, String methodName, String methodDescriptor, boolean isInterface) {
+                        if (owner == "android/view/Window" && methodDescriptor == "()I" && methodName == "getStatusBarColor") {
+                            super.visitInsn(Opcodes.POP)
+                            super.visitInsn(Opcodes.ICONST_0)
+                            return
+                        }
+                        if (
+                            owner == "android/view/Window" &&
+                            methodDescriptor == "(I)V" &&
+                            (methodName == "setStatusBarColor" || methodName == "setNavigationBarColor")
+                        ) {
+                            super.visitInsn(Opcodes.POP2)
+                            return
+                        }
+                        super.visitMethodInsn(opcode, owner, methodName, methodDescriptor, isInterface)
+                    }
+
+                    @Override
+                    void visitFieldInsn(int opcode, String owner, String fieldName, String fieldDescriptor) {
+                        if (
+                            opcode == Opcodes.PUTFIELD &&
+                            owner == "android/view/WindowManager\$LayoutParams" &&
+                            fieldName == "layoutInDisplayCutoutMode" &&
+                            fieldDescriptor == "I"
+                        ) {
+                            super.visitInsn(Opcodes.POP2)
+                            return
+                        }
+                        super.visitFieldInsn(opcode, owner, fieldName, fieldDescriptor)
+                    }
+                }
+            }
+        }
+    }
+}
 
 def keystoreProperties = new Properties()
 def keystorePropertiesFile = rootProject.file("key.properties")
@@ -78,7 +140,7 @@ react {
 /**
  * Set this to true to Run Proguard on Release builds to minify the Java bytecode.
  */
-def enableProguardInReleaseBuilds = false
+def enableProguardInReleaseBuilds = true
 
 /**
  * The preferred build flavor of JavaScriptCore (JSC)
@@ -103,8 +165,8 @@ android {
         applicationId "ai.kitabu2.twa"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 125
-        versionName "1.2.5"
+        versionCode 126
+        versionName "1.2.6"
         buildConfigField "String", "GOOGLE_WEB_CLIENT_ID", "\"${googleWebClientId.replace('\\', '\\\\').replace('"', '\\"')}\""
         buildConfigField "String", "GOOGLE_ANDROID_CLIENT_ID", "\"${googleAndroidClientId.replace('\\', '\\\\').replace('"', '\\"')}\""
     }
@@ -131,8 +193,21 @@ android {
         release {
             signingConfig keystorePropertiesFile.exists() ? signingConfigs.release : signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
-            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            shrinkResources enableProguardInReleaseBuilds
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
         }
+    }
+}
+
+androidComponents {
+    onVariants(selector().withBuildType("release")) { variant ->
+        variant.instrumentation.transformClassesWith(
+            RemoveDeprecatedSystemBarApisFactory,
+            InstrumentationScope.ALL
+        ) {}
+        variant.instrumentation.setAsmFramesComputationMode(
+            FramesComputationMode.COMPUTE_FRAMES_FOR_INSTRUMENTED_METHODS
+        )
     }
 }
 

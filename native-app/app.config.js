@@ -46,7 +46,7 @@ module.exports = {
     name: 'Kitabu AI',
     slug: 'kitabu-ai',
     scheme: 'kitabu',
-    version: '1.2.5',
+    version: '1.2.6',
     assetBundlePatterns: ['**/*'],
     plugins: [
       [

@@ -67,6 +67,12 @@ module.exports = {
     android: {
       package: 'ai.kitabu2.twa',
       softwareKeyboardLayoutMode: 'resize',
+      blockedPermissions: [
+        'android.permission.READ_EXTERNAL_STORAGE',
+        'android.permission.WRITE_EXTERNAL_STORAGE',
+        'android.permission.READ_MEDIA_IMAGES',
+        'android.permission.READ_MEDIA_VIDEO',
+      ],
     },
     ios: {
       bundleIdentifier: 'ai.kitabunative.app',

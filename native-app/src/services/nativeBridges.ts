@@ -665,10 +665,6 @@ export const chatAttachmentBridge: ChatAttachmentBridge = {
     return mapFileMetaToAttachment(await mapImageAssetToFileMeta(result.assets[0]), 'image');
   },
   async pickImage() {
-    const permission = await ImagePicker.requestMediaLibraryPermissionsAsync();
-    if (!permission.granted) {
-      return null;
-    }
     const result = await ImagePicker.launchImageLibraryAsync({
       base64: true,
       mediaTypes: ImagePicker.MediaTypeOptions.Images,

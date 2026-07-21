@@ -3,10 +3,8 @@ import Constants from 'expo-constants';
 import * as Crypto from 'expo-crypto';
 import * as WebBrowser from 'expo-web-browser';
 import { NativeModules, Platform } from 'react-native';
-import {
-  GoogleSignin,
-  isSuccessResponse,
-} from '@react-native-google-signin/google-signin';
+
+type NativeGoogleSigninModule = typeof import('@react-native-google-signin/google-signin');
 
 WebBrowser.maybeCompleteAuthSession();
 
@@ -86,6 +84,10 @@ export function isGoogleAuthAvailableInCurrentRuntime() {
   return Constants.appOwnership !== 'expo';
 }
 
+function getNativeGoogleSigninModule(): NativeGoogleSigninModule {
+  return require('@react-native-google-signin/google-signin') as NativeGoogleSigninModule;
+}
+
 function ensureConfigured() {
   const clientId = getGoogleAuthClientId();
   if (!clientId) {
@@ -95,12 +97,17 @@ function ensureConfigured() {
 }
 
 export async function requestGoogleIdToken() {
+  if (!isGoogleAuthAvailableInCurrentRuntime()) {
+    throw new Error('Google sign-in requires a development build. Use email sign-in in Expo Go.');
+  }
+
   if (Platform.OS === 'android') {
     const webClientId = getGoogleWebClientId();
     if (!webClientId) {
       throw new Error('Google sign-in is not configured for this app build.');
     }
 
+    const { GoogleSignin, isSuccessResponse } = getNativeGoogleSigninModule();
     GoogleSignin.configure({ webClientId, offlineAccess: false });
     await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
     const response = await GoogleSignin.signIn();
@@ -114,9 +121,6 @@ export async function requestGoogleIdToken() {
   }
 
   const clientId = ensureConfigured();
-  if (!isGoogleAuthAvailableInCurrentRuntime()) {
-    throw new Error('Google sign-in requires a development build. Use email sign-in in Expo Go.');
-  }
   const discovery = await AuthSession.fetchDiscoveryAsync('https://accounts.google.com');
   const redirectUri = getGoogleRedirectUri() || AuthSession.makeRedirectUri({ scheme: 'kitabu' });
   const nonce = await Crypto.digestStringAsync(

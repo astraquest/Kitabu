@@ -138,4 +138,32 @@ describe('googleAuthService', () => {
       'Google did not return an ID token for this app configuration.',
     );
   });
+
+  test('does not load the native Google module in Expo Go', async () => {
+    jest.doMock('expo-constants', () => ({
+      __esModule: true,
+      default: {
+        appOwnership: 'expo',
+        expoConfig: {
+          extra: {
+            googleIosClientId: 'ios-client-id.apps.googleusercontent.com',
+          },
+        },
+      },
+    }));
+    jest.doMock('@react-native-google-signin/google-signin', () => {
+      throw new Error('Native Google Sign-In must not load in Expo Go.');
+    });
+    const { Platform } = require('react-native');
+    Platform.OS = 'ios';
+
+    let requestGoogleIdToken: () => Promise<string>;
+    expect(() => {
+      ({ requestGoogleIdToken } = require('../src/services/googleAuthService'));
+    }).not.toThrow();
+
+    await expect(requestGoogleIdToken!()).rejects.toThrow(
+      'Google sign-in requires a development build. Use email sign-in in Expo Go.',
+    );
+  });
 });

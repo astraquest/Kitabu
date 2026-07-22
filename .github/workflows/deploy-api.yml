@@ -31,6 +31,7 @@ jobs:
       - run: npm run check
       - run: npm run build
       - run: npm run validate:quiz-bank -w apps/api
+      - run: node apps/api/scripts/curriculum/import-kicd-grade1-3.mjs --dry-run
       - run: npm run test:api
 
   deploy:
@@ -109,6 +110,8 @@ jobs:
           docker compose up -d postgres redis
           docker compose build api worker
           docker compose run --rm -T api node scripts/apply-migrations.mjs </dev/null
+          docker compose run --rm -T api node scripts/curriculum/import-kicd-grade1-3.mjs --dry-run </dev/null
+          docker compose run --rm -T api node scripts/curriculum/import-kicd-grade1-3.mjs </dev/null
           docker compose run --rm -T api node scripts/quiz-bank/validate-quiz-bank.mjs </dev/null
           docker compose run --rm -T api node scripts/quiz-bank/import-quiz-bank.mjs </dev/null
           docker compose run --rm -T api node scripts/verify-production-readiness.mjs </dev/null

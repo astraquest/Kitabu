@@ -102,6 +102,20 @@ test('trailing-slash legal URLs redirect to their canonical route', async () => 
   }
 });
 
+test('password reset handoff can call the same-origin API and recover from network errors', async () => {
+  const response = await app.inject({
+    method: 'GET',
+    url: '/reset-password?token=abcdefghijklmnopqrstuvwxyz123456'
+  });
+
+  assert.equal(response.statusCode, 200);
+  assert.match(response.headers['content-security-policy'] ?? '', /connect-src 'self'/);
+  assert.match(response.body, /fetch\('\/auth\/password\/reset'/);
+  assert.match(response.body, /Could not connect to Kitabu AI/);
+  assert.match(response.body, /id="open-app"/);
+  assert.match(response.body, /kitabu:\/\/auth\/password-reset-complete/);
+});
+
 test('Digital Asset Links verifies the Play-signed Android app', async () => {
   const response = await app.inject({ method: 'GET', url: '/.well-known/assetlinks.json' });
 

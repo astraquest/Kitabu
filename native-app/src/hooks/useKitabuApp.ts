@@ -3500,19 +3500,19 @@ export function useKitabuApp() {
   }
 
   function updateUserProfile(profileOrUpdater: UserProfile | ((current: UserProfile) => UserProfile)) {
-    let nextProfile: UserProfile | null = null;
-    setUserProfile(current => {
-      nextProfile =
-        typeof profileOrUpdater === 'function'
-          ? profileOrUpdater(current)
-          : profileOrUpdater;
-      return nextProfile;
-    });
+    const nextProfile =
+      typeof profileOrUpdater === 'function'
+        ? profileOrUpdater(userProfile)
+        : profileOrUpdater;
+    setUserProfile(nextProfile);
 
-    if (authSession?.user.roles.includes('teacher') && nextProfile) {
+    if (authSession?.user.roles.includes('teacher')) {
       saveTeacherScope({
         grades: nextProfile.taughtGrades ?? [],
         subjects: nextProfile.taughtSubjects ?? [],
+        countryCode: nextProfile.countryCode,
+        curriculumCode:
+          nextProfile.curriculumCode || curriculumCodeForCountry(nextProfile.countryCode),
       }).catch(() => {
         // Profile edits should remain responsive; teacher data refresh will surface server issues.
       });

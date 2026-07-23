@@ -10,6 +10,7 @@ import type {
 import { resolveAssignmentSchoolId } from './assignmentTargeting.js';
 import type { BillingPlanCode } from './payments.js';
 import { resolveQuizBankSubjectIds } from './quizBank.js';
+import type { CurriculumScope } from './curriculumScope.js';
 
 type MaybeClient = PoolClient | typeof db;
 
@@ -173,6 +174,8 @@ export interface CurriculumStrandInput {
 
 export interface CurriculumStrandRecord {
   id: string;
+  country_code: string;
+  curriculum_code: string;
   grade_level: string;
   subject_id: string;
   subject_name: string;
@@ -3806,6 +3809,8 @@ export async function replaceCurriculumSubject(
   input: {
     actorUserId: string | null;
     grade: string;
+    countryCode: string;
+    curriculumCode: string;
     subjectId: string;
     subjectName: string;
     strands: CurriculumStrandInput[];
@@ -3814,18 +3819,22 @@ export async function replaceCurriculumSubject(
   await q(
     client,
     `DELETE FROM curriculum_strands
-     WHERE grade_level = $1 AND subject_id = $2`,
-    [input.grade, input.subjectId]
+     WHERE country_code = $1 AND curriculum_code = $2
+       AND grade_level = $3 AND subject_id = $4`,
+    [input.countryCode, input.curriculumCode, input.grade, input.subjectId]
   );
 
   for (const [strandIndex, strand] of input.strands.entries()) {
     const strandResult = await q<{ id: string }>(
       client,
       `INSERT INTO curriculum_strands (
-        grade_level, subject_id, subject_name, number, title, sub_title, position, created_by_user_id, updated_at
-      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, NOW())
+        country_code, curriculum_code, grade_level, subject_id, subject_name,
+        number, title, sub_title, position, created_by_user_id, updated_at
+      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, NOW())
       RETURNING id`,
       [
+        input.countryCode,
+        input.curriculumCode,
         input.grade,
         input.subjectId,
         input.subjectName,
@@ -3866,6 +3875,8 @@ export async function createEmptyCurriculumSubject(
   input: {
     actorUserId: string | null;
     grade: string;
+    countryCode: string;
+    curriculumCode: string;
     subjectId: string;
     subjectName: string;
   }
@@ -3874,9 +3885,10 @@ export async function createEmptyCurriculumSubject(
     client,
     `SELECT EXISTS (
        SELECT 1 FROM curriculum_strands
-       WHERE grade_level = $1 AND subject_id = $2
+       WHERE country_code = $1 AND curriculum_code = $2
+         AND grade_level = $3 AND subject_id = $4
      )`,
-    [input.grade, input.subjectId]
+    [input.countryCode, input.curriculumCode, input.grade, input.subjectId]
   );
 
   if (existing.rows[0]?.exists) {
@@ -3886,9 +3898,12 @@ export async function createEmptyCurriculumSubject(
   await q(
     client,
     `INSERT INTO curriculum_strands (
-      grade_level, subject_id, subject_name, number, title, sub_title, position, created_by_user_id, updated_at
-    ) VALUES ($1, $2, $3, NULL, $4, '', 0, $5, NOW())`,
+      country_code, curriculum_code, grade_level, subject_id, subject_name,
+      number, title, sub_title, position, created_by_user_id, updated_at
+    ) VALUES ($1, $2, $3, $4, $5, NULL, $6, '', 0, $7, NOW())`,
     [
+      input.countryCode,
+      input.curriculumCode,
       input.grade,
       input.subjectId,
       input.subjectName,
@@ -3902,14 +3917,16 @@ export async function createEmptyCurriculumSubject(
 
 export async function listCurriculumForGrade(
   grade: string,
-  userId?: string | null
+  userId: string | null | undefined,
+  scope: CurriculumScope
 ): Promise<CurriculumSubjectBundle[]> {
   const strandsResult = await db.query<CurriculumStrandRecord>(
-    `SELECT id, grade_level, subject_id, subject_name, number, title, sub_title, position
+    `SELECT id, country_code, curriculum_code, grade_level, subject_id, subject_name,
+            number, title, sub_title, position
      FROM curriculum_strands
-     WHERE grade_level = $1
+     WHERE country_code = $1 AND curriculum_code = $2 AND grade_level = $3
      ORDER BY subject_name ASC, position ASC`,
-    [grade]
+    [scope.countryCode, scope.curriculumCode, grade]
   );
 
   if (strandsResult.rows.length === 0) {
@@ -3954,7 +3971,10 @@ export async function listCurriculumForGrade(
   });
 }
 
-export async function findCurriculumSubStrandContext(subStrandId: string) {
+export async function findCurriculumSubStrandContext(
+  subStrandId: string,
+  scope: CurriculumScope
+) {
   const result = await db.query<{
     sub_strand_id: string;
     sub_strand_title: string;
@@ -3971,6 +3991,8 @@ export async function findCurriculumSubStrandContext(subStrandId: string) {
     grade_level: string;
     subject_id: string;
     subject_name: string;
+    country_code: string;
+    curriculum_code: string;
   }>(
     `SELECT
        css.id AS sub_strand_id,
@@ -3987,11 +4009,13 @@ export async function findCurriculumSubStrandContext(subStrandId: string) {
        cs.number AS strand_number,
        cs.grade_level,
        cs.subject_id,
-       cs.subject_name
+       cs.subject_name,
+       cs.country_code,
+       cs.curriculum_code
      FROM curriculum_sub_strands css
      JOIN curriculum_strands cs ON cs.id = css.strand_id
-     WHERE css.id = $1`,
-    [subStrandId]
+     WHERE css.id = $1 AND cs.country_code = $2 AND cs.curriculum_code = $3`,
+    [subStrandId, scope.countryCode, scope.curriculumCode]
   );
 
   return result.rows[0] ?? null;
@@ -4760,21 +4784,31 @@ export async function ensureWeeklyExam(
 }
 
 export async function listQuizBankQuestions(input: {
+  countryCode: string;
+  curriculumCode: string;
   gradeLevel: string;
   subjectId?: string | null;
   limit?: number;
 }): Promise<QuizBankQuestionRecord[]> {
   const subjectIds = resolveQuizBankSubjectIds(input.subjectId);
-  const values: unknown[] = [input.gradeLevel, subjectIds, input.limit ?? 100];
+  const values: unknown[] = [
+    input.countryCode,
+    input.curriculumCode,
+    input.gradeLevel,
+    subjectIds,
+    input.limit ?? 100
+  ];
   const result = await db.query<QuizBankQuestionRecord>(
     `SELECT id, country_code, curriculum_code, grade_level, subject_id, subject_name,
             strand_title, sub_strand_title, learning_outcome, question_number, type,
             prompt, options, correct_answer, explanation, difficulty, cognitive_level, feature_tags
      FROM quiz_bank_questions
-      WHERE grade_level = $1
-        AND ($2::text[] IS NULL OR subject_id = ANY($2::text[]))
+      WHERE country_code = $1
+        AND curriculum_code = $2
+        AND grade_level = $3
+        AND ($4::text[] IS NULL OR subject_id = ANY($4::text[]))
       ORDER BY question_number ASC
-      LIMIT $3`,
+      LIMIT $5`,
     values
   );
 
@@ -5074,6 +5108,22 @@ export async function replaceTeacherTeachingScopes(
       [teacherUserId, scope.gradeLevel, scope.subjectName]
     );
   }
+}
+
+export async function updateUserCurriculumScope(
+  client: MaybeClient,
+  userId: string,
+  scope: CurriculumScope
+) {
+  await q(
+    client,
+    `UPDATE users
+     SET country_code = $2,
+         curriculum_code = $3,
+         updated_at = NOW()
+     WHERE id = $1`,
+    [userId, scope.countryCode, scope.curriculumCode]
+  );
 }
 
 export async function listTeacherAssignments(user: AuthenticatedUser): Promise<TeacherAssignmentRecord[]> {

@@ -190,6 +190,7 @@ import {
   updateSchoolPilot,
   updateSchoolDiscount,
   updateAdminStudentProfile,
+  updateUserCurriculumScope,
   setAdminStudentSubscriptionStatus,
   assignSchoolsToSalesAgent,
   updateUserOnboarding,
@@ -251,34 +252,71 @@ import {
   buildCurriculumCompatibilityLesson,
   buildCurriculumCompatibilityPath
 } from './curriculumCompatibilityLesson.js';
+import {
+  type CurriculumScope,
+  isKenyaCbcScope,
+  resolveCurriculumScope
+} from './curriculumScope.js';
 
 const KITABU_PLAY_PACKAGE_NAME = 'ai.kitabu2.twa';
 const KITABU_PLAY_SHA256_CERT_FINGERPRINT =
   'BD:54:41:50:8D:76:20:01:52:09:67:D1:42:9A:7B:4C:C9:5C:35:05:5D:EF:A2:27:F4:2C:71:D6:B8:F2:B1:26';
 
-async function resolveProgressiveLesson(lessonKey: string) {
-  const authoredLesson = getProgressiveLessonPrivateDefinition(lessonKey);
+async function resolveUserCurriculumScope(userId: string): Promise<CurriculumScope> {
+  const user = await findUserById(userId);
+  if (!user) {
+    throw new Error('Authenticated user curriculum scope could not be resolved');
+  }
+  return resolveCurriculumScope({
+    countryCode: user.countryCode,
+    curriculumCode: user.curriculumCode
+  });
+}
+
+async function resolveRequestCurriculumScope(
+  request: FastifyRequest,
+  requested?: { countryCode?: string; curriculumCode?: string }
+) {
+  const persistedScope = await resolveUserCurriculumScope(request.user!.id);
+  const canManageScope = request.user!.roles.some(role =>
+    role === 'teacher' || role === 'school_admin' || role === 'platform_admin'
+  );
+  if (!canManageScope || (!requested?.countryCode && !requested?.curriculumCode)) {
+    return persistedScope;
+  }
+
+  return resolveCurriculumScope({
+    countryCode: requested.countryCode ?? persistedScope.countryCode,
+    curriculumCode: requested.curriculumCode ?? persistedScope.curriculumCode
+  });
+}
+
+async function resolveProgressiveLesson(lessonKey: string, scope: CurriculumScope) {
+  const authoredLesson = isKenyaCbcScope(scope)
+    ? getProgressiveLessonPrivateDefinition(lessonKey)
+    : null;
   if (authoredLesson) return authoredLesson;
   if (!lessonKey.startsWith('curriculum-')) return null;
 
   const subStrandId = lessonKey.slice('curriculum-'.length);
   if (!subStrandId) return null;
-  const context = await findCurriculumSubStrandContext(subStrandId);
+  const context = await findCurriculumSubStrandContext(subStrandId, scope);
   return context ? buildCurriculumCompatibilityLesson(context) : null;
 }
 
 async function resolveLearningPath(
   userId: string,
   grade: string,
-  requestedSubjectId: string
+  requestedSubjectId: string,
+  scope: CurriculumScope
 ) {
   const canonicalSubjectId = normalizeProgressiveSubjectId(requestedSubjectId, grade);
   const progress = await listProgressiveLessonProgress(userId, grade, canonicalSubjectId);
-  if (hasProgressiveLearningPath(canonicalSubjectId, grade)) {
+  if (isKenyaCbcScope(scope) && hasProgressiveLearningPath(canonicalSubjectId, grade)) {
     return buildProgressiveLearningPath(canonicalSubjectId, progress, grade);
   }
 
-  const subjects = await listCurriculumForGrade(grade, userId);
+  const subjects = await listCurriculumForGrade(grade, userId, scope);
   const subject = subjects.find(candidate =>
     candidate.subjectId === requestedSubjectId ||
     normalizeProgressiveSubjectId(candidate.subjectId, grade) === canonicalSubjectId
@@ -691,7 +729,9 @@ const teacherAssignmentSchema = z.object({
 const teachingScopeSchema = z.object({
   grades: z.array(z.string().trim().min(2).max(40)).max(20).default([]),
   subjects: z.array(z.string().trim().min(1).max(80)).max(40).default([]),
-  subjectsByGrade: z.record(z.string(), z.array(z.string().trim().min(1).max(80))).optional()
+  subjectsByGrade: z.record(z.string(), z.array(z.string().trim().min(1).max(80))).optional(),
+  countryCode: z.string().trim().min(2).max(10).optional(),
+  curriculumCode: z.string().trim().min(2).max(40).optional()
 });
 
 const teacherParentMessageQuerySchema = z.object({
@@ -1480,17 +1520,23 @@ const curriculumSubjectParamsSchema = z.object({
 
 const curriculumQuerySchema = z.object({
   grade: z.string().min(1),
-  subjectId: z.string().min(1).optional()
+  subjectId: z.string().min(1).optional(),
+  countryCode: z.string().trim().min(2).max(10).optional(),
+  curriculumCode: z.string().trim().min(2).max(40).optional()
 });
 
 const curriculumReplaceSchema = z.object({
   grade: z.string().min(1),
+  countryCode: z.string().trim().min(2).max(10).optional(),
+  curriculumCode: z.string().trim().min(2).max(40).optional(),
   subjectName: z.string().min(1),
   strands: z.array(curriculumStrandSchema)
 });
 
 const curriculumCreateSubjectSchema = z.object({
   grade: z.string().trim().min(1),
+  countryCode: z.string().trim().min(2).max(10).optional(),
+  curriculumCode: z.string().trim().min(2).max(40).optional(),
   subjectName: z.string().trim().min(1).max(80)
 });
 
@@ -1504,6 +1550,8 @@ function subjectIdFromName(name: string) {
 
 const curriculumImportSchema = z.object({
   grade: z.string().min(1),
+  countryCode: z.string().trim().min(2).max(10).optional(),
+  curriculumCode: z.string().trim().min(2).max(40).optional(),
   subjectId: z.string().min(1),
   subjectName: z.string().min(1),
   fileName: z.string().optional(),
@@ -2581,12 +2629,22 @@ Requirements:
     request: FastifyRequest;
     reply: FastifyReply;
     body: GenerateTextBody;
+    curriculumScope?: CurriculumScope;
   }) {
     const currentUser = args.request.user!;
     const feature = args.body.feature;
-    const featureSystemInstruction = buildFeatureSystemInstruction(feature, args.body.context);
+    const curriculumScope =
+      args.curriculumScope ?? await resolveUserCurriculumScope(currentUser.id);
+    const scopedContext = {
+      ...(args.body.context ?? {}),
+      countryCode: curriculumScope.countryCode,
+      countryName: curriculumScope.countryName,
+      curriculumCode: curriculumScope.curriculumCode
+    };
+    const featureSystemInstruction = buildFeatureSystemInstruction(feature, scopedContext);
     const effectiveBody: GenerateTextBody = {
       ...args.body,
+      context: scopedContext,
       prompt: buildFeatureUserPrompt(feature, args.body.prompt),
       systemInstruction: featureSystemInstruction ?? args.body.systemInstruction
     };
@@ -4427,9 +4485,12 @@ Requirements:
     }
 
     const query = curriculumQuerySchema.parse(request.query);
-    const subjects = await listCurriculumForGrade(query.grade, request.user!.id);
+    const scope = await resolveRequestCurriculumScope(request, query);
+    const subjects = await listCurriculumForGrade(query.grade, request.user!.id, scope);
     return {
       grade: query.grade,
+      countryCode: scope.countryCode,
+      curriculumCode: scope.curriculumCode,
       subjects: query.subjectId
         ? subjects.filter(subject => subject.subjectId === query.subjectId)
       : subjects
@@ -4444,7 +4505,8 @@ Requirements:
 
     const params = progressivePathParamsSchema.parse(request.params);
     const query = progressivePathQuerySchema.parse(request.query);
-    const path = await resolveLearningPath(request.user!.id, query.grade, params.subjectId);
+    const scope = await resolveUserCurriculumScope(request.user!.id);
+    const path = await resolveLearningPath(request.user!.id, query.grade, params.subjectId, scope);
     if (!path) {
       return reply.notFound('Subject curriculum not found');
     }
@@ -4461,7 +4523,8 @@ Requirements:
     }
 
     const params = progressiveLessonParamsSchema.parse(request.params);
-    const privateLesson = await resolveProgressiveLesson(params.lessonKey);
+    const scope = await resolveUserCurriculumScope(request.user!.id);
+    const privateLesson = await resolveProgressiveLesson(params.lessonKey, scope);
     if (!privateLesson) {
       return reply.notFound('Progressive lesson not found');
     }
@@ -4479,13 +4542,14 @@ Requirements:
     }
 
     const body = progressiveAttemptStartSchema.parse(request.body);
-    const privateLesson = await resolveProgressiveLesson(body.lessonKey);
+    const scope = await resolveUserCurriculumScope(request.user!.id);
+    const privateLesson = await resolveProgressiveLesson(body.lessonKey, scope);
     if (!privateLesson || privateLesson.lessonVersion !== body.lessonVersion || privateLesson.grade !== body.grade) {
       return reply.conflict('The lesson version is no longer available. Refresh the learning path.');
     }
     const lesson = toProgressiveLessonPublic(privateLesson);
 
-    const path = await resolveLearningPath(request.user!.id, body.grade, lesson.subjectId);
+    const path = await resolveLearningPath(request.user!.id, body.grade, lesson.subjectId, scope);
     const node = path?.nodes.find(
       candidate => candidate.lessonKey === body.lessonKey
     );
@@ -4531,7 +4595,8 @@ Requirements:
       return reply.notFound('Lesson attempt not found');
     }
 
-    const lesson = await resolveProgressiveLesson(attempt.lesson_key);
+    const scope = await resolveUserCurriculumScope(request.user!.id);
+    const lesson = await resolveProgressiveLesson(attempt.lesson_key, scope);
     const grade = lesson
       ? gradeProgressiveLessonDefinitionStep(lesson, params.stepId, body.response)
       : null;
@@ -4587,7 +4652,8 @@ Requirements:
     if (!attempt) {
       return reply.notFound('Lesson attempt not found');
     }
-    const lesson = await resolveProgressiveLesson(attempt.lesson_key);
+    const scope = await resolveUserCurriculumScope(request.user!.id);
+    const lesson = await resolveProgressiveLesson(attempt.lesson_key, scope);
     if (!lesson) {
       return reply.notFound('Lesson definition not found');
     }
@@ -4634,7 +4700,12 @@ Requirements:
       };
     }
 
-    const path = await resolveLearningPath(request.user!.id, attempt.grade_level, attempt.subject_id);
+    const path = await resolveLearningPath(
+      request.user!.id,
+      attempt.grade_level,
+      attempt.subject_id,
+      scope
+    );
     const nextNode = path?.nodes.find(node => node.status === 'current') ?? null;
 
     return {
@@ -4762,11 +4833,14 @@ Requirements:
 
     const params = curriculumSubjectParamsSchema.parse(request.params);
     const body = curriculumReplaceSchema.parse(request.body);
+    const scope = await resolveRequestCurriculumScope(request, body);
 
     await withTransaction(async client => {
       await replaceCurriculumSubject(client, {
         actorUserId: request.user!.id,
         grade: body.grade,
+        countryCode: scope.countryCode,
+        curriculumCode: scope.curriculumCode,
         subjectId: params.subjectId,
         subjectName: body.subjectName,
         strands: body.strands
@@ -4778,9 +4852,11 @@ Requirements:
       });
     });
 
-    const subjects = await listCurriculumForGrade(body.grade, request.user!.id);
+    const subjects = await listCurriculumForGrade(body.grade, request.user!.id, scope);
     return {
       grade: body.grade,
+      countryCode: scope.countryCode,
+      curriculumCode: scope.curriculumCode,
       subjects: subjects.filter(subject => subject.subjectId === params.subjectId)
     };
   });
@@ -4792,6 +4868,7 @@ Requirements:
     }
 
     const body = curriculumCreateSubjectSchema.parse(request.body);
+    const scope = await resolveRequestCurriculumScope(request, body);
     const subjectId = subjectIdFromName(body.subjectName);
     if (!subjectId) {
       reply.status(422);
@@ -4805,6 +4882,8 @@ Requirements:
       created = await createEmptyCurriculumSubject(client, {
         actorUserId: request.user!.id,
         grade: body.grade,
+        countryCode: scope.countryCode,
+        curriculumCode: scope.curriculumCode,
         subjectId,
         subjectName: body.subjectName
       });
@@ -4825,9 +4904,11 @@ Requirements:
       };
     }
 
-    const subjects = await listCurriculumForGrade(body.grade, request.user!.id);
+    const subjects = await listCurriculumForGrade(body.grade, request.user!.id, scope);
     return {
       grade: body.grade,
+      countryCode: scope.countryCode,
+      curriculumCode: scope.curriculumCode,
       subjects
     };
   });
@@ -4848,6 +4929,7 @@ Requirements:
     }
 
     const body = curriculumImportSchema.parse(request.body);
+    const scope = await resolveRequestCurriculumScope(request, body);
     const prompt = `Analyze the attached curriculum PDF and extract strands and sub-strands.
 
 Return valid JSON with this shape:
@@ -4871,6 +4953,7 @@ Return valid JSON with this shape:
     const aiResult = await runSubscriptionScopedAiText({
       request,
       reply,
+      curriculumScope: scope,
       body: {
         prompt,
         responseMimeType: 'application/json',
@@ -4932,6 +5015,8 @@ Return valid JSON with this shape:
       await replaceCurriculumSubject(client, {
         actorUserId: request.user!.id,
         grade: body.grade,
+        countryCode: scope.countryCode,
+        curriculumCode: scope.curriculumCode,
         subjectId: body.subjectId,
         subjectName: body.subjectName,
         strands: normalizedStrands
@@ -4944,9 +5029,11 @@ Return valid JSON with this shape:
       });
     });
 
-    const subjects = await listCurriculumForGrade(body.grade, request.user!.id);
+    const subjects = await listCurriculumForGrade(body.grade, request.user!.id, scope);
     return {
       grade: body.grade,
+      countryCode: scope.countryCode,
+      curriculumCode: scope.curriculumCode,
       subjects: subjects.filter(subject => subject.subjectId === body.subjectId)
     };
   });
@@ -4967,7 +5054,8 @@ Return valid JSON with this shape:
     }
 
     const params = subStrandParamsSchema.parse(request.params);
-    const context = await findCurriculumSubStrandContext(params.subStrandId);
+    const scope = await resolveUserCurriculumScope(request.user!.id);
+    const context = await findCurriculumSubStrandContext(params.subStrandId, scope);
     if (!context) {
       return reply.notFound('Sub-strand not found');
     }
@@ -5037,7 +5125,8 @@ Return valid JSON with this shape:
 
     const params = subStrandParamsSchema.parse(request.params);
     const body = subStrandQuizSchema.parse(request.body);
-    const context = await findCurriculumSubStrandContext(params.subStrandId);
+    const scope = await resolveUserCurriculumScope(request.user!.id);
+    const context = await findCurriculumSubStrandContext(params.subStrandId, scope);
     if (!context) {
       return reply.notFound('Sub-strand not found');
     }
@@ -5106,7 +5195,8 @@ Return valid JSON with this shape:
 
     const params = subStrandParamsSchema.parse(request.params);
     const body = subStrandCompletionSchema.parse(request.body);
-    const context = await findCurriculumSubStrandContext(params.subStrandId);
+    const scope = await resolveUserCurriculumScope(request.user!.id);
+    const context = await findCurriculumSubStrandContext(params.subStrandId, scope);
     if (!context) {
       return reply.notFound('Sub-strand not found');
     }
@@ -5157,7 +5247,10 @@ Return valid JSON with this shape:
     }
 
     const query = quizBankQuerySchema.parse(request.query);
+    const scope = await resolveUserCurriculumScope(request.user!.id);
     const questions = await listQuizBankQuestions({
+      countryCode: scope.countryCode,
+      curriculumCode: scope.curriculumCode,
       gradeLevel: query.grade,
       subjectId: query.subjectId ?? null,
       limit: query.limit
@@ -6189,6 +6282,7 @@ Return valid JSON with this shape:
     }
 
     const body = teachingScopeSchema.parse(request.body);
+    const curriculumScope = await resolveRequestCurriculumScope(request, body);
     const scopes = body.subjectsByGrade
       ? Object.entries(body.subjectsByGrade).flatMap(([gradeLevel, subjects]) =>
           subjects.map(subjectName => ({ gradeLevel, subjectName }))
@@ -6198,9 +6292,12 @@ Return valid JSON with this shape:
         );
 
     await withTransaction(async client => {
+      await updateUserCurriculumScope(client, request.user!.id, curriculumScope);
       await replaceTeacherTeachingScopes(client, request.user!.id, scopes);
       await createAuditLog(client, request.user!.id, request.user!.schoolId, 'teacher.scope.updated', {
-        scopeCount: scopes.length
+        scopeCount: scopes.length,
+        countryCode: curriculumScope.countryCode,
+        curriculumCode: curriculumScope.curriculumCode
       });
     });
 
@@ -6732,10 +6829,7 @@ Return valid JSON with this shape:
     }
 
     const body = onboardingSchema.parse(request.body);
-    const curriculumScope = {
-      countryCode: body.countryCode?.trim().toUpperCase() || 'KEN',
-      curriculumCode: body.curriculumCode?.trim().toUpperCase() || 'CBC'
-    };
+    const curriculumScope = resolveCurriculumScope(body);
     const normalizedPhone = body.mpesaPhoneNumber
       ? formatKenyanPhoneNumber(body.mpesaPhoneNumber)
       : null;

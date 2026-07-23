@@ -17,7 +17,6 @@ function dueDatePreview(days: number) {
   });
 }
 
-import { SUPPORTED_GRADES } from '../../constants/grades';
 import { Assignment } from '../../types/app';
 import { TeacherInlineSelect } from './TeacherInlineSelect';
 import { TeacherSpinner } from './TeacherSpinner';
@@ -28,6 +27,7 @@ interface TeacherAssignmentWizardSectionProps {
   closeWizard: () => void;
   isGenerating: boolean;
   isSending: boolean;
+  gradeOptions: readonly string[];
   grade: string;
   subject: string;
   strand: string;
@@ -44,7 +44,7 @@ interface TeacherAssignmentWizardSectionProps {
   } | null;
   dueInDays: number;
   subjectStrands: Record<string, string[]>;
-  strandSubStrands: Record<string, string[]>;
+  strandSubStrands: Record<string, Record<string, string[]>>;
   onSetDueInDays: (days: number) => void;
   onSetStep: (step: 1 | 2) => void;
   onSetGrade: (value: string) => void;
@@ -72,6 +72,7 @@ export function TeacherAssignmentWizardSection({
   closeWizard,
   isGenerating,
   isSending,
+  gradeOptions,
   grade,
   subject,
   strand,
@@ -146,7 +147,7 @@ export function TeacherAssignmentWizardSection({
                     label="Grade"
                     value={grade}
                     open={wizardGradeOpen}
-                    options={[...SUPPORTED_GRADES]}
+                    options={[...gradeOptions]}
                     onToggle={onToggleGradeOpen}
                     onSelect={onSetGrade}
                   />
@@ -174,13 +175,13 @@ export function TeacherAssignmentWizardSection({
                 onSelect={onSetStrand}
               />
 
-              {strand && strandSubStrands[strand] ? (
+              {strand && strandSubStrands[subject]?.[strand] ? (
                 <TeacherInlineSelect
                   styles={styles}
                   label="Sub-strand (Optional)"
                   value={subStrand || 'All Sub-strands'}
                   open={wizardSubStrandOpen}
-                  options={['All Sub-strands', ...strandSubStrands[strand]]}
+                  options={['All Sub-strands', ...strandSubStrands[subject][strand]]}
                   onToggle={onToggleSubStrandOpen}
                   onSelect={onSetSubStrand}
                 />
@@ -201,8 +202,11 @@ export function TeacherAssignmentWizardSection({
 
             <Pressable
               onPress={onGenerate}
-              disabled={isGenerating || !topic}
-              style={[styles.generate, (!topic || isGenerating) && styles.generateDisabled]}>
+              disabled={isGenerating || !subject || !topic}
+              style={[
+                styles.generate,
+                (!subject || !topic || isGenerating) && styles.generateDisabled,
+              ]}>
               {isGenerating ? (
                 <>
                   <TeacherSpinner />

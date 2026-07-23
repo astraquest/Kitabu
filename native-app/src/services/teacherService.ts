@@ -59,6 +59,8 @@ export async function saveTeacherScope(input: {
   grades: string[];
   subjects: string[];
   subjectsByGrade?: Record<string, string[]>;
+  countryCode?: string;
+  curriculumCode?: string;
 }) {
   return apiRequest<{ saved: boolean; scopeCount: number }>('/teacher/teaching-scope', {
     method: 'POST',

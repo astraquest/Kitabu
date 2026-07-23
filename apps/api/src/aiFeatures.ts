@@ -83,10 +83,16 @@ function learningContextLines(context?: Record<string, unknown>) {
   const subject = asText(context?.subjectName) ?? asText(context?.subject);
   const strand = asText(context?.strandTitle) ?? asText(context?.strand);
   const subStrand = asText(context?.subStrandTitle) ?? asText(context?.subStrand);
+  const countryName = asText(context?.countryName);
+  const countryCode = asText(context?.countryCode);
+  const curriculumCode = asText(context?.curriculumCode);
   const curriculumScope = asList(context?.curriculumStrands).slice(0, 8);
 
   return [
     `Student level: ${grade}.`,
+    countryName && curriculumCode
+      ? `Official curriculum: ${countryName} (${countryCode ?? 'country code unavailable'}), ${curriculumCode}. Use this country's curriculum, terminology, examples, assessment style, and expected learning outcomes.`
+      : null,
     subject ? `Active subject: ${subject}.` : null,
     strand ? `Active strand: ${strand}.` : null,
     subStrand ? `Active sub-strand: ${subStrand}.` : null,

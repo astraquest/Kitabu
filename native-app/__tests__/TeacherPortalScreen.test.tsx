@@ -4,6 +4,7 @@ import { Modal } from 'react-native';
 
 import { INITIAL_SUBMITTED_ASSIGNMENTS, INITIAL_TEACHER_STUDENTS } from '../src/data/mockData';
 import { generateLessonPlanIdeas } from '../src/services/aiService';
+import { getCurriculumForGrade } from '../src/services/curriculumService';
 import {
   getTeacherParentMessages,
   getTeacherParents,
@@ -21,6 +22,10 @@ jest.mock('../src/services/teacherService', () => ({
   getTeacherParents: jest.fn(),
   saveTeacherLessonPlan: jest.fn(),
   sendTeacherParentMessage: jest.fn(),
+}));
+
+jest.mock('../src/services/curriculumService', () => ({
+  getCurriculumForGrade: jest.fn(),
 }));
 
 const mountedRenderers: ReactTestRenderer.ReactTestRenderer[] = [];
@@ -82,8 +87,43 @@ function multilineInput(root: ReactTestRenderer.ReactTestInstance) {
   return match;
 }
 
+function mockPublishedCurriculum() {
+  (getCurriculumForGrade as jest.Mock).mockImplementation(async (grade: string) => ({
+    grade,
+    countryCode: 'KEN',
+    curriculumCode: 'CBC',
+    subjects: [
+      {
+        subjectId: 'mathematics',
+        subjectName: 'Mathematics',
+        strands: [
+          {
+            id: `${grade}-numbers`,
+            title: 'Numbers',
+            subTitle: '',
+            subStrands: [
+              {
+                id: `${grade}-integers`,
+                title: 'Integers',
+                type: 'knowledge',
+                pages: [],
+                isLocked: false,
+                isCompleted: false,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  }));
+}
+
 describe('TeacherPortalScreen', () => {
   beforeEach(() => {
+    (getCurriculumForGrade as jest.Mock).mockReset();
+    (getCurriculumForGrade as jest.Mock).mockImplementation(
+      () => new Promise(() => undefined),
+    );
     (generateLessonPlanIdeas as jest.Mock).mockReset();
     (generateLessonPlanIdeas as jest.Mock).mockResolvedValue(
       'Hook: Begin with a real-life equation. Learner activity: solve in pairs.',
@@ -257,8 +297,13 @@ describe('TeacherPortalScreen', () => {
   });
 
   it('generates lesson preview only after Ask AI', async () => {
+    mockPublishedCurriculum();
     const renderer = renderTeacherPortal();
     const root = renderer.root;
+
+    await act(async () => {
+      await Promise.resolve();
+    });
 
     act(() => pressableWithAccessibilityLabel(root, 'Open lesson planner').props.onPress());
 
@@ -270,6 +315,7 @@ describe('TeacherPortalScreen', () => {
     expect(pressableWithAccessibilityLabel(root, 'Open teacher home')).toBeTruthy();
     expect(pressableWithAccessibilityLabel(root, 'Open parent messages')).toBeTruthy();
     expect(hasText(root, 'Lesson Preview')).toBe(false);
+    expect(hasText(root, 'CBC Ready')).toBe(true);
     expect(hasText(root, 'Ask AI')).toBe(true);
     expect(hasText(root, 'Save Plan')).toBe(false);
 
@@ -287,5 +333,23 @@ describe('TeacherPortalScreen', () => {
     act(() => pressableWithText(root, 'Edit Setup').props.onPress());
     expect(hasText(root, 'Quick Setup')).toBe(true);
     expect(hasText(root, 'Lesson Preview')).toBe(false);
+  });
+
+  it('loads subject and strand choices from the selected country curriculum', async () => {
+    mockPublishedCurriculum();
+    const renderer = renderTeacherPortal();
+    const root = renderer.root;
+
+    await act(async () => {
+      await Promise.resolve();
+    });
+
+    expect(getCurriculumForGrade).toHaveBeenCalledWith('Grade 10', undefined, {
+      countryCode: 'KE',
+      curriculumCode: 'CBC',
+    });
+    act(() => pressableWithAccessibilityLabel(root, 'Open teacher profile').props.onPress());
+    expect(hasText(root, 'Mathematics')).toBe(true);
+    expect(hasText(root, 'CBC subjects are loaded from the published curriculum.')).toBe(true);
   });
 });

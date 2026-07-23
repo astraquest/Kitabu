@@ -55,7 +55,9 @@ import { AvatarArt } from '../components/AvatarArt';
 import { GoogleLogo } from '../components/GoogleLogo';
 import { stableShuffledOptions } from '../utils/onboardingOptionOrder';
 import {
+  COUNTRY_OPTIONS,
   REGIONS_BY_COUNTRY as SHARED_REGIONS_BY_COUNTRY,
+  detectDefaultCountryCode,
 } from '../constants/locations';
 import {
   GenderOption,
@@ -82,36 +84,6 @@ const LOADING_PROGRESS_INTERVAL_MS = 50;
 const LOADING_PROGRESS_INCREMENT = 2;
 const LOADING_DONE_DELAY_MS = 700;
 const ZERO_SAFE_AREA_INSETS = { top: 0, right: 0, bottom: 0, left: 0 };
-
-type CountryOption = {
-  code: string;
-  name: string;
-  flag: string;
-  curriculum: string;
-  timeZones: readonly string[];
-};
-
-const COUNTRY_OPTIONS: readonly CountryOption[] = [
-  { code: 'KE', name: 'Kenya', flag: '🇰🇪', curriculum: 'CBC / KNEC Kenya curriculum', timeZones: ['Africa/Nairobi'] },
-  { code: 'UG', name: 'Uganda', flag: '🇺🇬', curriculum: 'Ugandan national curriculum', timeZones: ['Africa/Kampala'] },
-  { code: 'TZ', name: 'Tanzania', flag: '🇹🇿', curriculum: 'Tanzanian national curriculum', timeZones: ['Africa/Dar_es_Salaam'] },
-  { code: 'RW', name: 'Rwanda', flag: '🇷🇼', curriculum: 'Rwandan CBC curriculum', timeZones: ['Africa/Kigali'] },
-  { code: 'ET', name: 'Ethiopia', flag: '🇪🇹', curriculum: 'Ethiopian national curriculum', timeZones: ['Africa/Addis_Ababa'] },
-];
-
-// Easiest background detection: device time zone via Intl (no network, no extra deps). Defaults to Kenya.
-function detectDefaultCountryCode(): string {
-  try {
-    const zone = Intl.DateTimeFormat().resolvedOptions().timeZone ?? '';
-    const match = COUNTRY_OPTIONS.find(option => option.timeZones.includes(zone));
-    if (match) {
-      return match.code;
-    }
-  } catch {
-    // Intl unavailable — fall through to default.
-  }
-  return 'KE';
-}
 
 const KENYAN_COUNTIES = [
   'Baringo',
@@ -4107,7 +4079,7 @@ export function StudentOnboardingScreen({
             ...(selectedInterestKeys.length ? { interestKeys: selectedInterestKeys } : {}),
             reminderEnabled,
             countryCode,
-            curriculumCode: 'CBC',
+            curriculumCode: selectedCountry.curriculumCode,
             ...(role === 'parent'
               ? {
                   children: submittedParentChildren,
@@ -4169,7 +4141,7 @@ export function StudentOnboardingScreen({
       county: county || null,
       grade: grade || null,
       countryCode,
-      curriculumCode: selectedCountry.curriculum,
+      curriculumCode: selectedCountry.curriculumCode,
       metadata,
     }).catch(() => undefined);
   }
@@ -11732,7 +11704,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   footerRowCompact: {
-    marginTop: 0,
+    marginTop: 12,
     paddingTop: 0,
   },
   secondaryButton: {

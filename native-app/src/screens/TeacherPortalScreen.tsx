@@ -50,7 +50,7 @@ import { ReportAiContentSheet } from '../components/ReportAiContentSheet';
 import { StudentDetailsModal } from '../components/StudentDetailsModal';
 import { studentPerformanceToModalUser } from '../components/studentDetailsAdapters';
 import { RemedialAssignmentPayload } from '../components/studentRemedialLogic';
-import { DEFAULT_GRADE, SUPPORTED_GRADES, TEACHER_ALL_GRADES_FILTER } from '../constants/grades';
+import { SUPPORTED_GRADES, TEACHER_ALL_GRADES_FILTER } from '../constants/grades';
 import {
   COUNTRY_OPTIONS,
   CountryOption,
@@ -59,6 +59,7 @@ import {
   countryNameForCode,
 } from '../constants/locations';
 import { generateAssignmentJson, generateLessonPlanIdeas } from '../services/aiService';
+import { getCurriculumForGrade } from '../services/curriculumService';
 import {
   getTeacherParentMessages,
   getTeacherParents,
@@ -70,6 +71,7 @@ import {
 } from '../services/teacherService';
 import {
   Assignment,
+  CurriculumSubjectBundle,
   Question,
   SchoolData,
   StudentPerformance,
@@ -108,27 +110,7 @@ const SCREEN = Dimensions.get('window');
 const TEACHER_TOP_INSET = Platform.OS === 'web' ? 10 : 22;
 const logoAsset = require('../assets/logo.png');
 const TEACHER_DEFAULT_GRADE = 'Grade 10';
-const TEACHER_SUBJECTS = ['Mathematics', 'English', 'Science', 'Kiswahili', 'Social Studies'];
 type TeacherCountryCode = CountryOption['code'];
-
-const SUBJECT_STRANDS: Record<string, string[]> = {
-  Mathematics: ['Numbers & Operations', 'Algebra', 'Geometry', 'Data Handling'],
-  English: ['Grammar', 'Reading Comprehension', 'Creative Writing', 'Oral Skills'],
-  Science: ['Living Things', 'Matter & Energy', 'Earth & Space', 'Forces'],
-  History: ['Ancient Civilizations', 'World Wars', 'Local History', 'Government'],
-  Geography: ['Physical Geography', 'Human Geography', 'Maps & Skills', 'Environment'],
-};
-
-const STRAND_SUBSTRANDS: Record<string, string[]> = {
-  'Numbers & Operations': ['Integers', 'Fractions', 'Decimals', 'Percentages'],
-  Algebra: ['Linear Equations', 'Quadratic Expressions', 'Inequalities', 'Variables'],
-  Geometry: ['Angles', 'Triangles', 'Circles', 'Area & Volume'],
-  'Data Handling': ['Mean, Mode, Median', 'Pie Charts', 'Bar Graphs'],
-  Grammar: ['Nouns', 'Verbs', 'Adjectives', 'Tenses'],
-  'Reading Comprehension': ['Short Stories', 'Poems', 'News Articles'],
-  'Living Things': ['Plants', 'Animals', 'Human Body', 'Ecosystems'],
-  'Matter & Energy': ['States of Matter', 'Heat', 'Light', 'Sound'],
-};
 
 function SlideOverlay({
   visible,
@@ -241,8 +223,8 @@ export function TeacherPortalScreen({
   const [toast, setToast] = useState(false);
   const [step, setStep] = useState<WizardStep>(1);
   const [topic, setTopic] = useState('');
-  const [subject, setSubject] = useState('Mathematics');
-  const [grade, setGrade] = useState(DEFAULT_GRADE);
+  const [subject, setSubject] = useState('');
+  const [grade, setGrade] = useState(TEACHER_DEFAULT_GRADE);
   const [dueInDays, setDueInDays] = useState(7);
   const [strand, setStrand] = useState('');
   const [subStrand, setSubStrand] = useState('');
@@ -285,8 +267,13 @@ export function TeacherPortalScreen({
   const [taughtSubjects, setTaughtSubjects] = useState<string[]>(
     teacherProfile.taughtSubjects?.length
       ? teacherProfile.taughtSubjects
-      : ['Mathematics', 'Science', 'English'],
+      : [],
   );
+  const [curriculumByGrade, setCurriculumByGrade] = useState<
+    Record<string, CurriculumSubjectBundle[]>
+  >({});
+  const [curriculumLoading, setCurriculumLoading] = useState(false);
+  const [curriculumLoadError, setCurriculumLoadError] = useState(false);
   const [draft, setDraft] = useState<{
     title: string;
     description: string;
@@ -337,6 +324,106 @@ export function TeacherPortalScreen({
     return selectedOptions.length > 0 ? selectedOptions : [TEACHER_DEFAULT_GRADE];
   }, [taughtGrades]);
 
+  const countryConfig =
+    COUNTRY_OPTIONS.find(option => option.code === profileCountryCode) ?? COUNTRY_OPTIONS[0];
+  const curriculumSubjectsByGrade = useMemo(
+    () =>
+      Object.fromEntries(
+        Object.entries(curriculumByGrade).map(([gradeLevel, bundles]) => [
+          gradeLevel,
+          bundles.map(bundle => bundle.subjectName),
+        ]),
+      ),
+    [curriculumByGrade],
+  );
+  const profileSubjectOptions = useMemo(
+    () =>
+      Array.from(
+        new Set([
+          ...Object.values(curriculumSubjectsByGrade).flat(),
+          ...taughtSubjects,
+        ]),
+      ).sort((left, right) => left.localeCompare(right)),
+    [curriculumSubjectsByGrade, taughtSubjects],
+  );
+  const hasPublishedCurriculumSubjects = Object.values(curriculumSubjectsByGrade).some(
+    subjects => subjects.length > 0,
+  );
+  const assignmentCurriculum = useMemo(
+    () => curriculumByGrade[grade] ?? [],
+    [curriculumByGrade, grade],
+  );
+  const subjectStrands = useMemo(
+    () =>
+      Object.fromEntries(
+        assignmentCurriculum.map(bundle => [
+          bundle.subjectName,
+          bundle.strands.map(curriculumStrand => curriculumStrand.title),
+        ]),
+      ),
+    [assignmentCurriculum],
+  );
+  const strandSubStrands = useMemo(
+    () =>
+      Object.fromEntries(
+        assignmentCurriculum.map(bundle => [
+          bundle.subjectName,
+          Object.fromEntries(
+            bundle.strands.map(curriculumStrand => [
+              curriculumStrand.title,
+              curriculumStrand.subStrands.map(item => item.title),
+            ]),
+          ),
+        ]),
+      ),
+    [assignmentCurriculum],
+  );
+
+  useEffect(() => {
+    let active = true;
+    setCurriculumLoading(true);
+    setCurriculumLoadError(false);
+    setCurriculumByGrade({});
+
+    Promise.all(
+      teacherGradeOptions.map(async gradeLevel => {
+        const result = await getCurriculumForGrade(gradeLevel, undefined, {
+          countryCode: profileCountryCode,
+          curriculumCode: countryConfig.curriculumCode,
+        });
+        return [gradeLevel, result.subjects] as const;
+      }),
+    )
+      .then(entries => {
+        if (active) {
+          setCurriculumByGrade(Object.fromEntries(entries));
+        }
+      })
+      .catch(() => {
+        if (active) {
+          setCurriculumLoadError(true);
+        }
+      })
+      .finally(() => {
+        if (active) {
+          setCurriculumLoading(false);
+        }
+      });
+
+    return () => {
+      active = false;
+    };
+  }, [countryConfig.curriculumCode, profileCountryCode, teacherGradeOptions]);
+
+  useEffect(() => {
+    const nextSubjects = curriculumSubjectsByGrade[grade] ?? [];
+    if (!nextSubjects.includes(subject)) {
+      setSubject(nextSubjects[0] ?? '');
+      setStrand('');
+      setSubStrand('');
+    }
+  }, [curriculumSubjectsByGrade, grade, subject]);
+
   const filteredAssignments = useMemo(
     () =>
       [...assignments]
@@ -382,6 +469,7 @@ export function TeacherPortalScreen({
       school: profileSchool,
       country: countryNameForCode(profileCountryCode),
       countryCode: profileCountryCode,
+      curriculumCode: countryConfig.curriculumCode,
       region: profileRegion,
       county: profileRegion,
       regionLabel: (REGIONS_BY_COUNTRY[profileCountryCode] ?? REGIONS_BY_COUNTRY.KE).label,
@@ -410,6 +498,7 @@ export function TeacherPortalScreen({
       school: details.school,
       country: countryNameForCode(profileCountryCode),
       countryCode: profileCountryCode,
+      curriculumCode: countryConfig.curriculumCode,
       region: details.region,
       county: details.region,
       regionLabel: (REGIONS_BY_COUNTRY[profileCountryCode] ?? REGIONS_BY_COUNTRY.KE).label,
@@ -878,6 +967,16 @@ export function TeacherPortalScreen({
             schools={schoolsList}
             taughtGrades={taughtGrades}
             taughtSubjects={taughtSubjects}
+            subjectOptions={profileSubjectOptions}
+            curriculumStatus={
+              curriculumLoading
+                ? `Loading ${countryConfig.curriculumCode} curriculum...`
+                : curriculumLoadError
+                  ? 'Curriculum could not be loaded. Try again when the connection is stable.'
+                  : !hasPublishedCurriculumSubjects
+                    ? `${countryConfig.curriculumCode} curriculum has not been published for the selected grades.`
+                    : `${countryConfig.curriculumCode} subjects are loaded from the published curriculum.`
+            }
             onBack={() => setPortalView(tab)}
             onSignOut={onSignOut}
             onChangeCountry={value => {
@@ -888,6 +987,8 @@ export function TeacherPortalScreen({
               saveTeacherProfile({
                 country: countryNameForCode(value),
                 countryCode: value,
+                curriculumCode:
+                  COUNTRY_OPTIONS.find(option => option.code === value)?.curriculumCode ?? 'CBC',
                 region: nextRegion,
                 county: nextRegion,
                 regionLabel: nextRegionMeta.label,
@@ -913,7 +1014,8 @@ export function TeacherPortalScreen({
           <TeacherLessonPlanView
             grade={selectedGrade}
             grades={teacherGradeOptions}
-            subjects={taughtSubjects}
+            subjectsByGrade={curriculumSubjectsByGrade}
+            curriculumLabel={countryConfig.curriculumCode}
             bottomNav={renderBottomNav('lessonPlan')}
             topNav={renderTopNav()}
           />
@@ -1075,6 +1177,7 @@ export function TeacherPortalScreen({
           closeWizard={closeWizard}
           isGenerating={isGenerating}
           isSending={isSending}
+          gradeOptions={teacherGradeOptions}
           grade={grade}
           subject={subject}
           strand={strand}
@@ -1086,12 +1189,16 @@ export function TeacherPortalScreen({
           wizardSubStrandOpen={wizardSubStrandOpen}
           draft={draft}
           dueInDays={dueInDays}
-          subjectStrands={SUBJECT_STRANDS}
-          strandSubStrands={STRAND_SUBSTRANDS}
+          subjectStrands={subjectStrands}
+          strandSubStrands={strandSubStrands}
           onSetDueInDays={setDueInDays}
           onSetStep={setStep}
           onSetGrade={value => {
             setGrade(value);
+            const nextSubject = curriculumSubjectsByGrade[value]?.[0] ?? '';
+            setSubject(nextSubject);
+            setStrand('');
+            setSubStrand('');
             setWizardGradeOpen(false);
           }}
           onSetSubject={value => {
@@ -1191,6 +1298,8 @@ function TeacherProfileView({
   schools,
   taughtGrades,
   taughtSubjects,
+  subjectOptions,
+  curriculumStatus,
   onBack,
   onSignOut,
   onChangeCountry,
@@ -1207,6 +1316,8 @@ function TeacherProfileView({
   schools: SchoolData[];
   taughtGrades: string[];
   taughtSubjects: string[];
+  subjectOptions: string[];
+  curriculumStatus: string;
   onBack: () => void;
   onSignOut?: () => void | Promise<void>;
   onChangeCountry: (value: TeacherCountryCode) => void;
@@ -1330,11 +1441,12 @@ function TeacherProfileView({
           onToggle={onToggleGrade}
         />
         <ProfileToggleGroup
-          options={TEACHER_SUBJECTS}
+          options={subjectOptions}
           selected={taughtSubjects}
           title="Subjects taught"
           onToggle={onToggleSubject}
         />
+        <Text style={s.profileMeta}>{curriculumStatus}</Text>
         {onSignOut ? (
           <Pressable
             accessibilityLabel="Sign out of teacher account"
@@ -1614,20 +1726,28 @@ function ProfileToggleGroup({
 function TeacherLessonPlanView({
   grade,
   grades,
-  subjects,
+  subjectsByGrade,
+  curriculumLabel,
   bottomNav,
   topNav,
 }: {
   grade: string;
   grades: readonly string[];
-  subjects: string[];
+  subjectsByGrade: Record<string, string[]>;
+  curriculumLabel: string;
   bottomNav?: React.ReactNode;
   topNav?: React.ReactNode;
 }) {
   const gradeOptions = grades.length > 0 ? grades : [grade];
-  const subjectOptions = subjects.length > 0 ? subjects : TEACHER_SUBJECTS.slice(0, 4);
-  const [selectedGrade, setSelectedGrade] = useState(gradeOptions.includes(grade) ? grade : gradeOptions[0]);
-  const [selectedSubject, setSelectedSubject] = useState(subjectOptions[0] || 'Mathematics');
+  const initialGrade = gradeOptions.includes(grade) ? grade : gradeOptions[0];
+  const [selectedGrade, setSelectedGrade] = useState(initialGrade);
+  const subjectOptions = useMemo(
+    () => subjectsByGrade[selectedGrade] ?? [],
+    [selectedGrade, subjectsByGrade],
+  );
+  const [selectedSubject, setSelectedSubject] = useState(
+    subjectsByGrade[initialGrade]?.[0] ?? '',
+  );
   const [duration, setDuration] = useState('35 minutes');
   const [style, setStyle] = useState('Revision');
   const [template, setTemplate] = useState('Revision');
@@ -1648,10 +1768,16 @@ function TeacherLessonPlanView({
   const lessonMinutes = Number.parseInt(duration, 10) || 35;
   const flow = buildLessonFlow(lessonMinutes, style);
 
+  useEffect(() => {
+    if (!subjectOptions.includes(selectedSubject)) {
+      setSelectedSubject(subjectOptions[0] ?? '');
+    }
+  }, [selectedSubject, subjectOptions]);
+
   function clearPlan() {
     generationRequestRef.current += 1;
     setSelectedGrade(gradeOptions[0] || grade);
-    setSelectedSubject(subjectOptions[0] || 'Mathematics');
+    setSelectedSubject(subjectOptions[0] || '');
     setDuration('35 minutes');
     setStyle('Revision');
     setTemplate('Revision');
@@ -1674,6 +1800,13 @@ function TeacherLessonPlanView({
   }
 
   async function generatePlan() {
+    if (!selectedSubject) {
+      Alert.alert(
+        'Curriculum not available',
+        `${curriculumLabel} subjects have not been published for ${selectedGrade}.`,
+      );
+      return false;
+    }
     const nextTopic = topic.trim() || 'Linear equations and real-life problems';
     const nextOutcome =
       outcome.trim() ||
@@ -1761,7 +1894,7 @@ function TeacherLessonPlanView({
           <View style={s.lessonHeroTop}>
             <Text style={s.lessonHeroKicker}>{selectedGrade.toUpperCase()} TODAY</Text>
             <View style={s.lessonReadyPill}>
-              <Text style={s.lessonReadyText}>CBC Ready</Text>
+              <Text style={s.lessonReadyText}>{curriculumLabel} Ready</Text>
             </View>
           </View>
           <Text style={s.lessonHeroTitle}>Create a clean lesson plan in minutes</Text>

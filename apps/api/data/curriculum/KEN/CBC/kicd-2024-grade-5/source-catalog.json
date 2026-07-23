@@ -1,0 +1,542 @@
+{
+  "schema": "kitabu.curriculum.source-catalog",
+  "schemaVersion": 1,
+  "catalogId": "KEN-CBC-KICD-2024-GRADE-5",
+  "country": {
+    "name": "Kenya",
+    "iso2": "KE",
+    "iso3": "KEN"
+  },
+  "curriculum": {
+    "name": "Competency Based Curriculum",
+    "code": "CBC"
+  },
+  "grade": 5,
+  "publisher": "Kenya Institute of Curriculum Development",
+  "scope": {
+    "learnerPopulation": "regular",
+    "curriculumLevel": "upper_primary",
+    "included": "The 15 regular Grade 5 curriculum designs embedded by the KICD Grade Five Designs page.",
+    "specialNeedsEducationIncluded": false,
+    "excluded": [
+      "hearing_impairment_designs",
+      "physical_impairment_designs",
+      "visual_impairment_designs"
+    ],
+    "specialNeedsEducationIndex": "https://kicd.ac.ke/cbc-materials/curriculum-designs/sne-curriculum-designs/",
+    "sneSubstitutionPolicy": "HI, PI and VI designs are separate adaptations and must not be used to fill a missing regular Grade 5 source, including Kenya Sign Language."
+  },
+  "authoritativeIndex": {
+    "title": "Grade Five Designs",
+    "url": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-five-designs/",
+    "wordpressPageId": 7828,
+    "publishedAt": "2025-07-11T12:59:06",
+    "modifiedAt": "2025-07-11T12:59:06",
+    "wordpressApiUrl": "https://kicd.ac.ke/wp-json/wp/v2/pages/7828",
+    "wordpressLookupUrl": "https://kicd.ac.ke/wp-json/wp/v2/pages?slug=grade-five-designs",
+    "evidence": "The published KICD REST record pairs each regular Grade 5 subject heading with the Google Drive preview URL recorded below."
+  },
+  "identityPolicy": {
+    "canonicalIdFormat": "KEN-CBC-G5-<SUBJECT_CODE>",
+    "subjectCodeAuthority": "Kitabu-local stable identifier; not asserted to be an official KICD code.",
+    "classificationSeparation": "canonicalId and subjectCode identify a catalogued document subject. classification independently records its formal role, slot, pathway or alternative."
+  },
+  "formalAllocation": {
+    "source": "The revised Grade 5 curriculum-design lesson-allocation table captured in the regular source documents.",
+    "slotCount": 8,
+    "learningAreaLessonsPerWeek": 34,
+    "pastoralOrReligiousInstructionLessonsPerWeek": 1,
+    "totalLessonsPerWeek": 35,
+    "slots": [
+      {
+        "order": 1,
+        "slot": "english",
+        "formalLabel": "English",
+        "lessonsPerWeek": 5,
+        "selectionRule": "required",
+        "catalogOrder": 5
+      },
+      {
+        "order": 2,
+        "slot": "kenyan_language",
+        "formalLabel": "Kiswahili / Kenya Sign Language",
+        "lessonsPerWeek": 4,
+        "selectionRule": "exactly_one",
+        "alternatives": [
+          {
+            "alternative": "kiswahili",
+            "catalogOrder": 11,
+            "sourceAvailability": "present"
+          },
+          {
+            "alternative": "kenya_sign_language",
+            "catalogOrder": null,
+            "sourceAvailability": "missing_from_regular_grade_5_index",
+            "coverageGap": "missing_regular_grade_5_kenya_sign_language"
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "slot": "mathematics",
+        "formalLabel": "Mathematics",
+        "lessonsPerWeek": 5,
+        "selectionRule": "required",
+        "catalogOrder": 13
+      },
+      {
+        "order": 4,
+        "slot": "religious_education",
+        "formalLabel": "Religious Education",
+        "lessonsPerWeek": 3,
+        "selectionRule": "exactly_one",
+        "alternatives": [
+          {
+            "alternative": "christian_religious_education",
+            "catalogOrder": 4,
+            "sourceAvailability": "present"
+          },
+          {
+            "alternative": "hindu_religious_education",
+            "catalogOrder": 8,
+            "sourceAvailability": "present"
+          },
+          {
+            "alternative": "islamic_religious_education",
+            "catalogOrder": 10,
+            "sourceAvailability": "present"
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "slot": "science_and_technology",
+        "formalLabel": "Science & Technology",
+        "lessonsPerWeek": 4,
+        "selectionRule": "required",
+        "catalogOrder": 14
+      },
+      {
+        "order": 6,
+        "slot": "agriculture",
+        "formalLabel": "Agriculture",
+        "lessonsPerWeek": 4,
+        "selectionRule": "required",
+        "catalogOrder": 1
+      },
+      {
+        "order": 7,
+        "slot": "social_studies",
+        "formalLabel": "Social Studies",
+        "lessonsPerWeek": 3,
+        "selectionRule": "required",
+        "catalogOrder": 15
+      },
+      {
+        "order": 8,
+        "slot": "creative_arts",
+        "formalLabel": "Creative Arts",
+        "lessonsPerWeek": 6,
+        "selectionRule": "required",
+        "catalogOrder": 3
+      }
+    ]
+  },
+  "classificationPolicy": {
+    "formal_common": "A common formal Grade 5 learning area in this catalog.",
+    "formal_slot_alternative": "One catalogued alternative within a required formal slot; the document itself is not individually required.",
+    "religious_option": "One pathway within the religious education slot; the catalog records all three KICD options.",
+    "optional_non_formal": "An optional language design listed by KICD outside the formal-common and religious-option groups."
+  },
+  "sourcePolicy": {
+    "currentSource": "Use the Drive preview embedded by the authoritative KICD Grade Five Designs index.",
+    "titleEvidence": "Exact titles are the Google Drive viewer titles exposed by the KICD-embedded files.",
+    "unknownMetadata": "Unverified publication dates, revision dates and page counts are null.",
+    "missingSourceHandling": "A regular learning-area alternative named by the formal allocation but absent from the regular KICD index is recorded as a coverage gap; an SNE adaptation is never substituted."
+  },
+  "coverageGaps": [
+    {
+      "key": "missing_regular_grade_5_kenya_sign_language",
+      "severity": "blocker",
+      "scope": "regular",
+      "slot": "kenyan_language",
+      "subject": "Kenya Sign Language",
+      "sourceStatus": "missing_from_authoritative_index",
+      "evidence": "The regular Grade 5 lesson-allocation table defines the slot as Kiswahili / Kenya Sign Language, but the authoritative regular Grade Five Designs index exposes no Kenya Sign Language document.",
+      "sneSubstitutionAllowed": false,
+      "reason": "KSL is a regular-slot alternative. Separate HI, PI or VI curriculum designs are adaptations outside this catalog and cannot satisfy the missing regular source."
+    }
+  ],
+  "recordCount": 15,
+  "subjects": [
+    {
+      "order": 1,
+      "canonicalId": "KEN-CBC-G5-AGRICULTURE",
+      "subjectCode": "AGRICULTURE",
+      "subject": "Agriculture",
+      "classification": {
+        "kind": "formal_common",
+        "slot": "agriculture",
+        "pathway": null,
+        "optional": false
+      },
+      "title": "AGRICULTURE Grade 5 30.07.2024.pdf",
+      "driveFileId": "1jlMN272UeRa-FbyB5es488O5jI9llekn",
+      "previewUrl": "https://drive.google.com/file/d/1jlMN272UeRa-FbyB5es488O5jI9llekn/preview",
+      "revisionEvidence": {
+        "label": null,
+        "date": "2024-07-30",
+        "datePrecision": "day",
+        "evidenceLocation": "Drive viewer title filename"
+      },
+      "pageCount": 35,
+      "pageCountEvidence": "Google Drive viewer projection metadata returned pages=35."
+    },
+    {
+      "order": 2,
+      "canonicalId": "KEN-CBC-G5-ARABIC",
+      "subjectCode": "ARABIC",
+      "subject": "Arabic",
+      "coverLabelAliases": [
+        "Arabic Language"
+      ],
+      "classification": {
+        "kind": "optional_non_formal",
+        "slot": "optional_language",
+        "alternative": "arabic",
+        "pathway": null,
+        "optional": true
+      },
+      "title": "FINAL ARABIC GRADE 5 CURRICULUM DESIGN - Revised.pdf",
+      "driveFileId": "12KOvt5WY9acj1wMbNox_dGYIKLY1eg-G",
+      "previewUrl": "https://drive.google.com/file/d/12KOvt5WY9acj1wMbNox_dGYIKLY1eg-G/preview",
+      "revisionEvidence": {
+        "label": "Final; Revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Drive viewer title filename"
+      },
+      "pageCount": null,
+      "pageCountEvidence": null
+    },
+    {
+      "order": 3,
+      "canonicalId": "KEN-CBC-G5-CREATIVE_ARTS",
+      "subjectCode": "CREATIVE_ARTS",
+      "subject": "Creative Arts",
+      "classification": {
+        "kind": "formal_common",
+        "slot": "creative_arts",
+        "pathway": null,
+        "optional": false
+      },
+      "title": "Creative Arts July 2024 final - Revised.pdf",
+      "driveFileId": "1euaxMgHyMqSm4qVSzOeJ_-9LXYgj6jyS",
+      "previewUrl": "https://drive.google.com/file/d/1euaxMgHyMqSm4qVSzOeJ_-9LXYgj6jyS/preview",
+      "revisionEvidence": {
+        "label": "Final; Revised",
+        "date": "2024-07",
+        "datePrecision": "month",
+        "evidenceLocation": "Drive viewer title filename"
+      },
+      "pageCount": null,
+      "pageCountEvidence": null
+    },
+    {
+      "order": 4,
+      "canonicalId": "KEN-CBC-G5-CHRISTIAN_RELIGIOUS_EDUCATION",
+      "subjectCode": "CHRISTIAN_RELIGIOUS_EDUCATION",
+      "subject": "CRE",
+      "normalizedSubject": "Christian Religious Education",
+      "classification": {
+        "kind": "religious_option",
+        "slot": "religious_education",
+        "alternative": "christian_religious_education",
+        "pathway": null,
+        "optional": false
+      },
+      "title": "CRE GRADE 5 DESIGN - Revised.pdf",
+      "driveFileId": "1unhtcU1tzdsPceoadKCovjFIkPTF1wP4",
+      "previewUrl": "https://drive.google.com/file/d/1unhtcU1tzdsPceoadKCovjFIkPTF1wP4/preview",
+      "revisionEvidence": {
+        "label": "Revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Drive viewer title filename"
+      },
+      "pageCount": null,
+      "pageCountEvidence": null
+    },
+    {
+      "order": 5,
+      "canonicalId": "KEN-CBC-G5-ENGLISH",
+      "subjectCode": "ENGLISH",
+      "subject": "English",
+      "coverLabelAliases": [
+        "English Language"
+      ],
+      "classification": {
+        "kind": "formal_common",
+        "slot": "english",
+        "pathway": null,
+        "optional": false
+      },
+      "title": "ENGLISH GRADE 5 UPDATED -  Revised Sept.pdf",
+      "driveFileId": "1ctDo-PB4W6AKbKV0Lb-1OobOC2-L3_e_",
+      "previewUrl": "https://drive.google.com/file/d/1ctDo-PB4W6AKbKV0Lb-1OobOC2-L3_e_/preview",
+      "revisionEvidence": {
+        "label": "Updated; Revised Sept",
+        "date": null,
+        "datePrecision": "month_without_year",
+        "evidenceLocation": "Drive viewer title filename"
+      },
+      "pageCount": null,
+      "pageCountEvidence": null
+    },
+    {
+      "order": 6,
+      "canonicalId": "KEN-CBC-G5-FRENCH",
+      "subjectCode": "FRENCH",
+      "subject": "French",
+      "classification": {
+        "kind": "optional_non_formal",
+        "slot": "optional_language",
+        "alternative": "french",
+        "pathway": null,
+        "optional": true
+      },
+      "title": "FRENCH GRADE 5  CURRICULUM DESIGN - Revised.pdf",
+      "driveFileId": "1nM2fBafwuozVi1LsceBT54HIcya9KEuP",
+      "previewUrl": "https://drive.google.com/file/d/1nM2fBafwuozVi1LsceBT54HIcya9KEuP/preview",
+      "revisionEvidence": {
+        "label": "Revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Drive viewer title filename"
+      },
+      "pageCount": null,
+      "pageCountEvidence": null
+    },
+    {
+      "order": 7,
+      "canonicalId": "KEN-CBC-G5-GERMAN",
+      "subjectCode": "GERMAN",
+      "subject": "German",
+      "classification": {
+        "kind": "optional_non_formal",
+        "slot": "optional_language",
+        "alternative": "german",
+        "pathway": null,
+        "optional": true
+      },
+      "title": "GERMAN GRADE 5 Edited - Revised.pdf",
+      "driveFileId": "1w0-eB6lY90dYvmfn-g5dAK2vGvghkGeC",
+      "previewUrl": "https://drive.google.com/file/d/1w0-eB6lY90dYvmfn-g5dAK2vGvghkGeC/preview",
+      "revisionEvidence": {
+        "label": "Edited; Revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Drive viewer title filename"
+      },
+      "pageCount": null,
+      "pageCountEvidence": null
+    },
+    {
+      "order": 8,
+      "canonicalId": "KEN-CBC-G5-HINDU_RELIGIOUS_EDUCATION",
+      "subjectCode": "HINDU_RELIGIOUS_EDUCATION",
+      "subject": "HRE",
+      "normalizedSubject": "Hindu Religious Education",
+      "classification": {
+        "kind": "religious_option",
+        "slot": "religious_education",
+        "alternative": "hindu_religious_education",
+        "pathway": null,
+        "optional": false
+      },
+      "title": "HRE GRADE 5 - Revised.pdf",
+      "driveFileId": "1O7MWGBaA5Iwl5HKmKrEw6XmI-qzFgU1c",
+      "previewUrl": "https://drive.google.com/file/d/1O7MWGBaA5Iwl5HKmKrEw6XmI-qzFgU1c/preview",
+      "revisionEvidence": {
+        "label": "Revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Drive viewer title filename"
+      },
+      "pageCount": null,
+      "pageCountEvidence": null
+    },
+    {
+      "order": 9,
+      "canonicalId": "KEN-CBC-G5-INDIGENOUS_LANGUAGE",
+      "subjectCode": "INDIGENOUS_LANGUAGE",
+      "subject": "Indigenous Language",
+      "coverLabelAliases": [
+        "Indigenous Languages"
+      ],
+      "classification": {
+        "kind": "optional_non_formal",
+        "slot": "optional_language",
+        "alternative": "indigenous_language",
+        "pathway": null,
+        "optional": true
+      },
+      "title": "FINAL - GRADE 5 INDIGENOUS LANGUAGE - Revised Oct.pdf",
+      "driveFileId": "1PGfkAZOvmQxvE76gxDRReZDl5YFMfcXr",
+      "previewUrl": "https://drive.google.com/file/d/1PGfkAZOvmQxvE76gxDRReZDl5YFMfcXr/preview",
+      "revisionEvidence": {
+        "label": "Final; Revised Oct",
+        "date": null,
+        "datePrecision": "month_without_year",
+        "evidenceLocation": "Drive viewer title filename"
+      },
+      "pageCount": null,
+      "pageCountEvidence": null
+    },
+    {
+      "order": 10,
+      "canonicalId": "KEN-CBC-G5-ISLAMIC_RELIGIOUS_EDUCATION",
+      "subjectCode": "ISLAMIC_RELIGIOUS_EDUCATION",
+      "subject": "IRE",
+      "normalizedSubject": "Islamic Religious Education",
+      "classification": {
+        "kind": "religious_option",
+        "slot": "religious_education",
+        "alternative": "islamic_religious_education",
+        "pathway": null,
+        "optional": false
+      },
+      "title": "IRE GRADE 5 CURRICULUM DESIGN - Revised.pdf",
+      "driveFileId": "10RolK-hE8ylrhuNbq3fN6ZnPlgNM_VuB",
+      "previewUrl": "https://drive.google.com/file/d/10RolK-hE8ylrhuNbq3fN6ZnPlgNM_VuB/preview",
+      "revisionEvidence": {
+        "label": "Revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Drive viewer title filename"
+      },
+      "pageCount": null,
+      "pageCountEvidence": null
+    },
+    {
+      "order": 11,
+      "canonicalId": "KEN-CBC-G5-KISWAHILI",
+      "subjectCode": "KISWAHILI",
+      "subject": "Kiswahili",
+      "classification": {
+        "kind": "formal_slot_alternative",
+        "slot": "kenyan_language",
+        "alternative": "kiswahili",
+        "pathway": null,
+        "optional": false,
+        "individuallyRequired": false,
+        "selectionRule": "exactly_one"
+      },
+      "title": "KISWAHILI GRADE 5 DESIGN - Revised.pdf",
+      "driveFileId": "1aGnwbMdfKkwTBtVOcliEiyge6qAHpHhd",
+      "previewUrl": "https://drive.google.com/file/d/1aGnwbMdfKkwTBtVOcliEiyge6qAHpHhd/preview",
+      "revisionEvidence": {
+        "label": "Revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Drive viewer title filename"
+      },
+      "pageCount": null,
+      "pageCountEvidence": null
+    },
+    {
+      "order": 12,
+      "canonicalId": "KEN-CBC-G5-MANDARIN",
+      "subjectCode": "MANDARIN",
+      "subject": "Mandarin",
+      "classification": {
+        "kind": "optional_non_formal",
+        "slot": "optional_language",
+        "alternative": "mandarin",
+        "pathway": null,
+        "optional": true
+      },
+      "title": "Mandarin Grade 5 - Revised.pdf",
+      "driveFileId": "1tpuL_OmDaPJ-54-hRqb8OLLMdZ1jV_4q",
+      "previewUrl": "https://drive.google.com/file/d/1tpuL_OmDaPJ-54-hRqb8OLLMdZ1jV_4q/preview",
+      "revisionEvidence": {
+        "label": "Revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Drive viewer title filename"
+      },
+      "pageCount": null,
+      "pageCountEvidence": null
+    },
+    {
+      "order": 13,
+      "canonicalId": "KEN-CBC-G5-MATHEMATICS",
+      "subjectCode": "MATHEMATICS",
+      "subject": "Mathematics",
+      "classification": {
+        "kind": "formal_common",
+        "slot": "mathematics",
+        "pathway": null,
+        "optional": false
+      },
+      "title": "Grade 5 Mathematics.pdf",
+      "driveFileId": "1ShOUex4qEQosDCvkKdaXIRvteOILPHTP",
+      "previewUrl": "https://drive.google.com/file/d/1ShOUex4qEQosDCvkKdaXIRvteOILPHTP/preview",
+      "revisionEvidence": {
+        "label": null,
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Drive viewer title filename"
+      },
+      "pageCount": null,
+      "pageCountEvidence": null
+    },
+    {
+      "order": 14,
+      "canonicalId": "KEN-CBC-G5-SCIENCE_AND_TECHNOLOGY",
+      "subjectCode": "SCIENCE_AND_TECHNOLOGY",
+      "subject": "Science & Technology",
+      "normalizedSubject": "Science and Technology",
+      "classification": {
+        "kind": "formal_common",
+        "slot": "science_and_technology",
+        "pathway": null,
+        "optional": false
+      },
+      "title": "Grade 5  Science and Technology.pdf",
+      "driveFileId": "1CituzlfluxqVvjExx7xHiV_j_ZDXwpja",
+      "previewUrl": "https://drive.google.com/file/d/1CituzlfluxqVvjExx7xHiV_j_ZDXwpja/preview",
+      "revisionEvidence": {
+        "label": null,
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Drive viewer title filename"
+      },
+      "pageCount": null,
+      "pageCountEvidence": null
+    },
+    {
+      "order": 15,
+      "canonicalId": "KEN-CBC-G5-SOCIAL_STUDIES",
+      "subjectCode": "SOCIAL_STUDIES",
+      "subject": "Social Studies",
+      "classification": {
+        "kind": "formal_common",
+        "slot": "social_studies",
+        "pathway": null,
+        "optional": false
+      },
+      "title": "Grade 5 Social Studies - Revised.pdf",
+      "driveFileId": "1uOCVkljUKcfMkRs1gwAbDZMj_p9cjbut",
+      "previewUrl": "https://drive.google.com/file/d/1uOCVkljUKcfMkRs1gwAbDZMj_p9cjbut/preview",
+      "revisionEvidence": {
+        "label": "Revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Drive viewer title filename"
+      },
+      "pageCount": null,
+      "pageCountEvidence": null
+    }
+  ]
+}

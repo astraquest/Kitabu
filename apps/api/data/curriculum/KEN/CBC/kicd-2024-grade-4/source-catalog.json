@@ -1,0 +1,510 @@
+{
+  "schema": "kitabu.curriculum.source-catalog",
+  "schemaVersion": 1,
+  "catalogVersion": "2026-07-22",
+  "country": {
+    "name": "Kenya",
+    "iso2": "KE",
+    "iso3": "KEN"
+  },
+  "curriculum": {
+    "name": "Competency Based Curriculum",
+    "code": "CBC"
+  },
+  "grade": 4,
+  "publisher": "Kenya Institute of Curriculum Development",
+  "authoritativeIndex": {
+    "title": "Grade Four Designs",
+    "url": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-four-designs/",
+    "wordpressPageId": 7824,
+    "publishedAt": "2025-07-11T12:10:24",
+    "modifiedAt": "2025-07-11T12:11:16",
+    "wordpressApiUrl": "https://kicd.ac.ke/wp-json/wp/v2/pages/7824",
+    "status": "live",
+    "verifiedOn": "2026-07-22",
+    "evidence": "The live KICD page lists the 15 subjects in this order and embeds each current PDF as a Google Drive preview iframe."
+  },
+  "sourcePolicy": {
+    "currentSource": "Use the Drive preview embedded by the authoritative KICD index.",
+    "statusPolicy": "A Drive preview embedded by the verified live authoritative index is recorded as live. Search-indexed KICD wp-content URLs that returned HTTP 404 are recorded as stale mirrors, not current sources.",
+    "mirrorHandling": "A legacy or stale KICD mirror is retained only as evidence and is not treated as the current source.",
+    "unknownMetadata": "Unverified file titles, publication dates, revision dates, and mirror URLs are null."
+  },
+  "subjects": [
+    {
+      "order": 1,
+      "subject": "Agriculture",
+      "classification": {
+        "kind": "core_slot",
+        "slot": "agriculture",
+        "pathway": null,
+        "optional": false
+      },
+      "title": "AGRICULTURE Grade 4 30.07.2024.pdf",
+      "titleEvidence": "Google Drive preview og:title filename",
+      "driveFileId": "1xfUKusjuRlNi22arhYCWy3IS_obPhcvL",
+      "previewUrl": "https://drive.google.com/file/d/1xfUKusjuRlNi22arhYCWy3IS_obPhcvL/preview",
+      "status": "live",
+      "statusEvidence": "Embedded under Agriculture by the verified live authoritative KICD index.",
+      "knownKicdMirrorUrl": null,
+      "staleKicdMirrorUrls": [],
+      "revisionEvidence": {
+        "label": null,
+        "date": "2024-07-30",
+        "datePrecision": "day",
+        "evidenceLocation": "Google Drive preview og:title filename"
+      },
+      "publicationDate": null,
+      "pageCount": 36,
+      "pageCountEvidence": "Google Drive viewer metadata returned pages=36 on 2026-07-22.",
+      "legacySupersessionNote": "No current KICD-hosted mirror was verified; use the dated Drive file embedded by the authoritative index."
+    },
+    {
+      "order": 2,
+      "subject": "Arabic",
+      "classification": {
+        "kind": "optional_language",
+        "slot": "optional_language",
+        "alternative": "arabic",
+        "pathway": null,
+        "optional": true
+      },
+      "title": "ARABIC GRADE 4 CURRICULUM DESIGN- Revised.pdf",
+      "titleEvidence": "Google Drive viewer metadata",
+      "documentTitle": "Primary School Curriculum Design - Arabic - Grade 4",
+      "driveFileId": "1rYeB-zhF68YnNBlozbm9qhwPnPI_i0UF",
+      "previewUrl": "https://drive.google.com/file/d/1rYeB-zhF68YnNBlozbm9qhwPnPI_i0UF/preview",
+      "status": "live",
+      "statusEvidence": "Embedded under Arabic by the verified live authoritative KICD index.",
+      "knownKicdMirrorUrl": null,
+      "staleKicdMirrorUrls": [
+        "https://kicd.ac.ke/wp-content/uploads/2024/02/GRADE.4.ARABIC.pdf"
+      ],
+      "revisionEvidence": {
+        "label": null,
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": null
+      },
+      "publicationDate": null,
+      "pageCount": 79,
+      "pageCountEvidence": "Google Drive viewer metadata returned pages=79 on 2026-07-22.",
+      "legacySupersessionNote": "The indexed KICD mirror returned HTTP 404 on 2026-07-22; use the Drive file embedded by the authoritative index."
+    },
+    {
+      "order": 3,
+      "subject": "Creative Arts",
+      "classification": {
+        "kind": "core_slot",
+        "slot": "creative_arts",
+        "pathway": null,
+        "optional": false
+      },
+      "title": "Grade 4 Creative Arts Curriculum Design - Revised.pdf",
+      "titleEvidence": "Google Drive viewer metadata",
+      "documentTitle": null,
+      "driveFileId": "1NhyGe8EsZLgubbxwEvva-sNUPxDHR8r1",
+      "previewUrl": "https://drive.google.com/file/d/1NhyGe8EsZLgubbxwEvva-sNUPxDHR8r1/preview",
+      "status": "live",
+      "statusEvidence": "Embedded under Creative Arts by the verified live authoritative KICD index.",
+      "knownKicdMirrorUrl": null,
+      "staleKicdMirrorUrls": [],
+      "revisionEvidence": {
+        "label": null,
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": null
+      },
+      "publicationDate": null,
+      "pageCount": 54,
+      "pageCountEvidence": "Google Drive viewer metadata returned pages=54 on 2026-07-22.",
+      "legacySupersessionNote": "No current KICD-hosted mirror was verified; use the Drive file embedded by the authoritative index."
+    },
+    {
+      "order": 4,
+      "subject": "Christian Religious Education",
+      "indexLabel": "CRE",
+      "classification": {
+        "kind": "pathway",
+        "slot": "religious_education",
+        "alternative": "christian_religious_education",
+        "pathway": null,
+        "optional": false
+      },
+      "title": "CRE Grade 4 Curriculum Design - Revised.pdf",
+      "titleEvidence": "Google Drive viewer metadata",
+      "documentTitle": "Primary School Curriculum Design - Christian Religious Education - Grade 4",
+      "driveFileId": "1vW3aipLZDPSkl2z29W7RbBEEUrCdEbt7",
+      "previewUrl": "https://drive.google.com/file/d/1vW3aipLZDPSkl2z29W7RbBEEUrCdEbt7/preview",
+      "status": "live",
+      "statusEvidence": "Embedded under CRE by the verified live authoritative KICD index.",
+      "knownKicdMirrorUrl": null,
+      "staleKicdMirrorUrls": [
+        "https://kicd.ac.ke/wp-content/uploads/2024/02/GRADE.4.CRE_.pdf"
+      ],
+      "revisionEvidence": {
+        "label": null,
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": null
+      },
+      "publicationDate": null,
+      "pageCount": 76,
+      "pageCountEvidence": "Google Drive viewer metadata returned pages=76 on 2026-07-22.",
+      "legacySupersessionNote": "The indexed KICD mirror returned HTTP 404 on 2026-07-22; use the Drive file embedded by the authoritative index."
+    },
+    {
+      "order": 5,
+      "subject": "English",
+      "classification": {
+        "kind": "core_slot",
+        "slot": "english",
+        "pathway": null,
+        "optional": false
+      },
+      "title": "ENGLISH GRADE 4 Updated- Revised Sept.pdf",
+      "titleEvidence": "Google Drive thumbnail Content-Disposition metadata",
+      "documentTitle": null,
+      "driveFileId": "1o3j3bJwiqJyerdZIFPDJaSprYdTp3Eu1",
+      "previewUrl": "https://drive.google.com/file/d/1o3j3bJwiqJyerdZIFPDJaSprYdTp3Eu1/preview",
+      "status": "live",
+      "statusEvidence": "Embedded under English by the verified live authoritative KICD index.",
+      "knownKicdMirrorUrl": null,
+      "staleKicdMirrorUrls": [],
+      "revisionEvidence": {
+        "label": null,
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": null
+      },
+      "publicationDate": null,
+      "pageCount": 127,
+      "pageCountEvidence": "source-pages.json reconciles 127 contiguous captured viewer pages with valid page-text SHA-256 values on 2026-07-22.",
+      "legacySupersessionNote": "No current KICD-hosted mirror was verified; use the Drive file embedded by the authoritative index."
+    },
+    {
+      "order": 6,
+      "subject": "French",
+      "classification": {
+        "kind": "optional_language",
+        "slot": "optional_language",
+        "alternative": "french",
+        "pathway": null,
+        "optional": true
+      },
+      "title": "French Grade 4 Curriculum Design - Revised.pdf",
+      "titleEvidence": "Google Drive thumbnail Content-Disposition metadata",
+      "documentTitle": "Upper Primary School - French Programme - Grade 4",
+      "driveFileId": "18qVRdnMqrdBkf6eGuIDdxHfoAwydu-wv",
+      "previewUrl": "https://drive.google.com/file/d/18qVRdnMqrdBkf6eGuIDdxHfoAwydu-wv/preview",
+      "status": "live",
+      "statusEvidence": "Embedded under French by the verified live authoritative KICD index.",
+      "knownKicdMirrorUrl": null,
+      "staleKicdMirrorUrls": [
+        "https://kicd.ac.ke/wp-content/uploads/2024/02/GRADE.4.FRENCH.pdf"
+      ],
+      "revisionEvidence": {
+        "label": null,
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": null
+      },
+      "publicationDate": null,
+      "pageCount": 76,
+      "pageCountEvidence": "source-pages.json reconciles 76 contiguous captured viewer pages with valid page-text SHA-256 values on 2026-07-22; physical pages 75-76 are declared blank captures.",
+      "legacySupersessionNote": "The indexed KICD mirror returned HTTP 404 on 2026-07-22; use the Drive file embedded by the authoritative index."
+    },
+    {
+      "order": 7,
+      "subject": "German",
+      "classification": {
+        "kind": "optional_language",
+        "slot": "optional_language",
+        "alternative": "german",
+        "pathway": null,
+        "optional": true
+      },
+      "title": "German Grade 4 Edited - Revised.pdf",
+      "titleEvidence": "Google Drive thumbnail Content-Disposition metadata",
+      "documentTitle": "Primary School Education Curriculum Design - German - Grade 4",
+      "driveFileId": "1YtlkH6n9skVQqt1g15twi54mx8ZUGlDV",
+      "previewUrl": "https://drive.google.com/file/d/1YtlkH6n9skVQqt1g15twi54mx8ZUGlDV/preview",
+      "status": "live",
+      "statusEvidence": "Embedded under German by the verified live authoritative KICD index.",
+      "knownKicdMirrorUrl": null,
+      "staleKicdMirrorUrls": [
+        "https://kicd.ac.ke/wp-content/uploads/2024/10/German-Grade-4-Edited-Revised.pdf"
+      ],
+      "revisionEvidence": {
+        "label": "Edited; Revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "KICD-indexed stale mirror filename"
+      },
+      "publicationDate": null,
+      "pageCount": 76,
+      "pageCountEvidence": "source-pages.json reconciles 76 contiguous captured viewer pages with valid page-text SHA-256 values on 2026-07-22.",
+      "legacySupersessionNote": "The indexed KICD mirror returned HTTP 404 on 2026-07-22; use the Drive file embedded by the authoritative index."
+    },
+    {
+      "order": 8,
+      "subject": "Hindu Religious Education",
+      "indexLabel": "HRE",
+      "classification": {
+        "kind": "pathway",
+        "slot": "religious_education",
+        "alternative": "hindu_religious_education",
+        "pathway": null,
+        "optional": false
+      },
+      "title": "HRE GRADE 4 - Revised.pdf",
+      "titleEvidence": "Google Drive thumbnail Content-Disposition metadata",
+      "documentTitle": "Primary School Education Curriculum Designs - Hindu Religious Education - Grade 4",
+      "driveFileId": "15TMyiOpDL71sr6ZLCn-M-w30XHksCdTy",
+      "previewUrl": "https://drive.google.com/file/d/15TMyiOpDL71sr6ZLCn-M-w30XHksCdTy/preview",
+      "status": "live",
+      "statusEvidence": "Embedded under HRE by the verified live authoritative KICD index.",
+      "knownKicdMirrorUrl": null,
+      "staleKicdMirrorUrls": [
+        "https://kicd.ac.ke/wp-content/uploads/2024/10/HRE-GRADE-4-Revised.pdf"
+      ],
+      "revisionEvidence": {
+        "label": "Revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "KICD-indexed stale mirror filename"
+      },
+      "publicationDate": null,
+      "pageCount": 46,
+      "pageCountEvidence": "source-pages.json reconciles 46 contiguous captured viewer pages with valid page-text SHA-256 values on 2026-07-22.",
+      "legacySupersessionNote": "The indexed KICD mirror returned HTTP 404 on 2026-07-22; use the Drive file embedded by the authoritative index."
+    },
+    {
+      "order": 9,
+      "subject": "Indigenous Language",
+      "classification": {
+        "kind": "optional_language",
+        "slot": "optional_language",
+        "alternative": "indigenous_language",
+        "pathway": null,
+        "optional": true
+      },
+      "title": "GRADE 4 INDIGENOUS LANGUAGE DESIGN- Revised.pdf",
+      "titleEvidence": "Google Drive thumbnail Content-Disposition metadata",
+      "documentTitle": null,
+      "driveFileId": "1687tUM9DvYbjUIryPMDU2Ve4cF--otB6",
+      "previewUrl": "https://drive.google.com/file/d/1687tUM9DvYbjUIryPMDU2Ve4cF--otB6/preview",
+      "status": "live",
+      "statusEvidence": "Embedded under Indigenous Language by the verified live authoritative KICD index.",
+      "knownKicdMirrorUrl": null,
+      "staleKicdMirrorUrls": [],
+      "revisionEvidence": {
+        "label": null,
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": null
+      },
+      "publicationDate": null,
+      "pageCount": 75,
+      "pageCountEvidence": "source-pages.json reconciles 75 contiguous captured viewer pages with valid page-text SHA-256 values on 2026-07-22.",
+      "legacySupersessionNote": "No current KICD-hosted mirror was verified; use the Drive file embedded by the authoritative index."
+    },
+    {
+      "order": 10,
+      "subject": "Islamic Religious Education",
+      "indexLabel": "IRE",
+      "classification": {
+        "kind": "pathway",
+        "slot": "religious_education",
+        "alternative": "islamic_religious_education",
+        "pathway": null,
+        "optional": false
+      },
+      "title": "IRE GRADE 4 CURRICULUM DESIGN - Revised.pdf",
+      "titleEvidence": "Google Drive thumbnail Content-Disposition metadata",
+      "documentTitle": "Primary School Education Curriculum Design - Islamic Religious Education - Grade 4",
+      "driveFileId": "1ifDV-yVjmntZvnU-7WPLxLLDuborohUh",
+      "previewUrl": "https://drive.google.com/file/d/1ifDV-yVjmntZvnU-7WPLxLLDuborohUh/preview",
+      "status": "live",
+      "statusEvidence": "Embedded under IRE by the verified live authoritative KICD index.",
+      "knownKicdMirrorUrl": null,
+      "staleKicdMirrorUrls": [
+        "https://kicd.ac.ke/wp-content/uploads/2024/10/IRE-GRADE-4-CURRICULUM-DESIGN-Revised.pdf"
+      ],
+      "revisionEvidence": {
+        "label": "Revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "KICD-indexed stale mirror filename"
+      },
+      "publicationDate": null,
+      "pageCount": 63,
+      "pageCountEvidence": "source-pages.json reconciles 63 contiguous captured viewer pages with valid page-text SHA-256 values on 2026-07-22.",
+      "legacySupersessionNote": "The indexed KICD mirror returned HTTP 404 on 2026-07-22; use the Drive file embedded by the authoritative index."
+    },
+    {
+      "order": 11,
+      "subject": "Kiswahili",
+      "classification": {
+        "kind": "core_slot",
+        "slot": "kiswahili",
+        "pathway": null,
+        "optional": false
+      },
+      "title": "Kiswahili Gredi ya 4 - Revised.pdf",
+      "titleEvidence": "Google Drive thumbnail Content-Disposition metadata",
+      "documentTitle": "Kiswahili - Mtaala wa Shule za Msingi - Gredi ya 4",
+      "driveFileId": "1MO1ddc7tFvcpKYy7Trr4VBhllBmwKntW",
+      "previewUrl": "https://drive.google.com/file/d/1MO1ddc7tFvcpKYy7Trr4VBhllBmwKntW/preview",
+      "status": "live",
+      "statusEvidence": "Embedded under Kiswahili by the verified live authoritative KICD index.",
+      "knownKicdMirrorUrl": null,
+      "staleKicdMirrorUrls": [
+        "https://kicd.ac.ke/wp-content/uploads/2024/10/Kiswahili-Gredi-ya-4-Revised.pdf"
+      ],
+      "revisionEvidence": {
+        "label": "Revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "KICD-indexed stale mirror filename"
+      },
+      "publicationDate": null,
+      "pageCount": 130,
+      "pageCountEvidence": "source-pages.json reconciles 130 contiguous captured viewer pages with valid page-text SHA-256 values on 2026-07-22.",
+      "legacySupersessionNote": "The indexed KICD mirror returned HTTP 404 on 2026-07-22; use the Drive file embedded by the authoritative index."
+    },
+    {
+      "order": 12,
+      "subject": "Mandarin",
+      "classification": {
+        "kind": "optional_language",
+        "slot": "optional_language",
+        "alternative": "mandarin",
+        "pathway": null,
+        "optional": true
+      },
+      "title": "Mandarin Grade 4 - Revised.pdf",
+      "titleEvidence": "Google Drive thumbnail Content-Disposition metadata",
+      "documentTitle": null,
+      "driveFileId": "1zOfFS4neSdP_8LguOc1FaGPc5DUy80Oj",
+      "previewUrl": "https://drive.google.com/file/d/1zOfFS4neSdP_8LguOc1FaGPc5DUy80Oj/preview",
+      "status": "live",
+      "statusEvidence": "Embedded under Mandarin by the verified live authoritative KICD index.",
+      "knownKicdMirrorUrl": null,
+      "staleKicdMirrorUrls": [],
+      "revisionEvidence": {
+        "label": null,
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": null
+      },
+      "publicationDate": null,
+      "pageCount": 76,
+      "pageCountEvidence": "source-pages.json reconciles 76 contiguous captured viewer pages with valid page-text SHA-256 values on 2026-07-22.",
+      "legacySupersessionNote": "No current KICD-hosted mirror was verified; use the Drive file embedded by the authoritative index."
+    },
+    {
+      "order": 13,
+      "subject": "Mathematics",
+      "classification": {
+        "kind": "core_slot",
+        "slot": "mathematics",
+        "pathway": null,
+        "optional": false
+      },
+      "title": "Grade 4 Math Design - Revised.pdf",
+      "titleEvidence": "Google Drive thumbnail Content-Disposition metadata",
+      "documentTitle": "Primary School Curriculum Design - Mathematics - Grade 4",
+      "driveFileId": "1o5tDq16yC0Jj1h6zb9mo3dsxtjqXUk4G",
+      "previewUrl": "https://drive.google.com/file/d/1o5tDq16yC0Jj1h6zb9mo3dsxtjqXUk4G/preview",
+      "status": "live",
+      "statusEvidence": "Embedded under Mathematics by the verified live authoritative KICD index.",
+      "knownKicdMirrorUrl": null,
+      "staleKicdMirrorUrls": [
+        "https://kicd.ac.ke/wp-content/uploads/2024/02/GRADE.4.MATHEMATICS.pdf"
+      ],
+      "revisionEvidence": {
+        "label": null,
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": null
+      },
+      "publicationDate": null,
+      "pageCount": 70,
+      "pageCountEvidence": "source-pages.json reconciles 70 contiguous captured viewer pages with valid page-text SHA-256 values on 2026-07-22.",
+      "legacySupersessionNote": "The indexed KICD mirror returned HTTP 404 on 2026-07-22; use the Drive file embedded by the authoritative index."
+    },
+    {
+      "order": 14,
+      "subject": "Science and Technology",
+      "indexLabel": "Science & Technology",
+      "classification": {
+        "kind": "core_slot",
+        "slot": "science_and_technology",
+        "pathway": null,
+        "optional": false
+      },
+      "title": "Grade 4  Science and Technology.pdf",
+      "titleEvidence": "Google Drive thumbnail Content-Disposition metadata",
+      "documentTitle": "Primary School Education Curriculum Design - Science and Technology - Grade 4",
+      "driveFileId": "1jbAvVAWmif-toAfPShQm9UujN7bZ0luX",
+      "previewUrl": "https://drive.google.com/file/d/1jbAvVAWmif-toAfPShQm9UujN7bZ0luX/preview",
+      "status": "live",
+      "statusEvidence": "Embedded under Science and Technology by the verified live authoritative KICD index.",
+      "knownKicdMirrorUrl": null,
+      "staleKicdMirrorUrls": [
+        "https://kicd.ac.ke/wp-content/uploads/2024/10/Grade-4-Science-and-Technology.pdf"
+      ],
+      "revisionEvidence": {
+        "label": null,
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": null
+      },
+      "publicationDate": null,
+      "pageCount": 37,
+      "pageCountEvidence": "source-pages.json reconciles 37 contiguous captured viewer pages with valid page-text SHA-256 values on 2026-07-22.",
+      "legacySupersessionNote": "The indexed KICD mirror returned HTTP 404 on 2026-07-22; use the Drive file embedded by the authoritative index."
+    },
+    {
+      "order": 15,
+      "subject": "Social Studies",
+      "classification": {
+        "kind": "core_slot",
+        "slot": "social_studies",
+        "pathway": null,
+        "optional": false
+      },
+      "title": "Grade 4 Social Studies  20.6.2024 - Revised.pdf",
+      "titleEvidence": "Google Drive thumbnail Content-Disposition metadata",
+      "documentTitle": "Primary School Curriculum Design - Social Studies - Grade 4",
+      "driveFileId": "1I81sEkJJz7zj2rp4thpUN3MOlHPK5-mG",
+      "previewUrl": "https://drive.google.com/file/d/1I81sEkJJz7zj2rp4thpUN3MOlHPK5-mG/preview",
+      "status": "live",
+      "statusEvidence": "Embedded under Social Studies by the verified live authoritative KICD index.",
+      "knownKicdMirrorUrl": null,
+      "staleKicdMirrorUrls": [
+        "https://kicd.ac.ke/wp-content/uploads/2024/10/Grade-4-Social-Studies-20.6.2024-Revised-1.pdf"
+      ],
+      "revisionEvidence": {
+        "label": "Revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "KICD-indexed stale mirror filename; the embedded date was not independently tied to the current Drive object"
+      },
+      "publicationDate": null,
+      "pageCount": 63,
+      "pageCountEvidence": "source-pages.json reconciles 63 contiguous captured viewer pages with valid page-text SHA-256 values on 2026-07-22.",
+      "legacySupersessionNote": "The indexed KICD mirror returned HTTP 404 on 2026-07-22; use the Drive file embedded by the authoritative index."
+    }
+  ],
+  "specialNeedsEducationScope": {
+    "included": false,
+    "reason": "This catalog follows the KICD regular-learner Grade Four Designs page. KICD publishes separate Grade 4 designs for learners with hearing impairment, physical impairment and visual impairment.",
+    "authoritativeIndexUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/sne-curriculum-designs/"
+  },
+  "notes": [
+    "Creative Arts is the current KICD Grade 4 design label; older Grade 4 inventories separately listed Music, Art and Craft, and Physical and Health Education.",
+    "The live curriculum-design index labels Agriculture as 'Agriculture'; some separate 2024 KICD procurement material uses 'Agriculture & Nutrition'."
+  ]
+}

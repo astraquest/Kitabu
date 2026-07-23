@@ -1,0 +1,32 @@
+{
+  "schema": "kitabu.curriculum.expected-count-policy",
+  "schemaVersion": 1,
+  "scope": {
+    "countryCode": "KEN",
+    "curriculumCode": "CBC",
+    "revision": "2024",
+    "grade": "Grade 7"
+  },
+  "importerPolicy": {
+    "requireExpectedCounts": true,
+    "expectedCountsByGrade": {
+      "Grade 7": {
+        "documents": 16,
+        "pages": 1207,
+        "gradeSubjects": 16,
+        "strands": 219,
+        "subStrands": 403,
+        "outcomes": 1529,
+        "inquiryQuestions": 566,
+        "learningActivities": 2337
+      }
+    }
+  },
+  "validationBinding": {
+    "reportSchemaVersion": 1,
+    "reportSha256": "105be50680c21bd71e55c7e4293962747b2dfe460930fad0236dea6b3ba9b59f",
+    "reportLogicalDigest": "ea84f6048a04c16595f40ffca0369659b88dc5b82490c7e4dfaae0ba6dd7cb6b",
+    "reportWarningCount": 39
+  },
+  "policySha256": "7d4bb5f23493e763f1b24968e08a3ea2bcc9bbc8cd282b0c3265e604117d1e56"
+}

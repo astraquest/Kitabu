@@ -1,0 +1,613 @@
+{
+  "schema": "kitabu.curriculum.source-catalog",
+  "schemaVersion": 1,
+  "catalogVersion": "2026-07-22",
+  "country": {
+    "name": "Kenya",
+    "iso2": "KE",
+    "iso3": "KEN"
+  },
+  "curriculum": {
+    "name": "Competency Based Curriculum",
+    "code": "CBC"
+  },
+  "grade": 7,
+  "scope": {
+    "programme": "regular",
+    "rationalisedLearningAreaSlotCount": 9,
+    "officialRegularDesignDocumentCount": 16,
+    "specialNeedsEducationExcluded": true,
+    "prevocationalProgrammeExcluded": true
+  },
+  "publisher": "Kenya Institute of Curriculum Development",
+  "authoritativeIndex": {
+    "title": "Grade Seven Designs",
+    "url": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-seven-designs/",
+    "wordpressPageId": 7835,
+    "publishedAt": "2025-07-14T15:55:41",
+    "modifiedAt": "2025-07-14T16:00:08",
+    "wordpressApiUrl": "https://kicd.ac.ke/wp-json/wp/v2/pages/7835",
+    "evidence": "The live KICD page lists the 16 subjects in this order and embeds each current PDF as a Google Drive preview iframe."
+  },
+  "sourcePolicy": {
+    "currentSource": "Use the Drive preview embedded by the authoritative KICD index.",
+    "mirrorHandling": "No current KICD-hosted PDF mirror was verified. Thirteen June 2024 wp-content URLs found in search indexes returned HTTP 404 on 2026-07-22 and are not recorded as current mirrors.",
+    "unknownMetadata": "Unverified publication dates, revision dates, mirror URLs, and page counts are null."
+  },
+  "regularCatalogAccounting": {
+    "rationalisedLearningAreaSlotCount": 9,
+    "officialRegularDesignDocumentCount": 16,
+    "documentClassEquation": "8 common required designs + 3 religious education alternatives + 5 elective language designs = 16 regular index documents",
+    "documentClasses": {
+      "commonRequired": {
+        "count": 8,
+        "canonicalSubjectIds": [
+          "agriculture",
+          "creative_arts_and_sports",
+          "english",
+          "integrated_science",
+          "kiswahili",
+          "mathematics",
+          "pre_technical_studies",
+          "social_studies"
+        ]
+      },
+      "religiousEducationAlternatives": {
+        "count": 3,
+        "selectionRule": "exactly_one_pathway",
+        "canonicalSubjectIds": [
+          "christian_religious_education",
+          "hindu_religious_education",
+          "islamic_religious_education"
+        ]
+      },
+      "electiveLanguages": {
+        "count": 5,
+        "canonicalSubjectIds": [
+          "arabic",
+          "french",
+          "german",
+          "indigenous_languages",
+          "mandarin"
+        ]
+      }
+    },
+    "learningAreaSlots": [
+      {
+        "slotId": "english",
+        "selectionRule": "required",
+        "regularCatalogCanonicalSubjectIds": [
+          "english"
+        ]
+      },
+      {
+        "slotId": "kiswahili_or_kenya_sign_language",
+        "selectionRule": "exactly_one_by_learner_context",
+        "regularCatalogCanonicalSubjectIds": [
+          "kiswahili"
+        ],
+        "missingRegularCanonicalSubjectIds": [
+          "kenya_sign_language"
+        ]
+      },
+      {
+        "slotId": "mathematics",
+        "selectionRule": "required",
+        "regularCatalogCanonicalSubjectIds": [
+          "mathematics"
+        ]
+      },
+      {
+        "slotId": "integrated_science",
+        "selectionRule": "required",
+        "regularCatalogCanonicalSubjectIds": [
+          "integrated_science"
+        ]
+      },
+      {
+        "slotId": "agriculture",
+        "selectionRule": "required",
+        "regularCatalogCanonicalSubjectIds": [
+          "agriculture"
+        ]
+      },
+      {
+        "slotId": "social_studies",
+        "selectionRule": "required",
+        "regularCatalogCanonicalSubjectIds": [
+          "social_studies"
+        ]
+      },
+      {
+        "slotId": "religious_education",
+        "selectionRule": "exactly_one_pathway",
+        "regularCatalogCanonicalSubjectIds": [
+          "christian_religious_education",
+          "hindu_religious_education",
+          "islamic_religious_education"
+        ]
+      },
+      {
+        "slotId": "creative_arts_and_sports",
+        "selectionRule": "required",
+        "regularCatalogCanonicalSubjectIds": [
+          "creative_arts_and_sports"
+        ]
+      },
+      {
+        "slotId": "pre_technical_studies",
+        "selectionRule": "required",
+        "regularCatalogCanonicalSubjectIds": [
+          "pre_technical_studies"
+        ]
+      }
+    ]
+  },
+  "learnerContextBoundaries": {
+    "kiswahiliOrKenyaSignLanguage": {
+      "slotId": "kiswahili_or_kenya_sign_language",
+      "selectionRule": "exactly_one_by_learner_context",
+      "regularCatalogCanonicalSubjectId": "kiswahili",
+      "alternativeCanonicalSubjectId": "kenya_sign_language",
+      "alternativeTitle": "Junior School Curriculum Design: Kenya Sign Language, Grade 7",
+      "alternativeOfficialUrl": "https://kicd.ac.ke/wp-content/uploads/2024/09/KSL-GRADE-7.pdf",
+      "alternativeBranch": "hearing_impairment",
+      "regularManifestStatus": "missing_from_regular_grade_seven_index",
+      "regularManifestEvidence": {
+        "masterManifestRef": "../kicd-grade-4-12-source-manifest.json#/grades/3",
+        "expectedRegularDocumentCount": 16,
+        "kenyaSignLanguageDocumentPresent": false
+      },
+      "handling": "Do not invent or merge a seventeenth regular source. Preserve Kenya Sign Language as a known official hearing-impairment design and an explicit regular-index coverage gap."
+    }
+  },
+  "sneBoundary": {
+    "regularCatalogOnly": true,
+    "specialNeedsEducationExcluded": true,
+    "mergePolicy": "strictly_forbidden",
+    "separateBranches": [
+      {
+        "branchId": "HI",
+        "title": "HI Grade Seven(7)",
+        "url": "https://kicd.ac.ke/cbc-materials/curriculum-designs/sne-curriculum-designs/hi-grade-seven7/"
+      },
+      {
+        "branchId": "PI",
+        "title": "PI Grade Seven(7)",
+        "url": "https://kicd.ac.ke/cbc-materials/curriculum-designs/sne-curriculum-designs/pi-grade-seven7/"
+      },
+      {
+        "branchId": "VI",
+        "title": "VI Grade Seven(7)",
+        "url": "https://kicd.ac.ke/cbc-materials/curriculum-designs/sne-curriculum-designs/vi-grade-seven7/"
+      },
+      {
+        "branchId": "PREVOCATIONAL",
+        "title": "PREVOCATIONAL CURRICULUM DESIGNS",
+        "url": "https://kicd.ac.ke/cbc-materials/curriculum-designs/sne-curriculum-designs/prevocational-curriculum-designs/"
+      }
+    ],
+    "validationRule": "No HI, PI, VI, Kenya Sign Language, Braille Skills, or prevocational document may be counted among or merged into the 16 regular Grade Seven source records."
+  },
+  "subjects": [
+    {
+      "order": 1,
+      "subject": "Agriculture",
+      "canonicalSubjectId": "agriculture",
+      "catalogDocumentClass": "common_required",
+      "classification": {
+        "kind": "core_slot",
+        "slot": "agriculture",
+        "formalSlotId": "agriculture",
+        "pathway": null,
+        "optional": false
+      },
+      "title": "Agriculture Grade7 1.8.2024 -Proofread.pdf",
+      "driveFileId": "1ShQA3XZmu_X2jKolAA_rGzbvFVHNe-FA",
+      "previewUrl": "https://drive.google.com/file/d/1ShQA3XZmu_X2jKolAA_rGzbvFVHNe-FA/preview",
+      "knownKicdMirrorUrl": null,
+      "revisionEvidence": {
+        "label": "Proofread",
+        "date": "2024-08-01",
+        "datePrecision": "day",
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 35,
+      "pageCountEvidence": "Google Drive viewer metadata",
+      "legacySupersessionNote": "Use the proofread Drive file embedded by the authoritative index; the indexed April 2024 KICD-hosted URL now returns HTTP 404."
+    },
+    {
+      "order": 2,
+      "subject": "Arabic",
+      "canonicalSubjectId": "arabic",
+      "catalogDocumentClass": "elective_language",
+      "classification": {
+        "kind": "optional_language",
+        "slot": "optional_language",
+        "formalSlotId": null,
+        "pathway": "arabic",
+        "optional": true
+      },
+      "title": "FINAL ARABIC GRADE 7 CURRICULUM DESIGN.pdf",
+      "driveFileId": "1numDrwyg0qgWR0HOMNxwzZLN1WJcQyLf",
+      "previewUrl": "https://drive.google.com/file/d/1numDrwyg0qgWR0HOMNxwzZLN1WJcQyLf/preview",
+      "knownKicdMirrorUrl": null,
+      "revisionEvidence": {
+        "label": "Final",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 71,
+      "pageCountEvidence": "Google Drive viewer metadata",
+      "legacySupersessionNote": "Use the final Drive file embedded by the authoritative index; the indexed April 2024 KICD-hosted URL now returns HTTP 404."
+    },
+    {
+      "order": 3,
+      "subject": "Creative Arts",
+      "canonicalSubjectId": "creative_arts_and_sports",
+      "catalogDocumentClass": "common_required",
+      "classification": {
+        "kind": "core_slot",
+        "slot": "creative_arts",
+        "formalSlotId": "creative_arts_and_sports",
+        "pathway": null,
+        "optional": false
+      },
+      "title": "Creative Arts & Sports Grade 7 - Revised.pdf",
+      "driveFileId": "13vhFpDNHHufpz__VRZ5lZUkARfIUra7L",
+      "previewUrl": "https://drive.google.com/file/d/13vhFpDNHHufpz__VRZ5lZUkARfIUra7L/preview",
+      "knownKicdMirrorUrl": null,
+      "revisionEvidence": {
+        "label": "Revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 65,
+      "pageCountEvidence": "Google Drive viewer metadata",
+      "legacySupersessionNote": "Use the revised Drive file embedded by the authoritative index; the indexed June 2024 KICD-hosted URL now returns HTTP 404."
+    },
+    {
+      "order": 4,
+      "subject": "Christian Religious Education",
+      "indexLabel": "CRE",
+      "canonicalSubjectId": "christian_religious_education",
+      "catalogDocumentClass": "religious_education_alternative",
+      "classification": {
+        "kind": "pathway",
+        "slot": "religious_education",
+        "formalSlotId": "religious_education",
+        "pathway": "christian_religious_education",
+        "optional": false
+      },
+      "title": "CRE Grade 7 - Revised.pdf",
+      "driveFileId": "1Vx6Y8lWUiSpWO-MBO58nEOtPlFDM7JA3",
+      "previewUrl": "https://drive.google.com/file/d/1Vx6Y8lWUiSpWO-MBO58nEOtPlFDM7JA3/preview",
+      "knownKicdMirrorUrl": null,
+      "revisionEvidence": {
+        "label": "Revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 78,
+      "pageCountEvidence": "Google Drive viewer metadata",
+      "legacySupersessionNote": "No current KICD-hosted mirror was verified; use the revised Drive file embedded by the authoritative index."
+    },
+    {
+      "order": 5,
+      "subject": "English",
+      "canonicalSubjectId": "english",
+      "catalogDocumentClass": "common_required",
+      "classification": {
+        "kind": "core_slot",
+        "slot": "english",
+        "formalSlotId": "english",
+        "pathway": null,
+        "optional": false
+      },
+      "title": "English Grade 7 - REVISED - OCT.pdf",
+      "driveFileId": "1HAU_WMYmdmfWmr4kAvZxjcgG0lizPHZv",
+      "previewUrl": "https://drive.google.com/file/d/1HAU_WMYmdmfWmr4kAvZxjcgG0lizPHZv/preview",
+      "knownKicdMirrorUrl": null,
+      "revisionEvidence": {
+        "label": "Revised Oct",
+        "date": null,
+        "datePrecision": "month_without_year",
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 168,
+      "pageCountEvidence": "Google Drive viewer metadata",
+      "legacySupersessionNote": "Use the revised October Drive file embedded by the authoritative index; the indexed April 2024 KICD-hosted URL now returns HTTP 404."
+    },
+    {
+      "order": 6,
+      "subject": "French",
+      "canonicalSubjectId": "french",
+      "catalogDocumentClass": "elective_language",
+      "classification": {
+        "kind": "optional_language",
+        "slot": "optional_language",
+        "formalSlotId": null,
+        "pathway": "french",
+        "optional": true
+      },
+      "title": "French Grade 7 - July 2024.pdf",
+      "driveFileId": "1XyzWUEmjBQ7h3rAWF2_plaSdVa5Mslxh",
+      "previewUrl": "https://drive.google.com/file/d/1XyzWUEmjBQ7h3rAWF2_plaSdVa5Mslxh/preview",
+      "knownKicdMirrorUrl": null,
+      "revisionEvidence": {
+        "label": null,
+        "date": "2024-07",
+        "datePrecision": "month",
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 60,
+      "pageCountEvidence": "Google Drive viewer metadata",
+      "legacySupersessionNote": "Use the July 2024 Drive file embedded by the authoritative index; the indexed April 2024 KICD-hosted URL now returns HTTP 404."
+    },
+    {
+      "order": 7,
+      "subject": "German",
+      "canonicalSubjectId": "german",
+      "catalogDocumentClass": "elective_language",
+      "classification": {
+        "kind": "optional_language",
+        "slot": "optional_language",
+        "formalSlotId": null,
+        "pathway": "german",
+        "optional": true
+      },
+      "title": "German Grade 7 - July 2024.pdf",
+      "driveFileId": "1I2zlbTmFwaLjIzkLHHEPegCwi4QxWYtq",
+      "previewUrl": "https://drive.google.com/file/d/1I2zlbTmFwaLjIzkLHHEPegCwi4QxWYtq/preview",
+      "knownKicdMirrorUrl": null,
+      "revisionEvidence": {
+        "label": null,
+        "date": "2024-07",
+        "datePrecision": "month",
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 76,
+      "pageCountEvidence": "Google Drive viewer metadata",
+      "legacySupersessionNote": "Use the July 2024 Drive file embedded by the authoritative index; the indexed April 2024 KICD-hosted URL now returns HTTP 404."
+    },
+    {
+      "order": 8,
+      "subject": "Hindu Religious Education",
+      "indexLabel": "HRE",
+      "canonicalSubjectId": "hindu_religious_education",
+      "catalogDocumentClass": "religious_education_alternative",
+      "classification": {
+        "kind": "pathway",
+        "slot": "religious_education",
+        "formalSlotId": "religious_education",
+        "pathway": "hindu_religious_education",
+        "optional": false
+      },
+      "title": "HRE Grade 7 - July 2024 - Fin.pdf",
+      "driveFileId": "1kdOYtnA1cJVgipZI2i8soM00d0jVW4io",
+      "previewUrl": "https://drive.google.com/file/d/1kdOYtnA1cJVgipZI2i8soM00d0jVW4io/preview",
+      "knownKicdMirrorUrl": null,
+      "revisionEvidence": {
+        "label": "Final",
+        "date": "2024-07",
+        "datePrecision": "month",
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 41,
+      "pageCountEvidence": "Google Drive viewer metadata",
+      "legacySupersessionNote": "Use the final July 2024 Drive file embedded by the authoritative index; the indexed April 2024 KICD-hosted URL now returns HTTP 404."
+    },
+    {
+      "order": 9,
+      "subject": "Indigenous Language",
+      "canonicalSubjectId": "indigenous_languages",
+      "catalogDocumentClass": "elective_language",
+      "classification": {
+        "kind": "optional_language",
+        "slot": "optional_language",
+        "formalSlotId": null,
+        "pathway": "indigenous_language",
+        "optional": true
+      },
+      "title": "Indigenous Languages Grade 7 - Revised.pdf",
+      "driveFileId": "1yh_xr49uwn0ohXThoIDuyHh9J2lpUnh2",
+      "previewUrl": "https://drive.google.com/file/d/1yh_xr49uwn0ohXThoIDuyHh9J2lpUnh2/preview",
+      "knownKicdMirrorUrl": null,
+      "revisionEvidence": {
+        "label": "Revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 73,
+      "pageCountEvidence": "Google Drive viewer metadata",
+      "legacySupersessionNote": "No current KICD-hosted mirror was verified; use the revised Drive file embedded by the authoritative index."
+    },
+    {
+      "order": 10,
+      "subject": "Integrated Science",
+      "canonicalSubjectId": "integrated_science",
+      "catalogDocumentClass": "common_required",
+      "classification": {
+        "kind": "core_slot",
+        "slot": "integrated_science",
+        "formalSlotId": "integrated_science",
+        "pathway": null,
+        "optional": false
+      },
+      "title": "Integrated Science Grade 7 - July 2024.pdf",
+      "driveFileId": "1jbicj1qkLFEV_ZXwO8Kmlw7KzGhZD2ri",
+      "previewUrl": "https://drive.google.com/file/d/1jbicj1qkLFEV_ZXwO8Kmlw7KzGhZD2ri/preview",
+      "knownKicdMirrorUrl": null,
+      "revisionEvidence": {
+        "label": null,
+        "date": "2024-07",
+        "datePrecision": "month",
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 43,
+      "pageCountEvidence": "Google Drive viewer metadata",
+      "legacySupersessionNote": "Use the July 2024 Drive file embedded by the authoritative index; the indexed April 2024 KICD-hosted URL now returns HTTP 404."
+    },
+    {
+      "order": 11,
+      "subject": "Islamic Religious Education",
+      "indexLabel": "IRE",
+      "canonicalSubjectId": "islamic_religious_education",
+      "catalogDocumentClass": "religious_education_alternative",
+      "classification": {
+        "kind": "pathway",
+        "slot": "religious_education",
+        "formalSlotId": "religious_education",
+        "pathway": "islamic_religious_education",
+        "optional": false
+      },
+      "title": "Islamic Religious Education Grade 7 - July 2024.pdf",
+      "driveFileId": "1Po_NF_oEsMMYXukVcM82nVEqXS7yY2Zu",
+      "previewUrl": "https://drive.google.com/file/d/1Po_NF_oEsMMYXukVcM82nVEqXS7yY2Zu/preview",
+      "knownKicdMirrorUrl": null,
+      "revisionEvidence": {
+        "label": null,
+        "date": "2024-07",
+        "datePrecision": "month",
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 58,
+      "pageCountEvidence": "Google Drive viewer metadata",
+      "legacySupersessionNote": "Use the July 2024 Drive file embedded by the authoritative index; the indexed April 2024 KICD-hosted URL now returns HTTP 404."
+    },
+    {
+      "order": 12,
+      "subject": "Kiswahili",
+      "canonicalSubjectId": "kiswahili",
+      "catalogDocumentClass": "common_required",
+      "classification": {
+        "kind": "core_slot",
+        "slot": "kiswahili",
+        "formalSlotId": "kiswahili_or_kenya_sign_language",
+        "pathway": null,
+        "optional": false
+      },
+      "title": "Kiswahili Grade 7 - July 2024 - Revised Oct.pdf",
+      "driveFileId": "1pZ3Q6EwKhyBSfpmbYCjF8yTDrJifUrJJ",
+      "previewUrl": "https://drive.google.com/file/d/1pZ3Q6EwKhyBSfpmbYCjF8yTDrJifUrJJ/preview",
+      "knownKicdMirrorUrl": null,
+      "revisionEvidence": {
+        "label": "July 2024; Revised Oct",
+        "date": null,
+        "datePrecision": "mixed_filename_evidence",
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 173,
+      "pageCountEvidence": "Google Drive viewer metadata",
+      "legacySupersessionNote": "No current KICD-hosted mirror was verified; use the revised October Drive file embedded by the authoritative index."
+    },
+    {
+      "order": 13,
+      "subject": "Mandarin",
+      "canonicalSubjectId": "mandarin",
+      "catalogDocumentClass": "elective_language",
+      "classification": {
+        "kind": "optional_language",
+        "slot": "optional_language",
+        "formalSlotId": null,
+        "pathway": "mandarin",
+        "optional": true
+      },
+      "title": "Mandarin Grade 7 2024 - Revised Oct.pdf",
+      "driveFileId": "1DEYhWOkEzMRq78C-jAnFj1VzCh9efb-7",
+      "previewUrl": "https://drive.google.com/file/d/1DEYhWOkEzMRq78C-jAnFj1VzCh9efb-7/preview",
+      "knownKicdMirrorUrl": null,
+      "revisionEvidence": {
+        "label": "Revised Oct",
+        "date": null,
+        "datePrecision": "year_plus_month_without_explicit_year",
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 77,
+      "pageCountEvidence": "Google Drive viewer metadata",
+      "legacySupersessionNote": "Use the revised October Drive file embedded by the authoritative index; the indexed April 2024 KICD-hosted URL now returns HTTP 404."
+    },
+    {
+      "order": 14,
+      "subject": "Mathematics",
+      "canonicalSubjectId": "mathematics",
+      "catalogDocumentClass": "common_required",
+      "classification": {
+        "kind": "core_slot",
+        "slot": "mathematics",
+        "formalSlotId": "mathematics",
+        "pathway": null,
+        "optional": false
+      },
+      "title": "Mathematics Grade 7 - July 2024 - Revised.pdf",
+      "driveFileId": "12Vb6W1_Vzn9BEH2MsM2WmUwWL5OKoucK",
+      "previewUrl": "https://drive.google.com/file/d/12Vb6W1_Vzn9BEH2MsM2WmUwWL5OKoucK/preview",
+      "knownKicdMirrorUrl": null,
+      "revisionEvidence": {
+        "label": "Revised",
+        "date": "2024-07",
+        "datePrecision": "month",
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 66,
+      "pageCountEvidence": "Google Drive viewer metadata",
+      "legacySupersessionNote": "Use the revised July 2024 Drive file embedded by the authoritative index; the indexed April 2024 KICD-hosted URL now returns HTTP 404."
+    },
+    {
+      "order": 15,
+      "subject": "Pre-Technical Studies",
+      "canonicalSubjectId": "pre_technical_studies",
+      "catalogDocumentClass": "common_required",
+      "classification": {
+        "kind": "core_slot",
+        "slot": "pre_technical_studies",
+        "formalSlotId": "pre_technical_studies",
+        "pathway": null,
+        "optional": false
+      },
+      "title": "Pre-Technical Studies Grade 7 - July 2024 - Revised.pdf",
+      "driveFileId": "1vBIF-5Z0-hpYxr2YWJIrg1ATzO9f4YRH",
+      "previewUrl": "https://drive.google.com/file/d/1vBIF-5Z0-hpYxr2YWJIrg1ATzO9f4YRH/preview",
+      "knownKicdMirrorUrl": null,
+      "revisionEvidence": {
+        "label": "Revised",
+        "date": "2024-07",
+        "datePrecision": "month",
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 54,
+      "pageCountEvidence": "Google Drive viewer metadata",
+      "legacySupersessionNote": "Use the revised July 2024 Drive file embedded by the authoritative index; the indexed April 2024 KICD-hosted URL now returns HTTP 404."
+    },
+    {
+      "order": 16,
+      "subject": "Social Studies",
+      "canonicalSubjectId": "social_studies",
+      "catalogDocumentClass": "common_required",
+      "classification": {
+        "kind": "core_slot",
+        "slot": "social_studies",
+        "formalSlotId": "social_studies",
+        "pathway": null,
+        "optional": false
+      },
+      "title": "Social Studies Grade 7 - Revised.pdf",
+      "driveFileId": "1nr9z0Z11ue76h2odpYQJNeUU4jFJWbbB",
+      "previewUrl": "https://drive.google.com/file/d/1nr9z0Z11ue76h2odpYQJNeUU4jFJWbbB/preview",
+      "knownKicdMirrorUrl": null,
+      "revisionEvidence": {
+        "label": "Revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 69,
+      "pageCountEvidence": "Google Drive viewer metadata",
+      "legacySupersessionNote": "Use the revised Drive file embedded by the authoritative index; the indexed April 2024 KICD-hosted URL now returns HTTP 404."
+    }
+  ]
+}

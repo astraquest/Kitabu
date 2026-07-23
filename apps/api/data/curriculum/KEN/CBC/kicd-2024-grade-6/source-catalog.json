@@ -1,0 +1,733 @@
+{
+  "schema": "kitabu.curriculum.source-catalog",
+  "schemaVersion": 1,
+  "catalogVersion": "2026-07-22.2",
+  "country": {
+    "name": "Kenya",
+    "iso2": "KE",
+    "iso3": "KEN"
+  },
+  "curriculum": {
+    "name": "Competency Based Curriculum",
+    "code": "CBC"
+  },
+  "grade": 6,
+  "publisher": "Kenya Institute of Curriculum Development",
+  "scope": {
+    "learnerPopulation": "regular",
+    "curriculumLevel": "upper_primary",
+    "excludes": [
+      "adapted Special Needs Education curriculum designs"
+    ]
+  },
+  "authoritativeIndex": {
+    "title": "Grade Six Designs",
+    "url": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-six-designs/",
+    "wordpressPageId": 7831,
+    "publishedAt": "2025-07-11T13:16:30",
+    "modifiedAt": "2025-07-11T13:16:30",
+    "wordpressApiUrl": "https://kicd.ac.ke/wp-json/wp/v2/pages/7831",
+    "evidence": "The KICD page lists the 15 subjects in this order and embeds each current PDF as a Google Drive preview iframe."
+  },
+  "sourcePolicy": {
+    "currentSource": "Use the Drive preview embedded by the authoritative KICD index.",
+    "mirrorHandling": "KICD wp-content URLs are recorded only where independently observed. A legacy mirror is not treated as the current source when the index embeds a revised Drive file.",
+    "unknownMetadata": "Unverified publication dates, revision dates, and mirror URLs are null. Page counts are populated only from verified Google Drive viewer metadata; an unavailable count must remain null with explicit pageCountStatus and pageCountBlocker fields."
+  },
+  "identityPolicy": {
+    "canonicalId": "Stable, grade-independent canonical learning-area identifier used by normalization.",
+    "subjectCode": "Stable subject code; equal to canonicalId for this catalog.",
+    "aliases": "Evidence-supported equivalent labels only. Version-sensitive historical labels remain outside aliases. An alias does not create a second document identity or permit a regular/SNE source merge.",
+    "formalRole": "Timetable slot, selection rule, and learning-area role are stored separately from document identity.",
+    "uniqueness": "Every current document has one unique canonicalId and one unique subjectCode. Missing-source records are outside the 15-document subjects array."
+  },
+  "sourceGaps": [
+    {
+      "canonicalId": "kenya_sign_language",
+      "subjectCode": "kenya_sign_language",
+      "subject": "Kenya Sign Language",
+      "aliases": [
+        "KSL",
+        "Kenya Sign Language (KSL)",
+        "Sign Language"
+      ],
+      "formalRole": {
+        "slot": "kenyan_language",
+        "role": "formal_slot_alternative",
+        "alternative": "kenya_sign_language",
+        "selectionRule": "exactly_one",
+        "lessonsPerWeek": 4
+      },
+      "sourceStatus": "missing_from_regular_grade_6_index",
+      "catalogOrder": null,
+      "driveFileId": null,
+      "previewUrl": null,
+      "regularSourceRequired": true,
+      "syntheticSubjectDocumentCreated": false,
+      "sneBoundary": {
+        "mergeAllowed": false,
+        "substitutionAllowed": false,
+        "excludedSourceKinds": [
+          "adapted Special Needs Education curriculum design",
+          "hearing-impairment curriculum design",
+          "other-grade curriculum design"
+        ],
+        "excludedAliases": [
+          "Hearing Impairment",
+          "HI Grade Six"
+        ],
+        "reason": "The regular Grade 6 allocation names Kenya Sign Language as a Kenyan-language alternative, but the regular Grade 6 KICD index exposes no KSL design. SNE and other-grade artifacts have different scope and cannot satisfy this gap."
+      }
+    }
+  ],
+  "formalAllocation": {
+    "source": "The revised Grade 6 curriculum-design lesson-allocation table.",
+    "slotCount": 8,
+    "learningAreaLessonsPerWeek": 34,
+    "pastoralOrReligiousInstructionLessonsPerWeek": 1,
+    "totalLessonsPerWeek": 35,
+    "slots": [
+      {
+        "slot": "english",
+        "formalLabel": "English",
+        "lessonsPerWeek": 5,
+        "selectionRule": "required"
+      },
+      {
+        "slot": "kenyan_language",
+        "formalLabel": "Kiswahili / Kenya Sign Language",
+        "lessonsPerWeek": 4,
+        "selectionRule": "exactly_one",
+        "alternatives": [
+          {
+            "alternative": "kiswahili",
+            "canonicalId": "kiswahili",
+            "subjectCode": "kiswahili",
+            "role": "formal_slot_alternative",
+            "catalogOrder": 11,
+            "sourceAvailability": "present"
+          },
+          {
+            "alternative": "kenya_sign_language",
+            "canonicalId": "kenya_sign_language",
+            "subjectCode": "kenya_sign_language",
+            "role": "formal_slot_alternative",
+            "catalogOrder": null,
+            "sourceAvailability": "missing_from_regular_grade_6_index",
+            "sourceGapCanonicalId": "kenya_sign_language",
+            "blocker": "The current regular Grade 6 KICD index does not expose a Kenya Sign Language design; do not substitute an SNE or other-grade artifact."
+          }
+        ]
+      },
+      {
+        "slot": "mathematics",
+        "formalLabel": "Mathematics",
+        "lessonsPerWeek": 5,
+        "selectionRule": "required"
+      },
+      {
+        "slot": "religious_education",
+        "formalLabel": "Religious Education",
+        "lessonsPerWeek": 3,
+        "selectionRule": "exactly_one",
+        "alternatives": [
+          {
+            "alternative": "christian_religious_education",
+            "canonicalId": "christian_religious_education",
+            "subjectCode": "christian_religious_education",
+            "role": "formal_slot_alternative",
+            "catalogOrder": 4,
+            "sourceAvailability": "present"
+          },
+          {
+            "alternative": "hindu_religious_education",
+            "canonicalId": "hindu_religious_education",
+            "subjectCode": "hindu_religious_education",
+            "role": "formal_slot_alternative",
+            "catalogOrder": 8,
+            "sourceAvailability": "present"
+          },
+          {
+            "alternative": "islamic_religious_education",
+            "canonicalId": "islamic_religious_education",
+            "subjectCode": "islamic_religious_education",
+            "role": "formal_slot_alternative",
+            "catalogOrder": 10,
+            "sourceAvailability": "present"
+          }
+        ]
+      },
+      {
+        "slot": "science_and_technology",
+        "formalLabel": "Science and Technology",
+        "lessonsPerWeek": 4,
+        "selectionRule": "required"
+      },
+      {
+        "slot": "agriculture",
+        "formalLabel": "Agriculture",
+        "indexLabel": "Agriculture",
+        "revisionSensitiveLabels": [
+          "Agriculture",
+          "Agriculture and Nutrition"
+        ],
+        "labelPolicy": "Use Agriculture for the current index and revised allocation; preserve Agriculture and Nutrition only as a source label from earlier 2024 material.",
+        "lessonsPerWeek": 4,
+        "selectionRule": "required"
+      },
+      {
+        "slot": "social_studies",
+        "formalLabel": "Social Studies",
+        "lessonsPerWeek": 3,
+        "selectionRule": "required"
+      },
+      {
+        "slot": "creative_arts",
+        "formalLabel": "Creative Arts",
+        "lessonsPerWeek": 6,
+        "selectionRule": "required"
+      }
+    ]
+  },
+  "pageCountSummary": {
+    "sourceCount": 15,
+    "verifiedCount": 15,
+    "unknownCount": 0,
+    "verifiedTotalPages": 1112,
+    "evidence": "Google Drive viewer metadata verified during the Grade 10 cross-review on 2026-07-22."
+  },
+  "identitySummary": {
+    "currentDocumentCount": 15,
+    "uniqueCanonicalIdCount": 15,
+    "uniqueSubjectCodeCount": 15,
+    "subjectAliasCount": 5,
+    "formalRoleCounts": {
+      "required_learning_area": 6,
+      "formal_slot_alternative": 4,
+      "optional_language": 5
+    },
+    "sourceGapCount": 1,
+    "missingRegularKslDocumentCount": 1,
+    "syntheticSubjectDocumentCount": 0,
+    "sneMergeCount": 0
+  },
+  "subjects": [
+    {
+      "order": 1,
+      "subject": "Agriculture",
+      "canonicalId": "agriculture",
+      "subjectCode": "agriculture",
+      "aliases": [],
+      "classification": {
+        "kind": "core_slot",
+        "slot": "agriculture",
+        "pathway": null,
+        "optional": false
+      },
+      "formalRole": {
+        "slot": "agriculture",
+        "role": "required_learning_area",
+        "selectionRule": "required",
+        "lessonsPerWeek": 4
+      },
+      "title": "AGRICULTURE Grade 6 30.07.2024.pdf",
+      "driveFileId": "18PxeRHiqXx4I3uj71kxqspQn8za43YLO",
+      "previewUrl": "https://drive.google.com/file/d/18PxeRHiqXx4I3uj71kxqspQn8za43YLO/preview",
+      "knownKicdMirrorUrl": "https://kicd.ac.ke/wp-content/uploads/2024/10/AGRICULTURE-Grade-6-30.07.2024.pdf",
+      "revisionEvidence": {
+        "label": null,
+        "date": "2024-07-30",
+        "datePrecision": "day",
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 32,
+      "pageCountEvidence": "Google Drive viewer metadata",
+      "legacySupersessionNote": "The current KICD-hosted mirror matches the dated file embedded by the authoritative index."
+    },
+    {
+      "order": 2,
+      "subject": "Arabic",
+      "canonicalId": "arabic",
+      "subjectCode": "arabic",
+      "aliases": [],
+      "classification": {
+        "kind": "optional_language",
+        "slot": "optional_language",
+        "pathway": "arabic",
+        "optional": true
+      },
+      "formalRole": {
+        "slot": null,
+        "role": "optional_language",
+        "selectionRule": "optional_outside_revised_35_lesson_allocation",
+        "lessonsPerWeek": null
+      },
+      "title": "FINAL ARABIC GRADE 6 CURRICULUM DESIGN - Revised.pdf",
+      "driveFileId": "1o9VR546EOuq70ULiLGmN1FJzYX6ylbOP",
+      "previewUrl": "https://drive.google.com/file/d/1o9VR546EOuq70ULiLGmN1FJzYX6ylbOP/preview",
+      "knownKicdMirrorUrl": null,
+      "revisionEvidence": {
+        "label": "Revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 77,
+      "pageCountEvidence": "Google Drive viewer metadata verified during the Grade 10 cross-review on 2026-07-22.",
+      "legacySupersessionNote": "No current KICD-hosted mirror was verified; use the revised Drive file embedded by the authoritative index."
+    },
+    {
+      "order": 3,
+      "subject": "Creative Arts",
+      "canonicalId": "creative_arts",
+      "subjectCode": "creative_arts",
+      "aliases": [],
+      "classification": {
+        "kind": "core_slot",
+        "slot": "creative_arts",
+        "pathway": null,
+        "optional": false
+      },
+      "formalRole": {
+        "slot": "creative_arts",
+        "role": "required_learning_area",
+        "selectionRule": "required",
+        "lessonsPerWeek": 6
+      },
+      "title": "Creative Arts Curriculum designs - Revised.pdf",
+      "driveFileId": "1ar14Jn_EMuxsqbJ_evfZCNoHg66r4Fvv",
+      "previewUrl": "https://drive.google.com/file/d/1ar14Jn_EMuxsqbJ_evfZCNoHg66r4Fvv/preview",
+      "knownKicdMirrorUrl": "https://kicd.ac.ke/wp-content/uploads/2024/10/Creative-Arts-Curriculum-designs-Revised.pdf",
+      "revisionEvidence": {
+        "label": "Revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 58,
+      "pageCountEvidence": "Google Drive viewer metadata verified during the Grade 10 cross-review on 2026-07-22.",
+      "legacySupersessionNote": "The current KICD-hosted mirror corresponds to the revised file embedded by the authoritative index."
+    },
+    {
+      "order": 4,
+      "subject": "Christian Religious Education",
+      "canonicalId": "christian_religious_education",
+      "subjectCode": "christian_religious_education",
+      "aliases": [
+        "CRE"
+      ],
+      "indexLabel": "CRE",
+      "classification": {
+        "kind": "formal_slot_alternative",
+        "slot": "religious_education",
+        "alternative": "christian_religious_education",
+        "optional": false,
+        "individuallyRequired": false,
+        "selectionRule": "exactly_one"
+      },
+      "formalRole": {
+        "slot": "religious_education",
+        "role": "formal_slot_alternative",
+        "alternative": "christian_religious_education",
+        "selectionRule": "exactly_one",
+        "lessonsPerWeek": 3
+      },
+      "title": "CRE GRADE 6 DESIGN - Revised.pdf",
+      "driveFileId": "11IpqIrMdTmPcoFRKhELKaUliB3IQw6oP",
+      "previewUrl": "https://drive.google.com/file/d/11IpqIrMdTmPcoFRKhELKaUliB3IQw6oP/preview",
+      "knownKicdMirrorUrl": "https://kicd.ac.ke/wp-content/uploads/2024/10/CRE-GRADE-6-DESIGN-Revised.pdf",
+      "legacyKicdMirrorUrls": [
+        "https://kicd.ac.ke/wp-content/uploads/2021/02/CRE-GRADE-6-DESIGN.pdf"
+      ],
+      "revisionEvidence": {
+        "label": "Revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 69,
+      "pageCountEvidence": "Google Drive viewer metadata verified during the Grade 10 cross-review on 2026-07-22.",
+      "legacySupersessionNote": "The 2021 KICD-hosted file is legacy evidence. Use the revised 2024 KICD mirror or the Drive file embedded by the authoritative index; formal legal supersession was not asserted."
+    },
+    {
+      "order": 5,
+      "subject": "English",
+      "canonicalId": "english",
+      "subjectCode": "english",
+      "aliases": [],
+      "classification": {
+        "kind": "core_slot",
+        "slot": "english",
+        "pathway": null,
+        "optional": false
+      },
+      "formalRole": {
+        "slot": "english",
+        "role": "required_learning_area",
+        "selectionRule": "required",
+        "lessonsPerWeek": 5
+      },
+      "title": "ENGLISH GRADE 6 UPDATED - Revised Sept.pdf",
+      "driveFileId": "1QR9nW3baakrHLIIpv-9UfQyMbOoDTcDX",
+      "previewUrl": "https://drive.google.com/file/d/1QR9nW3baakrHLIIpv-9UfQyMbOoDTcDX/preview",
+      "knownKicdMirrorUrl": "https://kicd.ac.ke/wp-content/uploads/2024/10/ENGLISH-GRADE-6-UPDATED-Revised-Sept.pdf",
+      "legacyKicdMirrorUrls": [
+        "https://kicd.ac.ke/wp-content/uploads/2021/02/ENGLISH-grade-6.pdf"
+      ],
+      "revisionEvidence": {
+        "label": "Updated; Revised Sept",
+        "date": null,
+        "datePrecision": "month_without_year",
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 140,
+      "pageCountEvidence": "Google Drive viewer metadata verified during the Grade 10 cross-review on 2026-07-22.",
+      "legacySupersessionNote": "The 2021 KICD-hosted file is legacy evidence. Use the updated/revised 2024 KICD mirror or the Drive file embedded by the authoritative index; formal legal supersession was not asserted."
+    },
+    {
+      "order": 6,
+      "subject": "French",
+      "canonicalId": "french",
+      "subjectCode": "french",
+      "aliases": [],
+      "classification": {
+        "kind": "optional_language",
+        "slot": "optional_language",
+        "pathway": "french",
+        "optional": true
+      },
+      "formalRole": {
+        "slot": null,
+        "role": "optional_language",
+        "selectionRule": "optional_outside_revised_35_lesson_allocation",
+        "lessonsPerWeek": null
+      },
+      "title": "FRENCH GRADE 6 - Revised.pdf",
+      "driveFileId": "1JNkK1WNt85B6lxbHFBI4_TaLdDBZNyz4",
+      "previewUrl": "https://drive.google.com/file/d/1JNkK1WNt85B6lxbHFBI4_TaLdDBZNyz4/preview",
+      "knownKicdMirrorUrl": "https://kicd.ac.ke/wp-content/uploads/2024/10/FRENCH-GRADE-6-Revised.pdf",
+      "revisionEvidence": {
+        "label": "Revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 73,
+      "pageCountEvidence": "Google Drive viewer metadata verified during the Grade 10 cross-review on 2026-07-22.",
+      "legacySupersessionNote": "The current KICD-hosted mirror corresponds to the revised file embedded by the authoritative index."
+    },
+    {
+      "order": 7,
+      "subject": "German",
+      "canonicalId": "german",
+      "subjectCode": "german",
+      "aliases": [],
+      "classification": {
+        "kind": "optional_language",
+        "slot": "optional_language",
+        "pathway": "german",
+        "optional": true
+      },
+      "formalRole": {
+        "slot": null,
+        "role": "optional_language",
+        "selectionRule": "optional_outside_revised_35_lesson_allocation",
+        "lessonsPerWeek": null
+      },
+      "title": "German Grade 6 Edited -FIN.pdf",
+      "driveFileId": "1r5mCofdUnDCDRh_PZS16bpgpm0GEF_p3",
+      "previewUrl": "https://drive.google.com/file/d/1r5mCofdUnDCDRh_PZS16bpgpm0GEF_p3/preview",
+      "knownKicdMirrorUrl": "https://kicd.ac.ke/wp-content/uploads/2024/02/GRADES.4-6.GERMAN.pdf",
+      "revisionEvidence": {
+        "label": "Edited; final",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 75,
+      "pageCountEvidence": "Google Drive viewer metadata for the current Grade 6 Drive asset, verified during the Grade 10 cross-review on 2026-07-22; distinct from the 106-page combined Grades 4-6 KICD mirror.",
+      "legacySupersessionNote": "The current KICD-hosted mirror is a combined Grades 4–6 German design, while the authoritative index embeds the Grade 6 edited-final Drive file."
+    },
+    {
+      "order": 8,
+      "subject": "Hindu Religious Education",
+      "canonicalId": "hindu_religious_education",
+      "subjectCode": "hindu_religious_education",
+      "aliases": [
+        "HRE"
+      ],
+      "indexLabel": "HRE",
+      "classification": {
+        "kind": "formal_slot_alternative",
+        "slot": "religious_education",
+        "alternative": "hindu_religious_education",
+        "optional": false,
+        "individuallyRequired": false,
+        "selectionRule": "exactly_one"
+      },
+      "formalRole": {
+        "slot": "religious_education",
+        "role": "formal_slot_alternative",
+        "alternative": "hindu_religious_education",
+        "selectionRule": "exactly_one",
+        "lessonsPerWeek": 3
+      },
+      "title": "HRE GRADE 6 - Revised.pdf",
+      "driveFileId": "1DkJ_S-CX54BWOBbunQNSvL4htQkXHdcz",
+      "previewUrl": "https://drive.google.com/file/d/1DkJ_S-CX54BWOBbunQNSvL4htQkXHdcz/preview",
+      "knownKicdMirrorUrl": "https://kicd.ac.ke/wp-content/uploads/2024/10/HRE-GRADE-6-Revised.pdf",
+      "revisionEvidence": {
+        "label": "Revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 50,
+      "pageCountEvidence": "Google Drive viewer metadata verified during the Grade 10 cross-review on 2026-07-22.",
+      "legacySupersessionNote": "The current KICD-hosted mirror corresponds to the revised file embedded by the authoritative index."
+    },
+    {
+      "order": 9,
+      "subject": "Indigenous Language",
+      "canonicalId": "indigenous_language",
+      "subjectCode": "indigenous_language",
+      "aliases": [],
+      "classification": {
+        "kind": "optional_language",
+        "slot": "optional_language",
+        "pathway": "indigenous_language",
+        "optional": true
+      },
+      "formalRole": {
+        "slot": null,
+        "role": "optional_language",
+        "selectionRule": "optional_outside_revised_35_lesson_allocation",
+        "lessonsPerWeek": null
+      },
+      "title": "FINAL - GRADE 6 INDIGENOUS LANGUAGE - Revised Oct.pdf",
+      "driveFileId": "1EKntVjIlVnU37rMPP5ya60TVLPGv9Asl",
+      "previewUrl": "https://drive.google.com/file/d/1EKntVjIlVnU37rMPP5ya60TVLPGv9Asl/preview",
+      "knownKicdMirrorUrl": null,
+      "revisionEvidence": {
+        "label": "Final; Revised Oct",
+        "date": null,
+        "datePrecision": "month_without_year",
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 73,
+      "pageCountEvidence": "Google Drive viewer metadata verified during the Grade 10 cross-review on 2026-07-22.",
+      "legacySupersessionNote": "The current revised Drive item has no verified current KICD mirror. An older February 2024 official-hosted copy is known but is not treated as a current mirror."
+    },
+    {
+      "order": 10,
+      "subject": "Islamic Religious Education",
+      "canonicalId": "islamic_religious_education",
+      "subjectCode": "islamic_religious_education",
+      "aliases": [
+        "IRE"
+      ],
+      "indexLabel": "IRE",
+      "classification": {
+        "kind": "formal_slot_alternative",
+        "slot": "religious_education",
+        "alternative": "islamic_religious_education",
+        "optional": false,
+        "individuallyRequired": false,
+        "selectionRule": "exactly_one"
+      },
+      "formalRole": {
+        "slot": "religious_education",
+        "role": "formal_slot_alternative",
+        "alternative": "islamic_religious_education",
+        "selectionRule": "exactly_one",
+        "lessonsPerWeek": 3
+      },
+      "title": "IRE GRADE 6 CURRICULUM DESIGNS - Revised.pdf",
+      "driveFileId": "1EXqXIKZMzOu7GYtgNS6XB_Aoyv7Isncs",
+      "previewUrl": "https://drive.google.com/file/d/1EXqXIKZMzOu7GYtgNS6XB_Aoyv7Isncs/preview",
+      "knownKicdMirrorUrl": "https://kicd.ac.ke/wp-content/uploads/2024/10/IRE-GRADE-6-CURRICULUM-DESIGNS-Revised.pdf",
+      "legacyKicdMirrorUrls": [
+        "https://kicd.ac.ke/wp-content/uploads/2021/02/ISLAMIC-RELIGIOUS-EDUCATION.pdf"
+      ],
+      "revisionEvidence": {
+        "label": "Revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 73,
+      "pageCountEvidence": "Google Drive viewer metadata verified during the Grade 10 cross-review on 2026-07-22.",
+      "legacySupersessionNote": "The 2021 KICD-hosted file is legacy evidence. Use the revised 2024 KICD mirror or the Drive file embedded by the authoritative index; formal legal supersession was not asserted."
+    },
+    {
+      "order": 11,
+      "subject": "Kiswahili",
+      "canonicalId": "kiswahili",
+      "subjectCode": "kiswahili",
+      "aliases": [],
+      "classification": {
+        "kind": "core_slot",
+        "slot": "kenyan_language",
+        "alternative": "kiswahili",
+        "optional": false,
+        "individuallyRequired": false,
+        "selectionRule": "exactly_one"
+      },
+      "formalRole": {
+        "slot": "kenyan_language",
+        "role": "formal_slot_alternative",
+        "alternative": "kiswahili",
+        "selectionRule": "exactly_one",
+        "lessonsPerWeek": 4
+      },
+      "title": "LATEST 6.8.2024 KISWAHILI GRADE 6 - Revised.pdf",
+      "driveFileId": "1p4DSwvmGPzn3ZHCZhRTN88Zvju3XtgYf",
+      "previewUrl": "https://drive.google.com/file/d/1p4DSwvmGPzn3ZHCZhRTN88Zvju3XtgYf/preview",
+      "knownKicdMirrorUrl": "https://kicd.ac.ke/wp-content/uploads/2024/10/LATEST-6.8.2024-KISWAHILI-GRADE-6-Revised.pdf",
+      "revisionEvidence": {
+        "label": "Latest; Revised",
+        "date": "2024-08-06",
+        "datePrecision": "day",
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 134,
+      "pageCountEvidence": "Google Drive viewer metadata verified during the Grade 10 cross-review on 2026-07-22.",
+      "legacySupersessionNote": "The current KICD-hosted mirror corresponds to the dated revised file embedded by the authoritative index."
+    },
+    {
+      "order": 12,
+      "subject": "Mandarin",
+      "canonicalId": "mandarin",
+      "subjectCode": "mandarin",
+      "aliases": [
+        "Mandarin Chinese"
+      ],
+      "classification": {
+        "kind": "optional_language",
+        "slot": "optional_language",
+        "pathway": "mandarin",
+        "optional": true
+      },
+      "formalRole": {
+        "slot": null,
+        "role": "optional_language",
+        "selectionRule": "optional_outside_revised_35_lesson_allocation",
+        "lessonsPerWeek": null
+      },
+      "title": "Mandarin Grade 6 - Revised.pdf",
+      "driveFileId": "1NS6XW6s9aZS5iSxo_52BGj1A2A20T8V2",
+      "previewUrl": "https://drive.google.com/file/d/1NS6XW6s9aZS5iSxo_52BGj1A2A20T8V2/preview",
+      "knownKicdMirrorUrl": "https://kicd.ac.ke/wp-content/uploads/2024/10/Mandarin-Grade-6-Revised.pdf",
+      "revisionEvidence": {
+        "label": "Revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 76,
+      "pageCountEvidence": "Google Drive viewer metadata verified during the Grade 10 cross-review on 2026-07-22.",
+      "legacySupersessionNote": "The current KICD-hosted mirror corresponds to the revised file embedded by the authoritative index."
+    },
+    {
+      "order": 13,
+      "subject": "Mathematics",
+      "canonicalId": "mathematics",
+      "subjectCode": "mathematics",
+      "aliases": [],
+      "classification": {
+        "kind": "core_slot",
+        "slot": "mathematics",
+        "pathway": null,
+        "optional": false
+      },
+      "formalRole": {
+        "slot": "mathematics",
+        "role": "required_learning_area",
+        "selectionRule": "required",
+        "lessonsPerWeek": 5
+      },
+      "title": "Grade 6 Mathematics - Revised.pdf",
+      "driveFileId": "1ki1N1YnslIpZomG-0IoYogkzek7CKx0j",
+      "previewUrl": "https://drive.google.com/file/d/1ki1N1YnslIpZomG-0IoYogkzek7CKx0j/preview",
+      "knownKicdMirrorUrl": "https://kicd.ac.ke/wp-content/uploads/2024/10/Grade-6-Mathematics-Revised.pdf",
+      "revisionEvidence": {
+        "label": "Revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 57,
+      "pageCountEvidence": "Google Drive viewer metadata verified during the Grade 10 cross-review on 2026-07-22.",
+      "legacySupersessionNote": "The current KICD-hosted mirror corresponds to the revised file embedded by the authoritative index."
+    },
+    {
+      "order": 14,
+      "subject": "Science and Technology",
+      "canonicalId": "science_and_technology",
+      "subjectCode": "science_and_technology",
+      "aliases": [
+        "Science & Technology"
+      ],
+      "classification": {
+        "kind": "core_slot",
+        "slot": "science_and_technology",
+        "pathway": null,
+        "optional": false
+      },
+      "formalRole": {
+        "slot": "science_and_technology",
+        "role": "required_learning_area",
+        "selectionRule": "required",
+        "lessonsPerWeek": 4
+      },
+      "title": "Grade 6 Science and Tech - Revised.pdf",
+      "driveFileId": "1Cqoxx-afRo1d3DdjdCY8l5STD1lXJhJI",
+      "previewUrl": "https://drive.google.com/file/d/1Cqoxx-afRo1d3DdjdCY8l5STD1lXJhJI/preview",
+      "knownKicdMirrorUrl": "https://kicd.ac.ke/wp-content/uploads/2024/10/Grade-6-Science-and-Tech-Revised.pdf",
+      "revisionEvidence": {
+        "label": "Revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 36,
+      "pageCountEvidence": "Google Drive viewer metadata verified during the Grade 10 cross-review on 2026-07-22.",
+      "legacySupersessionNote": "The current KICD-hosted mirror corresponds to the revised file embedded by the authoritative index."
+    },
+    {
+      "order": 15,
+      "subject": "Social Studies",
+      "canonicalId": "social_studies",
+      "subjectCode": "social_studies",
+      "aliases": [],
+      "classification": {
+        "kind": "core_slot",
+        "slot": "social_studies",
+        "pathway": null,
+        "optional": false
+      },
+      "formalRole": {
+        "slot": "social_studies",
+        "role": "required_learning_area",
+        "selectionRule": "required",
+        "lessonsPerWeek": 3
+      },
+      "title": "Grade 6 Social studies - Revised Oct.pdf",
+      "driveFileId": "1H1QZ6wgFPsEL6S4A7dFdjukr2jEG8sS2",
+      "previewUrl": "https://drive.google.com/file/d/1H1QZ6wgFPsEL6S4A7dFdjukr2jEG8sS2/preview",
+      "knownKicdMirrorUrl": "https://kicd.ac.ke/wp-content/uploads/2024/10/Grade-6-Social-studies-Revised-Oct-1.pdf",
+      "legacyKicdMirrorUrls": [
+        "https://kicd.ac.ke/wp-content/uploads/2021/02/SOCIAL-STUDIES-GRADE-6-CURRICULUM-DESIGN.pdf"
+      ],
+      "revisionEvidence": {
+        "label": "Revised Oct",
+        "date": null,
+        "datePrecision": "month_without_year",
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 89,
+      "pageCountEvidence": "Google Drive viewer metadata verified during the Grade 10 cross-review on 2026-07-22.",
+      "legacySupersessionNote": "The 2021 KICD-hosted file is legacy evidence. Use the revised October 2024 KICD mirror or the Drive file embedded by the authoritative index; formal legal supersession was not asserted."
+    }
+  ]
+}

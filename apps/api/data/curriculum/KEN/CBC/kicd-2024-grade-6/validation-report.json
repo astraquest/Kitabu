@@ -1,0 +1,344 @@
+{
+  "schemaVersion": 1,
+  "status": "valid",
+  "errorCount": 0,
+  "warningCount": 45,
+  "logicalDigest": "242e5bd290296b9616110dff58fbb745bed8a8a0c45aac98f4f18542ad090bcc",
+  "corpusLogicalDigest": "4d94970e13536e38ca7610c397fae8f9190b7079ca75812e7a24ee0d580a22a9",
+  "counts": {
+    "documents": 15,
+    "pages": 1112,
+    "gradeSubjects": 15,
+    "strands": 174,
+    "subStrands": 367,
+    "outcomes": 1331,
+    "inquiryQuestions": 520,
+    "learningActivities": 2084,
+    "nodes": 0
+  },
+  "issues": [
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "hierarchy.duplicate-code",
+      "path": "normalized.gradeSubjects[2].strands[1].subStrands[5]",
+      "message": "Duplicate sub-strand code \"2.5\".",
+      "waived": true,
+      "waiverReason": "The official Grade 6 source prints 2.5 for two distinct leaves; preserve both exact source identities without renumbering or merging."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "hierarchy.duplicate-code",
+      "path": "normalized.gradeSubjects[5].strands[0].subStrands[2]",
+      "message": "Duplicate sub-strand code \"1.1\".",
+      "waived": true,
+      "waiverReason": "The official Grade 6 source prints 1.1 for two distinct leaves; preserve both exact source identities without renumbering or merging."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "hierarchy.duplicate-code",
+      "path": "normalized.gradeSubjects[9].strands[4].subStrands[1]",
+      "message": "Duplicate sub-strand code \"5.1\".",
+      "waived": true,
+      "waiverReason": "The official Grade 6 source prints 5.1 for two distinct leaves; preserve both exact source identities without renumbering or merging."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "hierarchy.duplicate-code",
+      "path": "normalized.gradeSubjects[9].strands[4].subStrands[3]",
+      "message": "Duplicate sub-strand code \"5.2\".",
+      "waived": true,
+      "waiverReason": "The official Grade 6 source prints 5.2 for two distinct leaves; preserve both exact source identities without renumbering or merging."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[0].subStrands[0].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[0].subStrands[1].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[0].subStrands[2].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[0].subStrands[3].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[0].subStrands[4].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[0].subStrands[5].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[0].subStrands[6].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[0].subStrands[7].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[0].subStrands[8].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[1].subStrands[0].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[1].subStrands[1].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[1].subStrands[2].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[1].subStrands[3].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[1].subStrands[4].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[1].subStrands[5].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[1].subStrands[6].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[1].subStrands[7].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[1].subStrands[8].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[2].subStrands[0].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[2].subStrands[1].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[2].subStrands[2].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[2].subStrands[3].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[2].subStrands[4].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[2].subStrands[5].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[2].subStrands[6].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[2].subStrands[7].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[2].subStrands[8].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[14].strands[1].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[14].strands[1].subStrands[1].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[14].strands[1].subStrands[2].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[14].strands[1].subStrands[3].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[3].strands[4].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[7].strands[5].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[9].strands[4].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[9].strands[4].subStrands[2].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "semantic.source-confirmed-empty",
+      "path": "normalized.gradeSubjects[10].strands[27].subStrands[0].semanticCoverage.coreCompetencies",
+      "message": "Official source evidence confirms no coreCompetencies statement for this leaf."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "semantic.source-confirmed-empty",
+      "path": "normalized.gradeSubjects[4].strands[1].subStrands[0].semanticCoverage.pertinentContemporaryIssues",
+      "message": "Official source evidence confirms no pertinentContemporaryIssues statement for this leaf."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "semantic.source-confirmed-empty",
+      "path": "normalized.gradeSubjects[5].strands[1].subStrands[4].semanticCoverage.coreCompetencies",
+      "message": "Official source evidence confirms no coreCompetencies statement for this leaf."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "semantic.source-confirmed-empty",
+      "path": "normalized.gradeSubjects[5].strands[1].subStrands[6].semanticCoverage.coreCompetencies",
+      "message": "Official source evidence confirms no coreCompetencies statement for this leaf."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "semantic.source-confirmed-empty",
+      "path": "normalized.gradeSubjects[9].strands[1].subStrands[0].semanticCoverage.crossCurricularLinks",
+      "message": "Official source evidence confirms no crossCurricularLinks statement for this leaf."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "semantic.source-confirmed-empty",
+      "path": "normalized.gradeSubjects[9].strands[4].subStrands[4].semanticCoverage.crossCurricularLinks",
+      "message": "Official source evidence confirms no crossCurricularLinks statement for this leaf."
+    }
+  ]
+}

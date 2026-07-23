@@ -1,0 +1,76 @@
+{
+  "schema": "kitabu.curriculum.grade12-disposable-import-validation-report",
+  "schemaVersion": 1,
+  "status": "valid",
+  "errorCount": 0,
+  "warningCount": 2,
+  "logicalDigest": "9d3ae1685e7c133fd335dd13575918907f3de503c8e508659ab08834ccf268ef",
+  "purpose": "loopback_disposable_storage_verification_only",
+  "productionEligible": false,
+  "scope": {
+    "countryCode": "KEN",
+    "curriculumCode": "CBC",
+    "revision": "2026",
+    "grade": "Grade 12"
+  },
+  "counts": {
+    "documents": 39,
+    "pages": 2339,
+    "gradeSubjects": 39,
+    "units": 1077,
+    "normalizedStrands": 343,
+    "normalizedSubStrands": 663,
+    "strands": 343,
+    "subStrands": 663,
+    "outcomes": 2991,
+    "inquiryQuestions": 1052,
+    "learningActivities": 5190
+  },
+  "strictImporterPlan": {
+    "runKey": "KEN:CBC:2026:ac4dd8a5e0f9df0cd4b409e27eb8aa2d6a4c876e7bc4beef17375d04addb0119",
+    "releaseId": "45c238f1-1881-5c76-90cd-be31e6dd81b2",
+    "contentDigest": "ac4dd8a5e0f9df0cd4b409e27eb8aa2d6a4c876e7bc4beef17375d04addb0119",
+    "logicalDigest": "9d3ae1685e7c133fd335dd13575918907f3de503c8e508659ab08834ccf268ef",
+    "rowCounts": {
+      "sources": 1,
+      "frameworks": 1,
+      "ingestionRuns": 1,
+      "grades": 1,
+      "subjects": 39,
+      "gradeSubjects": 39,
+      "sourceDocuments": 39,
+      "sourcePages": 2339,
+      "units": 1077,
+      "outcomes": 2991,
+      "questions": 1052,
+      "activities": 5190,
+      "legacyStrands": 343,
+      "legacySubStrands": 663,
+      "pathways": 10,
+      "selectionGroups": 16,
+      "pathwaySubjects": 44,
+      "citations": 663
+    }
+  },
+  "inputHashes": {
+    "datasetSha256": "0b20b7e399b986810b3e253ca5e01cdbd93fb673d856dc37bc77f7c645830f3a",
+    "sourcePagesSha256": "cea486f224c183dcb0410544c0add0610d7fdce678db1527911ef215473112d6",
+    "sourceCatalogSha256": "5b688ca98ce6d195ca61869548376e4a86a09649792b97099e49319f881ab47d",
+    "taxonomyReportSha256": "72f5bfee46d6e14625f2614b789d1f2b970031209069581830140ad386c924da",
+    "taxonomyPolicySha256": "6bf8e279e9f45da64b30ddfb67095aa088695f31b4ffcb188909ce1a94c9b2a0",
+    "validationInputsSha256": "40915840b63605c0633f2df35ea6dbdaa1d44e341b5027f373de8fbe715ac377",
+    "strictValidationLogicalDigest": "30ad346b8b81fc92a63da8e1a3cfbc5c37ece03ae3ab8661773f8c0a74bd0dbf"
+  },
+  "warnings": [
+    {
+      "code": "MISSING_KENYA_SIGN_LANGUAGE_SOURCE",
+      "scope": "formal_core_alternative_coverage",
+      "disposition": "retained; does not authorize production publication"
+    },
+    {
+      "code": "EXACT_SUBJECT_COMBINATION_REGISTER_NOT_ENCODED",
+      "scope": "exact_three_subject_eligibility",
+      "disposition": "retained; does not authorize production publication"
+    }
+  ]
+}

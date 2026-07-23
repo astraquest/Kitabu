@@ -1,0 +1,1852 @@
+{
+  "schema": "kitabu.curriculum.source-catalog",
+  "schemaVersion": 1,
+  "catalogVersion": "2026-grade-12-current-public-snapshot",
+  "grade": 12,
+  "schema_version": 1,
+  "capture_id": "kicd-2026-grade-12",
+  "ordered_registry_contract": {
+    "registry_pointer": "#/subjects",
+    "legacy_asset_pointer": "#/assets",
+    "expected_count": 39,
+    "order_field": "order",
+    "order_requirement": "Unique contiguous integers from 1 through 39, evaluated in ascending order.",
+    "identity_fields": [
+      "canonicalId",
+      "driveFileId"
+    ],
+    "asset_join": {
+      "registry_field": "driveFileId",
+      "asset_field": "drive_file_id",
+      "cardinality": "exactly_one_to_one",
+      "require_all_registry_entries_matched": true,
+      "require_all_assets_matched": true
+    },
+    "failure_mode": "fail_closed",
+    "failure_codes": [
+      "ORDERED_REGISTRY_COUNT_MISMATCH",
+      "ORDERED_REGISTRY_NON_CONTIGUOUS_ORDER",
+      "ORDERED_REGISTRY_DUPLICATE_IDENTITY",
+      "ORDERED_REGISTRY_ASSET_JOIN_MISMATCH"
+    ]
+  },
+  "subjects": [
+    {
+      "order": 1,
+      "canonicalId": "ken-cbc-g12-agriculture",
+      "subject": "Agriculture",
+      "title": "Agriculture Grade 12 - March 2026.pdf",
+      "driveFileId": "1gfH3cDl2282221lDeCgFHmdNhLhr6U2t",
+      "previewUrl": "https://drive.google.com/file/d/1gfH3cDl2282221lDeCgFHmdNhLhr6U2t/preview",
+      "sourceCategory": "Applied Sciences",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "pathway",
+        "slot": "elective",
+        "optional": true,
+        "alternative": "applied_sciences",
+        "pathway": "stem",
+        "track": "applied_sciences",
+        "assetRole": "elective_learning_area",
+        "mappingId": "elective.agriculture",
+        "mappingStatus": "resolved_primary_track",
+        "evidenceRefs": [
+          "kicd_taxonomy:pathways.stem.tracks.applied_sciences.primarySubjectPool"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": "applied_sciences"
+    },
+    {
+      "order": 2,
+      "canonicalId": "ken-cbc-g12-computer-studies",
+      "subject": "Computer Studies",
+      "title": "Computer Studies Grade 12 - March 2026.pdf",
+      "driveFileId": "1cHrNaL3KqtunkI5TIo_2Cw_CDrcP9JgW",
+      "previewUrl": "https://drive.google.com/file/d/1cHrNaL3KqtunkI5TIo_2Cw_CDrcP9JgW/preview",
+      "sourceCategory": "Applied Sciences",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "pathway",
+        "slot": "elective",
+        "optional": true,
+        "alternative": "applied_sciences",
+        "pathway": "stem",
+        "track": "applied_sciences",
+        "assetRole": "elective_learning_area",
+        "mappingId": "elective.computer_studies",
+        "mappingStatus": "resolved_primary_track",
+        "evidenceRefs": [
+          "kicd_taxonomy:pathways.stem.tracks.applied_sciences.primarySubjectPool"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": "applied_sciences"
+    },
+    {
+      "order": 3,
+      "canonicalId": "ken-cbc-g12-home-science",
+      "subject": "Home Science",
+      "title": "Home Science Grade 12 - March 2026.pdf",
+      "driveFileId": "1VdYXsYI114EgPqnwlWJ7Dn9Jmv2Xbct-",
+      "previewUrl": "https://drive.google.com/file/d/1VdYXsYI114EgPqnwlWJ7Dn9Jmv2Xbct-/preview",
+      "sourceCategory": "Applied Sciences",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "pathway",
+        "slot": "elective",
+        "optional": true,
+        "alternative": "applied_sciences",
+        "pathway": "stem",
+        "track": "applied_sciences",
+        "assetRole": "elective_learning_area",
+        "mappingId": "elective.home_science",
+        "mappingStatus": "resolved_primary_track",
+        "evidenceRefs": [
+          "kicd_taxonomy:pathways.stem.tracks.applied_sciences.primarySubjectPool"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": "applied_sciences"
+    },
+    {
+      "order": 4,
+      "canonicalId": "ken-cbc-g12-ict",
+      "subject": "Information and Communication Technology (ICT)",
+      "title": "ICT Grade 12 - March 2026.pdf",
+      "driveFileId": "19hCnERDirl5rnMCnVOalbvLN07c58BVH",
+      "previewUrl": "https://drive.google.com/file/d/19hCnERDirl5rnMCnVOalbvLN07c58BVH/preview",
+      "sourceCategory": "Applied Sciences",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "timetable_activity",
+        "slot": "timetable_activity",
+        "optional": true,
+        "alternative": null,
+        "pathway": null,
+        "track": null,
+        "assetRole": "timetable_activity",
+        "mappingId": "activity.ict_skills",
+        "mappingStatus": "resolved_no_pathway_by_role",
+        "evidenceRefs": [
+          "kicd_taxonomy:levels.senior_school.timetableActivities.ict_skills",
+          "kicd_senior_structure"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": null
+    },
+    {
+      "order": 5,
+      "canonicalId": "ken-cbc-g12-fine-arts",
+      "subject": "Fine Arts",
+      "title": "Fine Arts Grade 12 -March 2026.pdf",
+      "driveFileId": "1lQHo9l_ZdbsOl_a6OsO82OpoyA9o3DYb",
+      "previewUrl": "https://drive.google.com/file/d/1lQHo9l_ZdbsOl_a6OsO82OpoyA9o3DYb/preview",
+      "sourceCategory": "Arts & Sports",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "pathway",
+        "slot": "elective",
+        "optional": true,
+        "alternative": "arts",
+        "pathway": "arts_and_sports_science",
+        "track": "arts",
+        "assetRole": "elective_learning_area",
+        "mappingId": "elective.fine_arts",
+        "mappingStatus": "resolved_primary_track",
+        "evidenceRefs": [
+          "kicd_taxonomy:pathways.arts_and_sports_science.tracks.arts.primarySubjectPool"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": "arts"
+    },
+    {
+      "order": 6,
+      "canonicalId": "ken-cbc-g12-music-and-dance",
+      "subject": "Music and Dance",
+      "title": "Music and Dance Grade 12 - March  2026.pdf",
+      "driveFileId": "1_HKWsDxTc60lFusFbbuN5IufZiqEapZN",
+      "previewUrl": "https://drive.google.com/file/d/1_HKWsDxTc60lFusFbbuN5IufZiqEapZN/preview",
+      "sourceCategory": "Arts & Sports",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "pathway",
+        "slot": "elective",
+        "optional": true,
+        "alternative": "arts",
+        "pathway": "arts_and_sports_science",
+        "track": "arts",
+        "assetRole": "elective_learning_area",
+        "mappingId": "elective.music_and_dance",
+        "mappingStatus": "resolved_primary_track",
+        "evidenceRefs": [
+          "kicd_taxonomy:pathways.arts_and_sports_science.tracks.arts.primarySubjectPool"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": "arts"
+    },
+    {
+      "order": 7,
+      "canonicalId": "ken-cbc-g12-physical-education",
+      "subject": "Physical Education",
+      "title": "Physical Education Grade 12  - March  2026.pdf",
+      "driveFileId": "1OzK78HR9l2jE3lx2fsVZNTviwBxtwrb3",
+      "previewUrl": "https://drive.google.com/file/d/1OzK78HR9l2jE3lx2fsVZNTviwBxtwrb3/preview",
+      "sourceCategory": "Arts & Sports",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "timetable_activity",
+        "slot": "timetable_activity",
+        "optional": true,
+        "alternative": null,
+        "pathway": null,
+        "track": null,
+        "assetRole": "timetable_activity",
+        "mappingId": "activity.physical_education",
+        "mappingStatus": "resolved_no_pathway_by_role",
+        "evidenceRefs": [
+          "kicd_taxonomy:levels.senior_school.timetableActivities.physical_education",
+          "kicd_senior_structure"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": null
+    },
+    {
+      "order": 8,
+      "canonicalId": "ken-cbc-g12-sports-and-recreation",
+      "subject": "Sports and Recreation",
+      "title": "Sports and Recreation Grade 12 -March 2026.pdf",
+      "driveFileId": "1imCyMeOYWYoV0ZvustqxwN5xIU08EwKU",
+      "previewUrl": "https://drive.google.com/file/d/1imCyMeOYWYoV0ZvustqxwN5xIU08EwKU/preview",
+      "sourceCategory": "Arts & Sports",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "pathway",
+        "slot": "elective",
+        "optional": true,
+        "alternative": "sports",
+        "pathway": "arts_and_sports_science",
+        "track": "sports",
+        "assetRole": "elective_learning_area",
+        "mappingId": "elective.sports_and_recreation",
+        "mappingStatus": "resolved_primary_track",
+        "evidenceRefs": [
+          "kicd_taxonomy:pathways.arts_and_sports_science.tracks.sports.primarySubjectPool"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": "sports"
+    },
+    {
+      "order": 9,
+      "canonicalId": "ken-cbc-g12-theatre-and-film",
+      "subject": "Theatre & Film",
+      "title": "Theatre & Film Grade 12 - March, 2026.pdf",
+      "driveFileId": "1DShWBYhePIV9hvLrDXpYbr-PnesyVFEe",
+      "previewUrl": "https://drive.google.com/file/d/1DShWBYhePIV9hvLrDXpYbr-PnesyVFEe/preview",
+      "sourceCategory": "Arts & Sports",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "pathway",
+        "slot": "elective",
+        "optional": true,
+        "alternative": "arts",
+        "pathway": "arts_and_sports_science",
+        "track": "arts",
+        "assetRole": "elective_learning_area",
+        "mappingId": "elective.theatre_and_film",
+        "mappingStatus": "resolved_primary_track",
+        "evidenceRefs": [
+          "kicd_taxonomy:pathways.arts_and_sports_science.tracks.arts.primarySubjectPool"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": "arts"
+    },
+    {
+      "order": 10,
+      "canonicalId": "ken-cbc-g12-arabic",
+      "subject": "Arabic",
+      "title": "Arabic Grade 12 - March 2026.pdf",
+      "driveFileId": "1BSA2Osc8jUbldCkOi2oVUrqjbqwftkTV",
+      "previewUrl": "https://drive.google.com/file/d/1BSA2Osc8jUbldCkOi2oVUrqjbqwftkTV/preview",
+      "sourceCategory": "Foreign Languages",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "pathway",
+        "slot": "elective",
+        "optional": true,
+        "alternative": "languages_and_literature",
+        "pathway": "social_sciences",
+        "track": "languages_and_literature",
+        "assetRole": "elective_learning_area",
+        "mappingId": "elective.arabic",
+        "mappingStatus": "resolved_primary_track",
+        "evidenceRefs": [
+          "kicd_taxonomy:pathways.social_sciences.tracks.languages_and_literature.primarySubjectPool"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": "languages_and_literature"
+    },
+    {
+      "order": 11,
+      "canonicalId": "ken-cbc-g12-french",
+      "subject": "French",
+      "title": "French Grade 12 - March 2026.pdf",
+      "driveFileId": "1BfpLyRc59spHCU4mZsKzkC0bL971PbZf",
+      "previewUrl": "https://drive.google.com/file/d/1BfpLyRc59spHCU4mZsKzkC0bL971PbZf/preview",
+      "sourceCategory": "Foreign Languages",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "pathway",
+        "slot": "elective",
+        "optional": true,
+        "alternative": "languages_and_literature",
+        "pathway": "social_sciences",
+        "track": "languages_and_literature",
+        "assetRole": "elective_learning_area",
+        "mappingId": "elective.french",
+        "mappingStatus": "resolved_primary_track",
+        "evidenceRefs": [
+          "kicd_taxonomy:pathways.social_sciences.tracks.languages_and_literature.primarySubjectPool"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": "languages_and_literature"
+    },
+    {
+      "order": 12,
+      "canonicalId": "ken-cbc-g12-german",
+      "subject": "German",
+      "title": "German Grade 12- March 2026.pdf",
+      "driveFileId": "1Pu5GNNUPcIlzjWJJw_9xcEhbtZc3sXcR",
+      "previewUrl": "https://drive.google.com/file/d/1Pu5GNNUPcIlzjWJJw_9xcEhbtZc3sXcR/preview",
+      "sourceCategory": "Foreign Languages",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "pathway",
+        "slot": "elective",
+        "optional": true,
+        "alternative": "languages_and_literature",
+        "pathway": "social_sciences",
+        "track": "languages_and_literature",
+        "assetRole": "elective_learning_area",
+        "mappingId": "elective.german",
+        "mappingStatus": "resolved_primary_track",
+        "evidenceRefs": [
+          "kicd_taxonomy:pathways.social_sciences.tracks.languages_and_literature.primarySubjectPool"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": "languages_and_literature"
+    },
+    {
+      "order": 13,
+      "canonicalId": "ken-cbc-g12-mandarin",
+      "subject": "Mandarin",
+      "title": "Mandarin Grade 12 - March 2025.pdf",
+      "driveFileId": "1yY1qP3wERDlVCojRgg2XGpQyZ4oDeQzR",
+      "previewUrl": "https://drive.google.com/file/d/1yY1qP3wERDlVCojRgg2XGpQyZ4oDeQzR/preview",
+      "sourceCategory": "Foreign Languages",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "pathway",
+        "slot": "elective",
+        "optional": true,
+        "alternative": "languages_and_literature",
+        "pathway": "social_sciences",
+        "track": "languages_and_literature",
+        "assetRole": "elective_learning_area",
+        "mappingId": "elective.mandarin",
+        "mappingStatus": "resolved_primary_track",
+        "evidenceRefs": [
+          "kicd_taxonomy:pathways.social_sciences.tracks.languages_and_literature.primarySubjectPool"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": "languages_and_literature"
+    },
+    {
+      "order": 14,
+      "canonicalId": "ken-cbc-g12-business-studies",
+      "subject": "Business Studies",
+      "title": "Business Studies Grade 12 - March 2026.pdf",
+      "driveFileId": "15pl2sGv6-x3hYyZPrn0QavTz0toPXZ9h",
+      "previewUrl": "https://drive.google.com/file/d/15pl2sGv6-x3hYyZPrn0QavTz0toPXZ9h/preview",
+      "sourceCategory": "Humanities",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "pathway",
+        "slot": "elective",
+        "optional": true,
+        "alternative": "humanities_and_business_studies",
+        "pathway": "social_sciences",
+        "track": "humanities_and_business_studies",
+        "assetRole": "elective_learning_area",
+        "mappingId": "elective.business_studies",
+        "mappingStatus": "resolved_primary_track",
+        "evidenceRefs": [
+          "kicd_taxonomy:pathways.social_sciences.tracks.humanities_and_business_studies.primarySubjectPool"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": "humanities_and_business_studies"
+    },
+    {
+      "order": 15,
+      "canonicalId": "ken-cbc-g12-community-service-learning",
+      "subject": "Community Service Learning",
+      "title": "Community Service Learning Grade 12 - March 2026.pdf",
+      "driveFileId": "1V0UL6mPGkAI8GhwVyaphU0uEbnK6vm8n",
+      "previewUrl": "https://drive.google.com/file/d/1V0UL6mPGkAI8GhwVyaphU0uEbnK6vm8n/preview",
+      "sourceCategory": "Humanities",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "core_slot",
+        "slot": "community_service_learning",
+        "optional": false,
+        "alternative": null,
+        "pathway": null,
+        "track": null,
+        "assetRole": "core_learning_area",
+        "mappingId": "core.community_service_learning",
+        "mappingStatus": "resolved_no_pathway_by_role",
+        "evidenceRefs": [
+          "kicd_taxonomy:levels.senior_school.slots.community_service_learning",
+          "kicd_senior_structure"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": null
+    },
+    {
+      "order": 16,
+      "canonicalId": "ken-cbc-g12-geography",
+      "subject": "Geography",
+      "title": "Geography Grade 12 - March 2026.pdf",
+      "driveFileId": "1hNjIpVt41AJhUO8y8LN0dwJYQX6IHoLa",
+      "previewUrl": "https://drive.google.com/file/d/1hNjIpVt41AJhUO8y8LN0dwJYQX6IHoLa/preview",
+      "sourceCategory": "Humanities",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "pathway",
+        "slot": "elective",
+        "optional": true,
+        "alternative": "humanities_and_business_studies",
+        "pathway": "social_sciences",
+        "track": "humanities_and_business_studies",
+        "assetRole": "elective_learning_area",
+        "mappingId": "elective.geography",
+        "mappingStatus": "resolved_primary_track",
+        "evidenceRefs": [
+          "kicd_taxonomy:pathways.social_sciences.tracks.humanities_and_business_studies.primarySubjectPool"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": "humanities_and_business_studies"
+    },
+    {
+      "order": 17,
+      "canonicalId": "ken-cbc-g12-history-and-citizenship",
+      "subject": "History & Citizenship",
+      "title": "History & Citizenship Grade 12 -March 2026.pdf",
+      "driveFileId": "1tPOlPbfa8ePIYSQq5v9vwMUI1zpiRz9R",
+      "previewUrl": "https://drive.google.com/file/d/1tPOlPbfa8ePIYSQq5v9vwMUI1zpiRz9R/preview",
+      "sourceCategory": "Humanities",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "pathway",
+        "slot": "elective",
+        "optional": true,
+        "alternative": "humanities_and_business_studies",
+        "pathway": "social_sciences",
+        "track": "humanities_and_business_studies",
+        "assetRole": "elective_learning_area",
+        "mappingId": "elective.history_and_citizenship",
+        "mappingStatus": "resolved_primary_track",
+        "evidenceRefs": [
+          "kicd_taxonomy:pathways.social_sciences.tracks.humanities_and_business_studies.primarySubjectPool"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": "humanities_and_business_studies"
+    },
+    {
+      "order": 18,
+      "canonicalId": "ken-cbc-g12-english",
+      "subject": "English",
+      "title": "GRADE 12 ENGLISH CURRICULUM DESIGN 15TH  MAY 2026 REVISED.pdf",
+      "driveFileId": "1rvmzyo9hhzUfhKdoGSyAXVXz4eLrdPAe",
+      "previewUrl": "https://drive.google.com/file/d/1rvmzyo9hhzUfhKdoGSyAXVXz4eLrdPAe/preview",
+      "sourceCategory": "Languages",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "core_slot",
+        "slot": "english",
+        "optional": false,
+        "alternative": null,
+        "pathway": null,
+        "track": null,
+        "assetRole": "core_learning_area",
+        "mappingId": "core.english",
+        "mappingStatus": "resolved_no_pathway_by_role",
+        "evidenceRefs": [
+          "kicd_taxonomy:levels.senior_school.slots.english",
+          "kicd_senior_structure"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": null
+    },
+    {
+      "order": 19,
+      "canonicalId": "ken-cbc-g12-fasihi-ya-kiswahili",
+      "subject": "Fasihi ya Kiswahili",
+      "title": "Fasihi ya Kiswahili Grade 12- Jan 2026 Peer reviewed(10).pdf",
+      "driveFileId": "1o4Kc4k5ORvr6mCmVqhmOvjpUir6l0Dev",
+      "previewUrl": "https://drive.google.com/file/d/1o4Kc4k5ORvr6mCmVqhmOvjpUir6l0Dev/preview",
+      "sourceCategory": "Languages",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "pathway",
+        "slot": "elective",
+        "optional": true,
+        "alternative": "languages_and_literature",
+        "pathway": "social_sciences",
+        "track": "languages_and_literature",
+        "assetRole": "elective_learning_area",
+        "mappingId": "elective.fasihi_ya_kiswahili",
+        "mappingStatus": "resolved_primary_track",
+        "evidenceRefs": [
+          "kicd_taxonomy:pathways.social_sciences.tracks.languages_and_literature.primarySubjectPool"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": "languages_and_literature"
+    },
+    {
+      "order": 20,
+      "canonicalId": "ken-cbc-g12-indigenous-language",
+      "subject": "Indigenous Language",
+      "title": "Indigenous Language Grade 12 -March 2026.pdf",
+      "driveFileId": "1-TWlDcKyixt8op9MO6GEea28GL2l1DRE",
+      "previewUrl": "https://drive.google.com/file/d/1-TWlDcKyixt8op9MO6GEea28GL2l1DRE/preview",
+      "sourceCategory": "Languages",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "pathway",
+        "slot": "elective",
+        "optional": true,
+        "alternative": "languages_and_literature",
+        "pathway": "social_sciences",
+        "track": "languages_and_literature",
+        "assetRole": "elective_learning_area",
+        "mappingId": "elective.indigenous_languages",
+        "mappingStatus": "resolved_primary_track",
+        "evidenceRefs": [
+          "kicd_taxonomy:pathways.social_sciences.tracks.languages_and_literature.primarySubjectPool"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": "languages_and_literature"
+    },
+    {
+      "order": 21,
+      "canonicalId": "ken-cbc-g12-kiswahili",
+      "subject": "Kiswahili",
+      "title": "Kiswahili Gredi 12 - Machi 2026.pdf",
+      "driveFileId": "1_QzsqQB8Mhm0JhXogIALTWakKDnXXqKV",
+      "previewUrl": "https://drive.google.com/file/d/1_QzsqQB8Mhm0JhXogIALTWakKDnXXqKV/preview",
+      "sourceCategory": "Languages",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "core_slot",
+        "slot": "kenyan_language",
+        "optional": true,
+        "alternative": "kiswahili",
+        "pathway": null,
+        "track": null,
+        "assetRole": "core_learning_area",
+        "mappingId": "core.kiswahili",
+        "mappingStatus": "resolved_no_pathway_by_role",
+        "evidenceRefs": [
+          "kicd_taxonomy:levels.senior_school.slots.kenyan_language",
+          "kicd_senior_structure"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": "kiswahili"
+    },
+    {
+      "order": 22,
+      "canonicalId": "ken-cbc-g12-literature-in-english",
+      "subject": "Literature in English",
+      "title": "Literature in English Grade 12 - March 2026.pdf",
+      "driveFileId": "1OFM21rpwiexXG8LOU2Fi3mqpaoGchT5F",
+      "previewUrl": "https://drive.google.com/file/d/1OFM21rpwiexXG8LOU2Fi3mqpaoGchT5F/preview",
+      "sourceCategory": "Languages",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "pathway",
+        "slot": "elective",
+        "optional": true,
+        "alternative": "languages_and_literature",
+        "pathway": "social_sciences",
+        "track": "languages_and_literature",
+        "assetRole": "elective_learning_area",
+        "mappingId": "elective.literature_in_english",
+        "mappingStatus": "resolved_primary_track",
+        "evidenceRefs": [
+          "kicd_taxonomy:pathways.social_sciences.tracks.languages_and_literature.primarySubjectPool"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": "languages_and_literature"
+    },
+    {
+      "order": 23,
+      "canonicalId": "ken-cbc-g12-biology",
+      "subject": "Biology",
+      "title": "Biology Grade 12- March 2026.pdf",
+      "driveFileId": "1YNHD3E0kZ55o_B2HBtcWQPKttHBA6-W1",
+      "previewUrl": "https://drive.google.com/file/d/1YNHD3E0kZ55o_B2HBtcWQPKttHBA6-W1/preview",
+      "sourceCategory": "Pure Sciences",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "pathway",
+        "slot": "elective",
+        "optional": true,
+        "alternative": "pure_sciences",
+        "pathway": "stem",
+        "track": "pure_sciences",
+        "assetRole": "elective_learning_area",
+        "mappingId": "elective.biology",
+        "mappingStatus": "resolved_primary_track",
+        "evidenceRefs": [
+          "kicd_taxonomy:pathways.stem.tracks.pure_sciences.primarySubjectPool"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": "pure_sciences"
+    },
+    {
+      "order": 24,
+      "canonicalId": "ken-cbc-g12-chemistry",
+      "subject": "Chemistry",
+      "title": "Chemistry Grade 12 - March 2026.pdf",
+      "driveFileId": "1GcLr251w5DqDlHQXTtdFy3HPdS6jWf1q",
+      "previewUrl": "https://drive.google.com/file/d/1GcLr251w5DqDlHQXTtdFy3HPdS6jWf1q/preview",
+      "sourceCategory": "Pure Sciences",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "pathway",
+        "slot": "elective",
+        "optional": true,
+        "alternative": "pure_sciences",
+        "pathway": "stem",
+        "track": "pure_sciences",
+        "assetRole": "elective_learning_area",
+        "mappingId": "elective.chemistry",
+        "mappingStatus": "resolved_primary_track",
+        "evidenceRefs": [
+          "kicd_taxonomy:pathways.stem.tracks.pure_sciences.primarySubjectPool"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": "pure_sciences"
+    },
+    {
+      "order": 25,
+      "canonicalId": "ken-cbc-g12-core-mathematics",
+      "subject": "Core Mathematics",
+      "title": "Core Mathematics Grade 12 - March 2026.pdf",
+      "driveFileId": "1fWQgXTbmpU4jcrUeBj8LiOlvVcAJSrQP",
+      "previewUrl": "https://drive.google.com/file/d/1fWQgXTbmpU4jcrUeBj8LiOlvVcAJSrQP/preview",
+      "sourceCategory": "Pure Sciences",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "core_slot",
+        "slot": "mathematics",
+        "optional": true,
+        "alternative": "core_mathematics",
+        "pathway": null,
+        "track": null,
+        "assetRole": "core_learning_area",
+        "mappingId": "core.core_mathematics",
+        "mappingStatus": "resolved_no_pathway_by_role",
+        "evidenceRefs": [
+          "kicd_taxonomy:levels.senior_school.slots.mathematics",
+          "kicd_senior_structure"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": "core_mathematics"
+    },
+    {
+      "order": 26,
+      "canonicalId": "ken-cbc-g12-essential-mathematics",
+      "subject": "Essential Mathematics",
+      "title": "Essential Mathematics Grade 12 - March 2026.pdf",
+      "driveFileId": "1EZY-DH1iHY8iCTg8JDf6xkaUKOPHWP2E",
+      "previewUrl": "https://drive.google.com/file/d/1EZY-DH1iHY8iCTg8JDf6xkaUKOPHWP2E/preview",
+      "sourceCategory": "Pure Sciences",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "core_slot",
+        "slot": "mathematics",
+        "optional": true,
+        "alternative": "essential_mathematics",
+        "pathway": null,
+        "track": null,
+        "assetRole": "core_learning_area",
+        "mappingId": "core.essential_mathematics",
+        "mappingStatus": "resolved_no_pathway_by_role",
+        "evidenceRefs": [
+          "kicd_taxonomy:levels.senior_school.slots.mathematics",
+          "kicd_senior_structure"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": "essential_mathematics"
+    },
+    {
+      "order": 27,
+      "canonicalId": "ken-cbc-g12-general-science",
+      "subject": "General Science",
+      "title": "General Science Grade 12 - March 2026.pdf",
+      "driveFileId": "1sZigVO4-SD6cxio9wXcbAkPuL5u14GG0",
+      "previewUrl": "https://drive.google.com/file/d/1sZigVO4-SD6cxio9wXcbAkPuL5u14GG0/preview",
+      "sourceCategory": "Pure Sciences",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "pathway",
+        "slot": "elective",
+        "optional": true,
+        "alternative": "pure_sciences",
+        "pathway": "stem",
+        "track": "pure_sciences",
+        "assetRole": "elective_learning_area",
+        "mappingId": "elective.general_science",
+        "mappingStatus": "resolved_primary_track",
+        "evidenceRefs": [
+          "kicd_taxonomy:pathways.stem.tracks.pure_sciences.primarySubjectPool"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": "pure_sciences"
+    },
+    {
+      "order": 28,
+      "canonicalId": "ken-cbc-g12-physics",
+      "subject": "Physics",
+      "title": "Physics Grade 12 - March 2026.pdf",
+      "driveFileId": "19s1ooB6CzN5RB9hAz85T0HemYdCx3sf9",
+      "previewUrl": "https://drive.google.com/file/d/19s1ooB6CzN5RB9hAz85T0HemYdCx3sf9/preview",
+      "sourceCategory": "Pure Sciences",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "pathway",
+        "slot": "elective",
+        "optional": true,
+        "alternative": "pure_sciences",
+        "pathway": "stem",
+        "track": "pure_sciences",
+        "assetRole": "elective_learning_area",
+        "mappingId": "elective.physics",
+        "mappingStatus": "resolved_primary_track",
+        "evidenceRefs": [
+          "kicd_taxonomy:pathways.stem.tracks.pure_sciences.primarySubjectPool"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": "pure_sciences"
+    },
+    {
+      "order": 29,
+      "canonicalId": "ken-cbc-g12-christian-religious-education",
+      "subject": "Christian Religious Education",
+      "title": "Christian Religious Education Grade 12 - March 2026.pdf",
+      "driveFileId": "1vljnsfI-8BBgKV7m5B3DAIpqGVh8JDc6",
+      "previewUrl": "https://drive.google.com/file/d/1vljnsfI-8BBgKV7m5B3DAIpqGVh8JDc6/preview",
+      "sourceCategory": "Religious Education",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "pathway",
+        "slot": "elective",
+        "optional": true,
+        "alternative": "humanities_and_business_studies",
+        "pathway": "social_sciences",
+        "track": "humanities_and_business_studies",
+        "assetRole": "elective_learning_area",
+        "mappingId": "elective.christian_religious_education",
+        "mappingStatus": "resolved_primary_track",
+        "evidenceRefs": [
+          "kicd_taxonomy:pathways.social_sciences.tracks.humanities_and_business_studies.primarySubjectPool"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": "humanities_and_business_studies"
+    },
+    {
+      "order": 30,
+      "canonicalId": "ken-cbc-g12-hindu-religious-education",
+      "subject": "Hindu Religious Education",
+      "title": "Hindu Religious Education Grade 12 - March 2026.pdf",
+      "driveFileId": "1iKZKexi-iy90d5x2igJb52YKAtcLVhu_",
+      "previewUrl": "https://drive.google.com/file/d/1iKZKexi-iy90d5x2igJb52YKAtcLVhu_/preview",
+      "sourceCategory": "Religious Education",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "pathway",
+        "slot": "elective",
+        "optional": true,
+        "alternative": "humanities_and_business_studies",
+        "pathway": "social_sciences",
+        "track": "humanities_and_business_studies",
+        "assetRole": "elective_learning_area",
+        "mappingId": "elective.hindu_religious_education",
+        "mappingStatus": "resolved_primary_track",
+        "evidenceRefs": [
+          "kicd_taxonomy:pathways.social_sciences.tracks.humanities_and_business_studies.primarySubjectPool"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": "humanities_and_business_studies"
+    },
+    {
+      "order": 31,
+      "canonicalId": "ken-cbc-g12-islamic-religious-education",
+      "subject": "Islamic Religious Education",
+      "title": "Islamic Religious Education Grade 12 - March 2026.pdf",
+      "driveFileId": "1kvaWgn6qSDD4NqCPmPyhanmI-JWNxKCD",
+      "previewUrl": "https://drive.google.com/file/d/1kvaWgn6qSDD4NqCPmPyhanmI-JWNxKCD/preview",
+      "sourceCategory": "Religious Education",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "pathway",
+        "slot": "elective",
+        "optional": true,
+        "alternative": "humanities_and_business_studies",
+        "pathway": "social_sciences",
+        "track": "humanities_and_business_studies",
+        "assetRole": "elective_learning_area",
+        "mappingId": "elective.islamic_religious_education",
+        "mappingStatus": "resolved_primary_track",
+        "evidenceRefs": [
+          "kicd_taxonomy:pathways.social_sciences.tracks.humanities_and_business_studies.primarySubjectPool"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": "humanities_and_business_studies"
+    },
+    {
+      "order": 32,
+      "canonicalId": "ken-cbc-g12-aviation",
+      "subject": "Aviation",
+      "title": "Aviation Grade 12 - Mach 2026.pdf",
+      "driveFileId": "1xVmHEQWLmz0nerCxwOdE9ouq3kcjm-7j",
+      "previewUrl": "https://drive.google.com/file/d/1xVmHEQWLmz0nerCxwOdE9ouq3kcjm-7j/preview",
+      "sourceCategory": "Technical Studies",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "pathway",
+        "slot": "elective",
+        "optional": true,
+        "alternative": "technical_studies",
+        "pathway": "stem",
+        "track": "technical_studies",
+        "assetRole": "elective_learning_area",
+        "mappingId": "elective.aviation",
+        "mappingStatus": "resolved_primary_track",
+        "evidenceRefs": [
+          "kicd_taxonomy:pathways.stem.tracks.technical_studies.primarySubjectPool"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": "technical_studies"
+    },
+    {
+      "order": 33,
+      "canonicalId": "ken-cbc-g12-building-construction",
+      "subject": "Building Construction",
+      "title": "Building Construction Grade 12 - March 2026.pdf",
+      "driveFileId": "1r84vSdYuUxgv3joxvFyShSI2n1xgF0Xr",
+      "previewUrl": "https://drive.google.com/file/d/1r84vSdYuUxgv3joxvFyShSI2n1xgF0Xr/preview",
+      "sourceCategory": "Technical Studies",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "pathway",
+        "slot": "elective",
+        "optional": true,
+        "alternative": "technical_studies",
+        "pathway": "stem",
+        "track": "technical_studies",
+        "assetRole": "elective_learning_area",
+        "mappingId": "elective.building_construction",
+        "mappingStatus": "resolved_primary_track",
+        "evidenceRefs": [
+          "kicd_taxonomy:pathways.stem.tracks.technical_studies.primarySubjectPool"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": "technical_studies"
+    },
+    {
+      "order": 34,
+      "canonicalId": "ken-cbc-g12-electricity",
+      "subject": "Electricity",
+      "title": "Electricity Grade 12 - March 2026.pdf",
+      "driveFileId": "1QllA6XnET5CuOzLtzY6Q5Xp7wKjNk6OK",
+      "previewUrl": "https://drive.google.com/file/d/1QllA6XnET5CuOzLtzY6Q5Xp7wKjNk6OK/preview",
+      "sourceCategory": "Technical Studies",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "pathway",
+        "slot": "elective",
+        "optional": true,
+        "alternative": "technical_studies",
+        "pathway": "stem",
+        "track": "technical_studies",
+        "assetRole": "elective_learning_area",
+        "mappingId": "elective.electricity",
+        "mappingStatus": "resolved_primary_track",
+        "evidenceRefs": [
+          "kicd_taxonomy:pathways.stem.tracks.technical_studies.primarySubjectPool"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": "technical_studies"
+    },
+    {
+      "order": 35,
+      "canonicalId": "ken-cbc-g12-marine-and-fisheries-technology",
+      "subject": "Marine and Fisheries Technology",
+      "title": "Marine and Fisheries Technology Grade 12 - March 2026.pdf",
+      "driveFileId": "1pu5vXuuB0ef7Ew1mbVSTpqsJ54e-TLc4",
+      "previewUrl": "https://drive.google.com/file/d/1pu5vXuuB0ef7Ew1mbVSTpqsJ54e-TLc4/preview",
+      "sourceCategory": "Technical Studies",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "pathway",
+        "slot": "elective",
+        "optional": true,
+        "alternative": "technical_studies",
+        "pathway": "stem",
+        "track": "technical_studies",
+        "assetRole": "elective_learning_area",
+        "mappingId": "elective.marine_and_fisheries_technology",
+        "mappingStatus": "resolved_primary_track",
+        "evidenceRefs": [
+          "kicd_taxonomy:pathways.stem.tracks.technical_studies.primarySubjectPool"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": "technical_studies"
+    },
+    {
+      "order": 36,
+      "canonicalId": "ken-cbc-g12-media-technology",
+      "subject": "Media Technology",
+      "title": "Media Technology Grade 12 -March 2026.pdf",
+      "driveFileId": "1w1pWPDnjM1lVfqXou8ZWkmwBI4a8B7xH",
+      "previewUrl": "https://drive.google.com/file/d/1w1pWPDnjM1lVfqXou8ZWkmwBI4a8B7xH/preview",
+      "sourceCategory": "Technical Studies",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "pathway",
+        "slot": "elective",
+        "optional": true,
+        "alternative": "technical_studies",
+        "pathway": "stem",
+        "track": "technical_studies",
+        "assetRole": "elective_learning_area",
+        "mappingId": "elective.media_technology",
+        "mappingStatus": "resolved_primary_track",
+        "evidenceRefs": [
+          "kicd_taxonomy:pathways.stem.tracks.technical_studies.primarySubjectPool"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": "technical_studies"
+    },
+    {
+      "order": 37,
+      "canonicalId": "ken-cbc-g12-metalwork",
+      "subject": "Metalwork",
+      "title": "Metalwork Grade 12 Design - March 2026.pdf",
+      "driveFileId": "1OhSGrdsU4-06mTX7bTE5Dkx9WgjRWdpA",
+      "previewUrl": "https://drive.google.com/file/d/1OhSGrdsU4-06mTX7bTE5Dkx9WgjRWdpA/preview",
+      "sourceCategory": "Technical Studies",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "pathway",
+        "slot": "elective",
+        "optional": true,
+        "alternative": "technical_studies",
+        "pathway": "stem",
+        "track": "technical_studies",
+        "assetRole": "elective_learning_area",
+        "mappingId": "elective.metalwork",
+        "mappingStatus": "resolved_primary_track",
+        "evidenceRefs": [
+          "kicd_taxonomy:pathways.stem.tracks.technical_studies.primarySubjectPool"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": "technical_studies"
+    },
+    {
+      "order": 38,
+      "canonicalId": "ken-cbc-g12-power-mechanics",
+      "subject": "Power Mechanics",
+      "title": "Power Mechanics Grade 12 - March 2026.pdf",
+      "driveFileId": "131IL-58X4hfxxYP9_Ta3c-V9Dxuo0Qo3",
+      "previewUrl": "https://drive.google.com/file/d/131IL-58X4hfxxYP9_Ta3c-V9Dxuo0Qo3/preview",
+      "sourceCategory": "Technical Studies",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "pathway",
+        "slot": "elective",
+        "optional": true,
+        "alternative": "technical_studies",
+        "pathway": "stem",
+        "track": "technical_studies",
+        "assetRole": "elective_learning_area",
+        "mappingId": "elective.power_mechanics",
+        "mappingStatus": "resolved_primary_track",
+        "evidenceRefs": [
+          "kicd_taxonomy:pathways.stem.tracks.technical_studies.primarySubjectPool"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": "technical_studies"
+    },
+    {
+      "order": 39,
+      "canonicalId": "ken-cbc-g12-woodwork",
+      "subject": "Woodwork",
+      "title": "Woodwork Grade 12 - March 2026.pdf",
+      "driveFileId": "1f9UaX2QeG1nyNpD__ASZ-V6JDMi2QuXx",
+      "previewUrl": "https://drive.google.com/file/d/1f9UaX2QeG1nyNpD__ASZ-V6JDMi2QuXx/preview",
+      "sourceCategory": "Technical Studies",
+      "pathwayTrackMappingStatus": "unresolved",
+      "classification": {
+        "kind": "pathway",
+        "slot": "elective",
+        "optional": true,
+        "alternative": "technical_studies",
+        "pathway": "stem",
+        "track": "technical_studies",
+        "assetRole": "elective_learning_area",
+        "mappingId": "elective.woodwork",
+        "mappingStatus": "resolved_primary_track",
+        "evidenceRefs": [
+          "kicd_taxonomy:pathways.stem.tracks.technical_studies.primarySubjectPool"
+        ],
+        "pathwayTrackStatus": "resolved from governed KICD/MOE taxonomy evidence"
+      },
+      "alternativeCode": "technical_studies"
+    }
+  ],
+  "pathway_track_mapping_contract": {
+    "relationship_type": "many_to_many",
+    "registry_subject_key": "canonicalId",
+    "pathway_track_source_pointer": "#/pathways",
+    "candidate_evidence_only_pointer": "#/pathways/*/tracks/*/subjects_in_combinations",
+    "candidate_evidence_rule": "The Ministry combination strings are evidence candidates only and do not establish a canonical-subject relationship.",
+    "mapping_record_schema": {
+      "required_fields": [
+        "relationshipId",
+        "canonicalId",
+        "pathway",
+        "track",
+        "sourceEvidence",
+        "status"
+      ],
+      "relationship_id_rule": "SHA-256 of capture_id, canonicalId, pathway, track, and immutable source-evidence identity separated by NUL bytes.",
+      "allowed_statuses": [
+        "confirmed",
+        "unresolved",
+        "rejected"
+      ],
+      "source_evidence_required_for_confirmed": true
+    },
+    "confirmed_mappings": [],
+    "default_status_when_no_confirmed_mapping": "unresolved",
+    "unresolved_scope": "Every registry subject absent from confirmed_mappings.",
+    "prohibited_derivations": [
+      "Do not derive pathway or track membership from sourceCategory.",
+      "Do not derive pathway or track membership from presence in a subjects_in_combinations union.",
+      "Do not confirm a mapping from exact-name uniqueness or fuzzy alias similarity alone."
+    ],
+    "publication_policy": {
+      "catalog_only_output": "May retain null pathway and track values while explicitly preserving unresolved status.",
+      "pathway_enriched_output": "Only confirmed mappings may emit pathway or track claims.",
+      "unresolved_failure_code": "UNRESOLVED_PATHWAY_TRACK_MAPPING",
+      "failure_mode": "fail_closed"
+    }
+  },
+  "authority": {
+    "name": "Kenya Institute of Curriculum Development",
+    "abbreviation": "KICD",
+    "jurisdiction": "KEN",
+    "framework": "CBC",
+    "official_source_page": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-twelve/"
+  },
+  "scope": {
+    "grade": 12,
+    "programme": "regular",
+    "special_needs_education_excluded": true,
+    "capture_date": "2026-07-22"
+  },
+  "official_sources": {
+    "kicd_grade_page": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-twelve/",
+    "moe_pathways_page": "https://selection.education.go.ke/pathways",
+    "moe_selection_about_page": "https://selection.education.go.ke/about",
+    "moe_subject_combinations_api_pattern": "https://selection.education.go.ke/api/api/v1/filter/subject-combinations?track={url_encoded_track}"
+  },
+  "capture_invariants": {
+    "asset_count": 39,
+    "verified_total_pages": 2339,
+    "source_category_count": 8,
+    "pathway_count": 3,
+    "track_count": 7,
+    "moe_subject_combination_count": 536,
+    "subjects_follow_official_source_order": true,
+    "drive_file_ids_are_unique": true,
+    "all_assets_are_application_pdf": true,
+    "all_page_counts_are_positive_integers": true,
+    "all_page_counts_were_verified_from_live_google_drive_viewer_metadata": true,
+    "all_assets_are_preview_only_and_download_blocked": true,
+    "preview_url_pattern": "https://drive.google.com/file/d/{drive_file_id}/preview",
+    "download_probe_url_pattern": "https://drive.usercontent.google.com/download?id={drive_file_id}&export=download&confirm=t",
+    "download_probe_result": "text/html response stating that the owner has not granted download permission",
+    "page_count_verification_method": "Read the live Drive preview itemJson, follow its signed viewer/upload bootstrap, then read the integer pages field from the corresponding viewer/meta JSON response.",
+    "filename_verification_method": "Read the official filename from the live Drive preview og:title/itemJson metadata.",
+    "pathway_verification_method": "Read the pathway and track hierarchy from the Ministry of Education Pathways page and the combination counts and subject strings from its live public API.",
+    "sne_assets_must_not_be_added": true
+  },
+  "pathways": [
+    {
+      "name": "STEM",
+      "tracks": [
+        {
+          "name": "PURE SCIENCES",
+          "subject_combination_count": 48,
+          "api_url": "https://selection.education.go.ke/api/api/v1/filter/subject-combinations?track=Pure%20Sciences",
+          "subjects_in_combinations": [
+            "Agriculture",
+            "Aviation",
+            "Biology",
+            "Building & Construction",
+            "Business Studies",
+            "Chemistry",
+            "Code Mathematics",
+            "Computer Studies",
+            "Core Mathematics",
+            "Electricity",
+            "General Science",
+            "Geography",
+            "Home Science",
+            "Marine & Fisheries",
+            "Metal Work",
+            "Physics",
+            "Power Mechanics",
+            "Wood Work"
+          ],
+          "source_data_note": "Code Mathematics is preserved verbatim from combination ST1041; it conflicts with the otherwise-used Core Mathematics label."
+        },
+        {
+          "name": "APPLIED SCIENCES",
+          "subject_combination_count": 89,
+          "api_url": "https://selection.education.go.ke/api/api/v1/filter/subject-combinations?track=Applied%20Sciences",
+          "subjects_in_combinations": [
+            "Agriculture",
+            "Aviation",
+            "Biology",
+            "Building & Construction",
+            "Business Studies",
+            "Chemistry",
+            "Computer Studies",
+            "Core Mathematics",
+            "Electricity",
+            "General Science",
+            "Geography",
+            "Home Science",
+            "Marine & Fisheries",
+            "Metal Work",
+            "Physics",
+            "Power Mechanics",
+            "Wood Work"
+          ]
+        },
+        {
+          "name": "TECHNICAL STUDIES",
+          "subject_combination_count": 116,
+          "api_url": "https://selection.education.go.ke/api/api/v1/filter/subject-combinations?track=Technical%20Studies",
+          "subjects_in_combinations": [
+            "Aviation",
+            "Biology",
+            "Business Studies",
+            "Chemistry",
+            "Computer Studies",
+            "Core Mathematics",
+            "Electricity",
+            "General Science",
+            "Geography",
+            "Home Science",
+            "Marine & Fisheries",
+            "Media Technology",
+            "Metal Work",
+            "Physics",
+            "Power Mechanics",
+            "Wood Work"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SOCIAL SCIENCES",
+      "tracks": [
+        {
+          "name": "LANGUAGES & LITERATURE",
+          "subject_combination_count": 84,
+          "api_url": "https://selection.education.go.ke/api/api/v1/filter/subject-combinations?track=Languages%20%26%20Literature",
+          "subjects_in_combinations": [
+            "Arabic",
+            "Business Studies",
+            "Christian Religious Education",
+            "Computer Studies",
+            "Core Mathematics",
+            "Fasihi ya Kiswahili",
+            "French",
+            "General Science",
+            "Geography",
+            "German",
+            "Hindu Religious Education",
+            "History & Citizenship",
+            "Indigenous Language",
+            "Islamic Religious Education",
+            "Kenya Sign Language",
+            "Literature in English",
+            "Mandarine Chinese"
+          ]
+        },
+        {
+          "name": "HUMANITIES & BUSINESS STUDIES",
+          "subject_combination_count": 117,
+          "api_url": "https://selection.education.go.ke/api/api/v1/filter/subject-combinations?track=Humanities%20%26%20Business%20Studies",
+          "subjects_in_combinations": [
+            "Arabic",
+            "Business Studies",
+            "Christian Religious Education",
+            "Computer Studies",
+            "Core Mathematics",
+            "Fasihi ya Kiswahili",
+            "French",
+            "General Science",
+            "Geography",
+            "German",
+            "Hindu Religious Education",
+            "History & Citizenship",
+            "Indigenous Language",
+            "Islamic Religious Education",
+            "Kenya Sign Language",
+            "Literature in English",
+            "Mandarine Chinese"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ARTS & SPORTS SCIENCE",
+      "tracks": [
+        {
+          "name": "ARTS",
+          "subject_combination_count": 52,
+          "api_url": "https://selection.education.go.ke/api/api/v1/filter/subject-combinations?track=Arts",
+          "subjects_in_combinations": [
+            "Arabic",
+            "Biology",
+            "Business Studies",
+            "Christian Religious Education",
+            "Computer Studies",
+            "Core Mathematics",
+            "Fasihi ya Kiswahili",
+            "Fine Arts",
+            "French",
+            "General Science",
+            "Geography",
+            "German",
+            "Hindu Religious Education",
+            "History & Citizenship",
+            "Islamic Religious Education",
+            "Literature in English",
+            "Mandarine Chinese",
+            "Music & Dance",
+            "Sports & Recreation",
+            "Theatre & Film"
+          ]
+        },
+        {
+          "name": "SPORTS",
+          "subject_combination_count": 30,
+          "api_url": "https://selection.education.go.ke/api/api/v1/filter/subject-combinations?track=Sports",
+          "subjects_in_combinations": [
+            "Arabic",
+            "Biology",
+            "Business Studies",
+            "Christian Religious Education",
+            "Computer Studies",
+            "Core Mathematics",
+            "Fasihi ya Kiswahili",
+            "French",
+            "General Science",
+            "Geography",
+            "German",
+            "Hindu Religious Education",
+            "History & Citizenship",
+            "Islamic Religious Education",
+            "Literature in English",
+            "Mandarine Chinese",
+            "Media Technology",
+            "Sports & Recreation"
+          ]
+        }
+      ]
+    }
+  ],
+  "source_categories": [
+    "Applied Sciences",
+    "Arts & Sports",
+    "Foreign Languages",
+    "Humanities",
+    "Languages",
+    "Pure Sciences",
+    "Religious Education",
+    "Technical Studies"
+  ],
+  "assets": [
+    {
+      "source_category": "Applied Sciences",
+      "subject": "Agriculture",
+      "official_filename": "Agriculture Grade 12 - March 2026.pdf",
+      "drive_file_id": "1gfH3cDl2282221lDeCgFHmdNhLhr6U2t",
+      "preview_url": "https://drive.google.com/file/d/1gfH3cDl2282221lDeCgFHmdNhLhr6U2t/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 47,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    },
+    {
+      "source_category": "Applied Sciences",
+      "subject": "Computer Studies",
+      "official_filename": "Computer Studies Grade 12 - March 2026.pdf",
+      "drive_file_id": "1cHrNaL3KqtunkI5TIo_2Cw_CDrcP9JgW",
+      "preview_url": "https://drive.google.com/file/d/1cHrNaL3KqtunkI5TIo_2Cw_CDrcP9JgW/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 62,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    },
+    {
+      "source_category": "Applied Sciences",
+      "subject": "Home Science",
+      "official_filename": "Home Science Grade 12 - March 2026.pdf",
+      "drive_file_id": "1VdYXsYI114EgPqnwlWJ7Dn9Jmv2Xbct-",
+      "preview_url": "https://drive.google.com/file/d/1VdYXsYI114EgPqnwlWJ7Dn9Jmv2Xbct-/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 53,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    },
+    {
+      "source_category": "Applied Sciences",
+      "subject": "Information and Communication Technology (ICT)",
+      "official_filename": "ICT Grade 12 - March 2026.pdf",
+      "drive_file_id": "19hCnERDirl5rnMCnVOalbvLN07c58BVH",
+      "preview_url": "https://drive.google.com/file/d/19hCnERDirl5rnMCnVOalbvLN07c58BVH/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 33,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    },
+    {
+      "source_category": "Arts & Sports",
+      "subject": "Fine Arts",
+      "official_filename": "Fine Arts Grade 12 -March 2026.pdf",
+      "drive_file_id": "1lQHo9l_ZdbsOl_a6OsO82OpoyA9o3DYb",
+      "preview_url": "https://drive.google.com/file/d/1lQHo9l_ZdbsOl_a6OsO82OpoyA9o3DYb/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 44,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    },
+    {
+      "source_category": "Arts & Sports",
+      "subject": "Music and Dance",
+      "official_filename": "Music and Dance Grade 12 - March  2026.pdf",
+      "drive_file_id": "1_HKWsDxTc60lFusFbbuN5IufZiqEapZN",
+      "preview_url": "https://drive.google.com/file/d/1_HKWsDxTc60lFusFbbuN5IufZiqEapZN/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 64,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    },
+    {
+      "source_category": "Arts & Sports",
+      "subject": "Physical Education",
+      "official_filename": "Physical Education Grade 12  - March  2026.pdf",
+      "drive_file_id": "1OzK78HR9l2jE3lx2fsVZNTviwBxtwrb3",
+      "preview_url": "https://drive.google.com/file/d/1OzK78HR9l2jE3lx2fsVZNTviwBxtwrb3/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 52,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    },
+    {
+      "source_category": "Arts & Sports",
+      "subject": "Sports and Recreation",
+      "official_filename": "Sports and Recreation Grade 12 -March 2026.pdf",
+      "drive_file_id": "1imCyMeOYWYoV0ZvustqxwN5xIU08EwKU",
+      "preview_url": "https://drive.google.com/file/d/1imCyMeOYWYoV0ZvustqxwN5xIU08EwKU/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 44,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    },
+    {
+      "source_category": "Arts & Sports",
+      "subject": "Theatre & Film",
+      "official_filename": "Theatre & Film Grade 12 - March, 2026.pdf",
+      "drive_file_id": "1DShWBYhePIV9hvLrDXpYbr-PnesyVFEe",
+      "preview_url": "https://drive.google.com/file/d/1DShWBYhePIV9hvLrDXpYbr-PnesyVFEe/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 43,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    },
+    {
+      "source_category": "Foreign Languages",
+      "subject": "Arabic",
+      "official_filename": "Arabic Grade 12 - March 2026.pdf",
+      "drive_file_id": "1BSA2Osc8jUbldCkOi2oVUrqjbqwftkTV",
+      "preview_url": "https://drive.google.com/file/d/1BSA2Osc8jUbldCkOi2oVUrqjbqwftkTV/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 68,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    },
+    {
+      "source_category": "Foreign Languages",
+      "subject": "French",
+      "official_filename": "French Grade 12 - March 2026.pdf",
+      "drive_file_id": "1BfpLyRc59spHCU4mZsKzkC0bL971PbZf",
+      "preview_url": "https://drive.google.com/file/d/1BfpLyRc59spHCU4mZsKzkC0bL971PbZf/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 65,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    },
+    {
+      "source_category": "Foreign Languages",
+      "subject": "German",
+      "official_filename": "German Grade 12- March 2026.pdf",
+      "drive_file_id": "1Pu5GNNUPcIlzjWJJw_9xcEhbtZc3sXcR",
+      "preview_url": "https://drive.google.com/file/d/1Pu5GNNUPcIlzjWJJw_9xcEhbtZc3sXcR/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 78,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    },
+    {
+      "source_category": "Foreign Languages",
+      "subject": "Mandarin",
+      "official_filename": "Mandarin Grade 12 - March 2025.pdf",
+      "drive_file_id": "1yY1qP3wERDlVCojRgg2XGpQyZ4oDeQzR",
+      "preview_url": "https://drive.google.com/file/d/1yY1qP3wERDlVCojRgg2XGpQyZ4oDeQzR/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 68,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked",
+      "date_evidence": {
+        "filename_date": "March 2025",
+        "cover_date": "March 2026",
+        "first_published_year": 2026,
+        "note": "The official Drive filename conflicts with the document cover and publication page."
+      }
+    },
+    {
+      "source_category": "Humanities",
+      "subject": "Business Studies",
+      "official_filename": "Business Studies Grade 12 - March 2026.pdf",
+      "drive_file_id": "15pl2sGv6-x3hYyZPrn0QavTz0toPXZ9h",
+      "preview_url": "https://drive.google.com/file/d/15pl2sGv6-x3hYyZPrn0QavTz0toPXZ9h/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 61,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    },
+    {
+      "source_category": "Humanities",
+      "subject": "Community Service Learning",
+      "official_filename": "Community Service Learning Grade 12 - March 2026.pdf",
+      "drive_file_id": "1V0UL6mPGkAI8GhwVyaphU0uEbnK6vm8n",
+      "preview_url": "https://drive.google.com/file/d/1V0UL6mPGkAI8GhwVyaphU0uEbnK6vm8n/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 39,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    },
+    {
+      "source_category": "Humanities",
+      "subject": "Geography",
+      "official_filename": "Geography Grade 12 - March 2026.pdf",
+      "drive_file_id": "1hNjIpVt41AJhUO8y8LN0dwJYQX6IHoLa",
+      "preview_url": "https://drive.google.com/file/d/1hNjIpVt41AJhUO8y8LN0dwJYQX6IHoLa/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 47,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    },
+    {
+      "source_category": "Humanities",
+      "subject": "History & Citizenship",
+      "official_filename": "History & Citizenship Grade 12 -March 2026.pdf",
+      "drive_file_id": "1tPOlPbfa8ePIYSQq5v9vwMUI1zpiRz9R",
+      "preview_url": "https://drive.google.com/file/d/1tPOlPbfa8ePIYSQq5v9vwMUI1zpiRz9R/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 70,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    },
+    {
+      "source_category": "Languages",
+      "subject": "English",
+      "official_filename": "GRADE 12 ENGLISH CURRICULUM DESIGN 15TH  MAY 2026 REVISED.pdf",
+      "drive_file_id": "1rvmzyo9hhzUfhKdoGSyAXVXz4eLrdPAe",
+      "preview_url": "https://drive.google.com/file/d/1rvmzyo9hhzUfhKdoGSyAXVXz4eLrdPAe/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 148,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked",
+      "date_evidence": {
+        "filename_revision_date": "2026-05-15",
+        "cover_date": "March 2026",
+        "first_published_year": 2026
+      }
+    },
+    {
+      "source_category": "Languages",
+      "subject": "Fasihi ya Kiswahili",
+      "official_filename": "Fasihi ya Kiswahili Grade 12- Jan 2026 Peer reviewed(10).pdf",
+      "drive_file_id": "1o4Kc4k5ORvr6mCmVqhmOvjpUir6l0Dev",
+      "preview_url": "https://drive.google.com/file/d/1o4Kc4k5ORvr6mCmVqhmOvjpUir6l0Dev/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 86,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked",
+      "date_evidence": {
+        "filename_review_date": "January 2026",
+        "cover_date": "March 2026",
+        "first_published_year": 2026
+      }
+    },
+    {
+      "source_category": "Languages",
+      "subject": "Indigenous Language",
+      "official_filename": "Indigenous Language Grade 12 -March 2026.pdf",
+      "drive_file_id": "1-TWlDcKyixt8op9MO6GEea28GL2l1DRE",
+      "preview_url": "https://drive.google.com/file/d/1-TWlDcKyixt8op9MO6GEea28GL2l1DRE/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 94,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    },
+    {
+      "source_category": "Languages",
+      "subject": "Kiswahili",
+      "official_filename": "Kiswahili Gredi 12 - Machi 2026.pdf",
+      "drive_file_id": "1_QzsqQB8Mhm0JhXogIALTWakKDnXXqKV",
+      "preview_url": "https://drive.google.com/file/d/1_QzsqQB8Mhm0JhXogIALTWakKDnXXqKV/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 141,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    },
+    {
+      "source_category": "Languages",
+      "subject": "Literature in English",
+      "official_filename": "Literature in English Grade 12 - March 2026.pdf",
+      "drive_file_id": "1OFM21rpwiexXG8LOU2Fi3mqpaoGchT5F",
+      "preview_url": "https://drive.google.com/file/d/1OFM21rpwiexXG8LOU2Fi3mqpaoGchT5F/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 93,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    },
+    {
+      "source_category": "Pure Sciences",
+      "subject": "Biology",
+      "official_filename": "Biology Grade 12- March 2026.pdf",
+      "drive_file_id": "1YNHD3E0kZ55o_B2HBtcWQPKttHBA6-W1",
+      "preview_url": "https://drive.google.com/file/d/1YNHD3E0kZ55o_B2HBtcWQPKttHBA6-W1/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 38,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    },
+    {
+      "source_category": "Pure Sciences",
+      "subject": "Chemistry",
+      "official_filename": "Chemistry Grade 12 - March 2026.pdf",
+      "drive_file_id": "1GcLr251w5DqDlHQXTtdFy3HPdS6jWf1q",
+      "preview_url": "https://drive.google.com/file/d/1GcLr251w5DqDlHQXTtdFy3HPdS6jWf1q/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 40,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    },
+    {
+      "source_category": "Pure Sciences",
+      "subject": "Core Mathematics",
+      "official_filename": "Core Mathematics Grade 12 - March 2026.pdf",
+      "drive_file_id": "1fWQgXTbmpU4jcrUeBj8LiOlvVcAJSrQP",
+      "preview_url": "https://drive.google.com/file/d/1fWQgXTbmpU4jcrUeBj8LiOlvVcAJSrQP/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 52,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    },
+    {
+      "source_category": "Pure Sciences",
+      "subject": "Essential Mathematics",
+      "official_filename": "Essential Mathematics Grade 12 - March 2026.pdf",
+      "drive_file_id": "1EZY-DH1iHY8iCTg8JDf6xkaUKOPHWP2E",
+      "preview_url": "https://drive.google.com/file/d/1EZY-DH1iHY8iCTg8JDf6xkaUKOPHWP2E/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 43,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    },
+    {
+      "source_category": "Pure Sciences",
+      "subject": "General Science",
+      "official_filename": "General Science Grade 12 - March 2026.pdf",
+      "drive_file_id": "1sZigVO4-SD6cxio9wXcbAkPuL5u14GG0",
+      "preview_url": "https://drive.google.com/file/d/1sZigVO4-SD6cxio9wXcbAkPuL5u14GG0/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 55,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    },
+    {
+      "source_category": "Pure Sciences",
+      "subject": "Physics",
+      "official_filename": "Physics Grade 12 - March 2026.pdf",
+      "drive_file_id": "19s1ooB6CzN5RB9hAz85T0HemYdCx3sf9",
+      "preview_url": "https://drive.google.com/file/d/19s1ooB6CzN5RB9hAz85T0HemYdCx3sf9/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 49,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    },
+    {
+      "source_category": "Religious Education",
+      "subject": "Christian Religious Education",
+      "official_filename": "Christian Religious Education Grade 12 - March 2026.pdf",
+      "drive_file_id": "1vljnsfI-8BBgKV7m5B3DAIpqGVh8JDc6",
+      "preview_url": "https://drive.google.com/file/d/1vljnsfI-8BBgKV7m5B3DAIpqGVh8JDc6/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 59,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    },
+    {
+      "source_category": "Religious Education",
+      "subject": "Hindu Religious Education",
+      "official_filename": "Hindu Religious Education Grade 12 - March 2026.pdf",
+      "drive_file_id": "1iKZKexi-iy90d5x2igJb52YKAtcLVhu_",
+      "preview_url": "https://drive.google.com/file/d/1iKZKexi-iy90d5x2igJb52YKAtcLVhu_/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 66,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    },
+    {
+      "source_category": "Religious Education",
+      "subject": "Islamic Religious Education",
+      "official_filename": "Islamic Religious Education Grade 12 - March 2026.pdf",
+      "drive_file_id": "1kvaWgn6qSDD4NqCPmPyhanmI-JWNxKCD",
+      "preview_url": "https://drive.google.com/file/d/1kvaWgn6qSDD4NqCPmPyhanmI-JWNxKCD/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 59,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    },
+    {
+      "source_category": "Technical Studies",
+      "subject": "Aviation",
+      "official_filename": "Aviation Grade 12 - Mach 2026.pdf",
+      "drive_file_id": "1xVmHEQWLmz0nerCxwOdE9ouq3kcjm-7j",
+      "preview_url": "https://drive.google.com/file/d/1xVmHEQWLmz0nerCxwOdE9ouq3kcjm-7j/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 42,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    },
+    {
+      "source_category": "Technical Studies",
+      "subject": "Building Construction",
+      "official_filename": "Building Construction Grade 12 - March 2026.pdf",
+      "drive_file_id": "1r84vSdYuUxgv3joxvFyShSI2n1xgF0Xr",
+      "preview_url": "https://drive.google.com/file/d/1r84vSdYuUxgv3joxvFyShSI2n1xgF0Xr/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 54,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    },
+    {
+      "source_category": "Technical Studies",
+      "subject": "Electricity",
+      "official_filename": "Electricity Grade 12 - March 2026.pdf",
+      "drive_file_id": "1QllA6XnET5CuOzLtzY6Q5Xp7wKjNk6OK",
+      "preview_url": "https://drive.google.com/file/d/1QllA6XnET5CuOzLtzY6Q5Xp7wKjNk6OK/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 51,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    },
+    {
+      "source_category": "Technical Studies",
+      "subject": "Marine and Fisheries Technology",
+      "official_filename": "Marine and Fisheries Technology Grade 12 - March 2026.pdf",
+      "drive_file_id": "1pu5vXuuB0ef7Ew1mbVSTpqsJ54e-TLc4",
+      "preview_url": "https://drive.google.com/file/d/1pu5vXuuB0ef7Ew1mbVSTpqsJ54e-TLc4/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 51,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    },
+    {
+      "source_category": "Technical Studies",
+      "subject": "Media Technology",
+      "official_filename": "Media Technology Grade 12 -March 2026.pdf",
+      "drive_file_id": "1w1pWPDnjM1lVfqXou8ZWkmwBI4a8B7xH",
+      "preview_url": "https://drive.google.com/file/d/1w1pWPDnjM1lVfqXou8ZWkmwBI4a8B7xH/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 42,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    },
+    {
+      "source_category": "Technical Studies",
+      "subject": "Metalwork",
+      "official_filename": "Metalwork Grade 12 Design - March 2026.pdf",
+      "drive_file_id": "1OhSGrdsU4-06mTX7bTE5Dkx9WgjRWdpA",
+      "preview_url": "https://drive.google.com/file/d/1OhSGrdsU4-06mTX7bTE5Dkx9WgjRWdpA/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 40,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    },
+    {
+      "source_category": "Technical Studies",
+      "subject": "Power Mechanics",
+      "official_filename": "Power Mechanics Grade 12 - March 2026.pdf",
+      "drive_file_id": "131IL-58X4hfxxYP9_Ta3c-V9Dxuo0Qo3",
+      "preview_url": "https://drive.google.com/file/d/131IL-58X4hfxxYP9_Ta3c-V9Dxuo0Qo3/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 58,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    },
+    {
+      "source_category": "Technical Studies",
+      "subject": "Woodwork",
+      "official_filename": "Woodwork Grade 12 - March 2026.pdf",
+      "drive_file_id": "1f9UaX2QeG1nyNpD__ASZ-V6JDMi2QuXx",
+      "preview_url": "https://drive.google.com/file/d/1f9UaX2QeG1nyNpD__ASZ-V6JDMi2QuXx/preview",
+      "mime_type": "application/pdf",
+      "verified_page_count": 40,
+      "verification_method": "google_drive_viewer_meta.pages",
+      "access_status": "preview_only_download_blocked"
+    }
+  ],
+  "coverage_gaps": [
+    {
+      "subject": "Kenya Sign Language",
+      "status": "listed_by_moe_but_missing_from_kicd_regular_grade_12_source_page",
+      "evidence": {
+        "moe_listing": "Kenya Sign Language appears in current Languages & Literature and Humanities & Business Studies subject combinations.",
+        "kicd_listing": "No Kenya Sign Language PDF or embedded Drive file appears among the 39 assets on the KICD Grade Twelve regular curriculum-design page.",
+        "moe_source": "https://selection.education.go.ke/pathways",
+        "kicd_source": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-twelve/"
+      },
+      "handling": "Do not invent a Drive asset. Keep the gap explicit until KICD publishes or links an official regular Grade 12 design."
+    }
+  ],
+  "source_naming_conflicts": [
+    {
+      "kicd_asset_label": "Building Construction",
+      "moe_combination_label": "Building & Construction"
+    },
+    {
+      "kicd_asset_label": "Marine and Fisheries Technology",
+      "moe_combination_label": "Marine & Fisheries"
+    },
+    {
+      "kicd_asset_label": "Metalwork",
+      "moe_combination_label": "Metal Work"
+    },
+    {
+      "kicd_asset_label": "Woodwork",
+      "moe_combination_label": "Wood Work"
+    },
+    {
+      "kicd_asset_label": "Mandarin",
+      "moe_combination_label": "Mandarine Chinese"
+    }
+  ],
+  "primaryPathwayCode": "SENIOR_SCHOOL",
+  "primaryPathwayName": "Senior School",
+  "selectionRules": {
+    "kenyan_language": {
+      "code": "KENYAN_LANGUAGE",
+      "name": "Kenyan Language",
+      "minSelections": 1,
+      "maxSelections": 1
+    },
+    "mathematics": {
+      "code": "MATHEMATICS",
+      "name": "Mathematics by Pathway",
+      "minSelections": 1,
+      "maxSelections": 1
+    },
+    "elective": {
+      "code": "ELECTIVE",
+      "name": "Pathway Elective",
+      "minSelections": 0,
+      "maxSelections": 3
+    },
+    "timetable_activity": {
+      "code": "TIMETABLE_ACTIVITY",
+      "name": "Timetable Activity",
+      "minSelections": 0,
+      "maxSelections": 2
+    }
+  },
+  "taxonomyResolution": {
+    "status": "resolved_primary_pathway_and_track_memberships",
+    "sourceArtifact": "kicd-grade-11-12-asset-pathway-map.json",
+    "evidenceLimit": "The primary subject pools express the official pathway taxonomy, not every permitted supporting subject. Exact three-subject eligibility is governed by the Ministry of Education coded subject-combination register.",
+    "unresolvedCoverage": [
+      "Kenya Sign Language regular Grade 12 asset"
+    ]
+  }
+}

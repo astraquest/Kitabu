@@ -4,7 +4,9 @@ import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
+import { promisify } from 'node:util';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { gunzip } from 'node:zlib';
 import { reviewedOverlapJustification } from './lib/kicd-reviewed-semantic-overlap.mjs';
 
 const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
@@ -29,6 +31,7 @@ const LOGICAL_TABLE_ORDER = [
 const DIGEST_TABLES = LOGICAL_TABLE_ORDER.filter(name => !['frameworks', 'grades', 'subjects'].includes(name));
 const COUNT_FIELDS = ['documents', 'pages', 'gradeSubjects', 'strands', 'subStrands', 'outcomes', 'inquiryQuestions', 'learningActivities'];
 const SHA256_PATTERN = /^[a-f0-9]{64}$/;
+const gunzipAsync = promisify(gunzip);
 
 export function canonicalJson(value) {
   if (value === null || typeof value !== 'object') return JSON.stringify(value);
@@ -309,8 +312,8 @@ export function validateInputs(configInput, dataset, sourcePages = null, validat
   if (config.requireValidationReport && validationReport === null) throw new Error('A validation report is required for this import.');
   if (validationReport !== null) {
     if (validationReport.status !== 'valid' || validationReport.errorCount !== 0) throw new Error('Validation report must be valid with zero errors.');
-    const reportLogicalDigest = validationReport.logicalDigest ?? validationReport.logicalDigestSha256;
-    if (dataset.logicalDigestSha256 && reportLogicalDigest !== dataset.logicalDigestSha256) {
+    const reportDatasetLogicalDigest = validationDatasetLogicalDigest(validationReport);
+    if (dataset.logicalDigestSha256 && reportDatasetLogicalDigest !== dataset.logicalDigestSha256) {
       throw new Error('Validation report does not bind the current normalized corpus logical digest.');
     }
     if (validationReport.counts) assertCounts('validationReport.counts', validationReport.counts, aggregateCounts);
@@ -426,6 +429,13 @@ function grade12SemanticItemMetadata(item, inventory, field, position, documentI
 export function buildImportPlan(configInput, dataset, sourcePages = null, validationReport = null, sourceCatalog = null) {
   const config = validateInputs(configInput, dataset, sourcePages, validationReport, sourceCatalog);
   const sourceTaxonomy = buildSourceTaxonomy(dataset, sourceCatalog, config);
+  const validationContent = config.scope.grades.includes('Grade 12') && validationReport !== null
+    ? {
+        status: validationReport.status,
+        errorCount: validationReport.errorCount,
+        logicalDigest: validationDatasetLogicalDigest(validationReport),
+      }
+    : validationReport;
   const contentEnvelope = {
     importerVersion: IMPORTER_VERSION,
     scope: config.scope,
@@ -437,7 +447,7 @@ export function buildImportPlan(configInput, dataset, sourcePages = null, valida
     },
     dataset,
     sourcePages,
-    validationReport,
+    validationReport: validationContent,
     sourceCatalog
   };
   const contentDigest = sha256(contentEnvelope);
@@ -711,6 +721,12 @@ function parseJsonArtifact(text, label) {
   }
 }
 
+function validationDatasetLogicalDigest(validationReport) {
+  return validationReport.inputHashes?.strictValidationLogicalDigest
+    ?? validationReport.logicalDigest
+    ?? validationReport.logicalDigestSha256;
+}
+
 function verifiedImportPolicy(policy, validationReportText, validationReport) {
   if (policy.schema !== IMPORT_POLICY_SCHEMA || policy.schemaVersion !== IMPORT_POLICY_SCHEMA_VERSION) {
     throw new Error('Completed grade import policy uses an unsupported schema.');
@@ -752,6 +768,14 @@ export async function loadCompletedGradePlan(gradeDirectory, options = {}) {
     try {
       texts[key] = await readText(filePath);
     } catch (error) {
+      if (key === 'dataset' && error?.code === 'ENOENT' && !options.readText) {
+        try {
+          texts[key] = (await gunzipAsync(await readFile(`${filePath}.gz`))).toString('utf8');
+          continue;
+        } catch (gzipError) {
+          if (gzipError?.code !== 'ENOENT') throw gzipError;
+        }
+      }
       if (error?.code === 'ENOENT') throw new Error(`Completed grade directory is missing ${fileName}.`);
       throw error;
     }
@@ -775,8 +799,8 @@ export async function loadCompletedGradePlan(gradeDirectory, options = {}) {
   if (dataset.grade !== numericGrade || dataset.gradeSubjects?.some(entry => entry.grade !== numericGrade || entry.gradeLevel !== grade)) {
     throw new Error(`Completed grade dataset does not exactly match ${grade}.`);
   }
-  const reportLogicalDigest = validationReport.logicalDigest ?? validationReport.logicalDigestSha256;
-  if (dataset.logicalDigestSha256 !== reportLogicalDigest) {
+  const reportDatasetLogicalDigest = validationDatasetLogicalDigest(validationReport);
+  if (dataset.logicalDigestSha256 !== reportDatasetLogicalDigest) {
     throw new Error('Completed grade normalized and validation logical digests do not match.');
   }
   const scope = importPolicy.scope ?? {};

@@ -158,7 +158,7 @@ async function importNormalizedCell(client, entry, frameworkId, gradeId, subject
   const gradeSubjectResult = await client.query(
     `INSERT INTO curriculum_grade_subjects (framework_id, grade_id, subject_id, is_compulsory, display_order, source_id, updated_at)
      VALUES ($1, $2, $3, TRUE, $4, $5, NOW())
-     ON CONFLICT (grade_id, subject_id) DO UPDATE SET
+     ON CONFLICT (grade_id, subject_id) WHERE release_id IS NULL DO UPDATE SET
        framework_id = EXCLUDED.framework_id, is_compulsory = TRUE,
        display_order = EXCLUDED.display_order, source_id = EXCLUDED.source_id, updated_at = NOW()
      RETURNING id`,
@@ -321,7 +321,8 @@ async function importCorpus(client, stats) {
          edition_year, source_url, downloaded_file_checksum, extraction_status, review_status,
          last_processed_page, metadata, run_id, grade_code, local_level, source_url_status, updated_at
        ) VALUES ('KEN', 'CBC', 'Grade 1-3', $1, $2, $3, 2024, $4, $5, 'seeded', 'approved', $6, $7::jsonb, $8, 'G1-G3', 'Lower Primary', 'official', NOW())
-       ON CONFLICT (country_code, curriculum_code, grade_local_level, subject, official_title) DO UPDATE SET
+       ON CONFLICT (country_code, curriculum_code, grade_local_level, subject, official_title)
+       WHERE release_id IS NULL DO UPDATE SET
          publisher = EXCLUDED.publisher, edition_year = 2024, source_url = EXCLUDED.source_url,
          downloaded_file_checksum = EXCLUDED.downloaded_file_checksum, extraction_status = 'seeded',
          review_status = 'approved', last_processed_page = EXCLUDED.last_processed_page,

@@ -1,0 +1,674 @@
+{
+  "schema": "kitabu.curriculum.source-catalog",
+  "schemaVersion": 1,
+  "catalogVersion": "2026-07-22.2",
+  "scope": "regular",
+  "country": {
+    "name": "Kenya",
+    "iso2": "KE",
+    "iso3": "KEN"
+  },
+  "curriculum": {
+    "name": "Competency Based Curriculum",
+    "code": "CBC"
+  },
+  "grade": 9,
+  "publisher": "Kenya Institute of Curriculum Development",
+  "authoritativeIndex": {
+    "title": "Grade Nine Designs",
+    "url": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-nine-designs/",
+    "wordpressPageId": 7846,
+    "publishedAt": "2025-07-17T12:13:27",
+    "modifiedAt": "2025-07-17T12:13:27",
+    "wordpressApiUrl": "https://kicd.ac.ke/wp-json/wp/v2/pages/7846",
+    "evidence": "The live KICD page lists 16 regular Grade 9 subject documents in this order and embeds each current source as a Google Drive preview iframe."
+  },
+  "sourcePolicy": {
+    "currentSource": "Use the Google Drive preview embedded by the live authoritative KICD index.",
+    "mirrorHandling": "A KICD wp-content URL is recorded only where independently verified and is not treated as current when its identity differs from the Drive item embedded by the live index.",
+    "unknownMetadata": "Unverified publication dates, revision dates, mirror URLs, and legal supersession claims are null or explicitly described as gaps.",
+    "pageCountMethod": "Page counts were read from Google Drive viewer metadata for the exact embedded file ID."
+  },
+  "identityPolicy": {
+    "canonicalId": "Stable, grade-independent canonical learning-area identifier used by normalization.",
+    "subjectCode": "Stable subject code; equal to canonicalId for this catalog.",
+    "uniqueness": "Every regular source document has one unique canonicalId and subjectCode. Kenya Sign Language is a named regular-source gap and is not synthesized or replaced with an SNE document.",
+    "sourceOrder": "The subjects array preserves the authoritative KICD manifest order. Formal slot order is stored separately in formalSlotModel.slots."
+  },
+  "formalSlotModel": {
+    "name": "Grade 9 rationalised nine-learning-area model",
+    "requiredSlotCount": 9,
+    "derivation": "The 16 catalogue documents normalize to nine formal learning-area slots in canonical Junior School order. The Kiswahili/Kenya Sign Language and Religious Education slots are alternative-selection slots; five additional-language documents remain outside the formal nine.",
+    "catalogueAccounting": {
+      "fixedSlotDocuments": 8,
+      "religiousEducationVariantDocuments": 3,
+      "optionalLanguageDocuments": 5,
+      "totalCatalogueDocuments": 16
+    },
+    "slots": [
+      {
+        "order": 1,
+        "slot": "english",
+        "label": "English",
+        "selectionRule": "required",
+        "documentOrders": [5]
+      },
+      {
+        "order": 2,
+        "slot": "kiswahili_or_kenya_sign_language",
+        "label": "Kiswahili / Kenya Sign Language",
+        "selectionRule": "exactly_one_by_learner_context",
+        "documentOrders": [12],
+        "regularCatalogueVariants": ["kiswahili"],
+        "missingRegularVariants": ["kenya_sign_language"]
+      },
+      {
+        "order": 3,
+        "slot": "mathematics",
+        "label": "Mathematics",
+        "selectionRule": "required",
+        "documentOrders": [14]
+      },
+      {
+        "order": 4,
+        "slot": "religious_education",
+        "label": "Religious Education",
+        "selectionRule": "select_one_variant",
+        "documentOrders": [4, 8, 11],
+        "variants": [
+          "christian_religious_education",
+          "hindu_religious_education",
+          "islamic_religious_education"
+        ]
+      },
+      {
+        "order": 5,
+        "slot": "social_studies",
+        "label": "Social Studies",
+        "selectionRule": "required",
+        "documentOrders": [16]
+      },
+      {
+        "order": 6,
+        "slot": "integrated_science",
+        "label": "Integrated Science",
+        "selectionRule": "required",
+        "documentOrders": [10]
+      },
+      {
+        "order": 7,
+        "slot": "pre_technical_studies",
+        "label": "Pre-Technical Studies",
+        "selectionRule": "required",
+        "documentOrders": [15]
+      },
+      {
+        "order": 8,
+        "slot": "agriculture_and_nutrition",
+        "label": "Agriculture and Nutrition",
+        "selectionRule": "required",
+        "documentOrders": [1]
+      },
+      {
+        "order": 9,
+        "slot": "creative_arts_and_sports",
+        "label": "Creative Arts and Sports",
+        "selectionRule": "required",
+        "documentOrders": [3]
+      }
+    ],
+    "optionalLanguageSlot": {
+      "slot": "optional_language",
+      "outsideRequiredSlotCount": true,
+      "documentOrders": [2, 6, 7, 9, 13],
+      "variants": [
+        "arabic",
+        "french",
+        "german",
+        "indigenous_language",
+        "mandarin"
+      ]
+    },
+    "evidenceLimit": "The KICD index directly evidences the 16 documents and their source order. Canonical formal slot order and learner-selection rules come from the Kitabu KICD taxonomy and are stored separately from source order."
+  },
+  "subjects": [
+    {
+      "order": 1,
+      "subject": "Agriculture",
+      "canonicalId": "agriculture",
+      "subjectCode": "agriculture",
+      "indexLabel": "Agriculture",
+      "aliases": [
+        "Agriculture Grade 9",
+        "Agriculture Grade9"
+      ],
+      "classification": {
+        "kind": "core_slot",
+        "slot": "agriculture_and_nutrition",
+        "pathway": null,
+        "optional": false
+      },
+      "title": "Agriculture Grade9 1.8.2024 -Proofread.pdf",
+      "driveFileId": "14lKcmhXxEMYRHLISkK8j-ZzcCmLE59hf",
+      "previewUrl": "https://drive.google.com/file/d/14lKcmhXxEMYRHLISkK8j-ZzcCmLE59hf/preview",
+      "knownKicdMirrorUrl": null,
+      "revisionEvidence": {
+        "label": "Proofread",
+        "date": "2024-08-01",
+        "datePrecision": "day",
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 36,
+      "pageCountEvidence": "Google Drive viewer metadata"
+    },
+    {
+      "order": 2,
+      "subject": "Arabic",
+      "canonicalId": "arabic",
+      "subjectCode": "arabic",
+      "indexLabel": "Arabic",
+      "aliases": [
+        "Arabic Grade 9"
+      ],
+      "classification": {
+        "kind": "optional_language",
+        "slot": "optional_language",
+        "pathway": "arabic",
+        "optional": true
+      },
+      "title": "FINAL ARABIC GRADE 9 CURRICULUM DESIGN.pdf",
+      "driveFileId": "14N6beLZiLrDRAxvHQE-w7e7rf-2xaCkq",
+      "previewUrl": "https://drive.google.com/file/d/14N6beLZiLrDRAxvHQE-w7e7rf-2xaCkq/preview",
+      "knownKicdMirrorUrl": null,
+      "revisionEvidence": {
+        "label": "Final",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 75,
+      "pageCountEvidence": "Google Drive viewer metadata"
+    },
+    {
+      "order": 3,
+      "subject": "Creative Arts and Sports",
+      "canonicalId": "creative_arts_and_sports",
+      "subjectCode": "creative_arts_and_sports",
+      "indexLabel": "Creative Arts",
+      "aliases": [
+        "Creative Arts",
+        "Creative Arts & Sports",
+        "Creative Arts and Sports"
+      ],
+      "classification": {
+        "kind": "core_slot",
+        "slot": "creative_arts_and_sports",
+        "pathway": null,
+        "optional": false
+      },
+      "title": "Creative Arts & Sports Grade 9 - Revised.pdf",
+      "driveFileId": "1XONxUP98Z6I85bPKx7CYIsAkEucl_dm-",
+      "previewUrl": "https://drive.google.com/file/d/1XONxUP98Z6I85bPKx7CYIsAkEucl_dm-/preview",
+      "knownKicdMirrorUrl": null,
+      "revisionEvidence": {
+        "label": "Revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 62,
+      "pageCountEvidence": "Google Drive viewer metadata"
+    },
+    {
+      "order": 4,
+      "subject": "Christian Religious Education",
+      "canonicalId": "christian_religious_education",
+      "subjectCode": "christian_religious_education",
+      "indexLabel": "CRE",
+      "aliases": [
+        "CRE",
+        "Christian Religious Education"
+      ],
+      "classification": {
+        "kind": "pathway",
+        "slot": "religious_education",
+        "pathway": "christian_religious_education",
+        "optional": false
+      },
+      "title": "CRE Grade 9 - Revised.pdf",
+      "driveFileId": "1FBMLUxBo1q4dHUkXLidZeqCiZWDzRBNI",
+      "previewUrl": "https://drive.google.com/file/d/1FBMLUxBo1q4dHUkXLidZeqCiZWDzRBNI/preview",
+      "knownKicdMirrorUrl": "https://kicd.ac.ke/wp-content/uploads/2024/06/CRE-Grade-9-Design-Formatted-April-2024.pdf",
+      "mirrorStatus": "verified_official_earlier_snapshot_not_asserted_current",
+      "revisionEvidence": {
+        "label": "Revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 64,
+      "pageCountEvidence": "Google Drive viewer metadata"
+    },
+    {
+      "order": 5,
+      "subject": "English",
+      "canonicalId": "english",
+      "subjectCode": "english",
+      "indexLabel": "English",
+      "aliases": [
+        "English Grade 9"
+      ],
+      "classification": {
+        "kind": "core_slot",
+        "slot": "english",
+        "pathway": null,
+        "optional": false
+      },
+      "title": "English Grade 9 - Revised Oct.pdf",
+      "driveFileId": "1ehe01q4q8G-ft1PsA0r7skcz6grZfiNQ",
+      "previewUrl": "https://drive.google.com/file/d/1ehe01q4q8G-ft1PsA0r7skcz6grZfiNQ/preview",
+      "knownKicdMirrorUrl": null,
+      "revisionEvidence": {
+        "label": "Revised Oct",
+        "date": null,
+        "datePrecision": "month_without_year",
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 175,
+      "pageCountEvidence": "Google Drive viewer metadata"
+    },
+    {
+      "order": 6,
+      "subject": "French",
+      "canonicalId": "french",
+      "subjectCode": "french",
+      "indexLabel": "French",
+      "aliases": [
+        "French Grade 9"
+      ],
+      "classification": {
+        "kind": "optional_language",
+        "slot": "optional_language",
+        "pathway": "french",
+        "optional": true
+      },
+      "title": "French Grade 9 - July 2024.pdf",
+      "driveFileId": "1KM4ezz3BKbm3l3kdb9O6XWb-jDscdl4n",
+      "previewUrl": "https://drive.google.com/file/d/1KM4ezz3BKbm3l3kdb9O6XWb-jDscdl4n/preview",
+      "knownKicdMirrorUrl": null,
+      "revisionEvidence": {
+        "label": null,
+        "date": "2024-07",
+        "datePrecision": "month",
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 65,
+      "pageCountEvidence": "Google Drive viewer metadata"
+    },
+    {
+      "order": 7,
+      "subject": "German",
+      "canonicalId": "german",
+      "subjectCode": "german",
+      "indexLabel": "German",
+      "aliases": [
+        "German Grade 9"
+      ],
+      "classification": {
+        "kind": "optional_language",
+        "slot": "optional_language",
+        "pathway": "german",
+        "optional": true
+      },
+      "title": "German Grade 9  - July 2024.pdf",
+      "driveFileId": "1MDKVJH-QW5Qv7KcDzWU9VCCKD_CDCIrd",
+      "previewUrl": "https://drive.google.com/file/d/1MDKVJH-QW5Qv7KcDzWU9VCCKD_CDCIrd/preview",
+      "knownKicdMirrorUrl": null,
+      "revisionEvidence": {
+        "label": null,
+        "date": "2024-07",
+        "datePrecision": "month",
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 76,
+      "pageCountEvidence": "Google Drive viewer metadata"
+    },
+    {
+      "order": 8,
+      "subject": "Hindu Religious Education",
+      "canonicalId": "hindu_religious_education",
+      "subjectCode": "hindu_religious_education",
+      "indexLabel": "HRE",
+      "aliases": [
+        "HRE",
+        "Hindu Religious Education"
+      ],
+      "classification": {
+        "kind": "pathway",
+        "slot": "religious_education",
+        "pathway": "hindu_religious_education",
+        "optional": false
+      },
+      "title": "HRE Grade 9 - July 2024 - Fin.pdf",
+      "driveFileId": "1ePaw7pIrLG3AjX2mbTXIEimXTRnkdfuC",
+      "previewUrl": "https://drive.google.com/file/d/1ePaw7pIrLG3AjX2mbTXIEimXTRnkdfuC/preview",
+      "knownKicdMirrorUrl": null,
+      "revisionEvidence": {
+        "label": "Final",
+        "date": "2024-07",
+        "datePrecision": "month",
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 37,
+      "pageCountEvidence": "Google Drive viewer metadata"
+    },
+    {
+      "order": 9,
+      "subject": "Indigenous Language",
+      "canonicalId": "indigenous_language",
+      "subjectCode": "indigenous_language",
+      "indexLabel": "Indigenous Language",
+      "aliases": [
+        "Indigenous Language",
+        "Indigenous Languages"
+      ],
+      "classification": {
+        "kind": "optional_language",
+        "slot": "optional_language",
+        "pathway": "indigenous_language",
+        "optional": true
+      },
+      "title": "Indigenous Languages Grade 9 - Revised.pdf",
+      "driveFileId": "1CS2EzUFDl3wJ_zJKWI302GsAkRF3KfP6",
+      "previewUrl": "https://drive.google.com/file/d/1CS2EzUFDl3wJ_zJKWI302GsAkRF3KfP6/preview",
+      "knownKicdMirrorUrl": null,
+      "revisionEvidence": {
+        "label": "Revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 77,
+      "pageCountEvidence": "Google Drive viewer metadata"
+    },
+    {
+      "order": 10,
+      "subject": "Integrated Science",
+      "canonicalId": "integrated_science",
+      "subjectCode": "integrated_science",
+      "indexLabel": "Integrated Science",
+      "aliases": [
+        "Integrated Science Grade 9"
+      ],
+      "classification": {
+        "kind": "core_slot",
+        "slot": "integrated_science",
+        "pathway": null,
+        "optional": false
+      },
+      "title": "Integrated Science Grade 9 - July 2024.pdf",
+      "driveFileId": "18QAC1qZzTWQv4vso-y1c5qaY9YxeSaUp",
+      "previewUrl": "https://drive.google.com/file/d/18QAC1qZzTWQv4vso-y1c5qaY9YxeSaUp/preview",
+      "knownKicdMirrorUrl": null,
+      "revisionEvidence": {
+        "label": null,
+        "date": "2024-07",
+        "datePrecision": "month",
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 39,
+      "pageCountEvidence": "Google Drive viewer metadata"
+    },
+    {
+      "order": 11,
+      "subject": "Islamic Religious Education",
+      "canonicalId": "islamic_religious_education",
+      "subjectCode": "islamic_religious_education",
+      "indexLabel": "IRE",
+      "aliases": [
+        "IRE",
+        "Islamic Religious Education"
+      ],
+      "classification": {
+        "kind": "pathway",
+        "slot": "religious_education",
+        "pathway": "islamic_religious_education",
+        "optional": false
+      },
+      "title": "Islamic Religious Education Grade 9 - July 2024.pdf",
+      "driveFileId": "1QAtDW4Pq0enTVPOb32TlfQzge2au4RRC",
+      "previewUrl": "https://drive.google.com/file/d/1QAtDW4Pq0enTVPOb32TlfQzge2au4RRC/preview",
+      "knownKicdMirrorUrl": null,
+      "revisionEvidence": {
+        "label": null,
+        "date": "2024-07",
+        "datePrecision": "month",
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 65,
+      "pageCountEvidence": "Google Drive viewer metadata"
+    },
+    {
+      "order": 12,
+      "subject": "Kiswahili",
+      "canonicalId": "kiswahili",
+      "subjectCode": "kiswahili",
+      "indexLabel": "Kiswahili",
+      "aliases": [
+        "Kiswahili Grade 9",
+        "Kiswahili Gredi 9"
+      ],
+      "classification": {
+        "kind": "core_slot",
+        "slot": "kiswahili_or_kenya_sign_language",
+        "pathway": null,
+        "alternative": "kiswahili",
+        "optional": false
+      },
+      "title": "Kiswahili Gredi 9 -2024 - Revised Oct.pdf",
+      "driveFileId": "14r0D5u2jy79nZdcixJ2Gu3qTattpY0_Y",
+      "previewUrl": "https://drive.google.com/file/d/14r0D5u2jy79nZdcixJ2Gu3qTattpY0_Y/preview",
+      "knownKicdMirrorUrl": null,
+      "revisionEvidence": {
+        "label": "Revised Oct",
+        "date": "2024-10",
+        "datePrecision": "month",
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 157,
+      "pageCountEvidence": "Google Drive viewer metadata"
+    },
+    {
+      "order": 13,
+      "subject": "Mandarin",
+      "canonicalId": "mandarin",
+      "subjectCode": "mandarin",
+      "indexLabel": "Mandarin",
+      "aliases": [
+        "Mandarin Grade 9"
+      ],
+      "classification": {
+        "kind": "optional_language",
+        "slot": "optional_language",
+        "pathway": "mandarin",
+        "optional": true
+      },
+      "title": "Mandarin Grade 9 2024 - Revised Oct.pdf",
+      "driveFileId": "1Qn8CsuytmDlsnmfaf89KAZ3Fg2y-bYe2",
+      "previewUrl": "https://drive.google.com/file/d/1Qn8CsuytmDlsnmfaf89KAZ3Fg2y-bYe2/preview",
+      "knownKicdMirrorUrl": null,
+      "revisionEvidence": {
+        "label": "Revised Oct",
+        "date": "2024-10",
+        "datePrecision": "month",
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 76,
+      "pageCountEvidence": "Google Drive viewer metadata"
+    },
+    {
+      "order": 14,
+      "subject": "Mathematics",
+      "canonicalId": "mathematics",
+      "subjectCode": "mathematics",
+      "indexLabel": "Mathematics",
+      "aliases": [
+        "Mathematics Grade 9"
+      ],
+      "classification": {
+        "kind": "core_slot",
+        "slot": "mathematics",
+        "pathway": null,
+        "optional": false
+      },
+      "title": "Mathematics Grade 9 - July 2024 - Revised.pdf",
+      "driveFileId": "1HgntYl8nS1zydy8k00KrjEt_zJiMqISL",
+      "previewUrl": "https://drive.google.com/file/d/1HgntYl8nS1zydy8k00KrjEt_zJiMqISL/preview",
+      "knownKicdMirrorUrl": null,
+      "revisionEvidence": {
+        "label": "Revised",
+        "date": "2024-07",
+        "datePrecision": "month",
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 69,
+      "pageCountEvidence": "Google Drive viewer metadata"
+    },
+    {
+      "order": 15,
+      "subject": "Pre-Technical Studies",
+      "canonicalId": "pre_technical_studies",
+      "subjectCode": "pre_technical_studies",
+      "indexLabel": "Pre-Technical Studies",
+      "aliases": [
+        "Pre-Technical",
+        "Pre-Technical Studies"
+      ],
+      "classification": {
+        "kind": "core_slot",
+        "slot": "pre_technical_studies",
+        "pathway": null,
+        "optional": false
+      },
+      "title": "Pre-Technical Studies Grade 9 - July 2024 - Revised.pdf",
+      "driveFileId": "1sHIe4eN9oE8ojrjBPojqHj7YIdYdFWzP",
+      "previewUrl": "https://drive.google.com/file/d/1sHIe4eN9oE8ojrjBPojqHj7YIdYdFWzP/preview",
+      "knownKicdMirrorUrl": "https://kicd.ac.ke/wp-content/uploads/2024/06/Pre-Technical-Studies-Grade-9.pdf",
+      "mirrorStatus": "verified_official_earlier_snapshot_not_asserted_current",
+      "revisionEvidence": {
+        "label": "Revised",
+        "date": "2024-07",
+        "datePrecision": "month",
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 50,
+      "pageCountEvidence": "Google Drive viewer metadata"
+    },
+    {
+      "order": 16,
+      "subject": "Social Studies",
+      "canonicalId": "social_studies",
+      "subjectCode": "social_studies",
+      "indexLabel": "Social Studies",
+      "aliases": [
+        "Social Studies Grade 9"
+      ],
+      "classification": {
+        "kind": "core_slot",
+        "slot": "social_studies",
+        "pathway": null,
+        "optional": false
+      },
+      "title": "Social Studies Grade 9 - Revised.pdf",
+      "driveFileId": "1gMXIzQnV-F1a7n_dJ82QU2-BTtw3B-NW",
+      "previewUrl": "https://drive.google.com/file/d/1gMXIzQnV-F1a7n_dJ82QU2-BTtw3B-NW/preview",
+      "knownKicdMirrorUrl": null,
+      "revisionEvidence": {
+        "label": "Revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Drive preview og:title filename"
+      },
+      "pageCount": 73,
+      "pageCountEvidence": "Google Drive viewer metadata"
+    }
+  ],
+  "learnerContextBoundaries": {
+    "kiswahiliOrKenyaSignLanguage": {
+      "slotId": "kiswahili_or_kenya_sign_language",
+      "selectionRule": "exactly_one_by_learner_context",
+      "regularCatalogCanonicalSubjectId": "kiswahili",
+      "missingRegularCanonicalSubjectId": "kenya_sign_language",
+      "missingRegularOfficialLabel": "Kenya Sign Language",
+      "regularManifestStatus": "missing_no_regular_grade_9_source_listed",
+      "coverageImpact": "blocks_complete_language_alternative_coverage",
+      "syntheticSourceAllowed": false,
+      "sneSubstitutionAllowed": false,
+      "excludedSneReference": {
+        "branch": "HI",
+        "driveFileId": "1zVwj-Nn_YB0B_w7qfZak9ncwJEcrlxX3",
+        "handling": "Reference-only evidence. It must not be added to, merged with, or counted among the 16 regular Grade 9 source documents."
+      }
+    }
+  },
+  "scopeExclusions": {
+    "specialNeedsEducation": {
+      "reason": "This catalog is regular Grade 9 only. Adapted SNE designs are separate KICD catalogues and are not source variants of the regular documents.",
+      "catalogues": [
+        {
+          "code": "HI",
+          "label": "Hearing Impairment Grade 9",
+          "url": "https://kicd.ac.ke/cbc-materials/curriculum-designs/sne-curriculum-designs/hi-grade-9/",
+          "listedDocumentCount": 9
+        },
+        {
+          "code": "PI",
+          "label": "Physical Impairment Grade 9",
+          "url": "https://kicd.ac.ke/cbc-materials/curriculum-designs/sne-curriculum-designs/pi-grade-9/",
+          "listedDocumentCount": 8
+        },
+        {
+          "code": "VI",
+          "label": "Visual Impairment Grade 9",
+          "url": "https://kicd.ac.ke/cbc-materials/curriculum-designs/sne-curriculum-designs/vi-grade-9/",
+          "listedDocumentCount": 10
+        }
+      ]
+    }
+  },
+  "gaps": [
+    {
+      "key": "regular_kenya_sign_language_source",
+      "canonicalSubjectId": "kenya_sign_language",
+      "formalSlotId": "kiswahili_or_kenya_sign_language",
+      "status": "missing_from_regular_grade_9_manifest",
+      "blocking": true,
+      "blocks": "complete_language_alternative_coverage",
+      "description": "The regular Grade Nine Designs manifest contains Kiswahili but no standalone Kenya Sign Language design. The HI/SNE Kenya Sign Language design is out of scope and cannot be substituted."
+    },
+    {
+      "key": "file_publication_dates",
+      "description": "The live KICD index does not publish file-level publication or revision timestamps. Dates are recorded only when present in the Drive filename; the WordPress page date is not substituted for a document date."
+    },
+    {
+      "key": "month_without_year",
+      "description": "The English filename says Revised Oct but does not state a year, so no year is inferred."
+    },
+    {
+      "key": "direct_download",
+      "description": "Anonymous download is disabled for the embedded Drive items. Preview URLs are authoritative; stable direct-download URLs were not available."
+    },
+    {
+      "key": "kicd_mirrors",
+      "description": "Only CRE and Pre-Technical Studies had independently verified KICD wp-content snapshots. Their filenames differ from the current embedded revised Drive items, so they are not asserted to be current mirrors."
+    },
+    {
+      "key": "formal_slot_authority",
+      "description": "The nine-slot model is a deterministic catalogue normalization. The live KICD Grade Nine Designs index directly evidences document membership and ordering but does not itself state learner selection rules."
+    },
+    {
+      "key": "sne_scope",
+      "description": "HI, PI, and VI designs are deliberately excluded from subjects and retained only as explicit out-of-scope authoritative references."
+    }
+  ]
+}

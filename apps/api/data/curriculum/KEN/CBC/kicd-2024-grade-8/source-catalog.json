@@ -1,0 +1,1069 @@
+{
+  "schema": "kitabu.curriculum.source-catalog",
+  "schemaVersion": 1,
+  "catalogVersion": "2026-07-22",
+  "catalogId": "KEN-CBC-KICD-GRADE-8-REGULAR",
+  "country": {
+    "name": "Kenya",
+    "iso2": "KE",
+    "iso3": "KEN"
+  },
+  "curriculum": {
+    "name": "Competency Based Curriculum",
+    "code": "CBC"
+  },
+  "grade": 8,
+  "publisher": "Kenya Institute of Curriculum Development",
+  "educationLevel": "Junior School",
+  "scope": {
+    "programme": "regular",
+    "learnerVariant": "regular",
+    "rationalisedLearningAreaSlotCount": 9,
+    "officialRegularDesignDocumentCount": 16,
+    "specialNeedsEducationExcluded": true,
+    "prevocationalProgrammeExcluded": true,
+    "included": "The 16 regular Grade 8 curriculum designs currently embedded by the official KICD Grade Eight Designs manifest.",
+    "excluded": "Adapted Grade 8 designs for learners with hearing, physical, or visual impairments are out of corpus scope and are referenced only under excluded_scope."
+  },
+  "identityPolicy": {
+    "canonicalId": "Stable, grade-independent canonical learning-area identifier used by normalization.",
+    "subjectCode": "Stable subject code; equal to canonicalId for this catalog.",
+    "aliases": "Evidence-supported equivalent labels only. An alias does not create another document identity or permit a regular/SNE source merge.",
+    "catalogDocumentClass": "The document's role in the 16-document regular manifest: common_required, religious_education_alternative, or elective_language.",
+    "formalRole": "Timetable slot and selection rule are stored separately from document identity.",
+    "uniqueness": "Every regular source document has one unique canonicalId and subjectCode. Kenya Sign Language is recorded only as an excluded learner-context boundary and is not synthesized into the subjects array."
+  },
+  "normalizationReadiness": {
+    "status": "ready",
+    "regularDocumentCount": 16,
+    "rationalisedLearningAreaSlotCount": 9,
+    "uniqueCanonicalIdCount": 16,
+    "uniqueSubjectCodeCount": 16,
+    "explicitDocumentRoleCount": 16,
+    "subjectAliasCount": 8,
+    "syntheticSubjectDocumentCount": 0,
+    "sneMergeCount": 0,
+    "normalizationBlockerCount": 0,
+    "sourceIdentityPreserved": true
+  },
+  "regularCatalogAccounting": {
+    "rationalisedLearningAreaSlotCount": 9,
+    "officialRegularDesignDocumentCount": 16,
+    "documentClassEquation": "8 common required designs + 3 religious education alternatives + 5 elective language designs = 16 regular index documents",
+    "documentClasses": {
+      "commonRequired": {
+        "count": 8,
+        "canonicalSubjectIds": [
+          "agriculture",
+          "creative_arts_and_sports",
+          "english",
+          "integrated_science",
+          "kiswahili",
+          "mathematics",
+          "pre_technical_studies",
+          "social_studies"
+        ]
+      },
+      "religiousEducationAlternatives": {
+        "count": 3,
+        "selectionRule": "exactly_one_pathway",
+        "canonicalSubjectIds": [
+          "christian_religious_education",
+          "hindu_religious_education",
+          "islamic_religious_education"
+        ]
+      },
+      "electiveLanguages": {
+        "count": 5,
+        "selectionRule": "elective",
+        "canonicalSubjectIds": [
+          "arabic",
+          "french",
+          "german",
+          "indigenous_language",
+          "mandarin"
+        ]
+      }
+    },
+    "learningAreaSlots": [
+      {
+        "slotId": "english",
+        "selectionRule": "required",
+        "regularCatalogCanonicalSubjectIds": [
+          "english"
+        ]
+      },
+      {
+        "slotId": "kiswahili_or_kenya_sign_language",
+        "selectionRule": "exactly_one_by_learner_context",
+        "regularCatalogCanonicalSubjectIds": [
+          "kiswahili"
+        ],
+        "excludedVariantCanonicalSubjectIds": [
+          "kenya_sign_language"
+        ]
+      },
+      {
+        "slotId": "mathematics",
+        "selectionRule": "required",
+        "regularCatalogCanonicalSubjectIds": [
+          "mathematics"
+        ]
+      },
+      {
+        "slotId": "integrated_science",
+        "selectionRule": "required",
+        "regularCatalogCanonicalSubjectIds": [
+          "integrated_science"
+        ]
+      },
+      {
+        "slotId": "agriculture_and_nutrition",
+        "selectionRule": "required",
+        "regularCatalogCanonicalSubjectIds": [
+          "agriculture"
+        ]
+      },
+      {
+        "slotId": "social_studies",
+        "selectionRule": "required",
+        "regularCatalogCanonicalSubjectIds": [
+          "social_studies"
+        ]
+      },
+      {
+        "slotId": "religious_education",
+        "selectionRule": "exactly_one_pathway",
+        "regularCatalogCanonicalSubjectIds": [
+          "christian_religious_education",
+          "hindu_religious_education",
+          "islamic_religious_education"
+        ]
+      },
+      {
+        "slotId": "creative_arts_and_sports",
+        "selectionRule": "required",
+        "regularCatalogCanonicalSubjectIds": [
+          "creative_arts_and_sports"
+        ]
+      },
+      {
+        "slotId": "pre_technical_studies",
+        "selectionRule": "required",
+        "regularCatalogCanonicalSubjectIds": [
+          "pre_technical_studies"
+        ]
+      }
+    ]
+  },
+  "learnerContextBoundaries": {
+    "kiswahiliOrKenyaSignLanguage": {
+      "slotId": "kiswahili_or_kenya_sign_language",
+      "selectionRule": "exactly_one_by_learner_context",
+      "regularCatalogCanonicalSubjectId": "kiswahili",
+      "alternativeCanonicalSubjectId": "kenya_sign_language",
+      "alternativeOfficialLabel": "Kenyan Sign Language",
+      "alternativeBranch": "hearing_impairment",
+      "alternativeOfficialManifestUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/sne-curriculum-designs/hi-grade-8/",
+      "regularManifestStatus": "not_listed_as_a_standalone_regular_grade_eight_source",
+      "corpusClassification": "excluded_variant_asset",
+      "handling": "Do not invent or merge a seventeenth regular source. Keep the official hearing-impairment Kenya Sign Language design outside this regular corpus while retaining its learner-context relationship to the slot."
+    }
+  },
+  "sneBoundary": {
+    "regularCatalogOnly": true,
+    "specialNeedsEducationExcluded": true,
+    "mergePolicy": "strictly_forbidden",
+    "regularSourceCount": 16,
+    "excludedSneSourceCount": 26,
+    "regularSneDriveIdOverlapCount": 0,
+    "separateBranches": [
+      {
+        "branchId": "HI",
+        "title": "HI Grade 8 Designs",
+        "url": "https://kicd.ac.ke/cbc-materials/curriculum-designs/sne-curriculum-designs/hi-grade-8/",
+        "documentCount": 8,
+        "containsKenyaSignLanguage": true
+      },
+      {
+        "branchId": "PI",
+        "title": "PI Grade 8 Designs",
+        "url": "https://kicd.ac.ke/cbc-materials/curriculum-designs/sne-curriculum-designs/pi-grade-8/",
+        "documentCount": 8,
+        "containsKenyaSignLanguage": false
+      },
+      {
+        "branchId": "VI",
+        "title": "VI Grade 8 Designs",
+        "url": "https://kicd.ac.ke/cbc-materials/curriculum-designs/sne-curriculum-designs/vi-grade-8/",
+        "documentCount": 10,
+        "containsKenyaSignLanguage": false
+      }
+    ],
+    "validationRule": "No HI, PI, VI, Kenya Sign Language, Braille Skills, or prevocational document may be counted among or merged into the 16 regular Grade Eight source records."
+  },
+  "authoritativeIndex": {
+    "title": "Grade Eight Designs",
+    "url": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-eight-designs/",
+    "wordpressPageId": 7843,
+    "publishedAt": "2025-07-17T11:18:08",
+    "modifiedAt": "2025-07-17T11:18:08",
+    "wordpressApiUrl": "https://kicd.ac.ke/wp-json/wp/v2/pages/7843",
+    "status": "live",
+    "verifiedOn": "2026-07-22",
+    "selectionEvidence": "Each included document is a Google Drive preview embedded under its exact subject label in the rendered KICD manifest.",
+    "metadataEvidence": "File names, page counts, and byte sizes are from the corresponding embedded Google Drive viewer metadata."
+  },
+  "sourcePolicy": {
+    "currentSource": "Use the Google Drive preview embedded by the authoritative KICD Grade Eight Designs manifest.",
+    "statusPolicy": "An embedded Drive preview is current for this catalog because the verified official KICD manifest selects it.",
+    "mirrorHandling": "Legacy or stale KICD mirrors are evidence only and must not replace the current embedded preview.",
+    "filenameDateHandling": "Dates and revision labels parsed from filenames remain filename evidence and are not Drive creation, modification, publication, or independently verified internal revision timestamps.",
+    "normalizedTitleHandling": "subject and normalizedTitle are normalized curriculum labels; title is the exact Google Drive viewer filename.",
+    "unknownMetadata": "Unverified publication dates, raw-PDF hashes, embedded PDF metadata, and Drive timestamps are null or omitted."
+  },
+  "totals": {
+    "subjectCount": 16,
+    "viewerPageCount": 1175,
+    "viewerByteSize": 14959790
+  },
+  "subjects": [
+    {
+      "order": 1,
+      "kicdLabel": "Agriculture",
+      "subject": "Agriculture",
+      "canonicalId": "agriculture",
+      "subjectCode": "agriculture",
+      "aliases": [
+        "Agriculture and Nutrition"
+      ],
+      "catalogDocumentClass": "common_required",
+      "classification": {
+        "kind": "core_slot",
+        "slot": "agriculture_and_nutrition",
+        "pathway": null,
+        "optional": false
+      },
+      "formalRole": {
+        "slot": "agriculture_and_nutrition",
+        "role": "common_required",
+        "selectionRule": "required"
+      },
+      "title": "Agriculture Grade8 1.8.2024 - Proofread.pdf",
+      "titleEvidence": "Google Drive preview og:title filename",
+      "normalizedTitle": "Junior School Curriculum Design: Agriculture, Grade 8",
+      "normalizedTitleEvidence": "Constructed human-readable curriculum label; not a source filename or verified PDF title field.",
+      "driveFileId": "1MzOFhLc8kbRwvjg03q7oeDrbbvux75Wy",
+      "previewUrl": "https://drive.google.com/file/d/1MzOFhLc8kbRwvjg03q7oeDrbbvux75Wy/preview",
+      "status": "live",
+      "statusEvidence": "Embedded under the recorded KICD label by the authoritative Grade Eight Designs manifest.",
+      "knownKicdMirrorUrl": null,
+      "staleKicdMirrorUrls": [],
+      "viewerMetadata": {
+        "pageCount": 34,
+        "byteSize": 407233,
+        "evidenceLocation": "Google Drive viewer metadata for the KICD-embedded preview."
+      },
+      "pageCount": 34,
+      "pageCountEvidence": "Google Drive viewer metadata for the KICD-embedded preview.",
+      "byteSize": 407233,
+      "byteSizeEvidence": "Google Drive viewer metadata for the KICD-embedded preview.",
+      "revisionEvidence": {
+        "label": "proofread",
+        "date": "2024-08-01",
+        "datePrecision": "day",
+        "evidenceLocation": "Filename text from Google Drive preview og:title; not a Drive creation or modification timestamp.",
+        "rawFilenameEvidence": "1.8.2024 - Proofread",
+        "note": null
+      },
+      "publicationDate": null,
+      "legacySupersessionNote": "Use the Drive preview embedded by the authoritative KICD manifest; no separate current KICD mirror is asserted."
+    },
+    {
+      "order": 2,
+      "kicdLabel": "Arabic",
+      "subject": "Arabic",
+      "canonicalId": "arabic",
+      "subjectCode": "arabic",
+      "aliases": [],
+      "catalogDocumentClass": "elective_language",
+      "classification": {
+        "kind": "optional_language",
+        "slot": "optional_language",
+        "pathway": "arabic",
+        "optional": true
+      },
+      "formalRole": {
+        "slot": null,
+        "role": "elective_language",
+        "selectionRule": "elective"
+      },
+      "title": "FINAL ARABIC GRADE 8 CURRICULUM DESIGN.pdf",
+      "titleEvidence": "Google Drive preview og:title filename",
+      "normalizedTitle": "Junior School Curriculum Design: Arabic, Grade 8",
+      "normalizedTitleEvidence": "Constructed human-readable curriculum label; not a source filename or verified PDF title field.",
+      "driveFileId": "1NfGYxAz5-4jS_uwouuhwT40ieEgQRs98",
+      "previewUrl": "https://drive.google.com/file/d/1NfGYxAz5-4jS_uwouuhwT40ieEgQRs98/preview",
+      "status": "live",
+      "statusEvidence": "Embedded under the recorded KICD label by the authoritative Grade Eight Designs manifest.",
+      "knownKicdMirrorUrl": null,
+      "staleKicdMirrorUrls": [],
+      "viewerMetadata": {
+        "pageCount": 72,
+        "byteSize": 647477,
+        "evidenceLocation": "Google Drive viewer metadata for the KICD-embedded preview."
+      },
+      "pageCount": 72,
+      "pageCountEvidence": "Google Drive viewer metadata for the KICD-embedded preview.",
+      "byteSize": 647477,
+      "byteSizeEvidence": "Google Drive viewer metadata for the KICD-embedded preview.",
+      "revisionEvidence": {
+        "label": "final",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Filename text from Google Drive preview og:title; not a Drive creation or modification timestamp.",
+        "rawFilenameEvidence": "FINAL",
+        "note": "The filename does not state a date."
+      },
+      "publicationDate": null,
+      "legacySupersessionNote": "Use the Drive preview embedded by the authoritative KICD manifest; no separate current KICD mirror is asserted."
+    },
+    {
+      "order": 3,
+      "kicdLabel": "Creative Arts",
+      "subject": "Creative Arts and Sports",
+      "canonicalId": "creative_arts_and_sports",
+      "subjectCode": "creative_arts_and_sports",
+      "aliases": [
+        "Creative Arts",
+        "Creative Arts & Sports"
+      ],
+      "catalogDocumentClass": "common_required",
+      "classification": {
+        "kind": "core_slot",
+        "slot": "creative_arts_and_sports",
+        "pathway": null,
+        "optional": false
+      },
+      "formalRole": {
+        "slot": "creative_arts_and_sports",
+        "role": "common_required",
+        "selectionRule": "required"
+      },
+      "title": "Creative Arts & Sports Grade 8 - Revised.pdf",
+      "titleEvidence": "Google Drive preview og:title filename",
+      "normalizedTitle": "Junior School Curriculum Design: Creative Arts and Sports, Grade 8",
+      "normalizedTitleEvidence": "Constructed human-readable curriculum label; not a source filename or verified PDF title field.",
+      "driveFileId": "1ji89ZIdF9ZA5d6rkchqJJYa2G5ZQO5zP",
+      "previewUrl": "https://drive.google.com/file/d/1ji89ZIdF9ZA5d6rkchqJJYa2G5ZQO5zP/preview",
+      "status": "live",
+      "statusEvidence": "Embedded under the recorded KICD label by the authoritative Grade Eight Designs manifest.",
+      "knownKicdMirrorUrl": null,
+      "staleKicdMirrorUrls": [],
+      "viewerMetadata": {
+        "pageCount": 65,
+        "byteSize": 544418,
+        "evidenceLocation": "Google Drive viewer metadata for the KICD-embedded preview."
+      },
+      "pageCount": 65,
+      "pageCountEvidence": "Google Drive viewer metadata for the KICD-embedded preview.",
+      "byteSize": 544418,
+      "byteSizeEvidence": "Google Drive viewer metadata for the KICD-embedded preview.",
+      "revisionEvidence": {
+        "label": "revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Filename text from Google Drive preview og:title; not a Drive creation or modification timestamp.",
+        "rawFilenameEvidence": "Revised",
+        "note": "The filename does not state a revision date."
+      },
+      "publicationDate": null,
+      "legacySupersessionNote": "Use the Drive preview embedded by the authoritative KICD manifest; no separate current KICD mirror is asserted."
+    },
+    {
+      "order": 4,
+      "kicdLabel": "CRE",
+      "subject": "Christian Religious Education",
+      "canonicalId": "christian_religious_education",
+      "subjectCode": "christian_religious_education",
+      "aliases": [
+        "CRE"
+      ],
+      "catalogDocumentClass": "religious_education_alternative",
+      "classification": {
+        "kind": "pathway",
+        "slot": "religious_education",
+        "pathway": "christian_religious_education",
+        "optional": false
+      },
+      "formalRole": {
+        "slot": "religious_education",
+        "role": "religious_education_alternative",
+        "selectionRule": "exactly_one_pathway"
+      },
+      "title": "CRE Grade 8 - Revised.pdf",
+      "titleEvidence": "Google Drive preview og:title filename",
+      "normalizedTitle": "Junior School Curriculum Design: Christian Religious Education, Grade 8",
+      "normalizedTitleEvidence": "Constructed human-readable curriculum label; not a source filename or verified PDF title field.",
+      "driveFileId": "1ZVqaVImBDLeGVUbLwA54C8zqWZMsr3V8",
+      "previewUrl": "https://drive.google.com/file/d/1ZVqaVImBDLeGVUbLwA54C8zqWZMsr3V8/preview",
+      "status": "live",
+      "statusEvidence": "Embedded under the recorded KICD label by the authoritative Grade Eight Designs manifest.",
+      "knownKicdMirrorUrl": null,
+      "staleKicdMirrorUrls": [],
+      "viewerMetadata": {
+        "pageCount": 72,
+        "byteSize": 1756068,
+        "evidenceLocation": "Google Drive viewer metadata for the KICD-embedded preview."
+      },
+      "pageCount": 72,
+      "pageCountEvidence": "Google Drive viewer metadata for the KICD-embedded preview.",
+      "byteSize": 1756068,
+      "byteSizeEvidence": "Google Drive viewer metadata for the KICD-embedded preview.",
+      "revisionEvidence": {
+        "label": "revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Filename text from Google Drive preview og:title; not a Drive creation or modification timestamp.",
+        "rawFilenameEvidence": "Revised",
+        "note": "The filename does not state a revision date."
+      },
+      "publicationDate": null,
+      "legacySupersessionNote": "Use the Drive preview embedded by the authoritative KICD manifest; no separate current KICD mirror is asserted."
+    },
+    {
+      "order": 5,
+      "kicdLabel": "English",
+      "subject": "English",
+      "canonicalId": "english",
+      "subjectCode": "english",
+      "aliases": [],
+      "catalogDocumentClass": "common_required",
+      "classification": {
+        "kind": "core_slot",
+        "slot": "english",
+        "pathway": null,
+        "optional": false
+      },
+      "formalRole": {
+        "slot": "english",
+        "role": "common_required",
+        "selectionRule": "required"
+      },
+      "title": "English Grade 8 - Revised Oct.pdf",
+      "titleEvidence": "Google Drive preview og:title filename",
+      "normalizedTitle": "Junior School Curriculum Design: English, Grade 8",
+      "normalizedTitleEvidence": "Constructed human-readable curriculum label; not a source filename or verified PDF title field.",
+      "driveFileId": "1WmQXD4FTiFrInrCQMu1w-cjmPPaLEvw5",
+      "previewUrl": "https://drive.google.com/file/d/1WmQXD4FTiFrInrCQMu1w-cjmPPaLEvw5/preview",
+      "status": "live",
+      "statusEvidence": "Embedded under the recorded KICD label by the authoritative Grade Eight Designs manifest.",
+      "knownKicdMirrorUrl": null,
+      "staleKicdMirrorUrls": [],
+      "viewerMetadata": {
+        "pageCount": 169,
+        "byteSize": 1863078,
+        "evidenceLocation": "Google Drive viewer metadata for the KICD-embedded preview."
+      },
+      "pageCount": 169,
+      "pageCountEvidence": "Google Drive viewer metadata for the KICD-embedded preview.",
+      "byteSize": 1863078,
+      "byteSizeEvidence": "Google Drive viewer metadata for the KICD-embedded preview.",
+      "revisionEvidence": {
+        "label": "revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Filename text from Google Drive preview og:title; not a Drive creation or modification timestamp.",
+        "rawFilenameEvidence": "Revised Oct",
+        "note": "The filename states October but does not state the revision year."
+      },
+      "publicationDate": null,
+      "legacySupersessionNote": "Use the Drive preview embedded by the authoritative KICD manifest; no separate current KICD mirror is asserted."
+    },
+    {
+      "order": 6,
+      "kicdLabel": "French",
+      "subject": "French",
+      "canonicalId": "french",
+      "subjectCode": "french",
+      "aliases": [],
+      "catalogDocumentClass": "elective_language",
+      "classification": {
+        "kind": "optional_language",
+        "slot": "optional_language",
+        "pathway": "french",
+        "optional": true
+      },
+      "formalRole": {
+        "slot": null,
+        "role": "elective_language",
+        "selectionRule": "elective"
+      },
+      "title": "French Grade 8 - July 2024.pdf",
+      "titleEvidence": "Google Drive preview og:title filename",
+      "normalizedTitle": "Junior School Curriculum Design: French, Grade 8",
+      "normalizedTitleEvidence": "Constructed human-readable curriculum label; not a source filename or verified PDF title field.",
+      "driveFileId": "1wLw_tfQGzPV-uu8Ept6eg8onLSoJAYyP",
+      "previewUrl": "https://drive.google.com/file/d/1wLw_tfQGzPV-uu8Ept6eg8onLSoJAYyP/preview",
+      "status": "live",
+      "statusEvidence": "Embedded under the recorded KICD label by the authoritative Grade Eight Designs manifest.",
+      "knownKicdMirrorUrl": null,
+      "staleKicdMirrorUrls": [],
+      "viewerMetadata": {
+        "pageCount": 59,
+        "byteSize": 635348,
+        "evidenceLocation": "Google Drive viewer metadata for the KICD-embedded preview."
+      },
+      "pageCount": 59,
+      "pageCountEvidence": "Google Drive viewer metadata for the KICD-embedded preview.",
+      "byteSize": 635348,
+      "byteSizeEvidence": "Google Drive viewer metadata for the KICD-embedded preview.",
+      "revisionEvidence": {
+        "label": null,
+        "date": "2024-07",
+        "datePrecision": "month",
+        "evidenceLocation": "Filename text from Google Drive preview og:title; not a Drive creation or modification timestamp.",
+        "rawFilenameEvidence": "July 2024",
+        "note": null
+      },
+      "publicationDate": null,
+      "legacySupersessionNote": "Use the Drive preview embedded by the authoritative KICD manifest; no separate current KICD mirror is asserted."
+    },
+    {
+      "order": 7,
+      "kicdLabel": "German",
+      "subject": "German",
+      "canonicalId": "german",
+      "subjectCode": "german",
+      "aliases": [],
+      "catalogDocumentClass": "elective_language",
+      "classification": {
+        "kind": "optional_language",
+        "slot": "optional_language",
+        "pathway": "german",
+        "optional": true
+      },
+      "formalRole": {
+        "slot": null,
+        "role": "elective_language",
+        "selectionRule": "elective"
+      },
+      "title": "German Grade 8 - July 2024.pdf",
+      "titleEvidence": "Google Drive preview og:title filename",
+      "normalizedTitle": "Junior School Curriculum Design: German, Grade 8",
+      "normalizedTitleEvidence": "Constructed human-readable curriculum label; not a source filename or verified PDF title field.",
+      "driveFileId": "1irJwC6GArXWf934-_xCDiaGQYJQZHv5m",
+      "previewUrl": "https://drive.google.com/file/d/1irJwC6GArXWf934-_xCDiaGQYJQZHv5m/preview",
+      "status": "live",
+      "statusEvidence": "Embedded under the recorded KICD label by the authoritative Grade Eight Designs manifest.",
+      "knownKicdMirrorUrl": null,
+      "staleKicdMirrorUrls": [],
+      "viewerMetadata": {
+        "pageCount": 72,
+        "byteSize": 800776,
+        "evidenceLocation": "Google Drive viewer metadata for the KICD-embedded preview."
+      },
+      "pageCount": 72,
+      "pageCountEvidence": "Google Drive viewer metadata for the KICD-embedded preview.",
+      "byteSize": 800776,
+      "byteSizeEvidence": "Google Drive viewer metadata for the KICD-embedded preview.",
+      "revisionEvidence": {
+        "label": null,
+        "date": "2024-07",
+        "datePrecision": "month",
+        "evidenceLocation": "Filename text from Google Drive preview og:title; not a Drive creation or modification timestamp.",
+        "rawFilenameEvidence": "July 2024",
+        "note": null
+      },
+      "publicationDate": null,
+      "legacySupersessionNote": "Use the Drive preview embedded by the authoritative KICD manifest; no separate current KICD mirror is asserted."
+    },
+    {
+      "order": 8,
+      "kicdLabel": "HRE",
+      "subject": "Hindu Religious Education",
+      "canonicalId": "hindu_religious_education",
+      "subjectCode": "hindu_religious_education",
+      "aliases": [
+        "HRE"
+      ],
+      "catalogDocumentClass": "religious_education_alternative",
+      "classification": {
+        "kind": "pathway",
+        "slot": "religious_education",
+        "pathway": "hindu_religious_education",
+        "optional": false
+      },
+      "formalRole": {
+        "slot": "religious_education",
+        "role": "religious_education_alternative",
+        "selectionRule": "exactly_one_pathway"
+      },
+      "title": "HRE Grade 8 - July 2024 - Fin.pdf",
+      "titleEvidence": "Google Drive preview og:title filename",
+      "normalizedTitle": "Junior School Curriculum Design: Hindu Religious Education, Grade 8",
+      "normalizedTitleEvidence": "Constructed human-readable curriculum label; not a source filename or verified PDF title field.",
+      "driveFileId": "17tep-A_DwMx7ZHQ_JTtCm6wH6HLISdIW",
+      "previewUrl": "https://drive.google.com/file/d/17tep-A_DwMx7ZHQ_JTtCm6wH6HLISdIW/preview",
+      "status": "live",
+      "statusEvidence": "Embedded under the recorded KICD label by the authoritative Grade Eight Designs manifest.",
+      "knownKicdMirrorUrl": null,
+      "staleKicdMirrorUrls": [],
+      "viewerMetadata": {
+        "pageCount": 44,
+        "byteSize": 484814,
+        "evidenceLocation": "Google Drive viewer metadata for the KICD-embedded preview."
+      },
+      "pageCount": 44,
+      "pageCountEvidence": "Google Drive viewer metadata for the KICD-embedded preview.",
+      "byteSize": 484814,
+      "byteSizeEvidence": "Google Drive viewer metadata for the KICD-embedded preview.",
+      "revisionEvidence": {
+        "label": "final",
+        "date": "2024-07",
+        "datePrecision": "month",
+        "evidenceLocation": "Filename text from Google Drive preview og:title; not a Drive creation or modification timestamp.",
+        "rawFilenameEvidence": "July 2024 - Fin",
+        "note": null
+      },
+      "publicationDate": null,
+      "legacySupersessionNote": "Use the Drive preview embedded by the authoritative KICD manifest; no separate current KICD mirror is asserted."
+    },
+    {
+      "order": 9,
+      "kicdLabel": "Indigenous Language",
+      "subject": "Indigenous Languages",
+      "canonicalId": "indigenous_language",
+      "subjectCode": "indigenous_language",
+      "aliases": [
+        "Indigenous Language"
+      ],
+      "catalogDocumentClass": "elective_language",
+      "classification": {
+        "kind": "optional_language",
+        "slot": "optional_language",
+        "pathway": "indigenous_languages",
+        "optional": true
+      },
+      "formalRole": {
+        "slot": null,
+        "role": "elective_language",
+        "selectionRule": "elective"
+      },
+      "title": "Indigenous Languages Grade 8 Design - Revised.pdf",
+      "titleEvidence": "Google Drive preview og:title filename",
+      "normalizedTitle": "Junior School Curriculum Design: Indigenous Languages, Grade 8",
+      "normalizedTitleEvidence": "Constructed human-readable curriculum label; not a source filename or verified PDF title field.",
+      "driveFileId": "1WEG5wJplprPae9blpB9oVyI1UaVrq-xj",
+      "previewUrl": "https://drive.google.com/file/d/1WEG5wJplprPae9blpB9oVyI1UaVrq-xj/preview",
+      "status": "live",
+      "statusEvidence": "Embedded under the recorded KICD label by the authoritative Grade Eight Designs manifest.",
+      "knownKicdMirrorUrl": null,
+      "staleKicdMirrorUrls": [],
+      "viewerMetadata": {
+        "pageCount": 76,
+        "byteSize": 746550,
+        "evidenceLocation": "Google Drive viewer metadata for the KICD-embedded preview."
+      },
+      "pageCount": 76,
+      "pageCountEvidence": "Google Drive viewer metadata for the KICD-embedded preview.",
+      "byteSize": 746550,
+      "byteSizeEvidence": "Google Drive viewer metadata for the KICD-embedded preview.",
+      "revisionEvidence": {
+        "label": "revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Filename text from Google Drive preview og:title; not a Drive creation or modification timestamp.",
+        "rawFilenameEvidence": "Revised",
+        "note": "The filename does not state a revision date."
+      },
+      "publicationDate": null,
+      "legacySupersessionNote": "Use the Drive preview embedded by the authoritative KICD manifest; no separate current KICD mirror is asserted."
+    },
+    {
+      "order": 10,
+      "kicdLabel": "Integrated Science",
+      "subject": "Integrated Science",
+      "canonicalId": "integrated_science",
+      "subjectCode": "integrated_science",
+      "aliases": [],
+      "catalogDocumentClass": "common_required",
+      "classification": {
+        "kind": "core_slot",
+        "slot": "integrated_science",
+        "pathway": null,
+        "optional": false
+      },
+      "formalRole": {
+        "slot": "integrated_science",
+        "role": "common_required",
+        "selectionRule": "required"
+      },
+      "title": "Integrated Science Grade 8 - July 2024.pdf",
+      "titleEvidence": "Google Drive preview og:title filename",
+      "normalizedTitle": "Junior School Curriculum Design: Integrated Science, Grade 8",
+      "normalizedTitleEvidence": "Constructed human-readable curriculum label; not a source filename or verified PDF title field.",
+      "driveFileId": "1RpqZRmeMywbc1Tya0_x-tNJBs75Gy0-v",
+      "previewUrl": "https://drive.google.com/file/d/1RpqZRmeMywbc1Tya0_x-tNJBs75Gy0-v/preview",
+      "status": "live",
+      "statusEvidence": "Embedded under the recorded KICD label by the authoritative Grade Eight Designs manifest.",
+      "knownKicdMirrorUrl": null,
+      "staleKicdMirrorUrls": [],
+      "viewerMetadata": {
+        "pageCount": 37,
+        "byteSize": 411955,
+        "evidenceLocation": "Google Drive viewer metadata for the KICD-embedded preview."
+      },
+      "pageCount": 37,
+      "pageCountEvidence": "Google Drive viewer metadata for the KICD-embedded preview.",
+      "byteSize": 411955,
+      "byteSizeEvidence": "Google Drive viewer metadata for the KICD-embedded preview.",
+      "revisionEvidence": {
+        "label": null,
+        "date": "2024-07",
+        "datePrecision": "month",
+        "evidenceLocation": "Filename text from Google Drive preview og:title; not a Drive creation or modification timestamp.",
+        "rawFilenameEvidence": "July 2024",
+        "note": null
+      },
+      "publicationDate": null,
+      "legacySupersessionNote": "Use the Drive preview embedded by the authoritative KICD manifest; no separate current KICD mirror is asserted."
+    },
+    {
+      "order": 11,
+      "kicdLabel": "IRE",
+      "subject": "Islamic Religious Education",
+      "canonicalId": "islamic_religious_education",
+      "subjectCode": "islamic_religious_education",
+      "aliases": [
+        "IRE"
+      ],
+      "catalogDocumentClass": "religious_education_alternative",
+      "classification": {
+        "kind": "pathway",
+        "slot": "religious_education",
+        "pathway": "islamic_religious_education",
+        "optional": false
+      },
+      "formalRole": {
+        "slot": "religious_education",
+        "role": "religious_education_alternative",
+        "selectionRule": "exactly_one_pathway"
+      },
+      "title": "Islamic Religious Education Grade 8 - July 2024.pdf",
+      "titleEvidence": "Google Drive preview og:title filename",
+      "normalizedTitle": "Junior School Curriculum Design: Islamic Religious Education, Grade 8",
+      "normalizedTitleEvidence": "Constructed human-readable curriculum label; not a source filename or verified PDF title field.",
+      "driveFileId": "10HXITblf3E9bwYFABlcbv_qA9ZGSSod1",
+      "previewUrl": "https://drive.google.com/file/d/10HXITblf3E9bwYFABlcbv_qA9ZGSSod1/preview",
+      "status": "live",
+      "statusEvidence": "Embedded under the recorded KICD label by the authoritative Grade Eight Designs manifest.",
+      "knownKicdMirrorUrl": null,
+      "staleKicdMirrorUrls": [],
+      "viewerMetadata": {
+        "pageCount": 59,
+        "byteSize": 569915,
+        "evidenceLocation": "Google Drive viewer metadata for the KICD-embedded preview."
+      },
+      "pageCount": 59,
+      "pageCountEvidence": "Google Drive viewer metadata for the KICD-embedded preview.",
+      "byteSize": 569915,
+      "byteSizeEvidence": "Google Drive viewer metadata for the KICD-embedded preview.",
+      "revisionEvidence": {
+        "label": null,
+        "date": "2024-07",
+        "datePrecision": "month",
+        "evidenceLocation": "Filename text from Google Drive preview og:title; not a Drive creation or modification timestamp.",
+        "rawFilenameEvidence": "July 2024",
+        "note": null
+      },
+      "publicationDate": null,
+      "legacySupersessionNote": "Use the Drive preview embedded by the authoritative KICD manifest; no separate current KICD mirror is asserted."
+    },
+    {
+      "order": 12,
+      "kicdLabel": "Kiswahili",
+      "subject": "Kiswahili",
+      "canonicalId": "kiswahili",
+      "subjectCode": "kiswahili",
+      "aliases": [],
+      "catalogDocumentClass": "common_required",
+      "classification": {
+        "kind": "core_slot",
+        "slot": "kiswahili_or_kenya_sign_language",
+        "pathway": null,
+        "optional": false
+      },
+      "formalRole": {
+        "slot": "kiswahili_or_kenya_sign_language",
+        "role": "common_required",
+        "selectionRule": "exactly_one_by_learner_context"
+      },
+      "title": "Kiswahili Grade 8 - July 2024 - Revised Oct.pdf",
+      "titleEvidence": "Google Drive preview og:title filename",
+      "normalizedTitle": "Junior School Curriculum Design: Kiswahili, Grade 8",
+      "normalizedTitleEvidence": "Constructed human-readable curriculum label; not a source filename or verified PDF title field.",
+      "driveFileId": "1l-TPHn7cSCasqwb7auMUX2Cbtcu2cWoI",
+      "previewUrl": "https://drive.google.com/file/d/1l-TPHn7cSCasqwb7auMUX2Cbtcu2cWoI/preview",
+      "status": "live",
+      "statusEvidence": "Embedded under the recorded KICD label by the authoritative Grade Eight Designs manifest.",
+      "knownKicdMirrorUrl": null,
+      "staleKicdMirrorUrls": [],
+      "viewerMetadata": {
+        "pageCount": 156,
+        "byteSize": 2915285,
+        "evidenceLocation": "Google Drive viewer metadata for the KICD-embedded preview."
+      },
+      "pageCount": 156,
+      "pageCountEvidence": "Google Drive viewer metadata for the KICD-embedded preview.",
+      "byteSize": 2915285,
+      "byteSizeEvidence": "Google Drive viewer metadata for the KICD-embedded preview.",
+      "revisionEvidence": {
+        "label": "revised",
+        "date": "2024-07",
+        "datePrecision": "month",
+        "evidenceLocation": "Filename text from Google Drive preview og:title; not a Drive creation or modification timestamp.",
+        "rawFilenameEvidence": "July 2024 - Revised Oct",
+        "note": "The document month is July 2024; the filename states a revision in October but does not state the revision year."
+      },
+      "publicationDate": null,
+      "legacySupersessionNote": "Use the Drive preview embedded by the authoritative KICD manifest; no separate current KICD mirror is asserted."
+    },
+    {
+      "order": 13,
+      "kicdLabel": "Mandarin",
+      "subject": "Mandarin",
+      "canonicalId": "mandarin",
+      "subjectCode": "mandarin",
+      "aliases": [
+        "Mandarin Chinese"
+      ],
+      "catalogDocumentClass": "elective_language",
+      "classification": {
+        "kind": "optional_language",
+        "slot": "optional_language",
+        "pathway": "mandarin",
+        "optional": true
+      },
+      "formalRole": {
+        "slot": null,
+        "role": "elective_language",
+        "selectionRule": "elective"
+      },
+      "title": "Mandarin Grade 8 Design - July 2024 - Revised.pdf",
+      "titleEvidence": "Google Drive preview og:title filename",
+      "normalizedTitle": "Junior School Curriculum Design: Mandarin, Grade 8",
+      "normalizedTitleEvidence": "Constructed human-readable curriculum label; not a source filename or verified PDF title field.",
+      "driveFileId": "1KxyvR6lreOFJQ8LcdFuWCQteJvSUGJrI",
+      "previewUrl": "https://drive.google.com/file/d/1KxyvR6lreOFJQ8LcdFuWCQteJvSUGJrI/preview",
+      "status": "live",
+      "statusEvidence": "Embedded under the recorded KICD label by the authoritative Grade Eight Designs manifest.",
+      "knownKicdMirrorUrl": null,
+      "staleKicdMirrorUrls": [],
+      "viewerMetadata": {
+        "pageCount": 76,
+        "byteSize": 1621478,
+        "evidenceLocation": "Google Drive viewer metadata for the KICD-embedded preview."
+      },
+      "pageCount": 76,
+      "pageCountEvidence": "Google Drive viewer metadata for the KICD-embedded preview.",
+      "byteSize": 1621478,
+      "byteSizeEvidence": "Google Drive viewer metadata for the KICD-embedded preview.",
+      "revisionEvidence": {
+        "label": "revised",
+        "date": "2024-07",
+        "datePrecision": "month",
+        "evidenceLocation": "Filename text from Google Drive preview og:title; not a Drive creation or modification timestamp.",
+        "rawFilenameEvidence": "July 2024 - Revised",
+        "note": null
+      },
+      "publicationDate": null,
+      "legacySupersessionNote": "Use the Drive preview embedded by the authoritative KICD manifest; no separate current KICD mirror is asserted."
+    },
+    {
+      "order": 14,
+      "kicdLabel": "Mathematics",
+      "subject": "Mathematics",
+      "canonicalId": "mathematics",
+      "subjectCode": "mathematics",
+      "aliases": [],
+      "catalogDocumentClass": "common_required",
+      "classification": {
+        "kind": "core_slot",
+        "slot": "mathematics",
+        "pathway": null,
+        "optional": false
+      },
+      "formalRole": {
+        "slot": "mathematics",
+        "role": "common_required",
+        "selectionRule": "required"
+      },
+      "title": "Mathematics Grade 8 - July 2024.pdf",
+      "titleEvidence": "Google Drive preview og:title filename",
+      "normalizedTitle": "Junior School Curriculum Design: Mathematics, Grade 8",
+      "normalizedTitleEvidence": "Constructed human-readable curriculum label; not a source filename or verified PDF title field.",
+      "driveFileId": "1ttNvzuQbHUnABVcP-TAoix8-TVmehYph",
+      "previewUrl": "https://drive.google.com/file/d/1ttNvzuQbHUnABVcP-TAoix8-TVmehYph/preview",
+      "status": "live",
+      "statusEvidence": "Embedded under the recorded KICD label by the authoritative Grade Eight Designs manifest.",
+      "knownKicdMirrorUrl": null,
+      "staleKicdMirrorUrls": [],
+      "viewerMetadata": {
+        "pageCount": 64,
+        "byteSize": 553423,
+        "evidenceLocation": "Google Drive viewer metadata for the KICD-embedded preview."
+      },
+      "pageCount": 64,
+      "pageCountEvidence": "Google Drive viewer metadata for the KICD-embedded preview.",
+      "byteSize": 553423,
+      "byteSizeEvidence": "Google Drive viewer metadata for the KICD-embedded preview.",
+      "revisionEvidence": {
+        "label": null,
+        "date": "2024-07",
+        "datePrecision": "month",
+        "evidenceLocation": "Filename text from Google Drive preview og:title; not a Drive creation or modification timestamp.",
+        "rawFilenameEvidence": "July 2024",
+        "note": null
+      },
+      "publicationDate": null,
+      "legacySupersessionNote": "Use the Drive preview embedded by the authoritative KICD manifest; no separate current KICD mirror is asserted."
+    },
+    {
+      "order": 15,
+      "kicdLabel": "Pre-Technical Studies",
+      "subject": "Pre-Technical Studies",
+      "canonicalId": "pre_technical_studies",
+      "subjectCode": "pre_technical_studies",
+      "aliases": [],
+      "catalogDocumentClass": "common_required",
+      "classification": {
+        "kind": "core_slot",
+        "slot": "pre_technical_studies",
+        "pathway": null,
+        "optional": false
+      },
+      "formalRole": {
+        "slot": "pre_technical_studies",
+        "role": "common_required",
+        "selectionRule": "required"
+      },
+      "title": "Pre-Technical Studies Grade 8 - July 2024 - Revised.pdf",
+      "titleEvidence": "Google Drive preview og:title filename",
+      "normalizedTitle": "Junior School Curriculum Design: Pre-Technical Studies, Grade 8",
+      "normalizedTitleEvidence": "Constructed human-readable curriculum label; not a source filename or verified PDF title field.",
+      "driveFileId": "1Cvh2JSBlrHU4z4FKt7uVMgTMXEWq9jdu",
+      "previewUrl": "https://drive.google.com/file/d/1Cvh2JSBlrHU4z4FKt7uVMgTMXEWq9jdu/preview",
+      "status": "live",
+      "statusEvidence": "Embedded under the recorded KICD label by the authoritative Grade Eight Designs manifest.",
+      "knownKicdMirrorUrl": null,
+      "staleKicdMirrorUrls": [],
+      "viewerMetadata": {
+        "pageCount": 51,
+        "byteSize": 401990,
+        "evidenceLocation": "Google Drive viewer metadata for the KICD-embedded preview."
+      },
+      "pageCount": 51,
+      "pageCountEvidence": "Google Drive viewer metadata for the KICD-embedded preview.",
+      "byteSize": 401990,
+      "byteSizeEvidence": "Google Drive viewer metadata for the KICD-embedded preview.",
+      "revisionEvidence": {
+        "label": "revised",
+        "date": "2024-07",
+        "datePrecision": "month",
+        "evidenceLocation": "Filename text from Google Drive preview og:title; not a Drive creation or modification timestamp.",
+        "rawFilenameEvidence": "July 2024 - Revised",
+        "note": null
+      },
+      "publicationDate": null,
+      "legacySupersessionNote": "Use the Drive preview embedded by the authoritative KICD manifest; no separate current KICD mirror is asserted."
+    },
+    {
+      "order": 16,
+      "kicdLabel": "Social Studies",
+      "subject": "Social Studies",
+      "canonicalId": "social_studies",
+      "subjectCode": "social_studies",
+      "aliases": [],
+      "catalogDocumentClass": "common_required",
+      "classification": {
+        "kind": "core_slot",
+        "slot": "social_studies",
+        "pathway": null,
+        "optional": false
+      },
+      "formalRole": {
+        "slot": "social_studies",
+        "role": "common_required",
+        "selectionRule": "required"
+      },
+      "title": "Social Studies Grade 8 - Revised.pdf",
+      "titleEvidence": "Google Drive preview og:title filename",
+      "normalizedTitle": "Junior School Curriculum Design: Social Studies, Grade 8",
+      "normalizedTitleEvidence": "Constructed human-readable curriculum label; not a source filename or verified PDF title field.",
+      "driveFileId": "1yx30v28nVLKYSByRB9G2Omalh76-ZL6h",
+      "previewUrl": "https://drive.google.com/file/d/1yx30v28nVLKYSByRB9G2Omalh76-ZL6h/preview",
+      "status": "live",
+      "statusEvidence": "Embedded under the recorded KICD label by the authoritative Grade Eight Designs manifest.",
+      "knownKicdMirrorUrl": null,
+      "staleKicdMirrorUrls": [],
+      "viewerMetadata": {
+        "pageCount": 69,
+        "byteSize": 599982,
+        "evidenceLocation": "Google Drive viewer metadata for the KICD-embedded preview."
+      },
+      "pageCount": 69,
+      "pageCountEvidence": "Google Drive viewer metadata for the KICD-embedded preview.",
+      "byteSize": 599982,
+      "byteSizeEvidence": "Google Drive viewer metadata for the KICD-embedded preview.",
+      "revisionEvidence": {
+        "label": "revised",
+        "date": null,
+        "datePrecision": null,
+        "evidenceLocation": "Filename text from Google Drive preview og:title; not a Drive creation or modification timestamp.",
+        "rawFilenameEvidence": "Revised",
+        "note": "The filename does not state a revision date."
+      },
+      "publicationDate": null,
+      "legacySupersessionNote": "Use the Drive preview embedded by the authoritative KICD manifest; no separate current KICD mirror is asserted."
+    }
+  ],
+  "specialNeedsEducationScope": {
+    "included": false,
+    "reason": "Adapted Grade 8 designs for learners with hearing, physical, or visual impairments are out of corpus scope and are referenced only under excluded_scope.",
+    "authoritativeIndexUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/sne-curriculum-designs/",
+    "manifests": [
+      {
+        "code": "HI",
+        "title": "HI Grade 8 Designs",
+        "url": "https://kicd.ac.ke/cbc-materials/curriculum-designs/sne-curriculum-designs/hi-grade-8/",
+        "subjectCount": 8,
+        "evidence": "The official KICD manifest lists 8 embedded Grade 8 designs for learners with hearing impairment.",
+        "exclusionReason": "Adapted SNE documents are outside this regular Grade 8 corpus."
+      },
+      {
+        "code": "PI",
+        "title": "PI Grade 8 Designs",
+        "url": "https://kicd.ac.ke/cbc-materials/curriculum-designs/sne-curriculum-designs/pi-grade-8/",
+        "subjectCount": 8,
+        "evidence": "The official KICD manifest lists 8 embedded Grade 8 designs for learners with physical impairment.",
+        "exclusionReason": "Adapted SNE documents are outside this regular Grade 8 corpus."
+      },
+      {
+        "code": "VI",
+        "title": "VI Grade 8 Designs",
+        "url": "https://kicd.ac.ke/cbc-materials/curriculum-designs/sne-curriculum-designs/vi-grade-8/",
+        "subjectCount": 10,
+        "evidence": "The official KICD manifest lists 10 embedded Grade 8 designs for learners with visual impairment.",
+        "exclusionReason": "Adapted SNE documents are outside this regular Grade 8 corpus."
+      }
+    ]
+  },
+  "notes": [
+    "The official manifest label 'Creative Arts' maps to the normalized subject 'Creative Arts and Sports'; both source and normalized values are retained.",
+    "The official manifest label 'Agriculture' occupies the rationalised 'Agriculture and Nutrition' curriculum slot.",
+    "CRE, HRE, and IRE are alternative pathways within one Religious Education slot, not three simultaneously required slots.",
+    "Arabic, French, German, Indigenous Languages, and Mandarin are optional-language designs, not additional core slots.",
+    "Kenya Sign Language is not a standalone regular-manifest source; its official Grade 8 design is published under the hearing-impairment SNE manifest and remains excluded from this regular corpus."
+  ]
+}

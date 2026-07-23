@@ -1,0 +1,651 @@
+{
+  "schemaVersion": 1,
+  "status": "valid",
+  "errorCount": 0,
+  "warningCount": 90,
+  "logicalDigest": "0f5ef6eca9e9b0832f3e49dd958b49462920a51ff195c115fd9029b93ad50fc7",
+  "corpusLogicalDigest": "15786a608d4fba1b49e33a37fcf06a45661341c0f6261faf68e2073ca69b07f1",
+  "counts": {
+    "documents": 16,
+    "pages": 1196,
+    "gradeSubjects": 16,
+    "strands": 217,
+    "subStrands": 394,
+    "outcomes": 1499,
+    "inquiryQuestions": 578,
+    "learningActivities": 2464,
+    "nodes": 0
+  },
+  "issues": [
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[4].strands[32].subStrands[0].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[4].strands[6].subStrands[0].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[0].subStrands[0].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[0].subStrands[1].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[0].subStrands[2].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[0].subStrands[3].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[0].subStrands[4].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[0].subStrands[5].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[0].subStrands[6].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[0].subStrands[7].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[0].subStrands[8].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[1].subStrands[0].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[1].subStrands[1].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[1].subStrands[2].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[1].subStrands[3].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[1].subStrands[4].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[1].subStrands[5].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[1].subStrands[6].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[1].subStrands[7].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[2].subStrands[0].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[2].subStrands[1].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[2].subStrands[2].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[2].subStrands[3].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[2].subStrands[4].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[2].subStrands[5].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[2].subStrands[6].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "lesson-count.aggregate-only-unallocated",
+      "path": "normalized.gradeSubjects[5].strands[2].subStrands[7].lessonCountDisposition",
+      "message": "Official source prints aggregate lesson totals only; no leaf count was inferred."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[0].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[1].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[10].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[11].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[12].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[13].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[14].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[15].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[16].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[17].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[18].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[19].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[2].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[20].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[21].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[22].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[23].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[24].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[25].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[26].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[27].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[28].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[29].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[3].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[30].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[31].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[32].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[33].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[34].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[35].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[36].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[37].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[38].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[39].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[4].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[40].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[41].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[42].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[43].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[44].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[45].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[46].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[47].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[48].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[49].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[5].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[50].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[51].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[52].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[53].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[54].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[55].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[56].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[57].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[58].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[59].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[6].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[7].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[8].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "rubric.not-covered-approved",
+      "path": "normalized.gradeSubjects[11].strands[9].subStrands[0].rubricCoverage",
+      "message": "Independent review approved the evidence-bound official-source rubric omission."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "semantic.source-confirmed-empty",
+      "path": "normalized.gradeSubjects[10].strands[2].subStrands[0].semanticCoverage.crossCurricularLinks",
+      "message": "Official source evidence confirms no crossCurricularLinks statement for this leaf."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "semantic.source-confirmed-empty",
+      "path": "normalized.gradeSubjects[10].strands[3].subStrands[1].semanticCoverage.crossCurricularLinks",
+      "message": "Official source evidence confirms no crossCurricularLinks statement for this leaf."
+    },
+    {
+      "severity": "warning",
+      "origin": "official-source",
+      "code": "semantic.source-confirmed-empty",
+      "path": "normalized.gradeSubjects[15].strands[1].subStrands[0].semanticCoverage.crossCurricularLinks",
+      "message": "Official source evidence confirms no crossCurricularLinks statement for this leaf."
+    }
+  ]
+}

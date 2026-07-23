@@ -1,15 +1,17 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   ActivityIndicator,
+  Image,
   Pressable,
   ScrollView,
   StyleSheet,
   Text,
+  useWindowDimensions,
   View,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { CheckCircle2, GraduationCap, Sparkles } from 'lucide-react-native';
-import { FoxMascotArt, FoxMascotMood } from '../components/FoxMascotArt';
+import { CheckCircle2 } from 'lucide-react-native';
+import { LEARNING_MASCOT_SOURCES } from '../features/progressiveLearning/components/LearningMascotReaction';
 import {
   completeOnboardingDiagnostic,
   completeProgressiveDiagnostic,
@@ -19,10 +21,11 @@ import {
   submitProgressiveDiagnosticAnswer,
 } from '../services/diagnosticService';
 import { triggerHaptic } from '../services/haptics';
-import { DiagnosticQuestion, DiagnosticResult } from '../types/app';
+import { DiagnosticQuestion, DiagnosticResult, OnboardingMascotKey } from '../types/app';
 
 const HIDDEN_CONFIDENCE_SCORE = 3;
 const MASCOT_FEEDBACK_MS = 520;
+const logoAsset = require('../assets/logo.png');
 
 export interface PreviewDiagnosticQuestion extends DiagnosticQuestion {
   correctAnswer: string;
@@ -32,6 +35,7 @@ interface DiagnosticScreenProps {
   mode?: 'onboarding' | 'progressive';
   subjectId?: string;
   subjectName?: string;
+  mascotKey?: OnboardingMascotKey;
   previewQuestions?: PreviewDiagnosticQuestion[];
   onComplete: (result: DiagnosticResult) => void;
 }
@@ -40,9 +44,11 @@ export function DiagnosticScreen({
   mode = 'onboarding',
   subjectId,
   subjectName,
+  mascotKey = 'rabbit',
   previewQuestions,
   onComplete,
 }: DiagnosticScreenProps) {
+  const { height, width } = useWindowDimensions();
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [questions, setQuestions] = useState<DiagnosticQuestion[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -52,16 +58,14 @@ export function DiagnosticScreen({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<DiagnosticResult | null>(null);
-  const [mascotMood, setMascotMood] = useState<FoxMascotMood>('thinking');
+  const [mascotMood, setMascotMood] = useState<'thinking' | 'thumbs-up' | 'note' | 'celebrate'>('thinking');
   const [previewCorrectCount, setPreviewCorrectCount] = useState(0);
   const isPreview = Boolean(previewQuestions?.length);
 
   const currentQuestion = questions[currentIndex] ?? null;
   const progress = questions.length > 0 ? (currentIndex + 1) / questions.length : 0;
-  const groupedSubjects = useMemo(
-    () => Array.from(new Set(questions.map(question => question.subjectName))).join(' + '),
-    [questions],
-  );
+  const compactLayout = height < 760 || width < 370;
+  const mascotSource = LEARNING_MASCOT_SOURCES[mascotKey];
 
   useEffect(() => {
     if (previewQuestions?.length) {
@@ -200,7 +204,12 @@ export function DiagnosticScreen({
         end={{ x: 1, y: 1 }}
         style={styles.centerScreen}>
         <View style={styles.loadingMascotCard}>
-          <FoxMascotArt mood="thinking" size={148} />
+          <Image
+            accessibilityLabel={`${mascotKey} learning mascot`}
+            resizeMode="contain"
+            source={mascotSource}
+            style={styles.loadingMascot}
+          />
           <ActivityIndicator color="#FFFFFF" size="large" />
           <Text style={styles.loadingText}>Preparing your learning diagnostic...</Text>
         </View>
@@ -220,7 +229,12 @@ export function DiagnosticScreen({
             <LinearGradient
               colors={['rgba(59,130,246,0.34)', 'rgba(139,92,246,0.26)']}
               style={styles.resultHero}>
-              <FoxMascotArt mood="celebrate" size={168} />
+              <Image
+                accessibilityLabel={`${mascotKey} learning mascot celebrating`}
+                resizeMode="contain"
+                source={mascotSource}
+                style={styles.resultMascot}
+              />
               <View style={styles.resultIcon}>
                 <CheckCircle2 color="#FFFFFF" size={24} />
               </View>
@@ -258,7 +272,12 @@ export function DiagnosticScreen({
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 1 }}
         style={styles.centerScreen}>
-        <FoxMascotArt mood="note" size={150} />
+        <Image
+          accessibilityLabel={`${mascotKey} learning mascot`}
+          resizeMode="contain"
+          source={mascotSource}
+          style={styles.emptyMascot}
+        />
         <Text style={styles.errorText}>{error || 'No diagnostic questions available.'}</Text>
       </LinearGradient>
     );
@@ -270,61 +289,78 @@ export function DiagnosticScreen({
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
       style={styles.screen}>
-      <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
-        <View style={styles.shell}>
+      <ScrollView
+        bounces={false}
+        contentContainerStyle={[styles.content, compactLayout && styles.contentCompact]}
+        scrollEnabled={false}
+        showsVerticalScrollIndicator={false}>
+        <View style={[styles.shell, compactLayout && styles.shellCompact]}>
           <LinearGradient
             colors={['rgba(59,130,246,0.36)', 'rgba(139,92,246,0.26)']}
-            style={styles.header}>
-            <View style={styles.headerCopyRow}>
-              <View style={styles.headerIcon}>
-                <GraduationCap color="#FFFFFF" size={22} />
-              </View>
-              <View style={styles.headerTextWrap}>
-                <Text style={styles.eyebrow}>Personal learning path</Text>
-                <Text style={styles.title}>Find your starting point</Text>
-                <Text style={styles.subtitle}>
-                  {mode === 'progressive' && subjectName ? subjectName : groupedSubjects}. Question {currentIndex + 1} of {questions.length}.
+            style={[styles.header, compactLayout && styles.headerCompact]}>
+            <View style={styles.heroRow}>
+              <View style={styles.headerTitleGroup}>
+                <View style={styles.headerLogoWrap}>
+                  <Image
+                    accessibilityLabel="Kitabu AI logo"
+                    resizeMode="contain"
+                    source={logoAsset}
+                    style={styles.headerLogo}
+                  />
+                </View>
+                <Text
+                  adjustsFontSizeToFit
+                  maxFontSizeMultiplier={1.1}
+                  minimumFontScale={0.78}
+                  numberOfLines={1}
+                  style={[styles.title, compactLayout && styles.titleCompact]}>
+                  Find your starting point
                 </Text>
               </View>
+              <Image
+                accessibilityLabel={`${mascotKey} learning mascot`}
+                resizeMode="contain"
+                source={mascotSource}
+                style={[styles.headerMascot, compactLayout && styles.headerMascotCompact]}
+              />
             </View>
-            <View style={styles.mascotStage}>
-              <FoxMascotArt mood={isSubmitting ? mascotMood : 'thinking'} size={154} />
-              <View style={styles.mascotBubble}>
-                <Sparkles color="#FBBF24" size={15} />
-                <Text style={styles.mascotBubbleText}>
-                  {isSubmitting
-                    ? mascotMood === 'thumbs-up'
-                      ? 'Nice work'
-                      : mascotMood === 'note'
-                        ? 'Checking notes'
-                        : 'Thinking'
-                    : 'Thinking with you'}
-                </Text>
-              </View>
-            </View>
-            <View style={styles.progressTrack}>
+            <View
+              accessibilityLabel={`Question ${currentIndex + 1} of ${questions.length}`}
+              accessibilityRole="progressbar"
+              accessibilityValue={{ min: 1, max: questions.length, now: currentIndex + 1 }}
+              style={styles.progressTrack}>
               <View style={[styles.progressFill, { width: `${Math.round(progress * 100)}%` }]} />
             </View>
           </LinearGradient>
 
-          <View style={styles.questionCard}>
-          <Text style={styles.subjectLabel}>{currentQuestion.subjectName}</Text>
-          <Text style={styles.questionText}>{currentQuestion.prompt}</Text>
-          <View style={styles.options}>
+          <View style={[styles.questionCard, compactLayout && styles.questionCardCompact]}>
+          <Text maxFontSizeMultiplier={1.15} style={styles.subjectLabel}>{currentQuestion.subjectName}</Text>
+          <Text
+            maxFontSizeMultiplier={1.15}
+            style={[styles.questionText, compactLayout && styles.questionTextCompact]}>
+            {currentQuestion.prompt}
+          </Text>
+          <View style={[styles.options, compactLayout && styles.optionsCompact]}>
             {currentQuestion.options.map(option => {
               const selected = selectedAnswer === option;
               return (
                 <Pressable
                   key={option}
+                  accessibilityLabel={`Answer ${option}`}
+                  accessibilityRole="button"
+                  accessibilityState={{ disabled: isSubmitting, selected }}
                   disabled={isSubmitting}
                   onPress={() => submitCurrentAnswer(option)}
                   style={[
                     styles.optionButton,
+                    compactLayout && styles.optionButtonCompact,
                     selected && styles.optionButtonSelected,
                     selected && mascotMood === 'thumbs-up' && styles.optionButtonCorrect,
                     selected && mascotMood === 'note' && styles.optionButtonReview,
                   ]}>
-                  <Text style={[styles.optionText, selected && styles.optionTextSelected]}>
+                  <Text
+                    maxFontSizeMultiplier={1.15}
+                    style={[styles.optionText, selected && styles.optionTextSelected]}>
                     {option}
                   </Text>
                 </Pressable>
@@ -333,7 +369,7 @@ export function DiagnosticScreen({
           </View>
           {isSubmitting ? (
             <View style={styles.submittingRow}>
-              <ActivityIndicator color="#FFFFFF" />
+              <ActivityIndicator color="#1D4ED8" />
               <Text style={styles.submittingText}>Loading next question...</Text>
             </View>
           ) : null}
@@ -373,111 +409,108 @@ const styles = StyleSheet.create({
     fontWeight: '800',
     textAlign: 'center',
   },
+  loadingMascot: {
+    height: 104,
+    width: 104,
+  },
   content: {
     alignItems: 'center',
     flexGrow: 1,
     justifyContent: 'center',
-    paddingHorizontal: 18,
-    paddingVertical: 18,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+  },
+  contentCompact: {
+    paddingHorizontal: 8,
+    paddingVertical: 6,
   },
   shell: {
     backgroundColor: 'rgba(255,255,255,0.18)',
     borderColor: 'rgba(255,255,255,0.28)',
-    borderRadius: 22,
+    borderRadius: 24,
     borderWidth: 1,
     overflow: 'hidden',
-    shadowColor: '#020617',
-    shadowOffset: { width: 0, height: 18 },
-    shadowOpacity: 0.28,
-    shadowRadius: 28,
-    elevation: 12,
-    maxWidth: 344,
+    maxWidth: 390,
     width: '100%',
   },
+  shellCompact: {
+    borderRadius: 20,
+  },
   header: {
-    gap: 10,
-    padding: 16,
-    paddingBottom: 12,
+    gap: 8,
+    padding: 12,
   },
-  headerCopyRow: {
-    alignItems: 'flex-start',
-    flexDirection: 'row',
-    gap: 12,
+  headerCompact: {
+    gap: 6,
+    padding: 9,
   },
-  headerIcon: {
+  heroRow: {
     alignItems: 'center',
-    backgroundColor: 'rgba(255,255,255,0.18)',
-    borderRadius: 18,
-    height: 46,
-    justifyContent: 'center',
-    width: 46,
+    flexDirection: 'row',
+    gap: 8,
   },
-  headerTextWrap: {
+  headerTitleGroup: {
+    alignItems: 'center',
     flex: 1,
+    flexDirection: 'row',
+    gap: 9,
   },
-  eyebrow: {
-    color: '#BFDBFE',
-    fontSize: 11,
-    fontWeight: '900',
-    letterSpacing: 0.6,
-    textTransform: 'uppercase',
+  headerLogoWrap: {
+    alignItems: 'center',
+    backgroundColor: 'rgba(255,255,255,0.92)',
+    borderRadius: 12,
+    height: 36,
+    justifyContent: 'center',
+    width: 36,
+  },
+  headerLogo: {
+    height: 30,
+    width: 30,
   },
   title: {
     color: '#FFFFFF',
-    fontSize: 22,
+    flex: 1,
+    fontSize: 19,
     fontWeight: '900',
-    lineHeight: 27,
-    marginTop: 4,
+    lineHeight: 23,
   },
-  subtitle: {
-    color: '#E2E8F0',
-    fontSize: 14,
-    fontWeight: '700',
-    lineHeight: 20,
-    marginTop: 6,
+  titleCompact: {
+    fontSize: 17,
+    lineHeight: 21,
   },
-  mascotStage: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    minHeight: 136,
+  headerMascot: {
+    height: 60,
+    width: 60,
   },
-  mascotBubble: {
-    alignItems: 'center',
-    alignSelf: 'center',
-    backgroundColor: 'rgba(15,23,42,0.34)',
-    borderColor: 'rgba(255,255,255,0.18)',
-    borderRadius: 999,
-    borderWidth: 1,
-    flexDirection: 'row',
-    gap: 7,
-    marginTop: -10,
-    paddingHorizontal: 12,
-    paddingVertical: 7,
-  },
-  mascotBubbleText: {
-    color: '#FFFFFF',
-    fontSize: 12,
-    fontWeight: '900',
+  headerMascotCompact: {
+    height: 48,
+    width: 48,
   },
   progressTrack: {
     backgroundColor: 'rgba(255,255,255,0.22)',
     borderRadius: 999,
-    height: 7,
+    height: 5,
     overflow: 'hidden',
   },
   progressFill: {
     backgroundColor: '#60A5FA',
     borderRadius: 999,
-    height: 7,
+    height: 5,
   },
   questionCard: {
     backgroundColor: 'rgba(255,255,255,0.84)',
     borderColor: 'rgba(255,255,255,0.7)',
-    borderRadius: 22,
+    borderRadius: 20,
     borderWidth: 1,
-    margin: 16,
-    marginTop: 12,
-    padding: 18,
+    margin: 12,
+    marginTop: 10,
+    padding: 14,
+  },
+  questionCardCompact: {
+    borderRadius: 17,
+    margin: 8,
+    marginTop: 7,
+    padding: 11,
   },
   subjectLabel: {
     color: '#1D4ED8',
@@ -488,22 +521,38 @@ const styles = StyleSheet.create({
   },
   questionText: {
     color: '#0F172A',
-    fontSize: 22,
+    fontSize: 20,
     fontWeight: '900',
-    lineHeight: 30,
-    marginTop: 10,
+    lineHeight: 26,
+    marginTop: 7,
+  },
+  questionTextCompact: {
+    fontSize: 18,
+    lineHeight: 23,
   },
   options: {
-    gap: 12,
-    marginTop: 22,
+    gap: 8,
+    marginTop: 14,
+  },
+  optionsCompact: {
+    gap: 6,
+    marginTop: 10,
   },
   optionButton: {
     backgroundColor: 'rgba(255,255,255,0.86)',
     borderColor: 'rgba(148,163,184,0.5)',
-    borderRadius: 16,
+    borderRadius: 14,
     borderWidth: 1,
-    minHeight: 62,
-    padding: 15,
+    justifyContent: 'center',
+    minHeight: 52,
+    paddingHorizontal: 14,
+    paddingVertical: 11,
+  },
+  optionButtonCompact: {
+    borderRadius: 12,
+    minHeight: 46,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
   },
   optionButtonSelected: {
     backgroundColor: '#EFF6FF',
@@ -533,7 +582,7 @@ const styles = StyleSheet.create({
     marginTop: 16,
   },
   submittingText: {
-    color: '#FFFFFF',
+    color: '#1D4ED8',
     fontSize: 13,
     fontWeight: '800',
   },
@@ -579,6 +628,14 @@ const styles = StyleSheet.create({
     paddingTop: 18,
     paddingBottom: 20,
     width: '100%',
+  },
+  resultMascot: {
+    height: 132,
+    width: 132,
+  },
+  emptyMascot: {
+    height: 112,
+    width: 112,
   },
   resultIcon: {
     alignItems: 'center',

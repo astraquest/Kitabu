@@ -43,8 +43,10 @@ jest.mock('expo-web-browser', () => ({
 
 jest.mock('expo-notifications', () => ({
   AndroidImportance: { DEFAULT: 3 },
+  getExpoPushTokenAsync: jest.fn(() => Promise.resolve({ data: 'ExponentPushToken[test-device]' })),
   getPermissionsAsync: jest.fn(() => Promise.resolve({ status: 'undetermined', canAskAgain: true })),
   requestPermissionsAsync: jest.fn(() => Promise.resolve({ status: 'granted', canAskAgain: true })),
+  setNotificationHandler: jest.fn(),
   setNotificationChannelAsync: jest.fn(() => Promise.resolve()),
 }));
 

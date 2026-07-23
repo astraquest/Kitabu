@@ -149,6 +149,7 @@ export function KitabuApp() {
     return (
       <AppSafeArea>
         <DiagnosticScreen
+          mascotKey={state.activeMascotKey}
           previewQuestions={PREVIEW_DIAGNOSTIC_QUESTIONS}
           onComplete={() => undefined}
         />
@@ -275,7 +276,10 @@ export function KitabuApp() {
   if (state.hasPendingStudentDiagnostic) {
     return (
       <AppSafeArea>
-        <DiagnosticScreen onComplete={actions.completeDiagnosticOnboarding} />
+        <DiagnosticScreen
+          mascotKey={state.activeMascotKey}
+          onComplete={actions.completeDiagnosticOnboarding}
+        />
       </AppSafeArea>
     );
   }
@@ -284,6 +288,7 @@ export function KitabuApp() {
     return (
       <AppSafeArea>
         <DiagnosticScreen
+          mascotKey={state.activeMascotKey}
           mode="progressive"
           subjectId={state.progressiveDiagnosticSubject.id}
           subjectName={state.progressiveDiagnosticSubject.name}
@@ -690,6 +695,8 @@ function renderScreen(
       return (
         <QuizMeScreen
           isLoading={state.isLoading}
+          mascotKey={state.activeMascotKey}
+          progress={state.quizGenerationProgress}
           error={state.quizGenerationError}
           strandsBySubject={state.quizMeStrandsBySubject}
           subStrandsByStrand={state.quizMeSubStrandsByStrand}
@@ -737,6 +744,7 @@ function renderScreen(
     case 'take_quiz':
       return (
         <TakeQuizScreen
+          grade={state.currentGrade}
           subjectName={state.activeQuizConfig?.subject || state.selectedSubject?.name || 'QuizMe'}
           strandName={state.activeQuizConfig?.strand || state.selectedSubStrand?.title || 'General Review'}
           questions={state.generatedQuizQuestions}

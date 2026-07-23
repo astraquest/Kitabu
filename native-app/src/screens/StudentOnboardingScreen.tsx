@@ -2124,6 +2124,7 @@ export function StudentOnboardingScreen({
   const [selectedAchievementKey, setSelectedAchievementKey] = useState<OnboardingAchievementKey | null>(null);
   const [selectedInterestKeys, setSelectedInterestKeys] = useState<OnboardingInterestKey[]>([]);
   const [reminderEnabled, setReminderEnabled] = useState(!includeIntroChoices);
+  const [isRequestingReminderPermission, setIsRequestingReminderPermission] = useState(false);
   const [preparedMpesaPhoneNumber, setPreparedMpesaPhoneNumber] = useState<string | null>(null);
   const [step, setStep] = useState(0);
   const [gender, setGender] = useState<GenderOption | null>(includeIntroChoices ? null : 'not_specified');
@@ -2899,16 +2900,27 @@ export function StudentOnboardingScreen({
   // Compact dashboard summary chip for the Profile Ready hero \u2014 short, dot-separated
   // facts instead of a long sentence so the header stays balanced and avoids overflow.
   const readyCountryName = COUNTRY_OPTIONS.find(option => option.code === countryCode)?.name ?? 'Kenya';
+  const parentReadyPlanText = submittedParentChildren.length > 1
+    ? swahiliIntro
+      ? 'Mipango ya masomo ya watoto wako iko tayari.'
+      : `Study plans for your ${submittedParentChildren.length} children are ready to go.`
+    : swahiliIntro
+      ? `Mpango wa masomo wa ${submittedParentChildren[0]?.name || 'mtoto wako'} uko tayari.`
+      : `${submittedParentChildren[0]?.name || 'Your child'}'s study plan is ready to go.`;
   const readySummary = swahiliIntro
     ? role === 'teacher'
       ? `${primaryProfileGrade} \u00B7 ${selectedSubjectCount} masomo \u00B7 ${readyCountryName} CBC`
       : role === 'parent'
-        ? `${primaryProfileGrade} \u00B7 ${readyCountryName} CBC`
+        ? submittedParentChildren.length > 1
+          ? `${submittedParentChildren.length} watoto \u00B7 ${readyCountryName} CBC`
+          : `${primaryProfileGrade} \u00B7 ${readyCountryName} CBC`
         : `${primaryProfileGrade} \u00B7 ${selectedSubjectCount} masomo \u00B7 ${readyCountryName} CBC`
     : role === 'teacher'
       ? `${primaryProfileGrade} \u00B7 ${selectedSubjectCount} subjects \u00B7 ${readyCountryName} CBC`
       : role === 'parent'
-        ? `${primaryProfileGrade} \u00B7 ${readyCountryName} CBC`
+        ? submittedParentChildren.length > 1
+          ? `${submittedParentChildren.length} children \u00B7 ${readyCountryName} CBC`
+          : `${primaryProfileGrade} \u00B7 ${readyCountryName} CBC`
         : `${primaryProfileGrade} \u00B7 ${selectedSubjectCount} subjects \u00B7 ${readyCountryName} CBC`;
   const readyTestimonials = role === 'teacher'
     ? swahiliIntro
@@ -4531,8 +4543,10 @@ export function StudentOnboardingScreen({
       // The primary "Remind me 🔔" action requests OS push permission so we can
       // send daily study reminders. We advance regardless of the user's choice;
       // reminderEnabled records whether the OS actually granted permission.
+      setIsRequestingReminderPermission(true);
       const permission = await requestPushPermission();
       setReminderEnabled(permission.granted);
+      setIsRequestingReminderPermission(false);
       if (includeIntroChoices) {
         setIntroStep('loading');
         return;
@@ -7658,7 +7672,6 @@ export function StudentOnboardingScreen({
                                       disabled && styles.subjectChipDisabled,
                                     ]}>
                                     <Text
-                                      numberOfLines={1}
                                       style={[
                                         styles.subjectChipText,
                                         section.core && styles.subjectChipCoreText,
@@ -8161,8 +8174,16 @@ export function StudentOnboardingScreen({
                       </Text>
                       <Text numberOfLines={2} style={styles.readyHeroBandSub}>
                         {swahiliIntro
-                          ? role === 'teacher' ? 'Kila kitu kiko tayari kwa darasa lako.' : 'Mpango wako wa masomo uko tayari.'
-                          : role === 'teacher' ? 'Everything is set for your class.' : 'Your study plan is ready to go.'}
+                          ? role === 'teacher'
+                            ? 'Kila kitu kiko tayari kwa darasa lako.'
+                            : role === 'parent'
+                              ? parentReadyPlanText
+                              : 'Mpango wako wa masomo uko tayari.'
+                          : role === 'teacher'
+                            ? 'Everything is set for your class.'
+                            : role === 'parent'
+                              ? parentReadyPlanText
+                              : 'Your study plan is ready to go.'}
                       </Text>
                       {readySummary ? (
                         <View style={styles.readyHeroBandPill}>
@@ -8667,21 +8688,26 @@ export function StudentOnboardingScreen({
               <Pressable
                 accessibilityRole="button"
                 accessibilityLabel={
-                  (introStep === 'setup' && step === 2 && !studentFullIntro) || introStep === 'signup'
+                  introStep === 'reminder'
+                    ? 'Allow assignment and study reminders'
+                    : (introStep === 'setup' && step === 2 && !studentFullIntro) || introStep === 'signup'
                     ? 'Finish account setup'
                     : 'Continue account setup'
                 }
                 accessibilityHint={primaryActionHint}
-                accessibilityState={{ disabled: !canContinue || isSubmitting, busy: isSubmitting }}
-                disabled={!canContinue || isSubmitting}
+                accessibilityState={{
+                  disabled: !canContinue || isSubmitting || isRequestingReminderPermission,
+                  busy: isSubmitting || isRequestingReminderPermission,
+                }}
+                disabled={!canContinue || isSubmitting || isRequestingReminderPermission}
                 onPress={handleContinue}
                 style={[
                   styles.primaryButton,
                   footerCompactLayout && styles.primaryButtonCompact,
                   { backgroundColor: content.accent },
-                  (!canContinue || isSubmitting) && styles.primaryButtonDisabled,
+                  (!canContinue || isSubmitting || isRequestingReminderPermission) && styles.primaryButtonDisabled,
                 ]}>
-                {isSubmitting ? (
+                {isSubmitting || isRequestingReminderPermission ? (
                   <ActivityIndicator color={ONBOARDING_COLORS.white} />
                 ) : (
                   <View style={styles.primaryButtonContent}>
@@ -11347,11 +11373,13 @@ const styles = StyleSheet.create({
     fontWeight: '900',
   },
   subjectChip: {
+    alignItems: 'center',
     backgroundColor: ONBOARDING_COLORS.white,
     borderColor: ONBOARDING_COLORS.border,
     borderRadius: 999,
     borderWidth: 1,
-    maxWidth: 148,
+    justifyContent: 'center',
+    maxWidth: '100%',
     minHeight: 34,
     paddingHorizontal: 11,
     paddingVertical: 8,
@@ -11361,7 +11389,6 @@ const styles = StyleSheet.create({
     borderColor: ONBOARDING_COLORS.accent,
   },
   subjectChipCompact: {
-    maxWidth: 132,
     minHeight: 30,
     paddingHorizontal: 9,
     paddingVertical: 6,
@@ -11371,8 +11398,11 @@ const styles = StyleSheet.create({
   },
   subjectChipText: {
     color: ONBOARDING_COLORS.textSecondary,
+    flexShrink: 1,
     fontSize: 12,
     fontWeight: '800',
+    lineHeight: 17,
+    textAlign: 'center',
   },
   subjectChipCoreText: {
     color: ONBOARDING_COLORS.accent,

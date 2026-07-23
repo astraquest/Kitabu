@@ -326,11 +326,11 @@ export function SubscriptionCheckoutModal({
             <Text style={[styles.title, compact && styles.titleCompact]}>
               {isTrialOffer ? 'Try Kitabu for Just 1 Bob' : 'Become Top of Your Class in Just 3 Months'}
             </Text>
-            <Text style={[styles.subtitle, compact && styles.subtitleCompact]}>
-              {isTrialOffer
-                ? 'Unlock your first month and continue learning right away.'
-                : 'Join thousands of students already improving their grades.'}
-            </Text>
+            {!isTrialOffer ? (
+              <Text style={[styles.subtitle, compact && styles.subtitleCompact]}>
+                Join thousands of students already improving their grades.
+              </Text>
+            ) : null}
 
             <View style={styles.offerBadge}>
               <Text style={styles.offerBadgeText}>
@@ -456,11 +456,15 @@ export function SubscriptionCheckoutModal({
             <Pressable
               accessibilityRole="button"
               accessibilityLabel="Continue to M-Pesa payment"
+              accessibilityState={{ disabled: !featuredPlan || isSubmitting, busy: isSubmitting }}
               onPress={() => featuredPlan && onContinue(featuredPlan.code)}
               disabled={!featuredPlan || isSubmitting}
               style={[styles.continueButton, (!featuredPlan || isSubmitting) && styles.continueButtonDisabled]}>
               {isSubmitting ? (
-                <ActivityIndicator color="#FFFFFF" />
+                <>
+                  <ActivityIndicator color="#FFFFFF" />
+                  <Text style={styles.continueButtonText}>Waiting for M-Pesa...</Text>
+                </>
               ) : (
                 <>
                   <LockKeyhole color="#FFFFFF" size={22} strokeWidth={2.4} />

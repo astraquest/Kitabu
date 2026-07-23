@@ -531,18 +531,15 @@ export function LiveAudioTutorScreen({
       return;
     }
 
-    const startedRecordingPath = await audioRecordingBridge.startRecording();
-    if (
-      startedRecordingPath === null &&
-      audioRecordingBridge.state === 'expo_native'
-    ) {
+    const startedRecording = await audioRecordingBridge.startRecording();
+    if (!startedRecording) {
       setStatus('error');
       setError('Could not access the microphone. Please allow permissions.');
       setIsMicOn(false);
       return;
     }
 
-    setRecordedAudioPath(startedRecordingPath);
+    setRecordedAudioPath(null);
     setStatus('recording');
     setIsMicOn(true);
     clearRecordingTimeout();

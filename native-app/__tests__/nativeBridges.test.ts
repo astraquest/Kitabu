@@ -73,3 +73,37 @@ describe('chatAttachmentBridge', () => {
     });
   });
 });
+
+describe('audioRecordingBridge', () => {
+  beforeEach(() => {
+    jest.resetModules();
+    jest.clearAllMocks();
+
+    const { Platform } = require('react-native');
+    Platform.OS = 'android';
+    jest.doMock('expo-file-system/legacy', () => ({
+      EncodingType: { Base64: 'base64' },
+      readAsStringAsync: jest.fn(() => Promise.resolve('')),
+    }));
+  });
+
+  test('reports a successful start even when Android exposes the URI only after stop', async () => {
+    const ExpoAudio = require('expo-audio');
+    const recorder = {
+      uri: null as string | null,
+      prepareToRecordAsync: jest.fn(() => Promise.resolve()),
+      record: jest.fn(),
+      stop: jest.fn(async () => {
+        recorder.uri = 'file:///recording.m4a';
+      }),
+    };
+    ExpoAudio.AudioModule.AudioRecorder.mockImplementation(() => recorder);
+
+    const { audioRecordingBridge } = require('../src/services/nativeBridges');
+
+    await expect(audioRecordingBridge.startRecording()).resolves.toBe(true);
+    expect(recorder.prepareToRecordAsync).toHaveBeenCalledTimes(1);
+    expect(recorder.record).toHaveBeenCalledTimes(1);
+    await expect(audioRecordingBridge.stopRecording()).resolves.toBe('file:///recording.m4a');
+  });
+});

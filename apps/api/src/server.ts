@@ -140,6 +140,7 @@ import {
   listTeacherParentMessages,
   listTeacherParents,
   listAssignmentSubmissionsForTeacher,
+  listAssignmentParentNotificationRecipients,
   listLearningPodcastsForUser,
   listQuizBankQuestions,
   listSchoolDiscounts,
@@ -617,11 +618,14 @@ const announcementParamsSchema = z.object({
 });
 
 const onboardingSchema = z.object({
-  schoolId: z.string().uuid(),
+  schoolId: z.string().uuid().nullable().optional(),
   gender: z.enum(['male', 'female', 'not_specified']),
   grade: z.string().trim().min(2).max(40),
   subjects: z.array(z.string().trim().min(1).max(80)).max(20).optional(),
   subjectIds: z.array(z.string().trim().min(1).max(120)).max(20).optional(),
+  mascotKey: z.enum(['rabbit', 'lion', 'elephant']).optional(),
+  countryCode: z.string().trim().min(2).max(10).optional(),
+  curriculumCode: z.string().trim().min(2).max(40).optional(),
   mpesaPhoneNumber: z.string().trim().min(9).max(20).nullable().optional()
 });
 
@@ -1199,6 +1203,8 @@ function renderHandoffPage(args: {
           text-decoration: none;
           cursor: pointer;
         }
+        .primary[hidden], button[hidden] { display: none; }
+        button:disabled { cursor: wait; opacity: 0.7; }
         input {
           width: 100%;
           box-sizing: border-box;
@@ -1234,6 +1240,7 @@ function buildHandoffCsp(nonce: string) {
     "default-src 'none'",
     `script-src 'nonce-${nonce}'`,
     `style-src 'nonce-${nonce}'`,
+    "connect-src 'self'",
     "base-uri 'none'",
     "form-action 'self'",
     "frame-ancestors 'none'"
@@ -1958,6 +1965,7 @@ export function buildServer(options: BuildServerOptions = {}) {
           phoneVerified: Boolean(args.user.phoneVerified),
           fullName: args.user.fullName,
           emailVerified: args.user.emailVerified,
+          mascotKey: args.user.mascotKey ?? 'rabbit',
           roles: args.user.roles,
           gender: args.user.gender ?? 'not_specified',
           grade: args.user.grade ?? null,
@@ -1977,6 +1985,7 @@ export function buildServer(options: BuildServerOptions = {}) {
           phoneVerified: args.user.phone_verified,
           fullName: args.user.full_name,
           emailVerified: args.user.email_verified,
+          mascotKey: args.user.mascot_key,
           roles: args.user.roles,
           gender: args.user.gender,
           grade: args.user.grade_level,
@@ -2001,6 +2010,7 @@ export function buildServer(options: BuildServerOptions = {}) {
         phoneVerified: normalizedUser.phoneVerified,
         fullName: normalizedUser.fullName,
         emailVerified: normalizedUser.emailVerified,
+        mascotKey: normalizedUser.mascotKey,
         roles: normalizedUser.roles,
         gender: normalizedUser.gender,
         grade: normalizedUser.grade,
@@ -3642,7 +3652,7 @@ Requirements:
         passwordHash: signupDetails.passwordHash,
         fullName: signupDetails.fullName,
         role: signupDetails.role,
-        onboardingCompleted: signupDetails.role !== 'student',
+        onboardingCompleted: false,
         termsAcceptedAt: new Date(),
         termsVersion: appConfig.KITABU_TERMS_VERSION,
         privacyVersion: appConfig.KITABU_PRIVACY_VERSION
@@ -3690,7 +3700,7 @@ Requirements:
           passwordHash: await hashPassword(randomBytes(32).toString('base64url')),
           fullName: identity.fullName,
           role: body.role,
-          onboardingCompleted: body.role !== 'student',
+          onboardingCompleted: false,
           termsAcceptedAt: new Date(),
           termsVersion: appConfig.KITABU_TERMS_VERSION,
           privacyVersion: appConfig.KITABU_PRIVACY_VERSION
@@ -3921,41 +3931,58 @@ Requirements:
     }
 
     const token = query.success ? query.data.token : '';
+    const resetCompleteDeepLink = getDeepLink('password-reset-complete');
     const bodyHtml = (nonce: string) => `
       <form id="reset-form">
         <label for="new-password">New password</label>
         <input id="new-password" name="new-password" type="password" minlength="10" required />
-        <button type="submit">Update password</button>
-        <p id="status"></p>
+        <button id="submit-password" type="submit">Update password</button>
+        <a id="open-app" class="primary" href="${escapeHtml(resetCompleteDeepLink)}" hidden>Open Kitabu AI</a>
+        <p id="status" aria-live="polite"></p>
       </form>
       <script nonce="${nonce}">
         const form = document.getElementById('reset-form');
         const status = document.getElementById('status');
+        const submitButton = document.getElementById('submit-password');
+        const openApp = document.getElementById('open-app');
         form.addEventListener('submit', async (event) => {
           event.preventDefault();
+          submitButton.disabled = true;
           status.textContent = 'Updating password...';
-          const response = await fetch('/auth/password/reset', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              token: ${JSON.stringify(token)},
-              newPassword: document.getElementById('new-password').value
-            })
-          });
-          let payload = {};
           try {
-            payload = await response.json();
+            const response = await fetch('/auth/password/reset', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                token: ${JSON.stringify(token)},
+                newPassword: document.getElementById('new-password').value
+              })
+            });
+            let payload = {};
+            try {
+              payload = await response.json();
+            } catch {
+              payload = {};
+            }
+            if (!response.ok) {
+              status.textContent = payload.message || 'Password reset failed. Please request a new link and try again.';
+              status.className = 'error';
+              return;
+            }
+            form.reset();
+            submitButton.hidden = true;
+            openApp.hidden = false;
+            status.textContent = payload.message || 'Password updated. Open Kitabu AI and sign in with your new password.';
+            status.className = 'success';
+            setTimeout(() => { window.location.href = ${JSON.stringify(resetCompleteDeepLink)}; }, 500);
           } catch {
-            payload = {};
-          }
-          if (!response.ok) {
-            status.textContent = payload.message || 'Password reset failed';
+            status.textContent = 'Could not connect to Kitabu AI. Check your connection and try again.';
             status.className = 'error';
-            return;
+          } finally {
+            if (!submitButton.hidden) {
+              submitButton.disabled = false;
+            }
           }
-          status.textContent = payload.message || 'Password updated. Opening Kitabu App.';
-          status.className = 'success';
-          setTimeout(() => { window.location.href = ${JSON.stringify(getDeepLink('password-reset-complete'))}; }, 250);
         });
       </script>`;
 
@@ -5186,7 +5213,7 @@ Return valid JSON with this shape:
       return;
     }
     if (!request.user!.roles.includes('student')) {
-      return reply.forbidden('Only student accounts can complete onboarding diagnostics');
+      return reply.forbidden('Learning diagnostics are available only for learner profiles');
     }
 
     const completed = await findCompletedDiagnosticSession(
@@ -6098,7 +6125,7 @@ Return valid JSON with this shape:
 
     const body = teacherAssignmentSchema.parse(request.body);
 
-    const assignmentId = await withTransaction(async client => {
+    const assignment = await withTransaction(async client => {
       const createdAssignmentId = await createTeacherAssignment(client, request.user!, {
         title: body.title,
         subject: body.subject,
@@ -6117,10 +6144,42 @@ Return valid JSON with this shape:
         targetStudentId: body.targetStudentId
       });
 
-      return createdAssignmentId;
+      const parentRecipients = await listAssignmentParentNotificationRecipients(
+        client,
+        createdAssignmentId
+      );
+
+      return { assignmentId: createdAssignmentId, parentRecipients };
     });
 
-    return reply.status(201).send({ assignmentId });
+    const dueLabel = body.dueDate
+      ? ` Due ${new Date(body.dueDate).toLocaleDateString('en-KE', {
+          day: 'numeric',
+          month: 'short'
+        })}.`
+      : '';
+    await Promise.allSettled(
+      assignment.parentRecipients.map(recipient =>
+        withTransaction(client =>
+          notifyUser(client, {
+          userId: recipient.parent_user_id,
+          type: 'assignment.created',
+          title: `New ${body.subject} assignment`,
+          body: `${recipient.child_name} received “${body.title}”.${dueLabel}`,
+          forceInApp: true,
+          metadata: {
+            assignmentId: assignment.assignmentId,
+            childName: recipient.child_name,
+            subject: body.subject,
+            gradeLevel: body.gradeLevel,
+            dueDate: body.dueDate ?? null
+          }
+          })
+        )
+      )
+    );
+
+    return reply.status(201).send({ assignmentId: assignment.assignmentId });
   });
 
   app.post('/teacher/teaching-scope', async (request, reply) => {
@@ -6672,11 +6731,11 @@ Return valid JSON with this shape:
       return;
     }
 
-    if (!request.user!.roles.includes('student')) {
-      return reply.forbidden('Only student accounts can complete onboarding here');
-    }
-
     const body = onboardingSchema.parse(request.body);
+    const curriculumScope = {
+      countryCode: body.countryCode?.trim().toUpperCase() || 'KEN',
+      curriculumCode: body.curriculumCode?.trim().toUpperCase() || 'CBC'
+    };
     const normalizedPhone = body.mpesaPhoneNumber
       ? formatKenyanPhoneNumber(body.mpesaPhoneNumber)
       : null;
@@ -6687,12 +6746,17 @@ Return valid JSON with this shape:
         schoolId: body.schoolId,
         gender: body.gender,
         grade: body.grade,
+        mascotKey: body.mascotKey,
+        countryCode: curriculumScope.countryCode,
+        curriculumCode: curriculumScope.curriculumCode,
         subjects: body.subjects,
         subjectIds: body.subjectIds,
         mpesaPhoneNumber: normalizedPhone
       });
-      await createAuditLog(client, request.user!.id, body.schoolId, 'auth.onboarding.completed', {
-        grade: body.grade
+      await createAuditLog(client, request.user!.id, body.schoolId ?? null, 'auth.onboarding.completed', {
+        grade: body.grade,
+        countryCode: curriculumScope.countryCode,
+        curriculumCode: curriculumScope.curriculumCode
       });
     });
 
@@ -6730,6 +6794,7 @@ Return valid JSON with this shape:
         email: refreshedUser.email,
         fullName: refreshedUser.fullName,
         emailVerified: refreshedUser.emailVerified,
+        mascotKey: refreshedUser.mascotKey,
         roles: refreshedUser.roles,
         gender: refreshedUser.gender,
         grade: refreshedUser.grade ?? null,

@@ -1,5 +1,6 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
+  Image,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -17,10 +18,18 @@ import {
   Sparkles,
 } from 'lucide-react-native';
 
-import { QuizConfig } from '../types/app';
+import { OnboardingMascotKey, QuizConfig, QuizGenerationProgress } from '../types/app';
+
+const QUIZ_MASCOT_SOURCES = {
+  rabbit: require('../assets/mascot/sungura-rabbit-quiz.png'),
+  lion: require('../assets/mascot/simba-lion-quiz.png'),
+  elephant: require('../assets/mascot/ndovu-elephant-quiz.png'),
+} satisfies Record<OnboardingMascotKey, number>;
 
 interface QuizMeScreenProps {
   isLoading: boolean;
+  mascotKey: OnboardingMascotKey;
+  progress: QuizGenerationProgress;
   error?: string | null;
   strandsBySubject: Record<string, string[]>;
   subStrandsByStrand: Record<string, string[]>;
@@ -33,6 +42,8 @@ const questionCounts = [5, 10, 15, 20];
 
 export function QuizMeScreen({
   isLoading,
+  mascotKey,
+  progress,
   error,
   strandsBySubject,
   subStrandsByStrand,
@@ -41,7 +52,6 @@ export function QuizMeScreen({
 }: QuizMeScreenProps) {
   const [step, setStep] = useState<1 | 2>(1);
   const [openField, setOpenField] = useState<string | null>(null);
-  const [loadingProgress, setLoadingProgress] = useState(0);
   const [config, setConfig] = useState<QuizConfig>({
     subject: '',
     strand: '',
@@ -67,34 +77,6 @@ export function QuizMeScreen({
     [config.strand, subStrandsByStrand],
   );
 
-  useEffect(() => {
-    if (!isLoading) {
-      setLoadingProgress(0);
-      return;
-    }
-
-    setLoadingProgress(0);
-    const progressTimer = setInterval(() => {
-      setLoadingProgress(current => {
-        if (current >= 95) {
-          return current;
-        }
-        if (current < 30) {
-          return Math.min(95, current + 6);
-        }
-        if (current < 65) {
-          return Math.min(95, current + 4);
-        }
-        if (current < 85) {
-          return Math.min(95, current + 2);
-        }
-        return Math.min(95, current + 1);
-      });
-    }, 350);
-
-    return () => clearInterval(progressTimer);
-  }, [isLoading]);
-
   if (isLoading) {
     return (
       <View style={styles.loadingWrap}>
@@ -106,26 +88,24 @@ export function QuizMeScreen({
             style={styles.loadingCard}>
             <Text style={styles.loadingEyebrow}>PERSONALIZED PRACTICE</Text>
             <View style={styles.loadingOrbWrap}>
-              <View style={styles.loadingOrbPulse} />
-              <LinearGradient
-                colors={['#F97316', '#16A34A']}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 1, y: 1 }}
-                style={styles.loadingOrb}>
-                <Sparkles size={36} color="#FFFFFF" strokeWidth={2.2} />
-              </LinearGradient>
+              <Image
+                accessibilityLabel={`${mascotKey} mascot writing a quiz`}
+                resizeMode="cover"
+                source={QUIZ_MASCOT_SOURCES[mascotKey]}
+                style={styles.loadingMascot}
+              />
             </View>
             <Text style={styles.loadingTitle}>Generating your Quiz...</Text>
-            <Text style={styles.loadingBody}>Preparing your questions</Text>
+            <Text style={styles.loadingBody}>{progress.stage}</Text>
             <Text accessibilityLiveRegion="polite" style={styles.loadingPercentage}>
-              {loadingProgress}%
+              {progress.percentage}%
             </Text>
             <View style={styles.loadingProgressTrack}>
               <LinearGradient
                 colors={['#F97316', '#16A34A']}
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 0 }}
-                style={[styles.loadingProgressFill, { width: `${loadingProgress}%` }]}
+                style={[styles.loadingProgressFill, { width: `${progress.percentage}%` }]}
               />
             </View>
           </LinearGradient>
@@ -496,24 +476,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginBottom: 24,
   },
-  loadingOrbPulse: {
-    position: 'absolute',
-    width: 86,
-    height: 86,
-    borderRadius: 43,
-    backgroundColor: 'rgba(249,115,22,0.18)',
-  },
-  loadingOrb: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-    alignItems: 'center',
-    justifyContent: 'center',
-    shadowColor: '#F97316',
-    shadowOpacity: 0.3,
-    shadowRadius: 12,
-    shadowOffset: { width: 0, height: 8 },
-    elevation: 8,
+  loadingMascot: {
+    borderColor: '#FED7AA',
+    borderRadius: 24,
+    borderWidth: 1,
+    height: 132,
+    width: 132,
   },
   loadingTitle: {
     color: '#111827',

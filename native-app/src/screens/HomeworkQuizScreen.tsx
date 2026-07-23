@@ -88,13 +88,17 @@ export function HomeworkQuizScreen({
           audioRecordingBridge
             .stopRecording()
             .then(path => {
+              if (!path) {
+                throw new Error('Recorder did not return an audio file');
+              }
               setRecordedAudioPath(path);
               setIsRecording(false);
               setIsTranscribing(true);
             })
             .catch(() => {
               setIsRecording(false);
-              setIsTranscribing(true);
+              setIsTranscribing(false);
+              setVoiceError('No audio was captured. Tap the microphone and try again.');
             });
           return 0;
         }
@@ -192,29 +196,46 @@ export function HomeworkQuizScreen({
   }
 
   async function beginVoiceRecording() {
-    const path = await audioRecordingBridge.startRecording();
-    if (path === null && audioRecordingBridge.state === 'expo_native') {
-      setVoiceError('Could not access microphone. Please allow permissions.');
-      return;
-    }
+    try {
+      const started = await audioRecordingBridge.startRecording();
+      if (!started) {
+        setVoiceError('Microphone access is required to record an answer.');
+        return;
+      }
 
-    setVoiceError(null);
-    setRecordedAudioPath(path);
-    setIsRecording(true);
-    setTimeLeft(10);
+      setVoiceError(null);
+      setRecordedAudioPath(null);
+      setIsRecording(true);
+      setTimeLeft(10);
+    } catch (error) {
+      console.error('Unable to start voice recording', error);
+      setIsRecording(false);
+      setVoiceError('Recording could not start. Please try again.');
+    }
   }
 
   async function endVoiceRecording() {
-    const path = await audioRecordingBridge.stopRecording();
-    setVoiceError(null);
-    setRecordedAudioPath(path || recordedAudioPath);
-    setIsRecording(false);
-    setIsTranscribing(true);
+    try {
+      const path = await audioRecordingBridge.stopRecording();
+      if (!path) {
+        throw new Error('Recorder did not return an audio file');
+      }
+      setVoiceError(null);
+      setRecordedAudioPath(path);
+      setIsRecording(false);
+      setIsTranscribing(true);
+    } catch (error) {
+      console.error('Unable to stop voice recording', error);
+      setIsRecording(false);
+      setIsTranscribing(false);
+      setVoiceError('No audio was captured. Tap the microphone and try again.');
+    }
   }
 
   async function explainAnswer() {
     const userAnswer = answers[currentQuestionIndex] || 'No answer selected';
     const correctAnswer = String(currentQuestion.correctAnswer ?? '');
+    const learnerGrade = assignment.gradeLevel || DEFAULT_GRADE;
 
     setExplanationModal({ isOpen: true, isLoading: true, text: '' });
 
@@ -227,10 +248,10 @@ export function HomeworkQuizScreen({
       } else {
         prompt += `\nI answered "${userAnswer}". Explain simply why my answer is incorrect and why the correct answer is right.`;
       }
-      prompt += `\nKeep it friendly and concise for a ${DEFAULT_GRADE} student.`;
+      prompt += `\nKeep it friendly and concise for a ${learnerGrade} student.`;
 
       const text = await askHomeworkHelper(prompt, [], 'explanation', undefined, {
-        grade: assignment.gradeLevel || DEFAULT_GRADE,
+        grade: learnerGrade,
         subjectName: assignment.subject,
       });
       setExplanationModal({ isOpen: true, isLoading: false, text });
@@ -374,6 +395,8 @@ export function HomeworkQuizScreen({
                       <Text style={styles.listeningText}>Listening...</Text>
                     </View>
                     <Pressable
+                      accessibilityLabel="Stop recording answer"
+                      accessibilityRole="button"
                       onPress={() => {
                         endVoiceRecording().catch(() => undefined);
                       }}
@@ -391,6 +414,8 @@ export function HomeworkQuizScreen({
                   </View>
                 ) : (
                   <Pressable
+                    accessibilityLabel="Start recording answer"
+                    accessibilityRole="button"
                     onPress={() => {
                       beginVoiceRecording().catch(() => undefined);
                     }}

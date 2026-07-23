@@ -50,6 +50,12 @@ module.exports = {
     assetBundlePatterns: ['**/*'],
     plugins: [
       [
+        'expo-audio',
+        {
+          microphonePermission: 'Allow Kitabu AI to record spoken quiz answers and live tutoring audio.',
+        },
+      ],
+      [
         'expo-video',
         {
           supportsBackgroundPlayback: false,
@@ -88,6 +94,7 @@ module.exports = {
       googleAndroidClientId,
       googleIosClientId,
       googleRedirectUri,
+      kitabuExpoProjectId: process.env.KITABU_EXPO_PROJECT_ID || process.env.EXPO_PUBLIC_KITABU_EXPO_PROJECT_ID || '',
     },
   },
 };

@@ -3,6 +3,12 @@ import { apiJsonRequest } from './requestHelpers';
 import { loadSecureJson, saveSecureJson } from './storage';
 
 const AUTH_SESSION_STORAGE_KEY = 'auth_session';
+const LOGIN_CREDENTIALS_STORAGE_KEY = 'login_credentials';
+
+export interface SavedLoginCredentials {
+  email: string;
+  password: string;
+}
 
 interface LoginResponse {
   accessToken: string;
@@ -42,9 +48,58 @@ export async function persistAuthSession(session: AuthSession | null) {
   await saveSecureJson(AUTH_SESSION_STORAGE_KEY, session);
 }
 
+export async function loadSavedLoginCredentials(): Promise<SavedLoginCredentials | null> {
+  const credentials = await loadSecureJson<SavedLoginCredentials | null>(
+    LOGIN_CREDENTIALS_STORAGE_KEY,
+    null,
+  );
+
+  if (
+    !credentials ||
+    typeof credentials.email !== 'string' ||
+    typeof credentials.password !== 'string'
+  ) {
+    return null;
+  }
+
+  return credentials;
+}
+
+export async function saveLoginCredentials(email: string, password: string): Promise<void> {
+  await saveSecureJson<SavedLoginCredentials>(LOGIN_CREDENTIALS_STORAGE_KEY, {
+    email: email.trim(),
+    password,
+  });
+}
+
+export async function clearSavedLoginPassword(): Promise<void> {
+  const credentials = await loadSavedLoginCredentials();
+  if (!credentials) {
+    return;
+  }
+
+  await saveLoginCredentials(credentials.email, '');
+}
+
+export async function restoreStoredAuthSession(): Promise<AuthSession | null> {
+  const storedSession = await loadStoredAuthSession();
+  if (!storedSession) {
+    return null;
+  }
+
+  try {
+    return await refreshAccessSession(storedSession.refreshToken);
+  } catch {
+    // A temporary refresh failure must not turn an app restart into a logout.
+    return storedSession;
+  }
+}
+
 export async function loginWithPassword(email: string, password: string): Promise<AuthSession> {
   const payload = await postJson<LoginResponse>('/auth/login', { email, password });
-  return persistLoginResponse(payload);
+  const session = await persistLoginResponse(payload);
+  await saveLoginCredentials(email, password);
+  return session;
 }
 
 export async function signupWithPassword(input: {
@@ -61,7 +116,9 @@ export async function signupWithPassword(input: {
   mascotKey?: OnboardingMascotKey;
 }): Promise<AuthSession> {
   const payload = await postJson<LoginResponse>('/auth/signup', input);
-  return persistLoginResponse(payload);
+  const session = await persistLoginResponse(payload);
+  await saveLoginCredentials(input.email, input.password);
+  return session;
 }
 
 export async function requestPhoneAuthCode(input: {
@@ -150,6 +207,9 @@ export async function completeAccountOnboarding(input: {
   county?: string;
   subjects?: string[];
   subjectIds?: string[];
+  mascotKey?: OnboardingMascotKey;
+  countryCode?: string;
+  curriculumCode?: string;
 }): Promise<AuthSession> {
   const session = await loadStoredAuthSession();
   if (!session?.accessToken) {

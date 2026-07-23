@@ -26,7 +26,6 @@ import {
 } from 'lucide-react-native';
 
 import { ReportAiContentSheet } from '../components/ReportAiContentSheet';
-import { DEFAULT_GRADE } from '../constants/grades';
 import { LearningMascotReaction } from '../features/progressiveLearning/components/LearningMascotReaction';
 import { askHomeworkHelper } from '../services/aiService';
 import { audioRecordingBridge } from '../services/nativeBridges';
@@ -34,6 +33,7 @@ import { OnboardingMascotKey, Question } from '../types/app';
 
 interface TakeQuizScreenProps {
   questions: Question[];
+  grade: string;
   subjectName: string;
   strandName: string;
   mascotKey: OnboardingMascotKey;
@@ -48,6 +48,7 @@ const AUDIO_TYPES = new Set(['SHORT_ANSWER', 'ESSAY']);
 
 export function TakeQuizScreen({
   questions: sourceQuestions,
+  grade,
   subjectName,
   strandName,
   mascotKey,
@@ -129,13 +130,17 @@ export function TakeQuizScreen({
     audioRecordingBridge
       .stopRecording()
       .then(path => {
+        if (!path) {
+          throw new Error('Recorder did not return an audio file');
+        }
         setRecordedAudioPath(path);
         setIsRecording(false);
         setIsTranscribing(true);
       })
       .catch(() => {
         setIsRecording(false);
-        setIsTranscribing(true);
+        setIsTranscribing(false);
+        setVoiceError('No audio was captured. Tap the microphone and try again.');
       });
   }, [isRecording, timeLeft]);
 
@@ -218,24 +223,40 @@ export function TakeQuizScreen({
   }
 
   async function startRecording() {
-    const path = await audioRecordingBridge.startRecording();
-    if (path === null && audioRecordingBridge.state === 'expo_native') {
-      setVoiceError('Could not access microphone. Please allow permissions.');
-      return;
-    }
+    try {
+      const started = await audioRecordingBridge.startRecording();
+      if (!started) {
+        setVoiceError('Microphone access is required to record an answer.');
+        return;
+      }
 
-    setVoiceError(null);
-    setRecordedAudioPath(path);
-    setIsRecording(true);
-    setTimeLeft(10);
+      setVoiceError(null);
+      setRecordedAudioPath(null);
+      setIsRecording(true);
+      setTimeLeft(10);
+    } catch (error) {
+      console.error('Unable to start voice recording', error);
+      setIsRecording(false);
+      setVoiceError('Recording could not start. Please try again.');
+    }
   }
 
   async function stopRecording() {
-    const path = await audioRecordingBridge.stopRecording();
-    setVoiceError(null);
-    setRecordedAudioPath(path || recordedAudioPath);
-    setIsRecording(false);
-    setIsTranscribing(true);
+    try {
+      const path = await audioRecordingBridge.stopRecording();
+      if (!path) {
+        throw new Error('Recorder did not return an audio file');
+      }
+      setVoiceError(null);
+      setRecordedAudioPath(path);
+      setIsRecording(false);
+      setIsTranscribing(true);
+    } catch (error) {
+      console.error('Unable to stop voice recording', error);
+      setIsRecording(false);
+      setIsTranscribing(false);
+      setVoiceError('No audio was captured. Tap the microphone and try again.');
+    }
   }
 
   function handleRedo() {
@@ -303,7 +324,7 @@ export function TakeQuizScreen({
   async function handleAskAI(text = currentQuestion?.text || '', answer = answers[currentIndex]) {
     setExplanationModal({ isOpen: true, isLoading: true, text: '' });
     const correctAnswer = String(currentQuestion.correctAnswer ?? '');
-    let prompt = `I'm a ${DEFAULT_GRADE} student.\nQuestion: "${text}"\nCorrect Answer: "${correctAnswer}"`;
+    let prompt = `I'm a ${grade} student.\nQuestion: "${text}"\nCorrect Answer: "${correctAnswer}"`;
     if (answer) {
       prompt += `\nMy Answer: "${answer}"`;
     } else {
@@ -313,7 +334,7 @@ export function TakeQuizScreen({
 
     try {
       const response = await askHomeworkHelper(prompt, [], 'explanation', undefined, {
-        grade: DEFAULT_GRADE,
+        grade,
         subjectName,
       });
       setExplanationModal({
@@ -638,7 +659,11 @@ export function TakeQuizScreen({
               ) : isRecording ? (
                 <View style={styles.recordState}>
                   <Text style={styles.recordTimer}>00:{timeLeft.toString().padStart(2, '0')}</Text>
-                  <Pressable onPress={stopRecording} style={styles.stopButton}>
+                  <Pressable
+                    accessibilityLabel="Stop recording answer"
+                    accessibilityRole="button"
+                    onPress={stopRecording}
+                    style={styles.stopButton}>
                     <Square size={15} color="#DC2626" fill="#DC2626" />
                     <Text style={styles.stopButtonText}>Stop</Text>
                   </Pressable>
@@ -650,6 +675,8 @@ export function TakeQuizScreen({
                 </View>
               ) : (
                 <Pressable
+                  accessibilityLabel="Start recording answer"
+                  accessibilityRole="button"
                   onPress={() => {
                     startRecording().catch(() => undefined);
                   }}

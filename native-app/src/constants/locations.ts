@@ -3,6 +3,7 @@ export type CountryOption = {
   name: 'Kenya' | 'Uganda' | 'Tanzania' | 'Rwanda' | 'Ethiopia';
   flag: string;
   curriculum: string;
+  curriculumCode: 'CBC' | 'NCDC' | 'TIE-BASIC' | 'REB-CBC' | 'ENC';
   timeZones: readonly string[];
 };
 
@@ -12,6 +13,7 @@ export const COUNTRY_OPTIONS: readonly CountryOption[] = [
     name: 'Kenya',
     flag: '\uD83C\uDDF0\uD83C\uDDEA',
     curriculum: 'CBC / KNEC Kenya curriculum',
+    curriculumCode: 'CBC',
     timeZones: ['Africa/Nairobi'],
   },
   {
@@ -19,6 +21,7 @@ export const COUNTRY_OPTIONS: readonly CountryOption[] = [
     name: 'Uganda',
     flag: '\uD83C\uDDFA\uD83C\uDDEC',
     curriculum: 'Ugandan national curriculum',
+    curriculumCode: 'NCDC',
     timeZones: ['Africa/Kampala'],
   },
   {
@@ -26,6 +29,7 @@ export const COUNTRY_OPTIONS: readonly CountryOption[] = [
     name: 'Tanzania',
     flag: '\uD83C\uDDF9\uD83C\uDDFF',
     curriculum: 'Tanzanian national curriculum',
+    curriculumCode: 'TIE-BASIC',
     timeZones: ['Africa/Dar_es_Salaam'],
   },
   {
@@ -33,6 +37,7 @@ export const COUNTRY_OPTIONS: readonly CountryOption[] = [
     name: 'Rwanda',
     flag: '\uD83C\uDDF7\uD83C\uDDFC',
     curriculum: 'Rwandan CBC curriculum',
+    curriculumCode: 'REB-CBC',
     timeZones: ['Africa/Kigali'],
   },
   {
@@ -40,6 +45,7 @@ export const COUNTRY_OPTIONS: readonly CountryOption[] = [
     name: 'Ethiopia',
     flag: '\uD83C\uDDEA\uD83C\uDDF9',
     curriculum: 'Ethiopian national curriculum',
+    curriculumCode: 'ENC',
     timeZones: ['Africa/Addis_Ababa'],
   },
 ] as const;
@@ -342,5 +348,18 @@ export function countryCodeForName(name?: string | null): CountryOption['code'] 
 }
 
 export function countryNameForCode(code?: string | null): CountryOption['name'] {
-  return COUNTRY_OPTIONS.find(option => option.code === code)?.name ?? 'Kenya';
+  const normalized = (code || '').trim().toUpperCase();
+  const aliases: Record<string, CountryOption['code']> = {
+    KEN: 'KE',
+    UGA: 'UG',
+    TZA: 'TZ',
+    RWA: 'RW',
+    ETH: 'ET',
+  };
+  return COUNTRY_OPTIONS.find(option => option.code === (aliases[normalized] ?? normalized))?.name ?? 'Kenya';
+}
+
+export function curriculumCodeForCountry(code?: string | null) {
+  const countryName = countryNameForCode(code);
+  return COUNTRY_OPTIONS.find(option => option.name === countryName)?.curriculumCode ?? 'CBC';
 }

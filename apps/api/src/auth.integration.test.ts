@@ -887,6 +887,47 @@ test('Google signup links a verified identity and supports subsequent login', as
   assert.equal(deletion.json().deletionRequested, true);
 });
 
+test('Google parent and student signups can finish onboarding with an active session', async () => {
+  for (const role of ['parent', 'student'] as const) {
+    const idToken = `google-onboarding-${role}-${Date.now()}-${'x'.repeat(100)}`;
+    const signup = await app.inject({
+      method: 'POST',
+      url: '/auth/google',
+      payload: { idToken, role, acceptedTerms: true }
+    });
+    assert.equal(signup.statusCode, 200);
+    assert.equal(signup.json().user.onboardingCompleted, false);
+
+    const onboarding = await app.inject({
+      method: 'POST',
+      url: '/me/onboarding',
+      headers: { authorization: `Bearer ${signup.json().accessToken}` },
+      payload: {
+        schoolId: null,
+        gender: 'not_specified',
+        grade: 'Grade 9',
+        mascotKey: role === 'student' ? 'elephant' : 'lion',
+        countryCode: 'KEN',
+        curriculumCode: 'CBC'
+      }
+    });
+    assert.equal(onboarding.statusCode, 200);
+    assert.deepEqual(onboarding.json().user.roles, [role]);
+    assert.equal(onboarding.json().user.onboardingCompleted, true);
+    assert.equal(onboarding.json().user.grade, 'Grade 9');
+    assert.equal(onboarding.json().user.mascotKey, role === 'student' ? 'elephant' : 'lion');
+    assert.ok(onboarding.json().accessToken);
+
+    const deletion = await app.inject({
+      method: 'DELETE',
+      url: '/me/account',
+      headers: { authorization: `Bearer ${onboarding.json().accessToken}` },
+      payload: { confirmationText: 'DELETE MY ACCOUNT' }
+    });
+    assert.equal(deletion.statusCode, 200);
+  }
+});
+
 test('Google login links an existing email account and satisfies verification gate', async () => {
   const suffix = Date.now();
   const idToken = `google-existing-${suffix}-${'x'.repeat(100)}`;
@@ -911,7 +952,7 @@ test('Google login links an existing email account and satisfies verification ga
   const login = await app.inject({
     method: 'POST',
     url: '/auth/google',
-    payload: { idToken }
+    payload: { idToken, role: 'student', acceptedTerms: true }
   });
   assert.equal(login.statusCode, 200);
   const session = login.json();
@@ -919,10 +960,26 @@ test('Google login links an existing email account and satisfies verification ga
   assert.equal(session.user.emailVerified, true);
   assert.deepEqual(session.user.roles, ['parent']);
 
+  const onboarding = await app.inject({
+    method: 'POST',
+    url: '/me/onboarding',
+    headers: { authorization: `Bearer ${session.accessToken}` },
+    payload: {
+      schoolId: null,
+      gender: 'not_specified',
+      grade: 'Grade 9',
+      countryCode: 'KEN',
+      curriculumCode: 'CBC'
+    }
+  });
+  assert.equal(onboarding.statusCode, 200);
+  assert.deepEqual(onboarding.json().user.roles, ['parent']);
+  assert.equal(onboarding.json().user.onboardingCompleted, true);
+
   const protectedRoute = await app.inject({
     method: 'GET',
     url: '/parent/dashboard',
-    headers: { authorization: `Bearer ${session.accessToken}` }
+    headers: { authorization: `Bearer ${onboarding.json().accessToken}` }
   });
   assert.equal(protectedRoute.statusCode, 200);
 

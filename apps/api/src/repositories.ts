@@ -876,6 +876,7 @@ export async function findUserById(userId: string): Promise<AuthenticatedUser | 
     phone_verified_at: Date | null;
     full_name: string;
     email_verified: boolean;
+    mascot_key: 'rabbit' | 'lion' | 'elephant';
     gender: 'male' | 'female' | 'not_specified';
     grade_level: string | null;
     country_code: string;
@@ -887,7 +888,7 @@ export async function findUserById(userId: string): Promise<AuthenticatedUser | 
     must_rotate_password: boolean;
     is_break_glass: boolean;
   }>(
-    `SELECT id, school_id, status, email, phone_number, phone_verified, phone_verified_at, full_name, email_verified, gender, grade_level,
+    `SELECT id, school_id, status, email, phone_number, phone_verified, phone_verified_at, full_name, email_verified, mascot_key, gender, grade_level,
             country_code, curriculum_code,
             onboarding_completed, terms_accepted_at, terms_version, privacy_version,
             must_rotate_password, is_break_glass
@@ -911,6 +912,7 @@ export async function findUserById(userId: string): Promise<AuthenticatedUser | 
     phoneVerified: user.phone_verified,
     fullName: user.full_name,
     emailVerified: user.email_verified,
+    mascotKey: user.mascot_key,
     roles: roleResult.rows.map(row => row.role),
     gender: user.gender,
     grade: user.grade_level,
@@ -2477,9 +2479,12 @@ export async function updateUserOnboarding(
   client: MaybeClient,
   input: {
     userId: string;
-    schoolId: string;
+    schoolId?: string | null;
     gender: 'male' | 'female' | 'not_specified';
     grade: string;
+    mascotKey?: 'rabbit' | 'lion' | 'elephant';
+    countryCode: string;
+    curriculumCode: string;
     mpesaPhoneNumber?: string | null;
     subjects?: string[];
     subjectIds?: string[];
@@ -2491,9 +2496,21 @@ export async function updateUserOnboarding(
      SET school_id = $2,
          gender = $3,
          grade_level = $4,
-         onboarding_completed = TRUE
+         country_code = $5,
+         curriculum_code = $6,
+         mascot_key = COALESCE($7, mascot_key),
+         onboarding_completed = TRUE,
+         updated_at = NOW()
      WHERE id = $1`,
-    [input.userId, input.schoolId, input.gender, input.grade]
+    [
+      input.userId,
+      input.schoolId ?? null,
+      input.gender,
+      input.grade,
+      input.countryCode,
+      input.curriculumCode,
+      input.mascotKey ?? null
+    ]
   );
 
   if (input.mpesaPhoneNumber) {
@@ -3359,6 +3376,33 @@ export async function createSubjectEngagementEvent(
       input.durationSeconds ?? 0,
       JSON.stringify(input.metadata ?? {})
     ]
+  );
+}
+
+export interface PushTokenRecord {
+  token: string;
+  platform: 'ios' | 'android' | 'web';
+}
+
+export async function listEnabledPushTokens(client: MaybeClient, userId: string) {
+  const result = await q<PushTokenRecord>(
+    client,
+    `SELECT token, platform
+     FROM user_push_tokens
+     WHERE user_id = $1 AND enabled = TRUE
+     ORDER BY updated_at DESC`,
+    [userId]
+  );
+  return result.rows;
+}
+
+export async function disablePushToken(client: MaybeClient, token: string) {
+  await q(
+    client,
+    `UPDATE user_push_tokens
+     SET enabled = FALSE, updated_at = NOW()
+     WHERE token = $1`,
+    [token]
   );
 }
 
@@ -5248,6 +5292,28 @@ export async function createTeacherAssignment(
   }
 
   return assignmentId;
+}
+
+export interface AssignmentParentNotificationRecipient {
+  parent_user_id: string;
+  child_name: string;
+}
+
+export async function listAssignmentParentNotificationRecipients(
+  client: MaybeClient,
+  assignmentId: string
+) {
+  const result = await q<AssignmentParentNotificationRecipient>(
+    client,
+    `SELECT DISTINCT ps.parent_user_id, child.full_name AS child_name
+     FROM submissions submission
+     JOIN users child ON child.id = submission.student_id
+     JOIN parent_students ps ON ps.student_user_id = child.id
+     WHERE submission.assignment_id = $1
+     ORDER BY ps.parent_user_id, child.full_name`,
+    [assignmentId]
+  );
+  return result.rows;
 }
 
 export interface TeacherParentRecord {

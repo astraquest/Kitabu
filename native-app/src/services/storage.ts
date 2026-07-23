@@ -2,7 +2,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as SecureStore from 'expo-secure-store';
 
 const memoryStore = new Map<string, string>();
-const securePrefix = 'secure:';
+// Expo SecureStore keys may only contain letters, numbers, ".", "-", and "_".
+// A colon here makes every native read/write fail and silently fall back to memory.
+const securePrefix = 'secure.';
 const SECURE_STORAGE_TIMEOUT_MS = 2500;
 
 async function withTimeout<T>(operation: Promise<T>, timeoutMs: number): Promise<T> {

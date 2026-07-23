@@ -17,7 +17,11 @@ import {
   SUBJECTS,
 } from '../data/mockData';
 import { DEFAULT_GRADE } from '../constants/grades';
-import { countryNameForCode } from '../constants/locations';
+import {
+  countryCodeForName,
+  countryNameForCode,
+  curriculumCodeForCountry,
+} from '../constants/locations';
 import {
   getBillingPlans,
   getBillingStatus,
@@ -25,15 +29,18 @@ import {
   startMpesaCheckout,
 } from '../services/billingService';
 import {
+  clearSavedLoginPassword,
   completeAccountOnboarding,
   confirmEmailVerificationToken,
   deleteMyAccount,
+  loadSavedLoginCredentials,
   loadStoredAuthSession,
   loginWithPassword,
   persistAuthSession,
   requestPhoneAuthCode,
   requestEmailVerification,
   refreshAccessSession,
+  restoreStoredAuthSession,
   signupWithPassword,
   verifyPhoneAuthCode,
   authenticateWithGoogleToken,
@@ -92,6 +99,7 @@ import {
   markAllNotificationsRead,
   markNotificationRead,
 } from '../services/notificationService';
+import { registerPushTokenForAuthenticatedUser } from '../services/pushNotifications';
 import { markPresenceOffline, markPresenceOnline } from '../services/presenceService';
 import {
   getOnboardingDiagnosticStatus,
@@ -145,6 +153,7 @@ import {
   PublicSignupRole,
   Question,
   QuizConfig,
+  QuizGenerationProgress,
   SchoolData,
   StudentPerformance,
   StudentSubmission,
@@ -249,6 +258,7 @@ type OnboardingSignupInput = {
   mascot?: OnboardingMascotKey;
   mascotKey?: OnboardingMascotKey;
   subjects?: string[];
+  selectedSubjectIds?: string[];
   teachGrades?: string[];
   teacherGradeIds?: string[];
   mpesaPhoneNumber?: string;
@@ -470,6 +480,9 @@ function mapAuthSessionToProfile(session: AuthSession): UserProfile {
         ? 'Email verified'
         : 'Email not verified',
     grade: isTeacher || isAdmin ? undefined : user.grade || INITIAL_USER_PROFILE.grade,
+    country: countryNameForCode(user.countryCode),
+    countryCode: countryCodeForName(countryNameForCode(user.countryCode)),
+    curriculumCode: user.curriculumCode || curriculumCodeForCountry(user.countryCode),
     gender:
       user.gender === 'male'
         ? 'male'
@@ -614,6 +627,10 @@ export function useKitabuApp() {
   const [activeQuizConfig, setActiveQuizConfig] = useState<QuizConfig | null>(null);
   const [brainTeaseCompleted, setBrainTeaseCompleted] = useState(false);
   const [quizGenerationError, setQuizGenerationError] = useState<string | null>(null);
+  const [quizGenerationProgress, setQuizGenerationProgress] = useState<QuizGenerationProgress>({
+    percentage: 0,
+    stage: 'Preparing your quiz',
+  });
   const [generatedFlashcards, setGeneratedFlashcards] =
     useState<Flashcard[]>(INITIAL_FLASHCARDS);
   const [generatedQuizQuestions, setGeneratedQuizQuestions] =
@@ -678,6 +695,7 @@ export function useKitabuApp() {
   const [checkoutStatusLabel, setCheckoutStatusLabel] = useState<string | null>(null);
   const [isSubmittingCheckout, setIsSubmittingCheckout] = useState(false);
   const [activePaymentRequestId, setActivePaymentRequestId] = useState<string | null>(null);
+  const checkoutSubmissionLockedRef = useRef(false);
   const [pendingSubscriptionIntent, setPendingSubscriptionIntent] =
     useState<PendingSubscriptionIntent | null>(null);
   const [queuedCheckoutLaunch, setQueuedCheckoutLaunch] =
@@ -848,7 +866,9 @@ export function useKitabuApp() {
     if (link.kind === 'password-reset-complete') {
       setAuthMode('login');
       setAuthError('Password updated. Sign in with your new password.');
+      setLoginPassword('');
       setAuthSession(null);
+      await clearSavedLoginPassword();
       await persistAuthSession(null);
       setCurrentView('dashboard');
     }
@@ -866,6 +886,7 @@ export function useKitabuApp() {
         storedOnboardingPreferences,
         storedLastUsedAuthRole,
         storedSession,
+        storedLoginCredentials,
       ] = await Promise.all([
         loadJson(STORAGE_KEYS.profile, INITIAL_USER_PROFILE),
         loadJson(STORAGE_KEYS.optionalPhoneNumber, ''),
@@ -881,7 +902,8 @@ export function useKitabuApp() {
         }),
         loadJson<OnboardingPreferencesSnapshot>(STORAGE_KEYS.onboardingPreferences, {}),
         loadJson<unknown>(STORAGE_KEYS.lastUsedAuthRole, null),
-        loadStoredAuthSession(),
+        restoreStoredAuthSession(),
+        loadSavedLoginCredentials(),
       ]);
 
       if (!mounted) {
@@ -889,11 +911,18 @@ export function useKitabuApp() {
       }
 
       setOptionalPhoneNumber(storedOptionalPhoneNumber);
+      setLoginEmail(storedLoginCredentials?.email ?? '');
+      setLoginPassword(storedLoginCredentials?.password ?? '');
       setLastUsedAuthRole(isLastUsedAuthRole(storedLastUsedAuthRole) ? storedLastUsedAuthRole : null);
       setTryOneBobOfferSeenAt(storedTryOneBobOfferSeenAt);
       const storedMascotKey =
         storedOnboardingPreferences.mascotKey ?? storedOnboardingPreferences.mascot;
-      setOnboardingMascotKey(isOnboardingMascotKey(storedMascotKey) ? storedMascotKey : null);
+      const restoredMascotKey = isOnboardingMascotKey(storedMascotKey)
+        ? storedMascotKey
+        : storedSession && isOnboardingMascotKey(storedSession.user.mascotKey)
+          ? storedSession.user.mascotKey
+          : null;
+      setOnboardingMascotKey(restoredMascotKey);
       const storedSubjectIds = storedOnboardingPreferences.selectedSubjectIds
         ?.filter(subjectId => typeof subjectId === 'string' && subjectId.length > 0)
         .slice(0, MAX_DASHBOARD_SUBJECTS);
@@ -921,65 +950,41 @@ export function useKitabuApp() {
       );
 
       if (storedSession) {
+        const nextHomeView = getPrimaryHomeView(storedSession.user.roles, storedSession.user.email);
+        const nextProfile = mergeStoredProfileWithAuthSession(storedProfile, storedSession);
+        const nextGrade = nextProfile.grade || DEFAULT_GRADE;
+        setAuthSession(storedSession);
+        rememberAuthenticatedRole(storedSession);
+        setUserProfile(nextProfile);
+        setCurrentGrade(nextGrade);
+        setIsStudentPreview(false);
+        setCurrentView(nextHomeView);
         try {
-          const nextSession = await refreshAccessSession(storedSession.refreshToken);
-          const nextHomeView = getPrimaryHomeView(nextSession.user.roles, nextSession.user.email);
-          if (!mounted) {
-            return;
-          }
-          const nextProfile = mergeStoredProfileWithAuthSession(storedProfile, nextSession);
-          const nextGrade = nextProfile.grade || DEFAULT_GRADE;
-          setAuthSession(nextSession);
-          rememberAuthenticatedRole(nextSession);
-          setUserProfile(nextProfile);
-          setCurrentGrade(nextGrade);
-          setIsStudentPreview(false);
-          setCurrentView(nextHomeView);
-          try {
-            const [plansPayload, status] = await Promise.all([
-              getBillingPlans(),
-              getBillingStatus(),
-            ]);
-            setBillingPlans(plansPayload.plans);
-            setTrialOfferPlan(plansPayload.trialOffer);
-            setBillingStatus(status);
-            setSelectedPlanCode(
-              plansPayload.plans.find(plan => plan.isPopular)?.code ||
-                plansPayload.plans[0]?.code ||
-                null,
-            );
-            if (status.savedMpesaPhoneNumber || storedOptionalPhoneNumber) {
-              setCheckoutPhoneNumber(status.savedMpesaPhoneNumber || storedOptionalPhoneNumber);
-            }
-          } catch {
-            // Billing availability must never invalidate an otherwise healthy user session.
-            setBillingPlans([]);
-            setTrialOfferPlan(null);
-            setSelectedPlanCode(null);
-          }
-          await Promise.all([
-            refreshStudentContentState(nextSession, nextGrade),
-            refreshTeacherData(nextSession),
+          const [plansPayload, status] = await Promise.all([
+            getBillingPlans(),
+            getBillingStatus(),
           ]);
-          await persistAuthSession(nextSession);
-        } catch {
-          if (!mounted) {
-            return;
+          setBillingPlans(plansPayload.plans);
+          setTrialOfferPlan(plansPayload.trialOffer);
+          setBillingStatus(status);
+          setSelectedPlanCode(
+            plansPayload.plans.find(plan => plan.isPopular)?.code ||
+              plansPayload.plans[0]?.code ||
+              null,
+          );
+          if (status.savedMpesaPhoneNumber || storedOptionalPhoneNumber) {
+            setCheckoutPhoneNumber(status.savedMpesaPhoneNumber || storedOptionalPhoneNumber);
           }
-          setAuthSession(null);
-          setUserProfile(storedProfile);
-          setCurrentGrade(storedProfile.grade || DEFAULT_GRADE);
+        } catch {
+          // Billing availability must never invalidate an otherwise healthy user session.
           setBillingPlans([]);
-          setBillingStatus({
-            subscription: null,
-            savedMpesaPhoneNumber: null,
-            maskedMpesaPhoneNumber: null,
-            hasPaidBefore: false,
-            school: null,
-          });
           setTrialOfferPlan(null);
-          await persistAuthSession(null);
+          setSelectedPlanCode(null);
         }
+        await Promise.allSettled([
+          refreshStudentContentState(storedSession, nextGrade),
+          refreshTeacherData(storedSession),
+        ]);
       } else {
         setUserProfile(storedProfile);
         setCurrentGrade(storedProfile.grade || DEFAULT_GRADE);
@@ -2031,6 +2036,9 @@ export function useKitabuApp() {
       const nextSession = await completeAccountOnboarding({
         ...accountOnboardingInput,
         subjectIds: selectedSubjectIds,
+        mascotKey: isOnboardingMascotKey(resolvedMascotKey) ? resolvedMascotKey : undefined,
+        countryCode,
+        curriculumCode: curriculumCode || curriculumCodeForCountry(countryCode),
       });
       setAuthSession(nextSession);
       if (isOnboardingMascotKey(resolvedMascotKey)) {
@@ -2045,6 +2053,7 @@ export function useKitabuApp() {
         school: selectedSchool?.name || input.school || nextProfile.school,
         country: countryNameForCode(countryCode),
         countryCode,
+        curriculumCode: curriculumCode || curriculumCodeForCountry(countryCode),
         county: input.county || selectedSchool?.location || nextProfile.county,
         region: input.county || selectedSchool?.location || nextProfile.region,
         taughtGrades: resolvedTeachGrades?.length ? resolvedTeachGrades : nextProfile.taughtGrades,
@@ -2451,6 +2460,11 @@ export function useKitabuApp() {
     intent: PendingSubscriptionIntent,
     planCode: BillingPlanCode | null = null,
   ) {
+    if (activePaymentRequestId || checkoutSubmissionLockedRef.current) {
+      setIsCheckoutOpen(true);
+      return;
+    }
+
     setPendingSubscriptionIntent(intent);
     setCheckoutError(null);
     setCheckoutStatusLabel(null);
@@ -2604,6 +2618,10 @@ export function useKitabuApp() {
   }
 
   async function submitSubscriptionCheckout(planCodeOverride?: BillingPlanCode) {
+    if (checkoutSubmissionLockedRef.current || activePaymentRequestId) {
+      return;
+    }
+
     if (!externalPaymentsEnabled) {
       setCheckoutError('Subscription access is managed outside this app build.');
       triggerHaptic('error');
@@ -2631,9 +2649,11 @@ export function useKitabuApp() {
       snapshot: getRouteSnapshot(currentView),
     };
 
+    checkoutSubmissionLockedRef.current = true;
     setIsSubmittingCheckout(true);
     setCheckoutError(null);
     setCheckoutStatusLabel(null);
+    let keepCheckoutLocked = false;
 
     try {
       const response = await startMpesaCheckout({
@@ -2654,12 +2674,16 @@ export function useKitabuApp() {
 
       setCheckoutStatusLabel(response.customerMessage);
       setActivePaymentRequestId(response.paymentRequestId);
+      keepCheckoutLocked = true;
       setIsTryOneBobOpen(false);
       triggerHaptic('success');
     } catch (error) {
       setCheckoutError(error instanceof Error ? error.message : 'Unable to start checkout');
       triggerHaptic('error');
     } finally {
+      if (!keepCheckoutLocked) {
+        checkoutSubmissionLockedRef.current = false;
+      }
       setIsSubmittingCheckout(false);
     }
   }
@@ -2749,6 +2773,9 @@ export function useKitabuApp() {
 
   function completeProviderAuthentication(session: AuthSession) {
     setAuthSession(session);
+    if (isOnboardingMascotKey(session.user.mascotKey)) {
+      setOnboardingMascotKey(session.user.mascotKey);
+    }
     rememberAuthenticatedRole(session);
     setAuthEntryScreen('auth');
     const profile = mapAuthSessionToProfile(session);
@@ -2800,6 +2827,7 @@ export function useKitabuApp() {
   async function signUp(input?: OnboardingSignupInput) {
     setIsAuthenticating(true);
     setAuthError(null);
+    let authenticatedSession: AuthSession | null = null;
 
     try {
       const role = input?.role ?? signupRole;
@@ -2863,7 +2891,10 @@ export function useKitabuApp() {
           onboardingCompleted: false,
           mascotKey: input?.mascotKey ?? input?.mascot,
         });
+        setLoginEmail(signupEmailValue);
+        setLoginPassword(password);
       }
+      authenticatedSession = session;
       if (input?.gender && input.grade) {
         session = await completeAccountOnboarding({
           gender: input.gender,
@@ -2872,10 +2903,19 @@ export function useKitabuApp() {
           mpesaPhoneNumber: input.mpesaPhoneNumber || null,
           school: input.school,
           county: input.county,
+          subjects: input.subjects,
+          subjectIds: input.selectedSubjectIds,
+          mascotKey: input.mascotKey ?? input.mascot,
+          countryCode: input.countryCode,
+          curriculumCode: curriculumCodeForCountry(input.countryCode),
         });
+        authenticatedSession = session;
       }
       completeProviderAuthentication(session);
       if (input) {
+        if (input.selectedSubjectIds?.length) {
+          saveDashboardSubjects(input.selectedSubjectIds);
+        }
         const selectedSchool = input.schoolId
           ? schoolsList.find(school => school.id === input.schoolId)
           : null;
@@ -2884,6 +2924,7 @@ export function useKitabuApp() {
           school: selectedSchool?.name || input.school || current.school,
           country: countryNameForCode(input.countryCode),
           countryCode: input.countryCode,
+          curriculumCode: curriculumCodeForCountry(input.countryCode),
           county: input.county || selectedSchool?.location || current.county,
           region: input.county || selectedSchool?.location || current.region,
           taughtGrades: (input.teacherGradeIds || input.teachGrades)?.length
@@ -2896,6 +2937,12 @@ export function useKitabuApp() {
     } catch (error) {
       const message =
         error instanceof Error ? error.message : 'Unable to create account';
+      if (authenticatedSession) {
+        completeProviderAuthentication(authenticatedSession);
+        setOnboardingError(message);
+        triggerHaptic('error');
+        return;
+      }
       if (message === 'An account with that email already exists') {
         setAuthMode('login');
         setAuthError(
@@ -2927,6 +2974,8 @@ export function useKitabuApp() {
     setIsTryOneBobOpen(false);
     setPendingSubscriptionIntent(null);
     setActivePaymentRequestId(null);
+    checkoutSubmissionLockedRef.current = false;
+    setIsSubmittingCheckout(false);
     setIsStudentPreview(false);
     setFocusModeStudentProfile(null);
     setFocusModeActive(false);
@@ -3237,6 +3286,7 @@ export function useKitabuApp() {
 
     setIsLoading(true);
     setQuizGenerationError(null);
+    setQuizGenerationProgress({ percentage: 0, stage: 'Preparing your quiz' });
     setQuizSource('quiz_me');
     setActiveQuizConfig(config);
 
@@ -3248,6 +3298,7 @@ export function useKitabuApp() {
         config.questionCount,
         'quiz',
         currentGrade,
+        setQuizGenerationProgress,
       )
         .then(result => {
           if (!result.questions?.length) {
@@ -3255,6 +3306,7 @@ export function useKitabuApp() {
           }
 
           setGeneratedQuizQuestions(result.questions);
+          setQuizGenerationProgress({ percentage: 100, stage: 'Your quiz is ready' });
           setMessages([
             {
               role: 'model',
@@ -3286,6 +3338,7 @@ export function useKitabuApp() {
       config.questionCount,
       config.format === 'flashcards' ? 'flashcards' : 'quiz',
       currentGrade,
+      setQuizGenerationProgress,
     )
       .then(result => {
         if (config.format === 'flashcards') {
@@ -3294,6 +3347,7 @@ export function useKitabuApp() {
           }
 
           setGeneratedFlashcards(result.flashcards);
+          setQuizGenerationProgress({ percentage: 100, stage: 'Your practice set is ready' });
           setBrainTeaseCompleted(false);
           navigateTo('brain_tease');
           return;
@@ -3304,6 +3358,7 @@ export function useKitabuApp() {
         }
 
         setGeneratedQuizQuestions(result.questions);
+        setQuizGenerationProgress({ percentage: 100, stage: 'Your quiz is ready' });
         navigateTo('take_quiz');
       })
       .catch(error => {
@@ -3618,6 +3673,9 @@ export function useKitabuApp() {
     refreshDashboardBanner().catch(() => undefined);
     refreshDueReviews().catch(() => undefined);
     refreshNotifications().catch(() => undefined);
+    registerPushTokenForAuthenticatedUser().catch(error => {
+      console.warn('Push token registration will retry on the next session', error);
+    });
     refreshOnboardingDiagnosticState().catch(() => undefined);
     refreshWeeklyExam().catch(() => undefined);
     refreshStudentContentState(authSession, currentGrade).catch(() => undefined);
@@ -3697,6 +3755,8 @@ export function useKitabuApp() {
         }
 
         if (status.status === 'paid') {
+          checkoutSubmissionLockedRef.current = false;
+          setIsSubmittingCheckout(false);
           await refreshBillingState();
           await refreshNotifications();
           setCheckoutStatusLabel('Payment received. Redirecting you back now.');
@@ -3713,6 +3773,8 @@ export function useKitabuApp() {
         }
 
         if (status.status === 'failed' || status.status === 'cancelled' || status.status === 'expired') {
+          checkoutSubmissionLockedRef.current = false;
+          setIsSubmittingCheckout(false);
           await refreshNotifications();
           setActivePaymentRequestId(null);
           setCheckoutStatusLabel(null);
@@ -3890,6 +3952,7 @@ export function useKitabuApp() {
       activeQuizConfig,
       brainTeaseCompleted,
       quizGenerationError,
+      quizGenerationProgress,
       generatedFlashcards,
       generatedQuizQuestions,
       selectedSubjectStrands,
@@ -3960,7 +4023,7 @@ export function useKitabuApp() {
       checkoutPhoneNumber,
       checkoutError,
       checkoutStatusLabel,
-      isSubmittingCheckout,
+      isSubmittingCheckout: isSubmittingCheckout || Boolean(activePaymentRequestId),
       adminDiscounts,
       adminAnnouncements,
       adminSchoolPlans,

@@ -60,9 +60,12 @@ export interface AuthUser {
   phoneVerified?: boolean;
   fullName: string;
   emailVerified: boolean;
+  mascotKey?: OnboardingMascotKey;
   roles: AuthRole[];
   gender?: GenderOption;
   grade?: string | null;
+  countryCode?: string;
+  curriculumCode?: string;
   onboardingCompleted?: boolean;
 }
 
@@ -258,6 +261,7 @@ export interface UserProfile {
   school?: string;
   country?: string;
   countryCode?: string;
+  curriculumCode?: string;
   county?: string;
   region?: string;
   regionLabel?: string;
@@ -327,6 +331,11 @@ export interface QuizConfig {
   subStrand: string;
   questionCount: number;
   format: 'flashcards' | 'quiz' | 'audio';
+}
+
+export interface QuizGenerationProgress {
+  percentage: number;
+  stage: string;
 }
 
 export interface StudentPerformance {

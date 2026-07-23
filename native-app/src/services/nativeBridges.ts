@@ -20,7 +20,7 @@ export type NativeBridgeState = 'simulated' | 'expo_native';
 
 export interface AudioRecordingBridge {
   state: NativeBridgeState;
-  startRecording: () => Promise<string | null>;
+  startRecording: () => Promise<boolean>;
   stopRecording: () => Promise<string | null>;
   transcribeClip: (audioPath?: string | null) => Promise<string | null>;
   transcribeAnswer: (questionIndex: number, audioPath?: string | null) => Promise<string>;
@@ -490,7 +490,7 @@ export const audioRecordingBridge: AudioRecordingBridge = {
   async startRecording() {
     const permission = await requestRecordingPermissionsAsync();
     if (!permission.granted) {
-      return null;
+      return false;
     }
 
     if (activeRecording) {
@@ -507,7 +507,10 @@ export const audioRecordingBridge: AudioRecordingBridge = {
     await recording.prepareToRecordAsync();
     recording.record();
     activeRecording = recording;
-    return recording.uri;
+    // Android may not expose a usable file URI until stop() completes. The UI
+    // previously treated that pre-stop URI as the success signal, so recording
+    // started natively but immediately appeared to fail after permission grant.
+    return true;
   },
   async stopRecording() {
     if (!activeRecording) {
@@ -516,11 +519,14 @@ export const audioRecordingBridge: AudioRecordingBridge = {
 
     const recording = activeRecording;
     activeRecording = null;
-    await recording.stop();
-    await setAudioModeAsync({
-      allowsRecording: false,
-    });
-    return recording.uri;
+    try {
+      await recording.stop();
+      return recording.uri;
+    } finally {
+      await setAudioModeAsync({
+        allowsRecording: false,
+      }).catch(() => undefined);
+    }
   },
   async transcribeClip(_audioPath) {
     const parsedAudio = parseBase64Audio(_audioPath);

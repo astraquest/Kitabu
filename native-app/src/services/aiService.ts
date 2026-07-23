@@ -1,5 +1,11 @@
 import { DEFAULT_GRADE } from '../constants/grades';
-import { Attachment, ChatMessage, LearningStrand, Question } from '../types/app';
+import {
+  Attachment,
+  ChatMessage,
+  LearningStrand,
+  Question,
+  QuizGenerationProgress,
+} from '../types/app';
 import { fetchKitabuApi } from './runtimeConfig';
 import { buildKitabuRequestHeaders, readJsonResponse } from './requestHelpers';
 import { sanitizeTutorResponseForDisplay } from './tutorResponseFormatting';
@@ -517,7 +523,9 @@ export async function generateQuizData(
   count: number,
   type: 'flashcards' | 'quiz',
   grade = DEFAULT_GRADE,
+  onProgress?: (progress: QuizGenerationProgress) => void,
 ): Promise<GeneratedQuizPayload> {
+  onProgress?.({ percentage: 10, stage: 'Preparing your quiz request' });
   const prompt =
     type === 'flashcards'
       ? `Generate ${count} flashcards for a ${grade} student about Subject: ${subject}, Topic: ${topic}, Sub-topic: ${subTopic}.
@@ -546,6 +554,7 @@ Return JSON with this shape:
 }`;
 
   try {
+    onProgress?.({ percentage: 25, stage: 'Kitabu AI is creating your questions' });
     const response = await generateText({
       prompt,
       responseMimeType: 'application/json',
@@ -565,7 +574,10 @@ Return JSON with this shape:
       throw new Error('AI service returned an empty response.');
     }
 
-    return JSON.parse(sanitizeJsonPayload(response)) as GeneratedQuizPayload;
+    onProgress?.({ percentage: 75, stage: 'Checking the generated questions' });
+    const parsed = JSON.parse(sanitizeJsonPayload(response)) as GeneratedQuizPayload;
+    onProgress?.({ percentage: 90, stage: 'Finalizing your practice set' });
+    return parsed;
   } catch (error) {
     console.error('Error generating quiz data:', error);
     throw error;

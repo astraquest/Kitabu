@@ -3,6 +3,8 @@ import { appConfig } from './config.js';
 import {
   createNotificationDelivery,
   createUserNotification,
+  disablePushToken,
+  listEnabledPushTokens,
   isFeatureFlagEnabled
 } from './repositories.js';
 
@@ -75,6 +77,86 @@ export async function sendSmsMessage(args: {
   };
 }
 
+async function sendExpoPushNotifications(
+  client: NotificationClient,
+  input: NotifyUserInput,
+  notificationId: string | null
+) {
+  const pushEnabled = await isFeatureFlagEnabled('notifications.push');
+  if (!pushEnabled) {
+    return 'skipped' as const;
+  }
+
+  const tokens = await listEnabledPushTokens(client, input.userId);
+  if (!tokens.length) {
+    return 'skipped' as const;
+  }
+
+  try {
+    const response = await fetch('https://exp.host/--/api/v2/push/send', {
+      method: 'POST',
+      signal: AbortSignal.timeout(5_000),
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(
+        tokens.map(({ token }) => ({
+          to: token,
+          title: input.title,
+          body: input.body,
+          sound: 'default',
+          channelId: 'daily-study-reminders',
+          data: input.metadata ?? {}
+        }))
+      )
+    });
+
+    const payload = (await response.json().catch(() => ({}))) as {
+      data?: Array<{
+        status?: 'ok' | 'error';
+        id?: string;
+        message?: string;
+        details?: { error?: string };
+      }>;
+    };
+    const tickets = Array.isArray(payload.data) ? payload.data : [];
+
+    for (let index = 0; index < tokens.length; index += 1) {
+      const token = tokens[index].token;
+      const ticket = tickets[index];
+      const delivered = response.ok && ticket?.status === 'ok';
+      const providerError = ticket?.details?.error || ticket?.message || null;
+
+      await createNotificationDelivery(client, {
+        notificationId,
+        userId: input.userId,
+        channel: 'push',
+        provider: 'expo',
+        status: delivered ? 'sent' : 'failed',
+        providerMessageId: ticket?.id ?? null,
+        errorMessage: delivered ? null : providerError || `Expo push failed: ${response.status}`
+      });
+
+      if (providerError === 'DeviceNotRegistered') {
+        await disablePushToken(client, token);
+      }
+    }
+
+    return tickets.some(ticket => ticket.status === 'ok') ? ('sent' as const) : ('failed' as const);
+  } catch (error) {
+    await createNotificationDelivery(client, {
+      notificationId,
+      userId: input.userId,
+      channel: 'push',
+      provider: 'expo',
+      status: 'failed',
+      errorMessage: error instanceof Error ? error.message : 'Expo push delivery failed'
+    });
+    return 'failed' as const;
+  }
+}
+
 export async function notifyUser(client: NotificationClient, input: NotifyUserInput) {
   const inAppEnabled = input.forceInApp || (await isFeatureFlagEnabled('notifications.in_app'));
   const notificationId = inAppEnabled
@@ -87,12 +169,14 @@ export async function notifyUser(client: NotificationClient, input: NotifyUserIn
       })
     : null;
 
+  const pushStatus = await sendExpoPushNotifications(client, input, notificationId);
+
   const smsEnabled =
     Boolean(input.smsPhoneNumber && input.smsBody) &&
     (await isFeatureFlagEnabled('payments.mpesa_sms'));
 
   if (!smsEnabled) {
-    return { notificationId, smsStatus: 'skipped' as const };
+    return { notificationId, pushStatus, smsStatus: 'skipped' as const };
   }
 
   if (!isSmsConfigured()) {
@@ -104,7 +188,7 @@ export async function notifyUser(client: NotificationClient, input: NotifyUserIn
       status: 'skipped',
       errorMessage: 'SMS provider is not configured'
     });
-    return { notificationId, smsStatus: 'skipped' as const };
+    return { notificationId, pushStatus, smsStatus: 'skipped' as const };
   }
 
   try {
@@ -120,7 +204,7 @@ export async function notifyUser(client: NotificationClient, input: NotifyUserIn
       status: 'sent',
       providerMessageId: sms.providerMessageId
     });
-    return { notificationId, smsStatus: 'sent' as const };
+    return { notificationId, pushStatus, smsStatus: 'sent' as const };
   } catch (error) {
     await createNotificationDelivery(client, {
       notificationId,
@@ -130,6 +214,6 @@ export async function notifyUser(client: NotificationClient, input: NotifyUserIn
       status: 'failed',
       errorMessage: error instanceof Error ? error.message : 'SMS delivery failed'
     });
-    return { notificationId, smsStatus: 'failed' as const };
+    return { notificationId, pushStatus, smsStatus: 'failed' as const };
   }
 }

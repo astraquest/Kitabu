@@ -993,7 +993,7 @@ test('onboarding full intro captures profile details before account setup', asyn
   expect(renderer!.root.findByProps({ accessibilityLabel: 'Daily study reminder preview' })).toBeTruthy();
   expect(renderedText(renderer!.root)).toContain('Ruka');
   await act(async () => {
-    await renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
+    await renderer!.root.findByProps({ accessibilityLabel: 'Allow assignment and study reminders' }).props.onPress();
   });
 
   expect(renderedText(renderer!.root)).toContain('Kitabu AI');
@@ -1714,6 +1714,7 @@ test('full intro loading and ready states use teacher and parent context', async
       loadingTitle: 'Building Teacher Amina class workspace',
       loadingText: 'We are combining your mascot, teaching goal, curriculum, reminders, classes, subjects, and school.',
       readyTitle: 'Workspace ready',
+      readyPlanText: 'Everything is set for your class.',
       readyText: 'Grade 6 · 2 subjects · Kenya CBC',
     },
     {
@@ -1769,7 +1770,8 @@ test('full intro loading and ready states use teacher and parent context', async
       loadingTitle: 'Building Parent Kamau family dashboard',
       loadingText: 'We are combining your mascot, family goal, curriculum, reminders, child profile, and school.',
       readyTitle: 'Dashboard ready',
-      readyText: 'Grade 6 · Kenya CBC',
+      readyPlanText: 'Study plans for your 2 children are ready to go.',
+      readyText: '2 children · Kenya CBC',
     },
   ];
 
@@ -1879,6 +1881,14 @@ test('full intro loading and ready states use teacher and parent context', async
         ' of ',
       );
       expect(renderedText(renderer!.root)).toContain('Pre-Technical Studies');
+      const preTechnicalLabel = renderer!.root
+        .findAllByType(Text)
+        .find(node => renderedText(node) === 'Pre-Technical Studies');
+      expect(preTechnicalLabel).toBeDefined();
+      expect(preTechnicalLabel?.props.numberOfLines).toBeUndefined();
+      expect(StyleSheet.flatten(preTechnicalLabel?.props.style)).toEqual(
+        expect.objectContaining({ flexShrink: 1, textAlign: 'center' }),
+      );
       // Each grade tracks its own subjects, so Grade 7 starts fresh.
       expect(renderedText(renderer!.root)).not.toContain('1 selected \u2713');
       expect(renderer!.root.findByProps({ accessibilityLabel: 'Add Mathematics' }).props.accessibilityState).toEqual({
@@ -2047,7 +2057,7 @@ test('full intro loading and ready states use teacher and parent context', async
     expect(renderer!.root.findByProps({ accessibilityLabel: 'Daily study reminder preview' })).toBeTruthy();
 
     await act(async () => {
-      await renderer!.root.findByProps({ accessibilityLabel: 'Continue account setup' }).props.onPress();
+      await renderer!.root.findByProps({ accessibilityLabel: 'Allow assignment and study reminders' }).props.onPress();
     });
 
     expect(renderedText(renderer!.root)).toContain(expectation.loadingTitle);
@@ -2088,6 +2098,7 @@ test('full intro loading and ready states use teacher and parent context', async
     });
 
     expect(renderedText(renderer!.root)).toContain(expectation.readyTitle);
+    expect(renderedText(renderer!.root)).toContain(expectation.readyPlanText);
     expect(renderedText(renderer!.root)).toContain(expectation.readyText);
     expect(renderedText(renderer!.root)).toContain('4.89');
     expect(renderedText(renderer!.root)).toContain(expectation.readySocial);
@@ -3422,29 +3433,31 @@ test('one bob offer opens the payment modal with the trial selected', async () =
     isPopular: false,
   };
   let renderer: ReactTestRenderer.ReactTestRenderer;
+  const renderCheckout = (isSubmitting: boolean) => (
+    <SubscriptionCheckoutModal
+      isOpen
+      plans={[...plans, trialPlan]}
+      selectedPlanCode="trial_monthly_1bob"
+      phoneNumber="254700000000"
+      maskedSavedPhoneNumber={null}
+      isSubmitting={isSubmitting}
+      statusLabel={isSubmitting ? 'Check your phone and enter your M-Pesa PIN to continue.' : null}
+      error={null}
+      onClose={jest.fn()}
+      onSelectPlan={jest.fn()}
+      onChangePhoneNumber={jest.fn()}
+      onUseSavedPhone={jest.fn()}
+      onContinue={onContinue}
+    />
+  );
 
   await act(() => {
-    renderer = ReactTestRenderer.create(
-      <SubscriptionCheckoutModal
-        isOpen
-        plans={[...plans, trialPlan]}
-        selectedPlanCode="trial_monthly_1bob"
-        phoneNumber="254700000000"
-        maskedSavedPhoneNumber={null}
-        isSubmitting={false}
-        statusLabel={null}
-        error={null}
-        onClose={jest.fn()}
-        onSelectPlan={jest.fn()}
-        onChangePhoneNumber={jest.fn()}
-        onUseSavedPhone={jest.fn()}
-        onContinue={onContinue}
-      />,
-    );
+    renderer = ReactTestRenderer.create(renderCheckout(false));
   });
 
   const text = renderedText(renderer!.root);
   expect(text).toContain('Try Kitabu for Just 1 Bob');
+  expect(text).not.toContain('Unlock your first month and continue learning right away.');
   expect(text).toContain('Continue to Pay - KSH 1');
   expect(text).not.toContain('Sungura');
   expect(text).not.toContain('Ndovu');
@@ -3456,6 +3469,16 @@ test('one bob offer opens the payment modal with the trial selected', async () =
   });
 
   expect(onContinue).toHaveBeenCalledWith('trial_monthly_1bob');
+
+  await act(() => {
+    renderer!.update(renderCheckout(true));
+  });
+
+  const pendingText = renderedText(renderer!.root);
+  const pendingButton = renderer!.root.findByProps({ accessibilityLabel: 'Continue to M-Pesa payment' });
+  expect(pendingText).toContain('Waiting for M-Pesa...');
+  expect(pendingButton.props.disabled).toBe(true);
+  expect(pendingButton.props.accessibilityState).toEqual({ disabled: true, busy: true });
 });
 
 test('try for one bob offer starts the KSh 1 checkout action', async () => {

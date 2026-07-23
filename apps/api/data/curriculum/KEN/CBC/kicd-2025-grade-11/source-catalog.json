@@ -1,0 +1,1278 @@
+{
+  "schemaVersion": 1,
+  "catalogId": "kicd-2025-grade-11-regular",
+  "scope": {
+    "countryCode": "KEN",
+    "curriculum": "CBC",
+    "grade": 11,
+    "programme": "regular",
+    "included": "Grade 11 curriculum designs embedded by the official KICD Grade Eleven manifest",
+    "excluded": "Special-needs adaptations and documents not embedded by the official Grade Eleven manifest",
+    "captureDate": "2026-07-22"
+  },
+  "manifest": {
+    "publisher": "Kenya Institute of Curriculum Development",
+    "abbreviation": "KICD",
+    "pageId": 7661,
+    "parentPageId": 7469,
+    "title": "Grade Eleven",
+    "heading": "Grade 11 Designs",
+    "status": "publish",
+    "pageUrl": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-eleven/",
+    "apiUrl": "https://kicd.ac.ke/wp-json/wp/v2/pages/7661",
+    "published": "2025-04-14T10:10:05",
+    "modified": "2025-10-23T20:53:28",
+    "embeddedPreviewCount": 39,
+    "categoryCount": 8,
+    "categoriesInOfficialOrder": [
+      "Applied Sciences",
+      "Arts & Sports",
+      "Foreign Languages",
+      "Humanities",
+      "Languages",
+      "Pure Sciences",
+      "Religious Education",
+      "Technical Studies"
+    ],
+    "evidence": "The official KICD WordPress page record identifies page 7661, parent page 7469, its published and modified values, eight ordered category headings, and 39 ordered Google Drive preview iframes in content.rendered."
+  },
+  "catalogConventions": {
+    "categoryMeaning": "KICD landing-page category; no pathway assignment is inferred.",
+    "officialFilenameMethod": "Read from the public Google Drive preview og:title metadata for each iframe embedded by the official KICD page.",
+    "previewUrlPattern": "https://drive.google.com/file/d/{driveFileId}/preview",
+    "mimeType": "application/pdf",
+    "documentDate": "2025-10",
+    "documentDateDisplay": "October 2025",
+    "documentDateBasis": "filename text",
+    "documentDateCaveat": "October 2025 is preserved as the document/filename date. It is not proof of final approval, publication status, or latest-revision status."
+  },
+  "identityReconciliation": {
+    "schemaVersion": 1,
+    "reconciliationBasis": {
+      "sourceCatalog": "apps/api/data/curriculum/KEN/CBC/kicd-2025-grade-11/source-catalog.json",
+      "sourceCapture": "apps/api/data/curriculum/KEN/CBC/kicd-2025-grade-11/source-capture.json",
+      "sourceCaptureSha256Reviewed": "ba4f1c2e829b4991d4c224ed8e75875ddfd098d7aaa9083dfd6673205ee76bed",
+      "kicdGradePage": "https://kicd.ac.ke/cbc-materials/curriculum-designs/grade-eleven/",
+      "moePathways": "https://selection.education.go.ke/pathways",
+      "moeSubjectCombinations": "https://selection.education.go.ke/files/subject-combinations-senior-schools.pdf",
+      "seniorSchoolStructure": "https://kicd.ac.ke/wp-content/uploads/2025/12/DOC-20251216-WA0023.pdf"
+    },
+    "policies": {
+      "canonicalSubject": "The existing subject value is the catalog canonical subject.",
+      "sourceLabel": "kicdSourceLabel preserves the exact source-capture subject label joined by Drive file ID.",
+      "alias": "An alias is asserted only when the same Drive file ID proves that two producer labels identify the same embedded asset.",
+      "unresolvedRelatedLabel": "Related official labels without a shared Drive ID, official code, or explicit equivalence remain unresolved and must not be merged automatically.",
+      "category": "KICD landing-page category is preserved independently from pathway, track, and learning-area role.",
+      "pathwayAndTrack": "No single pathway or track is inferred from portal category for combination-dependent subjects. Null is an explicit unresolved or not-applicable value, not missing data.",
+      "role": "Core mathematics options, universal timetable/skills provisions, counted core learning areas, and selected learning areas are stored independently from category."
+    },
+    "invariants": {
+      "embeddedAssetCount": 39,
+      "canonicalSubjectCount": 39,
+      "uniqueCanonicalSubjectCount": 39,
+      "kicdSourceLabelCount": 39,
+      "sourceLabelDifferenceCount": 8,
+      "supportedAliasCount": 8,
+      "unresolvedRelatedLabelCount": 6,
+      "identityReconciledAssetCount": 39,
+      "driveFileIdJoinCount": 39,
+      "titleMatchCount": 39,
+      "categoryMatchCount": 39,
+      "previewUrlMatchCount": 39,
+      "pathwayAssignedAssetCount": 1,
+      "trackAssignedAssetCount": 0,
+      "officiallyReferencedMissingSubjectCount": 1,
+      "reconciledSubjectInventoryCountIncludingMissingKsl": 40,
+      "roleCounts": {
+        "selected_learning_area": 32,
+        "universal_skills_provision": 1,
+        "universal_timetable_provision": 1,
+        "core_learning_area": 3,
+        "core_mathematics_option_for_stem": 1,
+        "core_mathematics_option_for_non_stem": 1
+      }
+    },
+    "nonEquivalenceAssertions": [
+      {
+        "labels": [
+          "Computer Studies",
+          "Information and Communication Technology (ICT)"
+        ],
+        "status": "distinct_embedded_assets",
+        "evidence": "The catalog contains separate Drive IDs for Computer Studies and ICT."
+      },
+      {
+        "labels": [
+          "Physical Education",
+          "Sports and Recreation"
+        ],
+        "status": "distinct_embedded_assets",
+        "evidence": "The catalog contains separate Drive IDs and titles."
+      },
+      {
+        "labels": [
+          "Core Mathematics",
+          "Essential Mathematics",
+          "Advanced Mathematics",
+          "Mathematics"
+        ],
+        "status": "do_not_collapse",
+        "evidence": "Core and Essential Mathematics are separate embedded assets; Advanced Mathematics and generic Mathematics are external official labels whose equivalence is unresolved."
+      },
+      {
+        "labels": [
+          "Building Construction",
+          "Building & Construction",
+          "Building and Construction"
+        ],
+        "status": "unresolved_label_variants",
+        "mergeAllowed": false
+      },
+      {
+        "labels": [
+          "Marine and Fisheries Technology",
+          "Marine & Fisheries",
+          "Marine and Fisheries"
+        ],
+        "status": "unresolved_label_variants",
+        "mergeAllowed": false
+      },
+      {
+        "labels": [
+          "Woodwork",
+          "Wood Work",
+          "Wood Technology"
+        ],
+        "status": "unresolved_label_variants",
+        "mergeAllowed": false
+      }
+    ]
+  },
+  "publicationStatusEvidence": {
+    "sampledAssetOrder": 1,
+    "sampledSubject": "Agriculture",
+    "sampledPreviewUrl": "https://drive.google.com/file/d/14pVwCW9ILsBNRKhSpnEwK_NXaC29UhIB/preview",
+    "observation": "The sampled Agriculture cover is visibly watermarked DRAFT.",
+    "scope": "This observed DRAFT status applies only to the Agriculture document sampled.",
+    "otherAssetFinality": "Final or approved status is not established for the other 38 cataloged documents.",
+    "dateCaveat": "October 2025 in the filenames is not evidence of approval or final status."
+  },
+  "coverageIssues": [
+    {
+      "code": "missing-ksl-grade-11-design",
+      "subject": "Kenya Sign Language (KSL)",
+      "identity": {
+        "canonicalSubject": "Kenya Sign Language",
+        "kicdSourceLabel": "Kenya Sign Language (KSL)",
+        "aliases": [
+          "KSL",
+          "Sign Language"
+        ],
+        "syntheticAssetCreated": false,
+        "dimensions": {
+          "category": null,
+          "pathway": null,
+          "track": null,
+          "role": "core_language_option",
+          "pathwayTrackStatus": "officially referenced missing design; no asset or placement synthesized"
+        }
+      },
+      "status": "not-listed-on-official-grade-11-manifest",
+      "evidenceUrl": "https://kicd.ac.ke/wp-content/uploads/2025/09/NOVEMBER-2025-MATERIALS-SUBMISSION-DOCUMENT-2025-AUGUST-EDITION-3.pdf",
+      "evidence": "KICD's November 2025 Senior School course-material submission document lists Kenya Sign Language among Grade 11 learning areas, but the official Grade Eleven curriculum-design manifest embeds no KSL design.",
+      "caveat": "This records a manifest coverage gap only; it does not prove that no KSL Grade 11 design exists elsewhere."
+    }
+  ],
+  "assets": [
+    {
+      "order": 1,
+      "categoryOrder": 1,
+      "category": "Applied Sciences",
+      "subject": "Agriculture",
+      "identity": {
+        "canonicalSubject": "Agriculture",
+        "kicdSourceLabel": "Agriculture",
+        "kicdTitle": "Agriculture Grade 11 - October 2025.pdf",
+        "kicdCategory": "Applied Sciences",
+        "aliases": [],
+        "aliasEvidence": null,
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Applied Sciences",
+          "pathway": null,
+          "track": null,
+          "role": "selected_learning_area",
+          "pathwayTrackStatus": "combination-dependent; no single pathway or track inferred"
+        }
+      },
+      "officialFilename": "Agriculture Grade 11 - October 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "14pVwCW9ILsBNRKhSpnEwK_NXaC29UhIB",
+      "previewUrl": "https://drive.google.com/file/d/14pVwCW9ILsBNRKhSpnEwK_NXaC29UhIB/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 2,
+      "categoryOrder": 1,
+      "category": "Applied Sciences",
+      "subject": "Computer Studies",
+      "identity": {
+        "canonicalSubject": "Computer Studies",
+        "kicdSourceLabel": "Computer Studies",
+        "kicdTitle": "Computer Studies Grade 11- October 2025.pdf",
+        "kicdCategory": "Applied Sciences",
+        "aliases": [],
+        "aliasEvidence": null,
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Applied Sciences",
+          "pathway": null,
+          "track": null,
+          "role": "selected_learning_area",
+          "pathwayTrackStatus": "combination-dependent; no single pathway or track inferred"
+        }
+      },
+      "officialFilename": "Computer Studies Grade 11- October 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "1vBGOwcqmvR8vkJok_T0GQbncQpC2m1M2",
+      "previewUrl": "https://drive.google.com/file/d/1vBGOwcqmvR8vkJok_T0GQbncQpC2m1M2/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 3,
+      "categoryOrder": 1,
+      "category": "Applied Sciences",
+      "subject": "Home Science",
+      "identity": {
+        "canonicalSubject": "Home Science",
+        "kicdSourceLabel": "Home Science",
+        "kicdTitle": "Home Science  Grade 11 - October 2025.pdf",
+        "kicdCategory": "Applied Sciences",
+        "aliases": [],
+        "aliasEvidence": null,
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Applied Sciences",
+          "pathway": null,
+          "track": null,
+          "role": "selected_learning_area",
+          "pathwayTrackStatus": "combination-dependent; no single pathway or track inferred"
+        }
+      },
+      "officialFilename": "Home Science  Grade 11 - October 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "1syYY2i8-6Mu7OTbr9sQyAqk34QOETAKA",
+      "previewUrl": "https://drive.google.com/file/d/1syYY2i8-6Mu7OTbr9sQyAqk34QOETAKA/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 4,
+      "categoryOrder": 1,
+      "category": "Applied Sciences",
+      "subject": "ICT",
+      "identity": {
+        "canonicalSubject": "ICT",
+        "kicdSourceLabel": "Information and Communication Technology (ICT)",
+        "kicdTitle": "ICT Grade 11 - October 2025.pdf",
+        "kicdCategory": "Applied Sciences",
+        "aliases": ["Information and Communication Technology (ICT)"],
+        "aliasEvidence": "same Drive file ID across source-catalog and source-capture",
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Applied Sciences",
+          "pathway": null,
+          "track": null,
+          "role": "universal_skills_provision",
+          "pathwayTrackStatus": "core or universal provision; pathway and track are not inferred from portal category"
+        }
+      },
+      "officialFilename": "ICT Grade 11 - October 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "1BB4qErHGCWYfdPQsyPdPUWiaHtvSY4G6",
+      "previewUrl": "https://drive.google.com/file/d/1BB4qErHGCWYfdPQsyPdPUWiaHtvSY4G6/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 5,
+      "categoryOrder": 2,
+      "category": "Arts & Sports",
+      "subject": "Fine Arts",
+      "identity": {
+        "canonicalSubject": "Fine Arts",
+        "kicdSourceLabel": "Fine Arts",
+        "kicdTitle": "Fine Arts Grade 11 - October 2025.pdf",
+        "kicdCategory": "Arts & Sports",
+        "aliases": [],
+        "aliasEvidence": null,
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Arts & Sports",
+          "pathway": null,
+          "track": null,
+          "role": "selected_learning_area",
+          "pathwayTrackStatus": "combination-dependent; no single pathway or track inferred"
+        }
+      },
+      "officialFilename": "Fine Arts Grade 11 - October 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "1gsa8ae2Qoc_cwCzUnN-D1i35EmyeYo89",
+      "previewUrl": "https://drive.google.com/file/d/1gsa8ae2Qoc_cwCzUnN-D1i35EmyeYo89/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 6,
+      "categoryOrder": 2,
+      "category": "Arts & Sports",
+      "subject": "Music and Dance",
+      "identity": {
+        "canonicalSubject": "Music and Dance",
+        "kicdSourceLabel": "Music and Dance",
+        "kicdTitle": "Music and Dance Grade 11 - October 2025.pdf",
+        "kicdCategory": "Arts & Sports",
+        "aliases": [],
+        "aliasEvidence": null,
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Arts & Sports",
+          "pathway": null,
+          "track": null,
+          "role": "selected_learning_area",
+          "pathwayTrackStatus": "combination-dependent; no single pathway or track inferred"
+        }
+      },
+      "officialFilename": "Music and Dance Grade 11 - October 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "1nh-7wbrjH19ajvQ3NhUDt0ZwSimHr-GQ",
+      "previewUrl": "https://drive.google.com/file/d/1nh-7wbrjH19ajvQ3NhUDt0ZwSimHr-GQ/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 7,
+      "categoryOrder": 2,
+      "category": "Arts & Sports",
+      "subject": "Physical Education",
+      "identity": {
+        "canonicalSubject": "Physical Education",
+        "kicdSourceLabel": "Physical Education",
+        "kicdTitle": "Physical Education Grade 11 - October 2025.pdf",
+        "kicdCategory": "Arts & Sports",
+        "aliases": [],
+        "aliasEvidence": null,
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Arts & Sports",
+          "pathway": null,
+          "track": null,
+          "role": "universal_timetable_provision",
+          "pathwayTrackStatus": "core or universal provision; pathway and track are not inferred from portal category"
+        }
+      },
+      "officialFilename": "Physical Education Grade 11 - October 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "1Z7Ck5FpyNI9Dpd136HO6DAUGRvxtiSE7",
+      "previewUrl": "https://drive.google.com/file/d/1Z7Ck5FpyNI9Dpd136HO6DAUGRvxtiSE7/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 8,
+      "categoryOrder": 2,
+      "category": "Arts & Sports",
+      "subject": "Sports and Recreation",
+      "identity": {
+        "canonicalSubject": "Sports and Recreation",
+        "kicdSourceLabel": "Sports and Recreation",
+        "kicdTitle": "Sports and Recreation Grade 11 - October 2025.pdf",
+        "kicdCategory": "Arts & Sports",
+        "aliases": [],
+        "aliasEvidence": null,
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Arts & Sports",
+          "pathway": null,
+          "track": null,
+          "role": "selected_learning_area",
+          "pathwayTrackStatus": "combination-dependent; no single pathway or track inferred"
+        }
+      },
+      "officialFilename": "Sports and Recreation Grade 11 - October 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "1s2CkgXcxSyi_8iLmrj3Z-8yb7Crqmf6B",
+      "previewUrl": "https://drive.google.com/file/d/1s2CkgXcxSyi_8iLmrj3Z-8yb7Crqmf6B/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 9,
+      "categoryOrder": 2,
+      "category": "Arts & Sports",
+      "subject": "Theatre & Film",
+      "identity": {
+        "canonicalSubject": "Theatre & Film",
+        "kicdSourceLabel": "Theatre and Film",
+        "kicdTitle": "Theatre & Film Grade 11 -October 2025.pdf",
+        "kicdCategory": "Arts & Sports",
+        "aliases": ["Theatre and Film"],
+        "aliasEvidence": "same Drive file ID across source-catalog and source-capture",
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Arts & Sports",
+          "pathway": null,
+          "track": null,
+          "role": "selected_learning_area",
+          "pathwayTrackStatus": "combination-dependent; no single pathway or track inferred"
+        }
+      },
+      "officialFilename": "Theatre & Film Grade 11 -October 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "1l9_K6XK772Hq6DHiknbHEJ58FxCMzrAr",
+      "previewUrl": "https://drive.google.com/file/d/1l9_K6XK772Hq6DHiknbHEJ58FxCMzrAr/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 10,
+      "categoryOrder": 3,
+      "category": "Foreign Languages",
+      "subject": "Arabic",
+      "identity": {
+        "canonicalSubject": "Arabic",
+        "kicdSourceLabel": "Arabic",
+        "kicdTitle": "Arabic Grade 11- October 2025.pdf",
+        "kicdCategory": "Foreign Languages",
+        "aliases": [],
+        "aliasEvidence": null,
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Foreign Languages",
+          "pathway": null,
+          "track": null,
+          "role": "selected_learning_area",
+          "pathwayTrackStatus": "combination-dependent; no single pathway or track inferred"
+        }
+      },
+      "officialFilename": "Arabic Grade 11- October 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "1AFVkFewW3BHo2VgBAZMxzWXpy9NXLTTc",
+      "previewUrl": "https://drive.google.com/file/d/1AFVkFewW3BHo2VgBAZMxzWXpy9NXLTTc/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 11,
+      "categoryOrder": 3,
+      "category": "Foreign Languages",
+      "subject": "French",
+      "identity": {
+        "canonicalSubject": "French",
+        "kicdSourceLabel": "French",
+        "kicdTitle": "French Grade 11 -October 2025.pdf",
+        "kicdCategory": "Foreign Languages",
+        "aliases": [],
+        "aliasEvidence": null,
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Foreign Languages",
+          "pathway": null,
+          "track": null,
+          "role": "selected_learning_area",
+          "pathwayTrackStatus": "combination-dependent; no single pathway or track inferred"
+        }
+      },
+      "officialFilename": "French Grade 11 -October 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "1G_dNRvQvEUo1onD-sKqrk_MUwUnFgcDJ",
+      "previewUrl": "https://drive.google.com/file/d/1G_dNRvQvEUo1onD-sKqrk_MUwUnFgcDJ/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 12,
+      "categoryOrder": 3,
+      "category": "Foreign Languages",
+      "subject": "German",
+      "identity": {
+        "canonicalSubject": "German",
+        "kicdSourceLabel": "German",
+        "kicdTitle": "German Grade 11 -October 2025.pdf",
+        "kicdCategory": "Foreign Languages",
+        "aliases": [],
+        "aliasEvidence": null,
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Foreign Languages",
+          "pathway": null,
+          "track": null,
+          "role": "selected_learning_area",
+          "pathwayTrackStatus": "combination-dependent; no single pathway or track inferred"
+        }
+      },
+      "officialFilename": "German Grade 11 -October 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "12frWRaYABu0A_LnOHIeBa9yacETfxgpk",
+      "previewUrl": "https://drive.google.com/file/d/12frWRaYABu0A_LnOHIeBa9yacETfxgpk/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 13,
+      "categoryOrder": 3,
+      "category": "Foreign Languages",
+      "subject": "Mandarin Chinese",
+      "identity": {
+        "canonicalSubject": "Mandarin Chinese",
+        "kicdSourceLabel": "Mandarin Chinese",
+        "kicdTitle": "Mandarin Chinese Grade 11 - October 2025.pdf",
+        "kicdCategory": "Foreign Languages",
+        "aliases": [],
+        "aliasEvidence": null,
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Foreign Languages",
+          "pathway": null,
+          "track": null,
+          "role": "selected_learning_area",
+          "pathwayTrackStatus": "combination-dependent; no single pathway or track inferred"
+        }
+      },
+      "officialFilename": "Mandarin Chinese Grade 11 - October 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "15cv0IYwew_MhZw9_CJLEAhzADaWHZTPP",
+      "previewUrl": "https://drive.google.com/file/d/15cv0IYwew_MhZw9_CJLEAhzADaWHZTPP/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 14,
+      "categoryOrder": 4,
+      "category": "Humanities",
+      "subject": "Business Studies",
+      "identity": {
+        "canonicalSubject": "Business Studies",
+        "kicdSourceLabel": "Business Studies",
+        "kicdTitle": "Business Studies Grade 11 -October 2025.pdf",
+        "kicdCategory": "Humanities",
+        "aliases": [],
+        "aliasEvidence": null,
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Humanities",
+          "pathway": null,
+          "track": null,
+          "role": "selected_learning_area",
+          "pathwayTrackStatus": "combination-dependent; no single pathway or track inferred"
+        }
+      },
+      "officialFilename": "Business Studies Grade 11 -October 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "1l7zGw0k_uFDMmMYc62pXOmCTAY03EO8a",
+      "previewUrl": "https://drive.google.com/file/d/1l7zGw0k_uFDMmMYc62pXOmCTAY03EO8a/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 15,
+      "categoryOrder": 4,
+      "category": "Humanities",
+      "subject": "Community Service Learning (CSL)",
+      "identity": {
+        "canonicalSubject": "Community Service Learning (CSL)",
+        "kicdSourceLabel": "Community Service Learning",
+        "kicdTitle": "CSL Grade 11- October, 2025.pdf",
+        "kicdCategory": "Humanities",
+        "aliases": ["Community Service Learning"],
+        "aliasEvidence": "same Drive file ID across source-catalog and source-capture",
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Humanities",
+          "pathway": null,
+          "track": null,
+          "role": "core_learning_area",
+          "pathwayTrackStatus": "core or universal provision; pathway and track are not inferred from portal category"
+        }
+      },
+      "officialFilename": "CSL Grade 11- October, 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "1bLrkKq-wn2csEEaCcDnvYmEtamU6rWlb",
+      "previewUrl": "https://drive.google.com/file/d/1bLrkKq-wn2csEEaCcDnvYmEtamU6rWlb/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 16,
+      "categoryOrder": 4,
+      "category": "Humanities",
+      "subject": "Geography",
+      "identity": {
+        "canonicalSubject": "Geography",
+        "kicdSourceLabel": "Geography",
+        "kicdTitle": "Geography Grade 11 -October 2025.pdf",
+        "kicdCategory": "Humanities",
+        "aliases": [],
+        "aliasEvidence": null,
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Humanities",
+          "pathway": null,
+          "track": null,
+          "role": "selected_learning_area",
+          "pathwayTrackStatus": "combination-dependent; no single pathway or track inferred"
+        }
+      },
+      "officialFilename": "Geography Grade 11 -October 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "1flRaApTl8ZYW4xFKnbRKatFzJpRuT6yi",
+      "previewUrl": "https://drive.google.com/file/d/1flRaApTl8ZYW4xFKnbRKatFzJpRuT6yi/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 17,
+      "categoryOrder": 4,
+      "category": "Humanities",
+      "subject": "History and Citizenship",
+      "identity": {
+        "canonicalSubject": "History and Citizenship",
+        "kicdSourceLabel": "History and Citizenship",
+        "kicdTitle": "History and Citizenship Grade 11- October, 2025.pdf",
+        "kicdCategory": "Humanities",
+        "aliases": [],
+        "aliasEvidence": null,
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Humanities",
+          "pathway": null,
+          "track": null,
+          "role": "selected_learning_area",
+          "pathwayTrackStatus": "combination-dependent; no single pathway or track inferred"
+        }
+      },
+      "officialFilename": "History and Citizenship Grade 11- October, 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "1vCrTIPSFiFy2G8Jho3_yQ5pxut1_SUVx",
+      "previewUrl": "https://drive.google.com/file/d/1vCrTIPSFiFy2G8Jho3_yQ5pxut1_SUVx/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 18,
+      "categoryOrder": 5,
+      "category": "Languages",
+      "subject": "English",
+      "identity": {
+        "canonicalSubject": "English",
+        "kicdSourceLabel": "English",
+        "kicdTitle": "English Grade 11 - October 2025.pdf",
+        "kicdCategory": "Languages",
+        "aliases": [],
+        "aliasEvidence": null,
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Languages",
+          "pathway": null,
+          "track": null,
+          "role": "core_learning_area",
+          "pathwayTrackStatus": "core or universal provision; pathway and track are not inferred from portal category"
+        }
+      },
+      "officialFilename": "English Grade 11 - October 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "1ulacCjI0LBvJpJg86pAYeZnItS5HL-lV",
+      "previewUrl": "https://drive.google.com/file/d/1ulacCjI0LBvJpJg86pAYeZnItS5HL-lV/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 19,
+      "categoryOrder": 5,
+      "category": "Languages",
+      "subject": "Fasihi ya Kiswahili",
+      "identity": {
+        "canonicalSubject": "Fasihi ya Kiswahili",
+        "kicdSourceLabel": "Fasihi ya Kiswahili",
+        "kicdTitle": "Fasihi Gredi 11 -Oktoba 2025.pdf",
+        "kicdCategory": "Languages",
+        "aliases": [],
+        "aliasEvidence": null,
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Languages",
+          "pathway": null,
+          "track": null,
+          "role": "selected_learning_area",
+          "pathwayTrackStatus": "combination-dependent; no single pathway or track inferred"
+        }
+      },
+      "officialFilename": "Fasihi Gredi 11 -Oktoba 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "1DYb2faY_eMCA78lsinwxSoVbiOuAuwt8",
+      "previewUrl": "https://drive.google.com/file/d/1DYb2faY_eMCA78lsinwxSoVbiOuAuwt8/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 20,
+      "categoryOrder": 5,
+      "category": "Languages",
+      "subject": "Indigenous Languages",
+      "identity": {
+        "canonicalSubject": "Indigenous Languages",
+        "kicdSourceLabel": "Indigenous Languages",
+        "kicdTitle": "Indigenous Languages Grade 11 - October 2025.pdf",
+        "kicdCategory": "Languages",
+        "aliases": [],
+        "aliasEvidence": null,
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Languages",
+          "pathway": null,
+          "track": null,
+          "role": "selected_learning_area",
+          "pathwayTrackStatus": "combination-dependent; no single pathway or track inferred"
+        }
+      },
+      "officialFilename": "Indigenous Languages Grade 11 - October 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "1Gx6vnaH0acjs_DISFi9Y0VviAqsAYrVV",
+      "previewUrl": "https://drive.google.com/file/d/1Gx6vnaH0acjs_DISFi9Y0VviAqsAYrVV/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 21,
+      "categoryOrder": 5,
+      "category": "Languages",
+      "subject": "Kiswahili",
+      "identity": {
+        "canonicalSubject": "Kiswahili",
+        "kicdSourceLabel": "Kiswahili Lugha",
+        "kicdTitle": "Kiswahili Lugha Gredi 11 - Oktoba 2025.pdf",
+        "kicdCategory": "Languages",
+        "aliases": ["Kiswahili Lugha"],
+        "aliasEvidence": "same Drive file ID across source-catalog and source-capture",
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Languages",
+          "pathway": null,
+          "track": null,
+          "role": "core_learning_area",
+          "pathwayTrackStatus": "core or universal provision; pathway and track are not inferred from portal category"
+        }
+      },
+      "officialFilename": "Kiswahili Lugha Gredi 11 - Oktoba 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "1yL_S9kUn2OPYo98YzUdqODT8IioOEDDX",
+      "previewUrl": "https://drive.google.com/file/d/1yL_S9kUn2OPYo98YzUdqODT8IioOEDDX/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 22,
+      "categoryOrder": 5,
+      "category": "Languages",
+      "subject": "Literature in English",
+      "identity": {
+        "canonicalSubject": "Literature in English",
+        "kicdSourceLabel": "Literature in English",
+        "kicdTitle": "Literature in English Grade 11 - October 2025.pdf",
+        "kicdCategory": "Languages",
+        "aliases": [],
+        "aliasEvidence": null,
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Languages",
+          "pathway": null,
+          "track": null,
+          "role": "selected_learning_area",
+          "pathwayTrackStatus": "combination-dependent; no single pathway or track inferred"
+        }
+      },
+      "officialFilename": "Literature in English Grade 11 - October 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "1QOVYBdQMw4vDNvFtCGt4YU0FaMCFTBaY",
+      "previewUrl": "https://drive.google.com/file/d/1QOVYBdQMw4vDNvFtCGt4YU0FaMCFTBaY/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 23,
+      "categoryOrder": 6,
+      "category": "Pure Sciences",
+      "subject": "Biology",
+      "identity": {
+        "canonicalSubject": "Biology",
+        "kicdSourceLabel": "Biology",
+        "kicdTitle": "Biology Grade 11 - October 2025.pdf",
+        "kicdCategory": "Pure Sciences",
+        "aliases": [],
+        "aliasEvidence": null,
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Pure Sciences",
+          "pathway": null,
+          "track": null,
+          "role": "selected_learning_area",
+          "pathwayTrackStatus": "combination-dependent; no single pathway or track inferred"
+        }
+      },
+      "officialFilename": "Biology Grade 11 - October 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "1JqMHCxYA2nCucmO7YEDKawQ7xr_ub1Cc",
+      "previewUrl": "https://drive.google.com/file/d/1JqMHCxYA2nCucmO7YEDKawQ7xr_ub1Cc/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 24,
+      "categoryOrder": 6,
+      "category": "Pure Sciences",
+      "subject": "Chemistry",
+      "identity": {
+        "canonicalSubject": "Chemistry",
+        "kicdSourceLabel": "Chemistry",
+        "kicdTitle": "Chemistry Grade 11 Design - October 2025.pdf",
+        "kicdCategory": "Pure Sciences",
+        "aliases": [],
+        "aliasEvidence": null,
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Pure Sciences",
+          "pathway": null,
+          "track": null,
+          "role": "selected_learning_area",
+          "pathwayTrackStatus": "combination-dependent; no single pathway or track inferred"
+        }
+      },
+      "officialFilename": "Chemistry Grade 11 Design - October 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "1Xp7ws5c4_FEE84KdHw9YFEuaz1S_8xaz",
+      "previewUrl": "https://drive.google.com/file/d/1Xp7ws5c4_FEE84KdHw9YFEuaz1S_8xaz/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 25,
+      "categoryOrder": 6,
+      "category": "Pure Sciences",
+      "subject": "Core Mathematics",
+      "identity": {
+        "canonicalSubject": "Core Mathematics",
+        "kicdSourceLabel": "Core Mathematics",
+        "kicdTitle": "Core Mathematics Grade 11  - October 2025.pdf",
+        "kicdCategory": "Pure Sciences",
+        "aliases": [],
+        "aliasEvidence": null,
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Pure Sciences",
+          "pathway": "STEM",
+          "track": null,
+          "role": "core_mathematics_option_for_stem",
+          "pathwayTrackStatus": "pathway fixed by mathematics role; track remains cross-track within STEM"
+        }
+      },
+      "officialFilename": "Core Mathematics Grade 11  - October 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "10-EFHm5J8wzO8h_zzEstrBKDMeOdrrGY",
+      "previewUrl": "https://drive.google.com/file/d/10-EFHm5J8wzO8h_zzEstrBKDMeOdrrGY/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 26,
+      "categoryOrder": 6,
+      "category": "Pure Sciences",
+      "subject": "Essential Mathematics",
+      "identity": {
+        "canonicalSubject": "Essential Mathematics",
+        "kicdSourceLabel": "Essential Mathematics",
+        "kicdTitle": "Essential Mathematics Grade 11 - October 2025.pdf",
+        "kicdCategory": "Pure Sciences",
+        "aliases": [],
+        "aliasEvidence": null,
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Pure Sciences",
+          "pathway": null,
+          "track": null,
+          "role": "core_mathematics_option_for_non_stem",
+          "pathwayTrackStatus": "non-STEM mathematics role spans more than one pathway; no single pathway or track asserted"
+        }
+      },
+      "officialFilename": "Essential Mathematics Grade 11 - October 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "12E5lUfgjalNpY_YFZvSpBWjepoPmB2Oq",
+      "previewUrl": "https://drive.google.com/file/d/12E5lUfgjalNpY_YFZvSpBWjepoPmB2Oq/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 27,
+      "categoryOrder": 6,
+      "category": "Pure Sciences",
+      "subject": "General Science",
+      "identity": {
+        "canonicalSubject": "General Science",
+        "kicdSourceLabel": "General Science",
+        "kicdTitle": "General Science Grade 11 - October 2025.pdf",
+        "kicdCategory": "Pure Sciences",
+        "aliases": [],
+        "aliasEvidence": null,
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Pure Sciences",
+          "pathway": null,
+          "track": null,
+          "role": "selected_learning_area",
+          "pathwayTrackStatus": "combination-dependent; no single pathway or track inferred"
+        }
+      },
+      "officialFilename": "General Science Grade 11 - October 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "1vWVsPhCo-L0RIDc8IQek9f8TNXqc8XgU",
+      "previewUrl": "https://drive.google.com/file/d/1vWVsPhCo-L0RIDc8IQek9f8TNXqc8XgU/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 28,
+      "categoryOrder": 6,
+      "category": "Pure Sciences",
+      "subject": "Physics",
+      "identity": {
+        "canonicalSubject": "Physics",
+        "kicdSourceLabel": "Physics",
+        "kicdTitle": "Physics Grade 11 - October 2025.pdf",
+        "kicdCategory": "Pure Sciences",
+        "aliases": [],
+        "aliasEvidence": null,
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Pure Sciences",
+          "pathway": null,
+          "track": null,
+          "role": "selected_learning_area",
+          "pathwayTrackStatus": "combination-dependent; no single pathway or track inferred"
+        }
+      },
+      "officialFilename": "Physics Grade 11 - October 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "1RVLrkaBcX1ZgbSjJ3d21CaCW1A84ZDSQ",
+      "previewUrl": "https://drive.google.com/file/d/1RVLrkaBcX1ZgbSjJ3d21CaCW1A84ZDSQ/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 29,
+      "categoryOrder": 7,
+      "category": "Religious Education",
+      "subject": "Christian Religious Education (CRE)",
+      "identity": {
+        "canonicalSubject": "Christian Religious Education (CRE)",
+        "kicdSourceLabel": "Christian Religious Education",
+        "kicdTitle": "CRE Grade 11 - October 2025.pdf",
+        "kicdCategory": "Religious Education",
+        "aliases": ["Christian Religious Education"],
+        "aliasEvidence": "same Drive file ID across source-catalog and source-capture",
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Religious Education",
+          "pathway": null,
+          "track": null,
+          "role": "selected_learning_area",
+          "pathwayTrackStatus": "combination-dependent; no single pathway or track inferred"
+        }
+      },
+      "officialFilename": "CRE Grade 11 - October 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "1aDo9iUhoS6pVy57wTJHpRfj5BH3g565z",
+      "previewUrl": "https://drive.google.com/file/d/1aDo9iUhoS6pVy57wTJHpRfj5BH3g565z/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 30,
+      "categoryOrder": 7,
+      "category": "Religious Education",
+      "subject": "Hindu Religious Education (HRE)",
+      "identity": {
+        "canonicalSubject": "Hindu Religious Education (HRE)",
+        "kicdSourceLabel": "Hindu Religious Education",
+        "kicdTitle": "HRE Grade 11 - October 2025.pdf",
+        "kicdCategory": "Religious Education",
+        "aliases": ["Hindu Religious Education"],
+        "aliasEvidence": "same Drive file ID across source-catalog and source-capture",
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Religious Education",
+          "pathway": null,
+          "track": null,
+          "role": "selected_learning_area",
+          "pathwayTrackStatus": "combination-dependent; no single pathway or track inferred"
+        }
+      },
+      "officialFilename": "HRE Grade 11 - October 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "1qFNwG_S6YfMRq-BDGs6kescnW9wOlvI0",
+      "previewUrl": "https://drive.google.com/file/d/1qFNwG_S6YfMRq-BDGs6kescnW9wOlvI0/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 31,
+      "categoryOrder": 7,
+      "category": "Religious Education",
+      "subject": "Islamic Religious Education (IRE)",
+      "identity": {
+        "canonicalSubject": "Islamic Religious Education (IRE)",
+        "kicdSourceLabel": "Islamic Religious Education",
+        "kicdTitle": "IRE Grade 11 - October 2025.pdf",
+        "kicdCategory": "Religious Education",
+        "aliases": ["Islamic Religious Education"],
+        "aliasEvidence": "same Drive file ID across source-catalog and source-capture",
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Religious Education",
+          "pathway": null,
+          "track": null,
+          "role": "selected_learning_area",
+          "pathwayTrackStatus": "combination-dependent; no single pathway or track inferred"
+        }
+      },
+      "officialFilename": "IRE Grade 11 - October 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "1Zy9LG0TLNZDbhKGeoNRW8qkl3_Nhat60",
+      "previewUrl": "https://drive.google.com/file/d/1Zy9LG0TLNZDbhKGeoNRW8qkl3_Nhat60/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 32,
+      "categoryOrder": 8,
+      "category": "Technical Studies",
+      "subject": "Aviation",
+      "identity": {
+        "canonicalSubject": "Aviation",
+        "kicdSourceLabel": "Aviation",
+        "kicdTitle": "Aviation Grade 11 - October 2025.pdf",
+        "kicdCategory": "Technical Studies",
+        "aliases": [],
+        "aliasEvidence": null,
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Technical Studies",
+          "pathway": null,
+          "track": null,
+          "role": "selected_learning_area",
+          "pathwayTrackStatus": "combination-dependent; no single pathway or track inferred"
+        }
+      },
+      "officialFilename": "Aviation Grade 11 - October 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "1Swtk3kfN82r8EPdV4VZOc2Y8_0FiMdo1",
+      "previewUrl": "https://drive.google.com/file/d/1Swtk3kfN82r8EPdV4VZOc2Y8_0FiMdo1/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 33,
+      "categoryOrder": 8,
+      "category": "Technical Studies",
+      "subject": "Building Construction",
+      "identity": {
+        "canonicalSubject": "Building Construction",
+        "kicdSourceLabel": "Building Construction",
+        "kicdTitle": "Building Construction Grade 11 -  October 2025.pdf",
+        "kicdCategory": "Technical Studies",
+        "aliases": [],
+        "aliasEvidence": null,
+        "unresolvedRelatedLabels": ["Building & Construction","Building and Construction"],
+        "dimensions": {
+          "category": "Technical Studies",
+          "pathway": null,
+          "track": null,
+          "role": "selected_learning_area",
+          "pathwayTrackStatus": "combination-dependent; no single pathway or track inferred"
+        }
+      },
+      "officialFilename": "Building Construction Grade 11 -  October 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "1Oy5eGKsV7gGzMMU7kHhZ7LwHpRshPuXu",
+      "previewUrl": "https://drive.google.com/file/d/1Oy5eGKsV7gGzMMU7kHhZ7LwHpRshPuXu/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 34,
+      "categoryOrder": 8,
+      "category": "Technical Studies",
+      "subject": "Electricity",
+      "identity": {
+        "canonicalSubject": "Electricity",
+        "kicdSourceLabel": "Electricity",
+        "kicdTitle": "Electricity Grade 11 - October 2025.pdf",
+        "kicdCategory": "Technical Studies",
+        "aliases": [],
+        "aliasEvidence": null,
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Technical Studies",
+          "pathway": null,
+          "track": null,
+          "role": "selected_learning_area",
+          "pathwayTrackStatus": "combination-dependent; no single pathway or track inferred"
+        }
+      },
+      "officialFilename": "Electricity Grade 11 - October 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "1D1omnXw9u2KIYHGbxs7m1kjoZ9O7J0H5",
+      "previewUrl": "https://drive.google.com/file/d/1D1omnXw9u2KIYHGbxs7m1kjoZ9O7J0H5/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 35,
+      "categoryOrder": 8,
+      "category": "Technical Studies",
+      "subject": "Marine and Fisheries Technology",
+      "identity": {
+        "canonicalSubject": "Marine and Fisheries Technology",
+        "kicdSourceLabel": "Marine and Fisheries Technology",
+        "kicdTitle": "Marine and Fisheries Technology Grade 11 - October 2025.pdf",
+        "kicdCategory": "Technical Studies",
+        "aliases": [],
+        "aliasEvidence": null,
+        "unresolvedRelatedLabels": ["Marine & Fisheries","Marine and Fisheries"],
+        "dimensions": {
+          "category": "Technical Studies",
+          "pathway": null,
+          "track": null,
+          "role": "selected_learning_area",
+          "pathwayTrackStatus": "combination-dependent; no single pathway or track inferred"
+        }
+      },
+      "officialFilename": "Marine and Fisheries Technology Grade 11 - October 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "10Nir4B0MA8VbV9nZg99liydb0l8vAf5k",
+      "previewUrl": "https://drive.google.com/file/d/10Nir4B0MA8VbV9nZg99liydb0l8vAf5k/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 36,
+      "categoryOrder": 8,
+      "category": "Technical Studies",
+      "subject": "Media Technology",
+      "identity": {
+        "canonicalSubject": "Media Technology",
+        "kicdSourceLabel": "Media Technology",
+        "kicdTitle": "Media Technology Grade 11 -October, 2025.pdf",
+        "kicdCategory": "Technical Studies",
+        "aliases": [],
+        "aliasEvidence": null,
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Technical Studies",
+          "pathway": null,
+          "track": null,
+          "role": "selected_learning_area",
+          "pathwayTrackStatus": "combination-dependent; no single pathway or track inferred"
+        }
+      },
+      "officialFilename": "Media Technology Grade 11 -October, 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "11DdWMqmo0TNawArGPc_3UdaWNFS9k09E",
+      "previewUrl": "https://drive.google.com/file/d/11DdWMqmo0TNawArGPc_3UdaWNFS9k09E/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 37,
+      "categoryOrder": 8,
+      "category": "Technical Studies",
+      "subject": "Metalwork",
+      "identity": {
+        "canonicalSubject": "Metalwork",
+        "kicdSourceLabel": "Metal Work",
+        "kicdTitle": "Metalwork Grade 11 - October 2025.pdf",
+        "kicdCategory": "Technical Studies",
+        "aliases": ["Metal Work"],
+        "aliasEvidence": "same Drive file ID across source-catalog and source-capture",
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Technical Studies",
+          "pathway": null,
+          "track": null,
+          "role": "selected_learning_area",
+          "pathwayTrackStatus": "combination-dependent; no single pathway or track inferred"
+        }
+      },
+      "officialFilename": "Metalwork Grade 11 - October 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "1UMtvORnVoqqHs97JtDhGxieJACNY3RXf",
+      "previewUrl": "https://drive.google.com/file/d/1UMtvORnVoqqHs97JtDhGxieJACNY3RXf/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 38,
+      "categoryOrder": 8,
+      "category": "Technical Studies",
+      "subject": "Power Mechanics",
+      "identity": {
+        "canonicalSubject": "Power Mechanics",
+        "kicdSourceLabel": "Power Mechanics",
+        "kicdTitle": "Power Mechanics Grade 11 - October 2025.pdf",
+        "kicdCategory": "Technical Studies",
+        "aliases": [],
+        "aliasEvidence": null,
+        "unresolvedRelatedLabels": [],
+        "dimensions": {
+          "category": "Technical Studies",
+          "pathway": null,
+          "track": null,
+          "role": "selected_learning_area",
+          "pathwayTrackStatus": "combination-dependent; no single pathway or track inferred"
+        }
+      },
+      "officialFilename": "Power Mechanics Grade 11 - October 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "1PT_oNIJ2jgty03vZ067f8YhMNPUtLCQM",
+      "previewUrl": "https://drive.google.com/file/d/1PT_oNIJ2jgty03vZ067f8YhMNPUtLCQM/preview",
+      "mimeType": "application/pdf"
+    },
+    {
+      "order": 39,
+      "categoryOrder": 8,
+      "category": "Technical Studies",
+      "subject": "Woodwork",
+      "identity": {
+        "canonicalSubject": "Woodwork",
+        "kicdSourceLabel": "Woodwork",
+        "kicdTitle": "Woodwork Grade 11 - October 2025.pdf",
+        "kicdCategory": "Technical Studies",
+        "aliases": [],
+        "aliasEvidence": null,
+        "unresolvedRelatedLabels": ["Wood Work","Wood Technology"],
+        "dimensions": {
+          "category": "Technical Studies",
+          "pathway": null,
+          "track": null,
+          "role": "selected_learning_area",
+          "pathwayTrackStatus": "combination-dependent; no single pathway or track inferred"
+        }
+      },
+      "officialFilename": "Woodwork Grade 11 - October 2025.pdf",
+      "filenameDocumentDate": "2025-10",
+      "driveFileId": "1B0-eesVyrLVg8bxBU5NDEVLTIZYsjnqn",
+      "previewUrl": "https://drive.google.com/file/d/1B0-eesVyrLVg8bxBU5NDEVLTIZYsjnqn/preview",
+      "mimeType": "application/pdf"
+    }
+  ],
+  "totals": {
+    "manifestEmbeddedPreviewCount": 39,
+    "catalogedAssetCount": 39,
+    "categoryCount": 8,
+    "applicationPdfCount": 39,
+    "explicitCoverageIssueCount": 1,
+    "canonicalSubjectCount": 39,
+    "uniqueCanonicalSubjectCount": 39,
+    "identityReconciledAssetCount": 39,
+    "sourceLabelDifferenceCount": 8,
+    "supportedAliasCount": 8,
+    "unresolvedRelatedLabelCount": 6,
+    "reconciledSubjectInventoryCountIncludingMissingKsl": 40
+  },
+  "validation": {
+    "manifestOrderPreserved": true,
+    "categoryOrderPreserved": true,
+    "driveFileIdsUnique": true,
+    "previewUrlIdsMatch": true,
+    "officialFilenamesCapturedFromDriveMetadata": true,
+    "countsReconciled": true,
+    "pathwayAssignmentsInferred": false,
+    "october2025TreatedAsApprovalEvidence": false,
+    "allAssetsHaveCanonicalSubject": true,
+    "canonicalSubjectsUnique": true,
+    "allAssetsHaveExactKicdSourceLabel": true,
+    "allAssetsHaveExactKicdTitle": true,
+    "allAssetsHaveExactKicdCategory": true,
+    "identityReconciledByDriveFileId": true,
+    "sourceLabelDifferencesPreservedAsAliases": true,
+    "categoryPathwayTrackRoleDimensionsSeparated": true,
+    "combinationDependentPathwayTrackAssignmentsInferred": false,
+    "unsupportedTechnicalEquivalencesMerged": false,
+    "roleCountsReconciled": true,
+    "missingKslIncludedInReconciledInventory": true,
+    "status": "passed"
+  }
+}
